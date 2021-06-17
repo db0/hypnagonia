@@ -1,0 +1,86 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/core/ViewportCardFocus.gd" type="Script" id=1]
+[ext_resource path="res://src/core/DetailPanels.gd" type="Script" id=2]
+
+[sub_resource type="Environment" id=1]
+background_mode = 4
+ssao_radius = 95.17
+ssao_bias = 0.961
+glow_enabled = true
+glow_levels/1 = true
+glow_levels/2 = true
+glow_levels/5 = false
+glow_intensity = 0.1
+glow_blend_mode = 0
+glow_hdr_threshold = 1.3
+glow_hdr_luminance_cap = 2.0
+glow_bicubic_upscale = true
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+margin_left = 1.5874
+margin_top = 4.76221
+margin_right = 1281.59
+margin_bottom = 724.762
+stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 1280, 720 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Camera2D" type="Camera2D" parent="ViewportContainer/Viewport"]
+anchor_mode = 0
+current = true
+
+[node name="VBC" type="VBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Focus" type="ViewportContainer" parent="VBC"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 300.0
+margin_bottom = 450.0
+rect_min_size = Vector2( 300, 450 )
+mouse_filter = 2
+stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="VBC/Focus"]
+size = Vector2( 300, 450 )
+handle_input_locally = false
+render_target_update_mode = 3
+gui_disable_input = true
+
+[node name="Camera2D" type="Camera2D" parent="VBC/Focus/Viewport"]
+anchor_mode = 0
+current = true
+zoom = Vector2( 0.75, 0.8 )
+
+[node name="Tween" type="Tween" parent="VBC/Focus"]
+
+[node name="FocusInfo" type="VBoxContainer" parent="VBC"]
+margin_top = 454.0
+margin_right = 300.0
+margin_bottom = 454.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="size_changed" from="ViewportContainer/Viewport" to="." method="_on_Viewport_size_changed"]

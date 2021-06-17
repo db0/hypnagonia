@@ -1,0 +1,13 @@
+
+# Godot-specific ignores
+.import/
+export.cfg
+export_presets.cfg
+*.TMP
+
+# Mono-specific ignores
+.mono/
+
+# Other
+demo.txt
+reference.json

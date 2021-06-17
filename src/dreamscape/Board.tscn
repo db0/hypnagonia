@@ -1,0 +1,96 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://src/dreamscape/Discard.gd" type="Script" id=1]
+[ext_resource path="res://src/core/Pile.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/dreamscape/Hand.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/dreamscape/Deck.gd" type="Script" id=4]
+[ext_resource path="res://src/dreamscape/Board.gd" type="Script" id=5]
+[ext_resource path="res://src/dreamscape/Counters.tscn" type="PackedScene" id=6]
+[ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=12]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[node name="Board" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource( 12 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Deck" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, 475 )
+script = ExtResource( 4 )
+placement = 8
+pile_name = "Deck"
+
+[node name="Discard" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1124, 475 )
+script = ExtResource( 1 )
+placement = 6
+pile_name = "Discard"
+faceup_cards = true
+
+[node name="Control" parent="Discard" index="0"]
+custom_styles/panel = SubResource( 1 )
+
+[node name="VBoxContainer" parent="Discard/Control/CenterContainer" index="0"]
+margin_right = 68.0
+margin_bottom = 109.0
+
+[node name="Label" parent="Discard/Control/CenterContainer/VBoxContainer" index="0"]
+margin_right = 68.0
+
+[node name="PanelContainer" parent="Discard/Control/CenterContainer/VBoxContainer" index="1"]
+margin_top = 32.0
+margin_right = 68.0
+margin_bottom = 61.0
+
+[node name="CenterContainer" parent="Discard/Control/CenterContainer/VBoxContainer/PanelContainer" index="0"]
+margin_right = 68.0
+
+[node name="CardCount" parent="Discard/Control/CenterContainer/VBoxContainer/PanelContainer/CenterContainer" index="0"]
+margin_right = 45.0
+
+[node name="View" parent="Discard/Control/ManipulationButtons" index="0"]
+margin_right = 18.0
+margin_bottom = 22.0
+
+[node name="Shuffle" parent="Discard/Control/ManipulationButtons" index="1"]
+margin_top = 25.0
+margin_right = 18.0
+margin_bottom = 47.0
+
+[node name="CardView" parent="Discard/ViewPopup" index="0"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 6.0
+margin_bottom = 6.0
+
+[node name="Position" parent="Discard/Debug" index="0"]
+margin_bottom = 18.0
+
+[node name="AreaPos" parent="Discard/Debug" index="1"]
+margin_top = 21.0
+margin_bottom = 39.0
+
+[node name="Size" parent="Discard/Debug" index="2"]
+margin_top = 42.0
+margin_bottom = 60.0
+
+[node name="Hand" parent="." instance=ExtResource( 3 )]
+position = Vector2( 155, 480 )
+excess_cards = 0
+
+[node name="Counters" parent="." instance=ExtResource( 6 )]
+margin_top = 205.0
+margin_bottom = 219.0
+
+[editable path="Discard"]

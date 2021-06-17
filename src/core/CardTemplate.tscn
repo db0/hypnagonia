@@ -1,0 +1,145 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/core/Card/ManipulationButtons.gd" type="Script" id=1]
+[ext_resource path="res://src/core/CardTemplate.gd" type="Script" id=2]
+[ext_resource path="res://src/core/Card/TokenDrawer.gd" type="Script" id=5]
+[ext_resource path="res://src/core/Highlight.tscn" type="PackedScene" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 75, 120 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.584314, 0.6, 0.647059, 1 )
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+
+[sub_resource type="RectangleShape2D" id=3]
+
+[node name="Card" type="Area2D" groups=[
+"cards",
+]]
+collision_layer = 3
+collision_mask = 2147483651
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 75, 120 )
+shape = SubResource( 1 )
+
+[node name="Control" type="Control" parent="."]
+rect_min_size = Vector2( 150, 240 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Highlight" parent="Control" instance=ExtResource( 6 )]
+margin_right = 3.0
+margin_bottom = 3.00002
+
+[node name="Back" type="MarginContainer" parent="Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Front" type="MarginContainer" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tokens" type="Node2D" parent="Control"]
+script = ExtResource( 5 )
+
+[node name="Drawer" type="PanelContainer" parent="Control/Tokens"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 115.0
+margin_top = 20.0
+margin_right = 165.0
+margin_bottom = 70.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Tokens/Drawer"]
+margin_right = 50.0
+margin_bottom = 50.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="Area2D" parent="Control/Tokens/Drawer"]
+collision_layer = 2148007936
+collision_mask = 524288
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Tokens/Drawer/Area2D"]
+shape = SubResource( 3 )
+
+[node name="Tween" type="Tween" parent="Control/Tokens"]
+
+[node name="ManipulationButtons" type="VBoxContainer" parent="Control"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 8.0
+margin_top = 16.0
+margin_right = 37.0
+margin_bottom = 102.0
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Control/ManipulationButtons"]
+
+[node name="FlipTween" type="Tween" parent="Control"]
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Debug" type="VBoxContainer" parent="."]
+visible = false
+margin_left = 150.0
+margin_top = -40.0
+margin_right = 190.0
+mouse_filter = 2
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="id" type="Label" parent="Debug"]
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="state" type="Label" parent="Debug"]
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="index" type="Label" parent="Debug"]
+margin_top = 18.0
+margin_right = 40.0
+margin_bottom = 32.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="parent" type="Label" parent="Debug"]
+margin_top = 36.0
+margin_right = 40.0
+margin_bottom = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="resized" from="Control/Back" to="." method="_on_Back_resized"]

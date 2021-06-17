@@ -1,0 +1,348 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Reference",
+"class": "AlterantEngine",
+"language": "GDScript",
+"path": "res://src/core/AlterantEngine.gd"
+}, {
+"base": "Control",
+"class": "Board",
+"language": "GDScript",
+"path": "res://src/core/BoardTemplate.gd"
+}, {
+"base": "Control",
+"class": "BoardPlacementGrid",
+"language": "GDScript",
+"path": "res://src/core/BoardPlacementGrid.gd"
+}, {
+"base": "Control",
+"class": "BoardPlacementSlot",
+"language": "GDScript",
+"path": "res://src/core/BoardPlacementSlot.gd"
+}, {
+"base": "Reference",
+"class": "CFConst",
+"language": "GDScript",
+"path": "res://src/dreamscape/CFConst.gd"
+}, {
+"base": "Node",
+"class": "CFControl",
+"language": "GDScript",
+"path": "res://src/core/CFControl.gd"
+}, {
+"base": "Reference",
+"class": "CFInt",
+"language": "GDScript",
+"path": "res://src/core/CFInt.gd"
+}, {
+"base": "Reference",
+"class": "CFScriptUtils",
+"language": "GDScript",
+"path": "res://src/core/CFScriptUtils.gd"
+}, {
+"base": "Reference",
+"class": "CFUtils",
+"language": "GDScript",
+"path": "res://src/core/CFUtils.gd"
+}, {
+"base": "Area2D",
+"class": "Card",
+"language": "GDScript",
+"path": "res://src/core/CardTemplate.gd"
+}, {
+"base": "Panel",
+"class": "CardBack",
+"language": "GDScript",
+"path": "res://src/core/Card/CardBack.gd"
+}, {
+"base": "CardBack",
+"class": "CardBackGlow",
+"language": "GDScript",
+"path": "res://src/core/Card/CardBackGlow.gd"
+}, {
+"base": "CardBack",
+"class": "CardBackTexture",
+"language": "GDScript",
+"path": "res://src/core/Card/CardBackTexture.gd"
+}, {
+"base": "Reference",
+"class": "CardConfig",
+"language": "GDScript",
+"path": "res://src/dreamscape/cards/CardConfig.gd"
+}, {
+"base": "Area2D",
+"class": "CardContainer",
+"language": "GDScript",
+"path": "res://src/core/CardContainer.gd"
+}, {
+"base": "Panel",
+"class": "CardFront",
+"language": "GDScript",
+"path": "res://src/core/Card/CardFront.gd"
+}, {
+"base": "Label",
+"class": "CardLabel",
+"language": "GDScript",
+"path": "res://src/core/DeckBuilder/CardLabel.gd"
+}, {
+"base": "Control",
+"class": "Counters",
+"language": "GDScript",
+"path": "res://src/core/Counters.gd"
+}, {
+"base": "Reference",
+"class": "CustomScripts",
+"language": "GDScript",
+"path": "res://src/dreamscape/cards/CustomScripts.gd"
+}, {
+"base": "HBoxContainer",
+"class": "DBDeckCardObject",
+"language": "GDScript",
+"path": "res://src/core/DeckBuilder/DBDeckCardObject.gd"
+}, {
+"base": "HBoxContainer",
+"class": "DBDeckSummaries",
+"language": "GDScript",
+"path": "res://src/core/DeckBuilder/DBDeckSummaries.gd"
+}, {
+"base": "Reference",
+"class": "DBFilter",
+"language": "GDScript",
+"path": "res://src/core/DeckBuilder/DBFilter.gd"
+}, {
+"base": "Button",
+"class": "DBFilterButton",
+"language": "GDScript",
+"path": "res://src/core/DeckBuilder/DBFilterButton.gd"
+}, {
+"base": "LineEdit",
+"class": "DBFilterLine",
+"language": "GDScript",
+"path": "res://src/core/DeckBuilder/DBFilterLine.gd"
+}, {
+"base": "CenterContainer",
+"class": "DBGridCardObject",
+"language": "GDScript",
+"path": "res://src/core/DeckBuilder/DBGridCardObject.gd"
+}, {
+"base": "HBoxContainer",
+"class": "DBListCardObject",
+"language": "GDScript",
+"path": "res://src/core/DeckBuilder/DBListCardObject.gd"
+}, {
+"base": "Popup",
+"class": "DBPreviewPopup",
+"language": "GDScript",
+"path": "res://src/core/DeckBuilder/DBPreviewPopup.gd"
+}, {
+"base": "PanelContainer",
+"class": "DeckBuilder",
+"language": "GDScript",
+"path": "res://src/core/DeckBuilder/DeckBuilder.gd"
+}, {
+"base": "MenuButton",
+"class": "DeckLoader",
+"language": "GDScript",
+"path": "res://src/core/DeckBuilder/DeckLoader.gd"
+}, {
+"base": "Reference",
+"class": "DeckNameRandomizer",
+"language": "GDScript",
+"path": "res://src/core/DeckBuilder/DeckNameRandomizer.gd"
+}, {
+"base": "VBoxContainer",
+"class": "DetailPanels",
+"language": "GDScript",
+"path": "res://src/core/DetailPanels.gd"
+}, {
+"base": "Reference",
+"class": "GameStats",
+"language": "GDScript",
+"path": "res://src/core/GameStats.gd"
+}, {
+"base": "CardContainer",
+"class": "Hand",
+"language": "GDScript",
+"path": "res://src/core/Hand.gd"
+}, {
+"base": "Control",
+"class": "Highlight",
+"language": "GDScript",
+"path": "res://src/core/Highlight.gd"
+}, {
+"base": "LineEdit",
+"class": "IntegerLineEdit",
+"language": "GDScript",
+"path": "res://src/core/IntegerLineEdit.gd"
+}, {
+"base": "VBoxContainer",
+"class": "ManipulationButtons",
+"language": "GDScript",
+"path": "res://src/core/Card/ManipulationButtons.gd"
+}, {
+"base": "Area2D",
+"class": "MousePointer",
+"language": "GDScript",
+"path": "res://src/core/MousePointer.gd"
+}, {
+"base": "Reference",
+"class": "OVUtils",
+"language": "GDScript",
+"path": "res://src/core/OverridableUtils.gd"
+}, {
+"base": "CardContainer",
+"class": "Pile",
+"language": "GDScript",
+"path": "res://src/core/Pile.gd"
+}, {
+"base": "Button",
+"class": "QuantityNumberButton",
+"language": "GDScript",
+"path": "res://src/core/DeckBuilder/QuantityNumberButton.gd"
+}, {
+"base": "ScriptProperties",
+"class": "SP",
+"language": "GDScript",
+"path": "res://src/dreamscape/SP.gd"
+}, {
+"base": "ScriptObject",
+"class": "ScriptAlter",
+"language": "GDScript",
+"path": "res://src/core/ScriptAlter.gd"
+}, {
+"base": "Reference",
+"class": "ScriptObject",
+"language": "GDScript",
+"path": "res://src/core/ScriptObject.gd"
+}, {
+"base": "ScriptObject",
+"class": "ScriptPer",
+"language": "GDScript",
+"path": "res://src/core/ScriptPer.gd"
+}, {
+"base": "Reference",
+"class": "ScriptProperties",
+"language": "GDScript",
+"path": "res://src/core/ScriptProperties.gd"
+}, {
+"base": "ScriptObject",
+"class": "ScriptTask",
+"language": "GDScript",
+"path": "res://src/core/ScriptTask.gd"
+}, {
+"base": "Reference",
+"class": "ScriptingEngine",
+"language": "GDScript",
+"path": "res://src/core/ScriptingEngine.gd"
+}, {
+"base": "Line2D",
+"class": "TargetingArrow",
+"language": "GDScript",
+"path": "res://src/core/Card/TargetingArrow.gd"
+}, {
+"base": "HBoxContainer",
+"class": "Token",
+"language": "GDScript",
+"path": "res://src/core/Token.gd"
+}, {
+"base": "Node2D",
+"class": "TokenDrawer",
+"language": "GDScript",
+"path": "res://src/core/Card/TokenDrawer.gd"
+}, {
+"base": "Node2D",
+"class": "ViewportCardFocus",
+"language": "GDScript",
+"path": "res://src/core/ViewportCardFocus.gd"
+}, {
+"base": "Reference",
+"class": "perMessage",
+"language": "GDScript",
+"path": "res://src/core/perMessage.gd"
+} ]
+_global_script_class_icons={
+"AlterantEngine": "",
+"Board": "",
+"BoardPlacementGrid": "",
+"BoardPlacementSlot": "",
+"CFConst": "",
+"CFControl": "",
+"CFInt": "",
+"CFScriptUtils": "",
+"CFUtils": "",
+"Card": "",
+"CardBack": "",
+"CardBackGlow": "",
+"CardBackTexture": "",
+"CardConfig": "",
+"CardContainer": "",
+"CardFront": "",
+"CardLabel": "",
+"Counters": "",
+"CustomScripts": "",
+"DBDeckCardObject": "",
+"DBDeckSummaries": "",
+"DBFilter": "",
+"DBFilterButton": "",
+"DBFilterLine": "",
+"DBGridCardObject": "",
+"DBListCardObject": "",
+"DBPreviewPopup": "",
+"DeckBuilder": "",
+"DeckLoader": "",
+"DeckNameRandomizer": "",
+"DetailPanels": "",
+"GameStats": "",
+"Hand": "",
+"Highlight": "",
+"IntegerLineEdit": "",
+"ManipulationButtons": "",
+"MousePointer": "",
+"OVUtils": "",
+"Pile": "",
+"QuantityNumberButton": "",
+"SP": "",
+"ScriptAlter": "",
+"ScriptObject": "",
+"ScriptPer": "",
+"ScriptProperties": "",
+"ScriptTask": "",
+"ScriptingEngine": "",
+"TargetingArrow": "",
+"Token": "",
+"TokenDrawer": "",
+"ViewportCardFocus": "",
+"perMessage": ""
+}
+
+[application]
+
+config/name="Dreamscape-deckbuilder"
+run/main_scene="res://src/dreamscape/MainMenu.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+cfc="*res://src/core/CFControl.gd"
+
+[display]
+
+window/size/width=1280
+window/size/height=720
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
