@@ -20,7 +20,7 @@ var active_effects := []
 # an [execute_scripts()](ScriptingEngine#execute_scripts] task.
 var temp_properties_modifiers := {}
 
-func _setup(properties: Dictionary) -> void:
+func setup(properties: Dictionary) -> void:
 	health = properties['health']
 	max_health = properties['max_health']
 	canonical_name = properties['name']

@@ -23,7 +23,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				"hand": [
 					{
 						"name": "assign_armor",
-						"subject": "target",
+						"subject": "dreamer",
 						"is_cost": true,
 						"armor": 5,
 					}

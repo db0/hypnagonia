@@ -1,8 +1,9 @@
-# Code for a sample playspace, you're expected to provide your own ;)
 extends Board
 
 var end_turn : Button
 var turn := Turn.new()
+var dreamer: PlayerEntity
+var enemies: Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,6 +19,17 @@ func _ready() -> void:
 	if not get_tree().get_root().has_node('Gut'):
 		load_test_cards()
 	end_turn.connect("pressed", self, "_on_end_turn_pressed")
+	dreamer = preload("res://src/dreamscape/PlayerEntity.tscn").instance()
+	var dreamer_properties := {
+		"health": 100,
+		"max_health": 100,
+		"name": "Dreamer",
+		"texture_size_x": 70,
+		"texture_size_y": 100,
+		"type": "Dreamer",
+	}
+	dreamer.setup(dreamer_properties)
+	add_child(dreamer)
 
 
 # This function is to avoid relating the logic in the card objects

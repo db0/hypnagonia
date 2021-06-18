@@ -9,7 +9,6 @@ extends ScriptProperties
 
 const KEY_DAMAGE = "damage"
 const KEY_ARMOR = "armor"
-
 # This call has been setup to call the original, and allow futher extension
 # simply create new filter
 static func filter_trigger(
