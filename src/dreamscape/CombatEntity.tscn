@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://src/dreamscape/CombatEntity.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
+
+[node name="CombatEntity" type="VBoxContainer"]
+margin_left = 143.0
+margin_top = 118.0
+margin_right = 208.0
+margin_bottom = 218.0
+grow_vertical = 0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Texture" type="TextureRect" parent="."]
+margin_right = 65.0
+margin_bottom = 64.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="Area2D" parent="Texture"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Texture/Area2D"]
+shape = SubResource( 1 )
+
+[node name="Name" type="Label" parent="."]
+margin_top = 68.0
+margin_right = 65.0
+margin_bottom = 99.0
+text = "Gaslighter"
+align = 1
+autowrap = true
+
+[node name="HBC" type="HBoxContainer" parent="."]
+margin_top = 103.0
+margin_right = 65.0
+margin_bottom = 117.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Armor" type="Label" parent="HBC"]
+margin_right = 32.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "(0)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="Label" parent="HBC"]
+margin_left = 36.0
+margin_right = 65.0
+margin_bottom = 14.0
+text = "0/30"
