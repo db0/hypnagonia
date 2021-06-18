@@ -99,7 +99,7 @@ const PATH_OVERRIDABLE_UTILS := PATH_CORE + "OverridableUtils.gd"
 # This specifies the path to the Scripting Engine. If you wish to extend
 # The scripting engine functionality with your own tasks,
 # Point this to your own script file.
-const PATH_SCRIPTING_ENGINE := PATH_CORE + "ScriptingEngine.gd"
+const PATH_SCRIPTING_ENGINE := PATH_CUSTOM + "ScriptingEngine.gd"
 # This specifies the path to the [ScriptPer] class file.
 # We don't reference is by class name to avoid cyclic dependencies
 # And this also allows other developers to extend its functionality

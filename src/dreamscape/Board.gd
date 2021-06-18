@@ -2,6 +2,8 @@
 extends Board
 
 var end_turn : Button
+var turn := Turn.new()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	counters = $HBC/Counters
@@ -99,3 +101,4 @@ func _on_DeckBuilder_hide() -> void:
 
 func _on_end_turn_pressed() -> void:
 	cfc.NMAP.hand.refill_hand()
+	counters.mod_counter("immersion", 3, true, false, turn, ["New Turn"])

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/core/CardTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/dreamscape/CardTemplate.gd" type="Script" id=2]
@@ -6,11 +6,17 @@
 [ext_resource path="res://src/dreamscape/ManipulationButtons.gd" type="Script" id=4]
 [ext_resource path="res://src/dreamscape/CardManipulationButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/dreamscape/CardBack.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/dreamscape/TargetingArrow.tscn" type="PackedScene" id=7]
 
 [node name="Card" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 card_back_design = ExtResource( 6 )
 card_front_design = ExtResource( 3 )
+targeting_arrow_scene = ExtResource( 7 )
+disable_dropping_to_cardcontainers = true
+disable_dragging_from_board = true
+disable_dragging_from_pile = true
+hand_drag_starts_targeting = true
 
 [node name="ManipulationButtons" parent="Control" index="4"]
 script = ExtResource( 4 )

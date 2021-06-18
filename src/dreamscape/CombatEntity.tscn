@@ -1,9 +1,21 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://src/dreamscape/CombatEntity.gd" type="Script" id=2]
+[ext_resource path="res://src/core/Highlight.tscn" type="PackedScene" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="GDScript" id=1]
+script/source = "extends Area2D
+
+
+func get_class() -> String:
+	return(\"CombatEntity\")
+
+func get_combat_entity() -> Node:
+	return(get_parent().get_parent())
+"
+
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 32, 32 )
 
 [node name="CombatEntity" type="VBoxContainer"]
@@ -27,9 +39,11 @@ __meta__ = {
 }
 
 [node name="Area2D" type="Area2D" parent="Texture"]
+collision_mask = 2
+script = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Texture/Area2D"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Name" type="Label" parent="."]
 margin_top = 68.0
@@ -61,3 +75,5 @@ margin_left = 36.0
 margin_right = 65.0
 margin_bottom = 14.0
 text = "0/30"
+
+[node name="Highlight" parent="." instance=ExtResource( 3 )]

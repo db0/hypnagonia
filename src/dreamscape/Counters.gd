@@ -16,8 +16,8 @@ func _ready() -> void:
 	counters_container = $VBC
 	value_node = "Value"
 	needed_counters = {
-		"Immersion": {
-			"CounterTitle": "Immersion: ",
+		"immersion": {
+			"CounterTitle": "immersion: ",
 			"Value": 3},
 	}
 	spawn_needed_counters()
