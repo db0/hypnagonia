@@ -1,9 +1,11 @@
 # Code for a sample playspace, you're expected to provide your own ;)
 extends Board
 
+var end_turn : Button
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	counters = $Counters
+	counters = $HBC/Counters
+	end_turn = $HBC/EndTurn
 	cfc.map_node(self)
 	# We use the below while to wait until all the nodes we need have been mapped
 	# "hand" should be one of them.
@@ -13,6 +15,7 @@ func _ready() -> void:
 	# Discard pile goes bottom right
 	if not get_tree().get_root().has_node('Gut'):
 		load_test_cards()
+	end_turn.connect("pressed", self, "_on_end_turn_pressed")
 
 
 # This function is to avoid relating the logic in the card objects
@@ -66,22 +69,22 @@ func _on_Debug_toggled(button_pressed: bool) -> void:
 	cfc._debug = button_pressed
 
 # Loads a sample set of cards to use for testing
-func load_test_cards(extras := 11) -> void:
+func load_test_cards() -> void:
+	var card_names = []
 	var test_cards := []
 	for ckey in cfc.card_definitions.keys():
 		if ckey != "Spawn Card":
-			test_cards.append(ckey)
+			card_names.append(ckey)
 	var test_card_array := []
-	for _i in range(extras):
-		if not test_cards.empty():
+	for _i in range(12):
+		if not card_names.empty():
 			var random_card_name = \
-					test_cards[CFUtils.randi() % len(test_cards)]
+					card_names[CFUtils.randi() % len(card_names)]
 			test_card_array.append(cfc.instance_card(random_card_name))
 	# 11 is the cards GUT expects. It's the testing standard
-	if extras == 11:
 	# I ensure there's of each test card, for use in GUT
-		for card_name in test_cards:
-			test_card_array.append(cfc.instance_card(card_name))
+	for card_name in test_cards:
+		test_card_array.append(cfc.instance_card(card_name))
 	for card in test_card_array:
 		$Deck.add_child(card)
 		#card.set_is_faceup(false,true)
@@ -93,3 +96,6 @@ func _on_DeckBuilder_pressed() -> void:
 
 func _on_DeckBuilder_hide() -> void:
 	cfc.game_paused = false
+
+func _on_end_turn_pressed() -> void:
+	cfc.NMAP.hand.refill_hand()

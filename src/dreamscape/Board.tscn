@@ -22,6 +22,7 @@ mouse_filter = 2
 theme = ExtResource( 12 )
 script = ExtResource( 5 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -30,6 +31,53 @@ position = Vector2( 0, 475 )
 script = ExtResource( 4 )
 placement = 8
 pile_name = "Deck"
+
+[node name="VBoxContainer" parent="Deck/Control/CenterContainer" index="0"]
+margin_right = 68.0
+margin_bottom = 109.0
+
+[node name="Label" parent="Deck/Control/CenterContainer/VBoxContainer" index="0"]
+margin_right = 68.0
+
+[node name="PanelContainer" parent="Deck/Control/CenterContainer/VBoxContainer" index="1"]
+margin_top = 32.0
+margin_right = 68.0
+margin_bottom = 61.0
+
+[node name="CenterContainer" parent="Deck/Control/CenterContainer/VBoxContainer/PanelContainer" index="0"]
+margin_right = 68.0
+
+[node name="CardCount" parent="Deck/Control/CenterContainer/VBoxContainer/PanelContainer/CenterContainer" index="0"]
+margin_right = 45.0
+
+[node name="ManipulationButtons" parent="Deck/Control" index="2"]
+visible = false
+
+[node name="View" parent="Deck/Control/ManipulationButtons" index="0"]
+margin_right = 18.0
+margin_bottom = 22.0
+
+[node name="Shuffle" parent="Deck/Control/ManipulationButtons" index="1"]
+margin_top = 25.0
+margin_right = 18.0
+margin_bottom = 47.0
+
+[node name="CardView" parent="Deck/ViewPopup" index="0"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 6.0
+margin_bottom = 6.0
+
+[node name="Position" parent="Deck/Debug" index="0"]
+margin_bottom = 18.0
+
+[node name="AreaPos" parent="Deck/Debug" index="1"]
+margin_top = 21.0
+margin_bottom = 39.0
+
+[node name="Size" parent="Deck/Debug" index="2"]
+margin_top = 42.0
+margin_bottom = 60.0
 
 [node name="Discard" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1124, 475 )
@@ -58,6 +106,9 @@ margin_right = 68.0
 
 [node name="CardCount" parent="Discard/Control/CenterContainer/VBoxContainer/PanelContainer/CenterContainer" index="0"]
 margin_right = 45.0
+
+[node name="ManipulationButtons" parent="Discard/Control" index="2"]
+visible = false
 
 [node name="View" parent="Discard/Control/ManipulationButtons" index="0"]
 margin_right = 18.0
@@ -89,8 +140,25 @@ margin_bottom = 60.0
 position = Vector2( 155, 480 )
 excess_cards = 0
 
-[node name="Counters" parent="." instance=ExtResource( 6 )]
-margin_top = 205.0
-margin_bottom = 219.0
+[node name="HBC" type="HBoxContainer" parent="."]
+margin_left = 5.03967
+margin_top = 440.972
+margin_right = 73.0397
+margin_bottom = 462.972
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
 
+[node name="Counters" parent="HBC" instance=ExtResource( 6 )]
+margin_right = 4.0
+margin_bottom = 22.0
+
+[node name="EndTurn" type="Button" parent="HBC"]
+margin_left = 7.0
+margin_right = 68.0
+margin_bottom = 22.0
+text = "End Turn"
+
+[editable path="Deck"]
 [editable path="Discard"]
