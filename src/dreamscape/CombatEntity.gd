@@ -8,25 +8,29 @@ onready var health_label : Label = $HBC/Health
 onready var name_label : Label = $Name
 onready var armor_label : Label = $HBC/Armor
 
-var health : int = 24 setget set_health
-var max_health : int = 24 setget set_max_health
-var armor : int = 0 setget set_armor
-var canonical_name: String = 'Gaslighter'
-var type: String = 'Nightmare'
-var entity_size : Vector2 = Vector2(64,64)
+var health : int setget set_health
+var max_health : int setget set_max_health
+var armor : int setget set_armor
+var canonical_name: String
+var type: String
+var entity_size : Vector2
 var active_effects := []
+# Holding all the details from the CombatEntity, in case
+# we need to retrieve some extra ones, depending on the type
+var _properties : Dictionary
 
 # Typically used during
 # an [execute_scripts()](ScriptingEngine#execute_scripts] task.
 var temp_properties_modifiers := {}
 
-func setup(properties: Dictionary) -> void:
-	health = properties['health']
-	max_health = properties['max_health']
-	canonical_name = properties['name']
-	name = properties['name']
-	entity_size = Vector2(properties['texture_size_x'],properties['texture_size_y'])
-	type = properties['type']
+func setup(entity_name: String, properties: Dictionary) -> void:
+	canonical_name = entity_name
+	name = entity_name
+	health = properties['Health']
+	max_health = properties['Max Health']
+	type = properties['Type']
+	_properties = properties
+	entity_size = Vector2(properties['_texture_size_x'],properties['_texture_size_y'])
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

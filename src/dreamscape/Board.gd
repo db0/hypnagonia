@@ -1,9 +1,11 @@
 extends Board
 
+const ENEMY_ENTITY_SCENE = preload("res://src/dreamscape/EnemyEntity.tscn")
 var end_turn : Button
 var turn := Turn.new()
 var dreamer: PlayerEntity
 var enemies: Array
+var activated_enemies: Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,19 +20,27 @@ func _ready() -> void:
 	# Discard pile goes bottom right
 	if not get_tree().get_root().has_node('Gut'):
 		load_test_cards()
-	end_turn.connect("pressed", self, "_on_end_turn_pressed")
+	turn.setup()
 	dreamer = preload("res://src/dreamscape/PlayerEntity.tscn").instance()
 	var dreamer_properties := {
-		"health": 100,
-		"max_health": 100,
-		"name": "Dreamer",
-		"texture_size_x": 70,
-		"texture_size_y": 100,
-		"type": "Dreamer",
+		"Health": 100,
+		"Max Health": 100,
+		"Type": "Dreamer",
+		"_texture_size_x": 70,
+		"_texture_size_y": 100,
 	}
-	dreamer.setup(dreamer_properties)
+	dreamer.setup("Dreamer", dreamer_properties)
 	add_child(dreamer)
+	spawn_enemy("Gaslighter")
 
+func spawn_enemy(enemy_name) -> void:
+	var enemy_properties = EnemyDefinitions.ENEMIES.get(enemy_name)
+	var enemy : EnemyEntity = ENEMY_ENTITY_SCENE.instance()
+	enemy.setup(enemy_name, enemy_properties)
+	add_child(enemy)
+	enemies.append(enemy)
+	enemy.connect("finished_activation", self, "_on_finished_enemy_activation")
+	enemy.rect_position = Vector2(500,100)
 
 # This function is to avoid relating the logic in the card objects
 # to a node which might not be there in another game
@@ -111,6 +121,15 @@ func _on_DeckBuilder_pressed() -> void:
 func _on_DeckBuilder_hide() -> void:
 	cfc.game_paused = false
 
-func _on_end_turn_pressed() -> void:
-	cfc.NMAP.hand.refill_hand()
-	counters.mod_counter("immersion", 3, true, false, turn, ["New Turn"])
+func _on_turn_ended(turn: Turn) -> void:
+	activated_enemies.clear()
+	for enemy in enemies:
+		print_debug("Activating Intents: " + enemy.canonical_name)
+		enemy.activate()
+	
+
+func _on_finished_enemy_activation(enemy: EnemyEntity) -> void:
+	if not enemy in activated_enemies:
+		activated_enemies.append(enemy)
+	if activated_enemies.size() == enemies.size():
+		turn.start_turn()

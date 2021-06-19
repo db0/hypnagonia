@@ -4,9 +4,11 @@ extends Hand
 func _ready() -> void:
 	pass
 
-func refill_hand() -> void:
+func empty_hand() -> void:
 	for card in get_all_cards():
 		card.move_to(cfc.NMAP.discard)
+
+func refill_hand() -> void:
 	for iter in range(5):
 		var retcode = draw_card(cfc.NMAP.deck)
 		if retcode is GDScriptFunctionState:
@@ -27,3 +29,9 @@ func draw_card(pile : Pile = cfc.NMAP.deck) -> Card:
 	if card:
 		card.move_to(self)
 	return card
+
+func _on_turn_started(_turn: Turn) -> void:
+	refill_hand()
+
+func _on_turn_ended(_turn: Turn) -> void:
+	empty_hand()
