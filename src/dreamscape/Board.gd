@@ -1,6 +1,6 @@
 extends Board
 
-const ENEMY_ENTITY_SCENE = preload("res://src/dreamscape/EnemyEntity.tscn")
+const ENEMY_ENTITY_SCENE = preload("res://src/dreamscape/enemies/EnemyEntity.tscn")
 var end_turn : Button
 var turn := Turn.new()
 var dreamer: PlayerEntity
@@ -121,10 +121,13 @@ func _on_DeckBuilder_pressed() -> void:
 func _on_DeckBuilder_hide() -> void:
 	cfc.game_paused = false
 
+func _on_turn_started(turn: Turn) -> void:
+	pass
+
 func _on_turn_ended(turn: Turn) -> void:
 	activated_enemies.clear()
 	for enemy in enemies:
-		print_debug("Activating Intents: " + enemy.canonical_name)
+#		print_debug("Activating Intents: " + enemy.canonical_name)
 		enemy.activate()
 	
 

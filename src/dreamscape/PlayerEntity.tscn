@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/dreamscape/CombatEntity.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/dreamscape/PlayerEntity.gd" type="Script" id=2]
+
+[node name="PlayerEntity" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Intents" parent="." index="0"]
+margin_right = 73.0
+
+[node name="Texture" parent="." index="1"]
+margin_right = 73.0
+
+[node name="Name" parent="." index="2"]
+margin_right = 73.0
+margin_bottom = 100.0
+text = "Dreamer"
+
+[node name="HBC" parent="." index="3"]
+margin_top = 104.0
+margin_right = 73.0
+margin_bottom = 118.0
+
+[node name="Armor" parent="HBC" index="0"]
+margin_right = 16.0
+
+[node name="Health" parent="HBC" index="1"]
+margin_left = 20.0
+margin_right = 73.0
+text = "100/100"

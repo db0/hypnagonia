@@ -7,8 +7,10 @@
 class_name SP
 extends ScriptProperties
 
-const KEY_DAMAGE = "damage"
-const KEY_ARMOR = "armor"
+# Used for specifying the amount of something a script provides
+# e.g. amount of damage, or amount of armor
+const KEY_AMOUNT = "amount"
+
 # This call has been setup to call the original, and allow futher extension
 # simply create new filter
 static func filter_trigger(

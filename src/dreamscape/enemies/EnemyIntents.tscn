@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/dreamscape/enemies/EnemyIntents.gd" type="Script" id=1]
+[ext_resource path="res://src/dreamscape/enemies/SingleIntent.tscn" type="PackedScene" id=2]
+
+[node name="EnemyIntents" type="HBoxContainer"]
+margin_right = 65.0
+margin_bottom = 14.0
+custom_constants/separation = 5
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SingleIntent" parent="." instance=ExtResource( 2 )]
+margin_right = 14.0

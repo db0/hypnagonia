@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/dreamscape/enemies/SingleIntent.gd" type="Script" id=1]
+
+[node name="SingleIntent" type="HBoxContainer"]
+margin_right = 21.0
+margin_bottom = 14.0
+custom_constants/separation = -3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IntentIcon" type="MarginContainer" parent="."]
+margin_right = 9.0
+margin_bottom = 14.0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="IntentIcon"]
+margin_right = 9.0
+margin_bottom = 14.0
+mouse_filter = 1
+text = "A"
+uppercase = true
+percent_visible = -1.0
+
+[node name="Icon" type="TextureRect" parent="IntentIcon"]
+margin_right = 9.0
+margin_bottom = 14.0
+
+[node name="Amount" type="Label" parent="."]
+margin_left = 6.0
+margin_right = 14.0
+margin_bottom = 14.0
+mouse_filter = 1
+text = "0"
+
+[node name="Description" type="PopupPanel" parent="."]
+margin_left = 25.0
+margin_right = 33.0
+margin_bottom = 14.0
+
+[node name="Label" type="Label" parent="Description"]
+margin_right = 40.0
+margin_bottom = 14.0
+
+[connection signal="mouse_entered" from="." to="." method="_on_SingleIntent_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_SingleIntent_mouse_exited"]
