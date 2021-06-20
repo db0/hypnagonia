@@ -8,6 +8,7 @@
 script = ExtResource( 3 )
 
 [node name="Intents" parent="." index="0" instance=ExtResource( 1 )]
+margin_right = 65.0
 
 [node name="Texture" parent="." index="1"]
 margin_top = 18.0

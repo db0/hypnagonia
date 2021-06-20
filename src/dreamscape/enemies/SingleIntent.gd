@@ -8,7 +8,7 @@ onready var decription_popup := $Description
 onready var decription_label := $Description/Label
 
 func setup(intent_details: Dictionary, intent_name: String) -> void:
-	print_debug("Setting up intent: " + intent_name)
+#	print_debug("Setting up intent: " + intent_name)
 	if intent_details.has("icon") and intent_details.icon:
 		pass
 	else:

@@ -6,21 +6,18 @@
 [node name="PlayerEntity" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="Intents" parent="." index="0"]
+[node name="Texture" parent="." index="0"]
 margin_right = 73.0
 
-[node name="Texture" parent="." index="1"]
+[node name="Name" parent="." index="1"]
 margin_right = 73.0
-
-[node name="Name" parent="." index="2"]
-margin_right = 73.0
-margin_bottom = 100.0
+margin_bottom = 82.0
 text = "Dreamer"
 
-[node name="HBC" parent="." index="3"]
-margin_top = 104.0
+[node name="HBC" parent="." index="2"]
+margin_top = 86.0
 margin_right = 73.0
-margin_bottom = 118.0
+margin_bottom = 100.0
 
 [node name="Armor" parent="HBC" index="0"]
 margin_right = 16.0

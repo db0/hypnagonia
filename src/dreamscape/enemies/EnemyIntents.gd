@@ -6,6 +6,7 @@ const SINGLE_INTENT_SCENE = preload("res://src/dreamscape/enemies/SingleIntent.t
 var current_intents: Array
 var all_intents: Array
 var unused_intents: Array
+# The enemy entity owning these intents
 var combat_entity
 
 func prepare_intents() -> void:

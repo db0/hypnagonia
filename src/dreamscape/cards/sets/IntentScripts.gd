@@ -8,6 +8,7 @@ const INTENTS := {
 			"subject": "dreamer",
 			"amount": null,
 			"icon": null,
+			"description": "A basic attack. Will cause the dreamer to take the specified amount of anxiety."
 		}
 	],
 	"Defend": [
