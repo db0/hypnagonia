@@ -42,7 +42,7 @@ func inflict_damage(script: ScriptTask) -> int:
 				tags)
 	return(retcode)
 	
-func assign_armor(script: ScriptTask) -> int:
+func assign_defence(script: ScriptTask) -> int:
 	var modification: int
 	var alteration = 0
 	var retcode: int
@@ -67,7 +67,7 @@ func assign_armor(script: ScriptTask) -> int:
 	if alteration is GDScriptFunctionState:
 		alteration = yield(alteration, "completed")
 	for combat_entity in script.subjects:
-		retcode = combat_entity.receive_armor(
+		retcode = combat_entity.receive_defence(
 				modification + alteration,
 				costs_dry_run(),
 				tags)

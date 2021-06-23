@@ -1,20 +1,22 @@
 class_name Terms
 extends Reference
 
+const PLAYER = "dreamer"
+const ENEMY = "torment"
 
-const DREAMER_TERMS := {
+const PLAYER_TERMS := {
 	"entity": "Dreamer",
 	"damage": "Interpretation",
 	"damage_verb": "done",
 	"defence": "Confidence",
 }
-const TORMENT_TERMS := {
+const ENEMY_TERMS := {
 	"entity": "Torment",
 	"damage": "Anxiety",
 	"damage_verb": "inflicted",
 	"defence": "Perplexity",
 }
 const COMMON_FORMATS = {
-	"dreamer": DREAMER_TERMS,
-	"torment": TORMENT_TERMS,
+	PLAYER: PLAYER_TERMS,
+	ENEMY: ENEMY_TERMS,
 }

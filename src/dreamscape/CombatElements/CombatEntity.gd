@@ -10,12 +10,12 @@ onready var area2d := $Texture/Area2D
 onready var entity_texture :=  $Texture
 onready var health_label : Label = $HBC/Health
 onready var name_label : Label = $Name
-onready var armor_label : Label = $HBC/Armor
+onready var defence_label : Label = $HBC/Defence
 onready var active_effects := $ActiveEffects
 
 var health : int setget set_health
 var max_health : int setget set_max_health
-var armor : int setget set_armor
+var defence : int setget set_armor
 var canonical_name: String
 var type: String
 var entity_type: String
@@ -48,7 +48,7 @@ func _ready() -> void:
 	active_effects.combat_entity = self
 
 func set_armor(value) -> void:
-	armor = value
+	defence = value
 	_update_health_label()
 
 func set_health(value) -> void:
@@ -61,20 +61,20 @@ func set_max_health(value) -> void:
 
 func take_damage(amount: int, dry_run := false, tags := ["Manual"]) -> int:
 	if not dry_run:
-		if armor > 0:
-			if amount >= armor:
-				amount -= armor
-				armor = 0
+		if defence > 0:
+			if amount >= defence:
+				amount -= defence
+				defence = 0
 			else:
-				armor -= amount
+				defence -= amount
 				amount = 0
 		health -= amount
 		_update_health_label()
 	return(CFConst.ReturnCode.CHANGED)
 
-func receive_armor(amount: int, dry_run := false, tags := ["Manual"]) -> int:
+func receive_defence(amount: int, dry_run := false, tags := ["Manual"]) -> int:
 	if not dry_run:
-		armor += amount
+		defence += amount
 		_update_health_label()
 	return(CFConst.ReturnCode.CHANGED)
 	
@@ -83,4 +83,4 @@ func get_class() -> String:
 
 func _update_health_label() -> void:
 	health_label.text = str(health) + '/' + str(max_health)
-	armor_label.text = '(' + str(armor) + ')'
+	defence_label.text = '(' + str(defence) + ')'

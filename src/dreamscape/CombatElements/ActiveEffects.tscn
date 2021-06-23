@@ -2,7 +2,8 @@
 
 [ext_resource path="res://src/dreamscape/CombatElements/ActiveEffects.gd" type="Script" id=1]
 
-[node name="ActiveEffects" type="HBoxContainer"]
+[node name="ActiveEffects" type="GridContainer"]
+columns = 4
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false

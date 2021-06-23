@@ -1,10 +1,11 @@
 class_name ActiveEffects
-extends HBoxContainer
+extends GridContainer
 
 const EFFECTS_MAP = {
-	"weaken": preload("res://src/dreamscape/CombatElements/CombatEffects/Weaken.tscn")
+	"weaken": preload("res://src/dreamscape/CombatElements/CombatEffects/Weaken.tscn"),
+	"advantage": preload("res://src/dreamscape/CombatElements/CombatEffects/Advantage.tscn"),
+	"doubt": preload("res://src/dreamscape/CombatElements/CombatEffects/Doubt.tscn"),
 }
-const SINGLE_EFFECT_SCENE = preload("res://src/dreamscape/CombatElements/CombatSignifier.tscn")
 
 var all_effects: Dictionary
 # The enemy entity owning these effects
@@ -29,6 +30,7 @@ func mod_effect(
 	else:
 		retcode = CFConst.ReturnCode.CHANGED
 		var effect : CombatEffect = get_all_effects().get(effect_name, null)
+		print_debug(get_all_effects())
 		if not effect and mod <= 0:
 			pass
 		elif not check:
@@ -59,5 +61,5 @@ func mod_effect(
 func get_all_effects() -> Dictionary:
 	var found_effects := {}
 	for effect in get_children():
-		found_effects[effect.name] = effect
+		found_effects[effect.get_effect_name()] = effect
 	return found_effects

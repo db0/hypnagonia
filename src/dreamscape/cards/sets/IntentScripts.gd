@@ -13,7 +13,7 @@ const INTENTS := {
 	],
 	"Defend": [
 		{
-			"name": "assign_armor",
+			"name": "assign_defence",
 			"subject": "self",
 			"amount": null,
 			"icon": null,

@@ -62,7 +62,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Armor" type="Label" parent="HBC"]
+[node name="Defence" type="Label" parent="HBC"]
 margin_right = 32.0
 margin_bottom = 14.0
 size_flags_horizontal = 3
@@ -78,5 +78,8 @@ margin_bottom = 14.0
 text = "0/30"
 
 [node name="ActiveEffects" parent="." instance=ExtResource( 4 )]
+margin_top = 121.0
+margin_right = 65.0
+margin_bottom = 121.0
 
 [node name="Highlight" parent="." instance=ExtResource( 1 )]

@@ -18,3 +18,11 @@ func activate() -> void:
 	emit_signal("finished_activation", self)
 	intents.prepare_intents()
 	
+#The Torments do not really have health, they have an interpetation meter
+# which makes them vanish when full.
+# As such we want to reverse the health to show it increasing instead of 
+# decreasing when taking damage
+# But we keep the underlying mechanics the same to stay consistent.
+func _update_health_label() -> void:
+	health_label.text = str(max_health - health) + '/' + str(max_health)
+	defence_label.text = '(' + str(defence) + ')'

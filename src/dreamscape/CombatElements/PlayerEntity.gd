@@ -12,4 +12,4 @@ func _ready() -> void:
 # But we keep the underlying mechanics the same to stay consistent.
 func _update_health_label() -> void:
 	health_label.text = str(max_health - health) + '/' + str(max_health)
-	armor_label.text = '(' + str(armor) + ')'
+	defence_label.text = '(' + str(defence) + ')'
