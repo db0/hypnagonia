@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://src/dreamscape/CombatSignifier.gd" type="Script" id=1]
+[ext_resource path="res://src/dreamscape/CombatElements/CombatSignifier.gd" type="Script" id=1]
 
 [node name="CombatSignifier" type="HBoxContainer"]
 margin_right = 21.0

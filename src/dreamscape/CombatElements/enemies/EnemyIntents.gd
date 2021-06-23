@@ -1,7 +1,7 @@
 class_name EnemyIntents
 extends HBoxContainer
 
-const SINGLE_INTENT_SCENE = preload("res://src/dreamscape/CombatSignifier.tscn")
+const SINGLE_INTENT_SCENE = preload("res://src/dreamscape/CombatElements/CombatSignifier.tscn")
 
 var current_intents: Array
 var all_intents: Array

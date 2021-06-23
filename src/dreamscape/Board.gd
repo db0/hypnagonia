@@ -1,6 +1,6 @@
 extends Board
 
-const ENEMY_ENTITY_SCENE = preload("res://src/dreamscape/enemies/EnemyEntity.tscn")
+const ENEMY_ENTITY_SCENE = preload("res://src/dreamscape/CombatElements/enemies/EnemyEntity.tscn")
 var end_turn : Button
 var turn := Turn.new()
 var dreamer: PlayerEntity
@@ -21,7 +21,7 @@ func _ready() -> void:
 	if not get_tree().get_root().has_node('Gut'):
 		load_test_cards()
 	turn.setup()
-	dreamer = preload("res://src/dreamscape/PlayerEntity.tscn").instance()
+	dreamer = preload("res://src/dreamscape/CombatElements/PlayerEntity.tscn").instance()
 	var dreamer_properties := {
 		"Health": 100,
 		"Max Health": 100,
