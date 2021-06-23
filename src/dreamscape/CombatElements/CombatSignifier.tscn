@@ -1,38 +1,51 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/dreamscape/CombatElements/CombatSignifier.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://themes/darktheme/fonts/Reggae_One/ReggaeOne-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://fonts/Comfortaa-Bold.ttf" type="DynamicFontData" id=4]
 
-[node name="CombatSignifier" type="HBoxContainer"]
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 4 )
+
+[node name="CombatSignifier" type="Control"]
 margin_right = 21.0
 margin_bottom = 14.0
-custom_constants/separation = -3
+rect_min_size = Vector2( 24, 30 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Signifier" type="MarginContainer" parent="."]
-margin_right = 9.0
-margin_bottom = 14.0
+margin_right = 24.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 24, 24 )
 mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="Signifier"]
-margin_right = 9.0
-margin_bottom = 14.0
+margin_right = 24.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 24, 24 )
 mouse_filter = 1
+custom_fonts/font = SubResource( 1 )
 text = "A"
+align = 1
 uppercase = true
 
 [node name="Icon" type="TextureRect" parent="Signifier"]
-margin_right = 9.0
-margin_bottom = 14.0
-
-[node name="Amount" type="Label" parent="."]
-margin_left = 6.0
-margin_right = 14.0
-margin_bottom = 14.0
-mouse_filter = 1
-text = "0"
+margin_right = 24.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 24, 24 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 5
 
 [node name="Description" type="PopupPanel" parent="."]
 margin_left = 25.0
@@ -43,7 +56,26 @@ margin_bottom = 14.0
 margin_left = 4.0
 margin_top = 4.0
 margin_right = 4.0
-margin_bottom = 18.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 2 )
+
+[node name="MC" type="MarginContainer" parent="."]
+margin_right = 22.0
+margin_bottom = 28.0
+mouse_filter = 1
+custom_constants/margin_top = 14
+custom_constants/margin_left = 14
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Amount" type="Label" parent="MC"]
+margin_left = 14.0
+margin_top = 14.0
+margin_right = 22.0
+margin_bottom = 28.0
+mouse_filter = 1
+text = "0"
 
 [connection signal="mouse_entered" from="." to="." method="_on_SingleIntent_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_SingleIntent_mouse_exited"]

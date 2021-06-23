@@ -1,6 +1,9 @@
 class_name PlayerEntity
 extends CombatEntity
 
+func _ready() -> void:
+	entity_type = "dreamer"
+
 
 # THe player does not really have health, they have an anxiety meter
 # which makes them wakeup when full.

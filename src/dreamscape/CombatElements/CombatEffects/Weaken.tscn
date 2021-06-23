@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/dreamscape/CombatElements/CombatEffects/CombatEffectTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/dreamscape/CombatElements/CombatEffects/Weaken.gd" type="Script" id=2]
+
+[node name="Weaken" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Label" parent="Signifier" index="0"]
+text = "W"
+
+[node name="Icon" parent="Signifier" index="1"]
+visible = false
+
+[node name="Label" parent="Description" index="0"]
+margin_right = 309.0
+text = "Next action performed by this entity"

@@ -6,6 +6,7 @@ signal finished_activation(enemy)
 onready var intents: EnemyIntents = $Intents
 
 func _ready() -> void:
+	entity_type = "torment"
 	intents.combat_entity = self
 	intents.all_intents = _properties.Intents.duplicate(true)
 	intents.prepare_intents()

@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "HBoxContainer",
+"class": "ActiveEffects",
+"language": "GDScript",
+"path": "res://src/dreamscape/CombatElements/ActiveEffects.gd"
+}, {
 "base": "Reference",
 "class": "AlterantEngine",
 "language": "GDScript",
@@ -94,12 +99,17 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/core/DeckBuilder/CardLabel.gd"
 }, {
+"base": "CombatSignifier",
+"class": "CombatEffect",
+"language": "GDScript",
+"path": "res://src/dreamscape/CombatElements/CombatEffects/CombatEffect.gd"
+}, {
 "base": "VBoxContainer",
 "class": "CombatEntity",
 "language": "GDScript",
 "path": "res://src/dreamscape/CombatElements/CombatEntity.gd"
 }, {
-"base": "HBoxContainer",
+"base": "Control",
 "class": "CombatSignifier",
 "language": "GDScript",
 "path": "res://src/dreamscape/CombatElements/CombatSignifier.gd"
@@ -179,15 +189,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/cards/sets/Enemies.gd"
 }, {
-"base": "Reference",
+"base": "CombatEntity",
 "class": "EnemyEntity",
 "language": "GDScript",
-"path": "res://src/dreamscape/CombatElements/enemies/EnemyEntity.gd"
+"path": "res://src/dreamscape/CombatElements/Enemies/EnemyEntity.gd"
 }, {
 "base": "HBoxContainer",
 "class": "EnemyIntents",
 "language": "GDScript",
-"path": "res://src/dreamscape/CombatElements/enemies/EnemyIntents.gd"
+"path": "res://src/dreamscape/CombatElements/Enemies/EnemyIntents.gd"
 }, {
 "base": "Reference",
 "class": "GameStats",
@@ -284,6 +294,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/core/Card/TargetingArrow.gd"
 }, {
+"base": "Reference",
+"class": "Terms",
+"language": "GDScript",
+"path": "res://src/dreamscape/Terms.gd"
+}, {
 "base": "HBoxContainer",
 "class": "Token",
 "language": "GDScript",
@@ -310,6 +325,7 @@ _global_script_classes=[ {
 "path": "res://src/core/perMessage.gd"
 } ]
 _global_script_class_icons={
+"ActiveEffects": "",
 "AlterantEngine": "",
 "Board": "",
 "BoardPlacementGrid": "",
@@ -327,6 +343,7 @@ _global_script_class_icons={
 "CardContainer": "",
 "CardFront": "",
 "CardLabel": "",
+"CombatEffect": "",
 "CombatEntity": "",
 "CombatSignifier": "",
 "Counters": "",
@@ -365,6 +382,7 @@ _global_script_class_icons={
 "ScriptTask": "",
 "ScriptingEngine": "",
 "TargetingArrow": "",
+"Terms": "",
 "Token": "",
 "TokenDrawer": "",
 "Turn": "",

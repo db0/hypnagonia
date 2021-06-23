@@ -1,9 +1,9 @@
 class_name CombatSignifier
-extends HBoxContainer
+extends Control
 
 onready var signifier_label := $Signifier/Label
 onready var signifier_icon := $Signifier/Icon
-onready var signifier_amount := $Amount
+onready var signifier_amount := $MC/Amount
 onready var decription_popup := $Description
 onready var decription_label := $Description/Label
 
@@ -11,7 +11,7 @@ func setup(signifier_details: Dictionary, signifier_name: String) -> void:
 #	print_debug("Setting up intent: " + intent_name)
 	if signifier_details.has("icon") and signifier_details.icon:
 		pass
-	else:
+	else:		
 		signifier_icon.visible = false
 		signifier_label.text = signifier_name[0]
 	if signifier_details.get("amount") != null:
@@ -22,7 +22,6 @@ func setup(signifier_details: Dictionary, signifier_name: String) -> void:
 		decription_label.text = signifier_details.description
 	else:
 		decription_label.text = signifier_name
-		
 
 
 func _on_SingleIntent_mouse_entered() -> void:

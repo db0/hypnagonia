@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/core/Highlight.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://src/dreamscape/CombatElements/CombatEntity.gd" type="Script" id=3]
+[ext_resource path="res://src/dreamscape/CombatElements/ActiveEffects.tscn" type="PackedScene" id=4]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Area2D
@@ -76,9 +77,6 @@ margin_right = 65.0
 margin_bottom = 14.0
 text = "0/30"
 
-[node name="ActiveEffects" type="HBoxContainer" parent="."]
-margin_top = 121.0
-margin_right = 65.0
-margin_bottom = 121.0
+[node name="ActiveEffects" parent="." instance=ExtResource( 4 )]
 
 [node name="Highlight" parent="." instance=ExtResource( 1 )]

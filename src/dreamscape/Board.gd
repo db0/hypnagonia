@@ -1,6 +1,6 @@
 extends Board
 
-const ENEMY_ENTITY_SCENE = preload("res://src/dreamscape/CombatElements/enemies/EnemyEntity.tscn")
+const ENEMY_ENTITY_SCENE = preload("res://src/dreamscape/CombatElements/Enemies/EnemyEntity.tscn")
 var end_turn : Button
 var turn := Turn.new()
 var dreamer: PlayerEntity
@@ -31,9 +31,11 @@ func _ready() -> void:
 	}
 	dreamer.setup("Dreamer", dreamer_properties)
 	add_child(dreamer)
-	spawn_enemy("Gaslighter")
+	var torment = spawn_enemy("Gaslighter")
+	dreamer.active_effects.mod_effect("weaken")
+	torment.active_effects.mod_effect("weaken")
 
-func spawn_enemy(enemy_name) -> void:
+func spawn_enemy(enemy_name) -> EnemyEntity:
 	var enemy_properties = EnemyDefinitions.ENEMIES.get(enemy_name)
 	var enemy : EnemyEntity = ENEMY_ENTITY_SCENE.instance()
 	enemy.setup(enemy_name, enemy_properties)
@@ -41,6 +43,7 @@ func spawn_enemy(enemy_name) -> void:
 	enemies.append(enemy)
 	enemy.connect("finished_activation", self, "_on_finished_enemy_activation")
 	enemy.rect_position = Vector2(500,100)
+	return(enemy)
 
 # This function is to avoid relating the logic in the card objects
 # to a node which might not be there in another game

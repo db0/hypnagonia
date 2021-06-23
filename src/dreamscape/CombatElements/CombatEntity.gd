@@ -1,6 +1,10 @@
 class_name CombatEntity
 extends VBoxContainer
 
+
+signal effect_modified(entity,trigger,details)
+
+
 onready var collision_shape := $Texture/Area2D/CollisionShape2D
 onready var area2d := $Texture/Area2D
 onready var entity_texture :=  $Texture
@@ -14,6 +18,7 @@ var max_health : int setget set_max_health
 var armor : int setget set_armor
 var canonical_name: String
 var type: String
+var entity_type: String
 var entity_size : Vector2
 
 # Holding all the details from the CombatEntity, in case
@@ -40,6 +45,7 @@ func _ready() -> void:
 	area2d.position = entity_size / 2
 	name_label.text = canonical_name
 	_update_health_label()
+	active_effects.combat_entity = self
 
 func set_armor(value) -> void:
 	armor = value
