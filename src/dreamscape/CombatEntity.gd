@@ -7,6 +7,7 @@ onready var entity_texture :=  $Texture
 onready var health_label : Label = $HBC/Health
 onready var name_label : Label = $Name
 onready var armor_label : Label = $HBC/Armor
+onready var active_effects := $ActiveEffects
 
 var health : int setget set_health
 var max_health : int setget set_max_health
@@ -14,7 +15,7 @@ var armor : int setget set_armor
 var canonical_name: String
 var type: String
 var entity_size : Vector2
-var active_effects := []
+
 # Holding all the details from the CombatEntity, in case
 # we need to retrieve some extra ones, depending on the type
 var _properties : Dictionary

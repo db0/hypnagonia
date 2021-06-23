@@ -21,3 +21,7 @@ margin_bottom = 117.0
 [node name="HBC" parent="." index="3"]
 margin_top = 121.0
 margin_bottom = 135.0
+
+[node name="CombatEffects" parent="." index="4"]
+margin_top = 139.0
+margin_bottom = 139.0

@@ -99,6 +99,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/CombatEntity.gd"
 }, {
+"base": "HBoxContainer",
+"class": "CombatSignifier",
+"language": "GDScript",
+"path": "res://src/dreamscape/CombatSignifier.gd"
+}, {
 "base": "Control",
 "class": "Counters",
 "language": "GDScript",
@@ -174,7 +179,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/cards/sets/Enemies.gd"
 }, {
-"base": "Reference",
+"base": "CombatEntity",
 "class": "EnemyEntity",
 "language": "GDScript",
 "path": "res://src/dreamscape/enemies/EnemyEntity.gd"
@@ -274,11 +279,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/core/ScriptingEngine.gd"
 }, {
-"base": "HBoxContainer",
-"class": "SingleIntent",
-"language": "GDScript",
-"path": "res://src/dreamscape/enemies/SingleIntent.gd"
-}, {
 "base": "Line2D",
 "class": "TargetingArrow",
 "language": "GDScript",
@@ -328,6 +328,7 @@ _global_script_class_icons={
 "CardFront": "",
 "CardLabel": "",
 "CombatEntity": "",
+"CombatSignifier": "",
 "Counters": "",
 "CustomScripts": "",
 "DBDeckCardObject": "",
@@ -363,7 +364,6 @@ _global_script_class_icons={
 "ScriptProperties": "",
 "ScriptTask": "",
 "ScriptingEngine": "",
-"SingleIntent": "",
 "TargetingArrow": "",
 "Token": "",
 "TokenDrawer": "",

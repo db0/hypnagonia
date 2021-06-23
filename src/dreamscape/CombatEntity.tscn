@@ -76,4 +76,9 @@ margin_right = 65.0
 margin_bottom = 14.0
 text = "0/30"
 
+[node name="ActiveEffects" type="HBoxContainer" parent="."]
+margin_top = 121.0
+margin_right = 65.0
+margin_bottom = 121.0
+
 [node name="Highlight" parent="." instance=ExtResource( 3 )]

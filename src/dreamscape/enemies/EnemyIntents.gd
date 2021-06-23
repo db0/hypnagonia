@@ -1,7 +1,7 @@
 class_name EnemyIntents
 extends HBoxContainer
 
-const SINGLE_INTENT_SCENE = preload("res://src/dreamscape/enemies/SingleIntent.tscn")
+const SINGLE_INTENT_SCENE = preload("res://src/dreamscape/CombatSignifier.tscn")
 
 var current_intents: Array
 var all_intents: Array
@@ -38,7 +38,7 @@ func prepare_intents() -> void:
 #				print_debug("Set Intent Value: " + intent_array[1])
 			current_intents.append(intent_scripts)
 			for single_intent in intent_scripts:
-				var new_intent : SingleIntent = SINGLE_INTENT_SCENE.instance()
+				var new_intent : CombatSignifier = SINGLE_INTENT_SCENE.instance()
 				add_child(new_intent)
 				new_intent.setup(single_intent, intent_name)
 

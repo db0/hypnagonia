@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/dreamscape/enemies/EnemyIntents.gd" type="Script" id=1]
-[ext_resource path="res://src/dreamscape/enemies/SingleIntent.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/dreamscape/CombatSignifier.tscn" type="PackedScene" id=2]
 
 [node name="EnemyIntents" type="HBoxContainer"]
 margin_right = 14.0

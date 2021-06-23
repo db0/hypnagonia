@@ -26,3 +26,8 @@ margin_right = 16.0
 margin_left = 20.0
 margin_right = 73.0
 text = "100/100"
+
+[node name="CombatEffects" parent="." index="3"]
+margin_top = 104.0
+margin_right = 73.0
+margin_bottom = 104.0
