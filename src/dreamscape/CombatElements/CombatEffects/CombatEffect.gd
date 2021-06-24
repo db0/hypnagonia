@@ -1,8 +1,16 @@
 class_name CombatEffect
 extends CombatSignifier
 
+enum SELF_DECREASE {
+	FALSE
+	TURN_START
+	TURN_END
+}
+
+export(SELF_DECREASE) var self_decreasing
+
 var entity_type: String
-var stacks: int setget set_stacks
+var stacks: int = 0 setget set_stacks
 
 
 func setup(signifier_details: Dictionary, signifier_name: String) -> void:
@@ -17,13 +25,16 @@ func _ready() -> void:
 
 
 func set_stacks(value: int) -> void:
-	signifier_amount.text = str(value)
-	stacks = value
+	if value > 0:
+		signifier_amount.text = str(value)
+		stacks = value
+	else:
+		queue_free()
 
 
-func _on_SingleIntent_mouse_entered() -> void:
+func _on_CombatSingifier_mouse_exited() -> void:
 	_set_current_description()
-	._on_SingleIntent_mouse_entered()
+	._on_CombatSingifier_mouse_exited()
 
 
 # To override
@@ -37,8 +48,10 @@ func get_effect_name() -> String:
 
 
 func _on_turn_ended(turn: Turn) -> void:
-	pass
+	if self_decreasing == SELF_DECREASE.TURN_START:
+		set_stacks(stacks - 1)
 
 
 func _on_turn_started(turn: Turn) -> void:
-	pass
+	if self_decreasing == SELF_DECREASE.TURN_END:
+		set_stacks(stacks - 1)

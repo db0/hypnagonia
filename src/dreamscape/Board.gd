@@ -32,10 +32,10 @@ func _ready() -> void:
 	dreamer.setup("Dreamer", dreamer_properties)
 	add_child(dreamer)
 	var torment = spawn_enemy("Gaslighter")
-	dreamer.active_effects.mod_effect("weaken")
+	dreamer.active_effects.mod_effect("weaken", 5)
 	dreamer.active_effects.mod_effect("doubt", 5)
-	dreamer.active_effects.mod_effect("advantage", 5)
-	torment.active_effects.mod_effect("weaken")
+	dreamer.active_effects.mod_effect("advantage", 2)
+	torment.active_effects.mod_effect("advantage", 5)
 
 func spawn_enemy(enemy_name) -> EnemyEntity:
 	var enemy_properties = EnemyDefinitions.ENEMIES.get(enemy_name)

@@ -10,10 +10,17 @@ const NAMES := {
 	"disadvantage": "weaken",
 }
 
-const EFFECTS = {
-	"weaken": preload("res://src/dreamscape/CombatElements/CombatEffects/Weaken.tscn"),
-	"advantage": preload("res://src/dreamscape/CombatElements/CombatEffects/Advantage.tscn"),
-	"doubt": preload("res://src/dreamscape/CombatElements/CombatEffects/Doubt.tscn"),
+const EFFECTS := {
+	NAMES.disadvantage: preload("res://src/dreamscape/CombatElements/CombatEffects/Disadvantage.tscn"),
+	NAMES.advantage: preload("res://src/dreamscape/CombatElements/CombatEffects/Advantage.tscn"),
+	NAMES.poison: preload("res://src/dreamscape/CombatElements/CombatEffects/Poison.tscn"),
+}
+
+# When a stack of an effect is added and its opposite exists, before adding a stack
+# we remove the same amount of its opposite from the amount.
+const OPPOSITES := {
+	NAMES.advantage: NAMES.disadvantage,
+	NAMES.disadvantage: NAMES.advantage,
 }
 
 var all_effects: Dictionary
@@ -43,10 +50,36 @@ func mod_effect(
 			pass
 		elif not check:
 			if not effect:
+				var opposite_name = OPPOSITES.get(effect_name)
+				if opposite_name:
+					var opposite : CombatEffect = get_all_effects().get(OPPOSITES[effect_name], null)
+					if opposite:
+						var prev_op_value = opposite.stacks
+						var new_op_value = 0
+						if set_to_mod:
+							opposite.queue_free()
+						elif opposite.stacks - mod > 0:
+							opposite.stacks -= mod
+							new_op_value = opposite.stacks
+							mod = 0
+						elif opposite.stacks - mod == 0:
+							opposite.queue_free()
+							mod = 0
+						else:
+							opposite.queue_free()
+							mod -= opposite.stacks
+						combat_entity.emit_signal(
+								"effect_modified",
+								combat_entity,
+								"effect_modified",
+								{"effect_name": opposite_name,
+								SP.TRIGGER_PREV_COUNT: prev_op_value,
+								SP.TRIGGER_NEW_COUNT: new_op_value,
+								"tags": tags})
 				effect = EFFECTS[effect_name].instance()
+				effect.name = effect_name.capitalize()
 				effect.entity_type = combat_entity.entity_type
 				add_child(effect)
-				effect.stacks = 0
 			cfc.flush_cache()
 			var prev_value = effect.stacks
 			if set_to_mod:
@@ -60,7 +93,7 @@ func mod_effect(
 					"effect_modified",
 					combat_entity,
 					"effect_modified",
-					{"effect_name": effect.get_effect_name(),
+					{"effect_name": effect_name,
 					SP.TRIGGER_PREV_COUNT: prev_value,
 					SP.TRIGGER_NEW_COUNT: new_value,
 					"tags": tags})

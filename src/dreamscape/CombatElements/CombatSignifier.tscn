@@ -77,5 +77,5 @@ margin_bottom = 28.0
 mouse_filter = 1
 text = "0"
 
-[connection signal="mouse_entered" from="." to="." method="_on_SingleIntent_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_SingleIntent_mouse_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_CombatSingifier_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_CombatSingifier_mouse_exited"]

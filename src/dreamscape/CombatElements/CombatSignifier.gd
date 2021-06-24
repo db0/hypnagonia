@@ -24,10 +24,11 @@ func setup(signifier_details: Dictionary, signifier_name: String) -> void:
 		decription_label.text = signifier_name
 
 
-func _on_SingleIntent_mouse_entered() -> void:
+func _on_CombatSingifier_mouse_entered() -> void:
 	decription_popup.visible = true
 	decription_popup.rect_global_position = rect_global_position - Vector2(0,50)
 
 
-func _on_SingleIntent_mouse_exited() -> void:
+func _on_CombatSingifier_mouse_exited() -> void:
 	decription_popup.visible = false
+

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/dreamscape/CombatElements/CombatEffects/Poison.gd" type="Script" id=1]
+[ext_resource path="res://src/dreamscape/CombatElements/CombatEffects/CombatEffectTemplate.tscn" type="PackedScene" id=2]
+
+[node name="Poison" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+
+[node name="Label" parent="Signifier" index="0"]
+text = "D"
+
+[node name="Icon" parent="Signifier" index="1"]
+visible = false
+
+[node name="Label" parent="Description" index="0"]
+margin_right = 309.0
+text = "Next action performed by this entity"
+
+[connection signal="mouse_entered" from="." to="." method="_on_SingleIntent_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_SingleIntent_mouse_exited"]
