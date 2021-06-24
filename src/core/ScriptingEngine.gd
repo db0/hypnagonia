@@ -103,7 +103,6 @@ func execute(_run_type := CFInt.RunType.NORMAL) -> void:
 			if not script.is_primed:
 				yield(script,"primed")
 		if script.is_primed:
-			prev_subjects = script.subjects
 			#print("Scripting Subjects: " + str(script.subjects)) # Debug
 			if script.script_name == "custom_script":
 				# This class contains the customly defined scripts for each
@@ -114,6 +113,7 @@ func execute(_run_type := CFInt.RunType.NORMAL) -> void:
 					and (not costs_dry_run()
 						or (costs_dry_run() and script.is_cost)):
 				#print(script.is_valid,':',costs_dry_run())
+				prev_subjects = script.subjects
 				for card in script.subjects:
 					card.temp_properties_modifiers[self] = {
 						"requesting_object": script.owner,

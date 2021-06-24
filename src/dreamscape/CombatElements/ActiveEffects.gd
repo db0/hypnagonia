@@ -9,20 +9,20 @@ const NAMES := {
 	"empower": "empower",
 	"disempower": "weaken",
 	"advantage": "advantage",
-	"disadvantage": "disadvantage",
+	"vulnerable": "vulnerable",
 }
 
 const EFFECTS := {
 	NAMES.disempower: preload("res://src/dreamscape/CombatElements/CombatEffects/Disempower.tscn"),
 	NAMES.empower: preload("res://src/dreamscape/CombatElements/CombatEffects/Empower.tscn"),
 	NAMES.poison: preload("res://src/dreamscape/CombatElements/CombatEffects/Poison.tscn"),
+	NAMES.vulnerable: preload("res://src/dreamscape/CombatElements/CombatEffects/Vulnerable.tscn"),
+	NAMES.advantage: preload("res://src/dreamscape/CombatElements/CombatEffects/Advantage.tscn"),
 }
 
 # When a stack of an effect is added and its opposite exists, before adding a stack
 # we remove the same amount of its opposite from the amount.
 const OPPOSITES := {
-	NAMES.advantage: NAMES.disadvantage,
-	NAMES.disadvantage: NAMES.advantage,
 	NAMES.empower: NAMES.disempower,
 	NAMES.disempower: NAMES.empower,
 }

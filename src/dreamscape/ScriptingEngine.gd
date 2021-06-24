@@ -13,7 +13,7 @@ func _init(state_scripts: Array,
 
 
 func predict() -> void:
-	all_tasks_completed = false
+	run_type = CFInt.RunType.COST_CHECK
 	var prev_subjects := []
 	for task in scripts_queue:
 		# We put it into another variable to allow Static Typing benefits
@@ -80,27 +80,29 @@ func calculate_inflict_damage(subject: CombatEntity, script: ScriptTask) -> int:
 		damage = per_msg.found_things
 	else:
 		damage = script.get_property(SP.KEY_AMOUNT)
-	alteration = _check_for_effect_alterants(script, damage)
+	alteration = _check_for_effect_alterants(script, damage, subject)
 	if alteration is GDScriptFunctionState:
 		alteration = yield(alteration, "completed")
 	return(damage + alteration)
+
 
 func inflict_damage(script: ScriptTask) -> int:
 	var retcode: int
 	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
 	for combat_entity in script.subjects:
 		var damage = calculate_inflict_damage(combat_entity, script)
+		# To allow effects like advantage to despawn
+		yield(cfc.get_tree().create_timer(0.01), "timeout")
 		retcode = combat_entity.take_damage(
 				damage,
 				costs_dry_run(),
 				tags)
 	return(retcode)
-	
-func assign_defence(script: ScriptTask, predict_amount := false) -> int:
+
+
+func calculate_assign_defence(subject: CombatEntity, script: ScriptTask) -> int:
 	var modification: int
 	var alteration = 0
-	var retcode: int
-	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
 	if str(script.get_property(SP.KEY_AMOUNT)) == SP.VALUE_RETRIEVE_INTEGER:
 		# If the modification is requested, is only applies to stored integers
 		# so we flip the stored_integer's value.
@@ -117,18 +119,23 @@ func assign_defence(script: ScriptTask, predict_amount := false) -> int:
 		modification = per_msg.found_things
 	else:
 		modification = script.get_property(SP.KEY_AMOUNT)
-	alteration = _check_for_alterants(script, modification)
+	alteration = _check_for_effect_alterants(script, modification, subject)
 	if alteration is GDScriptFunctionState:
 		alteration = yield(alteration, "completed")
+	return(modification + alteration)
+	
+func assign_defence(script: ScriptTask) -> int:
+	var retcode: int
+	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
 	for combat_entity in script.subjects:
+		var defence = calculate_assign_defence(combat_entity, script)
+		# To allow effects like advantage to despawn
+		yield(cfc.get_tree().create_timer(0.01), "timeout")
 		retcode = combat_entity.receive_defence(
-				modification + alteration,
+				defence,
 				costs_dry_run(),
 				tags)
-	if predict_amount:
-		return(modification + alteration)
-	else:
-		return(retcode)
+	return(retcode)
 
 func apply_effect(script: ScriptTask) -> int:
 	var retcode: int
@@ -185,19 +192,24 @@ func apply_effect(script: ScriptTask) -> int:
 
 # Initiates a seek through the owner and target combat entity to see if there's any effects
 # which modify the intensity of the task in question
-func _check_for_effect_alterants(script: ScriptTask, value: int) -> int:
+func _check_for_effect_alterants(script: ScriptTask, value: int, subject: CombatEntity) -> int:
 	var total_alteration = 0
 	var alteration_details = {}
 	var source_object: CombatEntity
-	if script.trigger_object.get_class() == "Card":
+	if script.owner.get_class() == "Card":
 		source_object = cfc.NMAP.board.dreamer
-	elif "combat_entity" in script.trigger_object:
-		source_object = script.trigger_object.combat_entity
+	elif "combat_entity" in script.owner:
+		source_object = script.owner.combat_entity
 	else:
-		source_object = script.trigger_object
+		source_object = script.owner
 	var all_source_effects = source_object.active_effects.get_all_effects().values()
 	for effect in all_source_effects:
-		var alteration : int = effect.get_effect_alteration(script, value, true)
+		var alteration : int = effect.get_effect_alteration(script, value, self, true, costs_dry_run())
+		alteration_details[effect] = alteration
+		total_alteration += alteration
+	var all_subject_effects = subject.active_effects.get_all_effects().values()
+	for effect in all_subject_effects:
+		var alteration : int = effect.get_effect_alteration(script, value, self, false, costs_dry_run())
 		alteration_details[effect] = alteration
 		total_alteration += alteration
 	return(total_alteration)

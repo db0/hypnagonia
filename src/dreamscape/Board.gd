@@ -1,6 +1,8 @@
 extends Board
 
+const CARD_GROUPS = preload("res://src/dreamscape/cards/sets/CardGroups.gd")
 const ENEMY_ENTITY_SCENE = preload("res://src/dreamscape/CombatElements/Enemies/EnemyEntity.tscn")
+
 var end_turn : Button
 var turn := Turn.new()
 var dreamer: PlayerEntity
@@ -31,13 +33,14 @@ func _ready() -> void:
 	}
 	dreamer.setup("Dreamer", dreamer_properties)
 	add_child(dreamer)
+	dreamer.rect_position = Vector2(100,100)
 	var torment = spawn_enemy("Gaslighter")
 	var torment2 = spawn_enemy("Gaslighter")
 	torment2.rect_position = Vector2(800,100)
-	dreamer.active_effects.mod_effect(ActiveEffects.NAMES.disempower, 5)
-	dreamer.active_effects.mod_effect(ActiveEffects.NAMES.poison, 5)
-	dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
-	torment.active_effects.mod_effect(ActiveEffects.NAMES.empower, 5)
+#	dreamer.active_effects.mod_effect(ActiveEffects.NAMES.disempower, 5)
+#	dreamer.active_effects.mod_effect(ActiveEffects.NAMES.poison, 5)
+#	dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
+#	torment.active_effects.mod_effect(ActiveEffects.NAMES.empower, 5)
 
 func spawn_enemy(enemy_name) -> EnemyEntity:
 	var enemy_properties = EnemyDefinitions.ENEMIES.get(enemy_name)
@@ -101,25 +104,28 @@ func _on_Debug_toggled(button_pressed: bool) -> void:
 
 # Loads a sample set of cards to use for testing
 func load_test_cards() -> void:
-	var card_names = []
-	var test_cards := []
-	for ckey in cfc.card_definitions.keys():
-		if ckey != "Spawn Card":
-			card_names.append(ckey)
+	var test_deck = {
+		"class": "Flyer",
+		"race": "Fearless",
+		"item": "Rubber Chicken",
+		"life_goal": "Abusive Relationship",
+	}
 	var test_card_array := []
-	for _i in range(12):
-		if not card_names.empty():
-			var random_card_name = \
-					card_names[CFUtils.randi() % len(card_names)]
-			test_card_array.append(cfc.instance_card(random_card_name))
-	# 11 is the cards GUT expects. It's the testing standard
-	# I ensure there's of each test card, for use in GUT
-	for card_name in test_cards:
+	for card_name in assemble_starting_deck(test_deck):
 		test_card_array.append(cfc.instance_card(card_name))
 	for card in test_card_array:
 		$Deck.add_child(card)
 		#card.set_is_faceup(false,true)
 		card._determine_idle_state()
+
+
+func assemble_starting_deck(starting_deck_groups: Dictionary) -> Array:
+	var all_cards : Array
+	for key in starting_deck_groups:
+		all_cards += CARD_GROUPS[key.to_upper()][starting_deck_groups[key]]["Starting Cards"]
+	return(all_cards)
+
+	
 
 func _on_DeckBuilder_pressed() -> void:
 	cfc.game_paused = true

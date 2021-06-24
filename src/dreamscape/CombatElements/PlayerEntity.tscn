@@ -8,21 +8,25 @@
 ] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="Incoming" parent="." index="0"]
+[node name="CenterContainer" parent="." index="0"]
 margin_right = 73.0
+
+[node name="Incoming" parent="CenterContainer" index="0"]
+margin_left = 36.0
+margin_right = 36.0
 
 [node name="Texture" parent="." index="1"]
 margin_right = 73.0
 
 [node name="Name" parent="." index="2"]
 margin_right = 73.0
-margin_bottom = 86.0
+margin_bottom = 110.0
 text = "Dreamer"
 
 [node name="HBC" parent="." index="3"]
-margin_top = 90.0
+margin_top = 114.0
 margin_right = 73.0
-margin_bottom = 104.0
+margin_bottom = 128.0
 
 [node name="Defence" parent="HBC" index="0"]
 margin_right = 16.0
@@ -33,6 +37,6 @@ margin_right = 73.0
 text = "100/100"
 
 [node name="ActiveEffects" parent="." index="4"]
-margin_top = 108.0
+margin_top = 132.0
 margin_right = 73.0
-margin_bottom = 108.0
+margin_bottom = 156.0

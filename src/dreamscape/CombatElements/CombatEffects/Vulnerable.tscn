@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/dreamscape/CombatElements/CombatEffects/Vulnerable.gd" type="Script" id=1]
+[ext_resource path="res://src/dreamscape/CombatElements/CombatEffects/CombatEffectTemplate.tscn" type="PackedScene" id=2]
+
+[node name="Vulnerable" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+self_decreasing = 2
+
+[node name="Label" parent="Signifier" index="0"]
+text = "V"
+
+[node name="Icon" parent="Signifier" index="1"]
+visible = false

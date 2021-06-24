@@ -11,6 +11,7 @@ export(SELF_DECREASE) var self_decreasing
 
 var entity_type: String
 var stacks: int = 0 setget set_stacks
+var description_string := ''
 
 func setup(signifier_details: Dictionary, signifier_name: String) -> void:
 	.setup(signifier_details, signifier_name)
@@ -31,7 +32,9 @@ func set_stacks(value: int) -> void:
 		queue_free()
 
 # To override. This is called by the scripting engine
-func get_effect_alteration(script: ScriptTask, value: int, is_source) -> int:
+# Is source is telling this script whether we're checking for alterants affecting the 
+# entity applying this effect, or the antity receiving this effect.
+func get_effect_alteration(script: ScriptTask, value: int, sceng, is_source: bool, dry_run:= true) -> int:
 	return(0)
 
 func _on_CombatSingifier_mouse_entered() -> void:
@@ -39,10 +42,11 @@ func _on_CombatSingifier_mouse_entered() -> void:
 	._on_CombatSingifier_mouse_entered()
 
 
-# To override
 func _set_current_description() -> void:
-	pass
-
+	var format = Terms.COMMON_FORMATS[entity_type].duplicate()
+	format["effect_name"] = name
+	format["amount"] = str(stacks)
+	decription_label.text = description_string.format(format)
 
 # Returns the lowercase name of the token
 func get_effect_name() -> String:

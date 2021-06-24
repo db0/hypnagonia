@@ -28,7 +28,7 @@ const CARDS := {
 	"Dive-in": {
 		"Type": "Control",
 		"Tags": [],
-		"Abilities": "Gain 2 Vulnerable. Your next attack removes interprets double.",
+		"Abilities": "Gain 2 Vulnerable. Your next interpretation is doubled.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 	},
@@ -57,6 +57,13 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "Interpret target Torment for 5 and apply weaken.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+	},
+	"Inner Justice": {
+		"Type": "Concentration",
+		"Tags": [],
+		"Abilities": "Undefined",
 		"Cost": 1,
 		"_illustration": "Nobody",
 	},

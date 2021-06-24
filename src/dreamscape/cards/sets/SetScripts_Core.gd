@@ -48,6 +48,24 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
+		"Dive-in": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect": ActiveEffects.NAMES.vulnerable,
+						"subject": "dreamer",
+						"modification": 2,
+					},
+					{
+						"name": "apply_effect",
+						"effect": ActiveEffects.NAMES.advantage,
+						"subject": "dreamer",
+						"modification": 1,
+					}
+				],
+			},
+		},
 		"Defend": {
 			"manual": {
 				"hand": [
