@@ -36,10 +36,6 @@ func _ready() -> void:
 	dreamer.active_effects.mod_effect("doubt", 5)
 	dreamer.active_effects.mod_effect("advantage", 5)
 	torment.active_effects.mod_effect("weaken")
-	yield(get_tree().create_timer(0.1), "timeout")
-	dreamer.active_effects.mod_effect("weaken")
-	yield(get_tree().create_timer(0.1), "timeout")
-	dreamer.active_effects.mod_effect("weaken")
 
 func spawn_enemy(enemy_name) -> EnemyEntity:
 	var enemy_properties = EnemyDefinitions.ENEMIES.get(enemy_name)

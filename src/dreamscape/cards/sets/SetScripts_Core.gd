@@ -13,7 +13,25 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "inflict_damage",
 						"subject": "target",
 						"is_cost": true,
-						"damage": 6,
+						"amount": 6,
+					}
+				],
+			},
+		},
+		"Noisy Whip": {
+			"manual": {
+				"hand": [
+					{
+						"name": "inflict_damage",
+						"subject": "target",
+						"is_cost": true,
+						"amount": 5,
+					},
+					{
+						"name": "apply_effect",
+						"effect": ActiveEffects.NAMES.disadvantage,
+						"subject": "previous",
+						"modification": 1,
 					}
 				],
 			},
@@ -22,10 +40,10 @@ func get_scripts(card_name: String) -> Dictionary:
 			"manual": {
 				"hand": [
 					{
-						"name": "assign_armor",
+						"name": "assign_defence",
 						"subject": "dreamer",
 						"is_cost": true,
-						"armor": 5,
+						"amount": 5,
 					}
 				],
 			},

@@ -72,3 +72,56 @@ func assign_defence(script: ScriptTask) -> int:
 				costs_dry_run(),
 				tags)
 	return(retcode)
+
+func apply_effect(script: ScriptTask) -> int:
+	var retcode: int
+	var modification: int
+	var alteration = 0
+	var effect_name: String = script.get_property(SP.KEY_EFFECT)
+	# We inject the tags from the script into the tags sent by the signal
+	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
+	if str(script.get_property(SP.KEY_MODIFICATION)) == SP.VALUE_RETRIEVE_INTEGER:
+		modification = stored_integer
+		if script.get_property(SP.KEY_IS_INVERTED):
+			modification *= -1
+	elif SP.VALUE_PER in str(script.get_property(SP.KEY_MODIFICATION)):
+		var per_msg = perMessage.new(
+				script.get_property(SP.KEY_MODIFICATION),
+				script.owner,
+				script.get_property(script.get_property(SP.KEY_MODIFICATION)),
+				null,
+				script.subjects)
+		modification = per_msg.found_things
+		print_debug(per_msg.found_things, modification)
+	else:
+		modification = script.get_property(SP.KEY_MODIFICATION)
+	var set_to_mod: bool = script.get_property(SP.KEY_SET_TO_MOD)
+	if not set_to_mod:
+		alteration = _check_for_alterants(script, modification)
+		if alteration is GDScriptFunctionState:
+			alteration = yield(alteration, "completed")
+	var stacks_diff := 0
+	for e in script.subjects:
+		var entity: CombatEntity = e
+		var current_stacks: int
+		# If we're storing the integer, we want to store the difference
+		# cumulative difference between the current and modified effect stacks
+		# among all the tasrgets
+		# If we set set stacks to 1, and one entity had 3 stacks,
+		# while another had 0
+		# The total stored integer would be -1
+		# This allows us to do an effect like
+		# Remove all Poison stacks from all entities, gain 1 health for each stack removed.
+		if script.get_property(SP.KEY_STORE_INTEGER):
+			current_stacks = entity.active_effects.get_effect_stacks(effect_name)
+			if set_to_mod:
+				stacks_diff += modification + alteration - current_stacks
+			elif current_stacks + modification + alteration < 0:
+				stacks_diff += -current_stacks
+			else:
+				stacks_diff = modification + alteration
+		retcode = entity.active_effects.mod_effect(effect_name,
+				modification + alteration,set_to_mod,costs_dry_run(), tags)
+	if script.get_property(SP.KEY_STORE_INTEGER):
+		stored_integer = stacks_diff
+	return(retcode)

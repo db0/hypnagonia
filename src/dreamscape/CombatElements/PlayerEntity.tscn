@@ -19,7 +19,7 @@ margin_top = 86.0
 margin_right = 73.0
 margin_bottom = 100.0
 
-[node name="Armor" parent="HBC" index="0"]
+[node name="Defence" parent="HBC" index="0"]
 margin_right = 16.0
 
 [node name="Health" parent="HBC" index="1"]

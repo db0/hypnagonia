@@ -10,6 +10,7 @@ extends ScriptProperties
 # Used for specifying the amount of something a script provides
 # e.g. amount of damage, or amount of armor
 const KEY_AMOUNT = "amount"
+const KEY_EFFECT = "effect"
 
 # This call has been setup to call the original, and allow futher extension
 # simply create new filter

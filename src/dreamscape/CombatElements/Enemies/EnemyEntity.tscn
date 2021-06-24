@@ -25,5 +25,4 @@ margin_bottom = 151.0
 
 [node name="ActiveEffects" parent="." index="4"]
 margin_top = 155.0
-margin_right = 65.0
 margin_bottom = 155.0

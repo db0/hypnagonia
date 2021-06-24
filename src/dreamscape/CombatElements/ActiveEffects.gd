@@ -1,7 +1,16 @@
 class_name ActiveEffects
 extends GridContainer
 
-const EFFECTS_MAP = {
+
+# A way to map generic names to thematic names, so that I can perform
+# a rename later if needed
+const NAMES := {
+	"poison": "doubt",
+	"advantage": "advantage",
+	"disadvantage": "weaken",
+}
+
+const EFFECTS = {
 	"weaken": preload("res://src/dreamscape/CombatElements/CombatEffects/Weaken.tscn"),
 	"advantage": preload("res://src/dreamscape/CombatElements/CombatEffects/Advantage.tscn"),
 	"doubt": preload("res://src/dreamscape/CombatElements/CombatEffects/Doubt.tscn"),
@@ -25,17 +34,16 @@ func mod_effect(
 			check := false,
 			tags := ["Manual"]) -> int:
 	var retcode : int
-	if not EFFECTS_MAP.get(effect_name, null):
+	if not EFFECTS.get(effect_name, null):
 		retcode = CFConst.ReturnCode.FAILED
 	else:
 		retcode = CFConst.ReturnCode.CHANGED
 		var effect : CombatEffect = get_all_effects().get(effect_name, null)
-		print_debug(get_all_effects())
 		if not effect and mod <= 0:
 			pass
 		elif not check:
 			if not effect:
-				effect = EFFECTS_MAP[effect_name].instance()
+				effect = EFFECTS[effect_name].instance()
 				effect.entity_type = combat_entity.entity_type
 				add_child(effect)
 				effect.stacks = 0
@@ -63,3 +71,19 @@ func get_all_effects() -> Dictionary:
 	for effect in get_children():
 		found_effects[effect.get_effect_name()] = effect
 	return found_effects
+
+
+# Returns the token node of the provided name or null if not found.
+func get_effect(effect_name: String) -> CombatEffect:
+	return(get_all_effects().get(effect_name,null))
+
+
+# Returns only the stacks if the effect exists.
+# Else it returns 0
+func get_effect_stacks(effect_name: String) -> int:
+	var effect: CombatEffect = get_effect(effect_name)
+	if not effect:
+		return(0)
+	else:
+		return(effect.stacks)
+
