@@ -32,9 +32,9 @@ func set_stacks(value: int) -> void:
 		queue_free()
 
 
-func _on_CombatSingifier_mouse_exited() -> void:
+func _on_CombatSingifier_mouse_entered() -> void:
 	_set_current_description()
-	._on_CombatSingifier_mouse_exited()
+	._on_CombatSingifier_mouse_entered()
 
 
 # To override

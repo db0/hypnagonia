@@ -28,12 +28,12 @@ var all_effects: Dictionary
 var combat_entity
 
 
-# Adds a token to the card
+# Adds a combat effect to the entity
 #
-# If the token of that name doesn't exist, it creates it according to the config.
+# If the effect of that name doesn't exist, it creates it according to the config.
 #
-# If the amount of existing tokens of that type drops to 0 or lower,
-# the token node is also removed.
+# If the amount of existing effects of that type drops to 0 or lower,
+# the effect node is also removed.
 func mod_effect(
 			effect_name : String,
 			mod := 1,
@@ -57,16 +57,16 @@ func mod_effect(
 						var prev_op_value = opposite.stacks
 						var new_op_value = 0
 						if set_to_mod:
-							opposite.queue_free()
+							opposite.stacks = 0
 						elif opposite.stacks - mod > 0:
 							opposite.stacks -= mod
 							new_op_value = opposite.stacks
 							mod = 0
 						elif opposite.stacks - mod == 0:
-							opposite.queue_free()
+							opposite.stacks = 0
 							mod = 0
 						else:
-							opposite.queue_free()
+							opposite.stacks = 0
 							mod -= opposite.stacks
 						combat_entity.emit_signal(
 								"effect_modified",
@@ -81,14 +81,15 @@ func mod_effect(
 				effect.entity_type = combat_entity.entity_type
 				add_child(effect)
 			cfc.flush_cache()
-			var prev_value = effect.stacks
+			var prev_value := effect.stacks
+			var new_value := 0
 			if set_to_mod:
 				effect.stacks = mod
+				new_value = mod
 			else:
+				new_value += mod
+				if new_value <0: new_value = 0
 				effect.stacks += mod
-			var new_value = effect.stacks
-			if effect.stacks == 0:
-				effect.queue_free()
 			combat_entity.emit_signal(
 					"effect_modified",
 					combat_entity,

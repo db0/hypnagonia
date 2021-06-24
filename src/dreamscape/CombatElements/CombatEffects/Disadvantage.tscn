@@ -12,10 +12,3 @@ text = "W"
 
 [node name="Icon" parent="Signifier" index="1"]
 visible = false
-
-[node name="Label" parent="Description" index="0"]
-margin_right = 309.0
-text = "Next action performed by this entity"
-
-[connection signal="mouse_entered" from="." to="." method="_on_SingleIntent_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_SingleIntent_mouse_exited"]
