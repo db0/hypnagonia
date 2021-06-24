@@ -1306,6 +1306,7 @@ func execute_scripts(
 				self,
 				trigger_card,
 				trigger_details)
+		common_pre_run(sceng)
 		# In case the script involves targetting, we need to wait on further
 		# execution until targetting has completed
 		sceng.execute(CFInt.RunType.COST_CHECK)
@@ -1334,6 +1335,9 @@ func execute_scripts(
 			sceng.execute(CFInt.RunType.ELSE)
 	return(sceng)
 
+
+func common_pre_run(sceng) -> void:
+	pass
 
 # Retrieves the card scripts either from those defined on the card
 # itself, or from those defined in the script definition files

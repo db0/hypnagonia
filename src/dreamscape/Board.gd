@@ -32,6 +32,8 @@ func _ready() -> void:
 	dreamer.setup("Dreamer", dreamer_properties)
 	add_child(dreamer)
 	var torment = spawn_enemy("Gaslighter")
+	var torment2 = spawn_enemy("Gaslighter")
+	torment2.rect_position = Vector2(800,100)
 	dreamer.active_effects.mod_effect(ActiveEffects.NAMES.disempower, 5)
 	dreamer.active_effects.mod_effect(ActiveEffects.NAMES.poison, 5)
 	dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)

@@ -13,7 +13,13 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "inflict_damage",
 						"subject": "target",
 						"is_cost": true,
-						"amount": 6,
+						"amount": 10,
+					},
+					{
+						"name": "inflict_damage",
+						"subject": "previous",
+						"is_cost": true,
+						"amount": 4,
 					}
 				],
 			},

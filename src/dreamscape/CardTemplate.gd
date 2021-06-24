@@ -17,7 +17,7 @@ func get_modified_credits_cost() -> int:
 # Returns a dictionary of card scripts for this specific card
 # based on the current trigger.
 func retrieve_scripts(trigger: String) -> Dictionary:
-	if tutorial_disabled: 
+	if tutorial_disabled:
 		return({})
 	var found_scripts = .retrieve_scripts(trigger).duplicate(true)
 	if trigger == "manual" and get_state_exec() == "hand":
@@ -63,7 +63,7 @@ func get_modified_immersion_cost() -> Dictionary:
 		"alterant_cards": merge_modifier_dicts(immersion_cost_details)
 	}
 	return(return_dict)
-	
+
 # Merges alterant modifiers with temp_modifiers into one Dictionary
 func merge_modifier_dicts(container_dict) -> Dictionary:
 	var modifier_details : Dictionary =\
@@ -74,7 +74,7 @@ func merge_modifier_dicts(container_dict) -> Dictionary:
 		else:
 			modifier_details[c] = container_dict.temp_modifiers.modifier_details[c]
 	return(modifier_details)
-	
+
 # Adds payment costs into a card's custom scripts under a special trigger
 # and executes them so that they are all processed by the ScriptingEngine
 func pay_play_costs() -> void:
@@ -85,6 +85,7 @@ func pay_play_costs() -> void:
 	scripts["payments"].clear()
 
 # Uses a template to create task definitions for paying time and kudos costs
+# then returns it to the calling function to execute or insert it into
 # then returns it to the calling function to execute or insert it into
 # the cards existing scripts for its state.
 func generate_play_costs_tasks() -> Array:
@@ -127,3 +128,21 @@ func insert_payment_costs(found_scripts) -> Dictionary:
 			temp_array += state_scripts[key]
 			found_scripts["hand"][key] = temp_array
 	return(found_scripts)
+
+func execute_scripts(
+		trigger_card: Card = self,
+		trigger: String = "manual",
+		trigger_details: Dictionary = {},
+		only_cost_check := false):
+	var sceng = .execute_scripts(
+		trigger_card,
+		trigger,
+		trigger_details,
+		only_cost_check)
+	if sceng is GDScriptFunctionState: # Still working.
+		sceng = yield(sceng, "completed")
+	for entity in cfc.get_tree().get_nodes_in_group("CombatEntities"):
+		entity.clear_predictions()
+
+func common_pre_run(sceng) -> void:
+	sceng.predict()

@@ -1,6 +1,7 @@
 class_name CombatEntity
 extends VBoxContainer
 
+const INCOMING_SIGNIFIER_SCENE = preload("res://src/dreamscape/CombatElements/IncomingSignifier.tscn")
 
 signal effect_modified(entity,trigger,details)
 
@@ -12,6 +13,7 @@ onready var health_label : Label = $HBC/Health
 onready var name_label : Label = $Name
 onready var defence_label : Label = $HBC/Defence
 onready var active_effects := $ActiveEffects
+onready var incoming := $CenterContainer/Incoming
 
 var health : int setget set_health
 var max_health : int setget set_max_health
@@ -80,6 +82,15 @@ func receive_defence(amount: int, dry_run := false, tags := ["Manual"]) -> int:
 	
 func get_class() -> String:
 	return("CombatEntity")
+
+func show_predictions(value: int) -> void:
+	var incoming_node = INCOMING_SIGNIFIER_SCENE.instance()
+	incoming.add_child(incoming_node)
+	incoming_node.get_node("Label").text = str(value)
+
+func clear_predictions() -> void:
+	for node in incoming.get_children():
+		node.queue_free()
 
 func _update_health_label() -> void:
 	health_label.text = str(health) + '/' + str(max_health)

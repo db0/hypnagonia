@@ -11,11 +11,59 @@ func _init(state_scripts: Array,
 		_trigger_details) -> void:
 	pass
 
-func inflict_damage(script: ScriptTask) -> int:
+
+func predict() -> void:
+	all_tasks_completed = false
+	var prev_subjects := []
+	for task in scripts_queue:
+		# We put it into another variable to allow Static Typing benefits
+		var script: ScriptTask = task
+		# We store the temp modifiers to counters, so that things like
+		# info during targetting can take them into account
+		cfc.NMAP.board.counters.temp_count_modifiers[self] = {
+				"requesting_object": script.owner,
+				"modifier": _retrieve_temp_modifiers(script,"counters")
+			}
+		# This is provisionally stored for games which need to use this
+		# information before card subjects have been selected.
+		cfc.card_temp_property_modifiers[self] = {
+			"requesting_object": script.owner,
+			"modifier": _retrieve_temp_modifiers(script, "properties")
+		}
+		script.subjects = predict_subjects(script, prev_subjects)
+		prev_subjects = script.subjects
+		#print("Scripting Subjects: " + str(script.subjects)) # Debug
+		if script.script_name == "custom_script": # TODO
+			# This class contains the customly defined scripts for each
+			# card.
+			var custom := CustomScripts.new(costs_dry_run())
+			custom.custom_script(script)
+		for entity in script.subjects:
+#				entity.temp_properties_modifiers[self] = {
+#					"requesting_object": script.owner,
+#					"modifier": _retrieve_temp_modifiers(script, "properties")
+#				}
+			var prediction_method = "calculate_" + script.script_name
+			if has_method(prediction_method):
+				var amount = call(prediction_method, entity, script)
+				if amount is GDScriptFunctionState:
+					amount = yield(amount, "completed")
+				entity.show_predictions(amount)
+
+
+func predict_subjects(script: ScriptTask, prev_subjects: Array) -> Array:
+	match script.get_property(SP.KEY_SUBJECT):
+		SP.KEY_SUBJECT_V_TARGET:
+			return(cfc.NMAP.board.enemies)
+		SP.KEY_SUBJECT_V_PREVIOUS:
+			return(prev_subjects)
+		_:
+			return([])
+
+
+func calculate_inflict_damage(subject: CombatEntity, script: ScriptTask) -> int:
 	var damage: int
 	var alteration = 0
-	var retcode: int
-	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
 	if str(script.get_property(SP.KEY_AMOUNT)) == SP.VALUE_RETRIEVE_INTEGER:
 		# If the damage is requested, is only applies to stored integers
 		# so we flip the stored_integer's value.
@@ -35,14 +83,20 @@ func inflict_damage(script: ScriptTask) -> int:
 	alteration = _check_for_effect_alterants(script, damage)
 	if alteration is GDScriptFunctionState:
 		alteration = yield(alteration, "completed")
+	return(damage + alteration)
+
+func inflict_damage(script: ScriptTask) -> int:
+	var retcode: int
+	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
 	for combat_entity in script.subjects:
+		var damage = calculate_inflict_damage(combat_entity, script)
 		retcode = combat_entity.take_damage(
-				damage + alteration,
+				damage,
 				costs_dry_run(),
 				tags)
 	return(retcode)
 	
-func assign_defence(script: ScriptTask) -> int:
+func assign_defence(script: ScriptTask, predict_amount := false) -> int:
 	var modification: int
 	var alteration = 0
 	var retcode: int
@@ -71,7 +125,10 @@ func assign_defence(script: ScriptTask) -> int:
 				modification + alteration,
 				costs_dry_run(),
 				tags)
-	return(retcode)
+	if predict_amount:
+		return(modification + alteration)
+	else:
+		return(retcode)
 
 func apply_effect(script: ScriptTask) -> int:
 	var retcode: int
