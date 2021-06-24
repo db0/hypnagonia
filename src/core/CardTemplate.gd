@@ -1336,9 +1336,6 @@ func execute_scripts(
 	return(sceng)
 
 
-func common_pre_run(sceng) -> void:
-	pass
-
 # Retrieves the card scripts either from those defined on the card
 # itself, or from those defined in the script definition files
 #
@@ -1678,6 +1675,17 @@ func common_post_move_scripts(new_host: Node, old_host: Node, move_tags: Array) 
 # This is useful for example, for paying the costs of one-use cards before executing them
 # warning-ignore:unused_argument
 func common_pre_execution_scripts(trigger: String) -> void:
+	pass
+
+
+# This function can be overriden by any class extending Card, in order to provide
+# a way of running special functions on an extended scripting engine.
+#
+# It is called after the scripting engine is initiated, but before it's initiated
+# the first time
+#
+# warning-ignore:unused_argument
+func common_pre_run(sceng) -> void:
 	pass
 
 

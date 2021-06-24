@@ -14,6 +14,9 @@ func get_scripts(card_name: String) -> Dictionary:
 						"subject": "target",
 						"is_cost": true,
 						"amount": 10,
+						"filter_state_subject": [{
+							"filter_group": "CombatEntities",
+						}],
 					},
 					{
 						"name": "inflict_damage",
@@ -32,6 +35,9 @@ func get_scripts(card_name: String) -> Dictionary:
 						"subject": "target",
 						"is_cost": true,
 						"amount": 5,
+						"filter_state_subject": [{
+							"filter_group": "CombatEntities",
+						}],
 					},
 					{
 						"name": "apply_effect",

@@ -23,6 +23,4 @@ static func filter_trigger(
 		trigger_card,
 		owner_card,
 		trigger_details)
-	# This is a sample setup of how you would setup a new filter. 
-	# See ScriptProperties for more advanced filters
 	return(is_valid)

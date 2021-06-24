@@ -18,7 +18,8 @@ func complete_targeting() -> void:
 
 # Triggers when a targetting arrow hovers over a combat entity while being dragged
 func _on_ArrowHead_area_entered(area: Area2D) -> void:
-	if area.get_class() == 'CombatEntity' and not area in _potential_targets:
+	._on_ArrowHead_area_entered(area)
+	if area.get_class() == 'CombatEntity' and not area.get_combat_entity() in _potential_targets:
 		_potential_targets.append(area.get_combat_entity())
 #		if 'highlight' in owner_object:
 #			owner_object.highlight.highlight_potential_card(
@@ -27,7 +28,8 @@ func _on_ArrowHead_area_entered(area: Area2D) -> void:
 
 # Triggers when a targetting arrow stops hovering over a combat entity
 func _on_ArrowHead_area_exited(area: Area2D) -> void:
-	if area.get_class() == 'CombatEntity' and area in _potential_targets:
+	._on_ArrowHead_area_exited(area)
+	if area.get_class() == 'CombatEntity' and area.get_combat_entity() in _potential_targets:
 		# We remove the card we stopped hovering from the _potential_targets
 		var combat_entity = area.get_combat_entity()
 		_potential_targets.erase(combat_entity)
@@ -39,3 +41,5 @@ func _on_ArrowHead_area_exited(area: Area2D) -> void:
 #			owner_object.highlight.highlight_potential_card(
 #				CFConst.TARGET_HOVER_COLOUR,
 #				_potential_targets)
+
+
