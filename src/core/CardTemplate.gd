@@ -2015,7 +2015,7 @@ func _process_card_state() -> void:
 			if cfc.game_settings.hand_use_oval_shape:
 				_target_rotation  = _recalculate_rotation()
 				if not $Tween.is_active() \
-						and $Control.rect_rotation != _target_rotation:
+						and not CFUtils.compare_floats($Control.rect_rotation, _target_rotation):
 					_add_tween_rotation($Control.rect_rotation,_target_rotation)
 					$Tween.start()
 

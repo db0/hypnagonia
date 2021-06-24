@@ -21,6 +21,7 @@ onready var pile_name_label := $Control/CenterContainer/VBoxContainer/Label
 onready var card_count_label := $Control/CenterContainer/VBoxContainer\
 		/PanelContainer/CenterContainer/CardCount
 
+var shuffle_in_progress := false
 
 func _ready():
 	add_to_group("piles")
@@ -283,6 +284,7 @@ func shuffle_cards(animate = true) -> void:
 	# but if we did so, we would not be able to refer to it from the Card
 	# class, as that would cause a cyclic dependency on the parser
 	# So we've placed it in CFConst instead.
+	shuffle_in_progress = true
 	if not $Tween.is_active() \
 			and animate \
 			and shuffle_style != CFConst.ShuffleStyle.NONE \
@@ -407,6 +409,7 @@ func shuffle_cards(animate = true) -> void:
 		# if we're already running another animation, just shuffle
 		.shuffle_cards()
 	reorganize_stack()
+	shuffle_in_progress = false
 	emit_signal("shuffle_completed")
 
 

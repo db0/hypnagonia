@@ -126,18 +126,14 @@ func assemble_starting_deck(starting_deck_groups: Dictionary) -> Array:
 	return(all_cards)
 
 	
-
-func _on_DeckBuilder_pressed() -> void:
-	cfc.game_paused = true
-	$DeckBuilderPopup.popup_centered_minsize()
-
-func _on_DeckBuilder_hide() -> void:
-	cfc.game_paused = false
-
 func _on_turn_started(turn: Turn) -> void:
-	pass
+	yield(cfc.NMAP.hand, "hand_refilled")
+	while cfc.NMAP.hand.are_cards_still_animating():
+		yield(get_tree().create_timer(0.3), "timeout")
+	end_turn.disabled = false
 
 func _on_turn_ended(turn: Turn) -> void:
+	end_turn.disabled = true
 	activated_enemies.clear()
 	for enemy in enemies:
 #		print_debug("Activating Intents: " + enemy.canonical_name)

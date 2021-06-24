@@ -138,7 +138,6 @@ margin_bottom = 60.0
 
 [node name="Hand" parent="." instance=ExtResource( 3 )]
 position = Vector2( 155, 480 )
-excess_cards = 0
 
 [node name="HBC" type="HBoxContainer" parent="."]
 margin_left = 5.03967
