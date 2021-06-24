@@ -4,10 +4,10 @@ extends ScriptingEngine
 # Just calls the parent class.
 func _init(state_scripts: Array,
 		owner,
-		_trigger_card: Card,
+		_trigger_object: Node,
 		_trigger_details: Dictionary).(state_scripts,
 		owner,
-		_trigger_card,
+		_trigger_object,
 		_trigger_details) -> void:
 	pass
 
@@ -32,7 +32,7 @@ func inflict_damage(script: ScriptTask) -> int:
 		damage = per_msg.found_things
 	else:
 		damage = script.get_property(SP.KEY_AMOUNT)
-	alteration = _check_for_alterants(script, damage)
+	alteration = _check_for_effect_alterants(script, damage)
 	if alteration is GDScriptFunctionState:
 		alteration = yield(alteration, "completed")
 	for combat_entity in script.subjects:
@@ -125,3 +125,24 @@ func apply_effect(script: ScriptTask) -> int:
 	if script.get_property(SP.KEY_STORE_INTEGER):
 		stored_integer = stacks_diff
 	return(retcode)
+
+# Initiates a seek through the owner and target combat entity to see if there's any effects
+# which modify the intensity of the task in question
+func _check_for_effect_alterants(script: ScriptTask, value: int) -> int:
+	var total_alteration = 0
+	var alteration_details = {}
+	var source_object: CombatEntity
+	if script.trigger_object.get_class() == "Card":
+		source_object = cfc.NMAP.board.dreamer
+	elif "combat_entity" in script.trigger_object:
+		source_object = script.trigger_object.combat_entity
+	else:
+		source_object = script.trigger_object
+	var all_source_effects = source_object.active_effects.get_all_effects().values()
+	for effect in all_source_effects:
+		var alteration : int = effect.get_effect_alteration(script, value, true)
+		alteration_details[effect] = alteration
+		total_alteration += alteration
+	return(total_alteration)
+
+

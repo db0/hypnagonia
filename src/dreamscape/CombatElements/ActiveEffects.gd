@@ -6,13 +6,15 @@ extends GridContainer
 # a rename later if needed
 const NAMES := {
 	"poison": "doubt",
+	"empower": "empower",
+	"disempower": "weaken",
 	"advantage": "advantage",
-	"disadvantage": "weaken",
+	"disadvantage": "disadvantage",
 }
 
 const EFFECTS := {
-	NAMES.disadvantage: preload("res://src/dreamscape/CombatElements/CombatEffects/Disadvantage.tscn"),
-	NAMES.advantage: preload("res://src/dreamscape/CombatElements/CombatEffects/Advantage.tscn"),
+	NAMES.disempower: preload("res://src/dreamscape/CombatElements/CombatEffects/Disempower.tscn"),
+	NAMES.empower: preload("res://src/dreamscape/CombatElements/CombatEffects/Empower.tscn"),
 	NAMES.poison: preload("res://src/dreamscape/CombatElements/CombatEffects/Poison.tscn"),
 }
 
@@ -21,6 +23,8 @@ const EFFECTS := {
 const OPPOSITES := {
 	NAMES.advantage: NAMES.disadvantage,
 	NAMES.disadvantage: NAMES.advantage,
+	NAMES.empower: NAMES.disempower,
+	NAMES.disempower: NAMES.empower,
 }
 
 var all_effects: Dictionary

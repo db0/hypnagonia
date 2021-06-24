@@ -12,7 +12,6 @@ export(SELF_DECREASE) var self_decreasing
 var entity_type: String
 var stacks: int = 0 setget set_stacks
 
-
 func setup(signifier_details: Dictionary, signifier_name: String) -> void:
 	.setup(signifier_details, signifier_name)
 	entity_type = signifier_details["entity_type"]
@@ -31,6 +30,9 @@ func set_stacks(value: int) -> void:
 	else:
 		queue_free()
 
+# To override. This is called by the scripting engine
+func get_effect_alteration(script: ScriptTask, value: int, is_source) -> int:
+	return(0)
 
 func _on_CombatSingifier_mouse_entered() -> void:
 	_set_current_description()

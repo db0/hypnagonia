@@ -53,7 +53,7 @@ func reshuffle_intents() -> void:
 # Returns a [ScriptingEngine] object but that it not statically typed
 # As it causes the parser think there's a cyclic dependency.
 func execute_scripts(
-		trigger_card: Card = null,
+		trigger_object:= self,
 		trigger: String = "manual",
 		trigger_details: Dictionary = {},
 		only_cost_check := false):
@@ -66,7 +66,7 @@ func execute_scripts(
 		sceng = cfc.scripting_engine.new(
 				intent_script,
 				combat_entity,
-				trigger_card,
+				trigger_object,
 				trigger_details)
 		# In case the script involves targetting, we need to wait on further
 		# execution until targetting has completed

@@ -29,7 +29,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					},
 					{
 						"name": "apply_effect",
-						"effect": ActiveEffects.NAMES.disadvantage,
+						"effect": ActiveEffects.NAMES.disempower,
 						"subject": "previous",
 						"modification": 1,
 					}
