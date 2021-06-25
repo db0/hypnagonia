@@ -61,15 +61,15 @@ func predict_subjects(script: ScriptTask, prev_subjects: Array) -> Array:
 			return([])
 
 
-func calculate_inflict_damage(subject: CombatEntity, script: ScriptTask) -> int:
-	var damage: int
+func calculate_modify_health(subject: CombatEntity, script: ScriptTask) -> int:
+	var modification: int
 	var alteration = 0
 	if str(script.get_property(SP.KEY_AMOUNT)) == SP.VALUE_RETRIEVE_INTEGER:
 		# If the damage is requested, is only applies to stored integers
 		# so we flip the stored_integer's value.
-		damage = stored_integer
+		modification = stored_integer
 		if script.get_property(SP.KEY_IS_INVERTED):
-			damage *= -1
+			modification *= -1
 	elif SP.VALUE_PER in str(script.get_property(SP.KEY_AMOUNT)):
 		var per_msg = perMessage.new(
 				script.get_property(SP.KEY_AMOUNT),
@@ -77,24 +77,24 @@ func calculate_inflict_damage(subject: CombatEntity, script: ScriptTask) -> int:
 				script.get_property(script.get_property(SP.KEY_AMOUNT)),
 				null,
 				script.subjects)
-		damage = per_msg.found_things
+		modification = per_msg.found_things
 	else:
-		damage = script.get_property(SP.KEY_AMOUNT)
-	alteration = _check_for_effect_alterants(script, damage, subject)
+		modification = script.get_property(SP.KEY_AMOUNT)
+	alteration = _check_for_effect_alterants(script, modification, subject)
 	if alteration is GDScriptFunctionState:
 		alteration = yield(alteration, "completed")
-	return(damage + alteration)
+	return(modification + alteration)
 
 
-func inflict_damage(script: ScriptTask) -> int:
+func modify_health(script: ScriptTask) -> int:
 	var retcode: int
 	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
 	for combat_entity in script.subjects:
-		var damage = calculate_inflict_damage(combat_entity, script)
+		var modification = calculate_modify_health(combat_entity, script)
 		# To allow effects like advantage to despawn
 		yield(cfc.get_tree().create_timer(0.01), "timeout")
 		retcode = combat_entity.take_damage(
-				damage,
+				modification,
 				costs_dry_run(),
 				tags)
 	return(retcode)
@@ -189,6 +189,17 @@ func apply_effect(script: ScriptTask) -> int:
 	if script.get_property(SP.KEY_STORE_INTEGER):
 		stored_integer = stacks_diff
 	return(retcode)
+
+
+func remove_card_from_game(script: ScriptTask) -> int:
+	var retcode: int = CFConst.ReturnCode.CHANGED
+	if not costs_dry_run():
+		# We inject the tags from the script into the tags sent by the signal
+		var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
+		for card in script.subjects:
+			card.remove_from_game()
+	return(retcode)
+
 
 # Initiates a seek through the owner and target combat entity to see if there's any effects
 # which modify the intensity of the task in question

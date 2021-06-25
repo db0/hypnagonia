@@ -1,10 +1,45 @@
 extends Card
 
+# Going negative to avoid conflicting with CGF in case it extends its own card states
+enum ExtendedCardState {
+	REMOVE_FROM_GAME = -5
+}
+const remove_from_game_shader := preload("res://shaders/consume.shader")
+
+var shader_progress := 0.0
 var attempted_action_drop_to_board := false
 var tutorial_disabled := false
 
 func _ready() -> void:
 	pass
+
+func _process(delta: float) -> void:
+	match state:
+		ExtendedCardState.REMOVE_FROM_GAME:
+			z_index = 99
+			set_focus(false)
+			set_control_mouse_filters(false)
+			buttons.set_active(false)
+			set_card_rotation(0,false,false)
+			shader_progress += delta
+#			print_debug(shader_progress, delta)
+			card_front.material.set_shader_param(
+						'progress', shader_progress)
+			if get_parent().is_in_group("hands"):
+				var parent = get_parent()
+				var currect_pos = global_position
+				parent.remove_child(self)
+				cfc.NMAP.board.add_child(self)
+				global_position = currect_pos
+				for c in parent.get_all_cards():
+						c.interruptTweening()
+						c.reorganize_self()
+			if shader_progress > 0.1:
+				for label in card_front.card_labels:
+					if card_front.card_labels[label].visible:
+						card_front.card_labels[label].visible = false
+			if shader_progress > 0.8:
+				queue_free()
 
 # Sample code on how to figure out costs of a card
 func get_modified_credits_cost() -> int:
@@ -22,7 +57,10 @@ func retrieve_scripts(trigger: String) -> Dictionary:
 	var found_scripts = .retrieve_scripts(trigger).duplicate(true)
 	if trigger == "manual" and get_state_exec() == "hand":
 		found_scripts = insert_payment_costs(found_scripts)
-		found_scripts["hand"] += generate_discard_tasks()
+		if get_property("Type") == "Concentration":
+			found_scripts["hand"] += generate_remove_from_deck_tasks()
+		else:
+			found_scripts["hand"] += generate_discard_tasks()
 	return(found_scripts)
 
 # Sets a flag when an action card is dragged to the board manually
@@ -116,6 +154,17 @@ func generate_discard_tasks() -> Array:
 	var discard_tasks = [discard_script_template]
 	return(discard_tasks)
 
+# Uses a template to create task definitions for discarding a card
+# then returns it to the calling function to execute or insert it into
+# the cards existing scripts for its state.
+func generate_remove_from_deck_tasks() -> Array:
+	var remove_script_template := {
+			"name": "remove_card_from_game",
+			"subject": "self",
+			"tags": ["Played"]}
+	var remove_tasks = [remove_script_template]
+	return(remove_tasks)
+
 func insert_payment_costs(found_scripts) -> Dictionary:
 	var array_with_costs := generate_play_costs_tasks()
 	var state_scripts = found_scripts.get("hand",[])
@@ -146,3 +195,9 @@ func execute_scripts(
 
 func common_pre_run(sceng) -> void:
 	sceng.predict()
+
+func remove_from_game() -> void:
+	card_front.material = ShaderMaterial.new()
+	card_front.material.shader = remove_from_game_shader
+	state = ExtendedCardState.REMOVE_FROM_GAME
+

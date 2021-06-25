@@ -10,7 +10,9 @@ func _ready() -> void:
 # Is source is telling this script that the owning combat_entity is the one owning
 # this alteration
 func get_effect_alteration(script: ScriptTask, value: int, sceng, is_source := false, dry_run := true) -> int:
-	if not script.script_name == 'inflict_damage' or not is_source:
+	if not script.script_name == 'modify_health'\
+			or not "Damage" in script.get_property(SP.KEY_TAGS)\
+			or not is_source:
 		return(0)
 	var new_value = round(value * 0.7)
 	var alteration = new_value - value

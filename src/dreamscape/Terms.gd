@@ -9,12 +9,16 @@ const PLAYER_TERMS := {
 	"damage": "Interpretation",
 	"damage_verb": "done",
 	"defence": "Confidence",
+	"energy": "Immersion",
+	"health": "Anxiety",
 }
 const ENEMY_TERMS := {
 	"entity": "Torment",
 	"damage": "Anxiety",
 	"damage_verb": "inflicted",
 	"defence": "Perplexity",
+	"energy": "Energy",
+	"health": "Interpretation",
 }
 const COMMON_FORMATS = {
 	PLAYER: PLAYER_TERMS,

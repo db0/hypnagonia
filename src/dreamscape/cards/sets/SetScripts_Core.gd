@@ -10,19 +10,26 @@ func get_scripts(card_name: String) -> Dictionary:
 			"manual": {
 				"hand": [
 					{
-						"name": "inflict_damage",
+						"name": "modify_health",
 						"subject": "target",
 						"is_cost": true,
-						"amount": 10,
+						"amount": 6,
+						"tags": ["Damage"],
 						"filter_state_subject": [{
 							"filter_group": "CombatEntities",
 						}],
 					},
+				],
+			},
+		},
+		"Defend": {
+			"manual": {
+				"hand": [
 					{
-						"name": "inflict_damage",
-						"subject": "previous",
+						"name": "assign_defence",
+						"subject": "dreamer",
 						"is_cost": true,
-						"amount": 4,
+						"amount": 5,
 					}
 				],
 			},
@@ -31,10 +38,11 @@ func get_scripts(card_name: String) -> Dictionary:
 			"manual": {
 				"hand": [
 					{
-						"name": "inflict_damage",
+						"name": "modify_health",
 						"subject": "target",
 						"is_cost": true,
 						"amount": 5,
+						"tags": ["Damage"],
 						"filter_state_subject": [{
 							"filter_group": "CombatEntities",
 						}],
@@ -66,15 +74,28 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
-		"Defend": {
+		"Safety of Air": {
 			"manual": {
 				"hand": [
 					{
-						"name": "assign_defence",
+						"name": "modify_health",
 						"subject": "dreamer",
 						"is_cost": true,
-						"amount": 5,
-					}
+						"amount": -4,
+						"tags": ["Healing"],
+					},
+				],
+			},
+		},
+		"Laugh at Danger": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect": ActiveEffects.NAMES.laugh_at_danger,
+						"subject": "dreamer",
+						"modification": 1,
+					},
 				],
 			},
 		},

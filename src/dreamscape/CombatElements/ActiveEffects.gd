@@ -10,6 +10,7 @@ const NAMES := {
 	"disempower": "weaken",
 	"advantage": "advantage",
 	"vulnerable": "vulnerable",
+	"laugh_at_danger": "laugh_at_danger",
 }
 
 const EFFECTS := {
@@ -18,6 +19,7 @@ const EFFECTS := {
 	NAMES.poison: preload("res://src/dreamscape/CombatElements/CombatEffects/Poison.tscn"),
 	NAMES.vulnerable: preload("res://src/dreamscape/CombatElements/CombatEffects/Vulnerable.tscn"),
 	NAMES.advantage: preload("res://src/dreamscape/CombatElements/CombatEffects/Advantage.tscn"),
+	NAMES.laugh_at_danger: preload("res://src/dreamscape/CombatElements/CombatEffects/LaughAtDanger.tscn"),
 }
 
 # When a stack of an effect is added and its opposite exists, before adding a stack

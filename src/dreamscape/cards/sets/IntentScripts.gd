@@ -4,7 +4,8 @@ extends Reference
 const INTENTS := {
 	"Attack": [
 		{
-			"name": "inflict_damage",
+			"name": "modify_health",
+			"tags": ["Damage", "Intent"],
 			"subject": "dreamer",
 			"amount": null,
 			"icon": null,
@@ -14,6 +15,7 @@ const INTENTS := {
 	"Defend": [
 		{
 			"name": "assign_defence",
+			"tags": ["Intent"],
 			"subject": "self",
 			"amount": null,
 			"icon": null,

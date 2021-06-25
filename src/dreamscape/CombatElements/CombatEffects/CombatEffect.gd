@@ -46,6 +46,9 @@ func _set_current_description() -> void:
 	var format = Terms.COMMON_FORMATS[entity_type].duplicate()
 	format["effect_name"] = name
 	format["amount"] = str(stacks)
+	format["double_amount"] = str(2*stacks)
+	format["triple_amount"] = str(3*stacks)
+	format["half_amount"] = str(stacks/2)
 	decription_label.text = description_string.format(format)
 
 # Returns the lowercase name of the token
