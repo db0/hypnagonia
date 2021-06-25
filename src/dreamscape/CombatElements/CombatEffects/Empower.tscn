@@ -3,6 +3,7 @@
 [ext_resource path="res://src/dreamscape/CombatElements/CombatEffects/Empower.gd" type="Script" id=1]
 [ext_resource path="res://src/dreamscape/CombatElements/CombatEffects/CombatEffectTemplate.tscn" type="PackedScene" id=2]
 
-[node name="Advantage" instance=ExtResource( 2 )]
+[node name="Empower" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
 self_decreasing = 1
+priority = 1

@@ -7,7 +7,14 @@ enum SELF_DECREASE {
 	TURN_END
 }
 
+enum PRIORITY {
+	ADD
+	MULTIPLY
+	SET
+}
+
 export(SELF_DECREASE) var self_decreasing
+export(PRIORITY) var priority
 
 var entity_type: String
 var stacks: int = 0 setget set_stacks

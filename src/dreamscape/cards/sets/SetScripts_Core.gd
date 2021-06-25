@@ -16,7 +16,7 @@ func get_scripts(card_name: String) -> Dictionary:
 						"amount": 6,
 						"tags": ["Damage"],
 						"filter_state_subject": [{
-							"filter_group": "CombatEntities",
+							"filter_group": "EnemyEntities",
 						}],
 					},
 				],
@@ -28,7 +28,6 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "assign_defence",
 						"subject": "dreamer",
-						"is_cost": true,
 						"amount": 5,
 					}
 				],
@@ -44,7 +43,7 @@ func get_scripts(card_name: String) -> Dictionary:
 						"amount": 5,
 						"tags": ["Damage"],
 						"filter_state_subject": [{
-							"filter_group": "CombatEntities",
+							"filter_group": "EnemyEntities",
 						}],
 					},
 					{
@@ -80,7 +79,6 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "modify_health",
 						"subject": "dreamer",
-						"is_cost": true,
 						"amount": -4,
 						"tags": ["Healing"],
 					},
@@ -93,7 +91,18 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "apply_effect",
 						"effect": ActiveEffects.NAMES.laugh_at_danger,
-						"is_cost": true,
+						"subject": "dreamer",
+						"modification": 1,
+					},
+				],
+			},
+		},
+		"Fly Upwards": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect": ActiveEffects.NAMES.impervious,
 						"subject": "dreamer",
 						"modification": 1,
 					},
@@ -106,7 +115,6 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "assign_defence",
 						"subject": "dreamer",
-						"is_cost": true,
 						"amount": 4,
 					},
 					{
@@ -115,6 +123,9 @@ func get_scripts(card_name: String) -> Dictionary:
 						"subject": "target",
 						"is_cost": true,
 						"modification": 1,
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
 					}
 				],
 			},

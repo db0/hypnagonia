@@ -52,9 +52,6 @@ func predict() -> void:
 
 # Will return the adjusted amount of whatever the scripts are doing
 # if there is one.
-# This will not work if the same intent is adding attack and defence
-# It's better to split these into two intents, which is also more visible
-# to the player
 func predict_intent_amount() -> int:
 	run_type = CFInt.RunType.COST_CHECK
 	var total_amount := 0
@@ -258,22 +255,23 @@ func _check_for_effect_alterants(script: ScriptTask, value: int, subject: Combat
 	var total_alteration = 0
 	var alteration_details = {}
 	var source_object: CombatEntity
+	var new_value := value
 	if script.owner.get_class() == "Card":
 		source_object = cfc.NMAP.board.dreamer
 	elif "combat_entity" in script.owner:
 		source_object = script.owner.combat_entity
 	else:
 		source_object = script.owner
-	var all_source_effects = source_object.active_effects.get_all_effects().values()
+	var all_source_effects = source_object.active_effects.get_ordered_effects()
 	for effect in all_source_effects:
-		var alteration : int = effect.get_effect_alteration(script, value, self, true, costs_dry_run())
+		var alteration : int = effect.get_effect_alteration(script, new_value, self, true, costs_dry_run())
 		alteration_details[effect] = alteration
-		total_alteration += alteration
-	var all_subject_effects = subject.active_effects.get_all_effects().values()
+		new_value += alteration
+	var all_subject_effects = subject.active_effects.get_ordered_effects()
 	for effect in all_subject_effects:
-		var alteration : int = effect.get_effect_alteration(script, value, self, false, costs_dry_run())
+		var alteration : int = effect.get_effect_alteration(script, new_value, self, false, costs_dry_run())
 		alteration_details[effect] = alteration
-		total_alteration += alteration
-	return(total_alteration)
+		new_value += alteration
+	return(new_value - value)
 
 

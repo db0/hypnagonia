@@ -10,6 +10,8 @@ const NAMES := {
 	"disempower": "weaken",
 	"advantage": "advantage",
 	"vulnerable": "vulnerable",
+	"impervious": "impervious",
+	# Below are unique effects. Typically from concentrations
 	"laugh_at_danger": "laugh_at_danger",
 }
 
@@ -19,6 +21,7 @@ const EFFECTS := {
 	NAMES.poison: preload("res://src/dreamscape/CombatElements/CombatEffects/Poison.tscn"),
 	NAMES.vulnerable: preload("res://src/dreamscape/CombatElements/CombatEffects/Vulnerable.tscn"),
 	NAMES.advantage: preload("res://src/dreamscape/CombatElements/CombatEffects/Advantage.tscn"),
+	NAMES.impervious: preload("res://src/dreamscape/CombatElements/CombatEffects/Impervious.tscn"),
 	NAMES.laugh_at_danger: preload("res://src/dreamscape/CombatElements/CombatEffects/LaughAtDanger.tscn"),
 }
 
@@ -110,7 +113,22 @@ func get_all_effects() -> Dictionary:
 	var found_effects := {}
 	for effect in get_children():
 		found_effects[effect.get_effect_name()] = effect
-	return found_effects
+	return(found_effects)
+
+func get_ordered_effects() -> Array:
+	var found_effects := {}
+	var adders : Array
+	var multipliers : Array
+	var setters : Array
+	for effect in get_children():
+		match effect.priority:
+			CombatEffect.PRIORITY.ADD:
+				adders.append(effect)
+			CombatEffect.PRIORITY.MULTIPLY:
+				multipliers.append(effect)
+			CombatEffect.PRIORITY.SET:
+				setters.append(effect)
+	return(adders + multipliers + setters)
 
 
 # Returns the token node of the provided name or null if not found.

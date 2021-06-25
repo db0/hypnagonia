@@ -39,6 +39,8 @@ func _process(delta: float) -> void:
 					if card_front.card_labels[label].visible:
 						card_front.card_labels[label].visible = false
 			if shader_progress > 0.8:
+				if cfc.NMAP.board.mouse_pointer.current_focused_card == self:
+					cfc.NMAP.board.mouse_pointer.current_focused_card = null
 				queue_free()
 
 # Sample code on how to figure out costs of a card

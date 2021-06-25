@@ -1,7 +1,7 @@
 extends CombatEffect
 
 const _description_string := "{effect_name}: Add {amount} {energy} at the start of the turn.\n"\
-		+ "All {health} taken is increased by {double_amount}\n."
+		+ "All {health} taken is increased by {double_amount}."
 
 func _ready() -> void:
 	description_string = _description_string

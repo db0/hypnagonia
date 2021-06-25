@@ -5,6 +5,7 @@
 
 [node name="Advantage" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+priority = 1
 
 [node name="Icon" parent="Signifier" index="1"]
 visible = false

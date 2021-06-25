@@ -6,6 +6,7 @@
 [node name="Disempower" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
 self_decreasing = 1
+priority = 1
 
 [node name="Label" parent="Signifier" index="0"]
 text = "W"

@@ -64,7 +64,7 @@ const HAND_USE_OVAL_SHAPE := true
 # The below scales down cards down while being dragged.
 #
 # if you don't want this behaviour, change it to Vector2(1,1)
-const CARD_SCALE_WHILE_DRAGGING := Vector2(0.4, 0.4)
+const CARD_SCALE_WHILE_DRAGGING := Vector2(0.75, 0.75)
 # The location and name of the file into which to store game settings
 const SETTINGS_FILENAME := "user://CGFSettings.json"
 # The location where this game will store deck files
