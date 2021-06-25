@@ -50,6 +50,53 @@ func predict() -> void:
 					amount = yield(amount, "completed")
 				entity.show_predictions(amount)
 
+# Will return the adjusted amount of whatever the scripts are doing
+# if there is one.
+# This will not work if the same intent is adding attack and defence
+# It's better to split these into two intents, which is also more visible
+# to the player
+func predict_intent_amount() -> int:
+	run_type = CFInt.RunType.COST_CHECK
+	var total_amount := 0
+	var prev_subjects := []
+	for task in scripts_queue:
+		# We put it into another variable to allow Static Typing benefits
+		var script: ScriptTask = task
+		# We store the temp modifiers to counters, so that things like
+		# info during targetting can take them into account
+		cfc.NMAP.board.counters.temp_count_modifiers[self] = {
+				"requesting_object": script.owner,
+				"modifier": _retrieve_temp_modifiers(script,"counters")
+			}
+		# This is provisionally stored for games which need to use this
+		# information before card subjects have been selected.
+		cfc.card_temp_property_modifiers[self] = {
+			"requesting_object": script.owner,
+			"modifier": _retrieve_temp_modifiers(script, "properties")
+		}
+		script.subjects = predict_subjects(script, prev_subjects)
+		prev_subjects = script.subjects
+		#print("Scripting Subjects: " + str(script.subjects)) # Debug
+		if script.script_name == "custom_script": # TODO
+			# This class contains the customly defined scripts for each
+			# card.
+			var custom := CustomScripts.new(costs_dry_run())
+			custom.custom_script(script)
+		var prediction_method = "calculate_" + script.script_name
+		for entity in script.subjects:
+#				entity.temp_properties_modifiers[self] = {
+#					"requesting_object": script.owner,
+#					"modifier": _retrieve_temp_modifiers(script, "properties")
+#				}
+			if has_method(prediction_method):
+				var amount = call(prediction_method, entity, script)
+				if amount is GDScriptFunctionState:
+					amount = yield(amount, "completed")
+				total_amount += amount
+			# If there's multiple targets, we calculate the amount only for a single of them
+			break
+	return(total_amount)
+
 
 func predict_subjects(script: ScriptTask, prev_subjects: Array) -> Array:
 	match script.get_property(SP.KEY_SUBJECT):
@@ -57,6 +104,10 @@ func predict_subjects(script: ScriptTask, prev_subjects: Array) -> Array:
 			return(cfc.NMAP.board.enemies)
 		SP.KEY_SUBJECT_V_PREVIOUS:
 			return(prev_subjects)
+		SP.KEY_SUBJECT_V_PLAYER:
+			return([cfc.NMAP.board.dreamer])
+		SP.KEY_SUBJECT_V_SELF:
+			return([script.owner])
 		_:
 			return([])
 

@@ -9,6 +9,7 @@ extends ScriptProperties
 
 # Used for specifying the amount of something a script provides
 # e.g. amount of damage, or amount of armor
+const KEY_SUBJECT_V_PLAYER = "dreamer"
 const KEY_AMOUNT = "amount"
 const KEY_EFFECT = "effect"
 

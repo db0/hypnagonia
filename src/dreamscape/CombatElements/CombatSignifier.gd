@@ -32,3 +32,5 @@ func _on_CombatSingifier_mouse_entered() -> void:
 func _on_CombatSingifier_mouse_exited() -> void:
 	decription_popup.visible = false
 
+func update_amount(amount) -> void:
+	signifier_amount.text = str(amount)

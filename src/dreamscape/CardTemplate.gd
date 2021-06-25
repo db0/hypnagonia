@@ -200,4 +200,5 @@ func remove_from_game() -> void:
 	card_front.material = ShaderMaterial.new()
 	card_front.material.shader = remove_from_game_shader
 	state = ExtendedCardState.REMOVE_FROM_GAME
+	cfc.flush_cache()
 

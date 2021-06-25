@@ -93,9 +93,29 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "apply_effect",
 						"effect": ActiveEffects.NAMES.laugh_at_danger,
+						"is_cost": true,
 						"subject": "dreamer",
 						"modification": 1,
 					},
+				],
+			},
+		},
+		"Confounding Movements": {
+			"manual": {
+				"hand": [
+					{
+						"name": "assign_defence",
+						"subject": "dreamer",
+						"is_cost": true,
+						"amount": 4,
+					},
+					{
+						"name": "apply_effect",
+						"effect": ActiveEffects.NAMES.disempower,
+						"subject": "target",
+						"is_cost": true,
+						"modification": 1,
+					}
 				],
 			},
 		},

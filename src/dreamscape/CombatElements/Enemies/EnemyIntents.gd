@@ -1,9 +1,8 @@
 class_name EnemyIntents
 extends HBoxContainer
 
-const SINGLE_INTENT_SCENE = preload("res://src/dreamscape/CombatElements/CombatSignifier.tscn")
+const SINGLE_INTENT_SCENE = preload("res://src/dreamscape/CombatElements/Enemies/SingleIntent.tscn")
 
-var current_intents: Array
 var all_intents: Array
 var unused_intents: Array
 # The enemy entity owning these intents
@@ -15,7 +14,6 @@ func prepare_intents() -> void:
 	var new_intents : Dictionary = unused_intents.pop_back().duplicate(true)
 	if new_intents.reshuffle:
 		reshuffle_intents()
-	current_intents.clear()
 	for intent in get_children():
 		intent.queue_free()
 	yield(get_tree().	create_timer(0.01), "timeout")
@@ -36,11 +34,11 @@ func prepare_intents() -> void:
 			if intent_array.size() > 1:
 				intent_scripts[0].amount = int(intent_array[1])
 #				print_debug("Set Intent Value: " + intent_array[1])
-			current_intents.append(intent_scripts)
 			for single_intent in intent_scripts:
 				var new_intent : CombatSignifier = SINGLE_INTENT_SCENE.instance()
 				add_child(new_intent)
 				new_intent.setup(single_intent, intent_name)
+
 
 func reshuffle_intents() -> void:
 	unused_intents = all_intents.duplicate(true)
@@ -58,34 +56,36 @@ func execute_scripts(
 		trigger_details: Dictionary = {},
 		only_cost_check := false):
 	var sceng = null
-	for intent_script in current_intents:
+	var current_intents = []
+	for intent in get_children():
+		current_intents.append(intent.intent_script)
 		# This evocation of the ScriptingEngine, checks the card for
 		# cost-defined tasks, and performs a dry-run on them
 		# to ascertain whether they can all be paid,
 		# before executing the card script.
-		sceng = cfc.scripting_engine.new(
-				intent_script,
-				combat_entity,
-				trigger_object,
-				trigger_details)
-		# In case the script involves targetting, we need to wait on further
-		# execution until targetting has completed
-		sceng.execute(CFInt.RunType.COST_CHECK)
+	sceng = cfc.scripting_engine.new(
+			current_intents,
+			combat_entity,
+			trigger_object,
+			trigger_details)
+	# In case the script involves targetting, we need to wait on further
+	# execution until targetting has completed
+	sceng.execute(CFInt.RunType.COST_CHECK)
+	if not sceng.all_tasks_completed:
+		yield(sceng,"tasks_completed")
+	# If the dry-run of the ScriptingEngine returns that all
+	# costs can be paid, then we proceed with the actual run
+	if sceng.can_all_costs_be_paid and not only_cost_check:
+		#print("DEBUG:" + str(state_scripts))
+		# The ScriptingEngine is where we execute the scripts
+		# We cannot use its class reference,
+		# as it causes a cyclic reference error when parsing
+		sceng.execute()
 		if not sceng.all_tasks_completed:
 			yield(sceng,"tasks_completed")
-		# If the dry-run of the ScriptingEngine returns that all
-		# costs can be paid, then we proceed with the actual run
-		if sceng.can_all_costs_be_paid and not only_cost_check:
-			#print("DEBUG:" + str(state_scripts))
-			# The ScriptingEngine is where we execute the scripts
-			# We cannot use its class reference,
-			# as it causes a cyclic reference error when parsing
-			sceng.execute()
-			if not sceng.all_tasks_completed:
-				yield(sceng,"tasks_completed")
-		# This will only trigger when costs could not be paid, and will
-		# execute the "is_else" tasks
-		elif not sceng.can_all_costs_be_paid and not only_cost_check:
-			#print("DEBUG:" + str(state_scripts))
-			sceng.execute(CFInt.RunType.ELSE)
+	# This will only trigger when costs could not be paid, and will
+	# execute the "is_else" tasks
+	elif not sceng.can_all_costs_be_paid and not only_cost_check:
+		#print("DEBUG:" + str(state_scripts))
+		sceng.execute(CFInt.RunType.ELSE)
 	return(sceng)

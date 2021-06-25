@@ -28,5 +28,5 @@ func _on_turn_ended(turn: Turn) -> void:
 
 func _on_turn_started(turn: Turn) -> void:
 	# warning-ignore:return_value_discarded
-	mod_counter("immersion", 3, true, false, turn, ["New Turn"])
+	mod_counter("immersion", 3, false, false, turn, ["New Turn"])
 
