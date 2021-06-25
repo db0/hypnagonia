@@ -98,7 +98,7 @@ func predict_intent_amount() -> int:
 func predict_subjects(script: ScriptTask, prev_subjects: Array) -> Array:
 	match script.get_property(SP.KEY_SUBJECT):
 		SP.KEY_SUBJECT_V_TARGET:
-			return(cfc.NMAP.board.enemies)
+			return(cfc.get_tree().get_nodes_in_group("EnemyEntities"))
 		SP.KEY_SUBJECT_V_PREVIOUS:
 			return(prev_subjects)
 		SP.KEY_SUBJECT_V_PLAYER:

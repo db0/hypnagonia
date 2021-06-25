@@ -10,8 +10,8 @@ size = 107
 font_data = ExtResource( 2 )
 
 [node name="Menu" type="Panel"]
-margin_right = 1280.0
-margin_bottom = 720.0
+margin_right = 1700.0
+margin_bottom = 900.0
 theme = ExtResource( 1 )
 script = ExtResource( 3 )
 __meta__ = {
@@ -28,41 +28,41 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="MainMenu"]
-margin_right = 1280.0
-margin_bottom = 720.0
+margin_right = 1700.0
+margin_bottom = 900.0
 color = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
 
 [node name="VBox" type="VBoxContainer" parent="MainMenu"]
-margin_right = 1280.0
-margin_bottom = 720.0
+margin_right = 1700.0
+margin_bottom = 900.0
 
 [node name="Margin" type="MarginContainer" parent="MainMenu/VBox"]
-margin_right = 1280.0
-margin_bottom = 358.0
+margin_right = 1700.0
+margin_bottom = 448.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_top = 90
 
 [node name="Label" type="Label" parent="MainMenu/VBox/Margin"]
-margin_top = 108.0
-margin_right = 1280.0
-margin_bottom = 340.0
+margin_top = 153.0
+margin_right = 1700.0
+margin_bottom = 385.0
 custom_fonts/font = SubResource( 1 )
 text = "Godot 
 Card Game Framework"
 align = 1
 
 [node name="Center" type="CenterContainer" parent="MainMenu/VBox"]
-margin_top = 361.0
-margin_right = 1280.0
-margin_bottom = 720.0
+margin_top = 451.0
+margin_right = 1700.0
+margin_bottom = 900.0
 size_flags_vertical = 3
 
 [node name="VButtons" type="VBoxContainer" parent="MainMenu/VBox/Center"]
-margin_left = 544.0
-margin_top = 104.0
-margin_right = 736.0
-margin_bottom = 254.0
+margin_left = 754.0
+margin_top = 149.0
+margin_right = 946.0
+margin_bottom = 299.0
 rect_min_size = Vector2( 192, 0 )
 custom_constants/separation = 10
 

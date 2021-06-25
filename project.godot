@@ -402,8 +402,8 @@ cfc="*res://src/core/CFControl.gd"
 
 [display]
 
-window/size/width=1280
-window/size/height=720
+window/size/width=1700
+window/size/height=900
 
 [physics]
 

@@ -6,8 +6,9 @@ const ENEMY_ENTITY_SCENE = preload("res://src/dreamscape/CombatElements/Enemies/
 var end_turn : Button
 var turn := Turn.new()
 var dreamer: PlayerEntity
-var enemies: Array
 var activated_enemies: Array
+
+onready var bottom_gui := $HBC
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,7 +27,6 @@ func _ready() -> void:
 	dreamer = preload("res://src/dreamscape/CombatElements/PlayerEntity.tscn").instance()
 	var dreamer_properties := {
 		"Health": 100,
-		"Max Health": 100,
 		"Type": "Dreamer",
 		"_texture_size_x": 70,
 		"_texture_size_y": 100,
@@ -37,6 +37,8 @@ func _ready() -> void:
 	var torment = spawn_enemy("Gaslighter")
 	var torment2 = spawn_enemy("Gaslighter")
 	torment2.rect_position = Vector2(800,100)
+	yield(get_tree().create_timer(0.1), "timeout")
+	bottom_gui.rect_position = cfc.NMAP.deck.position - Vector2(0,50)
 #	dreamer.active_effects.mod_effect(ActiveEffects.NAMES.disempower, 5)
 #	dreamer.active_effects.mod_effect(ActiveEffects.NAMES.poison, 5)
 #	dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
@@ -47,7 +49,6 @@ func spawn_enemy(enemy_name) -> EnemyEntity:
 	var enemy : EnemyEntity = ENEMY_ENTITY_SCENE.instance()
 	enemy.setup(enemy_name, enemy_properties)
 	add_child(enemy)
-	enemies.append(enemy)
 	enemy.connect("finished_activation", self, "_on_finished_enemy_activation")
 	enemy.rect_position = Vector2(500,100)
 	return(enemy)
@@ -135,13 +136,12 @@ func _on_turn_started(turn: Turn) -> void:
 func _on_turn_ended(turn: Turn) -> void:
 	end_turn.disabled = true
 	activated_enemies.clear()
-	for enemy in enemies:
+	for enemy in get_tree().get_nodes_in_group("EnemyEntities"):
 #		print_debug("Activating Intents: " + enemy.canonical_name)
 		enemy.activate()
-	
 
 func _on_finished_enemy_activation(enemy: EnemyEntity) -> void:
 	if not enemy in activated_enemies:
 		activated_enemies.append(enemy)
-	if activated_enemies.size() == enemies.size():
+	if activated_enemies.size() == get_tree().get_nodes_in_group("EnemyEntities").size():
 		turn.start_turn()

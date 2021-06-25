@@ -4,7 +4,6 @@ extends Card
 enum ExtendedCardState {
 	REMOVE_FROM_GAME = -5
 }
-const remove_from_game_shader := preload("res://shaders/consume.shader")
 
 var shader_progress := 0.0
 var attempted_action_drop_to_board := false
@@ -200,7 +199,7 @@ func common_pre_run(sceng) -> void:
 
 func remove_from_game() -> void:
 	card_front.material = ShaderMaterial.new()
-	card_front.material.shader = remove_from_game_shader
+	card_front.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
 	state = ExtendedCardState.REMOVE_FROM_GAME
 	cfc.flush_cache()
 

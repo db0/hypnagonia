@@ -12,5 +12,5 @@ func get_effect_alteration(script: ScriptTask, value: int, sceng, is_source := f
 		return(0)
 	var new_value = round(value * 0.75)
 	var alteration = new_value - value
-	print_debug("Vulnerability ({value} * 0.7) = {new_value} (alteration = {alteration})".format({"value": value, "new_value": new_value, "alteration": alteration }))
+#	print_debug("Vulnerability ({value} * 0.7) = {new_value} (alteration = {alteration})".format({"value": value, "new_value": new_value, "alteration": alteration }))
 	return(alteration)

@@ -220,3 +220,5 @@ const TOKENS_MAP := {
 }
 const STATS_URI := "http://127.0.0.1"
 const STATS_PORT := 8000
+
+const REMOVE_FROM_GAME_SHADER := preload("res://shaders/consume.shader")

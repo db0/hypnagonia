@@ -5,7 +5,6 @@ const ENEMIES := {
 	"Gaslighter": {
 		"Type": "Abuse",
 		"Health": 25,
-		"Max Health": 25,
 		"Intents": [
 			{
 				"intent_scripts": ["Attack:5"],

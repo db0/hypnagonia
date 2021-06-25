@@ -4,6 +4,7 @@ extends VBoxContainer
 const INCOMING_SIGNIFIER_SCENE = preload("res://src/dreamscape/CombatElements/IncomingSignifier.tscn")
 
 signal effect_modified(entity,trigger,details)
+signal entity_killed
 
 
 onready var collision_shape := $Texture/Area2D/CollisionShape2D
@@ -15,8 +16,8 @@ onready var defence_label : Label = $HBC/Defence
 onready var active_effects := $ActiveEffects
 onready var incoming := $CenterContainer/Incoming
 
+var damage : int setget set_damage
 var health : int setget set_health
-var max_health : int setget set_max_health
 var defence : int setget set_armor
 var canonical_name: String
 var type: String
@@ -35,7 +36,6 @@ func setup(entity_name: String, properties: Dictionary) -> void:
 	canonical_name = entity_name
 	name = entity_name
 	health = properties['Health']
-	max_health = properties['Max Health']
 	type = properties['Type']
 	_properties = properties
 	entity_size = Vector2(properties['_texture_size_x'],properties['_texture_size_y'])
@@ -49,17 +49,27 @@ func _ready() -> void:
 	_update_health_label()
 	active_effects.combat_entity = self
 
+
 func set_armor(value) -> void:
 	defence = value
 	_update_health_label()
 
+func set_damage(value) -> void:
+	damage = value
+	if damage >= health:
+		die()
+	else:
+		_update_health_label()
+
 func set_health(value) -> void:
 	health = value
+	if damage > health:
+		die()
 	_update_health_label()
 
-func set_max_health(value) -> void:
-	max_health = value
-	_update_health_label()
+func die() -> void:
+	emit_signal("entity_killed")
+	queue_free()
 
 func take_damage(amount: int, dry_run := false, tags := ["Manual"]) -> int:
 	if not dry_run:
@@ -70,7 +80,9 @@ func take_damage(amount: int, dry_run := false, tags := ["Manual"]) -> int:
 			else:
 				defence -= amount
 				amount = 0
-		health -= amount
+		damage += amount
+		if damage >= health:
+			die()
 		_update_health_label()
 	return(CFConst.ReturnCode.CHANGED)
 
@@ -92,6 +104,8 @@ func clear_predictions() -> void:
 	for node in incoming.get_children():
 		node.queue_free()
 
+# The entities do not have starting health which decreases as they take damage
+# Rather they have a damage meter which increases until it hits their max health.
 func _update_health_label() -> void:
-	health_label.text = str(health) + '/' + str(max_health)
+	health_label.text = str(damage) + '/' + str(health)
 	defence_label.text = '(' + str(defence) + ')'
