@@ -6,8 +6,8 @@ extends GridContainer
 # a rename later if needed
 const NAMES := {
 	"poison": "doubt",
-	"empower": "empower",
-	"disempower": "weaken",
+	"empower": "clarity",
+	"disempower": "confusion",
 	"advantage": "advantage",
 	"vulnerable": "vulnerable",
 	"impervious": "impervious",

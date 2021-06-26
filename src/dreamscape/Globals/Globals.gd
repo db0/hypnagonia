@@ -1,17 +1,9 @@
 extends Node
 
-var deck_groups : Dictionary = {
-	Terms.CARD_GROUP_TERMS.class: "Flyer",
-	Terms.CARD_GROUP_TERMS.race: "Fearless",
-	Terms.CARD_GROUP_TERMS.item: "Rubber Chicken",
-	Terms.CARD_GROUP_TERMS.life_goal: "Abusive Relationship",
-}
+const PLAYER_COMBAT_ENTITY_SIZE = Vector2(70,100)
 
-var deck: Deck
+var player: Player
 
 # Test setup. This should happen at game start
 func _ready() -> void:
-	deck = Deck.new()
-	for group in deck_groups:
-		deck.update_card_group(group, deck_groups[group])
-	deck.assemble_starting_deck()
+	player = Player.new()

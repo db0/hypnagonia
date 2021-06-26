@@ -35,16 +35,17 @@ __meta__ = {
 
 [node name="CardText" type="VBoxContainer" parent="Margin"]
 margin_left = 2.0
-margin_right = 148.0
-margin_bottom = 240.0
+margin_right = 568.0
+margin_bottom = 420.0
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBC" type="HBoxContainer" parent="Margin/CardText"]
-margin_right = 146.0
+margin_right = 566.0
 margin_bottom = 18.0
+mouse_filter = 2
 
 [node name="Cost" type="Label" parent="Margin/CardText/HBC"]
 margin_right = 30.0
@@ -59,7 +60,7 @@ autowrap = true
 
 [node name="Name" type="Label" parent="Margin/CardText/HBC"]
 margin_left = 33.0
-margin_right = 146.0
+margin_right = 566.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -71,7 +72,7 @@ autowrap = true
 
 [node name="Type" type="Label" parent="Margin/CardText"]
 margin_top = 21.0
-margin_right = 146.0
+margin_right = 566.0
 margin_bottom = 39.0
 rect_min_size = Vector2( 146, 13 )
 size_flags_vertical = 1
@@ -83,7 +84,7 @@ uppercase = true
 
 [node name="Tags" type="Label" parent="Margin/CardText"]
 margin_top = 42.0
-margin_right = 146.0
+margin_right = 566.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 146, 17 )
 size_flags_vertical = 1
@@ -95,8 +96,8 @@ uppercase = true
 
 [node name="Abilities" type="Label" parent="Margin/CardText"]
 margin_top = 63.0
-margin_right = 146.0
-margin_bottom = 240.0
+margin_right = 566.0
+margin_bottom = 420.0
 rect_min_size = Vector2( 146, 144 )
 size_flags_vertical = 3
 text = "This is the card ability text.

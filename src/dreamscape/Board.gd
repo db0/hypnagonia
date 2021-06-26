@@ -28,10 +28,11 @@ func _ready() -> void:
 	turn.setup()
 	dreamer = preload("res://src/dreamscape/CombatElements/PlayerEntity.tscn").instance()
 	var dreamer_properties := {
-		"Health": 100,
+		"Health": globals.player.health,
+		"Damage": globals.player.damage,
 		"Type": "Dreamer",
-		"_texture_size_x": 70,
-		"_texture_size_y": 100,
+		"_texture_size_x": globals.PLAYER_COMBAT_ENTITY_SIZE.x,
+		"_texture_size_y": globals.PLAYER_COMBAT_ENTITY_SIZE.y,
 	}
 	dreamer.setup("Dreamer", dreamer_properties)
 	add_child(dreamer)
@@ -108,7 +109,7 @@ func _on_Debug_toggled(button_pressed: bool) -> void:
 
 # Loads the player's deck
 func load_deck() -> void:
-	for card in globals.deck.instance_cards():
+	for card in globals.player.deck.instance_cards():
 		$Deck.add_child(card)
 		#card.set_is_faceup(false,true)
 		card._determine_idle_state()
@@ -142,4 +143,5 @@ func _enemy_died() -> void:
 		complete_battle()
 		
 func complete_battle() -> void:
+	globals.player.damage = dreamer.damage
 	post_battle_menu.display()

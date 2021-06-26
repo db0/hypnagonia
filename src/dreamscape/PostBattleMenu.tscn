@@ -44,6 +44,7 @@ size_flags_vertical = 3
 [node name="Proceed" type="Button" parent="VBC"]
 margin_right = 12.0
 margin_bottom = 20.0
+text = "Proceed"
 
 [node name="CardDraft" type="PopupPanel" parent="."]
 margin_right = 8.0

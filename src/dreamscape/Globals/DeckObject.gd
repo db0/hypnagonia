@@ -4,6 +4,9 @@ extends Reference
 var cards: Array
 var deck_groups : Dictionary
 
+func _init(_deck_groups) -> void:
+	deck_groups = _deck_groups
+
 func assemble_starting_deck() -> void:
 	for key in deck_groups:
 		for card_name in CardGroupDefinitions[key.to_upper()][deck_groups[key]]["Starting Cards"]:

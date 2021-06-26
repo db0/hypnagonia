@@ -37,6 +37,7 @@ func setup(entity_name: String, properties: Dictionary) -> void:
 	name = entity_name
 	health = properties['Health']
 	type = properties['Type']
+	damage = properties.get('Damage', 0)
 	_properties = properties
 	entity_size = Vector2(properties['_texture_size_x'],properties['_texture_size_y'])
 

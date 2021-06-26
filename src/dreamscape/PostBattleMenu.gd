@@ -3,8 +3,8 @@ extends PanelContainer
 
 const CARD_DRAFT_SCENE = preload("res://src/dreamscape/DraftCardObject.tscn")
 
-var uncommon_chance := 25/100
-var rare_chance := 5/100
+var uncommon_chance : float = 25.0/100
+var rare_chance : float = 5.0/100
 var draft_amount := 3
 var draft_card_choices : Array
 
@@ -40,7 +40,7 @@ func _on_card_draft_selected(option) -> void:
 		child.queue_free()
 	card_draft.hide()
 	card_draft_button.visible = false
-	globals.deck.add_new_card(draft_card_choices[option])
+	globals.player.deck.add_new_card(draft_card_choices[option])
 
 
 func _on_Proceed_pressed() -> void:
@@ -51,15 +51,16 @@ func retrieve_draft_cards() -> void:
 	draft_card_choices.clear()
 	for iter in range(draft_amount):
 		var card_names: Array
-		var chance := CFUtils.randi_range(0.0, 1.0)
+		var chance := CFUtils.randf_range(0.0, 1.0)
+#		print_debug(str(rare_chance) + ' : ' + str(rare_chance + uncommon_chance))
 		if chance <= rare_chance:
-#			print_debug('Rare')
+			print_debug('Rare: ' + str(chance))
 			card_names = compile_rarity_cards('Rares')
 		elif chance <= rare_chance + uncommon_chance:
-#			print_debug('Uncommon')
+			print_debug('Uncommon: ' + str(chance))
 			card_names = compile_rarity_cards('Uncommons')
 		else:
-#			print_debug('common')
+			print_debug('common: ' + str(chance))
 			card_names = compile_rarity_cards('Commons')
 		CFUtils.shuffle_array(card_names)
 		if card_names.size():
@@ -71,6 +72,6 @@ func retrieve_draft_cards() -> void:
 
 func compile_rarity_cards(rarity: String) -> Array:
 	var rarity_cards : Array
-	for key in globals.deck.deck_groups:
-		rarity_cards += CardGroupDefinitions[key.to_upper()][globals.deck.deck_groups[key]][rarity]
+	for key in globals.player.deck.deck_groups:
+		rarity_cards += CardGroupDefinitions[key.to_upper()][globals.player.deck.deck_groups[key]][rarity]
 	return(rarity_cards)
