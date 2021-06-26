@@ -2,11 +2,11 @@ class_name PostBattleMenu
 extends PanelContainer
 
 const CARD_DRAFT_SCENE = preload("res://src/dreamscape/DraftCardObject.tscn")
-var card_choices := [
-	"Assault",
-	"Defend",
-	"Noisy Whip",
-]
+
+var uncommon_chance := 25/100
+var rare_chance := 5/100
+var draft_amount := 3
+var draft_card_choices : Array
 
 onready var card_choices_grid = $CardDraft/CardChoices
 onready var card_draft = $CardDraft
@@ -17,11 +17,13 @@ func display() -> void:
 	rect_global_position = get_viewport().size/2 - rect_size/2
 	visible = true
 	card_draft_button.visible = true
+	populate_draft_cards()
 
 
 func populate_draft_cards() -> void:
-	for index in range(card_choices.size()):
-		var card_name: String = card_choices[index]
+	retrieve_draft_cards()
+	for index in range(draft_card_choices.size()):
+		var card_name: String = draft_card_choices[index]
 		var draft_card_object = CARD_DRAFT_SCENE.instance()
 		card_choices_grid.add_child(draft_card_object)
 		draft_card_object.setup(card_name)
@@ -30,19 +32,45 @@ func populate_draft_cards() -> void:
 
 
 func _on_CardReward_pressed() -> void:
-	populate_draft_cards()
 	card_draft.popup_centered_minsize()
-	
+
 
 func _on_card_draft_selected(option) -> void:
 	for child in card_choices_grid.get_children():
 		child.queue_free()
 	card_draft.hide()
 	card_draft_button.visible = false
-
-	globals.deck.add_new_card(card_choices[option])
-	print_debug(globals.deck.list_all_cards())
+	globals.deck.add_new_card(draft_card_choices[option])
 
 
 func _on_Proceed_pressed() -> void:
 	get_tree().change_scene(CFConst.PATH_CUSTOM + 'Main.tscn')
+
+
+func retrieve_draft_cards() -> void:
+	draft_card_choices.clear()
+	for iter in range(draft_amount):
+		var card_names: Array
+		var chance := CFUtils.randi_range(0.0, 1.0)
+		if chance <= rare_chance:
+#			print_debug('Rare')
+			card_names = compile_rarity_cards('Rares')
+		elif chance <= rare_chance + uncommon_chance:
+#			print_debug('Uncommon')
+			card_names = compile_rarity_cards('Uncommons')
+		else:
+#			print_debug('common')
+			card_names = compile_rarity_cards('Commons')
+		CFUtils.shuffle_array(card_names)
+		if card_names.size():
+			for card_name in card_names:
+				if not card_name in draft_card_choices:
+					draft_card_choices.append(card_name)
+					break
+
+
+func compile_rarity_cards(rarity: String) -> Array:
+	var rarity_cards : Array
+	for key in globals.deck.deck_groups:
+		rarity_cards += CardGroupDefinitions[key.to_upper()][globals.deck.deck_groups[key]][rarity]
+	return(rarity_cards)

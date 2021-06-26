@@ -10,11 +10,13 @@ const CLASS := {
 			"Dive-in",
 			"Safety of Air",
 		],
-		"Common Draft Cards": [
+		"Commons": [
 			"Fly Upwards",
 			"Dive-in",
 			"Safety of Air",
-		]
+		],
+		"Uncommons": [],
+		"Rares": []
 	},
 }
 
@@ -25,9 +27,11 @@ const RACE := {
 			"Assault",
 			"Laugh at Danger",
 		],
-		"Common Draft Cards": [
+		"Commons": [
 			"Laugh at Danger",
 		],
+		"Uncommons": [],
+		"Rares": []
 	},
 }
 
@@ -38,10 +42,12 @@ const ITEM := {
 			"Assault",
 			"Noisy Whip",
 		],
-		"Common Draft Cards": [
+		"Commons": [
 			"Confounding Movements",
 			"Noisy Whip",
 		],
+		"Uncommons": [],
+		"Rares": []
 	},
 }
 
@@ -50,6 +56,8 @@ const LIFE_GOAL := {
 		"Starting Cards": [
 			"Inner Justice",
 		],
-		"Common Draft Cards": []
+		"Commons": [],
+		"Uncommons": [],
+		"Rares": []
 	},
 }

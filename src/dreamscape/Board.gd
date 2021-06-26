@@ -10,6 +10,7 @@ var activated_enemies: Array
 
 onready var bottom_gui := $HBC
 onready var post_battle_menu := $PostBattleMenu
+onready var deck_pile: Pile = $Deck
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -111,10 +112,11 @@ func load_deck() -> void:
 		$Deck.add_child(card)
 		#card.set_is_faceup(false,true)
 		card._determine_idle_state()
+		deck_pile.shuffle_cards(false)
 	yield(get_tree().create_timer(0.3), "timeout")
 	cfc.NMAP.hand.refill_hand()
 
-	
+
 func _on_turn_started(turn: Turn) -> void:
 	yield(cfc.NMAP.hand, "hand_refilled")
 	while cfc.NMAP.hand.are_cards_still_animating():
