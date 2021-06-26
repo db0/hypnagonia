@@ -1,4 +1,4 @@
-# This file contains just card definitions. See also `CardConfig.gd`
+class_name CardGroupDefinitions
 extends Reference
 
 const SET = "Core Set"
@@ -10,7 +10,11 @@ const CLASS := {
 			"Dive-in",
 			"Safety of Air",
 		],
-		"Available Cards": []
+		"Common Draft Cards": [
+			"Fly Upwards",
+			"Dive-in",
+			"Safety of Air",
+		]
 	},
 }
 
@@ -21,7 +25,9 @@ const RACE := {
 			"Assault",
 			"Laugh at Danger",
 		],
-		"Available Cards": []
+		"Common Draft Cards": [
+			"Laugh at Danger",
+		],
 	},
 }
 
@@ -32,7 +38,10 @@ const ITEM := {
 			"Assault",
 			"Noisy Whip",
 		],
-		"Available Cards": []
+		"Common Draft Cards": [
+			"Confounding Movements",
+			"Noisy Whip",
+		],
 	},
 }
 
@@ -41,6 +50,6 @@ const LIFE_GOAL := {
 		"Starting Cards": [
 			"Inner Justice",
 		],
-		"Available Cards": []
+		"Common Draft Cards": []
 	},
 }

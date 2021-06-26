@@ -11,3 +11,23 @@ corner_radius_bottom_left = 10
 
 [node name="ConcentrationFront" instance=ExtResource( 1 )]
 custom_styles/panel = SubResource( 2 )
+
+[node name="CardText" parent="Margin" index="0"]
+margin_right = 568.0
+margin_bottom = 420.0
+
+[node name="HBC" parent="Margin/CardText" index="0"]
+margin_right = 566.0
+
+[node name="Name" parent="Margin/CardText/HBC" index="1"]
+margin_right = 566.0
+
+[node name="Type" parent="Margin/CardText" index="1"]
+margin_right = 566.0
+
+[node name="Tags" parent="Margin/CardText" index="2"]
+margin_right = 566.0
+
+[node name="Abilities" parent="Margin/CardText" index="3"]
+margin_right = 566.0
+margin_bottom = 420.0

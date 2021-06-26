@@ -89,10 +89,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/core/CardContainer.gd"
 }, {
+"base": "Reference",
+"class": "CardEntry",
+"language": "GDScript",
+"path": "res://src/dreamscape/Globals/CardEntry.gd"
+}, {
 "base": "Panel",
 "class": "CardFront",
 "language": "GDScript",
 "path": "res://src/core/Card/CardFront.gd"
+}, {
+"base": "Reference",
+"class": "CardGroupDefinitions",
+"language": "GDScript",
+"path": "res://src/dreamscape/cards/sets/CardGroups.gd"
 }, {
 "base": "Label",
 "class": "CardLabel",
@@ -163,6 +173,11 @@ _global_script_classes=[ {
 "class": "DBPreviewPopup",
 "language": "GDScript",
 "path": "res://src/core/DeckBuilder/DBPreviewPopup.gd"
+}, {
+"base": "Reference",
+"class": "Deck",
+"language": "GDScript",
+"path": "res://src/dreamscape/Globals/DeckObject.gd"
 }, {
 "base": "PanelContainer",
 "class": "DeckBuilder",
@@ -248,6 +263,11 @@ _global_script_classes=[ {
 "class": "PlayerEntity",
 "language": "GDScript",
 "path": "res://src/dreamscape/CombatElements/PlayerEntity.gd"
+}, {
+"base": "PanelContainer",
+"class": "PostBattleMenu",
+"language": "GDScript",
+"path": "res://src/dreamscape/PostBattleMenu.gd"
 }, {
 "base": "Button",
 "class": "QuantityNumberButton",
@@ -341,7 +361,9 @@ _global_script_class_icons={
 "CardBackTexture": "",
 "CardConfig": "",
 "CardContainer": "",
+"CardEntry": "",
 "CardFront": "",
+"CardGroupDefinitions": "",
 "CardLabel": "",
 "CombatEffect": "",
 "CombatEntity": "",
@@ -356,6 +378,7 @@ _global_script_class_icons={
 "DBGridCardObject": "",
 "DBListCardObject": "",
 "DBPreviewPopup": "",
+"Deck": "",
 "DeckBuilder": "",
 "DeckLoader": "",
 "DeckNameRandomizer": "",
@@ -373,6 +396,7 @@ _global_script_class_icons={
 "OVUtils": "",
 "Pile": "",
 "PlayerEntity": "",
+"PostBattleMenu": "",
 "QuantityNumberButton": "",
 "SP": "",
 "ScriptAlter": "",
@@ -399,6 +423,7 @@ config/icon="res://icon.png"
 [autoload]
 
 cfc="*res://src/core/CFControl.gd"
+globals="*res://src/dreamscape/Globals/Globals.gd"
 
 [display]
 

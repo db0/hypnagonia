@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/dreamscape/Discard.gd" type="Script" id=1]
 [ext_resource path="res://src/core/Pile.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/dreamscape/Deck.gd" type="Script" id=4]
 [ext_resource path="res://src/dreamscape/Board.gd" type="Script" id=5]
 [ext_resource path="res://src/dreamscape/Counters.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/dreamscape/PostBattleMenu.tscn" type="PackedScene" id=7]
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=12]
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -158,6 +159,8 @@ margin_left = 7.0
 margin_right = 68.0
 margin_bottom = 22.0
 text = "End Turn"
+
+[node name="PostBattleMenu" parent="." instance=ExtResource( 7 )]
 
 [editable path="Deck"]
 [editable path="Discard"]

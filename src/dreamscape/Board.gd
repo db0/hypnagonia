@@ -1,6 +1,6 @@
 extends Board
 
-const CARD_GROUPS = preload("res://src/dreamscape/cards/sets/CardGroups.gd")
+
 const ENEMY_ENTITY_SCENE = preload("res://src/dreamscape/CombatElements/Enemies/EnemyEntity.tscn")
 
 var end_turn : Button
@@ -9,6 +9,7 @@ var dreamer: PlayerEntity
 var activated_enemies: Array
 
 onready var bottom_gui := $HBC
+onready var post_battle_menu := $PostBattleMenu
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,7 +23,7 @@ func _ready() -> void:
 	# This way any they will work with any size of viewport in a game.
 	# Discard pile goes bottom right
 	if not get_tree().get_root().has_node('Gut'):
-		load_test_cards()
+		load_deck()
 	turn.setup()
 	dreamer = preload("res://src/dreamscape/CombatElements/PlayerEntity.tscn").instance()
 	var dreamer_properties := {
@@ -34,7 +35,7 @@ func _ready() -> void:
 	dreamer.setup("Dreamer", dreamer_properties)
 	add_child(dreamer)
 	dreamer.rect_position = Vector2(100,100)
-	var torment = spawn_enemy("Gaslighter")
+#	var torment = spawn_enemy("Gaslighter")
 	var torment2 = spawn_enemy("Gaslighter")
 	torment2.rect_position = Vector2(800,100)
 	yield(get_tree().create_timer(0.1), "timeout")
@@ -50,6 +51,7 @@ func spawn_enemy(enemy_name) -> EnemyEntity:
 	enemy.setup(enemy_name, enemy_properties)
 	add_child(enemy)
 	enemy.connect("finished_activation", self, "_on_finished_enemy_activation")
+	enemy.connect("entity_killed", self, "_enemy_died")
 	enemy.rect_position = Vector2(500,100)
 	return(enemy)
 
@@ -103,28 +105,14 @@ func _on_EnableAttach_toggled(button_pressed: bool) -> void:
 func _on_Debug_toggled(button_pressed: bool) -> void:
 	cfc._debug = button_pressed
 
-# Loads a sample set of cards to use for testing
-func load_test_cards() -> void:
-	var test_deck = {
-		"class": "Flyer",
-		"race": "Fearless",
-		"item": "Rubber Chicken",
-		"life_goal": "Abusive Relationship",
-	}
-	var test_card_array := []
-	for card_name in assemble_starting_deck(test_deck):
-		test_card_array.append(cfc.instance_card(card_name))
-	for card in test_card_array:
+# Loads the player's deck
+func load_deck() -> void:
+	for card in globals.deck.instance_cards():
 		$Deck.add_child(card)
 		#card.set_is_faceup(false,true)
 		card._determine_idle_state()
-
-
-func assemble_starting_deck(starting_deck_groups: Dictionary) -> Array:
-	var all_cards : Array
-	for key in starting_deck_groups:
-		all_cards += CARD_GROUPS[key.to_upper()][starting_deck_groups[key]]["Starting Cards"]
-	return(all_cards)
+	yield(get_tree().create_timer(0.3), "timeout")
+	cfc.NMAP.hand.refill_hand()
 
 	
 func _on_turn_started(turn: Turn) -> void:
@@ -145,3 +133,11 @@ func _on_finished_enemy_activation(enemy: EnemyEntity) -> void:
 		activated_enemies.append(enemy)
 	if activated_enemies.size() == get_tree().get_nodes_in_group("EnemyEntities").size():
 		turn.start_turn()
+
+func _enemy_died() -> void:
+	yield(get_tree().create_timer(1), "timeout")
+	if get_tree().get_nodes_in_group("EnemyEntities").size() == 0:
+		complete_battle()
+		
+func complete_battle() -> void:
+	post_battle_menu.display()
