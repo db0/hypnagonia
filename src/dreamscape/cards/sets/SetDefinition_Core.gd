@@ -34,7 +34,7 @@ const CARDS := {
 	"Safety of Air": {
 		"Type": "Control",
 		"Tags": ["Calm"],
-		"Abilities": "Reduce your anxiety by 4.",
+		"Abilities": "Relax for 4. Forget",
 		"Cost": 1,
 		"_illustration": "Nobody",
 	},

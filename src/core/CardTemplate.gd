@@ -1157,7 +1157,7 @@ func move_to(targetHost: Node,
 						"tags": tags
 					}
 			)
-		if parentHost and parentHost.is_in_group("hands"):
+		if is_instance_valid(parentHost) and parentHost.is_in_group("hands"):
 			# We also want to rearrange the hand when we take cards out of it
 			for c in parentHost.get_all_cards():
 				# But this time we don't want to rearrange ourselves, as we're
@@ -2277,7 +2277,8 @@ func _process_card_state() -> void:
 			set_card_rotation(0)
 			if scale != Vector2(1,1):
 				scale = Vector2(1,1)
-			set_is_faceup(get_parent().faceup_cards, true)
+			if get_parent() in get_tree().get_nodes_in_group("piles"):
+				set_is_faceup(get_parent().faceup_cards, true)
 
 		CardState.VIEWED_IN_PILE:
 			z_index = 0
@@ -2288,7 +2289,8 @@ func _process_card_state() -> void:
 			set_card_rotation(0)
 			if scale != Vector2(1,1):
 				scale = Vector2(1,1)
-			set_is_faceup(get_parent().faceup_cards, true)
+			if get_parent() in get_tree().get_nodes_in_group("piles"):
+				set_is_faceup(get_parent().faceup_cards, true)
 
 		CardState.IN_POPUP:
 			z_index = 0
@@ -2327,7 +2329,7 @@ func _process_card_state() -> void:
 			if CFConst.VIEWPORT_FOCUS_ZOOM_TYPE == "scale":
 				scale = Vector2(1.5,1.5)
 			else:
-				# We need to reset its scale, 
+				# We need to reset its scale,
 				# in case it was already scaled due to being on the table etc.
 				scale = Vector2(1,1)
 				set_card_size(CFConst.CARD_SIZE*1.5, true)

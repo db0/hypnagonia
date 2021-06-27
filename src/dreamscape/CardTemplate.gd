@@ -151,7 +151,11 @@ func generate_discard_tasks() -> Array:
 			"name": "move_card_to_container",
 			"subject": "self",
 			"tags": ["Played"],
-			"dest_container": cfc.NMAP.discard}
+			"dest_container": cfc.NMAP.discard,
+			"filter_state_subject": [{
+				"filter_parent": cfc.NMAP.hand,
+			}],
+		}
 	var discard_tasks = [discard_script_template]
 	return(discard_tasks)
 

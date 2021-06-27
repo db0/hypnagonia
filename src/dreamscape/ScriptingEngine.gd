@@ -141,7 +141,7 @@ func modify_health(script: ScriptTask) -> int:
 		var modification = calculate_modify_health(combat_entity, script)
 		# To allow effects like advantage to despawn
 		yield(cfc.get_tree().create_timer(0.01), "timeout")
-		retcode = combat_entity.take_damage(
+		retcode = combat_entity.modify_health(
 				modification,
 				costs_dry_run(),
 				tags)

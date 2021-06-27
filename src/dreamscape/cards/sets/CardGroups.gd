@@ -11,6 +11,8 @@ const CLASS := {
 			"Untouchable",
 			"Assault",
 			"Confidence",
+			"Safety of Air",
+			"Safety of Air",
 		],
 		"Commons": [
 			"Untouchable",
@@ -117,8 +119,8 @@ const ITEM := {
 			"unnamed_card_4",
 		],
 		"Rares": [
-			CoreDefinitions.CARDS.Nunclucks,
-			CoreDefinitions.CARDS["Utterly Ridiculous"],
+			"Nunclucks",
+			"Utterly Ridiculous",
 		]
 	},
 }

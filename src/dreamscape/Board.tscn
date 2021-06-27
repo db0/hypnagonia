@@ -84,6 +84,8 @@ margin_bottom = 60.0
 position = Vector2( 1124, 475 )
 script = ExtResource( 1 )
 placement = 6
+overlap_shift_direction = 1
+index_shift_priority = 1
 pile_name = "Discard"
 faceup_cards = true
 
@@ -108,14 +110,12 @@ margin_right = 68.0
 [node name="CardCount" parent="Discard/Control/CenterContainer/VBoxContainer/PanelContainer/CenterContainer" index="0"]
 margin_right = 45.0
 
-[node name="ManipulationButtons" parent="Discard/Control" index="2"]
-visible = false
-
 [node name="View" parent="Discard/Control/ManipulationButtons" index="0"]
 margin_right = 18.0
 margin_bottom = 22.0
 
 [node name="Shuffle" parent="Discard/Control/ManipulationButtons" index="1"]
+visible = false
 margin_top = 25.0
 margin_right = 18.0
 margin_bottom = 47.0
@@ -134,6 +134,63 @@ margin_top = 21.0
 margin_bottom = 39.0
 
 [node name="Size" parent="Discard/Debug" index="2"]
+margin_top = 42.0
+margin_bottom = 60.0
+
+[node name="Forgotten" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1124, 475 )
+script = ExtResource( 1 )
+placement = 6
+overlap_shift_direction = 1
+index_shift_priority = 1
+pile_name = "Forgotten"
+faceup_cards = true
+
+[node name="Control" parent="Forgotten" index="0"]
+custom_styles/panel = SubResource( 1 )
+
+[node name="VBoxContainer" parent="Forgotten/Control/CenterContainer" index="0"]
+margin_right = 68.0
+margin_bottom = 109.0
+
+[node name="Label" parent="Forgotten/Control/CenterContainer/VBoxContainer" index="0"]
+margin_right = 68.0
+
+[node name="PanelContainer" parent="Forgotten/Control/CenterContainer/VBoxContainer" index="1"]
+margin_top = 32.0
+margin_right = 68.0
+margin_bottom = 61.0
+
+[node name="CenterContainer" parent="Forgotten/Control/CenterContainer/VBoxContainer/PanelContainer" index="0"]
+margin_right = 68.0
+
+[node name="CardCount" parent="Forgotten/Control/CenterContainer/VBoxContainer/PanelContainer/CenterContainer" index="0"]
+margin_right = 45.0
+
+[node name="View" parent="Forgotten/Control/ManipulationButtons" index="0"]
+margin_right = 18.0
+margin_bottom = 22.0
+
+[node name="Shuffle" parent="Forgotten/Control/ManipulationButtons" index="1"]
+visible = false
+margin_top = 25.0
+margin_right = 18.0
+margin_bottom = 47.0
+
+[node name="CardView" parent="Forgotten/ViewPopup" index="0"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 6.0
+margin_bottom = 6.0
+
+[node name="Position" parent="Forgotten/Debug" index="0"]
+margin_bottom = 18.0
+
+[node name="AreaPos" parent="Forgotten/Debug" index="1"]
+margin_top = 21.0
+margin_bottom = 39.0
+
+[node name="Size" parent="Forgotten/Debug" index="2"]
 margin_top = 42.0
 margin_bottom = 60.0
 
@@ -164,3 +221,4 @@ text = "End Turn"
 
 [editable path="Deck"]
 [editable path="Discard"]
+[editable path="Forgotten"]

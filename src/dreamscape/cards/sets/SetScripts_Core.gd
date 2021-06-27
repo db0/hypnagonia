@@ -22,7 +22,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
-		"Defend": {
+		"Confidence": {
 			"manual": {
 				"hand": [
 					{
@@ -82,6 +82,11 @@ func get_scripts(card_name: String) -> Dictionary:
 						"amount": -4,
 						"tags": ["Healing"],
 					},
+					{
+						"name": "move_card_to_container",
+						"subject": "self",
+						"dest_container": cfc.NMAP.forgotten,
+					},
 				],
 			},
 		},
@@ -97,7 +102,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
-		"Fly Upwards": {
+		"Untouchable": {
 			"manual": {
 				"hand": [
 					{

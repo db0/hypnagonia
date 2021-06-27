@@ -63,18 +63,15 @@ func set_damage(value) -> void:
 		_update_health_label()
 
 func set_health(value) -> void:
-	health = value
-	if damage > health:
-		die()
-	_update_health_label()
+	modify_health(value)
 
 func die() -> void:
 	emit_signal("entity_killed")
 	queue_free()
 
-func take_damage(amount: int, dry_run := false, tags := ["Manual"]) -> int:
+func modify_health(amount: int, dry_run := false, tags := ["Manual"]) -> int:
 	if not dry_run:
-		if defence > 0:
+		if defence > 0 and "Damage" in tags:
 			if amount >= defence:
 				amount -= defence
 				defence = 0
@@ -82,6 +79,8 @@ func take_damage(amount: int, dry_run := false, tags := ["Manual"]) -> int:
 				defence -= amount
 				amount = 0
 		damage += amount
+		if damage < 0:
+			damage = 0
 		if damage >= health:
 			die()
 		_update_health_label()
