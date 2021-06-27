@@ -21,6 +21,7 @@ const PLAYER_TERMS := {
 	"defence": "Confidence",
 	"energy": "Immersion",
 	"health": "Anxiety",
+	"exhaust": "Forget",
 }
 const ENEMY_TERMS := {
 	"entity": "Torment",
@@ -29,6 +30,7 @@ const ENEMY_TERMS := {
 	"defence": "Perplexity",
 	"energy": "Energy",
 	"health": "Interpretation",
+	"exhaust": "Forget",
 }
 const COMMON_FORMATS = {
 	PLAYER: PLAYER_TERMS,

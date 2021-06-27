@@ -85,12 +85,12 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
-		"Laugh at Danger": {
+		"Nothing to Fear": {
 			"manual": {
 				"hand": [
 					{
 						"name": "apply_effect",
-						"effect": ActiveEffects.NAMES.laugh_at_danger,
+						"effect": ActiveEffects.NAMES.nothing_to_fear,
 						"subject": "dreamer",
 						"modification": 1,
 					},

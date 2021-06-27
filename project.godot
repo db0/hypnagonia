@@ -124,6 +124,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/CombatElements/CombatSignifier.gd"
 }, {
+"base": "Reference",
+"class": "CoreDefinitions",
+"language": "GDScript",
+"path": "res://src/dreamscape/cards/sets/SetDefinition_Core.gd"
+}, {
 "base": "Control",
 "class": "Counters",
 "language": "GDScript",
@@ -373,6 +378,7 @@ _global_script_class_icons={
 "CombatEffect": "",
 "CombatEntity": "",
 "CombatSignifier": "",
+"CoreDefinitions": "",
 "Counters": "",
 "CustomScripts": "",
 "DBDeckCardObject": "",

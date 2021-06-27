@@ -4,24 +4,34 @@ extends Reference
 const SET = "Core Set"
 
 const CLASS := {
+	# Archetypes: Untouchable/Calm
 	"Flyer": {
 		"Anxiety": 5,
 		"Starting Cards": [
-			"Fly Upwards",
-			"Dive-in",
-			"Safety of Air",
+			"Untouchable",
+			"Assault",
+			"Confidence",
 		],
 		"Commons": [
-			"Fly Upwards",
+			"Untouchable",
 			"Dive-in",
 			"Overview",
+			"Drag and Drop",
+			"Loop de loop",
 		],
 		"Uncommons": [
 			"Whirlwind",
 			"Safety of Air",
+			"Swoop",
+			"Barrel Through",
+			"Running Start",
 		],
-		"Rares": []
+		"Rares": [
+			"Master of Skies",
+			"Zen of Flight",
+		]
 	},
+	# Archetype: 
 	"Warrior": {
 		"Anxiety": 5,
 		"Starting Cards": [
@@ -34,42 +44,81 @@ const CLASS := {
 		],
 		"Rares": []
 	},
+	# Archetype: 
+	"Runner": {
+		"Anxiety": 5,
+		"Starting Cards": [
+		],
+		"Commons": [
+			"Rapid Encirclement",
+		],
+		"Uncommons": [
+			"Barrel Through",
+		],
+		"Rares": []
+	},
 }
 
 const RACE := {
+	# Archetypes: Confidence/Doubt
 	"Fearless": {
 		"Anxiety": 5,
 		"Starting Cards": [
-			"Assault",
-			"Assault",
-			"Laugh at Danger",
+			"Confidence",
+			"Confidence",
+			"Nothing to Fear",
 		],
 		"Commons": [
-			"Laugh at Danger",
+			"Intimidate",
+			"Towering Presence",
+			"Courage",
+			"Solid Understanding",
+			"Confident Slap",
 		],
-		"Uncommons": [],
-		"Rares": []
+		"Uncommons": [
+			"Nothing to Fear",
+			"Barrel Through",
+			"Cheeky Approach",
+			"No Second Thoughts",
+			"Point out the Weakness",
+		],
+		"Rares": [
+			"Laugh at Danger",
+			"Unassailable",
+			"Boast",
+		]
 	},
+	# Archetypes: Self-harm
+	"Coward": {
+		"Anxiety": -5,
+	}
 }
 
 const ITEM := {
 	# Archetype: Confusion
 	"Rubber Chicken": {
 		"Starting Cards": [
-			"Confounding Movements",
+			"Assault",
 			"Assault",
 			"Noisy Whip",
 		],
 		"Commons": [
 			"Confounding Movements",
 			"Noisy Whip",
+			"Headless",
+			"Ventriloquism",
+			"unnamed_card_1",
+			"unnamed_card_3",
 		],
 		"Uncommons": [
 			"Rubber Eggs",
-			"The Joke"
+			"The Joke",
+			"unnamed_card_2",
+			"unnamed_card_4",
 		],
 		"Rares": [
-			"Nunclucks"
+			CoreDefinitions.CARDS.Nunclucks,
+			CoreDefinitions.CARDS["Utterly Ridiculous"],
 		]
 	},
 }

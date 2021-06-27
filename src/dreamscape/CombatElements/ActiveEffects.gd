@@ -9,10 +9,12 @@ const NAMES := {
 	"empower": "clarity",
 	"disempower": "confusion",
 	"advantage": "advantage",
-	"vulnerable": "vulnerable",
-	"impervious": "impervious",
+	"vulnerable": "shaken",
+	"impervious": "untouchable",
+	"barricade": "courage",
 	# Below are unique effects. Typically from concentrations
 	"laugh_at_danger": "laugh_at_danger",
+	"nothing_to_fear": "nothing_to_fear",
 }
 
 const EFFECTS := {
@@ -23,6 +25,7 @@ const EFFECTS := {
 	NAMES.advantage: preload("res://src/dreamscape/CombatElements/CombatEffects/Advantage.tscn"),
 	NAMES.impervious: preload("res://src/dreamscape/CombatElements/CombatEffects/Impervious.tscn"),
 	NAMES.laugh_at_danger: preload("res://src/dreamscape/CombatElements/CombatEffects/LaughAtDanger.tscn"),
+	NAMES.nothing_to_fear: preload("res://src/dreamscape/CombatElements/CombatEffects/NothingToFear.tscn"),
 }
 
 # When a stack of an effect is added and its opposite exists, before adding a stack
