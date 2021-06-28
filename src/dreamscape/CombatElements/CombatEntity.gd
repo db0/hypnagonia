@@ -15,6 +15,10 @@ onready var name_label : Label = $Name
 onready var defence_label : Label = $HBC/Defence
 onready var active_effects := $ActiveEffects
 onready var incoming := $CenterContainer/Incoming
+onready var highlight := $Texture/Highlight
+onready var decription_popup := $Description
+onready var description_label := $Description/Label
+
 
 var damage : int setget set_damage
 var health : int setget set_health
@@ -49,6 +53,7 @@ func _ready() -> void:
 	name_label.text = canonical_name
 	_update_health_label()
 	active_effects.combat_entity = self
+	highlight.rect_min_size = entity_size + Vector2(1,1)
 
 
 func set_armor(value) -> void:
@@ -109,3 +114,29 @@ func clear_predictions() -> void:
 func _update_health_label() -> void:
 	health_label.text = str(damage) + '/' + str(health)
 	defence_label.text = '(' + str(defence) + ')'
+
+
+func _on_Defence_mouse_entered() -> void:
+	var format = Terms.COMMON_FORMATS[entity_type].duplicate()
+	description_label.text = "{defence}: It is removed before {health} is accumulated.".format(format)
+	decription_popup.rect_min_size.x = 0.0
+	decription_popup.visible = true
+	decription_popup.rect_global_position = defence_label.rect_global_position + Vector2(20,-50)
+
+
+func _on_Health_mouse_entered() -> void:
+	var format = Terms.COMMON_FORMATS[entity_type].duplicate()
+	description_label.text = "{health} (accumulated/total): {damage_taken_verb} from {enemy} {enemy_actions}.".format(format)
+	decription_popup.visible = true
+	decription_popup.rect_min_size.x = 0.0
+	decription_popup.rect_global_position = health_label.rect_global_position + Vector2(20,-50)
+
+
+func _on_CombatSingifier_mouse_exited() -> void:
+	decription_popup.visible = false
+
+
+func _on_Description_mouse_exited() -> void:
+	decription_popup.visible = false
+
+

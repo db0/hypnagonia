@@ -20,13 +20,13 @@ margin_right = 73.0
 
 [node name="Name" parent="." index="2"]
 margin_right = 73.0
-margin_bottom = 110.0
+margin_bottom = 46.0
 text = "Dreamer"
 
 [node name="HBC" parent="." index="3"]
-margin_top = 114.0
+margin_top = 50.0
 margin_right = 73.0
-margin_bottom = 128.0
+margin_bottom = 64.0
 
 [node name="Defence" parent="HBC" index="0"]
 margin_right = 16.0
@@ -37,6 +37,6 @@ margin_right = 73.0
 text = "100/100"
 
 [node name="ActiveEffects" parent="." index="4"]
-margin_top = 132.0
+margin_top = 68.0
 margin_right = 73.0
-margin_bottom = 156.0
+margin_bottom = 92.0
