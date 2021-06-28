@@ -19,6 +19,7 @@ const INTENTS := {
 			"subject": "self",
 			"amount": null,
 			"icon": null,
+			"description": "A basic defence. Will give this Torment the specified amount of Perplexity."
 		}
 	],
 }

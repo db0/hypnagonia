@@ -15,7 +15,7 @@ const ENEMIES := {
 				"reshuffle": true,
 			},
 		],
-		"_texture_size_x": "64",
-		"_texture_size_y": "64",
+		"_texture_size_x": "80",
+		"_texture_size_y": "80",
 	},
 }

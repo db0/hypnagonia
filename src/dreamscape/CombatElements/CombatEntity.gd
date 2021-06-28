@@ -96,7 +96,7 @@ func receive_defence(amount: int, dry_run := false, tags := ["Manual"]) -> int:
 		defence += amount
 		_update_health_label()
 	return(CFConst.ReturnCode.CHANGED)
-	
+
 func get_class() -> String:
 	return("CombatEntity")
 
@@ -117,20 +117,21 @@ func _update_health_label() -> void:
 
 
 func _on_Defence_mouse_entered() -> void:
-	var format = Terms.COMMON_FORMATS[entity_type].duplicate()
-	description_label.text = "{defence}: It is removed before {health} is accumulated.".format(format)
-	decription_popup.rect_min_size.x = 0.0
-	decription_popup.visible = true
-	decription_popup.rect_global_position = defence_label.rect_global_position + Vector2(20,-50)
-
+	var description_text := "{defence}: It is removed before {health} is accumulated."\
+			+ "\nIt is removed at the start of the {entity}'s turn"
+	_show_description_popup(description_text, defence_label)
 
 func _on_Health_mouse_entered() -> void:
-	var format = Terms.COMMON_FORMATS[entity_type].duplicate()
-	description_label.text = "{health} (accumulated/total): {damage_taken_verb} from {enemy} {enemy_actions}.".format(format)
-	decription_popup.visible = true
-	decription_popup.rect_min_size.x = 0.0
-	decription_popup.rect_global_position = health_label.rect_global_position + Vector2(20,-50)
+	var description_text := "{health} (accumulated/total): {damage_taken_verb}"\
+			+ " from {enemy} {enemy_actions}."
+	_show_description_popup(description_text, health_label)
 
+func _show_description_popup(description_text: String, popup_anchor: Node) -> void:
+	var format = Terms.COMMON_FORMATS[entity_type].duplicate()
+	description_label.text = description_text.format(format)
+	decription_popup.visible = true
+	decription_popup.rect_size = Vector2(0,0)
+	decription_popup.rect_global_position = popup_anchor.rect_global_position + Vector2(20,-50)
 
 func _on_CombatSingifier_mouse_exited() -> void:
 	decription_popup.visible = false
