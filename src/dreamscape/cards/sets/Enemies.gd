@@ -4,7 +4,7 @@ extends Reference
 const ENEMIES := {
 	"Gaslighter": {
 		"Type": "Abuse",
-		"Health": 5,
+		"Health": 25,
 		"Intents": [
 			{
 				"intent_scripts": ["Attack:5"],

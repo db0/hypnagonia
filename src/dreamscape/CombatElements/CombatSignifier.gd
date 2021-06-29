@@ -1,6 +1,8 @@
 class_name CombatSignifier
 extends Control
 
+var amount : int setget update_amount
+
 onready var signifier_label := $Signifier/Label
 onready var signifier_icon := $Signifier/Icon
 onready var signifier_amount := $MC/Amount
@@ -32,5 +34,6 @@ func _on_CombatSingifier_mouse_entered() -> void:
 func _on_CombatSingifier_mouse_exited() -> void:
 	decription_popup.visible = false
 
-func update_amount(amount) -> void:
-	signifier_amount.text = str(amount)
+func update_amount(value) -> void:
+	amount = value
+	signifier_amount.text = str(value)

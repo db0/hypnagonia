@@ -26,6 +26,11 @@ static func filter_trigger(
 		trigger_card,
 		owner_card,
 		trigger_details)
+	# For the card effect of Gummiraprot
+	if is_valid and card_scripts.get("filter_gummiraptor"):
+		for enemy in cfc.get_tree().get_nodes_in_group("EnemyEntities"):
+			if enemy.intents.get_total_damage() > 0:
+				is_valid = false
 	return(is_valid)
 
 static func check_validity(obj, card_scripts, type := "trigger") -> bool:
@@ -33,7 +38,6 @@ static func check_validity(obj, card_scripts, type := "trigger") -> bool:
 	if obj and card_scripts.get(ScriptProperties.FILTER_STATE + type):
 		var state_filters_array : Array = card_scripts.get(ScriptProperties.FILTER_STATE + type)
 		for state_filters in state_filters_array:
-			card_matches = true
 			for filter in state_filters:
 				# We check with like this, as it allows us to provide an "AND"
 				# check, by simply apprending something into the state string

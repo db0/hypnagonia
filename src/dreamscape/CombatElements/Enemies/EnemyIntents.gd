@@ -16,7 +16,7 @@ func prepare_intents() -> void:
 		reshuffle_intents()
 	for intent in get_children():
 		intent.queue_free()
-	yield(get_tree().	create_timer(0.01), "timeout")
+	yield(get_tree().create_timer(0.01), "timeout")
 	for intent in new_intents.intent_scripts:
 		# Some intents can use a generic format of "Intent Name: Value"
 		# Therefore we always split the intent name (i.e. the key) on a colon, and the name
@@ -45,6 +45,12 @@ func reshuffle_intents() -> void:
 	CFUtils.shuffle_array(unused_intents)
 #	print_debug(unused_intents)
 
+func get_total_damage() -> int:
+	var total_damage := 0
+	for intent in get_children():
+		if "Damage" in intent.intent_script.tags:
+			total_damage += intent.amount
+	return(total_damage)
 
 # Executes the tasks defined in the intent's scripts in order.
 #

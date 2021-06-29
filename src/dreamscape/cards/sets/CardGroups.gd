@@ -9,9 +9,16 @@ const CLASS := {
 		"Anxiety": 5,
 		"Starting Cards": [
 			"Untouchable",
+			"Untouchable",
+			"Untouchable",
+			"Untouchable",
 			"Assault",
 			"Confidence",
 			"The Joke",
+			"Gummiraptor",
+			"Gummiraptor",
+			"Gummiraptor",
+			"Gummiraptor",
 		],
 		"Commons": [
 			"Untouchable",

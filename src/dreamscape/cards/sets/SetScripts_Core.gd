@@ -213,6 +213,9 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "custom_script",
 						"subject": "target",
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
 					}
 				],
 			},
@@ -226,6 +229,30 @@ func get_scripts(card_name: String) -> Dictionary:
 						"subject": "dreamer",
 						"modification": 1,
 					},
+				],
+			},
+		},
+		"Gummiraptor": {
+			"manual": {
+				"hand": [
+					{
+						"name": "modify_health",
+						"subject": "target",
+						"is_cost": true,
+						"amount": 10,
+						"tags": ["Damage"],
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
+					},
+					{
+						"name": "modify_health",
+						"is_cost": true,
+						"amount": 10,
+						"tags": ["Damage"],
+						"subject": "previous",
+						"filter_gummiraptor": true,
+					}
 				],
 			},
 		},

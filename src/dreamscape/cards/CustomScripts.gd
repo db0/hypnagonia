@@ -25,7 +25,7 @@ func custom_script(script: ScriptObject) -> void:
 		"The Joke":
 			# No demo cost-based custom scripts
 			if not costs_dry_run:
-				if subjects.size():
+				if subjects.size() and subjects[0] as EnemyEntity:
 					var enemy_entity: EnemyEntity = subjects[0]
 					if enemy_entity.active_effects.get_effect(Terms.ACTIVE_EFFECTS.disempower):
 						var the_joke = [{

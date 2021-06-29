@@ -44,11 +44,12 @@ func predict() -> void:
 #					"modifier": _retrieve_temp_modifiers(script, "properties")
 #				}
 			var prediction_method = "calculate_" + script.script_name
-			if has_method(prediction_method):
+			if not script.is_skipped and has_method(prediction_method):
 				var amount = call(prediction_method, entity, script)
 				if amount is GDScriptFunctionState:
 					amount = yield(amount, "completed")
 				entity.show_predictions(amount)
+
 
 # Will return the adjusted amount of whatever the scripts are doing
 # if there is one.
@@ -85,7 +86,7 @@ func predict_intent_amount() -> int:
 #					"requesting_object": script.owner,
 #					"modifier": _retrieve_temp_modifiers(script, "properties")
 #				}
-			if has_method(prediction_method):
+			if not script.is_skipped and has_method(prediction_method):
 				var amount = call(prediction_method, entity, script)
 				if amount is GDScriptFunctionState:
 					amount = yield(amount, "completed")
