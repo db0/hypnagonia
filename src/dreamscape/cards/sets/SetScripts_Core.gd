@@ -28,7 +28,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "assign_defence",
 						"subject": "dreamer",
-						"amount": 55,
+						"amount": 5,
 					}
 				],
 			},
@@ -252,6 +252,48 @@ func get_scripts(card_name: String) -> Dictionary:
 						"tags": ["Damage"],
 						"subject": "previous",
 						"filter_gummiraptor": true,
+					}
+				],
+			},
+		},
+		"Cocky Retort": {
+			"manual": {
+				"hand": [
+					# We have a function to discard manually to ensure
+					# it's not counted for checking if the hand is full
+					{
+						"name": "move_card_to_container",
+						"dest_container": cfc.NMAP.discard,
+						"subject": "self",
+					},
+					{
+						"name": "assign_defence",
+						"subject": "dreamer",
+						"amount": 8,
+					},
+					{
+						"name": "move_card_to_container",
+						"src_container": cfc.NMAP.deck,
+						"dest_container": cfc.NMAP.hand,
+						"subject_count": 1,
+						"subject": "index",
+						"subject_index": "top",
+					},
+				],
+			},
+		},
+		"Rapid Encriclement": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect": Terms.ACTIVE_EFFECTS.vulnerable,
+						"subject": "boardseek",
+						"subject_count": "all",
+						"modification": 2,
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
 					}
 				],
 			},

@@ -111,6 +111,10 @@ func _on_EnableAttach_toggled(button_pressed: bool) -> void:
 func _on_Debug_toggled(button_pressed: bool) -> void:
 	cfc._debug = button_pressed
 
+func get_all_scriptables() -> Array:
+	return(get_tree().get_nodes_in_group("CombatEntities") + get_all_cards())
+
+
 # Loads the player's deck
 func load_deck() -> void:
 	for card in globals.player.deck.instance_cards():
@@ -151,3 +155,4 @@ func _enemy_died() -> void:
 func complete_battle() -> void:
 	globals.player.damage = dreamer.damage
 	post_battle_menu.display()
+
