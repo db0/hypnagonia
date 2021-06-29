@@ -1,9 +1,6 @@
 class_name ActiveEffects
 extends GridContainer
 
-
-
-
 const EFFECTS := {
 	Terms.ACTIVE_EFFECTS.disempower: preload("res://src/dreamscape/CombatElements/CombatEffects/Disempower.tscn"),
 	Terms.ACTIVE_EFFECTS.empower: preload("res://src/dreamscape/CombatElements/CombatEffects/Empower.tscn"),
@@ -14,6 +11,7 @@ const EFFECTS := {
 	Terms.ACTIVE_EFFECTS.laugh_at_danger: preload("res://src/dreamscape/CombatElements/CombatEffects/LaughAtDanger.tscn"),
 	Terms.ACTIVE_EFFECTS.nothing_to_fear: preload("res://src/dreamscape/CombatElements/CombatEffects/NothingToFear.tscn"),
 	Terms.ACTIVE_EFFECTS.rubber_eggs: preload("res://src/dreamscape/CombatElements/CombatEffects/RubberEggs.tscn"),
+	Terms.ACTIVE_EFFECTS.nunclucks: preload("res://src/dreamscape/CombatElements/CombatEffects/Nunclucks.tscn"),
 }
 
 # When a stack of an effect is added and its opposite exists, before adding a stack
@@ -46,7 +44,6 @@ func mod_effect(
 	else:
 		retcode = CFConst.ReturnCode.CHANGED
 		var effect : CombatEffect = get_all_effects().get(effect_name, null)
-		print_debug(effect_name, effect)
 		if not effect and mod <= 0:
 			pass
 		elif not check:

@@ -42,7 +42,13 @@ func set_stacks(value: int) -> void:
 # To override. This is called by the scripting engine
 # Is source is telling this script whether we're checking for alterants affecting the 
 # entity applying this effect, or the antity receiving this effect.
-func get_effect_alteration(_script: ScriptTask, _value: int, _sceng, _is_source: bool, _dry_run:= true) -> int:
+func get_effect_alteration(
+		_script: ScriptTask, 
+		_value: int, 
+		_sceng, 
+		_is_source: bool, 
+		_dry_run:= true,
+		subject: Node = null) -> int:
 	return(0)
 
 func _on_CombatSingifier_mouse_entered() -> void:

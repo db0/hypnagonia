@@ -128,7 +128,7 @@ func calculate_modify_health(subject: CombatEntity, script: ScriptTask) -> int:
 		modification = per_msg.found_things
 	else:
 		modification = script.get_property(SP.KEY_AMOUNT)
-	alteration = _check_for_effect_alterants(script, modification, subject)
+	alteration = _check_for_effect_alterants(script, modification, subject, self)
 	if alteration is GDScriptFunctionState:
 		alteration = yield(alteration, "completed")
 	return(modification + alteration)
@@ -167,7 +167,7 @@ func calculate_assign_defence(subject: CombatEntity, script: ScriptTask) -> int:
 		modification = per_msg.found_things
 	else:
 		modification = script.get_property(SP.KEY_AMOUNT)
-	alteration = _check_for_effect_alterants(script, modification, subject)
+	alteration = _check_for_effect_alterants(script, modification, subject, self)
 	if alteration is GDScriptFunctionState:
 		alteration = yield(alteration, "completed")
 	return(modification + alteration)
@@ -251,7 +251,11 @@ func remove_card_from_game(script: ScriptTask) -> int:
 
 # Initiates a seek through the owner and target combat entity to see if there's any effects
 # which modify the intensity of the task in question
-func _check_for_effect_alterants(script: ScriptTask, value: int, subject: CombatEntity) -> int:
+static func _check_for_effect_alterants(
+		script: ScriptTask, 
+		value: int, 
+		subject: CombatEntity,
+		sceng) -> int:
 	var total_alteration = 0
 	var alteration_details = {}
 	var source_object: CombatEntity
@@ -264,12 +268,23 @@ func _check_for_effect_alterants(script: ScriptTask, value: int, subject: Combat
 		source_object = script.owner
 	var all_source_effects = source_object.active_effects.get_ordered_effects()
 	for effect in all_source_effects:
-		var alteration : int = effect.get_effect_alteration(script, new_value, self, true, costs_dry_run())
+		var alteration : int = effect.get_effect_alteration(
+				script,
+				new_value, 
+				sceng, 
+				true, 
+				sceng.costs_dry_run(), 
+				subject)
 		alteration_details[effect] = alteration
 		new_value += alteration
 	var all_subject_effects = subject.active_effects.get_ordered_effects()
 	for effect in all_subject_effects:
-		var alteration : int = effect.get_effect_alteration(script, new_value, self, false, costs_dry_run())
+		var alteration : int = effect.get_effect_alteration(
+				script, 
+				new_value, 
+				sceng, 
+				false, 
+				sceng.costs_dry_run())
 		alteration_details[effect] = alteration
 		new_value += alteration
 	return(new_value - value)

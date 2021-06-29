@@ -207,7 +207,28 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
-
+		"The Joke": {
+			"manual": {
+				"hand": [
+					{
+						"name": "custom_script",
+						"subject": "target",
+					}
+				],
+			},
+		},
+		"Nunclucks": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect": Terms.ACTIVE_EFFECTS.nunclucks,
+						"subject": "dreamer",
+						"modification": 1,
+					},
+				],
+			},
+		},
 	}
 	# We return only the scripts that match the card name and trigger
 	return(scripts.get(card_name,{}))

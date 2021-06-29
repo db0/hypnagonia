@@ -77,4 +77,5 @@ const ACTIVE_EFFECTS := {
 	"laugh_at_danger": "laugh at danger",
 	"nothing_to_fear": "nothing to fear",
 	"rubber_eggs": "rubber eggs",
+	"nunclucks": "nunclucks",
 }

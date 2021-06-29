@@ -22,22 +22,66 @@ func custom_script(script: ScriptObject) -> void:
 	# But not all object will be Card
 	# So I can't be certain the "canonical_name" var will exist
 	match script.owner.canonical_name:
-		"Test Card 2":
+		"The Joke":
 			# No demo cost-based custom scripts
 			if not costs_dry_run:
-				print("This is a custom script execution.")
-				print("Look! I am going to destroy myself now!")
-				card.queue_free()
-				print("You can do whatever you want here.")
-		"Test Card 3":
-			if not costs_dry_run:
-				print("This custom script uses the _find_subject()"
-						+ " to find a convenient target")
-				for subject in subjects:
-					subjects[0].queue_free()
-					print("Destroying: " + subjects[0].canonical_name)
+				if subjects.size():
+					var enemy_entity: EnemyEntity = subjects[0]
+					if enemy_entity.active_effects.get_effect(Terms.ACTIVE_EFFECTS.disempower):
+						var the_joke = [{
+							"name": "modify_health",
+							"subject": "trigger",
+							"amount": 10,
+							"tags": ["Damage"],
+						}]
+						execute_script(the_joke, script.owner, enemy_entity)
+					else:
+						var the_joke = [{
+							"name": "apply_effect",
+							"effect": Terms.ACTIVE_EFFECTS.disempower,
+							"subject": "trigger",
+							"modification": 3,
+						}]
+						execute_script(the_joke, script.owner, enemy_entity)
 
 # warning-ignore:unused_argument
 func custom_alterants(script: ScriptObject) -> int:
 	var alteration := 0
 	return(alteration)
+
+
+
+# Executes a custom script so that all modifiers are also handled.
+func execute_script(
+		script : Array,
+		owner: Node,
+		trigger_object: Node,
+		trigger_details: Dictionary = {},
+		only_cost_check := false):
+	var sceng = null
+	sceng = cfc.scripting_engine.new(
+			script,
+			owner,
+			trigger_object,
+			trigger_details)
+	# In case the script involves targetting, we need to wait on further
+	# execution until targetting has completed
+	sceng.execute(CFInt.RunType.COST_CHECK)
+	if not sceng.all_tasks_completed:
+		yield(sceng,"tasks_completed")
+	# If the dry-run of the ScriptingEngine returns that all
+	# costs can be paid, then we proceed with the actual run
+	if sceng.can_all_costs_be_paid and not only_cost_check:
+		#print("DEBUG:" + str(state_scripts))
+		# The ScriptingEngine is where we execute the scripts
+		# We cannot use its class reference,
+		# as it causes a cyclic reference error when parsing
+		sceng.execute()
+		if not sceng.all_tasks_completed:
+			yield(sceng,"tasks_completed")
+	# This will only trigger when costs could not be paid, and will
+	# execute the "is_else" tasks
+	elif not sceng.can_all_costs_be_paid and not only_cost_check:
+		#print("DEBUG:" + str(state_scripts))
+		sceng.execute(CFInt.RunType.ELSE)
+	return(sceng)
