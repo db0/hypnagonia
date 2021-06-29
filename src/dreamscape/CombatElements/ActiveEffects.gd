@@ -12,6 +12,7 @@ const EFFECTS := {
 	Terms.ACTIVE_EFFECTS.nothing_to_fear: preload("res://src/dreamscape/CombatElements/CombatEffects/NothingToFear.tscn"),
 	Terms.ACTIVE_EFFECTS.rubber_eggs: preload("res://src/dreamscape/CombatElements/CombatEffects/RubberEggs.tscn"),
 	Terms.ACTIVE_EFFECTS.nunclucks: preload("res://src/dreamscape/CombatElements/CombatEffects/Nunclucks.tscn"),
+	Terms.ACTIVE_EFFECTS.unassailable: preload("res://src/dreamscape/CombatElements/CombatEffects/Unassailable.tscn"),
 }
 
 # When a stack of an effect is added and its opposite exists, before adding a stack

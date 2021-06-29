@@ -11,7 +11,8 @@ const CLASS := {
 			"Untouchable",
 			"Assault",
 			"Confidence",
-			"Towering Presence",
+			"Intimidate",
+			"Laugh at Danger",
 
 		],
 		"Commons": [

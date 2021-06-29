@@ -86,4 +86,5 @@ const ACTIVE_EFFECTS := {
 	"nothing_to_fear": "nothing to fear",
 	"rubber_eggs": "rubber eggs",
 	"nunclucks": "nunclucks",
+	"unassailable": "Unassailable",
 }

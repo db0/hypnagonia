@@ -161,3 +161,15 @@ func complete_battle() -> void:
 	globals.player.damage = dreamer.damage
 	post_battle_menu.display()
 
+
+
+
+func _input(event):
+	if event.is_action_pressed("debug"):
+		_on_Debug_pressed()
+
+func _on_Debug_pressed() -> void:
+	# warning-ignore:return_value_discarded
+	counters.mod_counter("immersion",10)
+	for iter in range(5):
+		cfc.NMAP.hand.draw_card(cfc.NMAP.deck)
