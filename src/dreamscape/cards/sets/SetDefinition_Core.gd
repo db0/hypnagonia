@@ -81,7 +81,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 	},
-	"War Paint": {
+	"War Paint": { #TODO
 		"Type": "Control",
 		"Tags": [],
 		"Abilities": "All interpretation is increased by 1 this turn.",
@@ -91,7 +91,7 @@ const CARDS := {
 	"Rubber Eggs": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "At the start of your turn, interpret a random confused Torment for 6.",
+		"Abilities": "At the start of your turn, interpret a random Confused Torment for 6.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 	},

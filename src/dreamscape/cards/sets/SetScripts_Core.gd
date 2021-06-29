@@ -135,6 +135,79 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
+		"Inner Justice": {
+			"manual": {
+				"hand": [
+					{
+						"name": "mod_counter",
+						"counter_name": "immersion",
+						"is_cost": true,
+						"modification": -3,
+					},
+					{
+						"name": "mod_counter",
+						"counter_name": "immersion",
+						"modification": 5,
+					},
+				],
+			},
+		},
+		"Whirlwind": {
+			"manual": {
+				"hand": [
+					{
+						"name": "modify_health",
+						"subject": "target",
+						"is_cost": true,
+						"amount": 3,
+						"tags": ["Damage"],
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
+					},
+					{
+						"name": "modify_health",
+						"subject": "previous",
+						"amount": 3,
+						"tags": ["Damage"],
+					},
+					{
+						"name": "modify_health",
+						"subject": "previous",
+						"amount": 3,
+						"tags": ["Damage"],
+					},
+				],
+			},
+		},
+		"Overview": {
+			"manual": {
+				"hand": [
+					{
+						"name": "assign_defence",
+						"subject": "target",
+						"amount": 0,
+						"set_to_mod": true,
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
+					},
+				],
+			},
+		},
+		"Rubber Eggs": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect": ActiveEffects.NAMES.rubber_eggs,
+						"subject": "dreamer",
+						"modification": 1,
+					},
+				],
+			},
+		},
+
 	}
 	# We return only the scripts that match the card name and trigger
 	return(scripts.get(card_name,{}))

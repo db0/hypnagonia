@@ -5,7 +5,6 @@ const _description_string := "{effect_name}: Add {amount} {energy} at the start 
 
 func _ready() -> void:
 	description_string = _description_string
-	cfc.NMAP.board.turn.connect("turn_started", self, "_on_turn_started")
 
 
 func get_effect_alteration(script: ScriptTask, value: int, _sceng, is_source := false, _dry_run := true) -> int:

@@ -15,6 +15,7 @@ const NAMES := {
 	# Below are unique effects. Typically from concentrations
 	"laugh_at_danger": "laugh_at_danger",
 	"nothing_to_fear": "nothing_to_fear",
+	"rubber_eggs": "rubber_eggs",
 }
 
 const EFFECTS := {
@@ -26,6 +27,7 @@ const EFFECTS := {
 	NAMES.impervious: preload("res://src/dreamscape/CombatElements/CombatEffects/Impervious.tscn"),
 	NAMES.laugh_at_danger: preload("res://src/dreamscape/CombatElements/CombatEffects/LaughAtDanger.tscn"),
 	NAMES.nothing_to_fear: preload("res://src/dreamscape/CombatElements/CombatEffects/NothingToFear.tscn"),
+	NAMES.rubber_eggs: preload("res://src/dreamscape/CombatElements/CombatEffects/RubberEggs.tscn"),
 }
 
 # When a stack of an effect is added and its opposite exists, before adding a stack
@@ -147,4 +149,3 @@ func get_effect_stacks(effect_name: String) -> int:
 		return(0)
 	else:
 		return(effect.stacks)
-
