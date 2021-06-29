@@ -27,8 +27,9 @@ func setup(signifier_details: Dictionary, signifier_name: String) -> void:
 
 func _ready() -> void:
 	var turn: Turn = cfc.NMAP.board.turn
-	turn.connect("turn_ended",self,"_on_turn_ended")
-	turn.connect("turn_started",self,"_on_turn_started")
+	for turn_signal in Turn.ALL_SIGNALS:
+		# warning-ignore:return_value_discarded
+		turn.connect(turn_signal, self, "_on_" + turn_signal)
 
 
 func set_stacks(value: int) -> void:
@@ -41,7 +42,7 @@ func set_stacks(value: int) -> void:
 # To override. This is called by the scripting engine
 # Is source is telling this script whether we're checking for alterants affecting the 
 # entity applying this effect, or the antity receiving this effect.
-func get_effect_alteration(script: ScriptTask, value: int, sceng, is_source: bool, dry_run:= true) -> int:
+func get_effect_alteration(_script: ScriptTask, _value: int, _sceng, _is_source: bool, _dry_run:= true) -> int:
 	return(0)
 
 func _on_CombatSingifier_mouse_entered() -> void:
@@ -67,7 +68,6 @@ func get_effect_name() -> String:
 func execute_script(
 		script := [],
 		trigger_object: Node = self,
-		trigger: String = "manual",
 		trigger_details: Dictionary = {},
 		only_cost_check := false):
 	var sceng = null
@@ -99,12 +99,18 @@ func execute_script(
 	return(sceng)
 
 
-
-func _on_turn_ended(turn: Turn) -> void:
-	if self_decreasing == SELF_DECREASE.TURN_START:
+func _on_player_turn_ended(_turn: Turn) -> void:
+	if entity_type == Terms.PLAYER and self_decreasing == SELF_DECREASE.TURN_START:
 		set_stacks(stacks - 1)
 
+func _on_player_turn_started(_turn: Turn) -> void:
+	if entity_type == Terms.PLAYER and self_decreasing == SELF_DECREASE.TURN_END:
+		set_stacks(stacks - 1)
 
-func _on_turn_started(turn: Turn) -> void:
-	if self_decreasing == SELF_DECREASE.TURN_END:
+func _on_enemy_turn_ended(_turn: Turn) -> void:
+	if entity_type == Terms.ENEMY and self_decreasing == SELF_DECREASE.TURN_START:
+		set_stacks(stacks - 1)
+
+func _on_enemy_turn_started(_turn: Turn) -> void:
+	if entity_type == Terms.ENEMY and self_decreasing == SELF_DECREASE.TURN_END:
 		set_stacks(stacks - 1)

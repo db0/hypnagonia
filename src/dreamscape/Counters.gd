@@ -22,11 +22,11 @@ func _ready() -> void:
 	}
 	spawn_needed_counters()
 
-func _on_turn_ended(turn: Turn) -> void:
+func _on_player_turn_ended(turn: Turn) -> void:
 	# warning-ignore:return_value_discarded
 	mod_counter("immersion", 0, true, false, turn, ["End Turn"])
 
-func _on_turn_started(turn: Turn) -> void:
+func _on_player_turn_started(turn: Turn) -> void:
 	# warning-ignore:return_value_discarded
 	mod_counter("immersion", 3, false, false, turn, ["New Turn"])
 

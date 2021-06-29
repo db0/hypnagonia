@@ -9,7 +9,7 @@ func _ready() -> void:
 # To override. This is called by the scripting engine
 # Is source is telling this script that the owning combat_entity is the one owning
 # this alteration
-func get_effect_alteration(script: ScriptTask, value: int, sceng, is_source := false, dry_run := true) -> int:
+func get_effect_alteration(script: ScriptTask, value: int, _sceng, is_source := false, _dry_run := true) -> int:
 	if not script.script_name == 'modify_health'\
 			or not "Damage" in script.get_property(SP.KEY_TAGS)\
 			or not is_source:

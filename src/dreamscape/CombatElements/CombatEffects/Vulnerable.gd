@@ -7,7 +7,7 @@ func _ready() -> void:
 	description_string = _description_string
 
 
-func get_effect_alteration(script: ScriptTask, value: int, sceng, is_source := false, dry_run := true) -> int:
+func get_effect_alteration(script: ScriptTask, value: int, _sceng, is_source := false, _dry_run := true) -> int:
 	if not script.script_name == 'assign_defence' or is_source:
 		return(0)
 	var new_value = round(value * 0.75)

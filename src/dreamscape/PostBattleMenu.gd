@@ -44,12 +44,13 @@ func _on_card_draft_selected(option) -> void:
 
 
 func _on_Proceed_pressed() -> void:
+# warning-ignore:return_value_discarded
 	get_tree().change_scene(CFConst.PATH_CUSTOM + 'Main.tscn')
 
 
 func retrieve_draft_cards() -> void:
 	draft_card_choices.clear()
-	for iter in range(draft_amount):
+	for _iter in range(draft_amount):
 		var card_names: Array
 		var chance := CFUtils.randf_range(0.0, 1.0)
 #		print_debug(str(rare_chance) + ' : ' + str(rare_chance + uncommon_chance))
@@ -71,7 +72,7 @@ func retrieve_draft_cards() -> void:
 
 
 func compile_rarity_cards(rarity: String) -> Array:
-	var rarity_cards : Array
+	var rarity_cards := []
 	for key in globals.player.deck.deck_groups:
 		rarity_cards += CardGroupDefinitions[key.to_upper()][globals.player.deck.deck_groups[key]][rarity]
 	return(rarity_cards)

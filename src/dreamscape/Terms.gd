@@ -62,3 +62,19 @@ const COMMON_FORMATS = {
 	PLAYER: PLAYER_TERMS,
 	ENEMY: ENEMY_TERMS,
 }
+
+# A way to map generic names to thematic names, so that I can perform
+# a rename later if needed
+const ACTIVE_EFFECTS := {
+	"poison": "doubt",
+	"empower": "clarity",
+	"disempower": "confusion",
+	"advantage": "advantage",
+	"vulnerable": "shaken",
+	"impervious": "untouchable",
+	"barricade": "courage",
+	# Below are unique effects. Typically from concentrations
+	"laugh_at_danger": "laugh at danger",
+	"nothing_to_fear": "nothing to fear",
+	"rubber_eggs": "rubber eggs",
+}

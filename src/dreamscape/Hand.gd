@@ -33,8 +33,8 @@ func draw_card(pile : Pile = cfc.NMAP.deck) -> Card:
 		card.move_to(self)
 	return card
 
-func _on_turn_started(_turn: Turn) -> void:
+func _on_player_turn_started(_turn: Turn) -> void:
 	refill_hand()
 
-func _on_turn_ended(_turn: Turn) -> void:
+func _on_player_turn_ended(_turn: Turn) -> void:
 	empty_hand()

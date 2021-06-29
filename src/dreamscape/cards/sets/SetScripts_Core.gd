@@ -28,7 +28,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "assign_defence",
 						"subject": "dreamer",
-						"amount": 5,
+						"amount": 55,
 					}
 				],
 			},
@@ -48,7 +48,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					},
 					{
 						"name": "apply_effect",
-						"effect": ActiveEffects.NAMES.disempower,
+						"effect": Terms.ACTIVE_EFFECTS.disempower,
 						"subject": "previous",
 						"modification": 1,
 					}
@@ -60,13 +60,13 @@ func get_scripts(card_name: String) -> Dictionary:
 				"hand": [
 					{
 						"name": "apply_effect",
-						"effect": ActiveEffects.NAMES.vulnerable,
+						"effect": Terms.ACTIVE_EFFECTS.vulnerable,
 						"subject": "dreamer",
 						"modification": 2,
 					},
 					{
 						"name": "apply_effect",
-						"effect": ActiveEffects.NAMES.advantage,
+						"effect": Terms.ACTIVE_EFFECTS.advantage,
 						"subject": "dreamer",
 						"modification": 1,
 					}
@@ -95,7 +95,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				"hand": [
 					{
 						"name": "apply_effect",
-						"effect": ActiveEffects.NAMES.nothing_to_fear,
+						"effect": Terms.ACTIVE_EFFECTS.nothing_to_fear,
 						"subject": "dreamer",
 						"modification": 1,
 					},
@@ -107,7 +107,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				"hand": [
 					{
 						"name": "apply_effect",
-						"effect": ActiveEffects.NAMES.impervious,
+						"effect": Terms.ACTIVE_EFFECTS.impervious,
 						"subject": "dreamer",
 						"modification": 1,
 					},
@@ -124,7 +124,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					},
 					{
 						"name": "apply_effect",
-						"effect": ActiveEffects.NAMES.disempower,
+						"effect": Terms.ACTIVE_EFFECTS.disempower,
 						"subject": "target",
 						"is_cost": true,
 						"modification": 1,
@@ -200,7 +200,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				"hand": [
 					{
 						"name": "apply_effect",
-						"effect": ActiveEffects.NAMES.rubber_eggs,
+						"effect": Terms.ACTIVE_EFFECTS.rubber_eggs,
 						"subject": "dreamer",
 						"modification": 1,
 					},

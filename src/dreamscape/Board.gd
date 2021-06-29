@@ -37,7 +37,8 @@ func _ready() -> void:
 	dreamer.setup("Dreamer", dreamer_properties)
 	add_child(dreamer)
 	dreamer.rect_position = Vector2(100,100)
-#	var torment = spawn_enemy("Gaslighter")
+# warning-ignore:unused_variable
+	var torment = spawn_enemy("Gaslighter")
 	var torment2 = spawn_enemy("Gaslighter")
 	torment2.rect_position = Vector2(800,100)
 	yield(get_tree().create_timer(0.1), "timeout")
@@ -51,8 +52,11 @@ func spawn_enemy(enemy_name) -> EnemyEntity:
 	var enemy_properties = EnemyDefinitions.ENEMIES.get(enemy_name)
 	var enemy : EnemyEntity = ENEMY_ENTITY_SCENE.instance()
 	enemy.setup(enemy_name, enemy_properties)
+	enemy.entity_type = Terms.ENEMY
 	add_child(enemy)
+# warning-ignore:return_value_discarded
 	enemy.connect("finished_activation", self, "_on_finished_enemy_activation")
+# warning-ignore:return_value_discarded
 	enemy.connect("entity_killed", self, "_enemy_died")
 	enemy.rect_position = Vector2(500,100)
 	return(enemy)
@@ -118,15 +122,16 @@ func load_deck() -> void:
 	cfc.NMAP.hand.refill_hand()
 
 
-func _on_turn_started(turn: Turn) -> void:
+func _on_player_turn_started(_turn: Turn) -> void:
 	yield(cfc.NMAP.hand, "hand_refilled")
 	while cfc.NMAP.hand.are_cards_still_animating():
 		yield(get_tree().create_timer(0.3), "timeout")
 	end_turn.disabled = false
 
-func _on_turn_ended(turn: Turn) -> void:
+func _on_player_turn_ended(_turn: Turn) -> void:
 	end_turn.disabled = true
 	activated_enemies.clear()
+	turn.start_enemy_turn()
 	for enemy in get_tree().get_nodes_in_group("EnemyEntities"):
 #		print_debug("Activating Intents: " + enemy.canonical_name)
 		enemy.activate()
@@ -135,7 +140,8 @@ func _on_finished_enemy_activation(enemy: EnemyEntity) -> void:
 	if not enemy in activated_enemies:
 		activated_enemies.append(enemy)
 	if activated_enemies.size() == get_tree().get_nodes_in_group("EnemyEntities").size():
-		turn.start_turn()
+		turn.end_enemy_turn()
+		turn.start_player_turn()
 
 func _enemy_died() -> void:
 	yield(get_tree().create_timer(1), "timeout")

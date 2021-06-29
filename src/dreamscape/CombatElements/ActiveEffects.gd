@@ -2,39 +2,25 @@ class_name ActiveEffects
 extends GridContainer
 
 
-# A way to map generic names to thematic names, so that I can perform
-# a rename later if needed
-const NAMES := {
-	"poison": "doubt",
-	"empower": "clarity",
-	"disempower": "confusion",
-	"advantage": "advantage",
-	"vulnerable": "shaken",
-	"impervious": "untouchable",
-	"barricade": "courage",
-	# Below are unique effects. Typically from concentrations
-	"laugh_at_danger": "laugh_at_danger",
-	"nothing_to_fear": "nothing_to_fear",
-	"rubber_eggs": "rubber_eggs",
-}
+
 
 const EFFECTS := {
-	NAMES.disempower: preload("res://src/dreamscape/CombatElements/CombatEffects/Disempower.tscn"),
-	NAMES.empower: preload("res://src/dreamscape/CombatElements/CombatEffects/Empower.tscn"),
-	NAMES.poison: preload("res://src/dreamscape/CombatElements/CombatEffects/Poison.tscn"),
-	NAMES.vulnerable: preload("res://src/dreamscape/CombatElements/CombatEffects/Vulnerable.tscn"),
-	NAMES.advantage: preload("res://src/dreamscape/CombatElements/CombatEffects/Advantage.tscn"),
-	NAMES.impervious: preload("res://src/dreamscape/CombatElements/CombatEffects/Impervious.tscn"),
-	NAMES.laugh_at_danger: preload("res://src/dreamscape/CombatElements/CombatEffects/LaughAtDanger.tscn"),
-	NAMES.nothing_to_fear: preload("res://src/dreamscape/CombatElements/CombatEffects/NothingToFear.tscn"),
-	NAMES.rubber_eggs: preload("res://src/dreamscape/CombatElements/CombatEffects/RubberEggs.tscn"),
+	Terms.ACTIVE_EFFECTS.disempower: preload("res://src/dreamscape/CombatElements/CombatEffects/Disempower.tscn"),
+	Terms.ACTIVE_EFFECTS.empower: preload("res://src/dreamscape/CombatElements/CombatEffects/Empower.tscn"),
+	Terms.ACTIVE_EFFECTS.poison: preload("res://src/dreamscape/CombatElements/CombatEffects/Poison.tscn"),
+	Terms.ACTIVE_EFFECTS.vulnerable: preload("res://src/dreamscape/CombatElements/CombatEffects/Vulnerable.tscn"),
+	Terms.ACTIVE_EFFECTS.advantage: preload("res://src/dreamscape/CombatElements/CombatEffects/Advantage.tscn"),
+	Terms.ACTIVE_EFFECTS.impervious: preload("res://src/dreamscape/CombatElements/CombatEffects/Impervious.tscn"),
+	Terms.ACTIVE_EFFECTS.laugh_at_danger: preload("res://src/dreamscape/CombatElements/CombatEffects/LaughAtDanger.tscn"),
+	Terms.ACTIVE_EFFECTS.nothing_to_fear: preload("res://src/dreamscape/CombatElements/CombatEffects/NothingToFear.tscn"),
+	Terms.ACTIVE_EFFECTS.rubber_eggs: preload("res://src/dreamscape/CombatElements/CombatEffects/RubberEggs.tscn"),
 }
 
 # When a stack of an effect is added and its opposite exists, before adding a stack
 # we remove the same amount of its opposite from the amount.
 const OPPOSITES := {
-	NAMES.empower: NAMES.disempower,
-	NAMES.disempower: NAMES.empower,
+	Terms.ACTIVE_EFFECTS.empower: Terms.ACTIVE_EFFECTS.disempower,
+	Terms.ACTIVE_EFFECTS.disempower: Terms.ACTIVE_EFFECTS.empower,
 }
 
 var all_effects: Dictionary
@@ -60,6 +46,7 @@ func mod_effect(
 	else:
 		retcode = CFConst.ReturnCode.CHANGED
 		var effect : CombatEffect = get_all_effects().get(effect_name, null)
+		print_debug(effect_name, effect)
 		if not effect and mod <= 0:
 			pass
 		elif not check:
@@ -121,10 +108,9 @@ func get_all_effects() -> Dictionary:
 	return(found_effects)
 
 func get_ordered_effects() -> Array:
-	var found_effects := {}
-	var adders : Array
-	var multipliers : Array
-	var setters : Array
+	var adders := []
+	var multipliers := []
+	var setters := []
 	for effect in get_children():
 		match effect.priority:
 			CombatEffect.PRIORITY.ADD:

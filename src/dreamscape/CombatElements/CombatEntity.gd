@@ -22,7 +22,7 @@ onready var description_label := $Description/Label
 
 var damage : int setget set_damage
 var health : int setget set_health
-var defence : int setget set_armor
+var defence : int setget set_defence
 var canonical_name: String
 var type: String
 var entity_type: String
@@ -54,9 +54,13 @@ func _ready() -> void:
 	_update_health_label()
 	active_effects.combat_entity = self
 	highlight.rect_min_size = entity_size + Vector2(1,1)
+	var turn: Turn = cfc.NMAP.board.turn
+	for turn_signal in Turn.ALL_SIGNALS:
+		# warning-ignore:return_value_discarded
+		turn.connect(turn_signal, self, "_on_" + turn_signal)
 
 
-func set_armor(value) -> void:
+func set_defence(value) -> void:
 	defence = value
 	_update_health_label()
 
@@ -140,4 +144,21 @@ func _on_CombatSingifier_mouse_exited() -> void:
 func _on_Description_mouse_exited() -> void:
 	decription_popup.visible = false
 
+
+func _on_player_turn_ended(_turn: Turn) -> void:
+	if entity_type == Terms.PLAYER:
+		set_defence(0)
+
+
+func _on_player_turn_started(_turn: Turn) -> void:
+	pass
+
+
+func _on_enemy_turn_started(_turn: Turn) -> void:
+	if entity_type == Terms.ENEMY:
+		set_defence(0)
+
+
+func _on_enemy_turn_ended(_turn: Turn) -> void:
+	pass
 
