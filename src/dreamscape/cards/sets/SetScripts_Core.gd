@@ -396,6 +396,132 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
+		"Courage": {
+			"manual": {
+				"hand": [
+					{
+						"name": "assign_defence",
+						"subject": "dreamer",
+						"amount": 8,
+					},
+					{
+						"name": "apply_effect",
+						"effect": Terms.ACTIVE_EFFECTS.fortify,
+						"subject": "dreamer",
+						"modification": 1,
+					},
+				],
+			},
+		},
+		"Boast": {
+			"manual": {
+				"hand": [
+					{
+						"name": "assign_defence",
+						"subject": "dreamer",
+						"amount": "per_defence",
+						"per_defence": {
+							"subject": "dreamer",
+						},
+					},
+					{
+						"name": "apply_effect",
+						"effect": Terms.ACTIVE_EFFECTS.fortify,
+						"subject": "dreamer",
+						"modification": 0,
+						"set_to_mod": true
+					},
+					{
+						"name": "move_card_to_container",
+						"subject": "self",
+						"dest_container": cfc.NMAP.forgotten,
+					},
+				],
+			},
+		},
+		"Solid Understanding": {
+			"manual": {
+				"hand": [
+					{
+						"name": "modify_damage",
+						"subject": "target",
+						"is_cost": true,
+						"amount": 5,
+						"tags": ["Damage"],
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
+					},
+					{
+						"name": "assign_defence",
+						"subject": "dreamer",
+						"amount": 5,
+					},
+				],
+			},
+		},
+		"No Second Thoughts": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect": Terms.ACTIVE_EFFECTS.fortify,
+						"subject": "dreamer",
+						"modification": 2,
+					},
+				],
+			},
+		},
+		"High Morale": {
+			"manual": {
+				"hand": [
+					{
+						"name": "move_card_to_container",
+						"dest_container": cfc.NMAP.discard,
+						"subject": "self",
+					},
+					{
+						"name": "modify_damage",
+						"subject": "target",
+						"is_cost": true,
+						"amount": 6,
+						"tags": ["Damage"],
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
+					},
+					{
+						"name": "move_card_to_container",
+						"subject": "tutor",
+						"src_container":  cfc.NMAP.deck,
+						"dest_container":  cfc.NMAP.hand,
+						"filter_state_tutor": [
+							{
+								"filter_properties": {
+									"Tags": "Courage"
+								}
+							}
+						],
+					},
+				],
+			},
+		},
+		"Confident Slap": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect": Terms.ACTIVE_EFFECTS.poison,
+						"subject": "target",
+						"is_cost": true,
+						"modification": 5,
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
+					}
+				],
+			},
+		},
 	}
 	# We return only the scripts that match the card name and trigger
 	return(scripts.get(card_name,{}))

@@ -80,7 +80,7 @@ const ACTIVE_EFFECTS := {
 	"advantage": "advantage",
 	"vulnerable": "shaken",
 	"impervious": "untouchable",
-	"barricade": "courage",
+	"fortify": "courage",
 	# Below are unique effects. Typically from concentrations
 	"laugh_at_danger": "laugh at danger",
 	"nothing_to_fear": "nothing to fear",

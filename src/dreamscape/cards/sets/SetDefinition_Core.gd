@@ -184,7 +184,7 @@ const CARDS := {
 	"Boast": {
 		"Type": "Control",
 		"Tags": [],
-		"Abilities": "Double your Confidence. Remove all Courage.",
+		"Abilities": "Double your Confidence. Remove all Courage. Forget.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 	},
@@ -202,7 +202,7 @@ const CARDS := {
 		"Cost": 2,
 		"_illustration": "Nobody",
 	},
-	"Point out the Weakness": {
+	"High Morale": {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "Interpret Torment for 6. Draw a Courage card.",
@@ -212,7 +212,7 @@ const CARDS := {
 	"Confident Slap": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "Interpret Torment for 6 and apply 3 Doubt to it.",
+		"Abilities": "Apply 5 Doubt to target Torment.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 	},
