@@ -10,7 +10,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			"manual": {
 				"hand": [
 					{
-						"name": "modify_health",
+						"name": "modify_damage",
 						"subject": "target",
 						"is_cost": true,
 						"amount": 6,
@@ -37,7 +37,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			"manual": {
 				"hand": [
 					{
-						"name": "modify_health",
+						"name": "modify_damage",
 						"subject": "target",
 						"is_cost": true,
 						"amount": 5,
@@ -77,7 +77,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			"manual": {
 				"hand": [
 					{
-						"name": "modify_health",
+						"name": "modify_damage",
 						"subject": "dreamer",
 						"amount": -4,
 						"tags": ["Healing"],
@@ -156,7 +156,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			"manual": {
 				"hand": [
 					{
-						"name": "modify_health",
+						"name": "modify_damage",
 						"subject": "target",
 						"is_cost": true,
 						"amount": 3,
@@ -166,13 +166,13 @@ func get_scripts(card_name: String) -> Dictionary:
 						}],
 					},
 					{
-						"name": "modify_health",
+						"name": "modify_damage",
 						"subject": "previous",
 						"amount": 3,
 						"tags": ["Damage"],
 					},
 					{
-						"name": "modify_health",
+						"name": "modify_damage",
 						"subject": "previous",
 						"amount": 3,
 						"tags": ["Damage"],
@@ -213,6 +213,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "custom_script",
 						"subject": "target",
+						"is_cost": true,
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
 						}],
@@ -236,7 +237,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			"manual": {
 				"hand": [
 					{
-						"name": "modify_health",
+						"name": "modify_damage",
 						"subject": "target",
 						"is_cost": true,
 						"amount": 10,
@@ -246,7 +247,7 @@ func get_scripts(card_name: String) -> Dictionary:
 						}],
 					},
 					{
-						"name": "modify_health",
+						"name": "modify_damage",
 						"is_cost": true,
 						"amount": 10,
 						"tags": ["Damage"],
@@ -291,10 +292,95 @@ func get_scripts(card_name: String) -> Dictionary:
 						"subject": "boardseek",
 						"subject_count": "all",
 						"modification": 2,
+						"filter_state_seek": [{
+							"filter_group": "EnemyEntities",
+						}],
+					}
+				],
+			},
+		},
+		"Barrel Through": {
+			"manual": {
+				"hand": [
+					{
+						"name": "modify_damage",
+						"subject": "target",
+						"is_cost": true,
+						"amount": 8,
+						"tags": ["Damage"],
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
+					},
+					{
+						"name": "custom_script",
+						"subject": "previous",
+					},
+				],
+			},
+		},
+		"Intimidate": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect": Terms.ACTIVE_EFFECTS.poison,
+						"subject": "boardseek",
+						"subject_count": "all",
+						"modification": 2,
+						"filter_state_seek": [{
+							"filter_group": "EnemyEntities",
+						}],
+					}
+				],
+			},
+		},
+		"Cheeky Approach": {
+			"manual": {
+				"hand": [
+					{
+						"name": "assign_defence",
+						"subject": "dreamer",
+						"amount": 10,
+					},
+					{
+						"name": "apply_effect",
+						"effect": Terms.ACTIVE_EFFECTS.poison,
+						"subject": "target",
+						"is_cost": true,
+						"modification": 3,
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
 						}],
 					}
+				],
+			},
+		},
+		"Laugh at Danger": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect": Terms.ACTIVE_EFFECTS.laugh_at_danger,
+						"subject": "dreamer",
+						"modification": 1,
+					},
+				],
+			},
+		},
+		"Towering Presence": {
+			"manual": {
+				"hand": [
+					{
+						"name": "modify_damage",
+						"subject": "target",
+						"is_cost": true,
+						"tags": ["Damage"],
+						"amount": "per_defence",
+						"per_defence": {
+							"subject": "dreamer",
+						},
+					},
 				],
 			},
 		},

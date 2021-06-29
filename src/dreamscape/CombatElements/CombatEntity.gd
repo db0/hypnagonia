@@ -4,6 +4,9 @@ extends VBoxContainer
 const INCOMING_SIGNIFIER_SCENE = preload("res://src/dreamscape/CombatElements/IncomingSignifier.tscn")
 
 signal effect_modified(entity,trigger,details)
+signal entity_attacked(entity, amount, trigger)
+signal entity_healed(entity, amount, trigger)
+signal entity_defended(entity, amount, trigger)
 signal entity_killed
 
 
@@ -72,14 +75,19 @@ func set_damage(value) -> void:
 		_update_health_label()
 
 func set_health(value) -> void:
-	modify_health(value)
+	health = value
+	_update_health_label()
 
 func die() -> void:
 	emit_signal("entity_killed")
 	queue_free()
 
-func modify_health(amount: int, dry_run := false, tags := ["Manual"]) -> int:
+func modify_damage(amount: int, dry_run := false, tags := ["Manual"], trigger: CombatEntity = null) -> int:
 	if not dry_run:
+		if amount > 0 and "Damage" in tags:
+			emit_signal("entity_attacked", self, amount, trigger)
+		elif amount < 0:
+			emit_signal("entity_healed", self, amount, trigger)
 		if defence > 0 and "Damage" in tags:
 			if amount >= defence:
 				amount -= defence
@@ -95,8 +103,10 @@ func modify_health(amount: int, dry_run := false, tags := ["Manual"]) -> int:
 		_update_health_label()
 	return(CFConst.ReturnCode.CHANGED)
 
-func receive_defence(amount: int, dry_run := false, tags := ["Manual"]) -> int:
+func receive_defence(amount: int, dry_run := false, tags := ["Manual"], trigger: CombatEntity = null) -> int:
 	if not dry_run:
+		if amount > 0:
+			emit_signal("entity_defended", self, amount, trigger)
 		defence += amount
 		_update_health_label()
 	return(CFConst.ReturnCode.CHANGED)
@@ -127,7 +137,7 @@ func _on_Defence_mouse_entered() -> void:
 
 func _on_Health_mouse_entered() -> void:
 	var description_text := "{health} (accumulated/total): {damage_taken_verb}"\
-			+ " from {enemy} {enemy_actions}."
+			+ " from {enemy} {opponent_actions}."
 	_show_description_popup(description_text, health_label)
 
 func _show_description_popup(description_text: String, popup_anchor: Node) -> void:
@@ -145,12 +155,12 @@ func _on_Description_mouse_exited() -> void:
 	decription_popup.visible = false
 
 
-func _on_player_turn_ended(_turn: Turn) -> void:
+func _on_player_turn_started(_turn: Turn) -> void:
 	if entity_type == Terms.PLAYER:
 		set_defence(0)
 
 
-func _on_player_turn_started(_turn: Turn) -> void:
+func _on_player_turn_ended(_turn: Turn) -> void:
 	pass
 
 

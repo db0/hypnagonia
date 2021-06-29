@@ -103,7 +103,7 @@ const PATH_SCRIPTING_ENGINE := PATH_CUSTOM + "ScriptingEngine.gd"
 # This specifies the path to the [ScriptPer] class file.
 # We don't reference is by class name to avoid cyclic dependencies
 # And this also allows other developers to extend its functionality
-const PATH_SCRIPT_PER := PATH_CORE + "ScriptPer.gd"
+const PATH_SCRIPT_PER := PATH_CUSTOM + "ScriptPer.gd"
 # This specifies the path to the Alterant Engine. If you wish to extend
 # The alterant engine functionality with your own tasks,
 # Point this to your own script file.

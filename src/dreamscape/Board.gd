@@ -39,8 +39,10 @@ func _ready() -> void:
 	dreamer.rect_position = Vector2(100,100)
 # warning-ignore:unused_variable
 	var torment = spawn_enemy("Gaslighter")
+	var torment3 = spawn_enemy("Gaslighter")
 	var torment2 = spawn_enemy("Gaslighter")
 	torment2.rect_position = Vector2(800,100)
+	torment3.rect_position = Vector2(200,300)
 	yield(get_tree().create_timer(0.1), "timeout")
 	bottom_gui.rect_position = cfc.NMAP.deck.position - Vector2(0,50)
 #	dreamer.active_effects.mod_effect(ActiveEffects.NAMES.disempower, 5)
@@ -127,7 +129,8 @@ func load_deck() -> void:
 
 
 func _on_player_turn_started(_turn: Turn) -> void:
-	yield(cfc.NMAP.hand, "hand_refilled")
+	while not  cfc.NMAP.hand.is_hand_refilled:
+		yield(cfc.NMAP.hand, "hand_refilled")
 	while cfc.NMAP.hand.are_cards_still_animating():
 		yield(get_tree().create_timer(0.3), "timeout")
 	end_turn.disabled = false
@@ -136,6 +139,8 @@ func _on_player_turn_ended(_turn: Turn) -> void:
 	end_turn.disabled = true
 	activated_enemies.clear()
 	turn.start_enemy_turn()
+	yield(get_tree().create_timer(1), "timeout")
+	# I want the enemies to activate serially
 	for enemy in get_tree().get_nodes_in_group("EnemyEntities"):
 #		print_debug("Activating Intents: " + enemy.canonical_name)
 		enemy.activate()

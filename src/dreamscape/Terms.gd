@@ -23,6 +23,8 @@ const PLAYER_ACTIONS := "Cards"
 const PLAYER_ACTIONS_VERB := "played"
 const ENEMY_ACTIONS := "Intents"
 const ENEMY_ACTIONS_VERB := "used"
+const PLAYER_ATTACK := "Interpret"
+const ENEMY_ATTACK := "Stress"
 
 const PLAYER_TERMS := {
 	"enemy": "Torment",
@@ -33,12 +35,15 @@ const PLAYER_TERMS := {
 	"energy": "Immersion",
 	"health": PLAYER_HEALTH,
 	"exhaust": "Forget",
+	"heal": "Relax",
+	"attack": PLAYER_ATTACK,
+	"opponent_attack": ENEMY_ATTACK,
 	"damage_taken": PLAYER_HEALTH,
 	"damage_taken_verb": ENEMY_DAMAGE_DONE,
 	"actions": PLAYER_ACTIONS,
 	"actions_verb": PLAYER_ACTIONS_VERB,
-	"enemy_actions": ENEMY_ACTIONS,
-	"enemy_actions_verb": ENEMY_ACTIONS_VERB,
+	"opponent_actions": ENEMY_ACTIONS,
+	"opponent_actions_verb": ENEMY_ACTIONS_VERB,
 }
 
 const ENEMY_TERMS := {
@@ -50,12 +55,15 @@ const ENEMY_TERMS := {
 	"energy": "Energy",
 	"health": ENEMY_HEALTH,
 	"exhaust": "Forget",
+	"heal": "Reshape",
+	"attack": ENEMY_ATTACK,
+	"opponent_attack": PLAYER_ATTACK,
 	"damage_taken": ENEMY_HEALTH,
 	"damage_taken_verb": PLAYER_DAMAGE_DONE,
 	"actions": ENEMY_ACTIONS,
 	"actions_verb": ENEMY_ACTIONS_VERB,
-	"enemy_actions": PLAYER_ACTIONS,
-	"enemy_actions_verb": PLAYER_ACTIONS_VERB,
+	"opponent_actions": PLAYER_ACTIONS,
+	"opponent_actions_verb": PLAYER_ACTIONS_VERB,
 }
 
 const COMMON_FORMATS = {

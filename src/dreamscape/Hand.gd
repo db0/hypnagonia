@@ -2,10 +2,12 @@ extends Hand
 
 signal hand_refilled
 
+var is_hand_refilled := false
 func _ready() -> void:
 	pass
 
 func empty_hand() -> void:
+	is_hand_refilled = false
 	for card in get_all_cards():
 		card.move_to(cfc.NMAP.discard)
 
@@ -16,6 +18,7 @@ func refill_hand() -> void:
 			retcode = yield(retcode, "completed")
 		else:
 			yield(get_tree().create_timer(0.05), "timeout")
+	is_hand_refilled = true
 	emit_signal("hand_refilled")
 
 
@@ -34,7 +37,8 @@ func draw_card(pile : Pile = cfc.NMAP.deck) -> Card:
 	return card
 
 func _on_player_turn_started(_turn: Turn) -> void:
-	refill_hand()
+	pass
 
 func _on_player_turn_ended(_turn: Turn) -> void:
 	empty_hand()
+	refill_hand()

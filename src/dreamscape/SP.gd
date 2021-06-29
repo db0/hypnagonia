@@ -14,7 +14,9 @@ const KEY_AMOUNT = "amount"
 const KEY_EFFECT = "effect"
 
 const FILTER_EFFECTS = "filter_effects"
+const FILTER_IS_NOT_SPECIFIED_ENEMY = "filter_not_enemy"
 
+const KEY_PER_DEFENCE := "per_defence"
 # This call has been setup to call the original, and allow futher extension
 # simply create new filter
 static func filter_trigger(
@@ -45,5 +47,8 @@ static func check_validity(obj, card_scripts, type := "trigger") -> bool:
 				# It will treat these two states as an "AND"
 				if filter == FILTER_EFFECTS\
 						and not obj.active_effects.get_effect(state_filters[filter]):
+					card_matches = false
+				if filter == FILTER_IS_NOT_SPECIFIED_ENEMY\
+						and obj == state_filters[filter]:
 					card_matches = false
 	return(card_matches)

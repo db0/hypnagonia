@@ -135,7 +135,7 @@ const CARDS := {
 	"Barrel Through": {
 		"Type": "Action",
 		"Tags": ["Risky", "Chain"],
-		"Abilities": "Interpret a Torment for 8. If the Torment is Shaken, interpet another random Torment for 10.",
+		"Abilities": "Interpret a Torment for 8. If the Torment is Shaken, interpet all other Torments for 12.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 	},

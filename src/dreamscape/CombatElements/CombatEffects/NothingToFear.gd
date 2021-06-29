@@ -14,7 +14,7 @@ func get_effect_alteration(
 		is_source := false, 
 		_dry_run := true,
 		_subject: Node = null) -> int:
-	if not script.script_name == 'modify_health'\
+	if not script.script_name == 'modify_damage'\
 			or not "Damage" in script.get_property(SP.KEY_TAGS)\
 			or is_source:
 		return(0)
@@ -25,5 +25,5 @@ func get_effect_alteration(
 
 func _on_player_turn_started(turn: Turn) -> void:
 	._on_player_turn_started(turn)
-	cfc.NMAP.board.counters.mod_counter("immersion", 3, false, false, self, ["New Turn"])
+	cfc.NMAP.board.counters.mod_counter("immersion", 1, false, false, self, ["New Turn"])
 	

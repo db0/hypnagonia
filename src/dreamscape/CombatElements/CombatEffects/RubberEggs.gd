@@ -14,7 +14,7 @@ func _on_turn_ended(turn: Turn) -> void:
 		for rng_enemy in all_enemies:
 			if rng_enemy.active_effects.get_effect(Terms.ACTIVE_EFFECTS.disempower):
 				var script = [{
-					"name": "modify_health",
+					"name": "modify_damage",
 					"subject": "trigger",
 					"amount": 6,
 					"tags": ["Damage"],

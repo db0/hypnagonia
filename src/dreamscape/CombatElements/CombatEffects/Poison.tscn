@@ -5,6 +5,7 @@
 
 [node name="Poison" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
+self_decreasing = 2
 
 [node name="Label" parent="Signifier" index="0"]
 text = "D"

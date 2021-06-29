@@ -29,7 +29,7 @@ func custom_script(script: ScriptObject) -> void:
 					var enemy_entity: EnemyEntity = subjects[0]
 					if enemy_entity.active_effects.get_effect(Terms.ACTIVE_EFFECTS.disempower):
 						var the_joke = [{
-							"name": "modify_health",
+							"name": "modify_damage",
 							"subject": "trigger",
 							"amount": 10,
 							"tags": ["Damage"],
@@ -43,6 +43,25 @@ func custom_script(script: ScriptObject) -> void:
 							"modification": 3,
 						}]
 						execute_script(the_joke, script.owner, enemy_entity)
+		"Barrel Through":
+			# No demo cost-based custom scripts
+			if not costs_dry_run:
+				if subjects.size() and subjects[0] as EnemyEntity:
+					var enemy_entity: EnemyEntity = subjects[0]
+					print_debug(enemy_entity.active_effects.get_effect(Terms.ACTIVE_EFFECTS.vulnerable))
+					if enemy_entity.active_effects.get_effect(Terms.ACTIVE_EFFECTS.vulnerable):
+						var barrel_through = [{
+								"name": "modify_damage",
+								"amount": 12,
+								"tags": ["Damage"],
+								"subject": "boardseek",
+								SP.KEY_SUBJECT_COUNT: "all",
+								"sort_by": "random",
+								"filter_state_seek": [{
+									"filter_not_enemy": enemy_entity,
+								}],
+						}]
+						execute_script(barrel_through, script.owner, enemy_entity)
 
 # warning-ignore:unused_argument
 func custom_alterants(script: ScriptObject) -> int:

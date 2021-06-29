@@ -12,7 +12,7 @@ func get_effect_alteration(
 		is_source := false, 
 		dry_run := true,
 		subject: Node = null) -> int:
-	if not script.script_name == 'modify_health'\
+	if not script.script_name == 'modify_damage'\
 			or not "Damage" in script.get_property(SP.KEY_TAGS)\
 			or not is_source:
 		return(0)

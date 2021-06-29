@@ -110,7 +110,7 @@ func predict_subjects(script: ScriptTask, prev_subjects: Array) -> Array:
 			return([])
 
 
-func calculate_modify_health(subject: CombatEntity, script: ScriptTask) -> int:
+func calculate_modify_damage(subject: CombatEntity, script: ScriptTask) -> int:
 	var modification: int
 	var alteration = 0
 	if str(script.get_property(SP.KEY_AMOUNT)) == SP.VALUE_RETRIEVE_INTEGER:
@@ -135,17 +135,18 @@ func calculate_modify_health(subject: CombatEntity, script: ScriptTask) -> int:
 	return(modification + alteration)
 
 
-func modify_health(script: ScriptTask) -> int:
+func modify_damage(script: ScriptTask) -> int:
 	var retcode: int
 	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
 	for combat_entity in script.subjects:
-		var modification = calculate_modify_health(combat_entity, script)
+		var modification = calculate_modify_damage(combat_entity, script)
 		# To allow effects like advantage to despawn
 		yield(cfc.get_tree().create_timer(0.01), "timeout")
-		retcode = combat_entity.modify_health(
+		retcode = combat_entity.modify_damage(
 				modification,
 				costs_dry_run(),
-				tags)
+				tags,
+				script.owner)
 	return(retcode)
 
 
@@ -183,7 +184,8 @@ func assign_defence(script: ScriptTask) -> int:
 		retcode = combat_entity.receive_defence(
 				defence,
 				costs_dry_run(),
-				tags)
+				tags,
+				script.owner)
 	return(retcode)
 
 func apply_effect(script: ScriptTask) -> int:
