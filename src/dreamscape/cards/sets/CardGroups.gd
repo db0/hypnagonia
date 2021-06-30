@@ -11,7 +11,7 @@ const EGO := {
 			"Untouchable",
 			"Assault",
 			"Confidence",
-			"Utterly Ridiculous",
+			"unnamed_card_1",
 		],
 		"Commons": [
 			"Untouchable",

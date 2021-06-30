@@ -1,7 +1,7 @@
 class_name Player
 extends Reference
 
-var health: int = 90
+var health: int = 900
 var damage: int
 var deck: Deck
 

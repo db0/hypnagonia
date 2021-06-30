@@ -173,7 +173,7 @@ func calculate_assign_defence(subject: CombatEntity, script: ScriptTask) -> int:
 	if alteration is GDScriptFunctionState:
 		alteration = yield(alteration, "completed")
 	return(modification + alteration)
-	
+
 func assign_defence(script: ScriptTask) -> int:
 	var retcode: int
 	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
@@ -252,11 +252,58 @@ func remove_card_from_game(script: ScriptTask) -> int:
 	return(retcode)
 
 
+func autoplay_card(script: ScriptTask) -> int:
+	var retcode : int = CFConst.ReturnCode.CHANGED
+	# If your subject is "self" make sure you know what you're doing
+	# or you might end up in an inifinite loop
+	for card in script.subjects:
+		if not costs_dry_run():
+			var prev_pos = card.global_position
+			card.get_parent().remove_child(card)
+			cfc.NMAP.board.add_child(card)
+			card.set_is_faceup(true)
+			card.state = card.ExtendedCardState.AUTOPLAY_DISPLAY
+			card._add_tween_global_position(
+					prev_pos, 
+					cfc.get_viewport().size / 2 - CFConst.CARD_SIZE/2, 
+					1,
+					Tween.TRANS_SINE, 
+					Tween.EASE_IN_OUT)
+			card._add_tween_rotation(0,360, 1)
+			card._tween.start()
+			yield(card._tween, "tween_all_completed")
+			yield(card.get_tree().create_timer(1), "timeout")
+			var card_scripts = card.retrieve_scripts("manual")
+			var autoplay_exec : String = card.get_state_exec()
+			if not card_scripts.get("hand"):
+				card_scripts[autoplay_exec] = card.generate_discard_tasks(false)
+			else:
+				card_scripts[autoplay_exec] = card_scripts["hand"] + card.generate_discard_tasks(false)
+			for script_task in card_scripts[autoplay_exec]:
+				if script_task.get("subject") and script_task["subject"] == 'target':
+					script_task["subject"] = "boardseek"
+					script_task["subject_count"] = 1
+					script_task["sort_by"] = "random"
+					if script_task.get("filter_state_subject"):
+						script_task["filter_state_seek"] = script_task.get("filter_state_subject")
+				script_task["is_cost"] = false
+			card.scripts["autoplay"] = card_scripts
+			var sceng = card.execute_scripts(
+					script.owner,
+					"autoplay",
+					{}, costs_dry_run())
+			# We make sure we wait until the execution is finished
+			# before cleaning out the temp properties/counters
+			if sceng is GDScriptFunctionState:
+				sceng = yield(sceng, "completed")
+	return(retcode)
+
+
 # Initiates a seek through the owner and target combat entity to see if there's any effects
 # which modify the intensity of the task in question
 static func _check_for_effect_alterants(
-		script: ScriptTask, 
-		value: int, 
+		script: ScriptTask,
+		value: int,
 		subject: CombatEntity,
 		sceng) -> int:
 	var total_alteration = 0
@@ -273,20 +320,20 @@ static func _check_for_effect_alterants(
 	for effect in all_source_effects:
 		var alteration : int = effect.get_effect_alteration(
 				script,
-				new_value, 
-				sceng, 
-				true, 
-				sceng.costs_dry_run(), 
+				new_value,
+				sceng,
+				true,
+				sceng.costs_dry_run(),
 				subject)
 		alteration_details[effect] = alteration
 		new_value += alteration
 	var all_subject_effects = subject.active_effects.get_ordered_effects()
 	for effect in all_subject_effects:
 		var alteration : int = effect.get_effect_alteration(
-				script, 
-				new_value, 
-				sceng, 
-				false, 
+				script,
+				new_value,
+				sceng,
+				false,
 				sceng.costs_dry_run())
 		alteration_details[effect] = alteration
 		new_value += alteration

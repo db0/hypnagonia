@@ -422,7 +422,11 @@ func spawn_card(script: ScriptTask) -> void:
 #	* [KEY_DEST_CONTAINER](ScriptProperties#KEY_DEST_CONTAINER)
 func shuffle_container(script: ScriptTask) -> void:
 	var container: CardContainer = script.get_property(SP.KEY_DEST_CONTAINER)
+	while container.are_cards_still_animating():
+		yield(container.get_tree().create_timer(0.2), "timeout")
 	container.shuffle_cards()
+	if container.is_in_group("piles"):
+		yield(container, "shuffle_completed")
 
 
 # Task from making the owner card an attachment to the subject card.

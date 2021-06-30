@@ -685,6 +685,70 @@ func get_scripts(card_name: String) -> Dictionary:
 				}
 			},
 		},
+		"Ventriloquism": {
+			"manual": {
+				"hand": [
+					{
+						"name": "move_card_to_container",
+						"dest_container": cfc.NMAP.discard,
+						"subject": "self",
+					},
+					{
+						"name": "modify_damage",
+						"subject": "target",
+						"is_cost": true,
+						"amount": 8,
+						"tags": ["Damage"],
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
+					},
+					{
+						"name": "move_card_to_container",
+						"subject": "tutor",
+						"src_container":  cfc.NMAP.deck,
+						"dest_container":  cfc.NMAP.hand,
+						"filter_state_tutor": [
+							{
+								"filter_properties": {
+									"Tags": Terms.ACTIVE_EFFECTS.disempower
+								}
+							}
+						],
+					},
+				],
+			},
+		},
+		"unnamed_card_1": {
+			"manual": {
+				"hand": [
+					{
+						"name": "move_card_to_container",
+						"src_container": cfc.NMAP.discard,
+						"dest_container": cfc.NMAP.deck,
+						"subject_count": "all",
+						"subject": "index",
+						"subject_index": "top",
+					},
+					{
+						"name": "shuffle_container",
+						"dest_container": cfc.NMAP.deck,
+					},
+					{
+						"name": "autoplay_card",
+						"src_container": cfc.NMAP.deck,
+						"subject_count": 1,
+						"subject": "index",
+						"subject_index": "random",
+					},
+#					{
+#						"name": "move_card_to_container",
+#						"subject": "self",
+#						"dest_container": cfc.NMAP.forgotten,
+#					},
+				],
+			},
+		},
 	}
 	# We return only the scripts that match the card name and trigger
 	return(scripts.get(card_name,{}))

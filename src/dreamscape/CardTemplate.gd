@@ -1,8 +1,10 @@
+class_name DreamCard
 extends Card
 
 # Going negative to avoid conflicting with CGF in case it extends its own card states
 enum ExtendedCardState {
 	REMOVE_FROM_GAME = -5
+	AUTOPLAY_DISPLAY
 }
 
 var shader_progress := 0.0
@@ -41,6 +43,12 @@ func _process(delta: float) -> void:
 				if cfc.NMAP.board.mouse_pointer.current_focused_card == self:
 					cfc.NMAP.board.mouse_pointer.current_focused_card = null
 				queue_free()
+		ExtendedCardState.AUTOPLAY_DISPLAY:
+			z_index = 99
+			set_focus(false)
+			set_control_mouse_filters(false)
+			buttons.set_active(false)
+
 
 # Sample code on how to figure out costs of a card
 func get_modified_credits_cost() -> int:
@@ -146,16 +154,15 @@ func generate_play_costs_tasks() -> Array:
 # Uses a template to create task definitions for discarding a card
 # then returns it to the calling function to execute or insert it into
 # the cards existing scripts for its state.
-func generate_discard_tasks() -> Array:
+func generate_discard_tasks(only_from_hand := true) -> Array:
 	var discard_script_template := {
 			"name": "move_card_to_container",
 			"subject": "self",
 			"tags": ["Played"],
 			"dest_container": cfc.NMAP.discard,
-			"filter_state_subject": [{
-				"filter_parent": cfc.NMAP.hand,
-			}],
 		}
+	if only_from_hand:
+		discard_script_template["filter_state_subject"] = [{"filter_parent": cfc.NMAP.hand}]
 	var discard_tasks = [discard_script_template]
 	return(discard_tasks)
 
