@@ -3,7 +3,7 @@ extends Reference
 
 const SET = "Core Set"
 
-const CLASS := {
+const EGO := {
 	# Archetypes: Untouchable/Calm
 	"Flyer": {
 		"Anxiety": 5,
@@ -11,7 +11,7 @@ const CLASS := {
 			"Untouchable",
 			"Assault",
 			"Confidence",
-			"Zen of Flight",
+			"Utterly Ridiculous",
 		],
 		"Commons": [
 			"Untouchable",
@@ -60,7 +60,7 @@ const CLASS := {
 	},
 }
 
-const RACE := {
+const DISPOSITION := {
 	# Archetypes: Confidence/Doubt
 	"Fearless": {
 		"Anxiety": 5,
@@ -95,7 +95,7 @@ const RACE := {
 	}
 }
 
-const ITEM := {
+const INSTRUMENT := {
 	# Archetype: Confusion
 	"Rubber Chicken": {
 		"Starting Cards": [
@@ -124,7 +124,7 @@ const ITEM := {
 	},
 }
 
-const LIFE_GOAL := {
+const INJUSTICE := {
 	"Abusive Relationship": {
 		"Anxiety": -5,
 		"Starting Cards": [

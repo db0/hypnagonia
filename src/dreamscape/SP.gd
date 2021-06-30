@@ -16,6 +16,8 @@ const KEY_EFFECT = "effect"
 const FILTER_EFFECTS = "filter_effects"
 const FILTER_IS_NOT_SPECIFIED_ENEMY = "filter_not_enemy"
 const FILTER_STACKS = "filter_stacks"
+const KEY_EFFECT_NAME = "effect_name"
+const KEY_PER_BOARDSEEK_EFFECT_STACKS = "filter_per_boardseek_effect_stacks"
 
 const KEY_PER_DEFENCE := "per_defence"
 # This call has been setup to call the original, and allow futher extension
@@ -31,9 +33,9 @@ static func filter_trigger(
 		trigger_details)
 	# For the card effect of Gummiraprot
 	var comparison : String = card_scripts.get(
-			ScriptProperties.KEY_COMPARISON, 
+			ScriptProperties.KEY_COMPARISON,
 			get_default(ScriptProperties.KEY_COMPARISON))
-				
+
 	if is_valid and card_scripts.get("filter_gummiraptor"):
 		for enemy in cfc.get_tree().get_nodes_in_group("EnemyEntities"):
 			if enemy.intents.get_total_damage() > 0:
@@ -46,6 +48,23 @@ static func filter_trigger(
 				current_stacks,
 				requested_stacks,
 				comparison):
+			is_valid = false
+
+	# Card Count on board filter check
+	if is_valid and card_scripts.get(KEY_PER_BOARDSEEK_EFFECT_STACKS):
+		var per_msg = perMessage.new(
+				KEY_PER_BOARDSEEK_EFFECT_STACKS,
+				owner_card,
+				card_scripts.get(KEY_PER_BOARDSEEK_EFFECT_STACKS))
+		var found_count = per_msg.found_things
+		var required_stacks = card_scripts.\
+				get(KEY_PER_BOARDSEEK_EFFECT_STACKS).get(FILTER_STACKS)
+		var comparison_type = card_scripts.get(KEY_PER_BOARDSEEK_EFFECT_STACKS).get(
+				ScriptProperties.KEY_COMPARISON, get_default(ScriptProperties.KEY_COMPARISON))
+		if not CFUtils.compare_numbers(
+				found_count,
+				required_stacks,
+				comparison_type):
 			is_valid = false
 	return(is_valid)
 

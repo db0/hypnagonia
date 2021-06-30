@@ -266,9 +266,10 @@ const CARDS := {
 		"_illustration": "Nobody",
 	},
 	"Utterly Ridiculous": {
-		"Type": "Control",
+		"Type": "Action",
 		"Tags": [],
-		"Abilities": "If there's a total of 6 Confusion or more among Torments, Interpret all Torments for 20",
+		"Abilities": "Can only be played if there's a total of 6 Confusion or more among Torments\n"\
+				+ "Interpret all Torments for 20",
 		"Cost": 1,
 		"_illustration": "Nobody",
 	},

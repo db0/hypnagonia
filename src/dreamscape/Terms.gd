@@ -8,10 +8,10 @@ const ENEMY = "torment"
 # changing the values allows us to change the theme of the game quick
 # for example instead of "race", a game might use "tribe".
 const CARD_GROUP_TERMS := {
-	"class": "class",
-	"race": "race",
-	"item": "item",
-	"life_goal": "life_goal",
+	"class": "Ego",
+	"race": "Disposition",
+	"item": "Instrument",
+	"life_goal": "Injustice",
 }
 
 

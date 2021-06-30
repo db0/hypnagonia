@@ -5,12 +5,23 @@ func _init(per_msg: perMessage).(per_msg) -> void:
 
 
 func _count_custom() -> int:
-	var per_count := 0
+	var ret := 0
 	match script_name:
 		SP.KEY_PER_DEFENCE:
 			for subject in subjects:
 				if subject.is_in_group("CombatEntities"):
-					per_count += subject.defence
+					ret += subject.defence
+		SP.KEY_PER_BOARDSEEK_EFFECT_STACKS:
+			ret = _count_effect_stacks()
 		_:
-			per_count = 1
-	return(per_count)
+			ret = 1
+	return(ret)
+
+
+func _count_effect_stacks() -> int:
+	var ret: int
+	var effect_name = get_property(SP.KEY_EFFECT_NAME)
+	for subject in subjects:
+		if subject.is_in_group("CombatEntities"):
+			ret += subject.active_effects.get_effect_stacks(effect_name)
+	return(ret)

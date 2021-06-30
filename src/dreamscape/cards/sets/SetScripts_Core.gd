@@ -648,6 +648,43 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
+		"Headless": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect": Terms.ACTIVE_EFFECTS.buffer,
+						"subject": "dreamer",
+						"modification": 4
+					}
+				],
+			},
+		},
+		"Utterly Ridiculous": {
+			"manual": {
+				"hand": [
+					{
+						"name": "modify_damage",
+						"subject": "boardseek",
+						"subject_count": "all",
+						"amount": 20,
+						"filter_state_seek": [{
+							"filter_group": "EnemyEntities",
+						}],
+					}
+				],
+				"filter_per_boardseek_effect_stacks": {
+					"subject": "boardseek",
+					"subject_count": "all",
+					"filter_state_seek": [{
+						"filter_group": "EnemyEntities",
+					}],
+					"effect_name": Terms.ACTIVE_EFFECTS.disempower,
+					"filter_stacks": 6,
+					"comparison": "ge",
+				}
+			},
+		},
 	}
 	# We return only the scripts that match the card name and trigger
 	return(scripts.get(card_name,{}))
