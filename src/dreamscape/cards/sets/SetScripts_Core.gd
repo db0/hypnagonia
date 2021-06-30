@@ -498,7 +498,7 @@ func get_scripts(card_name: String) -> Dictionary:
 						"filter_state_tutor": [
 							{
 								"filter_properties": {
-									"Tags": "Courage"
+									"Tags": Terms.ACTIVE_EFFECTS.fortify
 								}
 							}
 						],
@@ -518,6 +518,132 @@ func get_scripts(card_name: String) -> Dictionary:
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
 						}],
+					}
+				],
+			},
+		},
+		"Swoop": {
+			"manual": {
+				"hand": [
+					{
+						"name": "modify_damage",
+						"subject": "target",
+						"is_cost": true,
+						"amount": 8,
+						"tags": ["Damage"],
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
+						"filter_dreamer_effect": Terms.ACTIVE_EFFECTS.impervious,
+						"filter_stacks": 0,
+						"comparison": "eq",
+					},
+					{
+						"name": "modify_damage",
+						"subject": "target",
+						"is_cost": true,
+						"amount": 12,
+						"tags": ["Damage"],
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
+						"filter_dreamer_effect": Terms.ACTIVE_EFFECTS.impervious,
+						"filter_stacks": 1,
+						"comparison": "ge",
+					},
+				],
+			},
+		},
+		"Drag and Drop": {
+			"manual": {
+				"hand": [
+					{
+						"name": "modify_damage",
+						"subject": "target",
+						"is_cost": true,
+						"amount": 10,
+						"tags": ["Damage"],
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
+					},
+					{
+						"name": "custom_script",
+						"subject": "previous",
+					},
+				],
+			},
+		},
+		"Running Start": {
+			"manual": {
+				"hand": [
+					{
+						"name": "move_card_to_container",
+						"dest_container": cfc.NMAP.discard,
+						"subject": "self",
+					},
+					{
+						"name": "modify_damage",
+						"subject": "target",
+						"is_cost": true,
+						"amount": 6,
+						"tags": ["Damage"],
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
+					},
+					{
+						"name": "move_card_to_container",
+						"subject": "tutor",
+						"src_container":  cfc.NMAP.deck,
+						"dest_container":  cfc.NMAP.hand,
+						"filter_state_tutor": [
+							{
+								"filter_properties": {
+									"Tags": Terms.ACTIVE_EFFECTS.impervious
+								}
+							}
+						],
+					},
+				],
+			},
+		},
+		"Master of Skies": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect": Terms.ACTIVE_EFFECTS.master_of_skies,
+						"subject": "dreamer",
+						"modification": 1,
+					},
+				],
+			},
+		},
+		"Zen of Flight": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect": Terms.ACTIVE_EFFECTS.zen_of_flight,
+						"subject": "dreamer",
+						"modification": 1,
+					},
+				],
+			},
+		},
+		"Loop de loop": {
+			"manual": {
+				"hand": [
+					{
+						"name": "assign_defence",
+						"subject": "dreamer",
+						"amount": 7,
+					},
+					{
+						"name": "apply_effect",
+						"effect": Terms.ACTIVE_EFFECTS.buffer,
+						"subject": "dreamer",
 					}
 				],
 			},

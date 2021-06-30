@@ -81,10 +81,13 @@ const ACTIVE_EFFECTS := {
 	"vulnerable": "shaken",
 	"impervious": "untouchable",
 	"fortify": "courage",
+	"buffer": "fascination",
 	# Below are unique effects. Typically from concentrations
 	"laugh_at_danger": "laugh at danger",
 	"nothing_to_fear": "nothing to fear",
 	"rubber_eggs": "rubber eggs",
 	"nunclucks": "nunclucks",
 	"unassailable": "Unassailable",
+	"master_of_skies": "Master of Skies",
+	"zen_of_flight": "Zen of Flight",
 }

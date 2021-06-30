@@ -9,11 +9,15 @@ const EFFECTS := {
 	Terms.ACTIVE_EFFECTS.advantage: preload("res://src/dreamscape/CombatElements/CombatEffects/Advantage.tscn"),
 	Terms.ACTIVE_EFFECTS.impervious: preload("res://src/dreamscape/CombatElements/CombatEffects/Impervious.tscn"),
 	Terms.ACTIVE_EFFECTS.fortify: preload("res://src/dreamscape/CombatElements/CombatEffects/Fortify.tscn"),
+	Terms.ACTIVE_EFFECTS.buffer: preload("res://src/dreamscape/CombatElements/CombatEffects/Buffer.tscn"),
+	
 	Terms.ACTIVE_EFFECTS.laugh_at_danger: preload("res://src/dreamscape/CombatElements/CombatEffects/LaughAtDanger.tscn"),
 	Terms.ACTIVE_EFFECTS.nothing_to_fear: preload("res://src/dreamscape/CombatElements/CombatEffects/NothingToFear.tscn"),
 	Terms.ACTIVE_EFFECTS.rubber_eggs: preload("res://src/dreamscape/CombatElements/CombatEffects/RubberEggs.tscn"),
 	Terms.ACTIVE_EFFECTS.nunclucks: preload("res://src/dreamscape/CombatElements/CombatEffects/Nunclucks.tscn"),
 	Terms.ACTIVE_EFFECTS.unassailable: preload("res://src/dreamscape/CombatElements/CombatEffects/Unassailable.tscn"),
+	Terms.ACTIVE_EFFECTS.master_of_skies: preload("res://src/dreamscape/CombatElements/CombatEffects/MasterOfSkies.tscn"),
+	Terms.ACTIVE_EFFECTS.zen_of_flight: preload("res://src/dreamscape/CombatElements/CombatEffects/ZenOfFlight.tscn"),
 }
 
 # When a stack of an effect is added and its opposite exists, before adding a stack

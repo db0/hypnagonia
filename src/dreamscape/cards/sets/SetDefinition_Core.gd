@@ -219,7 +219,7 @@ const CARDS := {
 	"Swoop": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "Interpret for 7. If Untouchable, interpret for 12 instead.",
+		"Abilities": "Interpret for 8. If Untouchable, interpret for 12 instead.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 	},
@@ -247,14 +247,14 @@ const CARDS := {
 	"Zen of Flight": {
 		"Type": "Concentration",
 		"Tags": ["Calm"],
-		"Abilities": "At the end of each turn, lose 1 Anxiety. If Untouchable, lose 1 extra Anxiety.",
+		"Abilities": "At the end of each turn, Relax 1. If Untouchable, Relax 1 extra.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 	},
 	"Loop de loop": {
 		"Type": "Control",
 		"Tags": ["Purpose"],
-		"Abilities": "Gain 7 Confidence. Next Turn gain 1 Immersion.",
+		"Abilities": "Gain 7 Confidence. Gain 1 Fascination.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 	},

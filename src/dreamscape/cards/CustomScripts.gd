@@ -44,7 +44,6 @@ func custom_script(script: ScriptObject) -> void:
 						}]
 						execute_script(the_joke, script.owner, enemy_entity)
 		"Barrel Through":
-			# No demo cost-based custom scripts
 			if not costs_dry_run:
 				if subjects.size() and subjects[0] as EnemyEntity:
 					var enemy_entity: EnemyEntity = subjects[0]
@@ -62,6 +61,24 @@ func custom_script(script: ScriptObject) -> void:
 								}],
 						}]
 						execute_script(barrel_through, script.owner, enemy_entity)
+		"Drag and Drop":
+			if not costs_dry_run:
+				if subjects.size():
+					var dead_enemy = subjects[0]
+					# Will execute the custom script either if the entry was
+					# already removed, or if it has enough damage.
+					if is_instance_valid(dead_enemy)\
+							and ((dead_enemy in cfc.get_tree().get_nodes_in_group("EnemyEntities")
+							and dead_enemy.damage < dead_enemy.health)
+							or not dead_enemy in cfc.get_tree().get_nodes_in_group("EnemyEntities")):
+						return
+					var fly_away = [{
+						"name": "apply_effect",
+						"effect": Terms.ACTIVE_EFFECTS.impervious,
+						"subject": "dreamer",
+						"modification": 1,
+					}]
+					execute_script(fly_away, script.owner, script.trigger_object)
 
 # warning-ignore:unused_argument
 func custom_alterants(script: ScriptObject) -> int:

@@ -15,6 +15,7 @@ const KEY_EFFECT = "effect"
 
 const FILTER_EFFECTS = "filter_effects"
 const FILTER_IS_NOT_SPECIFIED_ENEMY = "filter_not_enemy"
+const FILTER_STACKS = "filter_stacks"
 
 const KEY_PER_DEFENCE := "per_defence"
 # This call has been setup to call the original, and allow futher extension
@@ -29,10 +30,23 @@ static func filter_trigger(
 		owner_card,
 		trigger_details)
 	# For the card effect of Gummiraprot
+	var comparison : String = card_scripts.get(
+			ScriptProperties.KEY_COMPARISON, 
+			get_default(ScriptProperties.KEY_COMPARISON))
+				
 	if is_valid and card_scripts.get("filter_gummiraptor"):
 		for enemy in cfc.get_tree().get_nodes_in_group("EnemyEntities"):
 			if enemy.intents.get_total_damage() > 0:
 				is_valid = false
+	if is_valid and card_scripts.get("filter_dreamer_effect"):
+		var current_stacks = cfc.NMAP.board.dreamer.active_effects.get_effect_stacks(
+				card_scripts["filter_dreamer_effect"])
+		var requested_stacks : int = card_scripts.get(FILTER_STACKS, 1)
+		if not CFUtils.compare_numbers(
+				current_stacks,
+				requested_stacks,
+				comparison):
+			is_valid = false
 	return(is_valid)
 
 static func check_validity(obj, card_scripts, type := "trigger") -> bool:
