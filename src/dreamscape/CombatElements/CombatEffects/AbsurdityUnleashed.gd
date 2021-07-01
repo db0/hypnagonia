@@ -5,6 +5,12 @@ func _ready() -> void:
 		enemy.connect("effect_modified", self, "on_enemy_effect_added")
 	
 func on_enemy_effect_added(entity: CombatEntity, trigger: String, details: Dictionary) -> void:
-	if details["effect_name"] == Terms.ACTIVE_EFFECTS.poison.name\
+	if details["effect_name"] == Terms.ACTIVE_EFFECTS.disempower.name\
 		and details[SP.TRIGGER_PREV_COUNT] < details[SP.TRIGGER_NEW_COUNT]:
-			cfc.NMAP.board.dreamer.defence += 1
+			var absurdity = [{
+				"name": "modify_damage",
+				"subject": "trigger",
+				"amount": 4,
+				"tags": ["Damage"],
+			}]
+			execute_script(absurdity, entity)

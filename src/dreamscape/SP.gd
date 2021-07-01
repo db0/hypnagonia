@@ -17,7 +17,8 @@ const FILTER_EFFECTS = "filter_effects"
 const FILTER_IS_NOT_SPECIFIED_ENEMY = "filter_not_enemy"
 const FILTER_STACKS = "filter_stacks"
 const KEY_EFFECT_NAME = "effect_name"
-const KEY_PER_BOARDSEEK_EFFECT_STACKS = "filter_per_boardseek_effect_stacks"
+const FILTER_PER_EFFECT_STACKS = "filter_per_effect_stacks"
+const PER_EFFECT_STACKS = "per_effect_stacks"
 
 const KEY_PER_DEFENCE := "per_defence"
 # This call has been setup to call the original, and allow futher extension
@@ -51,15 +52,15 @@ static func filter_trigger(
 			is_valid = false
 
 	# Card Count on board filter check
-	if is_valid and card_scripts.get(KEY_PER_BOARDSEEK_EFFECT_STACKS):
+	if is_valid and card_scripts.get(FILTER_PER_EFFECT_STACKS):
 		var per_msg = perMessage.new(
-				KEY_PER_BOARDSEEK_EFFECT_STACKS,
+				FILTER_PER_EFFECT_STACKS,
 				owner_card,
-				card_scripts.get(KEY_PER_BOARDSEEK_EFFECT_STACKS))
+				card_scripts.get(FILTER_PER_EFFECT_STACKS))
 		var found_count = per_msg.found_things
 		var required_stacks = card_scripts.\
-				get(KEY_PER_BOARDSEEK_EFFECT_STACKS).get(FILTER_STACKS)
-		var comparison_type = card_scripts.get(KEY_PER_BOARDSEEK_EFFECT_STACKS).get(
+				get(FILTER_PER_EFFECT_STACKS).get(FILTER_STACKS)
+		var comparison_type = card_scripts.get(FILTER_PER_EFFECT_STACKS).get(
 				ScriptProperties.KEY_COMPARISON, get_default(ScriptProperties.KEY_COMPARISON))
 		if not CFUtils.compare_numbers(
 				found_count,

@@ -2,22 +2,23 @@ class_name ActiveEffects
 extends GridContainer
 
 const EFFECTS := {
-	Terms.ACTIVE_EFFECTS.disempower: preload("res://src/dreamscape/CombatElements/CombatEffects/Disempower.tscn"),
-	Terms.ACTIVE_EFFECTS.empower: preload("res://src/dreamscape/CombatElements/CombatEffects/Empower.tscn"),
-	Terms.ACTIVE_EFFECTS.poison: preload("res://src/dreamscape/CombatElements/CombatEffects/Poison.tscn"),
-	Terms.ACTIVE_EFFECTS.vulnerable: preload("res://src/dreamscape/CombatElements/CombatEffects/Vulnerable.tscn"),
-	Terms.ACTIVE_EFFECTS.advantage: preload("res://src/dreamscape/CombatElements/CombatEffects/Advantage.tscn"),
-	Terms.ACTIVE_EFFECTS.impervious: preload("res://src/dreamscape/CombatElements/CombatEffects/Impervious.tscn"),
-	Terms.ACTIVE_EFFECTS.fortify: preload("res://src/dreamscape/CombatElements/CombatEffects/Fortify.tscn"),
-	Terms.ACTIVE_EFFECTS.buffer: preload("res://src/dreamscape/CombatElements/CombatEffects/Buffer.tscn"),
+	Terms.ACTIVE_EFFECTS.disempower.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Disempower.tscn"),
+	Terms.ACTIVE_EFFECTS.empower.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Empower.tscn"),
+	Terms.ACTIVE_EFFECTS.poison.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Poison.tscn"),
+	Terms.ACTIVE_EFFECTS.vulnerable.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Vulnerable.tscn"),
+	Terms.ACTIVE_EFFECTS.advantage.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Advantage.tscn"),
+	Terms.ACTIVE_EFFECTS.impervious.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Impervious.tscn"),
+	Terms.ACTIVE_EFFECTS.fortify.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Fortify.tscn"),
+	Terms.ACTIVE_EFFECTS.buffer.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Buffer.tscn"),
 	
-	Terms.ACTIVE_EFFECTS.laugh_at_danger: preload("res://src/dreamscape/CombatElements/CombatEffects/LaughAtDanger.tscn"),
-	Terms.ACTIVE_EFFECTS.nothing_to_fear: preload("res://src/dreamscape/CombatElements/CombatEffects/NothingToFear.tscn"),
-	Terms.ACTIVE_EFFECTS.rubber_eggs: preload("res://src/dreamscape/CombatElements/CombatEffects/RubberEggs.tscn"),
-	Terms.ACTIVE_EFFECTS.nunclucks: preload("res://src/dreamscape/CombatElements/CombatEffects/Nunclucks.tscn"),
-	Terms.ACTIVE_EFFECTS.unassailable: preload("res://src/dreamscape/CombatElements/CombatEffects/Unassailable.tscn"),
-	Terms.ACTIVE_EFFECTS.master_of_skies: preload("res://src/dreamscape/CombatElements/CombatEffects/MasterOfSkies.tscn"),
-	Terms.ACTIVE_EFFECTS.zen_of_flight: preload("res://src/dreamscape/CombatElements/CombatEffects/ZenOfFlight.tscn"),
+	Terms.ACTIVE_EFFECTS.laugh_at_danger.name: preload("res://src/dreamscape/CombatElements/CombatEffects/LaughAtDanger.tscn"),
+	Terms.ACTIVE_EFFECTS.nothing_to_fear.name: preload("res://src/dreamscape/CombatElements/CombatEffects/NothingToFear.tscn"),
+	Terms.ACTIVE_EFFECTS.rubber_eggs.name: preload("res://src/dreamscape/CombatElements/CombatEffects/RubberEggs.tscn"),
+	Terms.ACTIVE_EFFECTS.nunclucks.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Nunclucks.tscn"),
+	Terms.ACTIVE_EFFECTS.unassailable.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Unassailable.tscn"),
+	Terms.ACTIVE_EFFECTS.master_of_skies.name: preload("res://src/dreamscape/CombatElements/CombatEffects/MasterOfSkies.tscn"),
+	Terms.ACTIVE_EFFECTS.zen_of_flight.name: preload("res://src/dreamscape/CombatElements/CombatEffects/ZenOfFlight.tscn"),
+	Terms.ACTIVE_EFFECTS.absurdity_unleashed.name: preload("res://src/dreamscape/CombatElements/CombatEffects/AbsurdityUnleashed.tscn"),
 }
 
 # When a stack of an effect is added and its opposite exists, before adding a stack
@@ -81,7 +82,7 @@ func mod_effect(
 								SP.TRIGGER_NEW_COUNT: new_op_value,
 								"tags": tags})
 				effect = EFFECTS[effect_name].instance()
-				effect.name = effect_name.capitalize()
+				effect.name = effect_name
 				effect.entity_type = combat_entity.entity_type
 				add_child(effect)
 			cfc.flush_cache()

@@ -39,16 +39,16 @@ func _ready() -> void:
 	dreamer.rect_position = Vector2(100,100)
 # warning-ignore:unused_variable
 	var torment = spawn_enemy("Gaslighter")
-	var torment3 = spawn_enemy("Gaslighter")
-	var torment2 = spawn_enemy("Gaslighter")
-	torment2.rect_position = Vector2(800,100)
-	torment3.rect_position = Vector2(200,300)
+#	var torment3 = spawn_enemy("Gaslighter")
+#	var torment2 = spawn_enemy("Gaslighter")
+#	torment2.rect_position = Vector2(800,100)
+#	torment3.rect_position = Vector2(200,300)
 	yield(get_tree().create_timer(0.1), "timeout")
 	bottom_gui.rect_position = cfc.NMAP.deck.position - Vector2(0,50)
 #	dreamer.active_effects.mod_effect(ActiveEffects.NAMES.disempower, 5)
 #	dreamer.active_effects.mod_effect(ActiveEffects.NAMES.poison, 5)
 #	dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
-#	torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower, 10)
+#	torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 10)
 
 func spawn_enemy(enemy_name) -> EnemyEntity:
 	var enemy_properties = EnemyDefinitions.ENEMIES.get(enemy_name)
@@ -56,9 +56,9 @@ func spawn_enemy(enemy_name) -> EnemyEntity:
 	enemy.setup(enemy_name, enemy_properties)
 	enemy.entity_type = Terms.ENEMY
 	add_child(enemy)
-# warning-ignore:return_value_discarded
+	# warning-ignore:return_value_discarded
 	enemy.connect("finished_activation", self, "_on_finished_enemy_activation")
-# warning-ignore:return_value_discarded
+	# warning-ignore:return_value_discarded
 	enemy.connect("entity_killed", self, "_enemy_died")
 	enemy.rect_position = Vector2(500,100)
 	return(enemy)

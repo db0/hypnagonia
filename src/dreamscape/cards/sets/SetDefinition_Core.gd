@@ -23,6 +23,9 @@ const CARDS := {
 		"Abilities": "Gain 1 Untouchable.",
 		"Cost": 3,
 		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
+		},
 	},
 	"Dive-in": {
 		"Type": "Control",
@@ -40,7 +43,7 @@ const CARDS := {
 	},
 	"Nothing to Fear": {
 		"Type": "Concentration",
-		"Tags": ["Purpose"],
+		"Tags": ["Risky", "Purpose"],
 		"Abilities": "Gain 1 Immersion at the start of each turn."\
 			+ " Increase all anxiety taken from Torment intents by 2.",
 		"Cost": 2,
@@ -52,6 +55,9 @@ const CARDS := {
 		"Abilities": "Gain 4 confidence. Apply 1 Confusion to target Torment.",
 		"Cost": 1,
 		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
 	},
 	"Noisy Whip": {
 		"Type": "Action",
@@ -59,6 +65,9 @@ const CARDS := {
 		"Abilities": "Interpret target Torment for 5 and apply Confusion.",
 		"Cost": 1,
 		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
 	},
 	"Inner Justice": {
 		"Type": "Control",
@@ -94,6 +103,9 @@ const CARDS := {
 		"Abilities": "At the start of your turn, interpret a random Confused Torment for 6.",
 		"Cost": 1,
 		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
 	},
 	"The Joke": {
 		"Type": "Action",
@@ -102,6 +114,9 @@ const CARDS := {
 			+ " If it is confused, interpret it for 10.",
 		"Cost": 2,
 		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
 	},
 	"Nunclucks": {
 		"Type": "Concentration",
@@ -109,6 +124,9 @@ const CARDS := {
 		"Abilities": "Increase your interpretation by 1, for each stack of Confusion on the Torment.",
 		"Cost": 1,
 		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
 	},
 	"Gummiraptor": {
 		"Type": "Action",
@@ -131,6 +149,9 @@ const CARDS := {
 		"Abilities": "Apply 2 Shaken to all Torments.",
 		"Cost": 1,
 		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.ENEMY
+		},
 	},
 	"Barrel Through": {
 		"Type": "Action",
@@ -138,6 +159,9 @@ const CARDS := {
 		"Abilities": "Interpret a Torment for 8. If the Torment is Shaken, interpet all other Torments for 12.",
 		"Cost": 1,
 		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.ENEMY
+		},
 	},
 	"Intimidate": {
 		"Type": "Control",
@@ -145,6 +169,9 @@ const CARDS := {
 		"Abilities": "Apply 2 Doubt to all Torments",
 		"Cost": 1,
 		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
+		},
 	},
 	"Cheeky Approach": {
 		"Type": "Control",
@@ -152,6 +179,9 @@ const CARDS := {
 		"Abilities": "Gain 10 Confidence, Apply 3 Doubt to target Torment.",
 		"Cost": 2,
 		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
+		},
 	},
 	"Laugh at Danger": {
 		"Type": "Concentration",
@@ -159,6 +189,9 @@ const CARDS := {
 		"Abilities": "After a Torment inflicts anxiety, it gains 1 Doubt.",
 		"Cost": 2,
 		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
+		},
 	},
 	"Towering Presence": {
 		"Type": "Action",
@@ -180,6 +213,9 @@ const CARDS := {
 		"Abilities": "Gain 8 Confidence. Apply 1 Courage.",
 		"Cost": 1,
 		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
+		},
 	},
 	"Boast": {
 		"Type": "Control",
@@ -187,6 +223,9 @@ const CARDS := {
 		"Abilities": "Double your Confidence. Remove all Courage. Forget.",
 		"Cost": 2,
 		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
+		},
 	},
 	"Solid Understanding": {
 		"Type": "Action",
@@ -201,6 +240,9 @@ const CARDS := {
 		"Abilities": "Gain 2 Courage",
 		"Cost": 2,
 		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
+		},
 	},
 	"High Morale": {
 		"Type": "Action",
@@ -208,6 +250,9 @@ const CARDS := {
 		"Abilities": "Interpret Torment for 6. Draw a Courage card.",
 		"Cost": 1,
 		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
+		},
 	},
 	"Confident Slap": {
 		"Type": "Action",
@@ -215,6 +260,9 @@ const CARDS := {
 		"Abilities": "Apply 5 Doubt to target Torment.",
 		"Cost": 1,
 		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
+		},
 	},
 	"Swoop": {
 		"Type": "Action",
@@ -222,6 +270,9 @@ const CARDS := {
 		"Abilities": "Interpret for 8. If Untouchable, interpret for 12 instead.",
 		"Cost": 1,
 		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
+		},
 	},
 	"Drag and Drop": {
 		"Type": "Action",
@@ -229,6 +280,9 @@ const CARDS := {
 		"Abilities": "Interpret Torment for 10. If Torment is Overcome, gain 1 Untouchable.",
 		"Cost": 2,
 		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
+		},
 	},
 	"Running Start": {
 		"Type": "Control",
@@ -236,6 +290,9 @@ const CARDS := {
 		"Abilities": "Interpret for 5. Draw 1 Untouchable card.",
 		"Cost": 1,
 		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
+		},
 	},
 	"Master of Skies": {
 		"Type": "Concentration",
@@ -243,6 +300,9 @@ const CARDS := {
 		"Abilities": "Whenever you gain Untouchable. Gain 1 Immersion.",
 		"Cost": 2,
 		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
+		},
 	},
 	"Zen of Flight": {
 		"Type": "Concentration",
@@ -250,6 +310,9 @@ const CARDS := {
 		"Abilities": "At the end of each turn, Relax 1. If Untouchable, Relax 1 extra.",
 		"Cost": 2,
 		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
+		},
 	},
 	"Loop de loop": {
 		"Type": "Control",
@@ -257,13 +320,19 @@ const CARDS := {
 		"Abilities": "Gain 7 Confidence. Gain 1 Fascination.",
 		"Cost": 1,
 		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
+		},
 	},
 	"Headless": {
 		"Type": "Control",
 		"Tags": ["Purpose"],
-		"Abilities": "Next turn, gain 4 Immersion.",
+		"Abilities": "Gain 4 Fascination.",
 		"Cost": 2,
 		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
+		},
 	},
 	"Utterly Ridiculous": {
 		"Type": "Action",
@@ -279,6 +348,9 @@ const CARDS := {
 		"Abilities": "Interpret a Torment for 8. Draw a Confusion card.",
 		"Cost": 1,
 		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
 	},
 	"unnamed_card_1": {
 		"Type": "Control",
@@ -293,6 +365,9 @@ const CARDS := {
 		"Abilities": "Each Torment is applied Doubt equals to its Confusion x2",
 		"Cost": 1,
 		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
 	},
 	"unnamed_card_3": {
 		"Type": "Control",
@@ -301,11 +376,14 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 	},
-	"unnamed_card_4": {
+	"Absurdity Unleashed": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you apply Confusion to a Torment, interpret it for 3",
+		"Abilities": "Whenever you apply Confusion to a Torment, Interpret it for 4",
 		"Cost": 1,
 		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
 	},
 }

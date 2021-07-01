@@ -1,12 +1,5 @@
 extends CombatEffect
 
-const _description_string := "{effect_name}: {defence} added to this {entity} is reduced by 25%.\n" \
-		+ "Reduce these stacks by 1 at the end of the turn."
-
-func _ready() -> void:
-	description_string = _description_string
-
-
 func get_effect_alteration(
 		script: ScriptTask, 
 		value: int, 

@@ -18,7 +18,7 @@ func _init(_dry_run) -> void:
 func custom_script(script: ScriptObject) -> void:
 	var card: Card = script.owner
 	var subjects: Array = script.subjects
-	# I don't like the extra indent caused by this if, 
+	# I don't like the extra indent caused by this if,
 	# But not all object will be Card
 	# So I can't be certain the "canonical_name" var will exist
 	match script.owner.canonical_name:
@@ -27,7 +27,7 @@ func custom_script(script: ScriptObject) -> void:
 			if not costs_dry_run:
 				if subjects.size() and subjects[0] as EnemyEntity:
 					var enemy_entity: EnemyEntity = subjects[0]
-					if enemy_entity.active_effects.get_effect(Terms.ACTIVE_EFFECTS.disempower):
+					if enemy_entity.active_effects.get_effect(Terms.ACTIVE_EFFECTS.disempower.name):
 						var the_joke = [{
 							"name": "modify_damage",
 							"subject": "trigger",
@@ -38,7 +38,7 @@ func custom_script(script: ScriptObject) -> void:
 					else:
 						var the_joke = [{
 							"name": "apply_effect",
-							"effect": Terms.ACTIVE_EFFECTS.disempower,
+							"effect": Terms.ACTIVE_EFFECTS.disempower.name,
 							"subject": "trigger",
 							"modification": 3,
 						}]
@@ -47,8 +47,8 @@ func custom_script(script: ScriptObject) -> void:
 			if not costs_dry_run:
 				if subjects.size() and subjects[0] as EnemyEntity:
 					var enemy_entity: EnemyEntity = subjects[0]
-					print_debug(enemy_entity.active_effects.get_effect(Terms.ACTIVE_EFFECTS.vulnerable))
-					if enemy_entity.active_effects.get_effect(Terms.ACTIVE_EFFECTS.vulnerable):
+					print_debug(enemy_entity.active_effects.get_effect(Terms.ACTIVE_EFFECTS.vulnerable.name))
+					if enemy_entity.active_effects.get_effect(Terms.ACTIVE_EFFECTS.vulnerable.name):
 						var barrel_through = [{
 								"name": "modify_damage",
 								"amount": 12,
@@ -74,11 +74,21 @@ func custom_script(script: ScriptObject) -> void:
 						return
 					var fly_away = [{
 						"name": "apply_effect",
-						"effect": Terms.ACTIVE_EFFECTS.impervious,
+						"effect": Terms.ACTIVE_EFFECTS.impervious.name,
 						"subject": "dreamer",
 						"modification": 1,
 					}]
 					execute_script(fly_away, script.owner, script.trigger_object)
+		"unnamed_card_2":
+				for subject in subjects:
+					var dstacks = subject.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.disempower.name)
+					var card_script := [{
+							"name": "apply_effect",
+							"effect": Terms.ACTIVE_EFFECTS.poison,
+							"subject": "trigger",
+							"modification": dstacks,
+						}]
+					execute_script(card_script, script.owner, subject)
 
 # warning-ignore:unused_argument
 func custom_alterants(script: ScriptObject) -> int:

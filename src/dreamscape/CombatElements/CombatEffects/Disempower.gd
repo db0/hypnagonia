@@ -1,11 +1,5 @@
 extends CombatEffect
 
-const _description_string := "{effect_name}: {damage} {damage_verb} by this {entity} is reduced by 30%.\n" \
-		+ "Reduce these stacks by 1 at the end of the turn."
-
-func _ready() -> void:
-	description_string = _description_string
-
 # To override. This is called by the scripting engine
 # Is source is telling this script that the owning combat_entity is the one owning
 # this alteration

@@ -18,7 +18,6 @@ export(PRIORITY) var priority
 
 var entity_type: String
 var stacks: int = 0 setget set_stacks
-var description_string := ''
 
 func setup(signifier_details: Dictionary, signifier_name: String) -> void:
 	.setup(signifier_details, signifier_name)
@@ -63,12 +62,18 @@ func _set_current_description() -> void:
 	format["double_amount"] = str(2*stacks)
 	format["triple_amount"] = str(3*stacks)
 	format["half_amount"] = str(stacks/2)
-	decription_label.text = description_string.format(format)
+	decription_label.text = Terms.ACTIVE_EFFECTS[_get_template_name()].description.format(format)
 
 # Returns the lowercase name of the token
 func get_effect_name() -> String:
 	return(name.to_lower())
 
+func _get_template_name() -> String:
+	var template_name := name
+	for effect in Terms.ACTIVE_EFFECTS:
+		if Terms.ACTIVE_EFFECTS[effect].name == name:
+			template_name = effect
+	return(template_name)
 
 # Executes a custom script defined in an effect
 func execute_script(

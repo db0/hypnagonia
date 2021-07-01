@@ -157,7 +157,7 @@ func _on_Description_mouse_exited() -> void:
 
 func _on_player_turn_started(_turn: Turn) -> void:
 	if entity_type == Terms.PLAYER:
-		var fortify = active_effects.get_effect(Terms.ACTIVE_EFFECTS.fortify)
+		var fortify = active_effects.get_effect(Terms.ACTIVE_EFFECTS.fortify.name)
 		if fortify:
 			fortify.stacks -= 1
 		else:
@@ -170,7 +170,7 @@ func _on_player_turn_ended(_turn: Turn) -> void:
 
 func _on_enemy_turn_started(_turn: Turn) -> void:
 	if entity_type == Terms.ENEMY:
-		var fortify = active_effects.get_effect(Terms.ACTIVE_EFFECTS.fortify)
+		var fortify = active_effects.get_effect(Terms.ACTIVE_EFFECTS.fortify.name)
 		if fortify:
 			fortify.stacks -= 1
 		else:

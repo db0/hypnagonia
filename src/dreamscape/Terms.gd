@@ -74,20 +74,62 @@ const COMMON_FORMATS = {
 # A way to map generic names to thematic names, so that I can perform
 # a rename later if needed
 const ACTIVE_EFFECTS := {
-	"poison": "doubt",
-	"empower": "clarity",
-	"disempower": "confusion",
-	"advantage": "advantage",
-	"vulnerable": "shaken",
-	"impervious": "untouchable",
-	"fortify": "courage",
-	"buffer": "fascination",
+	"advantage": {
+		"name": "Advantage",
+		"description": "{effect_name}: The next {amount} actions doing {damage} by this {entity} are doubled."},
+	"buffer":  {
+		"name": "Fascination",
+		"description": "{effect_name}: At the start of your turn gain 1 {energy} per stack."\
+				+ "then remove all stacks of {effect_name}."},
+	"disempower": {
+		"name": "Confusion",
+		"description": "{effect_name}: {damage} {damage_verb} by this {entity} is reduced by 30%.\n" \
+				+ "Reduce these stacks by 1 at the end of the turn."},
+	"empower": {
+		"name": "Clarity",
+		"description": "{effect_name}: {damage} {damage_verb} by this {entity} is increased by 30%.\n"\
+				+ "Reduce these stacks by 1 at the end of the turn."},
+	"fortify": {
+		"name": "Courage",
+		"description": "{effect_name}: {defence} is not removed at start of turn.\n"\
+				+ "Reduce these stacks by 1 at the start of the turn."},
+	"impervious": {
+		"name": "Untouchable",
+		"description": "{effect_name}: No {health} is taken this turn.\n" \
+				+ "Reduce these stacks by 1 at the start of the turn."},
+	"poison": {
+		"name": "Doubt",
+		"description": "{effect_name}: At the start of this {entity}'s turn it receives"\
+				+ " {amount} {health}, then reduce the stacks of {effect_name} by 1."\
+				+ "\n({effect_name} bypasses {defence})"},
+	"vulnerable": {
+		"name": "Shaken",
+		"description": "{effect_name}: {defence} added to this {entity} is reduced by 25%.\n" \
+				+ "Reduce these stacks by 1 at the end of the turn."},
 	# Below are unique effects. Typically from concentrations
-	"laugh_at_danger": "laugh at danger",
-	"nothing_to_fear": "nothing to fear",
-	"rubber_eggs": "rubber eggs",
-	"nunclucks": "nunclucks",
-	"unassailable": "Unassailable",
-	"master_of_skies": "Master of Skies",
-	"zen_of_flight": "Zen of Flight",
+	"laugh_at_danger":  {
+		"name": "Laugh at Danger",
+		"description": "{effect_name}: After a {enemy} {opponent_attack} the {entity}, it gains 1 Doubt."},
+	"nothing_to_fear":  {
+		"name": "Nothing to Fear",
+		"description": "{effect_name}: Add {amount} {energy} at the start of the turn.\n"\
+				+ "All {health} taken is increased by {double_amount}."},
+	"rubber_eggs":  {
+		"name": "Rubber Eggs",
+		"description": "{effect_name}: At the end of your turn, Interpret a random Confused {enemy} for 6."},
+	"nunclucks":  {
+		"name": "Nunclucks",
+		"description": "{effect_name}: Increase your {damage} by 1, for each stack of Confusion on the {enemy}."},
+	"unassailable":  {
+		"name": "Unassailable",
+		"description": "{effect_name}: Whenever you apply Doubt, gain 1 {defence}."},
+	"master_of_skies":  {
+		"name": "Master of Skies",
+		"description": "{effect_name}: Whenever you Gain Untouchable, gain 1 {energy}."},
+	"zen_of_flight":  {
+		"name": "Zen of Flight",
+		"description": "{effect_name}: At the end of each turn, {heal} 1. If Untouchable, {heal} 1 extra."},
+	"absurdity_unleashed":  {
+		"name": "Absurdity Unleashed",
+		"description": "{effect_name}: Whenever you apply Confusion to a Torment, {attack} it for 4"},
 }

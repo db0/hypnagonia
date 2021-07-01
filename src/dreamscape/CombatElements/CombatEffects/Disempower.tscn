@@ -9,7 +9,7 @@ self_decreasing = 1
 priority = 1
 
 [node name="Label" parent="Signifier" index="0"]
-text = "W"
+text = "C"
 
 [node name="Icon" parent="Signifier" index="1"]
 visible = false

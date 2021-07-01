@@ -11,7 +11,6 @@ const EGO := {
 			"Untouchable",
 			"Assault",
 			"Confidence",
-			"unnamed_card_1",
 		],
 		"Commons": [
 			"Untouchable",
@@ -115,7 +114,7 @@ const INSTRUMENT := {
 			"Rubber Eggs",
 			"The Joke",
 			"unnamed_card_2",
-			"unnamed_card_4",
+			"Absurdity Unleashed",
 		],
 		"Rares": [
 			"Nunclucks",

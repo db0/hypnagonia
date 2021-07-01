@@ -11,7 +11,7 @@ func _count_custom() -> int:
 			for subject in subjects:
 				if subject.is_in_group("CombatEntities"):
 					ret += subject.defence
-		SP.KEY_PER_BOARDSEEK_EFFECT_STACKS:
+		SP.FILTER_PER_EFFECT_STACKS:
 			ret = _count_effect_stacks()
 		_:
 			ret = 1
