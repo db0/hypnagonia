@@ -48,4 +48,25 @@ const ENEMIES := {
 		"_texture_size_x": "80",
 		"_texture_size_y": "80",
 	},
+	"The Laughing One": {
+		"Type": "Fear",
+		"Health": 25,
+		"Intents": [
+			{
+				"intent_scripts": ["Stress:3","Stress:3","Stress:3"],
+				"reshuffle": false,
+			},
+			{
+				"intent_scripts": ["Stress:1","Buff:1:impervious"],
+				"reshuffle": true,
+			},
+			{
+				"intent_scripts": ["Stress:5","Debuff:1:poison"],
+				"reshuffle": false,
+			},
+		],
+		"_health_variability": 5,
+		"_texture_size_x": "80",
+		"_texture_size_y": "80",
+	},
 }

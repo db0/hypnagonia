@@ -29,6 +29,8 @@ func setup(signifier_details: Dictionary, signifier_name: String) -> void:
 func _on_CombatSingifier_mouse_entered() -> void:
 	decription_popup.visible = true
 	decription_popup.rect_global_position = rect_global_position + Vector2(20,-50)
+	if decription_popup.rect_global_position.x + decription_popup.rect_size.x > get_viewport().size.x:
+		decription_popup.rect_global_position.x = get_viewport().size.x - decription_popup.rect_size.x - 10
 
 
 func _on_CombatSingifier_mouse_exited() -> void:

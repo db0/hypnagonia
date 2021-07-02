@@ -212,7 +212,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "EnemyDefinitions",
 "language": "GDScript",
-"path": "res://src/dreamscape/cards/sets/Enemies.gd"
+"path": "res://src/dreamscape/CombatElements/Enemies/Enemies.gd"
 }, {
 "base": "CombatEntity",
 "class": "EnemyEntity",
@@ -247,7 +247,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "IntentScripts",
 "language": "GDScript",
-"path": "res://src/dreamscape/cards/sets/IntentScripts.gd"
+"path": "res://src/dreamscape/CombatElements/Enemies/IntentScripts.gd"
 }, {
 "base": "VBoxContainer",
 "class": "ManipulationButtons",
@@ -323,6 +323,11 @@ _global_script_classes=[ {
 "class": "ScriptingEngine",
 "language": "GDScript",
 "path": "res://src/core/ScriptingEngine.gd"
+}, {
+"base": "Reference",
+"class": "SingleRun",
+"language": "GDScript",
+"path": "res://src/dreamscape/Run/Encounters.gd"
 }, {
 "base": "Line2D",
 "class": "TargetingArrow",
@@ -423,6 +428,7 @@ _global_script_class_icons={
 "ScriptProperties": "",
 "ScriptTask": "",
 "ScriptingEngine": "",
+"SingleRun": "",
 "TargetingArrow": "",
 "Terms": "",
 "Token": "",

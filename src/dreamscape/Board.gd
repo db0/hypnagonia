@@ -11,12 +11,17 @@ var activated_enemies: Array
 onready var bottom_gui := $HBC
 onready var post_battle_menu := $PostBattleMenu
 onready var deck_pile: Pile = $Deck
+onready var _player_area := $VBC/CombatArena/PlayerArea
+onready var _enemy_area := $VBC/CombatArena/EnemyArea/Enemies
+onready var _combat_arena := $VBC/CombatArena
+onready var _background := $TextureRect
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	counters = $HBC/Counters
-	end_turn = $HBC/EndTurn
+	counters = $VBC/HBC/Counters
+	end_turn = $VBC/HBC/EndTurn
 	cfc.map_node(self)
+	get_viewport().connect("size_changed",self,"_on_viewport_resized")
 	# We use the below while to wait until all the nodes we need have been mapped
 	# "hand" should be one of them.
 	# We're assigning our positions programmatically,
@@ -35,28 +40,34 @@ func _ready() -> void:
 		"_texture_size_y": globals.PLAYER_COMBAT_ENTITY_SIZE.y,
 	}
 	dreamer.setup("Dreamer", dreamer_properties)
-	add_child(dreamer)
+	_player_area.add_child(dreamer)
 	dreamer.rect_position = Vector2(100,100)
 # warning-ignore:unused_variable
-	var torment = spawn_enemy("Fearmonger")
+#	var torment = spawn_enemy("The Laughing One")
+#	var torment2 = spawn_enemy("The Laughing One")
 #	var torment3 = spawn_enemy("Gaslighter")
 #	var torment2 = spawn_enemy("Gaslighter")
 #	torment2.rect_position = Vector2(800,100)
 #	torment3.rect_position = Vector2(200,300)
+	spawn_encounter()
 	yield(get_tree().create_timer(0.1), "timeout")
-	bottom_gui.rect_position = cfc.NMAP.deck.position - Vector2(0,50)
 #	dreamer.active_effects.mod_effect(ActiveEffects.NAMES.disempower, 5)
 #	dreamer.active_effects.mod_effect(ActiveEffects.NAMES.poison, 5)
 #	dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
 #	torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 10)
 	cfc.game_paused = false
+	_on_viewport_resized()
+
+func spawn_encounter() -> void:
+	for enemy_name in globals.encounters.get_next_encounter():
+		spawn_enemy(enemy_name)
 
 func spawn_enemy(enemy_name) -> EnemyEntity:
 	var enemy_properties = EnemyDefinitions.ENEMIES.get(enemy_name)
 	var enemy : EnemyEntity = ENEMY_ENTITY_SCENE.instance()
 	enemy.setup(enemy_name, enemy_properties)
 	enemy.entity_type = Terms.ENEMY
-	add_child(enemy)
+	_enemy_area.add_child(enemy)
 	# warning-ignore:return_value_discarded
 	enemy.connect("finished_activation", self, "_on_finished_enemy_activation")
 	# warning-ignore:return_value_discarded
@@ -166,6 +177,7 @@ func _enemy_died() -> void:
 		
 func complete_battle() -> void:
 	cfc.game_paused = true
+	end_turn.disabled = true
 	globals.player.damage = dreamer.damage
 	post_battle_menu.display()
 
@@ -179,3 +191,8 @@ func _on_Debug_pressed() -> void:
 	counters.mod_counter("immersion",10)
 	for iter in range(5):
 		cfc.NMAP.hand.draw_card(cfc.NMAP.deck)
+
+func _on_viewport_resized() -> void:
+	_background.rect_min_size = get_viewport().size
+	_background.rect_size = get_viewport().size
+#	bottom_gui.rect_position = cfc.NMAP.deck.position - Vector2(0,50)

@@ -158,7 +158,12 @@ func _on_Description_mouse_exited() -> void:
 func _on_player_turn_started(_turn: Turn) -> void:
 	if entity_type == Terms.PLAYER:
 		var fortify = active_effects.get_effect(Terms.ACTIVE_EFFECTS.fortify.name)
+		var alleff = active_effects.get_all_effects()
+		for eff in alleff:
+			print_debug(alleff[eff].name)
+			print_debug(alleff)
 		if fortify:
+			print_debug('aaa')
 			fortify.stacks -= 1
 		else:
 			set_defence(0)

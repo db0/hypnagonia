@@ -66,7 +66,7 @@ func _set_current_description() -> void:
 
 # Returns the lowercase name of the token
 func get_effect_name() -> String:
-	return(name.to_lower())
+	return(name)
 
 func _get_template_name() -> String:
 	var template_name := name

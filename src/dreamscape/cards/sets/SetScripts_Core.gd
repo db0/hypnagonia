@@ -120,7 +120,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "assign_defence",
 						"subject": "dreamer",
-						"amount": 4,
+						"amount": 6,
 					},
 					{
 						"name": "apply_effect",

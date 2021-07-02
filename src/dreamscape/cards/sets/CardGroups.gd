@@ -101,7 +101,7 @@ const INSTRUMENT := {
 			"Assault",
 			"Assault",
 			"Noisy Whip",
-			"Ventriloquism",
+			"Courage",
 		],
 		"Commons": [
 			"Confounding Movements",
