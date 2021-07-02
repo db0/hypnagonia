@@ -8,6 +8,8 @@ var unused_intents: Array
 # The enemy entity owning these intents
 var combat_entity
 
+var all_intent_scripts = IntentScripts.new()
+
 func prepare_intents() -> void:
 	if not unused_intents.size():
 		reshuffle_intents()
@@ -23,7 +25,7 @@ func prepare_intents() -> void:
 		# is always the first part.
 		var intent_array = intent.split(':')
 		var intent_name = intent_array[0]
-		var intent_scripts = IntentScripts.INTENTS.get(intent_name)
+		var intent_scripts = all_intent_scripts.get_scripts(intent_name)
 		if not intent_scripts:
 			print_debug("WARNING: Intent with name '" + intent_name + "' not found!")
 		else:
@@ -32,8 +34,14 @@ func prepare_intents() -> void:
 			# after the colon separator.
 #			print_debug("Added Intent: " + intent_name)
 			if intent_array.size() > 1:
-				intent_scripts[0].amount = int(intent_array[1])
+				if intent_scripts[0].has("amount"):
+					intent_scripts[0].amount = int(intent_array[1])
+				else:
+					intent_scripts[0].modification = int(intent_array[1])
 #				print_debug("Set Intent Value: " + intent_array[1])
+			if intent_array.size() > 2:
+				if intent_scripts[0].has("effect_name"):
+					intent_scripts[0].effect_name = Terms.ACTIVE_EFFECTS[intent_array[2]].name
 			for single_intent in intent_scripts:
 				var new_intent : CombatSignifier = SINGLE_INTENT_SCENE.instance()
 				add_child(new_intent)

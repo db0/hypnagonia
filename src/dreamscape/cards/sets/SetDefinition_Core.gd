@@ -386,4 +386,12 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
 	},
+	"Dread": {
+		"Type": "Perturbation",
+		"Tags": [],
+		"Abilities": "Release",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_avoid_normal_discard": true,
+	},
 }

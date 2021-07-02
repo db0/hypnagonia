@@ -299,6 +299,45 @@ func autoplay_card(script: ScriptTask) -> int:
 	return(retcode)
 
 
+func perturb(script: ScriptTask) -> void:
+	var card: Card
+	var count: int
+	var alteration = 0
+	var canonical_name: String = script.get_property(SP.KEY_CARD_NAME)
+	var dest_container: CardContainer = script.get_property(SP.KEY_DEST_CONTAINER)
+	if str(script.get_property(SP.KEY_OBJECT_COUNT)) == SP.VALUE_RETRIEVE_INTEGER:
+		count = stored_integer
+		if script.get_property(SP.KEY_IS_INVERTED):
+			count *= -1
+	elif SP.VALUE_PER in str(script.get_property(SP.KEY_OBJECT_COUNT)):
+		var per_msg = perMessage.new(
+				script.get_property(SP.KEY_OBJECT_COUNT),
+				script.owner,
+				script.get_property(script.get_property(SP.KEY_OBJECT_COUNT)),
+				null,
+				script.subjects)
+		count = per_msg.found_things
+	else:
+		count = script.get_property(SP.KEY_OBJECT_COUNT)
+	alteration = _check_for_alterants(script, count)
+	if alteration is GDScriptFunctionState:
+		alteration = yield(alteration, "completed")
+	for iter in range(count + alteration):
+		card = cfc.instance_card(canonical_name)
+		cfc.NMAP.board.add_child(card)
+		card.scale = Vector2(0.1,0.1)
+		if 'rect_global_position' in script.owner:
+			card.global_position = script.owner.rect_global_position
+		else:
+			card.global_position = script.owner.global_position
+		card.global_position.x += \
+				iter * CFConst.CARD_SIZE.x * 0.2
+		card.pertub_destination = dest_container
+		card.state = DreamCard.ExtendedCardState.SPAWNED_PERTURBATION
+		yield(cfc.get_tree().create_timer(0.2), "timeout")
+		
+
+
 # Initiates a seek through the owner and target combat entity to see if there's any effects
 # which modify the intensity of the task in question
 static func _check_for_effect_alterants(

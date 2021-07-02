@@ -5,11 +5,13 @@ extends Card
 enum ExtendedCardState {
 	REMOVE_FROM_GAME = -5
 	AUTOPLAY_DISPLAY
+	SPAWNED_PERTURBATION
 }
 
 var shader_progress := 0.0
 var attempted_action_drop_to_board := false
 var tutorial_disabled := false
+var pertub_destination : CardContainer
 
 func _ready() -> void:
 	pass
@@ -48,7 +50,20 @@ func _process(delta: float) -> void:
 			set_focus(false)
 			set_control_mouse_filters(false)
 			buttons.set_active(false)
-
+		ExtendedCardState.SPAWNED_PERTURBATION:
+			z_index = 99
+			set_focus(false)
+			set_control_mouse_filters(false)
+			buttons.set_active(false)
+			if not _tween.is_active()\
+					and not scale.is_equal_approx(Vector2(1,1)):
+				_add_tween_scale(scale, Vector2(1,1),0.75)
+				_add_tween_global_position(global_position, get_viewport().size/2 - CFConst.CARD_SIZE/2)
+				_tween.start()
+				yield(_tween, "tween_all_completed")
+				_tween_stuck_time = 0
+				move_to(pertub_destination)
+				pertub_destination = null
 
 # Sample code on how to figure out costs of a card
 func get_modified_credits_cost() -> int:
@@ -155,6 +170,8 @@ func generate_play_costs_tasks() -> Array:
 # then returns it to the calling function to execute or insert it into
 # the cards existing scripts for its state.
 func generate_discard_tasks(only_from_hand := true) -> Array:
+	if properties.get("_avoid_normal_discard"):
+		return([])
 	var discard_script_template := {
 			"name": "move_card_to_container",
 			"subject": "self",

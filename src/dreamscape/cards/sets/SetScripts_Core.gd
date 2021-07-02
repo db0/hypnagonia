@@ -48,7 +48,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					},
 					{
 						"name": "apply_effect",
-						"effect": Terms.ACTIVE_EFFECTS.disempower.name,
+						"effect_name": Terms.ACTIVE_EFFECTS.disempower.name,
 						"subject": "previous",
 						"modification": 1,
 					}
@@ -60,13 +60,13 @@ func get_scripts(card_name: String) -> Dictionary:
 				"hand": [
 					{
 						"name": "apply_effect",
-						"effect": Terms.ACTIVE_EFFECTS.vulnerable.name,
+						"effect_name": Terms.ACTIVE_EFFECTS.vulnerable.name,
 						"subject": "dreamer",
 						"modification": 2,
 					},
 					{
 						"name": "apply_effect",
-						"effect": Terms.ACTIVE_EFFECTS.advantage.name,
+						"effect_name": Terms.ACTIVE_EFFECTS.advantage.name,
 						"subject": "dreamer",
 						"modification": 1,
 					}
@@ -95,7 +95,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				"hand": [
 					{
 						"name": "apply_effect",
-						"effect": Terms.ACTIVE_EFFECTS.nothing_to_fear.name,
+						"effect_name": Terms.ACTIVE_EFFECTS.nothing_to_fear.name,
 						"subject": "dreamer",
 						"modification": 1,
 					},
@@ -107,7 +107,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				"hand": [
 					{
 						"name": "apply_effect",
-						"effect": Terms.ACTIVE_EFFECTS.impervious.name,
+						"effect_name": Terms.ACTIVE_EFFECTS.impervious.name,
 						"subject": "dreamer",
 						"modification": 1,
 					},
@@ -124,7 +124,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					},
 					{
 						"name": "apply_effect",
-						"effect": Terms.ACTIVE_EFFECTS.disempower.name,
+						"effect_name": Terms.ACTIVE_EFFECTS.disempower.name,
 						"subject": "target",
 						"is_cost": true,
 						"modification": 1,
@@ -138,12 +138,6 @@ func get_scripts(card_name: String) -> Dictionary:
 		"Inner Justice": {
 			"manual": {
 				"hand": [
-					{
-						"name": "mod_counter",
-						"counter_name": "immersion",
-						"is_cost": true,
-						"modification": -3,
-					},
 					{
 						"name": "mod_counter",
 						"counter_name": "immersion",
@@ -200,7 +194,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				"hand": [
 					{
 						"name": "apply_effect",
-						"effect": Terms.ACTIVE_EFFECTS.rubber_eggs.name,
+						"effect_name": Terms.ACTIVE_EFFECTS.rubber_eggs.name,
 						"subject": "dreamer",
 						"modification": 1,
 					},
@@ -226,7 +220,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				"hand": [
 					{
 						"name": "apply_effect",
-						"effect": Terms.ACTIVE_EFFECTS.nunclucks.name,
+						"effect_name": Terms.ACTIVE_EFFECTS.nunclucks.name,
 						"subject": "dreamer",
 						"modification": 1,
 					},
@@ -288,7 +282,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				"hand": [
 					{
 						"name": "apply_effect",
-						"effect": Terms.ACTIVE_EFFECTS.vulnerable.name,
+						"effect_name": Terms.ACTIVE_EFFECTS.vulnerable.name,
 						"subject": "boardseek",
 						"subject_count": "all",
 						"modification": 2,
@@ -324,7 +318,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				"hand": [
 					{
 						"name": "apply_effect",
-						"effect": Terms.ACTIVE_EFFECTS.poison.name,
+						"effect_name": Terms.ACTIVE_EFFECTS.poison.name,
 						"subject": "boardseek",
 						"subject_count": "all",
 						"modification": 2,
@@ -345,7 +339,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					},
 					{
 						"name": "apply_effect",
-						"effect": Terms.ACTIVE_EFFECTS.poison.name,
+						"effect_name": Terms.ACTIVE_EFFECTS.poison.name,
 						"subject": "target",
 						"is_cost": true,
 						"modification": 3,
@@ -361,7 +355,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				"hand": [
 					{
 						"name": "apply_effect",
-						"effect": Terms.ACTIVE_EFFECTS.laugh_at_danger.name,
+						"effect_name": Terms.ACTIVE_EFFECTS.laugh_at_danger.name,
 						"subject": "dreamer",
 						"modification": 1,
 					},
@@ -389,7 +383,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				"hand": [
 					{
 						"name": "apply_effect",
-						"effect": Terms.ACTIVE_EFFECTS.unassailable.name,
+						"effect_name": Terms.ACTIVE_EFFECTS.unassailable.name,
 						"subject": "dreamer",
 						"modification": 1,
 					},
@@ -406,7 +400,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					},
 					{
 						"name": "apply_effect",
-						"effect": Terms.ACTIVE_EFFECTS.fortify.name,
+						"effect_name": Terms.ACTIVE_EFFECTS.fortify.name,
 						"subject": "dreamer",
 						"modification": 1,
 					},
@@ -426,7 +420,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					},
 					{
 						"name": "apply_effect",
-						"effect": Terms.ACTIVE_EFFECTS.fortify.name,
+						"effect_name": Terms.ACTIVE_EFFECTS.fortify.name,
 						"subject": "dreamer",
 						"modification": 0,
 						"set_to_mod": true
@@ -465,7 +459,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				"hand": [
 					{
 						"name": "apply_effect",
-						"effect": Terms.ACTIVE_EFFECTS.fortify.name,
+						"effect_name": Terms.ACTIVE_EFFECTS.fortify.name,
 						"subject": "dreamer",
 						"modification": 2,
 					},
@@ -511,7 +505,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				"hand": [
 					{
 						"name": "apply_effect",
-						"effect": Terms.ACTIVE_EFFECTS.poison.name,
+						"effect_name": Terms.ACTIVE_EFFECTS.poison.name,
 						"subject": "target",
 						"is_cost": true,
 						"modification": 5,
@@ -613,7 +607,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				"hand": [
 					{
 						"name": "apply_effect",
-						"effect": Terms.ACTIVE_EFFECTS.master_of_skies.name,
+						"effect_name": Terms.ACTIVE_EFFECTS.master_of_skies.name,
 						"subject": "dreamer",
 						"modification": 1,
 					},
@@ -625,7 +619,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				"hand": [
 					{
 						"name": "apply_effect",
-						"effect": Terms.ACTIVE_EFFECTS.zen_of_flight.name,
+						"effect_name": Terms.ACTIVE_EFFECTS.zen_of_flight.name,
 						"subject": "dreamer",
 						"modification": 1,
 					},
@@ -642,7 +636,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					},
 					{
 						"name": "apply_effect",
-						"effect": Terms.ACTIVE_EFFECTS.buffer.name,
+						"effect_name": Terms.ACTIVE_EFFECTS.buffer.name,
 						"subject": "dreamer",
 					}
 				],
@@ -653,7 +647,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				"hand": [
 					{
 						"name": "apply_effect",
-						"effect": Terms.ACTIVE_EFFECTS.buffer.name,
+						"effect_name": Terms.ACTIVE_EFFECTS.buffer.name,
 						"subject": "dreamer",
 						"modification": 4
 					}
@@ -784,9 +778,19 @@ func get_scripts(card_name: String) -> Dictionary:
 				"hand": [
 					{
 						"name": "apply_effect",
-						"effect": Terms.ACTIVE_EFFECTS.absurdity_unleashed.name,
+						"effect_name": Terms.ACTIVE_EFFECTS.absurdity_unleashed.name,
 						"subject": "dreamer",
 						"modification": 1,
+					},
+				],
+			},
+		},
+		"Dread": {
+			"manual": {
+				"hand": [
+					{
+						"name": "remove_card_from_game",
+						"subject": "self",
 					},
 				],
 			},

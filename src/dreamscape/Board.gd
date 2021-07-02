@@ -38,7 +38,7 @@ func _ready() -> void:
 	add_child(dreamer)
 	dreamer.rect_position = Vector2(100,100)
 # warning-ignore:unused_variable
-	var torment = spawn_enemy("Gaslighter")
+	var torment = spawn_enemy("Fearmonger")
 #	var torment3 = spawn_enemy("Gaslighter")
 #	var torment2 = spawn_enemy("Gaslighter")
 #	torment2.rect_position = Vector2(800,100)
@@ -144,6 +144,12 @@ func _on_player_turn_ended(_turn: Turn) -> void:
 	for enemy in get_tree().get_nodes_in_group("EnemyEntities"):
 #		print_debug("Activating Intents: " + enemy.canonical_name)
 		enemy.activate()
+
+func _on_enemy_turn_started(_turn: Turn) -> void:
+	pass
+
+func _on_enemy_turn_ended(_turn: Turn) -> void:
+	pass
 
 func _on_finished_enemy_activation(enemy: EnemyEntity) -> void:
 	if not enemy in activated_enemies:

@@ -80,7 +80,7 @@ const DISPOSITION := {
 			"Barrel Through",
 			"Cheeky Approach",
 			"No Second Thoughts",
-			"Point out the Weakness",
+			"High Morale",
 		],
 		"Rares": [
 			"Laugh at Danger",

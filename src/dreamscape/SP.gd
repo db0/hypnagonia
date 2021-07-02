@@ -11,7 +11,7 @@ extends ScriptProperties
 # e.g. amount of damage, or amount of armor
 const KEY_SUBJECT_V_PLAYER = "dreamer"
 const KEY_AMOUNT = "amount"
-const KEY_EFFECT = "effect"
+const KEY_EFFECT = "effect_name"
 
 const FILTER_EFFECTS = "filter_effects"
 const FILTER_IS_NOT_SPECIFIED_ENEMY = "filter_not_enemy"

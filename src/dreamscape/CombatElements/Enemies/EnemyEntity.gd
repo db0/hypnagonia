@@ -27,13 +27,19 @@ func _process(delta: float) -> void:
 		if shader_progress > 0.8:
 			queue_free()
 
+
+func setup(entity_name: String, properties: Dictionary) -> void:
+	.setup(entity_name,properties)
+	health += CFUtils.randi_range(-properties['_health_variability'], properties['_health_variability'])
 	
 func activate() -> void:
 	# Just in case the end-turn button is pressed too fast
 	if is_dead: 
 		emit_signal("finished_activation", self)
 		return
-	intents.execute_scripts()
+	var sceng = intents.execute_scripts()
+	if sceng is GDScriptFunctionState:
+		sceng = yield(sceng, "completed")
 	yield(get_tree().create_timer(0.1), "timeout")
 #	print_debug("Activated: " + canonical_name)
 	emit_signal("finished_activation", self)
