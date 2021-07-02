@@ -49,6 +49,7 @@ func _ready() -> void:
 #	dreamer.active_effects.mod_effect(ActiveEffects.NAMES.poison, 5)
 #	dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
 #	torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 10)
+	cfc.game_paused = false
 
 func spawn_enemy(enemy_name) -> EnemyEntity:
 	var enemy_properties = EnemyDefinitions.ENEMIES.get(enemy_name)
@@ -164,10 +165,9 @@ func _enemy_died() -> void:
 		complete_battle()
 		
 func complete_battle() -> void:
+	cfc.game_paused = true
 	globals.player.damage = dreamer.damage
 	post_battle_menu.display()
-
-
 
 
 func _input(event):

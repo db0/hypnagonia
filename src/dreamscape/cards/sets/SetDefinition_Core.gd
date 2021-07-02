@@ -17,9 +17,9 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 	},
-	"Untouchable": {
+	"Out of Reach": {
 		"Type": "Control",
-		"Tags": ["Untouchable"],
+		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
 		"Abilities": "Gain 1 Untouchable.",
 		"Cost": 3,
 		"_illustration": "Nobody",
@@ -51,7 +51,7 @@ const CARDS := {
 	},
 	"Confounding Movements": {
 		"Type": "Control",
-		"Tags": ["Confusing"],
+		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "Gain 4 confidence. Apply 1 Confusion to target Torment.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -61,7 +61,7 @@ const CARDS := {
 	},
 	"Noisy Whip": {
 		"Type": "Action",
-		"Tags": ["Confusing"],
+		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "Interpret target Torment for 5 and apply Confusion.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -109,7 +109,7 @@ const CARDS := {
 	},
 	"The Joke": {
 		"Type": "Action",
-		"Tags": ["Confusing"],
+		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "Target a Torment. If it's not confused. Apply 3 Confusion."\
 			+ " If it is confused, interpret it for 10.",
 		"Cost": 2,
@@ -165,7 +165,7 @@ const CARDS := {
 	},
 	"Intimidate": {
 		"Type": "Control",
-		"Tags": ["Doubt"],
+		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "Apply 2 Doubt to all Torments",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -175,7 +175,7 @@ const CARDS := {
 	},
 	"Cheeky Approach": {
 		"Type": "Control",
-		"Tags": ["Doubt"],
+		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "Gain 10 Confidence, Apply 3 Doubt to target Torment.",
 		"Cost": 2,
 		"_illustration": "Nobody",
@@ -185,7 +185,7 @@ const CARDS := {
 	},
 	"Laugh at Danger": {
 		"Type": "Concentration",
-		"Tags": ["Doubt"],
+		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "After a Torment inflicts anxiety, it gains 1 Doubt.",
 		"Cost": 2,
 		"_illustration": "Nobody",
@@ -209,7 +209,7 @@ const CARDS := {
 	},
 	"Courage": {
 		"Type": "Control",
-		"Tags": ["Courage"],
+		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "Gain 8 Confidence. Apply 1 Courage.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -219,7 +219,7 @@ const CARDS := {
 	},
 	"Boast": {
 		"Type": "Control",
-		"Tags": [],
+		"Tags": ["Fleeting"],
 		"Abilities": "Double your Confidence. Remove all Courage. Forget.",
 		"Cost": 2,
 		"_illustration": "Nobody",
@@ -236,7 +236,7 @@ const CARDS := {
 	},
 	"No Second Thoughts": {
 		"Type": "Control",
-		"Tags": ["Courage"],
+		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "Gain 2 Courage",
 		"Cost": 2,
 		"_illustration": "Nobody",
@@ -276,7 +276,7 @@ const CARDS := {
 	},
 	"Drag and Drop": {
 		"Type": "Action",
-		"Tags": ["Untouchable"],
+		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
 		"Abilities": "Interpret Torment for 10. If Torment is Overcome, gain 1 Untouchable.",
 		"Cost": 2,
 		"_illustration": "Nobody",
@@ -354,14 +354,14 @@ const CARDS := {
 	},
 	"unnamed_card_1": {
 		"Type": "Control",
-		"Tags": [],
+		"Tags": ["Fleeting"],
 		"Abilities": "Shuffle your discard pile into your deck. Play a Random card from your deck. Forget.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 	},
 	"unnamed_card_2": {
 		"Type": "Control",
-		"Tags": ["Doubt"],
+		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "Each Torment is applied Doubt equals to its Confusion x2",
 		"Cost": 1,
 		"_illustration": "Nobody",

@@ -8,12 +8,12 @@ const EGO := {
 	"Flyer": {
 		"Anxiety": 5,
 		"Starting Cards": [
-			"Untouchable",
+			"Out of Reach",
 			"Assault",
 			"Confidence",
 		],
 		"Commons": [
-			"Untouchable",
+			"Out of Reach",
 			"Dive-in",
 			"Overview",
 			"Drag and Drop",
@@ -101,6 +101,7 @@ const INSTRUMENT := {
 			"Assault",
 			"Assault",
 			"Noisy Whip",
+			"Ventriloquism",
 		],
 		"Commons": [
 			"Confounding Movements",
