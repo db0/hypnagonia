@@ -56,5 +56,16 @@ func get_scripts(intent_name: String) -> Dictionary:
 				"description": "Stare: It's not blinking..."
 			}
 		],
+		"Denial": [
+			{
+				"name": "perturb",
+				"card_name": "Dread",
+				"dest_container": cfc.NMAP.discard,
+				"object_count": 1,
+				"tags": ["Intent"],
+				"icon": null,
+				"description": "Denial: That didn't happen."
+			}
+		],
 	}
 	return(scripts.get(intent_name,{}))

@@ -59,10 +59,16 @@ func _ready() -> void:
 	_on_viewport_resized()
 
 func spawn_encounter() -> void:
-	for enemy_name in globals.encounters.get_next_encounter():
-		spawn_enemy(enemy_name)
+	var next_encounter = globals.encounters.get_next_encounter()
+	if typeof(next_encounter) == TYPE_ARRAY:
+		for enemy_name in globals.encounters.get_next_encounter():
+			spawn_enemy(enemy_name)
+	else:
+		spawn_boss(next_encounter)
 
 func spawn_enemy(enemy_name) -> EnemyEntity:
+	if get_tree().get_nodes_in_group("EnemyEntities").size() >= 5:
+		return(null)
 	var enemy_properties = EnemyDefinitions.ENEMIES.get(enemy_name)
 	var enemy : EnemyEntity = ENEMY_ENTITY_SCENE.instance()
 	enemy.setup(enemy_name, enemy_properties)
@@ -72,8 +78,17 @@ func spawn_enemy(enemy_name) -> EnemyEntity:
 	enemy.connect("finished_activation", self, "_on_finished_enemy_activation")
 	# warning-ignore:return_value_discarded
 	enemy.connect("entity_killed", self, "_enemy_died")
-	enemy.rect_position = Vector2(500,100)
 	return(enemy)
+
+func spawn_boss(boss_scene: PackedScene) -> EnemyEntity:
+	var boss_entity: EnemyEntity = boss_scene.instance()
+	boss_entity.setup_boss()
+	_enemy_area.add_child(boss_entity)
+	# warning-ignore:return_value_discarded
+	boss_entity.connect("finished_activation", self, "_on_finished_enemy_activation")
+	# warning-ignore:return_value_discarded
+	boss_entity.connect("entity_killed", self, "_enemy_died")
+	return(boss_entity)
 
 # This function is to avoid relating the logic in the card objects
 # to a node which might not be there in another game

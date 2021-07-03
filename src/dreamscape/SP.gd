@@ -17,6 +17,7 @@ const FILTER_EFFECTS = "filter_effects"
 const FILTER_IS_NOT_SPECIFIED_ENEMY = "filter_not_enemy"
 const FILTER_STACKS = "filter_stacks"
 const KEY_EFFECT_NAME = "effect_name"
+const KEY_ENEMY_NAME = "enemy_name"
 const FILTER_PER_EFFECT_STACKS = "filter_per_effect_stacks"
 const PER_EFFECT_STACKS = "per_effect_stacks"
 

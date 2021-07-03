@@ -106,6 +106,9 @@ const ACTIVE_EFFECTS := {
 		"name": "Shaken",
 		"description": "{effect_name}: {defence} added to this {entity} is reduced by 25%.\n" \
 				+ "Reduce these stacks by 1 at the end of the turn."},
+	"outrage": {
+		"name": "Outrage",
+		"description": "{effect_name}: This {entity} has become more powerful in some fashion."},
 	# Below are unique effects. Typically from concentrations
 	"laugh_at_danger":  {
 		"name": "Laugh at Danger",

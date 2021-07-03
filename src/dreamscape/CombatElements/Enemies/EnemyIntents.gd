@@ -50,7 +50,8 @@ func prepare_intents() -> void:
 
 func reshuffle_intents() -> void:
 	unused_intents = all_intents.duplicate(true)
-	CFUtils.shuffle_array(unused_intents)
+	if not combat_entity.get_property("_is_ordered"):
+		CFUtils.shuffle_array(unused_intents)
 #	print_debug(unused_intents)
 
 func get_total_damage() -> int:

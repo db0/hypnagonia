@@ -264,10 +264,10 @@ func autoplay_card(script: ScriptTask) -> int:
 			card.set_is_faceup(true)
 			card.state = card.ExtendedCardState.AUTOPLAY_DISPLAY
 			card._add_tween_global_position(
-					prev_pos, 
-					cfc.get_viewport().size / 2 - CFConst.CARD_SIZE/2, 
+					prev_pos,
+					cfc.get_viewport().size / 2 - CFConst.CARD_SIZE/2,
 					1,
-					Tween.TRANS_SINE, 
+					Tween.TRANS_SINE,
 					Tween.EASE_IN_OUT)
 			card._add_tween_rotation(0,360, 1)
 			card._tween.start()
@@ -335,7 +335,37 @@ func perturb(script: ScriptTask) -> void:
 		card.pertub_destination = dest_container
 		card.state = DreamCard.ExtendedCardState.SPAWNED_PERTURBATION
 		yield(cfc.get_tree().create_timer(0.2), "timeout")
-		
+
+
+func spawn_enemy(script: ScriptTask) -> void:
+	var count: int
+	var alteration = 0
+	var canonical_name: String = script.get_property(SP.KEY_ENEMY_NAME)
+	if str(script.get_property(SP.KEY_OBJECT_COUNT)) == SP.VALUE_RETRIEVE_INTEGER:
+		count = stored_integer
+		if script.get_property(SP.KEY_IS_INVERTED):
+			count *= -1
+	elif SP.VALUE_PER in str(script.get_property(SP.KEY_OBJECT_COUNT)):
+		var per_msg = perMessage.new(
+				script.get_property(SP.KEY_OBJECT_COUNT),
+				script.owner,
+				script.get_property(script.get_property(SP.KEY_OBJECT_COUNT)),
+				null,
+				script.subjects)
+		count = per_msg.found_things
+	else:
+		count = script.get_property(SP.KEY_OBJECT_COUNT)
+	alteration = _check_for_alterants(script, count)
+	if alteration is GDScriptFunctionState:
+		alteration = yield(alteration, "completed")
+	for iter in range(count + alteration):
+		var enemy_entity : EnemyEntity = cfc.NMAP.board.spawn_enemy(canonical_name)
+		yield(cfc.get_tree().create_timer(0.05), "timeout")
+		# We need to set it as activated or the board will never re-enable the 
+		# end-turn button
+		if enemy_entity:
+			enemy_entity.emit_signal("finished_activation", enemy_entity)
+
 
 
 # Initiates a seek through the owner and target combat entity to see if there's any effects

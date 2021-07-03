@@ -11,7 +11,8 @@ var shader_progress := 0.0
 func _ready() -> void:
 	entity_type = "torment"
 	intents.combat_entity = self
-	intents.all_intents = _properties.Intents.duplicate(true)
+	if _properties.has('Intents'):
+		intents.all_intents = _properties.Intents.duplicate(true)
 	intents.prepare_intents()
 
 func _process(delta: float) -> void:
