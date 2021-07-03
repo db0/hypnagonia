@@ -61,7 +61,7 @@ func _ready() -> void:
 func spawn_encounter() -> void:
 	var next_encounter = globals.encounters.get_next_encounter()
 	if typeof(next_encounter) == TYPE_ARRAY:
-		for enemy_name in globals.encounters.get_next_encounter():
+		for enemy_name in next_encounter:
 			spawn_enemy(enemy_name)
 	else:
 		spawn_boss(next_encounter)

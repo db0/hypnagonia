@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/dreamscape/MainMenu/StartingCards.gd" type="Script" id=1]
+
+[node name="StartingCards" type="ScrollContainer"]
+margin_top = 5.0
+margin_bottom = 5.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBC" type="HBoxContainer" parent="."]

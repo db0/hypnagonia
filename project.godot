@@ -447,7 +447,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Dreamscape-deckbuilder"
-run/main_scene="res://src/dreamscape/MainMenu.tscn"
+run/main_scene="res://src/dreamscape/MainMenu/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]

@@ -7,6 +7,7 @@ const EGO := {
 	# Archetypes: Untouchable/Calm
 	"Flyer": {
 		"Anxiety": 5,
+		"Icon": "res://icon.png",
 		"Starting Cards": [
 			"Out of Reach",
 			"Assault",
@@ -34,6 +35,7 @@ const EGO := {
 	# Archetype: 
 	"Warrior": {
 		"Anxiety": 5,
+		"Icon": "res://icon.png",
 		"Starting Cards": [
 			"War Paint",
 		],
@@ -42,11 +44,13 @@ const EGO := {
 		],
 		"Uncommons": [
 		],
-		"Rares": []
+		"Rares": [],
+		"_is_inactive": true
 	},
 	# Archetype: 
 	"Runner": {
 		"Anxiety": 5,
+		"Icon": "res://icon.png",
 		"Starting Cards": [
 		],
 		"Commons": [
@@ -55,7 +59,8 @@ const EGO := {
 		"Uncommons": [
 			"Barrel Through",
 		],
-		"Rares": []
+		"Rares": [],
+		"_is_inactive": true
 	},
 }
 
@@ -63,6 +68,7 @@ const DISPOSITION := {
 	# Archetypes: Confidence/Doubt
 	"Fearless": {
 		"Anxiety": 5,
+		"Icon": "res://icon.png",
 		"Starting Cards": [
 			"Confidence",
 			"Confidence",
@@ -91,12 +97,15 @@ const DISPOSITION := {
 	# Archetypes: Self-harm
 	"Coward": {
 		"Anxiety": -5,
+		"Icon": "res://icon.png",
+		"_is_inactive": true
 	}
 }
 
 const INSTRUMENT := {
 	# Archetype: Confusion
 	"Rubber Chicken": {
+		"Icon": "res://icon.png",
 		"Starting Cards": [
 			"Assault",
 			"Assault",
@@ -127,6 +136,7 @@ const INSTRUMENT := {
 const INJUSTICE := {
 	"Abusive Relationship": {
 		"Anxiety": -5,
+		"Icon": "res://icon.png",
 		"Starting Cards": [
 			"Inner Justice",
 		],

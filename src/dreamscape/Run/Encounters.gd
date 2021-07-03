@@ -31,7 +31,7 @@ const ENCOUNTERS := [
 ]
 
 const BOSSES := {
-	"Narcissist": preload("res://src/dreamscape/CombatElements/Enemies/Bosses/Narcissist.tscn")
+	"Narcissus": preload("res://src/dreamscape/CombatElements/Enemies/Bosses/Narcissus.tscn")
 }
 
 

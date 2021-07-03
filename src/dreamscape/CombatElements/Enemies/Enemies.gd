@@ -50,7 +50,7 @@ const ENEMIES := {
 	},
 	"The Laughing One": {
 		"Type": "Fear",
-		"Health": 25,
+		"Health": 20,
 		"Intents": [
 			{
 				"intent_scripts": ["Stress:3","Stress:3","Stress:3"],

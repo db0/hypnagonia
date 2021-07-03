@@ -1,13 +1,18 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=1]
-[ext_resource path="res://themes/darktheme/fonts/Bangers/Bangers-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://src/dreamscape/MainMenu.gd" type="Script" id=3]
-[ext_resource path="res://src/dreamscape/DeckBuilder.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/dreamscape/DeckBuilder.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/dreamscape/MainMenu/MainMenu.gd" type="Script" id=3]
+[ext_resource path="res://themes/darktheme/fonts/Bangers/Bangers-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://src/dreamscape/MainMenu/NewGame.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 107
-font_data = ExtResource( 2 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 60
+font_data = ExtResource( 4 )
 
 [node name="Menu" type="Panel"]
 margin_right = 1700.0
@@ -18,7 +23,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DeckBuilder" parent="." instance=ExtResource( 4 )]
+[node name="NewGame" parent="." instance=ExtResource( 5 )]
+
+[node name="DeckBuilder" parent="." instance=ExtResource( 2 )]
 
 [node name="MainMenu" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -43,13 +50,24 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_top = 90
 
-[node name="Label" type="Label" parent="MainMenu/VBox/Margin"]
-margin_top = 153.0
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/VBox/Margin"]
+margin_top = 90.0
 margin_right = 1700.0
-margin_bottom = 385.0
+margin_bottom = 448.0
+
+[node name="Title" type="Label" parent="MainMenu/VBox/Margin/VBoxContainer"]
+margin_right = 1700.0
+margin_bottom = 115.0
 custom_fonts/font = SubResource( 1 )
-text = "Godot 
-Card Game Framework"
+text = "Dreams"
+align = 1
+
+[node name="Subtitle" type="Label" parent="MainMenu/VBox/Margin/VBoxContainer"]
+margin_top = 118.0
+margin_right = 1700.0
+margin_bottom = 182.0
+custom_fonts/font = SubResource( 2 )
+text = "A deckbuilding therapy session"
 align = 1
 
 [node name="Center" type="CenterContainer" parent="MainMenu/VBox"]
@@ -60,42 +78,45 @@ size_flags_vertical = 3
 
 [node name="VButtons" type="VBoxContainer" parent="MainMenu/VBox/Center"]
 margin_left = 754.0
-margin_top = 149.0
+margin_top = 197.0
 margin_right = 946.0
-margin_bottom = 299.0
+margin_bottom = 251.0
 rect_min_size = Vector2( 192, 0 )
 custom_constants/separation = 10
 
-[node name="SinglePlayerDemo" type="Button" parent="MainMenu/VBox/Center/VButtons"]
+[node name="NewGame" type="Button" parent="MainMenu/VBox/Center/VButtons"]
 margin_right = 192.0
 margin_bottom = 22.0
-text = "Single Player Demo"
+text = "New Game"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Multiplayer" type="Button" parent="MainMenu/VBox/Center/VButtons"]
+visible = false
 margin_top = 32.0
 margin_right = 192.0
 margin_bottom = 54.0
 text = "Multiplayer Demo"
 
 [node name="Deckbuilder" type="Button" parent="MainMenu/VBox/Center/VButtons"]
-margin_top = 64.0
+visible = false
+margin_top = 32.0
 margin_right = 192.0
-margin_bottom = 86.0
+margin_bottom = 54.0
 text = "Deck Builder"
 
 [node name="GUT" type="Button" parent="MainMenu/VBox/Center/VButtons"]
-margin_top = 96.0
+visible = false
+margin_top = 32.0
 margin_right = 192.0
-margin_bottom = 118.0
+margin_bottom = 54.0
 text = "Tests"
 
 [node name="Exit" type="Button" parent="MainMenu/VBox/Center/VButtons"]
-margin_top = 128.0
+margin_top = 32.0
 margin_right = 192.0
-margin_bottom = 150.0
+margin_bottom = 54.0
 text = "Exit"
 
 [node name="MenuTween" type="Tween" parent="."]

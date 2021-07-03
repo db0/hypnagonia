@@ -1,0 +1,10 @@
+[gd_scene format=2]
+
+[node name="Archetype" type="Button"]
+margin_right = 270.0
+margin_bottom = 390.0
+rect_min_size = Vector2( 270, 390 )
+text = "Archetype Name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
