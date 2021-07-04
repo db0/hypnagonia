@@ -65,6 +65,15 @@ func _process(delta: float) -> void:
 				move_to(pertub_destination)
 				pertub_destination = null
 
+func setup() -> void:
+	.setup()
+	var label_color := card_front.theme.get_color(
+			get_property("_rarity"), "Label")
+	var card_name_label : Label = card_front.card_labels["Name"]
+	print_debug(label_color, card_name_label)
+	card_name_label.add_color_override("font_color", label_color)
+
+
 # Sample code on how to figure out costs of a card
 func get_modified_credits_cost() -> int:
 	var modified_cost : int = properties.get("Cost", 0)

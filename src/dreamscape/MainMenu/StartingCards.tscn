@@ -11,3 +11,4 @@ __meta__ = {
 }
 
 [node name="HBC" type="HBoxContainer" parent="."]
+custom_constants/separation = 50

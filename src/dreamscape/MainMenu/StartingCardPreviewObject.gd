@@ -10,3 +10,7 @@ func _ready() -> void:
 
 func on_gui_input(event) -> void:
 	pass
+
+func add_child(node, _legible_unique_name=false) -> void:
+	.add_child(node)
+	rect_min_size.y = node._control.rect_min_size.y + 100

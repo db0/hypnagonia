@@ -6,16 +6,18 @@ const CARDS := {
 	"Confidence": {
 		"Type": "Control",
 		"Tags": [],
-		"Abilities": "Gain 5 confidence.",
+		"Abilities": "Gain 5 Confidence.",
 		"Cost": 1,
 		"_illustration": "Nobody",
+		"_rarity": "Starting",
 	},
-	"Assault": {
+	"Interpretation": {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "Interpret target Torment for 6.",
 		"Cost": 1,
 		"_illustration": "Nobody",
+		"_rarity": "Starting",
 	},
 	"Out of Reach": {
 		"Type": "Control",
@@ -26,6 +28,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
+		"_rarity": "Common",
 	},
 	"Dive-in": {
 		"Type": "Control",
@@ -33,6 +36,7 @@ const CARDS := {
 		"Abilities": "Gain 2 Shaken. Your next interpretation is doubled.",
 		"Cost": 1,
 		"_illustration": "Nobody",
+		"_rarity": "Common",
 	},
 	"Safety of Air": {
 		"Type": "Control",
@@ -40,6 +44,7 @@ const CARDS := {
 		"Abilities": "Relax for 4. Forget",
 		"Cost": 1,
 		"_illustration": "Nobody",
+		"_rarity": "Common",
 	},
 	"Nothing to Fear": {
 		"Type": "Concentration",
@@ -48,6 +53,7 @@ const CARDS := {
 			+ " Increase all anxiety taken from Torment intents by 2.",
 		"Cost": 2,
 		"_illustration": "Nobody",
+		"_rarity": "Common",
 	},
 	"Confounding Movements": {
 		"Type": "Control",
@@ -58,6 +64,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
+		"_rarity": "Common",
 	},
 	"Noisy Whip": {
 		"Type": "Action",
@@ -68,13 +75,15 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
+		"_rarity": "Common",
 	},
 	"Inner Justice": {
 		"Type": "Control",
 		"Tags": ["Purpose"],
-		"Abilities": "Gain 5 Immersion",
+		"Abilities": "Gain 4 Immersion",
 		"Cost": 3,
 		"_illustration": "Nobody",
+		"_rarity": "Starting",
 	},
 	"Whirlwind": {
 		"Type": "Action",
@@ -82,6 +91,7 @@ const CARDS := {
 		"Abilities": "Interpret target Torment for 3. Repeat 3 times",
 		"Cost": 2,
 		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
 	},
 	"Overview": {
 		"Type": "Action",
@@ -89,6 +99,7 @@ const CARDS := {
 		"Abilities": "Remove all Perplexity from target Torment.",
 		"Cost": 1,
 		"_illustration": "Nobody",
+		"_rarity": "Common",
 	},
 	"War Paint": { #TODO
 		"Type": "Control",
@@ -96,6 +107,7 @@ const CARDS := {
 		"Abilities": "All interpretation is increased by 1 this turn.",
 		"Cost": 1,
 		"_illustration": "Nobody",
+		"_rarity": "Common",
 	},
 	"Rubber Eggs": {
 		"Type": "Concentration",
@@ -106,6 +118,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
+		"_rarity": "Uncommon",
 	},
 	"The Joke": {
 		"Type": "Action",
@@ -117,6 +130,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
+		"_rarity": "Uncommon",
 	},
 	"Nunclucks": {
 		"Type": "Concentration",
@@ -127,6 +141,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
+		"_rarity": "Rare",
 	},
 	"Gummiraptor": {
 		"Type": "Action",
@@ -135,6 +150,7 @@ const CARDS := {
 			+ "Repeat this if Torments are not going to be inflicting any anxiety this turn.",
 		"Cost": 2,
 		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
 	},
 	"Cocky Retort": {
 		"Type": "Control",
@@ -142,6 +158,7 @@ const CARDS := {
 		"Abilities": "Gain 8 confidence. Draw a card.",
 		"Cost": 1,
 		"_illustration": "Nobody",
+		"_rarity": "Common",
 	},
 	"Rapid Encriclement": {
 		"Type": "Control",
@@ -152,6 +169,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.ENEMY
 		},
+		"_rarity": "Common",
 	},
 	"Barrel Through": {
 		"Type": "Action",
@@ -162,6 +180,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.ENEMY
 		},
+		"_rarity": "Uncommon",
 	},
 	"Intimidate": {
 		"Type": "Control",
@@ -172,6 +191,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
 		},
+		"_rarity": "Common",
 	},
 	"Cheeky Approach": {
 		"Type": "Control",
@@ -182,6 +202,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
 		},
+		"_rarity": "Uncommon",
 	},
 	"Laugh at Danger": {
 		"Type": "Concentration",
@@ -192,6 +213,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
 		},
+		"_rarity": "Rare",
 	},
 	"Towering Presence": {
 		"Type": "Action",
@@ -199,6 +221,7 @@ const CARDS := {
 		"Abilities": "Interpret a Torment equal to your current Confidence",
 		"Cost": 1,
 		"_illustration": "Nobody",
+		"_rarity": "Common",
 	},
 	"Unassailable": {
 		"Type": "Concentration",
@@ -206,6 +229,7 @@ const CARDS := {
 		"Abilities": "Whenever you apply Doubt, gain 1 Confidence.",
 		"Cost": 2,
 		"_illustration": "Nobody",
+		"_rarity": "Rare",
 	},
 	"Audacity": {
 		"Type": "Control",
@@ -216,6 +240,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
 		},
+		"_rarity": "Common",
 	},
 	"Boast": {
 		"Type": "Control",
@@ -226,6 +251,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
 		},
+		"_rarity": "Rare",
 	},
 	"Solid Understanding": {
 		"Type": "Action",
@@ -233,6 +259,7 @@ const CARDS := {
 		"Abilities": "Gain 5 Confidence. Interpret Torment for 5.",
 		"Cost": 1,
 		"_illustration": "Nobody",
+		"_rarity": "Common",
 	},
 	"No Second Thoughts": {
 		"Type": "Control",
@@ -243,6 +270,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
 		},
+		"_rarity": "Uncommon",
 	},
 	"High Morale": {
 		"Type": "Action",
@@ -253,6 +281,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
 		},
+		"_rarity": "Uncommon",
 	},
 	"Confident Slap": {
 		"Type": "Action",
@@ -263,6 +292,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
 		},
+		"_rarity": "Common",
 	},
 	"Swoop": {
 		"Type": "Action",
@@ -273,6 +303,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
+		"_rarity": "Uncommon",
 	},
 	"Drag and Drop": {
 		"Type": "Action",
@@ -283,6 +314,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
+		"_rarity": "Common",
 	},
 	"Running Start": {
 		"Type": "Control",
@@ -293,6 +325,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
+		"_rarity": "Common",
 	},
 	"Master of Skies": {
 		"Type": "Concentration",
@@ -303,6 +336,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
+		"_rarity": "Rare",
 	},
 	"Zen of Flight": {
 		"Type": "Concentration",
@@ -313,6 +347,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
+		"_rarity": "Rare",
 	},
 	"Loop de loop": {
 		"Type": "Control",
@@ -323,6 +358,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
 		},
+		"_rarity": "Common",
 	},
 	"Headless": {
 		"Type": "Control",
@@ -333,6 +369,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
 		},
+		"_rarity": "Common",
 	},
 	"Utterly Ridiculous": {
 		"Type": "Action",
@@ -341,6 +378,7 @@ const CARDS := {
 				+ "Interpret all Torments for 20",
 		"Cost": 1,
 		"_illustration": "Nobody",
+		"_rarity": "Rare",
 	},
 	"Ventriloquism": {
 		"Type": "Action",
@@ -351,6 +389,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
+		"_rarity": "Common",
 	},
 	"unnamed_card_1": {
 		"Type": "Control",
@@ -358,6 +397,7 @@ const CARDS := {
 		"Abilities": "Shuffle your discard pile into your deck. Play a Random card from your deck. Forget.",
 		"Cost": 1,
 		"_illustration": "Nobody",
+		"_rarity": "Common",
 	},
 	"unnamed_card_2": {
 		"Type": "Control",
@@ -368,6 +408,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
+		"_rarity": "Uncommon",
 	},
 	"unnamed_card_3": {
 		"Type": "Control",
@@ -375,6 +416,7 @@ const CARDS := {
 		"Abilities": "Interpret all Torments for 8",
 		"Cost": 1,
 		"_illustration": "Nobody",
+		"_rarity": "Common",
 	},
 	"Absurdity Unleashed": {
 		"Type": "Concentration",
@@ -385,6 +427,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
+		"_rarity": "Uncommon",
 	},
 	"Dread": {
 		"Type": "Perturbation",
@@ -393,5 +436,6 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_avoid_normal_discard": true,
+		"_rarity": "Temporary",
 	},
 }

@@ -19,7 +19,7 @@ const EGO := {
 		"Icon": "res://icon.png",
 		"Starting Cards": [
 			"Out of Reach",
-			"Assault",
+			"Interpretation",
 			"Confidence",
 		],
 		"Commons": [
@@ -28,6 +28,7 @@ const EGO := {
 			"Overview",
 			"Drag and Drop",
 			"Loop de loop",
+			"Rapid Encriclement",
 		],
 		"Uncommons": [
 			"Whirlwind",
@@ -86,9 +87,10 @@ const DISPOSITION := {
 		"Commons": [
 			"Intimidate",
 			"Towering Presence",
-			"Courage",
+			"Audacity",
 			"Solid Understanding",
 			"Confident Slap",
+			"Cocky Retort",
 		],
 		"Uncommons": [
 			"Nothing to Fear",
@@ -116,8 +118,8 @@ const INSTRUMENT := {
 	"Rubber Chicken": {
 		"Icon": "res://icon.png",
 		"Starting Cards": [
-			"Assault",
-			"Assault",
+			"Interpretation",
+			"Interpretation",
 			"Noisy Whip",
 		],
 		"Commons": [
@@ -133,6 +135,7 @@ const INSTRUMENT := {
 			"The Joke",
 			"unnamed_card_2",
 			"Absurdity Unleashed",
+			"Gummiraptor",
 		],
 		"Rares": [
 			"Nunclucks",

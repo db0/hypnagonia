@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=11 format=2]
 
+[ext_resource path="res://assets/icons/320125.png" type="Texture" id=1]
 [ext_resource path="res://src/dreamscape/CardFront.gd" type="Script" id=2]
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=3]
+[ext_resource path="res://shaders/Warping.shader" type="Shader" id=4]
+[ext_resource path="res://shaders/Dreambox.shader" type="Shader" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.145098, 0.145098, 0.145098, 1 )
@@ -10,11 +13,36 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 5 )
+shader_param/is_card = true
+shader_param/eps = 0.0001
+shader_param/steps = 32
+shader_param/minDist = 0.01
+shader_param/maxDist = 10.0
+shader_param/delta = 1.0
+shader_param/foldingLimit = 1.0
+shader_param/Iterations = 5
+shader_param/Scale = 1.5
+
+[sub_resource type="StyleBoxFlat" id=3]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 4 )
+shader_param/is_card = true
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.298039, 0.298039, 0.298039, 1 )
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="Front" type="Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -1130.0
-margin_bottom = -480.0
+margin_right = -1530.0
+margin_bottom = -660.0
 mouse_filter = 2
 theme = ExtResource( 3 )
 custom_styles/panel = SubResource( 1 )
@@ -23,57 +51,61 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Margin" type="MarginContainer" parent="."]
+[node name="Art" type="TextureRect" parent="."]
+margin_top = 30.0
+margin_right = 170.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 170, 100 )
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CardText" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-custom_constants/margin_right = 2
-custom_constants/margin_left = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CardText" type="VBoxContainer" parent="Margin"]
-margin_left = 2.0
-margin_right = 568.0
-margin_bottom = 420.0
-mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBC" type="HBoxContainer" parent="Margin/CardText"]
-margin_right = 566.0
-margin_bottom = 18.0
+[node name="ArtLayover" type="VBoxContainer" parent="CardText"]
+margin_right = 170.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 130 )
 mouse_filter = 2
 
-[node name="Cost" type="Label" parent="Margin/CardText/HBC"]
-margin_right = 30.0
-margin_bottom = 18.0
-rect_min_size = Vector2( 30, 0 )
-size_flags_vertical = 1
-custom_colors/font_color = Color( 1, 0.4, 0, 1 )
-text = "0"
-align = 1
-valign = 1
-autowrap = true
+[node name="PanelContainer" type="PanelContainer" parent="CardText/ArtLayover"]
+self_modulate = Color( 1, 1, 1, 0.352941 )
+material = SubResource( 2 )
+margin_right = 170.0
+margin_bottom = 25.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 3 )
 
-[node name="Name" type="Label" parent="Margin/CardText/HBC"]
-margin_left = 33.0
-margin_right = 566.0
-margin_bottom = 18.0
+[node name="VBoxContainer" type="MarginContainer" parent="CardText/ArtLayover/PanelContainer"]
+margin_right = 170.0
+margin_bottom = 25.0
+mouse_filter = 2
+custom_constants/margin_top = 7
+
+[node name="Name" type="Label" parent="CardText/ArtLayover/PanelContainer/VBoxContainer"]
+margin_top = 7.0
+margin_right = 170.0
+margin_bottom = 25.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-custom_colors/font_color = Color( 1, 0.4, 0, 1 )
 text = "Card Name"
 align = 1
 valign = 1
 autowrap = true
 
-[node name="Type" type="Label" parent="Margin/CardText"]
-margin_top = 21.0
-margin_right = 566.0
-margin_bottom = 39.0
+[node name="Type" type="Label" parent="CardText/ArtLayover"]
+margin_top = 28.0
+margin_right = 170.0
+margin_bottom = 46.0
 rect_min_size = Vector2( 146, 13 )
 size_flags_vertical = 1
 text = "Type"
@@ -82,10 +114,20 @@ valign = 1
 autowrap = true
 uppercase = true
 
-[node name="Tags" type="Label" parent="Margin/CardText"]
-margin_top = 42.0
-margin_right = 566.0
-margin_bottom = 60.0
+[node name="Margin" type="Control" parent="CardText/ArtLayover"]
+margin_top = 49.0
+margin_right = 170.0
+margin_bottom = 109.0
+mouse_filter = 2
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tags" type="Label" parent="CardText/ArtLayover"]
+margin_top = 112.0
+margin_right = 170.0
+margin_bottom = 130.0
 rect_min_size = Vector2( 146, 17 )
 size_flags_vertical = 1
 text = "Tag1 - Tag2"
@@ -94,11 +136,23 @@ valign = 1
 autowrap = true
 uppercase = true
 
-[node name="Abilities" type="Label" parent="Margin/CardText"]
-margin_top = 63.0
-margin_right = 566.0
-margin_bottom = 420.0
-rect_min_size = Vector2( 146, 144 )
+[node name="OutsideArt" type="PanelContainer" parent="CardText"]
+self_modulate = Color( 1, 1, 1, 0.180392 )
+material = SubResource( 4 )
+margin_top = 133.0
+margin_right = 170.0
+margin_bottom = 240.0
+mouse_filter = 2
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Abilities" type="Label" parent="CardText/OutsideArt"]
+margin_right = 170.0
+margin_bottom = 107.0
+rect_min_size = Vector2( 146, 100 )
 size_flags_vertical = 3
 text = "This is the card ability text.
 
@@ -106,3 +160,35 @@ There should be space for a bit of text here."
 align = 1
 valign = 1
 autowrap = true
+
+[node name="CostContainer" type="CenterContainer" parent="."]
+margin_left = -7.0
+margin_top = -7.0
+margin_right = 23.0
+margin_bottom = 23.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CostIcon" type="TextureRect" parent="CostContainer"]
+margin_right = 30.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
+mouse_filter = 2
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Cost" type="Label" parent="CostContainer"]
+margin_right = 30.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
+size_flags_vertical = 1
+custom_colors/font_color = Color( 1, 0.4, 0, 1 )
+text = "0"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

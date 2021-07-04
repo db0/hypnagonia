@@ -6,7 +6,7 @@ extends Reference
 # if no scripts have been defined, an empty dictionary is returned instead.
 func get_scripts(card_name: String) -> Dictionary:
 	var scripts := {
-		"Assault": {
+		"Interpretation": {
 			"manual": {
 				"hand": [
 					{
@@ -141,7 +141,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "mod_counter",
 						"counter_name": "immersion",
-						"modification": 5,
+						"modification": 4,
 					},
 				],
 			},
