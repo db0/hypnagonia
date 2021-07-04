@@ -13,7 +13,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 5 )
 shader_param/is_card = true
 shader_param/eps = 0.0001
@@ -25,15 +25,15 @@ shader_param/foldingLimit = 1.0
 shader_param/Iterations = 5
 shader_param/Scale = 1.5
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=2]
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 
-[sub_resource type="ShaderMaterial" id=4]
+[sub_resource type="ShaderMaterial" id=6]
 shader = ExtResource( 4 )
 shader_param/is_card = true
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.298039, 0.298039, 0.298039, 1 )
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
@@ -79,11 +79,11 @@ mouse_filter = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="CardText/ArtLayover"]
 self_modulate = Color( 1, 1, 1, 0.352941 )
-material = SubResource( 2 )
+material = SubResource( 5 )
 margin_right = 170.0
 margin_bottom = 25.0
 mouse_filter = 2
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 2 )
 
 [node name="VBoxContainer" type="MarginContainer" parent="CardText/ArtLayover/PanelContainer"]
 margin_right = 170.0
@@ -138,13 +138,13 @@ uppercase = true
 
 [node name="OutsideArt" type="PanelContainer" parent="CardText"]
 self_modulate = Color( 1, 1, 1, 0.180392 )
-material = SubResource( 4 )
+material = SubResource( 6 )
 margin_top = 133.0
 margin_right = 170.0
 margin_bottom = 240.0
 mouse_filter = 2
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 5 )
+custom_styles/panel = SubResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

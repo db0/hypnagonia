@@ -1511,9 +1511,9 @@ func set_focus(requestedFocus: bool, colour := CFConst.FOCUS_HOVER_COLOUR) -> vo
 			cfc.NMAP.main.unfocus(self)
 	# Tokens drawer is an optional node, so we check if it exists
 	# We also generally only have tokens on the table
-	if $Control.has_node("Tokens") \
-			and state in [CardState.ON_PLAY_BOARD, CardState.FOCUSED_ON_BOARD]:
-		tokens.is_drawer_open = requestedFocus
+	if state in [CardState.ON_PLAY_BOARD, CardState.FOCUSED_ON_BOARD]:
+		if $Control.has_node("Tokens"):
+			tokens.is_drawer_open = requestedFocus
 #		if name == "Card" and get_parent() == cfc.NMAP.board:
 #			print(requestedFocus)
 
