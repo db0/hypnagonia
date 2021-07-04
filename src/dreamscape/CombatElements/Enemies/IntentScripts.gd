@@ -9,7 +9,7 @@ func get_scripts(intent_name: String) -> Dictionary:
 				"tags": ["Damage", "Intent"],
 				"subject": "dreamer",
 				"amount": null,
-				"icon": null,
+				"icon": "res://assets/icons/terror.png",
 				"description": "Stress: Will cause the dreamer to take the specified amount of anxiety."
 			}
 		],
@@ -19,7 +19,7 @@ func get_scripts(intent_name: String) -> Dictionary:
 				"tags": ["Intent"],
 				"subject": "self",
 				"amount": null,
-				"icon": null,
+				"icon": "res://assets/icons/shield.png",
 				"description": "Perplex: Will give this Torment the specified amount of Perplexity."
 			}
 		],
@@ -30,7 +30,7 @@ func get_scripts(intent_name: String) -> Dictionary:
 				"tags": ["Intent"],
 				"subject": "dreamer",
 				"modification": null,
-				"icon": null,
+				"icon": "res://assets/icons/cursed-star.png",
 				"description": "This Torment is planning to apply a debuff to the Dreamer."
 			}
 		],
@@ -41,7 +41,7 @@ func get_scripts(intent_name: String) -> Dictionary:
 				"tags": ["Intent"],
 				"subject": "self",
 				"modification": null,
-				"icon": null,
+				"icon": "res://assets/icons/growth.png",
 				"description": "This Torment is planning to buff itself."
 			}
 		],
@@ -52,19 +52,8 @@ func get_scripts(intent_name: String) -> Dictionary:
 				"dest_container": cfc.NMAP.discard,
 				"object_count": 1,
 				"tags": ["Intent"],
-				"icon": null,
+				"icon": "res://assets/icons/alient-stare.png",
 				"description": "Stare: It's not blinking..."
-			}
-		],
-		"Denial": [
-			{
-				"name": "perturb",
-				"card_name": "Dread",
-				"dest_container": cfc.NMAP.discard,
-				"object_count": 1,
-				"tags": ["Intent"],
-				"icon": null,
-				"description": "Denial: That didn't happen."
 			}
 		],
 	}

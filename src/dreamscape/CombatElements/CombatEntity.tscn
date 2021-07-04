@@ -81,30 +81,30 @@ autowrap = true
 [node name="HBC" type="HBoxContainer" parent="."]
 margin_top = 67.0
 margin_right = 65.0
-margin_bottom = 83.0
+margin_bottom = 91.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Defence" type="CenterContainer" parent="HBC"]
-margin_right = 16.0
-margin_bottom = 16.0
+margin_right = 24.0
+margin_bottom = 24.0
 mouse_filter = 1
 
 [node name="TextureRect" type="TextureRect" parent="HBC/Defence"]
-margin_right = 16.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 16, 16 )
+margin_right = 24.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 24, 24 )
 mouse_filter = 2
 texture = ExtResource( 5 )
 expand = true
 stretch_mode = 1
 
 [node name="Amount" type="Label" parent="HBC/Defence"]
-margin_left = 4.0
-margin_top = 1.0
-margin_right = 12.0
-margin_bottom = 15.0
+margin_left = 8.0
+margin_top = 5.0
+margin_right = 16.0
+margin_bottom = 19.0
 size_flags_horizontal = 3
 text = "0"
 __meta__ = {
@@ -112,17 +112,17 @@ __meta__ = {
 }
 
 [node name="Health" type="Label" parent="HBC"]
-margin_left = 20.0
-margin_top = 1.0
-margin_right = 49.0
-margin_bottom = 15.0
+margin_left = 28.0
+margin_top = 5.0
+margin_right = 57.0
+margin_bottom = 19.0
 mouse_filter = 1
 text = "0/30"
 
 [node name="ActiveEffects" parent="." instance=ExtResource( 4 )]
-margin_top = 87.0
+margin_top = 95.0
 margin_right = 65.0
-margin_bottom = 111.0
+margin_bottom = 119.0
 rect_min_size = Vector2( 0, 24 )
 
 [node name="Description" type="PopupPanel" parent="."]
