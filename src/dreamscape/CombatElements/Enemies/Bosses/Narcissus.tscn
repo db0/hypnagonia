@@ -32,9 +32,9 @@ rect_min_size = Vector2( 0, 30 )
 
 [node name="HBC" parent="." index="4"]
 margin_top = 101.0
-margin_bottom = 116.0
+margin_bottom = 117.0
 rect_min_size = Vector2( 0, 15 )
 
 [node name="ActiveEffects" parent="." index="5"]
-margin_top = 120.0
-margin_bottom = 144.0
+margin_top = 121.0
+margin_bottom = 145.0

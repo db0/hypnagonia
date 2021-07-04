@@ -364,6 +364,8 @@ func spawn_enemy(script: ScriptTask) -> void:
 		# We need to set it as activated or the board will never re-enable the 
 		# end-turn button
 		if enemy_entity:
+			var health_modify: int = script.get_property(SP.KEY_MODIFY_SPAWN_HEALTH, 0)
+			enemy_entity.health += health_modify
 			enemy_entity.emit_signal("finished_activation", enemy_entity)
 
 

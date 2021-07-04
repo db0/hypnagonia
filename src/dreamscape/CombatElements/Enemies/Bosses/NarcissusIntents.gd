@@ -116,6 +116,7 @@ func get_boss_scripts(intent_name: String) -> Dictionary:
 				"name": "spawn_enemy",
 				"enemy_name": "Gaslighter",
 				"tags": ["Intent"],
+				"modify_spawn_health": -25 + (get_outrage() * 2),
 				"icon": null,
 				"description": "...that's not a big deal. (Spawn Torment)"
 			}

@@ -41,6 +41,7 @@ func _process(delta: float) -> void:
 				for label in card_front.card_labels:
 					if card_front.card_labels[label].visible:
 						card_front.card_labels[label].visible = false
+						card_front.cost_container.visible = false
 			if shader_progress > 0.8:
 				if cfc.NMAP.board.mouse_pointer.current_focused_card == self:
 					cfc.NMAP.board.mouse_pointer.current_focused_card = null

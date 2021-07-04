@@ -35,17 +35,19 @@ const BOSSES := {
 }
 
 
-var remaining_early_encounters := EARLY_ENCOUNTERS
-var remaining_encounters := ENCOUNTERS
+var remaining_early_encounters := EARLY_ENCOUNTERS.duplicate(true)
+var remaining_encounters := ENCOUNTERS.duplicate(true)
 var boss_name : String
 var current_encounter
 
-func _init() -> void:
+func setup() -> void:
 	CFUtils.shuffle_array(remaining_early_encounters)
 	CFUtils.shuffle_array(remaining_encounters)
+	print_debug(remaining_encounters)
 	var boss_choices := BOSSES.keys()
 	CFUtils.shuffle_array(boss_choices)
 	boss_name = boss_choices[0]
+
 	
 func get_next_encounter():
 	var next_encounter
@@ -55,5 +57,7 @@ func get_next_encounter():
 		next_encounter = BOSSES[boss_name]
 	else:
 		next_encounter = remaining_encounters.pop_back()
+	globals.encounter_number += 1
 	current_encounter = next_encounter
 	return(next_encounter)
+

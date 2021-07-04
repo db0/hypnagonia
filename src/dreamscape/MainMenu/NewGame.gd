@@ -51,6 +51,12 @@ func randomize_archetype_choices() -> Dictionary:
 		randomized_archetypes[archetype] = types[0]
 	return(randomized_archetypes)
 
+func start_new_game() -> void:
+	CFUtils.generate_random_seed()
+	globals.player.setup()
+	globals.encounters.setup()
+	get_tree().change_scene(CFConst.PATH_CUSTOM + 'Main.tscn')
+
 func _on_archetype_choice_pressed(type: String, _archetype: String) -> void:
 	var archetype := _archetype.capitalize()
 	var archetype_button = _choice_buttons[archetype]
@@ -62,8 +68,8 @@ func _on_archetype_choice_pressed(type: String, _archetype: String) -> void:
 	_starting_cards_button.disabled = false
 
 func _on_Start_pressed() -> void:
-	globals.player.setup()
-	get_tree().change_scene(CFConst.PATH_CUSTOM + 'Main.tscn')
+	start_new_game()
+
 
 func _on_archetype_mouse_entered(type: String) -> void:
 	_archetype_starting_cards_display.populate_starting_cards([type], _choice_popup)
@@ -91,3 +97,4 @@ static func get_all_types_list(archetype: String) -> Array:
 		if not CardGroupDefinitions[archetype.to_upper()][type].get("_is_inactive"):
 			valid_types_list.append(type)
 	return(valid_types_list)
+

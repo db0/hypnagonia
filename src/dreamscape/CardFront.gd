@@ -1,5 +1,6 @@
 extends CardFront
 
+onready var cost_container := $CostContainer
 func _ready() -> void:
 	text_expansion_multiplier = {
 		"Name": 2,

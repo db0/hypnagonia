@@ -1,7 +1,7 @@
 extends EnemyEntity
 
-const BOSS_NAME := "Narcissist"
-const HEALTH := 150
+const BOSS_NAME := "Narcissus"
+const HEALTH := 100
 const TYPE := "Abuse"
 const DAMAGE := 0
 const SIZE := Vector2(160,160)

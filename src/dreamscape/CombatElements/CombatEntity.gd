@@ -15,7 +15,7 @@ onready var area2d := $Texture/Area2D
 onready var entity_texture :=  $Texture
 onready var health_label : Label = $HBC/Health
 onready var name_label : Label = $Name
-onready var defence_label : Label = $HBC/Defence
+onready var defence_label : Label = $HBC/Defence/Amount
 onready var active_effects := $ActiveEffects
 onready var incoming := $CenterContainer/Incoming
 onready var highlight := $Texture/Highlight
@@ -127,7 +127,7 @@ func clear_predictions() -> void:
 # Rather they have a damage meter which increases until it hits their max health.
 func _update_health_label() -> void:
 	health_label.text = str(damage) + '/' + str(health)
-	defence_label.text = '(' + str(defence) + ')'
+	defence_label.text = str(defence)
 
 func get_property(property_name: String):
 	return(_properties.get(property_name))
@@ -181,4 +181,3 @@ func _on_enemy_turn_started(_turn: Turn) -> void:
 
 func _on_enemy_turn_ended(_turn: Turn) -> void:
 	pass
-
