@@ -1,4 +1,4 @@
-class_name CoreDefinitions
+#class_name CoreDefinitions
 extends Reference
 
 const SET = "Core Set"
