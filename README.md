@@ -27,10 +27,10 @@ The game follows the typical gameplay of a deckbuilder. You draw 5 cards per tur
 
 ## Basic Terminology
 
-Dreamer: The character you're playing as.
-Torment: The enemies you're facing in your dreams. Manifestations of your anxieties and problems.
-Interpret: The act of defeating the Torments. If a Torment's Interpretation reaches its max, it will be overcome. Overcome all of them to progress to the next encounter.
-Anxiety/Stress: Interacting with your deeper fears is never a pleasant thing. The Torments you're facing will regularly be inducing stress to you, raising your Anxiety. If your Anxiety ever reaches the max amount, you will wake up from the dreams without achieving your breakthrough
+* Dreamer: The character you're playing as.
+* Torment: The enemies you're facing in your dreams. Manifestations of your anxieties and problems.
+* Interpret: The act of defeating the Torments. If a Torment's Interpretation reaches its max, it will be overcome. Overcome all of them to progress to the next encounter.
+* Anxiety/Stress: Interacting with your deeper fears is never a pleasant thing. The Torments you're facing will regularly be inducing stress to you, raising your Anxiety. If your Anxiety ever reaches the max amount, you will wake up from the dreams without achieving your breakthrough
 
 Most other terms you'll encounter will be explained when mousing over cards or icons.
 
