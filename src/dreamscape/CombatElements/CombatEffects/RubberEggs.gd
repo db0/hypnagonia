@@ -1,7 +1,7 @@
 extends CombatEffect
 
-func _on_turn_ended(turn: Turn) -> void:
-	._on_turn_ended(turn)
+func _on_player_turn_ended(turn: Turn) -> void:
+	._on_player_turn_ended(turn)
 	var all_enemies := get_tree().get_nodes_in_group("EnemyEntities")
 	for _iter in range(stacks):
 		CFUtils.shuffle_array(all_enemies)
