@@ -1,12 +1,6 @@
 extends ScrollContainer
 
 const STARTING_CARD_PREVIEW_SCENE = preload("res://src/dreamscape/MainMenu/StartingCardPreviewObject.tscn")
-const archetypes := [
-	Terms.CARD_GROUP_TERMS.class,
-	Terms.CARD_GROUP_TERMS.race,
-	Terms.CARD_GROUP_TERMS.item,
-	Terms.CARD_GROUP_TERMS.life_goal,
-]
 
 onready var _starting_cards_container = $HBC
 
@@ -17,7 +11,7 @@ func populate_starting_cards(types: Array, rel_parent: Node) -> void:
 	for card in _starting_cards_container.get_children():
 		card.queue_free()
 	for type in types:
-		for archetype in archetypes:
+		for archetype in Terms.CARD_GROUP_TERMS.values():
 			if CardGroupDefinitions[archetype.to_upper()].has(type):
 				for card_name in CardGroupDefinitions[archetype.to_upper()][type]["Starting Cards"]:
 					print_debug(card_name)

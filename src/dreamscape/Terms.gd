@@ -71,6 +71,7 @@ const COMMON_FORMATS = {
 	ENEMY: ENEMY_TERMS,
 }
 
+
 # A way to map generic names to thematic names, so that I can perform
 # a rename later if needed
 const ACTIVE_EFFECTS := {

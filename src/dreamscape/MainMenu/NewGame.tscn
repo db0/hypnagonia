@@ -27,20 +27,20 @@ align = 1
 [node name="MarginUp" type="Control" parent="VBC"]
 margin_top = 18.0
 margin_right = 1686.0
-margin_bottom = 118.0
-rect_min_size = Vector2( 0, 100 )
+margin_bottom = 68.0
+rect_min_size = Vector2( 0, 50 )
 
 [node name="DeckChooseLabel" type="Label" parent="VBC"]
-margin_top = 122.0
+margin_top = 72.0
 margin_right = 1686.0
-margin_bottom = 136.0
+margin_bottom = 86.0
 text = "Choose Deck Archetypes"
 align = 1
 
 [node name="CC" type="CenterContainer" parent="VBC"]
-margin_top = 140.0
+margin_top = 90.0
 margin_right = 1686.0
-margin_bottom = 548.0
+margin_bottom = 498.0
 rect_min_size = Vector2( 0, 400 )
 
 [node name="Choices" type="HBoxContainer" parent="VBC/CC"]
@@ -82,7 +82,7 @@ margin_top = 18.0
 margin_right = 270.0
 margin_bottom = 408.0
 rect_min_size = Vector2( 270, 390 )
-text = "Choose Ego"
+text = "Choose Disposition"
 
 [node name="Instrument" type="VBoxContainer" parent="VBC/CC/Choices"]
 margin_left = 580.0
@@ -121,23 +121,23 @@ rect_min_size = Vector2( 270, 390 )
 text = "Choose Injustice"
 
 [node name="MarginDown" type="Control" parent="VBC"]
-margin_top = 552.0
+margin_top = 502.0
 margin_right = 1686.0
-margin_bottom = 652.0
-rect_min_size = Vector2( 0, 100 )
+margin_bottom = 552.0
+rect_min_size = Vector2( 0, 50 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ControlButtons" type="CenterContainer" parent="VBC"]
-margin_top = 656.0
+margin_top = 556.0
 margin_right = 1686.0
-margin_bottom = 846.0
+margin_bottom = 816.0
 
 [node name="VBC" type="VBoxContainer" parent="VBC/ControlButtons"]
 margin_left = 643.0
 margin_right = 1043.0
-margin_bottom = 190.0
+margin_bottom = 260.0
 custom_constants/separation = 20
 
 [node name="StartingCards" type="Button" parent="VBC/ControlButtons/VBC"]
@@ -147,18 +147,25 @@ rect_min_size = Vector2( 400, 50 )
 disabled = true
 text = "See Starting Cards"
 
-[node name="Start" type="Button" parent="VBC/ControlButtons/VBC"]
+[node name="Randomize" type="Button" parent="VBC/ControlButtons/VBC"]
 margin_top = 70.0
 margin_right = 400.0
 margin_bottom = 120.0
+rect_min_size = Vector2( 400, 50 )
+text = "Randomize"
+
+[node name="Start" type="Button" parent="VBC/ControlButtons/VBC"]
+margin_top = 140.0
+margin_right = 400.0
+margin_bottom = 190.0
 rect_min_size = Vector2( 400, 50 )
 disabled = true
 text = "Start Game"
 
 [node name="Back" type="Button" parent="VBC/ControlButtons/VBC"]
-margin_top = 140.0
+margin_top = 210.0
 margin_right = 400.0
-margin_bottom = 190.0
+margin_bottom = 260.0
 rect_min_size = Vector2( 400, 50 )
 text = "Back"
 
@@ -166,7 +173,7 @@ text = "Back"
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1693.0
-margin_bottom = 893.0
+margin_bottom = 923.0
 
 [node name="CC" type="CenterContainer" parent="ChoicePopup"]
 anchor_right = 1.0
@@ -181,14 +188,14 @@ __meta__ = {
 
 [node name="VBC" type="VBoxContainer" parent="ChoicePopup/CC"]
 margin_left = 439.0
-margin_top = 104.0
+margin_top = 119.0
 margin_right = 1239.0
-margin_bottom = 774.0
+margin_bottom = 789.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ChooseLabel" type="Label" parent="ChoicePopup/CC/VBC"]
+[node name="Description" type="Label" parent="ChoicePopup/CC/VBC"]
 margin_right = 800.0
 margin_bottom = 14.0
 text = "Choose Type"
@@ -223,13 +230,17 @@ margin_bottom = 670.0
 rect_min_size = Vector2( 800, 240 )
 
 [node name="StartingCardsPopup" type="PopupPanel" parent="."]
-visible = true
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1693.0
 margin_bottom = 893.0
 
 [node name="StartingCards" parent="StartingCardsPopup" instance=ExtResource( 3 )]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 1682.0
+margin_bottom = 882.0
 
 [connection signal="pressed" from="VBC/ControlButtons/VBC/StartingCards" to="." method="_on_StartingCards_pressed"]
+[connection signal="pressed" from="VBC/ControlButtons/VBC/Randomize" to="." method="_on_Randomize_pressed"]
 [connection signal="pressed" from="VBC/ControlButtons/VBC/Start" to="." method="_on_Start_pressed"]

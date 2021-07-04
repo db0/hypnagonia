@@ -27,6 +27,21 @@ __meta__ = {
 
 [node name="DeckBuilder" parent="." instance=ExtResource( 2 )]
 
+[node name="ReadMe" type="PopupPanel" parent="."]
+visible = true
+margin_right = 4.0
+margin_bottom = 4.0
+
+[node name="Label" type="Label" parent="ReadMe"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 102.0
+margin_bottom = 102.0
+rect_min_size = Vector2( 100, 100 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="MainMenu" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -78,9 +93,9 @@ size_flags_vertical = 3
 
 [node name="VButtons" type="VBoxContainer" parent="MainMenu/VBox/Center"]
 margin_left = 754.0
-margin_top = 197.0
+margin_top = 165.0
 margin_right = 946.0
-margin_bottom = 251.0
+margin_bottom = 283.0
 rect_min_size = Vector2( 192, 0 )
 custom_constants/separation = 10
 
@@ -92,12 +107,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Multiplayer" type="Button" parent="MainMenu/VBox/Center/VButtons"]
-visible = false
+[node name="QuickStart" type="Button" parent="MainMenu/VBox/Center/VButtons"]
 margin_top = 32.0
 margin_right = 192.0
 margin_bottom = 54.0
-text = "Multiplayer Demo"
+text = "Quick Start"
 
 [node name="Deckbuilder" type="Button" parent="MainMenu/VBox/Center/VButtons"]
 visible = false
@@ -106,17 +120,16 @@ margin_right = 192.0
 margin_bottom = 54.0
 text = "Deck Builder"
 
-[node name="GUT" type="Button" parent="MainMenu/VBox/Center/VButtons"]
-visible = false
-margin_top = 32.0
+[node name="Readme" type="Button" parent="MainMenu/VBox/Center/VButtons"]
+margin_top = 64.0
 margin_right = 192.0
-margin_bottom = 54.0
-text = "Tests"
+margin_bottom = 86.0
+text = "Read Me"
 
 [node name="Exit" type="Button" parent="MainMenu/VBox/Center/VButtons"]
-margin_top = 32.0
+margin_top = 96.0
 margin_right = 192.0
-margin_bottom = 54.0
+margin_bottom = 118.0
 text = "Exit"
 
 [node name="MenuTween" type="Tween" parent="."]

@@ -7,6 +7,7 @@ var uncommon_chance : float = 25.0/100
 var rare_chance : float = 5.0/100
 var draft_amount := 3
 var draft_card_choices : Array
+var game_end := false
 
 onready var card_choices_grid = $CardDraft/CardChoices
 onready var card_draft = $CardDraft
@@ -16,8 +17,11 @@ onready var proceed_button = $VBC/Proceed
 func display() -> void:
 	rect_global_position = get_viewport().size/2 - rect_size/2
 	visible = true
-	card_draft_button.visible = true
-	populate_draft_cards()
+	if not game_end:
+		card_draft_button.visible = true
+		populate_draft_cards()
+	else:
+		proceed_button.text = "Back to Main Menu"
 
 
 func populate_draft_cards() -> void:
@@ -45,7 +49,10 @@ func _on_card_draft_selected(option) -> void:
 
 func _on_Proceed_pressed() -> void:
 # warning-ignore:return_value_discarded
-	get_tree().change_scene(CFConst.PATH_CUSTOM + 'Main.tscn')
+	if not game_end:
+		get_tree().change_scene(CFConst.PATH_CUSTOM + 'Main.tscn')
+	else:
+		get_tree().change_scene(CFConst.PATH_CUSTOM + 'MainMenu/MainMenu.tscn')
 
 
 func retrieve_draft_cards() -> void:

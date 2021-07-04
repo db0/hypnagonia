@@ -207,7 +207,7 @@ const CARDS := {
 		"Cost": 2,
 		"_illustration": "Nobody",
 	},
-	"Courage": {
+	"Audacity": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "Gain 8 Confidence. Apply 1 Courage.",

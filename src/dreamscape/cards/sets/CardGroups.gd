@@ -3,6 +3,15 @@ extends Reference
 
 const SET = "Core Set"
 
+const ARCHETYPES:= {
+	"Ego": "Ego represents the way your dreamer perceives themselves in this recurrent dream.",
+	"Disposition": "The dreamer's disposition is a representation of the inner turmoil of the dreamer.",
+	"Instrument": "Your instrument choice is your dreamer's own manifestation of their strongest trait.",
+	"Injustice": "Your injustice is the reason why you have been captured in this nightmare realm.\n"\
+			+ "Each injustice comes with its own completion goal. Once that is achieved, your dreamer\n"\
+			+ " will have a psychological breakthrough and will be able to break out of their recurrent dreams.",
+}
+
 const EGO := {
 	# Archetypes: Untouchable/Calm
 	"Flyer": {
@@ -110,7 +119,6 @@ const INSTRUMENT := {
 			"Assault",
 			"Assault",
 			"Noisy Whip",
-			"Courage",
 		],
 		"Commons": [
 			"Confounding Movements",

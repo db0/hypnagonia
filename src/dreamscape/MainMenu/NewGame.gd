@@ -2,20 +2,21 @@ extends PanelContainer
 
 const ARCHETYPE_SCENE := preload("res://src/dreamscape/MainMenu/Archetype.tscn")
 
-onready var _choice_popup = $ChoicePopup
-onready var _archetype_starting_cards_display = $ChoicePopup/CC/VBC/StartginCardsDisplay
-onready var _archetype_choices = $ChoicePopup/CC/VBC/CC/ChoiceContainer
-onready var _starting_cards_popup = $StartingCardsPopup
-onready var _all_starting_cards_display = $StartingCardsPopup/StartingCards
-onready var _starting_cards_button = $VBC/ControlButtons/VBC/StartingCards
-onready var _start_button = $VBC/ControlButtons/VBC/Start
+onready var _choice_popup := $ChoicePopup
+onready var _archetype_starting_cards_display := $ChoicePopup/CC/VBC/StartginCardsDisplay
+onready var _archetype_choices := $ChoicePopup/CC/VBC/CC/ChoiceContainer
+onready var _starting_cards_popup := $StartingCardsPopup
+onready var _all_starting_cards_display := $StartingCardsPopup/StartingCards
+onready var _archetype_description_label := $ChoicePopup/CC/VBC/Description
+onready var _starting_cards_button := $VBC/ControlButtons/VBC/StartingCards
+onready var _start_button := $VBC/ControlButtons/VBC/Start
 onready var _choice_buttons := {
 	"Ego": $VBC/CC/Choices/Ego/Ego,
 	"Disposition": $VBC/CC/Choices/Disposition/Disposition,
 	"Instrument": $VBC/CC/Choices/Instrument/Instrument,
 	"Injustice": $VBC/CC/Choices/Injustice/Injustice,
 }
-onready var back_button = $VBC/ControlButtons/VBC/Back
+onready var back_button := $VBC/ControlButtons/VBC/Back
 
 func _ready() -> void:
 	for choice_button in _choice_buttons:
@@ -29,20 +30,26 @@ func on_choice_button_pressed(button_name : String):
 	_archetype_starting_cards_display.rect_min_size.x = _choice_popup.rect_size.x
 
 
-func populate_choices(_archetype: String) -> void:
+func populate_choices(archetype: String) -> void:
 	for node in _archetype_choices.get_children():
 		node.queue_free()
-	var archetype := _archetype.to_upper()
-	for type in CardGroupDefinitions[archetype]:
-		if CardGroupDefinitions[archetype][type].get("_is_inactive"):
-			continue
+	for type in get_all_types_list(archetype):
 		var archetype_button = ARCHETYPE_SCENE.instance()
 		archetype_button.name = type
 		archetype_button.text = type
+		_archetype_description_label.text = CardGroupDefinitions.ARCHETYPES[archetype]
 		_archetype_choices.add_child(archetype_button)
 		archetype_button.connect("pressed", self, "_on_archetype_choice_pressed", [type, archetype])
-		archetype_button.connect("mouse_entered", self, "_on_archetype_mouse_entered", [type])	
+		archetype_button.connect("mouse_entered", self, "_on_archetype_mouse_entered", [type])
 
+func randomize_archetype_choices() -> Dictionary:
+	var randomized_archetypes := {}
+	for archetype in Terms.CARD_GROUP_TERMS.values():
+		var types: Array = get_all_types_list(archetype)
+		CFUtils.shuffle_array(types)
+		globals.player.deck_groups[archetype] = types[0]
+		randomized_archetypes[archetype] = types[0]
+	return(randomized_archetypes)
 
 func _on_archetype_choice_pressed(type: String, _archetype: String) -> void:
 	var archetype := _archetype.capitalize()
@@ -67,3 +74,20 @@ func _on_StartingCards_pressed() -> void:
 	_starting_cards_popup.popup_centered()
 	_all_starting_cards_display.rect_min_size.x = _starting_cards_popup.rect_size.x
 	_all_starting_cards_display.populate_starting_cards(globals.player.get_currrent_archetypes(), _starting_cards_popup)
+
+
+func _on_Randomize_pressed() -> void:
+	var selected_archetypes := randomize_archetype_choices()
+	for archetype in selected_archetypes:
+		var archetype_button = _choice_buttons[archetype]
+		archetype_button.text = selected_archetypes[archetype]
+	_start_button.disabled = false
+	_starting_cards_button.disabled = false
+
+
+static func get_all_types_list(archetype: String) -> Array:
+	var valid_types_list := []
+	for type in CardGroupDefinitions[archetype.to_upper()]:
+		if not CardGroupDefinitions[archetype.to_upper()][type].get("_is_inactive"):
+			valid_types_list.append(type)
+	return(valid_types_list)

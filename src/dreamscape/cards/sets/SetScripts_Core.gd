@@ -102,7 +102,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
-		"Untouchable": {
+		"Out of Reach": {
 			"manual": {
 				"hand": [
 					{
@@ -390,7 +390,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
-		"Courage": {
+		"Audacity": {
 			"manual": {
 				"hand": [
 					{

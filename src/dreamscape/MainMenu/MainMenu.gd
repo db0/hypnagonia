@@ -1,5 +1,13 @@
 extends Panel
 
+const README := "Thank you for trying out Dreams!\n\n"\
+		+ "This game is a Free Software 'Spire-like' deckbuilder. "\
+		+ "This means it's free to download, use, modify and redistribute\n\n"\
+		+ "This game is a heavy work in progress. At the poing bugs are expected "\
+		+ "and most of the expected features are missing.\n"\
+		+ "However whatever is there is fully playable.\n\n"\
+		+ "Tutorials, Campaign and lots more card groups will be coming out soon."
+
 # The time it takes to switch from one menu tab to another
 const menu_switch_time = 0.35
 
@@ -8,6 +16,8 @@ onready var main_menu := $MainMenu
 #onready var settings_menu := $SettingsMenu
 onready var deck_builder := $DeckBuilder
 onready var new_game := $NewGame
+onready var _readme_label := $ReadMe/Label
+onready var _readme_popup := $ReadMe
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,6 +30,7 @@ func _ready() -> void:
 #	new_game.recover_prebuilts.connect("pressed", self, "_on_PreBuilts_pressed")
 	deck_builder.back_button.connect("pressed", self, "switch_to_main_menu", [deck_builder])
 	get_viewport().connect("size_changed", self, '_on_Menu_resized')
+	_readme_label.text = README
 
 
 func on_button_pressed(_button_name : String) -> void:
@@ -27,10 +38,13 @@ func on_button_pressed(_button_name : String) -> void:
 		"NewGame":
 			switch_to_tab(new_game)
 #			get_tree().change_scene(CFConst.PATH_CUSTOM + 'Main.tscn')
-		"Multiplayer":
-			pass
-		"GUT":
-			get_tree().change_scene("res://tests/tests.tscn")
+		"QuickStart":
+			new_game.randomize_archetype_choices()
+			globals.player.setup()
+			get_tree().change_scene(CFConst.PATH_CUSTOM + 'Main.tscn')
+		"Readme":
+			_readme_popup.rect_size = _readme_label.rect_size
+			_readme_popup.popup_centered_minsize()
 		"Deckbuilder":
 			switch_to_tab(deck_builder)
 		"Exit":

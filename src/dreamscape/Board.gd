@@ -7,6 +7,7 @@ var end_turn : Button
 var turn := Turn.new()
 var dreamer: PlayerEntity
 var activated_enemies: Array
+var boss_battle := false
 
 onready var bottom_gui := $HBC
 onready var post_battle_menu := $PostBattleMenu
@@ -89,6 +90,7 @@ func spawn_boss(boss_scene: PackedScene) -> EnemyEntity:
 	# warning-ignore:return_value_discarded
 	boss_entity.connect("entity_killed", self, "_enemy_died")
 	return(boss_entity)
+	boss_battle = true
 
 # This function is to avoid relating the logic in the card objects
 # to a node which might not be there in another game
