@@ -79,7 +79,7 @@ const ACTIVE_EFFECTS := {
 		"name": "Advantage",
 		"description": "{effect_name}: The next {amount} actions doing {damage} by this {entity} are doubled."},
 	"buffer":  {
-		"name": "Fascination",
+			"name": "Fascination",
 		"description": "{effect_name}: At the start of your turn gain 1 {energy} per stack."\
 				+ "then remove all stacks of {effect_name}."},
 	"disempower": {
