@@ -1,6 +1,11 @@
 class_name IntentScripts
 extends Reference
 
+const ICON_ATTACK := "res://assets/icons/terror.png"
+const ICON_DEFEND := "res://assets/icons/shield.png"
+const ICON_BUFF := "res://assets/icons/cursed-star.png"
+const ICON_DEBUFF := "res://assets/icons/growth.png"
+
 func get_scripts(intent_name: String) -> Dictionary:
 	var scripts := {
 		"Stress": [
@@ -9,7 +14,7 @@ func get_scripts(intent_name: String) -> Dictionary:
 				"tags": ["Damage", "Intent"],
 				"subject": "dreamer",
 				"amount": null,
-				"icon": "res://assets/icons/terror.png",
+				"icon": ICON_ATTACK,
 				"description": "Stress: Will cause the dreamer to take the specified amount of anxiety."
 			}
 		],
@@ -19,7 +24,7 @@ func get_scripts(intent_name: String) -> Dictionary:
 				"tags": ["Intent"],
 				"subject": "self",
 				"amount": null,
-				"icon": "res://assets/icons/shield.png",
+				"icon": ICON_DEFEND,
 				"description": "Perplex: Will give this Torment the specified amount of Perplexity."
 			}
 		],
@@ -30,7 +35,7 @@ func get_scripts(intent_name: String) -> Dictionary:
 				"tags": ["Intent"],
 				"subject": "dreamer",
 				"modification": null,
-				"icon": "res://assets/icons/cursed-star.png",
+				"icon": ICON_BUFF,
 				"description": "This Torment is planning to apply a debuff to the Dreamer."
 			}
 		],
@@ -41,7 +46,7 @@ func get_scripts(intent_name: String) -> Dictionary:
 				"tags": ["Intent"],
 				"subject": "self",
 				"modification": null,
-				"icon": "res://assets/icons/growth.png",
+				"icon": ICON_DEBUFF,
 				"description": "This Torment is planning to buff itself."
 			}
 		],

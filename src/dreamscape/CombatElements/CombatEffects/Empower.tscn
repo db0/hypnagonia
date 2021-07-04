@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/dreamscape/CombatElements/CombatEffects/Empower.gd" type="Script" id=1]
 [ext_resource path="res://src/dreamscape/CombatElements/CombatEffects/CombatEffectTemplate.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/icons/idea.png" type="Texture" id=3]
+[ext_resource path="res://assets/icons/extra-lucid.png" type="Texture" id=3]
 
 [node name="Empower" instance=ExtResource( 2 )]
 script = ExtResource( 1 )

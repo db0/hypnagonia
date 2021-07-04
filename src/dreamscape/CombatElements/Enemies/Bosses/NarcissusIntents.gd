@@ -80,8 +80,8 @@ func get_boss_scripts(intent_name: String) -> Dictionary:
 				"tags": ["Intent"],
 				"subject": "dreamer",
 				"modification": 4,
-				"icon": null,
-				"description": "That didn't happen. (Debuff)"
+				"icon": IntentScripts.ICON_DEBUFF,
+				"description": "That didn't happen."
 			}
 		],
 		"Minimisation": [
@@ -90,15 +90,15 @@ func get_boss_scripts(intent_name: String) -> Dictionary:
 				"tags": ["Damage", "Intent"],
 				"subject": "dreamer",
 				"amount": 10 + get_outrage(),
-				"icon": null,
-				"description": "And if it did... (Stress)"
+				"icon": IntentScripts.ICON_ATTACK,
+				"description": "And if it did..."
 			},
 			{
 				"name": "assign_defence",
 				"tags": ["Intent"],
 				"subject": "self",
 				"amount": 15,
-				"icon": null,
+				"icon": IntentScripts.ICON_DEFEND,
 				"description": "...it wasn't that bad. (Perplexity)"
 			}			
 		],
@@ -109,15 +109,15 @@ func get_boss_scripts(intent_name: String) -> Dictionary:
 				"tags": ["Intent"],
 				"subject": "dreamer",
 				"modification": 1 + get_outrage(),
-				"icon": null,
-				"description": "And if it was... (Debuff)"
+				"icon": IntentScripts.ICON_DEBUFF,
+				"description": "And if it was..."
 			},
 			{
 				"name": "spawn_enemy",
 				"enemy_name": "Gaslighter",
 				"tags": ["Intent"],
 				"modify_spawn_health": -25 + (get_outrage() * 2),
-				"icon": null,
+				"icon": "res://assets/icons/alien-egg.png",
 				"description": "...that's not a big deal. (Spawn Torment)"
 			}
 		],
@@ -128,16 +128,16 @@ func get_boss_scripts(intent_name: String) -> Dictionary:
 				"tags": ["Intent"],
 				"subject": "dreamer",
 				"modification": 4,
-				"icon": null,
-				"description": "And if it is... (Debuff)"
+				"icon": IntentScripts.ICON_DEBUFF,
+				"description": "And if it is..."
 			},
 			{
 				"name": "modify_damage",
 				"tags": ["Damage", "Intent"],
 				"subject": "dreamer",
 				"amount": 5 + get_outrage(),
-				"icon": null,
-				"description": "... that's not my fault. (Stress)"
+				"icon": IntentScripts.ICON_ATTACK,
+				"description": "... that's not my fault."
 			},
 		],
 		"Irresponsibility": [
@@ -147,15 +147,15 @@ func get_boss_scripts(intent_name: String) -> Dictionary:
 				"tags": ["Intent"],
 				"subject": "dreamer",
 				"modification": 2,
-				"icon": null,
-				"description": "And if it was... (Debuff)"
+				"icon": IntentScripts.ICON_DEBUFF,
+				"description": "And if it was..."
 			},
 			{
 				"name": "assign_defence",
 				"tags": ["Intent"],
 				"subject": "self",
 				"amount": 10,
-				"icon": null,
+				"icon": IntentScripts.ICON_DEFEND,
 				"description":  "...I didn't mean it. (Perplexity)"
 			}
 		],
@@ -166,7 +166,7 @@ func get_boss_scripts(intent_name: String) -> Dictionary:
 				"tags": ["Intent"],
 				"subject": "self",
 				"modification": 1,
-				"icon": null,
+				"icon": IntentScripts.ICON_BUFF,
 				"description": "And if I did... (Buff)"
 			},
 			{
@@ -174,8 +174,8 @@ func get_boss_scripts(intent_name: String) -> Dictionary:
 				"tags": ["Damage", "Intent"],
 				"subject": "dreamer",
 				"amount": 23 + (get_outrage() * 2),
-				"icon": null,
-				"description": "...you deserved it. (Stress)"
+				"icon": IntentScripts.ICON_ATTACK,
+				"description": "...you deserved it."
 			},
 		],
 	}
