@@ -99,7 +99,7 @@ func get_boss_scripts(intent_name: String) -> Dictionary:
 				"subject": "self",
 				"amount": 15,
 				"icon": IntentScripts.ICON_DEFEND,
-				"description": "...it wasn't that bad. (Perplexity)"
+				"description": "...it wasn't that bad."
 			}			
 		],
 		"Gaslighting": [
@@ -118,7 +118,7 @@ func get_boss_scripts(intent_name: String) -> Dictionary:
 				"tags": ["Intent"],
 				"modify_spawn_health": -25 + (get_outrage() * 2),
 				"icon": "res://assets/icons/alien-egg.png",
-				"description": "...that's not a big deal. (Spawn Torment)"
+				"description": "...that's not a big deal."
 			}
 		],
 		"Blameshifting": [
@@ -156,7 +156,7 @@ func get_boss_scripts(intent_name: String) -> Dictionary:
 				"subject": "self",
 				"amount": 10,
 				"icon": IntentScripts.ICON_DEFEND,
-				"description":  "...I didn't mean it. (Perplexity)"
+				"description":  "...I didn't mean it."
 			}
 		],
 		"Projection": [
@@ -167,7 +167,7 @@ func get_boss_scripts(intent_name: String) -> Dictionary:
 				"subject": "self",
 				"modification": 1,
 				"icon": IntentScripts.ICON_BUFF,
-				"description": "And if I did... (Buff)"
+				"description": "And if I did..."
 			},
 			{
 				"name": "modify_damage",

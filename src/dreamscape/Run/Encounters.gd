@@ -43,7 +43,6 @@ var current_encounter
 func setup() -> void:
 	CFUtils.shuffle_array(remaining_early_encounters)
 	CFUtils.shuffle_array(remaining_encounters)
-	print_debug(remaining_encounters)
 	var boss_choices := BOSSES.keys()
 	CFUtils.shuffle_array(boss_choices)
 	boss_name = boss_choices[0]

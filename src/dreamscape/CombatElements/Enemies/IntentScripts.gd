@@ -57,7 +57,7 @@ func get_scripts(intent_name: String) -> Dictionary:
 				"dest_container": cfc.NMAP.discard,
 				"object_count": 1,
 				"tags": ["Intent"],
-				"icon": "res://assets/icons/alient-stare.png",
+				"icon": "res://assets/icons/alien-stare.png",
 				"description": "Stare: It's not blinking..."
 			}
 		],
