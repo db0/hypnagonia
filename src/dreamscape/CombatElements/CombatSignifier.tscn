@@ -65,17 +65,17 @@ custom_fonts/font = SubResource( 2 )
 margin_right = 22.0
 margin_bottom = 28.0
 mouse_filter = 1
-custom_constants/margin_top = 14
-custom_constants/margin_left = 14
+custom_constants/margin_top = 15
+custom_constants/margin_left = 15
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Amount" type="Label" parent="MC"]
-margin_left = 14.0
-margin_top = 14.0
-margin_right = 22.0
-margin_bottom = 28.0
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 23.0
+margin_bottom = 29.0
 mouse_filter = 1
 text = "0"
 
