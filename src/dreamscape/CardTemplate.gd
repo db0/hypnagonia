@@ -38,10 +38,8 @@ func _process(delta: float) -> void:
 						c.interruptTweening()
 						c.reorganize_self()
 			if shader_progress > 0.1:
-				for label in card_front.card_labels:
-					if card_front.card_labels[label].visible:
-						card_front.card_labels[label].visible = false
-						card_front.cost_container.visible = false
+				card_front._card_text.visible = false
+				card_front.cost_container.visible = false
 			if shader_progress > 0.8:
 				if cfc.NMAP.board.mouse_pointer.current_focused_card == self:
 					cfc.NMAP.board.mouse_pointer.current_focused_card = null
@@ -155,8 +153,7 @@ func pay_play_costs() -> void:
 	execute_scripts(self,"payments")
 	scripts["payments"].clear()
 
-# Uses a template to create task definitions for paying time and kudos costs
-# then returns it to the calling function to execute or insert it into
+# Uses a template to create task definitions for paying immersion costs
 # then returns it to the calling function to execute or insert it into
 # the cards existing scripts for its state.
 func generate_play_costs_tasks() -> Array:
@@ -192,7 +189,7 @@ func generate_discard_tasks(only_from_hand := true) -> Array:
 	var discard_tasks = [discard_script_template]
 	return(discard_tasks)
 
-# Uses a template to create task definitions for discarding a card
+# Uses a template to create task definitions for removing  a card from the game
 # then returns it to the calling function to execute or insert it into
 # the cards existing scripts for its state.
 func generate_remove_from_deck_tasks() -> Array:
@@ -203,6 +200,7 @@ func generate_remove_from_deck_tasks() -> Array:
 	var remove_tasks = [remove_script_template]
 	return(remove_tasks)
 
+# Injects the play costs into the existing scripts
 func insert_payment_costs(found_scripts) -> Dictionary:
 	var array_with_costs := generate_play_costs_tasks()
 	var state_scripts = found_scripts.get("hand",[])
@@ -216,6 +214,9 @@ func insert_payment_costs(found_scripts) -> Dictionary:
 			found_scripts["hand"][key] = temp_array
 	return(found_scripts)
 
+
+# Extends the normal execute scripts to also clear the predicions shown
+# on Enemy entities
 func execute_scripts(
 		trigger_card: Card = self,
 		trigger: String = "manual",
@@ -231,12 +232,33 @@ func execute_scripts(
 	for entity in cfc.get_tree().get_nodes_in_group("CombatEntities"):
 		entity.clear_predictions()
 
+
+# I'm using this to show the predicted damage on enemies
 func common_pre_run(sceng) -> void:
 	sceng.predict()
 
+
+# Removes this card from the game completely.
 func remove_from_game() -> void:
 	card_front.material = ShaderMaterial.new()
 	card_front.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
 	state = ExtendedCardState.REMOVE_FROM_GAME
 	cfc.flush_cache()
 
+
+
+func check_play_costs() -> Color:
+	var ret : Color = CFConst.CostsState.OK
+	var immersion_cost = get_modified_immersion_cost().modified_cost
+
+	if immersion_cost > cfc.NMAP.board.counters.get_counter("immersion", self):
+		ret = CFConst.CostsState.IMPOSSIBLE
+	elif immersion_cost > properties.get("Cost", 0):
+		ret = CFConst.CostsState.INCREASED
+	elif immersion_cost < properties.get("Cost", 0):
+		ret = CFConst.CostsState.DECREASED
+
+	if properties.get("_is_unplayable", false):
+		ret = CFConst.CostsState.IMPOSSIBLE
+
+	return(ret)
