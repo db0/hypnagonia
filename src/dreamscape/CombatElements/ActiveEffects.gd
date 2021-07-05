@@ -93,8 +93,8 @@ func mod_effect(
 				effect.stacks = mod
 				new_value = mod
 			else:
-				new_value += mod
-				if new_value <0: new_value = 0
+				new_value = effect.stacks + mod
+				if new_value < 0: new_value = 0
 				effect.stacks += mod
 			combat_entity.emit_signal(
 					"effect_modified",

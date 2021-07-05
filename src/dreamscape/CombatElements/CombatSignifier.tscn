@@ -25,16 +25,16 @@ __meta__ = {
 [node name="Signifier" type="MarginContainer" parent="."]
 margin_right = 24.0
 margin_bottom = 24.0
-rect_min_size = Vector2( 24, 24 )
+rect_min_size = Vector2( 36, 36 )
 mouse_filter = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="Signifier"]
-margin_right = 24.0
-margin_bottom = 24.0
-rect_min_size = Vector2( 24, 24 )
+margin_right = 36.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 36, 36 )
 mouse_filter = 1
 custom_fonts/font = SubResource( 1 )
 text = "A"
@@ -42,9 +42,9 @@ align = 1
 uppercase = true
 
 [node name="Icon" type="TextureRect" parent="Signifier"]
-margin_right = 24.0
-margin_bottom = 24.0
-rect_min_size = Vector2( 24, 24 )
+margin_right = 36.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 36, 36 )
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 5
@@ -65,17 +65,17 @@ custom_fonts/font = SubResource( 2 )
 margin_right = 22.0
 margin_bottom = 28.0
 mouse_filter = 1
-custom_constants/margin_top = 15
-custom_constants/margin_left = 15
+custom_constants/margin_top = 24
+custom_constants/margin_left = 24
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Amount" type="Label" parent="MC"]
-margin_left = 15.0
-margin_top = 15.0
-margin_right = 23.0
-margin_bottom = 29.0
+margin_left = 24.0
+margin_top = 25.0
+margin_right = 35.0
+margin_bottom = 39.0
 mouse_filter = 1
 text = "0"
 

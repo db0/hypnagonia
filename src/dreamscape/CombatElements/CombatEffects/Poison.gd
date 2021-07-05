@@ -11,6 +11,7 @@ func _on_player_turn_started(_turn: Turn) -> void:
 		poison_courses()
 
 func poison_courses() -> void:
+	print_debug(entity_type)
 	var script = [{
 		"name": "modify_damage",
 		"subject": "self",

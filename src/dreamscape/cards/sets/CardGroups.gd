@@ -82,6 +82,10 @@ const DISPOSITION := {
 		"Starting Cards": [
 			"Confidence",
 			"Confidence",
+			"Absurdity Unleashed",
+			"Absurdity Unleashed",
+			"Confounding Movements",
+			"Confounding Movements",
 			"Nothing to Fear",
 		],
 		"Commons": [

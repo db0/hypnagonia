@@ -16,27 +16,27 @@ script = ExtResource( 4 )
 rect_min_size = Vector2( 0, 24 )
 
 [node name="Intents" parent="." index="1" instance=ExtResource( 1 )]
-margin_top = 28.0
-margin_right = 65.0
-margin_bottom = 58.0
+margin_top = 40.0
+margin_right = 69.0
+margin_bottom = 70.0
 rect_min_size = Vector2( 0, 30 )
 script = ExtResource( 3 )
 
 [node name="Texture" parent="." index="2"]
-margin_top = 62.0
-margin_bottom = 62.0
+margin_top = 74.0
+margin_bottom = 74.0
 texture = ExtResource( 5 )
 
 [node name="Name" parent="." index="3"]
-margin_top = 66.0
-margin_bottom = 97.0
+margin_top = 78.0
+margin_bottom = 108.0
 rect_min_size = Vector2( 0, 30 )
 
 [node name="HBC" parent="." index="4"]
-margin_top = 101.0
-margin_bottom = 125.0
+margin_top = 112.0
+margin_bottom = 148.0
 rect_min_size = Vector2( 0, 15 )
 
 [node name="ActiveEffects" parent="." index="5"]
-margin_top = 129.0
-margin_bottom = 153.0
+margin_top = 152.0
+margin_bottom = 188.0

@@ -20,8 +20,8 @@ const ENEMIES := {
 			},
 		],
 		"_health_variability": 3,
-		"_texture_size_x": "80",
-		"_texture_size_y": "80",
+		"_texture_size_x": "120",
+		"_texture_size_y": "120",
 	},
 	"Fearmonger": {
 		"Type": "Abuse",
@@ -45,8 +45,8 @@ const ENEMIES := {
 			},
 		],
 		"_health_variability": 4,
-		"_texture_size_x": "80",
-		"_texture_size_y": "80",
+		"_texture_size_x": "120",
+		"_texture_size_y": "120",
 	},
 	"The Laughing One": {
 		"Type": "Fear",
@@ -58,15 +58,15 @@ const ENEMIES := {
 			},
 			{
 				"intent_scripts": ["Stress:1","Buff:1:impervious"],
-				"reshuffle": true,
+				"reshuffle": false,
 			},
 			{
 				"intent_scripts": ["Stress:5","Debuff:1:poison"],
-				"reshuffle": false,
+				"reshuffle": true,
 			},
 		],
 		"_health_variability": 5,
-		"_texture_size_x": "80",
-		"_texture_size_y": "80",
+		"_texture_size_x": "120",
+		"_texture_size_y": "120",
 	},
 }

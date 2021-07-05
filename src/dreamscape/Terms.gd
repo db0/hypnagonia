@@ -96,7 +96,7 @@ const ACTIVE_EFFECTS := {
 				+ "Reduce these stacks by 1 at the start of the turn."},
 	"impervious": {
 		"name": "Untouchable",
-		"description": "{effect_name}: No {health} is taken this turn.\n" \
+		"description": "{effect_name}: No {health} is taken this turn from {opponent_attack}.\n" \
 				+ "Reduce these stacks by 1 at the start of the turn."},
 	"poison": {
 		"name": "Doubt",

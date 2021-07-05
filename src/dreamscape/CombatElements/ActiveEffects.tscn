@@ -3,6 +3,8 @@
 [ext_resource path="res://src/dreamscape/CombatElements/ActiveEffects.gd" type="Script" id=1]
 
 [node name="ActiveEffects" type="GridContainer"]
+custom_constants/vseparation = 10
+custom_constants/hseparation = 10
 columns = 4
 script = ExtResource( 1 )
 __meta__ = {

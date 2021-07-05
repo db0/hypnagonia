@@ -765,8 +765,9 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "modify_damage",
 						"subject": "boardseek",
 						"amount": 8,
+						"subject_count": "all",
 						"tags": ["Damage"],
-						"filter_state_subject": [{
+						"filter_state_seek": [{
 							"filter_group": "EnemyEntities",
 						}],
 					},
