@@ -378,6 +378,17 @@ func spawn_enemy(script: ScriptTask) -> void:
 			enemy_entity.emit_signal("finished_activation", enemy_entity)
 
 
+func draw_cards(script: ScriptTask) -> int:
+	var retcode: int = CFConst.ReturnCode.CHANGED
+	if not costs_dry_run():
+		# We inject the tags from the script into the tags sent by the signal
+		var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
+		var card_count: int = script.get_property(SP.KEY_CARD_COUNT)
+		for iter in range(card_count):
+			cfc.NMAP.hand.draw_card(cfc.NMAP.deck)
+			yield(cfc.get_tree().create_timer(0.05), "timeout")
+	return(retcode)
+
 
 # Initiates a seek through the owner and target combat entity to see if there's any effects
 # which modify the intensity of the task in question

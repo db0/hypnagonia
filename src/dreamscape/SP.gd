@@ -21,7 +21,7 @@ const KEY_ENEMY_NAME = "enemy_name"
 const KEY_MODIFY_SPAWN_HEALTH = "modify_spawn_health"
 const FILTER_PER_EFFECT_STACKS = "filter_per_effect_stacks"
 const PER_EFFECT_STACKS = "per_effect_stacks"
-
+const KEY_CARD_COUNT := "card_count"
 const KEY_PER_DEFENCE := "per_defence"
 # This call has been setup to call the original, and allow futher extension
 # simply create new filter

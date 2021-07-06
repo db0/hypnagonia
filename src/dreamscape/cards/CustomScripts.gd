@@ -38,7 +38,7 @@ func custom_script(script: ScriptObject) -> void:
 					else:
 						var the_joke = [{
 							"name": "apply_effect",
-							"effect": Terms.ACTIVE_EFFECTS.disempower.name,
+							"effect_name": Terms.ACTIVE_EFFECTS.disempower.name,
 							"subject": "trigger",
 							"modification": 3,
 						}]
@@ -74,7 +74,7 @@ func custom_script(script: ScriptObject) -> void:
 						return
 					var fly_away = [{
 						"name": "apply_effect",
-						"effect": Terms.ACTIVE_EFFECTS.impervious.name,
+						"effect_name": Terms.ACTIVE_EFFECTS.impervious.name,
 						"subject": "dreamer",
 						"modification": 1,
 					}]
@@ -84,7 +84,7 @@ func custom_script(script: ScriptObject) -> void:
 					var dstacks = subject.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.disempower.name)
 					var card_script := [{
 							"name": "apply_effect",
-							"effect": Terms.ACTIVE_EFFECTS.poison,
+							"effect_name": Terms.ACTIVE_EFFECTS.poison,
 							"subject": "trigger",
 							"modification": dstacks,
 						}]
