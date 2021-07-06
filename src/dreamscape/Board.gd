@@ -11,6 +11,7 @@ var boss_battle := false
 
 onready var bottom_gui := $HBC
 onready var post_battle_menu := $PostBattleMenu
+onready var game_over_notice := $GameOver
 onready var deck_pile: Pile = $Deck
 onready var _player_area := $VBC/CombatArena/PlayerArea
 onready var _enemy_area := $VBC/CombatArena/EnemyArea/Enemies
@@ -41,6 +42,7 @@ func _ready() -> void:
 		"_texture_size_y": globals.PLAYER_COMBAT_ENTITY_SIZE.y,
 	}
 	dreamer.setup("Dreamer", dreamer_properties)
+	dreamer.connect("entity_killed", self, "_dreamer_died")
 	_player_area.add_child(dreamer)
 	dreamer.rect_position = Vector2(100,100)
 # warning-ignore:unused_variable
@@ -191,12 +193,25 @@ func _enemy_died() -> void:
 	yield(get_tree().create_timer(1), "timeout")
 	if get_tree().get_nodes_in_group("EnemyEntities").size() == 0:
 		complete_battle()
-		
+
+func _dreamer_died() -> void:
+	yield(get_tree().create_timer(1), "timeout")
+	game_over()
+
 func complete_battle() -> void:
 	cfc.game_paused = true
+	cfc.NMAP.main.unfocus_all()
 	end_turn.disabled = true
 	globals.player.damage = dreamer.damage
 	post_battle_menu.display()
+
+
+func game_over() -> void:
+	cfc.game_paused = true
+	cfc.NMAP.main.unfocus_all()
+	end_turn.disabled = true
+	game_over_notice.rect_global_position = get_viewport().size/2 - game_over_notice.rect_size/2
+	game_over_notice.visible = true
 
 
 func _input(event):
@@ -213,3 +228,9 @@ func _on_viewport_resized() -> void:
 	_background.rect_min_size = get_viewport().size
 	_background.rect_size = get_viewport().size
 #	bottom_gui.rect_position = cfc.NMAP.deck.position - Vector2(0,50)
+
+
+func _on_BackToMain_pressed() -> void:
+	get_tree().change_scene(CFConst.PATH_CUSTOM + "MainMenu/MainMenu.tscn")
+	globals.reset()
+	cfc.NMAP.clear()

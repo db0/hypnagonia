@@ -5,8 +5,13 @@ signal finished_activation(enemy)
 
 onready var intents: EnemyIntents = $Intents
 
-var is_dead := false
-var shader_progress := 0.0
+func _process(delta: float) -> void:
+	if is_dead:
+		for node in [incoming]:
+			if node.visible:
+				node.visible = false
+
+
 
 func _ready() -> void:
 	entity_type = "torment"
@@ -14,19 +19,6 @@ func _ready() -> void:
 	if _properties.has('Intents'):
 		intents.all_intents = _properties.Intents.duplicate(true)
 	intents.prepare_intents()
-
-func _process(delta: float) -> void:
-	if is_dead:
-		shader_progress += delta
-		entity_texture.material.set_shader_param(
-					'progress', shader_progress)
-		var texture_pos = entity_texture.rect_global_position
-		for node in [name_label, health_label, defence_label, active_effects, incoming, intents]:
-			if node.visible:
-				node.visible = false
-		entity_texture.rect_global_position = texture_pos
-		if shader_progress > 0.8:
-			queue_free()
 
 
 func setup(entity_name: String, properties: Dictionary) -> void:
@@ -45,9 +37,3 @@ func activate() -> void:
 #	print_debug("Activated: " + canonical_name)
 	emit_signal("finished_activation", self)
 	intents.prepare_intents()
-
-func die() -> void:
-	emit_signal("entity_killed")
-	entity_texture.material = ShaderMaterial.new()
-	entity_texture.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
-	is_dead = true

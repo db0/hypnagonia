@@ -1,5 +1,10 @@
 # Dreams: Changelog
 
+## v0.2.3
+
+* Fixed post-battle menu not appearing
+* Fixed reseting game after game over
+
 ## v0.2.1
 
 * Fixed unnamed_card_3
@@ -8,6 +13,7 @@
 * Absurdity Unleashed works when having extra stacks
 * Absurdity Unleashed work when applying the stack after the first.
 * Fixed Doubt decreasing twice per turn instead of once
+* Added Game Over Screen
 
 ## v0.2
 

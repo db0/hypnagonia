@@ -131,6 +131,10 @@ func unfocus(card: Card) -> void:
 		$VBC/Focus/Tween.start()
 
 
+func unfocus_all() -> void:
+	if _current_focus_source:
+		unfocus(_current_focus_source)
+
 # Overridable function for games to extend preprocessing of dupe card
 # before adding it to the scene
 func _extra_dupe_preparation(dupe_focus: Card, card: Card) -> void:

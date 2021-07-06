@@ -3,7 +3,7 @@ extends Panel
 const README := "Thank you for trying out Dreams!\n\n"\
 		+ "This game is a Free Software 'Spire-like' deckbuilder. "\
 		+ "This means it's free to download, use, modify and redistribute\n\n"\
-		+ "This game is a heavy work in progress. At the poing bugs are expected "\
+		+ "This game is a heavy work in progress. At this point many bugs are expected "\
 		+ "and most of the expected features are missing.\n"\
 		+ "However whatever is there is fully playable.\n\n"\
 		+ "Tutorials, Campaign and lots more card groups will be coming out soon."

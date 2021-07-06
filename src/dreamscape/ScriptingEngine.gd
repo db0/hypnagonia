@@ -103,7 +103,10 @@ func predict_subjects(script: ScriptTask, prev_subjects: Array) -> Array:
 		SP.KEY_SUBJECT_V_PREVIOUS:
 			return(prev_subjects)
 		SP.KEY_SUBJECT_V_PLAYER:
-			return([cfc.NMAP.board.dreamer])
+			if not cfc.NMAP.board.dreamer.is_dead:
+				return([cfc.NMAP.board.dreamer])
+			else:
+				return([])
 		SP.KEY_SUBJECT_V_SELF:
 			return([script.owner])
 		_:
@@ -139,6 +142,8 @@ func modify_damage(script: ScriptTask) -> int:
 	var retcode: int
 	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
 	for combat_entity in script.subjects:
+		if combat_entity.is_dead:
+			continue
 		var modification = calculate_modify_damage(combat_entity, script)
 		# To allow effects like advantage to despawn
 		yield(cfc.get_tree().create_timer(0.01), "timeout")
@@ -178,6 +183,8 @@ func assign_defence(script: ScriptTask) -> int:
 	var retcode: int
 	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
 	for combat_entity in script.subjects:
+		if combat_entity.is_dead:
+			continue
 		var defence = calculate_assign_defence(combat_entity, script)
 		# To allow effects like advantage to despawn
 		yield(cfc.get_tree().create_timer(0.01), "timeout")
@@ -218,6 +225,8 @@ func apply_effect(script: ScriptTask) -> int:
 	var stacks_diff := 0
 	for e in script.subjects:
 		var entity: CombatEntity = e
+		if entity.is_dead:
+			continue
 		var current_stacks: int
 		# If we're storing the integer, we want to store the difference
 		# cumulative difference between the current and modified effect stacks
@@ -361,7 +370,7 @@ func spawn_enemy(script: ScriptTask) -> void:
 	for iter in range(count + alteration):
 		var enemy_entity : EnemyEntity = cfc.NMAP.board.spawn_enemy(canonical_name)
 		yield(cfc.get_tree().create_timer(0.05), "timeout")
-		# We need to set it as activated or the board will never re-enable the 
+		# We need to set it as activated or the board will never re-enable the
 		# end-turn button
 		if enemy_entity:
 			var health_modify: int = script.get_property(SP.KEY_MODIFY_SPAWN_HEALTH, 0)

@@ -39,7 +39,6 @@ func prepare_intents() -> void:
 	for intent in get_children():
 		intent.queue_free()
 	yield(get_tree().create_timer(0.01), "timeout")
-	print_debug(new_intents)
 	for intent in new_intents.intent_scripts:
 		# Some intents can use a generic format of "Intent Name: Value"
 		# Therefore we always split the intent name (i.e. the key) on a colon, and the name

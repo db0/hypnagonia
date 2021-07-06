@@ -49,33 +49,33 @@ __meta__ = {
 
 [node name="CombatArena" type="HBoxContainer" parent="VBC"]
 margin_right = 1700.0
-margin_bottom = 602.0
+margin_bottom = 597.0
 mouse_filter = 2
 size_flags_vertical = 3
 
 [node name="PlayerArea" type="CenterContainer" parent="VBC/CombatArena"]
 margin_right = 300.0
-margin_bottom = 602.0
+margin_bottom = 597.0
 rect_min_size = Vector2( 300, 0 )
 mouse_filter = 2
 
 [node name="EnemyArea" type="CenterContainer" parent="VBC/CombatArena"]
 margin_left = 303.0
 margin_right = 1700.0
-margin_bottom = 602.0
+margin_bottom = 597.0
 mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="Enemies" type="HBoxContainer" parent="VBC/CombatArena/EnemyArea"]
 margin_left = 698.0
-margin_top = 301.0
+margin_top = 298.0
 margin_right = 698.0
-margin_bottom = 301.0
+margin_bottom = 298.0
 mouse_filter = 2
 custom_constants/separation = 150
 
 [node name="HBC" type="HBoxContainer" parent="VBC"]
-margin_top = 605.0
+margin_top = 600.0
 margin_right = 1700.0
 margin_bottom = 627.0
 __meta__ = {
@@ -85,12 +85,12 @@ __meta__ = {
 
 [node name="Counters" parent="VBC/HBC" instance=ExtResource( 6 )]
 margin_right = 4.0
-margin_bottom = 22.0
+margin_bottom = 27.0
 
 [node name="EndTurn" type="Button" parent="VBC/HBC"]
 margin_left = 7.0
-margin_right = 68.0
-margin_bottom = 22.0
+margin_right = 83.0
+margin_bottom = 27.0
 text = "End Turn"
 
 [node name="HandArea" type="MarginContainer" parent="VBC"]
@@ -143,15 +143,15 @@ margin_right = 6.0
 margin_bottom = 6.0
 
 [node name="Position" parent="Deck/Debug" index="0"]
-margin_bottom = 18.0
+margin_bottom = 23.0
 
 [node name="AreaPos" parent="Deck/Debug" index="1"]
-margin_top = 21.0
-margin_bottom = 39.0
+margin_top = 26.0
+margin_bottom = 49.0
 
 [node name="Size" parent="Deck/Debug" index="2"]
-margin_top = 42.0
-margin_bottom = 60.0
+margin_top = 52.0
+margin_bottom = 75.0
 
 [node name="Discard" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1541.49, 654.376 )
@@ -185,7 +185,7 @@ margin_right = 45.0
 
 [node name="View" parent="Discard/Control/ManipulationButtons" index="0"]
 margin_right = 18.0
-margin_bottom = 22.0
+margin_bottom = 27.0
 
 [node name="Shuffle" parent="Discard/Control/ManipulationButtons" index="1"]
 visible = false
@@ -200,15 +200,15 @@ margin_right = 6.0
 margin_bottom = 6.0
 
 [node name="Position" parent="Discard/Debug" index="0"]
-margin_bottom = 18.0
+margin_bottom = 23.0
 
 [node name="AreaPos" parent="Discard/Debug" index="1"]
-margin_top = 21.0
-margin_bottom = 39.0
+margin_top = 26.0
+margin_bottom = 49.0
 
 [node name="Size" parent="Discard/Debug" index="2"]
-margin_top = 42.0
-margin_bottom = 60.0
+margin_top = 52.0
+margin_bottom = 75.0
 
 [node name="Forgotten" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1543.07, 406.742 )
@@ -242,7 +242,7 @@ margin_right = 45.0
 
 [node name="View" parent="Forgotten/Control/ManipulationButtons" index="0"]
 margin_right = 18.0
-margin_bottom = 22.0
+margin_bottom = 27.0
 
 [node name="Shuffle" parent="Forgotten/Control/ManipulationButtons" index="1"]
 visible = false
@@ -257,20 +257,63 @@ margin_right = 6.0
 margin_bottom = 6.0
 
 [node name="Position" parent="Forgotten/Debug" index="0"]
-margin_bottom = 18.0
+margin_bottom = 23.0
 
 [node name="AreaPos" parent="Forgotten/Debug" index="1"]
-margin_top = 21.0
-margin_bottom = 39.0
+margin_top = 26.0
+margin_bottom = 49.0
 
 [node name="Size" parent="Forgotten/Debug" index="2"]
-margin_top = 42.0
-margin_bottom = 60.0
+margin_top = 52.0
+margin_bottom = 75.0
 
 [node name="Hand" parent="." instance=ExtResource( 3 )]
 position = Vector2( 348.663, 656.201 )
 
 [node name="PostBattleMenu" parent="." instance=ExtResource( 7 )]
+
+[node name="GameOver" type="PanelContainer" parent="."]
+visible = false
+margin_right = 600.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 600, 300 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 601.0
+margin_bottom = 306.0
+
+[node name="Title" type="Label" parent="GameOver/VBoxContainer"]
+margin_right = 599.0
+margin_bottom = 23.0
+text = "Game Over"
+
+[node name="Text" type="Label" parent="GameOver/VBoxContainer"]
+margin_top = 26.0
+margin_right = 599.0
+margin_bottom = 274.0
+text = "
+
+Thanks for playing this early version of Dreams. 
+We hope you enjoyed this small run and are excited about the potential.
+
+Remember that we're still actively looking for collaborators
+on almost everything (Art, Design, Story, Card Ideas, Enemies, Bosses etc)
+
+Feel free to join us on our Discord channel
+and help us make this game the best deckbuilder that exists"
+
+[node name="BackToMain" type="Button" parent="GameOver/VBoxContainer"]
+margin_top = 277.0
+margin_right = 599.0
+margin_bottom = 304.0
+text = "Back To Main Menu"
+
+[connection signal="pressed" from="GameOver/VBoxContainer/BackToMain" to="." method="_on_BackToMain_pressed"]
 
 [editable path="Deck"]
 [editable path="Discard"]

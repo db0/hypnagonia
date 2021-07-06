@@ -30,6 +30,8 @@ var canonical_name: String
 var type: String
 var entity_type: String
 var entity_size : Vector2
+var is_dead := false
+var shader_progress := 0.0
 
 # Holding all the details from the CombatEntity, in case
 # we need to retrieve some extra ones, depending on the type
@@ -62,6 +64,18 @@ func _ready() -> void:
 		# warning-ignore:return_value_discarded
 		turn.connect(turn_signal, self, "_on_" + turn_signal)
 
+func _process(delta: float) -> void:
+	if is_dead:
+		shader_progress += delta
+		entity_texture.material.set_shader_param(
+					'progress', shader_progress)
+		var texture_pos = entity_texture.rect_global_position
+		for node in [name_label, health_label, defence_label, active_effects, incoming]:
+			if node.visible:
+				node.visible = false
+		entity_texture.rect_global_position = texture_pos
+		if shader_progress > 0.8:
+			queue_free()
 
 func set_defence(value) -> void:
 	defence = value
@@ -78,9 +92,13 @@ func set_health(value) -> void:
 	health = value
 	_update_health_label()
 
+
 func die() -> void:
 	emit_signal("entity_killed")
-	queue_free()
+	entity_texture.material = ShaderMaterial.new()
+	entity_texture.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
+	is_dead = true
+
 
 func modify_damage(amount: int, dry_run := false, tags := ["Manual"], trigger: CombatEntity = null) -> int:
 	if not dry_run:
