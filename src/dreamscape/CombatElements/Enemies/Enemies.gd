@@ -68,5 +68,6 @@ const ENEMIES := {
 		"_health_variability": 5,
 		"_texture_size_x": "120",
 		"_texture_size_y": "120",
+		"_art_scene": "res://src/dreamscape/CombatElements/Enemies/Art/the_laughing_one.tscn"
 	},
 }

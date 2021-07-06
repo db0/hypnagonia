@@ -1,5 +1,9 @@
 # Dreams: Changelog
 
+## v0.2.4
+
+* Added polygon-art for the laughing one
+
 ## v0.2.3
 
 * Fixed post-battle menu not appearing

@@ -1,0 +1,79 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "laugh"
+length = 5.0
+loop = true
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 13.8824, -6.65379, 7.72341, -8.55079, 3.77686, 21.4011, 0.593914, 10.2287, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer:playback_speed")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 4.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0.75, 5.0, 0.2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("mouth:polygon")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ PoolVector2Array( 367.773, 296.769, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 691.603, 217.399, 645.568, 303.913, 490.797, 345.979 ), PoolVector2Array( 375.927, 327.604, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 708.349, 252.953, 653.896, 320.149, 504.722, 369.043 ), PoolVector2Array( 367.773, 296.769, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 691.603, 217.399, 624.298, 261.777, 487.885, 300.574 ), PoolVector2Array( 386.327, 345.238, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 723.16, 250.218, 634.458, 321.159, 511.628, 363.038 ), PoolVector2Array( 370.174, 304.456, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 698.139, 211.657, 610.086, 267.996, 492.958, 305.631 ), PoolVector2Array( 384.685, 360.187, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 720.478, 238.53, 639.621, 325.474, 529.08, 367.692 ), PoolVector2Array( 384.046, 341.493, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 710.701, 238.297, 641.667, 328.533, 515.507, 367.398 ), PoolVector2Array( 367.773, 296.769, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 691.603, 217.399, 614.81, 291.089, 499.969, 318.085 ), PoolVector2Array( 367.773, 296.769, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 691.603, 217.399, 645.568, 303.913, 490.797, 345.979 ) ]
+}
+
+[node name="the_laughing_one" type="Polygon2D"]
+scale = Vector2( 0.612262, 0.612262 )
+color = Color( 0.619608, 0.619608, 0.619608, 1 )
+offset = Vector2( -533.88, -268.671 )
+antialiased = true
+polygon = PoolVector2Array( 256, 128, 384, 128, 576, 64, 640, 0, 768, 320, 704, 448, 576, 512, 384, 448 )
+
+[node name="mouth" type="Polygon2D" parent="."]
+position = Vector2( 1.83331, 14.6665 )
+color = Color( 0, 0, 0, 1 )
+offset = Vector2( -532.758, -275.078 )
+antialiased = true
+polygon = PoolVector2Array( 367.773, 296.769, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 691.603, 217.399, 645.568, 303.913, 490.797, 345.979 )
+
+[node name="eye" type="Polygon2D" parent="."]
+self_modulate = Color( 2, 2, 2, 1 )
+position = Vector2( 1.83331, 14.6665 )
+color = Color( 0.447059, 0, 0, 1 )
+offset = Vector2( -532.758, -275.078 )
+antialiased = true
+polygon = PoolVector2Array( 580.485, 141.998, 566.198, 264.228, 605.09, 176.127, 686.841, 154.697 )
+
+[node name="eye2" type="Polygon2D" parent="."]
+self_modulate = Color( 2, 2, 2, 1 )
+position = Vector2( 1.8333, 14.6665 )
+rotation = 0.761795
+color = Color( 0.447059, 0, 0, 1 )
+offset = Vector2( -723.126, -130.013 )
+antialiased = true
+polygon = PoolVector2Array( 580.485, 141.998, 566.198, 264.228, 605.09, 176.127, 686.841, 154.697 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "laugh"
+playback_speed = 0.75
+anims/laugh = SubResource( 1 )

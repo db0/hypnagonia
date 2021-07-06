@@ -135,7 +135,7 @@ text = "Exit"
 margin_top = 877.0
 margin_right = 1700.0
 margin_bottom = 900.0
-text = "v0.2.3"
+text = "v0.2.4"
 align = 2
 
 [node name="MenuTween" type="Tween" parent="."]

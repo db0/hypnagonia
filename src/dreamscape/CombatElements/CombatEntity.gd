@@ -10,15 +10,16 @@ signal entity_defended(entity, amount, trigger)
 signal entity_killed
 
 
-onready var collision_shape := $Texture/Area2D/CollisionShape2D
-onready var area2d := $Texture/Area2D
-onready var entity_texture :=  $Texture
+onready var art := $Art
+onready var collision_shape := $Art/Area2D/CollisionShape2D
+onready var area2d := $Art/Area2D
+onready var entity_texture :=  $Art/Texture
+onready var highlight := $Art/Highlight
 onready var health_label : Label = $HBC/Health
 onready var name_label : Label = $Name
 onready var defence_label : Label = $HBC/Defence/Amount
 onready var active_effects := $ActiveEffects
 onready var incoming := $CenterContainer/Incoming
-onready var highlight := $Texture/Highlight
 onready var decription_popup := $Description
 onready var description_label := $Description/Label
 
@@ -52,7 +53,7 @@ func setup(entity_name: String, properties: Dictionary) -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	entity_texture.rect_min_size = entity_size
+	art.rect_min_size = entity_size
 	collision_shape.shape.extents = entity_size / 2
 	area2d.position = entity_size / 2
 	name_label.text = canonical_name
