@@ -36,6 +36,8 @@ func _ready():
 
 
 func _process(_delta) -> void:
+#	if cfc.game_paused:
+#		print_debug(_current_focus_source)
 	# The below makes sure to display the closeup of the card, only on the side
 	# the player's mouse is not in.
 	if get_global_mouse_position().x > get_viewport().size.x - CFConst.CARD_SIZE.x*2.5\
@@ -133,7 +135,7 @@ func unfocus(card: Card) -> void:
 
 func unfocus_all() -> void:
 	if _current_focus_source:
-		unfocus(_current_focus_source)
+		_current_focus_source.set_to_idle()
 
 # Overridable function for games to extend preprocessing of dupe card
 # before adding it to the scene

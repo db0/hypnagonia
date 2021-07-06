@@ -1517,6 +1517,16 @@ func set_focus(requestedFocus: bool, colour := CFConst.FOCUS_HOVER_COLOUR) -> vo
 #		if name == "Card" and get_parent() == cfc.NMAP.board:
 #			print(requestedFocus)
 
+func set_to_idle() -> void:
+	if not state in [
+		CardState.VIEWPORT_FOCUS, 
+		CardState.PREVIEW,
+		CardState.DECKBUILDER_GRID
+	]:
+		if state in [CardState.FOCUSED_IN_HAND, CardState.PUSHED_ASIDE]:
+			reorganize_self()
+		elif not state == CardState.REORGANIZING:
+			_determine_idle_state()
 
 # Tells us the focus-state of a card
 #

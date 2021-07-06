@@ -103,7 +103,7 @@ func predict_subjects(script: ScriptTask, prev_subjects: Array) -> Array:
 		SP.KEY_SUBJECT_V_PREVIOUS:
 			return(prev_subjects)
 		SP.KEY_SUBJECT_V_PLAYER:
-			if not cfc.NMAP.board.dreamer.is_dead:
+			if is_instance_valid(cfc.NMAP.board.dreamer) and not cfc.NMAP.board.dreamer.is_dead:
 				return([cfc.NMAP.board.dreamer])
 			else:
 				return([])

@@ -60,6 +60,10 @@ func _ready() -> void:
 #	torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 10)
 	cfc.game_paused = false
 	_on_viewport_resized()
+#
+func _process(_delta: float) -> void:
+	if cfc.game_paused and cfc.NMAP.main._current_focus_source:
+		cfc.NMAP.main.unfocus_all()
 
 func spawn_encounter() -> void:
 	var next_encounter = globals.encounters.get_next_encounter()
@@ -91,8 +95,8 @@ func spawn_boss(boss_scene: PackedScene) -> EnemyEntity:
 	boss_entity.connect("finished_activation", self, "_on_finished_enemy_activation")
 	# warning-ignore:return_value_discarded
 	boss_entity.connect("entity_killed", self, "_enemy_died")
-	return(boss_entity)
 	boss_battle = true
+	return(boss_entity)
 
 # This function is to avoid relating the logic in the card objects
 # to a node which might not be there in another game
@@ -164,7 +168,8 @@ func _on_player_turn_started(_turn: Turn) -> void:
 		yield(cfc.NMAP.hand, "hand_refilled")
 	while cfc.NMAP.hand.are_cards_still_animating():
 		yield(get_tree().create_timer(0.3), "timeout")
-	end_turn.disabled = false
+	if is_instance_valid(dreamer) and not dreamer.is_dead:
+		end_turn.disabled = false
 
 func _on_player_turn_ended(_turn: Turn) -> void:
 	end_turn.disabled = true
@@ -200,18 +205,22 @@ func _dreamer_died() -> void:
 
 func complete_battle() -> void:
 	cfc.game_paused = true
-	cfc.NMAP.main.unfocus_all()
+	mouse_pointer.forget_focus()
 	end_turn.disabled = true
 	globals.player.damage = dreamer.damage
 	post_battle_menu.display()
+	for card in get_tree().get_nodes_in_group("cards"):
+		card.set_to_idle()
 
 
 func game_over() -> void:
 	cfc.game_paused = true
-	cfc.NMAP.main.unfocus_all()
+	mouse_pointer.forget_focus()
 	end_turn.disabled = true
 	game_over_notice.rect_global_position = get_viewport().size/2 - game_over_notice.rect_size/2
 	game_over_notice.visible = true
+	for card in get_tree().get_nodes_in_group("cards"):
+		card.set_to_idle()
 
 
 func _input(event):
