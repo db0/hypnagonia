@@ -146,12 +146,12 @@ margin_right = 200.0
 margin_bottom = 261.0
 rect_min_size = Vector2( 0, 61 )
 mouse_filter = 2
-custom_constants/margin_right = 10
-custom_constants/margin_left = 10
+custom_constants/margin_right = 15
+custom_constants/margin_left = 15
 
 [node name="Abilities" type="Label" parent="CardText/OutsideArt"]
-margin_left = 10.0
-margin_right = 190.0
+margin_left = 15.0
+margin_right = 185.0
 margin_bottom = 61.0
 rect_min_size = Vector2( 146, 50 )
 size_flags_vertical = 3
@@ -228,7 +228,6 @@ texture = ExtResource( 10 )
 expand = true
 
 [node name="TagIcon" type="TextureRect" parent="TagContainer1"]
-modulate = Color( 0.603922, 0.388235, 0.0941176, 1 )
 margin_left = 9.0
 margin_top = 9.0
 margin_right = 31.0
@@ -259,7 +258,6 @@ texture = ExtResource( 10 )
 expand = true
 
 [node name="TagIcon" type="TextureRect" parent="TagContainer2"]
-modulate = Color( 0.603922, 0.388235, 0.0941176, 1 )
 margin_left = 9.0
 margin_top = 9.0
 margin_right = 31.0

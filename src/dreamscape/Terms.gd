@@ -77,34 +77,42 @@ const COMMON_FORMATS = {
 const ACTIVE_EFFECTS := {
 	"advantage": {
 		"name": "Advantage",
+		"icon": preload("res://assets/icons/crow-dive.png"),
 		"description": "{effect_name}: The next {amount} actions doing {damage} by this {entity} are doubled."},
 	"buffer":  {
-			"name": "Fascination",
+		"name": "Fascination",
+		"icon": preload("res://assets/icons/star-struck.png"),
 		"description": "{effect_name}: At the start of your turn gain 1 {energy} per stack."\
 				+ "then remove all stacks of {effect_name}."},
 	"disempower": {
 		"name": "Confusion",
+		"icon": preload("res://assets/icons/misdirection.png"),
 		"description": "{effect_name}: {damage} {damage_verb} by this {entity} is reduced by 30%.\n" \
 				+ "Reduce these stacks by 1 at the end of the turn."},
 	"empower": {
 		"name": "Clarity",
+		"icon": preload("res://assets/icons/extra-lucid.png"),
 		"description": "{effect_name}: {damage} {damage_verb} by this {entity} is increased by 30%.\n"\
 				+ "Reduce these stacks by 1 at the end of the turn."},
 	"fortify": {
 		"name": "Courage",
+		"icon": preload("res://assets/icons/beams-aura.png"),
 		"description": "{effect_name}: {defence} is not removed at start of turn.\n"\
 				+ "Reduce these stacks by 1 at the start of the turn."},
 	"impervious": {
 		"name": "Untouchable",
+		"icon": preload("res://assets/icons/dodging.png"),
 		"description": "{effect_name}: No {health} is taken this turn from {opponent_attack}.\n" \
 				+ "Reduce these stacks by 1 at the start of the turn."},
 	"poison": {
 		"name": "Doubt",
+		"icon": preload("res://assets/icons/coma.png"),
 		"description": "{effect_name}: At the start of this {entity}'s turn it receives"\
 				+ " {amount} {health} (1 per stack), then reduce the stacks of {effect_name} by 1."\
 				+ "\n({effect_name} bypasses {defence})"},
 	"vulnerable": {
 		"name": "Shaken",
+		"icon": preload("res://assets/icons/armor-downgrade.png"),
 		"description": "{effect_name}: {defence} added to this {entity} is reduced by 25%.\n" \
 				+ "Reduce these stacks by 1 at the end of the turn."},
 	"outrage": {
@@ -137,3 +145,9 @@ const ACTIVE_EFFECTS := {
 		"name": "Absurdity Unleashed",
 		"description": "{effect_name}: Whenever you apply Confusion to a Torment, {attack} it for 4"},
 }
+
+static func get_effect_entry(thematic_effect_name: String) -> Dictionary:
+	for effect in ACTIVE_EFFECTS:
+		if ACTIVE_EFFECTS[effect].name == thematic_effect_name:
+			return(ACTIVE_EFFECTS[effect])
+	return({})

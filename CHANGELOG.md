@@ -1,5 +1,16 @@
 # Dreams: Changelog
 
+## v0.4.0
+ 
+* Added fresh card layout. Unfortunately its assets are under a properietary license.
+* Converted tags into icons on card front to improve readability
+* Increased overall card size by 25%
+
+## v0.3.0
+
+* Added randomized backgrounds
+* Added art credits on Torment mouseover
+
 ## v0.2.4
 
 * Added polygon-art for the laughing one (Credit to https://www.reddit.com/user/insomniac_lemon)

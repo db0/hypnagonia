@@ -1,10 +1,29 @@
 extends CardFront
 
+const TAG_ICONS := {
+	Terms.ACTIVE_EFFECTS.poison.name: preload("res://assets/icons/coma.png"),
+	Terms.ACTIVE_EFFECTS.disempower.name: preload("res://assets/icons/misdirection.png"),
+	Terms.ACTIVE_EFFECTS.vulnerable.name: preload("res://assets/icons/armor-downgrade.png"),
+	Terms.ACTIVE_EFFECTS.buffer.name: preload("res://assets/icons/star-struck.png"),
+	Terms.ACTIVE_EFFECTS.advantage.name: preload("res://assets/icons/crow-dive.png"),
+	Terms.ACTIVE_EFFECTS.empower.name: preload("res://assets/icons/extra-lucid.png"),
+	Terms.ACTIVE_EFFECTS.fortify.name: preload("res://assets/icons/beams-aura.png"),
+	Terms.ACTIVE_EFFECTS.impervious.name: preload("res://assets/icons/dodging.png"),
+	"Fleeting": preload("res://assets/icons/sand-castle.png"),
+	"Risky": preload("res://assets/icons/tightrope.png"),
+	"Chain": preload("res://assets/icons/crossed-chains.png"),
+	"Calm": preload("res://assets/icons/meditation.png"),
+	"Purpose": preload("res://assets/icons/concentration-orb.png"),
+}
+
+
 onready var cost_container := $CostContainer
 onready var tag_container1 := $TagContainer1
 onready var tag_container2 := $TagContainer2
 onready var tag_icon1 := $TagContainer1/TagIcon
 onready var tag_icon2 := $TagContainer2/TagIcon
+onready var card_design := $CardDesign
+onready var art := $Art
 
 func _ready() -> void:
 #	text_expansion_multiplier = {
@@ -27,7 +46,7 @@ func _ready() -> void:
 	card_label_min_sizes["Name"] = Vector2(CFConst.CARD_SIZE.x - 4, 16)
 	card_label_min_sizes["Type"] = Vector2(CFConst.CARD_SIZE.x - 4, 14)
 	card_label_min_sizes["Tags"] = Vector2(CFConst.CARD_SIZE.x - 4, 10)
-	card_label_min_sizes["Abilities"] = Vector2(CFConst.CARD_SIZE.x - 25, 50)
+	card_label_min_sizes["Abilities"] = Vector2(CFConst.CARD_SIZE.x - 32, 50)
 	card_label_min_sizes["Cost"] = Vector2(30, 30)
 
 	# This is not strictly necessary, but it allows us to change
@@ -84,9 +103,33 @@ func scale_to(scale_multiplier: float) -> void:
 			Vector2(40,40) * scale_multiplier
 	$CostContainer.rect_position =\
 			Vector2(5, 5) * scale_multiplier
+	$TagContainer1.rect_position =\
+			Vector2(5, 174) * scale_multiplier
+	$TagContainer2.rect_position =\
+			Vector2(159, 174) * scale_multiplier
+	$TagContainer1/TagContainer.rect_min_size = \
+			Vector2(34,34) * scale_multiplier
+	$TagContainer1/TagIcon.rect_min_size = \
+			Vector2(22,22) * scale_multiplier
+	$TagContainer2/TagContainer.rect_min_size = \
+			Vector2(34,34) * scale_multiplier
+	$TagContainer2/TagIcon.rect_min_size = \
+			Vector2(22,22) * scale_multiplier
 	for l in card_labels:
 		if scaled_fonts.get(l) != scale_multiplier:
 			var label : Label = card_labels[l]
 			set_label_text(label, label.text)
 			scaled_fonts[l] = scale_multiplier
 
+func set_tag_icon(tags: Array) -> void:
+	for tag in tags:
+		var tex = TAG_ICONS[tag]
+		var new_texture = ImageTexture.new();
+		var image = tex.get_data()
+		new_texture.create_from_image(image)
+		if not tag_container1.visible:
+			tag_icon1.texture = new_texture
+			tag_container1.visible = true
+		elif not tag_container2.visible:
+			tag_icon2.texture = new_texture
+			tag_container2.visible = true

@@ -40,6 +40,10 @@ func _process(delta: float) -> void:
 			if shader_progress > 0.1:
 				card_front._card_text.visible = false
 				card_front.cost_container.visible = false
+				card_front.tag_container1.visible = false
+				card_front.tag_container2.visible = false
+				card_front.card_design.visible = false
+				card_front.art.visible = false
 			if shader_progress > 0.8:
 				if cfc.NMAP.board.mouse_pointer.current_focused_card == self:
 					cfc.NMAP.board.mouse_pointer.current_focused_card = null
@@ -70,6 +74,8 @@ func setup() -> void:
 			get_property("_rarity"), "Label")
 	var card_name_label : Label = card_front.card_labels["Name"]
 	card_name_label.add_color_override("font_color", label_color)
+	if get_parent().name != "Viewport":
+		card_front.set_tag_icon(get_property("Tags"))
 
 
 # Sample code on how to figure out costs of a card

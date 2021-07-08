@@ -7,3 +7,21 @@
 
 [node name="CardDesign" parent="." index="1"]
 texture = ExtResource( 2 )
+
+[node name="TagContainer1" parent="." index="4"]
+visible = false
+
+[node name="TagContainer" parent="TagContainer1" index="0"]
+modulate = Color( 0.552941, 0.831373, 0.917647, 1 )
+
+[node name="TagIcon" parent="TagContainer1" index="1"]
+modulate = Color( 0.286275, 0.505882, 0.615686, 1 )
+
+[node name="TagContainer2" parent="." index="5"]
+visible = false
+
+[node name="TagContainer" parent="TagContainer2" index="0"]
+modulate = Color( 0.552941, 0.831373, 0.917647, 1 )
+
+[node name="TagIcon" parent="TagContainer2" index="1"]
+modulate = Color( 0.286275, 0.505882, 0.615686, 1 )

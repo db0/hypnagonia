@@ -237,6 +237,8 @@ func game_over() -> void:
 func _input(event):
 	if event.is_action_pressed("debug"):
 		_on_Debug_pressed()
+	if event.is_action_pressed("complete_battle"):
+		complete_battle()
 
 func _on_Debug_pressed() -> void:
 	# warning-ignore:return_value_discarded
