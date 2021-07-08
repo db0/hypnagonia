@@ -101,7 +101,7 @@ const ACTIVE_EFFECTS := {
 	"poison": {
 		"name": "Doubt",
 		"description": "{effect_name}: At the start of this {entity}'s turn it receives"\
-				+ " {amount} {health}, then reduce the stacks of {effect_name} by 1."\
+				+ " {amount} {health} (1 per stack), then reduce the stacks of {effect_name} by 1."\
 				+ "\n({effect_name} bypasses {defence})"},
 	"vulnerable": {
 		"name": "Shaken",

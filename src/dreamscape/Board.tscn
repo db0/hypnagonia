@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/dreamscape/Discard.gd" type="Script" id=1]
 [ext_resource path="res://src/core/Pile.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://src/dreamscape/Board.gd" type="Script" id=5]
 [ext_resource path="res://src/dreamscape/Counters.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/dreamscape/PostBattleMenu.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/backgrounds/init.jpg" type="Texture" id=8]
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=12]
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -32,9 +31,10 @@ __meta__ = {
 margin_right = 1700.0
 margin_bottom = 900.0
 mouse_filter = 2
-texture = ExtResource( 8 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 expand = true
-stretch_mode = 7
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -48,7 +48,7 @@ __meta__ = {
 }
 
 [node name="CombatArena" type="HBoxContainer" parent="VBC"]
-margin_right = 1700.0
+margin_right = 1455.0
 margin_bottom = 597.0
 mouse_filter = 2
 size_flags_vertical = 3
@@ -61,22 +61,22 @@ mouse_filter = 2
 
 [node name="EnemyArea" type="CenterContainer" parent="VBC/CombatArena"]
 margin_left = 303.0
-margin_right = 1700.0
+margin_right = 1455.0
 margin_bottom = 597.0
 mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="Enemies" type="HBoxContainer" parent="VBC/CombatArena/EnemyArea"]
-margin_left = 698.0
+margin_left = 576.0
 margin_top = 298.0
-margin_right = 698.0
+margin_right = 576.0
 margin_bottom = 298.0
 mouse_filter = 2
 custom_constants/separation = 150
 
 [node name="HBC" type="HBoxContainer" parent="VBC"]
 margin_top = 600.0
-margin_right = 1700.0
+margin_right = 1455.0
 margin_bottom = 627.0
 __meta__ = {
 "_edit_group_": true,
@@ -95,7 +95,7 @@ text = "End Turn"
 
 [node name="HandArea" type="MarginContainer" parent="VBC"]
 margin_top = 630.0
-margin_right = 1700.0
+margin_right = 1455.0
 margin_bottom = 900.0
 rect_min_size = Vector2( 0, 270 )
 mouse_filter = 2

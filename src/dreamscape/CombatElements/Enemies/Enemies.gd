@@ -22,6 +22,7 @@ const ENEMIES := {
 		"_health_variability": 3,
 		"_texture_size_x": "120",
 		"_texture_size_y": "120",
+		"_character_art": "nobody",
 	},
 	"Fearmonger": {
 		"Type": "Abuse",
@@ -47,6 +48,7 @@ const ENEMIES := {
 		"_health_variability": 4,
 		"_texture_size_x": "120",
 		"_texture_size_y": "120",
+		"_character_art": "nobody",
 	},
 	"The Laughing One": {
 		"Type": "Fear",
@@ -68,6 +70,7 @@ const ENEMIES := {
 		"_health_variability": 5,
 		"_texture_size_x": "120",
 		"_texture_size_y": "120",
-		"_art_scene": "res://src/dreamscape/CombatElements/Enemies/Art/the_laughing_one.tscn"
+		"_art_scene": "res://src/dreamscape/CombatElements/Enemies/Art/the_laughing_one.tscn",
+		"_character_art": "insomniac_lemon",
 	},
 }

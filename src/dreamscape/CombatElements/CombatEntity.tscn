@@ -48,6 +48,7 @@ columns = 3
 margin_top = 40.0
 margin_right = 69.0
 margin_bottom = 40.0
+mouse_filter = 1
 
 [node name="Texture" type="TextureRect" parent="Art"]
 margin_right = 69.0
@@ -138,6 +139,8 @@ margin_top = 4.0
 margin_right = 4.0
 margin_bottom = 18.0
 
+[connection signal="mouse_entered" from="Art" to="." method="_on_Art_mouse_entered"]
+[connection signal="mouse_exited" from="Art" to="." method="_on_Art_mouse_exited"]
 [connection signal="mouse_entered" from="HBC/Defence" to="." method="_on_Defence_mouse_entered"]
 [connection signal="mouse_exited" from="HBC/Defence" to="." method="_on_Description_mouse_exited"]
 [connection signal="mouse_entered" from="HBC/Health" to="." method="_on_Health_mouse_entered"]

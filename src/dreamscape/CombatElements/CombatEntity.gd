@@ -31,6 +31,7 @@ var canonical_name: String
 var type: String
 var entity_type: String
 var entity_size : Vector2
+var character_art: String
 var is_dead := false
 var shader_progress := 0.0
 
@@ -50,6 +51,7 @@ func setup(entity_name: String, properties: Dictionary) -> void:
 	damage = properties.get('Damage', 0)
 	_properties = properties
 	entity_size = Vector2(properties['_texture_size_x'],properties['_texture_size_y'])
+	character_art = properties.get('_character_art', 'nobody')
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -168,12 +170,22 @@ func _show_description_popup(description_text: String, popup_anchor: Node) -> vo
 	decription_popup.rect_size = Vector2(0,0)
 	decription_popup.rect_global_position = popup_anchor.rect_global_position + Vector2(20,-50)
 
+
 func _on_CombatSingifier_mouse_exited() -> void:
 	decription_popup.visible = false
 
 
 func _on_Description_mouse_exited() -> void:
 	decription_popup.visible = false
+
+
+func _on_Art_mouse_exited() -> void:
+	decription_popup.visible = false
+
+
+func _on_Art_mouse_entered() -> void:
+	var art_text := "Character art by: " + character_art
+	_show_description_popup(art_text, art)
 
 
 func _on_player_turn_started(_turn: Turn) -> void:

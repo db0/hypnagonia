@@ -67,7 +67,7 @@ func _process(_delta) -> void:
 
 # Takes care to resize the child viewport, when the main viewport is resized
 func _on_Viewport_size_changed() -> void:
-	if ProjectSettings.get("display/window/stretch/mode") == "disabled":
+	if ProjectSettings.get("display/window/stretch/mode") == "disabled" and is_instance_valid(get_viewport()):
 		$ViewportContainer.rect_size = get_viewport().size
 
 

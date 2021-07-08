@@ -23,9 +23,11 @@ rect_min_size = Vector2( 0, 43 )
 custom_constants/separation = 10
 script = ExtResource( 3 )
 
-[node name="Texture" parent="." index="2"]
+[node name="Art" parent="." index="2"]
 margin_top = 87.0
 margin_bottom = 87.0
+
+[node name="Texture" parent="Art" index="0"]
 texture = ExtResource( 5 )
 
 [node name="Name" parent="." index="3"]

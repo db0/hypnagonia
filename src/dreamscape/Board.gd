@@ -1,6 +1,5 @@
 extends Board
 
-
 const ENEMY_ENTITY_SCENE = preload("res://src/dreamscape/CombatElements/Enemies/EnemyEntity.tscn")
 
 var end_turn : Button
@@ -60,10 +59,22 @@ func _ready() -> void:
 #	torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 10)
 	cfc.game_paused = false
 	_on_viewport_resized()
+	randomize_background()
 #
 func _process(_delta: float) -> void:
 	if cfc.game_paused and cfc.NMAP.main._current_focus_source:
 		cfc.NMAP.main.unfocus_all()
+
+func randomize_background() -> void:
+	var backgrounds := CFUtils.list_imported_in_directory("res://assets/backgrounds/")
+#	var backgrounds := BACKGROUNDS.duplicate()
+	CFUtils.shuffle_array(backgrounds)
+	var background_resource: String = "res://assets/backgrounds/" + backgrounds[0]
+	var tex = load(background_resource)
+	var new_texture = ImageTexture.new();
+	var image = tex.get_data()
+	new_texture.create_from_image(image)
+	_background.texture = new_texture
 
 func spawn_encounter() -> void:
 	var next_encounter = globals.encounters.get_next_encounter()

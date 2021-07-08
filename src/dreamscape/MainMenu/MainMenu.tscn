@@ -15,8 +15,10 @@ size = 60
 font_data = ExtResource( 4 )
 
 [node name="Menu" type="Panel"]
-margin_right = 1700.0
-margin_bottom = 900.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource( 1 )
 script = ExtResource( 3 )
 __meta__ = {
@@ -49,16 +51,16 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="MainMenu"]
-margin_right = 1700.0
+margin_right = 1455.0
 margin_bottom = 900.0
 color = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
 
 [node name="VBox" type="VBoxContainer" parent="MainMenu"]
-margin_right = 1700.0
+margin_right = 1455.0
 margin_bottom = 900.0
 
 [node name="Margin" type="MarginContainer" parent="MainMenu/VBox"]
-margin_right = 1700.0
+margin_right = 1455.0
 margin_bottom = 435.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -66,11 +68,11 @@ custom_constants/margin_top = 90
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/VBox/Margin"]
 margin_top = 90.0
-margin_right = 1700.0
+margin_right = 1455.0
 margin_bottom = 435.0
 
 [node name="Title" type="Label" parent="MainMenu/VBox/Margin/VBoxContainer"]
-margin_right = 1700.0
+margin_right = 1455.0
 margin_bottom = 115.0
 custom_fonts/font = SubResource( 1 )
 text = "Dreams"
@@ -78,7 +80,7 @@ align = 1
 
 [node name="Subtitle" type="Label" parent="MainMenu/VBox/Margin/VBoxContainer"]
 margin_top = 118.0
-margin_right = 1700.0
+margin_right = 1455.0
 margin_bottom = 182.0
 custom_fonts/font = SubResource( 2 )
 text = "A deckbuilding therapy session"
@@ -86,14 +88,14 @@ align = 1
 
 [node name="Center" type="CenterContainer" parent="MainMenu/VBox"]
 margin_top = 438.0
-margin_right = 1700.0
+margin_right = 1455.0
 margin_bottom = 874.0
 size_flags_vertical = 3
 
 [node name="VButtons" type="VBoxContainer" parent="MainMenu/VBox/Center"]
-margin_left = 754.0
+margin_left = 631.0
 margin_top = 149.0
-margin_right = 946.0
+margin_right = 823.0
 margin_bottom = 287.0
 rect_min_size = Vector2( 192, 0 )
 custom_constants/separation = 10
@@ -133,9 +135,9 @@ text = "Exit"
 
 [node name="Version" type="Label" parent="MainMenu/VBox"]
 margin_top = 877.0
-margin_right = 1700.0
+margin_right = 1455.0
 margin_bottom = 900.0
-text = "v0.2.4"
+text = "v0.3.0"
 align = 2
 
 [node name="MenuTween" type="Tween" parent="."]

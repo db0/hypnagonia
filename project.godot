@@ -451,7 +451,7 @@ globals="*res://src/dreamscape/Globals/Globals.gd"
 
 [display]
 
-window/size/width=1700
+window/size/width=1455
 window/size/height=900
 
 [input]

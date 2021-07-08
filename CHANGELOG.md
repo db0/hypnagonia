@@ -2,7 +2,8 @@
 
 ## v0.2.4
 
-* Added polygon-art for the laughing one
+* Added polygon-art for the laughing one (Credit to https://www.reddit.com/user/insomniac_lemon)
+* Fixed card draw not reshuffling the deck
 
 ## v0.2.3
 

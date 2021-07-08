@@ -37,6 +37,9 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.PLAYER
+		},
 	},
 	"Safety of Air": {
 		"Type": "Control",
@@ -401,12 +404,13 @@ const CARDS := {
 	},
 	"unnamed_card_2": {
 		"Type": "Control",
-		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "Each Torment is applied Doubt equals to its Confusion x2",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
-			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY,
+			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
 		},
 		"_rarity": "Uncommon",
 	},
