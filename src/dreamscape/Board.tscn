@@ -49,35 +49,35 @@ __meta__ = {
 
 [node name="CombatArena" type="HBoxContainer" parent="VBC"]
 margin_right = 1455.0
-margin_bottom = 597.0
+margin_bottom = 567.0
 mouse_filter = 2
 size_flags_vertical = 3
 
 [node name="PlayerArea" type="CenterContainer" parent="VBC/CombatArena"]
 margin_right = 300.0
-margin_bottom = 597.0
+margin_bottom = 567.0
 rect_min_size = Vector2( 300, 0 )
 mouse_filter = 2
 
 [node name="EnemyArea" type="CenterContainer" parent="VBC/CombatArena"]
 margin_left = 303.0
 margin_right = 1455.0
-margin_bottom = 597.0
+margin_bottom = 567.0
 mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="Enemies" type="HBoxContainer" parent="VBC/CombatArena/EnemyArea"]
 margin_left = 576.0
-margin_top = 298.0
+margin_top = 283.0
 margin_right = 576.0
-margin_bottom = 298.0
+margin_bottom = 283.0
 mouse_filter = 2
 custom_constants/separation = 150
 
 [node name="HBC" type="HBoxContainer" parent="VBC"]
-margin_top = 600.0
+margin_top = 570.0
 margin_right = 1455.0
-margin_bottom = 627.0
+margin_bottom = 597.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -94,10 +94,10 @@ margin_bottom = 27.0
 text = "End Turn"
 
 [node name="HandArea" type="MarginContainer" parent="VBC"]
-margin_top = 630.0
+margin_top = 600.0
 margin_right = 1455.0
 margin_bottom = 900.0
-rect_min_size = Vector2( 0, 270 )
+rect_min_size = Vector2( 0, 300 )
 mouse_filter = 2
 
 [node name="Deck" parent="." instance=ExtResource( 2 )]

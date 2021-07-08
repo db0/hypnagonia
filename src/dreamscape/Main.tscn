@@ -15,6 +15,10 @@ margin_bottom = 904.762
 [node name="Viewport" parent="ViewportContainer" index="0"]
 size = Vector2( 1455, 900 )
 
+[node name="VBC" parent="." index="2"]
+margin_right = 300.0
+margin_bottom = 454.0
+
 [node name="Viewport" parent="VBC/Focus" index="0"]
 size = Vector2( 342, 452 )
 

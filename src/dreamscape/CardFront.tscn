@@ -1,51 +1,39 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://assets/icons/Mirror.png" type="Texture" id=1]
+[ext_resource path="res://fonts/Butler/Butler_Light.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/dreamscape/CardFront.gd" type="Script" id=2]
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=3]
-[ext_resource path="res://shaders/Warping.shader" type="Shader" id=4]
-[ext_resource path="res://shaders/Dreambox.shader" type="Shader" id=5]
+[ext_resource path="res://themes/darktheme/fonts/Ubuntu-L.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://fonts/Butler/Butler_Regular.otf" type="DynamicFontData" id=5]
+[ext_resource path="res://assets/card_front/Rarity_01.png" type="Texture" id=6]
+[ext_resource path="res://assets/card_front/ic_score.png" type="Texture" id=7]
+[ext_resource path="res://icon.png" type="Texture" id=8]
 
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.145098, 0.145098, 0.145098, 1 )
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[sub_resource type="DynamicFont" id=2]
+size = 12
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 5 )
 
-[sub_resource type="ShaderMaterial" id=2]
-shader = ExtResource( 5 )
-shader_param/is_card = true
-shader_param/eps = 0.0001
-shader_param/steps = 32
-shader_param/minDist = 0.01
-shader_param/maxDist = 10.0
-shader_param/delta = 1.0
-shader_param/foldingLimit = 1.0
-shader_param/Iterations = 5
-shader_param/Scale = 1.5
+[sub_resource type="DynamicFont" id=3]
+size = 9
+font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxFlat" id=3]
-corner_radius_top_left = 10
-corner_radius_top_right = 10
+[sub_resource type="DynamicFont" id=4]
+size = 11
+font_data = ExtResource( 4 )
 
-[sub_resource type="ShaderMaterial" id=4]
-shader = ExtResource( 4 )
-shader_param/is_card = true
-
-[sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 0.298039, 0.298039, 0.298039, 1 )
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[sub_resource type="DynamicFont" id=5]
+size = 14
+font_data = ExtResource( 5 )
 
 [node name="Front" type="Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -1530.0
-margin_bottom = -660.0
+margin_right = -1255.0
+margin_bottom = -620.0
 mouse_filter = 2
 theme = ExtResource( 3 )
-custom_styles/panel = SubResource( 1 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -53,10 +41,23 @@ __meta__ = {
 
 [node name="Art" type="TextureRect" parent="."]
 margin_top = 30.0
-margin_right = 170.0
-margin_bottom = 130.0
-rect_min_size = Vector2( 170, 100 )
+margin_right = 200.0
+margin_bottom = 185.0
+rect_min_size = Vector2( 170, 155 )
 mouse_filter = 2
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CardDesign" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -67,122 +68,119 @@ anchor_bottom = 1.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_constants/separation = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ArtLayover" type="VBoxContainer" parent="CardText"]
-margin_right = 170.0
-margin_bottom = 130.0
-rect_min_size = Vector2( 0, 130 )
+margin_right = 200.0
+margin_bottom = 186.0
+rect_min_size = Vector2( 0, 186 )
 mouse_filter = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="CardText/ArtLayover"]
-self_modulate = Color( 1, 1, 1, 0.352941 )
-material = SubResource( 2 )
-margin_right = 170.0
-margin_bottom = 25.0
-mouse_filter = 2
-custom_styles/panel = SubResource( 3 )
+[node name="NamePush" type="Control" parent="CardText/ArtLayover"]
+margin_right = 200.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 0, 14 )
 
-[node name="VBoxContainer" type="MarginContainer" parent="CardText/ArtLayover/PanelContainer"]
-margin_right = 170.0
-margin_bottom = 25.0
+[node name="MC" type="MarginContainer" parent="CardText/ArtLayover"]
+margin_top = 17.0
+margin_right = 200.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 0, 14 )
 mouse_filter = 2
-custom_constants/margin_top = 7
 
-[node name="Name" type="Label" parent="CardText/ArtLayover/PanelContainer/VBoxContainer"]
-margin_top = 7.0
-margin_right = 170.0
-margin_bottom = 25.0
+[node name="Name" type="Label" parent="CardText/ArtLayover/MC"]
+margin_right = 200.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 0, 16 )
 size_flags_horizontal = 3
 size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "Card Name"
 align = 1
 valign = 1
 autowrap = true
 
-[node name="Type" type="Label" parent="CardText/ArtLayover"]
-margin_top = 28.0
-margin_right = 170.0
-margin_bottom = 46.0
+[node name="MC" type="MarginContainer" parent="CardText"]
+margin_top = 186.0
+margin_right = 200.0
+margin_bottom = 199.0
+rect_min_size = Vector2( 0, 13 )
+
+[node name="Tags" type="Label" parent="CardText/MC"]
+margin_right = 200.0
+margin_bottom = 13.0
 rect_min_size = Vector2( 146, 13 )
 size_flags_vertical = 1
-text = "Type"
-align = 1
-valign = 1
-autowrap = true
-uppercase = true
-
-[node name="Margin" type="Control" parent="CardText/ArtLayover"]
-margin_top = 49.0
-margin_right = 170.0
-margin_bottom = 109.0
-mouse_filter = 2
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Tags" type="Label" parent="CardText/ArtLayover"]
-margin_top = 112.0
-margin_right = 170.0
-margin_bottom = 130.0
-rect_min_size = Vector2( 146, 17 )
-size_flags_vertical = 1
+custom_fonts/font = SubResource( 3 )
 text = "Tag1 - Tag2"
 align = 1
 valign = 1
 autowrap = true
 uppercase = true
 
-[node name="OutsideArt" type="PanelContainer" parent="CardText"]
+[node name="OutsideArt" type="MarginContainer" parent="CardText"]
 self_modulate = Color( 1, 1, 1, 0.180392 )
-material = SubResource( 4 )
-margin_top = 133.0
-margin_right = 170.0
-margin_bottom = 240.0
+margin_top = 199.0
+margin_right = 200.0
+margin_bottom = 260.0
+rect_min_size = Vector2( 0, 61 )
 mouse_filter = 2
-size_flags_vertical = 3
-custom_styles/panel = SubResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_constants/margin_right = 10
+custom_constants/margin_left = 10
 
 [node name="Abilities" type="Label" parent="CardText/OutsideArt"]
-margin_right = 170.0
-margin_bottom = 107.0
-rect_min_size = Vector2( 146, 100 )
+margin_left = 10.0
+margin_right = 190.0
+margin_bottom = 61.0
+rect_min_size = Vector2( 146, 50 )
 size_flags_vertical = 3
-text = "This is the card ability text.
-
-There should be space for a bit of text here."
+custom_fonts/font = SubResource( 4 )
+text = "Ability Text"
 align = 1
 valign = 1
 autowrap = true
 
+[node name="Type" type="Label" parent="CardText"]
+margin_top = 260.0
+margin_right = 200.0
+margin_bottom = 275.0
+rect_min_size = Vector2( 146, 15 )
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 5 )
+text = "Type"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="CostContainer" type="CenterContainer" parent="."]
-margin_left = -7.0
-margin_top = -7.0
-margin_right = 23.0
-margin_bottom = 23.0
+margin_right = 40.0
+margin_bottom = 40.0
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CostIcon" type="TextureRect" parent="CostContainer"]
-margin_right = 30.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 30, 30 )
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
 mouse_filter = 2
-texture = ExtResource( 1 )
+texture = ExtResource( 7 )
 expand = true
 
 [node name="Cost" type="Label" parent="CostContainer"]
-margin_right = 30.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 30, 30 )
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
 size_flags_vertical = 1
 custom_colors/font_color = Color( 1, 0.4, 0, 1 )
 text = "0"
