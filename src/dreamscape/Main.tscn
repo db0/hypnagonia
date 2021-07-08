@@ -19,8 +19,16 @@ size = Vector2( 1455, 900 )
 margin_right = 300.0
 margin_bottom = 454.0
 
+[node name="Focus" parent="VBC" index="0"]
+margin_right = 400.0
+margin_bottom = 560.0
+rect_min_size = Vector2( 400, 560 )
+
 [node name="Viewport" parent="VBC/Focus" index="0"]
-size = Vector2( 342, 452 )
+size = Vector2( 400, 560 )
 
 [node name="FocusInfo" parent="VBC" index="1"]
+margin_top = 564.0
+margin_right = 400.0
+margin_bottom = 564.0
 custom_constants/separation = -1

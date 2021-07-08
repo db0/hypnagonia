@@ -1,6 +1,11 @@
 extends CardFront
 
 onready var cost_container := $CostContainer
+onready var tag_container1 := $TagContainer1
+onready var tag_container2 := $TagContainer2
+onready var tag_icon1 := $TagContainer1/TagIcon
+onready var tag_icon2 := $TagContainer2/TagIcon
+
 func _ready() -> void:
 #	text_expansion_multiplier = {
 #		"Name": 2,
@@ -11,8 +16,8 @@ func _ready() -> void:
 	# Map your card text label layout here. We use this when scaling
 	# The card or filling up its text
 	card_labels["Name"] = $"CardText/ArtLayover/MC/Name"
-	card_labels["Type"] = $"CardText/Type"
-	card_labels["Tags"] = $"CardText/MC/Tags"
+	card_labels["Type"] = $"CardText/MC/Type"
+	card_labels["Tags"] = $"CardText/Tags"
 	card_labels["Abilities"] = $"CardText/OutsideArt/Abilities"
 	card_labels["Cost"] = $CostContainer/Cost
 
@@ -59,26 +64,29 @@ func scale_to(scale_multiplier: float) -> void:
 			Vector2(200,155) * scale_multiplier
 	$Art.rect_position.y =\
 			30 * scale_multiplier
-	$CardText/ArtLayover/NamePush.rect_min_size =\
-			Vector2(170,16) * scale_multiplier
-	$CardText/ArtLayover/MC.rect_min_size =\
-			Vector2(170,13) * scale_multiplier
-	$CardText/MC.rect_min_size =\
-			Vector2(170,13) * scale_multiplier
-	$CardText/OutsideArt.rect_min_size =\
-			Vector2(170,61) * scale_multiplier
-	$CardText.rect_min_size =\
-			Vector2(170,240) * scale_multiplier
 	$CardText/ArtLayover.rect_min_size =\
-			Vector2(170,159) * scale_multiplier
+			Vector2(200,186) * scale_multiplier
+	$CardText/ArtLayover/NamePush.rect_min_size =\
+			Vector2(200,14) * scale_multiplier
+	$CardText/ArtLayover/MC.rect_min_size =\
+			Vector2(200,13) * scale_multiplier
+	$CardText/MC.rect_min_size =\
+			Vector2(200,13) * scale_multiplier
+	$CardText/OutsideArt.rect_min_size =\
+			Vector2(200,61) * scale_multiplier
+	$CardText.rect_min_size =\
+			Vector2(200,280) * scale_multiplier
+	$CardText/ArtLayover.rect_min_size =\
+			Vector2(200,185) * scale_multiplier
 	$CostContainer.rect_min_size = \
 			Vector2(40,40) * scale_multiplier
 	$CostContainer/CostIcon.rect_min_size = \
 			Vector2(40,40) * scale_multiplier
-#	$CostContainer.rect_position =\
-#			Vector2(0, 25) * scale_multiplier
+	$CostContainer.rect_position =\
+			Vector2(5, 5) * scale_multiplier
 	for l in card_labels:
 		if scaled_fonts.get(l) != scale_multiplier:
 			var label : Label = card_labels[l]
 			set_label_text(label, label.text)
 			scaled_fonts[l] = scale_multiplier
+

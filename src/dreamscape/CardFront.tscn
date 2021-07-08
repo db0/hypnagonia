@@ -1,13 +1,22 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://fonts/Butler/Butler_Light.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/icons/armor-downgrade.png" type="Texture" id=1]
 [ext_resource path="res://src/dreamscape/CardFront.gd" type="Script" id=2]
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=3]
 [ext_resource path="res://themes/darktheme/fonts/Ubuntu-L.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://fonts/Butler/Butler_Regular.otf" type="DynamicFontData" id=5]
-[ext_resource path="res://assets/card_front/Rarity_01.png" type="Texture" id=6]
-[ext_resource path="res://assets/card_front/ic_score.png" type="Texture" id=7]
-[ext_resource path="res://icon.png" type="Texture" id=8]
+[ext_resource path="res://assets/card_front/white_layout.png" type="Texture" id=6]
+[ext_resource path="res://assets/card_front/cost_container.png" type="Texture" id=7]
+[ext_resource path="res://assets/card_front/Game_logo.png" type="Texture" id=8]
+[ext_resource path="res://assets/icons/misdirection.png" type="Texture" id=9]
+[ext_resource path="res://assets/card_front/tag_container.png" type="Texture" id=10]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="DynamicFont" id=2]
 size = 12
@@ -16,15 +25,15 @@ use_filter = true
 font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 9
-font_data = ExtResource( 1 )
+size = 14
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 11
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=5]
-size = 14
+size = 12
 font_data = ExtResource( 5 )
 
 [node name="Front" type="Panel"]
@@ -34,6 +43,7 @@ margin_right = -1255.0
 margin_bottom = -620.0
 mouse_filter = 2
 theme = ExtResource( 3 )
+custom_styles/panel = SubResource( 1 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -43,11 +53,11 @@ __meta__ = {
 margin_top = 30.0
 margin_right = 200.0
 margin_bottom = 185.0
-rect_min_size = Vector2( 170, 155 )
+rect_min_size = Vector2( 200, 155 )
 mouse_filter = 2
 texture = ExtResource( 8 )
 expand = true
-stretch_mode = 7
+stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -55,6 +65,7 @@ __meta__ = {
 [node name="CardDesign" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 texture = ExtResource( 6 )
 expand = true
 stretch_mode = 1
@@ -75,14 +86,15 @@ __meta__ = {
 
 [node name="ArtLayover" type="VBoxContainer" parent="CardText"]
 margin_right = 200.0
-margin_bottom = 186.0
-rect_min_size = Vector2( 0, 186 )
+margin_bottom = 185.0
+rect_min_size = Vector2( 0, 185 )
 mouse_filter = 2
 
 [node name="NamePush" type="Control" parent="CardText/ArtLayover"]
 margin_right = 200.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 0, 14 )
+mouse_filter = 2
 
 [node name="MC" type="MarginContainer" parent="CardText/ArtLayover"]
 margin_top = 17.0
@@ -106,28 +118,32 @@ valign = 1
 autowrap = true
 
 [node name="MC" type="MarginContainer" parent="CardText"]
-margin_top = 186.0
+margin_top = 185.0
 margin_right = 200.0
-margin_bottom = 199.0
+margin_bottom = 200.0
 rect_min_size = Vector2( 0, 13 )
+mouse_filter = 2
 
-[node name="Tags" type="Label" parent="CardText/MC"]
+[node name="Type" type="Label" parent="CardText/MC"]
 margin_right = 200.0
-margin_bottom = 13.0
-rect_min_size = Vector2( 146, 13 )
+margin_bottom = 15.0
+rect_min_size = Vector2( 146, 15 )
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 3 )
-text = "Tag1 - Tag2"
+text = "Type"
 align = 1
 valign = 1
 autowrap = true
 uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="OutsideArt" type="MarginContainer" parent="CardText"]
 self_modulate = Color( 1, 1, 1, 0.180392 )
-margin_top = 199.0
+margin_top = 200.0
 margin_right = 200.0
-margin_bottom = 260.0
+margin_bottom = 261.0
 rect_min_size = Vector2( 0, 61 )
 mouse_filter = 2
 custom_constants/margin_right = 10
@@ -145,25 +161,25 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="Type" type="Label" parent="CardText"]
-margin_top = 260.0
+[node name="Tags" type="Label" parent="CardText"]
+visible = false
+margin_top = 261.0
 margin_right = 200.0
-margin_bottom = 275.0
-rect_min_size = Vector2( 146, 15 )
+margin_bottom = 274.0
+rect_min_size = Vector2( 146, 13 )
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 5 )
-text = "Type"
+text = "Tag1 - Tag2"
 align = 1
 valign = 1
 autowrap = true
 uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CostContainer" type="CenterContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 45.0
+margin_bottom = 45.0
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -190,3 +206,65 @@ autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TagContainer1" type="CenterContainer" parent="."]
+margin_left = 3.0
+margin_top = 172.0
+margin_right = 43.0
+margin_bottom = 212.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TagContainer" type="TextureRect" parent="TagContainer1"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 37.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 34, 34 )
+mouse_filter = 2
+texture = ExtResource( 10 )
+expand = true
+
+[node name="TagIcon" type="TextureRect" parent="TagContainer1"]
+modulate = Color( 0.603922, 0.388235, 0.0941176, 1 )
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 31.0
+margin_bottom = 31.0
+rect_min_size = Vector2( 22, 22 )
+mouse_filter = 2
+texture = ExtResource( 9 )
+expand = true
+
+[node name="TagContainer2" type="CenterContainer" parent="."]
+margin_left = 157.0
+margin_top = 172.0
+margin_right = 197.0
+margin_bottom = 212.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TagContainer" type="TextureRect" parent="TagContainer2"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 37.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 34, 34 )
+mouse_filter = 2
+texture = ExtResource( 10 )
+expand = true
+
+[node name="TagIcon" type="TextureRect" parent="TagContainer2"]
+modulate = Color( 0.603922, 0.388235, 0.0941176, 1 )
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 31.0
+margin_bottom = 31.0
+rect_min_size = Vector2( 22, 22 )
+mouse_filter = 2
+texture = ExtResource( 1 )
+expand = true

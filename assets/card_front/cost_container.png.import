@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Rarity_03.png-9dbe6353412c7f6a65f830342d474d60.stex"
+path="res://.import/cost_container.png-5d469b1a50a6876a435ec849e6b2510f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/card_front/Rarity_03.png"
-dest_files=[ "res://.import/Rarity_03.png-9dbe6353412c7f6a65f830342d474d60.stex" ]
+source_file="res://assets/card_front/cost_container.png"
+dest_files=[ "res://.import/cost_container.png-5d469b1a50a6876a435ec849e6b2510f.stex" ]
 
 [params]
 
