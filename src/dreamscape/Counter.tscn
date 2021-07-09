@@ -18,7 +18,7 @@ font_data = ExtResource( 3 )
 [node name="Counter" type="CenterContainer"]
 margin_right = 139.0
 margin_bottom = 20.0
-mouse_filter = 2
+mouse_filter = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -28,6 +28,7 @@ margin_left = 29.0
 margin_right = 109.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 80, 80 )
+mouse_filter = 2
 texture = ExtResource( 2 )
 expand = true
 

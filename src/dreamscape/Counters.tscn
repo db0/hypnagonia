@@ -18,3 +18,13 @@ counter_scene = ExtResource( 2 )
 [node name="VBC" type="VBoxContainer" parent="."]
 margin_right = 14.0
 margin_bottom = 14.0
+
+[node name="DescriptionPanel" type="PopupPanel" parent="."]
+margin_right = 8.0
+margin_bottom = 8.0
+
+[node name="Label" type="Label" parent="DescriptionPanel"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 4.0
+margin_bottom = 18.0

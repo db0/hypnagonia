@@ -1,5 +1,16 @@
 extends Counters
 
+const COUNTER_DESCRITIONS := {
+	"immersion": {
+		"CounterTitle": "Immersion: ",
+		"Description": "Immersion: Each card you play costs some. "\
+				+ "You cannot play cards which cost more Immersion that you have available",
+		"Value": 3},
+	}
+
+onready var _description_popup := $DescriptionPanel
+onready var _description_label := $DescriptionPanel/Label
+
 # * The `counters_container` has to point to the scene path, relative to your
 #	counters scene, where each counter will be placed.
 # * value_node specified the name of the label which holds
@@ -15,12 +26,11 @@ extends Counters
 func _ready() -> void:
 	counters_container = $VBC
 	value_node = "Value"
-	needed_counters = {
-		"immersion": {
-			"CounterTitle": "immersion: ",
-			"Value": 3},
-	}
-	spawn_needed_counters()
+	needed_counters = COUNTER_DESCRITIONS
+	var all_counters = spawn_needed_counters()
+	for counter in all_counters:
+		counter.connect("mouse_entered", self, "_on_counter_enterred", [counter])
+		counter.connect("mouse_exited", self, "_on_counter_exited")
 
 func _on_player_turn_ended(turn: Turn) -> void:
 	# warning-ignore:return_value_discarded
@@ -30,3 +40,13 @@ func _on_player_turn_started(turn: Turn) -> void:
 	# warning-ignore:return_value_discarded
 	mod_counter("immersion", 3, false, false, turn, ["New Turn"])
 
+func _on_counter_enterred(counter_node: Control) -> void:
+	var description_text : String = COUNTER_DESCRITIONS[counter_node.name]["Description"]
+	if description_text:
+		_description_label.text = description_text
+		_description_popup.visible = true
+		_description_popup.rect_size = Vector2(0,0)
+		_description_popup.rect_global_position = counter_node.rect_global_position + Vector2(20,-50)
+
+func _on_counter_exited() -> void:
+	_description_popup.hide()
