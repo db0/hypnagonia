@@ -119,7 +119,7 @@ const ACTIVE_EFFECTS := {
 				+ "\n({effect_name} bypasses {defence})"},
 	"vulnerable": {
 		"name": "Shaken",
-		"icon": preload("res://assets/icons/armor-downgrade.png"),
+		"icon": preload("res://assets/icons/cracked-shield.png"),
 		"generic_description": "{effect_name}: Reduces amount of Perplexity on Torments.",
 		"description": "{effect_name}: {defence} added to this {entity} is reduced by 25%.\n" \
 				+ "Reduce these stacks by 1 at the end of the turn."},
@@ -176,7 +176,7 @@ const GENERIC_TAGS := {
 		"generic_description": "Chain: Repeatable card effects."},
 	"swift": {
 		"name": "Swift",
-		"icon": preload("res://assets/icons/extra-lucid.png"),
+		"icon": preload("res://assets/icons/windy-stripes.png"),
 		"generic_description": "Swift: Provides card draw."},
 	"fleeting": {
 		"name": "Fleeting",

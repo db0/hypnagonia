@@ -1,6 +1,5 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://assets/icons/armor-downgrade.png" type="Texture" id=1]
 [ext_resource path="res://src/dreamscape/CardFront.gd" type="Script" id=2]
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=3]
 [ext_resource path="res://themes/darktheme/fonts/Ubuntu-L.ttf" type="DynamicFontData" id=4]
@@ -8,7 +7,6 @@
 [ext_resource path="res://assets/card_front/white_layout.png" type="Texture" id=6]
 [ext_resource path="res://assets/card_front/cost_container.png" type="Texture" id=7]
 [ext_resource path="res://assets/card_front/Game_logo.png" type="Texture" id=8]
-[ext_resource path="res://assets/icons/misdirection.png" type="Texture" id=9]
 [ext_resource path="res://assets/card_front/tag_container.png" type="Texture" id=10]
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -234,7 +232,6 @@ margin_right = 31.0
 margin_bottom = 31.0
 rect_min_size = Vector2( 22, 22 )
 mouse_filter = 2
-texture = ExtResource( 9 )
 expand = true
 
 [node name="TagContainer2" type="CenterContainer" parent="."]
@@ -264,5 +261,4 @@ margin_right = 31.0
 margin_bottom = 31.0
 rect_min_size = Vector2( 22, 22 )
 mouse_filter = 2
-texture = ExtResource( 1 )
 expand = true

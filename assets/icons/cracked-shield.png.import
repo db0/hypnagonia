@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/brain.png-f237379a9ba0e3269de1f65b08be6c57.stex"
+path="res://.import/cracked-shield.png-9b49dcaaea05b0d41c6fa41b03e82b44.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/brain.png"
-dest_files=[ "res://.import/brain.png-f237379a9ba0e3269de1f65b08be6c57.stex" ]
+source_file="res://assets/icons/cracked-shield.png"
+dest_files=[ "res://.import/cracked-shield.png-9b49dcaaea05b0d41c6fa41b03e82b44.stex" ]
 
 [params]
 
