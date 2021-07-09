@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/dreamscape/MainMenu/NewGame.gd" type="Script" id=1]
 [ext_resource path="res://src/dreamscape/MainMenu/Archetype.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/dreamscape/MainMenu/StartingCards.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/dreamscape/MainMenu/TagsList.tscn" type="PackedScene" id=4]
 
 [node name="NewGame" type="PanelContainer"]
 anchor_right = 1.0
@@ -15,37 +16,37 @@ __meta__ = {
 [node name="VBC" type="VBoxContainer" parent="."]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 1693.0
+margin_right = 1448.0
 margin_bottom = 893.0
 
 [node name="Title" type="Label" parent="VBC"]
-margin_right = 1686.0
+margin_right = 1441.0
 margin_bottom = 14.0
 text = "New Game"
 align = 1
 
 [node name="MarginUp" type="Control" parent="VBC"]
 margin_top = 18.0
-margin_right = 1686.0
+margin_right = 1441.0
 margin_bottom = 68.0
 rect_min_size = Vector2( 0, 50 )
 
 [node name="DeckChooseLabel" type="Label" parent="VBC"]
 margin_top = 72.0
-margin_right = 1686.0
+margin_right = 1441.0
 margin_bottom = 86.0
 text = "Choose Deck Archetypes"
 align = 1
 
 [node name="CC" type="CenterContainer" parent="VBC"]
 margin_top = 90.0
-margin_right = 1686.0
+margin_right = 1441.0
 margin_bottom = 498.0
 rect_min_size = Vector2( 0, 400 )
 
 [node name="Choices" type="HBoxContainer" parent="VBC/CC"]
-margin_left = 273.0
-margin_right = 1413.0
+margin_left = 150.0
+margin_right = 1290.0
 margin_bottom = 408.0
 custom_constants/separation = 20
 
@@ -122,7 +123,7 @@ text = "Choose Injustice"
 
 [node name="MarginDown" type="Control" parent="VBC"]
 margin_top = 502.0
-margin_right = 1686.0
+margin_right = 1441.0
 margin_bottom = 552.0
 rect_min_size = Vector2( 0, 50 )
 __meta__ = {
@@ -131,12 +132,12 @@ __meta__ = {
 
 [node name="ControlButtons" type="CenterContainer" parent="VBC"]
 margin_top = 556.0
-margin_right = 1686.0
+margin_right = 1441.0
 margin_bottom = 816.0
 
 [node name="VBC" type="VBoxContainer" parent="VBC/ControlButtons"]
-margin_left = 643.0
-margin_right = 1043.0
+margin_left = 520.0
+margin_right = 920.0
 margin_bottom = 260.0
 custom_constants/separation = 20
 
@@ -188,9 +189,9 @@ __meta__ = {
 
 [node name="VBC" type="VBoxContainer" parent="ChoicePopup/CC"]
 margin_left = 439.0
-margin_top = 119.0
+margin_top = 77.0
 margin_right = 1239.0
-margin_bottom = 789.0
+margin_bottom = 831.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -216,6 +217,12 @@ columns = 5
 
 [node name="Archetype" parent="ChoicePopup/CC/VBC/CC/ChoiceContainer" instance=ExtResource( 2 )]
 
+[node name="Tags" parent="ChoicePopup/CC/VBC" instance=ExtResource( 4 )]
+margin_left = -439.0
+margin_top = -101.0
+margin_right = 994.0
+margin_bottom = -87.0
+
 [node name="StartingCardsLabel" type="Label" parent="ChoicePopup/CC/VBC"]
 margin_top = 412.0
 margin_right = 800.0
@@ -227,19 +234,32 @@ align = 1
 margin_top = 430.0
 margin_right = 800.0
 margin_bottom = 670.0
-rect_min_size = Vector2( 800, 240 )
+rect_min_size = Vector2( 800, 280 )
 
 [node name="StartingCardsPopup" type="PopupPanel" parent="."]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 1693.0
+margin_right = 1448.0
 margin_bottom = 893.0
 
-[node name="StartingCards" parent="StartingCardsPopup" instance=ExtResource( 3 )]
+[node name="VBC" type="VBoxContainer" parent="StartingCardsPopup"]
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 1682.0
+margin_right = 1437.0
 margin_bottom = 882.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tags" parent="StartingCardsPopup/VBC" instance=ExtResource( 4 )]
+margin_right = 1433.0
+margin_bottom = 80.0
+
+[node name="StartingCards" parent="StartingCardsPopup/VBC" instance=ExtResource( 3 )]
+margin_top = 84.0
+margin_right = 1433.0
+margin_bottom = 364.0
+rect_min_size = Vector2( 0, 280 )
 
 [connection signal="pressed" from="VBC/ControlButtons/VBC/StartingCards" to="." method="_on_StartingCards_pressed"]
 [connection signal="pressed" from="VBC/ControlButtons/VBC/Randomize" to="." method="_on_Randomize_pressed"]

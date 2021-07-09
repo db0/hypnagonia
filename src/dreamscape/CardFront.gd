@@ -1,21 +1,5 @@
 extends CardFront
 
-const TAG_ICONS := {
-	Terms.ACTIVE_EFFECTS.poison.name: preload("res://assets/icons/coma.png"),
-	Terms.ACTIVE_EFFECTS.disempower.name: preload("res://assets/icons/misdirection.png"),
-	Terms.ACTIVE_EFFECTS.vulnerable.name: preload("res://assets/icons/armor-downgrade.png"),
-	Terms.ACTIVE_EFFECTS.buffer.name: preload("res://assets/icons/star-struck.png"),
-	Terms.ACTIVE_EFFECTS.advantage.name: preload("res://assets/icons/crow-dive.png"),
-	Terms.ACTIVE_EFFECTS.empower.name: preload("res://assets/icons/extra-lucid.png"),
-	Terms.ACTIVE_EFFECTS.fortify.name: preload("res://assets/icons/beams-aura.png"),
-	Terms.ACTIVE_EFFECTS.impervious.name: preload("res://assets/icons/dodging.png"),
-	"Fleeting": preload("res://assets/icons/sand-castle.png"),
-	"Risky": preload("res://assets/icons/tightrope.png"),
-	"Chain": preload("res://assets/icons/crossed-chains.png"),
-	"Calm": preload("res://assets/icons/meditation.png"),
-	"Purpose": preload("res://assets/icons/concentration-orb.png"),
-}
-
 
 onready var cost_container := $CostContainer
 onready var tag_container1 := $TagContainer1
@@ -123,7 +107,10 @@ func scale_to(scale_multiplier: float) -> void:
 
 func set_tag_icon(tags: Array) -> void:
 	for tag in tags:
-		var tex = TAG_ICONS[tag]
+		var tex : StreamTexture = Terms.get_term_value(tag, 'icon')
+		# This means there's no dedicated texture for that tag specified.
+		if not tex:
+			continue
 		var new_texture = ImageTexture.new();
 		var image = tex.get_data()
 		new_texture.create_from_image(image)

@@ -17,6 +17,10 @@ const EGO := {
 	"Flyer": {
 		"Anxiety": 5,
 		"Icon": "res://icon.png",
+		"Tags": [
+			Terms.ACTIVE_EFFECTS.impervious.name,
+			Terms.GENERIC_TAGS.relax.name,
+		],
 		"Starting Cards": [
 			"Out of Reach",
 			"Interpretation",
@@ -46,6 +50,7 @@ const EGO := {
 	"Warrior": {
 		"Anxiety": 5,
 		"Icon": "res://icon.png",
+		"Tags": [],
 		"Starting Cards": [
 			"War Paint",
 		],
@@ -61,6 +66,7 @@ const EGO := {
 	"Runner": {
 		"Anxiety": 5,
 		"Icon": "res://icon.png",
+		"Tags": [],
 		"Starting Cards": [
 		],
 		"Commons": [
@@ -79,6 +85,11 @@ const DISPOSITION := {
 	"Fearless": {
 		"Anxiety": 5,
 		"Icon": "res://icon.png",
+		"Tags": [
+			Terms.ACTIVE_EFFECTS.poison.name,
+			Terms.ACTIVE_EFFECTS.fortify.name,
+			Terms.GENERIC_TAGS.risky.name,
+		],
 		"Starting Cards": [
 			"Confidence",
 			"Confidence",
@@ -109,6 +120,7 @@ const DISPOSITION := {
 	"Coward": {
 		"Anxiety": -5,
 		"Icon": "res://icon.png",
+		"Tags": [],
 		"_is_inactive": true
 	}
 }
@@ -117,6 +129,10 @@ const INSTRUMENT := {
 	# Archetype: Confusion
 	"Rubber Chicken": {
 		"Icon": "res://icon.png",
+		"Tags": [
+			Terms.ACTIVE_EFFECTS.disempower.name,
+			Terms.ACTIVE_EFFECTS.buffer.name,
+		],
 		"Starting Cards": [
 			"Interpretation",
 			"Interpretation",
@@ -148,6 +164,9 @@ const INJUSTICE := {
 	"Abusive Relationship": {
 		"Anxiety": -5,
 		"Icon": "res://icon.png",
+		"Tags": [
+			Terms.GENERIC_TAGS.purpose.name,
+		],
 		"Starting Cards": [
 			"Inner Justice",
 		],
@@ -156,3 +175,8 @@ const INJUSTICE := {
 		"Rares": []
 	},
 }
+
+static func get_archetype_value(archetype: String, key: String):
+	for group in [EGO, DISPOSITION, INSTRUMENT, INJUSTICE]:
+		if group.has(archetype):
+			return(group[archetype].get(key))

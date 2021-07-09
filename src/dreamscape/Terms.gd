@@ -78,41 +78,49 @@ const ACTIVE_EFFECTS := {
 	"advantage": {
 		"name": "Advantage",
 		"icon": preload("res://assets/icons/crow-dive.png"),
+		"generic_description": "{effect_name}: Doubles damage done by Interpretations.",
 		"description": "{effect_name}: The next {amount} actions doing {damage} by this {entity} are doubled."},
 	"buffer":  {
 		"name": "Fascination",
 		"icon": preload("res://assets/icons/star-struck.png"),
+		"generic_description": "{effect_name}: Provides delayed Immersion.",
 		"description": "{effect_name}: At the start of your turn gain 1 {energy} per stack."\
 				+ "then remove all stacks of {effect_name}."},
 	"disempower": {
 		"name": "Confusion",
 		"icon": preload("res://assets/icons/misdirection.png"),
+		"generic_description": "{effect_name}: Reduces anxiety dealt by Torments.",
 		"description": "{effect_name}: {damage} {damage_verb} by this {entity} is reduced by 30%.\n" \
 				+ "Reduce these stacks by 1 at the end of the turn."},
 	"empower": {
 		"name": "Clarity",
 		"icon": preload("res://assets/icons/extra-lucid.png"),
+		"generic_description": "{effect_name}: Increases interpretation dealt.",
 		"description": "{effect_name}: {damage} {damage_verb} by this {entity} is increased by 30%.\n"\
 				+ "Reduce these stacks by 1 at the end of the turn."},
 	"fortify": {
 		"name": "Courage",
 		"icon": preload("res://assets/icons/beams-aura.png"),
+		"generic_description": "{effect_name}: Prevents from concentration from expiring each turn.",
 		"description": "{effect_name}: {defence} is not removed at start of turn.\n"\
 				+ "Reduce these stacks by 1 at the start of the turn."},
 	"impervious": {
 		"name": "Untouchable",
 		"icon": preload("res://assets/icons/dodging.png"),
+		"generic_description": "{effect_name}: Prevents all anxiety from Torment-induced stress.",
 		"description": "{effect_name}: No {health} is taken this turn from {opponent_attack}.\n" \
 				+ "Reduce these stacks by 1 at the start of the turn."},
 	"poison": {
 		"name": "Doubt",
 		"icon": preload("res://assets/icons/coma.png"),
+		"generic_description": "{effect_name}: Automatically adds interpretation each turn.",
 		"description": "{effect_name}: At the start of this {entity}'s turn it receives"\
 				+ " {amount} {health} (1 per stack), then reduce the stacks of {effect_name} by 1."\
 				+ "\n({effect_name} bypasses {defence})"},
 	"vulnerable": {
 		"name": "Shaken",
 		"icon": preload("res://assets/icons/armor-downgrade.png"),
+		"generic_description": "{effect_name}: Reduces amount of Perplexity on Torments.",
 		"description": "{effect_name}: {defence} added to this {entity} is reduced by 25%.\n" \
 				+ "Reduce these stacks by 1 at the end of the turn."},
 	"outrage": {
@@ -146,8 +154,56 @@ const ACTIVE_EFFECTS := {
 		"description": "{effect_name}: Whenever you apply Confusion to a Torment, {attack} it for 4"},
 }
 
+
+# A way to map generic names to thematic names, so that I can perform
+# a rename later if needed
+const GENERIC_TAGS := {
+	"risky": {
+		"name": "Risky",
+		"icon": preload("res://assets/icons/tightrope.png"),
+		"generic_description": "Risky: Increases Anxiety taken by Dreamer."},
+	"relax":  {
+		"name": "Relax",
+		"icon": preload("res://assets/icons/meditation.png"),
+		"generic_description": "Relax: Reduces Dreamer anxiety."},
+	"purpose": {
+		"name": "Purpose",
+		"icon": preload("res://assets/icons/concentration-orb.png"),
+		"generic_description": "Purpose: Provides immersion."},
+	"chain": {
+		"name": "Chain",
+		"icon": preload("res://assets/icons/crossed-chains.png"),
+		"generic_description": "Chain: Repeatable card effects."},
+	"swift": {
+		"name": "Swift",
+		"icon": preload("res://assets/icons/extra-lucid.png"),
+		"generic_description": "Swift: Provides card draw."},
+	"fleeting": {
+		"name": "Fleeting",
+		"icon": preload("res://assets/icons/sand-castle.png"),
+		"generic_description": "Fleeting: Easily forgotten."},
+}
+
 static func get_effect_entry(thematic_effect_name: String) -> Dictionary:
 	for effect in ACTIVE_EFFECTS:
 		if ACTIVE_EFFECTS[effect].name == thematic_effect_name:
 			return(ACTIVE_EFFECTS[effect])
 	return({})
+
+static func get_tag_entry(thematic_tag_name: String) -> Dictionary:
+	for tag in GENERIC_TAGS:
+		if GENERIC_TAGS[tag].name == thematic_tag_name:
+			return(GENERIC_TAGS[tag])
+	return({})
+
+static func get_term_entry(thematic_tag_name: String, key: String) -> Dictionary:
+	var entry := get_effect_entry(thematic_tag_name)
+	if not entry.size():
+		entry = get_tag_entry(thematic_tag_name).duplicate(true)
+	if key == "generic_description":
+		entry[key] = entry[key].format({"effect_name": thematic_tag_name})
+	return(entry)
+
+static func get_term_value(thematic_tag_name: String, key: String):
+	var entry := get_term_entry(thematic_tag_name, key)
+	return(entry.get(key))

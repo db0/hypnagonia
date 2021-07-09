@@ -20,7 +20,7 @@ onready var name_label : Label = $Name
 onready var defence_label : Label = $HBC/Defence/Amount
 onready var active_effects := $ActiveEffects
 onready var incoming := $CenterContainer/Incoming
-onready var decription_popup := $Description
+onready var description_popup := $Description
 onready var description_label := $Description/Label
 
 
@@ -166,21 +166,21 @@ func _on_Health_mouse_entered() -> void:
 func _show_description_popup(description_text: String, popup_anchor: Node) -> void:
 	var format = Terms.COMMON_FORMATS[entity_type].duplicate()
 	description_label.text = description_text.format(format)
-	decription_popup.visible = true
-	decription_popup.rect_size = Vector2(0,0)
-	decription_popup.rect_global_position = popup_anchor.rect_global_position + Vector2(20,-50)
+	description_popup.visible = true
+	description_popup.rect_size = Vector2(0,0)
+	description_popup.rect_global_position = popup_anchor.rect_global_position + Vector2(20,-50)
 
 
 func _on_CombatSingifier_mouse_exited() -> void:
-	decription_popup.visible = false
+	description_popup.visible = false
 
 
 func _on_Description_mouse_exited() -> void:
-	decription_popup.visible = false
+	description_popup.visible = false
 
 
 func _on_Art_mouse_exited() -> void:
-	decription_popup.visible = false
+	description_popup.visible = false
 
 
 func _on_Art_mouse_entered() -> void:

@@ -4,9 +4,11 @@ const ARCHETYPE_SCENE := preload("res://src/dreamscape/MainMenu/Archetype.tscn")
 
 onready var _choice_popup := $ChoicePopup
 onready var _archetype_starting_cards_display := $ChoicePopup/CC/VBC/StartginCardsDisplay
+onready var _archetype_starting_cards_tags := $ChoicePopup/CC/VBC/Tags
 onready var _archetype_choices := $ChoicePopup/CC/VBC/CC/ChoiceContainer
 onready var _starting_cards_popup := $StartingCardsPopup
-onready var _all_starting_cards_display := $StartingCardsPopup/StartingCards
+onready var _all_starting_cards_display := $StartingCardsPopup/VBC/StartingCards
+onready var _all_starting_cards_tags := $StartingCardsPopup/VBC/Tags
 onready var _archetype_description_label := $ChoicePopup/CC/VBC/Description
 onready var _starting_cards_button := $VBC/ControlButtons/VBC/StartingCards
 onready var _start_button := $VBC/ControlButtons/VBC/Start
@@ -42,6 +44,7 @@ func populate_choices(archetype: String) -> void:
 		archetype_button.connect("pressed", self, "_on_archetype_choice_pressed", [type, archetype])
 		archetype_button.connect("mouse_entered", self, "_on_archetype_mouse_entered", [type])
 
+
 func randomize_archetype_choices() -> Dictionary:
 	var randomized_archetypes := {}
 	for archetype in Terms.CARD_GROUP_TERMS.values():
@@ -57,6 +60,7 @@ func start_new_game() -> void:
 	globals.encounters.setup()
 	get_tree().change_scene(CFConst.PATH_CUSTOM + 'Main.tscn')
 
+
 func _on_archetype_choice_pressed(type: String, _archetype: String) -> void:
 	var archetype := _archetype.capitalize()
 	var archetype_button = _choice_buttons[archetype]
@@ -67,19 +71,29 @@ func _on_archetype_choice_pressed(type: String, _archetype: String) -> void:
 		_start_button.disabled = false
 	_starting_cards_button.disabled = false
 
+
 func _on_Start_pressed() -> void:
 	start_new_game()
 
 
 func _on_archetype_mouse_entered(type: String) -> void:
 	_archetype_starting_cards_display.populate_starting_cards([type], _choice_popup)
+	var tags : Array = CardGroupDefinitions.get_archetype_value(type, "Tags")
+	_archetype_starting_cards_tags.populate_tags(tags)
 
 
 func _on_StartingCards_pressed() -> void:
-	_starting_cards_popup.rect_size = Vector2(1000,240)
+	_starting_cards_popup.rect_size = Vector2(1000,400)
 	_starting_cards_popup.popup_centered()
 	_all_starting_cards_display.rect_min_size.x = _starting_cards_popup.rect_size.x
-	_all_starting_cards_display.populate_starting_cards(globals.player.get_currrent_archetypes(), _starting_cards_popup)
+	var current_deck_archetypes := globals.player.get_currrent_archetypes()
+	_all_starting_cards_display.populate_starting_cards(current_deck_archetypes, _starting_cards_popup)
+	var all_tags := []
+	for archetype in current_deck_archetypes:
+		for tag in CardGroupDefinitions.get_archetype_value(archetype, "Tags"):
+			if not tag in all_tags:
+				all_tags.append(tag)
+	_all_starting_cards_tags.populate_tags(all_tags)
 
 
 func _on_Randomize_pressed() -> void:

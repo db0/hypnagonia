@@ -32,10 +32,4 @@ const NUMBERS_HIDDEN_ON_0 := []
 # This is useful to prevent a whole class of cards from being shown in the
 # deckbuilder, without adding `_hide_in_deckbuilder` to each of them
 const TYPES_TO_HIDE_IN_DECKBUILDER := ["Token"]
-const EXPLANATIONS = {
-	"Risky": "(Risky cards tend to increase the damage to yourself)",
-	"Calm": "(Calm cards tend to Relax)",
-	"Purpose": "(Purpose cards tend to provide Immersion)",
-	"Chain": "(Chain cards tend to repeat their effects in some fashion)",
-	"Swift": "(Swift cards tend to draw cards)",
-}
+const EXPLANATIONS = {}

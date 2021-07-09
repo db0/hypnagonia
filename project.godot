@@ -329,6 +329,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/Run/Encounters.gd"
 }, {
+"base": "CenterContainer",
+"class": "TagRepresentation",
+"language": "GDScript",
+"path": "res://src/dreamscape/MainMenu/TagRepresentation.gd"
+}, {
+"base": "HBoxContainer",
+"class": "TagsList",
+"language": "GDScript",
+"path": "res://src/dreamscape/MainMenu/TagsList.gd"
+}, {
 "base": "Line2D",
 "class": "TargetingArrow",
 "language": "GDScript",
@@ -429,6 +439,8 @@ _global_script_class_icons={
 "ScriptTask": "",
 "ScriptingEngine": "",
 "SingleRun": "",
+"TagRepresentation": "",
+"TagsList": "",
 "TargetingArrow": "",
 "Terms": "",
 "Token": "",
@@ -453,6 +465,7 @@ globals="*res://src/dreamscape/Globals/Globals.gd"
 
 window/size/width=1455
 window/size/height=900
+window/stretch/mode="2d"
 
 [input]
 

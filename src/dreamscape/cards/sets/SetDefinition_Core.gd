@@ -32,7 +32,7 @@ const CARDS := {
 	},
 	"Dive-in": {
 		"Type": "Control",
-		"Tags": ["Risky"],
+		"Tags": [Terms.GENERIC_TAGS.risky.name],
 		"Abilities": "Gain 2 Shaken. Your next interpretation is doubled.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -43,7 +43,7 @@ const CARDS := {
 	},
 	"Safety of Air": {
 		"Type": "Control",
-		"Tags": ["Calm"],
+		"Tags": [Terms.GENERIC_TAGS.relax.name],
 		"Abilities": "Relax for 4. Forget",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -51,7 +51,7 @@ const CARDS := {
 	},
 	"Nothing to Fear": {
 		"Type": "Concentration",
-		"Tags": ["Risky", "Purpose"],
+		"Tags": [Terms.GENERIC_TAGS.risky.name, Terms.GENERIC_TAGS.purpose.name],
 		"Abilities": "Gain 1 Immersion at the start of each turn."\
 			+ " Increase all anxiety taken from Torment intents by 2.",
 		"Cost": 2,
@@ -82,7 +82,7 @@ const CARDS := {
 	},
 	"Inner Justice": {
 		"Type": "Control",
-		"Tags": ["Purpose"],
+		"Tags": [Terms.GENERIC_TAGS.purpose.name],
 		"Abilities": "Gain 4 Immersion",
 		"Cost": 3,
 		"_illustration": "Nobody",
@@ -90,7 +90,7 @@ const CARDS := {
 	},
 	"Whirlwind": {
 		"Type": "Action",
-		"Tags": ["Chain"],
+		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "Interpret target Torment for 3. Repeat 3 times",
 		"Cost": 2,
 		"_illustration": "Nobody",
@@ -148,7 +148,7 @@ const CARDS := {
 	},
 	"Gummiraptor": {
 		"Type": "Action",
-		"Tags": ["Chain"],
+		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "Interpret Torment for 10."\
 			+ "Repeat this if Torments are not going to be inflicting any anxiety this turn.",
 		"Cost": 2,
@@ -157,7 +157,7 @@ const CARDS := {
 	},
 	"Cocky Retort": {
 		"Type": "Control",
-		"Tags": ["Swift"],
+		"Tags": [Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Gain 8 confidence. Draw a card.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -176,7 +176,7 @@ const CARDS := {
 	},
 	"Barrel Through": {
 		"Type": "Action",
-		"Tags": ["Risky", "Chain"],
+		"Tags": [Terms.GENERIC_TAGS.risky.name, Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "Interpret a Torment for 8. If the Torment is Shaken, interpet all other Torments for 12.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -247,7 +247,7 @@ const CARDS := {
 	},
 	"Boast": {
 		"Type": "Control",
-		"Tags": ["Fleeting"],
+		"Tags": [Terms.GENERIC_TAGS.fleeting.name],
 		"Abilities": "Double your Confidence. Remove all Courage. Forget.",
 		"Cost": 2,
 		"_illustration": "Nobody",
@@ -332,7 +332,7 @@ const CARDS := {
 	},
 	"Master of Skies": {
 		"Type": "Concentration",
-		"Tags": ["Purpose"],
+		"Tags": [Terms.GENERIC_TAGS.purpose.name],
 		"Abilities": "Whenever you gain Untouchable. Gain 1 Immersion.",
 		"Cost": 2,
 		"_illustration": "Nobody",
@@ -343,7 +343,7 @@ const CARDS := {
 	},
 	"Zen of Flight": {
 		"Type": "Concentration",
-		"Tags": ["Calm"],
+		"Tags": [Terms.GENERIC_TAGS.relax.name],
 		"Abilities": "At the end of each turn, Relax 1. If Untouchable, Relax 1 extra.",
 		"Cost": 2,
 		"_illustration": "Nobody",
@@ -354,7 +354,7 @@ const CARDS := {
 	},
 	"Loop de loop": {
 		"Type": "Control",
-		"Tags": ["Purpose"],
+		"Tags": [Terms.GENERIC_TAGS.purpose.name],
 		"Abilities": "Gain 7 Confidence. Gain 1 Fascination.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -365,7 +365,7 @@ const CARDS := {
 	},
 	"Headless": {
 		"Type": "Control",
-		"Tags": ["Purpose"],
+		"Tags": [Terms.GENERIC_TAGS.purpose.name],
 		"Abilities": "Gain 4 Fascination.",
 		"Cost": 2,
 		"_illustration": "Nobody",
@@ -396,7 +396,7 @@ const CARDS := {
 	},
 	"unnamed_card_1": {
 		"Type": "Control",
-		"Tags": ["Fleeting"],
+		"Tags": [Terms.GENERIC_TAGS.fleeting.name],
 		"Abilities": "Shuffle your discard pile into your deck. Play a Random card from your deck. Forget.",
 		"Cost": 1,
 		"_illustration": "Nobody",

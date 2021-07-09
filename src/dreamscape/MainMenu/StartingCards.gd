@@ -16,3 +16,4 @@ func populate_starting_cards(types: Array, rel_parent: Node) -> void:
 					var preview_card_object := STARTING_CARD_PREVIEW_SCENE.instance()
 					_starting_cards_container.add_child(preview_card_object)
 					preview_card_object.setup(card_name)	
+	rect_min_size.y = CFConst.CARD_SIZE.y
