@@ -482,7 +482,9 @@ complete_battle={
 [physics]
 
 common/enable_pause_aware_picking=true
+2d/thread_model=2
 
 [rendering]
 
+threads/thread_model=2
 environment/default_environment="res://default_env.tres"

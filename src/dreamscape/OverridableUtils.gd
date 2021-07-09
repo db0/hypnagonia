@@ -30,7 +30,6 @@ func populate_info_panels(card: Card, focus_info: DetailPanels) -> void:
 					effect_entry.name,
 					effect_entry.description.format(format), preload("res://src/dreamscape/EffectInfoPanel.tscn"))
 	var tags : Array = card.get_property("Tags")
-	print_debug(tags)
 	for tag in tags:
 		if tag in added_effects:
 			continue
