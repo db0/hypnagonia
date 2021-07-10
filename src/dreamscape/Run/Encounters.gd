@@ -86,22 +86,18 @@ func get_next_encounter():
 	return(next_encounter)
 
 
-func generate_journal_choices() -> Dictionary:
-	var current_choice_gen := 1
-	var journal_options := {}
+func generate_journal_choices() -> Array:
+	var journal_options := []
 	var next_enemy
-	journal_options[current_choice_gen] = {}
 	if globals.encounter_number >= 7:
-		next_enemy = BOSSES[boss_name]
-		journal_options[current_choice_gen]["description"] = next_enemy["journal_description"]
-		journal_options[current_choice_gen]["meta_tag"] = "boss"
-		journal_options[current_choice_gen]["name"] = boss_name
+		journal_options.append(BossEncounter.new(BOSSES[boss_name], boss_name))
 	else:
 		if globals.encounter_number <= 3:
 			next_enemy = remaining_early_enemies.pop_back()
 		else:
 			next_enemy = remaining_enemies.pop_back()
-		journal_options[current_choice_gen]["description"] = next_enemy["journal_description"]
-		journal_options[current_choice_gen]["meta_tag"] = "torment"
-		journal_options[current_choice_gen]["enemies"] = next_enemy["enemies"]
+		journal_options.append(EnemyEncounter.new(next_enemy))
 	return(journal_options)
+
+func set_net_encounter(encounter: Dictionary) -> void:
+	pass

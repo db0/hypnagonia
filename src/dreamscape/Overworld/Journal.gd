@@ -11,11 +11,12 @@ func _ready() -> void:
 	cfc.game_rng_seed = CFUtils.generate_random_seed() # Debug
 	globals.encounters.setup() # Debug
 	
-	var current_encounters : Dictionary = globals.encounters.generate_journal_choices()
-	for choice in current_encounters:
-		var journal_choice = JournalChoice.new(self, current_encounters[choice])
+	var encounter_choices: Array
+	encounter_choices = globals.encounters.generate_journal_choices()
+	for encounter in encounter_choices:
+		var journal_choice = JournalChoice.new(self, encounter)
 		journal_choices.add_child(journal_choice)
-		journal_choice.connect("pressed", self, "_on_choice_pressed", [choice])
+		journal_choice.connect("pressed", self, "_on_choice_pressed", [encounter])
 
 
 func on_meta_clicked(meta_text: String) -> void:
@@ -44,5 +45,5 @@ func _parse_meta_tag(meta_text: String) -> Dictionary:
 		return({"meta_type": "FAULTED:"})
 	return(json_parse.result)
 
-func _on_choice_pressed(choice: int) -> void:
-	pass
+func _on_choice_pressed(encounter: Dictionary) -> void:
+	print_debug(encounter)

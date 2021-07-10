@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/core/BoardPlacementSlot.gd"
 }, {
+"base": "Reference",
+"class": "BossEncounter",
+"language": "GDScript",
+"path": "res://src/dreamscape/Run/BossEncounter.gd"
+}, {
 "base": "EnemyIntents",
 "class": "BossIntents",
 "language": "GDScript",
@@ -118,6 +123,11 @@ _global_script_classes=[ {
 "class": "CombatEffect",
 "language": "GDScript",
 "path": "res://src/dreamscape/CombatElements/CombatEffects/CombatEffect.gd"
+}, {
+"base": "SingleEncounter",
+"class": "CombatEncounter",
+"language": "GDScript",
+"path": "res://src/dreamscape/Run/CombatEncounter.gd"
 }, {
 "base": "VBoxContainer",
 "class": "CombatEntity",
@@ -213,6 +223,11 @@ _global_script_classes=[ {
 "class": "EnemyDefinitions",
 "language": "GDScript",
 "path": "res://src/dreamscape/CombatElements/Enemies/Enemies.gd"
+}, {
+"base": "CombatEncounter",
+"class": "EnemyEncounter",
+"language": "GDScript",
+"path": "res://src/dreamscape/Run/EnemiesEncounter.gd"
 }, {
 "base": "CombatEntity",
 "class": "EnemyEntity",
@@ -330,6 +345,11 @@ _global_script_classes=[ {
 "path": "res://src/core/ScriptingEngine.gd"
 }, {
 "base": "Reference",
+"class": "SingleEncounter",
+"language": "GDScript",
+"path": "res://src/dreamscape/Run/SingleEncounter.gd"
+}, {
+"base": "Reference",
 "class": "SingleRun",
 "language": "GDScript",
 "path": "res://src/dreamscape/Run/Encounters.gd"
@@ -385,6 +405,7 @@ _global_script_class_icons={
 "Board": "",
 "BoardPlacementGrid": "",
 "BoardPlacementSlot": "",
+"BossEncounter": "",
 "BossIntents": "",
 "CFConst": "",
 "CFControl": "",
@@ -402,6 +423,7 @@ _global_script_class_icons={
 "CardGroupDefinitions": "",
 "CardLabel": "",
 "CombatEffect": "",
+"CombatEncounter": "",
 "CombatEntity": "",
 "CombatSignifier": "",
 "Counters": "",
@@ -421,6 +443,7 @@ _global_script_class_icons={
 "DetailPanels": "",
 "DreamCard": "",
 "EnemyDefinitions": "",
+"EnemyEncounter": "",
 "EnemyEntity": "",
 "EnemyIntents": "",
 "GameStats": "",
@@ -444,6 +467,7 @@ _global_script_class_icons={
 "ScriptProperties": "",
 "ScriptTask": "",
 "ScriptingEngine": "",
+"SingleEncounter": "",
 "SingleRun": "",
 "TagRepresentation": "",
 "TagsList": "",
