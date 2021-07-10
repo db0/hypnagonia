@@ -55,7 +55,7 @@ func randomize_archetype_choices() -> Dictionary:
 	return(randomized_archetypes)
 
 func start_new_game() -> void:
-	CFUtils.generate_random_seed()
+	cfc.game_rng_seed = CFUtils.generate_random_seed()
 	globals.player.setup()
 	globals.encounters.setup()
 	get_parent().menu_tween.interpolate_property(get_parent().get_node("FadeToBlack"),
