@@ -99,10 +99,21 @@ func get_next_enemies():
 	return(next_encounter)
 
 func generate_journal_choices() -> void:
-	var journal_options
+	var choices := {
+		1: {
+			"description": 'I saw [url={torment_tag}]a strange form with a head like a lamp[/url] moving towards me',
+			"torment": "Gaslighter",
+			"meta_tag": "boss",
+		}
+	}
+	var current_choice_gen := 1
+	var journal_options := {}
 	var next_enemy
 	if globals.encounter_number >= 7:
 		next_enemy = BOSSES[boss_name]
+		journal_options[current_choice_gen] = {}
+		journal_options[current_choice_gen]["description"] = next_enemy["journal_description"]
+		journal_options[current_choice_gen]["meta_tag"] = "boss"
 	elif globals.encounter_number <= 3:
 		next_enemy = remaining_early_enemies.pop_back()
 	else:
