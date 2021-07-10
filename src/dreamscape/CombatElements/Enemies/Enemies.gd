@@ -73,4 +73,14 @@ const ENEMIES := {
 		"_art_scene": "res://src/dreamscape/CombatElements/Enemies/Art/the_laughing_one.tscn",
 		"_character_art": "insomniac_lemon",
 	},
+	"The Critic": {
+		"Type": "Fear",
+		"Health": 30,
+		"Intents": [
+		],
+		"_health_variability": 2,
+		"_texture_size_x": "120",
+		"_texture_size_y": "120",
+		"_character_art": "nobody",		
+	},
 }

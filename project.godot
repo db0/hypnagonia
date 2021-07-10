@@ -34,7 +34,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/core/BoardPlacementSlot.gd"
 }, {
-"base": "Reference",
+"base": "CombatEncounter",
 "class": "BossEncounter",
 "language": "GDScript",
 "path": "res://src/dreamscape/Run/BossEncounter.gd"
@@ -264,6 +264,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/CombatElements/Enemies/IntentScripts.gd"
 }, {
+"base": "PanelContainer",
+"class": "Journal",
+"language": "GDScript",
+"path": "res://src/dreamscape/Overworld/Journal.gd"
+}, {
 "base": "RichTextLabel",
 "class": "JournalChoice",
 "language": "GDScript",
@@ -451,6 +456,7 @@ _global_script_class_icons={
 "Highlight": "",
 "IntegerLineEdit": "",
 "IntentScripts": "",
+"Journal": "",
 "JournalChoice": "",
 "ManipulationButtons": "",
 "MousePointer": "",

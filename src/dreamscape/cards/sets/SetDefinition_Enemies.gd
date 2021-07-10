@@ -24,7 +24,7 @@ const CARDS := {
 	"The Laughing One": {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name, Terms.GENERIC_TAGS.fleeting.name],
-		"Abilities": "Gain 1 Impervious. Forget",
+		"Abilities": "Gain 1 Untouchable. Forget",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Received",

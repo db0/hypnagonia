@@ -7,11 +7,13 @@ const TORMENT_META_DICT := {
 }
 
 var enemies: Array
+var current_combat: ViewportCardFocus
 
 func _init(encounter: Dictionary):
 	type = "torment"
 	description = encounter["journal_description"]
 	enemies = encounter["enemies"]
+	reward_description = encounter["journal_reward"]
 
 func get_formated_description() -> String:
 	var rtag_index = 1
@@ -31,3 +33,17 @@ func get_unique_enemies() -> Array:
 		if not enemy in unique_enemies:
 			unique_enemies.append(enemy)
 	return(unique_enemies)
+
+func begin() -> void:
+	.begin()
+	current_combat = load(CFConst.PATH_CUSTOM + 'Main.tscn').instance()
+	cfc.get_tree().get_root().call_deferred("add_child", current_combat)
+	yield(cfc, "all_nodes_mapped")
+	cfc.NMAP.board.spawn_enemy_encounter(self)
+	cfc.NMAP.board.begin_encounter()
+
+func end() -> void:
+	current_combat.queue_free()
+	yield(cfc.get_tree().create_timer(0.1), "timeout")
+	cfc.NMAP.clear()
+	globals.journal.display_rewards(reward_description)

@@ -54,23 +54,24 @@ func _ready() -> void:
 #	var torment2 = spawn_enemy("Gaslighter")
 #	torment2.rect_position = Vector2(800,100)
 #	torment3.rect_position = Vector2(200,300)
-	spawn_encounter()
-	yield(get_tree().create_timer(0.1), "timeout")
 #	dreamer.active_effects.mod_effect(ActiveEffects.NAMES.disempower, 5)
 #	dreamer.active_effects.mod_effect(ActiveEffects.NAMES.poison, 5)
 #	dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
 #	torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 10)
-	cfc.game_paused = false
 	_on_viewport_resized()
+#	begin_encounter()
+#
+func _process(_delta: float) -> void:
+	if cfc.game_paused and cfc.NMAP.main._current_focus_source:
+		cfc.NMAP.main.unfocus_all()
+
+func begin_encounter() -> void:
+	cfc.game_paused = false
 	randomize_background()
 	_fade_from_black()
 	yield(_tween, "tween_all_completed")
 	cfc.NMAP.hand.refill_hand()
 	_on_player_turn_started(turn)
-#
-func _process(_delta: float) -> void:
-	if cfc.game_paused and cfc.NMAP.main._current_focus_source:
-		cfc.NMAP.main.unfocus_all()
 
 func randomize_background() -> void:
 	var backgrounds := CFUtils.list_imported_in_directory("res://assets/backgrounds/")
@@ -83,13 +84,9 @@ func randomize_background() -> void:
 	new_texture.create_from_image(image)
 	_background.texture = new_texture
 
-func spawn_encounter() -> void:
-	var next_encounter = globals.encounters.get_next_encounter()
-	if typeof(next_encounter) == TYPE_ARRAY:
-		for enemy_name in next_encounter:
-			spawn_enemy(enemy_name)
-	else:
-		spawn_boss(next_encounter)
+func spawn_enemy_encounter(encounter: EnemyEncounter) -> void:
+	for enemy_name in encounter.enemies:
+		spawn_enemy(enemy_name)
 
 func spawn_enemy(enemy_name) -> EnemyEntity:
 	if get_tree().get_nodes_in_group("EnemyEntities").size() >= 5:
@@ -105,8 +102,8 @@ func spawn_enemy(enemy_name) -> EnemyEntity:
 	enemy.connect("entity_killed", self, "_enemy_died")
 	return(enemy)
 
-func spawn_boss(boss_scene: PackedScene) -> EnemyEntity:
-	var boss_entity: EnemyEntity = boss_scene.instance()
+func spawn_boss_encounter(encounter: BossEncounter) -> EnemyEntity:
+	var boss_entity: EnemyEntity = encounter.boss_scene.instance()
 	boss_entity.setup_boss()
 	_enemy_area.add_child(boss_entity)
 	# warning-ignore:return_value_discarded
@@ -221,15 +218,16 @@ func _dreamer_died() -> void:
 	game_over()
 
 func complete_battle() -> void:
-	_fade_to_black()
-	cfc.game_paused = true
-	mouse_pointer.forget_focus()
-	end_turn.disabled = true
 	globals.player.damage = dreamer.damage
-	post_battle_menu.display()
-	for card in get_tree().get_nodes_in_group("cards"):
-		card.set_to_idle()
-	print_debug(post_battle_menu.visible)
+	_fade_to_transparent()
+	yield(_tween, "tween_all_completed")
+	globals.current_encounter.end()
+#	cfc.game_paused = true
+#	mouse_pointer.forget_focus()
+#	end_turn.disabled = true
+#	post_battle_menu.display()
+#	for card in get_tree().get_nodes_in_group("cards"):
+#		card.set_to_idle()
 
 
 func game_over() -> void:
@@ -281,3 +279,9 @@ func _fade_from_black() -> void:
 	_tween.start()
 	yield(_tween, "tween_all_completed")
 	_board_cover.visible = false
+
+func _fade_to_transparent() -> void:
+	_tween.interpolate_property(cfc.NMAP.main,
+			'modulate:a', 1, 0, 1,
+			Tween.TRANS_SINE, Tween.EASE_IN)
+	_tween.start()
