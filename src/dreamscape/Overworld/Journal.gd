@@ -17,10 +17,8 @@ var enemy_cards := {}
 func _ready() -> void:
 	for choice in choices:
 		var journal_choice = JournalChoice.new(self, choices[choice])
-#		var journal_choice := RichTextLabel.new()
-#		journal_choice.text = 'faaaa'
-#		journal_choice.setup(self, choices[choice])
 		journal_choices.add_child(journal_choice)
+		journal_choice.connect("pressed", self, "_on_choice_pressed", [choice])
 
 
 func on_meta_clicked(meta_text: String) -> void:
@@ -48,3 +46,6 @@ func _parse_meta_tag(meta_text: String) -> Dictionary:
 		print_debug("WARN: Malformated json result:" + meta_text)
 		return({"meta_type": "FAULTED:"})
 	return(json_parse.result)
+
+func _on_choice_pressed(choice: int) -> void:
+	print_debug(choices[choice])

@@ -60,3 +60,5 @@ func get_next_encounter():
 	current_encounter = next_encounter
 	return(next_encounter)
 
+func generate_journal_choices() -> void:
+	pass
