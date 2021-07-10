@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/dreamscape/Overworld/JournalChoice.gd" type="Script" id=1]
+
+[node name="JournalChoice" type="RichTextLabel"]
+margin_top = 54.0
+margin_right = 705.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 0, 50 )
+bbcode_enabled = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
