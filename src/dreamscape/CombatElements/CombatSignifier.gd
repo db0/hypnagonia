@@ -5,6 +5,7 @@ var amount : int setget update_amount
 
 onready var signifier_label := $Signifier/Label
 onready var signifier_icon := $Signifier/Icon
+onready var signifier_icon_container := $Signifier/IconContainer
 onready var signifier_amount := $MC/Amount
 onready var decription_popup := $Description
 onready var decription_label := $Description/Label

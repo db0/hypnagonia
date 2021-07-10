@@ -5,3 +5,21 @@
 
 [node name="CombatEffect" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+
+[node name="Label" parent="Signifier" index="0"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 38.0
+margin_bottom = 38.0
+
+[node name="IconContainer" parent="Signifier" index="1"]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Icon" parent="Signifier" index="2"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 35.0
+margin_bottom = 35.0

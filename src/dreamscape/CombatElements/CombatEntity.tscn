@@ -128,6 +128,8 @@ margin_top = 102.0
 margin_right = 69.0
 margin_bottom = 138.0
 rect_min_size = Vector2( 0, 36 )
+custom_constants/vseparation = 15
+custom_constants/hseparation = 15
 
 [node name="Description" type="PopupPanel" parent="."]
 margin_right = 8.0

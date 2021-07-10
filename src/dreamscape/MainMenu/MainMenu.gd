@@ -18,6 +18,7 @@ onready var deck_builder := $DeckBuilder
 onready var new_game := $NewGame
 onready var _readme_label := $ReadMe/Label
 onready var _readme_popup := $ReadMe
+onready var menu_tween := $MenuTween
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -57,13 +58,13 @@ func switch_to_tab(tab: Control) -> void:
 			main_position_x = -get_viewport().size.x
 		deck_builder:
 			main_position_x = get_viewport().size.x
-	$MenuTween.interpolate_property(main_menu,'rect_position:x',
+	menu_tween.interpolate_property(main_menu,'rect_position:x',
 			main_menu.rect_position.x, main_position_x, menu_switch_time,
 			Tween.TRANS_BACK, Tween.EASE_IN_OUT)
-	$MenuTween.interpolate_property(tab,'rect_position:x',
+	menu_tween.interpolate_property(tab,'rect_position:x',
 			tab.rect_position.x, 0, menu_switch_time,
 			Tween.TRANS_BACK, Tween.EASE_IN_OUT)
-	$MenuTween.start()
+	menu_tween.start()
 
 
 func switch_to_main_menu(tab: Control) -> void:
@@ -73,13 +74,14 @@ func switch_to_main_menu(tab: Control) -> void:
 			tab_position_x = get_viewport().size.x
 		deck_builder:
 			tab_position_x = -get_viewport().size.x
-	$MenuTween.interpolate_property(tab,'rect_position:x',
+	menu_tween.interpolate_property(tab,'rect_position:x',
 			tab.rect_position.x, tab_position_x, menu_switch_time,
 			Tween.TRANS_BACK, Tween.EASE_IN_OUT)
-	$MenuTween.interpolate_property(main_menu,'rect_position:x',
+	menu_tween.interpolate_property(main_menu,'rect_position:x',
 			main_menu.rect_position.x, 0, menu_switch_time,
 			Tween.TRANS_BACK, Tween.EASE_IN_OUT)
-	$MenuTween.start()
+	menu_tween.start()
+
 
 
 func _on_DeckBuilder_Back_pressed() -> void:

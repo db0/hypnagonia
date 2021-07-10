@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=1]
 [ext_resource path="res://src/dreamscape/DeckBuilder.tscn" type="PackedScene" id=2]
@@ -13,6 +13,9 @@ font_data = ExtResource( 4 )
 [sub_resource type="DynamicFont" id=2]
 size = 60
 font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 1 )
 
 [node name="Menu" type="Panel"]
 anchor_right = 1.0
@@ -141,3 +144,13 @@ text = "v0.4.1"
 align = 2
 
 [node name="MenuTween" type="Tween" parent="."]
+
+[node name="FadeToBlack" type="Panel" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

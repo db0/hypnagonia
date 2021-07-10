@@ -84,7 +84,7 @@ func custom_script(script: ScriptObject) -> void:
 					var dstacks = subject.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.disempower.name)
 					var card_script := [{
 							"name": "apply_effect",
-							"effect_name": Terms.ACTIVE_EFFECTS.poison,
+							"effect_name": Terms.ACTIVE_EFFECTS.poison.name,
 							"subject": "trigger",
 							"modification": dstacks,
 						}]

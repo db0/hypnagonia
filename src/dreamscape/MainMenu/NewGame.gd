@@ -58,6 +58,11 @@ func start_new_game() -> void:
 	CFUtils.generate_random_seed()
 	globals.player.setup()
 	globals.encounters.setup()
+	get_parent().menu_tween.interpolate_property(get_parent().get_node("FadeToBlack"),
+			'modulate:a', 0, 1, 1,
+			Tween.TRANS_SINE, Tween.EASE_IN)
+	get_parent().menu_tween.start()
+	yield(get_parent().menu_tween, "tween_all_completed")
 	get_tree().change_scene(CFConst.PATH_CUSTOM + 'Main.tscn')
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/dreamscape/Discard.gd" type="Script" id=1]
 [ext_resource path="res://src/core/Pile.tscn" type="PackedScene" id=2]
@@ -20,6 +20,9 @@ corner_radius_top_left = 25
 corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 1 )
 
 [node name="Board" type="Control"]
 anchor_right = 1.0
@@ -89,13 +92,14 @@ __meta__ = {
 }
 
 [node name="Counters" parent="VBC/HBC" instance=ExtResource( 6 )]
-margin_right = 4.0
+margin_right = 0.0
 margin_bottom = 27.0
 
 [node name="EndTurn" type="Button" parent="VBC/HBC"]
-margin_left = 7.0
-margin_right = 83.0
+margin_left = 3.0
+margin_right = 79.0
 margin_bottom = 27.0
+disabled = true
 text = "End Turn"
 
 [node name="HandArea" type="MarginContainer" parent="VBC"]
@@ -110,6 +114,7 @@ position = Vector2( 3.1748, 649.614 )
 script = ExtResource( 4 )
 placement = 8
 pile_name = "Deck"
+shuffle_style = 6
 
 [node name="Control" parent="Deck" index="0"]
 custom_styles/panel = SubResource( 2 )
@@ -278,6 +283,15 @@ margin_bottom = 75.0
 [node name="Hand" parent="." instance=ExtResource( 3 )]
 position = Vector2( 348.663, 656.201 )
 
+[node name="FadeToBlack" type="Panel" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="PostBattleMenu" parent="." instance=ExtResource( 7 )]
 
 [node name="GameOver" type="PanelContainer" parent="."]
@@ -320,6 +334,8 @@ margin_top = 277.0
 margin_right = 599.0
 margin_bottom = 304.0
 text = "Back To Main Menu"
+
+[node name="Tween" type="Tween" parent="."]
 
 [connection signal="pressed" from="GameOver/VBoxContainer/BackToMain" to="." method="_on_BackToMain_pressed"]
 

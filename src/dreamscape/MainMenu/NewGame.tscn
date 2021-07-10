@@ -189,9 +189,9 @@ __meta__ = {
 
 [node name="VBC" type="VBoxContainer" parent="ChoicePopup/CC"]
 margin_left = 439.0
-margin_top = 77.0
+margin_top = 57.0
 margin_right = 1239.0
-margin_bottom = 831.0
+margin_bottom = 851.0
 __meta__ = {
 "_edit_use_anchors_": false
 }

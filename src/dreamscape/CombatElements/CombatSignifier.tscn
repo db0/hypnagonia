@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/dreamscape/CombatElements/CombatSignifier.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://assets/icons/brain-freeze.png" type="Texture" id=2]
 [ext_resource path="res://themes/darktheme/fonts/Reggae_One/ReggaeOne-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://fonts/Comfortaa-Bold.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/card_front/tag_container.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 outline_size = 1
@@ -22,7 +23,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Signifier" type="MarginContainer" parent="."]
+[node name="Signifier" type="CenterContainer" parent="."]
 margin_right = 24.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 36, 36 )
@@ -32,8 +33,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Signifier"]
-margin_right = 36.0
-margin_bottom = 36.0
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 38.0
+margin_bottom = 38.0
 rect_min_size = Vector2( 36, 36 )
 mouse_filter = 1
 custom_fonts/font = SubResource( 1 )
@@ -41,10 +44,20 @@ text = "A"
 align = 1
 uppercase = true
 
+[node name="IconContainer" type="TextureRect" parent="Signifier"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 1
+
 [node name="Icon" type="TextureRect" parent="Signifier"]
-margin_right = 36.0
-margin_bottom = 36.0
-rect_min_size = Vector2( 36, 36 )
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 35.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 30, 30 )
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 5
@@ -73,9 +86,9 @@ __meta__ = {
 
 [node name="Amount" type="Label" parent="MC"]
 margin_left = 24.0
-margin_top = 25.0
-margin_right = 35.0
-margin_bottom = 39.0
+margin_top = 24.0
+margin_right = 32.0
+margin_bottom = 38.0
 mouse_filter = 1
 text = "0"
 

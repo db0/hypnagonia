@@ -16,9 +16,12 @@ onready var _player_area := $VBC/CombatArena/PlayerArea
 onready var _enemy_area := $VBC/CombatArena/EnemyArea/Enemies
 onready var _combat_arena := $VBC/CombatArena
 onready var _background := $TextureRect
+onready var _board_cover := $FadeToBlack
+onready var _tween := $Tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_board_cover.visible = true
 	counters = $VBC/HBC/Counters
 	end_turn = $VBC/HBC/EndTurn
 	cfc.map_node(self)
@@ -60,6 +63,10 @@ func _ready() -> void:
 	cfc.game_paused = false
 	_on_viewport_resized()
 	randomize_background()
+	_fade_from_black()
+	yield(_tween, "tween_all_completed")
+	cfc.NMAP.hand.refill_hand()
+	_on_player_turn_started(turn)
 #
 func _process(_delta: float) -> void:
 	if cfc.game_paused and cfc.NMAP.main._current_focus_source:
@@ -170,8 +177,7 @@ func load_deck() -> void:
 		#card.set_is_faceup(false,true)
 		card._determine_idle_state()
 		deck_pile.shuffle_cards(false)
-	yield(get_tree().create_timer(0.3), "timeout")
-	cfc.NMAP.hand.refill_hand()
+
 
 
 func _on_player_turn_started(_turn: Turn) -> void:
@@ -215,6 +221,7 @@ func _dreamer_died() -> void:
 	game_over()
 
 func complete_battle() -> void:
+	_fade_to_black()
 	cfc.game_paused = true
 	mouse_pointer.forget_focus()
 	end_turn.disabled = true
@@ -222,9 +229,11 @@ func complete_battle() -> void:
 	post_battle_menu.display()
 	for card in get_tree().get_nodes_in_group("cards"):
 		card.set_to_idle()
+	print_debug(post_battle_menu.visible)
 
 
 func game_over() -> void:
+	_fade_to_black()
 	cfc.game_paused = true
 	mouse_pointer.forget_focus()
 	end_turn.disabled = true
@@ -256,3 +265,19 @@ func _on_BackToMain_pressed() -> void:
 	get_tree().change_scene(CFConst.PATH_CUSTOM + "MainMenu/MainMenu.tscn")
 	globals.reset()
 	cfc.NMAP.clear()
+
+func _fade_to_black() -> void:
+	_board_cover.visible = true
+	_tween.interpolate_property(_board_cover,
+			'modulate:a', 0, 1, 1,
+			Tween.TRANS_SINE, Tween.EASE_IN)
+	_tween.start()
+
+
+func _fade_from_black() -> void:
+	_tween.interpolate_property(_board_cover,
+			'modulate:a', 1, 0, 1,
+			Tween.TRANS_SINE, Tween.EASE_IN)
+	_tween.start()
+	yield(_tween, "tween_all_completed")
+	_board_cover.visible = false

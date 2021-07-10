@@ -1,0 +1,36 @@
+[gd_scene format=2]
+
+[node name="Journal" type="PanelContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HBC" type="HBoxContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1448.0
+margin_bottom = 893.0
+
+[node name="JournalPageIllustration" type="TextureRect" parent="HBC"]
+margin_right = 718.0
+margin_bottom = 886.0
+size_flags_horizontal = 3
+
+[node name="JournalEntry" type="PanelContainer" parent="HBC"]
+margin_left = 722.0
+margin_right = 1441.0
+margin_bottom = 886.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBC/JournalEntry"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 712.0
+margin_bottom = 879.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBC/JournalEntry/VBoxContainer"]
+margin_right = 705.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+bbcode_enabled = true
+bbcode_text = "Dear Journal, I had the strangest dream yesterday."
+text = "Dear Journal, I had the strangest dream yesterday."

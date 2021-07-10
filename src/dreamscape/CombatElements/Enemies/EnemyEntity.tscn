@@ -17,7 +17,7 @@ margin_top = 40.0
 margin_right = 69.0
 margin_bottom = 83.0
 rect_min_size = Vector2( 0, 43 )
-custom_constants/separation = 10
+custom_constants/separation = 15
 
 [node name="Art" parent="." index="2"]
 margin_top = 87.0

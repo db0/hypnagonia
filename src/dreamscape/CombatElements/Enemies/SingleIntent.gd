@@ -8,6 +8,7 @@ func setup(signifier_details: Dictionary, signifier_name: String) -> void:
 	recalculate_amount()
 # warning-ignore:return_value_discarded
 	cfc.connect("cache_cleared", self, 'recalculate_amount')
+	signifier_icon_container.visible = false
 
 func recalculate_amount() -> void:
 	var sceng = cfc.scripting_engine.new(
