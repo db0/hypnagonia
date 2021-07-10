@@ -7,7 +7,7 @@ onready var card_storage := $EnemyCardStorage
 
 var choices := {
 	1: {
-		"description": 'I saw a strange form [url={torment_tag}]with a head like a lamp[/url] moving towards me',
+		"description": 'I saw [url={torment_tag}]a strange form with a head like a lamp[/url] moving towards me',
 		"torment": "Gaslighter",
 		"meta_tag": "torment",
 	}
