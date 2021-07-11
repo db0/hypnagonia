@@ -4,9 +4,12 @@ const PLAYER_COMBAT_ENTITY_SIZE = Vector2(120,120)
 
 var player: Player
 var encounters: SingleRun
-var encounter_number := 1
+var encounter_number := 0
 var current_encounter: SingleEncounter
 var journal: Journal
+# I use this to keep track of which journal texts I haven't used yet in this run
+# to avoid writing always the same thing
+var unused_journal_texts := {}
 
 # Test setup. This should happen at game start
 func _ready() -> void:
@@ -17,3 +20,5 @@ func reset() -> void:
 	player = Player.new()
 	encounters = SingleRun.new()
 	encounter_number = 1
+	current_encounter = null
+	journal = null

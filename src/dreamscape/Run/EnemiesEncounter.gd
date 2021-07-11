@@ -7,7 +7,7 @@ const TORMENT_META_DICT := {
 }
 
 var enemies: Array
-var current_combat: ViewportCardFocus
+
 
 func _init(encounter: Dictionary):
 	type = "torment"

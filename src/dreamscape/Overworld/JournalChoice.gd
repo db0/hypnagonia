@@ -28,6 +28,10 @@ func _init(_journal: Node, encounter: SingleEncounter) -> void:
 				journal.enemy_cards[torment_name] = torment_card
 		formated_description = enemy_encounter.get_formated_description()
 		bbcode_text = formated_description
+	if encounter.type == 'boss':
+		var boss_encounter: BossEncounter = encounter
+		formated_description = boss_encounter.description
+		bbcode_text = formated_description
 	# We don't want to create multiple cards for the same Torment.
 	# warning-ignore:return_value_discarded
 	connect("meta_clicked", journal, "_on_meta_clicked")

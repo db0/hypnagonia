@@ -12,7 +12,7 @@ func _process(_delta: float) -> void:
 	rect_size = Vector2(0,0)
 	pass
 
-func display() -> void:
+func display(is_boss := false) -> void:
 	visible = true
 	if not draft_card_choices.empty():
 		return
@@ -20,14 +20,17 @@ func display() -> void:
 #			if not c as Tween:
 #				c.queue_free()
 #		yield(get_tree().create_timer(0.1), "timeout")
-	populate_draft_cards()
+	populate_draft_cards(is_boss)
 	$Tween.interpolate_property(get_parent(),
 			'rect_min_size:y', 0, CFConst.CARD_SIZE.y * CFConst.THUMBNAIL_SCALE, 1.0,
 			Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 	$Tween.start()
 
-func populate_draft_cards() -> void:
-	retrieve_draft_cards()
+func populate_draft_cards(is_boss: = false) -> void:
+	if is_boss:
+		retrieve_boss_draft()
+	else:
+		retrieve_draft_cards()
 	for index in range(draft_card_choices.size()):
 		var card_name: String = draft_card_choices[index]
 		var draft_card_object = CARD_DRAFT_SCENE.instance()
@@ -37,7 +40,7 @@ func populate_draft_cards() -> void:
 		draft_card_object.connect("card_selected", self, "_on_card_draft_selected", [draft_card_object])
 #	yield(get_tree().create_timer(0.15), "timeout")
 #	call_deferred('set_size',Vector2(0,0))
-	
+
 
 func _on_card_draft_selected(option: int, draft_card_object) -> void:
 	for child in get_children():
@@ -47,9 +50,9 @@ func _on_card_draft_selected(option: int, draft_card_object) -> void:
 					Tween.TRANS_SINE, Tween.EASE_IN)
 		else:
 			child.disconnect("card_selected", self, "_on_card_draft_selected")
-			child.display_card.card_front.apply_sharer()
+			child.display_card.card_front.apply_sharer("res://shaders/grayscale.shader")
 	$Tween.start()
-	yield($Tween, "tween_all_completed")			
+	yield($Tween, "tween_all_completed")
 	for child in get_children():
 		if child != draft_card_object:
 			child.queue_free()
@@ -78,6 +81,17 @@ func retrieve_draft_cards() -> void:
 					draft_card_choices.append(card_name)
 					break
 	draft_card_choices += globals.current_encounter.return_extra_draft_cards()
+
+func retrieve_boss_draft() -> void:
+	draft_card_choices.clear()
+	for _iter in range(draft_amount):
+		var card_names: Array = compile_rarity_cards('Rares')
+		CFUtils.shuffle_array(card_names)
+		if card_names.size():
+			for card_name in card_names:
+				if not card_name in draft_card_choices:
+					draft_card_choices.append(card_name)
+					break
 
 
 func compile_rarity_cards(rarity: String) -> Array:

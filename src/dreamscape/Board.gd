@@ -232,16 +232,18 @@ func complete_battle() -> void:
 #	for card in get_tree().get_nodes_in_group("cards"):
 #		card.set_to_idle()
 
-
 func game_over() -> void:
-	_fade_to_black()
-	cfc.game_paused = true
-	mouse_pointer.forget_focus()
-	end_turn.disabled = true
-	game_over_notice.rect_global_position = get_viewport().size/2 - game_over_notice.rect_size/2
-	game_over_notice.visible = true
-	for card in get_tree().get_nodes_in_group("cards"):
-		card.set_to_idle()
+	globals.player.damage = dreamer.damage
+	_fade_to_transparent()
+	yield(_tween, "tween_all_completed")
+	globals.current_encounter.game_over()
+#	cfc.game_paused = true
+#	mouse_pointer.forget_focus()
+#	end_turn.disabled = true
+#	game_over_notice.rect_global_position = get_viewport().size/2 - game_over_notice.rect_size/2
+#	game_over_notice.visible = true
+#	for card in get_tree().get_nodes_in_group("cards"):
+#		card.set_to_idle()
 
 
 func _input(event):
@@ -249,6 +251,8 @@ func _input(event):
 		_on_Debug_pressed()
 	if event.is_action_pressed("complete_battle"):
 		complete_battle()
+	if event.is_action_pressed("lose_battle"):
+		game_over()
 
 func _on_Debug_pressed() -> void:
 	# warning-ignore:return_value_discarded

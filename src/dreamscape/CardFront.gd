@@ -47,7 +47,7 @@ func _ready() -> void:
 			"Cost":
 				original_font_sizes[label] = 20
 			"Abilities":
-				original_font_sizes[label] = 22
+				original_font_sizes[label] = 20
 			_:
 				original_font_sizes[label] = 22
 
@@ -68,7 +68,8 @@ func set_tag_icon(tags: Array) -> void:
 			tag_icon2.texture = new_texture
 			tag_container2.visible = true
 
-func apply_sharer() -> void:
+func apply_sharer(shader_path: String) -> void:
 	shader_effect.visible = true
-#	shader_effect.material = ShaderMaterial.new()
-#	shader_effect.material.shader = load("res://shaders/grayscale.shader")
+	shader_effect.material = ShaderMaterial.new()
+	shader_effect.material.shader = load(shader_path)
+	shader_effect.material.shader = load("res://shaders/grayscale.shader")

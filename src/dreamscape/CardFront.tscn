@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
+[ext_resource path="res://shaders/grayscale.shader" type="Shader" id=1]
 [ext_resource path="res://src/dreamscape/CardFront.gd" type="Script" id=2]
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=3]
 [ext_resource path="res://themes/darktheme/fonts/Ubuntu-L.ttf" type="DynamicFontData" id=4]
@@ -33,6 +34,10 @@ font_data = ExtResource( 4 )
 [sub_resource type="DynamicFont" id=5]
 size = 12
 font_data = ExtResource( 5 )
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 1 )
+shader_param/percentage = 0.0
 
 [node name="Front" type="Panel"]
 anchor_right = 1.0
@@ -153,8 +158,8 @@ custom_constants/margin_left = 15
 [node name="Abilities" type="Label" parent="CardText/OutsideArt"]
 margin_left = 15.0
 margin_right = 185.0
-margin_bottom = 61.0
-rect_min_size = Vector2( 170, 58 )
+margin_bottom = 40.0
+rect_min_size = Vector2( 170, 40 )
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 4 )
 text = "Ability Text"
@@ -268,6 +273,7 @@ expand = true
 
 [node name="ShaderEffect" type="ColorRect" parent="."]
 visible = false
+material = SubResource( 6 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 200, 280 )

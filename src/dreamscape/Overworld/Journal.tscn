@@ -60,17 +60,18 @@ rect_min_size = Vector2( 0, 50 )
 bbcode_enabled = true
 bbcode_text = "Reward Description"
 text = "Reward Description"
+fit_content_height = true
 
-[node name="Slide" type="ScrollContainer" parent="HBC/JournalEntry/VBC"]
+[node name="CardDraftSlide" type="ScrollContainer" parent="HBC/JournalEntry/VBC"]
 margin_top = 56.0
 margin_right = 720.0
 margin_bottom = 56.0
 
-[node name="CardDraft" type="HBoxContainer" parent="HBC/JournalEntry/VBC/Slide"]
+[node name="CardDraft" type="HBoxContainer" parent="HBC/JournalEntry/VBC/CardDraftSlide"]
 custom_constants/separation = 0
 script = ExtResource( 3 )
 
-[node name="Tween" type="Tween" parent="HBC/JournalEntry/VBC/Slide/CardDraft"]
+[node name="Tween" type="Tween" parent="HBC/JournalEntry/VBC/CardDraftSlide/CardDraft"]
 
 [node name="Push" type="Control" parent="HBC/JournalEntry/VBC"]
 visible = false
@@ -78,16 +79,6 @@ margin_top = 59.0
 margin_right = 720.0
 margin_bottom = 892.0
 size_flags_vertical = 3
-
-[node name="Loss" type="RichTextLabel" parent="HBC/JournalEntry/VBC"]
-visible = false
-margin_top = 789.0
-margin_right = 720.0
-margin_bottom = 839.0
-rect_min_size = Vector2( 0, 50 )
-bbcode_enabled = true
-bbcode_text = "And at this point I woke up in cold sweat!"
-text = "And at this point I woke up in cold sweat!"
 
 [node name="Proceed" type="RichTextLabel" parent="HBC/JournalEntry/VBC"]
 visible = false
@@ -98,6 +89,7 @@ rect_min_size = Vector2( 0, 50 )
 bbcode_enabled = true
 bbcode_text = "Let me think if I can remember what happened next..."
 text = "Let me think if I can remember what happened next..."
+fit_content_height = true
 
 [node name="EnemyCardStorage" type="Control" parent="."]
 visible = false
