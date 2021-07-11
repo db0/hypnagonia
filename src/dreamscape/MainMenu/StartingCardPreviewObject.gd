@@ -8,7 +8,7 @@ func _ready() -> void:
 	preview_popup.focus_info.setup()
 
 
-func on_gui_input(event) -> void:
+func on_gui_input(_event) -> void:
 	pass
 
 func add_child(node, _legible_unique_name=false) -> void:

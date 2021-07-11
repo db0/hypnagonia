@@ -255,7 +255,7 @@ func remove_card_from_game(script: ScriptTask) -> int:
 	var retcode: int = CFConst.ReturnCode.CHANGED
 	if not costs_dry_run():
 		# We inject the tags from the script into the tags sent by the signal
-		var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
+		var _tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
 		for card in script.subjects:
 			card.remove_from_game()
 	return(retcode)
@@ -367,7 +367,7 @@ func spawn_enemy(script: ScriptTask) -> void:
 	alteration = _check_for_alterants(script, count)
 	if alteration is GDScriptFunctionState:
 		alteration = yield(alteration, "completed")
-	for iter in range(count + alteration):
+	for _iter in range(count + alteration):
 		var enemy_entity : EnemyEntity = cfc.NMAP.board.spawn_enemy(canonical_name)
 		yield(cfc.get_tree().create_timer(0.05), "timeout")
 		# We need to set it as activated or the board will never re-enable the
@@ -382,9 +382,9 @@ func draw_cards(script: ScriptTask) -> int:
 	var retcode: int = CFConst.ReturnCode.CHANGED
 	if not costs_dry_run():
 		# We inject the tags from the script into the tags sent by the signal
-		var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
+		var _tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
 		var card_count: int = script.get_property(SP.KEY_CARD_COUNT)
-		for iter in range(card_count):
+		for _iter in range(card_count):
 			cfc.NMAP.hand.draw_card(cfc.NMAP.deck)
 			yield(cfc.get_tree().create_timer(0.05), "timeout")
 	return(retcode)
@@ -397,7 +397,6 @@ static func _check_for_effect_alterants(
 		value: int,
 		subject: CombatEntity,
 		sceng) -> int:
-	var total_alteration = 0
 	var alteration_details = {}
 	var source_object: CombatEntity
 	var new_value := value

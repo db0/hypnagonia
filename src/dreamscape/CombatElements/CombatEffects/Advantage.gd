@@ -6,7 +6,7 @@ func get_effect_alteration(
 		sceng, 
 		is_source := false, 
 		dry_run := true,
-		subject: Node = null) -> int:
+		_subject: Node = null) -> int:
 	if not script.script_name == 'modify_damage'\
 			or not "Damage" in script.get_property(SP.KEY_TAGS)\
 			or not is_source:

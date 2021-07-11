@@ -63,6 +63,7 @@ func start_new_game() -> void:
 			Tween.TRANS_SINE, Tween.EASE_IN)
 	get_parent().menu_tween.start()
 	yield(get_parent().menu_tween, "tween_all_completed")
+	# warning-ignore:return_value_discarded
 	get_tree().change_scene(CFConst.PATH_CUSTOM + 'Overworld/Journal.tscn')
 
 

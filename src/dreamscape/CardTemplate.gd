@@ -23,6 +23,7 @@ func _process(delta: float) -> void:
 			set_focus(false)
 			set_control_mouse_filters(false)
 			buttons.set_active(false)
+			# warning-ignore:return_value_discarded
 			set_card_rotation(0,false,false)
 			shader_progress += delta
 #			print_debug(shader_progress, delta)

@@ -16,6 +16,7 @@ func _process(_delta: float) -> void:
 			focus_info.rect_position.y = preview_card.card_size.y
 
 func get_preview_placement() -> Vector2:
+	# warning-ignore:unassigned_variable
 	var ret : Vector2
 	var focus_panel_offset = 0
 	if focus_info.visible:
@@ -49,8 +50,8 @@ func show_preview_card(card_name) -> void:
 	# It's necessary we do this here because if we only we it during
 	# the process, the card will appear to teleport
 	if CFConst.VIEWPORT_FOCUS_ZOOM_TYPE == "resize":
-		preview_card.set_card_size(CFConst.CARD_SIZE*2)
-		preview_card.card_front.scale_to(2)
+		preview_card.resize_recursively(preview_card._control, CFConst.PREVIEW_SCALE)
+		preview_card.card_front.scale_to(CFConst.PREVIEW_SCALE)
 	rect_position = get_preview_placement()
 	cfc.ov_utils.populate_info_panels(preview_card,focus_info)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE

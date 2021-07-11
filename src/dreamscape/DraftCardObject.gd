@@ -9,8 +9,21 @@ func _ready() -> void:
 	preview_popup.focus_info.info_panel_scene = info_panel_scene
 	preview_popup.focus_info.setup()
 
+func _process(_delta: float) -> void:
+	pass
+#	rect_min_size = display_card.card_front.rect_size
+#	rect_size = rect_min_size
+#	print_debug(display_card.card_back.rect_size,rect_size)
+
 
 func on_gui_input(event) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
 		if event.get_button_index() == 1:
 			emit_signal("card_selected", index)
+
+func setup(card_name) -> Card:
+	var display_card :Card = .setup(card_name)
+	yield(get_tree().create_timer(0.1), "timeout")
+	rect_min_size = display_card.card_front.rect_size
+	rect_size = rect_min_size
+	return(display_card)

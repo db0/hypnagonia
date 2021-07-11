@@ -124,7 +124,7 @@ func modify_damage(amount: int, dry_run := false, tags := ["Manual"], trigger: C
 		_update_health_label()
 	return(CFConst.ReturnCode.CHANGED)
 
-func receive_defence(amount: int, dry_run := false, tags := ["Manual"], trigger: CombatEntity = null) -> int:
+func receive_defence(amount: int, dry_run := false, _tags := ["Manual"], trigger: CombatEntity = null) -> int:
 	if not dry_run:
 		if amount > 0:
 			emit_signal("entity_defended", self, amount, trigger)

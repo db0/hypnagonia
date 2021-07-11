@@ -73,7 +73,7 @@ func _count_counter() -> int:
 
 # Do something per unique card in the gathered subjects
 func _count_unique() -> int:
-	var unique_subjects: Array
+	var unique_subjects := []
 	for c in subjects:
 		if not c.canonical_name in unique_subjects:
 			unique_subjects.append(c.canonical_name)

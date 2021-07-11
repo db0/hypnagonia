@@ -30,6 +30,7 @@ func _ready() -> void:
 	new_game.back_button.connect("pressed", self, "switch_to_main_menu", [new_game])
 #	new_game.recover_prebuilts.connect("pressed", self, "_on_PreBuilts_pressed")
 	deck_builder.back_button.connect("pressed", self, "switch_to_main_menu", [deck_builder])
+	# warning-ignore:return_value_discarded
 	get_viewport().connect("size_changed", self, '_on_Menu_resized')
 	_readme_label.text = README
 

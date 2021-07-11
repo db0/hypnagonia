@@ -5,7 +5,7 @@ signal finished_activation(enemy)
 
 onready var intents: EnemyIntents = $Intents
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if is_dead:
 		for node in [incoming]:
 			if node.visible:

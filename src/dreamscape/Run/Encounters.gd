@@ -6,7 +6,7 @@ const EARLY_ENEMIES := [
 		"journal_description":\
 			'I found myself between [url={torment_tag1}]a pair of featureless creeps laughing[/url] at me.',
 		"journal_reward":\
-			'Through overcoming that weird experience, I felt wiser.',
+			'Through overcoming that weird experience, [url=reward]I felt wiser.[/url]',
 		"enemies": [
 			"The Laughing One",
 			"The Laughing One",
@@ -16,7 +16,7 @@ const EARLY_ENEMIES := [
 		"journal_description":\
 			'Was that [url={torment_tag1}]a curious owl with three eyes[/url] staring at me?',
 		"journal_reward":\
-			'Through overcoming that weird experience, I felt wiser.',
+			'Through overcoming that weird experience, [url=reward]I felt wiser.[/url]',
 		"journal_art": preload("res://assets/journal/fearmonger.jpg"),
 		"enemies": [
 			"Fearmonger",
@@ -26,7 +26,7 @@ const EARLY_ENEMIES := [
 		"journal_description":\
 			'I saw [url={torment_tag1}]a strange form with a head like a lamp[/url] moving towards me.',
 		"journal_reward":\
-			'Through overcoming that weird experience, I felt wiser.',
+			'Through overcoming that weird experience, [url=reward]I felt wiser.[/url]',
 		"enemies": [
 			"Gaslighter",
 		]

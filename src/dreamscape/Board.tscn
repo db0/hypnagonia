@@ -10,11 +10,11 @@
 [ext_resource path="res://assets/card_backs/TCG_vol12_back.png" type="Texture" id=8]
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=12]
 
-[sub_resource type="StyleBoxTexture" id=2]
+[sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 8 )
 region_rect = Rect2( 0, 0, 1500, 2100 )
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0, 0, 0, 1 )
 corner_radius_top_left = 25
 corner_radius_top_right = 25
@@ -117,7 +117,7 @@ pile_name = "Deck"
 shuffle_style = 6
 
 [node name="Control" parent="Deck" index="0"]
-custom_styles/panel = SubResource( 2 )
+custom_styles/panel = SubResource( 1 )
 
 [node name="VBoxContainer" parent="Deck/Control/CenterContainer" index="0"]
 margin_right = 68.0
@@ -176,7 +176,7 @@ pile_name = "Discard"
 faceup_cards = true
 
 [node name="Control" parent="Discard" index="0"]
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 2 )
 
 [node name="VBoxContainer" parent="Discard/Control/CenterContainer" index="0"]
 margin_right = 68.0
@@ -233,7 +233,7 @@ pile_name = "Forgotten"
 faceup_cards = true
 
 [node name="Control" parent="Forgotten" index="0"]
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 2 )
 
 [node name="VBoxContainer" parent="Forgotten/Control/CenterContainer" index="0"]
 margin_right = 68.0

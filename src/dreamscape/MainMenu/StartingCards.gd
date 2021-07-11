@@ -6,7 +6,7 @@ onready var _starting_cards_container = $HBC
 
 
 
-func populate_starting_cards(types: Array, rel_parent: Node) -> void:
+func populate_starting_cards(types: Array, _rel_parent: Node) -> void:
 	for card in _starting_cards_container.get_children():
 		card.queue_free()
 	for type in types:

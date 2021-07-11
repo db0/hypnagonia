@@ -12,7 +12,7 @@ func empty_hand() -> void:
 		card.move_to(cfc.NMAP.discard)
 
 func refill_hand() -> void:
-	for iter in range(5):
+	for _iter in range(5):
 		var retcode = draw_card(cfc.NMAP.deck)
 		if retcode is GDScriptFunctionState:
 			retcode = yield(retcode, "completed")

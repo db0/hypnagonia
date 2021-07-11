@@ -1,5 +1,4 @@
-class_name PostBattleMenu
-extends PanelContainer
+extends HBoxContainer
 
 const CARD_DRAFT_SCENE = preload("res://src/dreamscape/DraftCardObject.tscn")
 
@@ -7,53 +6,43 @@ var uncommon_chance : float = 25.0/100
 var rare_chance : float = 5.0/100
 var draft_amount := 3
 var draft_card_choices : Array
-var game_end := false
 
-onready var card_choices_grid = $CardDraft/CardChoices
-onready var card_draft = $CardDraft
-onready var card_draft_button = $VBC/CardReward
-onready var proceed_button = $VBC/Proceed
-
+func _process(_delta: float) -> void:
+	# That is the only way I can make this damn container
+	# adjust the spacing between the cards after the cards have been resized down. 
+	for c in get_children():
+		if c as DBGridCardObject:
+			set_size(Vector2(0,0))
+			queue_sort()
+			
 func display() -> void:
-	rect_global_position = get_viewport().size/2 - rect_size/2
 	visible = true
-	if not game_end:
-		card_draft_button.visible = true
-		populate_draft_cards()
-	else:
-		proceed_button.text = "Back to Main Menu"
-
+	if not draft_card_choices.empty():
+		return
+	populate_draft_cards()
+	$Tween.interpolate_property(self,
+			'rect_size:y', 0, CFConst.CARD_SIZE.y, 0.5,
+			Tween.TRANS_SINE, Tween.EASE_IN)
+	$Tween.start()
 
 func populate_draft_cards() -> void:
 	retrieve_draft_cards()
 	for index in range(draft_card_choices.size()):
 		var card_name: String = draft_card_choices[index]
 		var draft_card_object = CARD_DRAFT_SCENE.instance()
-		card_choices_grid.add_child(draft_card_object)
+		add_child(draft_card_object)
 		draft_card_object.setup(card_name)
 		draft_card_object.index = index
-		draft_card_object.connect("card_selected", self, "_on_card_draft_selected")
+		draft_card_object.connect("card_selected", self, "_on_card_draft_selected", [draft_card_object])
 
 
-func _on_CardReward_pressed() -> void:
-	card_draft.popup_centered_minsize()
-
-
-func _on_card_draft_selected(option) -> void:
-	for child in card_choices_grid.get_children():
-		child.queue_free()
-	card_draft.hide()
-	card_draft_button.visible = false
+func _on_card_draft_selected(option: int, draft_card_object) -> void:
+	for child in get_children():
+		if child != draft_card_object:
+			child.queue_free()
+		else:
+			child.disconnect("card_selected", self, "_on_card_draft_selected")
 	globals.player.deck.add_new_card(draft_card_choices[option])
-
-
-func _on_Proceed_pressed() -> void:
-	# warning-ignore:return_value_discarded
-	if not game_end:
-		get_tree().change_scene(CFConst.PATH_CUSTOM + 'Main.tscn')
-	else:
-		# warning-ignore:return_value_discarded
-		get_tree().change_scene(CFConst.PATH_CUSTOM + 'MainMenu/MainMenu.tscn')
 
 
 func retrieve_draft_cards() -> void:

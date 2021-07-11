@@ -64,10 +64,12 @@ func spawn_needed_counters() -> Array:
 	var all_counters := []
 	for counter_name in needed_counters:
 		var counter = counter_scene.instance()
+		counters_container.add_child(counter)
+		all_counters.append(counter)
 		counter.name = counter_name
 		var counter_labels = needed_counters[counter_name]
 		for label in counter_labels:
-			if not counter.get_node(label):
+			if not counter.has_node(label):
 				continue
 			counter.get_node(label).text = str(counter_labels[label])
 			# The value_node is also used determine the initial values
@@ -77,8 +79,6 @@ func spawn_needed_counters() -> Array:
 				# _labels stores the label node which displays the value
 				# of the counter
 				_labels[counter_name] = counter.get_node(label)
-		counters_container.add_child(counter)
-		all_counters.append(counter)
 	return(all_counters)
 
 

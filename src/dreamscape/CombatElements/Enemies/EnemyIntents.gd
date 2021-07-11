@@ -67,7 +67,7 @@ func get_total_damage() -> int:
 # As it causes the parser think there's a cyclic dependency.
 func execute_scripts(
 		trigger_object:= self,
-		trigger: String = "manual",
+		_trigger: String = "manual",
 		trigger_details: Dictionary = {},
 		only_cost_check := false):
 	var sceng = null

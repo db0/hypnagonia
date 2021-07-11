@@ -24,7 +24,9 @@ func populate_tags(tag_list: Array) -> void:
 		var tag_scene : TagRepresentation = TAG_ICON_SCENE.instance()
 		add_child(tag_scene)
 		tag_scene.setup(tag)
+		# warning-ignore:return_value_discarded
 		tag_scene.connect("mouse_entered", self, "_on_tag_mouse_enterred", [tag_scene])
+		# warning-ignore:return_value_discarded
 		tag_scene.connect("mouse_exited", self, "_on_tag_mouse_exited")
 
 func _on_tag_mouse_enterred(tag_node: TagRepresentation) -> void:

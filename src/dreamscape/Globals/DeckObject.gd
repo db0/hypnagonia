@@ -17,7 +17,7 @@ func update_card_group(type: String, card_group: String) -> void:
 	deck_groups[type] = card_group
 	
 func instance_cards() -> Array:
-	var card_nodes : Array
+	var card_nodes := []
 	for card_entry in cards:
 		card_nodes.append(card_entry.instance_self())
 	return(card_nodes)
@@ -27,7 +27,7 @@ func add_new_card(card_name) -> void:
 	cards.append(new_card)
 
 func list_all_cards() -> Array:
-	var card_list: Array
+	var card_list := []
 	for card_entry in cards:
 		card_list.append(card_entry.card_name)
 	return(card_list)

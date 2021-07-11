@@ -19,7 +19,7 @@ func _count_custom() -> int:
 
 
 func _count_effect_stacks() -> int:
-	var ret: int
+	var ret := 0
 	var effect_name = get_property(SP.KEY_EFFECT_NAME)
 	for subject in subjects:
 		if subject.is_in_group("CombatEntities"):

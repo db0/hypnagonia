@@ -151,4 +151,6 @@ func _extra_dupe_preparation(dupe_focus: Card, card: Card) -> void:
 # warning-ignore:unused_argument
 # warning-ignore:unused_argument
 func _extra_dupe_ready(dupe_focus: Card, card: Card) -> void:
-	pass
+	dupe_focus.resize_recursively(dupe_focus._control, CFConst.FOCUSED_SCALE)
+	dupe_focus.card_front.scale_to(CFConst.FOCUSED_SCALE)
+

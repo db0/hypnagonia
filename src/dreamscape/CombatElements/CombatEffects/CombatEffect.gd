@@ -47,7 +47,7 @@ func get_effect_alteration(
 		_sceng, 
 		_is_source: bool, 
 		_dry_run:= true,
-		subject: Node = null) -> int:
+		_subject: Node = null) -> int:
 	return(0)
 
 func _on_CombatSingifier_mouse_entered() -> void:
@@ -61,6 +61,7 @@ func _set_current_description() -> void:
 	format["amount"] = str(stacks)
 	format["double_amount"] = str(2*stacks)
 	format["triple_amount"] = str(3*stacks)
+	# warning-ignore:integer_division
 	format["half_amount"] = str(stacks/2)
 	decription_label.text = Terms.ACTIVE_EFFECTS[_get_template_name()].description.format(format)
 

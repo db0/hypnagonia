@@ -8,7 +8,7 @@ var dreamer: PlayerEntity
 var activated_enemies: Array
 var boss_battle := false
 
-onready var bottom_gui := $HBC
+onready var bottom_gui := $VBC/HBC
 onready var post_battle_menu := $PostBattleMenu
 onready var game_over_notice := $GameOver
 onready var deck_pile: Pile = $Deck
@@ -25,6 +25,7 @@ func _ready() -> void:
 	counters = $VBC/HBC/Counters
 	end_turn = $VBC/HBC/EndTurn
 	cfc.map_node(self)
+	# warning-ignore:return_value_discarded
 	get_viewport().connect("size_changed",self,"_on_viewport_resized")
 	# We use the below while to wait until all the nodes we need have been mapped
 	# "hand" should be one of them.
@@ -44,6 +45,7 @@ func _ready() -> void:
 		"_texture_size_y": globals.PLAYER_COMBAT_ENTITY_SIZE.y,
 	}
 	dreamer.setup("Dreamer", dreamer_properties)
+	# warning-ignore:return_value_discarded
 	dreamer.connect("entity_killed", self, "_dreamer_died")
 	_player_area.add_child(dreamer)
 	dreamer.rect_position = Vector2(100,100)
@@ -86,6 +88,7 @@ func randomize_background() -> void:
 
 func spawn_enemy_encounter(encounter: EnemyEncounter) -> void:
 	for enemy_name in encounter.enemies:
+# warning-ignore:return_value_discarded
 		spawn_enemy(enemy_name)
 
 func spawn_enemy(enemy_name) -> EnemyEntity:
@@ -250,7 +253,7 @@ func _input(event):
 func _on_Debug_pressed() -> void:
 	# warning-ignore:return_value_discarded
 	counters.mod_counter("immersion",10)
-	for iter in range(5):
+	for _iter in range(5):
 		cfc.NMAP.hand.draw_card(cfc.NMAP.deck)
 
 func _on_viewport_resized() -> void:
@@ -260,6 +263,7 @@ func _on_viewport_resized() -> void:
 
 
 func _on_BackToMain_pressed() -> void:
+# warning-ignore:return_value_discarded
 	get_tree().change_scene(CFConst.PATH_CUSTOM + "MainMenu/MainMenu.tscn")
 	globals.reset()
 	cfc.NMAP.clear()
