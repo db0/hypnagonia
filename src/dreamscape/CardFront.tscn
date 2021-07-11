@@ -154,7 +154,7 @@ custom_constants/margin_left = 15
 margin_left = 15.0
 margin_right = 185.0
 margin_bottom = 61.0
-rect_min_size = Vector2( 170, 61 )
+rect_min_size = Vector2( 170, 58 )
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 4 )
 text = "Ability Text"
@@ -265,3 +265,12 @@ margin_bottom = 31.0
 rect_min_size = Vector2( 22, 22 )
 mouse_filter = 2
 expand = true
+
+[node name="ShaderEffect" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 200, 280 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

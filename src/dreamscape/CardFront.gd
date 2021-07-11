@@ -7,6 +7,7 @@ onready var tag_container2 := $TagContainer2
 onready var tag_icon1 := $TagContainer1/TagIcon
 onready var tag_icon2 := $TagContainer2/TagIcon
 onready var card_design := $CardDesign
+onready var shader_effect := $ShaderEffect
 onready var art := $Art
 
 func _ready() -> void:
@@ -66,3 +67,8 @@ func set_tag_icon(tags: Array) -> void:
 		elif not tag_container2.visible:
 			tag_icon2.texture = new_texture
 			tag_container2.visible = true
+
+func apply_sharer() -> void:
+	shader_effect.visible = true
+#	shader_effect.material = ShaderMaterial.new()
+#	shader_effect.material.shader = load("res://shaders/grayscale.shader")

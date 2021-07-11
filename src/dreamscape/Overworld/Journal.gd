@@ -6,7 +6,9 @@ onready var journal_intro := $HBC/JournalEntry/VBC/DayIntro
 onready var journal_choices := $HBC/JournalEntry/VBC/JournalChoices
 onready var card_storage := $EnemyCardStorage
 onready var reward_journal := $HBC/JournalEntry/VBC/RewardJournal
-onready var card_draft := $HBC/JournalEntry/VBC/CardDraft
+onready var card_draft := $HBC/JournalEntry/VBC/Slide/CardDraft
+onready var loss := $HBC/JournalEntry/VBC/Loss
+onready var proceed := $HBC/JournalEntry/VBC/Proceed
 onready var _tween := $Tween
 
 var enemy_cards := {}
@@ -25,11 +27,16 @@ func _ready() -> void:
 		journal_choice.connect("pressed", self, "_on_choice_pressed", [encounter, journal_choice])
 		_reveal_entry(journal_choice)
 		yield(_tween, "tween_all_completed")
+	for rich_text in [loss, proceed]:
+		rich_text.connect("mouse_entered", self, "_on_rte_mouse_entered", [rich_text] )
+		rich_text.connect("mouse_exited", self, "_on_rte_mouse_exited", [rich_text] )
+		rich_text.connect("gui_input", self, "_on_rte_gui_input", [rich_text] )
 
 
 func display_rewards(reward_text: String) -> void:
 	reward_journal.bbcode_text = reward_text
 	_reveal_entry(reward_journal)
+	_reveal_entry(proceed)
 
 
 func _on_meta_clicked(meta_text: String) -> void:
@@ -75,8 +82,24 @@ func _reveal_entry(rich_text_node: RichTextLabel) -> void:
 			'modulate:a', 0, 1, 0.5,
 			Tween.TRANS_SINE, Tween.EASE_IN)
 	_tween.start()
+	rich_text_node.visible = true
 
 
 
 func _on_RewardJournal_meta_clicked(_meta) -> void:
 	card_draft.display()
+	reward_journal.bbcode_text = "[color=grey]" + reward_journal.text + "[/color]"
+
+func _on_rte_mouse_entered(rt_label: RichTextLabel) -> void:
+	rt_label.bbcode_text = "[color=yellow]" + rt_label.text + "[/color]"
+
+func _on_rte_mouse_exited(rt_label: RichTextLabel) -> void:
+	rt_label.bbcode_text = rt_label.text
+	
+func _on_rte_gui_input(event, rt_label: RichTextLabel) -> void:
+	if event.is_pressed() and event.get_button_index() == 1:
+		match rt_label.name:
+			"Loss":
+				pass
+			"Proceed":
+				get_tree().change_scene(CFConst.PATH_CUSTOM + 'Overworld/Journal.tscn')

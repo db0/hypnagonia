@@ -21,9 +21,9 @@ func display() -> void:
 #				c.queue_free()
 #		yield(get_tree().create_timer(0.1), "timeout")
 	populate_draft_cards()
-	$Tween.interpolate_property(self,
-			'rect_size:y', 0, CFConst.CARD_SIZE.y, 0.5,
-			Tween.TRANS_SINE, Tween.EASE_IN)
+	$Tween.interpolate_property(get_parent(),
+			'rect_min_size:y', 0, CFConst.CARD_SIZE.y * CFConst.THUMBNAIL_SCALE, 1.0,
+			Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 	$Tween.start()
 
 func populate_draft_cards() -> void:
@@ -42,11 +42,18 @@ func populate_draft_cards() -> void:
 func _on_card_draft_selected(option: int, draft_card_object) -> void:
 	for child in get_children():
 		if child != draft_card_object:
-			child.queue_free()
+			$Tween.interpolate_property(child,
+					'modulate:a', 1, 0, 0.7,
+					Tween.TRANS_SINE, Tween.EASE_IN)
 		else:
 			child.disconnect("card_selected", self, "_on_card_draft_selected")
+			child.display_card.card_front.apply_sharer()
+	$Tween.start()
+	yield($Tween, "tween_all_completed")			
+	for child in get_children():
+		if child != draft_card_object:
+			child.queue_free()
 	globals.player.deck.add_new_card(draft_card_choices[option])
-	draft_card_object.disconnect("card_selected", self, "_on_card_draft_selected", [draft_card_object])
 
 
 func retrieve_draft_cards() -> void:
