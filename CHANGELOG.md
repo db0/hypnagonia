@@ -1,5 +1,9 @@
 # Dreams: Changelog
 
+## v0.5.0
+
+* Added a journal for progressing between encounters.
+
 ## v0.4.0
  
 * Added fresh card layout. Unfortunately its assets are under a properietary license.

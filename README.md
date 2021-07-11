@@ -1,4 +1,4 @@
-# Dreams: A Deckbuilding Therapy Session v0.1
+# Dreams: A Deckbuilding Therapy Session v0.5
 
 
 Dreams is a 'spire-like' deckbuilder card game where you take the part of a dreamer captured in a nightmare realm in their recurring dreams and struggling to overcome their own issues to break out of this loop.
