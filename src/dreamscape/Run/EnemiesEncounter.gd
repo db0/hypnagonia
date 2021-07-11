@@ -47,3 +47,6 @@ func end() -> void:
 	yield(cfc.get_tree().create_timer(0.1), "timeout")
 	cfc.NMAP.clear()
 	globals.journal.display_rewards(reward_description)
+
+func return_extra_draft_cards() -> Array:
+	return(get_unique_enemies())

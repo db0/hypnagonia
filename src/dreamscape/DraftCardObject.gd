@@ -11,9 +11,8 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	pass
-#	rect_min_size = display_card.card_front.rect_size
 #	rect_size = rect_min_size
-#	print_debug(display_card.card_back.rect_size,rect_size)
+#	print_debug(rect_size)
 
 
 func on_gui_input(event) -> void:
@@ -22,8 +21,7 @@ func on_gui_input(event) -> void:
 			emit_signal("card_selected", index)
 
 func setup(card_name) -> Card:
-	var display_card :Card = .setup(card_name)
-	yield(get_tree().create_timer(0.1), "timeout")
-	rect_min_size = display_card.card_front.rect_size
-	rect_size = rect_min_size
+	var display_card = .setup(card_name)
+	if display_card is GDScriptFunctionState:
+		display_card = yield(display_card, "completed")	
 	return(display_card)

@@ -8,17 +8,18 @@ var draft_amount := 3
 var draft_card_choices : Array
 
 func _process(_delta: float) -> void:
-	# That is the only way I can make this damn container
-	# adjust the spacing between the cards after the cards have been resized down. 
-	for c in get_children():
-		if c as DBGridCardObject:
-			set_size(Vector2(0,0))
-			queue_sort()
-			
+	# Stupid thing doesn't update automatically after resizing the children inside it
+	rect_size = Vector2(0,0)
+	pass
+
 func display() -> void:
 	visible = true
 	if not draft_card_choices.empty():
 		return
+#		for c in get_children():
+#			if not c as Tween:
+#				c.queue_free()
+#		yield(get_tree().create_timer(0.1), "timeout")
 	populate_draft_cards()
 	$Tween.interpolate_property(self,
 			'rect_size:y', 0, CFConst.CARD_SIZE.y, 0.5,
@@ -34,7 +35,9 @@ func populate_draft_cards() -> void:
 		draft_card_object.setup(card_name)
 		draft_card_object.index = index
 		draft_card_object.connect("card_selected", self, "_on_card_draft_selected", [draft_card_object])
-
+#	yield(get_tree().create_timer(0.15), "timeout")
+#	call_deferred('set_size',Vector2(0,0))
+	
 
 func _on_card_draft_selected(option: int, draft_card_object) -> void:
 	for child in get_children():
@@ -43,6 +46,7 @@ func _on_card_draft_selected(option: int, draft_card_object) -> void:
 		else:
 			child.disconnect("card_selected", self, "_on_card_draft_selected")
 	globals.player.deck.add_new_card(draft_card_choices[option])
+	draft_card_object.disconnect("card_selected", self, "_on_card_draft_selected", [draft_card_object])
 
 
 func retrieve_draft_cards() -> void:
@@ -66,6 +70,7 @@ func retrieve_draft_cards() -> void:
 				if not card_name in draft_card_choices:
 					draft_card_choices.append(card_name)
 					break
+	draft_card_choices += globals.current_encounter.return_extra_draft_cards()
 
 
 func compile_rarity_cards(rarity: String) -> Array:
