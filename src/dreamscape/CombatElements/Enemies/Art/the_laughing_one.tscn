@@ -62,6 +62,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [ Color( 0.447059, 0, 0, 1 ), Color( 0.447059, 0, 0, 1 ), Color( 0, 0, 0, 1 ) ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("AnimationPlayer:playback_speed")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
 
 [sub_resource type="Animation" id=2]
 length = 5.0
@@ -103,6 +115,54 @@ tracks/2/keys = {
 "update": 0,
 "values": [ PoolVector2Array( 367.773, 296.769, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 691.603, 217.399, 645.568, 303.913, 490.797, 345.979 ), PoolVector2Array( 375.927, 327.604, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 708.349, 252.953, 653.896, 320.149, 504.722, 369.043 ), PoolVector2Array( 367.773, 296.769, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 691.603, 217.399, 624.298, 261.777, 487.885, 300.574 ), PoolVector2Array( 386.327, 345.238, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 723.16, 250.218, 634.458, 321.159, 511.628, 363.038 ), PoolVector2Array( 370.174, 304.456, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 698.139, 211.657, 610.086, 267.996, 492.958, 305.631 ), PoolVector2Array( 384.685, 360.187, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 720.478, 238.53, 639.621, 325.474, 529.08, 367.692 ), PoolVector2Array( 384.046, 341.493, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 710.701, 238.297, 641.667, 328.533, 515.507, 367.398 ), PoolVector2Array( 367.773, 296.769, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 691.603, 217.399, 614.81, 291.089, 499.969, 318.085 ), PoolVector2Array( 367.773, 296.769, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 691.603, 217.399, 645.568, 303.913, 490.797, 345.979 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("eye:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.447059, 0, 0, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("eye:polygon")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ PoolVector2Array( 580.485, 141.998, 566.198, 264.228, 605.09, 176.127, 686.841, 154.697 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("eye2:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.447059, 0, 0, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("eye2:polygon")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ PoolVector2Array( 580.485, 141.998, 566.198, 264.228, 605.09, 176.127, 686.841, 154.697 ) ]
+}
 
 [node name="the_laughing_one" type="Polygon2D"]
 scale = Vector2( 0.612262, 0.612262 )
@@ -128,7 +188,7 @@ polygon = PoolVector2Array( 580.485, 141.998, 566.198, 264.228, 605.09, 176.127,
 
 [node name="eye2" type="Polygon2D" parent="."]
 self_modulate = Color( 2, 2, 2, 1 )
-position = Vector2( 1.83, 14.65 )
+position = Vector2( 1.83, 15.3776 )
 rotation = 0.761795
 color = Color( 0.447059, 0, 0, 1 )
 offset = Vector2( -723.126, -130.013 )
@@ -137,6 +197,5 @@ polygon = PoolVector2Array( 580.485, 141.998, 566.198, 264.228, 605.09, 176.127,
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "laugh"
-playback_speed = 0.75
 anims/defeated = SubResource( 1 )
 anims/laugh = SubResource( 2 )
