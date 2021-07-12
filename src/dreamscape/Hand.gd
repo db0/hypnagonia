@@ -21,6 +21,12 @@ func refill_hand() -> void:
 	is_hand_refilled = true
 	emit_signal("hand_refilled")
 
+func are_cards_still_animating() -> bool:
+	for c in get_all_cards():
+		if c.state in [Card.CardState.MOVING_TO_CONTAINER]:
+			return(true)
+	return(false)
+
 
 # Takes the top card from the specified [CardContainer]
 # and adds it to this node

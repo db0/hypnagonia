@@ -114,7 +114,6 @@ position = Vector2( 3.1748, 649.614 )
 script = ExtResource( 4 )
 placement = 8
 pile_name = "Deck"
-shuffle_style = 6
 
 [node name="Control" parent="Deck" index="0"]
 custom_styles/panel = SubResource( 1 )

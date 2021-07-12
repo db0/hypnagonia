@@ -7,7 +7,6 @@ onready var journal_choices := $HBC/JournalEntry/VBC/JournalChoices
 onready var card_storage := $EnemyCardStorage
 onready var reward_journal := $HBC/JournalEntry/VBC/RewardJournal
 onready var card_draft := $HBC/JournalEntry/VBC/CardDraftSlide/CardDraft
-onready var loss := $HBC/JournalEntry/VBC/Loss
 onready var proceed := $HBC/JournalEntry/VBC/Proceed
 onready var _tween := $Tween
 
@@ -149,8 +148,9 @@ func _get_intro() -> String:
 
 
 func _get_entry_texts(entries_key: String) -> String:
-	if not globals.unused_journal_texts.get(entries_key,[]).size():
-		globals.unused_journal_texts[entries_key] = JournalTexts[entries_key]
+	if not globals.unused_journal_texts.has(entries_key)\
+			or not globals.unused_journal_texts[entries_key].size():
+		globals.unused_journal_texts[entries_key] = JournalTexts[entries_key].duplicate()
 		CFUtils.shuffle_array(globals.unused_journal_texts[entries_key])
 	return(globals.unused_journal_texts[entries_key].pop_back())
 

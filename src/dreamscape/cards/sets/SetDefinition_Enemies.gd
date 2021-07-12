@@ -16,7 +16,7 @@ const CARDS := {
 		"Type": "Understanding",
 		"Tags": [],
 		"Abilities": "Forget a Perturbation from your deck or discard pile."\
-				+ "Interpret a Torment for 5",
+				+ "Gain 4 Confidence",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Received",

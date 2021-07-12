@@ -14,7 +14,6 @@ const CARD_GROUP_TERMS := {
 	"life_goal": "Injustice",
 }
 
-
 const PLAYER_HEALTH := "Anxiety"
 const PLAYER_DAMAGE_DONE := "done"
 const ENEMY_HEALTH := "Interpretation"
