@@ -1,5 +1,12 @@
 # Dreams: Changelog
 
+## v0.5.1
+
+* Fixed journal not refilling after 5th encounters
+* Fixed loss not triggerring
+* Change shuffle type as the overhand seems to cause some glitches
+* Scripted Understanding cards
+
 ## v0.5.0
 
 * Added a journal for progressing between encounters.
