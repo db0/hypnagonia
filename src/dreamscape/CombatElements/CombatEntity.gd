@@ -15,6 +15,7 @@ onready var collision_shape := $Art/Area2D/CollisionShape2D
 onready var area2d := $Art/Area2D
 onready var entity_texture :=  $Art/Texture
 onready var highlight := $Art/Highlight
+onready var _health_stats := $HBC
 onready var health_label : Label = $HBC/Health
 onready var name_label : Label = $Name
 onready var defence_label : Label = $HBC/Defence/Amount
@@ -68,15 +69,13 @@ func _ready() -> void:
 		turn.connect(turn_signal, self, "_on_" + turn_signal)
 
 func _process(delta: float) -> void:
-	if is_dead:
+	if is_dead and entity_texture.material as ShaderMaterial:
 		shader_progress += delta
 		entity_texture.material.set_shader_param(
-					'progress', shader_progress)
-		var texture_pos = entity_texture.rect_global_position
-		for node in [name_label, health_label, defence_label, active_effects, incoming]:
-			if node.visible:
-				node.visible = false
-		entity_texture.rect_global_position = texture_pos
+				'progress', shader_progress)
+		for node in [name_label, _health_stats, active_effects, incoming]:
+			if node.modulate.a > 0:
+				node.modulate.a = 0
 		if shader_progress > 0.8:
 			queue_free()
 

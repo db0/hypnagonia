@@ -1,86 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[sub_resource type="Animation" id=1]
-resource_name = "defeated"
-tracks/0/type = "value"
-tracks/0/path = NodePath("mouth:polygon")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ PoolVector2Array( 367.773, 296.769, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 691.603, 217.399, 645.568, 303.913, 490.797, 345.979 ), PoolVector2Array( 407.145, 423.478, 466.986, 407.094, 587.515, 369.521, 701.127, 331.692, 741.676, 316.335, 658.429, 341.001, 505.809, 387.25 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("eye:polygon")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ PoolVector2Array( 580.485, 141.998, 566.198, 264.228, 605.09, 176.127, 686.841, 154.697 ), PoolVector2Array( 589.056, 159.09, 549.745, 224.609, 616.035, 211.505, 679.241, 170.652 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("eye2:polygon")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.501 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ PoolVector2Array( 580.485, 141.998, 566.198, 264.228, 605.09, 176.127, 686.841, 154.697 ), PoolVector2Array( 596.643, 166.001, 597.957, 248.902, 646.31, 186.801, 670.61, 127.403 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("eye2:color")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 0.447059, 0, 0, 1 ), Color( 0.447059, 0, 0, 1 ), Color( 0, 0, 0, 1 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("eye:color")
-tracks/4/interp = 2
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 0.447059, 0, 0, 1 ), Color( 0.447059, 0, 0, 1 ), Color( 0, 0, 0, 1 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("AnimationPlayer:playback_speed")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 1.0 ]
-}
+[ext_resource path="res://src/dreamscape/CombatElements/Enemies/Art/AnimatedPolygonEnemy.gd" type="Script" id=1]
 
 [sub_resource type="Animation" id=2]
+resource_name = "acting"
 length = 5.0
-loop = true
 step = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/path = NodePath("EnemyPolygon:rotation_degrees")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -104,7 +31,7 @@ tracks/1/keys = {
 "values": [ 0.75, 5.0, 0.2 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("mouth:polygon")
+tracks/2/path = NodePath("EnemyPolygon/mouth:polygon")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -116,7 +43,7 @@ tracks/2/keys = {
 "values": [ PoolVector2Array( 367.773, 296.769, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 691.603, 217.399, 645.568, 303.913, 490.797, 345.979 ), PoolVector2Array( 375.927, 327.604, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 708.349, 252.953, 653.896, 320.149, 504.722, 369.043 ), PoolVector2Array( 367.773, 296.769, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 691.603, 217.399, 624.298, 261.777, 487.885, 300.574 ), PoolVector2Array( 386.327, 345.238, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 723.16, 250.218, 634.458, 321.159, 511.628, 363.038 ), PoolVector2Array( 370.174, 304.456, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 698.139, 211.657, 610.086, 267.996, 492.958, 305.631 ), PoolVector2Array( 384.685, 360.187, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 720.478, 238.53, 639.621, 325.474, 529.08, 367.692 ), PoolVector2Array( 384.046, 341.493, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 710.701, 238.297, 641.667, 328.533, 515.507, 367.398 ), PoolVector2Array( 367.773, 296.769, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 691.603, 217.399, 614.81, 291.089, 499.969, 318.085 ), PoolVector2Array( 367.773, 296.769, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 691.603, 217.399, 645.568, 303.913, 490.797, 345.979 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("eye:color")
+tracks/3/path = NodePath("EnemyPolygon/eye:color")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -128,7 +55,7 @@ tracks/3/keys = {
 "values": [ Color( 0.447059, 0, 0, 1 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("eye:polygon")
+tracks/4/path = NodePath("EnemyPolygon/eye:polygon")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -140,7 +67,7 @@ tracks/4/keys = {
 "values": [ PoolVector2Array( 580.485, 141.998, 566.198, 264.228, 605.09, 176.127, 686.841, 154.697 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("eye2:color")
+tracks/5/path = NodePath("EnemyPolygon/eye2:color")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -152,7 +79,7 @@ tracks/5/keys = {
 "values": [ Color( 0.447059, 0, 0, 1 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("eye2:polygon")
+tracks/6/path = NodePath("EnemyPolygon/eye2:AnimationPlayer/TheLaughingOne")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -164,21 +91,105 @@ tracks/6/keys = {
 "values": [ PoolVector2Array( 580.485, 141.998, 566.198, 264.228, 605.09, 176.127, 686.841, 154.697 ) ]
 }
 
-[node name="the_laughing_one" type="Polygon2D"]
-scale = Vector2( 0.612262, 0.612262 )
+[sub_resource type="Animation" id=1]
+resource_name = "defeated"
+tracks/0/type = "value"
+tracks/0/path = NodePath("EnemyPolygon/mouth:polygon")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ PoolVector2Array( 367.773, 296.769, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 691.603, 217.399, 645.568, 303.913, 490.797, 345.979 ), PoolVector2Array( 407.145, 423.478, 466.986, 407.094, 587.515, 369.521, 701.127, 331.692, 741.676, 316.335, 658.429, 341.001, 505.809, 387.25 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("EnemyPolygon/eye:polygon")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ PoolVector2Array( 580.485, 141.998, 566.198, 264.228, 605.09, 176.127, 686.841, 154.697 ), PoolVector2Array( 589.056, 159.09, 549.745, 224.609, 616.035, 211.505, 679.241, 170.652 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("EnemyPolygon/eye2:polygon")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.501 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ PoolVector2Array( 580.485, 141.998, 566.198, 264.228, 605.09, 176.127, 686.841, 154.697 ), PoolVector2Array( 596.643, 166.001, 597.957, 248.902, 646.31, 186.801, 670.61, 127.403 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("EnemyPolygon/eye2:color")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.447059, 0, 0, 1 ), Color( 0.447059, 0, 0, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("EnemyPolygon/eye:color")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.447059, 0, 0, 1 ), Color( 0.447059, 0, 0, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AnimationPlayer:playback_speed")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+
+[node name="AnimatedEnemy" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnemyPolygon" type="Polygon2D" parent="."]
+position = Vector2( 0, 55 )
+scale = Vector2( 0.24, 0.24 )
 color = Color( 0.619608, 0.619608, 0.619608, 1 )
 offset = Vector2( -533.88, -268.671 )
 antialiased = true
 polygon = PoolVector2Array( 256, 128, 384, 128, 576, 64, 640, 0, 768, 320, 704, 448, 576, 512, 384, 448 )
 
-[node name="mouth" type="Polygon2D" parent="."]
+[node name="mouth" type="Polygon2D" parent="EnemyPolygon"]
 position = Vector2( 1.83331, 14.6665 )
 color = Color( 0, 0, 0, 1 )
 offset = Vector2( -532.758, -275.078 )
 antialiased = true
 polygon = PoolVector2Array( 367.773, 296.769, 466.986, 407.094, 605.09, 430.905, 701.127, 331.692, 691.603, 217.399, 645.568, 303.913, 490.797, 345.979 )
 
-[node name="eye" type="Polygon2D" parent="."]
+[node name="eye" type="Polygon2D" parent="EnemyPolygon"]
 self_modulate = Color( 2, 2, 2, 1 )
 position = Vector2( 1.83, 14.65 )
 color = Color( 0.447059, 0, 0, 1 )
@@ -186,7 +197,7 @@ offset = Vector2( -532.758, -275.078 )
 antialiased = true
 polygon = PoolVector2Array( 580.485, 141.998, 566.198, 264.228, 605.09, 176.127, 686.841, 154.697 )
 
-[node name="eye2" type="Polygon2D" parent="."]
+[node name="eye2" type="Polygon2D" parent="EnemyPolygon"]
 self_modulate = Color( 2, 2, 2, 1 )
 position = Vector2( 1.83, 15.3776 )
 rotation = 0.761795
@@ -196,6 +207,6 @@ antialiased = true
 polygon = PoolVector2Array( 580.485, 141.998, 566.198, 264.228, 605.09, 176.127, 686.841, 154.697 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "laugh"
+playback_speed = 0.2
+anims/acting = SubResource( 2 )
 anims/defeated = SubResource( 1 )
-anims/laugh = SubResource( 2 )

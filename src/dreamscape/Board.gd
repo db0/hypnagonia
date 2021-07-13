@@ -51,13 +51,13 @@ func _ready() -> void:
 	dreamer.rect_position = Vector2(100,100)
 # warning-ignore:unused_variable
 #	var torment = spawn_enemy("Fearmonger")
-#	var torment2 = spawn_enemy("The Laughing One")
+	var torment2 = spawn_enemy("The Laughing One")
 #	var torment3 = spawn_enemy("Gaslighter")
 #	var torment2 = spawn_enemy("Gaslighter")
 #	torment2.rect_position = Vector2(800,100)
 #	torment3.rect_position = Vector2(200,300)
 #	dreamer.active_effects.mod_effect(ActiveEffects.NAMES.disempower, 5)
-	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 5)
+#	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 5)
 #	dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
 #	torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 10)
 	_on_viewport_resized()
@@ -139,6 +139,7 @@ func _on_ReshuffleAllDeck_pressed() -> void:
 func _on_ReshuffleAllDiscard_pressed() -> void:
 	reshuffle_all_in_pile(cfc.NMAP.discard)
 
+
 func reshuffle_all_in_pile(pile = cfc.NMAP.deck):
 	for c in get_tree().get_nodes_in_group("cards"):
 		if c.get_parent() != pile:
@@ -188,21 +189,23 @@ func _on_player_turn_started(_turn: Turn) -> void:
 	if is_instance_valid(dreamer) and not dreamer.is_dead:
 		end_turn.disabled = false
 
+
 func _on_player_turn_ended(_turn: Turn) -> void:
 	end_turn.disabled = true
-	activated_enemies.clear()
 	turn.start_enemy_turn()
+
+func _on_enemy_turn_started(_turn: Turn) -> void:
 	yield(get_tree().create_timer(1), "timeout")
 	# I want the enemies to activate serially
 	for enemy in get_tree().get_nodes_in_group("EnemyEntities"):
+		# It might have died of poison in the meantime
+		if is_instance_valid(enemy):
 #		print_debug("Activating Intents: " + enemy.canonical_name)
-		enemy.activate()
-
-func _on_enemy_turn_started(_turn: Turn) -> void:
-	pass
+			enemy.activate()
+			yield(enemy, "finished_activation")
 
 func _on_enemy_turn_ended(_turn: Turn) -> void:
-	pass
+	activated_enemies.clear()
 
 func _on_finished_enemy_activation(enemy: EnemyEntity) -> void:
 	if not enemy in activated_enemies:

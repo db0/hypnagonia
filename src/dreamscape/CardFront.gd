@@ -72,4 +72,4 @@ func apply_sharer(shader_path: String) -> void:
 	shader_effect.visible = true
 	shader_effect.material = ShaderMaterial.new()
 	shader_effect.material.shader = load(shader_path)
-	shader_effect.material.shader = load("res://shaders/grayscale.shader")
+

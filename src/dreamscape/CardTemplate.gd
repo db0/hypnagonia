@@ -27,6 +27,8 @@ func _process(delta: float) -> void:
 			set_card_rotation(0,false,false)
 			shader_progress += delta
 #			print_debug(shader_progress, delta)
+#			card_front.shader_effect.material.set_shader_param(
+#						'progress', shader_progress)
 			card_front.material.set_shader_param(
 						'progress', shader_progress)
 			if get_parent().is_in_group("hands"):
@@ -247,6 +249,7 @@ func common_pre_run(sceng) -> void:
 
 # Removes this card from the game completely.
 func remove_from_game() -> void:
+#	card_front.apply_sharer("res://shaders/consume.shader")
 	card_front.material = ShaderMaterial.new()
 	card_front.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
 	state = ExtendedCardState.REMOVE_FROM_GAME
