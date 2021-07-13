@@ -63,6 +63,7 @@ func _ready() -> void:
 	_update_health_label()
 	active_effects.combat_entity = self
 	highlight.rect_min_size = entity_size + Vector2(1,1)
+	highlight.entity_art = entity_texture
 	var turn: Turn = cfc.NMAP.board.turn
 	for turn_signal in Turn.ALL_SIGNALS:
 		# warning-ignore:return_value_discarded
@@ -76,7 +77,7 @@ func _process(delta: float) -> void:
 		for node in [name_label, _health_stats, active_effects, incoming]:
 			if node.modulate.a > 0:
 				node.modulate.a = 0
-		if shader_progress > 0.8:
+		if shader_progress > 0.9:
 			queue_free()
 
 func set_defence(value) -> void:

@@ -1,6 +1,5 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://shaders/consume.shader" type="Shader" id=1]
 [ext_resource path="res://src/dreamscape/CardFront.gd" type="Script" id=2]
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=3]
 [ext_resource path="res://themes/darktheme/fonts/Ubuntu-L.ttf" type="DynamicFontData" id=4]
@@ -35,13 +34,6 @@ font_data = ExtResource( 4 )
 size = 12
 font_data = ExtResource( 5 )
 
-[sub_resource type="ShaderMaterial" id=6]
-shader = ExtResource( 1 )
-shader_param/progress = 0.0
-shader_param/noise_desnity = 60.0
-shader_param/beam_size = 0.01
-shader_param/color = Color( 0, 1.02, 1.2, 1 )
-
 [node name="Front" type="Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -57,6 +49,7 @@ __meta__ = {
 }
 
 [node name="Art" type="TextureRect" parent="."]
+use_parent_material = true
 margin_top = 30.0
 margin_right = 200.0
 margin_bottom = 185.0
@@ -70,6 +63,7 @@ __meta__ = {
 }
 
 [node name="CardDesign" type="TextureRect" parent="."]
+use_parent_material = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 200, 280 )
@@ -82,6 +76,7 @@ __meta__ = {
 }
 
 [node name="CardText" type="VBoxContainer" parent="."]
+use_parent_material = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 200, 280 )
@@ -94,18 +89,21 @@ __meta__ = {
 }
 
 [node name="ArtLayover" type="VBoxContainer" parent="CardText"]
+use_parent_material = true
 margin_right = 200.0
 margin_bottom = 185.0
 rect_min_size = Vector2( 200, 185 )
 mouse_filter = 2
 
 [node name="NamePush" type="Control" parent="CardText/ArtLayover"]
+use_parent_material = true
 margin_right = 200.0
 margin_bottom = 13.0
 rect_min_size = Vector2( 200, 13 )
 mouse_filter = 2
 
 [node name="MC" type="MarginContainer" parent="CardText/ArtLayover"]
+use_parent_material = true
 margin_top = 16.0
 margin_right = 200.0
 margin_bottom = 34.0
@@ -113,6 +111,7 @@ rect_min_size = Vector2( 200, 18 )
 mouse_filter = 2
 
 [node name="Name" type="Label" parent="CardText/ArtLayover/MC"]
+use_parent_material = true
 margin_right = 200.0
 margin_bottom = 18.0
 rect_min_size = Vector2( 200, 18 )
@@ -127,6 +126,7 @@ valign = 1
 autowrap = true
 
 [node name="MC" type="MarginContainer" parent="CardText"]
+use_parent_material = true
 margin_top = 185.0
 margin_right = 200.0
 margin_bottom = 200.0
@@ -134,6 +134,7 @@ rect_min_size = Vector2( 200, 15 )
 mouse_filter = 2
 
 [node name="Type" type="Label" parent="CardText/MC"]
+use_parent_material = true
 margin_right = 200.0
 margin_bottom = 15.0
 rect_min_size = Vector2( 200, 15 )
@@ -150,6 +151,7 @@ __meta__ = {
 
 [node name="OutsideArt" type="MarginContainer" parent="CardText"]
 self_modulate = Color( 1, 1, 1, 0.180392 )
+use_parent_material = true
 margin_top = 200.0
 margin_right = 200.0
 margin_bottom = 261.0
@@ -159,6 +161,7 @@ custom_constants/margin_right = 15
 custom_constants/margin_left = 15
 
 [node name="Abilities" type="Label" parent="CardText/OutsideArt"]
+use_parent_material = true
 margin_left = 15.0
 margin_right = 185.0
 margin_bottom = 61.0
@@ -172,6 +175,7 @@ autowrap = true
 
 [node name="Tags" type="Label" parent="CardText"]
 visible = false
+use_parent_material = true
 margin_top = 261.0
 margin_right = 200.0
 margin_bottom = 274.0
@@ -185,6 +189,7 @@ autowrap = true
 uppercase = true
 
 [node name="CostContainer" type="CenterContainer" parent="."]
+use_parent_material = true
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 45.0
@@ -195,6 +200,7 @@ __meta__ = {
 }
 
 [node name="CostIcon" type="TextureRect" parent="CostContainer"]
+use_parent_material = true
 margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
@@ -203,6 +209,7 @@ texture = ExtResource( 7 )
 expand = true
 
 [node name="Cost" type="Label" parent="CostContainer"]
+use_parent_material = true
 margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
@@ -217,6 +224,7 @@ __meta__ = {
 }
 
 [node name="TagContainer1" type="CenterContainer" parent="."]
+use_parent_material = true
 margin_left = 3.0
 margin_top = 172.0
 margin_right = 43.0
@@ -227,6 +235,7 @@ __meta__ = {
 }
 
 [node name="TagContainer" type="TextureRect" parent="TagContainer1"]
+use_parent_material = true
 margin_left = 3.0
 margin_top = 3.0
 margin_right = 37.0
@@ -237,6 +246,7 @@ texture = ExtResource( 10 )
 expand = true
 
 [node name="TagIcon" type="TextureRect" parent="TagContainer1"]
+use_parent_material = true
 margin_left = 9.0
 margin_top = 9.0
 margin_right = 31.0
@@ -246,6 +256,7 @@ mouse_filter = 2
 expand = true
 
 [node name="TagContainer2" type="CenterContainer" parent="."]
+use_parent_material = true
 margin_left = 157.0
 margin_top = 172.0
 margin_right = 197.0
@@ -256,6 +267,7 @@ __meta__ = {
 }
 
 [node name="TagContainer" type="TextureRect" parent="TagContainer2"]
+use_parent_material = true
 margin_left = 3.0
 margin_top = 3.0
 margin_right = 37.0
@@ -266,6 +278,7 @@ texture = ExtResource( 10 )
 expand = true
 
 [node name="TagIcon" type="TextureRect" parent="TagContainer2"]
+use_parent_material = true
 margin_left = 9.0
 margin_top = 9.0
 margin_right = 31.0
@@ -274,9 +287,12 @@ rect_min_size = Vector2( 22, 22 )
 mouse_filter = 2
 expand = true
 
+[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+visible = false
+rect = Rect2( 0, 0, 200, 280 )
+
 [node name="ShaderEffect" type="ColorRect" parent="."]
 visible = false
-material = SubResource( 6 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 200, 280 )

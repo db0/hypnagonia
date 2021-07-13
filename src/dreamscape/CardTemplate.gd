@@ -8,7 +8,7 @@ enum ExtendedCardState {
 	SPAWNED_PERTURBATION
 }
 
-var shader_progress := 0.0
+var shader_progress := 1.0
 var attempted_action_drop_to_board := false
 var tutorial_disabled := false
 var pertub_destination : CardContainer
@@ -25,12 +25,12 @@ func _process(delta: float) -> void:
 			buttons.set_active(false)
 			# warning-ignore:return_value_discarded
 			set_card_rotation(0,false,false)
-			shader_progress += delta
+			shader_progress -= delta
 #			print_debug(shader_progress, delta)
 #			card_front.shader_effect.material.set_shader_param(
 #						'progress', shader_progress)
 			card_front.material.set_shader_param(
-						'progress', shader_progress)
+						'dissolve_value', shader_progress)
 			if get_parent().is_in_group("hands"):
 				var parent = get_parent()
 				var currect_pos = global_position
@@ -40,14 +40,14 @@ func _process(delta: float) -> void:
 				for c in parent.get_all_cards():
 						c.interruptTweening()
 						c.reorganize_self()
-			if shader_progress > 0.1:
-				card_front._card_text.visible = false
-				card_front.cost_container.visible = false
-				card_front.tag_container1.visible = false
-				card_front.tag_container2.visible = false
-				card_front.card_design.visible = false
-				card_front.art.visible = false
-			if shader_progress > 0.8:
+#			if shader_progress > 0.1:
+#				card_front._card_text.visible = false
+#				card_front.cost_container.visible = false
+#				card_front.tag_container1.visible = false
+#				card_front.tag_container2.visible = false
+#				card_front.card_design.visible = false
+#				card_front.art.visible = false
+			if shader_progress < 0.1:
 				if cfc.NMAP.board.mouse_pointer.current_focused_card == self:
 					cfc.NMAP.board.mouse_pointer.current_focused_card = null
 				queue_free()
@@ -250,8 +250,8 @@ func common_pre_run(sceng) -> void:
 # Removes this card from the game completely.
 func remove_from_game() -> void:
 #	card_front.apply_sharer("res://shaders/consume.shader")
-	card_front.material = ShaderMaterial.new()
-	card_front.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
+	card_front.material = preload("res://shaders/dissolve.tres")
+#	card_front.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
 	state = ExtendedCardState.REMOVE_FROM_GAME
 	cfc.flush_cache()
 

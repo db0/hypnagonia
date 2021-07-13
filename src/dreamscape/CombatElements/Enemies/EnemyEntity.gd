@@ -28,6 +28,7 @@ func _ready() -> void:
 #		art_scene.scale = Vector2(0.24,0.24)
 		art_scene.enemy_polygon.position =+ art.rect_size + art_scene.enemy_polygon.position
 		entity_texture.visible = false
+		highlight.entity_art = art_scene
 	intents.prepare_intents()
 
 

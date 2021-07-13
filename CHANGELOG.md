@@ -1,5 +1,11 @@
 # Dreams: Changelog
 
+## v0.5.2
+
+* Improved Shaders
+* Improved Highlights
+* Added better default Godot sprite
+* Added overcoming animation to The Laughing One (Credit to https://www.reddit.com/user/insomniac_lemon)
 ## v0.5.1
 
 * Fixed journal not refilling after 5th encounters
