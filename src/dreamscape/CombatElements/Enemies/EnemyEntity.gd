@@ -44,7 +44,7 @@ func activate() -> void:
 		return
 #	print_debug(damage, is_dead, health)
 	if animated_art:
-		animated_art.act()
+		animated_art.act(intents.intent_name)
 	var sceng = intents.execute_scripts()
 	if sceng is GDScriptFunctionState:
 		sceng = yield(sceng, "completed")

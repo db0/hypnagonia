@@ -5,8 +5,10 @@ onready var animation_player:= $AnimationPlayer
 onready var enemy_polygon = $EnemyPolygon
 
 
-func act() -> void:
-	if animation_player.has_animation("acting"):
+func act(animation_name: String) -> void:
+	if animation_player.has_animation(animation_name):
+		animation_player.play(animation_name)
+	elif animation_player.has_animation("acting"):
 		animation_player.play("acting")
 
 

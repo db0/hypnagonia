@@ -7,6 +7,7 @@ var all_intents: Array
 var unused_intents: Array
 # The enemy entity owning these intents
 var combat_entity
+var intent_name: String
 
 var all_intent_scripts = IntentScripts.new()
 
@@ -24,7 +25,9 @@ func prepare_intents() -> void:
 		# Therefore we always split the intent name (i.e. the key) on a colon, and the name
 		# is always the first part.
 		var intent_array = intent.split(':')
-		var intent_name = intent_array[0]
+		# We store the name of the last script in the list of intents as the 
+		# intent name. Then we can use it for special animations and so on.
+		intent_name = intent_array[0]
 		var intent_scripts = all_intent_scripts.get_scripts(intent_name)
 		if not intent_scripts:
 			print_debug("WARNING: Intent with name '" + intent_name + "' not found!")
