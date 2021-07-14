@@ -1,11 +1,15 @@
 # Dreams: Changelog
 
+## v0.5.3
+
+* Added polygon-art for the fearmonger (Credit to insomniacUNDERSCORElemon)
+
 ## v0.5.2
 
 * Improved Shaders
 * Improved Highlights
 * Added better default Godot sprite
-* Added overcoming animation to The Laughing One (Credit to https://www.reddit.com/user/insomniac_lemon)
+* Added overcoming animation to The Laughing One (Credit to insomniacUNDERSCORElemon)
 ## v0.5.1
 
 * Fixed journal not refilling after 5th encounters
