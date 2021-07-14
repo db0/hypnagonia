@@ -50,7 +50,7 @@ func _ready() -> void:
 	_player_area.add_child(dreamer)
 	dreamer.rect_position = Vector2(100,100)
 # warning-ignore:unused_variable
-	var torment = spawn_enemy("Fearmonger")
+#	var torment = spawn_enemy("Fearmonger")
 #	var torment2 = spawn_enemy("The Laughing One")
 #	var torment3 = spawn_enemy("Gaslighter")
 #	var torment2 = spawn_enemy("Gaslighter")
