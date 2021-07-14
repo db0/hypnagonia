@@ -50,6 +50,7 @@ const ENEMIES := {
 		"_texture_size_y": "120",
 		"_character_art": "nobody",
 		"_art_scene": "res://src/dreamscape/CombatElements/Enemies/Art/fearmonger.tscn",
+		"_character_art": "insomniac_lemon",
 	},
 	"The Laughing One": {
 		"Type": "Fear",
