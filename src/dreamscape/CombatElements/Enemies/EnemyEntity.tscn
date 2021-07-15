@@ -37,6 +37,9 @@ material = SubResource( 1 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="Highlight" parent="Art" index="1"]
+mouse_filter = 2
+
 [node name="Name" parent="." index="3"]
 margin_top = 91.0
 margin_bottom = 121.0

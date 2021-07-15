@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/Art/AnimatedPolygonEnemy.gd" type="Script" id=1]
 
-[sub_resource type="GDScript" id=3]
+[sub_resource type="GDScript" id=1]
 script/source = "tool
 extends Polygon2D
 
@@ -27,8 +27,7 @@ func set_width(new_width):
 	update()
 "
 
-[sub_resource type="Animation" id=1]
-resource_name = "acting"
+[sub_resource type="Animation" id=2]
 length = 5.0
 step = 0.5
 tracks/0/type = "value"
@@ -116,7 +115,7 @@ tracks/6/keys = {
 "values": [ PoolVector2Array( 580.485, 141.998, 566.198, 264.228, 605.09, 176.127, 686.841, 154.697 ) ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath("EnemyPolygon/mouth:polygon")
 tracks/0/interp = 2
@@ -195,6 +194,7 @@ margin_left = 100.0
 margin_top = 100.0
 margin_right = 140.0
 margin_bottom = 140.0
+mouse_filter = 1
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -207,7 +207,7 @@ color = Color( 0.619608, 0.619608, 0.619608, 1 )
 offset = Vector2( -533.88, -268.671 )
 antialiased = true
 polygon = PoolVector2Array( 256, 128, 384, 128, 576, 64, 640, 0, 768, 320, 704, 448, 576, 512, 384, 448 )
-script = SubResource( 3 )
+script = SubResource( 1 )
 
 [node name="mouth" type="Polygon2D" parent="EnemyPolygon"]
 position = Vector2( 1.83331, 14.6665 )
@@ -236,5 +236,5 @@ polygon = PoolVector2Array( 580.485, 141.998, 566.198, 264.228, 605.09, 176.127,
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "acting"
 playback_speed = 0.75
-anims/acting = SubResource( 1 )
-anims/defeated = SubResource( 2 )
+anims/acting = SubResource( 2 )
+anims/defeated = SubResource( 3 )

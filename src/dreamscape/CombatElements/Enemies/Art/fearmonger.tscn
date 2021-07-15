@@ -27,7 +27,7 @@ func set_width(new_width):
 	update()
 "
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "Stare"
 length = 2.0
 tracks/0/type = "value"
@@ -139,7 +139,7 @@ tracks/8/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("EnemyPolygon/eye1/pupil1:position")
@@ -262,7 +262,7 @@ tracks/9/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath("EnemyPolygon/eye1:scale")
 tracks/0/interp = 2
@@ -317,6 +317,7 @@ margin_left = 100.0
 margin_top = 100.0
 margin_right = 140.0
 margin_bottom = 140.0
+mouse_filter = 1
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -411,6 +412,6 @@ antialiased = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "acting"
-anims/Stare = SubResource( 4 )
-anims/acting = SubResource( 2 )
-anims/defeated = SubResource( 3 )
+anims/Stare = SubResource( 2 )
+anims/acting = SubResource( 3 )
+anims/defeated = SubResource( 4 )

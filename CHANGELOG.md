@@ -1,5 +1,11 @@
 # Dreams: Changelog
 
+## v0.5.4
+
+* Made card/hand layout control-based
+* Deck/Discard/Forgotten piles are smaller
+* Added way to see the deck contents
+
 ## v0.5.3
 
 * Added polygon-art for the fearmonger (Credit to insomniacUNDERSCORElemon)

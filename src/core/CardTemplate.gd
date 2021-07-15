@@ -683,7 +683,13 @@ func get_property_and_alterants(property: String,
 	return(return_dict)
 
 
+# Adjust all control nodes in this card's hierarchy so that they are
+# scaled according to the requested scale, and then adjusted in position likewise
+# This allows the card layout to scale without using the .scale property
+# Which prevents the font from getting blurry
 func resize_recursively(control_node: Node, requested_scale: float) -> void:
+	if card_size != CFConst.CARD_SIZE * requested_scale:
+		card_size = CFConst.CARD_SIZE * requested_scale
 	if original_layouts.has(control_node)\
 			and CFUtils.compare_floats(requested_scale, original_layouts[control_node].get('scale')):
 		return
@@ -720,6 +726,7 @@ func set_card_size(value: Vector2, ignore_area = false) -> void:
 	if not ignore_area:
 		$CollisionShape2D.shape.extents = value / 2
 		$CollisionShape2D.position = value / 2
+
 
 # Setter for _is_attachment
 func set_is_attachment(value: bool) -> void:
@@ -1060,6 +1067,24 @@ func move_to(targetHost: Node,
 		# So we store it to know where the card used to be, before moving it
 		var previous_pos = global_position
 		var global_pos = global_position
+		# If the parent and the target are on different scales, we want to
+		# adjust the scale of the card before moving.
+		# The MOVING_TO_CONTAINER state will adjust the scale with a tween automatically
+		# which will make the card appear to be be resizing as it's moving
+		var parent_scale: Vector2
+		var target_scale: Vector2
+		if parentHost as Control:
+			parent_scale = parentHost.rect_scale
+		else:
+			parent_scale = parentHost.scale
+		if targetHost as Control:
+			target_scale = targetHost.rect_scale
+		else:
+			target_scale = targetHost.scale
+		if parent_scale > target_scale:
+			scale = parent_scale / target_scale
+		elif parent_scale < target_scale:
+			scale *= parent_scale * target_scale
 		# We need to remove the current parent node before adding a different one
 		parentHost.remove_child(self)
 		targetHost.add_child(self)
@@ -2059,6 +2084,7 @@ func _process_card_state() -> void:
 			# We increase the z_index to allow the focused card appear
 			# always over its neighbours
 			z_index = 10
+#			print(global_position + _control.rect_size)
 			set_focus(true,check_play_costs())
 			set_control_mouse_filters(true)
 			buttons.set_active(false)
@@ -2098,11 +2124,18 @@ func _process_card_state() -> void:
 						* 0.25,0)
 				# Enough with the fancy calculations. I'm just brute-forcing
 				# The card to stay at the fully within the viewport.
-				while get_parent().position.y \
-					+ get_parent().bottom_margin \
-					+ _target_position.y \
-					+ card_size.y > get_viewport().size.y:
-					_target_position.y -= 1
+				if get_parent().placement == get_parent().Anchors.CONTROL:
+					while  get_parent().get_parent().rect_global_position.y\
+							+ get_parent().bottom_margin \
+							+ _target_position.y \
+							+ card_size.y * 1.5 > get_viewport().size.y:
+						_target_position.y -= 1
+				else:
+					while get_parent().position.y \
+						+ get_parent().bottom_margin \
+						+ _target_position.y \
+						+ card_size.y > get_viewport().size.y:
+						_target_position.y -= 1
 				# We need to bump up the y postion a bit based on the rotation
 				# We subtract 13 if there is no rotation
 				_target_rotation = expected_rotation
@@ -2121,7 +2154,7 @@ func _process_card_state() -> void:
 				# We don't change state yet, only when the focus is removed
 				# from this card
 #				resize_recursively(highlight, 1.0)
-			
+
 
 		CardState.MOVING_TO_CONTAINER:
 			# Used when moving card between places

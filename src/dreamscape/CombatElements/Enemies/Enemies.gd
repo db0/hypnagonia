@@ -48,7 +48,6 @@ const ENEMIES := {
 		"_health_variability": 4,
 		"_texture_size_x": "120",
 		"_texture_size_y": "120",
-		"_character_art": "nobody",
 		"_art_scene": "res://src/dreamscape/CombatElements/Enemies/Art/fearmonger.tscn",
 		"_character_art": "insomniac_lemon",
 	},
@@ -83,6 +82,46 @@ const ENEMIES := {
 		"_health_variability": 2,
 		"_texture_size_x": "120",
 		"_texture_size_y": "120",
-		"_character_art": "nobody",		
+		"_character_art": "nobody",
+	},
+	"Clown": {
+		"Type": "Phobia",
+		"Health": 1,
+		"Intents": [
+		],
+		"_health_variability": 2,
+		"_texture_size_x": "120",
+		"_texture_size_y": "120",
+		"_character_art": "nobody",
+	},
+	"Butterfly": {
+		"Type": "Phobia",
+		"Health": 1,
+		"Intents": [
+		],
+		"_health_variability": 2,
+		"_texture_size_x": "120",
+		"_texture_size_y": "120",
+		"_character_art": "nobody",
+	},
+	"Spider": {
+		"Type": "Phobia",
+		"Health": 1,
+		"Intents": [
+		],
+		"_health_variability": 2,
+		"_texture_size_x": "120",
+		"_texture_size_y": "120",
+		"_character_art": "nobody",
+	},
+	"Mouse": {
+		"Type": "Phobia",
+		"Health": 1,
+		"Intents": [
+		],
+		"_health_variability": 2,
+		"_texture_size_x": "120",
+		"_texture_size_y": "120",
+		"_character_art": "nobody",
 	},
 }

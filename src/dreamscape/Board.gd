@@ -11,7 +11,6 @@ var boss_battle := false
 onready var bottom_gui := $VBC/HBC
 onready var post_battle_menu := $PostBattleMenu
 onready var game_over_notice := $GameOver
-onready var deck_pile: Pile = $Deck
 onready var _player_area := $VBC/CombatArena/PlayerArea
 onready var _enemy_area := $VBC/CombatArena/EnemyArea/Enemies
 onready var _combat_arena := $VBC/CombatArena
@@ -174,11 +173,10 @@ func get_all_scriptables() -> Array:
 # Loads the player's deck
 func load_deck() -> void:
 	for card in globals.player.deck.instance_cards():
-		$Deck.add_child(card)
+		cfc.NMAP.deck.add_child(card)
 		#card.set_is_faceup(false,true)
 		card._determine_idle_state()
-		deck_pile.shuffle_cards(false)
-
+		cfc.NMAP.deck.shuffle_cards(false)
 
 
 func _on_player_turn_started(_turn: Turn) -> void:

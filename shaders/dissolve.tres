@@ -16,12 +16,12 @@ void fragment(){
     COLOR = main_texture;
 }"
 
-[sub_resource type="OpenSimplexNoise" id=3]
+[sub_resource type="OpenSimplexNoise" id=2]
 
-[sub_resource type="NoiseTexture" id=4]
-noise = SubResource( 3 )
+[sub_resource type="NoiseTexture" id=3]
+noise = SubResource( 2 )
 
 [resource]
 shader = SubResource( 1 )
 shader_param/dissolve_value = 1.0
-shader_param/dissolve_texture = SubResource( 4 )
+shader_param/dissolve_texture = SubResource( 3 )
