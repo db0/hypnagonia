@@ -23,6 +23,8 @@ margin_bottom = 898.0
 margin_right = 724.0
 margin_bottom = 896.0
 size_flags_horizontal = 3
+expand = true
+stretch_mode = 5
 
 [node name="JournalEntry" type="PanelContainer" parent="HBC"]
 margin_left = 727.0

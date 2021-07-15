@@ -14,6 +14,8 @@ func _init(encounter: Dictionary):
 	description = encounter["journal_description"]
 	enemies = encounter["enemies"]
 	reward_description = encounter["journal_reward"]
+	prepare_journal_art(encounter)
+
 
 func get_formated_description() -> String:
 	var rtag_index = 1
@@ -34,6 +36,7 @@ func get_unique_enemies() -> Array:
 			unique_enemies.append(enemy)
 	return(unique_enemies)
 
+
 func begin() -> void:
 	.begin()
 	current_combat = load(CFConst.PATH_CUSTOM + 'Main.tscn').instance()
@@ -42,11 +45,13 @@ func begin() -> void:
 	cfc.NMAP.board.spawn_enemy_encounter(self)
 	cfc.NMAP.board.begin_encounter()
 
+
 func end() -> void:
 	current_combat.queue_free()
 	yield(cfc.get_tree().create_timer(0.1), "timeout")
 	cfc.NMAP.clear()
 	globals.journal.display_rewards(reward_description)
+
 
 func return_extra_draft_cards() -> Array:
 	return(get_unique_enemies())

@@ -37,12 +37,11 @@ func populate_choices(archetype: String) -> void:
 		node.queue_free()
 	for type in get_all_types_list(archetype):
 		var archetype_button = ARCHETYPE_SCENE.instance()
-		archetype_button.name = type
-		archetype_button.text = type
-		_archetype_description_label.text = CardGroupDefinitions.ARCHETYPES[archetype]
 		_archetype_choices.add_child(archetype_button)
-		archetype_button.connect("pressed", self, "_on_archetype_choice_pressed", [type, archetype])
-		archetype_button.connect("mouse_entered", self, "_on_archetype_mouse_entered", [type])
+		archetype_button.setup(archetype, type)
+		_archetype_description_label.text = CardGroupDefinitions.ARCHETYPES[archetype]
+		archetype_button.button.connect("pressed", self, "_on_archetype_choice_pressed", [type, archetype])
+		archetype_button.button.connect("mouse_entered", self, "_on_archetype_mouse_entered", [type])
 
 
 func randomize_archetype_choices() -> Dictionary:

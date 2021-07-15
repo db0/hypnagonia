@@ -62,6 +62,12 @@ func display_loss() -> void:
 		+ "[url=main_menu]Back to Main Menu[/url]."
 	proceed.connect("meta_clicked", self, "_on_proceed_clicked")
 	_reveal_entry(proceed)
+
+func set_illustration(image: ImageTexture) -> void:
+	page_illustration.texture = image
+	
+func unset_illustration() -> void:
+	page_illustration.texture = null
 	
 func _on_meta_clicked(meta_text: String) -> void:
 	var meta_tag := _parse_meta_tag(meta_text)

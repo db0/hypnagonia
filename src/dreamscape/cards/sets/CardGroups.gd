@@ -16,7 +16,7 @@ const EGO := {
 	# Archetypes: Untouchable/Calm
 	"Flyer": {
 		"Anxiety": 5,
-		"Icon": "res://icon.png",
+		"Icon": preload("res://assets/archetypes/flyer.png"),
 		"Tags": [
 			Terms.ACTIVE_EFFECTS.impervious.name,
 			Terms.GENERIC_TAGS.relax.name,
@@ -49,7 +49,7 @@ const EGO := {
 	# Archetype: 
 	"Warrior": {
 		"Anxiety": 5,
-		"Icon": "res://icon.png",
+		"Icon": preload("res://icon.png"),
 		"Tags": [],
 		"Starting Cards": [
 			"War Paint",
@@ -65,7 +65,7 @@ const EGO := {
 	# Archetype: 
 	"Runner": {
 		"Anxiety": 5,
-		"Icon": "res://icon.png",
+		"Icon": preload("res://icon.png"),
 		"Tags": [],
 		"Starting Cards": [
 		],
@@ -84,7 +84,7 @@ const DISPOSITION := {
 	# Archetypes: Confidence/Doubt
 	"Fearless": {
 		"Anxiety": 5,
-		"Icon": "res://icon.png",
+#		"Icon": preload("res://icon.png"),
 		"Tags": [
 			Terms.ACTIVE_EFFECTS.poison.name,
 			Terms.ACTIVE_EFFECTS.fortify.name,
@@ -119,7 +119,7 @@ const DISPOSITION := {
 	# Archetypes: Self-harm
 	"Coward": {
 		"Anxiety": -5,
-		"Icon": "res://icon.png",
+		"Icon": preload("res://icon.png"),
 		"Tags": [],
 		"_is_inactive": true
 	}
@@ -128,7 +128,7 @@ const DISPOSITION := {
 const INSTRUMENT := {
 	# Archetype: Confusion
 	"Rubber Chicken": {
-		"Icon": "res://icon.png",
+#		"Icon": preload("res://icon.png"),
 		"Tags": [
 			Terms.ACTIVE_EFFECTS.disempower.name,
 			Terms.ACTIVE_EFFECTS.buffer.name,
@@ -163,7 +163,7 @@ const INSTRUMENT := {
 const INJUSTICE := {
 	"Abusive Relationship": {
 		"Anxiety": -5,
-		"Icon": "res://icon.png",
+#		"Icon": preload("res://icon.png"),
 		"Tags": [
 			Terms.GENERIC_TAGS.purpose.name,
 		],

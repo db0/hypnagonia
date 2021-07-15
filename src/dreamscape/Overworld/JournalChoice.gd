@@ -7,13 +7,15 @@ const ENEMY_CARD_PREVIEW_SCENE = preload("res://src/dreamscape/MainMenu/Starting
 
 var journal
 var formated_description : String
+var encounter: SingleEncounter
 
 
 func _ready() -> void:
 	bbcode_enabled = true
 
 
-func _init(_journal: Node, encounter: SingleEncounter) -> void:
+func _init(_journal: Node, _encounter: SingleEncounter) -> void:
+	encounter = _encounter
 	modulate.a = 0
 	journal = _journal
 	fit_content_height = true
@@ -49,10 +51,18 @@ func _init(_journal: Node, encounter: SingleEncounter) -> void:
 
 func _on_mouse_entered() -> void:
 	bbcode_text = "[color=yellow]" + formated_description + "[/color]"
+	var journal_illustration := encounter.journal_art
+	if journal_illustration:
+		journal.set_illustration(journal_illustration)
+		
 
 
 func _on_mouse_exited() -> void:
 	bbcode_text = formated_description
+	var journal_illustration := encounter.journal_art
+	print_debug(journal.page_illustration.texture, journal_illustration)
+	if journal.page_illustration.texture == journal_illustration:
+		journal.unset_illustration()
 
 
 func _on_gui_input(event) -> void:

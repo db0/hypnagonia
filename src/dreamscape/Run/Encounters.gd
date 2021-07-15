@@ -10,7 +10,8 @@ const EARLY_ENEMIES := [
 		"enemies": [
 			"The Laughing One",
 			"The Laughing One",
-		]
+		],
+		"journal_art": preload("res://assets/journal/the_laughing_one.jpeg"),
 	},
 	{
 		"journal_description":\
@@ -29,7 +30,8 @@ const EARLY_ENEMIES := [
 			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
 		"enemies": [
 			"Gaslighter",
-		]
+		],
+		"journal_art": preload("res://assets/journal/gaslighter.jpg"),
 	},
 ]
 
@@ -43,7 +45,8 @@ const ENEMIES := [
 			"The Laughing One",
 			"The Laughing One",
 			"The Laughing One",
-		]
+		],
+		"journal_art": preload("res://assets/journal/the_laughing_one.jpeg"),
 	},
 	{
 		"journal_description":\
@@ -64,7 +67,8 @@ const ENEMIES := [
 		"enemies": [
 			"Gaslighter",
 			"Gaslighter",
-		]
+		],
+		"journal_art": preload("res://assets/journal/gaslighter.jpg"),
 	},
 ]
 
