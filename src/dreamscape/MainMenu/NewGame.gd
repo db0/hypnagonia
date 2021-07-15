@@ -12,17 +12,28 @@ onready var _all_starting_cards_tags := $StartingCardsPopup/VBC/Tags
 onready var _archetype_description_label := $ChoicePopup/CC/VBC/Description
 onready var _starting_cards_button := $VBC/ControlButtons/VBC/StartingCards
 onready var _start_button := $VBC/ControlButtons/VBC/Start
+onready var _choice_tween := $VBC/CC/Choices/Tween
 onready var _choice_buttons := {
-	"Ego": $VBC/CC/Choices/Ego/Ego,
-	"Disposition": $VBC/CC/Choices/Disposition/Disposition,
-	"Instrument": $VBC/CC/Choices/Instrument/Instrument,
-	"Injustice": $VBC/CC/Choices/Injustice/Injustice,
+	"Ego": $VBC/CC/Choices/Ego/MC/Ego,
+	"Disposition": $VBC/CC/Choices/Disposition/MC/Disposition,
+	"Instrument": $VBC/CC/Choices/Instrument/MC/Instrument,
+	"Injustice": $VBC/CC/Choices/Injustice/MC/Injustice,
+}
+onready var _choice_icons := {
+	"Ego": $VBC/CC/Choices/Ego/MC/Icon,
+	"Disposition": $VBC/CC/Choices/Disposition/MC/Icon,
+	"Instrument": $VBC/CC/Choices/Instrument/MC/Icon,
+	"Injustice": $VBC/CC/Choices/Injustice/MC/Icon,
 }
 onready var back_button := $VBC/ControlButtons/VBC/Back
 
 func _ready() -> void:
-	for choice_button in _choice_buttons:
-		_choice_buttons[choice_button].connect("pressed", self, "on_choice_button_pressed", [choice_button])
+	for button_name in _choice_buttons:
+		var choice_button: Button = _choice_buttons[button_name]
+		var choice_icon: TextureRect = _choice_icons[button_name]
+		choice_button.connect("pressed", self, "on_choice_button_pressed", [button_name])
+		choice_button.connect("mouse_entered", self, "on_choice_icon_mouse_entered", [choice_icon])
+		choice_button.connect("mouse_exited", self, "on_choice_icon_mouse_exited", [choice_icon])
 
 
 func on_choice_button_pressed(button_name : String):
@@ -40,7 +51,7 @@ func populate_choices(archetype: String) -> void:
 		_archetype_choices.add_child(archetype_button)
 		archetype_button.setup(archetype, type)
 		_archetype_description_label.text = CardGroupDefinitions.ARCHETYPES[archetype]
-		archetype_button.button.connect("pressed", self, "_on_archetype_choice_pressed", [type, archetype])
+		archetype_button.button.connect("pressed", self, "_on_archetype_choice_pressed", [type, archetype, archetype_button])
 		archetype_button.button.connect("mouse_entered", self, "_on_archetype_mouse_entered", [type])
 
 
@@ -66,10 +77,13 @@ func start_new_game() -> void:
 	get_tree().change_scene(CFConst.PATH_CUSTOM + 'Overworld/Journal.tscn')
 
 
-func _on_archetype_choice_pressed(type: String, _archetype: String) -> void:
+func _on_archetype_choice_pressed(type: String, _archetype: String, type_button) -> void:
 	var archetype := _archetype.capitalize()
 	var archetype_button = _choice_buttons[archetype]
 	archetype_button.text = type
+	if type_button.archetype_texture:
+		_choice_icons[_archetype].texture = type_button.archetype_texture
+		_choice_icons[_archetype].visible = true
 	_choice_popup.hide()
 	globals.player.deck_groups[archetype] = type
 	if globals.player.is_deck_completed():
@@ -106,6 +120,10 @@ func _on_Randomize_pressed() -> void:
 	for archetype in selected_archetypes:
 		var archetype_button = _choice_buttons[archetype]
 		archetype_button.text = selected_archetypes[archetype]
+		var icon_texture := ArchetypeButton.retrieve_icon(archetype, selected_archetypes[archetype])
+		if icon_texture:
+			_choice_icons[archetype].texture = icon_texture
+			_choice_icons[archetype].visible = true
 	_start_button.disabled = false
 	_starting_cards_button.disabled = false
 
@@ -117,3 +135,16 @@ static func get_all_types_list(archetype: String) -> Array:
 			valid_types_list.append(type)
 	return(valid_types_list)
 
+
+func on_choice_icon_mouse_entered(icon: TextureRect) -> void:
+	_choice_tween.interpolate_property(icon, 'modulate:a',
+			icon.modulate.a, 0.20, 0.5,
+			Tween.TRANS_SINE, Tween.EASE_IN)
+	_choice_tween.start()
+
+
+func on_choice_icon_mouse_exited(icon: TextureRect) -> void:
+	_choice_tween.interpolate_property(icon, 'modulate:a',
+			icon.modulate.a, 1, 0.5,
+			Tween.TRANS_SINE, Tween.EASE_IN)
+	_choice_tween.start()

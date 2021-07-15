@@ -60,12 +60,25 @@ margin_bottom = 14.0
 text = "Ego"
 align = 1
 
-[node name="Ego" type="Button" parent="VBC/CC/Choices/Ego"]
+[node name="MC" type="MarginContainer" parent="VBC/CC/Choices/Ego"]
 margin_top = 18.0
 margin_right = 270.0
 margin_bottom = 408.0
+mouse_filter = 1
+
+[node name="Ego" type="Button" parent="VBC/CC/Choices/Ego/MC"]
+margin_right = 270.0
+margin_bottom = 390.0
 rect_min_size = Vector2( 270, 390 )
 text = "Choose Ego"
+
+[node name="Icon" type="TextureRect" parent="VBC/CC/Choices/Ego/MC"]
+visible = false
+margin_right = 270.0
+margin_bottom = 390.0
+mouse_filter = 2
+expand = true
+stretch_mode = 7
 
 [node name="Disposition" type="VBoxContainer" parent="VBC/CC/Choices"]
 margin_left = 290.0
@@ -78,12 +91,25 @@ margin_bottom = 14.0
 text = "Disposition"
 align = 1
 
-[node name="Disposition" type="Button" parent="VBC/CC/Choices/Disposition"]
+[node name="MC" type="MarginContainer" parent="VBC/CC/Choices/Disposition"]
 margin_top = 18.0
 margin_right = 270.0
 margin_bottom = 408.0
+mouse_filter = 1
+
+[node name="Disposition" type="Button" parent="VBC/CC/Choices/Disposition/MC"]
+margin_right = 270.0
+margin_bottom = 390.0
 rect_min_size = Vector2( 270, 390 )
 text = "Choose Disposition"
+
+[node name="Icon" type="TextureRect" parent="VBC/CC/Choices/Disposition/MC"]
+visible = false
+margin_right = 270.0
+margin_bottom = 390.0
+mouse_filter = 2
+expand = true
+stretch_mode = 7
 
 [node name="Instrument" type="VBoxContainer" parent="VBC/CC/Choices"]
 margin_left = 580.0
@@ -96,12 +122,25 @@ margin_bottom = 14.0
 text = "Instrument"
 align = 1
 
-[node name="Instrument" type="Button" parent="VBC/CC/Choices/Instrument"]
+[node name="MC" type="MarginContainer" parent="VBC/CC/Choices/Instrument"]
 margin_top = 18.0
 margin_right = 270.0
 margin_bottom = 408.0
+mouse_filter = 1
+
+[node name="Instrument" type="Button" parent="VBC/CC/Choices/Instrument/MC"]
+margin_right = 270.0
+margin_bottom = 390.0
 rect_min_size = Vector2( 270, 390 )
 text = "Choose Instrument"
+
+[node name="Icon" type="TextureRect" parent="VBC/CC/Choices/Instrument/MC"]
+visible = false
+margin_right = 270.0
+margin_bottom = 390.0
+mouse_filter = 2
+expand = true
+stretch_mode = 7
 
 [node name="Injustice" type="VBoxContainer" parent="VBC/CC/Choices"]
 margin_left = 870.0
@@ -114,12 +153,27 @@ margin_bottom = 14.0
 text = "Injustice"
 align = 1
 
-[node name="Injustice" type="Button" parent="VBC/CC/Choices/Injustice"]
+[node name="MC" type="MarginContainer" parent="VBC/CC/Choices/Injustice"]
 margin_top = 18.0
 margin_right = 270.0
 margin_bottom = 408.0
+mouse_filter = 1
+
+[node name="Injustice" type="Button" parent="VBC/CC/Choices/Injustice/MC"]
+margin_right = 270.0
+margin_bottom = 390.0
 rect_min_size = Vector2( 270, 390 )
 text = "Choose Injustice"
+
+[node name="Icon" type="TextureRect" parent="VBC/CC/Choices/Injustice/MC"]
+visible = false
+margin_right = 270.0
+margin_bottom = 390.0
+mouse_filter = 2
+expand = true
+stretch_mode = 7
+
+[node name="Tween" type="Tween" parent="VBC/CC/Choices"]
 
 [node name="MarginDown" type="Control" parent="VBC"]
 margin_top = 502.0

@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/CombatElements/Enemies/Art/AnimatedPolygonEnemy.gd"
 }, {
+"base": "MarginContainer",
+"class": "ArchetypeButton",
+"language": "GDScript",
+"path": "res://src/dreamscape/MainMenu/ArchetypeButton.gd"
+}, {
 "base": "Control",
 "class": "Board",
 "language": "GDScript",
@@ -423,6 +428,7 @@ _global_script_class_icons={
 "ActiveEffects": "",
 "AlterantEngine": "",
 "AnimatedEnemy": "",
+"ArchetypeButton": "",
 "Board": "",
 "BoardPlacementGrid": "",
 "BoardPlacementSlot": "",

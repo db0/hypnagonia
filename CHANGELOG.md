@@ -1,5 +1,10 @@
 # Dreams: Changelog
 
+## v0.5.5
+
+* Some disturbing art
+* Fixed expiry on confusion
+
 ## v0.5.4
 
 * Made card/hand layout control-based
