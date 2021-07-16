@@ -273,7 +273,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
-		"Rapid Encriclement": {
+		"Rapid Encirclement": {
 			"manual": {
 				"hand": [
 					{
