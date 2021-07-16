@@ -31,227 +31,116 @@ func set_width(new_width):
 resource_name = "Stare"
 length = 2.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("EnemyPolygon/eye1/pupil1:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1.5, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 115.92, 165.073 ), Vector2( 171.167, 249.333 ), Vector2( 171.167, 249.333 ), Vector2( 115.92, 165.073 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("EnemyPolygon/eye2/pupil2:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5, 1.5, 1.501, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 100, 166 ), Vector2( 154.167, 249.333 ), Vector2( 154.167, 249.333 ), Vector2( 154.167, 249.333 ), Vector2( 100, 166 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("EnemyPolygon/eye3/pupil3:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.5, 1.5, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 109, 158 ), Vector2( 163.167, 241.333 ), Vector2( 163.167, 241.333 ), Vector2( 109, 158 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("EnemyPolygon/eye1/pupil1:width")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.5, 1.5, 2 ),
-"transitions": PoolRealArray( 0.554784, 0.554784, 1, 1 ),
-"update": 0,
-"values": [ 7.5, 2.0, 2.0, 7.5 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("EnemyPolygon/eye2/pupil2:width")
-tracks/4/interp = 2
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 0.5, 1.5, 2 ),
-"transitions": PoolRealArray( 0.554784, 1, 1, 1 ),
-"update": 0,
-"values": [ 7.5, 2.0, 2.0, 7.5 ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("EnemyPolygon/eye3/pupil3:width")
-tracks/5/interp = 2
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 0.5, 1.5, 2 ),
-"transitions": PoolRealArray( 0.554784, 1, 1, 1 ),
-"update": 0,
-"values": [ 7.5, 2.0, 2.0, 7.5 ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("EnemyPolygon/eye1/pupil1:scale")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0, 0.5, 1.5, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("EnemyPolygon/eye2/pupil2:scale")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0, 0.5, 1.5, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("EnemyPolygon/eye3/pupil3:scale")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0, 0.5, 1.5, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=3]
-length = 2.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("EnemyPolygon/eye1/pupil1:position")
+tracks/0/path = NodePath("EnemyPolygon/eyes/eye1/pupil1:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.3, 1.8, 2 ),
+"transitions": PoolRealArray( 1, 0, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 115.92, 165.073 ), Vector2( 114.075, 181.104 ), Vector2( 87.5424, 168.227 ), Vector2( 114.855, 144.036 ), Vector2( 115.92, 165.073 ) ]
+"values": [ Vector2( 115.92, 165.073 ), Vector2( 170, 249 ), Vector2( 170, 249 ), Vector2( 115.92, 165.073 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("EnemyPolygon/eye2/pupil2:position")
+tracks/1/path = NodePath("EnemyPolygon/eyes/eye2/pupil2:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.3, 1.8, 2 ),
+"transitions": PoolRealArray( 1, 0, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 100, 166.667 ), Vector2( 82.5869, 165.073 ), Vector2( 107.587, 190.073 ), Vector2( 99.2534, 148.406 ), Vector2( 100, 166.667 ) ]
+"values": [ Vector2( 100, 166 ), Vector2( 153.5, 248.5 ), Vector2( 153.5, 248.5 ), Vector2( 100, 166 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("EnemyPolygon/eye3/pupil3:position")
+tracks/2/path = NodePath("EnemyPolygon/eyes/eye3/pupil3:position")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.3, 1.8, 2 ),
+"transitions": PoolRealArray( 1, 0, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 107.587, 156.739 ), Vector2( 107.587, 140.073 ), Vector2( 107.587, 173.406 ), Vector2( 90.9202, 156.739 ), Vector2( 107.587, 156.739 ) ]
+"values": [ Vector2( 109, 167.5 ), Vector2( 162.5, 250.5 ), Vector2( 162.5, 250.5 ), Vector2( 109, 167.5 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("EnemyPolygon/eye1/pupil1:width")
-tracks/3/interp = 1
+tracks/3/path = NodePath("EnemyPolygon/eyes/eye1/pupil1:width")
+tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.3, 1.8, 2 ),
+"transitions": PoolRealArray( 0.554784, 0, 1, 1 ),
 "update": 0,
-"values": [ 7.5 ]
+"values": [ 7.5, 2.0, 2.0, 7.5 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("EnemyPolygon/eye2/pupil2:width")
-tracks/4/interp = 1
+tracks/4/path = NodePath("EnemyPolygon/eyes/eye2/pupil2:width")
+tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.3, 1.8, 2 ),
+"transitions": PoolRealArray( 0.554784, 0, 1, 1 ),
 "update": 0,
-"values": [ 7.5 ]
+"values": [ 7.5, 2.0, 2.0, 7.5 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("EnemyPolygon/eye3/pupil3:width")
-tracks/5/interp = 1
+tracks/5/path = NodePath("EnemyPolygon/eyes/eye3/pupil3:width")
+tracks/5/interp = 2
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.3, 1.8, 2 ),
+"transitions": PoolRealArray( 0.554784, 0, 1, 1 ),
 "update": 0,
-"values": [ 7.5 ]
+"values": [ 7.5, 2.0, 2.0, 7.5 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("EnemyPolygon:scale")
-tracks/6/interp = 1
+tracks/6/path = NodePath("EnemyPolygon/eyes/eye1/pupil1:scale")
+tracks/6/interp = 2
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.3, 1.8, 2 ),
+"transitions": PoolRealArray( 1, 0, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0.24, 0.24 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("EnemyPolygon/eye1:scale")
-tracks/7/interp = 1
+tracks/7/path = NodePath("EnemyPolygon/eyes/eye2/pupil2:scale")
+tracks/7/interp = 2
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.3, 1.8, 2 ),
+"transitions": PoolRealArray( 1, 0, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("EnemyPolygon/eye2:scale")
-tracks/8/interp = 1
+tracks/8/path = NodePath("EnemyPolygon/eyes/eye3/pupil3:scale")
+tracks/8/interp = 2
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.3, 1.8, 2 ),
+"transitions": PoolRealArray( 1, 0, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("EnemyPolygon/eye3:scale")
-tracks/9/interp = 1
+tracks/9/path = NodePath("EnemyPolygon/eyes/eye1:scale")
+tracks/9/interp = 0
 tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
@@ -261,10 +150,229 @@ tracks/9/keys = {
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
 }
+tracks/10/type = "value"
+tracks/10/path = NodePath("EnemyPolygon/eyes/eye2:scale")
+tracks/10/interp = 0
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("EnemyPolygon/eyes/eye3:scale")
+tracks/11/interp = 0
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("EnemyPolygon/eyes:visible")
+tracks/12/interp = 0
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("EnemyPolygon/eyes/eye1/pupil1:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 0 ),
+"update": 0,
+"values": [ Vector2( 114.075, 181.104 ), Vector2( 87.5424, 168.227 ), Vector2( 114.855, 144.036 ), Vector2( 115.92, 165.073 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("EnemyPolygon/eyes/eye2/pupil2:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 0 ),
+"update": 0,
+"values": [ Vector2( 82.5869, 165.073 ), Vector2( 107.587, 190.073 ), Vector2( 99.2534, 148.406 ), Vector2( 100, 166.667 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("EnemyPolygon/eyes/eye3/pupil3:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 107.587, 140.073 ), Vector2( 107.587, 173.406 ), Vector2( 90.9202, 156.739 ), Vector2( 108.75, 166.8 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("EnemyPolygon/eyes/eye1:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 0.9, 1.1, 1.3, 1.6, 2 ),
+"transitions": PoolRealArray( 0.5, 0, 0.5, 1, 0, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0.01 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1, 0.01 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1, 0.01 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("EnemyPolygon/eyes/eye2:scale")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5, 0.9, 1.1, 1.3, 1.6, 2 ),
+"transitions": PoolRealArray( 0.5, 0, 0.5, 1, 0, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0.01 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1, 0.01 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1, 0.01 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("EnemyPolygon/eyes/eye3:scale")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5, 0.9, 1.1, 1.3, 1.6, 2 ),
+"transitions": PoolRealArray( 0.5, 0, 0.5, 1, 0, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0.01 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1, 0.01 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1, 0.01 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("EnemyPolygon/eyes/eye1/pupil1:width")
+tracks/6/interp = 0
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 7.5 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("EnemyPolygon/eyes/eye2/pupil2:width")
+tracks/7/interp = 0
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 7.5 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("EnemyPolygon/eyes/eye3/pupil3:width")
+tracks/8/interp = 0
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 7.5 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("EnemyPolygon/eyes/eye1/pupil1:scale")
+tracks/9/interp = 0
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("EnemyPolygon/eyes/eye2/pupil2:scale")
+tracks/10/interp = 0
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("EnemyPolygon/eyes/eye3/pupil3:scale")
+tracks/11/interp = 0
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("EnemyPolygon:scale")
+tracks/12/interp = 0
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.24, 0.24 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("EnemyPolygon:self_modulate")
+tracks/13/interp = 0
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("EnemyPolygon/eyes:visible")
+tracks/14/interp = 0
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=4]
 tracks/0/type = "value"
-tracks/0/path = NodePath("EnemyPolygon/eye1:scale")
+tracks/0/path = NodePath("EnemyPolygon/eyes/eye1:scale")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -276,7 +384,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("EnemyPolygon/eye2:scale")
+tracks/1/path = NodePath("EnemyPolygon/eyes/eye2:scale")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -288,7 +396,7 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1, 0 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("EnemyPolygon/eye3:scale")
+tracks/2/path = NodePath("EnemyPolygon/eyes/eye3:scale")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -311,6 +419,30 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector2( 0.24, 0.24 ), Vector2( 0.24, 0.24 ), Vector2( 0.1, 0.1 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("EnemyPolygon:self_modulate")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 0, 2, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.235294 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("EnemyPolygon/eyes:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [node name="AnimatedEnemy" type="Control"]
 margin_left = 100.0
@@ -332,13 +464,47 @@ antialiased = true
 polygon = PoolVector2Array( 317.213, 156.171, 383.88, 22.8377, 583.88, 22.8377, 650.547, 156.171, 583.88, 489.504, 517.213, 489.504, 450.547, 489.504, 383.88, 489.504 )
 script = SubResource( 1 )
 
-[node name="eye1" type="Polygon2D" parent="EnemyPolygon"]
-position = Vector2( -75, -60 )
+[node name="eyelid1" type="Line2D" parent="EnemyPolygon"]
+position = Vector2( 0, 1.58765 )
+scale = Vector2( 1, 1 )
+points = PoolVector2Array( -109.08, -61.5941, -25.7467, -61.5941 )
+width = 12.0
+default_color = Color( 0.363281, 0.218235, 0.0354767, 1 )
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="eyelid2" type="Line2D" parent="EnemyPolygon"]
+position = Vector2( 132.587, 6.63324 )
+scale = Vector2( 1, 1 )
+points = PoolVector2Array( -108.333, -66.6667, -25, -66.6667 )
+width = 12.0
+default_color = Color( 0.363281, 0.218235, 0.0354767, 1 )
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="eyelid3" type="Line2D" parent="EnemyPolygon"]
+position = Vector2( 65.92, -28.7584 )
+scale = Vector2( 1, 1 )
+points = PoolVector2Array( -108.333, -66.6667, -25, -66.6667 )
+width = 12.0
+default_color = Color( 0.363281, 0.218235, 0.0354767, 1 )
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="eyes" type="Position2D" parent="EnemyPolygon"]
+position = Vector2( -1.79199, -67.8259 )
+scale = Vector2( 1, 1 )
+
+[node name="eye1" type="Polygon2D" parent="EnemyPolygon/eyes"]
+position = Vector2( -73.208, 7.82593 )
 offset = Vector2( 108.333, 100 )
 antialiased = true
 polygon = PoolVector2Array( -142.413, -101.594, -100.746, -143.261, -59.0798, -101.594, -100.746, -59.9276 )
 
-[node name="pupil1" type="Line2D" parent="EnemyPolygon/eye1"]
+[node name="pupil1" type="Line2D" parent="EnemyPolygon/eyes/eye1"]
 position = Vector2( 115.92, 165.073 )
 points = PoolVector2Array( -108.333, -191.667, -83.3333, -166.667, -108.333, -141.667, -133.333, -166.667, -108.333, -191.667, -91.6667, -166.667, -108.333, -150, -125, -166.667, -108.333, -183.333, -100, -166.667, -108.333, -158.333, -116.667, -166.667, -108.333, -175, -108.333, -163.397 )
 width = 7.5
@@ -346,13 +512,13 @@ default_color = Color( 0, 0, 0, 1 )
 joint_mode = 2
 antialiased = true
 
-[node name="eye2" type="Polygon2D" parent="EnemyPolygon"]
-position = Vector2( 75, -60 )
+[node name="eye2" type="Polygon2D" parent="EnemyPolygon/eyes"]
+position = Vector2( 76.792, 7.82593 )
 offset = Vector2( -41.6667, 100 )
 antialiased = true
 polygon = PoolVector2Array( 32.5869, -59.9276, -9.0798, -101.594, 32.5869, -143.261, 74.2535, -101.594 )
 
-[node name="pupil2" type="Line2D" parent="EnemyPolygon/eye2"]
+[node name="pupil2" type="Line2D" parent="EnemyPolygon/eyes/eye2"]
 position = Vector2( 100, 166 )
 points = PoolVector2Array( -108.333, -191.667, -83.3333, -166.667, -108.333, -141.667, -133.333, -166.667, -108.333, -191.667, -91.6667, -166.667, -108.333, -150, -125, -166.667, -108.333, -183.333, -100, -166.667, -108.333, -158.333, -116.667, -166.667, -108.333, -175, -108.333, -162.968 )
 width = 7.5
@@ -360,14 +526,14 @@ default_color = Color( 0, 0, 0, 1 )
 joint_mode = 2
 antialiased = true
 
-[node name="eye3" type="Polygon2D" parent="EnemyPolygon"]
-position = Vector2( 0, -85 )
-offset = Vector2( 50, 170.833 )
+[node name="eye3" type="Polygon2D" parent="EnemyPolygon/eyes"]
+position = Vector2( 0.901917, -27.5578 )
+offset = Vector2( 50.8901, 181.217 )
 antialiased = true
 polygon = PoolVector2Array( -92.4131, -180.761, -50.7465, -139.094, -9.0798, -180.761, -50.7465, -222.428 )
 
-[node name="pupil3" type="Line2D" parent="EnemyPolygon/eye3"]
-position = Vector2( 109, 158 )
+[node name="pupil3" type="Line2D" parent="EnemyPolygon/eyes/eye3"]
+position = Vector2( 109, 167.5 )
 points = PoolVector2Array( -108.333, -191.667, -83.3333, -166.667, -108.333, -141.667, -133.333, -166.667, -108.333, -191.667, -91.6667, -166.667, -108.333, -150, -125, -166.667, -108.333, -183.333, -100, -166.667, -108.333, -158.333, -116.667, -166.667, -108.333, -175, -108.333, -163.576 )
 width = 7.5
 default_color = Color( 0, 0, 0, 1 )
