@@ -32,7 +32,7 @@ const EGO := {
 			"Overview",
 			"Drag and Drop",
 			"Loop de loop",
-			"Rapid Encriclement",
+			"Rapid Encirclement",
 		],
 		"Uncommons": [
 			"Whirlwind",

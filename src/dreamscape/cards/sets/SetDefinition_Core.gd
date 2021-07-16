@@ -163,7 +163,7 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 	},
-	"Rapid Encriclement": {
+	"Rapid Encirclement": {
 		"Type": "Control",
 		"Tags": [],
 		"Abilities": "Apply 2 Shaken to all Torments.",
