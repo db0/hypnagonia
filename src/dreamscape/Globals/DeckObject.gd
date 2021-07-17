@@ -33,3 +33,6 @@ func list_all_cards(sorted:= false) -> Array:
 	if sorted:
 		card_list.sort()
 	return(card_list)
+
+func count_cards() -> int:
+	return(list_all_cards().size())

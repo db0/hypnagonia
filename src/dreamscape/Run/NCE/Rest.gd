@@ -16,7 +16,8 @@ func begin() -> void:
 func continue_encounter(key) -> void:
 	match key:
 		"rest": 
-			globals.player.damage -= globals.player.health * 0.25
+			print_debug(globals.player.health * 0.25)
+			globals.player.damage -= 23.75
 			globals.journal.display_rewards('')
 		"resist": 
 			globals.journal.display_rewards('')

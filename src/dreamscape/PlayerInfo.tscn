@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/icons/cog.png" type="Texture" id=1]
 [ext_resource path="res://src/dreamscape/PlayerInfo.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://fonts/Butler/Butler_Light.otf" type="DynamicFontData" id=4]
 [ext_resource path="res://assets/icons/heart-beats.png" type="Texture" id=5]
 [ext_resource path="res://assets/icons/book-pile.png" type="Texture" id=6]
+[ext_resource path="res://fonts/Butler/Butler_Medium.otf" type="DynamicFontData" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -18,6 +19,10 @@ font_data = ExtResource( 3 )
 size = 24
 use_filter = true
 font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+use_filter = true
+font_data = ExtResource( 7 )
 
 [sub_resource type="StyleBoxEmpty" id=3]
 
@@ -56,29 +61,31 @@ text = "0/90"
 
 [node name="Push" type="Control" parent="HBC"]
 margin_left = 96.0
-margin_right = 668.0
+margin_right = 650.0
 margin_bottom = 35.0
 size_flags_horizontal = 3
 
 [node name="Encounter" type="Label" parent="HBC"]
-margin_left = 672.0
+margin_left = 654.0
 margin_top = 5.0
-margin_right = 787.0
+margin_right = 769.0
 margin_bottom = 30.0
 custom_fonts/font = SubResource( 2 )
 text = "Encounter 1"
 
 [node name="Push2" type="Control" parent="HBC"]
-margin_left = 791.0
-margin_right = 1363.0
+margin_left = 773.0
+margin_right = 1328.0
 margin_bottom = 35.0
 size_flags_horizontal = 3
 
 [node name="Deck" type="Button" parent="HBC"]
-margin_left = 1367.0
+margin_left = 1332.0
 margin_right = 1402.0
 margin_bottom = 35.0
-rect_min_size = Vector2( 35, 0 )
+rect_min_size = Vector2( 70, 0 )
+custom_fonts/font = SubResource( 4 )
+text = "10"
 icon = ExtResource( 6 )
 expand_icon = true
 

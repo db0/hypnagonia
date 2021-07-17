@@ -6,8 +6,17 @@ const CARD_PREVIEW_SCENE = preload("res://src/dreamscape/MainMenu/StartingCardPr
 onready var _deck_preview_popup := $DeckPreview
 onready var _deck_preview_scroll := $DeckPreview/ScrollContainer/
 onready var _deck_preview_grid := $DeckPreview/ScrollContainer/GridContainer
+onready var _player_health_label := $HBC/Health
+onready var _encounter_label := $HBC/Encounter
+onready var _deck_button := $HBC/Deck
 
 var current_decklist_cache: Array
+
+func _process(delta: float) -> void:
+	_update_health_label()
+	_update_encounter_label()
+	_update_deck_count()
+	
 func _on_Settings_pressed() -> void:
 	pass # Replace with function body.
 
@@ -30,3 +39,16 @@ func populate_preview_cards() -> void:
 			_deck_preview_grid.add_child(card_preview_container)
 			card_preview_container.setup(preview_card_name)
 	
+
+func _update_health_label() -> void:
+	if cfc.NMAP.has("board") and is_instance_valid(cfc.NMAP.board):
+		_player_health_label.text =\
+				str(cfc.NMAP.board.dreamer.damage) + '/' + str(cfc.NMAP.board.dreamer.health)
+	else:
+		_player_health_label.text = str(globals.player.damage) + '/' + str(globals.player.health)
+
+func _update_encounter_label() -> void:
+	_encounter_label.text = 'Encounter ' + str(globals.encounter_number)
+
+func _update_deck_count() -> void:
+	_deck_button.text = str(globals.player.deck.count_cards())
