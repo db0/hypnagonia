@@ -198,3 +198,5 @@ func _show_description_popup(description_text: String) -> void:
 	_description_popup.visible = true
 	_description_popup.rect_size = Vector2(0,0)
 	_description_popup.rect_global_position = get_local_mouse_position() + Vector2(20,-50)
+	if _description_popup.rect_global_position.x + _description_popup.rect_size.x > get_viewport().size.x:
+		_description_popup.rect_global_position.x = get_viewport().size.x - _description_popup.rect_size.x

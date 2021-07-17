@@ -551,6 +551,16 @@ window/size/width=1455
 window/size/height=900
 window/stretch/aspect="keep"
 
+[global]
+
+import=false
+
+[importer_defaults]
+
+texture={
+"compress/mode": 1
+}
+
 [input]
 
 debug={

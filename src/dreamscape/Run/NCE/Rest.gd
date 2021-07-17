@@ -16,8 +16,7 @@ func begin() -> void:
 func continue_encounter(key) -> void:
 	match key:
 		"rest": 
-			print_debug(globals.player.health * 0.25)
-			globals.player.damage -= 23.75
+			globals.player.damage -= globals.player.health * 0.25
 			globals.journal.display_rewards('')
 		"resist": 
 			globals.journal.display_rewards('')
@@ -27,6 +26,10 @@ func continue_encounter(key) -> void:
 func get_meta_hover_description(meta_tag: String) -> String:
 	match meta_tag:
 		"rest": 
-			return("Removes anxiety equal to 25% of the max, from the Dreamer.")
+			var healing_done = globals.player.health * 0.25
+			if healing_done > globals.player.damage:
+				healing_done = globals.player.damage
+			return("Removes anxiety equal to 25% of the max ({healing}), from the Dreamer."\
+					.format({"healing": int(round(healing_done))}))
 		_:
 			return('')
