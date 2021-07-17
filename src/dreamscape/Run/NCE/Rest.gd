@@ -16,15 +16,16 @@ func begin() -> void:
 func continue_encounter(key) -> void:
 	match key:
 		"rest": 
-			globals.player.damage = globals.player.damage * 0.7
+			globals.player.damage -= globals.player.health * 0.25
 			globals.journal.display_rewards('')
-		"resist": pass
+		"resist": 
+			globals.journal.display_rewards('')
 #		"rest": globals.journal.add_nested_choices({3: "Test1", 4: "Test2"})
 #		"resist": globals.journal.add_nested_choices({5: "Test3", 6: "Test4"})
 	
 func get_meta_hover_description(meta_tag: String) -> String:
 	match meta_tag:
 		"rest": 
-			return("Removes 30% of the current anxiety from the Dreamer.")
+			return("Removes anxiety equal to 25% of the max, from the Dreamer.")
 		_:
 			return('')

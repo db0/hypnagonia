@@ -26,8 +26,10 @@ func add_new_card(card_name) -> void:
 	var new_card := CardEntry.new(card_name)
 	cards.append(new_card)
 
-func list_all_cards() -> Array:
+func list_all_cards(sorted:= false) -> Array:
 	var card_list := []
 	for card_entry in cards:
 		card_list.append(card_entry.card_name)
+	if sorted:
+		card_list.sort()
 	return(card_list)

@@ -339,6 +339,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/CombatElements/PlayerEntity.gd"
 }, {
+"base": "PanelContainer",
+"class": "PlayerInfo",
+"language": "GDScript",
+"path": "res://src/dreamscape/PlayerInfo.gd"
+}, {
 "base": "Button",
 "class": "QuantityNumberButton",
 "language": "GDScript",
@@ -506,6 +511,7 @@ _global_script_class_icons={
 "Pile": "",
 "Player": "",
 "PlayerEntity": "",
+"PlayerInfo": "",
 "QuantityNumberButton": "",
 "SP": "",
 "ScriptAlter": "",
