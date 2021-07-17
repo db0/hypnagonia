@@ -14,7 +14,7 @@ dest_files=[ "res://.import/9cd8d2535e9e54023bbc99c87e79.jpeg-fd95e6a63af8f813d4
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

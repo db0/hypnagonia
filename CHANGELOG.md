@@ -1,5 +1,12 @@
 # Dreams: Changelog
 
+## v0.6.0
+
+* Added framework for non-combat events
+* Added first non-combat event: Deep Sleep
+* Added top-bar with player status
+* Reduced the game size to 20MB (from 100) by using lossy compression on the backgrounds
+
 ## v0.5.5
 
 * Some disturbing art
