@@ -11,6 +11,7 @@ func _init():
 
 func begin() -> void:
 	.begin()
+	globals.deep_sleeps += 1
 	globals.journal.add_nested_choices(secondary_choices)
 	
 func continue_encounter(key) -> void:
