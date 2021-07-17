@@ -3,38 +3,16 @@ extends RichTextLabel
 
 signal pressed
 
-const ENEMY_CARD_PREVIEW_SCENE = preload("res://src/dreamscape/MainMenu/StartingCardPreviewObject.tscn")
-
 var journal
 var formated_description : String
-var encounter: SingleEncounter
 
 
 func _ready() -> void:
 	bbcode_enabled = true
 
-
-func _init(_journal: Node, _encounter: SingleEncounter) -> void:
-	encounter = _encounter
-	modulate.a = 0
+func _init(_journal: Node) -> void:
 	journal = _journal
 	fit_content_height = true
-	name = encounter.type
-	if encounter.type == 'torment':
-		var enemy_encounter: EnemyEncounter = encounter
-		for torment_name in enemy_encounter.get_unique_enemies():
-			if not journal.enemy_cards.has(torment_name):
-				var torment_card = ENEMY_CARD_PREVIEW_SCENE.instance()
-				journal.card_storage.add_child(torment_card)
-				torment_card.setup(torment_name)
-				journal.enemy_cards[torment_name] = torment_card
-		formated_description = enemy_encounter.get_formated_description()
-		bbcode_text = formated_description
-	if encounter.type == 'boss':
-		var boss_encounter: BossEncounter = encounter
-		formated_description = boss_encounter.description
-		bbcode_text = formated_description
-	# We don't want to create multiple cards for the same Torment.
 	# warning-ignore:return_value_discarded
 	connect("meta_clicked", journal, "_on_meta_clicked")
 	# warning-ignore:return_value_discarded
@@ -51,18 +29,10 @@ func _init(_journal: Node, _encounter: SingleEncounter) -> void:
 
 func _on_mouse_entered() -> void:
 	bbcode_text = "[color=yellow]" + formated_description + "[/color]"
-	var journal_illustration := encounter.journal_art
-	if journal_illustration:
-		journal.set_illustration(journal_illustration)
-		
 
 
 func _on_mouse_exited() -> void:
 	bbcode_text = formated_description
-	var journal_illustration := encounter.journal_art
-	print_debug(journal.page_illustration.texture, journal_illustration)
-	if journal.page_illustration.texture == journal_illustration:
-		journal.unset_illustration()
 
 
 func _on_gui_input(event) -> void:

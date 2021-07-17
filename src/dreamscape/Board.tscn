@@ -94,9 +94,16 @@ __meta__ = {
 margin_right = 0.0
 margin_bottom = 27.0
 
-[node name="EndTurn" type="Button" parent="VBC/HBC"]
+[node name="Push" type="Control" parent="VBC/HBC"]
 margin_left = 3.0
-margin_right = 79.0
+margin_right = 1376.0
+margin_bottom = 27.0
+mouse_filter = 2
+size_flags_horizontal = 3
+
+[node name="EndTurn" type="Button" parent="VBC/HBC"]
+margin_left = 1379.0
+margin_right = 1455.0
 margin_bottom = 27.0
 disabled = true
 text = "End Turn"

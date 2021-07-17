@@ -108,4 +108,5 @@ func generate_journal_choices() -> Array:
 		else:
 			next_enemy = remaining_enemies.pop_back()
 		journal_options.append(EnemyEncounter.new(next_enemy))
+		journal_options.append(preload("res://src/dreamscape/Run/NCE/Rest.gd").new())
 	return(journal_options)

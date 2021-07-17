@@ -466,7 +466,6 @@ script = SubResource( 1 )
 
 [node name="eyelid1" type="Line2D" parent="EnemyPolygon"]
 position = Vector2( 0, 1.58765 )
-scale = Vector2( 1, 1 )
 points = PoolVector2Array( -109.08, -61.5941, -25.7467, -61.5941 )
 width = 12.0
 default_color = Color( 0.363281, 0.218235, 0.0354767, 1 )
@@ -476,7 +475,6 @@ antialiased = true
 
 [node name="eyelid2" type="Line2D" parent="EnemyPolygon"]
 position = Vector2( 132.587, 6.63324 )
-scale = Vector2( 1, 1 )
 points = PoolVector2Array( -108.333, -66.6667, -25, -66.6667 )
 width = 12.0
 default_color = Color( 0.363281, 0.218235, 0.0354767, 1 )
@@ -486,7 +484,6 @@ antialiased = true
 
 [node name="eyelid3" type="Line2D" parent="EnemyPolygon"]
 position = Vector2( 65.92, -28.7584 )
-scale = Vector2( 1, 1 )
 points = PoolVector2Array( -108.333, -66.6667, -25, -66.6667 )
 width = 12.0
 default_color = Color( 0.363281, 0.218235, 0.0354767, 1 )
@@ -496,7 +493,6 @@ antialiased = true
 
 [node name="eyes" type="Position2D" parent="EnemyPolygon"]
 position = Vector2( -1.79199, -67.8259 )
-scale = Vector2( 1, 1 )
 
 [node name="eye1" type="Polygon2D" parent="EnemyPolygon/eyes"]
 position = Vector2( -73.208, 7.82593 )
@@ -519,7 +515,7 @@ antialiased = true
 polygon = PoolVector2Array( 32.5869, -59.9276, -9.0798, -101.594, 32.5869, -143.261, 74.2535, -101.594 )
 
 [node name="pupil2" type="Line2D" parent="EnemyPolygon/eyes/eye2"]
-position = Vector2( 100, 166 )
+position = Vector2( 100, 166.667 )
 points = PoolVector2Array( -108.333, -191.667, -83.3333, -166.667, -108.333, -141.667, -133.333, -166.667, -108.333, -191.667, -91.6667, -166.667, -108.333, -150, -125, -166.667, -108.333, -183.333, -100, -166.667, -108.333, -158.333, -116.667, -166.667, -108.333, -175, -108.333, -162.968 )
 width = 7.5
 default_color = Color( 0, 0, 0, 1 )
@@ -533,7 +529,7 @@ antialiased = true
 polygon = PoolVector2Array( -92.4131, -180.761, -50.7465, -139.094, -9.0798, -180.761, -50.7465, -222.428 )
 
 [node name="pupil3" type="Line2D" parent="EnemyPolygon/eyes/eye3"]
-position = Vector2( 109, 167.5 )
+position = Vector2( 108.75, 166.8 )
 points = PoolVector2Array( -108.333, -191.667, -83.3333, -166.667, -108.333, -141.667, -133.333, -166.667, -108.333, -191.667, -91.6667, -166.667, -108.333, -150, -125, -166.667, -108.333, -183.333, -100, -166.667, -108.333, -158.333, -116.667, -166.667, -108.333, -175, -108.333, -163.576 )
 width = 7.5
 default_color = Color( 0, 0, 0, 1 )

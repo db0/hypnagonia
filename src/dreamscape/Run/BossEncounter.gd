@@ -5,7 +5,6 @@ var boss_name: String
 var boss_scene: PackedScene
 
 func _init(encounter: Dictionary, _boss_name: String):
-	type = "boss"
 	description = encounter["journal_description"]
 	reward_description = encounter["journal_reward"]
 	boss_name = _boss_name

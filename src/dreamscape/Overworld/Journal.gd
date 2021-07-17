@@ -1,6 +1,8 @@
 class_name Journal
 extends PanelContainer
 
+const NESTED_CHOICES_SCENE = preload("res://src/dreamscape/Overworld/SecondaryChoicesSlide.tscn")
+
 onready var page_illustration := $HBC/JournalPageIllustration
 onready var journal_intro := $HBC/JournalEntry/VBC/DayIntro
 onready var journal_choices := $HBC/JournalEntry/VBC/JournalChoices
@@ -9,6 +11,8 @@ onready var reward_journal := $HBC/JournalEntry/VBC/RewardJournal
 onready var card_draft := $HBC/JournalEntry/VBC/CardDraftSlide/CardDraft
 onready var proceed := $HBC/JournalEntry/VBC/Proceed
 onready var _tween := $Tween
+onready var _description_label := $MetaDescription/Label
+onready var _description_popup := $MetaDescription
 
 var enemy_cards := {}
 
@@ -23,7 +27,7 @@ func _ready() -> void:
 	globals.encounter_number += 1
 	encounter_choices = globals.encounters.generate_journal_choices()
 	for encounter in encounter_choices:
-		var journal_choice = JournalChoice.new(self, encounter)
+		var journal_choice = JournalEncounterChoice.new(self, encounter)
 		journal_choices.add_child(journal_choice)
 		journal_choice.connect("pressed", self, "_on_choice_pressed", [encounter, journal_choice])
 		_reveal_entry(journal_choice)
@@ -31,8 +35,9 @@ func _ready() -> void:
 
 
 func display_rewards(reward_text: String) -> void:
-	reward_journal.bbcode_text = reward_text
-	_reveal_entry(reward_journal)
+	if reward_text != '':
+		reward_journal.bbcode_text = reward_text
+		_reveal_entry(reward_journal)
 	proceed.bbcode_text = _get_entry_texts('PROCEED_TEXTS')
 	_reveal_entry(proceed)
 	proceed.connect("mouse_entered", self, "_on_rte_mouse_entered", [proceed] )
@@ -63,26 +68,43 @@ func display_loss() -> void:
 	proceed.connect("meta_clicked", self, "_on_proceed_clicked")
 	_reveal_entry(proceed)
 
+
 func set_illustration(image: ImageTexture) -> void:
 	page_illustration.texture = image
-	
+
+
 func unset_illustration() -> void:
 	page_illustration.texture = null
-	
+
+
+func add_nested_choices(nested_choices: Dictionary) -> void:
+	var nested_choices_scene := NESTED_CHOICES_SCENE.instance()
+	journal_choices.add_child(nested_choices_scene)
+	nested_choices_scene.call_deferred("populate_choices", nested_choices, self)
+
+
+
 func _on_meta_clicked(meta_text: String) -> void:
 	var meta_tag := _parse_meta_tag(meta_text)
 	match meta_tag["meta_type"]:
 		"torment_card":
+			# This is to prevent the card preview staying after we disable signals
 			_on_meta_hover_ended(meta_text)
+		"nce":
+			_description_popup.visible = false
 
 
 func _on_meta_hover_started(meta_text: String) -> void:
 	var meta_tag := _parse_meta_tag(meta_text)
 	match meta_tag["meta_type"]:
-		# This is to prevent the card preview staying after we disable signals
 		"torment_card":
 			var torment_name : String = meta_tag["name"]
 			enemy_cards[torment_name]._on_DBGridCardObject_mouse_entered()
+		"nce":
+			_show_description_popup(
+					globals.current_encounter.get_meta_hover_description(
+						meta_tag["name"]))
+
 
 func _on_meta_hover_ended(meta_text: String) -> void:
 	var meta_tag := _parse_meta_tag(meta_text)
@@ -90,11 +112,13 @@ func _on_meta_hover_ended(meta_text: String) -> void:
 		"torment_card":
 			var torment_name : String = meta_tag["name"]
 			enemy_cards[torment_name]._on_DBGridCardObject_mouse_exited()
+		"nce":
+			_description_popup.visible = false
 
 
 func _parse_meta_tag(meta_text: String) -> Dictionary:
 	var json_parse: JSONParseResult = JSON.parse(meta_text)
-	if not json_parse:
+	if not json_parse or json_parse.error_string:
 		print_debug("WARN: Malformated json result:" + meta_text)
 		return({"meta_type": "FAULTED:"})
 	return(json_parse.result)
@@ -108,11 +132,11 @@ func _on_choice_pressed(encounter: SingleEncounter, rich_text_choice: JournalCho
 
 
 func _reveal_entry(rich_text_node: RichTextLabel) -> void:
+	rich_text_node.show()
 	_tween.interpolate_property(rich_text_node,
 			'modulate:a', 0, 1, 0.5,
 			Tween.TRANS_SINE, Tween.EASE_IN)
 	_tween.start()
-	rich_text_node.visible = true
 
 
 func _on_RewardJournal_meta_clicked(_meta: String) -> void:
@@ -160,9 +184,17 @@ func _get_entry_texts(entries_key: String) -> String:
 		CFUtils.shuffle_array(globals.unused_journal_texts[entries_key])
 	return(globals.unused_journal_texts[entries_key].pop_back())
 
+
 func _on_proceed_clicked(_meta: String) -> void:
 	match _meta:
 		"discord":
 			OS.shell_open("https://discord.gg/KFKHt6Ch")
 		"main_menu":
 			get_tree().change_scene(CFConst.PATH_CUSTOM + 'MainMenu/MainMenu.tscn')
+			globals.reset()
+
+func _show_description_popup(description_text: String) -> void:
+	_description_label.text = description_text
+	_description_popup.visible = true
+	_description_popup.rect_size = Vector2(0,0)
+	_description_popup.rect_global_position = get_local_mouse_position() + Vector2(20,-50)

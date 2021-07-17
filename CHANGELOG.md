@@ -4,6 +4,7 @@
 
 * Some disturbing art
 * Fixed expiry on confusion
+* Added the first archetype icon in the new game menu
 
 ## v0.5.4
 

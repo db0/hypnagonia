@@ -2,7 +2,6 @@ class_name SingleEncounter
 extends Reference
 
 var description: String
-var type: String
 var journal_art: ImageTexture
 
 func begin() -> void:

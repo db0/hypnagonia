@@ -102,4 +102,14 @@ margin_bottom = 893.0
 
 [node name="Tween" type="Tween" parent="."]
 
+[node name="MetaDescription" type="PopupPanel" parent="."]
+margin_right = 4.0
+margin_bottom = 4.0
+
+[node name="Label" type="Label" parent="MetaDescription"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 8.0
+margin_bottom = 25.0
+
 [connection signal="meta_clicked" from="HBC/JournalEntry/VBC/RewardJournal" to="." method="_on_RewardJournal_meta_clicked"]
