@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://src/dreamscape/Overworld/JournalChoice.gd" type="Script" id=1]
+[ext_resource path="res://src/dreamscape/Overworld/JournalEncounterChoice.gd" type="Script" id=1]
 
-[node name="JournalChoice" type="RichTextLabel"]
+[node name="JournalEncounterChoice" type="RichTextLabel"]
 margin_top = 54.0
 margin_right = 705.0
 margin_bottom = 104.0

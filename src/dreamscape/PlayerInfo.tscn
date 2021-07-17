@@ -1,0 +1,119 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/icons/cog.png" type="Texture" id=1]
+[ext_resource path="res://src/dreamscape/PlayerInfo.gd" type="Script" id=2]
+[ext_resource path="res://fonts/Butler/Butler_Regular.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://fonts/Butler/Butler_Light.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/icons/heart-beats.png" type="Texture" id=5]
+[ext_resource path="res://assets/icons/book-pile.png" type="Texture" id=6]
+[ext_resource path="res://fonts/Butler/Butler_Medium.otf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[node name="PlayerInfo" type="PanelContainer"]
+margin_right = 1455.0
+margin_bottom = 49.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBC" type="HBoxContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1448.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 35 )
+
+[node name="HealthIcon" type="TextureRect" parent="HBC"]
+modulate = Color( 1, 0.72549, 0, 1 )
+margin_right = 35.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 35, 35 )
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 5
+
+[node name="Health" type="Label" parent="HBC"]
+margin_left = 39.0
+margin_top = 5.0
+margin_right = 92.0
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
+text = "0/90"
+
+[node name="Push" type="Control" parent="HBC"]
+margin_left = 96.0
+margin_right = 650.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+
+[node name="Encounter" type="Label" parent="HBC"]
+margin_left = 654.0
+margin_top = 5.0
+margin_right = 769.0
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 2 )
+text = "Encounter 1"
+
+[node name="Push2" type="Control" parent="HBC"]
+margin_left = 773.0
+margin_right = 1328.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+
+[node name="Deck" type="Button" parent="HBC"]
+margin_left = 1332.0
+margin_right = 1402.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 70, 0 )
+custom_fonts/font = SubResource( 4 )
+text = "10"
+icon = ExtResource( 6 )
+expand_icon = true
+
+[node name="Settings" type="Button" parent="HBC"]
+margin_left = 1406.0
+margin_right = 1441.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 35, 0 )
+icon = ExtResource( 1 )
+expand_icon = true
+
+[node name="DeckPreview" type="PopupPanel" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1448.0
+margin_bottom = 615.0
+custom_styles/panel = SubResource( 3 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="DeckPreview"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 4.0
+margin_bottom = 4.0
+
+[node name="GridContainer" type="GridContainer" parent="DeckPreview/ScrollContainer"]
+custom_constants/vseparation = 10
+custom_constants/hseparation = 10
+columns = 5
+
+[connection signal="pressed" from="HBC/Deck" to="." method="_on_Deck_pressed"]
+[connection signal="pressed" from="HBC/Settings" to="." method="_on_Settings_pressed"]

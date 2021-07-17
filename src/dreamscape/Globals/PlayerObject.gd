@@ -1,16 +1,10 @@
 class_name Player
 extends Reference
 
-var health: int = 90
-var damage: int
+var health: int = 90 setget set_health
+var damage: int setget set_damage
 var deck: Deck
 
-#var deck_groups : Dictionary = {
-#	Terms.CARD_GROUP_TERMS.class: "Flyer",
-#	Terms.CARD_GROUP_TERMS.race: "Fearless",
-#	Terms.CARD_GROUP_TERMS.item: "Rubber Chicken",
-#	Terms.CARD_GROUP_TERMS.life_goal: "Abusive Relationship",
-#}
 var deck_groups : Dictionary = {
 	Terms.CARD_GROUP_TERMS.class: null,
 	Terms.CARD_GROUP_TERMS.race: null,
@@ -37,3 +31,17 @@ func get_currrent_archetypes() -> Array:
 		if deck_groups[archetype]:
 			all_archetypes.append(deck_groups[archetype])
 	return(all_archetypes)
+
+func set_damage(value) -> void:
+	damage = int(round(value))
+	if damage > health: 
+		damage = health
+	elif damage < 0:
+		damage = 0
+
+func set_health(value) -> void:
+	health = int(round(value))
+	if health < 0:
+		health = 0
+	if damage > health: 
+		damage = health

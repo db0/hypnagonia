@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/dreamscape/Discard.gd" type="Script" id=1]
 [ext_resource path="res://src/core/Pile.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/dreamscape/Deck.gd" type="Script" id=4]
 [ext_resource path="res://src/dreamscape/Board.gd" type="Script" id=5]
 [ext_resource path="res://src/dreamscape/Counters.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/dreamscape/PlayerInfo.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/card_backs/TCG_vol12_back.png" type="Texture" id=8]
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=12]
 
@@ -27,7 +28,6 @@ bg_color = Color( 0, 0, 0, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-theme = ExtResource( 12 )
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_lock_": true,
@@ -54,37 +54,42 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="PlayerInfo" parent="VBC" instance=ExtResource( 7 )]
+
 [node name="CombatArena" type="HBoxContainer" parent="VBC"]
+margin_top = 53.0
 margin_right = 1455.0
-margin_bottom = 581.0
+margin_bottom = 579.0
 mouse_filter = 2
 size_flags_vertical = 3
+theme = ExtResource( 12 )
 
 [node name="PlayerArea" type="CenterContainer" parent="VBC/CombatArena"]
 margin_right = 300.0
-margin_bottom = 581.0
+margin_bottom = 526.0
 rect_min_size = Vector2( 300, 0 )
 mouse_filter = 2
 
 [node name="EnemyArea" type="CenterContainer" parent="VBC/CombatArena"]
 margin_left = 303.0
 margin_right = 1455.0
-margin_bottom = 581.0
+margin_bottom = 526.0
 mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="Enemies" type="HBoxContainer" parent="VBC/CombatArena/EnemyArea"]
 margin_left = 576.0
-margin_top = 290.0
+margin_top = 263.0
 margin_right = 576.0
-margin_bottom = 290.0
+margin_bottom = 263.0
 mouse_filter = 2
 custom_constants/separation = 150
 
 [node name="HBC" type="HBoxContainer" parent="VBC"]
-margin_top = 584.0
+margin_top = 583.0
 margin_right = 1455.0
-margin_bottom = 611.0
+margin_bottom = 610.0
+theme = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -94,9 +99,16 @@ __meta__ = {
 margin_right = 0.0
 margin_bottom = 27.0
 
-[node name="EndTurn" type="Button" parent="VBC/HBC"]
+[node name="Push" type="Control" parent="VBC/HBC"]
 margin_left = 3.0
-margin_right = 79.0
+margin_right = 1376.0
+margin_bottom = 27.0
+mouse_filter = 2
+size_flags_horizontal = 3
+
+[node name="EndTurn" type="Button" parent="VBC/HBC"]
+margin_left = 1379.0
+margin_right = 1455.0
 margin_bottom = 27.0
 disabled = true
 text = "End Turn"
@@ -107,6 +119,7 @@ margin_right = 1455.0
 margin_bottom = 900.0
 rect_min_size = Vector2( 0, 280 )
 mouse_filter = 2
+theme = ExtResource( 12 )
 
 [node name="HBC" type="HBoxContainer" parent="VBC/HandArea"]
 margin_right = 1455.0

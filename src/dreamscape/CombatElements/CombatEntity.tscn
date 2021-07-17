@@ -7,7 +7,7 @@
 [ext_resource path="res://src/dreamscape/CombatElements/Highlight2.gd" type="Script" id=6]
 [ext_resource path="res://shaders/outline.shader" type="Shader" id=7]
 
-[sub_resource type="ShaderMaterial" id=3]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 7 )
 shader_param/color = Color( 1, 1, 1, 1 )
 shader_param/width = 0.0
@@ -15,7 +15,7 @@ shader_param/pattern = 2
 shader_param/inside = false
 shader_param/add_margins = false
 
-[sub_resource type="GDScript" id=1]
+[sub_resource type="GDScript" id=2]
 script/source = "extends Area2D
 
 
@@ -26,7 +26,7 @@ func get_combat_entity() -> Node:
 	return(get_parent().get_parent())
 "
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 32, 32 )
 
 [node name="CombatEntity" type="VBoxContainer" groups=[
@@ -60,7 +60,7 @@ margin_bottom = 40.0
 mouse_filter = 1
 
 [node name="Texture" type="TextureRect" parent="Art"]
-material = SubResource( 3 )
+material = SubResource( 1 )
 margin_right = 69.0
 texture = ExtResource( 2 )
 expand = true
@@ -75,10 +75,10 @@ script = ExtResource( 6 )
 
 [node name="Area2D" type="Area2D" parent="Art"]
 collision_mask = 2
-script = SubResource( 1 )
+script = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Art/Area2D"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Name" type="Label" parent="."]
 margin_top = 44.0

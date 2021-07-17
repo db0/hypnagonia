@@ -31,8 +31,11 @@ func _ready() -> void:
 	for button_name in _choice_buttons:
 		var choice_button: Button = _choice_buttons[button_name]
 		var choice_icon: TextureRect = _choice_icons[button_name]
+		# warning-ignore:return_value_discarded
 		choice_button.connect("pressed", self, "on_choice_button_pressed", [button_name])
+		# warning-ignore:return_value_discarded
 		choice_button.connect("mouse_entered", self, "on_choice_icon_mouse_entered", [choice_icon])
+		# warning-ignore:return_value_discarded
 		choice_button.connect("mouse_exited", self, "on_choice_icon_mouse_exited", [choice_icon])
 
 

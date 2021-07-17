@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/dreamscape/Overworld/SecondaryChoicesSlide.gd" type="Script" id=2]
+
+[node name="SecondaryChoicesSlide" type="MarginContainer"]
+mouse_filter = 1
+custom_constants/margin_left = 20
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SC" type="ScrollContainer" parent="."]
+margin_left = 20.0
+margin_right = 20.0
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SecondaryChoices" type="VBoxContainer" parent="SC"]
+custom_constants/separation = 0
+
+[node name="Tween" type="Tween" parent="SC"]

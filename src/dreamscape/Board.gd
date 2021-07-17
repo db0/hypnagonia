@@ -9,8 +9,6 @@ var activated_enemies: Array
 var boss_battle := false
 
 onready var bottom_gui := $VBC/HBC
-onready var post_battle_menu := $PostBattleMenu
-onready var game_over_notice := $GameOver
 onready var _player_area := $VBC/CombatArena/PlayerArea
 onready var _enemy_area := $VBC/CombatArena/EnemyArea/Enemies
 onready var _combat_arena := $VBC/CombatArena
@@ -76,7 +74,6 @@ func begin_encounter() -> void:
 
 func randomize_background() -> void:
 	var backgrounds := CFUtils.list_imported_in_directory("res://assets/backgrounds/")
-#	var backgrounds := BACKGROUNDS.duplicate()
 	CFUtils.shuffle_array(backgrounds)
 	var background_resource: String = "res://assets/backgrounds/" + backgrounds[0]
 	var tex = load(background_resource)

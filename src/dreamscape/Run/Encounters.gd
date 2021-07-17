@@ -107,5 +107,7 @@ func generate_journal_choices() -> Array:
 			next_enemy = remaining_early_enemies.pop_back()
 		else:
 			next_enemy = remaining_enemies.pop_back()
+			if globals.deep_sleeps == 0:
+				journal_options.append(preload("res://src/dreamscape/Run/NCE/Rest.gd").new())
 		journal_options.append(EnemyEncounter.new(next_enemy))
 	return(journal_options)

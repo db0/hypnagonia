@@ -10,7 +10,6 @@ var enemies: Array
 
 
 func _init(encounter: Dictionary):
-	type = "torment"
 	description = encounter["journal_description"]
 	enemies = encounter["enemies"]
 	reward_description = encounter["journal_reward"]
