@@ -158,7 +158,7 @@ const ATTACHMENT_OFFSET := [
 # The colour to use when hovering over a card.
 #
 # Reduce the multiplier to reduce glow effect or stop it altogether
-const FOCUS_HOVER_COLOUR := Color(1, 1, 1) * 1
+const FOCUS_HOVER_COLOUR := Color(1, 1, 1) * 1.2
 # The colour to use when hovering over a card with an attachment to signify
 # a valid host.
 #
@@ -190,7 +190,7 @@ const TARGETTING_ARROW_COLOUR := TARGET_HOVER_COLOUR
 # * DECREASED: The cost of the card can be paid and is decreased for some reason.
 # * OK: The cost of the card can be paid exactly.
 const CostsState := {
-	"IMPOSSIBLE": Color(1, 0, 0) * 1.3,
+	"IMPOSSIBLE": Color(1, 0, 0) * 1.2,
 	"INCREASED": Color(1, 0.5, 0) * 1.3,
 	"DECREASED": Color(0.5, 1, 0) * 1.3,
 	"OK": FOCUS_HOVER_COLOUR,

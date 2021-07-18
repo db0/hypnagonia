@@ -18,7 +18,7 @@ const EARLY_ENEMIES := [
 			'Was that [url={torment_tag1}]a curious owl with three eyes[/url] staring at me?',
 		"journal_reward":\
 			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
-		"journal_art": preload("res://assets/journal/fearmonger.jpg"),
+		"journal_art": preload("res://assets/journal/fearmonger.jpeg"),
 		"enemies": [
 			"Fearmonger",
 		]
@@ -31,7 +31,7 @@ const EARLY_ENEMIES := [
 		"enemies": [
 			"Gaslighter",
 		],
-		"journal_art": preload("res://assets/journal/gaslighter.jpg"),
+		"journal_art": preload("res://assets/journal/gaslighter.jpeg"),
 	},
 ]
 
@@ -68,7 +68,7 @@ const ENEMIES := [
 			"Gaslighter",
 			"Gaslighter",
 		],
-		"journal_art": preload("res://assets/journal/gaslighter.jpg"),
+		"journal_art": preload("res://assets/journal/gaslighter.jpeg"),
 	},
 ]
 

@@ -114,7 +114,7 @@ void fragment()
     
     
     vec3 lookingTo = vec3(0.,0.,0.);
-    float it = TIME / 10.;
+    float it = TIME / 20.;
     vec3 viewer = vec3(
         0.1+sin(it/2.5) * 1.,
         0.2+cos(it/3.0) * 1.,

@@ -101,17 +101,23 @@ margin_bottom = 27.0
 
 [node name="Push" type="Control" parent="VBC/HBC"]
 margin_left = 3.0
-margin_right = 1376.0
+margin_right = 1313.0
 margin_bottom = 27.0
 mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="EndTurn" type="Button" parent="VBC/HBC"]
-margin_left = 1379.0
-margin_right = 1455.0
+margin_left = 1316.0
+margin_right = 1392.0
 margin_bottom = 27.0
 disabled = true
 text = "End Turn"
+
+[node name="Margin" type="MarginContainer" parent="VBC/HBC"]
+margin_left = 1395.0
+margin_right = 1455.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 60, 0 )
 
 [node name="HandArea" type="MarginContainer" parent="VBC"]
 margin_top = 614.0
