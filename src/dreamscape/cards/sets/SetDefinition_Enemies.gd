@@ -11,6 +11,9 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
+		},
 	},
 	"Fearmonger": {
 		"Type": "Understanding",
@@ -30,6 +33,28 @@ const CARDS := {
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
+		},
+	},
+	"The Critic": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name],
+		"Abilities": "Add 10 Shaken to a Torment. Forget",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.ENEMY
+		},
+	},
+	"Clown": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
+		"Abilities": "Add 3 Confusion to all Torments. Forget",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
 	},
 }

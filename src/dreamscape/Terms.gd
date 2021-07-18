@@ -78,79 +78,111 @@ const ACTIVE_EFFECTS := {
 		"name": "Advantage",
 		"icon": preload("res://assets/icons/crow-dive.png"),
 		"generic_description": "{effect_name}: Doubles damage done by Interpretations.",
-		"description": "{effect_name}: The next {amount} actions doing {damage} by this {entity} are doubled."},
+		"description": "{effect_name}: The next {amount} actions doing {damage} by this {entity} are doubled."
+	},
 	"buffer":  {
 		"name": "Fascination",
 		"icon": preload("res://assets/icons/star-struck.png"),
 		"generic_description": "{effect_name}: Provides delayed Immersion.",
 		"description": "{effect_name}: At the start of your turn gain 1 {energy} per stack."\
-				+ "then remove all stacks of {effect_name}."},
+				+ "then remove all stacks of {effect_name}."
+	},
 	"disempower": {
 		"name": "Confusion",
 		"icon": preload("res://assets/icons/misdirection.png"),
-		"generic_description": "{effect_name}: Reduces anxiety dealt by Torments.",
+		"generic_description": "{effect_name}: Reduces anxiety dealt by Torments by percentage.",
 		"description": "{effect_name}: {damage} {damage_verb} by this {entity} is reduced by 30%.\n" \
-				+ "Reduce these stacks by 1 at the end of the turn."},
+				+ "Reduce these stacks by 1 at the end of the turn."
+	},
 	"empower": {
 		"name": "Clarity",
 		"icon": preload("res://assets/icons/extra-lucid.png"),
-		"generic_description": "{effect_name}: Increases interpretation dealt.",
+		"generic_description": "{effect_name}: Increases interpretation dealt by percentage.",
 		"description": "{effect_name}: {damage} {damage_verb} by this {entity} is increased by 30%.\n"\
-				+ "Reduce these stacks by 1 at the end of the turn."},
+				+ "Reduce these stacks by 1 at the end of the turn."
+	},
+	"strengthen": {
+		"name": "Focus",
+		"icon": preload("res://assets/icons/templar-eye.png"),
+		"generic_description": "{effect_name}: Increases interpretation dealt by exact amount.",
+		"description": "{effect_name}: {damage} {damage_verb} by this {entity} is increased by {amount} (1 per stack).\n"
+	},
 	"fortify": {
 		"name": "Courage",
 		"icon": preload("res://assets/icons/beams-aura.png"),
 		"generic_description": "{effect_name}: Prevents from concentration from expiring each turn.",
 		"description": "{effect_name}: {defence} is not removed at start of turn.\n"\
-				+ "Reduce these stacks by 1 at the start of the turn."},
+				+ "Reduce these stacks by 1 at the start of the turn."
+	},
 	"impervious": {
 		"name": "Untouchable",
 		"icon": preload("res://assets/icons/dodging.png"),
 		"generic_description": "{effect_name}: Prevents all anxiety from Torment-induced stress.",
 		"description": "{effect_name}: No {health} is taken this turn from {opponent_attack}.\n" \
-				+ "Reduce these stacks by 1 at the start of the turn."},
+				+ "Reduce these stacks by 1 at the start of the turn."
+	},
 	"poison": {
 		"name": "Doubt",
 		"icon": preload("res://assets/icons/coma.png"),
 		"generic_description": "{effect_name}: Automatically adds interpretation each turn.",
 		"description": "{effect_name}: At the start of this {entity}'s turn it receives"\
 				+ " {amount} {health} (1 per stack), then reduce the stacks of {effect_name} by 1."\
-				+ "\n({effect_name} bypasses {defence})"},
+				+ "\n({effect_name} bypasses {defence})"
+	},
 	"vulnerable": {
 		"name": "Shaken",
 		"icon": preload("res://assets/icons/cracked-shield.png"),
 		"generic_description": "{effect_name}: Reduces amount of Perplexity on Torments.",
 		"description": "{effect_name}: {defence} added to this {entity} is reduced by 25%.\n" \
-				+ "Reduce these stacks by 1 at the end of the turn."},
+				+ "Reduce these stacks by 1 at the end of the turn."
+	},
 	"outrage": {
 		"name": "Outrage",
-		"description": "{effect_name}: This {entity} has become more powerful in some fashion."},
+		"description": "{effect_name}: This {entity} has become more powerful in some fashion.",
+		"icon": preload("res://assets/icons/enrage.png"),
+	},
 	# Below are unique effects. Typically from concentrations
 	"laugh_at_danger":  {
 		"name": "Laugh at Danger",
-		"description": "{effect_name}: After a {enemy} {opponent_attack} the {entity}, it gains 1 Doubt."},
+		"description": "{effect_name}: After a {enemy} {opponent_attack} the {entity}, it gains 1 Doubt.",
+		"icon": preload("res://assets/icons/delighted.png"),
+	},
 	"nothing_to_fear":  {
 		"name": "Nothing to Fear",
 		"description": "{effect_name}: Add {amount} {energy} at the start of the turn.\n"\
-				+ "All {health} taken is increased by {double_amount}."},
+				+ "All {health} taken is increased by {double_amount}.",
+		"icon": preload("res://assets/icons/one-eyed.png"),
+	},
 	"rubber_eggs":  {
 		"name": "Rubber Eggs",
-		"description": "{effect_name}: At the end of your turn, Interpret a random Confused {enemy} for 6."},
+		"description": "{effect_name}: At the end of your turn, Interpret a random Confused {enemy} for 6.",
+		"icon": preload("res://assets/icons/egg-defense.png"),
+	},
 	"nunclucks":  {
 		"name": "Nunclucks",
-		"description": "{effect_name}: Increase your {damage} by 1, for each stack of Confusion on the {enemy}."},
+		"description": "{effect_name}: Increase your {damage} by 1, for each stack of Confusion on the {enemy}.",
+		"icon": preload("res://assets/icons/nunchaku.png"),
+	},
 	"unassailable":  {
 		"name": "Unassailable",
-		"description": "{effect_name}: Whenever you apply Doubt, gain 1 {defence}."},
+		"description": "{effect_name}: Whenever you apply Doubt, gain 1 {defence}.",
+		"icon": preload("res://assets/icons/psychic-waves.png"),
+	},
 	"master_of_skies":  {
 		"name": "Master of Skies",
-		"description": "{effect_name}: Whenever you Gain Untouchable, gain 1 {energy}."},
+		"description": "{effect_name}: Whenever you Gain Untouchable, gain 1 {energy}.",
+		"icon": preload("res://assets/icons/wing-cloak.png"),
+	},
 	"zen_of_flight":  {
 		"name": "Zen of Flight",
-		"description": "{effect_name}: At the end of each turn, {heal} 1. If Untouchable, {heal} 1 extra."},
+		"description": "{effect_name}: At the end of each turn, {heal} 1. If Untouchable, {heal} 1 extra.",
+		"icon": preload("res://assets/icons/windy-stripes.png"),
+	},
 	"absurdity_unleashed":  {
 		"name": "Absurdity Unleashed",
-		"description": "{effect_name}: Whenever you apply Confusion to a Torment, {attack} it for 4"},
+		"description": "{effect_name}: Whenever you apply Confusion to a Torment, {attack} it for 4",
+		"icon": preload("res://assets/icons/absurdity-unleashed.png"),
+	},
 }
 
 

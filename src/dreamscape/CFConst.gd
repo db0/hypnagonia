@@ -194,6 +194,7 @@ const CostsState := {
 	"INCREASED": Color(1, 0.5, 0) * 1.3,
 	"DECREASED": Color(0.5, 1, 0) * 1.3,
 	"OK": FOCUS_HOVER_COLOUR,
+	"NEUTRAL":  Color(1, 1, 1),
 }
 # This is used when filling in card property labels in [Card].setup()
 # when the property is an array, the label will still display it as a string

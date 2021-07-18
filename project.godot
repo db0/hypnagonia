@@ -274,7 +274,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/core/IntegerLineEdit.gd"
 }, {
-"base": "Reference",
+"base": "Resource",
 "class": "IntentScripts",
 "language": "GDScript",
 "path": "res://src/dreamscape/CombatElements/Enemies/IntentScripts.gd"

@@ -1,6 +1,10 @@
 class_name Turn
 extends Node
 
+enum Turns {
+	PLAYER_TURN
+	ENEMY_TURN
+}
 const PLAYER_SIGNALS := [
 	"player_turn_started",
 	"player_turn_ended",
@@ -18,6 +22,7 @@ signal enemy_turn_started(turn)
 signal enemy_turn_ended(turn)
 # Tracks the first of each card to have been played each turn
 var firsts := {}
+var current_turn : int = Turns.PLAYER_TURN
 
 
 func _init() -> void:
@@ -35,12 +40,14 @@ func setup() -> void:
 			connect(turn_signal, obj, "_on_" + turn_signal)
 		
 func start_player_turn() -> void:
+	current_turn = Turns.PLAYER_TURN
 	emit_signal("player_turn_started", self)
 	
 func end_player_turn() -> void:
 	emit_signal("player_turn_ended", self)
 		
 func start_enemy_turn() -> void:
+	current_turn = Turns.ENEMY_TURN
 	emit_signal("enemy_turn_started", self)
 	
 func end_enemy_turn() -> void:

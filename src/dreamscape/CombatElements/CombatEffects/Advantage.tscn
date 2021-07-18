@@ -11,5 +11,5 @@ priority = 1
 [node name="Label" parent="Signifier" index="0"]
 visible = false
 
-[node name="Icon" parent="Signifier" index="1"]
+[node name="Icon" parent="Signifier" index="2"]
 texture = ExtResource( 3 )

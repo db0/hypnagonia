@@ -1,5 +1,7 @@
-# Dreams: A Deckbuilding Therapy Session v0.5
+# Project Dreams: A Deckbuilding Therapy Session [v0.6](CHANGELOG.md)
 
+
+![Project Dreams preview image](preview.png "Project Dreams preview image")
 
 Dreams is a 'spire-like' deckbuilder card game where you take the part of a dreamer captured in a nightmare realm in their recurring dreams and struggling to overcome their own issues to break out of this loop.
 
