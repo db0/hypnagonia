@@ -62,6 +62,7 @@ func activate() -> void:
 	intents.prepare_intents()
 
 func die() -> void:
+	is_dead = true
 	emit_signal("entity_killed")
 	if animated_art:
 		animated_art.defeat()

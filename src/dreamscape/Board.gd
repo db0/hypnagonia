@@ -56,7 +56,7 @@ func _ready() -> void:
 #	dreamer.active_effects.mod_effect(ActiveEffects.NAMES.disempower, 5)
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 5)
 #	dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
-#	torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 10)
+#	torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 60)
 	_on_viewport_resized()
 #	begin_encounter()
 #
@@ -169,6 +169,11 @@ func get_all_scriptables() -> Array:
 
 # Loads the player's deck
 func load_deck() -> void:
+	if not globals.player.deck:
+		NewGameMenu.randomize_archetype_choices()
+		cfc.game_rng_seed = CFUtils.generate_random_seed()
+		globals.player.setup()
+		globals.encounters.setup()
 	for card in globals.player.deck.instance_cards():
 		cfc.NMAP.deck.add_child(card)
 		#card.set_is_faceup(false,true)
@@ -190,6 +195,7 @@ func _on_player_turn_ended(_turn: Turn) -> void:
 	turn.start_enemy_turn()
 
 func _on_enemy_turn_started(_turn: Turn) -> void:
+	# We delay, to allow effects like poison to activate first
 	yield(get_tree().create_timer(1), "timeout")
 	# I want the enemies to activate serially
 	for enemy in get_tree().get_nodes_in_group("EnemyEntities"):
@@ -210,7 +216,7 @@ func _on_finished_enemy_activation(enemy: EnemyEntity) -> void:
 		turn.start_player_turn()
 
 func _enemy_died() -> void:
-	yield(get_tree().create_timer(1), "timeout")
+	yield(get_tree().create_timer(2), "timeout")
 	if get_tree().get_nodes_in_group("EnemyEntities").size() == 0:
 		complete_battle()
 
@@ -244,6 +250,8 @@ func game_over() -> void:
 
 
 func _input(event):
+	if event.is_action_pressed("init_debug_game"):
+		begin_encounter()
 	if event.is_action_pressed("debug"):
 		_on_Debug_pressed()
 	if event.is_action_pressed("complete_battle"):
