@@ -1,11 +1,17 @@
 # Dreams: Changelog
 
+## v0.6.1
+
+* Fixed enemies dying from doubt sometimes preventing game from finishing
+* Fixed somethimes Understanding card preview getting stuck in journal
+
 ## v0.6.0
 
 * Added framework for non-combat events
 * Added first non-combat event: Deep Sleep
-* Added top-bar with player status
+* Added top-bar with player status and current decklist
 * Reduced the game size to 20MB (from 100) by using lossy compression on the backgrounds
+* Fixed last enemy dying from doubt breaking the combat-end
 
 ## v0.5.5
 
@@ -29,9 +35,10 @@
 * Improved Highlights
 * Added better default Godot sprite
 * Added overcoming animation to The Laughing One (Credit to insomniacUNDERSCORElemon)
+
 ## v0.5.1
 
-* Fixed journal not refilling after 5th encounters
+* Fixed journal not refilling after 5th encounter
 * Fixed loss not triggerring
 * Change shuffle type as the overhand seems to cause some glitches
 * Scripted Understanding cards

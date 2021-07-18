@@ -97,10 +97,10 @@ func set_health(value) -> void:
 
 
 func die() -> void:
+	is_dead = true
 	emit_signal("entity_killed")
 	entity_texture.material = ShaderMaterial.new()
 	entity_texture.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
-	is_dead = true
 
 
 func modify_damage(amount: int, dry_run := false, tags := ["Manual"], trigger: CombatEntity = null) -> int:

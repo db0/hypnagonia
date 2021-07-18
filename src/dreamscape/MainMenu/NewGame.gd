@@ -1,3 +1,4 @@
+class_name NewGameMenu
 extends PanelContainer
 
 const ARCHETYPE_SCENE := preload("res://src/dreamscape/MainMenu/Archetype.tscn")
@@ -58,7 +59,7 @@ func populate_choices(archetype: String) -> void:
 		archetype_button.button.connect("mouse_entered", self, "_on_archetype_mouse_entered", [type])
 
 
-func randomize_archetype_choices() -> Dictionary:
+static func randomize_archetype_choices() -> Dictionary:
 	var randomized_archetypes := {}
 	for archetype in Terms.CARD_GROUP_TERMS.values():
 		var types: Array = get_all_types_list(archetype)

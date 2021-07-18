@@ -86,12 +86,7 @@ func add_nested_choices(nested_choices: Dictionary) -> void:
 
 func _on_meta_clicked(meta_text: String) -> void:
 	var meta_tag := _parse_meta_tag(meta_text)
-	match meta_tag["meta_type"]:
-		"torment_card":
-			# This is to prevent the card preview staying after we disable signals
-			_on_meta_hover_ended(meta_text)
-		"nce":
-			_description_popup.visible = false
+	pass
 
 
 func _on_meta_hover_started(meta_text: String) -> void:
@@ -128,6 +123,10 @@ func _on_choice_pressed(encounter: SingleEncounter, rich_text_choice: JournalCho
 	for choice in journal_choices.get_children():
 		if choice != rich_text_choice:
 			choice.visible = false
+	# To ensure card previews are hidden in case the player is too fast.
+	_description_popup.visible = false
+	for torment_name in enemy_cards:
+		enemy_cards[torment_name]._on_DBGridCardObject_mouse_exited()
 	encounter.begin()
 
 
