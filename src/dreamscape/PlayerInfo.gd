@@ -41,7 +41,9 @@ func populate_preview_cards() -> void:
 	
 
 func _update_health_label() -> void:
-	if cfc.NMAP.has("board") and is_instance_valid(cfc.NMAP.board):
+	if cfc.NMAP.has("board")\
+			and is_instance_valid(cfc.NMAP.board)\
+			and is_instance_valid(cfc.NMAP.board.dreamer):
 		_player_health_label.text =\
 				str(cfc.NMAP.board.dreamer.damage) + '/' + str(cfc.NMAP.board.dreamer.health)
 	else:

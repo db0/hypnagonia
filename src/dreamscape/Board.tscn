@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/dreamscape/Discard.gd" type="Script" id=1]
 [ext_resource path="res://src/core/Pile.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://src/dreamscape/Counters.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/dreamscape/PlayerInfo.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/card_backs/TCG_vol12_back.png" type="Texture" id=8]
+[ext_resource path="res://assets/backgrounds/tint.png" type="Texture" id=9]
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=12]
 
 [sub_resource type="StyleBoxTexture" id=1]
@@ -34,12 +35,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 margin_right = 1700.0
 margin_bottom = 900.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundTint" type="TextureRect" parent="."]
+visible = false
+margin_right = 1700.0
+margin_bottom = 900.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 9 )
 expand = true
 stretch_mode = 1
 __meta__ = {

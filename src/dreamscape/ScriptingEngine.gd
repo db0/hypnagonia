@@ -349,7 +349,7 @@ func perturb(script: ScriptTask) -> void:
 func spawn_enemy(script: ScriptTask) -> void:
 	var count: int
 	var alteration = 0
-	var canonical_name: String = script.get_property(SP.KEY_ENEMY_NAME)
+	var enemy_properties: Dictionary = script.get_property(SP.KEY_ENEMY)
 	if str(script.get_property(SP.KEY_OBJECT_COUNT)) == SP.VALUE_RETRIEVE_INTEGER:
 		count = stored_integer
 		if script.get_property(SP.KEY_IS_INVERTED):
@@ -368,7 +368,7 @@ func spawn_enemy(script: ScriptTask) -> void:
 	if alteration is GDScriptFunctionState:
 		alteration = yield(alteration, "completed")
 	for _iter in range(count + alteration):
-		var enemy_entity : EnemyEntity = cfc.NMAP.board.spawn_enemy(canonical_name)
+		var enemy_entity : EnemyEntity = cfc.NMAP.board.spawn_enemy(enemy_properties)
 		yield(cfc.get_tree().create_timer(0.05), "timeout")
 		# We need to set it as activated or the board will never re-enable the
 		# end-turn button

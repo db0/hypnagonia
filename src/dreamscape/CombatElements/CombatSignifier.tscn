@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/dreamscape/CombatElements/CombatSignifier.gd" type="Script" id=1]
-[ext_resource path="res://assets/icons/brain-freeze.png" type="Texture" id=2]
+[ext_resource path="res://assets/icons/shield.png" type="Texture" id=2]
 [ext_resource path="res://themes/darktheme/fonts/Reggae_One/ReggaeOne-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://fonts/Comfortaa-Bold.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://assets/card_front/tag_container.png" type="Texture" id=5]
@@ -22,6 +22,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+icon_container_texture = ExtResource( 5 )
 
 [node name="Signifier" type="CenterContainer" parent="."]
 margin_right = 24.0
@@ -48,7 +49,6 @@ uppercase = true
 margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
-texture = ExtResource( 5 )
 expand = true
 stretch_mode = 1
 
@@ -60,7 +60,7 @@ margin_bottom = 35.0
 rect_min_size = Vector2( 30, 30 )
 texture = ExtResource( 2 )
 expand = true
-stretch_mode = 5
+stretch_mode = 1
 
 [node name="Description" type="PopupPanel" parent="."]
 margin_left = 25.0

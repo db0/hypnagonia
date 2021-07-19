@@ -1,5 +1,16 @@
 # Dreams: Changelog
 
+## v0.6.2
+
+* Antialiased everything
+* Added 2 new enemies: Clown, and The Critic
+* Added 2 new encounters
+* Cannot play 0 cost cards on opponent turns anymore
+* Improved background quality
+* Added outline on intent icons to make them clearer in light backgrounds
+* Highlight on enemies during targetting will not now highlight things other than the target 
+* Improved Boss character art (Credit to insomniacUNDERSCORElemon)
+
 ## v0.6.1
 
 * Fixed enemies dying from doubt sometimes preventing game from finishing

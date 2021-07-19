@@ -11,6 +11,7 @@ const EFFECTS := {
 	Terms.ACTIVE_EFFECTS.fortify.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Fortify.tscn"),
 	Terms.ACTIVE_EFFECTS.buffer.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Buffer.tscn"),
 	Terms.ACTIVE_EFFECTS.outrage.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Outrage.tscn"),
+	Terms.ACTIVE_EFFECTS.strengthen.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Strengthen.tscn"),
 	
 	Terms.ACTIVE_EFFECTS.laugh_at_danger.name: preload("res://src/dreamscape/CombatElements/CombatEffects/LaughAtDanger.tscn"),
 	Terms.ACTIVE_EFFECTS.nothing_to_fear.name: preload("res://src/dreamscape/CombatElements/CombatEffects/NothingToFear.tscn"),
@@ -86,6 +87,13 @@ func mod_effect(
 				effect.name = effect_name
 				effect.entity_type = combat_entity.entity_type
 				add_child(effect)
+				var effect_details := Terms.get_effect_entry(effect_name)
+				var setup_dict := {
+					"entity_type": combat_entity.entity_type,
+					"icon": effect_details.icon,
+					"amount": 0,
+				}
+				effect.setup(setup_dict, effect_name)
 			cfc.flush_cache()
 			var prev_value := effect.stacks
 			var new_value := 0

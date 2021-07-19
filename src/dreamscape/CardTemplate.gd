@@ -267,7 +267,8 @@ func check_play_costs() -> Color:
 		ret = CFConst.CostsState.INCREASED
 	elif immersion_cost < properties.get("Cost", 0):
 		ret = CFConst.CostsState.DECREASED
-
+	if cfc.NMAP.board.turn.current_turn != Turn.Turns.PLAYER_TURN:
+		ret = CFConst.CostsState.IMPOSSIBLE
 	if properties.get("_is_unplayable", false):
 		ret = CFConst.CostsState.IMPOSSIBLE
 

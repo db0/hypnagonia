@@ -1,10 +1,10 @@
 class_name IntentScripts
-extends Reference
+extends Resource
 
-const ICON_ATTACK := "res://assets/icons/terror.png"
-const ICON_DEFEND := "res://assets/icons/shield.png"
-const ICON_BUFF := "res://assets/icons/cursed-star.png"
-const ICON_DEBUFF := "res://assets/icons/growth.png"
+export(StreamTexture) var ICON_ATTACK := preload("res://assets/icons/terror.png")
+export(StreamTexture) var ICON_DEFEND := preload("res://assets/icons/shield.png")
+export(StreamTexture) var ICON_BUFF := preload("res://assets/icons/cursed-star.png")
+export(StreamTexture) var ICON_DEBUFF := preload("res://assets/icons/growth.png")
 
 func get_scripts(intent_name: String) -> Dictionary:
 	var scripts := {
@@ -57,7 +57,7 @@ func get_scripts(intent_name: String) -> Dictionary:
 				"dest_container": cfc.NMAP.discard,
 				"object_count": 1,
 				"tags": ["Intent"],
-				"icon": "res://assets/icons/alien-stare.png",
+				"icon": preload("res://assets/icons/alien-stare.png"),
 				"description": "Stare: It's not blinking..."
 			}
 		],

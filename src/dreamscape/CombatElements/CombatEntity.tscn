@@ -8,6 +8,7 @@
 [ext_resource path="res://shaders/outline.shader" type="Shader" id=7]
 
 [sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
 shader = ExtResource( 7 )
 shader_param/color = Color( 1, 1, 1, 1 )
 shader_param/width = 0.0
@@ -40,6 +41,7 @@ __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
+defence_texture = ExtResource( 5 )
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 margin_right = 69.0
@@ -101,12 +103,11 @@ margin_right = 36.0
 margin_bottom = 36.0
 mouse_filter = 1
 
-[node name="TextureRect" type="TextureRect" parent="HBC/Defence"]
+[node name="Icon" type="TextureRect" parent="HBC/Defence"]
 margin_right = 36.0
 margin_bottom = 36.0
 rect_min_size = Vector2( 36, 36 )
 mouse_filter = 2
-texture = ExtResource( 5 )
 expand = true
 stretch_mode = 1
 

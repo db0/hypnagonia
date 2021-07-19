@@ -11,5 +11,5 @@ script = ExtResource( 1 )
 visible = false
 text = "F"
 
-[node name="Icon" parent="Signifier" index="1"]
+[node name="Icon" parent="Signifier" index="2"]
 texture = ExtResource( 3 )

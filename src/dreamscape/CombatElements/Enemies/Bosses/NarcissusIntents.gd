@@ -79,7 +79,7 @@ func get_boss_scripts(intent_name: String) -> Dictionary:
 				"tags": ["Intent"],
 				"subject": "dreamer",
 				"modification": 4,
-				"icon": IntentScripts.ICON_DEBUFF,
+				"icon": all_intent_scripts.ICON_DEBUFF,
 				"description": "That didn't happen."
 			}
 		],
@@ -89,7 +89,7 @@ func get_boss_scripts(intent_name: String) -> Dictionary:
 				"tags": ["Damage", "Intent"],
 				"subject": "dreamer",
 				"amount": 10 + get_outrage(),
-				"icon": IntentScripts.ICON_ATTACK,
+				"icon": all_intent_scripts.ICON_ATTACK,
 				"description": "And if it did..."
 			},
 			{
@@ -97,7 +97,7 @@ func get_boss_scripts(intent_name: String) -> Dictionary:
 				"tags": ["Intent"],
 				"subject": "self",
 				"amount": 15,
-				"icon": IntentScripts.ICON_DEFEND,
+				"icon": all_intent_scripts.ICON_DEFEND,
 				"description": "...it wasn't that bad."
 			}			
 		],
@@ -108,15 +108,15 @@ func get_boss_scripts(intent_name: String) -> Dictionary:
 				"tags": ["Intent"],
 				"subject": "dreamer",
 				"modification": 1 + get_outrage(),
-				"icon": IntentScripts.ICON_DEBUFF,
+				"icon": all_intent_scripts.ICON_DEBUFF,
 				"description": "And if it was..."
 			},
 			{
 				"name": "spawn_enemy",
-				"enemy_name": "Gaslighter",
+				"enemy": EnemyDefinitions.GASLIGHTER,
 				"tags": ["Intent"],
 				"modify_spawn_health": -25 + (get_outrage() * 2),
-				"icon": "res://assets/icons/alien-egg.png",
+				"icon": preload("res://assets/icons/alien-egg.png"),
 				"description": "...that's not a big deal."
 			}
 		],
@@ -127,7 +127,7 @@ func get_boss_scripts(intent_name: String) -> Dictionary:
 				"tags": ["Intent"],
 				"subject": "dreamer",
 				"modification": 4,
-				"icon": IntentScripts.ICON_DEBUFF,
+				"icon": all_intent_scripts.ICON_DEBUFF,
 				"description": "And if it is..."
 			},
 			{
@@ -135,7 +135,7 @@ func get_boss_scripts(intent_name: String) -> Dictionary:
 				"tags": ["Damage", "Intent"],
 				"subject": "dreamer",
 				"amount": 5 + get_outrage(),
-				"icon": IntentScripts.ICON_ATTACK,
+				"icon": all_intent_scripts.ICON_ATTACK,
 				"description": "... that's not my fault."
 			},
 		],
@@ -146,7 +146,7 @@ func get_boss_scripts(intent_name: String) -> Dictionary:
 				"tags": ["Intent"],
 				"subject": "dreamer",
 				"modification": 2,
-				"icon": IntentScripts.ICON_DEBUFF,
+				"icon": all_intent_scripts.ICON_DEBUFF,
 				"description": "And if it was..."
 			},
 			{
@@ -154,7 +154,7 @@ func get_boss_scripts(intent_name: String) -> Dictionary:
 				"tags": ["Intent"],
 				"subject": "self",
 				"amount": 10,
-				"icon": IntentScripts.ICON_DEFEND,
+				"icon": all_intent_scripts.ICON_DEFEND,
 				"description":  "...I didn't mean it."
 			}
 		],
@@ -165,7 +165,7 @@ func get_boss_scripts(intent_name: String) -> Dictionary:
 				"tags": ["Intent"],
 				"subject": "self",
 				"modification": 1,
-				"icon": IntentScripts.ICON_BUFF,
+				"icon": all_intent_scripts.ICON_BUFF,
 				"description": "And if I did..."
 			},
 			{
@@ -173,7 +173,7 @@ func get_boss_scripts(intent_name: String) -> Dictionary:
 				"tags": ["Damage", "Intent"],
 				"subject": "dreamer",
 				"amount": 23 + (get_outrage() * 2),
-				"icon": IntentScripts.ICON_ATTACK,
+				"icon": all_intent_scripts.ICON_ATTACK,
 				"description": "...you deserved it."
 			},
 		],

@@ -1,16 +1,27 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/EnemyIntents.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/dreamscape/CombatElements/CombatEntity.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/Bosses/NarcissusIntents.gd" type="Script" id=3]
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/Bosses/Narcissus.gd" type="Script" id=4]
-[ext_resource path="res://assets/enemies/Narcissus.jpg" type="Texture" id=5]
+[ext_resource path="res://assets/enemies/narcissus.png" type="Texture" id=5]
+[ext_resource path="res://shaders/outline.shader" type="Shader" id=6]
 
-[node name="Narcissist" groups=[
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 6 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/width = 0.0
+shader_param/pattern = 2
+shader_param/inside = false
+shader_param/add_margins = false
+
+[node name="Narcissus" groups=[
 "BossEntities",
 "EnemyEntities",
 ] instance=ExtResource( 2 )]
 script = ExtResource( 4 )
+character_art_texture = ExtResource( 5 )
 
 [node name="CenterContainer" parent="." index="0"]
 rect_min_size = Vector2( 0, 36 )
@@ -28,7 +39,7 @@ margin_top = 87.0
 margin_bottom = 87.0
 
 [node name="Texture" parent="Art" index="0"]
-texture = ExtResource( 5 )
+material = SubResource( 1 )
 
 [node name="Name" parent="." index="3"]
 margin_top = 91.0

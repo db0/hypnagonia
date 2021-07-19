@@ -12,7 +12,8 @@ onready var bottom_gui := $VBC/HBC
 onready var _player_area := $VBC/CombatArena/PlayerArea
 onready var _enemy_area := $VBC/CombatArena/EnemyArea/Enemies
 onready var _combat_arena := $VBC/CombatArena
-onready var _background := $TextureRect
+onready var _background := $Background
+onready var _bg_tint := $BackgroundTint
 onready var _board_cover := $FadeToBlack
 onready var _tween := $Tween
 
@@ -47,8 +48,8 @@ func _ready() -> void:
 	_player_area.add_child(dreamer)
 	dreamer.rect_position = Vector2(100,100)
 # warning-ignore:unused_variable
-#	var torment = spawn_enemy("Fearmonger")
-#	var torment2 = spawn_enemy("The Laughing One")
+#	var torment = spawn_enemy("Clown")
+#	var torment2 = spawn_enemy("The Critic")
 #	var torment3 = spawn_enemy("Gaslighter")
 #	var torment2 = spawn_enemy("Gaslighter")
 #	torment2.rect_position = Vector2(800,100)
@@ -73,9 +74,19 @@ func begin_encounter() -> void:
 	_on_player_turn_started(turn)
 
 func randomize_background() -> void:
-	var backgrounds := CFUtils.list_imported_in_directory("res://assets/backgrounds/")
-	CFUtils.shuffle_array(backgrounds)
-	var background_resource: String = "res://assets/backgrounds/" + backgrounds[0]
+	var dark_backgrounds := CFUtils.list_imported_in_directory("res://assets/backgrounds/dark/")
+	var bright_backgrounds := CFUtils.list_imported_in_directory("res://assets/backgrounds/bright/")
+	var all_backgrounds := dark_backgrounds + bright_backgrounds
+	CFUtils.shuffle_array(all_backgrounds)
+	var selected_background :String = all_backgrounds[0]
+	var bpath: String
+	if selected_background in bright_backgrounds:
+		bpath = "res://assets/backgrounds/bright/"
+		_bg_tint.visible = true
+		print_debug(_bg_tint.visible)
+	else:
+		bpath = "res://assets/backgrounds/dark/"
+	var background_resource: String = bpath + selected_background
 	var tex = load(background_resource)
 	var new_texture = ImageTexture.new();
 	var image = tex.get_data()
@@ -83,16 +94,15 @@ func randomize_background() -> void:
 	_background.texture = new_texture
 
 func spawn_enemy_encounter(encounter: EnemyEncounter) -> void:
-	for enemy_name in encounter.enemies:
+	for enemy_properties in encounter.enemies:
 # warning-ignore:return_value_discarded
-		spawn_enemy(enemy_name)
+		spawn_enemy(enemy_properties)
 
-func spawn_enemy(enemy_name) -> EnemyEntity:
+func spawn_enemy(enemy_properties) -> EnemyEntity:
 	if get_tree().get_nodes_in_group("EnemyEntities").size() >= 5:
 		return(null)
-	var enemy_properties = EnemyDefinitions.ENEMIES.get(enemy_name)
 	var enemy : EnemyEntity = ENEMY_ENTITY_SCENE.instance()
-	enemy.setup(enemy_name, enemy_properties)
+	enemy.setup(enemy_properties.Name, enemy_properties)
 	enemy.entity_type = Terms.ENEMY
 	_enemy_area.add_child(enemy)
 	# warning-ignore:return_value_discarded

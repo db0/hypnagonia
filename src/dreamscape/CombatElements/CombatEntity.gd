@@ -3,6 +3,9 @@ extends VBoxContainer
 
 const INCOMING_SIGNIFIER_SCENE = preload("res://src/dreamscape/CombatElements/IncomingSignifier.tscn")
 
+export(StreamTexture) var defence_texture: StreamTexture
+export(StreamTexture) var character_art_texture: StreamTexture
+
 signal effect_modified(entity,trigger,details)
 signal entity_attacked(entity, amount, trigger)
 signal entity_healed(entity, amount, trigger)
@@ -18,6 +21,7 @@ onready var highlight := $Art/Highlight
 onready var _health_stats := $HBC
 onready var health_label : Label = $HBC/Health
 onready var name_label : Label = $Name
+onready var defence_icon : TextureRect = $HBC/Defence/Icon
 onready var defence_label : Label = $HBC/Defence/Amount
 onready var active_effects := $ActiveEffects
 onready var incoming := $CenterContainer/Incoming
@@ -68,6 +72,18 @@ func _ready() -> void:
 	for turn_signal in Turn.ALL_SIGNALS:
 		# warning-ignore:return_value_discarded
 		turn.connect(turn_signal, self, "_on_" + turn_signal)
+	_set_texture(defence_icon, defence_texture)
+	if _properties.has('_texture'):
+		_set_texture(entity_texture, _properties["_texture"])
+	elif character_art_texture:
+		_set_texture(entity_texture, character_art_texture)
+
+func _set_texture(node: Node, stream: StreamTexture) -> void:
+		var new_texture = ImageTexture.new()
+		new_texture.storage = ImageTexture.STORAGE_COMPRESS_LOSSLESS
+		var _image = stream.get_data()
+		new_texture.create_from_image(_image)
+		node.texture = new_texture
 
 func _process(delta: float) -> void:
 	if is_dead and entity_texture.material as ShaderMaterial:

@@ -8,8 +8,8 @@ const EARLY_ENEMIES := [
 		"journal_reward":\
 			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
 		"enemies": [
-			"The Laughing One",
-			"The Laughing One",
+			EnemyDefinitions.THE_LAUGHING_ONE,
+			EnemyDefinitions.THE_LAUGHING_ONE,
 		],
 		"journal_art": preload("res://assets/journal/the_laughing_one.jpeg"),
 	},
@@ -20,7 +20,7 @@ const EARLY_ENEMIES := [
 			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
 		"journal_art": preload("res://assets/journal/fearmonger.jpeg"),
 		"enemies": [
-			"Fearmonger",
+			EnemyDefinitions.FEARMONGER,
 		]
 	},
 	{
@@ -29,7 +29,7 @@ const EARLY_ENEMIES := [
 		"journal_reward":\
 			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
 		"enemies": [
-			"Gaslighter",
+			EnemyDefinitions.GASLIGHTER,
 		],
 		"journal_art": preload("res://assets/journal/gaslighter.jpeg"),
 	},
@@ -38,13 +38,34 @@ const EARLY_ENEMIES := [
 const ENEMIES := [
 	{
 		"journal_description":\
+			'Strange furry animals with massive noses (or were they trunks) [url={torment_tag1}]started sniffing at me, and pointing out my weaknesses[/url].',
+		"journal_reward":\
+			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+		"enemies": [
+			EnemyDefinitions.THE_CRITIC,
+			EnemyDefinitions.THE_CRITIC,
+		],
+		"journal_art": preload("res://assets/journal/the_critic.jpeg"),
+	},
+	{
+		"journal_description":\
+			'I somehow ended in a peculiar argument [url={torment_tag1}]with a clown[/url].',
+		"journal_reward":\
+			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+		"enemies": [
+			EnemyDefinitions.CLOWN,
+		],
+		"journal_art": preload("res://assets/journal/clown.jpeg"),
+	},
+	{
+		"journal_description":\
 			'The [url={torment_tag1}]cackling people I could not distinguish[/url] once again hounded me.',
 		"journal_reward":\
 			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
 		"enemies": [
-			"The Laughing One",
-			"The Laughing One",
-			"The Laughing One",
+			EnemyDefinitions.THE_LAUGHING_ONE,
+			EnemyDefinitions.THE_LAUGHING_ONE,
+			EnemyDefinitions.THE_LAUGHING_ONE,
 		],
 		"journal_art": preload("res://assets/journal/the_laughing_one.jpeg"),
 	},
@@ -55,8 +76,8 @@ const ENEMIES := [
 		"journal_reward":\
 			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
 		"enemies": [
-			"Fearmonger",
-			"The Laughing One",
+			EnemyDefinitions.FEARMONGER,
+			EnemyDefinitions.THE_LAUGHING_ONE,
 		]
 	},
 	{
@@ -65,8 +86,8 @@ const ENEMIES := [
 		"journal_reward":\
 			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
 		"enemies": [
-			"Gaslighter",
-			"Gaslighter",
+			EnemyDefinitions.GASLIGHTER,
+			EnemyDefinitions.GASLIGHTER,
 		],
 		"journal_art": preload("res://assets/journal/gaslighter.jpeg"),
 	},

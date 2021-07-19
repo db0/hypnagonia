@@ -1,21 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/dreamscape/CombatElements/CombatEffects/Empower.gd" type="Script" id=1]
 [ext_resource path="res://src/dreamscape/CombatElements/CombatEffects/CombatEffectTemplate.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/icons/extra-lucid.png" type="Texture" id=3]
+[ext_resource path="res://assets/card_front/tag_container.png" type="Texture" id=4]
 
 [node name="Empower" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
+icon_container_texture = null
 self_decreasing = 1
 priority = 1
 
 [node name="Label" parent="Signifier" index="0"]
 visible = false
 
-[node name="Icon" parent="Signifier" index="1"]
-texture = ExtResource( 3 )
+[node name="IconContainer" parent="Signifier" index="1"]
+texture = ExtResource( 4 )
 
-[node name="Amount" parent="MC" index="0"]
-margin_top = 24.0
-margin_right = 32.0
-margin_bottom = 38.0
+[node name="Icon" parent="Signifier" index="2"]
+texture = ExtResource( 3 )
+stretch_mode = 5
