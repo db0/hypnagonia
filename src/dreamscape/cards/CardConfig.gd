@@ -32,4 +32,18 @@ const NUMBERS_HIDDEN_ON_0 := []
 # This is useful to prevent a whole class of cards from being shown in the
 # deckbuilder, without adding `_hide_in_deckbuilder` to each of them
 const TYPES_TO_HIDE_IN_DECKBUILDER := ["Token"]
-const EXPLANATIONS = {}
+const EXPLANATIONS = {
+	"interpretation": "[img=24x24]res://fonts/rich_text_icons/magnifying-glass.png[/img]: "\
+			+ "Increases interpretation on Torments by the specified amount.\n"\
+			+ "When this exceeds the Torment's max, it is overcome and removed from the encounter.",
+	"confidence": "[img=24x24]res://fonts/rich_text_icons/shield.png[/img]: "\
+			+ "Anxiety from Torment intents reduces confidence "\
+			+ " before increasing the dreamer's anxiety.\n",
+}
+
+const CARD_BBCODE := {
+	"damage": "[img={icon_size}]res://fonts/rich_text_icons/magnifying-glass.png[/img]",
+	"defence": "[img={icon_size}]res://fonts/rich_text_icons/shield.png[/img]",
+	"confusion": "[img={icon_size}]" + Terms.ACTIVE_EFFECTS.disempower.rich_text_icon + "[/img]",
+	"untouchable": "[img={icon_size}]" + Terms.ACTIVE_EFFECTS.impervious.rich_text_icon + "[/img]",
+}

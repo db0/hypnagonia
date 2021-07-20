@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://src/dreamscape/DetailsFont.tres" type="DynamicFont" id=1]
+[gd_scene format=2]
 
 [node name="InfoPanel" type="PanelContainer"]
 margin_right = 264.0
@@ -10,12 +8,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Details" type="Label" parent="."]
+[node name="Details" type="RichTextLabel" parent="."]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 257.0
-margin_bottom = 21.0
+margin_bottom = 87.0
 rect_min_size = Vector2( 250, 13 )
-custom_fonts/font = ExtResource( 1 )
-text = "Illustration by: "
-autowrap = true
+mouse_filter = 2
+bbcode_enabled = true
+bbcode_text = "[img=16x16]res://fonts/rich_text_icons/magnifying-glass.png[/img]: Increases interpretation on Torments by the specified amount.
+When this exceeds the Torment's max, it is overcome and removed from the encounter."
+text = ": Increases interpretation on Torments by the specified amount.
+When this exceeds the Torment's max, it is overcome and removed from the encounter."
+fit_content_height = true

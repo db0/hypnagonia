@@ -45,6 +45,10 @@ const PLAYER_TERMS := {
 	"opponent_actions_verb": ENEMY_ACTIONS_VERB,
 }
 
+const CARD_BBCODE := {
+	"damage": "[img={icon_size}]res://fonts/rich_text_icons/magnifying-glass.png[/img]",
+}
+
 const ENEMY_TERMS := {
 	"enemy": "Dreamer",
 	"entity": "Torment",
@@ -78,54 +82,62 @@ const ACTIVE_EFFECTS := {
 		"name": "Advantage",
 		"icon": preload("res://assets/icons/crow-dive.png"),
 		"generic_description": "{effect_name}: Doubles damage done by Interpretations.",
-		"description": "{effect_name}: The next {amount} actions doing {damage} by this {entity} are doubled."
+		"rich_text_icon": "res://fonts/rich_text_icons/misdirection.png",
+		"description": "{effect_name} ({effect_icon}): The next {amount} actions doing {damage} by this {entity} are doubled."
 	},
 	"buffer":  {
 		"name": "Fascination",
 		"icon": preload("res://assets/icons/star-struck.png"),
 		"generic_description": "{effect_name}: Provides delayed Immersion.",
-		"description": "{effect_name}: At the start of your turn gain 1 {energy} per stack."\
+		"rich_text_icon": "res://fonts/rich_text_icons/misdirection.png",
+		"description": "{effect_name} ({effect_icon}): At the start of your turn gain 1 {energy} per stack."\
 				+ "then remove all stacks of {effect_name}."
 	},
 	"disempower": {
 		"name": "Confusion",
 		"icon": preload("res://assets/icons/misdirection.png"),
+		"rich_text_icon": "res://fonts/rich_text_icons/misdirection.png",
 		"generic_description": "{effect_name}: Reduces anxiety dealt by Torments by percentage.",
-		"description": "{effect_name}: {damage} {damage_verb} by this {entity} is reduced by 30%.\n" \
-				+ "Reduce these stacks by 1 at the end of the turn."
+		"description": "{effect_name} ({effect_icon}): {damage} {damage_verb} by this {entity} is reduced by 30%.\n"\
+				+ "Reduce these stacks by 1 at the end of the turn.",
 	},
 	"empower": {
 		"name": "Clarity",
 		"icon": preload("res://assets/icons/extra-lucid.png"),
 		"generic_description": "{effect_name}: Increases interpretation dealt by percentage.",
-		"description": "{effect_name}: {damage} {damage_verb} by this {entity} is increased by 30%.\n"\
+		"rich_text_icon": "res://fonts/rich_text_icons/misdirection.png",
+		"description": "{effect_name} ({effect_icon}): {damage} {damage_verb} by this {entity} is increased by 30%.\n"\
 				+ "Reduce these stacks by 1 at the end of the turn."
 	},
 	"strengthen": {
 		"name": "Focus",
 		"icon": preload("res://assets/icons/templar-eye.png"),
 		"generic_description": "{effect_name}: Increases interpretation dealt by exact amount.",
-		"description": "{effect_name}: {damage} {damage_verb} by this {entity} is increased by {amount} (1 per stack).\n"
+		"rich_text_icon": "res://fonts/rich_text_icons/misdirection.png",
+		"description": "{effect_name} ({effect_icon}): {damage} {damage_verb} by this {entity} is increased by {amount} (1 per stack).\n"
 	},
 	"fortify": {
 		"name": "Courage",
 		"icon": preload("res://assets/icons/beams-aura.png"),
 		"generic_description": "{effect_name}: Prevents from concentration from expiring each turn.",
-		"description": "{effect_name}: {defence} is not removed at start of turn.\n"\
+		"rich_text_icon": "res://fonts/rich_text_icons/misdirection.png",
+		"description": "{effect_name} ({effect_icon}): {defence} is not removed at start of turn.\n"\
 				+ "Reduce these stacks by 1 at the start of the turn."
 	},
 	"impervious": {
 		"name": "Untouchable",
 		"icon": preload("res://assets/icons/dodging.png"),
 		"generic_description": "{effect_name}: Prevents all anxiety from Torment-induced stress.",
-		"description": "{effect_name}: No {health} is taken this turn from {opponent_attack}.\n" \
+		"rich_text_icon": "res://fonts/rich_text_icons/dodging.png",
+		"description": "{effect_name} ({effect_icon}): No {health} is taken this turn from {opponent_attack}.\n" \
 				+ "Reduce these stacks by 1 at the start of the turn."
 	},
 	"poison": {
 		"name": "Doubt",
 		"icon": preload("res://assets/icons/coma.png"),
 		"generic_description": "{effect_name}: Automatically adds interpretation each turn.",
-		"description": "{effect_name}: At the start of this {entity}'s turn it receives"\
+		"rich_text_icon": "res://fonts/rich_text_icons/misdirection.png",
+		"description": "{effect_name} ({effect_icon}): At the start of this {entity}'s turn it receives"\
 				+ " {amount} {health} (1 per stack), then reduce the stacks of {effect_name} by 1."\
 				+ "\n({effect_name} bypasses {defence})"
 	},
@@ -133,7 +145,8 @@ const ACTIVE_EFFECTS := {
 		"name": "Shaken",
 		"icon": preload("res://assets/icons/cracked-shield.png"),
 		"generic_description": "{effect_name}: Reduces amount of Perplexity on Torments.",
-		"description": "{effect_name}: {defence} added to this {entity} is reduced by 25%.\n" \
+		"rich_text_icon": "res://fonts/rich_text_icons/misdirection.png",
+		"description": "{effect_name} ({effect_icon}): {defence} added to this {entity} is reduced by 25%.\n" \
 				+ "Reduce these stacks by 1 at the end of the turn."
 	},
 	"outrage": {

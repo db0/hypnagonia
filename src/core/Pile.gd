@@ -23,6 +23,7 @@ export var faceup_cards := false
 
 # The popup node
 onready var pile_popup := $ViewPopup
+onready var _popup_grid := $ViewPopup/CardView
 # Popup View button for Piles
 onready var view_button := $Control/ManipulationButtons/View
 onready var view_sorted_button := $Control/ManipulationButtons/ViewSorted
@@ -186,6 +187,7 @@ func add_child(node, _legible_unique_name=false) -> void:
 		# When the player adds card while the viewpopup is active
 		# we move them automatically to the viewpopup grid.
 		_slot_card_into_popup(node)
+		print_debug(node)
 
 
 # Overrides the function which removed chilren nodes so that it detects
@@ -253,24 +255,10 @@ func move_child(child_node, to_position) -> void:
 # Overrides [CardContainer] function to include cards in the popup window
 # Returns an array with all children nodes which are of Card class
 func get_all_cards(_scanViewPopup := true) -> Array:
-	var cardsArray := .get_all_cards()
-	# For piles, we need to check if some card objects are inside the ViewPopup.
 	if is_popup_open:
-		if $ViewPopup/CardView.get_child_count():
-			# We know it's not possible to have a temp control container
-			# (due to the garbage collection)
-			# So we know if we find one, it will have 1 child,
-			# which is a Card object.
-			for obj in $ViewPopup/CardView.get_children():
-				if obj.get_child_count():
-					# We have to insert instead of append because in a popup
-					# window, we display the menu inverted, as in godot node hierarchy
-					# the "top card" is the last node and therefore would be placed
-					# on the last position in the grid.
-					# But the natural way to read a card list popup, is to expect the
-					# top card to be on the top right
-					cardsArray.insert(0, obj.get_child(0))
-	return cardsArray
+		return(pre_sorted_order)
+	else:
+		return(.get_all_cards())
 
 
 # A wrapper for the CardContainer's get_last_card()

@@ -22,6 +22,7 @@ func populate_info_panels(card: Card, focus_info: DetailPanels) -> void:
 			var entity_type: String = effects_info[effect_entry.name]
 			var format = Terms.COMMON_FORMATS[entity_type].duplicate()
 			format["effect_name"] = effect_entry.name
+			format["effect_icon"] = "[img=24x24]" + effect_entry.rich_text_icon + "[/img]"
 			format["amount"] = "1"
 			format["double_amount"] = "3"
 			format["triple_amount"] = "3"

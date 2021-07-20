@@ -6,23 +6,25 @@ const CARDS := {
 	"Confidence": {
 		"Type": "Control",
 		"Tags": [],
-		"Abilities": "Gain 5 Confidence.",
+		"Abilities": "Gain 5 {defence}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Starting",
+		"_keywords": ["confidence"]
 	},
 	"Interpretation": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "Interpret target Torment for 6.",
+		"Abilities": "{damage} for 6",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Starting",
+		"_keywords": ["interpretation"]
 	},
 	"Out of Reach": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
-		"Abilities": "Gain 1 Untouchable.",
+		"Abilities": "Gain 1 {untouchable}",
 		"Cost": 3,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -33,7 +35,7 @@ const CARDS := {
 	"Dive-in": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.risky.name],
-		"Abilities": "Gain 2 Shaken. Your next interpretation is doubled.",
+		"Abilities": "Gain 2 Shaken. Your next {damage} is doubled.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -61,24 +63,26 @@ const CARDS := {
 	"Confounding Movements": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
-		"Abilities": "Gain 6 confidence. Apply 1 Confusion to target Torment.",
+		"Abilities": "Gain 6 {defence}. Apply 1 {confusion} to target Torment.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
 		"_rarity": "Common",
+		"_keywords": ["confidence"]
 	},
 	"Noisy Whip": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
-		"Abilities": "Interpret target Torment for 5 and apply Confusion.",
+		"Abilities": "{damage} for 5 and apply {confusion}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
 		"_rarity": "Common",
+		"_keywords": ["interpretation"]
 	},
 	"Inner Justice": {
 		"Type": "Control",
