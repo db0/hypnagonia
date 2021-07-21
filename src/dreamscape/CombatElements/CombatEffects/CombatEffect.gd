@@ -57,13 +57,17 @@ func _on_CombatSingifier_mouse_entered() -> void:
 
 func _set_current_description() -> void:
 	var format = Terms.COMMON_FORMATS[entity_type].duplicate()
+	var effect_entry = Terms.get_term_entry(name, 'description')
 	format["effect_name"] = name
+	if effect_entry.has("rich_text_icon"):
+		format["effect_icon"] = "[img=18x18]" + effect_entry.rich_text_icon + "[/img]"
 	format["amount"] = str(stacks)
 	format["double_amount"] = str(2*stacks)
 	format["triple_amount"] = str(3*stacks)
 	# warning-ignore:integer_division
 	format["half_amount"] = str(stacks/2)
-	decription_label.text = Terms.ACTIVE_EFFECTS[_get_template_name()].description.format(format)
+	decription_label.bbcode_text = Terms.ACTIVE_EFFECTS[_get_template_name()].\
+			description.format(format).format(Terms.get_bbcode_formats(18))
 
 # Returns the lowercase name of the token
 func get_effect_name() -> String:

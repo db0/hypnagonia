@@ -15,7 +15,7 @@ func get_scripts(intent_name: String) -> Dictionary:
 				"subject": "dreamer",
 				"amount": null,
 				"icon": ICON_ATTACK,
-				"description": "Stress: Will cause the dreamer to take the specified amount of anxiety."
+				"description": "Stress: Will cause the dreamer to take the specified amount of {anxiety}."
 			}
 		],
 		"Perplex": [
@@ -25,7 +25,7 @@ func get_scripts(intent_name: String) -> Dictionary:
 				"subject": "self",
 				"amount": null,
 				"icon": ICON_DEFEND,
-				"description": "Perplex: Will give this Torment the specified amount of Perplexity."
+				"description": "Perplex: Will give this Torment the specified amount of {perplexity}."
 			}
 		],
 		"Debuff": [

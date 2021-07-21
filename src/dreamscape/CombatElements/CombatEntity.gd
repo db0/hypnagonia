@@ -170,7 +170,7 @@ func get_property(property_name: String):
 	return(_properties.get(property_name))
 
 func _on_Defence_mouse_entered() -> void:
-	var description_text := "{defence}: It is removed before {health} is accumulated."\
+	var description_text := "{defence_name}: It is removed before {health} is accumulated."\
 			+ "\nIt is removed at the start of the {entity}'s turn"
 	_show_description_popup(description_text, defence_label)
 
@@ -181,10 +181,10 @@ func _on_Health_mouse_entered() -> void:
 
 func _show_description_popup(description_text: String, popup_anchor: Node) -> void:
 	var format = Terms.COMMON_FORMATS[entity_type].duplicate()
-	description_label.text = description_text.format(format)
+	description_label.bbcode_text = description_text.format(format).format(Terms.get_bbcode_formats(18))
 	description_popup.visible = true
 	description_popup.rect_size = Vector2(0,0)
-	description_popup.rect_global_position = popup_anchor.rect_global_position + Vector2(20,-50)
+	description_popup.rect_global_position = popup_anchor.rect_global_position + Vector2(20,-description_label.rect_size.y)
 
 
 func _on_CombatSingifier_mouse_exited() -> void:

@@ -160,6 +160,7 @@ func get_card_label_font(label: Label) -> Font:
 		label_font = label.get("custom_fonts/font").duplicate()
 	return(label_font)
 
+
 # Sets the font to be used by the current label
 #
 # We use an external function to get the font, to allow it to be overriden
@@ -297,20 +298,23 @@ func _capture_original_font_size(label) -> void:
 	if not font_sizes.has(label.name):
 		font_sizes[label.name] = original_font_sizes[label.name]
 
+
 func _assign_bbcode_text(rtlabel: RichTextLabel, bbcode_text : String, font_size: int) -> void:
-	var format = CardConfig.CARD_BBCODE.duplicate()
+	var format = _get_bbcode_format()
 	rtlabel.clear()
 	var bbcode_format := {}
 	var icon_size = font_size - 2
 	bbcode_format["icon_size"] = '{icon_size}x{icon_size}'.format({"icon_size":icon_size})
 	for key in format:
 		format[key] = format[key].format(bbcode_format)
-	format["amount"] = 20
 	rtlabel.push_align(RichTextLabel.ALIGN_CENTER)
 	rtlabel.append_bbcode(bbcode_text.format(format))
 #	print_debug(bbcode_text.format(format))
 	rtlabel.pop()
 
+
+func _get_bbcode_format() -> Dictionary:
+	return(CardConfig.CARD_BBCODE.duplicate())
 
 
 # Goes through a rich text label, and retrieves all fonts used to define it.
@@ -333,6 +337,7 @@ func _get_card_rtl_fonts(label: RichTextLabel) -> Dictionary:
 			if label_font:
 				all_rt_fonts[font_type] = label_font
 	return(all_rt_fonts)
+
 
 # Stores the difference of each RT font, compared to the "normal_font"
 # We use the normal_font as the baseline. So if normal font was 15 and italic is 14

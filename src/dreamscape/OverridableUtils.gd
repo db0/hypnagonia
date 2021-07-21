@@ -14,6 +14,7 @@ func get_subjects(subject_request, _stored_integer: int = 0) -> Array:
 func populate_info_panels(card: Card, focus_info: DetailPanels) -> void:
 	.populate_info_panels(card, focus_info)
 	var added_effects := []
+	var bbcode_format := Terms.get_bbcode_formats(18)
 	if card.get_property("_effects_info"):
 		var effects_info : Dictionary = card.get_property("_effects_info")
 		for effect_name in effects_info:
@@ -29,7 +30,7 @@ func populate_info_panels(card: Card, focus_info: DetailPanels) -> void:
 			format["half_amount"] = "0.5"
 			focus_info.add_info(
 					effect_entry.name,
-					effect_entry.description.format(format), preload("res://src/dreamscape/EffectInfoPanel.tscn"))
+					effect_entry.description.format(format).format(bbcode_format), preload("res://src/dreamscape/EffectInfoPanel.tscn"))
 	var tags : Array = card.get_property("Tags")
 	for tag in tags:
 		if tag in added_effects:
@@ -37,4 +38,4 @@ func populate_info_panels(card: Card, focus_info: DetailPanels) -> void:
 		var tag_entry : Dictionary = Terms.get_term_entry(tag, 'generic_description')
 		focus_info.add_info(
 				tag_entry.name,
-				tag_entry.generic_description, preload("res://src/dreamscape/InfoPanel.tscn"))
+				tag_entry.generic_description.format(bbcode_format), preload("res://src/dreamscape/InfoPanel.tscn"))
