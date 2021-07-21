@@ -7,7 +7,7 @@ onready var _tag_description := $DescriptionPopup/TagDescription
 onready var description_popup := $DescriptionPopup
 
 func _show_description_popup(tag: String, popup_anchor: Node) -> void:
-	var description_text : String = Terms.get_term_value(tag, 'generic_description')
+	var description_text : String = Terms.get_term_value(tag, 'generic_description', true)
 	if description_text:
 		_tag_description.text = description_text
 		description_popup.visible = true

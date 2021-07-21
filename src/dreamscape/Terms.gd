@@ -303,19 +303,24 @@ static func get_tag_entry(thematic_tag_name: String) -> Dictionary:
 			return(GENERIC_TAGS[tag])
 	return({})
 
-static func get_term_entry(thematic_tag_name: String, key: String) -> Dictionary:
+static func get_term_entry(thematic_tag_name: String, key: String, no_icon := false) -> Dictionary:
 	var entry := get_effect_entry(thematic_tag_name)
 	if not entry.size():
 		entry = get_tag_entry(thematic_tag_name).duplicate(true)
 	if key == "generic_description":
 		var generic_format = {"effect_name": thematic_tag_name}
 		if entry.has("rich_text_icon"):
-			generic_format["effect_icon"] = "[img=24x24]" + entry["rich_text_icon"] + "[/img]"
+			# I use the no_icon boolean, when the player is explicitly mousing over the icon anyway
+			# This way I avoid having to add another RTL
+			if not no_icon:
+				generic_format["effect_icon"] = "[img=24x24]" + entry["rich_text_icon"] + "[/img]"
+			else:
+				generic_format["effect_icon"] = ''
 		entry[key] = entry[key].format(generic_format)
 	return(entry)
 
-static func get_term_value(thematic_tag_name: String, key: String):
-	var entry := get_term_entry(thematic_tag_name, key)
+static func get_term_value(thematic_tag_name: String, key: String, no_icon := false):
+	var entry := get_term_entry(thematic_tag_name, key, no_icon)
 	return(entry.get(key))
 
 static func get_bbcode_formats(preset_icon_size = null) -> Dictionary:
