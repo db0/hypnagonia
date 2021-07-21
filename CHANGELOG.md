@@ -6,7 +6,7 @@
 * Changed Font to Butler
 * Fixed focus staying open sometimes
 * Added eyeglow to the laughing ones - insomniacUNDERSCORElemon
-* Improved Narcisus character art quality - insomniacUNDERSCORElemon
+* Improved Boss character art quality - insomniacUNDERSCORElemon
 
 ## v0.6.2
 

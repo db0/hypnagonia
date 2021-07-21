@@ -47,7 +47,7 @@ const EXPLANATIONS = {
 			+ "before affecting the Torments.",
 	"immersion": "Immersion ([img=24x24]res://fonts/rich_text_icons/concentration-orb.png[/img]): "\
 			+ "Limits the amount of cards you can play per turn.",
-	"overcome": "Overcoming: Once the dreamer has interpreted a Torment enough"\
+	"overcome": "Overcoming: Once the dreamer has interpreted a Torment enough "\
 			+ "it is removed from the encounter.",
 	"forget": "[color=yellow]Forget[/color]: This card is removed from this encounter and will not be reshuffled into the deck.",
 	"release": "[color=yellow]Release[/color]: This card is removed permanently from the Dreamer's deck.",
