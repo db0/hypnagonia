@@ -6,7 +6,7 @@ const CARDS := {
 	"Gaslighter": {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
-		"Abilities": "Add 2 {doubt} to a Torment.\n"\
+		"Abilities": "Apply 2 {doubt} to a Torment.\n"\
 				+ "Move all {doubt} from the dreamer to that Torment as well",
 		"Cost": 0,
 		"_illustration": "Nobody",
@@ -40,7 +40,7 @@ const CARDS := {
 	"The Critic": {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name, Terms.GENERIC_TAGS.fleeting.name],
-		"Abilities": "Add 10 {shaken} to a Torment. {forget}",
+		"Abilities": "Apply 10 {shaken} to a Torment. {forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
@@ -52,7 +52,7 @@ const CARDS := {
 	"Clown": {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.GENERIC_TAGS.fleeting.name],
-		"Abilities": "Add 3 {confusion} to all Torments. {forget}",
+		"Abilities": "Apply 3 {confusion} to all Torments. {forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Received",

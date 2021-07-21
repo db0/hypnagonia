@@ -83,7 +83,7 @@ func randomize_background() -> void:
 	if selected_background in bright_backgrounds:
 		bpath = "res://assets/backgrounds/bright/"
 		_bg_tint.visible = true
-		print_debug(_bg_tint.visible)
+#		print_debug(_bg_tint.visible)
 	else:
 		bpath = "res://assets/backgrounds/dark/"
 	var background_resource: String = bpath + selected_background

@@ -97,9 +97,9 @@ size_flags_vertical = 3
 
 [node name="VButtons" type="VBoxContainer" parent="MainMenu/VBox/Center"]
 margin_left = 631.0
-margin_top = 127.0
+margin_top = 146.0
 margin_right = 823.0
-margin_bottom = 307.0
+margin_bottom = 288.0
 rect_min_size = Vector2( 192, 0 )
 custom_constants/separation = 10
 
@@ -118,21 +118,22 @@ margin_bottom = 66.0
 text = "Quick Start"
 
 [node name="Deckbuilder" type="Button" parent="MainMenu/VBox/Center/VButtons"]
+visible = false
 margin_top = 76.0
 margin_right = 192.0
 margin_bottom = 104.0
 text = "Deck Builder"
 
 [node name="Readme" type="Button" parent="MainMenu/VBox/Center/VButtons"]
-margin_top = 114.0
+margin_top = 76.0
 margin_right = 192.0
-margin_bottom = 142.0
+margin_bottom = 104.0
 text = "Read Me"
 
 [node name="Exit" type="Button" parent="MainMenu/VBox/Center/VButtons"]
-margin_top = 152.0
+margin_top = 114.0
 margin_right = 192.0
-margin_bottom = 180.0
+margin_bottom = 142.0
 text = "Exit"
 
 [node name="Version" type="Label" parent="MainMenu/VBox"]

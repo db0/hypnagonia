@@ -35,7 +35,7 @@ const CARDS := {
 	"Dive-in": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.risky.name],
-		"Abilities": "Gain 2 {shaken}. Your next {damage} is doubled.",
+		"Abilities": "Gain 2 {shaken}\nYour next {damage} is doubled.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -47,7 +47,7 @@ const CARDS := {
 	"Safety of Air": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
-		"Abilities": "{relax} for 4. {forget}",
+		"Abilities": "{relax} for 4. {forget}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -56,16 +56,17 @@ const CARDS := {
 	"Nothing to Fear": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.risky.name, Terms.GENERIC_TAGS.purpose.name],
-		"Abilities": "Gain 1 {immersion} at the start of each turn."\
+		"Abilities": "Gain 1 {immersion} at the start of each turn.\n"\
 			+ " Increase all {stress} taken from Torment intents by 2.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
+		"_keywords": ["stress"]
 	},
 	"Confounding Movements": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
-		"Abilities": "Gain 6 {confidence}. Apply 1 {confusion} to target Torment.",
+		"Abilities": "Gain 6 {confidence}\nApply 1 {confusion} to target Torment.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -77,7 +78,7 @@ const CARDS := {
 	"Noisy Whip": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
-		"Abilities": "{damage} for 5 and apply {confusion}.",
+		"Abilities": "{damage} for 5 and apply {confusion}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -136,7 +137,7 @@ const CARDS := {
 	"The Joke": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
-		"Abilities": "Target a Torment. If it doesn't have {confusion}. Apply 3 {confusion}."\
+		"Abilities": "Target a Torment. If it doesn't have {confusion} Apply 3 {confusion}"\
 			+ " If it has {confusion}, {damage} 10.",
 		"Cost": 2,
 		"_illustration": "Nobody",
@@ -171,7 +172,7 @@ const CARDS := {
 	"Cocky Retort": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
-		"Abilities": "Gain 8 {confidence}. Draw a card.",
+		"Abilities": "Gain 8 {confidence}\n Draw a card.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -190,8 +191,8 @@ const CARDS := {
 	},
 	"Barrel Through": {
 		"Type": "Action",
-		"Tags": [Terms.GENERIC_TAGS.risky.name, Terms.GENERIC_TAGS.chain.name],
-		"Abilities": "{damage} for 8. If the Torment has {shaken}, {damage} all other Torments for 12.",
+		"Tags": [Terms.GENERIC_TAGS.chain.name],
+		"Abilities": "{damage} for 8.\nIf the Torment has {shaken}, {damage} all other Torments for 12.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -214,7 +215,7 @@ const CARDS := {
 	"Cheeky Approach": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
-		"Abilities": "Gain 10 {confidence}, Apply 3 {doubt} to target Torment.",
+		"Abilities": "Gain 10 {confidence}\nApply 3 {doubt} to target Torment.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -226,7 +227,7 @@ const CARDS := {
 	"Laugh at Danger": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
-		"Abilities": "After a Torment performs {stress}, it gains 1 {doubt}.",
+		"Abilities": "After a Torment performs {stress}, it gains 1 {doubt}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -247,7 +248,7 @@ const CARDS := {
 	"Unassailable": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you apply {doubt}, gain 1 {confidence}.",
+		"Abilities": "Whenever you apply {doubt}, gain 1 {confidence}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
@@ -256,7 +257,7 @@ const CARDS := {
 	"Audacity": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
-		"Abilities": "Gain 8 {confidence}. Apply 1 {courage}.",
+		"Abilities": "Gain 8 {confidence}\nApply 1 {courage}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -268,7 +269,7 @@ const CARDS := {
 	"Boast": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.fleeting.name],
-		"Abilities": "Double your {confidence}. Remove all {courage}. {forget}.",
+		"Abilities": "Double your {confidence}\nRemove all {courage} {forget}.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -280,7 +281,7 @@ const CARDS := {
 	"Solid Understanding": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "Gain 5 {confidence}.\n{damage} for 5.",
+		"Abilities": "Gain 5 {confidence}\n{damage} for 5.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -300,7 +301,7 @@ const CARDS := {
 	"High Morale": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage} for 6. Draw a {courage} card.",
+		"Abilities": "{damage} for 6.\nDraw a {courage} card.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -335,7 +336,7 @@ const CARDS := {
 	"Drag and Drop": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
-		"Abilities": "{damage} for 10. If Torment is {overcome}, gain 1 {untouchable}.",
+		"Abilities": "{damage} for 10. If Torment is {overcome}, gain 1 {untouchable}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -347,7 +348,7 @@ const CARDS := {
 	"Running Start": {
 		"Type": "Control",
 		"Tags": [],
-		"Abilities": "{damage} for 5. Draw 1 {untouchable} card.",
+		"Abilities": "{damage} for 5.\nDraw a {untouchable} card.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -359,7 +360,7 @@ const CARDS := {
 	"Master of Skies": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.purpose.name],
-		"Abilities": "Whenever you gain {untouchable}. Gain 1 {immersion}.",
+		"Abilities": "Whenever you gain {untouchable}, Gain 1 {immersion}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -370,7 +371,7 @@ const CARDS := {
 	"Zen of Flight": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
-		"Abilities": "At the end of each turn, {relax} 1. If {untouchable}, {relax} 1 extra.",
+		"Abilities": "At the end of each turn, {relax} 1.\nIf you have {untouchable}, {relax} 1 extra.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -381,7 +382,7 @@ const CARDS := {
 	"Loop de loop": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
-		"Abilities": "Gain 7 {confidence}. Gain 1 {fascination}.",
+		"Abilities": "Gain 7 {confidence}\nGain 1 {fascination}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -393,7 +394,7 @@ const CARDS := {
 	"Headless": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
-		"Abilities": "Gain 4 {fascination}.",
+		"Abilities": "Gain 4 {fascination}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -404,7 +405,7 @@ const CARDS := {
 	"Utterly Ridiculous": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "Can only be played if there's a total of 6 {confusion} or more among Torments\n"\
+		"Abilities": "Can only be played if there's a total of 6 or more {confusion} among Torments\n"\
 				+ "{damage} all Torments for 20",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -414,7 +415,7 @@ const CARDS := {
 	"Ventriloquism": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage} for 8. Draw a {confusion} card.",
+		"Abilities": "{damage} for 8.\nDraw a {confusion} card.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -426,7 +427,7 @@ const CARDS := {
 	"unnamed_card_1": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.fleeting.name],
-		"Abilities": "Shuffle your discard pile into your deck. Play a Random card from your deck. {forget}.",
+		"Abilities": "Shuffle your discard pile into your deck.\nPlay a Random card from your deck. {forget}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",

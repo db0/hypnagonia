@@ -4,6 +4,7 @@ extends Reference
 const PLAYER = "dreamer"
 const ENEMY = "torment"
 
+
 # These specify the component groups the player selects to make their deck
 # changing the values allows us to change the theme of the game quick
 # for example instead of "race", a game might use "tribe".
@@ -13,6 +14,7 @@ const CARD_GROUP_TERMS := {
 	"item": "Instrument",
 	"life_goal": "Injustice",
 }
+
 
 const PLAYER_HEALTH := "{anxiety}"
 const PLAYER_DAMAGE_DONE := "done"
@@ -24,6 +26,7 @@ const ENEMY_ACTIONS := "Intents"
 const ENEMY_ACTIONS_VERB := "used"
 const PLAYER_ATTACK := "{interpretation}"
 const ENEMY_ATTACK := "{stress}"
+
 
 const PLAYER_TERMS := {
 	"enemy": "Torment",
@@ -46,6 +49,7 @@ const PLAYER_TERMS := {
 	"opponent_actions_verb": ENEMY_ACTIONS_VERB,
 }
 
+
 const ENEMY_TERMS := {
 	"enemy": "Dreamer",
 	"entity": "Torment",
@@ -66,6 +70,7 @@ const ENEMY_TERMS := {
 	"opponent_actions": PLAYER_ACTIONS,
 	"opponent_actions_verb": PLAYER_ACTIONS_VERB,
 }
+
 
 const COMMON_FORMATS = {
 	PLAYER: PLAYER_TERMS,
@@ -232,6 +237,7 @@ const GENERIC_TAGS := {
 		"generic_description": "{effect_name} ({effect_icon}): Easily forgotten."},
 }
 
+
 const GENERIC_CARD_BBCODE := {
 	"damage": {
 		"name": "Interpretation",
@@ -263,7 +269,7 @@ const GENERIC_CARD_BBCODE := {
 	},
 	"defeated": {
 		"name": "Overcome",
-		"rich_text_color": "gray",
+		"rich_text_effect": "fade",
 	},
 	"purge": {
 		"name": "Release",
@@ -291,17 +297,20 @@ const GENERIC_CARD_BBCODE := {
 	},
 }
 
+
 static func get_effect_entry(thematic_effect_name: String) -> Dictionary:
 	for effect in ACTIVE_EFFECTS:
 		if ACTIVE_EFFECTS[effect].name == thematic_effect_name:
 			return(ACTIVE_EFFECTS[effect])
 	return({})
 
+
 static func get_tag_entry(thematic_tag_name: String) -> Dictionary:
 	for tag in GENERIC_TAGS:
 		if GENERIC_TAGS[tag].name == thematic_tag_name:
 			return(GENERIC_TAGS[tag])
 	return({})
+
 
 static func get_term_entry(thematic_tag_name: String, key: String, no_icon := false) -> Dictionary:
 	var entry := get_effect_entry(thematic_tag_name)
@@ -313,15 +322,17 @@ static func get_term_entry(thematic_tag_name: String, key: String, no_icon := fa
 			# I use the no_icon boolean, when the player is explicitly mousing over the icon anyway
 			# This way I avoid having to add another RTL
 			if not no_icon:
-				generic_format["effect_icon"] = "[img=24x24]" + entry["rich_text_icon"] + "[/img]"
+				generic_format["effect_icon"] = "[img=18x18]" + entry["rich_text_icon"] + "[/img]"
 			else:
 				generic_format["effect_icon"] = ''
 		entry[key] = entry[key].format(generic_format)
 	return(entry)
 
+
 static func get_term_value(thematic_tag_name: String, key: String, no_icon := false):
 	var entry := get_term_entry(thematic_tag_name, key, no_icon)
 	return(entry.get(key))
+
 
 static func get_bbcode_formats(preset_icon_size = null) -> Dictionary:
 	var complete_format_dict := {}
@@ -337,7 +348,14 @@ static func get_bbcode_formats(preset_icon_size = null) -> Dictionary:
 						"[img={icon_size}]{rich_text_icon}[/img]".format(terms_dict[entry]).format(icon_size)
 			elif terms_dict[entry].has("rich_text_color"):
 				complete_format_dict[entry.to_lower()] =\
-						"[color={rich_text_color}]{name}[/color]".format(terms_dict[entry]).format(icon_size)
+						"[color={rich_text_color}]{name}[/color]".format(terms_dict[entry])
 				complete_format_dict[terms_dict[entry].name.to_lower()] =\
-						"[color={rich_text_color}]{name}[/color]".format(terms_dict[entry]).format(icon_size)
+						"[color={rich_text_color}]{name}[/color]".format(terms_dict[entry])
+			elif terms_dict[entry].has("rich_text_effect"):
+				match terms_dict[entry]["rich_text_effect"]:
+					"fade":
+						complete_format_dict[entry.to_lower()] =\
+								"[fade start=2 length=7]{name}[/fade]".format(terms_dict[entry])
+						complete_format_dict[terms_dict[entry].name.to_lower()] =\
+								"[fade start=2 length=7]{name}[/fade]".format(terms_dict[entry])
 	return(complete_format_dict)

@@ -46,8 +46,7 @@ const EXPLANATIONS = {
 			+ "Interpretation done by the Dreamer reduces perplexity "\
 			+ "before affecting the Torments.",
 	"immersion": "Immersion ([img=24x24]res://fonts/rich_text_icons/concentration-orb.png[/img]): "\
-			+ "Interpretation done by the Dreamer reduces perplexity "\
-			+ "before affecting the Torments.",
+			+ "Limits the amount of cards you can play per turn.",
 	"overcome": "Overcoming: Once the dreamer has interpreted a Torment enough"\
 			+ "it is removed from the encounter.",
 	"forget": "[color=yellow]Forget[/color]: This card is removed from this encounter and will not be reshuffled into the deck.",
