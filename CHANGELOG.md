@@ -5,7 +5,8 @@
 * Switched to Rich Text on almost all labels. Replaced text representation of tags and effects with icons. Added colour in text.
 * Changed Font to Butler
 * Fixed focus staying open sometimes
-* Added eyeglow to the laughing ones (Credit to insomniacUNDERSCORElemon)
+* Added eyeglow to the laughing ones - insomniacUNDERSCORElemon
+* Improved Narcisus character art quality - insomniacUNDERSCORElemon
 
 ## v0.6.2
 
@@ -16,7 +17,7 @@
 * Improved background quality
 * Added outline on intent icons to make them clearer in light backgrounds
 * Highlight on enemies during targetting will not now highlight things other than the target 
-* Improved Boss character art (Credit to insomniacUNDERSCORElemon)
+* Improved Boss character art - insomniacUNDERSCORElemon
 
 ## v0.6.1
 
@@ -45,7 +46,7 @@
 
 ## v0.5.3
 
-* Added polygon-art for the fearmonger (Credit to insomniacUNDERSCORElemon)
+* Added polygon-art for the fearmonger - insomniacUNDERSCORElemon
 
 ## v0.5.2
 
