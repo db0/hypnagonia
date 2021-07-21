@@ -792,6 +792,31 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
+		"unnamed_card_4": {
+			"manual": {
+				"hand": [
+					{
+						"name": "assign_defence",
+						"subject": "dreamer",
+						"amount": 11,
+					},
+					{
+						"name": "move_card_to_container",
+						"subject": "self",
+						"dest_container": cfc.NMAP.forgotten,
+					},
+				],
+			},
+			"on_player_turn_ended": {
+				"hand": [
+					{
+						"name": "move_card_to_container",
+						"subject": "self",
+						"dest_container": cfc.NMAP.forgotten,
+					},
+				],
+			},
+		},
 	}
 	# We return only the scripts that match the card name and trigger
 	return(scripts.get(card_name,{}))

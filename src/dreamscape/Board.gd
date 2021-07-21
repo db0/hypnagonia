@@ -47,17 +47,6 @@ func _ready() -> void:
 	dreamer.connect("entity_killed", self, "_dreamer_died")
 	_player_area.add_child(dreamer)
 	dreamer.rect_position = Vector2(100,100)
-# warning-ignore:unused_variable
-#	var torment = spawn_enemy("Clown")
-#	var torment2 = spawn_enemy("The Critic")
-#	var torment3 = spawn_enemy("Gaslighter")
-#	var torment2 = spawn_enemy("Gaslighter")
-#	torment2.rect_position = Vector2(800,100)
-#	torment3.rect_position = Vector2(200,300)
-#	dreamer.active_effects.mod_effect(ActiveEffects.NAMES.disempower, 5)
-#	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 5)
-#	dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
-#	torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 60)
 	_on_viewport_resized()
 #	begin_encounter()
 #
@@ -261,6 +250,25 @@ func game_over() -> void:
 
 func _input(event):
 	if event.is_action_pressed("init_debug_game"):
+# warning-ignore:unused_variable
+		var torment = spawn_enemy(EnemyDefinitions.CLOWN)
+#		var torment2 = spawn_enemy("The Critic")
+#		var torment3 = spawn_enemy("Gaslighter")
+#		var torment2 = spawn_enemy("Gaslighter")
+#		torment2.rect_position = Vector2(800,100)
+#		torment3.rect_position = Vector2(200,300)
+#		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.disempower, 5)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 5)
+#		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
+#		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 60)	
+		for c in [
+#			"unnamed_card_4",
+		]:
+			var card = cfc.instance_card(c)
+			cfc.NMAP.deck.add_child(card)
+			#card.set_is_faceup(false,true)
+			card._determine_idle_state()
+		cfc.NMAP.deck.shuffle_cards(false)
 		begin_encounter()
 	if event.is_action_pressed("debug"):
 		_on_Debug_pressed()

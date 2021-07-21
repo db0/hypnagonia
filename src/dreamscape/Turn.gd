@@ -34,6 +34,9 @@ func setup() -> void:
 		for turn_signal in ALL_SIGNALS:
 			# warning-ignore:return_value_discarded
 			connect(turn_signal, obj, "_on_" + turn_signal)
+	for turn_signal in ALL_SIGNALS:
+		# warning-ignore:return_value_discarded
+		connect(turn_signal, cfc.signal_propagator, "_on_signal_received", ["on_" + turn_signal, {"turn": self}])
 	for obj in [cfc.NMAP.board.counters, cfc.NMAP.hand]:
 		for turn_signal in PLAYER_SIGNALS:
 			# warning-ignore:return_value_discarded

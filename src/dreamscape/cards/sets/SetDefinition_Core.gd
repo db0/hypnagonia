@@ -476,4 +476,14 @@ const CARDS := {
 		"_rarity": "Temporary",
 		"_keywords": ["release"]
 	},
+	"unnamed_card_4": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.fading.name, Terms.GENERIC_TAGS.fleeting.name],
+		"Abilities": "Gain 11 {confidence}. {forget}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_avoid_normal_discard": true,
+		"_rarity": "Common",
+		"_keywords": ["confidence"]
+	},
 }
