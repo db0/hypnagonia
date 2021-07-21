@@ -36,14 +36,14 @@ func setup(signifier_details: Dictionary, signifier_name: String) -> void:
 	else:
 		signifier_amount.visible = false
 	if signifier_details.has("description"):
-		decription_label.text = signifier_details.description
+		decription_label.bbcode_text = signifier_details.description.format(Terms.get_bbcode_formats(18))
 	else:
 		decription_label.text = signifier_name
 
 
 func _on_CombatSingifier_mouse_entered() -> void:
 	decription_popup.visible = true
-	decription_popup.rect_global_position = rect_global_position + Vector2(20,-50)
+	decription_popup.rect_global_position = rect_global_position + Vector2(20,-decription_label.rect_size.y)
 	if decription_popup.rect_global_position.x + decription_popup.rect_size.x > get_viewport().size.x:
 		decription_popup.rect_global_position.x = get_viewport().size.x - decription_popup.rect_size.x - 10
 

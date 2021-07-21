@@ -74,34 +74,34 @@ __meta__ = {
 [node name="CombatArena" type="HBoxContainer" parent="VBC"]
 margin_top = 53.0
 margin_right = 1455.0
-margin_bottom = 579.0
+margin_bottom = 578.0
 mouse_filter = 2
 size_flags_vertical = 3
 theme = ExtResource( 12 )
 
 [node name="PlayerArea" type="CenterContainer" parent="VBC/CombatArena"]
 margin_right = 300.0
-margin_bottom = 526.0
+margin_bottom = 525.0
 rect_min_size = Vector2( 300, 0 )
 mouse_filter = 2
 
 [node name="EnemyArea" type="CenterContainer" parent="VBC/CombatArena"]
 margin_left = 303.0
 margin_right = 1455.0
-margin_bottom = 526.0
+margin_bottom = 525.0
 mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="Enemies" type="HBoxContainer" parent="VBC/CombatArena/EnemyArea"]
 margin_left = 576.0
-margin_top = 263.0
+margin_top = 262.0
 margin_right = 576.0
-margin_bottom = 263.0
+margin_bottom = 262.0
 mouse_filter = 2
 custom_constants/separation = 150
 
 [node name="HBC" type="HBoxContainer" parent="VBC"]
-margin_top = 583.0
+margin_top = 582.0
 margin_right = 1455.0
 margin_bottom = 610.0
 theme = ExtResource( 12 )
@@ -112,26 +112,26 @@ __meta__ = {
 
 [node name="Counters" parent="VBC/HBC" instance=ExtResource( 6 )]
 margin_right = 0.0
-margin_bottom = 27.0
+margin_bottom = 28.0
 
 [node name="Push" type="Control" parent="VBC/HBC"]
 margin_left = 3.0
-margin_right = 1313.0
-margin_bottom = 27.0
+margin_right = 1307.0
+margin_bottom = 28.0
 mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="EndTurn" type="Button" parent="VBC/HBC"]
-margin_left = 1316.0
+margin_left = 1310.0
 margin_right = 1392.0
-margin_bottom = 27.0
+margin_bottom = 28.0
 disabled = true
 text = "End Turn"
 
 [node name="Margin" type="MarginContainer" parent="VBC/HBC"]
 margin_left = 1395.0
 margin_right = 1455.0
-margin_bottom = 27.0
+margin_bottom = 28.0
 rect_min_size = Vector2( 60, 0 )
 
 [node name="HandArea" type="MarginContainer" parent="VBC"]
@@ -223,15 +223,15 @@ margin_right = 6.0
 margin_bottom = 6.0
 
 [node name="Position" parent="VBC/HandArea/HBC/DeckControl/VBC/Control/Deck/Debug" index="0"]
-margin_bottom = 23.0
+margin_bottom = 24.0
 
 [node name="AreaPos" parent="VBC/HandArea/HBC/DeckControl/VBC/Control/Deck/Debug" index="1"]
-margin_top = 26.0
-margin_bottom = 49.0
+margin_top = 27.0
+margin_bottom = 51.0
 
 [node name="Size" parent="VBC/HandArea/HBC/DeckControl/VBC/Control/Deck/Debug" index="2"]
-margin_top = 52.0
-margin_bottom = 75.0
+margin_top = 54.0
+margin_bottom = 78.0
 
 [node name="Push2" type="Control" parent="VBC/HandArea/HBC/DeckControl/VBC"]
 margin_top = 216.0
@@ -328,15 +328,15 @@ margin_right = 6.0
 margin_bottom = 6.0
 
 [node name="Position" parent="VBC/HandArea/HBC/DiscardsControl/VBC/ForgottenControl/Forgotten/Debug" index="0"]
-margin_bottom = 23.0
+margin_bottom = 24.0
 
 [node name="AreaPos" parent="VBC/HandArea/HBC/DiscardsControl/VBC/ForgottenControl/Forgotten/Debug" index="1"]
-margin_top = 26.0
-margin_bottom = 49.0
+margin_top = 27.0
+margin_bottom = 51.0
 
 [node name="Size" parent="VBC/HandArea/HBC/DiscardsControl/VBC/ForgottenControl/Forgotten/Debug" index="2"]
-margin_top = 52.0
-margin_bottom = 75.0
+margin_top = 54.0
+margin_bottom = 78.0
 
 [node name="Push" type="Control" parent="VBC/HandArea/HBC/DiscardsControl/VBC"]
 margin_top = 143.0
@@ -405,15 +405,15 @@ margin_right = 6.0
 margin_bottom = 6.0
 
 [node name="Position" parent="VBC/HandArea/HBC/DiscardsControl/VBC/DiscardControl/Discard/Debug" index="0"]
-margin_bottom = 23.0
+margin_bottom = 24.0
 
 [node name="AreaPos" parent="VBC/HandArea/HBC/DiscardsControl/VBC/DiscardControl/Discard/Debug" index="1"]
-margin_top = 26.0
-margin_bottom = 49.0
+margin_top = 27.0
+margin_bottom = 51.0
 
 [node name="Size" parent="VBC/HandArea/HBC/DiscardsControl/VBC/DiscardControl/Discard/Debug" index="2"]
-margin_top = 52.0
-margin_bottom = 75.0
+margin_top = 54.0
+margin_bottom = 78.0
 
 [node name="FadeToBlack" type="Panel" parent="."]
 visible = false

@@ -1,5 +1,12 @@
 # Dreams: Changelog
 
+## v0.7.0
+
+* Switched to Rich Text on almost all labels. Replaced text representation of tags and effects with icons. Added colour in text.
+* Changed Font to Butler
+* Fixed focus staying open sometimes
+* Added eyeglow to the laughing ones (Credit to insomniacUNDERSCORElemon)
+
 ## v0.6.2
 
 * Antialiased everything

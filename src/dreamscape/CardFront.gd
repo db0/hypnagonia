@@ -73,3 +73,6 @@ func apply_sharer(shader_path: String) -> void:
 	shader_effect.material = ShaderMaterial.new()
 	shader_effect.material.shader = load(shader_path)
 
+
+func _get_bbcode_format() -> Dictionary:
+	return(Terms.get_bbcode_formats())

@@ -1,18 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/dreamscape/CombatElements/CombatSignifier.gd" type="Script" id=1]
 [ext_resource path="res://assets/icons/shield.png" type="Texture" id=2]
 [ext_resource path="res://themes/darktheme/fonts/Reggae_One/ReggaeOne-Regular.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://fonts/Comfortaa-Bold.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://assets/card_front/tag_container.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=2]
-font_data = ExtResource( 4 )
 
 [node name="CombatSignifier" type="Control"]
 margin_right = 21.0
@@ -67,12 +63,16 @@ margin_left = 25.0
 margin_right = 33.0
 margin_bottom = 14.0
 
-[node name="Label" type="Label" parent="Description"]
+[node name="Label" type="RichTextLabel" parent="Description"]
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 4.0
-margin_bottom = 23.0
-custom_fonts/font = SubResource( 2 )
+margin_right = 304.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 300, 0 )
+mouse_filter = 2
+bbcode_enabled = true
+fit_content_height = true
+scroll_active = false
 
 [node name="MC" type="MarginContainer" parent="."]
 margin_right = 22.0

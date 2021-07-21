@@ -32,4 +32,24 @@ const NUMBERS_HIDDEN_ON_0 := []
 # This is useful to prevent a whole class of cards from being shown in the
 # deckbuilder, without adding `_hide_in_deckbuilder` to each of them
 const TYPES_TO_HIDE_IN_DECKBUILDER := ["Token"]
-const EXPLANATIONS = {}
+const EXPLANATIONS = {
+	"interpretation": "Interpretation ([img=24x24]res://fonts/rich_text_icons/magnifying-glass.png[/img]): "\
+			+ "Increases interpretation on Torments by the specified amount.\n"\
+			+ "When this exceeds the Torment's max, it is overcome and removed from the encounter.",
+	"stress": "Stress ([img=24x24]res://fonts/rich_text_icons/terror.png[/img]): "\
+			+ "Increases Anxiety on the Dreamer by the specified amount.\n"\
+			+ "When this exceeds the Dreamer's max, they wake up from their dream.",
+	"confidence": "Confidence ([img=24x24]res://fonts/rich_text_icons/shield.png[/img]): "\
+			+ "Anxiety from Torment intents reduces confidence "\
+			+ "before increasing the dreamer's anxiety.\n",
+	"perplexity": "Perplexity ([img=24x24]res://fonts/rich_text_icons/shield.png[/img]): "\
+			+ "Interpretation done by the Dreamer reduces perplexity "\
+			+ "before affecting the Torments.",
+	"immersion": "Immersion ([img=24x24]res://fonts/rich_text_icons/concentration-orb.png[/img]): "\
+			+ "Limits the amount of cards you can play per turn.",
+	"overcome": "Overcoming: Once the dreamer has interpreted a Torment enough"\
+			+ "it is removed from the encounter.",
+	"forget": "[color=yellow]Forget[/color]: This card is removed from this encounter and will not be reshuffled into the deck.",
+	"release": "[color=yellow]Release[/color]: This card is removed permanently from the Dreamer's deck.",
+	"perturbation": "[color=purple]Perturbation[/color]: Cards that tend to clutter your deck, and may have extra negative effects.",
+}

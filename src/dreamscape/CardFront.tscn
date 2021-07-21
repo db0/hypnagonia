@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/dreamscape/CardFront.gd" type="Script" id=2]
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=3]
-[ext_resource path="res://themes/darktheme/fonts/Ubuntu-L.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://fonts/Butler/Butler_Regular.otf" type="DynamicFontData" id=5]
 [ext_resource path="res://assets/card_front/white_layout.png" type="Texture" id=6]
 [ext_resource path="res://assets/card_front/cost_container.png" type="Texture" id=7]
@@ -27,10 +26,6 @@ size = 14
 font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 11
-font_data = ExtResource( 4 )
-
-[sub_resource type="DynamicFont" id=5]
 size = 12
 font_data = ExtResource( 5 )
 
@@ -160,18 +155,16 @@ mouse_filter = 2
 custom_constants/margin_right = 15
 custom_constants/margin_left = 15
 
-[node name="Abilities" type="Label" parent="CardText/OutsideArt"]
+[node name="Abilities" type="RichTextLabel" parent="CardText/OutsideArt"]
 use_parent_material = true
 margin_left = 15.0
+margin_top = 10.0
 margin_right = 185.0
-margin_bottom = 61.0
+margin_bottom = 50.0
 rect_min_size = Vector2( 170, 40 )
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 4 )
+mouse_filter = 2
+size_flags_vertical = 6
 text = "Ability Text"
-align = 1
-valign = 1
-autowrap = true
 
 [node name="Tags" type="Label" parent="CardText"]
 visible = false
@@ -181,7 +174,7 @@ margin_right = 200.0
 margin_bottom = 274.0
 rect_min_size = Vector2( 200, 13 )
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 text = "Tag1 - Tag2"
 align = 1
 valign = 1
@@ -296,6 +289,7 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 200, 280 )
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }

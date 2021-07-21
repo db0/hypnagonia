@@ -97,3 +97,7 @@ func _on_Menu_resized() -> void:
 					tab.rect_position.x = -get_viewport().size.x
 			elif tab.rect_position.x > 0.0:
 					tab.rect_position.x = get_viewport().size.x
+
+func _input(event):
+	if event.is_action_pressed("debug"):
+		switch_to_tab(deck_builder)
