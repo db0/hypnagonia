@@ -6,3 +6,6 @@
 
 [node name="ArtBackground" parent="." index="0"]
 color = Color( 0, 0, 0, 1 )
+
+[node name="TextShader" parent="." index="3"]
+visible = true

@@ -191,7 +191,7 @@ func scale_to(scale_multiplier: float) -> void:
 				call_deferred("set_rich_label_text",label, label.bbcode_text, true)
 			else:
 				var label : Label = card_labels[l]
-				set_label_text(label, label.text)
+				call_deferred("set_label_text",label, label.text)
 
 
 
