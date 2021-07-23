@@ -41,7 +41,7 @@ func on_button_pressed(_button_name : String) -> void:
 			switch_to_tab(new_game)
 #			get_tree().change_scene(CFConst.PATH_CUSTOM + 'Main.tscn')
 		"QuickStart":
-			new_game.randomize_archetype_choices()
+			new_game.randomize_aspect_choices()
 			new_game.start_new_game()
 		"Readme":
 			_readme_popup.rect_size = _readme_label.rect_size

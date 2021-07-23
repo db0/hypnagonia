@@ -94,7 +94,7 @@ func _on_meta_hover_started(meta_text: String) -> void:
 	match meta_tag["meta_type"]:
 		"torment_card":
 			var torment_name : String = meta_tag["name"]
-			enemy_cards[torment_name]._on_DBGridCardObject_mouse_entered()
+			enemy_cards[torment_name]._on_GridCardObject_mouse_entered()
 		"nce":
 			_show_description_popup(
 					globals.current_encounter.get_meta_hover_description(
@@ -106,7 +106,7 @@ func _on_meta_hover_ended(meta_text: String) -> void:
 	match meta_tag["meta_type"]:
 		"torment_card":
 			var torment_name : String = meta_tag["name"]
-			enemy_cards[torment_name]._on_DBGridCardObject_mouse_exited()
+			enemy_cards[torment_name]._on_GridCardObject_mouse_exited()
 		"nce":
 			_description_popup.visible = false
 
@@ -126,7 +126,7 @@ func _on_choice_pressed(encounter: SingleEncounter, rich_text_choice: JournalCho
 	# To ensure card previews are hidden in case the player is too fast.
 	_description_popup.visible = false
 	for torment_name in enemy_cards:
-		enemy_cards[torment_name]._on_DBGridCardObject_mouse_exited()
+		enemy_cards[torment_name]._on_GridCardObject_mouse_exited()
 	encounter.begin()
 
 
