@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dream card gem color.png-ffad80be24979845b5cc837b367b5264.stex"
+path="res://.import/gem.png-75fdf367fa5b66f0ed12ba71a815e2cb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/card_front/dream card/dream card gem color.png"
-dest_files=[ "res://.import/dream card gem color.png-ffad80be24979845b5cc837b367b5264.stex" ]
+source_file="res://assets/card_front/dream card/gem.png"
+dest_files=[ "res://.import/gem.png-75fdf367fa5b66f0ed12ba71a815e2cb.stex" ]
 
 [params]
 

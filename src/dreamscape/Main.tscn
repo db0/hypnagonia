@@ -16,6 +16,7 @@ margin_bottom = 904.762
 size = Vector2( 1455, 900 )
 
 [node name="VBC" parent="." index="2"]
+self_modulate = Color( 1, 1, 1, 0 )
 margin_right = 300.0
 margin_bottom = 454.0
 

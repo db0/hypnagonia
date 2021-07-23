@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dream card body.png-e77305316159783d2a89965bc46c96f3.stex"
+path="res://.import/CostBackground.png-1093dc8db98a5c122ac2fdf1d7dfaa3b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/card_front/dream card/dream card body.png"
-dest_files=[ "res://.import/dream card body.png-e77305316159783d2a89965bc46c96f3.stex" ]
+source_file="res://assets/card_front/dream card/CostBackground.png"
+dest_files=[ "res://.import/CostBackground.png-1093dc8db98a5c122ac2fdf1d7dfaa3b.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

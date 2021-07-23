@@ -9,6 +9,12 @@ onready var tag_icon2 := $TagContainer2/TagIcon
 onready var card_design := $CardDesign
 onready var shader_effect := $ShaderEffect
 onready var art := $Art
+onready var text_background := $TextBackground
+onready var title_background := $TitleBackground
+onready var title := $Title
+onready var rarity_top := $RarityTop
+onready var rarity_middle := $RarityMiddle
+onready var cost_container_background := $CostContainer/CostIcon
 
 func _ready() -> void:
 #	text_expansion_multiplier = {
@@ -22,6 +28,7 @@ func _ready() -> void:
 	card_labels["Name"] = $"CardText/ArtLayover/MC/Name"
 	card_labels["Type"] = $"CardText/ArtLayover/MC2/Type"
 	card_labels["Abilities"] = $"CardText/OutsideArt/Abilities"
+	card_labels["Tags"] = $Tags
 	card_labels["Cost"] = $CostContainer/Cost
 
 
@@ -48,7 +55,7 @@ func _ready() -> void:
 			"Abilities":
 				original_font_sizes[label] = 20
 			_:
-				original_font_sizes[label] = 22
+				original_font_sizes[label] = 18
 
 
 func set_tag_icon(tags: Array) -> void:
@@ -75,3 +82,13 @@ func apply_sharer(shader_path: String) -> void:
 
 func _get_bbcode_format() -> Dictionary:
 	return(Terms.get_bbcode_formats())
+
+func set_rarity() -> void:
+	var rarity_color := theme.get_color(
+			card_owner.get_property("_rarity"), "Label")
+	rarity_top.modulate = rarity_color * 1.4
+	rarity_middle.modulate = rarity_color * 1.6
+	title_background.color = rarity_color * 0.8
+	title_background.color.a = 1
+#	var card_name_label : Label = card_front.card_labels["Name"]
+#	card_name_label.add_color_override("font_color", rarity_color)

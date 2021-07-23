@@ -73,10 +73,7 @@ func _process(delta: float) -> void:
 
 func setup() -> void:
 	.setup()
-	var label_color := card_front.theme.get_color(
-			get_property("_rarity"), "Label")
-	var card_name_label : Label = card_front.card_labels["Name"]
-	card_name_label.add_color_override("font_color", label_color)
+	card_front.set_rarity()
 	if get_parent().name != "Viewport":
 		card_front.set_tag_icon(get_property("Tags"))
 
