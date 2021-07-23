@@ -6,7 +6,12 @@
 [node name="ListCardObject" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
+[node name="CardLabel" parent="." index="0"]
+margin_right = 524.0
+
 [node name="Type" parent="." index="1"]
+margin_left = 528.0
+rect_min_size = Vector2( 100, 0 )
 bbcode_enabled = false
 text = "Blue"
 fit_content_height = false
