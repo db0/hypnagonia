@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=1]
 [ext_resource path="res://src/dreamscape/CardLibrary/CardLibrary.tscn" type="PackedScene" id=2]
@@ -6,18 +6,11 @@
 [ext_resource path="res://themes/darktheme/fonts/Bangers/Bangers-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://src/dreamscape/MainMenu/NewGame.tscn" type="PackedScene" id=5]
 
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.145098, 0.145098, 0.145098, 1 )
-
-[sub_resource type="DynamicFont" id=4]
-size = 107
-font_data = ExtResource( 4 )
-
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 60
 font_data = ExtResource( 4 )
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0, 0, 0, 1 )
 
 [node name="Menu" type="Panel"]
@@ -32,9 +25,6 @@ __meta__ = {
 }
 
 [node name="CardLibrary" parent="." instance=ExtResource( 2 )]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_styles/panel = SubResource( 1 )
 property_width_exceptions = {
 "Cost": 30
 }
@@ -85,16 +75,15 @@ margin_bottom = 435.0
 
 [node name="Title" type="Label" parent="MainMenu/VBox/Margin/VBoxContainer"]
 margin_right = 1455.0
-margin_bottom = 115.0
-custom_fonts/font = SubResource( 1 )
+margin_bottom = 24.0
 text = "Dreams"
 align = 1
 
 [node name="Subtitle" type="Label" parent="MainMenu/VBox/Margin/VBoxContainer"]
-margin_top = 118.0
+margin_top = 27.0
 margin_right = 1455.0
-margin_bottom = 182.0
-custom_fonts/font = SubResource( 2 )
+margin_bottom = 91.0
+custom_fonts/font = SubResource( 1 )
 text = "A deckbuilding therapy session"
 align = 1
 
@@ -158,7 +147,7 @@ modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

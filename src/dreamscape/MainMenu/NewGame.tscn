@@ -35,7 +35,7 @@ rect_min_size = Vector2( 0, 50 )
 margin_top = 72.0
 margin_right = 1441.0
 margin_bottom = 86.0
-text = "Choose Deck Archetypes"
+text = "Choose Dreamer Aspects"
 align = 1
 
 [node name="CC" type="CenterContainer" parent="VBC"]
@@ -227,8 +227,8 @@ text = "Back"
 [node name="ChoicePopup" type="PopupPanel" parent="."]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 1693.0
-margin_bottom = 923.0
+margin_right = 1448.0
+margin_bottom = 893.0
 
 [node name="CC" type="CenterContainer" parent="ChoicePopup"]
 anchor_right = 1.0
@@ -242,10 +242,10 @@ __meta__ = {
 }
 
 [node name="VBC" type="VBoxContainer" parent="ChoicePopup/CC"]
-margin_left = 439.0
-margin_top = 57.0
-margin_right = 1239.0
-margin_bottom = 851.0
+margin_left = 316.0
+margin_top = 42.0
+margin_right = 1116.0
+margin_bottom = 836.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -272,22 +272,21 @@ columns = 5
 [node name="Archetype" parent="ChoicePopup/CC/VBC/CC/ChoiceContainer" instance=ExtResource( 2 )]
 
 [node name="Tags" parent="ChoicePopup/CC/VBC" instance=ExtResource( 4 )]
-margin_left = -439.0
-margin_top = -101.0
-margin_right = 994.0
-margin_bottom = -87.0
-
-[node name="StartingCardsLabel" type="Label" parent="ChoicePopup/CC/VBC"]
 margin_top = 412.0
 margin_right = 800.0
-margin_bottom = 426.0
+margin_bottom = 492.0
+
+[node name="StartingCardsLabel" type="Label" parent="ChoicePopup/CC/VBC"]
+margin_top = 496.0
+margin_right = 800.0
+margin_bottom = 510.0
 text = "Starting Cards"
 align = 1
 
 [node name="StartginCardsDisplay" parent="ChoicePopup/CC/VBC" instance=ExtResource( 3 )]
-margin_top = 430.0
+margin_top = 514.0
 margin_right = 800.0
-margin_bottom = 670.0
+margin_bottom = 794.0
 rect_min_size = Vector2( 800, 280 )
 
 [node name="StartingCardsPopup" type="PopupPanel" parent="."]

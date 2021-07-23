@@ -27,9 +27,9 @@ func setup() -> void:
 
 func get_currrent_archetypes() -> Array:
 	var all_archetypes := []
-	for archetype in deck_groups:
-		if deck_groups[archetype]:
-			all_archetypes.append(deck_groups[archetype])
+	for aspect in deck_groups:
+		if deck_groups[aspect]:
+			all_archetypes.append(deck_groups[aspect])
 	return(all_archetypes)
 
 func set_damage(value) -> void:
