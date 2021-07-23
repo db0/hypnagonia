@@ -1,6 +1,11 @@
+# A container for a card instance to be placed in a Card Library
 class_name CLListCardObject
 extends CVListCardObject
 
+
+# Prepares the entry for a single card in the card library. The entry adds to
+# The display of the card's Name and Type, also all the other card properties.
+# If the card text is rich text, it will also be formatted as bbcode.
 func setup(_card_name: String) -> void:
 	.setup(_card_name)
 	if card_viewer.property_width_exceptions.has(CardConfig.SCENE_PROPERTY):
@@ -33,5 +38,7 @@ func setup(_card_name: String) -> void:
 				new_label.bbcode_text = str(card_properties[property]).format(format)
 			add_child(new_label)
 
+
+# Fetches the bbcode formating used for this game
 func _get_bbcode_format() -> Dictionary:
 	return(CardConfig.CARD_BBCODE.duplicate())
