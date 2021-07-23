@@ -1,11 +1,20 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/dreamscape/CardLibrary/ListCardObject.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/dreamscape/InfoPanel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/core/CardViewer/CardLibrary/CardLibrary.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/dreamscape/CardLibrary/CardLibrary.gd" type="Script" id=4]
+[ext_resource path="res://src/dreamscape/CardLibrary/ArchetypeFilter.gd" type="Script" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+
+[sub_resource type="StyleBoxLine" id=2]
+color = Color( 1, 0.4, 0, 1 )
+thickness = 2
 
 [node name="CardLibrary" instance=ExtResource( 3 )]
+custom_styles/panel = SubResource( 1 )
 script = ExtResource( 4 )
 info_panel_scene = ExtResource( 2 )
 list_card_object_scene = ExtResource( 1 )
@@ -21,6 +30,15 @@ custom_constants/margin_left = 5
 margin_left = 5.0
 margin_right = 1450.0
 
+[node name="FilterLine" parent="VBC/HBC/MC/AvailableCards/HBC" index="1"]
+criteria_map = {
+"a": "Abilities",
+"c": "Cost",
+"g": "Tags",
+"r": "_rarity",
+"t": "Type"
+}
+
 [node name="CC" parent="VBC/HBC/MC/AvailableCards" index="1"]
 margin_bottom = 48.0
 
@@ -34,6 +52,7 @@ margin_right = 133.0
 margin_bottom = 20.0
 text = "Filter by Archetype"
 flat = false
+script = ExtResource( 5 )
 
 [node name="CardListHeaders" parent="VBC/HBC/MC/AvailableCards" index="2"]
 margin_top = 52.0
@@ -42,6 +61,7 @@ margin_bottom = 66.0
 [node name="LineSeparator" parent="VBC/HBC/MC/AvailableCards" index="3"]
 margin_top = 70.0
 margin_bottom = 70.0
+custom_styles/panel = SubResource( 2 )
 
 [node name="ScrollContainer" parent="VBC/HBC/MC/AvailableCards" index="4"]
 margin_top = 74.0
@@ -54,4 +74,4 @@ text = "Back"
 [node name="Control" parent="VBC/HBC/MC/AvailableCards/Settings" index="1"]
 margin_left = 46.0
 
-[connection signal="pressed" from="VBC/HBC/MC/AvailableCards/CC/ButtonFilters/ArchetypeFilter" to="." method="_on_ArchetypeFilter_pressed"]
+[connection signal="gui_input" from="VBC/HBC/MC/AvailableCards/CC/ButtonFilters/ArchetypeFilter" to="VBC/HBC/MC/AvailableCards/CC/ButtonFilters/ArchetypeFilter" method="_on_ArchetypeFilter_gui_input"]

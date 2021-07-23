@@ -1,11 +1,15 @@
 extends CardLibrary
 
-onready var back_button := $VBC/HBC/MC/AvailableCards/Settings/Back
 var abilities_header : Label
+var filtered_archetype_cards: Array
+
+onready var back_button := $VBC/HBC/MC/AvailableCards/Settings/Back
+onready var _archetype_filter_button := $VBC/HBC/MC/AvailableCards/CC/ButtonFilters/ArchetypeFilter
 
 func _ready() -> void:
 	get_viewport().connect("size_changed",self,"_on_viewport_resized")
-
+	_archetype_filter_button.connect("archetype_chosen", self,"_on_archetype_chosen")
+	
 # Populates the list of available cards, with all defined cards in the game
 func populate_available_cards() -> void:
 	.populate_available_cards()
@@ -19,8 +23,23 @@ func _on_viewport_resized() -> void:
 	# Only manually tweaking the window size fixes it. I haven't found a proper solution yet
 	abilities_header.rect_min_size.x = get_viewport().size.x / 2
 
+func _on_archetype_chosen(archetype) -> void:
+	if archetype == "Clear Filters":
+		_archetype_filter_button.text = "Filter by Archetype"
+		filtered_archetype_cards.clear()
+	else:
+		filtered_archetype_cards = CardGroupDefinitions.get_all_cards_in_archetype(archetype)
+		_archetype_filter_button.text = "Filtering: " + archetype
+	_apply_filters(_filter_line.get_active_filters())
 	
 
+func _check_custom_filters(card_object: CVListCardObject) -> bool:
+	if filtered_archetype_cards.size() and not card_object.card_name in filtered_archetype_cards:
+		return(false)
+	return(true)
 
-func _on_ArchetypeFilter_pressed():
-	pass # Replace with function body.
+# Clears all card filters
+func _on_ClearFilters_pressed() -> void:
+	_archetype_filter_button.text = "Filter by Archetype"
+	filtered_archetype_cards.clear()
+	._on_ClearFilters_pressed()

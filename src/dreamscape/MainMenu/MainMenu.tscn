@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=1]
 [ext_resource path="res://src/dreamscape/CardLibrary/CardLibrary.tscn" type="PackedScene" id=2]
@@ -6,7 +6,10 @@
 [ext_resource path="res://themes/darktheme/fonts/Bangers/Bangers-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://src/dreamscape/MainMenu/NewGame.tscn" type="PackedScene" id=5]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+
+[sub_resource type="DynamicFont" id=3]
 size = 60
 font_data = ExtResource( 4 )
 
@@ -25,6 +28,7 @@ __meta__ = {
 }
 
 [node name="CardLibrary" parent="." instance=ExtResource( 2 )]
+custom_styles/panel = SubResource( 1 )
 property_width_exceptions = {
 "Cost": 30
 }
@@ -83,7 +87,7 @@ align = 1
 margin_top = 27.0
 margin_right = 1455.0
 margin_bottom = 91.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 text = "A deckbuilding therapy session"
 align = 1
 

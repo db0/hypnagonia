@@ -207,5 +207,12 @@ static func get_complete_archetype_list() -> Array:
 	for type in ARCHETYPES:
 		for archetype in ARCHETYPES[type]["Dictionary"]:
 			if not ARCHETYPES[type]["Dictionary"][archetype].get("_is_inactive"):
-				valid_archetypes_list.append(ARCHETYPES[type]["Dictionary"][archetype])
+				valid_archetypes_list.append(archetype)
 	return(valid_archetypes_list)
+
+
+static func get_all_cards_in_archetype(archetype) -> Array:
+	var all_cards := []
+	for card_rarity in ["Starting Cards","Commons","Uncommons","Rares"]:
+		all_cards += get_archetype_value(archetype,card_rarity)
+	return(all_cards)
