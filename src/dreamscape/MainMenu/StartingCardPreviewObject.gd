@@ -1,4 +1,4 @@
-extends DBGridCardObject
+extends CVGridCardObject
 
 const info_panel_scene = preload("res://src/dreamscape/InfoPanel.tscn")
 

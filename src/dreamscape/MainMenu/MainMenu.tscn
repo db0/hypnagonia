@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=1]
-[ext_resource path="res://src/dreamscape/DeckBuilder.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/dreamscape/CardLibrary/CardLibrary.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/dreamscape/MainMenu/MainMenu.gd" type="Script" id=3]
 [ext_resource path="res://themes/darktheme/fonts/Bangers/Bangers-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://src/dreamscape/MainMenu/NewGame.tscn" type="PackedScene" id=5]
@@ -28,9 +28,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NewGame" parent="." instance=ExtResource( 5 )]
+[node name="CardLibrary" parent="." instance=ExtResource( 2 )]
 
-[node name="DeckBuilder" parent="." instance=ExtResource( 2 )]
+[node name="NewGame" parent="." instance=ExtResource( 5 )]
 
 [node name="ReadMe" type="PopupPanel" parent="."]
 margin_right = 4.0
@@ -97,9 +97,9 @@ size_flags_vertical = 3
 
 [node name="VButtons" type="VBoxContainer" parent="MainMenu/VBox/Center"]
 margin_left = 631.0
-margin_top = 146.0
+margin_top = 127.0
 margin_right = 823.0
-margin_bottom = 288.0
+margin_bottom = 307.0
 rect_min_size = Vector2( 192, 0 )
 custom_constants/separation = 10
 
@@ -117,23 +117,22 @@ margin_right = 192.0
 margin_bottom = 66.0
 text = "Quick Start"
 
-[node name="Deckbuilder" type="Button" parent="MainMenu/VBox/Center/VButtons"]
-visible = false
+[node name="CardLibrary" type="Button" parent="MainMenu/VBox/Center/VButtons"]
 margin_top = 76.0
 margin_right = 192.0
 margin_bottom = 104.0
-text = "Deck Builder"
+text = "Card Library"
 
 [node name="Readme" type="Button" parent="MainMenu/VBox/Center/VButtons"]
-margin_top = 76.0
-margin_right = 192.0
-margin_bottom = 104.0
-text = "Read Me"
-
-[node name="Exit" type="Button" parent="MainMenu/VBox/Center/VButtons"]
 margin_top = 114.0
 margin_right = 192.0
 margin_bottom = 142.0
+text = "Read Me"
+
+[node name="Exit" type="Button" parent="MainMenu/VBox/Center/VButtons"]
+margin_top = 152.0
+margin_right = 192.0
+margin_bottom = 180.0
 text = "Exit"
 
 [node name="Version" type="Label" parent="MainMenu/VBox"]

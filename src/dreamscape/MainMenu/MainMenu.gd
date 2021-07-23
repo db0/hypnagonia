@@ -14,7 +14,7 @@ const menu_switch_time = 0.35
 onready var v_buttons := $MainMenu/VBox/Center/VButtons
 onready var main_menu := $MainMenu
 #onready var settings_menu := $SettingsMenu
-onready var deck_builder := $DeckBuilder
+onready var card_library := $CardLibrary
 onready var new_game := $NewGame
 onready var _readme_label := $ReadMe/Label
 onready var _readme_popup := $ReadMe
@@ -26,10 +26,10 @@ func _ready() -> void:
 		if option_button.has_signal('pressed'):
 			option_button.connect('pressed', self, 'on_button_pressed', [option_button.name])
 	new_game.rect_position.x = get_viewport().size.x
-	deck_builder.rect_position.x = -get_viewport().size.x
+	card_library.rect_position.x = -get_viewport().size.x
 	new_game.back_button.connect("pressed", self, "switch_to_main_menu", [new_game])
 #	new_game.recover_prebuilts.connect("pressed", self, "_on_PreBuilts_pressed")
-	deck_builder.back_button.connect("pressed", self, "switch_to_main_menu", [deck_builder])
+	card_library.back_button.connect("pressed", self, "switch_to_main_menu", [card_library])
 	# warning-ignore:return_value_discarded
 	get_viewport().connect("size_changed", self, '_on_Menu_resized')
 	_readme_label.text = README
@@ -46,8 +46,8 @@ func on_button_pressed(_button_name : String) -> void:
 		"Readme":
 			_readme_popup.rect_size = _readme_label.rect_size
 			_readme_popup.popup_centered_minsize()
-		"Deckbuilder":
-			switch_to_tab(deck_builder)
+		"CardLibrary":
+			switch_to_tab(card_library)
 		"Exit":
 			get_tree().quit()
 
@@ -57,7 +57,7 @@ func switch_to_tab(tab: Control) -> void:
 	match tab:
 		new_game:
 			main_position_x = -get_viewport().size.x
-		deck_builder:
+		card_library:
 			main_position_x = get_viewport().size.x
 	menu_tween.interpolate_property(main_menu,'rect_position:x',
 			main_menu.rect_position.x, main_position_x, menu_switch_time,
@@ -73,7 +73,7 @@ func switch_to_main_menu(tab: Control) -> void:
 	match tab:
 		new_game:
 			tab_position_x = get_viewport().size.x
-		deck_builder:
+		card_library:
 			tab_position_x = -get_viewport().size.x
 	menu_tween.interpolate_property(tab,'rect_position:x',
 			tab.rect_position.x, tab_position_x, menu_switch_time,
@@ -86,18 +86,14 @@ func switch_to_main_menu(tab: Control) -> void:
 
 
 func _on_DeckBuilder_Back_pressed() -> void:
-	switch_to_main_menu(deck_builder)
+	switch_to_main_menu(card_library)
 
 
 func _on_Menu_resized() -> void:
-	for tab in [main_menu, deck_builder]:
+	for tab in [main_menu, card_library, new_game]:
 		if is_instance_valid(tab):
 			tab.rect_size = get_viewport().size
 			if tab.rect_position.x < 0.0:
 					tab.rect_position.x = -get_viewport().size.x
 			elif tab.rect_position.x > 0.0:
 					tab.rect_position.x = get_viewport().size.x
-
-func _input(event):
-	if event.is_action_pressed("debug"):
-		switch_to_tab(deck_builder)

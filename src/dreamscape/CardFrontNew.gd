@@ -83,6 +83,7 @@ func apply_sharer(shader_path: String) -> void:
 func _get_bbcode_format() -> Dictionary:
 	return(Terms.get_bbcode_formats())
 
+
 func set_rarity() -> void:
 	var rarity_color := theme.get_color(
 			card_owner.get_property("_rarity"), "Label")
