@@ -20,3 +20,7 @@ func _on_viewport_resized() -> void:
 	abilities_header.rect_min_size.x = get_viewport().size.x / 2
 
 	
+
+
+func _on_ArchetypeFilter_pressed():
+	pass # Replace with function body.

@@ -21,6 +21,31 @@ custom_constants/margin_left = 5
 margin_left = 5.0
 margin_right = 1450.0
 
+[node name="CC" parent="VBC/HBC/MC/AvailableCards" index="1"]
+margin_bottom = 48.0
+
+[node name="ButtonFilters" parent="VBC/HBC/MC/AvailableCards/CC" index="0"]
+margin_left = 656.0
+margin_right = 789.0
+margin_bottom = 20.0
+
+[node name="ArchetypeFilter" type="MenuButton" parent="VBC/HBC/MC/AvailableCards/CC/ButtonFilters" index="0"]
+margin_right = 133.0
+margin_bottom = 20.0
+text = "Filter by Archetype"
+flat = false
+
+[node name="CardListHeaders" parent="VBC/HBC/MC/AvailableCards" index="2"]
+margin_top = 52.0
+margin_bottom = 66.0
+
+[node name="LineSeparator" parent="VBC/HBC/MC/AvailableCards" index="3"]
+margin_top = 70.0
+margin_bottom = 70.0
+
+[node name="ScrollContainer" parent="VBC/HBC/MC/AvailableCards" index="4"]
+margin_top = 74.0
+
 [node name="Back" type="Button" parent="VBC/HBC/MC/AvailableCards/Settings" index="0"]
 margin_right = 42.0
 margin_bottom = 40.0
@@ -28,3 +53,5 @@ text = "Back"
 
 [node name="Control" parent="VBC/HBC/MC/AvailableCards/Settings" index="1"]
 margin_left = 46.0
+
+[connection signal="pressed" from="VBC/HBC/MC/AvailableCards/CC/ButtonFilters/ArchetypeFilter" to="." method="_on_ArchetypeFilter_pressed"]

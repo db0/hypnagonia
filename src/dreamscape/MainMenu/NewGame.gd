@@ -54,7 +54,7 @@ func populate_choices(archetype: String) -> void:
 		var archetype_button = ARCHETYPE_SCENE.instance()
 		_archetype_choices.add_child(archetype_button)
 		archetype_button.setup(archetype, type)
-		_archetype_description_label.text = CardGroupDefinitions.ARCHETYPES[archetype]
+		_archetype_description_label.text = CardGroupDefinitions.ARCHETYPES[archetype].Description
 		archetype_button.button.connect("pressed", self, "_on_archetype_choice_pressed", [type, archetype, archetype_button])
 		archetype_button.button.connect("mouse_entered", self, "_on_archetype_mouse_entered", [type])
 
