@@ -1,6 +1,8 @@
 class_name CLListCardObject
 extends CVListCardObject
 
+var icon_size := '15x15'
+
 func setup(_card_name: String) -> void:
 	.setup(_card_name)
 	for p in card_properties:
@@ -16,7 +18,7 @@ func setup(_card_name: String) -> void:
 #			new_label.autowrap = true
 			var format = _get_bbcode_format()
 			var bbcode_format := {}
-			bbcode_format["icon_size"] = '12x12'
+			bbcode_format["icon_size"] = icon_size
 			for key in format:
 				format[key] = format[key].format(bbcode_format)
 			if property in CardConfig.PROPERTIES_ARRAYS:

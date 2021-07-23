@@ -10,69 +10,13 @@ script = ExtResource( 4 )
 info_panel_scene = ExtResource( 2 )
 list_card_object_scene = ExtResource( 1 )
 
-[node name="VBC" parent="." index="0"]
-margin_right = 1455.0
-margin_bottom = 900.0
-
-[node name="Title" parent="VBC" index="0"]
-margin_right = 1455.0
-
-[node name="HBC" parent="VBC" index="1"]
-margin_right = 1455.0
-margin_bottom = 900.0
-
 [node name="MC" parent="VBC/HBC" index="0"]
-margin_right = 1455.0
-margin_bottom = 882.0
 custom_constants/margin_right = 5
 custom_constants/margin_left = 5
 
 [node name="AvailableCards" parent="VBC/HBC/MC" index="0"]
 margin_left = 5.0
 margin_right = 1450.0
-margin_bottom = 877.0
-
-[node name="HBC" parent="VBC/HBC/MC/AvailableCards" index="0"]
-margin_right = 1445.0
-
-[node name="FilterLine" parent="VBC/HBC/MC/AvailableCards/HBC" index="1"]
-margin_right = 1341.0
-
-[node name="CardCount" parent="VBC/HBC/MC/AvailableCards/HBC" index="2"]
-margin_left = 1345.0
-margin_right = 1445.0
-
-[node name="CC" parent="VBC/HBC/MC/AvailableCards" index="1"]
-margin_right = 1445.0
-
-[node name="ButtonFilters" parent="VBC/HBC/MC/AvailableCards/CC" index="0"]
-margin_left = 722.0
-margin_right = 722.0
-
-[node name="CardListHeaders" parent="VBC/HBC/MC/AvailableCards" index="2"]
-margin_right = 1445.0
-
-[node name="Name" parent="VBC/HBC/MC/AvailableCards/CardListHeaders" index="0"]
-margin_right = 1341.0
-
-[node name="Type" parent="VBC/HBC/MC/AvailableCards/CardListHeaders" index="1"]
-margin_left = 1345.0
-margin_right = 1445.0
-
-[node name="LineSeparator" parent="VBC/HBC/MC/AvailableCards" index="3"]
-margin_right = 1445.0
-
-[node name="ScrollContainer" parent="VBC/HBC/MC/AvailableCards" index="4"]
-margin_right = 1445.0
-margin_bottom = 833.0
-
-[node name="CardList" parent="VBC/HBC/MC/AvailableCards/ScrollContainer" index="0"]
-margin_right = 1445.0
-
-[node name="Settings" parent="VBC/HBC/MC/AvailableCards" index="5"]
-margin_top = 837.0
-margin_right = 1445.0
-margin_bottom = 877.0
 
 [node name="Back" type="Button" parent="VBC/HBC/MC/AvailableCards/Settings" index="0"]
 margin_right = 42.0
@@ -81,8 +25,3 @@ text = "Back"
 
 [node name="Control" parent="VBC/HBC/MC/AvailableCards/Settings" index="1"]
 margin_left = 46.0
-margin_right = 1300.0
-
-[node name="GridViewStyle" parent="VBC/HBC/MC/AvailableCards/Settings" index="2"]
-margin_left = 1304.0
-margin_right = 1445.0
