@@ -1,6 +1,6 @@
 extends CardLibrary
 
-var abilities_header : Label
+var abilities_header : RichTextLabel
 var filtered_archetype_cards: Array
 
 onready var back_button := $VBC/HBC/MC/AvailableCards/Settings/Back

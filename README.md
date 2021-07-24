@@ -64,8 +64,9 @@ See the issue tracker for progress and more ideas and feel free to suggest more.
 
 Built with [Godot](https://godotengine.org/) and the [Card Game Framework](https://github.com/db0/godot-card-game-framework)
 
-
 Major influences from [Slay the Spire](https://www.megacrit.com/) and other deckbuilders similar to it.
+
+[Lorenzo Andreozzi](https://tornioduva.itch.io/) for the card layout
 
 ## License
 
