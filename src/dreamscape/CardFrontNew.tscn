@@ -58,6 +58,7 @@ __meta__ = {
 }
 
 [node name="ArtBackground" type="ColorRect" parent="."]
+use_parent_material = true
 margin_left = 11.0
 margin_top = 20.0
 margin_right = 191.0
@@ -70,6 +71,7 @@ __meta__ = {
 }
 
 [node name="TitleBackground" type="ColorRect" parent="."]
+use_parent_material = true
 margin_left = 31.0
 margin_top = 5.0
 margin_right = 171.0
@@ -81,6 +83,7 @@ __meta__ = {
 }
 
 [node name="TextBackground" type="Panel" parent="."]
+use_parent_material = true
 margin_left = 3.92099
 margin_top = 137.04
 margin_right = 193.921
