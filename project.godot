@@ -229,12 +229,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/Globals/DeckObject.gd"
 }, {
-"base": "Reference",
+"base": "CardViewer",
 "class": "DeckBuilder",
 "language": "GDScript",
 "path": "res://src/core/CardViewer/DeckBuilder/DeckBuilder.gd"
 }, {
-"base": "Reference",
+"base": "MenuButton",
 "class": "DeckLoader",
 "language": "GDScript",
 "path": "res://src/core/CardViewer/DeckBuilder/DeckLoader.gd"
