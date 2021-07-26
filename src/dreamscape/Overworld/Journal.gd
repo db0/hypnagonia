@@ -40,8 +40,11 @@ func display_rewards(reward_text: String) -> void:
 		_reveal_entry(reward_journal)
 	proceed.bbcode_text = _get_entry_texts('PROCEED_TEXTS')
 	_reveal_entry(proceed)
+# warning-ignore:return_value_discarded
 	proceed.connect("mouse_entered", self, "_on_rte_mouse_entered", [proceed] )
+# warning-ignore:return_value_discarded
 	proceed.connect("mouse_exited", self, "_on_rte_mouse_exited", [proceed] )
+# warning-ignore:return_value_discarded
 	proceed.connect("gui_input", self, "_on_rte_gui_input", [proceed] )
 
 
@@ -54,6 +57,7 @@ func display_boss_rewards(reward_text: String) -> void:
 		+ "If you're a character artist, graphics designer, storyteller, card game designer, illustrator, or just someone who wants to give feedback, "\
 		+ "do hit us up on our discord server: [url=discord]https://discord.gg/KFKHt6Ch[/url].\n\n"\
 		+ "[url=main_menu]Back to Main Menu[/url]."
+# warning-ignore:return_value_discarded
 	proceed.connect("meta_clicked", self, "_on_proceed_clicked")
 	_reveal_entry(proceed)
 
@@ -65,6 +69,7 @@ func display_loss() -> void:
 		+ "If you're a character artist, graphics designer, storyteller, card game designer, illustrator, or just someone who wants to give feedback, "\
 		+ "do hit us up on our discord server: [url=discord]https://discord.gg/KFKHt6Ch[/url].\n\n"\
 		+ "[url=main_menu]Back to Main Menu[/url]."
+# warning-ignore:return_value_discarded
 	proceed.connect("meta_clicked", self, "_on_proceed_clicked")
 	_reveal_entry(proceed)
 
@@ -85,6 +90,7 @@ func add_nested_choices(nested_choices: Dictionary) -> void:
 
 
 func _on_meta_clicked(meta_text: String) -> void:
+# warning-ignore:unused_variable
 	var meta_tag := _parse_meta_tag(meta_text)
 	pass
 
@@ -163,12 +169,15 @@ func _on_rte_gui_input(event, rt_label: RichTextLabel) -> void:
 				pass
 			"Proceed":
 				if globals.encounter_number >= 7:
+# warning-ignore:return_value_discarded
 					get_tree().change_scene(CFConst.PATH_CUSTOM + 'MainMenu/MainMenu.tscn')
 				else:
+# warning-ignore:return_value_discarded
 					get_tree().change_scene(CFConst.PATH_CUSTOM + 'Overworld/Journal.tscn')
 
 
 func _get_intro() -> String:
+# warning-ignore:unused_variable
 	var intro_texts_array: Array
 	if globals.encounter_number == 0:
 		return(_get_entry_texts('OPENING_JOURNAL_INTROS'))
@@ -187,8 +196,10 @@ func _get_entry_texts(entries_key: String) -> String:
 func _on_proceed_clicked(_meta: String) -> void:
 	match _meta:
 		"discord":
+# warning-ignore:return_value_discarded
 			OS.shell_open("https://discord.gg/KFKHt6Ch")
 		"main_menu":
+# warning-ignore:return_value_discarded
 			get_tree().change_scene(CFConst.PATH_CUSTOM + 'MainMenu/MainMenu.tscn')
 			globals.reset()
 

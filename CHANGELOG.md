@@ -1,5 +1,16 @@
 # Dreams: Changelog
 
+## v0.8.1
+
+* Improved performance when loading the Card Library in Grid mode
+* Improved performance when opening focus cards.
+
+## v0.8.0
+
+* Changed Card layout to the one provided by [Lorenzo Andreozzi](https://tornioduva.itch.io/). Further tweaked the card image using shaders.
+* Added Card Library
+
+
 ## v0.7.0
 
 * Switched to Rich Text on almost all labels. Replaced text representation of tags and effects with icons. Added colour in text.

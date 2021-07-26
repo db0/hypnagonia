@@ -263,10 +263,13 @@ func _init_card_layout() -> void:
 		var card_front_instance = card_front_design.instance()
 		$Control/Front.add_child(card_front_instance)
 		card_front = card_front_instance
-		var card_back_instance = card_back_design.instance()
-		$Control/Back.add_child(card_back_instance)
-		card_back = card_back_instance
-		$Control/Back.move_child(card_back,0)
+		# We do not need to instance the card_back when card is seen 
+		# in a preview card grid
+		if get_parent().get_class() != "CVGridCardObject":
+			var card_back_instance = card_back_design.instance()
+			$Control/Back.add_child(card_back_instance)
+			card_back = card_back_instance
+			$Control/Back.move_child(card_back,0)
 	# If it is a viewport focus dupe, we still need to setup the
 	# card_back variable, as the .duplicate() method does not copy
 	# internal variables.
@@ -279,23 +282,18 @@ func _init_card_layout() -> void:
 #  var canonical_name, "Name" label and self.name should use the same string.
 func _init_card_name() -> void:
 	if not canonical_name:
-		# If the variable has not been set on start
-		# But the Name label has been set, we set our name to that instead
-		if card_front.card_labels["Name"].text != "":
-			set_card_name(card_front.card_labels["Name"].text)
-		else:
-			# The node name changes depeding on how many other cards
-			# with the same node name are siblings
-			# We use this regex to discover the actual name
-			var regex = RegEx.new()
-			regex.compile("@{0,1}([\\w ]+)@{0,1}")
-			var result = regex.search(name)
-			var node_human_name = result.get_string(1)
-			set_card_name(node_human_name)
+		# The node name changes depeding on how many other cards
+		# with the same node name are siblings
+		# We use this regex to discover the actual name
+		var regex = RegEx.new()
+		regex.compile("@{0,1}([\\w ]+)@{0,1}")
+		var result = regex.search(name)
+		var node_human_name = result.get_string(1)
+		set_card_name(node_human_name, false)
 	else:
 		# If the variable has been set, we ensure label and node name
 		# are matching
-		set_card_name(canonical_name)
+		set_card_name(canonical_name, false)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -769,46 +767,31 @@ func set_is_faceup(
 			# Yet when a viewport focus dupe is instancing
 			buttons.set_button_visible("View", false)
 			card_back.stop_card_back_animation()
-			# When we flip face up, we also want to show the dupe card
-			# in the focus viewport
-			# However we also need to protect this call from the dupe itself
-			# calling it when it hasn't yet been added to its parent
-			if cfc.NMAP.get("main", null) and get_parent():
-				# we need to check if there's actually a viewport focus
-				# card, as we may be flipping the card via code
-				if len(cfc.NMAP.main._previously_focused_cards):
-					# The currently active viewport focus is always in the
-					# _previously_focused_cards list, as the last card
-					var dupe_card = cfc.NMAP.main._previously_focused_cards.back()
-					var dupe_front = dupe_card.get_node("Control/Front")
-					var dupe_back = dupe_card.get_node("Control/Back")
-					_flip_card(dupe_back, dupe_front, true)
 		else:
 			_flip_card($Control/Front, $Control/Back,instant)
 			buttons.set_button_visible("View", true)
 #			if get_parent() == cfc.NMAP.board:
 			card_back.start_card_back_animation()
-			# When we flip face down, we also want to hide the dupe card
-			# in the focus viewport
-			# However we also need to protect this call from the dupe itself
-			# calling it when it hasn't yet been added to its parent
-			if cfc.NMAP.get("main", null):
-				# we need to check if there's actually a viewport focus
-				# card, as we may be flipping the card via code
-				if len(cfc.NMAP.main._previously_focused_cards):
-					var dupe_card = cfc.NMAP.main._previously_focused_cards.back()
-					var dupe_front = dupe_card.get_node("Control/Front")
-					var dupe_back = dupe_card.get_node("Control/Back")
-					_flip_card(dupe_front, dupe_back, true)
+		# When we flip, we also want to adjust the dupe card
+		# in the focus viewport
+		if state != CardState.VIEWED_IN_PILE\
+				and cfc.NMAP.get("main", null)\
+				and cfc.NMAP.main._previously_focused_cards.has(self):
+			var dupe_card : Card = cfc.NMAP.main._previously_focused_cards[self]
+# warning-ignore:return_value_discarded
+			dupe_card.set_is_faceup(value, true)
 		retcode = CFConst.ReturnCode.CHANGED
-		emit_signal(
-				"card_flipped",
-				self,
-				"card_flipped",
-				{
-					"is_faceup": value,
-					"tags": tags,
-				})
+		# When the faceup has the instant switch, it's typically a built-in
+		# action, which we don't want trigerring scripts
+		if not instant:
+			emit_signal(
+					"card_flipped",
+					self,
+					"card_flipped",
+					{
+						"is_faceup": value,
+						"tags": tags,
+					})
 	# If we're doing a check, then we just report CHANGED.
 	else:
 		retcode = CFConst.ReturnCode.CHANGED
@@ -837,14 +820,12 @@ func set_is_viewed(value: bool) -> int:
 			retcode = CFConst.ReturnCode.OK
 		else:
 			is_viewed = true
-			if get_parent() != null\
-					and get_tree().get_root().has_node('Main')\
-					and cfc.NMAP.main._previously_focused_cards.size():
-				var dupe_front = cfc.NMAP.main._previously_focused_cards.back()\
-						.get_node("Control/Front")
-				var dupe_back = cfc.NMAP.main._previously_focused_cards.back()\
-						.get_node("Control/Back")
-				_flip_card(dupe_back, dupe_front, true)
+			if state != CardState.VIEWED_IN_PILE\
+					and cfc.NMAP.get("main", null)\
+					and cfc.NMAP.main._previously_focused_cards.has(self):
+				var dupe_card : Card = cfc.NMAP.main._previously_focused_cards[self]
+				# warning-ignore:return_value_discarded
+				dupe_card.set_is_faceup(true, true)
 			card_back.is_viewed_visible = true
 			retcode = CFConst.ReturnCode.CHANGED
 			# We only emit a signal when we view the card
@@ -860,6 +841,7 @@ func set_is_viewed(value: bool) -> int:
 		else:
 			# We don't allow players to unview cards
 			retcode = CFConst.ReturnCode.FAILED
+
 	return retcode
 
 
@@ -870,7 +852,7 @@ func get_is_viewed() -> bool:
 
 # Setter for canonical_name
 # Also changes the card label and the node name
-func set_card_name(value : String) -> void:
+func set_card_name(value : String, set_label := true) -> void:
 	# if the card_front.card_labels variable is not set it means ready() has not
 	# run yet, so we just store the card name for later.
 	if not card_front:
@@ -878,7 +860,8 @@ func set_card_name(value : String) -> void:
 	else:
 		# We set all areas of the card to match the canonical name.
 		var name_label = card_front.card_labels["Name"]
-		card_front.set_label_text(name_label,value)
+		if set_label:
+			card_front.set_label_text(name_label,value)
 		name = value
 		canonical_name = value
 		properties["Name"] = value
@@ -2350,7 +2333,7 @@ func _process_card_state() -> void:
 			if scale != Vector2(1,1):
 				scale = Vector2(1,1)
 			if get_parent() in get_tree().get_nodes_in_group("piles"):
-				if card_front.rt_resizing and not get_parent().faceup_cards: 
+				if card_front.resizing_labels.size() and not get_parent().faceup_cards:
 					return
 				set_is_faceup(get_parent().faceup_cards, true)
 
