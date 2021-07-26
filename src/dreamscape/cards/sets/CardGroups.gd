@@ -40,18 +40,29 @@ const EGO := {
 	"Mad Scientist": {
 #		"Icon": preload("res://icon.png"),
 		"Tags": [
-			Terms.ACTIVE_EFFECTS.vulnerable.name,
+			Terms.GENERIC_TAGS.spark.name,
+			Terms.ACTIVE_EFFECTS.buffer.name,
 		],
 		"Starting Cards": [
 			"Interpretation",
 			"Interpretation",
-			"Noisy Whip",
+			"Change of Mind",
 		],
 		"Commons": [
+			"Recall",
+			"unnamed_card_5",
+			"unnamed_card_1",
+			"Change of Mind"
 		],
 		"Uncommons": [
+			"Brilliance",
+			"Rapid Theorizing",
+			"Inspiration",
+			"Detect Weaknesses"
 		],
 		"Rares": [
+			"It's alive!",
+			"Eureka!",
 		],
 		"_is_inactive": true
 	},

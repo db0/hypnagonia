@@ -484,12 +484,12 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_avoid_normal_discard": true,
 		"_rarity": "Common",
-		"_keywords": ["confidence"]
+		"_keywords": ["confidence", "forget"]
 	},
 	"Change of Mind": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
-		"Abilities": "{damage} for 10. {shuffle} this card into your deck.",
+		"Abilities": "{damage} for 7. {shuffle} this card into your deck.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_avoid_normal_discard": true,
@@ -511,7 +511,7 @@ const CARDS := {
 		"Abilities": "Gain 8 {confidence}. If you've played a {spark} card this turn, draw a card.",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_keywords": ["confidence"]
 	},
 	"Inspiration": {
@@ -521,6 +521,7 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
+		"_keywords": ["forget"]
 	},
 	"Recall": {
 		"Type": "Concentration",
@@ -528,7 +529,7 @@ const CARDS := {
 		"Abilities": "At the end of your turn, {shuffle} the top card from the discard pile into the deck.",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Uncommon",
+		"_rarity": "Common",
 	},
 	"unnamed_card_5": {
 		"Type": "Action",
@@ -536,7 +537,7 @@ const CARDS := {
 		"Abilities": "{damage} for 10. You may {discard} two cards from your hand to {shuffle} this card into your deck.",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Uncommon",
+		"_rarity": "Common",
 	},
 	"It's alive!": {
 		"Type": "Action",
@@ -550,10 +551,19 @@ const CARDS := {
 	"Detect Weaknesses": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name],
-		"Abilities": "{damage} for 9. If you've played a {spark} card this turn, apply 2 {vulnerable}.",
+		"Abilities": "{damage} for 9. If you've played a {spark} card this turn, apply 3 {vulnerable}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"]
+	},
+	"Eureka!": {
+		"Type": "Concentration",
+		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
+		"Abilities": "Gain 1 {buffer} for every 2 {spark} cards you play per turn.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
 		"_keywords": ["interpretation"]
 	},
 }
