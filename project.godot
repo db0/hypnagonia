@@ -159,7 +159,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/cards/sets/CardGroups.gd"
 }, {
-"base": "Reference",
+"base": "RichTextLabel",
 "class": "CardLabel",
 "language": "GDScript",
 "path": "res://src/core/CardViewer/CardLabel.gd"
@@ -204,12 +204,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/cards/CustomScripts.gd"
 }, {
-"base": "Reference",
+"base": "HBoxContainer",
 "class": "DBDeckCardObject",
 "language": "GDScript",
 "path": "res://src/core/CardViewer/DeckBuilder/DBDeckCardObject.gd"
 }, {
-"base": "Reference",
+"base": "HBoxContainer",
 "class": "DBDeckSummaries",
 "language": "GDScript",
 "path": "res://src/core/CardViewer/DeckBuilder/DBDeckSummaries.gd"
@@ -219,7 +219,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/core/CardViewer/DeckBuilder/DBGridCardObject.gd"
 }, {
-"base": "Reference",
+"base": "CVListCardObject",
 "class": "DBListCardObject",
 "language": "GDScript",
 "path": "res://src/core/CardViewer/DeckBuilder/DBListCardObject.gd"
@@ -229,12 +229,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/Globals/DeckObject.gd"
 }, {
-"base": "Reference",
+"base": "CardViewer",
 "class": "DeckBuilder",
 "language": "GDScript",
 "path": "res://src/core/CardViewer/DeckBuilder/DeckBuilder.gd"
 }, {
-"base": "Reference",
+"base": "MenuButton",
 "class": "DeckLoader",
 "language": "GDScript",
 "path": "res://src/core/CardViewer/DeckBuilder/DeckLoader.gd"
@@ -374,7 +374,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/PlayerInfo.gd"
 }, {
-"base": "Reference",
+"base": "Button",
 "class": "QuantityNumberButton",
 "language": "GDScript",
 "path": "res://src/core/CardViewer/DeckBuilder/QuantityNumberButton.gd"

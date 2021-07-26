@@ -240,6 +240,11 @@ const GENERIC_TAGS := {
 		"icon": preload("res://assets/icons/empty-hourglass.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/empty-hourglass.png",
 		"generic_description": "[color=yellow]{effect_name} ({effect_icon}): If still in the hand at the end of the turn, it is forgotten.[/color]"},
+	"spark": {
+		"name": "Spark",	
+		"icon": preload("res://assets/icons/idea.png"),
+		"rich_text_icon": "res://fonts/rich_text_icons/idea.png",
+		"generic_description": "{effect_name} ({effect_icon}): Reshuffles the deck."},
 }
 
 
@@ -272,6 +277,10 @@ const GENERIC_CARD_BBCODE := {
 		"name": "Forget",
 		"rich_text_color": "yellow",
 	},
+	"shuffle": {
+		"name": "Shuffle",
+		"rich_text_color": "yellow",
+	},
 	"defeated": {
 		"name": "Overcome",
 		"rich_text_effect": "fade",
@@ -299,6 +308,10 @@ const GENERIC_CARD_BBCODE := {
 	"understanding": {
 		"name": "Understanding",
 		"rich_text_color": "white",
+	},
+	"discard": {
+		"name": "Discard",
+		"rich_text_color": "yellow",
 	},
 }
 

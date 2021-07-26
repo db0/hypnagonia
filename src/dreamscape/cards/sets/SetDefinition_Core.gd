@@ -426,8 +426,8 @@ const CARDS := {
 	},
 	"unnamed_card_1": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.fleeting.name],
-		"Abilities": "Shuffle your discard pile into your deck.\nPlay a Random card from your deck. {forget}.",
+		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.fleeting.name],
+		"Abilities": "{shuffle} your discard pile into your deck.\nPlay a Random card from your deck. {forget}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -485,5 +485,75 @@ const CARDS := {
 		"_avoid_normal_discard": true,
 		"_rarity": "Common",
 		"_keywords": ["confidence"]
+	},
+	"Change of Mind": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.spark.name],
+		"Abilities": "{damage} for 10. {shuffle} this card into your deck.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_avoid_normal_discard": true,
+		"_rarity": "Common",
+		"_keywords": ["interpretation"]
+	},
+	"Brilliance": {
+		"Type": "Concentration",
+		"Tags": [],
+		"Abilities": "Whenever you {shuffle} your deck, gain 4 {confidence}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"]
+	},
+	"Rapid Theorizing": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.swift.name],
+		"Abilities": "Gain 8 {confidence}. If you've played a {spark} card this turn, draw a card.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["confidence"]
+	},
+	"Inspiration": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.swift.name],
+		"Abilities": "{shuffle} your discard pile into your deck. Draw 3 cards. {forget}.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+	},
+	"Recall": {
+		"Type": "Concentration",
+		"Tags": [Terms.GENERIC_TAGS.spark.name],
+		"Abilities": "At the end of your turn, {shuffle} the top card from the discard pile into the deck.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+	},
+	"unnamed_card_5": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.spark.name],
+		"Abilities": "{damage} for 10. You may {discard} two cards from your hand to {shuffle} this card into your deck.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+	},
+	"It's alive!": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for 12. Increase this amount by 2 for each time you've played a {spark} card this encounter.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["interpretation"]
+	},
+	"Detect Weaknesses": {
+		"Type": "Action",
+		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name],
+		"Abilities": "{damage} for 9. If you've played a {spark} card this turn, apply 2 {vulnerable}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"]
 	},
 }

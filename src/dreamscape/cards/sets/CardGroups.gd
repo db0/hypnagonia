@@ -37,6 +37,24 @@ const EGO := {
 			"Zen of Flight",
 		]
 	},
+	"Mad Scientist": {
+#		"Icon": preload("res://icon.png"),
+		"Tags": [
+			Terms.ACTIVE_EFFECTS.vulnerable.name,
+		],
+		"Starting Cards": [
+			"Interpretation",
+			"Interpretation",
+			"Noisy Whip",
+		],
+		"Commons": [
+		],
+		"Uncommons": [
+		],
+		"Rares": [
+		],
+		"_is_inactive": true
+	},
 	# Archetype: 
 	"Warrior": {
 		"Anxiety": 5,
