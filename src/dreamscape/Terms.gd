@@ -201,7 +201,7 @@ const ACTIVE_EFFECTS := {
 	},
 	"brilliance":  {
 		"name": "Brilliance",
-		"description": "{effect_name}: Whenever you play a {spark} card gain 4 {confidence}",
+		"description": "{effect_name}: Whenever you {shuffle} your deck gain 4 {confidence}",
 		"icon": preload("res://assets/icons/mad-scientist.png"),
 	},
 }

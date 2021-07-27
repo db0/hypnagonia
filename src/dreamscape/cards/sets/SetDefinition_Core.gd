@@ -499,7 +499,7 @@ const CARDS := {
 	"Brilliance": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you play a {spark} card, gain 4 {confidence}.",
+		"Abilities": "Whenever you {shuffle} your deck, gain 4 {confidence}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -509,7 +509,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Gain 8 {confidence}.\n"\
-				+ "If you've played a {spark} card this turn, gain 3 {confidence} and draw a card.",
+				+ "If you've {shuffled} your deck this turn, gain 3 {confidence} and draw a card.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",

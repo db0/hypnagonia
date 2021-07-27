@@ -24,13 +24,19 @@ signal enemy_turn_ended(turn)
 var firsts := {}
 # Tracks how much of each effect has been applied this turn
 var applied_effects := {}
-# Tracks how many cards of each tag has been played this turn
-var tag_count := {}
+# Tracks how many event of any type have happened this turn
+# For example the amount of cards with a specific tag, played, is an event
+# The amount of times the deck was reshuffled is also an event.
+# This allows card abilities to filter effects based on how many events of 
+# a type have happened
+var event_count := {}
 var current_turn : int = Turns.PLAYER_TURN
 
 
 func _init() -> void:
-	pass
+	if not cfc.are_all_nodes_mapped:
+		yield(cfc, "all_nodes_mapped")
+	cfc.NMAP.deck.connect("shuffle_completed", self, "_on_deck_shuffled")
 
 func setup() -> void:
 	cfc.NMAP.board.end_turn.connect("pressed", self, "end_player_turn")
@@ -64,5 +70,9 @@ func end_enemy_turn() -> void:
 
 func _reset_turn() -> void:
 	firsts.clear()
-	tag_count.clear()
+	event_count.clear()
 	applied_effects.clear()
+
+func _on_deck_shuffled() -> void:
+	var ds_count = event_count.get("deck_shuffled", 0)
+	event_count["deck_shuffled"] = ds_count + 1

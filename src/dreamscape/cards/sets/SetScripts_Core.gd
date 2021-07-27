@@ -873,8 +873,8 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "assign_defence",
 						"subject": "dreamer",
 						"amount": 2,
-						"filter_tag_count": {
-							"tag": Terms.GENERIC_TAGS.spark.name,
+						"filter_event_count": {
+							"event": "deck_shuffled",
 							"filter_count": 1,
 							"comparison": "ge",
 						}
@@ -882,8 +882,8 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "draw_cards",
 						"card_count": 1,
-						"filter_tag_count": {
-							"tag": Terms.GENERIC_TAGS.spark.name,
+						"filter_event_count": {
+							"event": "deck_shuffled",
 							"filter_count": 1,
 							"comparison": "ge",
 						}

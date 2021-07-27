@@ -181,16 +181,17 @@ func load_deck() -> void:
 
 
 func _on_player_turn_started(_turn: Turn) -> void:
-	while not  cfc.NMAP.hand.is_hand_refilled:
-		yield(cfc.NMAP.hand, "hand_refilled")
-	while cfc.NMAP.hand.are_cards_still_animating():
-		yield(get_tree().create_timer(0.3), "timeout")
 	if is_instance_valid(dreamer) and not dreamer.is_dead:
 		end_turn.disabled = false
 
 
 func _on_player_turn_ended(_turn: Turn) -> void:
 	end_turn.disabled = true
+	yield(get_tree().create_timer(0.3), "timeout")
+	while not cfc.NMAP.hand.is_hand_refilled:
+		yield(cfc.NMAP.hand, "hand_refilled")
+	while cfc.NMAP.hand.are_cards_still_animating():
+		yield(get_tree().create_timer(0.3), "timeout")
 	turn.start_enemy_turn()
 
 func _on_enemy_turn_started(_turn: Turn) -> void:

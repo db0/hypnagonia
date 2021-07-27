@@ -16,7 +16,7 @@ const KEY_EFFECT = "effect_name"
 const FILTER_EFFECTS = "filter_effects"
 const FILTER_IS_NOT_SPECIFIED_ENEMY = "filter_not_enemy"
 const FILTER_STACKS = "filter_stacks"
-const FILTER_TAG_COUNT = "filter_tag_count"
+const FILTER_EVENT_COUNT = "filter_event_count"
 const KEY_EFFECT_NAME = "effect_name"
 const KEY_ENEMY_NAME = "enemy_name"
 const KEY_ENEMY = "enemy"
@@ -74,14 +74,14 @@ static func filter_trigger(
 	
 	# Checks if the aount of cards with a specific card played
 	# match the filter requested by this effect
-	if is_valid and card_scripts.has(FILTER_TAG_COUNT):
-		var filter_tag_count = card_scripts[FILTER_TAG_COUNT]
-		var comparison_type = filter_tag_count.get(
+	if is_valid and card_scripts.has(FILTER_EVENT_COUNT):
+		var filter_event_count = card_scripts[FILTER_EVENT_COUNT]
+		var comparison_type = filter_event_count.get(
 				ScriptProperties.KEY_COMPARISON, get_default(ScriptProperties.KEY_COMPARISON))
-		var current_tag_count = cfc.NMAP.board.turn.tag_count.get(filter_tag_count["tag"], 0)	
+		var current_event_count = cfc.NMAP.board.turn.event_count.get(filter_event_count["event"], 0)	
 		var requested_count : int = card_scripts.get(ScriptProperties.FILTER_COUNT, 1)
 		if not CFUtils.compare_numbers(
-				current_tag_count,
+				current_event_count,
 				requested_count,
 				comparison_type):
 			is_valid = false
