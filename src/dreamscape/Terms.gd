@@ -204,6 +204,11 @@ const ACTIVE_EFFECTS := {
 		"description": "{effect_name}: Whenever you {shuffle} your deck gain 4 {confidence}",
 		"icon": preload("res://assets/icons/mad-scientist.png"),
 	},
+	"recall":  {
+		"name": "Recall",
+		"description": "{effect_name}: At the end of your turn, shuffle a card from your discard pile into your deck.",
+		"icon": preload("res://assets/icons/think.png"),
+	},
 }
 
 
@@ -235,11 +240,11 @@ const GENERIC_TAGS := {
 		"icon": preload("res://assets/icons/windy-stripes.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/windy-stripes.png",
 		"generic_description": "{effect_name} ({effect_icon}): Provides card draw."},
-	"fleeting": {
-		"name": "Fleeting",
-		"icon": preload("res://assets/icons/sand-castle.png"),
-		"rich_text_icon": "res://fonts/rich_text_icons/sand-castle.png",
-		"generic_description": "{effect_name} ({effect_icon}): Easily forgotten."},
+	"slumber": {
+		"name": "Slumber",
+		"icon": preload("res://assets/icons/sleepy.png"),
+		"rich_text_icon": "res://fonts/rich_text_icons/sleepy.png",
+		"generic_description": "{effect_name} ({effect_icon}): A phase of deep sleep which typically causes forgetfulness."},
 	"fading": {
 		"name": "Fading",
 		"icon": preload("res://assets/icons/empty-hourglass.png"),

@@ -47,5 +47,7 @@ func _on_player_turn_started(_turn: Turn) -> void:
 	pass
 
 func _on_player_turn_ended(_turn: Turn) -> void:
-	empty_hand()
+	var retcode  = empty_hand()
+	if retcode is GDScriptFunctionState:
+		retcode = yield(retcode, "completed")	
 	refill_hand()

@@ -854,6 +854,18 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
+		"Recall": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.recall.name,
+						"subject": "dreamer",
+						"modification": 1,
+					},
+				],
+			},
+		},
 		"Rapid Theorizing": {
 			"manual": {
 				"hand": [
@@ -887,6 +899,34 @@ func get_scripts(card_name: String) -> Dictionary:
 							"filter_count": 1,
 							"comparison": "ge",
 						}
+					},
+				],
+			},
+		},
+		"Wild Inspiration": {
+			"manual": {
+				"hand": [
+					{
+						"name": "move_card_to_container",
+						"dest_container": cfc.NMAP.discard,
+						"subject": "self",
+					},
+					{
+						"name": "move_card_to_container",
+						"dest_container": cfc.NMAP.forgotten,
+						"src_container": cfc.NMAP.deck,
+						"subject": "index",
+						"subject_index": "top",
+						"is_cost": true,
+					},
+					{
+						"name": "mod_counter",
+						"counter_name": "immersion",
+						"modification": 1,
+					},
+					{
+						"name": "draw_cards",
+						"card_count": 2,
 					},
 				],
 			},

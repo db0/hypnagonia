@@ -190,8 +190,6 @@ func _on_player_turn_ended(_turn: Turn) -> void:
 	yield(get_tree().create_timer(0.3), "timeout")
 	while not cfc.NMAP.hand.is_hand_refilled:
 		yield(cfc.NMAP.hand, "hand_refilled")
-	while cfc.NMAP.hand.are_cards_still_animating():
-		yield(get_tree().create_timer(0.3), "timeout")
 	turn.start_enemy_turn()
 
 func _on_enemy_turn_started(_turn: Turn) -> void:
@@ -261,13 +259,8 @@ func _input(event):
 #		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.disempower, 5)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 5)
 #		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
-#		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 60)	
+#		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 60)
 		for c in [
-			"Brilliance",
-			"Change of Mind",
-			"Change of Mind",
-			"Rapid Theorizing",
-			"Rapid Theorizing",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.deck.add_child(card)

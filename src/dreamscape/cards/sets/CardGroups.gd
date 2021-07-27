@@ -41,6 +41,7 @@ const EGO := {
 #		"Icon": preload("res://icon.png"),
 		"Tags": [
 			Terms.GENERIC_TAGS.spark.name,
+			Terms.GENERIC_TAGS.slumber.name,
 			Terms.ACTIVE_EFFECTS.buffer.name,
 		],
 		"Starting Cards": [
@@ -57,7 +58,7 @@ const EGO := {
 		"Uncommons": [
 			"Brilliance",
 			"Rapid Theorizing",
-			"Inspiration",
+			"Wild Inspiration",
 			"Detect Weaknesses"
 		],
 		"Rares": [

@@ -268,7 +268,7 @@ const CARDS := {
 	},
 	"Boast": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.fleeting.name],
+		"Tags": [Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Double your {confidence}\nRemove all {courage} {forget}.",
 		"Cost": 2,
 		"_illustration": "Nobody",
@@ -426,7 +426,7 @@ const CARDS := {
 	},
 	"unnamed_card_1": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.fleeting.name],
+		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "{shuffle} your discard pile into your deck.\nPlay a Random card from your deck. {forget}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -478,7 +478,7 @@ const CARDS := {
 	},
 	"unnamed_card_4": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.fading.name, Terms.GENERIC_TAGS.fleeting.name],
+		"Tags": [Terms.GENERIC_TAGS.fading.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain 11 {confidence}. {forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
@@ -515,10 +515,10 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"]
 	},
-	"Inspiration": {
+	"Wild Inspiration": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.swift.name],
-		"Abilities": "{shuffle} your discard pile into your deck. Draw 3 cards. {forget}.",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.purpose.name],
+		"Abilities": "{forget} the top card of the deck: Gain 1 {immersion}. Draw 2 cards.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",

@@ -27,7 +27,7 @@ const CARDS := {
 	},
 	"The Laughing One": {
 		"Type": "Understanding",
-		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name, Terms.GENERIC_TAGS.fleeting.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain 1 {untouchable}. {forget}",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -39,7 +39,7 @@ const CARDS := {
 	},
 	"The Critic": {
 		"Type": "Understanding",
-		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name, Terms.GENERIC_TAGS.fleeting.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Apply 10 {shaken} to a Torment. {forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
@@ -51,7 +51,7 @@ const CARDS := {
 	},
 	"Clown": {
 		"Type": "Understanding",
-		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.GENERIC_TAGS.fleeting.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Apply 3 {confusion} to all Torments. {forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",

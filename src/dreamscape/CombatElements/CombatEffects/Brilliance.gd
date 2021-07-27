@@ -7,6 +7,6 @@ func _on_deck_shuffled() -> void:
 	var brilliance = [{
 				"name": "assign_defence",
 				"subject": "dreamer",
-				"amount": 4,
+				"amount": 4 * stacks,
 			}]
 	execute_script(brilliance)
