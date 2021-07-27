@@ -7,7 +7,6 @@ func _ready() -> void:
 func on_enemy_effect_added(entity: CombatEntity, _trigger: String, details: Dictionary) -> void:
 	if details["effect_name"] == Terms.ACTIVE_EFFECTS.disempower.name\
 		and details[SP.TRIGGER_PREV_COUNT] < details[SP.TRIGGER_NEW_COUNT]:
-			print_debug('aaa')
 			var absurdity = [{
 				"name": "modify_damage",
 				"subject": "trigger",

@@ -199,6 +199,11 @@ const ACTIVE_EFFECTS := {
 		"description": "{effect_name}: Whenever you apply {confusion} to a Torment, {attack} it for 4",
 		"icon": preload("res://assets/icons/absurdity-unleashed.png"),
 	},
+	"brilliance":  {
+		"name": "Brilliance",
+		"description": "{effect_name}: Whenever you play a {spark} card gain 4 {confidence}",
+		"icon": preload("res://assets/icons/mad-scientist.png"),
+	},
 }
 
 

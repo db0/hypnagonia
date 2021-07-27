@@ -22,6 +22,10 @@ signal enemy_turn_started(turn)
 signal enemy_turn_ended(turn)
 # Tracks the first of each card to have been played each turn
 var firsts := {}
+# Tracks how much of each effect has been applied this turn
+var applied_effects := {}
+# Tracks how many cards of each tag has been played this turn
+var tag_count := {}
 var current_turn : int = Turns.PLAYER_TURN
 
 
@@ -43,6 +47,7 @@ func setup() -> void:
 			connect(turn_signal, obj, "_on_" + turn_signal)
 		
 func start_player_turn() -> void:
+	_reset_turn()
 	current_turn = Turns.PLAYER_TURN
 	emit_signal("player_turn_started", self)
 	
@@ -50,8 +55,14 @@ func end_player_turn() -> void:
 	emit_signal("player_turn_ended", self)
 		
 func start_enemy_turn() -> void:
+	_reset_turn()
 	current_turn = Turns.ENEMY_TURN
 	emit_signal("enemy_turn_started", self)
 	
 func end_enemy_turn() -> void:
 	emit_signal("enemy_turn_ended", self)
+
+func _reset_turn() -> void:
+	firsts.clear()
+	tag_count.clear()
+	applied_effects.clear()

@@ -817,6 +817,80 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
+		"Change of Mind": {
+			"manual": {
+				"hand": [
+					{
+						"name": "modify_damage",
+						"subject": "target",
+						"is_cost": true,
+						"amount": 8,
+						"tags": ["Damage"],
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
+					},
+					{
+						"name": "move_card_to_container",
+						"subject": "self",
+						"dest_container": cfc.NMAP.deck,
+					},
+					{
+						"name": "shuffle_container",
+						"dest_container": cfc.NMAP.deck,
+					},
+				],
+			},
+		},
+		"Brilliance": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.brilliance.name,
+						"subject": "dreamer",
+						"modification": 1,
+					},
+				],
+			},
+		},
+		"Rapid Theorizing": {
+			"manual": {
+				"hand": [
+					# We have a function to discard manually to ensure
+					# it's not counted for checking if the hand is full
+					{
+						"name": "move_card_to_container",
+						"dest_container": cfc.NMAP.discard,
+						"subject": "self",
+					},
+					{
+						"name": "assign_defence",
+						"subject": "dreamer",
+						"amount": 8,
+					},
+					{
+						"name": "assign_defence",
+						"subject": "dreamer",
+						"amount": 2,
+						"filter_tag_count": {
+							"tag": Terms.GENERIC_TAGS.spark.name,
+							"filter_count": 1,
+							"comparison": "ge",
+						}
+					},
+					{
+						"name": "draw_cards",
+						"card_count": 1,
+						"filter_tag_count": {
+							"tag": Terms.GENERIC_TAGS.spark.name,
+							"filter_count": 1,
+							"comparison": "ge",
+						}
+					},
+				],
+			},
+		},
 	}
 	# We return only the scripts that match the card name and trigger
 	return(scripts.get(card_name,{}))

@@ -288,6 +288,7 @@ func autoplay_card(script: ScriptTask) -> int:
 				card_scripts[autoplay_exec] = card.generate_discard_tasks(false)
 			else:
 				card_scripts[autoplay_exec] = card_scripts["hand"] + card.generate_discard_tasks(false)
+			card_scripts[autoplay_exec] += card.generate_tag_increment_scripts()
 			for script_task in card_scripts[autoplay_exec]:
 				if script_task.get("subject") and script_task["subject"] == 'target':
 					script_task["subject"] = "boardseek"
@@ -387,6 +388,16 @@ func draw_cards(script: ScriptTask) -> int:
 		for _iter in range(card_count):
 			cfc.NMAP.hand.draw_card(cfc.NMAP.deck)
 			yield(cfc.get_tree().create_timer(0.05), "timeout")
+	return(retcode)
+
+
+func increment_tag_count(script: ScriptTask) -> int:
+	var retcode: int = CFConst.ReturnCode.CHANGED
+	if not costs_dry_run():
+		var tag_count = cfc.NMAP.board.turn.tag_count
+		for tag in script.owner.get_property("Tags"):
+			var existing_count = tag_count.get(tag,0)
+			tag_count[tag] = existing_count + 1
 	return(retcode)
 
 

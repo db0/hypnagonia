@@ -98,6 +98,7 @@ func retrieve_scripts(trigger: String) -> Dictionary:
 			found_scripts["hand"] += generate_remove_from_deck_tasks()
 		else:
 			found_scripts["hand"] += generate_discard_tasks()
+		found_scripts["hand"] += generate_tag_increment_scripts()
 	return(found_scripts)
 
 # Sets a flag when an action card is dragged to the board manually
@@ -112,7 +113,6 @@ func common_pre_move_scripts(new_container: Node, old_container: Node, tags: Arr
 
 # Executes some extra logic depending on the type of card moved
 func common_post_move_scripts(new_container: Node, old_container: Node, tags: Array) -> void:
-	# If a non-shader was moved to the board from hand, we want to pay its costs
 	if new_container == cfc.NMAP.board\
 			and old_container == cfc.NMAP.hand\
 			and not "Scripted" in tags:
@@ -123,10 +123,11 @@ func common_post_move_scripts(new_container: Node, old_container: Node, tags: Ar
 		execute_scripts()
 		attempted_action_drop_to_board = false
 	# We record the first played card of each type, for effect triggers
-	if new_container == cfc.NMAP.discard and old_container == cfc.NMAP.hand:
+	if old_container == cfc.NMAP.hand and "Scripted" in tags:
 		var firsts = cfc.NMAP.board.turn.firsts
 		if firsts.empty() or not firsts.get(properties.Type):
 			firsts[properties.Type] = self
+
 
 func get_modified_immersion_cost() -> Dictionary:
 	var immersion_cost_details : Dictionary =\
@@ -194,6 +195,19 @@ func generate_discard_tasks(only_from_hand := true) -> Array:
 		discard_script_template["filter_state_subject"] = [{"filter_parent": cfc.NMAP.hand}]
 	var discard_tasks = [discard_script_template]
 	return(discard_tasks)
+
+# Uses a template to inject a sceng task which increments a counter
+# for each tag the card has. This allows us to keep track of how many cards
+# with each tag we've played, to hook onto with othr effects.
+#
+# The reason to go via sceng, is because we  don't want to increment if costs
+# cannot be paid. 
+func generate_tag_increment_scripts() -> Array:
+	var inrement_tag_script_template := {
+			"name": "increment_tag_count",
+		}
+	var increment_tag_tasks = [inrement_tag_script_template]
+	return(increment_tag_tasks)
 
 # Uses a template to create task definitions for removing  a card from the game
 # then returns it to the calling function to execute or insert it into

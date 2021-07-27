@@ -169,7 +169,7 @@ func get_all_scriptables() -> Array:
 # Loads the player's deck
 func load_deck() -> void:
 	if not globals.player.deck:
-		NewGameMenu.randomize_archetype_choices()
+		NewGameMenu.randomize_aspect_choices()
 		cfc.game_rng_seed = CFUtils.generate_random_seed()
 		globals.player.setup()
 		globals.encounters.setup()
@@ -262,7 +262,11 @@ func _input(event):
 #		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 60)	
 		for c in [
-#			"unnamed_card_4",
+			"Brilliance",
+			"Change of Mind",
+			"Change of Mind",
+			"Rapid Theorizing",
+			"Rapid Theorizing",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.deck.add_child(card)

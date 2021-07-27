@@ -489,7 +489,7 @@ const CARDS := {
 	"Change of Mind": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
-		"Abilities": "{damage} for 7. {shuffle} this card into your deck.",
+		"Abilities": "{damage} for 8. {shuffle} this card into your deck.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_avoid_normal_discard": true,
@@ -499,7 +499,7 @@ const CARDS := {
 	"Brilliance": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you {shuffle} your deck, gain 4 {confidence}.",
+		"Abilities": "Whenever you play a {spark} card, gain 4 {confidence}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -508,7 +508,8 @@ const CARDS := {
 	"Rapid Theorizing": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
-		"Abilities": "Gain 8 {confidence}. If you've played a {spark} card this turn, draw a card.",
+		"Abilities": "Gain 8 {confidence}.\n"\
+				+ "If you've played a {spark} card this turn, gain 3 {confidence} and draw a card.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
