@@ -107,6 +107,7 @@ const KEY_SUBJECT_COUNT_V_ALL := "all"
 # * [move_card_to_container](ScriptingEngine#move_card_to_container)
 # * [move_card_to_board](ScriptingEngine#move_card_to_board)
 const KEY_IS_COST := "is_cost"
+const KEY_ABORT_ON_COST_FAILURE := "abort_on_cost_failure"
 # Value Type: bool (Default = false).
 #
 # This key is used to mark a task to be executed only if the card costs
@@ -1080,6 +1081,7 @@ static func get_default(property: String):
 				KEY_IS_OPTIONAL,\
 				KEY_NEEDS_SELECTION,\
 				KEY_SORT_DESCENDING,\
+				KEY_ABORT_ON_COST_FAILURE,\
 				KEY_STORE_INTEGER:
 			default = false
 		KEY_TRIGGER:

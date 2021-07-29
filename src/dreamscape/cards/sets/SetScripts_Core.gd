@@ -931,6 +931,44 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
+		"unnamed_card_5": {
+			"manual": {
+				"hand": [
+					{
+						"name": "modify_damage",
+						"subject": "target",
+						"is_cost": true,
+						"amount": 10,
+						"tags": ["Damage"],
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
+					},
+					{
+						"name": "move_card_to_container",
+						"is_cost": true,
+						SP.KEY_ABORT_ON_COST_FAILURE: true,
+						"subject": "index",
+						"subject_count": "all",
+						"subject_index": "top",
+						SP.KEY_NEEDS_SELECTION: true,
+						SP.KEY_SELECTION_COUNT: 2,
+						SP.KEY_SELECTION_TYPE: "equal",
+						"src_container": cfc.NMAP.hand,
+						"dest_container": cfc.NMAP.discard,
+					},
+					{
+						"name": "move_card_to_container",
+						"subject": "self",
+						"dest_container": cfc.NMAP.deck,
+					},
+					{
+						"name": "shuffle_container",
+						"dest_container": cfc.NMAP.deck,
+					},
+				],
+			},
+		},
 	}
 	# We return only the scripts that match the card name and trigger
 	return(scripts.get(card_name,{}))

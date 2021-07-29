@@ -82,6 +82,9 @@ func execute(_run_type := CFInt.RunType.NORMAL) -> void:
 			"modifier": _retrieve_temp_modifiers(script, "properties")
 		}
 		if not script.is_primed:
+			print_debug(script.script_definition, script.get_property(SP.KEY_ABORT_ON_COST_FAILURE))
+			if script.get_property(SP.KEY_ABORT_ON_COST_FAILURE) and not can_all_costs_be_paid:
+				continue
 			# If we have requested to use the previous target,
 			# but the subject_array is empty, we check if
 			# subject available in the next task and try to use that instead.

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/dreamscape/CardFrontNew.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/card_front/dream card/card_frame_square.png" type="Texture" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0862745, 0, 0.137255, 1 )
@@ -14,5 +15,8 @@ margin_top = 20.2973
 margin_bottom = 150.297
 color = Color( 0.152941, 0, 0.341176, 1 )
 
-[node name="TextBackground" parent="." index="1"]
+[node name="TextBackground" parent="." index="2"]
 custom_styles/panel = SubResource( 1 )
+
+[node name="CardDesign" parent="." index="7"]
+texture = ExtResource( 2 )
