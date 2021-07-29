@@ -268,8 +268,6 @@ func flush_cache() -> void:
 # and asking all cards to check if there's any automation they need to perform
 class SignalPropagator:
 
-	signal trigger_received(trigger_card, trigger, details)
-	
 	# The working signals cards might send depending on their status changes
 	# this array can be extended by signals added by other games
 	var known_card_signals := [
@@ -314,8 +312,7 @@ class SignalPropagator:
 		# If we need other objects than cards to trigger scripts via signals
 		# add them to the 'scriptables' group ang ensure they have
 		# an "execute_scripts" function
-		for node in cfc.get_tree().get_nodes_in_group("scriptables"):
-			node.execute_scripts(trigger_card,trigger,details)
+		for card in cfc.get_tree().get_nodes_in_group("scriptables"):
+			card.execute_scripts(trigger_card,trigger,details)
 #		cfc.get_tree().call_group_flags(SceneTree.GROUP_CALL_UNIQUE  ,"cards",
 #				"execute_scripts",trigger_card,trigger,details)
-		emit_signal("trigger_received", trigger_card,trigger,details)

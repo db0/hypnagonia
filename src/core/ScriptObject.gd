@@ -101,6 +101,13 @@ func _find_subjects(prev_subjects := [], stored_integer := 0) -> Array:
 		_:
 			subjects_array = cfc.ov_utils.get_subjects(
 					get_property(SP.KEY_SUBJECT), stored_integer)
+	if get_property(SP.KEY_NEEDS_SELECTION):
+		var selection_count = get_property(SP.KEY_SELECTION_COUNT)
+		var selection_type = get_property(SP.KEY_SELECTION_TYPE)
+		var select_return = cfc.ov_utils.select_card(subjects_array, selection_count, selection_type)
+		if select_return is GDScriptFunctionState: # Still working.
+			select_return = yield(select_return, "completed")
+			subjects_array = select_return
 	subjects = subjects_array
 	return(subjects_array)
 

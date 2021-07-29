@@ -674,6 +674,23 @@ const VALUE_COMPARE_WITH_TRIGGER := "compare_with_trigger"
 #
 # At the script level, the whole script if cancelled.
 const KEY_IS_OPTIONAL := "is_optional_"
+# Value Type: Bool (default: False)
+#
+# If true, the script will popup a card selection window, among all the 
+# valid subjects detected for this script.
+const KEY_NEEDS_SELECTION := "needs_selection"
+# Value Type: Int (default: 0)
+#
+# How many cards need to be selected from the selection window
+const KEY_SELECTION_COUNT := "selection_count"
+# Value Type: String (default: 'min')
+# How to evaluate [SELECTION_COUNT](#SELECTION_COUNT) 
+# before the player is allowed to proceed
+# 
+# * 'min': The minimum amount of cards that need to be selected
+# * 'equal': The exact amount of cards that need to be selected
+# * 'max': The maximum amount of cards that need to be selected
+const KEY_SELECTION_TYPE := "selection_type"
 #---------------------------------------------------------------------
 # Filter Definition Keys
 #
@@ -1061,13 +1078,16 @@ static func get_default(property: String):
 				KEY_IS_INVERTED,\
 				KEY_SET_TO_MOD,\
 				KEY_IS_OPTIONAL,\
+				KEY_NEEDS_SELECTION,\
 				KEY_SORT_DESCENDING,\
 				KEY_STORE_INTEGER:
 			default = false
 		KEY_TRIGGER:
 			default = "any"
-		KEY_SUBJECT_INDEX:
+		KEY_SUBJECT_INDEX,KEY_SELECTION_COUNT:
 			default = 0
+		KEY_SELECTION_TYPE:
+			default = "min"
 		KEY_DEST_INDEX:
 			default = -1
 		KEY_BOARD_POSITION:
