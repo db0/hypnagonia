@@ -209,6 +209,11 @@ const ACTIVE_EFFECTS := {
 		"description": "{effect_name}: At the end of your turn, shuffle a card from your discard pile into your deck.",
 		"icon": preload("res://assets/icons/think.png"),
 	},
+	"eureka":  {
+		"name": "Eureka!",
+		"description": "{effect_name}: Gain 1 {buffer} every other time you shuffle your deck per turn.",
+		"icon": preload("res://assets/icons/wisdom.png"),
+	},
 }
 
 

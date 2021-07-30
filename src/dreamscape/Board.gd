@@ -263,9 +263,10 @@ func _input(event):
 #		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 60)
 		for c in [
-			"unnamed_card_5",
-			"unnamed_card_5",
-			"It's alive!"
+			"Change of Mind",
+			"Change of Mind",
+			"Detect Weaknesses",
+			"Eureka!"
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.deck.add_child(card)

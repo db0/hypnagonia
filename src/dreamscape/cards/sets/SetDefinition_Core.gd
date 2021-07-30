@@ -543,8 +543,8 @@ const CARDS := {
 	"It's alive!": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{interpret} for 12.\n{interpret} for 2 for each time your deck was shuffled.",
-		"Cost": 1,
+		"Abilities": "{damage} for 12.\n{damage} for 2 for each time your deck was shuffled.",
+		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
 		"_keywords": ["interpretation"]
@@ -552,7 +552,7 @@ const CARDS := {
 	"Detect Weaknesses": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name],
-		"Abilities": "{damage} for 9. If you've played a {spark} card this turn, apply 3 {vulnerable}.",
+		"Abilities": "{damage} for 9. If you've shuffled your deck this turn, apply 2 {vulnerable}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -561,10 +561,10 @@ const CARDS := {
 	"Eureka!": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
-		"Abilities": "Gain 1 {buffer} for every 2 {spark} cards you play per turn.",
+		"Abilities": "Gain 1 {buffer} every other time you shuffle your deck per turn.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
-		"_keywords": ["interpretation"]
+		"_keywords": []
 	},
 }

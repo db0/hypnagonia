@@ -82,7 +82,19 @@ static func filter_trigger(
 		var filter_event_count = card_scripts[FILTER_TURN_EVENT_COUNT]
 		var comparison_type = filter_event_count.get(
 				ScriptProperties.KEY_COMPARISON, get_default(ScriptProperties.KEY_COMPARISON))
-		var current_event_count = cfc.NMAP.board.turn.event_count.get(filter_event_count["event"], 0)	
+		var current_event_count = cfc.NMAP.board.turn.turn_event_count.get(filter_event_count["event"], 0)	
+		var requested_count : int = card_scripts.get(ScriptProperties.FILTER_COUNT, 1)
+		if not CFUtils.compare_numbers(
+				current_event_count,
+				requested_count,
+				comparison_type):
+			is_valid = false
+
+	if is_valid and card_scripts.has(FILTER_ENCOUNTER_EVENT_COUNT):
+		var filter_event_count = card_scripts[FILTER_ENCOUNTER_EVENT_COUNT]
+		var comparison_type = filter_event_count.get(
+				ScriptProperties.KEY_COMPARISON, get_default(ScriptProperties.KEY_COMPARISON))
+		var current_event_count = cfc.NMAP.board.turn.encounter_event_count.get(filter_event_count["event"], 0)	
 		var requested_count : int = card_scripts.get(ScriptProperties.FILTER_COUNT, 1)
 		if not CFUtils.compare_numbers(
 				current_event_count,

@@ -866,6 +866,18 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
+		"Eureka!": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.eureka.name,
+						"subject": "dreamer",
+						"modification": 1,
+					},
+				],
+			},
+		},
 		"Rapid Theorizing": {
 			"manual": {
 				"hand": [
@@ -996,6 +1008,33 @@ func get_scripts(card_name: String) -> Dictionary:
 						"per_encounter_event_count": {
 							"event_name": "deck_shuffled",
 							"multiplier": 2,
+						}
+					},
+				],
+			},
+		},
+		"Detect Weaknesses": {
+			"manual": {
+				"hand": [
+					{
+						"name": "modify_damage",
+						"subject": "target",
+						"is_cost": true,
+						"amount": 9,
+						"tags": ["Damage"],
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
+					},
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.vulnerable.name,
+						"subject": "previous",
+						"modification": 2,
+						"filter_turn_event_count": {
+							"event": "deck_shuffled",
+							"filter_count": 1,
+							"comparison": "ge",
 						}
 					},
 				],
