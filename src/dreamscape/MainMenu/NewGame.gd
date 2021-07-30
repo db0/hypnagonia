@@ -88,6 +88,8 @@ func _on_archetype_choice_pressed(archetype: String, _aspect: String, archetype_
 	if archetype_button.archetype_texture:
 		_aspect_icons[_aspect].texture = archetype_button.archetype_texture
 		_aspect_icons[_aspect].visible = true
+	else:
+		_aspect_icons[_aspect].visible = false
 	_choice_popup.hide()
 	globals.player.deck_groups[aspect] = archetype
 	if globals.player.is_deck_completed():
@@ -128,6 +130,8 @@ func _on_Randomize_pressed() -> void:
 		if icon_texture:
 			_aspect_icons[aspect].texture = icon_texture
 			_aspect_icons[aspect].visible = true
+		else:
+			_aspect_icons[aspect].visible = false
 	_start_button.disabled = false
 	_starting_cards_button.disabled = false
 

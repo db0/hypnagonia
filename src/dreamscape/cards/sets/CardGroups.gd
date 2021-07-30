@@ -45,7 +45,7 @@ const EGO := {
 			Terms.ACTIVE_EFFECTS.buffer.name,
 		],
 		"Starting Cards": [
-			"Interpretation",
+			"Confidence",
 			"Interpretation",
 			"Change of Mind",
 		],
@@ -65,7 +65,6 @@ const EGO := {
 			"It's alive!",
 			"Eureka!",
 		],
-		"_is_inactive": true
 	},
 	# Archetype: 
 	"Warrior": {
