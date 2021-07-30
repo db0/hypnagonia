@@ -66,7 +66,7 @@ const CARDS := {
 	"Confounding Movements": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
-		"Abilities": "Gain 6 {confidence}\nApply 1 {confusion} to target Torment.",
+		"Abilities": "Gain 9 {confidence}\nApply 1 {confusion} to target Torment.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {

@@ -7,8 +7,7 @@ onready var _starting_cards_container = $HBC
 
 
 func populate_starting_cards(types: Array, _rel_parent: Node) -> void:
-	for card in _starting_cards_container.get_children():
-		card.queue_free()
+	clear()
 	for type in types:
 		for archetype in Terms.CARD_GROUP_TERMS.values():
 			if CardGroupDefinitions[archetype.to_upper()].has(type):
@@ -17,3 +16,8 @@ func populate_starting_cards(types: Array, _rel_parent: Node) -> void:
 					_starting_cards_container.add_child(preview_card_object)
 					preview_card_object.setup(card_name)	
 	rect_min_size.y = CFConst.CARD_SIZE.y
+
+func clear() -> void:
+	for card in _starting_cards_container.get_children():
+		card.queue_free()
+	

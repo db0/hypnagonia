@@ -67,7 +67,7 @@ func begin_encounter() -> void:
 func randomize_background() -> void:
 	var dark_backgrounds := CFUtils.list_imported_in_directory("res://assets/backgrounds/dark/")
 	var bright_backgrounds := CFUtils.list_imported_in_directory("res://assets/backgrounds/bright/")
-	var all_backgrounds := dark_backgrounds + bright_backgrounds
+	var all_backgrounds := bright_backgrounds + dark_backgrounds
 	CFUtils.shuffle_array(all_backgrounds)
 	var selected_background :String = all_backgrounds[0]
 	var bpath: String
@@ -286,6 +286,8 @@ func _on_Debug_pressed() -> void:
 func _on_viewport_resized() -> void:
 	_background.rect_min_size = get_viewport().size
 	_background.rect_size = get_viewport().size
+	_bg_tint.rect_min_size = get_viewport().size
+	_bg_tint.rect_size = get_viewport().size
 #	bottom_gui.rect_position = cfc.NMAP.deck.position - Vector2(0,50)
 
 

@@ -15,9 +15,7 @@ func _show_description_popup(tag: String, popup_anchor: Node) -> void:
 		description_popup.rect_global_position = popup_anchor.rect_global_position + Vector2(20,-50)
 
 func populate_tags(tag_list: Array) -> void:
-	for node in get_children():
-		if not node in [description_popup, $Label]:
-			node.queue_free()
+	clear()
 	# To allow nodes to remove themselves
 	yield(get_tree().create_timer(0.05), "timeout")
 	for tag in tag_list:
@@ -34,3 +32,8 @@ func _on_tag_mouse_enterred(tag_node: TagRepresentation) -> void:
 
 func _on_tag_mouse_exited() -> void:
 	description_popup.visible = false
+
+func clear() -> void:
+	for node in get_children():
+		if not node in [description_popup, $Label]:
+			node.queue_free()

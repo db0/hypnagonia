@@ -44,6 +44,8 @@ func on_aspect_button_pressed(button_name : String):
 	populate_choices(button_name)
 	_choice_popup.rect_size = Vector2(0,0)
 	_choice_popup.popup_centered_minsize()
+	_archetype_starting_cards_display.clear()
+	_archetype_starting_cards_tags.clear()
 	_archetype_starting_cards_display.rect_min_size.x = _choice_popup.rect_size.x
 
 
