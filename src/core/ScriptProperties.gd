@@ -107,6 +107,14 @@ const KEY_SUBJECT_COUNT_V_ALL := "all"
 # * [move_card_to_container](ScriptingEngine#move_card_to_container)
 # * [move_card_to_board](ScriptingEngine#move_card_to_board)
 const KEY_IS_COST := "is_cost"
+# Value Type: bool (Default = false).
+#
+# This key is used on a task marked with KEY_IS_COST
+# It means that its cost effects will not evn be evaluated if previous costs
+# have already failed.
+# This is useful when there's more than 1 interactive cost, 
+# such as targeting or selection boxes
+# To prevnent them from popping up even when previous costs have already failed.
 const KEY_ABORT_ON_COST_FAILURE := "abort_on_cost_failure"
 # Value Type: bool (Default = false).
 #
@@ -692,6 +700,27 @@ const KEY_SELECTION_COUNT := "selection_count"
 # * 'equal': The exact amount of cards that need to be selected
 # * 'max': The maximum amount of cards that need to be selected
 const KEY_SELECTION_TYPE := "selection_type"
+# Value Type: Bool (default: False)
+#
+# Marks a selection window as optional. This means the player can opt to
+# select none of the possible choices.
+# In which case, the underlying task will be considered invalid
+# and if it is a cost, it will also abort further execution.
+const KEY_SELECTION_OPTIONAL := "selection_optional"
+# Value Type: Bool (default: False)
+#
+# Ignores the card executing the script from the selection window
+# This is necessary in some instances where the selection encompases the
+# scripting card, but this is unwanted. For example because the card
+# is supposed to already be in a different pile but this will only 
+# technically happen as the last task.
+const KEY_SELECTION_IGNORE_SELF := "selection_ignore_self"
+# Value Type: Array
+#
+# Initiates a new instance of the scripting engine
+# Which runs through the specified task list
+# using its own cost calculations
+const KEY_NESTED_TASKS := "nested_tasks"
 #---------------------------------------------------------------------
 # Filter Definition Keys
 #
@@ -1080,6 +1109,7 @@ static func get_default(property: String):
 				KEY_SET_TO_MOD,\
 				KEY_IS_OPTIONAL,\
 				KEY_NEEDS_SELECTION,\
+				KEY_SELECTION_OPTIONAL,\
 				KEY_SORT_DESCENDING,\
 				KEY_ABORT_ON_COST_FAILURE,\
 				KEY_STORE_INTEGER:

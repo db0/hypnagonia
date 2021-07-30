@@ -51,7 +51,7 @@ func _ready() -> void:
 #	begin_encounter()
 #
 func _process(_delta: float) -> void:
-	if cfc.game_paused and cfc.NMAP.main._current_focus_source:
+	if cfc.game_paused and cfc.NMAP.has("main") and cfc.NMAP.main._current_focus_source:
 		cfc.NMAP.main.unfocus_all()
 
 func begin_encounter() -> void:

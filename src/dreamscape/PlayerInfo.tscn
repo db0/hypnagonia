@@ -20,11 +20,11 @@ size = 24
 use_filter = true
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 use_filter = true
 font_data = ExtResource( 7 )
 
-[sub_resource type="StyleBoxEmpty" id=3]
+[sub_resource type="StyleBoxEmpty" id=4]
 
 [node name="PlayerInfo" type="PanelContainer"]
 margin_right = 1455.0
@@ -84,7 +84,7 @@ margin_left = 1332.0
 margin_right = 1402.0
 margin_bottom = 35.0
 rect_min_size = Vector2( 70, 0 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "10"
 icon = ExtResource( 6 )
 expand_icon = true
@@ -102,13 +102,11 @@ margin_left = 7.0
 margin_top = 7.0
 margin_right = 1448.0
 margin_bottom = 615.0
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 4 )
 
 [node name="ScrollContainer" type="ScrollContainer" parent="DeckPreview"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 4.0
-margin_bottom = 4.0
+margin_right = 1441.0
+margin_bottom = 608.0
 
 [node name="GridContainer" type="GridContainer" parent="DeckPreview/ScrollContainer"]
 custom_constants/vseparation = 10
