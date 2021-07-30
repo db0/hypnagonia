@@ -391,13 +391,16 @@ func draw_cards(script: ScriptTask) -> int:
 	return(retcode)
 
 
-func increment_tag_count(script: ScriptTask) -> int:
+func increment_event_count(script: ScriptTask) -> int:
 	var retcode: int = CFConst.ReturnCode.CHANGED
 	if not costs_dry_run():
-		var event_count = cfc.NMAP.board.turn.event_count
+		var turn_event_count = cfc.NMAP.board.turn.turn_event_count
+		var encounter_event_count = cfc.NMAP.board.turn.encounter_event_count
 		for tag in script.owner.get_property("Tags"):
-			var existing_count = event_count.get(tag,0)
-			event_count[tag] = existing_count + 1
+			var existing_turn_count = turn_event_count.get(tag,0)
+			turn_event_count[tag] = existing_turn_count + 1
+			var existing_encounter_count = encounter_event_count.get(tag,0)
+			encounter_event_count[tag] = existing_encounter_count + 1
 	return(retcode)
 
 

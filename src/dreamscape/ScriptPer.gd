@@ -13,6 +13,10 @@ func _count_custom() -> int:
 					ret += subject.defence
 		SP.FILTER_PER_EFFECT_STACKS, SP.PER_EFFECT_STACKS:
 			ret = _count_effect_stacks()
+		SP.KEY_PER_ENCOUNTER_EVENT_COUNT:
+			ret = cfc.NMAP.board.turn.encounter_event_count.get(get_property(SP.KEY_EVENT_NAME),0)
+		SP.KEY_PER_TURN_EVENT_COUNT:
+			ret = cfc.NMAP.board.turn.turn_event_count.get(get_property(SP.KEY_EVENT_NAME),0)
 		_:
 			ret = 1
 	return(ret)

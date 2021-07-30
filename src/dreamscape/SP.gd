@@ -16,8 +16,10 @@ const KEY_EFFECT = "effect_name"
 const FILTER_EFFECTS = "filter_effects"
 const FILTER_IS_NOT_SPECIFIED_ENEMY = "filter_not_enemy"
 const FILTER_STACKS = "filter_stacks"
-const FILTER_EVENT_COUNT = "filter_event_count"
+const FILTER_TURN_EVENT_COUNT = "filter_turn_event_count"
+const FILTER_ENCOUNTER_EVENT_COUNT = "filter_encounter_event_count"
 const KEY_EFFECT_NAME = "effect_name"
+const KEY_EVENT_NAME = "event_name"
 const KEY_ENEMY_NAME = "enemy_name"
 const KEY_ENEMY = "enemy"
 const KEY_MODIFY_SPAWN_HEALTH = "modify_spawn_health"
@@ -25,6 +27,8 @@ const FILTER_PER_EFFECT_STACKS = "filter_per_effect_stacks"
 const PER_EFFECT_STACKS = "per_effect_stacks"
 const KEY_CARD_COUNT := "card_count"
 const KEY_PER_DEFENCE := "per_defence"
+const KEY_PER_TURN_EVENT_COUNT := "per_turn_event_count"
+const KEY_PER_ENCOUNTER_EVENT_COUNT := "per_encounter_event_count"
 # This call has been setup to call the original, and allow futher extension
 # simply create new filter
 static func filter_trigger(
@@ -74,8 +78,8 @@ static func filter_trigger(
 	
 	# Checks if the aount of cards with a specific card played
 	# match the filter requested by this effect
-	if is_valid and card_scripts.has(FILTER_EVENT_COUNT):
-		var filter_event_count = card_scripts[FILTER_EVENT_COUNT]
+	if is_valid and card_scripts.has(FILTER_TURN_EVENT_COUNT):
+		var filter_event_count = card_scripts[FILTER_TURN_EVENT_COUNT]
 		var comparison_type = filter_event_count.get(
 				ScriptProperties.KEY_COMPARISON, get_default(ScriptProperties.KEY_COMPARISON))
 		var current_event_count = cfc.NMAP.board.turn.event_count.get(filter_event_count["event"], 0)	
@@ -85,7 +89,6 @@ static func filter_trigger(
 				requested_count,
 				comparison_type):
 			is_valid = false
-
 	return(is_valid)
 
 static func check_validity(obj, card_scripts, type := "trigger") -> bool:

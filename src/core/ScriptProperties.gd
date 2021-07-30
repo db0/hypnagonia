@@ -449,6 +449,12 @@ const KEY_ALTERATION := "alteration"
 # Note using a minus-sign '-' in place of a plus-sign will not work as expected.
 # Use [KEY_IS_INVERTED](#KEY_IS_INVERTED) instead
 const VALUE_PER := "per_"
+# Value Type: Float/Int
+#
+# Used to multiply per results.
+# This allows us to craft scripts like 
+# "Gain 2 Health per card on the table" or "Gain 1 Health per two cards on the table" 
+const KEY_MULTIPLIER := "multiplier"
 # Value Type: String
 #
 # This key is typically needed in combination with
@@ -1098,7 +1104,8 @@ const TRIGGER_V_COUNT_INCREASED := "increased"
 const TRIGGER_V_COUNT_DECREASED := "decreased"
 
 
-# Returns the default value any script definition key should have
+# For any script key defined in this reference, 
+# returns the default it should have
 static func get_default(property: String):
 	var default
 	# for property details, see const definitionts
@@ -1130,7 +1137,8 @@ static func get_default(property: String):
 			default = {}
 		KEY_SUBJECT_COUNT,\
 				KEY_OBJECT_COUNT,\
-				KEY_MODIFICATION:
+				KEY_MODIFICATION,\
+				KEY_MULTIPLIER:
 			default = 1
 		KEY_GRID_NAME, KEY_SUBJECT:
 			default = ""

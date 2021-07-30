@@ -543,7 +543,7 @@ const CARDS := {
 	"It's alive!": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage} for 12. Increase this amount by 2 for each time you've played a {spark} card this encounter.",
+		"Abilities": "{interpret} for 12.\n{interpret} for 2 for each time your deck was shuffled.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",

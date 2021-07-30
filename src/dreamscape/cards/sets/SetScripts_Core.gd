@@ -894,7 +894,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "draw_cards",
 						"card_count": 1,
-						"filter_event_count": {
+						"filter_turn_event_count": {
 							"event": "deck_shuffled",
 							"filter_count": 1,
 							"comparison": "ge",
@@ -972,6 +972,32 @@ func get_scripts(card_name: String) -> Dictionary:
 							},
 						]
 					}
+				],
+			},
+		},
+		"It's alive!": {
+			"manual": {
+				"hand": [
+					{
+						"name": "modify_damage",
+						"subject": "target",
+						"is_cost": true,
+						"amount": 12,
+						"tags": ["Damage"],
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
+					},
+					{
+						"name": "modify_damage",
+						"subject": "previous",
+						"amount": "per_encounter_event_count",
+						"tags": ["Damage"],
+						"per_encounter_event_count": {
+							"event_name": "deck_shuffled",
+							"multiplier": 2,
+						}
+					},
 				],
 			},
 		},

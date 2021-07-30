@@ -204,7 +204,7 @@ func generate_discard_tasks(only_from_hand := true) -> Array:
 # cannot be paid. 
 func generate_tag_increment_scripts() -> Array:
 	var inrement_tag_script_template := {
-			"name": "increment_tag_count",
+			"name": "increment_event_count",
 		}
 	var increment_tag_tasks = [inrement_tag_script_template]
 	return(increment_tag_tasks)

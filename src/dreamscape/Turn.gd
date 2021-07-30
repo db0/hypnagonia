@@ -29,7 +29,10 @@ var applied_effects := {}
 # The amount of times the deck was reshuffled is also an event.
 # This allows card abilities to filter effects based on how many events of 
 # a type have happened
-var event_count := {}
+var turn_event_count := {}
+# Tracks how many event of any type have happened throughout the game
+# These events do not reset turn to turn, but only between encounters
+var encounter_event_count := {}
 var current_turn : int = Turns.PLAYER_TURN
 
 
@@ -70,9 +73,11 @@ func end_enemy_turn() -> void:
 
 func _reset_turn() -> void:
 	firsts.clear()
-	event_count.clear()
+	turn_event_count.clear()
 	applied_effects.clear()
 
 func _on_deck_shuffled() -> void:
-	var ds_count = event_count.get("deck_shuffled", 0)
-	event_count["deck_shuffled"] = ds_count + 1
+	var ds_count = turn_event_count.get("deck_shuffled", 0)
+	turn_event_count["deck_shuffled"] = ds_count + 1
+	var te_count = encounter_event_count.get("deck_shuffled", 0)
+	encounter_event_count["deck_shuffled"] = te_count + 1

@@ -61,6 +61,8 @@ func begin_encounter() -> void:
 	yield(_tween, "tween_all_completed")
 	cfc.NMAP.hand.refill_hand()
 	_on_player_turn_started(turn)
+	turn._reset_turn()
+	turn.encounter_event_count.clear()
 
 func randomize_background() -> void:
 	var dark_backgrounds := CFUtils.list_imported_in_directory("res://assets/backgrounds/dark/")
@@ -261,7 +263,9 @@ func _input(event):
 #		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 60)
 		for c in [
-			"unnamed_card_5"
+			"unnamed_card_5",
+			"unnamed_card_5",
+			"It's alive!"
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.deck.add_child(card)
