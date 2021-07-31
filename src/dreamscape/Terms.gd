@@ -211,7 +211,7 @@ const ACTIVE_EFFECTS := {
 	},
 	"eureka":  {
 		"name": "Eureka!",
-		"description": "{effect_name}: Gain 1 {buffer} every other time you shuffle your deck per turn.",
+		"description": "{effect_name}: Gain 1 {buffer} every other time you shuffle your deck.",
 		"icon": preload("res://assets/icons/wisdom.png"),
 	},
 }
