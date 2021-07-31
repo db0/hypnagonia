@@ -7,7 +7,7 @@ const CARDS := {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "Apply 2 {doubt} to a Torment.\n"\
-				+ "Move all {doubt} from the dreamer to that Torment as well",
+				+ "Move all {doubt} from the dreamer to that Torment.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
