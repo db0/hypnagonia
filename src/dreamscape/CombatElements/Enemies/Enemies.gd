@@ -130,32 +130,28 @@ const CLOWN:= {
 	"_character_art": "Delapouite",
 }
 const UNNAMED_ENEMY_1 := {
-	"Name": "Unknown",
+	"Name": "Unnamed Enemy 1",
 	"Type": "Undefined",
-	"Health": 53,
+	"Health": 52,
 	"Intents": [
 		{
-			"intent_scripts": ["Stress:7","Debuff:1:disempower"],
+			"intent_scripts": ["Debuff:2:disempower"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Buff:3:thorns"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Stress:10"],
 			"reshuffle": true,
-		},
-		{
-			"intent_scripts": ["Debuff:3:disempower"],
-			"reshuffle": false,
-		},
-		{
-			"intent_scripts": ["Stress:12"],
-			"reshuffle": false,
-		},
-		{
-			"intent_scripts": ["Perplex:8","Buff:1:fortify"],
-			"reshuffle": false,
 		},
 	],
 	"_health_variability": 3,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/enemies/clown.png"),
-	"_character_art": "Delapouite",
+#	"_texture": preload("res://assets/enemies/clown.png"),
+#	"_character_art": "Delapouite",
 }
 
 #const BANKER := {
