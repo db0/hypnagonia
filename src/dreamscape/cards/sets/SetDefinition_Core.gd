@@ -428,7 +428,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "{shuffle} your discard pile into your deck.\nPlay a Random card from your deck. {forget}.",
-		"Cost": 1,
+		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": ["forget"]
@@ -446,7 +446,7 @@ const CARDS := {
 		"_rarity": "Uncommon",
 	},
 	"unnamed_card_3": {
-		"Type": "Control",
+		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} all Torments for 8",
 		"Cost": 1,
@@ -561,7 +561,7 @@ const CARDS := {
 	"Eureka!": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
-		"Abilities": "Gain 1 {buffer} every other time you shuffle your deck per turn.",
+		"Abilities": "Gain 1 {buffer} every other time you shuffle your deck.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
