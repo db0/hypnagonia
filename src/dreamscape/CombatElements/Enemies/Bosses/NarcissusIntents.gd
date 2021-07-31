@@ -86,7 +86,7 @@ func get_boss_scripts(intent_name: String) -> Dictionary:
 		"Minimisation": [
 			{
 				"name": "modify_damage",
-				"tags": ["Damage", "Intent"],
+				"tags": ["Attack", "Intent"],
 				"subject": "dreamer",
 				"amount": 10 + get_outrage(),
 				"icon": all_intent_scripts.ICON_ATTACK,
@@ -132,7 +132,7 @@ func get_boss_scripts(intent_name: String) -> Dictionary:
 			},
 			{
 				"name": "modify_damage",
-				"tags": ["Damage", "Intent"],
+				"tags": ["Attack", "Intent"],
 				"subject": "dreamer",
 				"amount": 5 + get_outrage(),
 				"icon": all_intent_scripts.ICON_ATTACK,
@@ -170,7 +170,7 @@ func get_boss_scripts(intent_name: String) -> Dictionary:
 			},
 			{
 				"name": "modify_damage",
-				"tags": ["Damage", "Intent"],
+				"tags": ["Attack", "Intent"],
 				"subject": "dreamer",
 				"amount": 23 + (get_outrage() * 2),
 				"icon": all_intent_scripts.ICON_ATTACK,

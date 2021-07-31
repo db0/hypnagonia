@@ -60,7 +60,7 @@ func reshuffle_intents() -> void:
 func get_total_damage() -> int:
 	var total_damage := 0
 	for intent in get_children():
-		if "Damage" in intent.intent_script.tags:
+		if "Attack" in intent.intent_script.tags:
 			total_damage += intent.amount
 	return(total_damage)
 

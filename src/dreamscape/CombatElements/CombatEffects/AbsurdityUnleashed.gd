@@ -11,6 +11,6 @@ func on_enemy_effect_added(entity: CombatEntity, _trigger: String, details: Dict
 				"name": "modify_damage",
 				"subject": "trigger",
 				"amount": 4 * stacks,
-				"tags": ["Damage"],
+				"tags": ["Attack"],
 			}]
 			execute_script(absurdity, entity)

@@ -11,7 +11,7 @@ func get_effect_alteration(
 		_dry_run := true,
 		_subject: Node = null) -> int:
 	if not script.script_name == 'modify_damage'\
-			or not "Damage" in script.get_property(SP.KEY_TAGS)\
+			or not "Attack" in script.get_property(SP.KEY_TAGS)\
 			or not is_source:
 		return(0)
 	var new_value = round(value * 0.7)
