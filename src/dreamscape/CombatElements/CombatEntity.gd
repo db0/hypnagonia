@@ -119,7 +119,7 @@ func die() -> void:
 	entity_texture.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
 
 
-func modify_damage(amount: int, dry_run := false, tags := ["Manual"], trigger: CombatEntity = null) -> int:
+func modify_damage(amount: int, dry_run := false, tags := ["Manual"], trigger = null) -> int:
 	if not dry_run:
 		if amount > 0 and "Damage" in tags:
 			emit_signal("entity_attacked", self, amount, trigger)

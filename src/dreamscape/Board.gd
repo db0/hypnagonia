@@ -261,7 +261,7 @@ func _input(event):
 #		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.disempower, 5)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 5)
 #		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
-#		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 60)
+		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 8)
 		for c in [
 		]:
 			var card = cfc.instance_card(c)

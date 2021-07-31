@@ -152,6 +152,15 @@ const ACTIVE_EFFECTS := {
 		"description": "{effect_name} ({effect_icon}): {defence} added to this {entity} is reduced by 25%.\n" \
 				+ "Reduce these stacks by 1 at the end of the turn."
 	},
+	"thorns": {
+		"name": "Thorns",
+		"icon": preload("res://assets/icons/light-thorny-triskelion.png"),
+		"generic_description": "{effect_name}: Interprets torments as they stress the dreamer.",
+		"rich_text_icon": "res://fonts/rich_text_icons/light-thorny-triskelion.png",
+		"description": "{effect_name} ({effect_icon}): After an {opponent_attack} on this {entity}, "\
+				+ "it automatically {attack} for {amount}.\n"\
+				+ "Reduce these stacks by 1 at the start of its turn."
+	},
 	"outrage": {
 		"name": "Outrage",
 		"description": "{effect_name}: This {entity} has become more powerful in some fashion.",

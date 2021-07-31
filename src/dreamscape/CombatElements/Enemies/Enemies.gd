@@ -129,46 +129,34 @@ const CLOWN:= {
 	"_texture": preload("res://assets/enemies/clown.png"),
 	"_character_art": "Delapouite",
 }
-#	"Butterfly": {
-#		"Type": "Phobia",
-#		"Health": 1,
-#		"Intents": [
-#			{
-#				"intent_scripts": ["Stress:6"],
-#				"reshuffle": true,
-#			},
-#			{
-#				"intent_scripts": ["Buff:3:strengthen"],
-#				"reshuffle": false,
-#			},
-#			{
-#				"intent_scripts": ["Stress:1","Stress:1","Stress:1"],
-#				"reshuffle": false,
-#			},
-#		],
-#		"_health_variability": 2,
-#		"_texture_size_x": "120",
-#		"_texture_size_y": "120",
-#		"_character_art": "nobody",
-#	},
-#	"Spider": {
-#		"Type": "Phobia",
-#		"Health": 1,
-#		"Intents": [
-#		],
-#		"_health_variability": 2,
-#		"_texture_size_x": "120",
-#		"_texture_size_y": "120",
-#		"_character_art": "nobody",
-#	},
-#	"Mouse": {
-#		"Type": "Phobia",
-#		"Health": 1,
-#		"Intents": [
-#		],
-#		"_health_variability": 2,
-#		"_texture_size_x": "120",
-#		"_texture_size_y": "120",
-#		"_character_art": "nobody",
-#	},
-#}
+const UNNAMED_ENEMY_1 := {
+	"Name": "Unknown",
+	"Type": "Undefined",
+	"Health": 53,
+	"Intents": [
+		{
+			"intent_scripts": ["Stress:7","Debuff:1:disempower"],
+			"reshuffle": true,
+		},
+		{
+			"intent_scripts": ["Debuff:3:disempower"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Stress:12"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Perplex:8","Buff:1:fortify"],
+			"reshuffle": false,
+		},
+	],
+	"_health_variability": 3,
+	"_texture_size_x": "120",
+	"_texture_size_y": "120",
+	"_texture": preload("res://assets/enemies/clown.png"),
+	"_character_art": "Delapouite",
+}
+
+#const BANKER := {
+#const BUTTERFLY := {

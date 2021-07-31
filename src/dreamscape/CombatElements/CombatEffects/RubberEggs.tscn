@@ -12,14 +12,18 @@ rect_min_size = Vector2( 24, 24 )
 
 [node name="Label" parent="Signifier" index="0"]
 visible = false
-margin_right = 24.0
-margin_bottom = 24.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 32.0
+margin_bottom = 32.0
 rect_min_size = Vector2( 24, 24 )
 text = "R"
 
-[node name="Icon" parent="Signifier" index="1"]
-margin_right = 24.0
-margin_bottom = 24.0
+[node name="Icon" parent="Signifier" index="2"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 32.0
+margin_bottom = 32.0
 rect_min_size = Vector2( 24, 24 )
 texture = ExtResource( 3 )
 
