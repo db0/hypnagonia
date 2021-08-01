@@ -258,13 +258,15 @@ func _input(event):
 #		var torment2 = spawn_enemy("Gaslighter")
 #		torment2.rect_position = Vector2(800,100)
 #		torment3.rect_position = Vector2(200,300)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 15)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.creative_block.name, 15)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 15)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 5)
 #		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
 		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 8)
 		for c in [
-			"Eureka!",
-			"Change of Mind"
+			"Nothing to Fear",
+			"Easy Nothing to Fear",
+			"Tough Nothing to Fear",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.deck.add_child(card)

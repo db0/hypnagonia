@@ -12,6 +12,10 @@ var shader_progress := 1.0
 var attempted_action_drop_to_board := false
 var tutorial_disabled := false
 var pertub_destination : CardContainer
+# Stores a referene to the DeckCard object for this card
+# This is used to store permanent changes to this card that will persist
+# Between encounters
+var deck_card_entry
 
 func _ready() -> void:
 	pass
@@ -98,7 +102,7 @@ func retrieve_scripts(trigger: String) -> Dictionary:
 			found_scripts["hand"] += generate_remove_from_deck_tasks()
 		else:
 			found_scripts["hand"] += generate_discard_tasks()
-		found_scripts["hand"] += generate_tag_increment_scripts()
+		found_scripts["hand"] += generate_play_confirm_scripts()
 	return(found_scripts)
 
 # Sets a flag when an action card is dragged to the board manually
@@ -202,12 +206,13 @@ func generate_discard_tasks(only_from_hand := true) -> Array:
 #
 # The reason to go via sceng, is because we  don't want to increment if costs
 # cannot be paid. 
-func generate_tag_increment_scripts() -> Array:
-	var inrement_tag_script_template := {
-			"name": "increment_event_count",
+func generate_play_confirm_scripts() -> Array:
+	if not deck_card_entry:
+		return([])
+	var confirm_play_template := {
+			"name": "confirm_play",
 		}
-	var increment_tag_tasks = [inrement_tag_script_template]
-	return(increment_tag_tasks)
+	return([confirm_play_template])
 
 # Uses a template to create task definitions for removing  a card from the game
 # then returns it to the calling function to execute or insert it into
@@ -282,5 +287,13 @@ func check_play_costs() -> Color:
 		ret = CFConst.CostsState.IMPOSSIBLE
 	if properties.get("_is_unplayable", false):
 		ret = CFConst.CostsState.IMPOSSIBLE
-
 	return(ret)
+
+
+# Overridable function for formatting card text
+func _get_formatted_text(value) -> String:
+	var text = str(value)
+	var amounts_format = CardConfig.get_amounts_format(properties)
+	if not amounts_format.size():
+		amounts_format = CardConfig.get_amounts_format(cfc.card_definitions[canonical_name])
+	return(text.format(amounts_format))

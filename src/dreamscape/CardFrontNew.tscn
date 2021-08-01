@@ -396,6 +396,7 @@ expand = true
 
 [node name="BackBufferCopy" type="BackBufferCopy" parent="."]
 visible = false
+copy_mode = 2
 rect = Rect2( 0, 0, 200, 280 )
 
 [node name="ShaderEffect" type="ColorRect" parent="."]

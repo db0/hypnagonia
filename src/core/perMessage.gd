@@ -27,7 +27,6 @@ func count_found_things() -> int:
 	var found_count := 0
 	var multiplier = per_definitions.get(
 			"multiplier", 1)
-	print_debug(per_definitions)
 	var per_discovery = cfc.script_per.new(self)
 #	if not per_discovery.has_init_completed:
 #		yield(per_discovery,"primed")

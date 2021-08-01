@@ -8,13 +8,16 @@ onready var journal_intro := $HBC/JournalEntry/VBC/DayIntro
 onready var journal_choices := $HBC/JournalEntry/VBC/JournalChoices
 onready var card_storage := $EnemyCardStorage
 onready var reward_journal := $HBC/JournalEntry/VBC/RewardJournal
+onready var upgrade_journal := $HBC/JournalEntry/VBC/UpgradeJournal
 onready var card_draft := $HBC/JournalEntry/VBC/CardDraftSlide/CardDraft
+onready var card_upgrade := $HBC/JournalEntry/VBC/UgradetSlide/CardUpgrade
 onready var proceed := $HBC/JournalEntry/VBC/Proceed
 onready var _tween := $Tween
 onready var _description_label := $MetaDescription/Label
 onready var _description_popup := $MetaDescription
 
 var enemy_cards := {}
+var pre_highlight_bbcode_texts := {}
 
 func _ready() -> void:
 #	cfc.game_rng_seed = CFUtils.generate_random_seed() # Debug
@@ -37,29 +40,25 @@ func _ready() -> void:
 func display_rewards(reward_text: String) -> void:
 	if reward_text != '':
 		reward_journal.bbcode_text = reward_text
-		_reveal_entry(reward_journal)
+		_reveal_entry(reward_journal, true, "card_draft")
+	if globals.player.deck.get_upgradeable_cards().size():
+		_reveal_entry(upgrade_journal, true)
 	proceed.bbcode_text = _get_entry_texts('PROCEED_TEXTS')
-	_reveal_entry(proceed)
-# warning-ignore:return_value_discarded
-	proceed.connect("mouse_entered", self, "_on_rte_mouse_entered", [proceed] )
-# warning-ignore:return_value_discarded
-	proceed.connect("mouse_exited", self, "_on_rte_mouse_exited", [proceed] )
-# warning-ignore:return_value_discarded
-	proceed.connect("gui_input", self, "_on_rte_gui_input", [proceed] )
+	_reveal_entry(proceed, true)
 
 
 func display_boss_rewards(reward_text: String) -> void:
 	reward_journal.bbcode_text = reward_text
-	_reveal_entry(reward_journal)
+	_reveal_entry(reward_journal, true, "boss_card_draft")
+	if globals.player.deck.get_upgradeable_cards().size():
+		_reveal_entry(upgrade_journal, true)
 	proceed.bbcode_text = "And I woke up from the most restful sleep I had in months!\n\n"\
 		+ "[b]Note from Developer:[/b]\nThanks for playing this early version of Project Dreams. This is all we have at the moment. "\
 		+ "Please check back regularly for new updates! And remember, we're actively looking for collaborators.\n"\
 		+ "If you're a character artist, graphics designer, storyteller, card game designer, illustrator, or just someone who wants to give feedback, "\
 		+ "do hit us up on our discord server: [url=discord]https://discord.gg/KFKHt6Ch[/url].\n\n"\
 		+ "[url=main_menu]Back to Main Menu[/url]."
-# warning-ignore:return_value_discarded
-	proceed.connect("meta_clicked", self, "_on_proceed_clicked")
-	_reveal_entry(proceed)
+	_reveal_entry(proceed, true)
 
 func display_loss() -> void:
 	proceed.bbcode_text = "And at this point I woke up in cold sweat!!\n\n"\
@@ -71,7 +70,7 @@ func display_loss() -> void:
 		+ "[url=main_menu]Back to Main Menu[/url]."
 # warning-ignore:return_value_discarded
 	proceed.connect("meta_clicked", self, "_on_proceed_clicked")
-	_reveal_entry(proceed)
+	_reveal_entry(proceed, true)
 
 
 func set_illustration(image: ImageTexture) -> void:
@@ -136,35 +135,70 @@ func _on_choice_pressed(encounter: SingleEncounter, rich_text_choice: JournalCho
 	encounter.begin()
 
 
-func _reveal_entry(rich_text_node: RichTextLabel) -> void:
+func _reveal_entry(
+		rich_text_node: RichTextLabel, 
+		connect_rte_signals := false, 
+		extra_gui_input_args = null) -> void:
+	pre_highlight_bbcode_texts[rich_text_node] = rich_text_node.bbcode_text
 	rich_text_node.show()
+	if connect_rte_signals:
+		# warning-ignore:return_value_discarded
+		rich_text_node.connect("mouse_entered", self, "_on_rte_mouse_entered", [rich_text_node] )
+		# warning-ignore:return_value_discarded
+		rich_text_node.connect("mouse_exited", self, "_on_rte_mouse_exited", [rich_text_node] )
+		# warning-ignore:return_value_discarded
+		rich_text_node.connect("gui_input", self, "_on_rte_gui_input", [rich_text_node, extra_gui_input_args] )
 	_tween.interpolate_property(rich_text_node,
 			'modulate:a', 0, 1, 0.5,
 			Tween.TRANS_SINE, Tween.EASE_IN)
 	_tween.start()
 
 
+func _disconnect_gui_inputs(rich_text_node: RichTextLabel) -> void:
+	# warning-ignore:return_value_discarded
+	rich_text_node.disconnect("mouse_entered", self, "_on_rte_mouse_entered")
+	# warning-ignore:return_value_discarded
+	rich_text_node.disconnect("mouse_exited", self, "_on_rte_mouse_exited")
+	# warning-ignore:return_value_discarded
+	rich_text_node.disconnect("gui_input", self, "_on_rte_gui_input")
+
+
 func _on_RewardJournal_meta_clicked(_meta: String) -> void:
 	match _meta:
 		"card_draft":
-			card_draft.display()
-			reward_journal.bbcode_text = "[color=grey]" + reward_journal.text + "[/color]"
+			pass
 		"boss_card_draft":
 			card_draft.display(true)
 			reward_journal.bbcode_text = "[color=grey]" + reward_journal.text + "[/color]"
 
 
+func _on_UpgradeJournal_meta_clicked(meta):
+	pass # Replace with function body.
+
+
 func _on_rte_mouse_entered(rt_label: RichTextLabel) -> void:
-	rt_label.bbcode_text = "[color=yellow]" + rt_label.text + "[/color]"
+	# We store this so we can revert the bbcode text without the yello highlight
+	rt_label.bbcode_text = "[color=yellow]" + rt_label.bbcode_text + "[/color]"
 
 
 func _on_rte_mouse_exited(rt_label: RichTextLabel) -> void:
-	rt_label.bbcode_text = rt_label.text
+	rt_label.bbcode_text = pre_highlight_bbcode_texts[rt_label]
 
 
-func _on_rte_gui_input(event, rt_label: RichTextLabel) -> void:
+func _on_rte_gui_input(event, rt_label: RichTextLabel, type = 'card_draft') -> void:
 	if event.is_pressed() and event.get_button_index() == 1:
 		match rt_label.name:
+			"RewardJournal":
+				_disconnect_gui_inputs(rt_label)
+				if type == "boss_card_draft":
+					card_draft.display(true)
+				else:
+					card_draft.display()
+				reward_journal.bbcode_text = "[color=grey]" + pre_highlight_bbcode_texts[rt_label] + "[/color]"
+			"UpgradeJournal":
+				_disconnect_gui_inputs(rt_label)
+				card_upgrade.display()
+				upgrade_journal.bbcode_text = "[color=grey]" + pre_highlight_bbcode_texts[rt_label] + "[/color]"
 			"Loss":
 				pass
 			"Proceed":
@@ -210,3 +244,4 @@ func _show_description_popup(description_text: String) -> void:
 	_description_popup.rect_global_position = get_local_mouse_position() + Vector2(20,-50)
 	if _description_popup.rect_global_position.x + _description_popup.rect_size.x > get_viewport().size.x:
 		_description_popup.rect_global_position.x = get_viewport().size.x - _description_popup.rect_size.x
+

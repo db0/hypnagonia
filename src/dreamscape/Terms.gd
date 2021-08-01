@@ -176,6 +176,11 @@ const ACTIVE_EFFECTS := {
 		"description": "{effect_name}: This {entity} has become more powerful in some fashion.",
 		"icon": preload("res://assets/icons/enrage.png"),
 	},
+	"creative_block": {
+		"name": "Creative Block",
+		"description": "{effect_name}: {entity} cannot upgrade any more cards this encounter.",
+		"icon": preload("res://assets/icons/brain-freeze.png"),
+	},
 	# Below are unique effects. Typically from concentrations
 	"laugh_at_danger":  {
 		"name": "Laugh at Danger",
@@ -186,6 +191,10 @@ const ACTIVE_EFFECTS := {
 		"name": "Nothing to Fear",
 		"description": "{effect_name}: Add {amount} {energy} at the start of the turn.\n"\
 				+ "All {health} taken is increased by {double_amount}.",
+		"upgraded_descriptions": {
+			"tough": "{effect_name}: Add {amount} {energy} at the start of the turn.\n"\
+					+ "All {health} taken is increased by {amount}.",
+		},
 		"icon": preload("res://assets/icons/one-eyed.png"),
 	},
 	"rubber_eggs":  {
@@ -309,11 +318,11 @@ const GENERIC_CARD_BBCODE := {
 	},
 	"exhaust": {
 		"name": "Forget",
-		"rich_text_color": "yellow",
+		"rich_text_color": "teal",
 	},
 	"shuffle": {
 		"name": "Shuffle",
-		"rich_text_color": "yellow",
+		"rich_text_color": "teal",
 	},
 	"defeated": {
 		"name": "Overcome",
@@ -321,7 +330,7 @@ const GENERIC_CARD_BBCODE := {
 	},
 	"purge": {
 		"name": "Release",
-		"rich_text_color": "yellow",
+		"rich_text_color": "teal",
 	},
 	"attack": {
 		"name": "Action",
@@ -337,15 +346,15 @@ const GENERIC_CARD_BBCODE := {
 	},
 	"condition": {
 		"name": "Perturbation",
-		"rich_text_color": "purple",
+		"rich_text_color": "white",
 	},
 	"understanding": {
 		"name": "Understanding",
-		"rich_text_color": "white",
+		"rich_text_color": "purple",
 	},
 	"discard": {
 		"name": "Discard",
-		"rich_text_color": "yellow",
+		"rich_text_color": "teal",
 	},
 }
 

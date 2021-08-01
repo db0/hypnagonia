@@ -8,6 +8,7 @@ onready var tag_icon1 := $TagContainer1/TagIcon
 onready var tag_icon2 := $TagContainer2/TagIcon
 onready var card_design := $CardDesign
 onready var shader_effect := $ShaderEffect
+onready var bbc := $BackBufferCopy
 onready var art := $Art
 onready var text_background := $TextBackground
 onready var title_background := $TitleBackground
@@ -75,6 +76,7 @@ func set_tag_icon(tags: Array) -> void:
 			tag_container2.visible = true
 
 func apply_sharer(shader_path: String) -> void:
+	bbc.visible = true
 	shader_effect.visible = true
 	shader_effect.material = ShaderMaterial.new()
 	shader_effect.material.shader = load(shader_path)
@@ -87,9 +89,12 @@ func _get_bbcode_format() -> Dictionary:
 func set_rarity() -> void:
 	var rarity_color := theme.get_color(
 			card_owner.get_property("_rarity"), "Label")
-	rarity_top.modulate = rarity_color * 1.4
-	rarity_middle.modulate = rarity_color * 1.6
 	title_background.color = rarity_color * 0.8
 	title_background.color.a = 1
+	var glow_multiplier := 1.0
+	if card_owner.get_property("_is_upgrade"):
+		glow_multiplier = 1.4
+	rarity_top.modulate = rarity_color * glow_multiplier
+	rarity_middle.modulate = rarity_color * glow_multiplier
 #	var card_name_label : Label = card_front.card_labels["Name"]
 #	card_name_label.add_color_override("font_color", rarity_color)

@@ -33,11 +33,12 @@ func populate_preview_cards() -> void:
 	if current_decklist_cache != globals.player.deck.list_all_cards():
 		for card in _deck_preview_grid.get_children():
 			card.queue_free()
-		for preview_card_name in globals.player.deck.list_all_cards(true):
+		current_decklist_cache =  globals.player.deck.list_all_cards()
+		for preview_card_entry in globals.player.deck.cards:
 			var card_preview_container = CARD_PREVIEW_SCENE.instance()
-			current_decklist_cache =  globals.player.deck.list_all_cards()
 			_deck_preview_grid.add_child(card_preview_container)
-			card_preview_container.setup(preview_card_name)
+			card_preview_container.setup(preview_card_entry.card_name)
+			card_preview_container.display_card.deck_card_entry = preview_card_entry
 	
 
 func _update_health_label() -> void:
@@ -54,3 +55,5 @@ func _update_encounter_label() -> void:
 
 func _update_deck_count() -> void:
 	_deck_button.text = str(globals.player.deck.count_cards())
+
+

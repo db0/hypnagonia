@@ -1,4 +1,4 @@
-extends CVGridCardObject
+extends CVGridCardObject	
 
 signal card_selected(option)
 const info_panel_scene = preload("res://src/dreamscape/InfoPanel.tscn")
