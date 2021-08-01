@@ -148,6 +148,7 @@ const BUTTERFLY:= {
 		},
 		{
 			"intent_scripts": ["Stress:5"],
+			"reshuffle": true,
 		}
 	],
 	"_health_variability": 3,
