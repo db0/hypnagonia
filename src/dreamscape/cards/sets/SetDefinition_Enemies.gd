@@ -76,7 +76,7 @@ const CARDS := {
 	"Unnamed Enemy 1": {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Gin 3 {thorns}. {forget}",
+		"Abilities": "Gain 3 {thorns}. {forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Received",

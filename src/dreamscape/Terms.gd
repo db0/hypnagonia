@@ -122,7 +122,7 @@ const ACTIVE_EFFECTS := {
 	"fortify": {
 		"name": "Courage",
 		"icon": preload("res://assets/icons/beams-aura.png"),
-		"generic_description": "{effect_name}: Prevents from concentration from expiring each turn.",
+		"generic_description": "{effect_name}: Prevents concentration from expiring each turn.",
 		"rich_text_icon": "res://fonts/rich_text_icons/beams-aura.png",
 		"description": "{effect_name} ({effect_icon}): {defence} is not removed at start of turn.\n"\
 				+ "Reduce these stacks by 1 at the start of the turn."
