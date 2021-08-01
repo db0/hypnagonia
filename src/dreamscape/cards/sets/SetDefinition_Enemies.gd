@@ -15,6 +15,18 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
 		},
 	},
+	"Broken Mirror": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
+		"Abilities": "Apply 2 {doubt} to a Torment.\n"\
+				+ "Move all {doubt} from the dreamer to that Torment.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
+		},
+	},
 	"Fearmonger": {
 		"Type": "Understanding",
 		"Tags": [],
@@ -64,7 +76,7 @@ const CARDS := {
 	"Unnamed Enemy 1": {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Gin 3 {thorns}. {forget}",
+		"Abilities": "Gain 3 {thorns}. {forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Received",

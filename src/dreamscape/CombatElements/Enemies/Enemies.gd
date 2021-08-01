@@ -4,19 +4,23 @@ extends Reference
 const GASLIGHTER:= {
 	"Name": "Gaslighter",
 	"Type": "Abuse",
-	"Health": 40,
+	"Health": 30,
 	"Intents": [
 		{
-			"intent_scripts": ["Stress:5"],
+			"intent_scripts": ["Stress:6"],
 			"reshuffle": false,
 		},
 		{
-			"intent_scripts": ["Stress:4", "Perplex:4"],
+			"intent_scripts": ["Stress:6"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Debuff:3:poison"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Perplex:10"],
 			"reshuffle": true,
-		},
-		{
-			"intent_scripts": ["Debuff:2:poison"],
-			"reshuffle": false,
 		},
 	],
 	"_health_variability": 3,
@@ -28,23 +32,23 @@ const GASLIGHTER:= {
 const FEARMONGER:= {
 	"Name": "Fearmonger",
 	"Type": "Abuse",
-	"Health": 50,
+	"Health": 40,
 	"Intents": [
 		{
-			"intent_scripts": ["Stress:3","Debuff:1:vulnerable"],
+			"intent_scripts": ["Stress:8","Debuff:2:vulnerable"],
 			"reshuffle": false,
 		},
 		{
-			"intent_scripts": ["Stare"],
-			"reshuffle": true,
-		},
-		{
-			"intent_scripts": ["Stress:12"],
+			"intent_scripts": ["Stress:10"],
 			"reshuffle": false,
 		},
 		{
 			"intent_scripts": ["Stress:5","Stress:5"],
 			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Stare","Perplex:4"],
+			"reshuffle": true,
 		},
 	],
 	"_health_variability": 4,
@@ -56,18 +60,18 @@ const FEARMONGER:= {
 const THE_LAUGHING_ONE:= {
 	"Name": "The Laughing One",
 	"Type": "Fear",
-	"Health": 25,
+	"Health": 20,
 	"Intents": [
 		{
-			"intent_scripts": ["Stress:3","Stress:2","Stress:2"],
+			"intent_scripts": ["Stress:1","Stress:1","Stress:1"],
 			"reshuffle": false,
 		},
 		{
-			"intent_scripts": ["Stress:1","Buff:1:impervious"],
+			"intent_scripts": ["Stress:6"],
 			"reshuffle": false,
 		},
 		{
-			"intent_scripts": ["Stress:5","Debuff:1:poison"],
+			"intent_scripts": ["Stress:3","Buff:1:strengthen"],
 			"reshuffle": true,
 		},
 	],
@@ -129,6 +133,29 @@ const CLOWN:= {
 	"_texture": preload("res://assets/enemies/clown.png"),
 	"_character_art": "Delapouite",
 }
+const BUTTERFLY:= {
+	"Name": "Butterfly",
+	"Type": "Phobia",
+	"Health": 30,
+	"Intents": [
+		{
+			"intent_scripts": ["Buff:3:strengthen"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Stress:1","Stress:1"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Stress:5"],
+		}
+	],
+	"_health_variability": 3,
+	"_texture_size_x": "120",
+	"_texture_size_y": "120",
+	"_texture": preload("res://assets/enemies/clown.png"),
+	"_character_art": "Delapouite",
+		}
 const UNNAMED_ENEMY_1 := {
 	"Name": "Unnamed Enemy 1",
 	"Type": "Undefined",
@@ -150,9 +177,50 @@ const UNNAMED_ENEMY_1 := {
 	"_health_variability": 3,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-#	"_texture": preload("res://assets/enemies/clown.png"),
-#	"_character_art": "Delapouite",
+	"_texture": preload("res://assets/enemies/lantern-flame.png"),
+	"_character_art": "Lorc"
 }
-
-#const BANKER := {
-#const BUTTERFLY := {
+const BROKEN_MIRROR:= {
+	"Name": "Broken Mirror",
+	"Type": "Phobia",
+	"Health": 20,
+	"Intents": [
+		{
+			"intent_scripts": ["Debuff:3:burn"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Debuff:2:burn","Perplex:5"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Perplex:10"],
+			"reshuffle": true,
+		},
+	],
+	"_health_variability": 3,
+	"_texture_size_x": "120",
+	"_texture_size_y": "120",
+	"_texture": preload("res://assets/enemies/lantern-flame.png"),
+	"_character_art": "Lorc"
+}
+#	"Spider": {
+#		"Type": "Phobia",
+#		"Health": 1,
+#		"Intents": [
+#		],
+#		"_health_variability": 2,
+#		"_texture_size_x": "120",
+#		"_texture_size_y": "120",
+#		"_character_art": "nobody",
+#	},
+#	"Mouse": {
+#		"Type": "Phobia",
+#		"Health": 1,
+#		"Intents": [
+#		],
+#		"_health_variability": 2,
+#		"_texture_size_x": "120",
+#		"_texture_size_y": "120",
+#		"_character_art": "nobody",
+#	},
