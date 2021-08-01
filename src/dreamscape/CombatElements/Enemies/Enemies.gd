@@ -11,12 +11,12 @@ const GASLIGHTER:= {
 			"reshuffle": false,
 		},
 		{
-			"intent_scripts": ["Stress:4", "Perplex:4"],
-			"reshuffle": true,
-		},
-		{
 			"intent_scripts": ["Debuff:2:poison"],
 			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Stress:4", "Perplex:4"],
+			"reshuffle": true,
 		},
 	],
 	"_health_variability": 3,
@@ -35,16 +35,16 @@ const FEARMONGER:= {
 			"reshuffle": false,
 		},
 		{
-			"intent_scripts": ["Stare"],
-			"reshuffle": true,
-		},
-		{
 			"intent_scripts": ["Stress:12"],
 			"reshuffle": false,
 		},
 		{
 			"intent_scripts": ["Stress:5","Stress:5"],
 			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Stare"],
+			"reshuffle": true,
 		},
 	],
 	"_health_variability": 4,
@@ -128,6 +128,54 @@ const CLOWN:= {
 	"_texture_size_y": "120",
 	"_texture": preload("res://assets/enemies/clown.png"),
 	"_character_art": "Delapouite",
+}
+const BUTTERFLY:= {
+	"Name": "Butterfly",
+	"Type": "Phobia",
+	"Health": 30,
+	"Intents": [
+		{
+			"intent_scripts": ["Buff:3:strengthen"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Stress:1","Stress:1"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Stress:5"],
+			"reshuffle": true,
+		},
+	],
+	"_health_variability": 3,
+	"_texture_size_x": "120",
+	"_texture_size_y": "120",
+	"_texture": preload("res://assets/enemies/lantern-flame.png"),
+	"_character_art": "Lorc"
+}
+const BROKEN_MIRROR:= {
+	"Name": "Broken Mirror",
+	"Type": "Phobia",
+	"Health": 20,
+	"Intents": [
+		{
+			"intent_scripts": ["Debuff:3:poison"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Debuff:2:poison","Perplex:5"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Perplex:10"],
+			"reshuffle": true,
+		},
+	],
+	"_health_variability": 3,
+	"_texture_size_x": "120",
+	"_texture_size_y": "120",
+	"_texture": preload("res://assets/enemies/lantern-flame.png"),
+	"_character_art": "Lorc"
 }
 #	"Butterfly": {
 #		"Type": "Phobia",

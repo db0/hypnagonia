@@ -9,30 +9,41 @@ const EARLY_ENEMIES := [
 			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
 		"enemies": [
 			EnemyDefinitions.THE_LAUGHING_ONE,
-			EnemyDefinitions.THE_LAUGHING_ONE,
+			EnemyDefinitions.BROKEN_MIRROR,
 		],
 		"journal_art": preload("res://assets/journal/the_laughing_one.jpeg"),
 	},
-	{
-		"journal_description":\
-			'Was that [url={torment_tag1}]a curious owl with three eyes[/url] staring at me?',
-		"journal_reward":\
-			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
-		"journal_art": preload("res://assets/journal/fearmonger.jpeg"),
-		"enemies": [
-			EnemyDefinitions.FEARMONGER,
-		]
-	},
-	{
-		"journal_description":\
-			'I saw [url={torment_tag1}]a strange form with a head like a lamp[/url] moving towards me.',
-		"journal_reward":\
-			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
-		"enemies": [
-			EnemyDefinitions.GASLIGHTER,
-		],
-		"journal_art": preload("res://assets/journal/gaslighter.jpeg"),
-	},
+#	{
+#		"journal_description":\
+#			'I found myself between [url={torment_tag1}]a pair of featureless creeps laughing[/url] at me.',
+#		"journal_reward":\
+#			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+#		"enemies": [
+#			EnemyDefinitions.THE_LAUGHING_ONE,
+#			EnemyDefinitions.THE_LAUGHING_ONE,
+#		],
+#		"journal_art": preload("res://assets/journal/the_laughing_one.jpeg"),
+#	},
+#	{
+#		"journal_description":\
+#			'Was that [url={torment_tag1}]a curious owl with three eyes[/url] staring at me?',
+#		"journal_reward":\
+#			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+#		"journal_art": preload("res://assets/journal/fearmonger.jpeg"),
+#		"enemies": [
+#			EnemyDefinitions.FEARMONGER,
+#		]
+#	},
+#	{
+#		"journal_description":\
+#			'I saw [url={torment_tag1}]a strange form with a head like a lamp[/url] moving towards me.',
+#		"journal_reward":\
+#			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+#		"enemies": [
+#			EnemyDefinitions.GASLIGHTER,
+#		],
+#		"journal_art": preload("res://assets/journal/gaslighter.jpeg"),
+#	},
 ]
 
 const ENEMIES := [

@@ -108,6 +108,23 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
+		"Broken Mirror": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.impervious.name,
+						"subject": "dreamer",
+						"modification": 1,
+					},
+					{
+						"name": "move_card_to_container",
+						"subject": "self",
+						"dest_container": cfc.NMAP.forgotten,
+					},
+				],
+			},
+		},
 		"The Critic": {
 			"manual": {
 				"hand": [
