@@ -285,9 +285,15 @@ func autoplay_card(script: ScriptTask) -> int:
 			var card_scripts = card.retrieve_scripts("manual")
 			var autoplay_exec : String = card.get_state_exec()
 			if not card_scripts.get("hand"):
-				card_scripts[autoplay_exec] = card.generate_discard_tasks(false)
+				if card.get_property("Type") == "Concentration":
+					card_scripts[autoplay_exec] = card.generate_remove_from_deck_tasks()
+				else:
+					card_scripts[autoplay_exec] = card.generate_discard_tasks(false)
 			else:
-				card_scripts[autoplay_exec] = card_scripts["hand"] + card.generate_discard_tasks(false)
+				if card.get_property("Type") == "Concentration":
+					card_scripts[autoplay_exec] = card_scripts["hand"] + card.generate_remove_from_deck_tasks()
+				else:
+					card_scripts[autoplay_exec] = card_scripts["hand"] + card.generate_discard_tasks(false)
 			card_scripts[autoplay_exec] += card.generate_tag_increment_scripts()
 			for script_task in card_scripts[autoplay_exec]:
 				if script_task.get("subject") and script_task["subject"] == 'target':

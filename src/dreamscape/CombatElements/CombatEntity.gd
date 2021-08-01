@@ -7,9 +7,10 @@ export(StreamTexture) var defence_texture: StreamTexture
 export(StreamTexture) var character_art_texture: StreamTexture
 
 signal effect_modified(entity,trigger,details)
-signal entity_attacked(entity, amount, trigger)
-signal entity_healed(entity, amount, trigger)
-signal entity_defended(entity, amount, trigger)
+signal entity_attacked(entity, amount, trigger, tags)
+signal entity_damaged(entity, amount, trigger, tags)
+signal entity_healed(entity, amount, trigger, tags)
+signal entity_defended(entity, amount, trigger, tags)
 signal entity_killed
 
 
@@ -119,13 +120,13 @@ func die() -> void:
 	entity_texture.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
 
 
-func modify_damage(amount: int, dry_run := false, tags := ["Manual"], trigger: CombatEntity = null) -> int:
+func modify_damage(amount: int, dry_run := false, tags := ["Manual"], trigger = null) -> int:
 	if not dry_run:
-		if amount > 0 and "Damage" in tags:
-			emit_signal("entity_attacked", self, amount, trigger)
+		if amount > 0 and "Attack" in tags:
+			emit_signal("entity_attacked", self, amount, trigger, tags)
 		elif amount < 0:
-			emit_signal("entity_healed", self, amount, trigger)
-		if defence > 0 and "Damage" in tags:
+			emit_signal("entity_healed", self, amount, trigger, tags)
+		if defence > 0 and ("Attack" in tags or "Blockable" in tags):
 			if amount >= defence:
 				amount -= defence
 				defence = 0
@@ -133,6 +134,8 @@ func modify_damage(amount: int, dry_run := false, tags := ["Manual"], trigger: C
 				defence -= amount
 				amount = 0
 		damage += amount
+		if amount > 0:
+			emit_signal("entity_damaged", self, amount, trigger, tags)
 		if damage < 0:
 			damage = 0
 		if damage >= health:
@@ -140,10 +143,10 @@ func modify_damage(amount: int, dry_run := false, tags := ["Manual"], trigger: C
 		_update_health_label()
 	return(CFConst.ReturnCode.CHANGED)
 
-func receive_defence(amount: int, dry_run := false, _tags := ["Manual"], trigger: CombatEntity = null) -> int:
+func receive_defence(amount: int, dry_run := false, tags := ["Manual"], trigger: CombatEntity = null) -> int:
 	if not dry_run:
 		if amount > 0:
-			emit_signal("entity_defended", self, amount, trigger)
+			emit_signal("entity_defended", self, amount, trigger, tags)
 		defence += amount
 		_update_health_label()
 	return(CFConst.ReturnCode.CHANGED)

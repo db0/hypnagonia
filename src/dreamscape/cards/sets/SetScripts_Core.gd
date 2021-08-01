@@ -14,7 +14,7 @@ func get_scripts(card_name: String) -> Dictionary:
 						"subject": "target",
 						"is_cost": true,
 						"amount": 6,
-						"tags": ["Damage"],
+						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
 						}],
@@ -41,7 +41,7 @@ func get_scripts(card_name: String) -> Dictionary:
 						"subject": "target",
 						"is_cost": true,
 						"amount": 5,
-						"tags": ["Damage"],
+						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
 						}],
@@ -154,7 +154,7 @@ func get_scripts(card_name: String) -> Dictionary:
 						"subject": "target",
 						"is_cost": true,
 						"amount": 3,
-						"tags": ["Damage"],
+						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
 						}],
@@ -163,13 +163,13 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "modify_damage",
 						"subject": "previous",
 						"amount": 3,
-						"tags": ["Damage"],
+						"tags": ["Attack"],
 					},
 					{
 						"name": "modify_damage",
 						"subject": "previous",
 						"amount": 3,
-						"tags": ["Damage"],
+						"tags": ["Attack"],
 					},
 				],
 			},
@@ -235,7 +235,7 @@ func get_scripts(card_name: String) -> Dictionary:
 						"subject": "target",
 						"is_cost": true,
 						"amount": 10,
-						"tags": ["Damage"],
+						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
 						}],
@@ -244,7 +244,7 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "modify_damage",
 						"is_cost": true,
 						"amount": 10,
-						"tags": ["Damage"],
+						"tags": ["Attack"],
 						"subject": "previous",
 						"filter_gummiraptor": true,
 					}
@@ -297,7 +297,7 @@ func get_scripts(card_name: String) -> Dictionary:
 						"subject": "target",
 						"is_cost": true,
 						"amount": 8,
-						"tags": ["Damage"],
+						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
 						}],
@@ -365,7 +365,7 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "modify_damage",
 						"subject": "target",
 						"is_cost": true,
-						"tags": ["Damage"],
+						"tags": ["Attack"],
 						"amount": "per_defence",
 						"per_defence": {
 							"subject": "dreamer",
@@ -437,7 +437,7 @@ func get_scripts(card_name: String) -> Dictionary:
 						"subject": "target",
 						"is_cost": true,
 						"amount": 5,
-						"tags": ["Damage"],
+						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
 						}],
@@ -475,7 +475,7 @@ func get_scripts(card_name: String) -> Dictionary:
 						"subject": "target",
 						"is_cost": true,
 						"amount": 6,
-						"tags": ["Damage"],
+						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
 						}],
@@ -520,7 +520,7 @@ func get_scripts(card_name: String) -> Dictionary:
 						"subject": "target",
 						"is_cost": true,
 						"amount": 8,
-						"tags": ["Damage"],
+						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
 						}],
@@ -533,7 +533,7 @@ func get_scripts(card_name: String) -> Dictionary:
 						"subject": "target",
 						"is_cost": true,
 						"amount": 12,
-						"tags": ["Damage"],
+						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
 						}],
@@ -552,7 +552,7 @@ func get_scripts(card_name: String) -> Dictionary:
 						"subject": "target",
 						"is_cost": true,
 						"amount": 10,
-						"tags": ["Damage"],
+						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
 						}],
@@ -577,7 +577,7 @@ func get_scripts(card_name: String) -> Dictionary:
 						"subject": "target",
 						"is_cost": true,
 						"amount": 6,
-						"tags": ["Damage"],
+						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
 						}],
@@ -657,7 +657,7 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "modify_damage",
 						"subject": "boardseek",
 						"subject_count": "all",
-						"tags": ["Damage"],
+						"tags": ["Attack"],
 						"amount": 20,
 						"filter_state_seek": [{
 							"filter_group": "EnemyEntities",
@@ -689,7 +689,7 @@ func get_scripts(card_name: String) -> Dictionary:
 						"subject": "target",
 						"is_cost": true,
 						"amount": 8,
-						"tags": ["Damage"],
+						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
 						}],
@@ -762,7 +762,7 @@ func get_scripts(card_name: String) -> Dictionary:
 						"subject": "boardseek",
 						"amount": 8,
 						"subject_count": "all",
-						"tags": ["Damage"],
+						"tags": ["Attack"],
 						"filter_state_seek": [{
 							"filter_group": "EnemyEntities",
 						}],
@@ -825,7 +825,7 @@ func get_scripts(card_name: String) -> Dictionary:
 						"subject": "target",
 						"is_cost": true,
 						"amount": 8,
-						"tags": ["Damage"],
+						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
 						}],
@@ -951,7 +951,7 @@ func get_scripts(card_name: String) -> Dictionary:
 						"subject": "target",
 						"is_cost": true,
 						"amount": 10,
-						"tags": ["Damage"],
+						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
 						}],
@@ -995,7 +995,7 @@ func get_scripts(card_name: String) -> Dictionary:
 						"subject": "target",
 						"is_cost": true,
 						"amount": 12,
-						"tags": ["Damage"],
+						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
 						}],
@@ -1004,7 +1004,7 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "modify_damage",
 						"subject": "previous",
 						"amount": "per_encounter_event_count",
-						"tags": ["Damage"],
+						"tags": ["Attack"],
 						"per_encounter_event_count": {
 							"event_name": "deck_shuffled",
 							"multiplier": 2,
@@ -1021,7 +1021,7 @@ func get_scripts(card_name: String) -> Dictionary:
 						"subject": "target",
 						"is_cost": true,
 						"amount": 9,
-						"tags": ["Damage"],
+						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
 						}],

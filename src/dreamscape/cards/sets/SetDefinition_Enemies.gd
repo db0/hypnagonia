@@ -73,4 +73,16 @@ const CARDS := {
 		},
 		"_keywords": ["forget"]
 	},
+	"Unnamed Enemy 1": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "Gin 3 {thorns}. {forget}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER
+		},
+		"_keywords": ["forget"]
+	},
 }

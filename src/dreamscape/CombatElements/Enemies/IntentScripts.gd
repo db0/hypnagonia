@@ -11,7 +11,7 @@ func get_scripts(intent_name: String) -> Dictionary:
 		"Stress": [
 			{
 				"name": "modify_damage",
-				"tags": ["Damage", "Intent"],
+				"tags": ["Attack", "Intent"],
 				"subject": "dreamer",
 				"amount": null,
 				"icon": ICON_ATTACK,

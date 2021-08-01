@@ -17,6 +17,7 @@ export(SELF_DECREASE) var self_decreasing
 export(PRIORITY) var priority
 
 var entity_type: String
+var owning_entity: CombatEntity
 var stacks: int = 0 setget set_stacks
 
 func setup(signifier_details: Dictionary, signifier_name: String) -> void:

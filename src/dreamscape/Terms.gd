@@ -138,11 +138,20 @@ const ACTIVE_EFFECTS := {
 	"poison": {
 		"name": "Doubt",
 		"icon": preload("res://assets/icons/coma.png"),
-		"generic_description": "{effect_name}: Automatically adds interpretation each turn.",
+		"generic_description": "{effect_name}: Automatically adds unpreventable interpretation each turn.",
 		"rich_text_icon": "res://fonts/rich_text_icons/coma.png",
 		"description": "{effect_name} ({effect_icon}): At the start of this {entity}'s turn it receives"\
 				+ " {amount} {health} (1 per stack), then reduce these stacks by 1."\
 				+ "\n({effect_icon} bypasses {defence})"
+	},
+	"burn": {
+		"name": "Resentment",
+		"icon": preload("res://assets/icons/wrapped-heart.png"),
+		"generic_description": "{effect_name}: Automatically adds preventable interpretation each turn.",
+		"rich_text_icon": "res://fonts/rich_text_icons/wrapped-heart.png",
+		"description": "{effect_name} ({effect_icon}): At the end of this {entity}'s turn it receives"\
+				+ " {amount} {health} (1 per stack), then reduce these stacks by 1."\
+				+ "\n({defence} can prevent {effect_icon})"
 	},
 	"vulnerable": {
 		"name": "Shaken",
@@ -151,6 +160,16 @@ const ACTIVE_EFFECTS := {
 		"rich_text_icon": "res://fonts/rich_text_icons/cracked-shield.png",
 		"description": "{effect_name} ({effect_icon}): {defence} added to this {entity} is reduced by 25%.\n" \
 				+ "Reduce these stacks by 1 at the end of the turn."
+	},
+	"thorns": {
+		"name": "Retaliation",
+		"icon": preload("res://assets/icons/light-thorny-triskelion.png"),
+		"generic_description": "{effect_name}: Interprets torments as they stress the dreamer.",
+		"rich_text_icon": "res://fonts/rich_text_icons/light-thorny-triskelion.png",
+		"description": "{effect_name} ({effect_icon}): After an {opponent_attack} on this {entity}, "\
+				+ "it automatically {attack} for {amount}.\n"\
+				+ "Reduce these stacks by 1 at the start of its turn."\
+				+ "\n({defence} can prevent {effect_icon})"
 	},
 	"outrage": {
 		"name": "Outrage",

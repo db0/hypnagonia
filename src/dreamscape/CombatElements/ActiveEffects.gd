@@ -5,6 +5,7 @@ const EFFECTS := {
 	Terms.ACTIVE_EFFECTS.disempower.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Disempower.tscn"),
 	Terms.ACTIVE_EFFECTS.empower.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Empower.tscn"),
 	Terms.ACTIVE_EFFECTS.poison.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Poison.tscn"),
+	Terms.ACTIVE_EFFECTS.burn.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Burn.tscn"),
 	Terms.ACTIVE_EFFECTS.vulnerable.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Vulnerable.tscn"),
 	Terms.ACTIVE_EFFECTS.advantage.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Advantage.tscn"),
 	Terms.ACTIVE_EFFECTS.impervious.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Impervious.tscn"),
@@ -12,6 +13,7 @@ const EFFECTS := {
 	Terms.ACTIVE_EFFECTS.buffer.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Buffer.tscn"),
 	Terms.ACTIVE_EFFECTS.outrage.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Outrage.tscn"),
 	Terms.ACTIVE_EFFECTS.strengthen.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Strengthen.tscn"),
+	Terms.ACTIVE_EFFECTS.thorns.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Thorns.tscn"),
 	
 	Terms.ACTIVE_EFFECTS.laugh_at_danger.name: preload("res://src/dreamscape/CombatElements/CombatEffects/LaughAtDanger.tscn"),
 	Terms.ACTIVE_EFFECTS.nothing_to_fear.name: preload("res://src/dreamscape/CombatElements/CombatEffects/NothingToFear.tscn"),
@@ -88,7 +90,7 @@ func mod_effect(
 								"tags": tags})
 				effect = EFFECTS[effect_name].instance()
 				effect.name = effect_name
-				effect.entity_type = combat_entity.entity_type
+				effect.owning_entity = combat_entity
 				add_child(effect)
 				var effect_details := Terms.get_effect_entry(effect_name)
 				var setup_dict := {

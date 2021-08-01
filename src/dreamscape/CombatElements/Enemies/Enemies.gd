@@ -129,6 +129,7 @@ const CLOWN:= {
 	"_texture": preload("res://assets/enemies/clown.png"),
 	"_character_art": "Delapouite",
 }
+<<<<<<< HEAD
 const BUTTERFLY:= {
 	"Name": "Butterfly",
 	"Type": "Phobia",
@@ -144,12 +145,30 @@ const BUTTERFLY:= {
 		},
 		{
 			"intent_scripts": ["Stress:5"],
+=======
+const UNNAMED_ENEMY_1 := {
+	"Name": "Unnamed Enemy 1",
+	"Type": "Undefined",
+	"Health": 52,
+	"Intents": [
+		{
+			"intent_scripts": ["Debuff:2:disempower"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Buff:3:thorns"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Stress:10"],
+>>>>>>> c04c4f407d893060633dfa34dc029c1ff642015e
 			"reshuffle": true,
 		},
 	],
 	"_health_variability": 3,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
+<<<<<<< HEAD
 	"_texture": preload("res://assets/enemies/lantern-flame.png"),
 	"_character_art": "Lorc"
 }
@@ -220,3 +239,11 @@ const BROKEN_MIRROR:= {
 #		"_character_art": "nobody",
 #	},
 #}
+=======
+#	"_texture": preload("res://assets/enemies/clown.png"),
+#	"_character_art": "Delapouite",
+}
+
+#const BANKER := {
+#const BUTTERFLY := {
+>>>>>>> c04c4f407d893060633dfa34dc029c1ff642015e

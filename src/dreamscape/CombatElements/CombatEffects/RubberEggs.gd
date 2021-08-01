@@ -11,7 +11,7 @@ func _on_player_turn_ended(turn: Turn) -> void:
 					"name": "modify_damage",
 					"subject": "trigger",
 					"amount": 6,
-					"tags": ["Damage"],
+					"tags": ["Attack"],
 				}]
 				execute_script(egg, rng_enemy)
 				break

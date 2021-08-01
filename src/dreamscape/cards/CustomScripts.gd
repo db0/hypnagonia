@@ -32,7 +32,7 @@ func custom_script(script: ScriptObject) -> void:
 							"name": "modify_damage",
 							"subject": "trigger",
 							"amount": 10,
-							"tags": ["Damage"],
+							"tags": ["Attack"],
 						}]
 						execute_script(the_joke, script.owner, enemy_entity)
 					else:
@@ -52,7 +52,7 @@ func custom_script(script: ScriptObject) -> void:
 						var barrel_through = [{
 								"name": "modify_damage",
 								"amount": 12,
-								"tags": ["Damage"],
+								"tags": ["Attack"],
 								"subject": "boardseek",
 								SP.KEY_SUBJECT_COUNT: "all",
 								"sort_by": "random",

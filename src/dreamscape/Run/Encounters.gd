@@ -49,6 +49,16 @@ const EARLY_ENEMIES := [
 const ENEMIES := [
 	{
 		"journal_description":\
+			'[url={torment_tag1}]<Description to be added>[/url].',
+		"journal_reward":\
+			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+		"enemies": [
+			EnemyDefinitions.UNNAMED_ENEMY_1,
+		],
+#		"journal_art": preload("res://assets/journal/the_critic.jpeg"),
+	},
+	{
+		"journal_description":\
 			'Strange furry animals with massive noses (or were they trunks) [url={torment_tag1}]started sniffing at me, and pointing out my weaknesses[/url].',
 		"journal_reward":\
 			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
