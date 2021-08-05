@@ -9,11 +9,17 @@ var upgrade_progress := 0
 # If the value is -1, it's not upgradable
 var upgrade_threshold := 6
 var upgrades: Dictionary
+# Initiated along with this card entry. If this card is upgradable
+# We store which potential upgrades it can have, so that they always stay
+# consistent, no matter how many times the player retries to upgrade
+# the same card
+var upgrade_options : Array
 
 func _init(_card_name: String) -> void:
 	card_name = _card_name
 	# If the key is not set, it means the card is not upgradable
 	upgrade_threshold = cfc.card_definitions[card_name].get("_upgrade_threshold", -1)
+	set_upgrade_options()
 
 func instance_self() -> Card:
 	card_object = cfc.instance_card(card_name)
@@ -33,6 +39,8 @@ func can_be_upgraded() -> bool:
 		return(true)
 	return(false)
 
-func get_upgrade_options() -> Array:
-	return(cfc.card_definitions[card_name].get("_upgrades", []))
-	
+func set_upgrade_options() -> void:
+	upgrade_options = cfc.card_definitions[card_name].get("_upgrades", []).duplicate(true)
+	if upgrade_options.size() > 2:
+		CFUtils.shuffle_array(upgrade_options)
+		upgrade_options.resize(2)

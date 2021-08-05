@@ -1,6 +1,6 @@
 extends HBoxContainer
 
-const CARD_DRAFT_SCENE = preload("res://src/dreamscape/DraftCardObject.tscn")
+const CARD_DRAFT_SCENE = preload("res://src/dreamscape/JournalCardObject.tscn")
 
 var uncommon_chance : float = 25.0/100
 var rare_chance : float = 5.0/100

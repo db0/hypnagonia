@@ -4,7 +4,7 @@ const PLAYER_COMBAT_ENTITY_SIZE = Vector2(120,120)
 
 var player: Player
 var encounters: SingleRun
-var encounter_number := 7
+var encounter_number := 0
 var deep_sleeps := 0
 var current_encounter: SingleEncounter
 var journal: Journal

@@ -195,14 +195,75 @@ const CARDS := {
 	"Noisy Whip": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
-		"Abilities": "{damage} for 5 and apply {confusion}",
+		"Abilities": "{damage} for {damage_amount}.\nApply {confusion}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
 		"_rarity": "Common",
-		"_keywords": ["interpretation"]
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 6,
+			"effect_stacks": 1,
+		},
+		"_upgrade_threshold": 1,
+		"_upgrades": [
+			"Solid Noisy Whip",
+			"Easy Noisy Whip",
+			"Enhanced Noisy Whip",
+		],
+	},
+	"Easy Noisy Whip": {
+		"Type": "Action",
+		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
+		"Abilities": "{damage} for {damage_amount}.\nApply {confusion}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 5,
+			"effect_stacks": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"Solid Noisy Whip": {
+		"Type": "Action",
+		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
+		"Abilities": "{damage} for {damage_amount}.\nApply {confusion}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 9,
+			"effect_stacks": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"Enhanced Noisy Whip": {
+		"Type": "Action",
+		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
+		"Abilities": "{damage} for {damage_amount}.\nApply {effect_stacks} {confusion}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 6,
+			"effect_stacks": 2,
+		},
+		"_is_upgrade": true,
 	},
 	"Inner Justice": {
 		"Type": "Control",

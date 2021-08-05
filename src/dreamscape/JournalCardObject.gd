@@ -19,7 +19,7 @@ func setup(card_name) -> Card:
 	if display_card is GDScriptFunctionState:
 		display_card = yield(display_card, "completed")	
 	return(display_card)
-
+	
 
 func _on_DraftCardObject_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_pressed():

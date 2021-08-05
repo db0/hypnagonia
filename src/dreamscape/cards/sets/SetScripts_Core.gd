@@ -8,7 +8,8 @@ extends Reference
 # is the card statistics (like cost)
 const SAME_SCRIPT_MODIFIERS := [
 	"Easy", # Used when the upgraded card has just lower cost
-	"Solid", # Used when the upgraded card has just higher amount.
+	"Solid", # Used when the upgraded card has just higher amount or damage or defence.
+	"Enhanced", # Used when the upgraded card has just higher amount of effect stacks.
 ]
 
 
@@ -66,7 +67,8 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "apply_effect",
 						"effect_name": Terms.ACTIVE_EFFECTS.disempower.name,
 						"subject": "previous",
-						"modification": 1,
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("effect_stacks"),
 					}
 				],
 			},

@@ -1,6 +1,6 @@
 extends HBoxContainer
 
-const CARD_UPGRADE_SCENE = preload("res://src/dreamscape/DraftCardObject.tscn")
+const CARD_UPGRADE_SCENE = preload("res://src/dreamscape/JournalCardObject.tscn")
 
 var upgradable_cards: Array
 
@@ -31,7 +31,7 @@ func populate_upgrade_cards() -> void:
 
 
 func _on_card_upgrade_selected(option: int, draft_card_object) -> void:
-	var upgrade_options : Array = upgradable_cards[option].get_upgrade_options()
+	var upgrade_options : Array = upgradable_cards[option].upgrade_options
 	var select_return = cfc.ov_utils.select_card(
 			upgrade_options, 1, "equal", true, globals.journal)
 	if select_return is GDScriptFunctionState: # Still working.
