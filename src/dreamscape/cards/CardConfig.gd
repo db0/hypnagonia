@@ -31,7 +31,10 @@ const NUMBERS_HIDDEN_ON_0 := []
 #
 # This is useful to prevent a whole class of cards from being shown in the
 # deckbuilder, without adding `_hide_in_deckbuilder` to each of them
-const TYPES_TO_HIDE_IN_DECKBUILDER := ["Token"]
+const TYPES_TO_HIDE_IN_CARDVIEWER := ["Token"]
+# If this property exists in a card and is set to true, the card will not be
+# displayed in the cardviwer
+const BOOL_PROPERTY_TO_HIDE_IN_CARDVIEWER := "_is_upgrade"
 const EXPLANATIONS = {
 	"interpretation": "Interpretation ([img=24x24]res://fonts/rich_text_icons/magnifying-glass.png[/img]): "\
 			+ "Increases interpretation on Torments by the specified amount.\n"\
@@ -53,3 +56,12 @@ const EXPLANATIONS = {
 	"release": "[color=yellow]Release[/color]: This card is removed permanently from the Dreamer's deck.",
 	"perturbation": "[color=purple]Perturbation[/color]: Cards that tend to clutter your deck, and may have extra negative effects.",
 }
+
+
+# Creates the format dictionary to convert strings pointing to amounts
+# text in the card abilities, into rich text numbers.
+static func get_amounts_format(properties_dict: Dictionary) -> Dictionary: 
+	var amounts_format = properties_dict.get("_amounts", {}).duplicate(true)
+	for amount in amounts_format:
+		amounts_format[amount] = "[color=yellow]" + str(amounts_format[amount]) + "[/color]"
+	return(amounts_format)

@@ -5,6 +5,18 @@ extends Reference
 #
 # if no scripts have been defined, an empty dictionary is returned instead.
 func get_scripts(card_name: String) -> Dictionary:
+	var script_name := card_name
+	# This match allows us to reuse the same scripts, for upgraded cards which
+	# do not change the script code.
+	match card_name:
+		"Easy Confidence", "Solid Confidence":
+			script_name = "Confidence"
+		"Easy Interpretation", "Solid Interpretation":
+			script_name = "Interpretation"
+		"Easy Out of Reach":
+			script_name = "Out of Reach"
+		"Easy Nothing to Fear":
+			script_name = "Nothing to Fear"
 	var scripts := {
 		"Interpretation": {
 			"manual": {
@@ -13,7 +25,8 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "modify_damage",
 						"subject": "target",
 						"is_cost": true,
-						"amount": 6,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
 						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
@@ -28,7 +41,8 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "assign_defence",
 						"subject": "dreamer",
-						"amount": 5,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("defence_amount"),
 					}
 				],
 			},
@@ -102,6 +116,19 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
+		"Tough Nothing to Fear": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.nothing_to_fear.name,
+						"subject": "dreamer",
+						"modification": 1,
+						"upgrade_name": "tough",
+					},
+				],
+			},
+		},
 		"Out of Reach": {
 			"manual": {
 				"hand": [
@@ -109,7 +136,8 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "apply_effect",
 						"effect_name": Terms.ACTIVE_EFFECTS.impervious.name,
 						"subject": "dreamer",
-						"modification": 1,
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("effect_stacks"),
 					},
 				],
 			},
@@ -1042,4 +1070,4 @@ func get_scripts(card_name: String) -> Dictionary:
 		},
 	}
 	# We return only the scripts that match the card name and trigger
-	return(scripts.get(card_name,{}))
+	return(scripts.get(script_name,{}))

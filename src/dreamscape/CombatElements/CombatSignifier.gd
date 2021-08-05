@@ -11,6 +11,8 @@ onready var signifier_amount := $MC/Amount
 onready var decription_popup := $Description
 onready var decription_label := $Description/Label
 
+var canonical_name: String
+
 func _ready() -> void:
 	var new_texture = ImageTexture.new()
 	new_texture.storage = ImageTexture.STORAGE_COMPRESS_LOSSLESS
@@ -21,6 +23,7 @@ func _ready() -> void:
 	
 func setup(signifier_details: Dictionary, signifier_name: String) -> void:
 #	print_debug("Setting up intent: " + intent_name)
+	canonical_name = signifier_name
 	if signifier_details.has("icon") and signifier_details.icon:
 		var new_texture = ImageTexture.new();
 		var tex = signifier_details.icon

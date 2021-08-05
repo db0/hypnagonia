@@ -14,6 +14,7 @@ const EFFECTS := {
 	Terms.ACTIVE_EFFECTS.outrage.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Outrage.tscn"),
 	Terms.ACTIVE_EFFECTS.strengthen.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Strengthen.tscn"),
 	Terms.ACTIVE_EFFECTS.thorns.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Thorns.tscn"),
+	Terms.ACTIVE_EFFECTS.creative_block.name: preload("res://src/dreamscape/CombatElements/CombatEffects/CreativeBlock.tscn"),
 	
 	Terms.ACTIVE_EFFECTS.laugh_at_danger.name: preload("res://src/dreamscape/CombatElements/CombatEffects/LaughAtDanger.tscn"),
 	Terms.ACTIVE_EFFECTS.nothing_to_fear.name: preload("res://src/dreamscape/CombatElements/CombatEffects/NothingToFear.tscn"),
@@ -51,13 +52,19 @@ func mod_effect(
 			mod := 1,
 			set_to_mod := false,
 			check := false,
-			tags := ["Manual"]) -> int:
+			tags := ["Manual"],
+			upgrade_string := '') -> int:
 	var retcode : int
 	if not EFFECTS.get(effect_name, null):
 		retcode = CFConst.ReturnCode.FAILED
 	else:
 		retcode = CFConst.ReturnCode.CHANGED
-		var effect : CombatEffect = get_all_effects().get(effect_name, null)
+		# We use this to name the node, in order not to conflict
+		# With upgraded effects of the same type.
+		var combined_effect_name :=  effect_name
+		if upgrade_string != '':
+			combined_effect_name = upgrade_string.capitalize() + ' ' + effect_name
+		var effect : CombatEffect = get_all_effects().get(combined_effect_name, null)
 		if not effect and mod <= 0:
 			pass
 		elif not check:
@@ -89,8 +96,9 @@ func mod_effect(
 								SP.TRIGGER_NEW_COUNT: new_op_value,
 								"tags": tags})
 				effect = EFFECTS[effect_name].instance()
-				effect.name = effect_name
+				effect.name = combined_effect_name
 				effect.owning_entity = combat_entity
+				effect.upgrade = upgrade_string
 				add_child(effect)
 				var effect_details := Terms.get_effect_entry(effect_name)
 				var setup_dict := {

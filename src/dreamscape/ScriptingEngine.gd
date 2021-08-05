@@ -200,6 +200,7 @@ func apply_effect(script: ScriptTask) -> int:
 	var modification: int
 	var alteration = 0
 	var effect_name: String = script.get_property(SP.KEY_EFFECT)
+	var upgrade_name: String = script.get_property(SP.KEY_UPGRADE_NAME, '')
 	# We inject the tags from the script into the tags sent by the signal
 	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
 	if str(script.get_property(SP.KEY_MODIFICATION)) == SP.VALUE_RETRIEVE_INTEGER:
@@ -244,8 +245,13 @@ func apply_effect(script: ScriptTask) -> int:
 				stacks_diff += -current_stacks
 			else:
 				stacks_diff = modification + alteration
-		retcode = entity.active_effects.mod_effect(effect_name,
-				modification + alteration,set_to_mod,costs_dry_run(), tags)
+		retcode = entity.active_effects.mod_effect(
+				effect_name,
+				modification + alteration,
+				set_to_mod,
+				costs_dry_run(),
+				tags,
+				upgrade_name)
 	if script.get_property(SP.KEY_STORE_INTEGER):
 		stored_integer = stacks_diff
 	return(retcode)
@@ -294,7 +300,7 @@ func autoplay_card(script: ScriptTask) -> int:
 					card_scripts[autoplay_exec] = card_scripts["hand"] + card.generate_remove_from_deck_tasks()
 				else:
 					card_scripts[autoplay_exec] = card_scripts["hand"] + card.generate_discard_tasks(false)
-			card_scripts[autoplay_exec] += card.generate_tag_increment_scripts()
+			card_scripts[autoplay_exec] += card.generate_play_confirm_scripts()
 			for script_task in card_scripts[autoplay_exec]:
 				if script_task.get("subject") and script_task["subject"] == 'target':
 					script_task["subject"] = "boardseek"
@@ -396,10 +402,14 @@ func draw_cards(script: ScriptTask) -> int:
 			yield(cfc.get_tree().create_timer(0.05), "timeout")
 	return(retcode)
 
-
-func increment_event_count(script: ScriptTask) -> int:
+# Used to perform some post-play activities, once all the script costs
+# have been paid.
+func confirm_play(script: ScriptTask) -> int:
 	var retcode: int = CFConst.ReturnCode.CHANGED
 	if not costs_dry_run():
+		if not cfc.NMAP.board.dreamer.active_effects.get_effect_stacks("Creative Block"): 
+			if script.owner.deck_card_entry.record_use():
+				cfc.NMAP.board.dreamer.upgrades_increased += 1
 		var turn_event_count = cfc.NMAP.board.turn.turn_event_count
 		var encounter_event_count = cfc.NMAP.board.turn.encounter_event_count
 		for tag in script.owner.get_property("Tags"):

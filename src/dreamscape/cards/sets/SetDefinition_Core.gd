@@ -6,31 +6,121 @@ const CARDS := {
 	"Confidence": {
 		"Type": "Control",
 		"Tags": [],
-		"Abilities": "Gain 5 {confidence}",
+		"Abilities": "Gain {defence_amount} {confidence}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Starting",
-		"_keywords": ["confidence"]
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 5
+		},
+		"_upgrade_threshold": 5,
+		"_upgrades": [
+			"Solid Confidence",
+			"Easy Confidence",
+		],
+	},
+	"Solid Confidence": {
+		"Type": "Control",
+		"Tags": [],
+		"Abilities": "Gain {defence_amount} {confidence}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Starting",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 8
+		},
+		"_is_upgrade": true,
+	},
+	"Easy Confidence": {
+		"Type": "Control",
+		"Tags": [],
+		"Abilities": "Gain {defence_amount} {confidence}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Starting",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 4
+		},
+		"_is_upgrade": true,
 	},
 	"Interpretation": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage} for 6",
+		"Abilities": "{damage} for {damage_amount}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Starting",
-		"_keywords": ["interpretation"]
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 6
+		},
+		"_upgrade_threshold": 5,
+		"_upgrades": [
+			"Solid Interpretation",
+			"Easy Interpretation",
+		],
+	},
+	"Easy Interpretation": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Starting",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 5
+		},
+		"_is_upgrade": true,
+	},
+	"Solid Interpretation": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Starting",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 9
+		},
+		"_is_upgrade": true,
 	},
 	"Out of Reach": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
-		"Abilities": "Gain 1 {untouchable}",
+		"Abilities": "Gain {effect_stacks} {untouchable}",
 		"Cost": 3,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
 		"_rarity": "Common",
+		"_amounts": {
+			"effect_stacks": 1
+		},
+		"_upgrade_threshold": 5,
+		"_upgrades": [
+			"Easy Out of Reach",
+		],
+	},
+	"Easy Out of Reach": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
+		"Abilities": "Gain {effect_stacks} {untouchable}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
+		},
+		"_rarity": "Common",
+		"_amounts": {
+			"effect_stacks": 1
+		},
+		"_is_upgrade": true,
 	},
 	"Dive-in": {
 		"Type": "Control",
@@ -58,10 +148,37 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.risky.name, Terms.GENERIC_TAGS.purpose.name],
 		"Abilities": "Gain 1 {immersion} at the start of each turn.\n"\
 			+ " Increase all {stress} taken from Torment intents by 2.",
-		"Cost": 2,
+		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["stress"]
+		"_keywords": ["stress"],
+		"_upgrade_threshold": 5,
+		"_upgrades": [
+			"Easy Nothing to Fear",
+			"Tough Nothing to Fear",
+		],
+	},
+	"Easy Nothing to Fear": {
+		"Type": "Concentration",
+		"Tags": [Terms.GENERIC_TAGS.risky.name, Terms.GENERIC_TAGS.purpose.name],
+		"Abilities": "Gain 1 {immersion} at the start of each turn.\n"\
+			+ " Increase all {stress} taken from Torment intents by 2.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["stress"],
+		"_is_upgrade": true,
+	},
+	"Tough Nothing to Fear": {
+		"Type": "Concentration",
+		"Tags": [Terms.GENERIC_TAGS.risky.name, Terms.GENERIC_TAGS.purpose.name],
+		"Abilities": "Gain 1 {immersion} at the start of each turn.\n"\
+			+ " Increase all {stress} taken from Torment intents by 1.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["stress"],
+		"_is_upgrade": true,
 	},
 	"Confounding Movements": {
 		"Type": "Control",

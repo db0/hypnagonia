@@ -1,6 +1,7 @@
 class_name Deck
 extends Reference
 
+
 var cards: Array
 var deck_groups : Dictionary
 
@@ -26,6 +27,9 @@ func add_new_card(card_name) -> void:
 	var new_card := CardEntry.new(card_name)
 	cards.append(new_card)
 
+func remove_card(card_entry: CardEntry) -> void:
+	cards.erase(card_entry)
+
 func list_all_cards(sorted:= false) -> Array:
 	var card_list := []
 	for card_entry in cards:
@@ -36,3 +40,10 @@ func list_all_cards(sorted:= false) -> Array:
 
 func count_cards() -> int:
 	return(list_all_cards().size())
+
+func get_upgradeable_cards() -> Array:
+	var upgradeable_cards := []
+	for card_entry in cards:
+		if card_entry.can_be_upgraded():
+			upgradeable_cards.append(card_entry)
+	return(upgradeable_cards)

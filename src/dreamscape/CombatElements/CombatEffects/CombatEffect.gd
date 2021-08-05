@@ -19,6 +19,11 @@ export(PRIORITY) var priority
 var entity_type: String
 var owning_entity: CombatEntity
 var stacks: int = 0 setget set_stacks
+# Used for custom effects from cards which can be upgraded
+# The string signifies the upgrade used, and should be handled
+# By the script code directly.
+var upgrade: String
+
 
 func setup(signifier_details: Dictionary, signifier_name: String) -> void:
 	.setup(signifier_details, signifier_name)
@@ -67,17 +72,32 @@ func _set_current_description() -> void:
 	format["triple_amount"] = str(3*stacks)
 	# warning-ignore:integer_division
 	format["half_amount"] = str(stacks/2)
-	decription_label.bbcode_text = Terms.ACTIVE_EFFECTS[_get_template_name()].\
-			description.format(format).format(Terms.get_bbcode_formats(18))
+	decription_label.bbcode_text = _get_effect_description().\
+			format(format).format(Terms.get_bbcode_formats(18))
+
+func _get_effect_description() -> String:
+	var default_desc : String = Terms.ACTIVE_EFFECTS[_get_template_name()].description
+	if upgrade == '':
+		return(default_desc)
+	else:
+		var upgraded_desc = Terms.ACTIVE_EFFECTS[_get_template_name()].get(
+				"upgraded_descriptions",{}).get(upgrade)
+		if upgraded_desc:
+			return(upgraded_desc)
+		else:
+			return(default_desc)
 
 # Returns the lowercase name of the token
 func get_effect_name() -> String:
 	return(name)
 
+# Returns the "generic" name of this effect as found in Terms 
+# E.g. if the poison effect has been renamed doubt
+# This method will return 'poison'
 func _get_template_name() -> String:
-	var template_name := name
+	var template_name := canonical_name
 	for effect in Terms.ACTIVE_EFFECTS:
-		if Terms.ACTIVE_EFFECTS[effect].name == name:
+		if Terms.ACTIVE_EFFECTS[effect].name == canonical_name:
 			template_name = effect
 	return(template_name)
 
@@ -118,10 +138,12 @@ func execute_script(
 
 func _on_player_turn_ended(_turn: Turn) -> void:
 	if entity_type == Terms.PLAYER and self_decreasing == SELF_DECREASE.TURN_END:
+		print_debug(self_decreasing)
 		set_stacks(stacks - 1)
 
 func _on_player_turn_started(_turn: Turn) -> void:
 	if entity_type == Terms.PLAYER and self_decreasing == SELF_DECREASE.TURN_START:
+		print_debug(self_decreasing)
 		set_stacks(stacks - 1)
 
 func _on_enemy_turn_ended(_turn: Turn) -> void:
