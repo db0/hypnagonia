@@ -1,4 +1,4 @@
-# See README.md
+class_name CoreScripts
 extends Reference
 
 # If the upgraded card name is prepending one of these words
@@ -18,14 +18,16 @@ const EPHEMERAL_TASK := {
 	"subject": "self",
 }
 
+# This dictionary allows us to quickly map an upgraded card to the same
+# script as its origin. This is useful when the name does not fit in one
+# of the SAME_SCRIPT_MODIFIERS prepends
+# This should be set in each script reference's init() call 
+var same_scripts_map := {}
 
 # This fuction returns all the scripts of the specified card name.
 #
 # if no scripts have been defined, an empty dictionary is returned instead.
 func get_scripts(card_name: String) -> Dictionary:
-	var script_name := card_name
-	# This match allows us to reuse the same scripts, for upgraded cards which
-	# do not change the script code.
 	var scripts := {
 		"Interpretation": {
 			"manual": {
@@ -1079,9 +1081,14 @@ func get_scripts(card_name: String) -> Dictionary:
 			},
 		},
 	}
+	return(_prepare_scripts(scripts, card_name))
+
+# Takes care to return the correct script, even for card with standard upgrades
+func _prepare_scripts(all_scripts: Dictionary, card_name: String) -> Dictionary:
+	var script_name := card_name
 	var break_loop := false
 	var is_ephemeral := false
-	for script_id in scripts:
+	for script_id in all_scripts:
 		for prepend in SAME_SCRIPT_MODIFIERS:
 			var card_name_with_unmodified_scripts = prepend + ' ' + script_id
 			if card_name == card_name_with_unmodified_scripts:
@@ -1093,12 +1100,11 @@ func get_scripts(card_name: String) -> Dictionary:
 		if break_loop: break
 	# If an upgraded card uses the same script as the original
 	# and it cannot be matched using SAME_SCRIPT_MODIFIERS
-	# Then we can add it here
-#	match card_name:
-#		"Easy Confidence", "Solid Confidence":
-#			script_name = "Confidence"
+	# Then we can handle it here
+	if same_scripts_map.has(card_name):
+		script_name = same_scripts_map[card_name]
 	# We return only the scripts that match the card name and trigger
-	var ret_script = scripts.get(script_name,{}).duplicate(true)
+	var ret_script = all_scripts.get(script_name,{}).duplicate(true)
 	# We use this trick to avoid creating a whole new script for the ephemeral
 	# upgraded versions, just to add the "remove from deck" task
 	if is_ephemeral:

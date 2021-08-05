@@ -1,5 +1,4 @@
-# See README.md
-extends Reference
+extends CoreScripts
 
 # This fuction returns all the scripts of the specified card name.
 #
@@ -182,4 +181,4 @@ func get_scripts(card_name: String) -> Dictionary:
 		},
 	}
 	# We return only the scripts that match the card name and trigger
-	return(scripts.get(card_name,{}))
+	return(_prepare_scripts(scripts, card_name))
