@@ -14,6 +14,7 @@
 * Added more Torments and tweaked intents (@DioBal)
 * Added two new effects: Retaliation and Resentment
 * Added new Ego Archetype: Mad Scientist (Design by @DioBal)
+* Can now setup enemies in encounters using starting effects or preselected intents
 
 ## v0.8.1
 

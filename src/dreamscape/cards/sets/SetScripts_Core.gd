@@ -1,6 +1,17 @@
 # See README.md
 extends Reference
 
+# If the upgraded card name is prepending one of these words
+# Then we know it's going to be using the same script definition as the original
+# card.
+# This allows us to avoid writing new definitions when all that is changing
+# is the card statistics (like cost)
+const SAME_SCRIPT_MODIFIERS := [
+	"Easy", # Used when the upgraded card has just lower cost
+	"Solid", # Used when the upgraded card has just higher amount.
+]
+
+
 # This fuction returns all the scripts of the specified card name.
 #
 # if no scripts have been defined, an empty dictionary is returned instead.
@@ -8,15 +19,6 @@ func get_scripts(card_name: String) -> Dictionary:
 	var script_name := card_name
 	# This match allows us to reuse the same scripts, for upgraded cards which
 	# do not change the script code.
-	match card_name:
-		"Easy Confidence", "Solid Confidence":
-			script_name = "Confidence"
-		"Easy Interpretation", "Solid Interpretation":
-			script_name = "Interpretation"
-		"Easy Out of Reach":
-			script_name = "Out of Reach"
-		"Easy Nothing to Fear":
-			script_name = "Nothing to Fear"
 	var scripts := {
 		"Interpretation": {
 			"manual": {
@@ -1069,5 +1071,20 @@ func get_scripts(card_name: String) -> Dictionary:
 			},
 		},
 	}
+	var break_loop := false
+	for script_id in scripts:
+		for prepend in SAME_SCRIPT_MODIFIERS:
+			var card_name_with_unmodified_scripts = prepend + ' ' + script_id
+			if card_name == card_name_with_unmodified_scripts:
+				script_name = script_id
+				break_loop = true
+				break
+		if break_loop: break
+	# If an upgraded card uses the same script as the original
+	# and it cannot be matched using SAME_SCRIPT_MODIFIERS
+	# Then we can add it here
+#	match card_name:
+#		"Easy Confidence", "Solid Confidence":
+#			script_name = "Confidence"
 	# We return only the scripts that match the card name and trigger
 	return(scripts.get(script_name,{}))
