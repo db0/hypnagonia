@@ -4,7 +4,7 @@ extends Reference
 
 var card_name: String
 var card_object: Card
-var upgrade_progress := 0
+var upgrade_progress := 5
 # How many times the card can be played before its eligible for an upgrade
 # If the value is -1, it's not upgradable
 var upgrade_threshold := 6

@@ -18,6 +18,7 @@ const CARDS := {
 		"_upgrades": [
 			"Solid Confidence",
 			"Easy Confidence",
+			"Ephemeral Confidence",
 		],
 	},
 	"Solid Confidence": {
@@ -46,6 +47,20 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"Ephemeral Confidence": {
+		"Type": "Control",
+		"Tags": [],
+		"Abilities": "Gain {defence_amount} {confidence}. {release}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Starting",
+		"_keywords": ["confidence"],
+		"_avoid_normal_discard": true,
+		"_amounts": {
+			"defence_amount": 10
+		},
+		"_is_upgrade": true,
+	},
 	"Interpretation": {
 		"Type": "Action",
 		"Tags": [],
@@ -61,6 +76,7 @@ const CARDS := {
 		"_upgrades": [
 			"Solid Interpretation",
 			"Easy Interpretation",
+			"Ephemeral Interpretation",
 		],
 	},
 	"Easy Interpretation": {
@@ -86,6 +102,20 @@ const CARDS := {
 		"_keywords": ["interpretation"],
 		"_amounts": {
 			"damage_amount": 9
+		},
+		"_is_upgrade": true,
+	},
+	"Ephemeral Interpretation": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}. {release}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Starting",
+		"_keywords": ["interpretation"],
+		"_avoid_normal_discard": true,
+		"_amounts": {
+			"damage_amount": 12
 		},
 		"_is_upgrade": true,
 	},

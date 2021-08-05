@@ -257,13 +257,13 @@ func apply_effect(script: ScriptTask) -> int:
 	return(retcode)
 
 
-func remove_card_from_game(script: ScriptTask) -> int:
+func remove_card_from_deck(script: ScriptTask) -> int:
 	var retcode: int = CFConst.ReturnCode.CHANGED
 	if not costs_dry_run():
 		# We inject the tags from the script into the tags sent by the signal
 		var _tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
 		for card in script.subjects:
-			card.remove_from_game()
+			card.remove_from_deck()
 	return(retcode)
 
 

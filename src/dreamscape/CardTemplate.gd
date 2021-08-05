@@ -103,6 +103,7 @@ func retrieve_scripts(trigger: String) -> Dictionary:
 		else:
 			found_scripts["hand"] += generate_discard_tasks()
 		found_scripts["hand"] += generate_play_confirm_scripts()
+	print_debug(found_scripts)
 	return(found_scripts)
 
 # Sets a flag when an action card is dragged to the board manually
@@ -219,7 +220,7 @@ func generate_play_confirm_scripts() -> Array:
 # the cards existing scripts for its state.
 func generate_remove_from_deck_tasks() -> Array:
 	var remove_script_template := {
-			"name": "remove_card_from_game",
+			"name": "remove_card_from_deck",
 			"subject": "self",
 			"tags": ["Played"]}
 	var remove_tasks = [remove_script_template]
@@ -264,12 +265,16 @@ func common_pre_run(sceng) -> void:
 
 
 # Removes this card from the game completely.
-func remove_from_game() -> void:
+# This means the card is also removed permanently from the player's deck
+# This change stays for all further encounters
+func remove_from_deck() -> void:
 #	card_front.apply_sharer("res://shaders/consume.shader")
 	card_front.material = preload("res://shaders/dissolve.tres")
 #	card_front.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
 	state = ExtendedCardState.REMOVE_FROM_GAME
 	cfc.flush_cache()
+	if deck_card_entry:
+		globals.player.deck.remove_card(deck_card_entry)
 
 
 

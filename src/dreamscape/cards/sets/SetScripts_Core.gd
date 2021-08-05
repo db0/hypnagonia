@@ -10,7 +10,13 @@ const SAME_SCRIPT_MODIFIERS := [
 	"Easy", # Used when the upgraded card has just lower cost
 	"Solid", # Used when the upgraded card has just higher amount or damage or defence.
 	"Enhanced", # Used when the upgraded card has just higher amount of effect stacks.
+	"Ephemeral", # Used when the upgraded card is just adding an extra task to remove the card from deck.
 ]
+
+const EPHEMERAL_TASK := {
+	"name": "remove_card_from_deck",
+	"subject": "self",
+}
 
 
 # This fuction returns all the scripts of the specified card name.
@@ -818,7 +824,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			"manual": {
 				"hand": [
 					{
-						"name": "remove_card_from_game",
+						"name": "remove_card_from_deck",
 						"subject": "self",
 					},
 				],
@@ -1074,11 +1080,14 @@ func get_scripts(card_name: String) -> Dictionary:
 		},
 	}
 	var break_loop := false
+	var is_ephemeral := false
 	for script_id in scripts:
 		for prepend in SAME_SCRIPT_MODIFIERS:
 			var card_name_with_unmodified_scripts = prepend + ' ' + script_id
 			if card_name == card_name_with_unmodified_scripts:
 				script_name = script_id
+				if prepend == "Ephemeral":
+					is_ephemeral = true
 				break_loop = true
 				break
 		if break_loop: break
@@ -1089,4 +1098,9 @@ func get_scripts(card_name: String) -> Dictionary:
 #		"Easy Confidence", "Solid Confidence":
 #			script_name = "Confidence"
 	# We return only the scripts that match the card name and trigger
-	return(scripts.get(script_name,{}))
+	var ret_script = scripts.get(script_name,{}).duplicate(true)
+	# We use this trick to avoid creating a whole new script for the ephemeral
+	# upgraded versions, just to add the "remove from deck" task
+	if is_ephemeral:
+		ret_script["manual"]["hand"].append(EPHEMERAL_TASK)
+	return(ret_script)
