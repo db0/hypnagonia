@@ -11,7 +11,11 @@ func get_effect_alteration(
 			or not "Attack" in script.get_property(SP.KEY_TAGS)\
 			or not is_source:
 		return(0)
-	var new_value = value * 2
+	var new_value: int
+	if upgrade == 'powerful':
+		new_value = value * 3
+	else:
+		new_value = value * 2
 	var alteration = new_value - value
 #	print_debug("Advantage ({value} * 2) = {new_value} (alteration = {alteration})".format({"value": value, "new_value": new_value, "alteration": alteration }))
 	# This is the only way to reduce the stack only when all effects in the same card are resolved

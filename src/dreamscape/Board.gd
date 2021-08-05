@@ -274,11 +274,9 @@ func _input(event):
 #		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 8)
 		for c in [
-			"Ephemeral Confidence",
-			"Ephemeral Interpretation",
-			"Ephemeral Interpretation",
-			"Dread",
-			"Dread",
+			"Fleeting Inner Justice",
+			"Solid Inner Justice",
+			"Easy Inner Justice",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.deck.add_child(card)

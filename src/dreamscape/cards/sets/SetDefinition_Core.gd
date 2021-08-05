@@ -132,9 +132,10 @@ const CARDS := {
 		"_amounts": {
 			"effect_stacks": 1
 		},
-		"_upgrade_threshold": 5,
+		"_upgrade_threshold": 6,
 		"_upgrades": [
 			"Easy Out of Reach",
+			"Enhanced Out of Reach",
 		],
 	},
 	"Easy Out of Reach": {
@@ -152,26 +153,129 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"Enhanced Out of Reach": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
+		"Abilities": "Gain {effect_stacks} {untouchable}",
+		"Cost": 5,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
+		},
+		"_rarity": "Common",
+		"_amounts": {
+			"effect_stacks": 2
+		},
+		"_is_upgrade": true,
+	},
 	"Dive-in": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.risky.name],
-		"Abilities": "Gain 2 {shaken}\nYour next {damage} is doubled.",
+		"Abilities": "Gain {effect_stacks} {shaken}\nYour next {damage} is doubled.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.PLAYER
 		},
-		"_keywords": ["interpretation"]
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"effect_stacks": 2
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"Powerful Dive-in",
+			"Enhanced Dive-in",
+		],
+	},
+	"Enhanced Dive-in": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.risky.name],
+		"Abilities": "Gain {effect_stacks} {shaken}\nYour next {damage} is doubled.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.PLAYER
+		},
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"effect_stacks": 1
+		},
+		"_is_upgrade": true,
+	},
+	"Powerful Dive-in": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.risky.name],
+		"Abilities": "Gain {effect_stacks} {shaken}\nYour next {damage} is tripled.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.PLAYER
+		},
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"effect_stacks": 3
+		},
+		"_is_upgrade": true,
 	},
 	"Safety of Air": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
-		"Abilities": "{relax} for 4. {forget}.",
+		"Abilities": "{relax} for {healing_amount}. {forget}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["forget"]
+		"_keywords": ["forget"],
+		"_amounts": {
+			"healing_amount": 4
+		},
+		"_upgrade_threshold": 8,
+		"_upgrades": [
+			"Solid Safety of Air",
+			"Sustained Safety of Air",
+			"Easy Safety of Air",
+		],
+	},
+	"Solid Safety of Air": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.relax.name],
+		"Abilities": "{relax} for {healing_amount}. {forget}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["forget"],
+		"_amounts": {
+			"healing_amount": 7
+		},
+		"_is_upgrade": true,
+	},
+	"Easy Safety of Air": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.relax.name],
+		"Abilities": "{relax} for {healing_amount}. {forget}.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["forget"],
+		"_amounts": {
+			"healing_amount": 4
+		},
+		"_is_upgrade": true,
+	},
+	"Sustained Safety of Air": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.relax.name],
+		"Abilities": "{relax} for {healing_amount}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": [],
+		"_amounts": {
+			"healing_amount": 4
+		},
+		"_is_upgrade": true,
 	},
 	"Nothing to Fear": {
 		"Type": "Concentration",
@@ -213,14 +317,57 @@ const CARDS := {
 	"Confounding Movements": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
-		"Abilities": "Gain 9 {confidence}\nApply 1 {confusion} to target Torment.",
+		"Abilities": "Gain {defence_amount} {confidence}\nApply {effect_stacks} {confusion} to target Torment.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
 		"_rarity": "Common",
-		"_keywords": ["confidence"]
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 9,
+			"effect_stacks": 1,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"Solid Confounding Movements",
+			"Enhanced Confounding Movements",
+		],
+	},
+	"Solid Confounding Movements": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
+		"Abilities": "Gain {defence_amount} {confidence}\nApply {effect_stacks} {confusion} to target Torment.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
+		"_rarity": "Common",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 14,
+			"effect_stacks": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"Enhanced Confounding Movements": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
+		"Abilities": "Gain {defence_amount} {confidence}\nApply {effect_stacks} {confusion} to target Torment.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
+		"_rarity": "Common",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 10,
+			"effect_stacks": 2,
+		},
+		"_is_upgrade": true,
 	},
 	"Noisy Whip": {
 		"Type": "Action",
@@ -298,10 +445,55 @@ const CARDS := {
 	"Inner Justice": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.purpose.name],
-		"Abilities": "Gain 4 {immersion}",
+		"Abilities": "Gain {immersion_amount} {immersion}",
 		"Cost": 3,
 		"_illustration": "Nobody",
 		"_rarity": "Starting",
+		"_amounts": {
+			"immersion_amount": 4,
+		},
+		"_upgrade_threshold": 6,
+		"_upgrades": [
+			"Easy Inner Justice",
+			"Solid Inner Justice",
+			"Fleeting Inner Justice",
+		],
+	},
+	"Easy Inner Justice": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.purpose.name],
+		"Abilities": "Gain {immersion_amount} {immersion}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Starting",
+		"_amounts": {
+			"immersion_amount": 3,
+		},
+		"_is_upgrade": true,
+	},
+	"Solid Inner Justice": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.purpose.name],
+		"Abilities": "Gain {immersion_amount} {immersion}",
+		"Cost": 4,
+		"_illustration": "Nobody",
+		"_rarity": "Starting",
+		"_amounts": {
+			"immersion_amount": 7,
+		},
+		"_is_upgrade": true,
+	},
+	"Fleeting Inner Justice": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "Gain {immersion_amount} {immersion}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Starting",
+		"_amounts": {
+			"immersion_amount": 2,
+		},
+		"_is_upgrade": true,
 	},
 	"Whirlwind": {
 		"Type": "Action",

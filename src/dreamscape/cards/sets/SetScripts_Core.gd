@@ -8,11 +8,18 @@ extends Reference
 # is the card statistics (like cost)
 const SAME_SCRIPT_MODIFIERS := [
 	"Easy", # Used when the upgraded card has just lower cost
-	"Solid", # Used when the upgraded card has just higher amount or damage or defence.
-	"Enhanced", # Used when the upgraded card has just higher amount of effect stacks.
-	"Ephemeral", # Used when the upgraded card is just adding an extra task to remove the card from deck.
+	"Solid", # Used when the upgraded card has higher amount or damage or defence.
+	"Enhanced", # Used when the upgraded card has higher amount of effect stacks.
+	"Ephemeral", # Used when the upgraded card is adding an extra task to remove the card from deck.
+	"Fleeting", # Used when the upgraded card is adding an extra task to exhaust the card.
 ]
 
+# When a the "Ephemeral" prepend has been added to a card upgrade
+# It means the card is permanently removed from the deck after using it.
+# This is the ScEng task that does this, and it is automatically appended
+# to the card's normal scripts.
+# For this to work properly, the card definition needs to also have
+# The "_avoid_normal_discard" property set to true
 const EPHEMERAL_TASK := {
 	"name": "remove_card_from_deck",
 	"subject": "self",
@@ -88,7 +95,8 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "apply_effect",
 						"effect_name": Terms.ACTIVE_EFFECTS.vulnerable.name,
 						"subject": "dreamer",
-						"modification": 2,
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("effect_stacks"),
 					},
 					{
 						"name": "apply_effect",
@@ -99,19 +107,53 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
+		"Powerful Dive-in": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.vulnerable.name,
+						"subject": "dreamer",
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("effect_stacks"),
+					},
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.advantage.name,
+						"subject": "dreamer",
+						"modification": 1,
+						"upgrade_name": "powerful",
+					}
+				],
+			},
+		},
 		"Safety of Air": {
 			"manual": {
 				"hand": [
 					{
 						"name": "modify_damage",
 						"subject": "dreamer",
-						"amount": -4,
+						"amount": -cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("healing_amount", 0),
 						"tags": ["Healing"],
 					},
 					{
 						"name": "move_card_to_container",
 						"subject": "self",
 						"dest_container": cfc.NMAP.forgotten,
+					},
+				],
+			},
+		},
+		"Sustained Safety of Air": {
+			"manual": {
+				"hand": [
+					{
+						"name": "modify_damage",
+						"subject": "dreamer",
+						"amount": -cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("healing_amount", 0),
+						"tags": ["Healing"],
 					},
 				],
 			},
@@ -160,14 +202,16 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "assign_defence",
 						"subject": "dreamer",
-						"amount": 9,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("defence_amount"),
 					},
 					{
 						"name": "apply_effect",
 						"effect_name": Terms.ACTIVE_EFFECTS.disempower.name,
 						"subject": "target",
 						"is_cost": true,
-						"modification": 1,
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("effect_stacks"),
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
 						}],
@@ -181,7 +225,8 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "mod_counter",
 						"counter_name": "immersion",
-						"modification": 4,
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("immersion_amount"),
 					},
 				],
 			},
@@ -1085,16 +1130,26 @@ func get_scripts(card_name: String) -> Dictionary:
 
 # Takes care to return the correct script, even for card with standard upgrades
 func _prepare_scripts(all_scripts: Dictionary, card_name: String) -> Dictionary:
+	# When a the "Fleeting" prepend has been added to a card upgrade
+	# It means the card is forgotten after using it.
+	# This is the ScEng task that does this, and it is automatically appended
+	# to the card's normal scripts.
+	# We cannot make this into a const as it refers via NMAP
+	var FLEETING_TASK := {
+		"name": "move_card_to_container",
+		"subject": "self",
+		"dest_container": cfc.NMAP.forgotten,
+	}
 	var script_name := card_name
 	var break_loop := false
-	var is_ephemeral := false
+	var special_destination = null
 	for script_id in all_scripts:
 		for prepend in SAME_SCRIPT_MODIFIERS:
 			var card_name_with_unmodified_scripts = prepend + ' ' + script_id
 			if card_name == card_name_with_unmodified_scripts:
 				script_name = script_id
-				if prepend == "Ephemeral":
-					is_ephemeral = true
+				if prepend in ["Ephemeral", "Fleeting"]:
+					special_destination = prepend
 				break_loop = true
 				break
 		if break_loop: break
@@ -1107,6 +1162,9 @@ func _prepare_scripts(all_scripts: Dictionary, card_name: String) -> Dictionary:
 	var ret_script = all_scripts.get(script_name,{}).duplicate(true)
 	# We use this trick to avoid creating a whole new script for the ephemeral
 	# upgraded versions, just to add the "remove from deck" task
-	if is_ephemeral:
-		ret_script["manual"]["hand"].append(EPHEMERAL_TASK)
+	match special_destination:
+		"Ephemeral":
+			ret_script["manual"]["hand"].append(EPHEMERAL_TASK)
+		"Fleeting":
+			ret_script["manual"]["hand"].append(FLEETING_TASK)
 	return(ret_script)

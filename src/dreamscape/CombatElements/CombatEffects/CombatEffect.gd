@@ -138,12 +138,10 @@ func execute_script(
 
 func _on_player_turn_ended(_turn: Turn) -> void:
 	if entity_type == Terms.PLAYER and self_decreasing == SELF_DECREASE.TURN_END:
-		print_debug(self_decreasing)
 		set_stacks(stacks - 1)
 
 func _on_player_turn_started(_turn: Turn) -> void:
 	if entity_type == Terms.PLAYER and self_decreasing == SELF_DECREASE.TURN_START:
-		print_debug(self_decreasing)
 		set_stacks(stacks - 1)
 
 func _on_enemy_turn_ended(_turn: Turn) -> void:
