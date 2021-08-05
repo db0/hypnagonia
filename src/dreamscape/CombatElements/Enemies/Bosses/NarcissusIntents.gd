@@ -30,7 +30,7 @@ const INTENTS := [
 func _ready() -> void:
 	all_intents = INTENTS.duplicate(true)
 
-func prepare_intents() -> void:
+func prepare_intents(_starting_index = null) -> void:
 	if not unused_intents.size():
 		refresh_intents()
 	var new_intents : Dictionary = unused_intents.pop_front().duplicate(true)

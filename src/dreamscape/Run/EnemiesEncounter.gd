@@ -30,7 +30,8 @@ func get_formated_description() -> String:
 
 func get_unique_enemies() -> Array:
 	var unique_enemies := []
-	for enemy in enemies:
+	for enemy_entry in enemies:
+		var enemy : Dictionary = enemy_entry["definition"]
 		if not enemy.Name in unique_enemies:
 			unique_enemies.append(enemy.Name)
 	return(unique_enemies)

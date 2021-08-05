@@ -72,7 +72,6 @@ func focus_card(card: Card) -> void:
 		var dupe_focus: Card
 		if _previously_focused_cards.has(card):
 			dupe_focus = _previously_focused_cards[card]
-			_extra_dupe_preparation(dupe_focus, card)
 		else:
 			dupe_focus = card.duplicate(DUPLICATE_USE_INSTANCING)
 			dupe_focus.remove_from_group("cards")
@@ -147,7 +146,6 @@ func unfocus_all() -> void:
 func _extra_dupe_preparation(dupe_focus: Card, card: Card) -> void:
 	dupe_focus.canonical_name = card.canonical_name
 	dupe_focus.properties = card.properties.duplicate()
-	dupe_focus.deck_card_entry = card.deck_card_entry
 	focus_info.hide_all_info()
 
 

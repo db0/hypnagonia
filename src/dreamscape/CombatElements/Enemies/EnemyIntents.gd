@@ -11,10 +11,19 @@ var intent_name: String
 
 var all_intent_scripts = IntentScripts.new()
 
-func prepare_intents() -> void:
+func prepare_intents(specific_index = null) -> void:
+	# This will reshuffle all intents and make sure the specified intent is the 
+	# one selected for this enemy. This is useful for setting up enemies.
 	if not unused_intents.size():
 		reshuffle_intents()
-	var new_intents : Dictionary = unused_intents.pop_back().duplicate(true)
+	var new_intents : Dictionary
+	if specific_index != null:
+		unused_intents = all_intents.duplicate(true)
+		new_intents = unused_intents[specific_index].duplicate(true)
+		unused_intents.remove(specific_index)
+		CFUtils.shuffle_array(unused_intents)
+	else:
+		new_intents = unused_intents.pop_back().duplicate(true)
 	if new_intents.reshuffle:
 		reshuffle_intents()
 	for intent in get_children():

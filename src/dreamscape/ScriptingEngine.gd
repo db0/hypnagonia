@@ -389,6 +389,16 @@ func spawn_enemy(script: ScriptTask) -> void:
 			var health_modify: int = script.get_property(SP.KEY_MODIFY_SPAWN_HEALTH, 0)
 			enemy_entity.health += health_modify
 			enemy_entity.emit_signal("finished_activation", enemy_entity)
+			var stating_intent = script.get_property('starting_intent', null)
+			if stating_intent:
+				# This delay is needed to allow the starting intent to be added
+				# so that it can be seen to be queued_free
+				yield(cfc.get_tree().create_timer(0.01), "timeout")
+				enemy_entity.intents.prepare_intents(stating_intent)
+			var stating_effects = script.get_property('starting_effects', null)
+			if stating_effects:
+				for effect in stating_effects:
+					enemy_entity.active_effects.mod_effect(effect["name"],effect["stacks"])
 
 
 func draw_cards(script: ScriptTask) -> int:

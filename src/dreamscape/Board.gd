@@ -85,9 +85,18 @@ func randomize_background() -> void:
 	_background.texture = new_texture
 
 func spawn_enemy_encounter(encounter: EnemyEncounter) -> void:
-	for enemy_properties in encounter.enemies:
-# warning-ignore:return_value_discarded
-		spawn_enemy(enemy_properties)
+	for enemy_entry in encounter.enemies:
+		var new_enemy = spawn_enemy(enemy_entry['definition'])
+		if enemy_entry.has('starting_intent'):
+			# This delay is needed to allow the starting intent to be added
+			# so that it can be seen to be queued_free
+			yield(get_tree().create_timer(0.1), "timeout")
+			new_enemy.intents.prepare_intents(enemy_entry['starting_intent'])
+		if enemy_entry.has('starting_effects'):
+			for effect in enemy_entry['starting_effects']:
+				new_enemy.active_effects.mod_effect(effect["name"],effect["stacks"])
+			
+			
 
 func spawn_enemy(enemy_properties) -> EnemyEntity:
 	if get_tree().get_nodes_in_group("EnemyEntities").size() >= 5:
@@ -171,6 +180,7 @@ func get_all_scriptables() -> Array:
 # Loads the player's deck
 func load_deck() -> void:
 	if not globals.player.deck:
+		# warning-ignore:return_value_discarded
 		NewGameMenu.randomize_aspect_choices()
 		cfc.game_rng_seed = CFUtils.generate_random_seed()
 		globals.player.setup()

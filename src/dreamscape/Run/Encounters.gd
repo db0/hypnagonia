@@ -1,6 +1,28 @@
 class_name SingleRun
 extends Reference
 
+"""
+The enemies list, is a list of dictionaries, which define which enemy to spawn
+in each encounter. You can also optionally specified starting effects
+for each enemy, as well as a specific intent to start with. The intent
+Should be a valid index within the intents available for that enemy
+
+As an example:
+
+		"enemies": [
+			{
+				"definition": EnemyDefinitions.THE_LAUGHING_ONE,
+				"starting_intent": 1
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.vulnerable.name,
+						"stacks": 5
+					}
+				]
+			},
+"""
+
+
 const EARLY_ENEMIES := [
 	{
 		"journal_description":\
@@ -8,8 +30,24 @@ const EARLY_ENEMIES := [
 		"journal_reward":\
 			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
 		"enemies": [
-			EnemyDefinitions.THE_LAUGHING_ONE,
-			EnemyDefinitions.THE_LAUGHING_ONE,
+			{
+				"definition": EnemyDefinitions.THE_LAUGHING_ONE,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.vulnerable.name,
+						"stacks": 5
+					}
+				]
+			},
+			{
+				"definition": EnemyDefinitions.THE_LAUGHING_ONE,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.burn.name,
+						"stacks": 2
+					}
+				]
+			}
 		],
 		"journal_art": preload("res://assets/journal/the_laughing_one.jpeg"),
 	},
@@ -20,7 +58,10 @@ const EARLY_ENEMIES := [
 			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
 		"journal_art": preload("res://assets/journal/fearmonger.jpeg"),
 		"enemies": [
-			EnemyDefinitions.FEARMONGER,
+			{
+				"definition": EnemyDefinitions.FEARMONGER,
+				"starting_intent": 1
+			},
 		]
 	},
 	{
@@ -29,7 +70,9 @@ const EARLY_ENEMIES := [
 		"journal_reward":\
 			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
 		"enemies": [
-			EnemyDefinitions.GASLIGHTER,
+			{
+				"definition": EnemyDefinitions.GASLIGHTER,
+			},
 		],
 		"journal_art": preload("res://assets/journal/gaslighter.jpeg"),
 	},
