@@ -1,5 +1,20 @@
 # Dreams: Changelog
 
+## v0.9.0
+
+* Added card upgrades
+    Allows setting up card upgrades with minimum extra card and script definitions
+    Can specify card amounts in the card properties. They will be bbcode coloured
+    Card upgrades are selected in journal after each encounter
+    Cards are slowly upgraded as they're played. Progress is currently only shown in info popups
+    Each card can have multiple upgrades
+    Non-upgraded cards don't have glowing rarity. Upgraded cards have glowing rarity
+    Only a limited number of times can be progressed per encounter. The amount is equal to the deck size.
+    Added way to provide upgraded effects, without setting new scenes and terms.
+* Added more Torments and tweaked intents (@DioBal)
+* Added two new effects: Retaliation and Resentment
+* Added new Ego Archetype: Mad Scientist (Design by @DioBal)
+
 ## v0.8.1
 
 * Improved performance when loading the Card Library in Grid mode
