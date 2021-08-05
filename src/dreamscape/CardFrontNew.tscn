@@ -245,15 +245,15 @@ custom_constants/separation = 0
 [node name="NamePush" type="Control" parent="CardText/ArtLayover"]
 use_parent_material = true
 margin_right = 200.0
-margin_bottom = 7.0
-rect_min_size = Vector2( 200, 7 )
+margin_bottom = 6.0
+rect_min_size = Vector2( 200, 6 )
 mouse_filter = 2
 
 [node name="MC" type="MarginContainer" parent="CardText/ArtLayover"]
 use_parent_material = true
-margin_top = 7.0
+margin_top = 6.0
 margin_right = 200.0
-margin_bottom = 23.0
+margin_bottom = 22.0
 rect_min_size = Vector2( 0, 16 )
 mouse_filter = 2
 custom_constants/margin_right = 32
@@ -272,13 +272,12 @@ custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "Card Name"
 align = 1
 valign = 1
-autowrap = true
 
 [node name="MC2" type="MarginContainer" parent="CardText/ArtLayover"]
 use_parent_material = true
-margin_top = 23.0
+margin_top = 22.0
 margin_right = 200.0
-margin_bottom = 38.0
+margin_bottom = 37.0
 rect_min_size = Vector2( 0, 13 )
 mouse_filter = 2
 custom_constants/margin_right = 50

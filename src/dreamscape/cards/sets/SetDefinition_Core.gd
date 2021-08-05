@@ -54,7 +54,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Starting",
-		"_keywords": ["confidence"],
+		"_keywords": ["confidence","release"],
 		"_avoid_normal_discard": true,
 		"_amounts": {
 			"defence_amount": 10
@@ -112,7 +112,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Starting",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation","release"],
 		"_avoid_normal_discard": true,
 		"_amounts": {
 			"damage_amount": 12

@@ -275,8 +275,8 @@ func _input(event):
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 8)
 		for c in [
 			"Ephemeral Confidence",
-			"Ephemeral Confidence",
-			"Ephemeral Confidence",
+			"Ephemeral Interpretation",
+			"Ephemeral Interpretation",
 			"Dread",
 			"Dread",
 		]:

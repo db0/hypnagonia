@@ -103,7 +103,6 @@ func retrieve_scripts(trigger: String) -> Dictionary:
 		else:
 			found_scripts["hand"] += generate_discard_tasks()
 		found_scripts["hand"] += generate_play_confirm_scripts()
-	print_debug(found_scripts)
 	return(found_scripts)
 
 # Sets a flag when an action card is dragged to the board manually

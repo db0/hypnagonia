@@ -3,8 +3,10 @@ class_name CardEntry
 extends Reference
 
 var card_name: String
+# The actual card on the board linked to this card entry. The card on the board
+# is reset each new encounter
 var card_object: Card
-var upgrade_progress := 5
+var upgrade_progress := 0
 # How many times the card can be played before its eligible for an upgrade
 # If the value is -1, it's not upgradable
 var upgrade_threshold := 6
@@ -39,6 +41,8 @@ func can_be_upgraded() -> bool:
 		return(true)
 	return(false)
 
+# Retrieves all possible upgrades for this card and sets two of them to be
+# the options when it's upgraded
 func set_upgrade_options() -> void:
 	upgrade_options = cfc.card_definitions[card_name].get("_upgrades", []).duplicate(true)
 	if upgrade_options.size() > 2:

@@ -52,7 +52,7 @@ func _ready() -> void:
 	for label in card_labels:
 		match label:
 			"Cost":
-				original_font_sizes[label] = 20
+				original_font_sizes[label] = 25
 			"Abilities":
 				original_font_sizes[label] = 20
 			_:
