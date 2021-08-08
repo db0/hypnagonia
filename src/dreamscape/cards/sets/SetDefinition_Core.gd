@@ -384,7 +384,7 @@ const CARDS := {
 			"damage_amount": 6,
 			"effect_stacks": 1,
 		},
-		"_upgrade_threshold": 1,
+		"_upgrade_threshold": 6,
 		"_upgrades": [
 			"Solid Noisy Whip",
 			"Easy Noisy Whip",

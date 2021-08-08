@@ -24,6 +24,9 @@ const KEY_EVENT_NAME = "event_name"
 const KEY_ENEMY_NAME = "enemy_name"
 const KEY_ENEMY = "enemy"
 const KEY_MODIFY_SPAWN_HEALTH = "modify_spawn_health"
+# Used when removing a card from the deck. If set to true, removes the card
+# for the whole run
+const KEY_PERMANENT = "is_permanent"
 const FILTER_PER_EFFECT_STACKS = "filter_per_effect_stacks"
 const PER_EFFECT_STACKS = "per_effect_stacks"
 const KEY_CARD_COUNT := "card_count"

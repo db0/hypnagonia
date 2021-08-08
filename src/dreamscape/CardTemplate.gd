@@ -214,13 +214,15 @@ func generate_play_confirm_scripts() -> Array:
 		}
 	return([confirm_play_template])
 
-# Uses a template to create task definitions for removing  a card from the game
+# Uses a template to create task definitions for removing  a card permenanently from the deck
 # then returns it to the calling function to execute or insert it into
 # the cards existing scripts for its state.
-func generate_remove_from_deck_tasks() -> Array:
+# If permanent is true, card will be removed for the whole run.
+func generate_remove_from_deck_tasks(permanent := false) -> Array:
 	var remove_script_template := {
 			"name": "remove_card_from_deck",
 			"subject": "self",
+			"is_permanent": permanent,
 			"tags": ["Played"]}
 	var remove_tasks = [remove_script_template]
 	return(remove_tasks)
@@ -266,13 +268,15 @@ func common_pre_run(sceng) -> void:
 # Removes this card from the game completely.
 # This means the card is also removed permanently from the player's deck
 # This change stays for all further encounters
-func remove_from_deck() -> void:
+func remove_from_deck(permanent := true) -> void:
 #	card_front.apply_sharer("res://shaders/consume.shader")
 	card_front.material = preload("res://shaders/dissolve.tres")
 #	card_front.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
 	state = ExtendedCardState.REMOVE_FROM_GAME
 	cfc.flush_cache()
-	if deck_card_entry:
+	# If this is a permanent removal, we also remove the card from the
+	# whole run
+	if deck_card_entry and permanent:
 		globals.player.deck.remove_card(deck_card_entry)
 
 

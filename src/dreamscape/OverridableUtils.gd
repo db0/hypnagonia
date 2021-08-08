@@ -39,7 +39,8 @@ func populate_info_panels(card: Card, focus_info: DetailPanels) -> void:
 			format["half_amount"] = "0.5"
 			focus_info.add_info(
 					effect_entry.name,
-					effect_entry.description.format(format).format(bbcode_format), preload("res://src/dreamscape/EffectInfoPanel.tscn"))
+					effect_entry.description.format(format).\
+						format(bbcode_format), preload("res://src/dreamscape/EffectInfoPanel.tscn"))
 	var tags : Array = card.get_property("Tags")
 	for tag in tags:
 		if tag in added_effects:

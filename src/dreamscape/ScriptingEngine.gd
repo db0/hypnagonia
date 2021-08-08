@@ -262,8 +262,9 @@ func remove_card_from_deck(script: ScriptTask) -> int:
 	if not costs_dry_run():
 		# We inject the tags from the script into the tags sent by the signal
 		var _tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
+		var is_permanent: bool = script.get_property(SP.KEY_PERMANENT, true)
 		for card in script.subjects:
-			card.remove_from_deck()
+			card.remove_from_deck(is_permanent)
 	return(retcode)
 
 

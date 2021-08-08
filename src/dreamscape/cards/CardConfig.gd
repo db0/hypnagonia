@@ -52,9 +52,9 @@ const EXPLANATIONS = {
 			+ "Limits the amount of cards you can play per turn.",
 	"overcome": "Overcoming: Once the dreamer has interpreted a Torment enough "\
 			+ "it is removed from the encounter.",
-	"forget": "[color=yellow]Forget[/color]: This card is removed from this encounter and will not be reshuffled into the deck.",
-	"release": "[color=yellow]Release[/color]: This card is removed permanently from the Dreamer's deck.",
-	"perturbation": "[color=purple]Perturbation[/color]: Cards that tend to clutter your deck, and may have extra negative effects.",
+	"forget": "[color=teal]Forget[/color]: This card is removed from this encounter and will not be reshuffled into the deck.",
+	"release": "[color=teal]Release[/color]: This card is removed permanently from the Dreamer's deck.",
+	"perturbation": "[color=white]Perturbation[/color]: Cards that tend to clutter your deck, and may have extra negative effects.",
 }
 
 

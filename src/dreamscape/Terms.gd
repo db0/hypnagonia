@@ -287,7 +287,7 @@ const GENERIC_TAGS := {
 		"name": "Fading",
 		"icon": preload("res://assets/icons/empty-hourglass.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/empty-hourglass.png",
-		"generic_description": "[color=yellow]{effect_name} ({effect_icon}): If still in the hand at the end of the turn, it is forgotten.[/color]"},
+		"generic_description": "[color=purple]{effect_name} ({effect_icon}): If still in the hand at the end of the turn, it is forgotten.[/color]"},
 	"spark": {
 		"name": "Spark",	
 		"icon": preload("res://assets/icons/idea.png"),
