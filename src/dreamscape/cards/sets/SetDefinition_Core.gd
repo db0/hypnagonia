@@ -889,12 +889,48 @@ const CARDS := {
 	"Change of Mind": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
-		"Abilities": "{damage} for 8. {shuffle} this card into your deck.",
+		"Abilities": "{damage} for {damage_amount}. {shuffle} this card into your deck.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_avoid_normal_discard": true,
 		"_rarity": "Common",
-		"_keywords": ["interpretation"]
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 8,
+		},
+		"_upgrade_threshold": 6,
+		"_upgrades": [
+			"Solid Change of Mind",
+			"Easy Change of Mind",
+		],
+	},
+	"Solid Change of Mind": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.spark.name],
+		"Abilities": "{damage} for {damage_amount}. {shuffle} this card into your deck.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_avoid_normal_discard": true,
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 11,
+		},
+		"_is_upgrade": true,
+	},
+	"Easy Change of Mind": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.spark.name],
+		"Abilities": "{damage} for {damage_amount}. {shuffle} this card into your deck.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_avoid_normal_discard": true,
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 6,
+		},
+		"_is_upgrade": true,
 	},
 	"Brilliance": {
 		"Type": "Concentration",

@@ -11,6 +11,7 @@
    * Non-upgraded cards don't have glowing rarity. Upgraded cards have glowing rarity
    * Only a limited number of times can be progressed per encounter. The amount is equal to the deck size.
    * Added way to provide upgraded effects, without setting new scenes and terms.
+* Added upgrades for starting cards and some more. Progress ongoing...
 * Added more Torments and tweaked intents (@DioBal)
 * Added two new effects: Retaliation and Resentment
 * Added new Ego Archetype: Mad Scientist (Design by @DioBal)

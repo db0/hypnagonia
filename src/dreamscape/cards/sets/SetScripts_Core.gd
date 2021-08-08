@@ -909,7 +909,8 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "modify_damage",
 						"subject": "target",
 						"is_cost": true,
-						"amount": 8,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
 						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",

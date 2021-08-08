@@ -1,5 +1,7 @@
 extends "res://src/core/OverridableUtils.gd"
 
+const _DCARD_SELECT_SCENE_FILE = CFConst.PATH_CUSTOM + "SelectionWindow.tscn"
+const _DCARD_SELECT_SCENE = preload(_DCARD_SELECT_SCENE_FILE)
 
 func get_subjects(subject_request, _stored_integer: int = 0) -> Array:
 	var ret_array := []
@@ -49,3 +51,21 @@ func populate_info_panels(card: Card, focus_info: DetailPanels) -> void:
 		focus_info.add_info(
 				tag_entry.name,
 				tag_entry.generic_description.format(bbcode_format), preload("res://src/dreamscape/InfoPanel.tscn"))
+
+func select_card(
+		card_list: Array,
+		selection_count: int,
+		selection_type: String,
+		selection_optional: bool,
+		parent_node,
+		card_select_scene = _DCARD_SELECT_SCENE):
+	var selected_cards = .select_card(
+		card_list,
+		selection_count,
+		selection_type,
+		selection_optional,
+		parent_node,
+		card_select_scene)
+	if selected_cards is GDScriptFunctionState: # Still working.
+		selected_cards = yield(selected_cards, "completed")
+	return(selected_cards)

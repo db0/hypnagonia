@@ -1,4 +1,4 @@
-# Project Dreams: A Deckbuilding Therapy Session [v0.6](CHANGELOG.md)
+# Project Dreams: A Deckbuilding Therapy Session [v0.9](CHANGELOG.md)
 
 
 ![Project Dreams preview image](preview.png "Project Dreams preview image")
