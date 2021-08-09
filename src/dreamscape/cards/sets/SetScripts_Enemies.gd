@@ -1,4 +1,5 @@
-extends CoreScripts
+#extends CoreScripts
+extends "res://src/dreamscape/cards/sets/SetScripts_Core.gd"
 
 # This fuction returns all the scripts of the specified card name.
 #

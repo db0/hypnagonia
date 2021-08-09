@@ -10,7 +10,9 @@ extends Pile
 func _ready():
 	# warning-ignore:return_value_discarded
 	$Control.connect("gui_input", self, "_on_DreamPile_input_event")
+	# warning-ignore:return_value_discarded
 	$Control.connect("mouse_entered", self, "_on_DreamPile_mouse_entered")
+	# warning-ignore:return_value_discarded
 	$Control.connect("mouse_exited", self, "_on_DreamPile_mouse_exited")
 
 func _on_DreamPile_input_event(event) -> void:

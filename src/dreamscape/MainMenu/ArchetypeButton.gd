@@ -35,8 +35,8 @@ func _on_Button_mouse_exited() -> void:
 static func retrieve_icon(archetype: String, type: String) -> ImageTexture:
 	var archetype_button_icon = CardGroupDefinitions[archetype.to_upper()][type].get("Icon")
 	if archetype_button_icon:
-		var archetype_texture := ImageTexture.new();
+		var archetype_tex := ImageTexture.new();
 		var image = archetype_button_icon.get_data()
-		archetype_texture.create_from_image(image)
-		return(archetype_texture)
+		archetype_tex.create_from_image(image)
+		return(archetype_tex)
 	return(null)

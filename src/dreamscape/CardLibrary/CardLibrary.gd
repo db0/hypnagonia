@@ -7,7 +7,9 @@ onready var back_button := $VBC/HBC/MC/AvailableCards/Settings/Back
 onready var _archetype_filter_button := $VBC/HBC/MC/AvailableCards/CC/ButtonFilters/ArchetypeFilter
 
 func _ready() -> void:
+	# warning-ignore:return_value_discarded
 	get_viewport().connect("size_changed",self,"_on_viewport_resized")
+	# warning-ignore:return_value_discarded
 	_archetype_filter_button.connect("archetype_chosen", self,"_on_archetype_chosen")
 	
 # Populates the list of available cards, with all defined cards in the game

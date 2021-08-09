@@ -172,7 +172,7 @@ func _on_RewardJournal_meta_clicked(_meta: String) -> void:
 			reward_journal.bbcode_text = "[color=grey]" + reward_journal.text + "[/color]"
 
 
-func _on_UpgradeJournal_meta_clicked(meta):
+func _on_UpgradeJournal_meta_clicked(_meta):
 	pass # Replace with function body.
 
 

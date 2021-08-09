@@ -1,4 +1,5 @@
-class_name CoreScripts
+# Don't know why, but putting a class name here, breaks HTML exports
+#class_name CoreScripts
 extends Reference
 
 # If the upgraded card name is prepending one of these words
