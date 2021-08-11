@@ -53,6 +53,10 @@ static func filter_trigger(
 		for enemy in cfc.get_tree().get_nodes_in_group("EnemyEntities"):
 			if enemy.intents.get_total_damage() > 0:
 				is_valid = false
+	if is_valid and card_scripts.get("filter_smart_gummiraptor"):
+		for enemy in cfc.get_tree().get_nodes_in_group("EnemyEntities"):
+			if enemy.intents.get_total_damage() > 5:
+				is_valid = false
 	if is_valid and card_scripts.get("filter_dreamer_effect"):
 		var current_stacks = cfc.NMAP.board.dreamer.active_effects.get_effect_stacks(
 				card_scripts["filter_dreamer_effect"])

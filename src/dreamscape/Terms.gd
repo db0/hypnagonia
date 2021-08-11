@@ -214,6 +214,9 @@ const ACTIVE_EFFECTS := {
 	"nunclucks":  {
 		"name": "Nunclucks",
 		"description": "{effect_name}: Increase your {damage} by 1, for each stack of {confusion} on the {enemy}.",
+		"upgraded_descriptions": {
+			"massive": "{effect_name}: Increase your {damage} by 2, for each stack of {confusion} on the {enemy}.",
+		},
 		"icon": preload("res://assets/icons/nunchaku.png"),
 	},
 	"unassailable":  {

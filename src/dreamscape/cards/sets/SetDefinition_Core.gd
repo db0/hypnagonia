@@ -743,24 +743,115 @@ const CARDS := {
 	"Nunclucks": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Increase your {damage} by 1 for each stack of {confusion} on the Torment.",
+		"Abilities": "Increase your {damage} by {effect_damage} for each stack of {confusion} on the Torment.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
 		"_rarity": "Rare",
-		"_keywords": ["interpretation"]
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"effect_damage": 1,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"Easy Nunclucks",
+			"Massive Nunclucks",
+		],
+	},
+	"Easy Nunclucks": {
+		"Type": "Concentration",
+		"Tags": [],
+		"Abilities": "Increase your {damage} by {effect_damage} for each stack of {confusion} on the Torment.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
+		"_rarity": "Rare",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"effect_damage": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"Massive Nunclucks": {
+		"Type": "Concentration",
+		"Tags": [],
+		"Abilities": "Increase your {damage} by {effect_damage} for each stack of {confusion} on the Torment.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
+		"_rarity": "Rare",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"effect_damage": 2,
+		},
+		"_is_upgrade": true,
 	},
 	"Gummiraptor": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
-		"Abilities": "{damage} for 10.\n"\
+		"Abilities": "{damage} for {damage_amount}.\n"\
 			+ "Repeat this if Torments are not going to be inflicting any {stress} this turn.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["interpretation", "stress"]
+		"_keywords": ["interpretation", "stress"],
+		"_amounts": {
+			"damage_amount": 14,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"Easy Gummiraptor",
+			"Solid Gummiraptor",
+			"Smart Gummiraptor",
+		],
+	},
+	"Easy Gummiraptor": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.chain.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+			+ "Repeat this if Torments are not going to be inflicting any {stress} this turn.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation", "stress"],
+		"_amounts": {
+			"damage_amount": 12,
+		},
+		"_is_upgrade": true,
+	},
+	"Solid Gummiraptor": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.chain.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+			+ "Repeat this if Torments are not going to be inflicting any {stress} this turn.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation", "stress"],
+		"_amounts": {
+			"damage_amount": 19,
+		},
+		"_is_upgrade": true,
+	},
+	"Smart Gummiraptor": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.chain.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+			+ "Repeat this if Torments are going to be inflicting 5 or less {stress} this turn.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation", "stress"],
+		"_amounts": {
+			"damage_amount": 15,
+		},
+		"_is_upgrade": true,
 	},
 	"Cocky Retort": {
 		"Type": "Control",

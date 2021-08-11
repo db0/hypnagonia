@@ -262,9 +262,9 @@ func game_over() -> void:
 func _input(event):
 	if event.is_action_pressed("init_debug_game"):
 # warning-ignore:unused_variable
-		var torment = spawn_enemy(EnemyDefinitions.CLOWN)
-		var torment2 = spawn_enemy(EnemyDefinitions.CLOWN)
-		var torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
+		var torment = spawn_enemy(EnemyDefinitions.THE_CRITIC)
+#		var torment2 = spawn_enemy(EnemyDefinitions.CLOWN)
+#		var torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
 #		var torment2 = spawn_enemy("The Critic")
 #		var torment3 = spawn_enemy("Gaslighter")
 #		var torment2 = spawn_enemy("Gaslighter")
@@ -276,9 +276,9 @@ func _input(event):
 #		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 8)
 		for c in [
-			"The Solid Joke",
+			"Easy Nunclucks",
+			"Massive Nunclucks",
 			"The Balanced Joke",
-			"The Enhanced Joke",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.deck.add_child(card)

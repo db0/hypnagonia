@@ -396,6 +396,19 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
+		"Massive Nunclucks": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.nunclucks.name,
+						"subject": "dreamer",
+						"modification": 1,
+						"upgrade_name": "massive",
+					},
+				],
+			},
+		},
 		"Gummiraptor": {
 			"manual": {
 				"hand": [
@@ -403,7 +416,8 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "modify_damage",
 						"subject": "target",
 						"is_cost": true,
-						"amount": 10,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
 						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
@@ -412,10 +426,37 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "modify_damage",
 						"is_cost": true,
-						"amount": 10,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
 						"tags": ["Attack"],
 						"subject": "previous",
 						"filter_gummiraptor": true,
+					}
+				],
+			},
+		},
+		"Smart Gummiraptor": {
+			"manual": {
+				"hand": [
+					{
+						"name": "modify_damage",
+						"subject": "target",
+						"is_cost": true,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
+						"tags": ["Attack"],
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
+					},
+					{
+						"name": "modify_damage",
+						"is_cost": true,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
+						"tags": ["Attack"],
+						"subject": "previous",
+						"filter_smart_gummiraptor": true,
 					}
 				],
 			},
