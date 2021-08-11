@@ -17,7 +17,6 @@ margin_top = 8.0
 margin_right = 32.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 24, 24 )
-text = "R"
 
 [node name="Icon" parent="Signifier" index="2"]
 margin_left = 8.0
@@ -28,11 +27,5 @@ rect_min_size = Vector2( 24, 24 )
 texture = ExtResource( 3 )
 
 [node name="MC" parent="." index="2"]
-custom_constants/margin_top = 14
-custom_constants/margin_left = 14
-
-[node name="Amount" parent="MC" index="0"]
-margin_left = 14.0
-margin_top = 14.0
-margin_right = 22.0
-margin_bottom = 28.0
+margin_right = 32.0
+margin_bottom = 38.0

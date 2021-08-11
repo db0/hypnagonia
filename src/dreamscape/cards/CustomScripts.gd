@@ -21,17 +21,21 @@ func custom_script(script: ScriptObject) -> void:
 	# I don't like the extra indent caused by this if,
 	# But not all object will be Card
 	# So I can't be certain the "canonical_name" var will exist
-	match script.owner.canonical_name:
-		"The Joke":
+	match card.canonical_name:
+		"The Joke", "The Enhanced Joke", "The Balanced Joke", "The Solid Joke":
 			# No demo cost-based custom scripts
 			if not costs_dry_run:
 				if subjects.size() and subjects[0] as EnemyEntity:
 					var enemy_entity: EnemyEntity = subjects[0]
+					var damage_amount = cfc.card_definitions[card.canonical_name]\
+								.get("_amounts",{}).get("damage_amount")
+					var effect_stacks = cfc.card_definitions[card.canonical_name]\
+								.get("_amounts",{}).get("effect_stacks")
 					if enemy_entity.active_effects.get_effect(Terms.ACTIVE_EFFECTS.disempower.name):
 						var the_joke = [{
 							"name": "modify_damage",
 							"subject": "trigger",
-							"amount": 10,
+							"amount": damage_amount,
 							"tags": ["Attack"],
 						}]
 						execute_script(the_joke, script.owner, enemy_entity)
@@ -40,7 +44,7 @@ func custom_script(script: ScriptObject) -> void:
 							"name": "apply_effect",
 							"effect_name": Terms.ACTIVE_EFFECTS.disempower.name,
 							"subject": "trigger",
-							"modification": 3,
+							"modification": effect_stacks,
 						}]
 						execute_script(the_joke, script.owner, enemy_entity)
 		"Barrel Through":

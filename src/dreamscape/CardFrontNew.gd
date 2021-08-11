@@ -98,3 +98,12 @@ func set_rarity() -> void:
 	rarity_middle.modulate = rarity_color * glow_multiplier
 #	var card_name_label : Label = card_front.card_labels["Name"]
 #	card_name_label.add_color_override("font_color", rarity_color)
+
+func _add_title_bbcode(rtlabel: RichTextLabel):
+	rtlabel.push_color("#FFFFFF")
+	var label_fonts := _get_card_rtl_fonts(rtlabel)
+	rtlabel.push_font(label_fonts["title_font"])
+
+func _pop_title_bbcode(rtlabel: RichTextLabel):
+	rtlabel.pop()
+	rtlabel.pop()

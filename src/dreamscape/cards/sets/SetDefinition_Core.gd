@@ -498,11 +498,48 @@ const CARDS := {
 	"Whirlwind": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
-		"Abilities": "{damage} for 3. Repeat 3 times",
-		"Cost": 2,
+		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times",
+		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["interpretation"]
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 3,
+			"chain_amount": 3,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"Solid Whirlwind",
+			"Wild Whirlwind",
+		],
+	},
+	"Solid Whirlwind": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.chain.name],
+		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 5,
+			"chain_amount": 3,
+		},
+		"_is_upgrade": true,
+	},
+	"Wild Whirlwind": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.chain.name],
+		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 3,
+			"chain_amount": 5,
+		},
+		"_is_upgrade": true,
 	},
 	"Overview": {
 		"Type": "Action",
@@ -511,7 +548,38 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["perplexity"]
+		"_keywords": ["perplexity"],
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"Easy Overview",
+			"Piercing Overview",
+		],
+	},
+	"Easy Overview": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "Remove all {defence} from target Torment.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["perplexity"],
+		"_is_upgrade": true,
+	},
+	"Piercing Overview": {
+		"Type": "Action",
+		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name],
+		"Abilities": "Remove all {defence} from target Torment and apply {effect_stacks} Shaken",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["perplexity"],
+		"_amounts": {
+			"effect_stacks": 3,
+		},
+		"_is_upgrade": true,
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.ENEMY
+		},
 	},
 	"War Paint": { #TODO
 		"Type": "Control",
@@ -520,32 +588,157 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["interpretation"]
+		"_keywords": ["interpretation"],
 	},
 	"Rubber Eggs": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "At the start of your turn, {damage} a random Torment with {confusion} for 6.",
+		"Abilities": "At the start of your turn, {damage} a random Torment with {confusion} for {effect_damage}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
 		"_rarity": "Uncommon",
-		"_keywords": ["interpretation"]
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"effect_damage": 6,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"Easy Rubber Eggs",
+			"Bouncy Rubber Eggs",
+			"Hard Rubber Eggs",
+		],
+	},
+	"Easy Rubber Eggs": {
+		"Type": "Concentration",
+		"Tags": [],
+		"Abilities": "At the start of your turn, {damage} a random Torment with {confusion} for {effect_damage}.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
+		"_amounts": {
+			"effect_damage": 6,
+		},
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_is_upgrade": true,
+	},
+	"Hard Rubber Eggs": {
+		"Type": "Concentration",
+		"Tags": [],
+		"Abilities": "At the start of your turn, {damage} a random Torment with {confusion} for {effect_damage}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
+		"_amounts": {
+			"effect_damage": 9,
+		},
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_is_upgrade": true,
+	},
+	"Bouncy Rubber Eggs": {
+		"Type": "Concentration",
+		"Tags": [],
+		"Abilities": "At the start of your turn, {damage} all Torments with {confusion} for {effect_damage}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
+		"_amounts": {
+			"effect_damage": 6,
+		},
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_is_upgrade": true,
 	},
 	"The Joke": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
-		"Abilities": "Target a Torment. If it doesn't have {confusion} Apply 3 {confusion}"\
-			+ " If it has {confusion}, {damage} 10.",
+		"Abilities": "Target a Torment. If it doesn't have {confusion} Apply {effect_stacks} {confusion}"\
+			+ " If it has {confusion}, {damage} {damage_amount}.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
 		"_rarity": "Uncommon",
-		"_keywords": ["interpretation"]
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 15,
+			"effect_stacks": 4,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"The Enhanced Joke",
+			"The Solid Joke",
+			"The Balanced Joke",
+		],
+		
+	},
+	"The Enhanced Joke": {
+		"Type": "Action",
+		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
+		"Abilities": "Target a Torment. If it doesn't have {confusion} Apply {effect_stacks} {confusion}"\
+			+ " If it has {confusion}, {damage} {damage_amount}.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 14,
+			"effect_stacks": 7,
+		},
+		"_is_upgrade": true,
+		"_reuse_script": "The Joke",
+	},
+	"The Solid Joke": {
+		"Type": "Action",
+		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
+		"Abilities": "Target a Torment. If it doesn't have {confusion} Apply {effect_stacks} {confusion}"\
+			+ " If it has {confusion}, {damage} {damage_amount}.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 22,
+			"effect_stacks": 3,
+		},
+		"_is_upgrade": true,
+		"_reuse_script": "The Joke",
+	},
+	"The Balanced Joke": {
+		"Type": "Action",
+		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
+		"Abilities": "Target a Torment. If it doesn't have {confusion} Apply {effect_stacks} {confusion}"\
+			+ " If it has {confusion}, {damage} {damage_amount}.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 18,
+			"effect_stacks": 5,
+		},
+		"_is_upgrade": true,
+		"_reuse_script": "The Joke",
 	},
 	"Nunclucks": {
 		"Type": "Concentration",
@@ -580,7 +773,7 @@ const CARDS := {
 	},
 	"Rapid Encirclement": {
 		"Type": "Control",
-		"Tags": [],
+		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name],
 		"Abilities": "Apply 2 {shaken} to all Torments.",
 		"Cost": 1,
 		"_illustration": "Nobody",

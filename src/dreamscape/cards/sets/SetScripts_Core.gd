@@ -26,12 +26,6 @@ const EPHEMERAL_TASK := {
 	"subject": "self",
 }
 
-# This dictionary allows us to quickly map an upgraded card to the same
-# script as its origin. This is useful when the name does not fit in one
-# of the SAME_SCRIPT_MODIFIERS prepends
-# This should be set in each script reference's init() call 
-var same_scripts_map := {}
-
 # This fuction returns all the scripts of the specified card name.
 #
 # if no scripts have been defined, an empty dictionary is returned instead.
@@ -239,7 +233,8 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "modify_damage",
 						"subject": "target",
 						"is_cost": true,
-						"amount": 3,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
 						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
@@ -248,13 +243,53 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "modify_damage",
 						"subject": "previous",
-						"amount": 3,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
 						"tags": ["Attack"],
 					},
 					{
 						"name": "modify_damage",
 						"subject": "previous",
-						"amount": 3,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
+						"tags": ["Attack"],
+					},
+				],
+			},
+		},
+		"Wild Whirlwind": {
+			"manual": {
+				"hand": [
+					{
+						"name": "modify_damage",
+						"subject": "target",
+						"is_cost": true,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
+						"tags": ["Attack"],
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
+					},
+					{
+						"name": "modify_damage",
+						"subject": "previous",
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
+						"tags": ["Attack"],
+					},
+					{
+						"name": "modify_damage",
+						"subject": "previous",
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
+						"tags": ["Attack"],
+					},
+					{
+						"name": "modify_damage",
+						"subject": "previous",
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
 						"tags": ["Attack"],
 					},
 				],
@@ -275,6 +310,28 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
+		"Piercing Overview": {
+			"manual": {
+				"hand": [
+					{
+						"name": "assign_defence",
+						"subject": "target",
+						"amount": 0,
+						"set_to_mod": true,
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
+					},
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.vulnerable.name,
+						"subject": "previous",
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("effect_stacks"),
+					},
+				],
+			},
+		},
 		"Rubber Eggs": {
 			"manual": {
 				"hand": [
@@ -283,6 +340,32 @@ func get_scripts(card_name: String) -> Dictionary:
 						"effect_name": Terms.ACTIVE_EFFECTS.rubber_eggs.name,
 						"subject": "dreamer",
 						"modification": 1,
+					},
+				],
+			},
+		},
+		"Hard Rubber Eggs": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.rubber_eggs.name,
+						"subject": "dreamer",
+						"modification": 1,
+						"upgrade_name": "hard",
+					},
+				],
+			},
+		},
+		"Bouncy Rubber Eggs": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.rubber_eggs.name,
+						"subject": "dreamer",
+						"modification": 1,
+						"upgrade_name": "bouncy",
 					},
 				],
 			},
@@ -1155,11 +1238,11 @@ func _prepare_scripts(all_scripts: Dictionary, card_name: String) -> Dictionary:
 				break_loop = true
 				break
 		if break_loop: break
-	# If an upgraded card uses the same script as the original
-	# and it cannot be matched using SAME_SCRIPT_MODIFIERS
-	# Then we can handle it here
-	if same_scripts_map.has(card_name):
-		script_name = same_scripts_map[card_name]
+	# We can mark which script to reuse in each card's definition
+	# This allows us to reuse scripts, using different names than the prepends
+	# in SAME_SCRIPT_MODIFIERS
+	if cfc.card_definitions[card_name].has("_reuse_script"):
+		script_name = cfc.card_definitions[card_name]["_reuse_script"]
 	# We return only the scripts that match the card name and trigger
 	var ret_script = all_scripts.get(script_name,{}).duplicate(true)
 	# We use this trick to avoid creating a whole new script for the ephemeral

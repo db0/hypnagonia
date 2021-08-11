@@ -204,7 +204,11 @@ const ACTIVE_EFFECTS := {
 	},
 	"rubber_eggs":  {
 		"name": "Rubber Eggs",
-		"description": "{effect_name}: At the end of your turn, {interpret} a random Confused {enemy} for 6.",
+		"description": "{effect_name}: At the end of your turn, {attack} a random Confused {enemy} for 6.",
+		"upgraded_descriptions": {
+			"hard": "{effect_name}: At the end of your turn, {attack} a random Confused {enemy} for 9.",
+			"bouncy": "{effect_name}: At the end of your turn, {attack} all Confused {enemy} for 6.",
+		},
 		"icon": preload("res://assets/icons/egg-defense.png"),
 	},
 	"nunclucks":  {
