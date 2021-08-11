@@ -1,5 +1,10 @@
 # Dreams: Changelog
 
+## v0.1.0
+
+* More Card upgrades
+* Left-Clicking on a card in the Card Library will display all its potential upgrades
+
 ## v0.9.0
 
 * Added card upgrades
