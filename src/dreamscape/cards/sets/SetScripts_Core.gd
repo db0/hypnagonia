@@ -7,7 +7,7 @@ extends Reference
 # card.
 # This allows us to avoid writing new definitions when all that is changing
 # is the card statistics (like cost)
-const SAME_SCRIPT_MODIFIERS := [
+const SAME_SCRIPT_ADJECTIVES := [
 	"Easy", # Used when the upgraded card has just lower cost
 	"Solid", # Used when the upgraded card has higher amount or damage or defence.
 	"Enhanced", # Used when the upgraded card has higher amount of effect stacks.
@@ -15,6 +15,16 @@ const SAME_SCRIPT_MODIFIERS := [
 	"Fleeting", # Used when the upgraded card is adding an extra task to exhaust the card.
 	"Swift", # Used when the upgraded card is increasing the amount of cards drawn.
 	"Balanced", # Used when the upgraded card is tweaking all values at the same time.
+]
+const SAME_SCRIPT_SYMBOLS := [
+	"@", # Used when the upgraded card has just lower cost
+	"+", # Used when the upgraded card has higher amount of damage or defence.
+	"*", # Used when the upgraded card has higher amount of effect stacks.
+	"-", # Used when the upgraded card is adding an extra task to remove the card from deck.
+	"~", # Used when the upgraded card is adding an extra task to exhaust the card.
+	"!", # Used when the upgraded card is increasing the amount of cards drawn.
+	"=", # Used when the upgraded card is tweaking all values at the same time.
+	"%", # Used when the upgraded card is rebalancing all values at the same time.
 ]
 
 # When a the "Ephemeral" prepend has been added to a card upgrade
@@ -167,7 +177,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
-		"Tough Nothing to Fear": {
+		"Absolutely Nothing to Fear": {
 			"manual": {
 				"hand": [
 					{
@@ -175,7 +185,7 @@ func get_scripts(card_name: String) -> Dictionary:
 						"effect_name": Terms.ACTIVE_EFFECTS.nothing_to_fear.name,
 						"subject": "dreamer",
 						"modification": 1,
-						"upgrade_name": "tough",
+						"upgrade_name": "absolutely",
 					},
 				],
 			},
@@ -658,13 +668,15 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "assign_defence",
 						"subject": "dreamer",
-						"amount": 8,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("defence_amount"),
 					},
 					{
 						"name": "apply_effect",
 						"effect_name": Terms.ACTIVE_EFFECTS.fortify.name,
 						"subject": "dreamer",
-						"modification": 1,
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("effect_stacks"),
 					},
 				],
 			},
@@ -695,6 +707,59 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
+		"Massive Boast": {
+			"manual": {
+				"hand": [
+					{
+						"name": "assign_defence",
+						"subject": "dreamer",
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("defence_amount"),
+					},
+					{
+						"name": "assign_defence",
+						"subject": "dreamer",
+						"amount": "per_defence",
+						"per_defence": {
+							"subject": "dreamer",
+						},
+					},
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.fortify.name,
+						"subject": "dreamer",
+						"modification": 0,
+						"set_to_mod": true
+					},
+					{
+						"name": "move_card_to_container",
+						"subject": "self",
+						"dest_container": cfc.NMAP.forgotten,
+					},
+				],
+			},
+		},
+		"Sustained Boast": {
+			"manual": {
+				"hand": [
+					{
+						"name": "assign_defence",
+						"subject": "dreamer",
+						"amount": "per_defence",
+						"per_defence": {
+							"subject": "dreamer",
+						},
+					},
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.fortify.name,
+						"subject": "dreamer",
+						"modification": 0,
+						"set_to_mod": true
+					},
+				],
+			},
+		},
 		"Solid Understanding": {
 			"manual": {
 				"hand": [
@@ -702,7 +767,8 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "modify_damage",
 						"subject": "target",
 						"is_cost": true,
-						"amount": 5,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
 						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
@@ -711,7 +777,8 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "assign_defence",
 						"subject": "dreamer",
-						"amount": 5,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("defence_amount"),
 					},
 				],
 			},
@@ -1326,7 +1393,7 @@ func _prepare_scripts(all_scripts: Dictionary, card_name: String) -> Dictionary:
 	var break_loop := false
 	var special_destination = null
 	for script_id in all_scripts:
-		for prepend in SAME_SCRIPT_MODIFIERS:
+		for prepend in SAME_SCRIPT_ADJECTIVES:
 			var card_name_with_unmodified_scripts = prepend + ' ' + script_id
 			if card_name == card_name_with_unmodified_scripts:
 				script_name = script_id
@@ -1334,10 +1401,18 @@ func _prepare_scripts(all_scripts: Dictionary, card_name: String) -> Dictionary:
 					special_destination = prepend
 				break_loop = true
 				break
+		for symbol in SAME_SCRIPT_SYMBOLS:
+			var card_name_with_unmodified_scripts = script_id + ' ' + symbol
+			if card_name == card_name_with_unmodified_scripts:
+				script_name = script_id
+				if symbol in ["-", "~"]:
+					special_destination = symbol
+				break_loop = true
+				break
 		if break_loop: break
 	# We can mark which script to reuse in each card's definition
 	# This allows us to reuse scripts, using different names than the prepends
-	# in SAME_SCRIPT_MODIFIERS
+	# in SAME_SCRIPT_ADJECTIVES
 	if cfc.card_definitions[card_name].has("_reuse_script"):
 		script_name = cfc.card_definitions[card_name]["_reuse_script"]
 	# We return only the scripts that match the card name and trigger
@@ -1345,8 +1420,8 @@ func _prepare_scripts(all_scripts: Dictionary, card_name: String) -> Dictionary:
 	# We use this trick to avoid creating a whole new script for the ephemeral
 	# upgraded versions, just to add the "remove from deck" task
 	match special_destination:
-		"Ephemeral":
+		"Ephemeral", '-':
 			ret_script["manual"]["hand"].append(EPHEMERAL_TASK)
-		"Fleeting":
+		"Fleeting", '~':
 			ret_script["manual"]["hand"].append(FLEETING_TASK)
 	return(ret_script)

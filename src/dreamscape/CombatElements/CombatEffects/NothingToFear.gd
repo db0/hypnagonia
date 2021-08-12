@@ -12,7 +12,7 @@ func get_effect_alteration(
 			or is_source:
 		return(0)
 	var new_value = value + (2 * stacks)
-	if upgrade == "tough":
+	if upgrade == "absolutely":
 		new_value = value + stacks
 	var alteration = new_value - value
 #	print_debug("Laugh at Danger ({value} + 2) = {new_value} (alteration = {alteration})".format({"value": value, "new_value": new_value, "alteration": alteration }))

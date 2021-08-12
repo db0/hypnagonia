@@ -200,7 +200,7 @@ const ACTIVE_EFFECTS := {
 		"description": "{effect_name}: Add {amount} {energy} at the start of the turn.\n"\
 				+ "All {health} taken is increased by {double_amount}.",
 		"upgraded_descriptions": {
-			"tough": "{effect_name}: Add {amount} {energy} at the start of the turn.\n"\
+			"absolutely": "{effect_name}: Add {amount} {energy} at the start of the turn.\n"\
 					+ "All {health} taken is increased by {amount}.",
 		},
 		"icon": preload("res://assets/icons/one-eyed.png"),

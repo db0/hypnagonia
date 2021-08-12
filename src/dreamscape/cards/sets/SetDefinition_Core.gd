@@ -16,12 +16,12 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 5,
 		"_upgrades": [
-			"Solid Confidence",
-			"Easy Confidence",
-			"Ephemeral Confidence",
+			"+ Confidence +",
+			"@ Confidence @",
+			"- Confidence -",
 		],
 	},
-	"Solid Confidence": {
+	"+ Confidence +": {
 		"Type": "Control",
 		"Tags": [],
 		"Abilities": "Gain {defence_amount} {confidence}",
@@ -34,7 +34,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Easy Confidence": {
+	"@ Confidence @": {
 		"Type": "Control",
 		"Tags": [],
 		"Abilities": "Gain {defence_amount} {confidence}",
@@ -47,7 +47,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Ephemeral Confidence": {
+	"- Confidence -": {
 		"Type": "Control",
 		"Tags": [],
 		"Abilities": "Gain {defence_amount} {confidence}. {release}",
@@ -74,12 +74,12 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 5,
 		"_upgrades": [
-			"Solid Interpretation",
-			"Easy Interpretation",
-			"Ephemeral Interpretation",
+			"+ Interpretation +",
+			"@ Interpretation @",
+			"- Interpretation -",
 		],
 	},
-	"Easy Interpretation": {
+	"@ Interpretation @": {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}",
@@ -92,7 +92,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Solid Interpretation": {
+	"+ Interpretation +": {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}",
@@ -105,7 +105,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Ephemeral Interpretation": {
+	"- Interpretation -": {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}. {release}",
@@ -134,11 +134,11 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 6,
 		"_upgrades": [
-			"Easy Out of Reach",
-			"Enhanced Out of Reach",
+			"@ Out of Reach @",
+			"* Out of Reach *",
 		],
 	},
-	"Easy Out of Reach": {
+	"@ Out of Reach @": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
 		"Abilities": "Gain {effect_stacks} {untouchable}",
@@ -153,7 +153,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Enhanced Out of Reach": {
+	"* Out of Reach *": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
 		"Abilities": "Gain {effect_stacks} {untouchable}",
@@ -233,12 +233,12 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 8,
 		"_upgrades": [
-			"Solid Safety of Air",
+			"+ Safety of Air +",
 			"Sustained Safety of Air",
-			"Easy Safety of Air",
+			"@ Safety of Air @",
 		],
 	},
-	"Solid Safety of Air": {
+	"+ Safety of Air +": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
 		"Abilities": "{relax} for {healing_amount}. {forget}.",
@@ -251,7 +251,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Easy Safety of Air": {
+	"@ Safety of Air @": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
 		"Abilities": "{relax} for {healing_amount}. {forget}.",
@@ -288,11 +288,11 @@ const CARDS := {
 		"_keywords": ["stress"],
 		"_upgrade_threshold": 5,
 		"_upgrades": [
-			"Easy Nothing to Fear",
-			"Tough Nothing to Fear",
+			"@ Nothing to Fear @",
+			"Absolutely Nothing to Fear",
 		],
 	},
-	"Easy Nothing to Fear": {
+	"@ Nothing to Fear @": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.risky.name, Terms.GENERIC_TAGS.purpose.name],
 		"Abilities": "Gain 1 {immersion} at the start of each turn.\n"\
@@ -303,7 +303,7 @@ const CARDS := {
 		"_keywords": ["stress"],
 		"_is_upgrade": true,
 	},
-	"Tough Nothing to Fear": {
+	"Absolutely Nothing to Fear": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.risky.name, Terms.GENERIC_TAGS.purpose.name],
 		"Abilities": "Gain 1 {immersion} at the start of each turn.\n"\
@@ -331,11 +331,11 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"Solid Confounding Movements",
-			"Enhanced Confounding Movements",
+			"+ Confounding Movements +",
+			"* Confounding Movements *",
 		],
 	},
-	"Solid Confounding Movements": {
+	"+ Confounding Movements +": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "Gain {defence_amount} {confidence}\nApply {effect_stacks} {confusion} to target Torment.",
@@ -352,7 +352,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Enhanced Confounding Movements": {
+	"* Confounding Movements *": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "Gain {defence_amount} {confidence}\nApply {effect_stacks} {confusion} to target Torment.",
@@ -386,12 +386,12 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 6,
 		"_upgrades": [
-			"Solid Noisy Whip",
-			"Easy Noisy Whip",
-			"Enhanced Noisy Whip",
+			"+ Noisy Whip +",
+			"@ Noisy Whip @",
+			"* Noisy Whip *",
 		],
 	},
-	"Easy Noisy Whip": {
+	"@ Noisy Whip @": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "{damage} for {damage_amount}.\nApply {confusion}",
@@ -408,7 +408,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Solid Noisy Whip": {
+	"+ Noisy Whip +": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "{damage} for {damage_amount}.\nApply {confusion}",
@@ -425,7 +425,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Enhanced Noisy Whip": {
+	"* Noisy Whip *": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "{damage} for {damage_amount}.\nApply {effect_stacks} {confusion}",
@@ -454,12 +454,12 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 6,
 		"_upgrades": [
-			"Easy Inner Justice",
-			"Solid Inner Justice",
-			"Fleeting Inner Justice",
+			"@ Inner Justice @",
+			"+ Inner Justice +",
+			"~ Inner Justice ~",
 		],
 	},
-	"Easy Inner Justice": {
+	"@ Inner Justice @": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.purpose.name],
 		"Abilities": "Gain {immersion_amount} {immersion}",
@@ -471,7 +471,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Solid Inner Justice": {
+	"+ Inner Justice +": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.purpose.name],
 		"Abilities": "Gain {immersion_amount} {immersion}",
@@ -483,7 +483,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Fleeting Inner Justice": {
+	"~ Inner Justice ~": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {immersion_amount} {immersion}. {forget}.",
@@ -509,11 +509,11 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"Solid Whirlwind",
+			"+ Whirlwind +",
 			"Wild Whirlwind",
 		],
 	},
-	"Solid Whirlwind": {
+	"+ Whirlwind +": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times",
@@ -551,11 +551,11 @@ const CARDS := {
 		"_keywords": ["perplexity"],
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"Easy Overview",
+			"@ Overview @",
 			"Piercing Overview",
 		],
 	},
-	"Easy Overview": {
+	"@ Overview @": {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "Remove all {defence} from target Torment.",
@@ -606,12 +606,12 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"Easy Rubber Eggs",
+			"@ Rubber Eggs @",
 			"Bouncy Rubber Eggs",
 			"Hard Rubber Eggs",
 		],
 	},
-	"Easy Rubber Eggs": {
+	"@ Rubber Eggs @": {
 		"Type": "Concentration",
 		"Tags": [],
 		"Abilities": "At the start of your turn, {damage} a random Torment with {confusion} for {effect_damage}.",
@@ -663,7 +663,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "Target a Torment. If it doesn't have {confusion} Apply {effect_stacks} {confusion}"\
-			+ " If it has {confusion}, {damage} {damage_amount}.",
+			+ " If it has {confusion}, {damage} for {damage_amount}.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -677,17 +677,17 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"The Enhanced Joke",
-			"The Solid Joke",
-			"The Balanced Joke",
+			"* The Joke *",
+			"+ The Joke +",
+			"= The Joke =",
 		],
 		
 	},
-	"The Enhanced Joke": {
+	"* The Joke *": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "Target a Torment. If it doesn't have {confusion} Apply {effect_stacks} {confusion}"\
-			+ " If it has {confusion}, {damage} {damage_amount}.",
+			+ " If it has {confusion}, {damage} for {damage_amount}.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -702,11 +702,11 @@ const CARDS := {
 		"_is_upgrade": true,
 		"_reuse_script": "The Joke",
 	},
-	"The Solid Joke": {
+	"+ The Joke +": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "Target a Torment. If it doesn't have {confusion} Apply {effect_stacks} {confusion}"\
-			+ " If it has {confusion}, {damage} {damage_amount}.",
+			+ " If it has {confusion}, {damage} for {damage_amount}.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -721,11 +721,11 @@ const CARDS := {
 		"_is_upgrade": true,
 		"_reuse_script": "The Joke",
 	},
-	"The Balanced Joke": {
+	"= The Joke =": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "Target a Torment. If it doesn't have {confusion} Apply {effect_stacks} {confusion}"\
-			+ " If it has {confusion}, {damage} {damage_amount}.",
+			+ " If it has {confusion}, {damage} for {damage_amount}.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -756,11 +756,11 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"Easy Nunclucks",
+			"@ Nunclucks @",
 			"Massive Nunclucks",
 		],
 	},
-	"Easy Nunclucks": {
+	"@ Nunclucks @": {
 		"Type": "Concentration",
 		"Tags": [],
 		"Abilities": "Increase your {damage} by {effect_damage} for each stack of {confusion} on the Torment.",
@@ -806,12 +806,12 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"Easy Gummiraptor",
-			"Solid Gummiraptor",
+			"@ Gummiraptor @",
+			"+ Gummiraptor +",
 			"Smart Gummiraptor",
 		],
 	},
-	"Easy Gummiraptor": {
+	"@ Gummiraptor @": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
@@ -825,7 +825,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Solid Gummiraptor": {
+	"+ Gummiraptor +": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
@@ -867,11 +867,11 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"Solid Cocky Retort",
+			"+ Cocky Retort +",
 			"Rapid Cocky Retort",
 		],
 	},
-	"Solid Cocky Retort": {
+	"+ Cocky Retort +": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Gain {defence_amount} {confidence}\n Draw {draw_amount} card.",
@@ -885,7 +885,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Swift Cocky Retort": {
+	"! Cocky Retort !": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Gain {defence_amount} {confidence}\n Draw {draw_amount} cards.",
@@ -914,11 +914,11 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"Enhanced Rapid Encirclement",
-			"Fleeting Rapid Encirclement",
+			"* Rapid Encirclement *",
+			"~ Rapid Encirclement ~",
 		],
 	},
-	"Enhanced Rapid Encirclement": {
+	"* Rapid Encirclement *": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name],
 		"Abilities": "Apply {effect_stacks} {shaken} to all Torments.",
@@ -933,7 +933,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Fleeting Rapid Encirclement": {
+	"~ Rapid Encirclement ~": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name],
 		"Abilities": "Apply {effect_stacks} {shaken} to all Torments. {forget}.",
@@ -965,11 +965,11 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"Solid Barrel Through",
-			"Balanced Barrel Through",
+			"+ Barrel Through +",
+			"= Barrel Through =",
 		],
 	},
-	"Solid Barrel Through": {
+	"+ Barrel Through +": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\nIf the Torment has {shaken}, {damage} all other Torments for {damage_amount2}.",
@@ -986,7 +986,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Balanced Barrel Through": {
+	"= Barrel Through =": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\nIf the Torment has {shaken}, {damage} all other Torments for {damage_amount2}.",
@@ -1018,11 +1018,11 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"Easy Intimidate",
-			"Enhanced Intimidate",
+			"@ Intimidate @",
+			"* Intimidate *",
 		],
 	},
-	"Easy Intimidate": {
+	"@ Intimidate @": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "Apply {effect_stacks} {doubt} to all Torments",
@@ -1037,7 +1037,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Enhanced Intimidate": {
+	"* Intimidate *": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "Apply {effect_stacks} {doubt} to all Torments",
@@ -1069,12 +1069,12 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"Balanced Cheeky Approach",
-			"Solid Cheeky Approach",
-			"Enhanced Cheeky Approach",
+			"= Cheeky Approach =",
+			"+ Cheeky Approach +",
+			"* Cheeky Approach *",
 		],
 	},
-	"Balanced Cheeky Approach": {
+	"= Cheeky Approach =": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "Gain {defence_amount} {confidence}\nApply {effect_stacks} {doubt} to target Torment.",
@@ -1091,7 +1091,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Solid Cheeky Approach": {
+	"+ Cheeky Approach +": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "Gain {defence_amount} {confidence}\nApply {effect_stacks} {doubt} to target Torment.",
@@ -1108,7 +1108,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Enhanced Cheeky Approach": {
+	"* Cheeky Approach *": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "Gain {defence_amount} {confidence}\nApply {effect_stacks} {doubt} to target Torment.",
@@ -1141,11 +1141,11 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"Easy Laugh at Danger",
+			"@ Laugh at Danger @",
 			"Roaring Laugh at Danger",
 		],
 	},
-	"Easy Laugh at Danger": {
+	"@ Laugh at Danger @": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "After a Torment performs {stress}, it gains {effect_stacks} {doubt}",
@@ -1187,11 +1187,11 @@ const CARDS := {
 		"_keywords": ["confidence", "interpretation"],
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"Easy Towering Presence",
+			"@ Towering Presence @",
 			"Overwhelming Presence",
 		],
 	},
-	"Easy Towering Presence": {
+	"@ Towering Presence @": {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} equal to your current {confidence}",
@@ -1227,11 +1227,11 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"Easy Unassailable",
+			"@ Unassailable @",
 			"Completely Unassailable",
 		],
 	},
-	"Easy Unassailable": {
+	"@ Unassailable @": {
 		"Type": "Concentration",
 		"Tags": [],
 		"Abilities": "Whenever you apply {doubt}, gain {effect_defence} {confidence}",
@@ -1260,19 +1260,62 @@ const CARDS := {
 	"Audacity": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
-		"Abilities": "Gain 8 {confidence}\nApply 1 {courage}",
+		"Abilities": "Gain {defence_amount} {confidence}\nApply {effect_stacks} {courage}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
 		},
 		"_rarity": "Common",
-		"_keywords": ["confidence"]
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 8,
+			"effect_stacks": 1,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"+ Audacity +",
+			"* Audacity *",
+		],
+	},
+	"+ Audacity +": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
+		"Abilities": "Gain {defence_amount} {confidence}\nApply {effect_stacks} {courage}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
+		},
+		"_rarity": "Common",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 12,
+			"effect_stacks": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"* Audacity *": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
+		"Abilities": "Gain {defence_amount} {confidence}\nApply {effect_stacks} {courage}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
+		},
+		"_rarity": "Common",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 17,
+			"effect_stacks": 2,
+		},
+		"_is_upgrade": true,
 	},
 	"Boast": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Double your {confidence}\nRemove all {courage} {forget}.",
+		"Abilities": "Double your {confidence}\nRemove all {courage}\n{forget}.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -1280,15 +1323,115 @@ const CARDS := {
 		},
 		"_rarity": "Rare",
 		"_keywords": ["confidence", "forget"],
+		"_upgrade_threshold": 8,
+		"_upgrades": [
+			"Massive Boast",
+			"@ Boast @",
+			"Sustained Boast",
+		],
+	},
+	"@ Boast @": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "Double your {confidence}\nRemove all {courage}\n{forget}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
+		},
+		"_rarity": "Rare",
+		"_keywords": ["confidence", "forget"],
+		"_is_upgrade": true,
+	},
+	"Massive Boast": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "Gain 4 {confidence}\nDouble your {confidence}\nRemove all {courage}\n{forget}.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
+		},
+		"_rarity": "Rare",
+		"_keywords": ["confidence", "forget"],
+		"_amounts": {
+			"defence_amount": 4,
+		},
+		"_is_upgrade": true,
+	},
+	"Sustained Boast": {
+		"Type": "Control",
+		"Tags": [],
+		"Abilities": "Double your {confidence}\nRemove all {courage}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
+		},
+		"_rarity": "Rare",
+		"_keywords": ["confidence"],
+		"_is_upgrade": true,
 	},
 	"Solid Understanding": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "Gain 5 {confidence}\n{damage} for 5.",
+		"Abilities": "Gain {defence_amount} {confidence}\n{damage} for {damage_amount}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": ["confidence", "interpretation"],
+		"_amounts": {
+			"defence_amount": 5,
+			"damage_amount": 5,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"+ Solid Understanding +",
+			"= Solid Understanding =",
+			"% Solid Understanding %",
+		],
+	},
+	"+ Solid Understanding +": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "Gain {defence_amount} {confidence}\n{damage} for {damage_amount}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["confidence", "interpretation"],
+		"_amounts": {
+			"defence_amount": 5,
+			"damage_amount": 9,
+		},
+		"_is_upgrade": true,
+	},
+	"% Solid Understanding %": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "Gain {defence_amount} {confidence}\n{damage} for {damage_amount}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["confidence", "interpretation"],
+		"_amounts": {
+			"defence_amount": 9,
+			"damage_amount": 5,
+		},
+		"_is_upgrade": true,
+	},
+	"= Solid Understanding =": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "Gain {defence_amount} {confidence}\n{damage} for {damage_amount}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["confidence", "interpretation"],
+		"_amounts": {
+			"defence_amount": 7,
+			"damage_amount": 7,
+		},
+		"_is_upgrade": true,
 	},
 	"No Second Thoughts": {
 		"Type": "Control",
@@ -1503,11 +1646,11 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 6,
 		"_upgrades": [
-			"Solid Change of Mind",
-			"Easy Change of Mind",
+			"+ Change of Mind +",
+			"@ Change of Mind @",
 		],
 	},
-	"Solid Change of Mind": {
+	"+ Change of Mind +": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
 		"Abilities": "{damage} for {damage_amount}. {shuffle} this card into your deck.",
@@ -1521,7 +1664,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Easy Change of Mind": {
+	"@ Change of Mind @": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
 		"Abilities": "{damage} for {damage_amount}. {shuffle} this card into your deck.",
