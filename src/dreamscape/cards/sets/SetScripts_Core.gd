@@ -1402,7 +1402,7 @@ func _prepare_scripts(all_scripts: Dictionary, card_name: String) -> Dictionary:
 				break_loop = true
 				break
 		for symbol in SAME_SCRIPT_SYMBOLS:
-			var card_name_with_unmodified_scripts = script_id + ' ' + symbol
+			var card_name_with_unmodified_scripts = symbol + ' ' + script_id + ' ' + symbol
 			if card_name == card_name_with_unmodified_scripts:
 				script_name = script_id
 				if symbol in ["-", "~"]:
