@@ -486,7 +486,7 @@ const CARDS := {
 	"Fleeting Inner Justice": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Gain {immersion_amount} {immersion}",
+		"Abilities": "Gain {immersion_amount} {immersion}. {forget}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Starting",
@@ -856,69 +856,326 @@ const CARDS := {
 	"Cocky Retort": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
-		"Abilities": "Gain 8 {confidence}\n Draw a card.",
+		"Abilities": "Gain {defence_amount} {confidence}\n Draw {draw_amount} card.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["confidence"]
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 8,
+			"draw_amount": 1,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"Solid Cocky Retort",
+			"Rapid Cocky Retort",
+		],
+	},
+	"Solid Cocky Retort": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.swift.name],
+		"Abilities": "Gain {defence_amount} {confidence}\n Draw {draw_amount} card.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 12,
+			"draw_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"Swift Cocky Retort": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.swift.name],
+		"Abilities": "Gain {defence_amount} {confidence}\n Draw {draw_amount} cards.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 8,
+			"draw_amount": 2,
+		},
+		"_is_upgrade": true,
 	},
 	"Rapid Encirclement": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name],
-		"Abilities": "Apply 2 {shaken} to all Torments.",
+		"Abilities": "Apply {effect_stacks} {shaken} to all Torments.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.ENEMY
 		},
 		"_rarity": "Common",
+		"_amounts": {
+			"effect_stacks": 2,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"Enhanced Rapid Encirclement",
+			"Fleeting Rapid Encirclement",
+		],
+	},
+	"Enhanced Rapid Encirclement": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name],
+		"Abilities": "Apply {effect_stacks} {shaken} to all Torments.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.ENEMY
+		},
+		"_rarity": "Common",
+		"_amounts": {
+			"effect_stacks": 4,
+		},
+		"_is_upgrade": true,
+	},
+	"Fleeting Rapid Encirclement": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name],
+		"Abilities": "Apply {effect_stacks} {shaken} to all Torments. {forget}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.ENEMY
+		},
+		"_rarity": "Common",
+		"_amounts": {
+			"effect_stacks": 7,
+		},
+		"_is_upgrade": true,
 	},
 	"Barrel Through": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
-		"Abilities": "{damage} for 8.\nIf the Torment has {shaken}, {damage} all other Torments for 12.",
+		"Abilities": "{damage} for {damage_amount}.\nIf the Torment has {shaken}, {damage} all other Torments for {damage_amount2}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.ENEMY
 		},
 		"_rarity": "Uncommon",
-		"_keywords": ["interpretation"]
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 8,
+			"damage_amount2": 12,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"Solid Barrel Through",
+			"Balanced Barrel Through",
+		],
+	},
+	"Solid Barrel Through": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.chain.name],
+		"Abilities": "{damage} for {damage_amount}.\nIf the Torment has {shaken}, {damage} all other Torments for {damage_amount2}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.ENEMY
+		},
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 12,
+			"damage_amount2": 12,
+		},
+		"_is_upgrade": true,
+	},
+	"Balanced Barrel Through": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.chain.name],
+		"Abilities": "{damage} for {damage_amount}.\nIf the Torment has {shaken}, {damage} all other Torments for {damage_amount2}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.ENEMY
+		},
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 15,
+			"damage_amount2": 8,
+		},
+		"_is_upgrade": true,
 	},
 	"Intimidate": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
-		"Abilities": "Apply 2 {doubt} to all Torments",
+		"Abilities": "Apply {effect_stacks} {doubt} to all Torments",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
 		},
 		"_rarity": "Common",
+		"_amounts": {
+			"effect_stacks": 2,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"Easy Intimidate",
+			"Enhanced Intimidate",
+		],
+	},
+	"Easy Intimidate": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
+		"Abilities": "Apply {effect_stacks} {doubt} to all Torments",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
+		},
+		"_rarity": "Common",
+		"_amounts": {
+			"effect_stacks": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"Enhanced Intimidate": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
+		"Abilities": "Apply {effect_stacks} {doubt} to all Torments",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
+		},
+		"_rarity": "Common",
+		"_amounts": {
+			"effect_stacks": 3,
+		},
+		"_is_upgrade": true,
 	},
 	"Cheeky Approach": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
-		"Abilities": "Gain 10 {confidence}\nApply 3 {doubt} to target Torment.",
+		"Abilities": "Gain {defence_amount} {confidence}\nApply {effect_stacks} {doubt} to target Torment.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
 		},
 		"_rarity": "Uncommon",
-		"_keywords": ["confidence"]
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 11,
+			"effect_stacks": 3,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"Balanced Cheeky Approach",
+			"Solid Cheeky Approach",
+			"Enhanced Cheeky Approach",
+		],
+	},
+	"Balanced Cheeky Approach": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
+		"Abilities": "Gain {defence_amount} {confidence}\nApply {effect_stacks} {doubt} to target Torment.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
+		},
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 14,
+			"effect_stacks": 4,
+		},
+		"_is_upgrade": true,
+	},
+	"Solid Cheeky Approach": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
+		"Abilities": "Gain {defence_amount} {confidence}\nApply {effect_stacks} {doubt} to target Torment.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
+		},
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 18,
+			"effect_stacks": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"Enhanced Cheeky Approach": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
+		"Abilities": "Gain {defence_amount} {confidence}\nApply {effect_stacks} {doubt} to target Torment.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
+		},
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 8,
+			"effect_stacks": 6,
+		},
+		"_is_upgrade": true,
 	},
 	"Laugh at Danger": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
-		"Abilities": "After a Torment performs {stress}, it gains 1 {doubt}",
+		"Abilities": "After a Torment performs {stress}, it gains {effect_stacks} {doubt}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
 		},
 		"_rarity": "Rare",
-		"_keywords": ["stress"]
+		"_keywords": ["stress"],
+		"_amounts": {
+			"effect_stacks": 1,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"Easy Laugh at Danger",
+			"Roaring Laugh at Danger",
+		],
+	},
+	"Easy Laugh at Danger": {
+		"Type": "Concentration",
+		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
+		"Abilities": "After a Torment performs {stress}, it gains {effect_stacks} {doubt}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
+		},
+		"_rarity": "Rare",
+		"_keywords": ["stress"],
+		"_amounts": {
+			"effect_stacks": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"Roaring Laugh at Danger": {
+		"Type": "Concentration",
+		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
+		"Abilities": "After a Torment performs {stress}, it gains {effect_stacks} {doubt}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
+		},
+		"_rarity": "Rare",
+		"_keywords": ["stress"],
+		"_amounts": {
+			"effect_stacks": 2,
+		},
+		"_is_upgrade": true,
 	},
 	"Towering Presence": {
 		"Type": "Action",
@@ -927,16 +1184,78 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["confidence", "interpretation"]
+		"_keywords": ["confidence", "interpretation"],
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"Easy Towering Presence",
+			"Overwhelming Presence",
+		],
+	},
+	"Easy Towering Presence": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} equal to your current {confidence}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["confidence", "interpretation"],
+		"_is_upgrade": true,
+	},
+	"Overwhelming Presence": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} equal to your current {confidence} + {damage_amount}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["confidence", "interpretation"],
+		"_amounts": {
+			"damage_amount": 6,
+		},
+		"_is_upgrade": true,
 	},
 	"Unassailable": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you apply {doubt}, gain 1 {confidence}",
+		"Abilities": "Whenever you apply {doubt}, gain {effect_defence} {confidence}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
-		"_keywords": ["confidence"]
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"effect_defence": 1,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"Easy Unassailable",
+			"Completely Unassailable",
+		],
+	},
+	"Easy Unassailable": {
+		"Type": "Concentration",
+		"Tags": [],
+		"Abilities": "Whenever you apply {doubt}, gain {effect_defence} {confidence}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"effect_defence": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"Completely Unassailable": {
+		"Type": "Concentration",
+		"Tags": [],
+		"Abilities": "Whenever you apply {doubt}, gain {effect_defence} {confidence}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"effect_defence": 3,
+		},
+		"_is_upgrade": true,
 	},
 	"Audacity": {
 		"Type": "Control",
@@ -960,7 +1279,7 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
 		},
 		"_rarity": "Rare",
-		"_keywords": ["confidence", "forget"]
+		"_keywords": ["confidence", "forget"],
 	},
 	"Solid Understanding": {
 		"Type": "Action",
@@ -969,7 +1288,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["confidence", "interpretation"]
+		"_keywords": ["confidence", "interpretation"],
 	},
 	"No Second Thoughts": {
 		"Type": "Control",
@@ -1015,7 +1334,7 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
 		"_rarity": "Uncommon",
-		"_keywords": ["interpretation"]
+		"_keywords": ["interpretation"],
 	},
 	"Drag and Drop": {
 		"Type": "Action",
@@ -1094,7 +1413,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
-		"_keywords": ["interpretation"]
+		"_keywords": ["interpretation"],
 	},
 	"Ventriloquism": {
 		"Type": "Action",
@@ -1106,7 +1425,7 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
 		"_rarity": "Common",
-		"_keywords": ["interpretation"]
+		"_keywords": ["interpretation"],
 	},
 	"unnamed_card_1": {
 		"Type": "Control",
@@ -1115,7 +1434,7 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["forget"]
+		"_keywords": ["forget"],
 	},
 	"unnamed_card_2": {
 		"Type": "Control",
@@ -1136,7 +1455,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["interpretation"]
+		"_keywords": ["interpretation"],
 	},
 	"Absurdity Unleashed": {
 		"Type": "Concentration",
@@ -1223,7 +1542,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["confidence"]
+		"_keywords": ["confidence"],
 	},
 	"Rapid Theorizing": {
 		"Type": "Control",
@@ -1233,7 +1552,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["confidence"]
+		"_keywords": ["confidence"],
 	},
 	"Wild Inspiration": {
 		"Type": "Control",
@@ -1242,7 +1561,7 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["forget"]
+		"_keywords": ["forget"],
 	},
 	"Recall": {
 		"Type": "Concentration",
@@ -1267,7 +1586,7 @@ const CARDS := {
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
-		"_keywords": ["interpretation"]
+		"_keywords": ["interpretation"],
 	},
 	"Detect Weaknesses": {
 		"Type": "Action",
@@ -1276,7 +1595,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["interpretation"]
+		"_keywords": ["interpretation"],
 	},
 	"Eureka!": {
 		"Type": "Concentration",
@@ -1285,6 +1604,5 @@ const CARDS := {
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
-		"_keywords": []
 	},
 }

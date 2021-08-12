@@ -13,6 +13,8 @@ const SAME_SCRIPT_MODIFIERS := [
 	"Enhanced", # Used when the upgraded card has higher amount of effect stacks.
 	"Ephemeral", # Used when the upgraded card is adding an extra task to remove the card from deck.
 	"Fleeting", # Used when the upgraded card is adding an extra task to exhaust the card.
+	"Swift", # Used when the upgraded card is increasing the amount of cards drawn.
+	"Balanced", # Used when the upgraded card is tweaking all values at the same time.
 ]
 
 # When a the "Ephemeral" prepend has been added to a card upgrade
@@ -474,11 +476,13 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "assign_defence",
 						"subject": "dreamer",
-						"amount": 8,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("defence_amount"),
 					},
 					{
 						"name": "draw_cards",
-						"card_count": 1,
+						"card_count": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("draw_amount"),
 					},
 				],
 			},
@@ -527,7 +531,8 @@ func get_scripts(card_name: String) -> Dictionary:
 						"effect_name": Terms.ACTIVE_EFFECTS.poison.name,
 						"subject": "boardseek",
 						"subject_count": "all",
-						"modification": 2,
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("effect_stacks"),
 						"filter_state_seek": [{
 							"filter_group": "EnemyEntities",
 						}],
@@ -541,14 +546,16 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "assign_defence",
 						"subject": "dreamer",
-						"amount": 10,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("defence_amount"),
 					},
 					{
 						"name": "apply_effect",
 						"effect_name": Terms.ACTIVE_EFFECTS.poison.name,
 						"subject": "target",
 						"is_cost": true,
-						"modification": 3,
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("effect_stacks"),
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
 						}],
@@ -564,6 +571,19 @@ func get_scripts(card_name: String) -> Dictionary:
 						"effect_name": Terms.ACTIVE_EFFECTS.laugh_at_danger.name,
 						"subject": "dreamer",
 						"modification": 1,
+					},
+				],
+			},
+		},
+		"Roaring Laugh at Danger": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.laugh_at_danger.name,
+						"subject": "dreamer",
+						"modification": 1,
+						"upgrade_name": "roaring",
 					},
 				],
 			},
@@ -584,6 +604,29 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
+		"Overwhelming Presence": {
+			"manual": {
+				"hand": [
+					{
+						"name": "modify_damage",
+						"subject": "target",
+						"is_cost": true,
+						"tags": ["Attack"],
+						"amount": "per_defence",
+						"per_defence": {
+							"subject": "dreamer",
+						},
+					},
+					{
+						"name": "modify_damage",
+						"subject": "previous",
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
+						"tags": ["Attack"],
+					},
+				],
+			},
+		},
 		"Unassailable": {
 			"manual": {
 				"hand": [
@@ -592,6 +635,19 @@ func get_scripts(card_name: String) -> Dictionary:
 						"effect_name": Terms.ACTIVE_EFFECTS.unassailable.name,
 						"subject": "dreamer",
 						"modification": 1,
+					},
+				],
+			},
+		},
+		"Completely Unassailable": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.unassailable.name,
+						"subject": "dreamer",
+						"modification": 1,
+						"upgrade_name": "completely",
 					},
 				],
 			},

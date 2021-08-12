@@ -190,6 +190,9 @@ const ACTIVE_EFFECTS := {
 	"laugh_at_danger":  {
 		"name": "Laugh at Danger",
 		"description": "{effect_name}: After a {enemy} {opponent_attack} the {entity}, it gains 1 {doubt}.",
+		"upgraded_descriptions": {
+			"roaring": "{effect_name}: After a {enemy} {opponent_attack} the {entity}, it gains 2 {doubt}.",
+		},
 		"icon": preload("res://assets/icons/delighted.png"),
 	},
 	"nothing_to_fear":  {
@@ -221,7 +224,10 @@ const ACTIVE_EFFECTS := {
 	},
 	"unassailable":  {
 		"name": "Unassailable",
-		"description": "{effect_name}: Whenever you apply {doubt}, gain 1 {defence}.",
+		"description": "{effect_name}: Whenever you apply {doubt}, gain 2 {defence}.",
+		"upgraded_descriptions": {
+			"completely":  "{effect_name}: Whenever you apply {doubt}, gain 3 {defence}.",
+		},
 		"icon": preload("res://assets/icons/psychic-waves.png"),
 	},
 	"master_of_skies":  {
