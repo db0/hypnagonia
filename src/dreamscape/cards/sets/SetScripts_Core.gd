@@ -999,12 +999,15 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "assign_defence",
 						"subject": "dreamer",
-						"amount": 7,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("defence_amount"),
 					},
 					{
 						"name": "apply_effect",
 						"effect_name": Terms.ACTIVE_EFFECTS.buffer.name,
 						"subject": "dreamer",
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("effect_stacks"),
 					}
 				],
 			},
@@ -1016,7 +1019,8 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "apply_effect",
 						"effect_name": Terms.ACTIVE_EFFECTS.buffer.name,
 						"subject": "dreamer",
-						"modification": 4
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("effect_stacks"),
 					}
 				],
 			},
@@ -1029,7 +1033,8 @@ func get_scripts(card_name: String) -> Dictionary:
 						"subject": "boardseek",
 						"subject_count": "all",
 						"tags": ["Attack"],
-						"amount": 20,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
 						"filter_state_seek": [{
 							"filter_group": "EnemyEntities",
 						}],
@@ -1042,7 +1047,8 @@ func get_scripts(card_name: String) -> Dictionary:
 						"filter_group": "EnemyEntities",
 					}],
 					"effect_name": Terms.ACTIVE_EFFECTS.disempower.name,
-					"filter_stacks": 6,
+					"filter_stacks": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("filter_amount"),
 					"comparison": "ge",
 				}
 			},
@@ -1059,7 +1065,8 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "modify_damage",
 						"subject": "target",
 						"is_cost": true,
-						"amount": 8,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
 						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
@@ -1068,6 +1075,8 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "move_card_to_container",
 						"subject": "tutor",
+						"subject_count": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("draw_amount"),
 						"src_container":  cfc.NMAP.deck,
 						"dest_container":  cfc.NMAP.hand,
 						"filter_state_tutor": [
@@ -1099,7 +1108,8 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "autoplay_card",
 						"src_container": cfc.NMAP.deck,
-						"subject_count": 1,
+						"subject_count": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("draw_amount"),
 						"subject": "index",
 						"subject_index": "random",
 					},
@@ -1107,6 +1117,32 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "move_card_to_container",
 						"subject": "self",
 						"dest_container": cfc.NMAP.forgotten,
+					},
+				],
+			},
+		},
+		"Sustained unnamed_card_1": {
+			"manual": {
+				"hand": [
+					{
+						"name": "move_card_to_container",
+						"src_container": cfc.NMAP.discard,
+						"dest_container": cfc.NMAP.deck,
+						"subject_count": "all",
+						"subject": "index",
+						"subject_index": "top",
+					},
+					{
+						"name": "shuffle_container",
+						"dest_container": cfc.NMAP.deck,
+					},
+					{
+						"name": "autoplay_card",
+						"src_container": cfc.NMAP.deck,
+						"subject_count": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("draw_amount"),
+						"subject": "index",
+						"subject_index": "random",
 					},
 				],
 			},

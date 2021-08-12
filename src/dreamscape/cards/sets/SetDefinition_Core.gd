@@ -222,7 +222,7 @@ const CARDS := {
 	},
 	"Safety of Air": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.relax.name],
+		"Tags": [Terms.GENERIC_TAGS.relax.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "{relax} for {healing_amount}. {forget}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -240,7 +240,7 @@ const CARDS := {
 	},
 	"+ Safety of Air +": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.relax.name],
+		"Tags": [Terms.GENERIC_TAGS.relax.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "{relax} for {healing_amount}. {forget}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -253,7 +253,7 @@ const CARDS := {
 	},
 	"@ Safety of Air @": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.relax.name],
+		"Tags": [Terms.GENERIC_TAGS.relax.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "{relax} for {healing_amount}. {forget}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
@@ -1888,40 +1888,208 @@ const CARDS := {
 	"Loop de loop": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
-		"Abilities": "Gain 7 {confidence}\nGain 1 {fascination}",
+		"Abilities": "Gain {defence_amount} {confidence}\nGain {effect_stacks} {fascination}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
 		},
 		"_rarity": "Common",
-		"_keywords": ["confidence"]
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"effect_stacks": 1,
+			"defence_amount": 7,
+		},
+		"_upgrade_threshold": 9,
+		"_upgrades": [
+			"+ Loop de loop +",
+			"* Loop de loop *",
+		],
+	},
+	"+ Loop de loop +": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
+		"Abilities": "Gain {defence_amount} {confidence}\nGain {effect_stacks} {fascination}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
+		},
+		"_rarity": "Common",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"effect_stacks": 1,
+			"defence_amount": 11,
+		},
+		"_is_upgrade": true,
+	},
+	"* Loop de loop *": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
+		"Abilities": "Gain {defence_amount} {confidence}\nGain {effect_stacks} {fascination}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
+		},
+		"_rarity": "Common",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"effect_stacks": 2,
+			"defence_amount": 7,
+		},
+		"_is_upgrade": true,
 	},
 	"Headless": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
-		"Abilities": "Gain 4 {fascination}",
+		"Abilities": "Gain {effect_stacks} {fascination}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
 		},
 		"_rarity": "Common",
+		"_amounts": {
+			"effect_stacks": 4,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"@ Headless @",
+			"* Headless *",
+			"% Headless %",
+		],
+	},
+	"@ Headless @": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
+		"Abilities": "Gain {effect_stacks} {fascination}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
+		},
+		"_rarity": "Common",
+		"_amounts": {
+			"effect_stacks": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"* Headless *": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
+		"Abilities": "Gain {effect_stacks} {fascination}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
+		},
+		"_rarity": "Common",
+		"_amounts": {
+			"effect_stacks": 6,
+		},
+		"_is_upgrade": true,
+	},
+	"% Headless %": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
+		"Abilities": "Gain {effect_stacks} {fascination}",
+		"Cost": 3,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
+		},
+		"_rarity": "Common",
+		"_amounts": {
+			"effect_stacks": 10,
+		},
+		"_is_upgrade": true,
 	},
 	"Utterly Ridiculous": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "Can only be played if there's a total of 6 or more {confusion} among Torments\n"\
-				+ "{damage} all Torments for 20",
+		"Abilities": "Can only be played if there's a total of {filter_amount} or more {confusion} among Torments\n"\
+				+ "{damage} all Torments for {damage_amount}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
 		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 20,
+			"filter_amount": 6,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"@ Utterly Ridiculous @",
+			"+ Utterly Ridiculous +",
+			"% Utterly Ridiculous %",
+			"= Utterly Ridiculous =",
+		],
+	},
+	"@ Utterly Ridiculous @": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "Can only be played if there's a total of {filter_amount} or more {confusion} among Torments\n"\
+				+ "{damage} all Torments for {damage_amount}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 20,
+			"filter_amount": 6,
+		},
+		"_is_upgrade": true,
+	},
+	"+ Utterly Ridiculous +": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "Can only be played if there's a total of {filter_amount} or more {confusion} among Torments\n"\
+				+ "{damage} all Torments for {damage_amount}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 26,
+			"filter_amount": 6,
+		},
+		"_is_upgrade": true,
+	},
+	"% Utterly Ridiculous %": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "Can only be played if there's a total of {filter_amount} or more {confusion} among Torments\n"\
+				+ "{damage} all Torments for {damage_amount}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 20,
+			"filter_amount": 4,
+		},
+		"_is_upgrade": true,
+	},
+	"= Utterly Ridiculous =": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "Can only be played if there's a total of {filter_amount} or more {confusion} among Torments\n"\
+				+ "{damage} all Torments for {damage_amount}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 40,
+			"filter_amount": 10,
+		},
+		"_is_upgrade": true,
 	},
 	"Ventriloquism": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage} for 8.\nDraw a {confusion} card.",
+		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {confusion} card.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -1929,15 +2097,124 @@ const CARDS := {
 		},
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 6,
+			"draw_amount": 1,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"@ Ventriloquism @",
+			"+ Ventriloquism +",
+			"! Ventriloquism !",
+		],
+	},
+	"@ Ventriloquism @": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {confusion} card.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 4,
+			"draw_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"+ Ventriloquism +": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {confusion} card.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 10,
+			"draw_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"! Ventriloquism !": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {confusion} cards.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 6,
+			"draw_amount": 2,
+		},
+		"_is_upgrade": true,
 	},
 	"unnamed_card_1": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "{shuffle} your discard pile into your deck.\nPlay a Random card from your deck. {forget}.",
+		"Abilities": "{shuffle} your discard pile into your deck.\nPlay {draw_amount} Random card from your deck. {forget}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["forget"],
+		"_amounts": {
+			"draw_amount": 1
+		},
+		"_upgrade_threshold": 9,
+		"_upgrades": [
+			"@ unnamed_card_1 @",
+			"! unnamed_card_1 !",
+			"Sustained unnamed_card_1",
+		],
+	},
+	"@ unnamed_card_1 @": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "{shuffle} your discard pile into your deck.\nPlay {draw_amount} Random card from your deck. {forget}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": ["forget"],
+		"_amounts": {
+			"draw_amount": 1
+		},
+		"_is_upgrade": true,
+	},
+	"! unnamed_card_1 !": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "{shuffle} your discard pile into your deck.\nPlay {draw_amount} Random card from your deck. {forget}.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["forget"],
+		"_amounts": {
+			"draw_amount": 2
+		},
+		"_is_upgrade": true,
+	},
+	"Sustained unnamed_card_1": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.spark.name],
+		"Abilities": "{shuffle} your discard pile into your deck.\nPlay {draw_amount} Random card from your deck.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": [],
+		"_amounts": {
+			"draw_amount": 1
+		},
+		"_is_upgrade": true,
 	},
 	"unnamed_card_2": {
 		"Type": "Control",
