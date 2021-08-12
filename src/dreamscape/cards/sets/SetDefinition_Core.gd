@@ -1436,41 +1436,178 @@ const CARDS := {
 	"No Second Thoughts": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
-		"Abilities": "Gain 2 {courage}",
+		"Abilities": "Gain {effect_stacks} {courage}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
 		},
 		"_rarity": "Uncommon",
+		"_amounts": {
+			"effect_stacks": 2,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"* No Second Thoughts *",
+			"~ No Second Thoughts ~",
+		],
+	},
+	"* No Second Thoughts *": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
+		"Abilities": "Gain {effect_stacks} {courage}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
+		},
+		"_rarity": "Uncommon",
+		"_amounts": {
+			"effect_stacks": 3,
+		},
+		"_is_upgrade": true,
+	},
+	"~ No Second Thoughts ~": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
+		"Abilities": "Gain {effect_stacks} {courage}\n{forget}.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
+		},
+		"_rarity": "Uncommon",
+		"_amounts": {
+			"effect_stacks": 2,
+		},
+		"_is_upgrade": true,
 	},
 	"High Morale": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage} for 6.\nDraw a {courage} card.",
+		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {courage} card.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
 		},
 		"_rarity": "Uncommon",
-		"_keywords": ["interpretation"]
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 6,
+			"draw_amount": 1,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"+ High Morale +",
+			"! High Morale !",
+			"@ High Morale @",
+		],
+	},
+	"+ High Morale +": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {courage} card.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
+		},
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 10,
+			"draw_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"! High Morale !": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {courage} cards.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
+		},
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 6,
+			"draw_amount": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"@ High Morale @": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {courage} card.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
+		},
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 4,
+			"draw_amount": 1,
+		},
+		"_is_upgrade": true,
 	},
 	"Confident Slap": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "Apply 5 {doubt} to target Torment.",
+		"Abilities": "Apply {effect_stacks} {doubt} to target Torment.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
 		},
 		"_rarity": "Common",
+		"_amounts": {
+			"effect_stacks": 5,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"* Confident Slap *",
+			"@ Confident Slap @",
+		],
+	},
+	"* Confident Slap *": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "Apply {effect_stacks} {doubt} to target Torment.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
+		},
+		"_rarity": "Common",
+		"_amounts": {
+			"effect_stacks": 6,
+		},
+		"_is_upgrade": true,
+	},
+	"@ Confident Slap @": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "Apply {effect_stacks} {doubt} to target Torment.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
+		},
+		"_rarity": "Common",
+		"_amounts": {
+			"effect_stacks": 4,
+		},
+		"_is_upgrade": true,
 	},
 	"Swoop": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage} for 8. If you have {untouchable}, {damage} for 12 instead.",
+		"Abilities": "{damage} for {damage_amount}. If you have {untouchable}, {damage} for {damage_amount2} instead.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -1478,52 +1615,275 @@ const CARDS := {
 		},
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 8,
+			"damage_amount2": 12,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"+ Swoop +",
+			"% Swoop %",
+		],
+	},
+	"+ Swoop +": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}. If you have {untouchable}, {damage} for {damage_amount2} instead.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
+		},
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 12,
+			"damage_amount2": 16,
+		},
+		"_is_upgrade": true,
+	},
+	"% Swoop %": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}. If you have {untouchable}, {damage} for {damage_amount2} instead.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
+		},
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 8,
+			"damage_amount2": 20,
+		},
+		"_is_upgrade": true,
 	},
 	"Drag and Drop": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
-		"Abilities": "{damage} for 10. If Torment is {overcome}, gain 1 {untouchable}",
+		"Abilities": "{damage} for {damage_amount}. If Torment is {overcome}, gain {effect_stacks} {untouchable}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
 		"_rarity": "Common",
-		"_keywords": ["interpretation", "overcome"]
+		"_keywords": ["interpretation", "overcome"],
+		"_amounts": {
+			"damage_amount": 12,
+			"effect_stacks": 1,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"+ Drag and Drop +",
+			"@ Drag and Drop @",
+		],
 	},
-	"Running Start": {
-		"Type": "Control",
-		"Tags": [],
-		"Abilities": "{damage} for 5.\nDraw a {untouchable} card.",
+	"+ Drag and Drop +": {
+		"Type": "Action",
+		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
+		"Abilities": "{damage} for {damage_amount}. If Torment is {overcome}, gain {effect_stacks} {untouchable}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
+		},
+		"_rarity": "Common",
+		"_keywords": ["interpretation", "overcome"],
+		"_amounts": {
+			"damage_amount": 16,
+			"effect_stacks": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"@ Drag and Drop @": {
+		"Type": "Action",
+		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
+		"Abilities": "{damage} for {damage_amount}. If Torment is {overcome}, gain {effect_stacks} {untouchable}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
 		"_rarity": "Common",
-		"_keywords": ["interpretation"]
+		"_keywords": ["interpretation", "overcome"],
+		"_amounts": {
+			"damage_amount": 11,
+			"effect_stacks": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"Running Start": {
+		"Type": "Control",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {untouchable} card.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
+		},
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 6,
+			"draw_amount": 1,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"+ Running Start +",
+			"! Running Start !",
+			"@ Running Start @",
+		],
+	},
+	"+ Running Start +": {
+		"Type": "Control",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {untouchable} card.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
+		},
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 10,
+			"draw_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"! Running Start !": {
+		"Type": "Control",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {untouchable} cards.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
+		},
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 6,
+			"draw_amount": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"@ Running Start @": {
+		"Type": "Control",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {untouchable} card.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
+		},
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 4,
+			"draw_amount": 1,
+		},
+		"_is_upgrade": true,
 	},
 	"Master of Skies": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.purpose.name],
-		"Abilities": "Whenever you gain {untouchable}, Gain 1 {immersion}",
+		"Abilities": "Whenever you gain {untouchable}, Gain {effect_amount} {immersion}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
 		"_rarity": "Rare",
+		"_amounts": {
+			"effect_amount": 1,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"Glorious Master of Skies",
+			"@ Master of Skies @",
+		],
+	},
+	"@ Master of Skies @": {
+		"Type": "Concentration",
+		"Tags": [Terms.GENERIC_TAGS.purpose.name],
+		"Abilities": "Whenever you gain {untouchable}, Gain {effect_amount} {immersion}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
+		},
+		"_rarity": "Rare",
+		"_amounts": {
+			"effect_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"Glorious Master of Skies": {
+		"Type": "Concentration",
+		"Tags": [Terms.GENERIC_TAGS.purpose.name],
+		"Abilities": "Whenever you gain {untouchable}, Gain {effect_amount} {immersion}",
+		"Cost": 3,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
+		},
+		"_rarity": "Rare",
+		"_amounts": {
+			"effect_amount": 2,
+		},
+		"_is_upgrade": true,
 	},
 	"Zen of Flight": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
-		"Abilities": "At the end of each turn, {relax} 1.\nIf you have {untouchable}, {relax} 1 extra.",
+		"Abilities": "At the end of each turn, {relax} {effect_amount}.\nIf you have {untouchable}, {relax} {effect_amount} extra.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
 		"_rarity": "Rare",
+		"_amounts": {
+			"effect_amount": 1,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"Masterful Zen of Flight",
+			"@ Zen of Flight @",
+		],
+	},
+	"@ Zen of Flight @": {
+		"Type": "Concentration",
+		"Tags": [Terms.GENERIC_TAGS.relax.name],
+		"Abilities": "At the end of each turn, {relax} {effect_amount}.\nIf you have {untouchable}, {relax} {effect_amount} extra.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
+		},
+		"_rarity": "Rare",
+		"_amounts": {
+			"effect_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"Masterful Zen of Flight": {
+		"Type": "Concentration",
+		"Tags": [Terms.GENERIC_TAGS.relax.name],
+		"Abilities": "At the end of each turn, {relax} {effect_amount}.\nIf you have {untouchable}, {relax} {effect_amount} extra.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
+		},
+		"_rarity": "Rare",
+		"_amounts": {
+			"effect_amount": 2,
+		},
+		"_is_upgrade": true,
 	},
 	"Loop de loop": {
 		"Type": "Control",

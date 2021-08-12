@@ -22,7 +22,7 @@ func custom_script(script: ScriptObject) -> void:
 	# But not all object will be Card
 	# So I can't be certain the "canonical_name" var will exist
 	match card.canonical_name:
-		"The Joke", "The Enhanced Joke", "The Balanced Joke", "The Solid Joke":
+		"The Joke", "* The Joke *", "= The Joke =", "+ The Joke +":
 			# No demo cost-based custom scripts
 			if not costs_dry_run:
 				if subjects.size() and subjects[0] as EnemyEntity:
@@ -47,15 +47,16 @@ func custom_script(script: ScriptObject) -> void:
 							"modification": effect_stacks,
 						}]
 						execute_script(the_joke, script.owner, enemy_entity)
-		"Barrel Through":
+		"Barrel Through", "+ Barrel Through +", "= Barrel Through =":
 			if not costs_dry_run:
 				if subjects.size() and subjects[0] as EnemyEntity:
 					var enemy_entity: EnemyEntity = subjects[0]
-					print_debug(enemy_entity.active_effects.get_effect(Terms.ACTIVE_EFFECTS.vulnerable.name))
 					if enemy_entity.active_effects.get_effect(Terms.ACTIVE_EFFECTS.vulnerable.name):
+						var damage_amount = cfc.card_definitions[card.canonical_name]\
+									.get("_amounts",{}).get("damage_amount")
 						var barrel_through = [{
 								"name": "modify_damage",
-								"amount": 12,
+								"amount": damage_amount,
 								"tags": ["Attack"],
 								"subject": "boardseek",
 								SP.KEY_SUBJECT_COUNT: "all",
@@ -65,7 +66,7 @@ func custom_script(script: ScriptObject) -> void:
 								}],
 						}]
 						execute_script(barrel_through, script.owner, enemy_entity)
-		"Drag and Drop":
+		"Drag and Drop", "+ Drag and Drop +", "@ Drag and Drop @":
 			if not costs_dry_run:
 				if subjects.size():
 					var dead_enemy = subjects[0]
@@ -76,11 +77,13 @@ func custom_script(script: ScriptObject) -> void:
 							and dead_enemy.damage < dead_enemy.health)
 							or not dead_enemy in cfc.get_tree().get_nodes_in_group("EnemyEntities")):
 						return
+					var effect_stacks = cfc.card_definitions[card.canonical_name]\
+								.get("_amounts",{}).get("effect_stacks")
 					var fly_away = [{
 						"name": "apply_effect",
 						"effect_name": Terms.ACTIVE_EFFECTS.impervious.name,
 						"subject": "dreamer",
-						"modification": 1,
+						"modification": effect_stacks,
 					}]
 					execute_script(fly_away, script.owner, script.trigger_object)
 		"unnamed_card_2":

@@ -520,7 +520,8 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "modify_damage",
 						"subject": "target",
 						"is_cost": true,
-						"amount": 8,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
 						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
@@ -790,7 +791,8 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "apply_effect",
 						"effect_name": Terms.ACTIVE_EFFECTS.fortify.name,
 						"subject": "dreamer",
-						"modification": 2,
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("effect_stacks"),
 					},
 				],
 			},
@@ -807,7 +809,8 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "modify_damage",
 						"subject": "target",
 						"is_cost": true,
-						"amount": 6,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
 						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
@@ -816,6 +819,8 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "move_card_to_container",
 						"subject": "tutor",
+						"subject_count": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("draw_amount"),
 						"src_container":  cfc.NMAP.deck,
 						"dest_container":  cfc.NMAP.hand,
 						"filter_state_tutor": [
@@ -837,7 +842,8 @@ func get_scripts(card_name: String) -> Dictionary:
 						"effect_name": Terms.ACTIVE_EFFECTS.poison.name,
 						"subject": "target",
 						"is_cost": true,
-						"modification": 5,
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("effect_stacks"),
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
 						}],
@@ -852,7 +858,8 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "modify_damage",
 						"subject": "target",
 						"is_cost": true,
-						"amount": 8,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
 						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
@@ -865,7 +872,8 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "modify_damage",
 						"subject": "target",
 						"is_cost": true,
-						"amount": 12,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount2"),
 						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
@@ -884,7 +892,8 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "modify_damage",
 						"subject": "target",
 						"is_cost": true,
-						"amount": 10,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
 						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
@@ -909,7 +918,8 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "modify_damage",
 						"subject": "target",
 						"is_cost": true,
-						"amount": 6,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
 						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
@@ -918,6 +928,8 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "move_card_to_container",
 						"subject": "tutor",
+						"subject_count": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("draw_amount"),
 						"src_container":  cfc.NMAP.deck,
 						"dest_container":  cfc.NMAP.hand,
 						"filter_state_tutor": [
@@ -943,6 +955,19 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
+		"Glorious Master of Skies": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.master_of_skies.name,
+						"subject": "dreamer",
+						"modification": 1,
+						"upgrade_name": "glorious",
+					},
+				],
+			},
+		},
 		"Zen of Flight": {
 			"manual": {
 				"hand": [
@@ -951,6 +976,19 @@ func get_scripts(card_name: String) -> Dictionary:
 						"effect_name": Terms.ACTIVE_EFFECTS.zen_of_flight.name,
 						"subject": "dreamer",
 						"modification": 1,
+					},
+				],
+			},
+		},
+		"Masterful Zen of Flight": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.zen_of_flight.name,
+						"subject": "dreamer",
+						"modification": 1,
+						"upgrade_name": "masterful",
 					},
 				],
 			},

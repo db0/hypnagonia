@@ -233,11 +233,17 @@ const ACTIVE_EFFECTS := {
 	"master_of_skies":  {
 		"name": "Master of Skies",
 		"description": "{effect_name}: Whenever you Gain {untouchable}, gain 1 {energy}.",
+		"upgraded_descriptions": {
+			"glorious":  "{effect_name}: Whenever you Gain {untouchable}, gain 2 {energy}.",
+		},
 		"icon": preload("res://assets/icons/wing-cloak.png"),
 	},
 	"zen_of_flight":  {
 		"name": "Zen of Flight",
 		"description": "{effect_name}: At the end of each turn, {heal} 1. If {untouchable}, {heal} 1 extra.",
+		"upgraded_descriptions": {
+			"masterful":  "{effect_name}: At the end of each turn, {heal} 2. If {untouchable}, {heal} 2 extra.",
+		},
 		"icon": preload("res://assets/icons/windy-stripes.png"),
 	},
 	"absurdity_unleashed":  {
