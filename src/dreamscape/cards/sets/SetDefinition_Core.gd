@@ -2219,7 +2219,7 @@ const CARDS := {
 	"unnamed_card_2": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
-		"Abilities": "Each Torment is applied {doubt} equals to its {confusion} x2",
+		"Abilities": "Each Torment is applied {doubt} equals to its {confusion} x{multiplier_amount}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -2227,37 +2227,158 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
 		},
 		"_rarity": "Uncommon",
+		"_amounts": {
+			"multiplier_amount": 2
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"@ unnamed_card_2 @",
+			"* unnamed_card_2 *",
+			"% unnamed_card_2 %",
+		],
+	},
+	"@ unnamed_card_2 @": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
+		"Abilities": "Each Torment is applied {doubt} equals to its {confusion}x{multiplier_amount}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY,
+			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
+		},
+		"_rarity": "Uncommon",
+		"_amounts": {
+			"multiplier_amount": 2
+		},
+		"_is_upgrade": true,
+	},
+	"* unnamed_card_2 *": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
+		"Abilities": "Each Torment is applied {doubt} equals to its {confusion}x{multiplier_amount}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY,
+			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
+		},
+		"_rarity": "Uncommon",
+		"_amounts": {
+			"multiplier_amount": 3
+		},
+		"_is_upgrade": true,
+	},
+	"% unnamed_card_2 %": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
+		"Abilities": "Each Torment is applied {doubt} equals to its ({confusion}+1)x{multiplier_amount}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY,
+			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
+		},
+		"_rarity": "Uncommon",
+		"_amounts": {
+			"multiplier_amount": 2
+		},
+		"_is_upgrade": true,
 	},
 	"unnamed_card_3": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage} all Torments for 8",
+		"Abilities": "{damage} all Torments for {damage_amount}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 8
+		},
+		"_upgrade_threshold": 8,
+		"_upgrades": [
+			"+ unnamed_card_3 +",
+			"~ unnamed_card_3 ~",
+		],
+	},
+	"+ unnamed_card_3 +": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} all Torments for {damage_amount}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 11
+		},
+		"_is_upgrade": true,
+	},
+	"~ unnamed_card_3 ~": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "{damage} all Torments for {damage_amount}.\n{forget}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation", "forget"],
+		"_amounts": {
+			"damage_amount": 18
+		},
+		"_is_upgrade": true,
 	},
 	"Absurdity Unleashed": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you apply {confusion} to a Torment, {damage} it for 4",
+		"Abilities": "Whenever you apply {confusion} to a Torment, {damage} it for {damage_amount}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
 		"_rarity": "Uncommon",
-		"_keywords": ["interpretation"]
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 4
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"@ Absurdity Unleashed @",
+			"Total Absurdity Unleashed",
+		],
 	},
-	"Dread": {
-		"Type": "Perturbation",
+	"@ Absurdity Unleashed @": {
+		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "{release}",
+		"Abilities": "Whenever you apply {confusion} to a Torment, {damage} it for {damage_amount}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 4
+		},
+		"_is_upgrade": true,
+	},
+	"Total Absurdity Unleashed": {
+		"Type": "Concentration",
+		"Tags": [],
+		"Abilities": "Whenever you apply {confusion} to a Torment, {damage} it for {damage_amount}",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_avoid_normal_discard": true,
-		"_rarity": "Temporary",
-		"_keywords": ["release"]
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 6
+		},
+		"_is_upgrade": true,
 	},
 	"unnamed_card_4": {
 		"Type": "Control",

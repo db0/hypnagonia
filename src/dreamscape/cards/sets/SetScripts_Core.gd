@@ -1167,7 +1167,8 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "modify_damage",
 						"subject": "boardseek",
-						"amount": 8,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
 						"subject_count": "all",
 						"tags": ["Attack"],
 						"filter_state_seek": [{
@@ -1189,12 +1190,15 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
-		"Dread": {
+		"Total Absurdity Unleashed": {
 			"manual": {
 				"hand": [
 					{
-						"name": "remove_card_from_deck",
-						"subject": "self",
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.absurdity_unleashed.name,
+						"subject": "dreamer",
+						"modification": 1,
+						"upgrade_name": "total",
 					},
 				],
 			},

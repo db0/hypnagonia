@@ -226,7 +226,7 @@ const ACTIVE_EFFECTS := {
 		"name": "Unassailable",
 		"description": "{effect_name}: Whenever you apply {doubt}, gain 2 {defence}.",
 		"upgraded_descriptions": {
-			"completely":  "{effect_name}: Whenever you apply {doubt}, gain 3 {defence}.",
+			"completely": "{effect_name}: Whenever you apply {doubt}, gain 3 {defence}.",
 		},
 		"icon": preload("res://assets/icons/psychic-waves.png"),
 	},
@@ -234,7 +234,7 @@ const ACTIVE_EFFECTS := {
 		"name": "Master of Skies",
 		"description": "{effect_name}: Whenever you Gain {untouchable}, gain 1 {energy}.",
 		"upgraded_descriptions": {
-			"glorious":  "{effect_name}: Whenever you Gain {untouchable}, gain 2 {energy}.",
+			"glorious": "{effect_name}: Whenever you Gain {untouchable}, gain 2 {energy}.",
 		},
 		"icon": preload("res://assets/icons/wing-cloak.png"),
 	},
@@ -242,13 +242,16 @@ const ACTIVE_EFFECTS := {
 		"name": "Zen of Flight",
 		"description": "{effect_name}: At the end of each turn, {heal} 1. If {untouchable}, {heal} 1 extra.",
 		"upgraded_descriptions": {
-			"masterful":  "{effect_name}: At the end of each turn, {heal} 2. If {untouchable}, {heal} 2 extra.",
+			"masterful": "{effect_name}: At the end of each turn, {heal} 2. If {untouchable}, {heal} 2 extra.",
 		},
 		"icon": preload("res://assets/icons/windy-stripes.png"),
 	},
 	"absurdity_unleashed":  {
 		"name": "Absurdity Unleashed",
 		"description": "{effect_name}: Whenever you apply {confusion} to a Torment, {attack} it for 4",
+		"upgraded_descriptions": {
+			"total": "{effect_name}: Whenever you apply {confusion} to a Torment, {attack} it for 6",
+		},
 		"icon": preload("res://assets/icons/absurdity-unleashed.png"),
 	},
 	"brilliance":  {

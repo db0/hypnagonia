@@ -86,14 +86,18 @@ func custom_script(script: ScriptObject) -> void:
 						"modification": effect_stacks,
 					}]
 					execute_script(fly_away, script.owner, script.trigger_object)
-		"unnamed_card_2":
+		"unnamed_card_2","@ unnamed_card_2 @","* unnamed_card_2 *","% unnamed_card_2 %":
 				for subject in subjects:
 					var dstacks = subject.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.disempower.name)
+					if card.canonical_name == "% unnamed_card_2 %":
+						dstacks += 1
+					var multiplier = cfc.card_definitions[card.canonical_name]\
+								.get("_amounts",{}).get("multiplier_amount")
 					var card_script := [{
 							"name": "apply_effect",
 							"effect_name": Terms.ACTIVE_EFFECTS.poison.name,
 							"subject": "trigger",
-							"modification": dstacks,
+							"modification": dstacks * multiplier,
 						}]
 					execute_script(card_script, script.owner, subject)
 
