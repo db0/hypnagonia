@@ -311,10 +311,15 @@ const GENERIC_TAGS := {
 		"rich_text_icon": "res://fonts/rich_text_icons/empty-hourglass.png",
 		"generic_description": "[color=purple]{effect_name} ({effect_icon}): If still in the hand at the end of the turn, it is forgotten.[/color]"},
 	"spark": {
-		"name": "Spark",	
+		"name": "Spark",
 		"icon": preload("res://assets/icons/idea.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/idea.png",
 		"generic_description": "{effect_name} ({effect_icon}): Reshuffles the deck."},
+	"innate": {
+		"name": "Intuition",
+		"icon": preload("res://assets/icons/light-bulb.png"),
+		"rich_text_icon": "res://fonts/rich_text_icons/light-bulb.png",
+		"generic_description": "[color=purple]{effect_name} ({effect_icon}): This card will always be in the starting hand.[/color]"},
 }
 
 

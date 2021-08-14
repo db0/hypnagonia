@@ -12,8 +12,8 @@ func empty_hand() -> void:
 		yield(get_tree().create_timer(0.05), "timeout")
 		card.move_to(cfc.NMAP.discard)
 
-func refill_hand() -> void:
-	for _iter in range(5):
+func refill_hand(amount = 5) -> void:
+	for _iter in range(amount):
 		var retcode = draw_card(cfc.NMAP.deck)
 		if retcode is GDScriptFunctionState:
 			retcode = yield(retcode, "completed")

@@ -25,6 +25,7 @@ const SAME_SCRIPT_SYMBOLS := [
 	"!", # Used when the upgraded card is increasing the amount of cards drawn.
 	"=", # Used when the upgraded card is tweaking all values at the same time.
 	"%", # Used when the upgraded card is rebalancing all values at the same time.
+	"^", # Used when the upgraded card is receiving the innate keyword.
 ]
 
 # When a the "Ephemeral" prepend has been added to a card upgrade

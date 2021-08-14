@@ -59,10 +59,18 @@ func begin_encounter() -> void:
 	randomize_background()
 	_fade_from_black()
 	yield(_tween, "tween_all_completed")
-	cfc.NMAP.hand.refill_hand()
+	cfc.NMAP.hand.refill_hand(5 - _retrieve_intuitions())
 	_on_player_turn_started(turn)
 	turn._reset_turn()
 	turn.encounter_event_count.clear()
+
+func _retrieve_intuitions() -> int:
+	var intuitions_count := 0
+	for card in cfc.NMAP.deck.get_all_cards():
+		if Terms.GENERIC_TAGS.innate.name in card.get_property("Tags"):
+			card.move_to(cfc.NMAP.hand)
+			intuitions_count += 1
+	return(intuitions_count)
 
 func randomize_background() -> void:
 	var dark_backgrounds := CFUtils.list_imported_in_directory("res://assets/backgrounds/dark/")
@@ -276,12 +284,7 @@ func _input(event):
 #		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 8)
 		for c in [
-			"No Second Thoughts",
-			"No Second Thoughts",
-			"No Second Thoughts",
-			"No Second Thoughts",
-			"@ High Morale @",
-			"! High Morale !",
+			"^ unnamed_card_4 ^",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.deck.add_child(card)

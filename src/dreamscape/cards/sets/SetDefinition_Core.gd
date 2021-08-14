@@ -2382,13 +2382,59 @@ const CARDS := {
 	},
 	"unnamed_card_4": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.fading.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Gain 11 {confidence}. {forget}",
+		"Tags": [
+			Terms.GENERIC_TAGS.fading.name, 
+			Terms.GENERIC_TAGS.slumber.name, 
+		],
+		"Abilities": "Gain {defence_amount} {confidence}\n{forget}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_avoid_normal_discard": true,
 		"_rarity": "Common",
-		"_keywords": ["confidence", "forget"]
+		"_keywords": ["confidence", "forget"],
+		"_amounts": {
+			"defence_amount": 11
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"+ unnamed_card_4 +",
+			"^ unnamed_card_4 ^",
+		],
+	},
+	"+ unnamed_card_4 +": {
+		"Type": "Control",
+		"Tags": [
+			Terms.GENERIC_TAGS.fading.name, 
+			Terms.GENERIC_TAGS.slumber.name, 
+		],
+		"Abilities": "Gain {defence_amount} {confidence}\n{forget}.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_avoid_normal_discard": true,
+		"_rarity": "Common",
+		"_keywords": ["confidence", "forget"],
+		"_amounts": {
+			"defence_amount": 15
+		},
+		"_is_upgrade": true,
+	},
+	"^ unnamed_card_4 ^": {
+		"Type": "Control",
+		"Tags": [
+			Terms.GENERIC_TAGS.fading.name, 
+			Terms.GENERIC_TAGS.innate.name,
+			Terms.GENERIC_TAGS.slumber.name, 
+		],
+		"Abilities": "Gain {defence_amount} {confidence}\n{forget}.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_avoid_normal_discard": true,
+		"_rarity": "Common",
+		"_keywords": ["confidence", "forget"],
+		"_amounts": {
+			"defence_amount": 11
+		},
+		"_is_upgrade": true,
 	},
 	"Change of Mind": {
 		"Type": "Action",
