@@ -2542,7 +2542,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Gain {defence_amount} {confidence}.\n"\
-				+ "If you've {shuffled} your deck this turn, "\
+				+ "If you've {shuffle}d your deck this turn, "\
 				+ "gain {defence_amount2} {confidence} and draw {draw_amount} card.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -2564,7 +2564,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Gain {defence_amount} {confidence}.\n"\
-				+ "If you've {shuffled} your deck this turn, "\
+				+ "If you've {shuffle}d your deck this turn, "\
 				+ "gain {defence_amount2} {confidence} and draw {draw_amount} card.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -2581,7 +2581,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Gain {defence_amount} {confidence}.\n"\
-				+ "If you've {shuffled} your deck this turn, "\
+				+ "If you've {shuffle}d your deck this turn, "\
 				+ "gain {defence_amount2} {confidence} and draw {draw_amount} card.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -2598,7 +2598,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Gain {defence_amount} {confidence}.\n"\
-				+ "If you've {shuffled} your deck this turn, "\
+				+ "If you've {shuffle}d your deck this turn, "\
 				+ "gain {defence_amount2} {confidence} and draw {draw_amount} card.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -2779,7 +2779,7 @@ const CARDS := {
 		"_upgrade_threshold": 7,
 		"_upgrades": [
 			"+ It's alive! +",
-			"% It's alive! %",
+			"= It's alive! =",
 		],
 	},
 	"+ It's alive! +": {
