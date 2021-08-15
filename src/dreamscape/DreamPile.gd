@@ -22,7 +22,6 @@ func _on_DreamPile_input_event(event) -> void:
 			and position == Vector2(0,0)\
 			and not are_cards_still_animating()\
 			and event.get_button_index() == 1:
-		print_debug(are_cards_still_animating())
 		populate_popup()
 
 func _on_DreamPile_mouse_entered() -> void:

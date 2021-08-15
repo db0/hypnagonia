@@ -257,16 +257,25 @@ const ACTIVE_EFFECTS := {
 	"brilliance":  {
 		"name": "Brilliance",
 		"description": "{effect_name}: Whenever you {shuffle} your deck gain 4 {confidence}",
+		"upgraded_descriptions": {
+			"blinding": "{effect_name}: Whenever you {shuffle} your deck gain 6 {confidence}",
+		},
 		"icon": preload("res://assets/icons/mad-scientist.png"),
 	},
 	"recall":  {
 		"name": "Recall",
-		"description": "{effect_name}: At the end of your turn, shuffle a card from your discard pile into your deck.",
+		"description": "{effect_name}: At the end of your turn, shuffle 1 card from your discard pile into your deck.",
+		"upgraded_descriptions": {
+			"total": "{effect_name}: At the end of your turn, shuffle 2 cards from your discard pile into your deck.",
+		},
 		"icon": preload("res://assets/icons/think.png"),
 	},
 	"eureka":  {
 		"name": "Eureka!",
 		"description": "{effect_name}: Gain 1 {buffer} every other time you shuffle your deck.",
+		"upgraded_descriptions": {
+			"inspired": "{effect_name}: Gain 2 {buffer} every other time you shuffle your deck.",
+		},
 		"icon": preload("res://assets/icons/wisdom.png"),
 	},
 }

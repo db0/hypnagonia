@@ -2423,7 +2423,6 @@ const CARDS := {
 		"Tags": [
 			Terms.GENERIC_TAGS.fading.name, 
 			Terms.GENERIC_TAGS.innate.name,
-			Terms.GENERIC_TAGS.slumber.name, 
 		],
 		"Abilities": "Gain {defence_amount} {confidence}\n{forget}.",
 		"Cost": 0,
@@ -2485,71 +2484,434 @@ const CARDS := {
 	"Brilliance": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you {shuffle} your deck, gain 4 {confidence}.",
+		"Abilities": "Whenever you {shuffle} your deck, gain {effect_amount} {confidence}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
+		"_amounts": {
+			"effect_amount": 4,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"Blinding Brilliance",
+			"@ Brilliance @",
+			"^ Brilliance ^",
+		],
+	},
+	"@ Brilliance @": {
+		"Type": "Concentration",
+		"Tags": [],
+		"Abilities": "Whenever you {shuffle} your deck, gain {effect_amount} {confidence}.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"effect_amount": 4,
+		},
+		"_is_upgrade": true,
+	},
+	"^ Brilliance ^": {
+		"Type": "Concentration",
+		"Tags": [Terms.GENERIC_TAGS.innate.name],
+		"Abilities": "Whenever you {shuffle} your deck, gain {effect_amount} {confidence}.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"effect_amount": 4,
+		},
+		"_is_upgrade": true,
+	},
+	"Blinding Brilliance": {
+		"Type": "Concentration",
+		"Tags": [],
+		"Abilities": "Whenever you {shuffle} your deck, gain {effect_amount} {confidence}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"effect_amount": 6,
+		},
+		"_is_upgrade": true,
 	},
 	"Rapid Theorizing": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
-		"Abilities": "Gain 8 {confidence}.\n"\
-				+ "If you've {shuffled} your deck this turn, gain 3 {confidence} and draw a card.",
+		"Abilities": "Gain {defence_amount} {confidence}.\n"\
+				+ "If you've {shuffled} your deck this turn, "\
+				+ "gain {defence_amount2} {confidence} and draw {draw_amount} card.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 8,
+			"defence_amount2": 3,
+			"draw_amount": 1,
+		},
+		"_upgrade_threshold": 8,
+		"_upgrades": [
+			"+ Rapid Theorizing +",
+			"! Rapid Theorizing !",
+			"% Rapid Theorizing %",
+		],
+	},
+	"+ Rapid Theorizing +": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.swift.name],
+		"Abilities": "Gain {defence_amount} {confidence}.\n"\
+				+ "If you've {shuffled} your deck this turn, "\
+				+ "gain {defence_amount2} {confidence} and draw {draw_amount} card.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 12,
+			"defence_amount2": 3,
+			"draw_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"! Rapid Theorizing !": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.swift.name],
+		"Abilities": "Gain {defence_amount} {confidence}.\n"\
+				+ "If you've {shuffled} your deck this turn, "\
+				+ "gain {defence_amount2} {confidence} and draw {draw_amount} card.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 9,
+			"defence_amount2": 3,
+			"draw_amount": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"% Rapid Theorizing %": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.swift.name],
+		"Abilities": "Gain {defence_amount} {confidence}.\n"\
+				+ "If you've {shuffled} your deck this turn, "\
+				+ "gain {defence_amount2} {confidence} and draw {draw_amount} card.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 6,
+			"defence_amount2": 11,
+			"draw_amount": 1,
+		},
+		"_is_upgrade": true,
 	},
 	"Wild Inspiration": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.purpose.name],
-		"Abilities": "{forget} the top card of the deck: Gain 1 {immersion}. Draw 2 cards.",
+		"Abilities": "{forget} the top {forget_amount} card of the deck: Gain {immersion_amount} {immersion}. Draw {draw_amount} cards.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
+		"_amounts": {
+			"immersion_amount": 1,
+			"draw_amount": 2,
+			"forget_amount": 1,
+		},
+		"_upgrade_threshold": 8,
+		"_upgrades": [
+			"+ Wild Inspiration +",
+			"! Wild Inspiration !",
+		],
+	},
+	"+ Wild Inspiration +": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.purpose.name],
+		"Abilities": "{forget} the top {forget_amount} card of the deck: Gain {immersion_amount} {immersion}. Draw {draw_amount} cards.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["forget"],
+		"_amounts": {
+			"immersion_amount": 2,
+			"draw_amount": 3,
+			"forget_amount": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"! Wild Inspiration !": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.purpose.name],
+		"Abilities": "{forget} the top {forget_amount} card of the deck: Gain {immersion_amount} {immersion}. Draw {draw_amount} cards.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["forget"],
+		"_amounts": {
+			"immersion_amount": 1,
+			"draw_amount": 3,
+			"forget_amount": 1,
+		},
+		"_is_upgrade": true,
 	},
 	"Recall": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
-		"Abilities": "At the end of your turn, {shuffle} the top card from the discard pile into the deck.",
+		"Abilities": "At the end of your turn, {shuffle} the top {effect_amount} card "\
+				+ "from the discard pile into the deck.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
+		"_amounts": {
+			"effect_amount": 1,
+		},
+		"_upgrade_threshold": 6,
+		"_upgrades": [
+			"Total Recall",
+			"^ Recall ^",
+			"@ Recall @",
+		],
+	},
+	"^ Recall ^": {
+		"Type": "Concentration",
+		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.innate.name],
+		"Abilities": "At the end of your turn, {shuffle} the top {effect_amount} card "\
+				+ "from the discard pile into the deck.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_amounts": {
+			"effect_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"@ Recall @": {
+		"Type": "Concentration",
+		"Tags": [Terms.GENERIC_TAGS.spark.name],
+		"Abilities": "At the end of your turn, {shuffle} the top {effect_amount} card "\
+				+ "from the discard pile into the deck.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_amounts": {
+			"effect_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"Total Recall": {
+		"Type": "Concentration",
+		"Tags": [Terms.GENERIC_TAGS.spark.name],
+		"Abilities": "At the end of your turn, {shuffle} the top {effect_amount} cards "\
+				+ "from the discard pile into the deck.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_amounts": {
+			"effect_amount": 2,
+		},
+		"_is_upgrade": true,
 	},
 	"unnamed_card_5": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
-		"Abilities": "{damage} for 10. You may {discard} two cards from your hand to {shuffle} this card into your deck.",
+		"Abilities": "{damage} for {damage_amount}. You may {discard} {discard_amount} cards from your hand "\
+				+ "to {shuffle} this card into your deck.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
+		"_amounts": {
+			"damage_amount": 10,
+			"discard_amount": 2,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"+ unnamed_card_5 +",
+			"! unnamed_card_5 !",
+		],
+	},
+	"+ unnamed_card_5 +": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.spark.name],
+		"Abilities": "{damage} for {damage_amount}. You may {discard} {discard_amount} cards from your hand "\
+				+ "to {shuffle} this card into your deck.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_amounts": {
+			"damage_amount": 14,
+			"discard_amount": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"! unnamed_card_5 !": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.spark.name],
+		"Abilities": "{damage} for {damage_amount}. You may {discard} {discard_amount} card from your hand "\
+				+ "to {shuffle} this card into your deck.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_amounts": {
+			"damage_amount": 11,
+			"discard_amount": 1,
+		},
+		"_is_upgrade": true,
 	},
 	"It's alive!": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage} for 12.\n{damage} for 2 for each time your deck was shuffled.",
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "{damage} for {damage_amount2} for each time your deck was shuffled.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
 		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 12,
+			"damage_amount2": 2,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"+ It's alive! +",
+			"% It's alive! %",
+		],
+	},
+	"+ It's alive! +": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "{damage} for {damage_amount2} for each time your deck was shuffled.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 16,
+			"damage_amount2": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"= It's alive! =": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "{damage} for {damage_amount2} for each time your deck was shuffled.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 14,
+			"damage_amount2": 3,
+		},
+		"_is_upgrade": true,
 	},
 	"Detect Weaknesses": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name],
-		"Abilities": "{damage} for 9. If you've shuffled your deck this turn, apply 2 {vulnerable}.",
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "If you've shuffled your deck this turn, apply {effect_stacks} {vulnerable}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 9,
+			"effect_stacks": 2,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"+ Detect Weaknesses +",
+			"* Detect Weaknesses *",
+		],
+	},
+	"+ Detect Weaknesses +": {
+		"Type": "Action",
+		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "If you've shuffled your deck this turn, apply {effect_stacks} {vulnerable}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 13,
+			"effect_stacks": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"* Detect Weaknesses *": {
+		"Type": "Action",
+		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "If you've shuffled your deck this turn, apply {effect_stacks} {vulnerable}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 10,
+			"effect_stacks": 3,
+		},
+		"_is_upgrade": true,
 	},
 	"Eureka!": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
-		"Abilities": "Gain 1 {buffer} every other time you shuffle your deck.",
+		"Abilities": "Gain {effect_amount} {buffer} every other time you shuffle your deck.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
+		"_amounts": {
+			"effect_amount": 1,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"@ Eureka! @",
+			"Inspired Eureka!",
+			"^ Eureka! ^",
+		],
+	},
+	"@ Eureka! @": {
+		"Type": "Concentration",
+		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
+		"Abilities": "Gain {effect_amount} {buffer} every other time you shuffle your deck.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_amounts": {
+			"effect_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"^ Eureka! ^": {
+		"Type": "Concentration",
+		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name, Terms.GENERIC_TAGS.innate.name],
+		"Abilities": "Gain {effect_amount} {buffer} every other time you shuffle your deck.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_amounts": {
+			"effect_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"Inspired Eureka!": {
+		"Type": "Concentration",
+		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
+		"Abilities": "Gain {effect_amount} {buffer} every other time you shuffle your deck.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_amounts": {
+			"effect_amount": 2,
+		},
+		"_is_upgrade": true,
 	},
 }

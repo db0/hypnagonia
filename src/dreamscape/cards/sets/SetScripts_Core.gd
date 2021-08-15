@@ -1267,6 +1267,19 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
+		"Blinding Brilliance": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.brilliance.name,
+						"subject": "dreamer",
+						"modification": 1,
+						"upgrade_name": "blinding",
+					},
+				],
+			},
+		},
 		"Recall": {
 			"manual": {
 				"hand": [
@@ -1279,6 +1292,19 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
+		"Total Recall": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.recall.name,
+						"subject": "dreamer",
+						"modification": 1,
+						"upgrade_name": "total",
+					},
+				],
+			},
+		},
 		"Eureka!": {
 			"manual": {
 				"hand": [
@@ -1287,6 +1313,19 @@ func get_scripts(card_name: String) -> Dictionary:
 						"effect_name": Terms.ACTIVE_EFFECTS.eureka.name,
 						"subject": "dreamer",
 						"modification": 1,
+					},
+				],
+			},
+		},
+		"Inspired Eureka!": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.eureka.name,
+						"subject": "dreamer",
+						"modification": 1,
+						"upgrade_name": "inspired",
 					},
 				],
 			},
@@ -1304,12 +1343,14 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "assign_defence",
 						"subject": "dreamer",
-						"amount": 8,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("defence_amount"),
 					},
 					{
 						"name": "assign_defence",
 						"subject": "dreamer",
-						"amount": 2,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("defence_amount2"),
 						"filter_event_count": {
 							"event": "deck_shuffled",
 							"filter_count": 1,
@@ -1318,7 +1359,8 @@ func get_scripts(card_name: String) -> Dictionary:
 					},
 					{
 						"name": "draw_cards",
-						"card_count": 1,
+						"card_count": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("draw_amount"),
 						"filter_turn_event_count": {
 							"event": "deck_shuffled",
 							"filter_count": 1,
@@ -1342,16 +1384,20 @@ func get_scripts(card_name: String) -> Dictionary:
 						"src_container": cfc.NMAP.deck,
 						"subject": "index",
 						"subject_index": "top",
+						"subject_count": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("forget_amount"),
 						"is_cost": true,
 					},
 					{
 						"name": "mod_counter",
 						"counter_name": "immersion",
-						"modification": 1,
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("immersion_amount"),
 					},
 					{
 						"name": "draw_cards",
-						"card_count": 2,
+						"card_count": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("draw_amount"),
 					},
 				],
 			},
@@ -1363,7 +1409,8 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "modify_damage",
 						"subject": "target",
 						"is_cost": true,
-						"amount": 10,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
 						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
@@ -1379,7 +1426,8 @@ func get_scripts(card_name: String) -> Dictionary:
 								"subject_count": "all",
 								"subject_index": "top",
 								SP.KEY_NEEDS_SELECTION: true,
-								SP.KEY_SELECTION_COUNT: 2,
+								SP.KEY_SELECTION_COUNT: cfc.card_definitions[card_name]\
+									.get("_amounts",{}).get("discard_amount"),
 								SP.KEY_SELECTION_TYPE: "equal",
 								SP.KEY_SELECTION_OPTIONAL: true,
 								SP.KEY_SELECTION_IGNORE_SELF: true,
@@ -1407,7 +1455,8 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "modify_damage",
 						"subject": "target",
 						"is_cost": true,
-						"amount": 12,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
 						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
@@ -1420,7 +1469,8 @@ func get_scripts(card_name: String) -> Dictionary:
 						"tags": ["Attack"],
 						"per_encounter_event_count": {
 							"event_name": "deck_shuffled",
-							"multiplier": 2,
+							"multiplier": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount2"),
 						}
 					},
 				],
@@ -1433,7 +1483,8 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "modify_damage",
 						"subject": "target",
 						"is_cost": true,
-						"amount": 9,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
 						"tags": ["Attack"],
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
@@ -1443,7 +1494,8 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "apply_effect",
 						"effect_name": Terms.ACTIVE_EFFECTS.vulnerable.name,
 						"subject": "previous",
-						"modification": 2,
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("effect_stacks"),
 						"filter_turn_event_count": {
 							"event": "deck_shuffled",
 							"filter_count": 1,

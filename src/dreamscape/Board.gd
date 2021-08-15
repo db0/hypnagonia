@@ -284,7 +284,12 @@ func _input(event):
 #		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 8)
 		for c in [
-			"^ unnamed_card_4 ^",
+			"Total Recall",
+			"Total Recall",
+			"Total Recall",
+			"^ Recall ^",
+			"@ Recall @",
+			"^ Brilliance ^",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.deck.add_child(card)
