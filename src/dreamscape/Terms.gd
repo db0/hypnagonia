@@ -150,7 +150,7 @@ const ACTIVE_EFFECTS := {
 				+ "\n({effect_icon} bypasses {defence})"
 	},
 	"burn": {
-		"name": "Resentment",
+		"name": "Envy",
 		"icon": preload("res://assets/icons/wrapped-heart.png"),
 		"generic_description": "{effect_name}: Automatically adds preventable interpretation each turn.",
 		"rich_text_icon": "res://fonts/rich_text_icons/wrapped-heart.png",
@@ -324,11 +324,16 @@ const GENERIC_TAGS := {
 		"icon": preload("res://assets/icons/idea.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/idea.png",
 		"generic_description": "{effect_name} ({effect_icon}): Reshuffles the deck."},
-	"innate": {
+	"alpha": {
 		"name": "Intuition",
 		"icon": preload("res://assets/icons/light-bulb.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/light-bulb.png",
 		"generic_description": "[color=purple]{effect_name} ({effect_icon}): This card will always be in the starting hand.[/color]"},
+	"omega": {
+		"name": "Enigma",
+		"icon": preload("res://assets/icons/omega.png"),
+		"rich_text_icon": "res://fonts/rich_text_icons/omega.png",
+		"generic_description": "[color=purple]{effect_name} ({effect_icon}): This card will always start at the bottom of the deck.[/color]"},
 }
 
 

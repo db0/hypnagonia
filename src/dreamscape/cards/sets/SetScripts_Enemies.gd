@@ -14,7 +14,32 @@ func get_scripts(card_name: String) -> Dictionary:
 						"effect_name": Terms.ACTIVE_EFFECTS.poison.name,
 						"subject": "target",
 						"is_cost": true,
-						"modification": 2,
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("effect_stacks"),
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
+					},
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.poison.name,
+						"subject": "dreamer",
+						"modification": 0,
+						"set_to_mod": true,
+					}
+				],
+			},
+		},
+		"Gaslighter Exposed": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.poison.name,
+						"subject": "target",
+						"is_cost": true,
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("effect_stacks"),
 						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
 						}],
@@ -39,55 +64,184 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
+		"Broken Mirror": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.burn.name,
+						"subject": "target",
+						"is_cost": true,
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("effect_stacks"),
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
+					},
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.burn.name,
+						"subject": "dreamer",
+						"modification": 0,
+						"set_to_mod": true,
+					}
+				],
+			},
+		},
+		"Broken Mirror Exposed": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.burn.name,
+						"subject": "target",
+						"is_cost": true,
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("effect_stacks"),
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
+					},
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.burn.name,
+						"subject": "previous",
+						"modification": "per_effect_stacks",
+						"per_effect_stacks": {
+							"subject": "dreamer",
+							"effect_name": Terms.ACTIVE_EFFECTS.burn.name,
+						},
+					},
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.burn.name,
+						"subject": "dreamer",
+						"modification": 0,
+						"set_to_mod": true,
+					}
+				],
+			},
+		},
 		"Fearmonger": {
 			"manual": {
 				"hand": [
 					{
-						"name": "move_card_to_container",
-						"subject": "tutor",
-						"is_cost": true,
-						"src_container":  cfc.NMAP.deck,
-						"dest_container":  cfc.NMAP.forgotten,
-						"filter_state_tutor": [
-							{
-								"filter_properties": {
-									"Type": "Perturbation"
-								}
-							}
-						],
+						"name": "assign_defence",
+						"subject": "dreamer",
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("defence_amount"),
 					},
+					{
+						"name": "nested_script",
+						"nested_tasks": [
+							{
+								"name": "move_card_to_container",
+								"subject": "tutor",
+								"is_cost": true,
+								"src_container":  cfc.NMAP.deck,
+								"dest_container":  cfc.NMAP.forgotten,
+								"filter_state_tutor": [
+									{
+										"filter_properties": {
+											"Type": "Perturbation"
+										}
+									}
+								],
+							},
+							{
+								"name": "move_card_to_container",
+								"subject": "tutor",
+								"is_else": true,
+								"src_container":  cfc.NMAP.discard,
+								"dest_container":  cfc.NMAP.forgotten,
+								"filter_state_tutor": [
+									{
+										"filter_properties": {
+											"Type": "Perturbation"
+										}
+									}
+								],
+							},
+						]
+					},
+				],
+			},
+		},
+		"Fearmonger Exposed": {
+			"manual": {
+				"hand": [
 					{
 						"name": "assign_defence",
 						"subject": "dreamer",
-						"is_cost": true,
-						"amount": 4,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("defence_amount"),
 					},
+					# I need to put this discard here, to prevent the player
+					# reusing the card again while waiting for the deck
+					# to reshuffle
 					{
 						"name": "move_card_to_container",
-						"subject": "tutor",
-						"is_else": true,
-						"src_container":  cfc.NMAP.discard,
-						"dest_container":  cfc.NMAP.forgotten,
-						"filter_state_tutor": [
-							{
-								"filter_properties": {
-									"Type": "Perturbation"
-								}
-							}
-						],
-					},
-					{
-						"name": "move_card_to_container",
-						"subject": "self",
-						"is_else": true,
 						"dest_container": cfc.NMAP.discard,
+						"subject": "self",
 					},
 					{
-						"name": "assign_defence",
-						"subject": "dreamer",
-						"is_else": true,
-						"amount": 4,
-					}
+						"name": "nested_script",
+						"nested_tasks": [
+							{
+								"name": "move_card_to_container",
+								"is_cost": true,
+								"subject": "tutor",
+								"subject_count": 1,
+								"sort_by": "random",
+								"src_container":  cfc.NMAP.hand,
+								"dest_container":  cfc.NMAP.deck,
+								"filter_state_tutor": [
+									{
+										"filter_properties": {
+											"Type": "Perturbation"
+										}
+									}
+								],
+							},
+							{
+								"name": "shuffle_container",
+								"dest_container": cfc.NMAP.deck,
+							},
+						]
+					},
+					{
+						"name": "nested_script",
+						"nested_tasks": [
+							{
+								"name": "move_card_to_container",
+								"subject": "tutor",
+								"is_cost": true,
+								"src_container":  cfc.NMAP.deck,
+								"dest_container":  cfc.NMAP.forgotten,
+								"filter_state_tutor": [
+									{
+										"filter_properties": {
+											"Type": "Perturbation"
+										}
+									}
+								],
+							},
+							{
+								"name": "move_card_to_container",
+								"subject": "tutor",
+								"is_else": true,
+								"src_container":  cfc.NMAP.discard,
+								"dest_container":  cfc.NMAP.forgotten,
+								"filter_state_tutor": [
+									{
+										"filter_properties": {
+											"Type": "Perturbation"
+										}
+									}
+								],
+							},
+						]
+					},
 				],
 			},
 		},
@@ -98,7 +252,8 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "apply_effect",
 						"effect_name": Terms.ACTIVE_EFFECTS.impervious.name,
 						"subject": "dreamer",
-						"modification": 1,
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("effect_stacks"),
 					},
 					{
 						"name": "move_card_to_container",
@@ -108,19 +263,37 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
-		"Broken Mirror": {
+		"ROFLMAO": {
 			"manual": {
 				"hand": [
 					{
 						"name": "apply_effect",
 						"effect_name": Terms.ACTIVE_EFFECTS.impervious.name,
 						"subject": "dreamer",
-						"modification": 1,
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("effect_stacks"),
 					},
 					{
 						"name": "move_card_to_container",
 						"subject": "self",
 						"dest_container": cfc.NMAP.forgotten,
+					},
+					{
+						"name": "modify_damage",
+						"subject": "dreamer",
+						"is_cost": true,
+						"tags": ["Healing"],
+						"amount": "per_defence",
+						"per_defence": {
+							"subject": "dreamer",
+							"is_inverted": true,
+						},
+					},
+					{
+						"name": "assign_defence",
+						"subject": "dreamer",
+						"amount": 0,
+						"set_to_mod": true,
 					},
 				],
 			},
@@ -132,7 +305,33 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "apply_effect",
 						"effect_name": Terms.ACTIVE_EFFECTS.vulnerable.name,
 						"subject": "target",
-						"modification": 10,
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("effect_stacks"),
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
+					},
+					{
+						"name": "move_card_to_container",
+						"subject": "self",
+						"dest_container": cfc.NMAP.forgotten,
+					},
+				],
+			},
+		},
+		"The Critic Unleashed": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.vulnerable.name,
+						"subject": "boardseek",
+						"subject_count": "all",
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("effect_stacks"),
+						"filter_state_seek": [{
+							"filter_group": "EnemyEntities",
+						}],
 					},
 					{
 						"name": "move_card_to_container",
@@ -150,7 +349,8 @@ func get_scripts(card_name: String) -> Dictionary:
 						"effect_name": Terms.ACTIVE_EFFECTS.disempower.name,
 						"subject": "boardseek",
 						"subject_count": "all",
-						"modification": 3,
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("effect_stacks"),
 						"filter_state_seek": [{
 							"filter_group": "EnemyEntities",
 						}],
@@ -170,12 +370,26 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "apply_effect",
 						"effect_name": Terms.ACTIVE_EFFECTS.thorns.name,
 						"subject": "dreamer",
-						"modification": 3,
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("effect_stacks"),
 					},
 					{
 						"name": "move_card_to_container",
 						"subject": "self",
 						"dest_container": cfc.NMAP.forgotten,
+					},
+				],
+			},
+		},
+		"Sustained Unnamed Enemy": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.thorns.name,
+						"subject": "dreamer",
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("effect_stacks"),
 					},
 				],
 			},

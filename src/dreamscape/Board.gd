@@ -59,18 +59,29 @@ func begin_encounter() -> void:
 	randomize_background()
 	_fade_from_black()
 	yield(_tween, "tween_all_completed")
-	cfc.NMAP.hand.refill_hand(5 - _retrieve_intuitions())
+	_prepare_omega()
+	cfc.NMAP.hand.refill_hand(5 - _retrieve_alpha())
 	_on_player_turn_started(turn)
 	turn._reset_turn()
 	turn.encounter_event_count.clear()
 
-func _retrieve_intuitions() -> int:
-	var intuitions_count := 0
+func _retrieve_alpha() -> int:
+	var alpha_count := 0
 	for card in cfc.NMAP.deck.get_all_cards():
-		if Terms.GENERIC_TAGS.innate.name in card.get_property("Tags"):
+		if Terms.GENERIC_TAGS.alpha.name in card.get_property("Tags"):
 			card.move_to(cfc.NMAP.hand)
-			intuitions_count += 1
-	return(intuitions_count)
+			alpha_count += 1
+	return(alpha_count)
+
+func _prepare_omega() -> void:
+	var omega_count := 0
+	for card in cfc.NMAP.deck.get_all_cards():
+		if Terms.GENERIC_TAGS.omega.name in card.get_property("Tags"):
+			# Index 0 is the "bottom" of the deck.
+			cfc.NMAP.deck.move_child(card,0)
+			omega_count += 1
+	if omega_count > 0:
+		cfc.NMAP.deck.reorganize_stack()
 
 func randomize_background() -> void:
 	var dark_backgrounds := CFUtils.list_imported_in_directory("res://assets/backgrounds/dark/")
@@ -284,12 +295,17 @@ func _input(event):
 #		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 8)
 		for c in [
-			"Total Recall",
-			"Total Recall",
-			"Total Recall",
-			"^ Recall ^",
-			"@ Recall @",
-			"^ Brilliance ^",
+			"Fearmonger Exposed",
+			"Fearmonger Exposed",
+			"Fearmonger Exposed",
+			"Fearmonger Exposed",
+			"Fearmonger Exposed",
+			"Dread",
+			"Dread",
+			"Dread",
+			"Dread",
+			"Dread",
+			"Dread",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.deck.add_child(card)

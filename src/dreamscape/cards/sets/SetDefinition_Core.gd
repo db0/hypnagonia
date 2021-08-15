@@ -2422,7 +2422,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [
 			Terms.GENERIC_TAGS.fading.name, 
-			Terms.GENERIC_TAGS.innate.name,
+			Terms.GENERIC_TAGS.alpha.name,
 		],
 		"Abilities": "Gain {defence_amount} {confidence}\n{forget}.",
 		"Cost": 0,
@@ -2514,7 +2514,7 @@ const CARDS := {
 	},
 	"^ Brilliance ^": {
 		"Type": "Concentration",
-		"Tags": [Terms.GENERIC_TAGS.innate.name],
+		"Tags": [Terms.GENERIC_TAGS.alpha.name],
 		"Abilities": "Whenever you {shuffle} your deck, gain {effect_amount} {confidence}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
@@ -2680,7 +2680,7 @@ const CARDS := {
 	},
 	"^ Recall ^": {
 		"Type": "Concentration",
-		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.innate.name],
+		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.alpha.name],
 		"Abilities": "At the end of your turn, {shuffle} the top {effect_amount} card "\
 				+ "from the discard pile into the deck.",
 		"Cost": 1,
@@ -2892,7 +2892,7 @@ const CARDS := {
 	},
 	"^ Eureka! ^": {
 		"Type": "Concentration",
-		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name, Terms.GENERIC_TAGS.innate.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name, Terms.GENERIC_TAGS.alpha.name],
 		"Abilities": "Gain {effect_amount} {buffer} every other time you shuffle your deck.",
 		"Cost": 2,
 		"_illustration": "Nobody",

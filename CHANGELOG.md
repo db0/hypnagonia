@@ -1,8 +1,14 @@
 # Dreams: Changelog
 
-## v0.1.0
+## v0.9.2
 
-* More Card upgrades
+* Added upgrades for all understanding cards
+* Added new tag Intuition. Cards tagged with it will be placed in the starting hand
+* Added new tag Enigma. Cards tagged with it will be placed at the bottom of the deck at the start of the encounter.
+
+## v0.9.1
+
+* Added upgrades for all core cards
 * Left-Clicking on a card in the Card Library will display all its potential upgrades
 
 ## v0.9.0

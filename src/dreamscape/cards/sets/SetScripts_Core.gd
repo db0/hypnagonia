@@ -25,7 +25,8 @@ const SAME_SCRIPT_SYMBOLS := [
 	"!", # Used when the upgraded card is increasing the amount of cards drawn.
 	"=", # Used when the upgraded card is tweaking all values at the same time.
 	"%", # Used when the upgraded card is rebalancing all values at the same time.
-	"^", # Used when the upgraded card is receiving the innate keyword.
+	"^", # Used when the upgraded card is receiving the alpha keyword.
+	"Ω", # Used when the upgraded card is receiving the omega keyword.
 ]
 
 # When a the "Ephemeral" prepend has been added to a card upgrade
@@ -628,6 +629,9 @@ func get_scripts(card_name: String) -> Dictionary:
 						"per_defence": {
 							"subject": "dreamer",
 						},
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
 					},
 					{
 						"name": "modify_damage",
