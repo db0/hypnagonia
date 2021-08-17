@@ -36,7 +36,6 @@ func setup() -> void:
 
 func generate_journal_choices() -> Array:
 	var journal_options := []
-	var next_enemy
 	if globals.encounter_number != 1:
 		accumulate()
 	var new_options := _get_journal_options(CFUtils.randi_range(2,3))
@@ -44,11 +43,17 @@ func generate_journal_choices() -> Array:
 	for option in new_options:
 		match option:
 			Terms.RUN_ACCUMULATION_NAMES.enemy:
-				if globals.encounter_number <= 3:
-					next_enemy = remaining_early_enemies.pop_back()
+				var next_enemy = remaining_enemies.pop_back()
+				var difficulty : String
+				if accumulations[option] < 30\
+						and accumulations[Terms.RUN_ACCUMULATION_NAMES.boss] < 40:
+					difficulty = "easy"
+				elif accumulations[option] < 30\
+						or accumulations[Terms.RUN_ACCUMULATION_NAMES.boss] < 40:
+					difficulty = "medium"
 				else:
-					next_enemy = remaining_enemies.pop_back()
-				journal_options.append(EnemyEncounter.new(next_enemy))
+					difficulty = "hard"
+				journal_options.append(EnemyEncounter.new(next_enemy, difficulty))
 			Terms.RUN_ACCUMULATION_NAMES.rest:
 				journal_options.append(preload("res://src/dreamscape/Run/NCE/Rest.gd").new())
 			Terms.RUN_ACCUMULATION_NAMES.shop:

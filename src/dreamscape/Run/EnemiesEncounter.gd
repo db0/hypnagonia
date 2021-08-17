@@ -9,9 +9,10 @@ const TORMENT_META_DICT := {
 var enemies: Array
 
 
-func _init(encounter: Dictionary):
+func _init(encounter: Dictionary, _difficulty: String):
 	description = encounter["journal_description"]
-	enemies = encounter["enemies"]
+	difficulty = _difficulty
+	enemies = encounter["enemies"][difficulty]
 	reward_description = encounter["journal_reward"]
 	prepare_journal_art(encounter)
 
