@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Reference",
+"class": "Act1",
+"language": "GDScript",
+"path": "res://src/dreamscape/Run/Act1CombatEncounters.gd"
+}, {
 "base": "GridContainer",
 "class": "ActiveEffects",
 "language": "GDScript",
@@ -480,6 +485,7 @@ _global_script_classes=[ {
 "path": "res://src/core/perMessage.gd"
 } ]
 _global_script_class_icons={
+"Act1": "",
 "ActiveEffects": "",
 "AlterantEngine": "",
 "AnimatedEnemy": "",

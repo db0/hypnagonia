@@ -10,6 +10,7 @@ func _init():
 	description = "I felt myself falling into a deep, dreamless torpor..."
 
 func begin() -> void:
+	globals.encounters.accumulations[Terms.RUN_ACCUMULATION_NAMES.rest] = 0
 	.begin()
 	globals.deep_sleeps += 1
 	globals.journal.add_nested_choices(secondary_choices)

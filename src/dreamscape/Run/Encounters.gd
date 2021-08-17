@@ -1,197 +1,89 @@
 class_name SingleRun
 extends Reference
 
-"""
-The enemies list, is a list of dictionaries, which define which enemy to spawn
-in each encounter. You can also optionally specified starting effects
-for each enemy, as well as a specific intent to start with. The intent
-Should be a valid index within the intents available for that enemy
-
-As an example:
-
-		"enemies": [
-			{
-				"definition": EnemyDefinitions.THE_LAUGHING_ONE,
-				"starting_intent": 1
-				"starting_effects": [
-					{
-						"name": Terms.ACTIVE_EFFECTS.vulnerable.name,
-						"stacks": 5
-					}
-				]
-			},
-		]
-"""
-
-
-const EARLY_ENEMIES := [
-	{
-		"journal_description":\
-			'I found myself between [url={torment_tag1}]a pair of featureless creeps laughing[/url] at me.',
-		"journal_reward":\
-			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
-		"enemies": [
-			{
-				"definition": EnemyDefinitions.THE_LAUGHING_ONE,
-			},
-			{
-				"definition": EnemyDefinitions.THE_LAUGHING_ONE,
-			}
-		],
-		"journal_art": preload("res://assets/journal/the_laughing_one.jpeg"),
-	},
-	{
-		"journal_description":\
-			'Was that [url={torment_tag1}]a curious owl with three eyes[/url] staring at me?',
-		"journal_reward":\
-			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
-		"journal_art": preload("res://assets/journal/fearmonger.jpeg"),
-		"enemies": [
-			{
-				"definition": EnemyDefinitions.FEARMONGER,
-			},
-		]
-	},
-	{
-		"journal_description":\
-			'I saw [url={torment_tag1}]a strange form with a head like a lamp[/url] moving towards me.',
-		"journal_reward":\
-			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
-		"enemies": [
-			{
-				"definition": EnemyDefinitions.GASLIGHTER,
-			},
-		],
-		"journal_art": preload("res://assets/journal/gaslighter.jpeg"),
-	},
-]
-
-const ENEMIES := [
-	{
-		"journal_description":\
-			'[url={torment_tag1}]<Description to be added>[/url].',
-		"journal_reward":\
-			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
-		"enemies": [
-			{
-				"definition": EnemyDefinitions.UNNAMED_ENEMY_1,
-			},
-		],
-#		"journal_art": preload("res://assets/journal/the_critic.jpeg"),
-	},
-	{
-		"journal_description":\
-			'Strange furry animals with massive noses (or were they trunks) [url={torment_tag1}]started sniffing at me, and pointing out my weaknesses[/url].',
-		"journal_reward":\
-			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
-		"enemies": [
-			{
-				"definition": EnemyDefinitions.THE_CRITIC,
-			},
-			{
-				"definition": EnemyDefinitions.THE_CRITIC,
-			},
-		],
-		"journal_art": preload("res://assets/journal/the_critic.jpeg"),
-	},
-	{
-		"journal_description":\
-			'I somehow ended in a peculiar argument [url={torment_tag1}]with a clown[/url].',
-		"journal_reward":\
-			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
-		"enemies": [
-			{
-				"definition": EnemyDefinitions.CLOWN,
-			},
-		],
-		"journal_art": preload("res://assets/journal/clown.jpeg"),
-	},
-	{
-		"journal_description":\
-			'The [url={torment_tag1}]cackling people I could not distinguish[/url] once again hounded me.',
-		"journal_reward":\
-			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
-		"enemies": [
-			{
-				"definition": EnemyDefinitions.THE_LAUGHING_ONE,
-			},
-			{
-				"definition": EnemyDefinitions.THE_LAUGHING_ONE,
-			},
-			{
-				"definition": EnemyDefinitions.THE_LAUGHING_ONE,
-			},
-		],
-		"journal_art": preload("res://assets/journal/the_laughing_one.jpeg"),
-	},
-	{
-		"journal_description":\
-			'I found myself cowering before [url={torment_tag1}]a three-eyed owl[/url]'\
-			+ ' while someone in the distance was [url={torment_tag2}]laughing at my aprehension.[/url]',
-		"journal_reward":\
-			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
-		"enemies": [
-			{
-				"definition": EnemyDefinitions.FEARMONGER,
-			},
-			{
-				"definition": EnemyDefinitions.THE_LAUGHING_ONE,
-			},
-		]
-	},
-	{
-		"journal_description":\
-			'I discovered that [url={torment_tag1}]the lamps that should not be[/url] were multiplying.',
-		"journal_reward":\
-			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
-		"enemies": [
-			{
-				"definition": EnemyDefinitions.GASLIGHTER,
-			},
-			{
-				"definition": EnemyDefinitions.GASLIGHTER,
-			},
-		],
-		"journal_art": preload("res://assets/journal/gaslighter.jpeg"),
-	},
-]
-
-const BOSSES := {
-	"Narcissus": {
-		"scene": preload("res://src/dreamscape/CombatElements/Enemies/Bosses/Narcissus.tscn"),
-		"journal_description":\
-			'I found someone I am sure I know, but I can\'t quite remember who.'\
-			+ 'I found them gazing in a mirror, or was it a lake? They turned their attention to me...',
-		"journal_reward":\
-			'Through the many lies and denials, [url=boss_card_draft]I cornered the truth out of them.[/url]'\
-			+ 'and for once felt like [url=boss_artifact]I was getting somewhere[/url].',
-	}
+var accumulations := {
+	Terms.RUN_ACCUMULATION_NAMES.enemy: 20,
+	Terms.RUN_ACCUMULATION_NAMES.rest: 0,
+	Terms.RUN_ACCUMULATION_NAMES.nce: 5,
+	Terms.RUN_ACCUMULATION_NAMES.shop: 5,
+	Terms.RUN_ACCUMULATION_NAMES.elite: 0,
+	Terms.RUN_ACCUMULATION_NAMES.artifact: 0,
+	Terms.RUN_ACCUMULATION_NAMES.boss: 0,
 }
 
+var accumulation_progressions := {
+	Terms.RUN_ACCUMULATION_NAMES.enemy: range(10,20),
+	Terms.RUN_ACCUMULATION_NAMES.rest: range(5,10),
+	Terms.RUN_ACCUMULATION_NAMES.nce: range(7,11),
+	Terms.RUN_ACCUMULATION_NAMES.shop: range(2,4),
+	Terms.RUN_ACCUMULATION_NAMES.elite: range(5,10),
+	Terms.RUN_ACCUMULATION_NAMES.artifact: range(2,3),
+	Terms.RUN_ACCUMULATION_NAMES.boss: range(5,7),
+}
 
-var remaining_early_enemies := EARLY_ENEMIES.duplicate(true)
-var remaining_enemies := ENEMIES.duplicate(true)
+var remaining_early_enemies := Act1.EARLY_ENEMIES.duplicate(true)
+var remaining_enemies := Act1.ENEMIES.duplicate(true)
 var boss_name : String
 var current_encounter
 
 func setup() -> void:
 	CFUtils.shuffle_array(remaining_early_enemies)
 	CFUtils.shuffle_array(remaining_enemies)
-	var boss_choices := BOSSES.keys()
+	var boss_choices := Act1.BOSSES.keys()
 	CFUtils.shuffle_array(boss_choices)
 	boss_name = boss_choices[0]
+
 
 func generate_journal_choices() -> Array:
 	var journal_options := []
 	var next_enemy
-	if globals.encounter_number >= 7:
-		journal_options.append(BossEncounter.new(BOSSES[boss_name], boss_name))
-	else:
-		if globals.encounter_number <= 3:
-			next_enemy = remaining_early_enemies.pop_back()
-		else:
-			next_enemy = remaining_enemies.pop_back()
-			if globals.deep_sleeps == 0:
+	if globals.encounter_number != 1:
+		accumulate()
+	var new_options := _get_journal_options(CFUtils.randi_range(2,3))
+	print_debug(accumulations, new_options)
+	for option in new_options:
+		match option:
+			Terms.RUN_ACCUMULATION_NAMES.enemy:
+				if globals.encounter_number <= 3:
+					next_enemy = remaining_early_enemies.pop_back()
+				else:
+					next_enemy = remaining_enemies.pop_back()
+				journal_options.append(EnemyEncounter.new(next_enemy))
+			Terms.RUN_ACCUMULATION_NAMES.rest:
 				journal_options.append(preload("res://src/dreamscape/Run/NCE/Rest.gd").new())
-		journal_options.append(EnemyEncounter.new(next_enemy))
+			Terms.RUN_ACCUMULATION_NAMES.shop:
+				journal_options.append(preload("res://src/dreamscape/Run/NCE/Shop.gd").new())
+			Terms.RUN_ACCUMULATION_NAMES.artifact:
+				journal_options.append(preload("res://src/dreamscape/Run/NCE/Artifact.gd").new())
+			Terms.RUN_ACCUMULATION_NAMES.nce:
+				journal_options.append(preload("res://src/dreamscape/Run/NCE/RandomNCE.gd").new())
+			Terms.RUN_ACCUMULATION_NAMES.boss:
+				journal_options.append(BossEncounter.new(Act1.BOSSES[boss_name], boss_name))
 	return(journal_options)
+
+
+func _get_journal_options(requested_options := 3) -> Array:
+	var journal_choices_list := []
+	var selected_options := []
+	# If boss accumulation is >= 100, then it becomes the only option
+	if accumulations[Terms.RUN_ACCUMULATION_NAMES.boss] >= 100:
+		selected_options.append(Terms.RUN_ACCUMULATION_NAMES.boss)
+	else:
+		for acc in accumulations:
+			if acc == Terms.RUN_ACCUMULATION_NAMES.boss:
+				continue
+			for _iter in range(accumulations[acc]):
+				journal_choices_list.append(acc)
+		CFUtils.shuffle_array(journal_choices_list)
+		for _iter in range(requested_options):
+			var choice = journal_choices_list.pop_back()
+			while choice in journal_choices_list:
+				journal_choices_list.erase(choice)
+			selected_options.append(choice)
+	return(selected_options)
+
+func accumulate() -> void:
+	for acc in accumulations:
+		var rand_array : Array = accumulation_progressions[acc].duplicate()
+		CFUtils.shuffle_array(rand_array)
+		accumulations[acc] += rand_array[0]
