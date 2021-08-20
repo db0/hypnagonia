@@ -202,7 +202,7 @@ func _on_rte_gui_input(event, rt_label: RichTextLabel, type = 'card_draft') -> v
 			"Loss":
 				pass
 			"Proceed":
-				if globals.encounter_number >= 7:
+				if globals.current_encounter as BossEncounter:
 # warning-ignore:return_value_discarded
 					get_tree().change_scene(CFConst.PATH_CUSTOM + 'MainMenu/MainMenu.tscn')
 				else:

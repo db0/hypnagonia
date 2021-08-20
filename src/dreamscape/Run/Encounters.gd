@@ -33,6 +33,11 @@ func setup() -> void:
 
 
 func generate_journal_choices() -> Array:
+	# Until we have enough enemies to be able to provide enough different encounters
+	# for each torment encounter, we add this code to reshuffle the pile if we run out
+	if remaining_enemies.empty():
+		remaining_enemies = Act1.ENEMIES.duplicate(true)
+		CFUtils.shuffle_array(remaining_enemies)
 	var journal_options := []
 	if globals.encounter_number != 1:
 		accumulate()
