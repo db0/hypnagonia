@@ -9,23 +9,23 @@ Should be a valid index within the intents available for that enemy
 
 As an example:
 
-		"enemies": [
-			{
-				"definition": EnemyDefinitions.THE_LAUGHING_ONE,
-				"starting_intent": 1
-				"starting_effects": [
-					{
-						"name": Terms.ACTIVE_EFFECTS.vulnerable.name,
-						"stacks": 5
-					}
-				]
-			},
-		]
+		"enemies": { 
+			"hard": [
+				{
+					"definition": EnemyDefinitions.THE_LAUGHING_ONE,
+					"starting_intent": 1
+					"health_modifier": -10
+					"starting_defence": 10
+					"starting_effects": [
+						{
+							"name": Terms.ACTIVE_EFFECTS.vulnerable.name,
+							"stacks": 5
+						}
+					]
+				},
+			]
+		}
 """
-
-
-const EARLY_ENEMIES := [
-]
 
 const ENEMIES := [
 	{
@@ -49,8 +49,14 @@ const ENEMIES := [
 				{
 					"definition": EnemyDefinitions.THE_LAUGHING_ONE,
 				},
+				{
+					"definition": EnemyDefinitions.THE_LAUGHING_ONE,
+				},
 			],
 			"hard": [
+				{
+					"definition": EnemyDefinitions.THE_LAUGHING_ONE,
+				},
 				{
 					"definition": EnemyDefinitions.THE_LAUGHING_ONE,
 				},
@@ -74,6 +80,7 @@ const ENEMIES := [
 			"easy": [
 				{
 					"definition": EnemyDefinitions.FEARMONGER,
+					"health_modifier": -30,
 				},
 			],
 			"medium": [
@@ -84,6 +91,11 @@ const ENEMIES := [
 			"hard": [
 				{
 					"definition": EnemyDefinitions.FEARMONGER,
+					"health_modifier": -20,
+				},
+				{
+					"definition": EnemyDefinitions.FEARMONGER,
+					"health_modifier": -20,
 				},
 			],
 		},
@@ -97,6 +109,7 @@ const ENEMIES := [
 			"easy": [
 				{
 					"definition": EnemyDefinitions.GASLIGHTER,
+					"health_modifier": -20,
 				},
 			],
 			"medium": [
@@ -107,6 +120,8 @@ const ENEMIES := [
 			"hard": [
 				{
 					"definition": EnemyDefinitions.GASLIGHTER,
+					"health_modifier": +10,
+					"starting_defence": +10,
 				},
 			],
 		},
@@ -121,16 +136,30 @@ const ENEMIES := [
 			"easy": [
 				{
 					"definition": EnemyDefinitions.UNNAMED_ENEMY_1,
+					"health_modifier": -10,
 				},
 			],
 			"medium": [
 				{
 					"definition": EnemyDefinitions.UNNAMED_ENEMY_1,
+					"starting_effects": [
+						{
+							"name": Terms.ACTIVE_EFFECTS.thorns.name,
+							"stacks": 1
+						}
+					]
 				},
 			],
 			"hard": [
 				{
 					"definition": EnemyDefinitions.UNNAMED_ENEMY_1,
+					"health_modifier": +30,
+					"starting_effects": [
+						{
+							"name": Terms.ACTIVE_EFFECTS.thorns.name,
+							"stacks": 3
+						}
+					]
 				},
 			],
 		},
@@ -145,9 +174,12 @@ const ENEMIES := [
 			"easy": [
 				{
 					"definition": EnemyDefinitions.THE_CRITIC,
-				},
-				{
-					"definition": EnemyDefinitions.THE_CRITIC,
+					"starting_effects": [
+						{
+							"name": Terms.ACTIVE_EFFECTS.strengthen.name,
+							"stacks": 2
+						}
+					]
 				},
 			],
 			"medium": [
@@ -161,9 +193,16 @@ const ENEMIES := [
 			"hard": [
 				{
 					"definition": EnemyDefinitions.THE_CRITIC,
+					"starting_effects": [
+						{
+							"name": Terms.ACTIVE_EFFECTS.strengthen.name,
+							"stacks": 2
+						}
+					]
 				},
 				{
 					"definition": EnemyDefinitions.THE_CRITIC,
+					"health_modifier": +25,
 				},
 			],
 		},
@@ -178,6 +217,7 @@ const ENEMIES := [
 			"easy": [
 				{
 					"definition": EnemyDefinitions.CLOWN,
+					"health_modifier": -10,
 				},
 			],
 			"medium": [
@@ -188,10 +228,92 @@ const ENEMIES := [
 			"hard": [
 				{
 					"definition": EnemyDefinitions.CLOWN,
+					"starting_defence": +20,
+					"starting_effects": [
+						{
+							"name": Terms.ACTIVE_EFFECTS.fortify.name,
+							"stacks": 1
+						}
+					]
 				},
 			],
 		},
 		"journal_art": preload("res://assets/journal/clown.jpeg"),
+	},
+	{
+		"journal_description":\
+			'What a [url={torment_tag1}]depressive butterfly[/url].',
+		"journal_reward":\
+			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+		"enemies": {
+			"easy": [
+				{
+					"definition": EnemyDefinitions.BUTTERFLY,
+					"health_modifier": -10,
+				},
+			],
+			"medium": [
+				{
+					"definition": EnemyDefinitions.BUTTERFLY,
+				},
+			],
+			"hard": [
+				{
+					"definition": EnemyDefinitions.BUTTERFLY,
+					"health_modifier": +10,
+					"starting_effects": [
+						{
+							"name": Terms.ACTIVE_EFFECTS.strengthen.name,
+							"stacks": 2
+						}
+					]
+				},
+			],
+		},
+#		"journal_art": preload("res://assets/journal/clown.jpeg"),
+	},
+	{
+		"journal_description":\
+			'Am I cursed[url={torment_tag1}]or is it just bad luck[/url]?',
+		"journal_reward":\
+			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+		"enemies": {
+			"easy": [
+				{
+					"definition": EnemyDefinitions.BROKEN_MIRROR,
+					"health_modifier": -12,
+				},
+				{
+					"definition": EnemyDefinitions.BROKEN_MIRROR,
+					"health_modifier": -12,
+				},
+				{
+					"definition": EnemyDefinitions.BROKEN_MIRROR,
+					"health_modifier": -12,
+				},
+			],
+			"medium": [
+				{
+					"definition": EnemyDefinitions.BROKEN_MIRROR,
+				},
+				{
+					"definition": EnemyDefinitions.BROKEN_MIRROR,
+				},
+			],
+			"hard": [
+				{
+					"definition": EnemyDefinitions.BROKEN_MIRROR,
+					"starting_defence": +10,
+					"health_modifier": +10,
+				},
+				{
+					"definition": EnemyDefinitions.BROKEN_MIRROR,
+					"starting_defence": +10,
+					"health_modifier": +10,
+				},
+			],
+		},
+#		"journal_art": preload("res://assets/journal/clown.jpeg"),
 	},
 #	{
 #		"journal_description":\

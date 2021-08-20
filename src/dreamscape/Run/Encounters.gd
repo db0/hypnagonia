@@ -21,13 +21,11 @@ var accumulation_progressions := {
 	Terms.RUN_ACCUMULATION_NAMES.boss: range(5,7),
 }
 
-var remaining_early_enemies := Act1.EARLY_ENEMIES.duplicate(true)
 var remaining_enemies := Act1.ENEMIES.duplicate(true)
 var boss_name : String
 var current_encounter
 
 func setup() -> void:
-	CFUtils.shuffle_array(remaining_early_enemies)
 	CFUtils.shuffle_array(remaining_enemies)
 	var boss_choices := Act1.BOSSES.keys()
 	CFUtils.shuffle_array(boss_choices)
