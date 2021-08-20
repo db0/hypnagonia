@@ -104,7 +104,7 @@ func _input(event):
 			"Windows":
 				print('Card Library Saved in %APPDATA%\\Godot\\app_userdata\\Dreams\\library.json')
 			"X11":
-				print('Card Library Saved in "user://library.json"')
+				print('Card Library Saved in ${HOME}/.local/share/godot/app_userdata/Dreams/library.json')
 		var ordered_list := []
 		for libcard in cfc.card_definitions:
 			var card_export := _process_card_export(libcard)
