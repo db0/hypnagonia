@@ -868,7 +868,7 @@ const CARDS := {
 		"_upgrade_threshold": 7,
 		"_upgrades": [
 			"+ Cocky Retort +",
-			"Rapid Cocky Retort",
+			"! Cocky Retort !",
 		],
 	},
 	"+ Cocky Retort +": {
