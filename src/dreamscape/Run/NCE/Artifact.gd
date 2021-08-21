@@ -10,7 +10,7 @@ func _init():
 	description = "<Artifact WiP>"
 
 func begin() -> void:
-	globals.encounters.accumulations[Terms.RUN_ACCUMULATION_NAMES.artifact] = 0
+	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.artifact)
 	.begin()
 	globals.journal.display_rewards('')
 	

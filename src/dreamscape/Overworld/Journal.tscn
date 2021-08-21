@@ -75,6 +75,7 @@ margin_bottom = 106.0
 rect_min_size = Vector2( 0, 50 )
 bbcode_enabled = true
 bbcode_text = "Reward Description"
+text = "Reward Description"
 fit_content_height = true
 
 [node name="CardDraftSlide" type="ScrollContainer" parent="Journal/HBC/JournalEntry/VBC"]

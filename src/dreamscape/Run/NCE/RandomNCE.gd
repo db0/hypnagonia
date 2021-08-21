@@ -10,7 +10,7 @@ func _init():
 	description = "<NCE WiP>"
 
 func begin() -> void:
-	globals.encounters.accumulations[Terms.RUN_ACCUMULATION_NAMES.nce] = 0
+	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.nce)
 	.begin()
 	globals.journal.display_rewards('')
 	

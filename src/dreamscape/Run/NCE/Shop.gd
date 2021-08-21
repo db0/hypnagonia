@@ -10,7 +10,7 @@ func _init():
 	description = "<Shop WiP>"
 
 func begin() -> void:
-	globals.encounters.accumulations[Terms.RUN_ACCUMULATION_NAMES.shop] = 0
+	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.shop)
 	.begin()
 	globals.journal.display_rewards('')
 	

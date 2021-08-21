@@ -16,7 +16,7 @@ var unused_journal_texts := {}
 func _ready() -> void:
 	player = Player.new()
 	encounters = SingleRun.new()
-	
+
 func reset() -> void:
 	player = Player.new()
 	encounters = SingleRun.new()

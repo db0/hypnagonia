@@ -4,6 +4,7 @@ extends Reference
 var health: int = 90 setget set_health
 var damage: int setget set_damage
 var deck: Deck
+var pathos: Pathos
 
 var deck_groups : Dictionary = {
 	Terms.CARD_GROUP_TERMS.class: null,
@@ -19,6 +20,7 @@ func is_deck_completed() -> bool:
 	return(true)
 
 func setup() -> void:
+	pathos = Pathos.new()
 	deck = Deck.new(deck_groups)
 	for group in deck_groups:
 		# Each deck group can modify the player's max health

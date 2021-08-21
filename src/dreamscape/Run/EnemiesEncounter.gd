@@ -39,7 +39,7 @@ func get_unique_enemies() -> Array:
 
 
 func begin() -> void:
-	globals.encounters.accumulations[Terms.RUN_ACCUMULATION_NAMES.enemy] = 0
+	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.enemy)
 	.begin()
 	current_combat = load(CFConst.PATH_CUSTOM + 'Main.tscn').instance()
 	cfc.get_tree().get_root().call_deferred("add_child", current_combat)
