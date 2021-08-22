@@ -1,6 +1,7 @@
 extends PanelContainer
 
 const CARD_SHOP_SCENE = preload("res://src/dreamscape/Shop/ShopCardChoice.tscn")
+const CARD_CHOICE_SCENE = preload("res://src/dreamscape/ChoiceCardObject.tscn")
 
 var card_prices := {
 	"Commons": 50,
@@ -18,10 +19,18 @@ var shop_choices := {
 }
 var all_card_pool_choices := []
 
-onready var card_pool_shop := $VBC/CardPoolShop
+var current_decklist_cache: Array
+var deck_operation : String
+
+onready var card_pool_shop := $VBC/CC/CardPoolShop
+onready var _deck_button := $VBC/HBC/Buttons/Remove
+onready var _deck_preview_popup := $Deck
+onready var _deck_preview_scroll := $Deck/ScrollContainer/
+onready var _deck_preview_grid := $Deck/ScrollContainer/GridContainer
 
 func _ready() -> void:
 	populate_shop_cards()
+
 
 func populate_shop_cards() -> void:
 	cfc.game_rng_seed = CFUtils.generate_random_seed()
@@ -58,6 +67,7 @@ func populate_shop_cards() -> void:
 		shop_card_object.shop_card_display.index = index
 		shop_card_object.shop_card_display.connect("card_selected", self, "_on_shop_card_selected", [shop_card_object])
 
+
 func _get_shop_choice(card_names: Array) -> String:
 	CFUtils.shuffle_array(card_names)
 	if card_names.size():
@@ -71,5 +81,46 @@ func _get_shop_choice(card_names: Array) -> String:
 				return(card_name)
 	return('')
 
-func _on_shop_card_selected(index: int, shop_card_object: CVGridCardObject) -> void:
-	print_debug(all_card_pool_choices[index])
+
+func _on_shop_card_selected(index: int, shop_card_object) -> void:
+	globals.player.pathos.released["frustration"] -= all_card_pool_choices[index].cost
+	shop_card_object.modulate.a = 0
+
+
+func _display_deck() -> void:
+	var popup_size_x = (CFConst.CARD_SIZE.x * CFConst.THUMBNAIL_SCALE * _deck_preview_grid.columns)\
+			+ _deck_preview_grid.get("custom_constants/vseparation") * _deck_preview_grid.columns
+	_deck_preview_popup.rect_size = Vector2(popup_size_x,600)
+	_deck_preview_popup.popup_centered()
+	populate_preview_cards()
+	
+
+func populate_preview_cards() -> void:
+	if current_decklist_cache != globals.player.deck.list_all_cards():
+		for card in _deck_preview_grid.get_children():
+			card.queue_free()
+		current_decklist_cache = globals.player.deck.list_all_cards()
+		for index in range(globals.player.deck.cards.size()):
+			var card_preview_container = CARD_CHOICE_SCENE.instance()
+			_deck_preview_grid.add_child(card_preview_container)
+			card_preview_container.index = globals.player.deck.cards[index]
+			card_preview_container.setup(globals.player.deck.cards[index].card_name)
+			card_preview_container.display_card.deck_card_entry = globals.player.deck.cards[index]
+			card_preview_container.connect("card_selected", self, "_on_deck_card_selected", [card_preview_container])
+
+func _on_Remove_pressed() -> void:
+	deck_operation = "remove"
+	_display_deck()
+
+
+func _on_ProgressCards_pressed() -> void:
+	deck_operation = "progress"
+	_display_deck()
+
+func _on_deck_card_selected(card_entry: CardEntry, deck_card_object) -> void:
+	if deck_operation == "remove":
+		globals.player.deck.remove_card(card_entry)
+		deck_card_object.queue_free()
+	if deck_operation == "progress":
+		card_entry.record_use()
+		deck_card_object.refresh_preview_card()

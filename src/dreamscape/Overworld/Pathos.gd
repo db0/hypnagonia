@@ -18,7 +18,7 @@ var progressions := {
 	Terms.RUN_ACCUMULATION_NAMES.shop: range(2,4),
 	Terms.RUN_ACCUMULATION_NAMES.elite: range(5,10),
 	Terms.RUN_ACCUMULATION_NAMES.artifact: range(2,3),
-	Terms.RUN_ACCUMULATION_NAMES.boss: range(5,7),
+	Terms.RUN_ACCUMULATION_NAMES.boss: range(6,7),
 }
 
 var released := {}
