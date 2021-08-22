@@ -31,7 +31,7 @@ shader_param/foldingLimit = 1.0
 shader_param/Iterations = 5
 shader_param/Scale = 1.5
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 size = 14
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
@@ -280,7 +280,7 @@ margin_right = 150.0
 margin_bottom = 15.0
 rect_min_size = Vector2( 100, 13 )
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 text = "Type"
 align = 1
 valign = 1

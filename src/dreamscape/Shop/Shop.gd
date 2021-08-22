@@ -26,6 +26,8 @@ func _ready() -> void:
 func populate_shop_cards() -> void:
 	cfc.game_rng_seed = CFUtils.generate_random_seed()
 	NewGameMenu.randomize_aspect_choices()
+	globals.player.setup()
+	globals.player.pathos.released["frustration"] = 60
 	for _iter in range(5):
 		var card_names: Array
 		var chance := CFUtils.randf_range(0.0, 1.0)
@@ -46,12 +48,12 @@ func populate_shop_cards() -> void:
 				"cost": card_prices[rarity],
 			}
 			all_card_pool_choices.append(shop_choice_dict)
-	print_debug(all_card_pool_choices)
 	for index in range(all_card_pool_choices.size()):
 		var card_name: String = all_card_pool_choices[index].card_name
 		var shop_card_object = CARD_SHOP_SCENE.instance()
 		card_pool_shop.add_child(shop_card_object)
 		shop_card_object.shop_card_cost.text = str(all_card_pool_choices[index].cost)
+		shop_card_object.cost = all_card_pool_choices[index].cost
 		shop_card_object.shop_card_display.setup(card_name)
 		shop_card_object.shop_card_display.index = index
 		shop_card_object.shop_card_display.connect("card_selected", self, "_on_shop_card_selected", [shop_card_object])
