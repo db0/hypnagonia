@@ -22,7 +22,7 @@ func generate_journal_choices() -> Array:
 	if globals.encounter_number != 1:
 		globals.player.pathos.repress()
 	var new_options := _get_journal_options(CFUtils.randi_range(2,3))
-	print_debug(globals.player.pathos.repressed, new_options)
+#	print_debug(globals.player.pathos.repressed, new_options)
 	for option in new_options:
 		match option:
 			Terms.RUN_ACCUMULATION_NAMES.enemy:

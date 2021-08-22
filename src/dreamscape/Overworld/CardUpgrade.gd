@@ -1,6 +1,6 @@
 extends HBoxContainer
 
-const CARD_UPGRADE_SCENE = preload("res://src/dreamscape/JournalCardObject.tscn")
+const CARD_UPGRADE_SCENE = preload("res://src/dreamscape/ChoiceCardObject.tscn")
 
 var upgradable_cards: Array
 

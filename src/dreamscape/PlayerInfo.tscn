@@ -41,13 +41,13 @@ __meta__ = {
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1448.0
-margin_bottom = 62.0
+margin_bottom = 42.0
 rect_min_size = Vector2( 0, 35 )
 
 [node name="HealthIcon" type="TextureRect" parent="HBC"]
 modulate = Color( 1, 0.72549, 0, 1 )
 margin_right = 35.0
-margin_bottom = 55.0
+margin_bottom = 35.0
 rect_min_size = Vector2( 35, 35 )
 texture = ExtResource( 5 )
 expand = true
@@ -55,9 +55,9 @@ stretch_mode = 5
 
 [node name="Health" type="Label" parent="HBC"]
 margin_left = 39.0
-margin_top = 15.0
+margin_top = 5.0
 margin_right = 92.0
-margin_bottom = 40.0
+margin_bottom = 30.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
 text = "0/90"
@@ -65,27 +65,27 @@ text = "0/90"
 [node name="Push" type="Control" parent="HBC"]
 margin_left = 96.0
 margin_right = 631.0
-margin_bottom = 55.0
+margin_bottom = 35.0
 size_flags_horizontal = 3
 
 [node name="Encounter" type="Label" parent="HBC"]
 margin_left = 635.0
-margin_top = 15.0
+margin_top = 5.0
 margin_right = 750.0
-margin_bottom = 40.0
+margin_bottom = 30.0
 custom_fonts/font = SubResource( 2 )
 text = "Encounter 1"
 
 [node name="Push2" type="Control" parent="HBC"]
 margin_left = 754.0
 margin_right = 1289.0
-margin_bottom = 55.0
+margin_bottom = 35.0
 size_flags_horizontal = 3
 
 [node name="Pathos" type="Button" parent="HBC"]
 margin_left = 1293.0
 margin_right = 1328.0
-margin_bottom = 55.0
+margin_bottom = 35.0
 rect_min_size = Vector2( 35, 0 )
 custom_fonts/font = SubResource( 3 )
 icon = ExtResource( 8 )
@@ -94,7 +94,7 @@ expand_icon = true
 [node name="Deck" type="Button" parent="HBC"]
 margin_left = 1332.0
 margin_right = 1402.0
-margin_bottom = 55.0
+margin_bottom = 35.0
 rect_min_size = Vector2( 70, 0 )
 custom_fonts/font = SubResource( 3 )
 text = "10"
@@ -104,7 +104,7 @@ expand_icon = true
 [node name="Settings" type="Button" parent="HBC"]
 margin_left = 1406.0
 margin_right = 1441.0
-margin_bottom = 55.0
+margin_bottom = 35.0
 rect_min_size = Vector2( 35, 0 )
 icon = ExtResource( 1 )
 expand_icon = true
@@ -135,7 +135,7 @@ theme = ExtResource( 10 )
 [node name="VBC" type="VBoxContainer" parent="PathosDetails"]
 margin_left = 2.0
 margin_top = 2.0
-margin_right = 291.0
+margin_right = 321.0
 margin_bottom = 53.0
 __meta__ = {
 "_edit_use_anchors_": false

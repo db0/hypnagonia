@@ -1,6 +1,6 @@
 extends HBoxContainer
 
-const CARD_DRAFT_SCENE = preload("res://src/dreamscape/JournalCardObject.tscn")
+const CARD_DRAFT_SCENE = preload("res://src/dreamscape/ChoiceCardObject.tscn")
 
 var uncommon_chance : float = 25.0/100
 var rare_chance : float = 5.0/100
@@ -67,35 +67,30 @@ func retrieve_draft_cards() -> void:
 #		print_debug(str(rare_chance) + ' : ' + str(rare_chance + uncommon_chance))
 		if chance <= rare_chance:
 #			print_debug('Rare: ' + str(chance))
-			card_names = compile_rarity_cards('Rares')
+			card_names = globals.player.compile_rarity_cards('Rares')
 		elif chance <= rare_chance + uncommon_chance:
 #			print_debug('Uncommon: ' + str(chance))
-			card_names = compile_rarity_cards('Uncommons')
+			card_names = globals.player.compile_rarity_cards('Uncommons')
 		else:
 #			print_debug('common: ' + str(chance))
-			card_names = compile_rarity_cards('Commons')
+			card_names = globals.player.compile_rarity_cards('Commons')
 		CFUtils.shuffle_array(card_names)
 		if card_names.size():
 			for card_name in card_names:
 				if not card_name in draft_card_choices:
 					draft_card_choices.append(card_name)
+					# This break ensures we only add one card from the pool
+					# of availabkle cards of that rarity
 					break
 	draft_card_choices += globals.current_encounter.return_extra_draft_cards()
 
 func retrieve_boss_draft() -> void:
 	draft_card_choices.clear()
 	for _iter in range(draft_amount):
-		var card_names: Array = compile_rarity_cards('Rares')
+		var card_names: Array = globals.player.compile_rarity_cards('Rares')
 		CFUtils.shuffle_array(card_names)
 		if card_names.size():
 			for card_name in card_names:
 				if not card_name in draft_card_choices:
 					draft_card_choices.append(card_name)
 					break
-
-
-func compile_rarity_cards(rarity: String) -> Array:
-	var rarity_cards := []
-	for key in globals.player.deck.deck_groups:
-		rarity_cards += CardGroupDefinitions[key.to_upper()][globals.player.deck.deck_groups[key]][rarity]
-	return(rarity_cards)

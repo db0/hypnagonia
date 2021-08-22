@@ -13,11 +13,13 @@ var deck_groups : Dictionary = {
 	Terms.CARD_GROUP_TERMS.life_goal: null,
 }
 
+
 func is_deck_completed() -> bool:
 	for archetype in deck_groups:
 		if not deck_groups[archetype]:
 			return(false)
 	return(true)
+
 
 func setup() -> void:
 	pathos = Pathos.new()
@@ -27,12 +29,14 @@ func setup() -> void:
 		health += CardGroupDefinitions[group.to_upper()][deck_groups[group]].get(Terms.PLAYER_TERMS.health,0)
 	deck.assemble_starting_deck()
 
+
 func get_currrent_archetypes() -> Array:
 	var all_archetypes := []
 	for aspect in deck_groups:
 		if deck_groups[aspect]:
 			all_archetypes.append(deck_groups[aspect])
 	return(all_archetypes)
+
 
 func set_damage(value) -> void:
 	damage = int(round(value))
@@ -41,9 +45,17 @@ func set_damage(value) -> void:
 	elif damage < 0:
 		damage = 0
 
+
 func set_health(value) -> void:
 	health = int(round(value))
 	if health < 0:
 		health = 0
 	if damage > health: 
 		damage = health
+
+
+func compile_rarity_cards(rarity: String) -> Array:
+	var rarity_cards := []
+	for key in deck_groups:
+		rarity_cards += CardGroupDefinitions[key.to_upper()][deck_groups[key]][rarity]
+	return(rarity_cards)

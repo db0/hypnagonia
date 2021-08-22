@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/dreamscape/Shop/ShopCardChoice.gd" type="Script" id=1]
+[ext_resource path="res://src/dreamscape/ChoiceCardObject.tscn" type="PackedScene" id=2]
+
+[node name="ShopCardChoice" type="VBoxContainer"]
+margin_bottom = 14.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChoiceCardObject" parent="." instance=ExtResource( 2 )]
+
+[node name="Cost" type="Label" parent="."]
+margin_top = 244.0
+margin_right = 150.0
+margin_bottom = 258.0
+align = 1
