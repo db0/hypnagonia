@@ -12,7 +12,7 @@ func _init():
 func begin() -> void:
 	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.rest)
 	.begin()
-	globals.deep_sleeps += 1
+	globals.encounters.deep_sleeps += 1
 	globals.journal.add_nested_choices(secondary_choices)
 	
 func continue_encounter(key) -> void:

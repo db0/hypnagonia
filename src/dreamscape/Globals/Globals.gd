@@ -4,8 +4,6 @@ const PLAYER_COMBAT_ENTITY_SIZE = Vector2(120,120)
 
 var player: Player
 var encounters: SingleRun
-var encounter_number := 0
-var deep_sleeps := 0
 var current_encounter: SingleEncounter
 var journal: Journal
 # I use this to keep track of which journal texts I haven't used yet in this run
@@ -20,6 +18,5 @@ func _ready() -> void:
 func reset() -> void:
 	player = Player.new()
 	encounters = SingleRun.new()
-	encounter_number = 1
 	current_encounter = null
 	journal = null

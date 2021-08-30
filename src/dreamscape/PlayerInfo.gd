@@ -63,7 +63,7 @@ func _update_health_label() -> void:
 		_player_health_label.text = str(globals.player.damage) + '/' + str(globals.player.health)
 
 func _update_encounter_label() -> void:
-	_encounter_label.text = 'Encounter ' + str(globals.encounter_number)
+	_encounter_label.text = 'Encounter ' + str(globals.encounters.encounter_number)
 
 func _update_deck_count() -> void:
 	_deck_button.text = str(globals.player.deck.count_cards())

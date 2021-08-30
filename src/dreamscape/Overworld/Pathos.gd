@@ -12,7 +12,7 @@ var repressed := {
 }
 
 var progressions := {
-	Terms.RUN_ACCUMULATION_NAMES.enemy: range(10,20),
+	Terms.RUN_ACCUMULATION_NAMES.enemy: range(11,20),
 	Terms.RUN_ACCUMULATION_NAMES.rest: range(5,10),
 	Terms.RUN_ACCUMULATION_NAMES.nce: range(7,11),
 	Terms.RUN_ACCUMULATION_NAMES.shop: range(2,4),
@@ -30,9 +30,7 @@ func _init() -> void:
 
 func repress() -> void:
 	for entry in repressed:
-		var rand_array : Array = progressions[entry].duplicate()
-		CFUtils.shuffle_array(rand_array)
-		repressed[entry] += rand_array[0]
+		repressed[entry] += get_progression(entry)
 
 
 func release(entry: String) -> int:
@@ -43,3 +41,18 @@ func release(entry: String) -> int:
 	repressed[entry] = 0
 	return(retcode)
 
+# Returns one random possible progression from the range
+# Grabbing the number via a fuction, rather than directly from the var
+# allows us to modify this via artifacts during runtime
+func get_progression(entry) -> int:
+	var rand_array : Array = progressions[entry].duplicate()
+	CFUtils.shuffle_array(rand_array)
+	return(rand_array[0])
+
+# Returns the average value of the progression specified
+func get_progression_average(entry) -> float:
+	var total: int = 0
+	for p in progressions[entry]:
+		total += p
+	return(total / progressions[entry].size())
+		

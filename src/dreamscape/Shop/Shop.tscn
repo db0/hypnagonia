@@ -84,6 +84,7 @@ text = "Remove Card"
 margin_top = 300.0
 margin_right = 160.0
 margin_bottom = 324.0
+align = 1
 
 [node name="Push" type="Control" parent="VBC/HBC/Buttons"]
 margin_top = 327.0
@@ -91,17 +92,18 @@ margin_right = 160.0
 margin_bottom = 462.0
 size_flags_vertical = 3
 
-[node name="ProgressCards" type="Button" parent="VBC/HBC/Buttons"]
+[node name="Progress" type="Button" parent="VBC/HBC/Buttons"]
 margin_top = 465.0
 margin_right = 160.0
 margin_bottom = 625.0
 rect_min_size = Vector2( 160, 160 )
-text = "Upgrade Cards"
+text = "Progress Card"
 
-[node name="PrtogressCost" type="Label" parent="VBC/HBC/Buttons"]
+[node name="ProgressCost" type="Label" parent="VBC/HBC/Buttons"]
 margin_top = 628.0
 margin_right = 160.0
 margin_bottom = 652.0
+align = 1
 
 [node name="MarginDown" type="Control" parent="VBC/HBC/Buttons"]
 margin_top = 655.0
@@ -119,17 +121,37 @@ margin_bottom = 790.0
 rect_min_size = Vector2( 50, 0 )
 
 [node name="Deck" type="PopupPanel" parent="."]
-margin_right = 4.0
-margin_bottom = 4.0
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 1453.0
+margin_bottom = 898.0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Deck"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="VBC" type="VBoxContainer" parent="Deck"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 1449.0
+margin_bottom = 894.0
 
-[node name="GridContainer" type="GridContainer" parent="Deck/ScrollContainer"]
+[node name="OperationName" type="Label" parent="Deck/VBC"]
+margin_right = 1447.0
+margin_bottom = 24.0
+align = 1
+
+[node name="OperationCost" type="Label" parent="Deck/VBC"]
+margin_right = 6.0
+margin_bottom = 24.0
+align = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Deck/VBC"]
+margin_top = 27.0
+margin_right = 1447.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 0, 600 )
+
+[node name="GridContainer" type="GridContainer" parent="Deck/VBC/ScrollContainer"]
 custom_constants/vseparation = 10
 custom_constants/hseparation = 10
 columns = 5
 
 [connection signal="pressed" from="VBC/HBC/Buttons/Remove" to="." method="_on_Remove_pressed"]
-[connection signal="pressed" from="VBC/HBC/Buttons/ProgressCards" to="." method="_on_ProgressCards_pressed"]
+[connection signal="pressed" from="VBC/HBC/Buttons/Progress" to="." method="_on_ProgressCards_pressed"]

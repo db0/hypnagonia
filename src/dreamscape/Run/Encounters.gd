@@ -4,6 +4,9 @@ extends Reference
 var remaining_enemies := Act1.ENEMIES.duplicate(true)
 var boss_name : String
 var current_encounter
+var deep_sleeps := 0
+var shop_deck_removals := 0
+var encounter_number := 0
 
 func setup() -> void:
 	CFUtils.shuffle_array(remaining_enemies)
@@ -19,7 +22,7 @@ func generate_journal_choices() -> Array:
 		remaining_enemies = Act1.ENEMIES.duplicate(true)
 		CFUtils.shuffle_array(remaining_enemies)
 	var journal_options := []
-	if globals.encounter_number != 1:
+	if globals.encounters.encounter_number != 1:
 		globals.player.pathos.repress()
 	var new_options := _get_journal_options(CFUtils.randi_range(2,3))
 #	print_debug(globals.player.pathos.repressed, new_options)

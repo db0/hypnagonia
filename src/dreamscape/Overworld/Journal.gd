@@ -27,7 +27,7 @@ func _ready() -> void:
 	_reveal_entry(journal_intro)
 	yield(_tween, "tween_all_completed")
 	var encounter_choices: Array
-	globals.encounter_number += 1
+	globals.encounters.encounter_number += 1
 	encounter_choices = globals.encounters.generate_journal_choices()
 	for encounter in encounter_choices:
 		var journal_choice = JournalEncounterChoice.new(self, encounter)
@@ -213,7 +213,7 @@ func _on_rte_gui_input(event, rt_label: RichTextLabel, type = 'card_draft') -> v
 func _get_intro() -> String:
 # warning-ignore:unused_variable
 	var intro_texts_array: Array
-	if globals.encounter_number == 0:
+	if globals.encounters.encounter_number == 0:
 		return(_get_entry_texts('OPENING_JOURNAL_INTROS'))
 	else:
 		return(_get_entry_texts('FOLLOWUP_PAGE_INTROS'))
