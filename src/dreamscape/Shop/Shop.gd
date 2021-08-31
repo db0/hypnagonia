@@ -35,31 +35,33 @@ var card_pool_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.nce
 var card_removal_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.enemy
 var card_progress_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.rest
 
-onready var card_pool_shop := $VBC/CC/CardPoolShop
-onready var _deck_button := $VBC/HBC/Buttons/Remove
+onready var card_pool_shop := $VBC/VBC/CC/CardPoolShop
+onready var _deck_button := $VBC/VBC/HBC/Buttons/Remove
 onready var _deck_preview_popup := $Deck
 onready var _deck_operation_name := $Deck/VBC/OperationName/
 onready var _deck_operation_cost := $Deck/VBC/OperationCost/
 onready var _deck_preview_scroll := $Deck/VBC/ScrollContainer/
 onready var _deck_preview_grid := $Deck/VBC/ScrollContainer/GridContainer
-onready var _progress_cost := $VBC/HBC/Buttons/ProgressCost
-onready var _progress_button := $VBC/HBC/Buttons/Progress
-onready var _remove_cost := $VBC/HBC/Buttons/RemoveCost
-onready var _remove_button := $VBC/HBC/Buttons/Remove
+onready var _progress_cost := $VBC/VBC/HBC/Buttons/ProgressCost
+onready var _progress_button := $VBC/VBC/HBC/Buttons/Progress
+onready var _remove_cost := $VBC/VBC/HBC/Buttons/RemoveCost
+onready var _remove_button := $VBC/VBC/HBC/Buttons/Remove
+# This button is connected to the event code.
+onready var back_button := $VBC/VBC/HBoxContainer/Back
 
 func _ready() -> void:
 	populate_shop_cards()
 
 func populate_shop_cards() -> void:
-	cfc.game_rng_seed = CFUtils.generate_random_seed()
-	NewGameMenu.randomize_aspect_choices()
-	globals.player.setup()
-	globals.player.deck.add_new_card("+ Confidence +")
-	globals.player.deck.add_new_card("+ Confidence +")
-	globals.player.deck.add_new_card("+ Confidence +")
-	globals.player.deck.add_new_card("+ Confidence +")
-	globals.player.pathos.released["frustration"] = 160
-	globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.rest] = 20
+#	cfc.game_rng_seed = CFUtils.generate_random_seed()
+#	NewGameMenu.randomize_aspect_choices()
+#	globals.player.setup()
+#	globals.player.deck.add_new_card("+ Confidence +")
+#	globals.player.deck.add_new_card("+ Confidence +")
+#	globals.player.deck.add_new_card("+ Confidence +")
+#	globals.player.deck.add_new_card("+ Confidence +")
+#	globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.nce] = 160
+#	globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.rest] = 20
 	_update_progress_cost()
 	_update_remove_cost()
 	for _iter in range(5):
@@ -80,7 +82,7 @@ func populate_shop_cards() -> void:
 			# By separating the cost_type like this, I can theoretically
 			# randomize the cost_type per card.
 			var cost_type : String = card_pool_cost_type
-			var prog_avg := globals.player.pathos.get_progression_average(
+			var prog_avg : float = globals.player.pathos.get_progression_average(
 						cost_type)
 			var card_cost =\
 					(prog_avg * card_price_multipliers[rarity])\

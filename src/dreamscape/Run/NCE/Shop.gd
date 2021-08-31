@@ -1,36 +1,22 @@
 extends NonCombatEncounter
 
-#var secondary_choices := {
-#		'rest': '...and I left myself [url={"name": "rest","meta_type": "nce"}]fall into it.[/url]',
-#		'resist': '...and I struggled mightily to stave it off.',
-#	}
+const SHOP_SCENE := preload("res://src/dreamscape/Shop/Shop.tscn")
+var current_shop
 
 
 func _init():
-	description = "<Shop WiP>"
+	description = "<Shop Story Blurb goes here>"
+
 
 func begin() -> void:
 	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.shop)
 	.begin()
+	current_shop = SHOP_SCENE.instance()
+	cfc.get_tree().get_root().call_deferred("add_child", current_shop)
+	yield(cfc.get_tree(),"idle_frame")
+	current_shop.back_button.connect("pressed", self, "on_shop_back_pressed")
+
+
+func on_shop_back_pressed() -> void:
 	globals.journal.display_rewards('')
-	
-#func continue_encounter(key) -> void:
-#	match key:
-#		"rest": 
-#			globals.player.damage -= globals.player.health * 0.25
-#			globals.journal.display_rewards('')
-#		"resist": 
-#			globals.journal.display_rewards('')
-##		"rest": globals.journal.add_nested_choices({3: "Test1", 4: "Test2"})
-##		"resist": globals.journal.add_nested_choices({5: "Test3", 6: "Test4"})
-#
-#func get_meta_hover_description(meta_tag: String) -> String:
-#	match meta_tag:
-#		"rest": 
-#			var healing_done = globals.player.health * 0.25
-#			if healing_done > globals.player.damage:
-#				healing_done = globals.player.damage
-#			return("Removes anxiety equal to 25% of the max ({healing}), from the Dreamer."\
-#					.format({"healing": int(round(healing_done))}))
-#		_:
-#			return('')
+	current_shop.queue_free()
