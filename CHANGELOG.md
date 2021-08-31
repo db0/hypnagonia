@@ -3,6 +3,7 @@
 ## v0.10.0
 
 * Added Pathos Repression and Release
+	
 	Pathos accumulation consists of 7 different types. Each of which represents a chance to encounter a different thing. For example, The more your frustration rises, the more likely it is to encounter a Torment. On the other hand, your dreamer's loneliness might cause a shop to appear. Accumulated pathos is called "repressed".
 	
 	Each time you take a journal choice, the relevant type of pathos is "released". Released pathos can be used in the shop. Each type, allows the player to buy different things.
