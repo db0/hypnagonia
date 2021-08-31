@@ -1,5 +1,17 @@
 # Dreams: Changelog
 
+## v0.10.0
+
+* Added Pathos Repression and Release
+	Pathos accumulation consists of 7 different types. Each of which represents a chance to encounter a different thing. For example, The more your frustration rises, the more likely it is to encounter a Torment. On the other hand, your dreamer's loneliness might cause a shop to appear. Accumulated pathos is called "repressed".
+	
+	Each time you take a journal choice, the relevant type of pathos is "released". Released pathos can be used in the shop. Each type, allows the player to buy different things.
+	
+	Currently only 4/7 Pathos are active. The Non-Combat Encounters, Elite Enemies and the Artifacts are disabled as these don't exist in the game yet.
+* Added Shop (currency is released pathos)
+* Reworked the way encounters work
+* Added fade-to-black on journal (to hide battle loading time)
+
 ## v0.9.2
 
 * Added upgrades for all understanding cards
