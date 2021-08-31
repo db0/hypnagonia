@@ -31,9 +31,12 @@ var remove_cost_increase_per_use := 25
 # These variables are the type of pathos that we use to purchase the various
 # Things in the shop. By specifying the variables here, I can tweak
 # them easily later, or change them via an artifact
-var card_pool_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.nce
 var card_removal_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.enemy
 var card_progress_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.rest
+# Normally it will be based on NCE pathos, but switched to enemy while we
+# have no NCEs to accumulate
+#var card_pool_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.nce
+var card_pool_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.enemy
 
 onready var card_pool_shop := $VBC/VBC/CC/CardPoolShop
 onready var _deck_button := $VBC/VBC/HBC/Buttons/Remove
