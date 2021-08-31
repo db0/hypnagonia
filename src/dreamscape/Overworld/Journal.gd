@@ -15,6 +15,8 @@ onready var proceed := $HBC/JournalEntry/VBC/Proceed
 onready var _tween := $Tween
 onready var _description_label := $MetaDescription/Label
 onready var _description_popup := $MetaDescription
+onready var player_info := $"../PlayerInfo"
+onready var journal_cover := $"../../FadeToBlack"
 
 var enemy_cards := {}
 var pre_highlight_bbcode_texts := {}
@@ -27,7 +29,7 @@ func _ready() -> void:
 	_reveal_entry(journal_intro)
 	yield(_tween, "tween_all_completed")
 	var encounter_choices: Array
-	globals.encounter_number += 1
+	globals.encounters.encounter_number += 1
 	encounter_choices = globals.encounters.generate_journal_choices()
 	for encounter in encounter_choices:
 		var journal_choice = JournalEncounterChoice.new(self, encounter)
@@ -202,7 +204,7 @@ func _on_rte_gui_input(event, rt_label: RichTextLabel, type = 'card_draft') -> v
 			"Loss":
 				pass
 			"Proceed":
-				if globals.encounter_number >= 7:
+				if globals.current_encounter as BossEncounter:
 # warning-ignore:return_value_discarded
 					get_tree().change_scene(CFConst.PATH_CUSTOM + 'MainMenu/MainMenu.tscn')
 				else:
@@ -213,7 +215,7 @@ func _on_rte_gui_input(event, rt_label: RichTextLabel, type = 'card_draft') -> v
 func _get_intro() -> String:
 # warning-ignore:unused_variable
 	var intro_texts_array: Array
-	if globals.encounter_number == 0:
+	if globals.encounters.encounter_number == 0:
 		return(_get_entry_texts('OPENING_JOURNAL_INTROS'))
 	else:
 		return(_get_entry_texts('FOLLOWUP_PAGE_INTROS'))

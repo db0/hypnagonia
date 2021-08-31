@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/core/CardViewer/CVGridCardObject.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/dreamscape/JournalCardObject.gd" type="Script" id=2]
+[ext_resource path="res://src/dreamscape/ChoiceCardObject.gd" type="Script" id=2]
 
-[node name="DraftCardObject" instance=ExtResource( 1 )]
+[node name="ChoiceCardObject" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [connection signal="gui_input" from="." to="." method="_on_DraftCardObject_gui_input"]

@@ -47,3 +47,31 @@ func get_upgradeable_cards() -> Array:
 		if card_entry.can_be_upgraded():
 			upgradeable_cards.append(card_entry)
 	return(upgradeable_cards)
+
+func count_upgradeable_cards() -> int:
+	return(get_upgradeable_cards().size())
+
+func get_progressing_cards() -> Array:
+	var progressing_cards := []
+	for card_entry in cards:
+		if not card_entry.can_be_upgraded():
+			progressing_cards.append(card_entry)
+	return(progressing_cards)
+
+func count_progressing_cards() -> int:
+	return(get_progressing_cards().size())
+	
+func get_upgraded_cards() -> Array:
+	var upgraded_cards := []
+	for card_entry in cards:
+		if card_entry.is_upgraded():
+			upgraded_cards.append(card_entry)
+	return(upgraded_cards)
+
+func count_upgraded_cards() -> int:
+	return(get_upgraded_cards().size())
+
+func get_upgrade_percentage() -> float:
+	var upg_cards : float = count_upgradeable_cards() + count_upgraded_cards()
+	var all_cards : float = count_cards()
+	return(upg_cards / all_cards)

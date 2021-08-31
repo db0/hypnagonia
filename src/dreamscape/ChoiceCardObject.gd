@@ -3,7 +3,7 @@ extends CVGridCardObject
 signal card_selected(option)
 const info_panel_scene = preload("res://src/dreamscape/InfoPanel.tscn")
 
-var index : int
+var index
 
 func _ready() -> void:
 	preview_popup.focus_info.info_panel_scene = info_panel_scene
@@ -25,3 +25,13 @@ func _on_DraftCardObject_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
 		if event.get_button_index() == 1:
 			emit_signal("card_selected", index)
+
+
+func refresh_preview_card() -> void:
+	cfc.ov_utils.populate_info_panels(preview_popup.preview_card,preview_popup.focus_info)
+
+
+func _on_GridCardObject_mouse_entered() -> void:
+	preview_popup.show_preview_card(display_card.canonical_name)
+	preview_popup.preview_card.deck_card_entry = display_card.deck_card_entry
+	cfc.ov_utils.populate_info_panels(preview_popup.preview_card,preview_popup.focus_info)

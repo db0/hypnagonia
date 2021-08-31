@@ -376,6 +376,75 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"Butterfly": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.strengthen.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "Gain {effect_stacks} {strengthen}. {forget}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER
+		},
+		"_keywords": ["forget"],
+		"_amounts": {
+			"effect_stacks": 1,
+		},
+		"_upgrade_threshold": 12,
+		"_upgrades": [
+			"* Butterfly *",
+			"^ Butterfly ^",
+			"Sustained Butterfly",
+		],
+	},
+	"* Butterfly *": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.strengthen.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "Gain {effect_stacks} {strengthen}. {forget}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER
+		},
+		"_keywords": ["forget"],
+		"_amounts": {
+			"effect_stacks": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"^ Butterfly ^": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.strengthen.name, Terms.GENERIC_TAGS.alpha.name],
+		"Abilities": "Gain {effect_stacks} {strengthen}. {forget}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER
+		},
+		"_keywords": ["forget"],
+		"_amounts": {
+			"effect_stacks": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"Sustained Butterfly": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.strengthen.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "Gain {effect_stacks} {strengthen}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER
+		},
+		"_keywords": ["forget"],
+		"_amounts": {
+			"effect_stacks": 1,
+		},
+		"_is_upgrade": true,
+	},
 	"Unnamed Enemy 1": {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.slumber.name],

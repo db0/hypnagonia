@@ -1,0 +1,190 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/dreamscape/Shop/Shop.gd" type="Script" id=1]
+[ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=2]
+[ext_resource path="res://src/dreamscape/PlayerInfo.tscn" type="PackedScene" id=3]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.0588235, 0.0588235, 0.0588235, 1 )
+
+[sub_resource type="StyleBoxLine" id=1]
+color = Color( 0.505882, 0.505882, 0.505882, 1 )
+
+[node name="Shop" type="PanelContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBC" type="VBoxContainer" parent="."]
+margin_right = 1455.0
+margin_bottom = 900.0
+
+[node name="PlayerInfo" parent="VBC" instance=ExtResource( 3 )]
+
+[node name="VBC" type="VBoxContainer" parent="VBC"]
+margin_top = 53.0
+margin_right = 1455.0
+margin_bottom = 900.0
+size_flags_vertical = 3
+theme = ExtResource( 2 )
+
+[node name="Push" type="Control" parent="VBC/VBC"]
+margin_right = 1455.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 0, 70 )
+
+[node name="CC" type="CenterContainer" parent="VBC/VBC"]
+margin_top = 73.0
+margin_right = 1455.0
+margin_bottom = 73.0
+
+[node name="CardPoolShop" type="HBoxContainer" parent="VBC/VBC/CC"]
+margin_left = 727.0
+margin_right = 727.0
+custom_constants/separation = 100
+
+[node name="LineSeparator" type="Panel" parent="VBC/VBC"]
+visible = false
+margin_top = 106.0
+margin_right = 1451.0
+margin_bottom = 106.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="HBC" type="HBoxContainer" parent="VBC/VBC"]
+margin_top = 76.0
+margin_right = 1455.0
+margin_bottom = 816.0
+size_flags_vertical = 3
+
+[node name="MarginLeft" type="Control" parent="VBC/VBC/HBC"]
+margin_right = 50.0
+margin_bottom = 740.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="ShopCards" type="GridContainer" parent="VBC/VBC/HBC"]
+margin_left = 53.0
+margin_right = 1239.0
+margin_bottom = 740.0
+size_flags_horizontal = 3
+
+[node name="Buttons" type="VBoxContainer" parent="VBC/VBC/HBC"]
+margin_left = 1242.0
+margin_right = 1402.0
+margin_bottom = 740.0
+
+[node name="MarginUp" type="Control" parent="VBC/VBC/HBC/Buttons"]
+margin_right = 160.0
+margin_bottom = 118.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Remove" type="Button" parent="VBC/VBC/HBC/Buttons"]
+margin_top = 121.0
+margin_right = 160.0
+margin_bottom = 281.0
+rect_min_size = Vector2( 160, 160 )
+text = "Remove Card"
+
+[node name="RemoveCost" type="Label" parent="VBC/VBC/HBC/Buttons"]
+margin_top = 284.0
+margin_right = 160.0
+margin_bottom = 308.0
+align = 1
+
+[node name="Push" type="Control" parent="VBC/VBC/HBC/Buttons"]
+margin_top = 311.0
+margin_right = 160.0
+margin_bottom = 429.0
+size_flags_vertical = 3
+
+[node name="Progress" type="Button" parent="VBC/VBC/HBC/Buttons"]
+margin_top = 432.0
+margin_right = 160.0
+margin_bottom = 592.0
+rect_min_size = Vector2( 160, 160 )
+text = "Progress Card"
+
+[node name="ProgressCost" type="Label" parent="VBC/VBC/HBC/Buttons"]
+margin_top = 595.0
+margin_right = 160.0
+margin_bottom = 619.0
+align = 1
+
+[node name="MarginDown" type="Control" parent="VBC/VBC/HBC/Buttons"]
+margin_top = 622.0
+margin_right = 160.0
+margin_bottom = 740.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginRight" type="Control" parent="VBC/VBC/HBC"]
+margin_left = 1405.0
+margin_right = 1455.0
+margin_bottom = 740.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBC/VBC"]
+margin_top = 819.0
+margin_right = 1455.0
+margin_bottom = 847.0
+
+[node name="Left" type="Control" parent="VBC/VBC/HBoxContainer"]
+margin_right = 702.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+
+[node name="Back" type="Button" parent="VBC/VBC/HBoxContainer"]
+margin_left = 705.0
+margin_right = 750.0
+margin_bottom = 28.0
+text = "Back"
+
+[node name="Right" type="Control" parent="VBC/VBC/HBoxContainer"]
+margin_left = 753.0
+margin_right = 1455.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+
+[node name="Deck" type="PopupPanel" parent="."]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 1453.0
+margin_bottom = 898.0
+
+[node name="VBC" type="VBoxContainer" parent="Deck"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 1449.0
+margin_bottom = 894.0
+
+[node name="OperationName" type="Label" parent="Deck/VBC"]
+margin_right = 1447.0
+margin_bottom = 24.0
+align = 1
+
+[node name="OperationCost" type="Label" parent="Deck/VBC"]
+margin_right = 6.0
+margin_bottom = 24.0
+align = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Deck/VBC"]
+margin_top = 27.0
+margin_right = 1447.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 0, 600 )
+
+[node name="GridContainer" type="GridContainer" parent="Deck/VBC/ScrollContainer"]
+custom_constants/vseparation = 10
+custom_constants/hseparation = 10
+columns = 5
+
+[connection signal="pressed" from="VBC/VBC/HBC/Buttons/Remove" to="." method="_on_Remove_pressed"]
+[connection signal="pressed" from="VBC/VBC/HBC/Buttons/Progress" to="." method="_on_ProgressCards_pressed"]

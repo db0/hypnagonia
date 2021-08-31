@@ -48,3 +48,8 @@ func set_upgrade_options() -> void:
 	if upgrade_options.size() > 2:
 		CFUtils.shuffle_array(upgrade_options)
 		upgrade_options.resize(2)
+
+func is_upgraded() -> bool:
+	if upgrade_threshold < 0:
+		return(true)
+	return(false)

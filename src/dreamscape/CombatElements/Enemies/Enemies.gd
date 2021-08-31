@@ -4,7 +4,7 @@ extends Reference
 const GASLIGHTER:= {
 	"Name": "Gaslighter",
 	"Type": "Abuse",
-	"Health": 30,
+	"Health": 50,
 	"Intents": [
 		{
 			"intent_scripts": ["Stress:6"],
@@ -32,7 +32,7 @@ const GASLIGHTER:= {
 const FEARMONGER:= {
 	"Name": "Fearmonger",
 	"Type": "Abuse",
-	"Health": 40,
+	"Health": 70,
 	"Intents": [
 		{
 			"intent_scripts": ["Stress:8","Debuff:2:vulnerable"],
@@ -136,7 +136,7 @@ const CLOWN:= {
 const BUTTERFLY:= {
 	"Name": "Butterfly",
 	"Type": "Phobia",
-	"Health": 30,
+	"Health": 40,
 	"Intents": [
 		{
 			"intent_scripts": ["Buff:3:strengthen"],
@@ -147,15 +147,15 @@ const BUTTERFLY:= {
 			"reshuffle": false,
 		},
 		{
-			"intent_scripts": ["Stress:5"],
+			"intent_scripts": ["Stress:7"],
 			"reshuffle": true,
 		}
 	],
-	"_health_variability": 3,
+	"_health_variability": 8,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/enemies/clown.png"),
-	"_character_art": "Delapouite",
+	"_texture": preload("res://assets/enemies/butterfly.png"),
+	"_character_art": "Lorc",
 		}
 const UNNAMED_ENEMY_1 := {
 	"Name": "Unnamed Enemy 1",
@@ -184,7 +184,7 @@ const UNNAMED_ENEMY_1 := {
 const BROKEN_MIRROR:= {
 	"Name": "Broken Mirror",
 	"Type": "Phobia",
-	"Health": 20,
+	"Health": 22,
 	"Intents": [
 		{
 			"intent_scripts": ["Debuff:3:burn"],
@@ -199,10 +199,10 @@ const BROKEN_MIRROR:= {
 			"reshuffle": true,
 		},
 	],
-	"_health_variability": 3,
+	"_health_variability": 2,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/enemies/lantern-flame.png"),
+	"_texture": preload("res://assets/enemies/cracked-glass.png"),
 	"_character_art": "Lorc"
 }
 #	"Spider": {

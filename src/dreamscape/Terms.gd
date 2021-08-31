@@ -15,6 +15,16 @@ const CARD_GROUP_TERMS := {
 	"life_goal": "Injustice",
 }
 
+const RUN_ACCUMULATION_NAMES := {
+	"enemy": "frustration",
+	"rest": "lethargy",
+	"nce": "curiosity",
+	"shop": "loneliness",
+	"elite": "foreboding",
+	"artifact": "desire",
+	"boss": "closure",
+}
+
 
 const PLAYER_HEALTH := "{anxiety}"
 const PLAYER_DAMAGE_DONE := "done"

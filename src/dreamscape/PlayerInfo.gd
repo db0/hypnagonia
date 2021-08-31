@@ -2,6 +2,10 @@ class_name PlayerInfo
 extends PanelContainer
 
 const CARD_PREVIEW_SCENE = preload("res://src/dreamscape/MainMenu/StartingCardPreviewObject.tscn")
+const PATHOS_INFO_SCENE = preload("res://src/dreamscape/PathosEntryInfo.tscn")
+
+var current_decklist_cache: Array
+var pathos_infos := {}
 
 onready var _deck_preview_popup := $DeckPreview
 onready var _deck_preview_scroll := $DeckPreview/ScrollContainer/
@@ -9,9 +13,17 @@ onready var _deck_preview_grid := $DeckPreview/ScrollContainer/GridContainer
 onready var _player_health_label := $HBC/Health
 onready var _encounter_label := $HBC/Encounter
 onready var _deck_button := $HBC/Deck
+onready var _pathos_details := $PathosDetails
+onready var _pathos_details_list := $PathosDetails/VBC
+onready var _pathos_button := $HBC/Pathos
 
-var current_decklist_cache: Array
-
+func _ready() -> void:
+	for entry in globals.player.pathos.repressed:
+		var pinfo = PATHOS_INFO_SCENE.instance()
+		_pathos_details_list.add_child(pinfo)
+		pathos_infos[entry] = pinfo
+		pinfo.setup(entry)
+  
 func _process(delta: float) -> void:
 	_update_health_label()
 	_update_encounter_label()
@@ -51,9 +63,15 @@ func _update_health_label() -> void:
 		_player_health_label.text = str(globals.player.damage) + '/' + str(globals.player.health)
 
 func _update_encounter_label() -> void:
-	_encounter_label.text = 'Encounter ' + str(globals.encounter_number)
+	_encounter_label.text = 'Encounter ' + str(globals.encounters.encounter_number)
 
 func _update_deck_count() -> void:
 	_deck_button.text = str(globals.player.deck.count_cards())
 
 
+func _on_Pathos_pressed() -> void:
+	_pathos_details.popup_centered_minsize()
+	for entry in pathos_infos:
+		pathos_infos[entry].update()
+	_pathos_details.rect_global_position =\
+		_pathos_button.rect_global_position + Vector2(-_pathos_details.rect_size.x,50)

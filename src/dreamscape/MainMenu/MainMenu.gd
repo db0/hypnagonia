@@ -97,3 +97,45 @@ func _on_Menu_resized() -> void:
 					tab.rect_position.x = -get_viewport().size.x
 			elif tab.rect_position.x > 0.0:
 					tab.rect_position.x = get_viewport().size.x
+
+func _input(event):
+	if event.is_action_pressed("init_debug_game"):
+		match OS.get_name():
+			"Windows":
+				print('Card Library Saved in %APPDATA%\\Godot\\app_userdata\\Dreams\\library.json')
+			"X11":
+				print('Card Library Saved in ${HOME}/.local/share/godot/app_userdata/Dreams/library.json')
+		var ordered_list := []
+		for libcard in cfc.card_definitions:
+			var card_export := _process_card_export(libcard)
+			if card_export.get("_is_upgrade", false):
+				continue
+			ordered_list.append(card_export)
+			if card_export.has("_upgrades"):
+				for upgrade_name in card_export["_upgrades"]:
+					ordered_list.append(_process_card_export(upgrade_name))
+		var library_export = File.new()
+		library_export.open("user://library.json",File.WRITE)
+		library_export.store_line(to_json(ordered_list))
+
+func _process_card_export(card_name: String) -> Dictionary:
+	var card_entry = cfc.card_definitions[card_name].duplicate(true)
+	card_entry['Name'] = card_name
+	card_entry['Abilities'] = card_entry['Abilities'].format(card_entry.get('_amounts', {}))
+	card_entry.erase("_amounts")
+	card_entry.erase("_effects_info")
+	card_entry.erase("_illustration")
+	card_entry.erase("_keywords")
+	card_entry['archetypes'] = []
+	for aspect in [
+			CardGroupDefinitions.EGO,
+			CardGroupDefinitions.DISPOSITION,
+			CardGroupDefinitions.INSTRUMENT,
+			CardGroupDefinitions.INJUSTICE]:
+		for archetype in aspect:
+			for rarity in ['Starting Cards','Commons','Uncommons','Rares']:
+				for card in aspect[archetype].get(rarity,[]):
+					if card_name == card:
+						if not archetype in card_entry['archetypes']:
+							card_entry['archetypes'].append(archetype)
+	return(card_entry)
