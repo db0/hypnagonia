@@ -196,6 +196,7 @@ func _on_EnableAttach_toggled(button_pressed: bool) -> void:
 func _on_Debug_toggled(button_pressed: bool) -> void:
 	cfc._debug = button_pressed
 
+
 func get_all_scriptables() -> Array:
 	return(get_tree().get_nodes_in_group("CombatEntities") + get_all_cards())
 
@@ -227,6 +228,7 @@ func _on_player_turn_ended(_turn: Turn) -> void:
 		yield(cfc.NMAP.hand, "hand_refilled")
 	turn.start_enemy_turn()
 
+
 func _on_enemy_turn_started(_turn: Turn) -> void:
 	# We delay, to allow effects like poison to activate first
 	yield(get_tree().create_timer(1), "timeout")
@@ -238,8 +240,10 @@ func _on_enemy_turn_started(_turn: Turn) -> void:
 			enemy.activate()
 			yield(enemy, "finished_activation")
 
+
 func _on_enemy_turn_ended(_turn: Turn) -> void:
 	activated_enemies.clear()
+
 
 func _on_finished_enemy_activation(enemy: EnemyEntity) -> void:
 	if not enemy in activated_enemies:
@@ -248,14 +252,17 @@ func _on_finished_enemy_activation(enemy: EnemyEntity) -> void:
 		turn.end_enemy_turn()
 		turn.start_player_turn()
 
+
 func _enemy_died() -> void:
 	yield(get_tree().create_timer(2), "timeout")
 	if get_tree().get_nodes_in_group("EnemyEntities").size() == 0:
 		complete_battle()
 
+
 func _dreamer_died() -> void:
 	yield(get_tree().create_timer(1), "timeout")
 	game_over()
+
 
 func complete_battle() -> void:
 	globals.player.damage = dreamer.damage
@@ -268,6 +275,7 @@ func complete_battle() -> void:
 #	post_battle_menu.display()
 #	for card in get_tree().get_nodes_in_group("cards"):
 #		card.set_to_idle()
+
 
 func game_over() -> void:
 	_fade_to_transparent()
@@ -324,11 +332,13 @@ func _input(event):
 	if event.is_action_pressed("lose_battle"):
 		game_over()
 
+
 func _on_Debug_pressed() -> void:
 	# warning-ignore:return_value_discarded
 	counters.mod_counter("immersion",10)
 	for _iter in range(5):
 		cfc.NMAP.hand.draw_card(cfc.NMAP.deck)
+
 
 func _on_viewport_resized() -> void:
 	_background.rect_min_size = get_viewport().size
@@ -343,6 +353,7 @@ func _on_BackToMain_pressed() -> void:
 	get_tree().change_scene(CFConst.PATH_CUSTOM + "MainMenu/MainMenu.tscn")
 	globals.reset()
 	cfc.NMAP.clear()
+
 
 func _fade_to_black() -> void:
 	_board_cover.visible = true
@@ -359,6 +370,7 @@ func _fade_from_black() -> void:
 	_tween.start()
 	yield(_tween, "tween_all_completed")
 	_board_cover.visible = false
+
 
 func _fade_to_transparent() -> void:
 	_tween.interpolate_property(cfc.NMAP.main,

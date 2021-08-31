@@ -41,9 +41,12 @@ func get_unique_enemies() -> Array:
 func begin() -> void:
 	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.enemy)
 	.begin()
+	globals.journal.journal_cover.fade_to_black()
+	yield(globals.journal.journal_cover, "fade_finished")
 	current_combat = load(CFConst.PATH_CUSTOM + 'Main.tscn').instance()
 	cfc.get_tree().get_root().call_deferred("add_child", current_combat)
 	yield(cfc, "all_nodes_mapped")
+	globals.journal.journal_cover.visible = false
 	cfc.NMAP.board.spawn_enemy_encounter(self)
 	cfc.NMAP.board.begin_encounter()
 

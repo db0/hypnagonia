@@ -16,6 +16,7 @@ onready var _tween := $Tween
 onready var _description_label := $MetaDescription/Label
 onready var _description_popup := $MetaDescription
 onready var player_info := $"../PlayerInfo"
+onready var journal_cover := $"../../FadeToBlack"
 
 var enemy_cards := {}
 var pre_highlight_bbcode_texts := {}

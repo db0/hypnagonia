@@ -49,6 +49,7 @@ onready var _remove_button := $VBC/VBC/HBC/Buttons/Remove
 # This button is connected to the event code.
 onready var back_button := $VBC/VBC/HBoxContainer/Back
 
+
 func _ready() -> void:
 	populate_shop_cards()
 
