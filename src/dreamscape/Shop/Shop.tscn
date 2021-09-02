@@ -4,16 +4,16 @@
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=2]
 [ext_resource path="res://src/dreamscape/PlayerInfo.tscn" type="PackedScene" id=3]
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0588235, 0.0588235, 0.0588235, 1 )
 
-[sub_resource type="StyleBoxLine" id=1]
+[sub_resource type="StyleBoxLine" id=2]
 color = Color( 0.505882, 0.505882, 0.505882, 1 )
 
 [node name="Shop" type="PanelContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = SubResource( 2 )
+custom_styles/panel = SubResource( 1 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -24,6 +24,7 @@ margin_right = 1455.0
 margin_bottom = 900.0
 
 [node name="PlayerInfo" parent="VBC" instance=ExtResource( 3 )]
+context = 2
 
 [node name="VBC" type="VBoxContainer" parent="VBC"]
 margin_top = 53.0
@@ -52,7 +53,7 @@ visible = false
 margin_top = 106.0
 margin_right = 1451.0
 margin_bottom = 106.0
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 2 )
 
 [node name="HBC" type="HBoxContainer" parent="VBC/VBC"]
 margin_top = 76.0
@@ -160,10 +161,10 @@ margin_right = 1453.0
 margin_bottom = 898.0
 
 [node name="VBC" type="VBoxContainer" parent="Deck"]
-margin_left = 2.0
-margin_top = 2.0
-margin_right = 1449.0
-margin_bottom = 894.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 1447.0
+margin_bottom = 892.0
 
 [node name="OperationName" type="Label" parent="Deck/VBC"]
 margin_right = 1447.0

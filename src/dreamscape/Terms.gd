@@ -25,7 +25,8 @@ const RUN_ACCUMULATION_NAMES := {
 	"boss": "closure",
 }
 
-
+# The strings in brackets, are automatically replaced with icons
+# in rich text labels
 const PLAYER_HEALTH := "{anxiety}"
 const PLAYER_DAMAGE_DONE := "done"
 const ENEMY_HEALTH := "{interpretation}"
@@ -36,6 +37,7 @@ const ENEMY_ACTIONS := "Intents"
 const ENEMY_ACTIONS_VERB := "used"
 const PLAYER_ATTACK := "{interpretation}"
 const ENEMY_ATTACK := "{stress}"
+const ARTIFACTS := "Curios"
 
 
 const PLAYER_TERMS := {

@@ -1,5 +1,10 @@
 # Dreams: Changelog
 
+## v0.11.0
+
+* Added framework for adding artifacts
+* Added first three artifacts as samples.
+
 ## v0.10.0
 
 * Added Pathos Repression and Release

@@ -133,19 +133,16 @@ func get_all_effects() -> Dictionary:
 		found_effects[effect.get_effect_name()] = effect
 	return(found_effects)
 
-func get_ordered_effects() -> Array:
-	var adders := []
-	var multipliers := []
-	var setters := []
+func get_ordered_effects(ordered_effects: Dictionary) -> Dictionary:
 	for effect in get_children():
 		match effect.priority:
 			CombatEffect.PRIORITY.ADD:
-				adders.append(effect)
+				ordered_effects.adders.append(effect)
 			CombatEffect.PRIORITY.MULTIPLY:
-				multipliers.append(effect)
+				ordered_effects.multipliers.append(effect)
 			CombatEffect.PRIORITY.SET:
-				setters.append(effect)
-	return(adders + multipliers + setters)
+				ordered_effects.setters.append(effect)
+	return(ordered_effects)
 
 
 # Returns the token node of the provided name or null if not found.

@@ -62,22 +62,28 @@ custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
 text = "0/90"
 
-[node name="Push" type="Control" parent="HBC"]
+[node name="Artifacts" type="HBoxContainer" parent="HBC"]
 margin_left = 96.0
-margin_right = 631.0
+margin_right = 96.0
+margin_bottom = 35.0
+custom_constants/separation = 5
+
+[node name="Push" type="Control" parent="HBC"]
+margin_left = 100.0
+margin_right = 633.0
 margin_bottom = 35.0
 size_flags_horizontal = 3
 
 [node name="Encounter" type="Label" parent="HBC"]
-margin_left = 635.0
+margin_left = 637.0
 margin_top = 5.0
-margin_right = 750.0
+margin_right = 752.0
 margin_bottom = 30.0
 custom_fonts/font = SubResource( 2 )
 text = "Encounter 1"
 
 [node name="Push2" type="Control" parent="HBC"]
-margin_left = 754.0
+margin_left = 756.0
 margin_right = 1289.0
 margin_bottom = 35.0
 size_flags_horizontal = 3

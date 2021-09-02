@@ -447,25 +447,40 @@ static func _check_for_effect_alterants(
 		source_object = script.owner.combat_entity
 	else:
 		source_object = script.owner
-	var all_source_effects = source_object.active_effects.get_ordered_effects()
-	for effect in all_source_effects:
+	var organized_effects := {
+		"adders" : [],
+		"multipliers" : [],
+		"setters" : [],
+	}
+	# We grab the full list of source and subject items, in order to specify
+	# correctly to the alterants which is which.
+	# E.g. we don't want effects which decrease damage when attacked, to decrease
+	# damage when we're attacking someone else.
+	var source_effects : Array = source_object.active_effects.get_all_effects().values()
+	var subject_effects : Array = subject.active_effects.get_all_effects().values()
+	var artifacts : Array = cfc.NMAP.board.player_info.get_all_artifacts().values()
+	# We grab the ordered dictionary for each type of effect. Source, Subject and Artifact
+	# We will organize the alterants so that adders are first, then multipliers, the setters.
+	# This way we allow an effect which multiplies the attack, to take into account additions first.
+	organized_effects = source_object.active_effects.get_ordered_effects(organized_effects)
+	organized_effects = subject.active_effects.get_ordered_effects(organized_effects)
+	organized_effects = cfc.NMAP.board.player_info.get_ordered_artifacts(organized_effects)
+	var ordered_effects = organized_effects.adders + organized_effects.multipliers + organized_effects.setters
+	for effect in ordered_effects:
+		var is_source := false
+		if effect in source_effects:
+			is_source = true
+		# The artifacts consider themselves to be the source of the alteration
+		# only if the effect is triggered by the dreamer or their cards.
+		if effect in artifacts and source_object == cfc.NMAP.board.dreamer:
+			is_source = true
 		var alteration : int = effect.get_effect_alteration(
 				script,
 				new_value,
 				sceng,
-				true,
+				is_source,
 				sceng.costs_dry_run(),
 				subject)
-		alteration_details[effect] = alteration
-		new_value += alteration
-	var all_subject_effects = subject.active_effects.get_ordered_effects()
-	for effect in all_subject_effects:
-		var alteration : int = effect.get_effect_alteration(
-				script,
-				new_value,
-				sceng,
-				false,
-				sceng.costs_dry_run())
 		alteration_details[effect] = alteration
 		new_value += alteration
 	return(new_value - value)

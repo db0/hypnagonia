@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/dreamscape/Artifacts/ArtifactTemplate.tscn" type="PackedScene" id=1]
+
+[node name="FirstPowerAttack" instance=ExtResource( 1 )]
+effect_context = 1

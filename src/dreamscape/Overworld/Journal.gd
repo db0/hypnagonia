@@ -247,3 +247,10 @@ func _show_description_popup(description_text: String) -> void:
 	if _description_popup.rect_global_position.x + _description_popup.rect_size.x > get_viewport().size.x:
 		_description_popup.rect_global_position.x = get_viewport().size.x - _description_popup.rect_size.x
 
+
+func _input(event):
+	if event.is_action_pressed("init_debug_game"):
+		globals.player.add_artifact("MaxHealth")
+		globals.player.add_artifact("HealPerBattle")
+		globals.player.add_artifact("FirstPowerAttack")
+		globals.player.damage += 20

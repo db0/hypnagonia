@@ -16,6 +16,7 @@ onready var _background := $Background
 onready var _bg_tint := $BackgroundTint
 onready var _board_cover := $FadeToBlack
 onready var _tween := $Tween
+onready var player_info := $VBC/PlayerInfo
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
