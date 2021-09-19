@@ -308,17 +308,11 @@ func _input(event):
 #		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 8)
 		for c in [
-			"Fearmonger Exposed",
-			"Fearmonger Exposed",
-			"Fearmonger Exposed",
-			"Fearmonger Exposed",
-			"Fearmonger Exposed",
-			"Dread",
-			"Dread",
-			"Dread",
-			"Dread",
-			"Dread",
-			"Dread",
+			"unnamed_card_1",
+			"unnamed_card_1",
+			"Apathy",
+			"Apathy",
+			"Apathy",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.deck.add_child(card)

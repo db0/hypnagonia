@@ -87,8 +87,10 @@ func custom_script(script: ScriptObject) -> void:
 					}]
 					execute_script(fly_away, script.owner, script.trigger_object)
 		"unnamed_card_2","@ unnamed_card_2 @","* unnamed_card_2 *","% unnamed_card_2 %":
+			if not costs_dry_run:
 				for subject in subjects:
-					var dstacks = subject.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.disempower.name)
+					var dstacks = subject.active_effects.get_effect_stacks(
+							Terms.ACTIVE_EFFECTS.disempower.name)
 					if card.canonical_name == "% unnamed_card_2 %":
 						dstacks += 1
 					var multiplier = cfc.card_definitions[card.canonical_name]\
@@ -100,7 +102,22 @@ func custom_script(script: ScriptObject) -> void:
 							"modification": dstacks * multiplier,
 						}]
 					execute_script(card_script, script.owner, subject)
-
+		"Alertness":
+			if not costs_dry_run:
+				if cfc.NMAP.board.counters.get_counter("immersion") == 0:
+					yield(cfc.NMAP.board.counters,"counter_modified")
+				var decrease = cfc.card_definitions[card.canonical_name]\
+						.get("_amounts",{}).get("immersion_amount")
+				var card_script := [{
+					"name": "mod_counter",
+					"counter_name": "immersion",
+					"modification": decrease,
+				}]
+				execute_script(card_script, script.owner, script.trigger_object)
+		"Apathy":
+			if not costs_dry_run and card.get_parent() == cfc.NMAP.deck:
+				cfc.NMAP.deck.move_card_to_top(card)
+			
 # warning-ignore:unused_argument
 func custom_alterants(script: ScriptObject) -> int:
 	var alteration := 0

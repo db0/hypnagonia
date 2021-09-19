@@ -30,11 +30,12 @@ onready var _pathos_button := $HBC/Pathos
 onready var _artifacts := $HBC/Artifacts
 
 func _ready() -> void:
-	for entry in globals.player.pathos.repressed:
-		var pinfo = PATHOS_INFO_SCENE.instance()
-		_pathos_details_list.add_child(pinfo)
-		pathos_infos[entry] = pinfo
-		pinfo.setup(entry)
+	if globals.player.pathos:
+		for entry in globals.player.pathos.repressed:
+			var pinfo = PATHOS_INFO_SCENE.instance()
+			_pathos_details_list.add_child(pinfo)
+			pathos_infos[entry] = pinfo
+			pinfo.setup(entry)
 	globals.player.connect("artifact_added", self, "_on_artifact_added")
 	_init_artifacts()
 

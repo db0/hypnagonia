@@ -12,7 +12,6 @@ func _init():
 func begin() -> void:
 	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.rest)
 	.begin()
-	globals.encounters.deep_sleeps += 1
 	globals.journal.add_nested_choices(secondary_choices)
 	
 func continue_encounter(key) -> void:
@@ -28,6 +27,7 @@ func continue_encounter(key) -> void:
 func get_meta_hover_description(meta_tag: String) -> String:
 	match meta_tag:
 		"rest": 
+			globals.encounters.deep_sleeps += 1
 			var healing_done = globals.player.health * 0.25
 			if healing_done > globals.player.damage:
 				healing_done = globals.player.damage

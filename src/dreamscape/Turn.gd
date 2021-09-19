@@ -76,7 +76,7 @@ func _reset_turn() -> void:
 	turn_event_count.clear()
 	applied_effects.clear()
 
-func _on_deck_shuffled() -> void:
+func _on_deck_shuffled(_deck) -> void:
 	var ds_count = turn_event_count.get("deck_shuffled", 0)
 	turn_event_count["deck_shuffled"] = ds_count + 1
 	var te_count = encounter_event_count.get("deck_shuffled", 0)

@@ -1275,6 +1275,8 @@ func execute_scripts(
 		only_cost_check := false):
 	if cfc.game_paused:
 		return
+	if canonical_name == "Apathy" and trigger == "shuffle_completed":
+		pass
 	common_pre_execution_scripts(trigger)
 	var card_scripts = retrieve_scripts(trigger)
 	# I use this spot to add a breakpoint when testing script behaviour

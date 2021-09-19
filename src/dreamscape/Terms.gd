@@ -414,6 +414,10 @@ const GENERIC_CARD_BBCODE := {
 		"name": "Discard",
 		"rich_text_color": "teal",
 	},
+	"unplayable": {
+		"name": "Unplayable",
+		"rich_text_color": "black",
+	},
 }
 
 

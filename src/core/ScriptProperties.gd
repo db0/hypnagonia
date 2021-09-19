@@ -1208,7 +1208,7 @@ static func filter_trigger(
 			trigger_details.get(TRIGGER_TASK_NAME):
 		is_valid = false
 
-	# Card Rotation filter checks
+	# Card Parent filter checks
 	if is_valid and card_scripts.get(FILTER_PARENT) \
 			and check_parent_filter(trigger_card,card_scripts.get(FILTER_PARENT)):
 		is_valid = false
@@ -1463,7 +1463,7 @@ static func check_faceup_filter(card, flip_state: bool) -> bool:
 	return(card_matches)
 
 
-# Returns true if the faceup state of the card matches the specified filter
+# Returns true if the parent container of the card matches the specified filter
 # or the filter key was not defined. Otherwise returns false.
 static func check_parent_filter(card, parent: Node) -> bool:
 	var card_matches := true

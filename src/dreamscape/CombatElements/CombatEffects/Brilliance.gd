@@ -3,7 +3,7 @@ extends CombatEffect
 func _ready() -> void:
 	cfc.NMAP.deck.connect("shuffle_completed", self, "_on_deck_shuffled")
 	
-func _on_deck_shuffled() -> void:
+func _on_deck_shuffled(_deck) -> void:
 	var core_amount = 4
 	if upgrade == "blinding":
 		core_amount = 6
