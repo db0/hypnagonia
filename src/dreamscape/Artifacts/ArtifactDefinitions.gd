@@ -291,7 +291,6 @@ const RARITIES := {
 		StartingCards,
 		AccumulateRest,
 		StartingStrength,
-		StartingThorns,
 		StartingConfidence,
 		ThinImmersion,
 		AccumulateEnemy,
@@ -313,9 +312,6 @@ const RARITIES := {
 		UpgradedConcentration,
 		ResistPoison,
 		ResistBurn,
-		ImproveThorns,
-		ImprovePoison,
-		ImproveBurn,
 	],
 	"Rare": [
 		ResistDisempower,
@@ -334,6 +330,9 @@ const RARITIES := {
 	# The artifacts in this list will only appear if the archetype they're
 	# linked to has been selected. Check in CardGroupDefinintions class
 	"Archetype Restricted": [
-		
+		ImproveThorns,
+		ImprovePoison,
+		ImproveBurn,
+		StartingThorns,
 	]
 }

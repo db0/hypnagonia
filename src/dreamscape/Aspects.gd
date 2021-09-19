@@ -1,5 +1,8 @@
+# Maps the various Aspects to their components Archetypes
+# Allows us to quickly navigate to each Archetype from a central point
 class_name Aspects
 extends Reference
+
 
 const EGO := {
 	"Flyer": Archetypes.FLYER,
@@ -8,18 +11,14 @@ const EGO := {
 	"Runner": Archetypes.RUNNER,
 }
 
-
 const DISPOSITION := {
 	"Fearless": Archetypes.FEARLESS,
 	"Coward": Archetypes.COWARD,
 }
 
-
 const INSTRUMENT := {
 	"Rubber Chicken": Archetypes.RUBBER_CHICKEN,
 }
-
-
 
 const INJUSTICE := {
 	"Abusive Relationship": Archetypes.ABUSIVE_RELATIONSHIP

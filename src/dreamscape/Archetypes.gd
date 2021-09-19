@@ -1,3 +1,9 @@
+# The definitions of the various archetypes.
+# Each archetype has the fields that define which cards are available
+# in the starting deck, as well as in the draft card pool presented
+# to the player
+# It also list all other definitions needed, such as restricted artifacts
+# tags, icons etc.
 class_name Archetypes
 extends Reference
 
@@ -118,7 +124,7 @@ const FEARLESS:= {
 			Terms.GENERIC_TAGS.risky.name,
 		],
 		"Artifacts": [
-			
+			ArtifactDefinitions.ImprovePoison
 		],
 		"Starting Cards": [
 			"Confidence",
