@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/MainMenu/ArchetypeButton.gd"
 }, {
+"base": "Reference",
+"class": "Archetypes",
+"language": "GDScript",
+"path": "res://src/dreamscape/Archetypes.gd"
+}, {
 "base": "CombatSignifier",
 "class": "Artifact",
 "language": "GDScript",
@@ -48,6 +53,11 @@ _global_script_classes=[ {
 "class": "ArtifactObject",
 "language": "GDScript",
 "path": "res://src/dreamscape/Globals/ArtifactObject.gd"
+}, {
+"base": "Reference",
+"class": "Aspects",
+"language": "GDScript",
+"path": "res://src/dreamscape/Aspects.gd"
 }, {
 "base": "Control",
 "class": "Board",
@@ -173,11 +183,6 @@ _global_script_classes=[ {
 "class": "CardFront",
 "language": "GDScript",
 "path": "res://src/core/Card/CardFront.gd"
-}, {
-"base": "Reference",
-"class": "CardGroupDefinitions",
-"language": "GDScript",
-"path": "res://src/dreamscape/cards/sets/CardGroups.gd"
 }, {
 "base": "Reference",
 "class": "CardLabel",
@@ -510,9 +515,11 @@ _global_script_class_icons={
 "AlterantEngine": "",
 "AnimatedEnemy": "",
 "ArchetypeButton": "",
+"Archetypes": "",
 "Artifact": "",
 "ArtifactDefinitions": "",
 "ArtifactObject": "",
+"Aspects": "",
 "Board": "",
 "BoardPlacementGrid": "",
 "BoardPlacementSlot": "",
@@ -538,7 +545,6 @@ _global_script_class_icons={
 "CardContainer": "",
 "CardEntry": "",
 "CardFront": "",
-"CardGroupDefinitions": "",
 "CardLabel": "",
 "CardLibrary": "",
 "CardViewer": "",

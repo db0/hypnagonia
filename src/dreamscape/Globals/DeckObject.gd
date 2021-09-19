@@ -10,7 +10,7 @@ func _init(_deck_groups) -> void:
 
 func assemble_starting_deck() -> void:
 	for key in deck_groups:
-		for card_name in CardGroupDefinitions[key.to_upper()][deck_groups[key]]["Starting Cards"]:
+		for card_name in Aspects[key.to_upper()][deck_groups[key]]["Starting Cards"]:
 			var new_card := CardEntry.new(card_name)
 			cards.append(new_card)
 

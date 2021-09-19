@@ -323,10 +323,17 @@ const RARITIES := {
 		ThickExplosion,
 		PowerHeal,
 	],
+	# The artifacts in this list will only appear as rewards for defeating a boss
 	"Boss": [
 
 	],
+	# The artifacts in this list will only appear during shop purchases
 	"Shop": [
 
 	],
+	# The artifacts in this list will only appear if the archetype they're
+	# linked to has been selected. Check in CardGroupDefinintions class
+	"Archetype Restricted": [
+		
+	]
 }

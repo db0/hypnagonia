@@ -128,10 +128,10 @@ func _process_card_export(card_name: String) -> Dictionary:
 	card_entry.erase("_keywords")
 	card_entry['archetypes'] = []
 	for aspect in [
-			CardGroupDefinitions.EGO,
-			CardGroupDefinitions.DISPOSITION,
-			CardGroupDefinitions.INSTRUMENT,
-			CardGroupDefinitions.INJUSTICE]:
+			Aspects.EGO,
+			Aspects.DISPOSITION,
+			Aspects.INSTRUMENT,
+			Aspects.INJUSTICE]:
 		for archetype in aspect:
 			for rarity in ['Starting Cards','Commons','Uncommons','Rares']:
 				for card in aspect[archetype].get(rarity,[]):

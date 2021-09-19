@@ -52,11 +52,11 @@ func on_aspect_button_pressed(button_name : String):
 func populate_choices(aspect: String) -> void:
 	for node in _aspect_choices.get_children():
 		node.queue_free()
-	for archetype in CardGroupDefinitions.get_all_archetypes_list(aspect):
+	for archetype in Aspects.get_all_archetypes_list(aspect):
 		var archetype_button = ARCHETYPE_SCENE.instance()
 		_aspect_choices.add_child(archetype_button)
 		archetype_button.setup(aspect, archetype)
-		_aspect_description_label.text = CardGroupDefinitions.ARCHETYPES[aspect]["Description"]
+		_aspect_description_label.text = Aspects.ARCHETYPES[aspect]["Description"]
 		archetype_button.button.connect("pressed", self, "_on_archetype_choice_pressed", [archetype, aspect, archetype_button])
 		archetype_button.button.connect("mouse_entered", self, "_on_archetype_mouse_entered", [archetype])
 
@@ -64,7 +64,7 @@ func populate_choices(aspect: String) -> void:
 static func randomize_aspect_choices() -> Dictionary:
 	var randomized_archetypes := {}
 	for aspect in Terms.CARD_GROUP_TERMS.values():
-		var archetypes: Array = CardGroupDefinitions.get_all_archetypes_list(aspect)
+		var archetypes: Array = Aspects.get_all_archetypes_list(aspect)
 		CFUtils.shuffle_array(archetypes)
 		globals.player.deck_groups[aspect] = archetypes[0]
 		randomized_archetypes[aspect] = archetypes[0]
@@ -105,7 +105,7 @@ func _on_Start_pressed() -> void:
 
 func _on_archetype_mouse_entered(archetype: String) -> void:
 	_archetype_starting_cards_display.populate_starting_cards([archetype], _choice_popup)
-	var tags : Array = CardGroupDefinitions.get_archetype_value(archetype, "Tags")
+	var tags : Array = Aspects.get_archetype_value(archetype, "Tags")
 	_archetype_starting_cards_tags.populate_tags(tags)
 
 
@@ -117,7 +117,7 @@ func _on_StartingCards_pressed() -> void:
 	_all_starting_cards_display.populate_starting_cards(current_deck_archetypes, _starting_cards_popup)
 	var all_tags := []
 	for archetype in current_deck_archetypes:
-		for tag in CardGroupDefinitions.get_archetype_value(archetype, "Tags"):
+		for tag in Aspects.get_archetype_value(archetype, "Tags"):
 			if not tag in all_tags:
 				all_tags.append(tag)
 	_all_starting_cards_tags.populate_tags(all_tags)

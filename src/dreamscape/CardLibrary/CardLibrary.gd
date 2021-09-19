@@ -30,7 +30,7 @@ func _on_archetype_chosen(archetype) -> void:
 		_archetype_filter_button.text = "Filter by Archetype"
 		filtered_archetype_cards.clear()
 	else:
-		filtered_archetype_cards = CardGroupDefinitions.get_all_cards_in_archetype(archetype)
+		filtered_archetype_cards = Aspects.get_all_cards_in_archetype(archetype)
 		_archetype_filter_button.text = "Filtering: " + archetype
 	_apply_filters(_filter_line.get_active_filters())
 	
