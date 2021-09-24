@@ -5,4 +5,5 @@
 
 [node name="ResistDisempower" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+priority = 2
 effect_context = 1

@@ -1,5 +1,7 @@
 extends Board
 
+signal battle_begun
+
 const ENEMY_ENTITY_SCENE = preload("res://src/dreamscape/CombatElements/Enemies/EnemyEntity.tscn")
 
 var end_turn : Button
@@ -62,9 +64,11 @@ func begin_encounter() -> void:
 	yield(_tween, "tween_all_completed")
 	_prepare_omega()
 	cfc.NMAP.hand.refill_hand(5 - _retrieve_alpha())
-	_on_player_turn_started(turn)
-	turn._reset_turn()
+#	_on_player_turn_started(turn)
+#	turn._reset_turn()
 	turn.encounter_event_count.clear()
+	emit_signal("battle_begun")
+	turn.start_player_turn()
 
 func _retrieve_alpha() -> int:
 	var alpha_count := 0
@@ -294,9 +298,9 @@ func game_over() -> void:
 func _input(event):
 	if event.is_action_pressed("init_debug_game"):
 # warning-ignore:unused_variable
-		var torment = spawn_enemy(EnemyDefinitions.THE_CRITIC)
-#		var torment2 = spawn_enemy(EnemyDefinitions.CLOWN)
-#		var torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
+		var torment = spawn_enemy(EnemyDefinitions.GASLIGHTER)
+		var torment2 = spawn_enemy(EnemyDefinitions.CLOWN)
+		var torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
 #		var torment2 = spawn_enemy("The Critic")
 #		var torment3 = spawn_enemy("Gaslighter")
 #		var torment2 = spawn_enemy("Gaslighter")
@@ -308,11 +312,15 @@ func _input(event):
 #		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 8)
 		for c in [
+			"Absurdity Unleashed",
 			"unnamed_card_1",
-			"unnamed_card_1",
-			"Apathy",
-			"Apathy",
-			"Apathy",
+			"Absurdity Unleashed",
+			"Absurdity Unleashed",
+			"Absurdity Unleashed",
+			"Absurdity Unleashed",
+			"Absurdity Unleashed",
+#			"Apathy",
+#			"Apathy",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.deck.add_child(card)

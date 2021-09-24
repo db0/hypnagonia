@@ -6,6 +6,7 @@
 
 [node name="ArtifactTemplate" groups=[
 "artifacts",
+"scriptables",
 ] instance=ExtResource( 1 )]
 theme = ExtResource( 3 )
 script = ExtResource( 2 )

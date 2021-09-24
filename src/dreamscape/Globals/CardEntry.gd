@@ -6,7 +6,7 @@ var card_name: String
 # The actual card on the board linked to this card entry. The card on the board
 # is reset each new encounter
 var card_object: Card
-var upgrade_progress := 0
+var upgrade_progress := 0 setget set_upgrade_progress
 # How many times the card can be played before its eligible for an upgrade
 # If the value is -1, it's not upgradable
 var upgrade_threshold := 6
@@ -36,6 +36,17 @@ func record_use() -> bool:
 		return(true)
 	return(false)
 
+func set_upgrade_progress(amount) -> void:
+	# If the card upgrade progress is -1 it means it's not upgradable
+	if upgrade_threshold < 0:
+		return
+	upgrade_progress += amount
+	if upgrade_progress > upgrade_threshold:
+		upgrade_progress = upgrade_threshold
+	elif upgrade_progress < 0:
+		upgrade_progress = 0
+		
+
 func can_be_upgraded() -> bool:
 	if upgrade_progress == upgrade_threshold:
 		return(true)
@@ -53,3 +64,7 @@ func is_upgraded() -> bool:
 	if upgrade_threshold < 0:
 		return(true)
 	return(false)
+
+# Returns a property of the card, from the card definitions
+func get_property(property: String):
+	return(cfc.card_definitions[card_name].get(property))

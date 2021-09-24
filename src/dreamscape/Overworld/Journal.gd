@@ -251,6 +251,6 @@ func _show_description_popup(description_text: String) -> void:
 func _input(event):
 	if event.is_action_pressed("init_debug_game"):
 		globals.player.add_artifact("MaxHealth")
-		globals.player.add_artifact("HealPerBattle")
-		globals.player.add_artifact("FirstPowerAttack")
+		globals.player.add_artifact("AccumulateEnemy")
+		globals.player.add_artifact("AccumulateShop")
 		globals.player.damage += 20

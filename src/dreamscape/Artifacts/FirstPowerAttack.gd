@@ -12,7 +12,7 @@ func get_effect_alteration(
 			or not is_source\
 			or not is_active:
 		return(0)
-	var new_value = value + 8
+	var new_value = value + ArtifactDefinitions.FirstPowerAttack.amounts.effect_amount
 	var alteration = new_value - value
 	# This effect triggers only once per battle
 	if not _dry_run:

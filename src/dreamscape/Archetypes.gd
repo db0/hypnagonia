@@ -17,6 +17,9 @@ const FLYER:= {
 	"Artifacts": [
 		
 	],
+	"Perturbations": [
+		
+	],
 	"Starting Cards": [
 		"Out of Reach",
 		"Interpretation",
@@ -53,6 +56,9 @@ const MAD_SCIENTIST := {
 	"Artifacts": [
 		
 	],
+	"Perturbations": [
+		"Apathy",
+	],
 	"Starting Cards": [
 		"Confidence",
 		"Interpretation",
@@ -83,6 +89,9 @@ const WARRIOR:= {
 	"Artifacts": [
 		
 	],
+	"Perturbations": [
+		
+	],
 	"Starting Cards": [
 		"War Paint",
 	],
@@ -102,6 +111,9 @@ const RUNNER := {
 	"Artifacts": [
 		
 	],
+	"Perturbations": [
+		
+	],
 	"Starting Cards": [
 	],
 	"Commons": [
@@ -116,52 +128,58 @@ const RUNNER := {
 
 
 const FEARLESS:= {
-		"Anxiety": 5,
-#		"Icon": preload("res://icon.png"),
-		"Tags": [
-			Terms.ACTIVE_EFFECTS.poison.name,
-			Terms.ACTIVE_EFFECTS.fortify.name,
-			Terms.GENERIC_TAGS.risky.name,
-		],
-		"Artifacts": [
-			ArtifactDefinitions.ImprovePoison
-		],
-		"Starting Cards": [
-			"Confidence",
-			"Confidence",
-			"Nothing to Fear",
-		],
-		"Commons": [
-			"Intimidate",
-			"Towering Presence",
-			"Audacity",
-			"Solid Understanding",
-			"Confident Slap",
-			"Cocky Retort",
-		],
-		"Uncommons": [
-			"Nothing to Fear",
-			"Barrel Through",
-			"Cheeky Approach",
-			"No Second Thoughts",
-			"High Morale",
-		],
-		"Rares": [
-			"Laugh at Danger",
-			"Unassailable",
-			"Boast",
-		]
-	}
+	"Anxiety": 5,
+#	"Icon": preload("res://icon.png"),
+	"Tags": [
+		Terms.ACTIVE_EFFECTS.poison.name,
+		Terms.ACTIVE_EFFECTS.fortify.name,
+		Terms.GENERIC_TAGS.risky.name,
+	],
+	"Artifacts": [
+		ArtifactDefinitions.ImprovePoison
+	],
+	"Perturbations": [
+		
+	],
+	"Starting Cards": [
+		"Confidence",
+		"Confidence",
+		"Nothing to Fear",
+	],
+	"Commons": [
+		"Intimidate",
+		"Towering Presence",
+		"Audacity",
+		"Solid Understanding",
+		"Confident Slap",
+		"Cocky Retort",
+	],
+	"Uncommons": [
+		"Nothing to Fear",
+		"Barrel Through",
+		"Cheeky Approach",
+		"No Second Thoughts",
+		"High Morale",
+	],
+	"Rares": [
+		"Laugh at Danger",
+		"Unassailable",
+		"Boast",
+	]
+}
 	# Archetypes: Self-harm
 const COWARD := {
-		"Anxiety": -5,
-		"Icon": preload("res://icon.png"),
-		"Tags": [],
-		"Artifacts": [
-			
-		],
-		"_is_inactive": true
-	}
+	"Anxiety": -5,
+	"Icon": preload("res://icon.png"),
+	"Tags": [],
+	"Artifacts": [
+		
+	],
+	"Perturbations": [
+		
+	],
+	"_is_inactive": true
+}
 
 
 const RUBBER_CHICKEN := {
@@ -171,6 +189,9 @@ const RUBBER_CHICKEN := {
 		Terms.ACTIVE_EFFECTS.buffer.name,
 	],
 	"Artifacts": [
+		
+	],
+	"Perturbations": [
 		
 	],
 	"Starting Cards": [
@@ -207,6 +228,9 @@ const ABUSIVE_RELATIONSHIP := {
 		Terms.GENERIC_TAGS.purpose.name,
 	],
 	"Artifacts": [
+		
+	],
+	"Perturbations": [
 		
 	],
 	"Starting Cards": [

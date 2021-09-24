@@ -27,8 +27,8 @@ func generate_journal_choices() -> Array:
 	# Normally every journal should have 2-3 options
 	# but with most of my progressions disabled, it makes no sense
 	# so for now, only 1
-#	var new_options := _get_journal_options(CFUtils.randi_range(2,3))
-	var new_options := _get_journal_options(1)
+	var new_options := _get_journal_options(CFUtils.randi_range(1,3))
+#	var new_options := _get_journal_options(1)
 #	print_debug(globals.player.pathos.repressed, new_options)
 	for option in new_options:
 		match option:

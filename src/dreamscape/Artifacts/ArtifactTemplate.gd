@@ -1,7 +1,8 @@
 class_name Artifact
 extends CombatSignifier
 
-
+# Used by the scripting engine alterants, to know which calculation
+# to do first.
 enum PRIORITY {
 	ADD
 	MULTIPLY
@@ -18,7 +19,9 @@ export(ArtifactDefinitions.EffectContext) var effect_context
 var is_active := false
 # The global entry of the artifact which is tracked between encounters
 var artifact_object : ArtifactObject
-
+# Some artifacts can only trigger once per battle. 
+# This variable tracks that.
+var _is_activated = false
 
 func _ready() -> void:
 	if is_active and effect_context == ArtifactDefinitions.EffectContext.BATTLE:
@@ -36,7 +39,7 @@ func _ready() -> void:
 func setup_artifact(_artifact_object: ArtifactObject, _is_active: bool, new_addition: bool) -> void:
 	is_active = _is_active
 	artifact_object = _artifact_object
-	print_debug(_artifact_object.canonical_name, _is_active)
+#	print_debug(_artifact_object.canonical_name, _is_active)
 	if new_addition:
 		_on_artifact_added()
 
@@ -88,6 +91,27 @@ func execute_script(
 	return(sceng)
 
 
+# Dummy function to overwrite, to enable artifacts to receive trigger
+#  signals from all cards via the SignalPropagator
+# If an artifact needs to fire based on a card trigger, this is the place
+# to add that code
+func execute_scripts(
+		trigger_card: Card = null,
+		trigger: String = "manual",
+		trigger_details: Dictionary = {},
+		only_cost_check := false):
+	pass
+
+# Because I want artifacts to connect to the scriptables
+# pipeline, they need these two dummy functions to exist
+# to avoid crashing the alterant engine.
+# But I handle artifact alterants through the extended sceng _check_for_effect_alterants()
+# Which uses another approach. So these two are not used here.
+func retrieve_scripts(trigger: String) -> Dictionary:
+	return({})
+func get_state_exec() -> String:
+	return("NONE")
+
 func _on_CombatSingifier_mouse_entered() -> void:
 	_set_current_description()
 	._on_CombatSingifier_mouse_entered()
@@ -104,7 +128,9 @@ func _set_current_description() -> void:
 	# warning-ignore:integer_division
 	format["half_amount"] = str(amount/2)
 	decription_label.bbcode_text = artifact_description.\
-			format(format).format(Terms.get_bbcode_formats(18))
+			format(format).\
+			format(Terms.get_bbcode_formats(18)).\
+			format(artifact_object.definition.get("amounts", {}))
 
 
 # Overwritable function
@@ -119,3 +145,23 @@ func _on_artifact_removed() -> void:
 func _on_artifact_counter_modified(value: int) -> void:
 	update_amount(value)
 
+# Marks this artifact as activated for this Ordeal
+# Returns false if already activated. Else returns true
+func _activate() -> bool:
+	if _is_activated:
+		return(false)
+	_is_activated = true
+	return(true)
+
+
+func _on_player_turn_ended(_turn: Turn) -> void:
+	pass
+
+func _on_player_turn_started(_turn: Turn) -> void:
+	pass
+
+func _on_enemy_turn_ended(_turn: Turn) -> void:
+	pass
+
+func _on_enemy_turn_started(_turn: Turn) -> void:
+	pass

@@ -1,9 +1,17 @@
 # Dreams: Changelog
 
+
 ## v0.11.0
 
-* Added framework for adding artifacts
-* Added first three artifacts as samples.
+* Added framework for adding curios and using curios
+* Added ~30 new curios
+* Activated the desire pathos. Now only 2/7 are still inactive
+* Added the desire encounter which has a chance to occur as your repressed desire increases. It always gives an artifact of The higher the desire when triggered, the higher the rarity chances of the curio. 
+  curios gained from this encounter always add a perturbation in the deck
+* Added ~10 new perturbations
+* curios can now be limited to specific Archetypes, which allows us to have a small core of common curios and allow to expand the curio pool infinitelly without diluting the chance for good combos
+* Specific perturbations can now receive greater chance of appearance based on the chosen archetype
+
 
 ## v0.10.0
 
@@ -13,7 +21,7 @@
 	
 	Each time you take a journal choice, the relevant type of pathos is "released". Released pathos can be used in the shop. Each type, allows the player to buy different things.
 	
-	Currently only 4/7 Pathos are active. The Non-Combat Encounters, Elite Enemies and the Artifacts are disabled as these don't exist in the game yet.
+	Currently only 4/7 Pathos are active. The Non-Combat Encounters, Elite Enemies and the curios are disabled as these don't exist in the game yet.
 * Added Shop (currency is released pathos)
 * Reworked the way encounters work
 * Added fade-to-black on journal (to hide battle loading time)

@@ -134,7 +134,10 @@ const ACTIVE_EFFECTS := {
 		"icon": preload("res://assets/icons/templar-eye.png"),
 		"generic_description": "{effect_name}: Increases interpretation dealt by exact amount.",
 		"rich_text_icon": "res://fonts/rich_text_icons/templar-eye.png",
-		"description": "{effect_name} ({effect_icon}): {attack} {damage_verb} by this {entity} is increased by {amount} (1 per stack).\n"
+		"description": "{effect_name} ({effect_icon}): {attack} {damage_verb} by this {entity} is increased by {amount} (1 per stack).\n",
+		"upgraded_descriptions": {
+			"thick": "{effect_name} ({effect_icon}): {attack} {damage_verb} by this {entity} is increased by {amount} (1 per stack). Remove all stacks when you reshuffle your deck\n",
+		},
 	},
 	"fortify": {
 		"name": "Courage",

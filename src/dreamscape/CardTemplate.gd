@@ -1,6 +1,11 @@
 class_name DreamCard
 extends Card
 
+# Emited whenever the card is played manually or via card effect.
+# Since a card might be "played" from any source and to many possible targets
+# we use a specialized signal to trigger effects which fire after playing cards
+signal card_played(card,trigger,details)
+
 # Going negative to avoid conflicting with CGF in case it extends its own card states
 enum ExtendedCardState {
 	REMOVE_FROM_GAME = -5
@@ -18,7 +23,7 @@ var pertub_destination : CardContainer
 var deck_card_entry
 
 func _ready() -> void:
-	pass
+	connect("card_played", cfc.signal_propagator, "_on_signal_received")
 
 func _process(delta: float) -> void:
 	match state:
@@ -127,11 +132,21 @@ func common_post_move_scripts(new_container: Node, old_container: Node, tags: Ar
 		execute_scripts()
 		attempted_action_drop_to_board = false
 	# We record the first played card of each type, for effect triggers
-	if old_container == cfc.NMAP.hand and "Scripted" in tags:
+	# Cards are considered "played" if they were moved to their final
+	# CardContainer with a script using the "Played" tag
+	if "Played" in tags:
 		var firsts = cfc.NMAP.board.turn.firsts
 		if firsts.empty() or not firsts.get(properties.Type):
 			firsts[properties.Type] = self
-
+		emit_signal("card_played",
+				self,
+				"card_played",
+				{
+					"destination": new_container,
+					"source": old_container,
+					"tags": tags
+				}
+		)
 
 func get_modified_immersion_cost() -> Dictionary:
 	var immersion_cost_details : Dictionary =\
@@ -268,7 +283,20 @@ func common_pre_run(sceng) -> void:
 # Removes this card from the game completely.
 # This means the card is also removed permanently from the player's deck
 # This change stays for all further encounters
-func remove_from_deck(permanent := true) -> void:
+func remove_from_deck(permanent := true, tags := []) -> void:
+	if "Played" in tags:
+		var firsts = cfc.NMAP.board.turn.firsts
+		if firsts.empty() or not firsts.get(properties.Type):
+			firsts[properties.Type] = self
+		emit_signal("card_played",
+				self,
+				"card_played",
+				{
+					"destination": null,
+					"source": get_parent(),
+					"tags": tags
+				}
+		)
 #	card_front.apply_sharer("res://shaders/consume.shader")
 	card_front.material = preload("res://shaders/dissolve.tres")
 #	card_front.material.shader = CFConst.REMOVE_FROM_GAME_SHADER

@@ -1,6 +1,11 @@
 extends DreamPile
 
+# We use this for effects which care about the amount of cards
+# we had in the discard pile before we reshuffled it
+var last_amount_pre_reshuffle
+
 func reshuffle_in_deck():
+	last_amount_pre_reshuffle = get_card_count()
 	var deck : Pile = cfc.NMAP.deck
 	for c in get_all_cards():
 		c.move_to(deck)

@@ -39,7 +39,7 @@ func _ready() -> void:
 	globals.player.connect("artifact_added", self, "_on_artifact_added")
 	_init_artifacts()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	_update_health_label()
 	_update_encounter_label()
 	_update_deck_count()
@@ -115,6 +115,7 @@ func _on_artifact_added(artifact_object: ArtifactObject) -> void:
 	_instance_artifact(artifact_object, true)
 
 
+# Instances and adds the artifact objects to this node
 func _init_artifacts() -> void:
 	for artifact_object in globals.player.artifacts:
 		_instance_artifact(artifact_object)

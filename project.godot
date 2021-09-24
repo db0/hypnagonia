@@ -384,6 +384,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/Overworld/Pathos.gd"
 }, {
+"base": "Reference",
+"class": "Perturbations",
+"language": "GDScript",
+"path": "res://src/dreamscape/Perturbations.gd"
+}, {
 "base": "CardContainer",
 "class": "Pile",
 "language": "GDScript",
@@ -585,6 +590,7 @@ _global_script_class_icons={
 "NonCombatEncounter": "",
 "OVUtils": "",
 "Pathos": "",
+"Perturbations": "",
 "Pile": "",
 "Player": "",
 "PlayerEntity": "",

@@ -1,3 +1,8 @@
+# Provides the metadata for each artifact. Their script is contained within
+# The script file with the same name under "res://src/dreamscape/Artifacts/"
+# Each artifact has an "amounts" key which is used populate both description
+# and script. This allows us in the future to quickly tweak values without
+# having to change multiple places
 class_name ArtifactDefinitions
 extends Reference
 
@@ -14,336 +19,390 @@ enum EffectContext {
 
 const MaxHealth := {
 	"canonical_name": "MaxHealth",
-	"name": "Unnamed1",
-	"description": "{artifact_name}: max {health} inreased by 10",
+	"name": "MaxHealth",
+	"description": "{artifact_name}: max {health} inreased by {health_amount}",
 	"icon": preload("res://assets/icons/artifacts/centaur-heart.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
-#		"amount": 0,
+	"amounts": {
+		"health_amount": 10
+	},
 }
 
 const StartingHeal := {
 	"canonical_name": "StartingHeal",
-	"name": "Unnamed2",
-	"description": "{artifact_name}: {heal} for 2 when you encounter a Torment",
+	"name": "StartingHeal",
+	"description": "{artifact_name}: At the start of each Ordeal, {heal} for {heal_amount}.",
 	"icon": preload("res://assets/icons/artifacts/glass-heart.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Common",
-#		"amount": 0,
+	"amounts": {
+		"heal_amount": 2
+	},
 }
 
 const FirstPowerAttack := {
 	"canonical_name": "FirstPowerAttack",
-	"name": "Unnamed3",
-	"description": "{artifact_name}: Your first {attack} each encounter is increased by 8",
+	"name": "FirstPowerAttack",
+	"description": "{artifact_name}: Your first {attack} each encounter is increased by {effect_amount}",
 	"icon": preload("res://assets/icons/artifacts/binoculars.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Common",
-#		"amount": 0,
+	"amounts": {
+		"effect_amount": 8
+	},
 }
 
-# TODO
+
 const StartingCards := {
 	"canonical_name": "StartingCards",
-	"name": "Unnamed4",
-	"description": "{artifact_name}: At the start of each Encounter, draw 2 cards.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"name": "Knapsack",
+	"description": "{artifact_name}: At the start of each Ordeal, draw {draw_amount} cards.",
+	"icon": preload("res://assets/icons/artifacts/knapsack.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Common",
-#		"amount": 0,
+	"amounts": {
+		"draw_amount": 2
+	},
+
 }
 
-# TODO
+
 const RepressedEnemyBuff := {
 	"canonical_name": "RepressedEnemyBuff",
 	"name": "Fruscination",
-	"description": "{artifact_name}: At the start of each Encounter,"\
-		+ " Gain 1 {buffer} for each 40 Released Frustration you have.",
+	"description": "{artifact_name}: At the start of each Ordeal,"\
+		+ " Gain {effect_stacks} {buffer} for each {pathos_amount} Released Frustration you have.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
-#		"amount": 0,
+	"amounts": {
+		"effect_stacks": 1,
+		"pathos_amount": 40
+	},
 }
 
-# TODO
 const StartingImmersion := {
 	"canonical_name": "StartingImmersion",
-	"name": "Unnamed5",
-	"description": "{artifact_name}: At the start of each Encounter, gain 1 {immersion}.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"name": "Tiny Coala Friend",
+	"description": "{artifact_name}: At the start of each Ordeal, gain {immersion_amount} {immersion}.",
+	"icon": preload("res://assets/icons/artifacts/koala.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Common",
-#		"amount": 0,
+	"amounts": {
+		"immersion_amount": 1
+	},
 }
 
 
-# TODO
 const StartingStrength := {
 	"canonical_name": "StartingStrength",
-	"name": "Unnamed6",
-	"description": "{artifact_name}: At the start of each Encounter, gain 1 {strengthen}.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"name": "Mechanical Eyeball",
+	"description": "{artifact_name}: At the start of each Ordeal, gain {effect_stacks} {strengthen}.",
+	"icon": preload("res://assets/icons/artifacts/eyeball.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Common",
-#		"amount": 0,
+	"amounts": {
+		"effect_stacks": 1
+	},
 }
 
 
-# TODO
 const StartingThorns := {
 	"canonical_name": "StartingThorns",
-	"name": "Unnamed6",
-	"description": "{artifact_name}: At the start of each Encounter, gain 4 {thorns}.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"name": "Crown of Thorns",
+	"description": "{artifact_name}: At the start of each Ordeal, gain {effect_stacks} {thorns}.",
+	"icon": preload("res://assets/icons/artifacts/crown-of-thorns.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Common",
-#		"amount": 0,
+	"amounts": {
+		"effect_stacks": 4
+	},
 }
 
-# TODO
+
 const StartingConfidence := {
 	"canonical_name": "StartingConfidence",
-	"name": "Unnamed6",
-	"description": "{artifact_name}: At the start of each Encounter, gain 10 {confidence}.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"name": "Epic Mustache",
+	"description": "{artifact_name}: At the start of each Ordeal, gain {defence_amount} {confidence}.",
+	"icon": preload("res://assets/icons/artifacts/mustache.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Common",
-#		"amount": 0,
+	"amounts": {
+		"defence_amount": 10
+	},
 }
 
-# TODO
+
 const ThickImmersion := {
 	"canonical_name": "ThickImmersion",
-	"name": "Unnamed7",
-	"description": "{artifact_name}: At that start of each turn, gain 1 Immersion."\
-		+ "This effects ends when your deck is reshuffled.",
+	"name": "ThickImmersion",
+	"description": "{artifact_name}: At that start of each Ordeal turn, gain {immersion_amount} {immersion}. "\
+		+ "This effects ends when your deck is reshuffled and you gain {effect_stacks} {vulnerable}.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
-#		"amount": 0,
+	"amounts": {
+		"immersion_amount": 1,
+		"effect_stacks": 3
+	},
 }
 
-# TODO
+
 const ThickStrength := {
 	"canonical_name": "ThickStrength",
-	"name": "Unnamed7",
-	"description": "{artifact_name}: At that start of each turn, gain 1 {strengthen}."\
+	"name": "Extending Eye",
+	"description": "{artifact_name}: At that start of each Ordeal turn, gain {effect_stacks} {strengthen}. "\
 		+ "This effects and all added {strengthen} ends when your deck is reshuffled.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"icon": preload("res://assets/icons/artifacts/eyestalk.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
-#		"amount": 0,
+	"amounts": {
+		"effect_stacks": 1
+	},
 }
 
 # TODO
 const UpgradedInterpretations := {
 	"canonical_name": "UpgradedInterpretations",
-	"name": "Unnamed8",
-	"description": "{artifact_name}: Interpretation cards added to your deck receive 4 progress.",
+	"name": "UpgradedInterpretations",
+	"description": "{artifact_name}: Interpretation cards added to your deck receive {progress_amount} progress.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
-#		"amount": 0,
+	"amounts": {
+		"progress_amount": 4
+	},
 }
 
-# TODO
+
 const UpgradedControl := {
 	"canonical_name": "UpgradedControl",
-	"name": "Unnamed9",
-	"description": "{artifact_name}: Interpretation cards added to your deck receive 4 progress.",
+	"name": "UpgradedControl",
+	"description": "{artifact_name}: Interpretation cards added to your deck receive {progress_amount} progress.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
-#		"amount": 0,
+	"amounts": {
+		"progress_amount": 4
+	},
 }
 
-# TODO
+
 const UpgradedUnderstanding := {
 	"canonical_name": "UpgradedUnderstanding",
-	"name": "Unnamed10",
-	"description": "{artifact_name}: Interpretation cards added to your deck receive 6 progress.",
+	"name": "UpgradedUnderstanding",
+	"description": "{artifact_name}: Interpretation cards added to your deck receive {progress_amount} progress.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
-#		"amount": 0,
+	"amounts": {
+		"progress_amount": 6
+	},
 }
 
-# TODO
+
 const UpgradedConcentration := {
 	"canonical_name": "UpgradedConcentration",
-	"name": "Unnamed11",
-	"description": "{artifact_name}: Interpretation cards added to your deck receive 5 progress.",
+	"name": "UpgradedConcentration",
+	"description": "{artifact_name}: Interpretation cards added to your deck receive {progress_amount} progress.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
-#		"amount": 0,
+	"amounts": {
+		"progress_amount": 5
+	},
 }
 
-# TODO
-const ThinImmersion := {
-	"canonical_name": "ThinImmersion",
-	"name": "Unnamed12",
-	"description": "{artifact_name}: Every time you reshuffle the deck, draw a card.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+
+const ThinCardDraw := {
+	"canonical_name": "ThinCardDraw",
+	"name": "Light Backpack",
+	"description": "{artifact_name}: Every time you reshuffle the deck, draw {draw_amount} card.",
+	"icon": preload("res://assets/icons/artifacts/light-backpack.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Common",
-#		"amount": 0,
+	"amounts": {
+		"draw_amount": 1
+	},
 }
 
-# TODO
+
 const ResistDisempower := {
 	"canonical_name": "ResistDisempower",
-	"name": "Unnamed13",
+	"name": "ResistConfusion",
 	"description": "{artifact_name}: You cannot receive {disempower} anymore.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Rare",
-#		"amount": 0,
 }
 
-# TODO
+
 const ResistPoison := {
 	"canonical_name": "ResistPoison",
-	"name": "Unnamed13",
-	"description": "{artifact_name}: Any time you would receive {poison} reduce it by 1.",
+	"name": "ResistDoubt",
+	"description": "{artifact_name}: Any time you would receive {poison} reduce it by {alteration_amount}.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
-#		"amount": 0,
+	"amounts": {
+		"alteration_amount": 1
+	},
 }
 
-# TODO
+
 const ResistBurn := {
 	"canonical_name": "ResistBurn",
-	"name": "Unnamed14",
-	"description": "{artifact_name}: Any time you would receive {poison} reduce it by 1.",
+	"name": "ResistEnvy",
+	"description": "{artifact_name}: Any time you would receive {poison} reduce it by {alteration_amount}.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
-#		"amount": 0,
+	"amounts": {
+		"alteration_amount": 1
+	},
 }
 
-# TODO
+
 const ResistVulnerable := {
 	"canonical_name": "ResistVulnerable",
-	"name": "Unnamed15",
+	"name": "ResistShaken",
 	"description": "{artifact_name}: You cannot receive {vulnerable} anymore.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Rare",
-#		"amount": 0,
+
 }
 
-# TODO
+
 const ImproveThorns := {
 	"canonical_name": "ImproveThorns",
-	"name": "Unnamed16",
-	"description": "{artifact_name}: Any time you would gain {thorns}, gain 1 more.",
+	"name": "ImproveThorns",
+	"description": "{artifact_name}: Any time you would gain {thorns}, gain {alteration_amount} more.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
-#		"amount": 0,
+	"amounts": {
+		"alteration_amount": 1
+	},
 }
 
-# TODO
+
 const ImprovePoison := {
 	"canonical_name": "ImprovePoison",
-	"name": "Unnamed17",
-	"description": "{artifact_name}: Any time you would inflict {poison}, inflict 1 more.",
+	"name": "ImprovePoison",
+	"description": "{artifact_name}: Any time you would inflict {poison}, inflict {alteration_amount} more.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
-#		"amount": 0,
+	"amounts": {
+		"alteration_amount": 1
+	},
 }
 
-# TODO
+
 const ImproveBurn := {
 	"canonical_name": "ImproveBurn",
-	"name": "Unnamed18",
-	"description": "{artifact_name}: Any time you would inflict {burn}, inflict 1 more.",
+	"name": "ImproveBurn",
+	"description": "{artifact_name}: Any time you would inflict {burn}, inflict {alteration_amount} more.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
-#		"amount": 0,
+	"amounts": {
+		"alteration_amount": 1
+	},
 }
 
-# TODO
+
 const ThickExplosion := {
 	"canonical_name": "ThickExplosion",
-	"name": "Unnamed19",
+	"name": "ThickExplosion",
 	"description": "{artifact_name}: The first time you reshuffle your deck, "\
 		+ "deal damage to all enemies equal to your discard pile.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Rare",
-#		"amount": 0,
 }
 
-# TODO
+
 const AccumulateEnemy := {
 	"canonical_name": "AccumulateEnemy",
 	"name": "RepressedFrustration",
-	"description": "{artifact_name}: Increase your repressed Frustration by 60",
+	"description": "{artifact_name}: Increase your repressed Frustration by {pathos_amount}",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
-#		"amount": 0,
+	"amounts": {
+		"pathos_amount": 60
+	},
 }
 const AccumulateRest := {
 	"canonical_name": "AccumulateRest",
 	"name": "RepressedLethargy",
-	"description": "{artifact_name}: Increase your repressed Lethargy by 30",
+	"description": "{artifact_name}: Increase your repressed Lethargy by {pathos_amount}",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
-#		"amount": 0,
+	"amounts": {
+		"pathos_amount": 30
+	},
 }
 const AccumulateNCE := {
 	"canonical_name": "AccumulateNCE",
 	"name": "RepressedCuriosity",
-	"description": "{artifact_name}: Increase your repressed Curiosity by 35",
+	"description": "{artifact_name}: Increase your repressed Curiosity by {pathos_amount}",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
-#		"amount": 0,
+	"amounts": {
+		"pathos_amount": 35
+	},
 }
 const AccumulateShop := {
 	"canonical_name": "AccumulateShop",
 	"name": "RepressLoneliness",
-	"description": "{artifact_name}: Increase your repressed Loneliness by 15",
+	"description": "{artifact_name}: Increase your repressed Loneliness by {pathos_amount}",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
-#		"amount": 0,
+	"amounts": {
+		"pathos_amount": 15
+	},
 }
 const AccumulateElite := {
 	"canonical_name": "AccumulateElite",
 	"name": "RepressedForeboding",
-	"description": "{artifact_name}: Increase your repressed Foreboding by 30",
+	"description": "{artifact_name}: Increase your repressed Foreboding by {pathos_amount}",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
-#		"amount": 0,
+	"amounts": {
+		"pathos_amount": 30
+	},
 }
 const AccumulateArtifact := {
 	"canonical_name": "AccumulateArtifact",
 	"name": "RepressedDesire",
-	"description": "{artifact_name}: Increase your repressed Desire by 10",
+	"description": "{artifact_name}: Increase your repressed Desire by {pathos_amount}",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
-#		"amount": 0,
+	"amounts": {
+		"pathos_amount": 10
+	},
 }
 
 #TODO
 const PowerHeal := {
 	"canonical_name": "PowerHeal",
 	"name": "Concentrated Rest",
-	"description": "{artifact_name}: Whenever you play a concentration, {rest} for 2.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"description": "{artifact_name}: Whenever you play a concentration, {heal} for {healing_amount}.",
+	"icon": preload("res://assets/icons/artifacts/nested-hearts.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Rare",
-#		"amount": 0,
+	"amounts": {
+		"healing_amount": 2
+	},
 }
 
 
@@ -367,7 +426,7 @@ const GENERIC := [
 	ThickExplosion,
 	ThickImmersion,
 	ThickStrength,
-	ThinImmersion,
+	ThinCardDraw,
 	UpgradedInterpretations,
 	UpgradedControl,
 	UpgradedUnderstanding,
@@ -392,13 +451,19 @@ const ARCHETYPE := [
 # Each purpose returns a slightly different format dictionary
 # Also gets a list of archetypes tied to the current archetypes and merges them into
 # The generic ones to return a common list
-static func get_organized_artifacts(purpose := "generic", archetype_artifacts := []) -> Dictionary:
+# Finally a list of artifacts to exclude can be passes
+# Those would typically be artifacts already owned, or seen
+static func get_organized_artifacts(
+	purpose := "generic", 
+	archetype_artifacts := [],
+	excluded_artifacts := []) -> Dictionary:
 	var ret_dict := {}
 	match purpose:
 		"generic":
 			for rarity in ["Common", "Uncommon", "Rare"]:
 				ret_dict[rarity] = []
 				for artifact in GENERIC + archetype_artifacts:
-					if artifact.rarity == rarity:
+					if artifact.rarity == rarity\
+							and not artifact.name in excluded_artifacts:
 						ret_dict[rarity].append(artifact)
 	return(ret_dict)

@@ -12,7 +12,8 @@ __meta__ = {
 
 [node name="SC" type="ScrollContainer" parent="."]
 margin_left = 20.0
-margin_right = 20.0
+margin_right = 32.0
+margin_bottom = 12.0
 mouse_filter = 1
 __meta__ = {
 "_edit_use_anchors_": false

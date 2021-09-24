@@ -219,15 +219,15 @@ func apply_effect(script: ScriptTask) -> int:
 	else:
 		modification = script.get_property(SP.KEY_MODIFICATION)
 	var set_to_mod: bool = script.get_property(SP.KEY_SET_TO_MOD)
-	if not set_to_mod:
-		alteration = _check_for_alterants(script, modification)
-		if alteration is GDScriptFunctionState:
-			alteration = yield(alteration, "completed")
 	var stacks_diff := 0
 	for e in script.subjects:
 		var entity: CombatEntity = e
 		if entity.is_dead:
 			continue
+		if not set_to_mod:
+			alteration = _check_for_effect_alterants(script, modification, entity, self)
+			if alteration is GDScriptFunctionState:
+				alteration = yield(alteration, "completed")
 		var current_stacks: int
 		# If we're storing the integer, we want to store the difference
 		# cumulative difference between the current and modified effect stacks
@@ -261,10 +261,10 @@ func remove_card_from_deck(script: ScriptTask) -> int:
 	var retcode: int = CFConst.ReturnCode.CHANGED
 	if not costs_dry_run():
 		# We inject the tags from the script into the tags sent by the signal
-		var _tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
+		var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
 		var is_permanent: bool = script.get_property(SP.KEY_PERMANENT, true)
 		for card in script.subjects:
-			card.remove_from_deck(is_permanent)
+			card.remove_from_deck(is_permanent, tags)
 	return(retcode)
 
 
@@ -274,10 +274,14 @@ func autoplay_card(script: ScriptTask) -> int:
 	# or you might end up in an inifinite loop
 	for card in script.subjects:
 		if not costs_dry_run():
+			# We store this to send it later with a signal
+			var previous_parent = card.get_parent()
 			var prev_pos = card.global_position
 			card.get_parent().remove_child(card)
 			cfc.NMAP.board.add_child(card)
 			card.set_is_faceup(true)
+			# We first move it to the center of the view and hold it there
+			# for a few seconds, for the player to see the card being played.
 			card.state = card.ExtendedCardState.AUTOPLAY_DISPLAY
 			card._add_tween_global_position(
 					prev_pos,

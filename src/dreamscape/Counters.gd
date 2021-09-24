@@ -5,7 +5,7 @@ const COUNTER_DESCRITIONS := {
 		"CounterTitle": "Immersion: ",
 		"Description": "Immersion: Each card you play costs some. "\
 				+ "You cannot play cards which cost more Immersion that you have available",
-		"Value": 3},
+		"Value": 0},
 	}
 
 onready var _description_popup := $DescriptionPanel
