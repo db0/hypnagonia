@@ -18,6 +18,7 @@ const MaxHealth := {
 	"description": "{artifact_name}: max {health} inreased by 10",
 	"icon": preload("res://assets/icons/artifacts/centaur-heart.png"),
 	"context": EffectContext.OVERWORLD,
+	"rarity": "Uncommon",
 #		"amount": 0,
 }
 
@@ -27,6 +28,7 @@ const StartingHeal := {
 	"description": "{artifact_name}: {heal} for 2 when you encounter a Torment",
 	"icon": preload("res://assets/icons/artifacts/glass-heart.png"),
 	"context": EffectContext.BATTLE,
+	"rarity": "Common",
 #		"amount": 0,
 }
 
@@ -36,6 +38,7 @@ const FirstPowerAttack := {
 	"description": "{artifact_name}: Your first {attack} each encounter is increased by 8",
 	"icon": preload("res://assets/icons/artifacts/binoculars.png"),
 	"context": EffectContext.BATTLE,
+	"rarity": "Common",
 #		"amount": 0,
 }
 
@@ -46,6 +49,7 @@ const StartingCards := {
 	"description": "{artifact_name}: At the start of each Encounter, draw 2 cards.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
+	"rarity": "Common",
 #		"amount": 0,
 }
 
@@ -57,6 +61,7 @@ const RepressedEnemyBuff := {
 		+ " Gain 1 {buffer} for each 40 Released Frustration you have.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
+	"rarity": "Uncommon",
 #		"amount": 0,
 }
 
@@ -67,6 +72,7 @@ const StartingImmersion := {
 	"description": "{artifact_name}: At the start of each Encounter, gain 1 {immersion}.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
+	"rarity": "Common",
 #		"amount": 0,
 }
 
@@ -78,6 +84,7 @@ const StartingStrength := {
 	"description": "{artifact_name}: At the start of each Encounter, gain 1 {strengthen}.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
+	"rarity": "Common",
 #		"amount": 0,
 }
 
@@ -89,6 +96,7 @@ const StartingThorns := {
 	"description": "{artifact_name}: At the start of each Encounter, gain 4 {thorns}.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
+	"rarity": "Common",
 #		"amount": 0,
 }
 
@@ -99,6 +107,7 @@ const StartingConfidence := {
 	"description": "{artifact_name}: At the start of each Encounter, gain 10 {confidence}.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
+	"rarity": "Common",
 #		"amount": 0,
 }
 
@@ -110,6 +119,7 @@ const ThickImmersion := {
 		+ "This effects ends when your deck is reshuffled.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
+	"rarity": "Uncommon",
 #		"amount": 0,
 }
 
@@ -121,6 +131,7 @@ const ThickStrength := {
 		+ "This effects and all added {strengthen} ends when your deck is reshuffled.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
+	"rarity": "Uncommon",
 #		"amount": 0,
 }
 
@@ -131,6 +142,7 @@ const UpgradedInterpretations := {
 	"description": "{artifact_name}: Interpretation cards added to your deck receive 4 progress.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.OVERWORLD,
+	"rarity": "Uncommon",
 #		"amount": 0,
 }
 
@@ -141,6 +153,7 @@ const UpgradedControl := {
 	"description": "{artifact_name}: Interpretation cards added to your deck receive 4 progress.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.OVERWORLD,
+	"rarity": "Uncommon",
 #		"amount": 0,
 }
 
@@ -151,6 +164,7 @@ const UpgradedUnderstanding := {
 	"description": "{artifact_name}: Interpretation cards added to your deck receive 6 progress.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.OVERWORLD,
+	"rarity": "Uncommon",
 #		"amount": 0,
 }
 
@@ -161,6 +175,7 @@ const UpgradedConcentration := {
 	"description": "{artifact_name}: Interpretation cards added to your deck receive 5 progress.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.OVERWORLD,
+	"rarity": "Uncommon",
 #		"amount": 0,
 }
 
@@ -171,6 +186,7 @@ const ThinImmersion := {
 	"description": "{artifact_name}: Every time you reshuffle the deck, draw a card.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
+	"rarity": "Common",
 #		"amount": 0,
 }
 
@@ -181,6 +197,7 @@ const ResistDisempower := {
 	"description": "{artifact_name}: You cannot receive {disempower} anymore.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
+	"rarity": "Rare",
 #		"amount": 0,
 }
 
@@ -191,6 +208,7 @@ const ResistPoison := {
 	"description": "{artifact_name}: Any time you would receive {poison} reduce it by 1.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
+	"rarity": "Uncommon",
 #		"amount": 0,
 }
 
@@ -201,6 +219,7 @@ const ResistBurn := {
 	"description": "{artifact_name}: Any time you would receive {poison} reduce it by 1.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
+	"rarity": "Uncommon",
 #		"amount": 0,
 }
 
@@ -211,6 +230,7 @@ const ResistVulnerable := {
 	"description": "{artifact_name}: You cannot receive {vulnerable} anymore.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
+	"rarity": "Rare",
 #		"amount": 0,
 }
 
@@ -221,6 +241,7 @@ const ImproveThorns := {
 	"description": "{artifact_name}: Any time you would gain {thorns}, gain 1 more.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
+	"rarity": "Uncommon",
 #		"amount": 0,
 }
 
@@ -231,6 +252,7 @@ const ImprovePoison := {
 	"description": "{artifact_name}: Any time you would inflict {poison}, inflict 1 more.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
+	"rarity": "Uncommon",
 #		"amount": 0,
 }
 
@@ -241,6 +263,7 @@ const ImproveBurn := {
 	"description": "{artifact_name}: Any time you would inflict {burn}, inflict 1 more.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
+	"rarity": "Uncommon",
 #		"amount": 0,
 }
 
@@ -252,6 +275,7 @@ const ThickExplosion := {
 		+ "deal damage to all enemies equal to your discard pile.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
+	"rarity": "Rare",
 #		"amount": 0,
 }
 
@@ -262,6 +286,7 @@ const AccumulateEnemy := {
 	"description": "{artifact_name}: Increase your repressed Frustration by 60",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.OVERWORLD,
+	"rarity": "Common",
 #		"amount": 0,
 }
 const AccumulateRest := {
@@ -270,6 +295,7 @@ const AccumulateRest := {
 	"description": "{artifact_name}: Increase your repressed Lethargy by 30",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.OVERWORLD,
+	"rarity": "Common",
 #		"amount": 0,
 }
 const AccumulateNCE := {
@@ -278,6 +304,7 @@ const AccumulateNCE := {
 	"description": "{artifact_name}: Increase your repressed Curiosity by 35",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.OVERWORLD,
+	"rarity": "Common",
 #		"amount": 0,
 }
 const AccumulateShop := {
@@ -286,6 +313,7 @@ const AccumulateShop := {
 	"description": "{artifact_name}: Increase your repressed Loneliness by 15",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.OVERWORLD,
+	"rarity": "Common",
 #		"amount": 0,
 }
 const AccumulateElite := {
@@ -294,6 +322,7 @@ const AccumulateElite := {
 	"description": "{artifact_name}: Increase your repressed Foreboding by 30",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.OVERWORLD,
+	"rarity": "Common",
 #		"amount": 0,
 }
 const AccumulateArtifact := {
@@ -302,6 +331,7 @@ const AccumulateArtifact := {
 	"description": "{artifact_name}: Increase your repressed Desire by 10",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.OVERWORLD,
+	"rarity": "Common",
 #		"amount": 0,
 }
 
@@ -312,58 +342,63 @@ const PowerHeal := {
 	"description": "{artifact_name}: Whenever you play a concentration, {rest} for 2.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
+	"rarity": "Rare",
 #		"amount": 0,
 }
 
-const RARITIES := {
-	"Common": [
-		StartingHeal,
-		FirstPowerAttack,
-		StartingCards,
-		AccumulateRest,
-		StartingStrength,
-		StartingConfidence,
-		ThinImmersion,
-		AccumulateEnemy,
-		AccumulateRest,
-		AccumulateNCE,
-		AccumulateShop,
-		AccumulateElite,
-		AccumulateArtifact,
-		
-	],
-	"Uncommon": [
-		MaxHealth,
-		RepressedEnemyBuff,
-		ThickImmersion,
-		ThickStrength,
-		UpgradedInterpretations,
-		UpgradedControl,
-		UpgradedUnderstanding,
-		UpgradedConcentration,
-		ResistPoison,
-		ResistBurn,
-	],
-	"Rare": [
-		ResistDisempower,
-		ResistVulnerable,
-		ThickExplosion,
-		PowerHeal,
-	],
-	# The artifacts in this list will only appear as rewards for defeating a boss
-	"Boss": [
 
-	],
-	# The artifacts in this list will only appear during shop purchases
-	"Shop": [
+# Generic artifacts which have a chance to appear in any playthrough
+const GENERIC := [
+	StartingHeal,
+	StartingStrength,
+	StartingConfidence,
+	StartingCards,
+	StartingImmersion,
+	FirstPowerAttack,
+	AccumulateRest,
+	AccumulateEnemy,
+	AccumulateRest,
+	AccumulateNCE,
+	AccumulateShop,
+	AccumulateElite,
+	AccumulateArtifact,
+	MaxHealth,
+	RepressedEnemyBuff,
+	ThickExplosion,
+	ThickImmersion,
+	ThickStrength,
+	ThinImmersion,
+	UpgradedInterpretations,
+	UpgradedControl,
+	UpgradedUnderstanding,
+	UpgradedConcentration,
+	ResistPoison,
+	ResistBurn,
+	ResistDisempower,
+	ResistVulnerable,
+	PowerHeal,
+]
 
-	],
-	# The artifacts in this list will only appear if the archetype they're
-	# linked to has been selected. Check in CardGroupDefinintions class
-	"Archetype Restricted": [
-		ImproveThorns,
-		ImprovePoison,
-		ImproveBurn,
-		StartingThorns,
-	]
-}
+# Archetype-specific artifacts which only appear in runs in which 
+# Their tied archetype is selected.
+const ARCHETYPE := [
+	ImproveThorns,
+	ImprovePoison,
+	ImproveBurn,
+	StartingThorns,
+]
+
+# Takes as arguments the purpose of artifacts to return. Generic, Shop or Boss
+# Each purpose returns a slightly different format dictionary
+# Also gets a list of archetypes tied to the current archetypes and merges them into
+# The generic ones to return a common list
+static func get_organized_artifacts(purpose := "generic", archetype_artifacts := []) -> Dictionary:
+	var ret_dict := {}
+	match purpose:
+		"generic":
+			for rarity in ["Common", "Uncommon", "Rare"]:
+				ret_dict[rarity] = []
+				for artifact in GENERIC + archetype_artifacts:
+					if artifact.rarity == rarity:
+						ret_dict[rarity].append(artifact)
+	return(ret_dict)

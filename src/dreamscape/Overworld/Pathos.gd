@@ -7,7 +7,7 @@ var repressed := {
 	Terms.RUN_ACCUMULATION_NAMES.nce: 0, # Normally should start at 5
 	Terms.RUN_ACCUMULATION_NAMES.shop: 0,
 	Terms.RUN_ACCUMULATION_NAMES.elite: 0,
-	Terms.RUN_ACCUMULATION_NAMES.artifact: 0,
+	Terms.RUN_ACCUMULATION_NAMES.artifact: 300,
 	Terms.RUN_ACCUMULATION_NAMES.boss: 0,
 }
 
