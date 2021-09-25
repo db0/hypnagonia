@@ -236,7 +236,13 @@ const ABUSIVE_RELATIONSHIP := {
 	"Starting Cards": [
 		"Inner Justice",
 	],
-	"Commons": [],
-	"Uncommons": [],
+	"Commons": [
+		"unnamed_card_7",
+		"unnamed_card_8",
+		"unnamed_card_9",
+	],
+	"Uncommons": [
+		"unnamed_card_6",
+	],
 	"Rares": []
 }

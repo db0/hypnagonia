@@ -32,8 +32,8 @@ func setup() -> void:
 		health += Aspects[group.to_upper()][deck_groups[group]].get(Terms.PLAYER_TERMS.health,0)
 	deck.assemble_starting_deck()
 	# Debug #
-	add_artifact("StartingImmersion")
-	add_artifact("StartingThorns")
+#	add_artifact("StartingImmersion")
+#	add_artifact("StartingThorns")
 
 func get_currrent_archetypes() -> Array:
 	var all_archetypes := []

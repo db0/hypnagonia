@@ -42,6 +42,11 @@ export var filter_button_properties := ["Type"]
 # Make sure that the values specified will never match normal values for that
 # property.
 export var generation_keys := []
+# Allows the CardViewer to replace specific entries during display.
+# For example, you can mark that a cost of -1 is displayed as empty/
+# Key is the property name. Then inside another dictionary with the
+# value to replace as the key and the things to replace with as the value
+export var replacements := {}
 # The custom scene which displays the card when its name is hovered.
 export var info_panel_scene = _INFO_PANEL_SCENE
 # We use this variable, so that the scene can be overriden with a custom one

@@ -163,10 +163,10 @@ const ThickStrength := {
 }
 
 # TODO
-const UpgradedInterpretations := {
-	"canonical_name": "UpgradedInterpretations",
-	"name": "UpgradedInterpretations",
-	"description": "{artifact_name}: Interpretation cards added to your deck receive {progress_amount} progress.",
+const UpgradedAction := {
+	"canonical_name": "UpgradedAction",
+	"name": "UpgradedAction",
+	"description": "{artifact_name}: Action cards added to your deck receive {progress_amount} progress.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
@@ -427,7 +427,7 @@ const GENERIC := [
 	ThickImmersion,
 	ThickStrength,
 	ThinCardDraw,
-	UpgradedInterpretations,
+	UpgradedAction,
 	UpgradedControl,
 	UpgradedUnderstanding,
 	UpgradedConcentration,
