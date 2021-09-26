@@ -1387,17 +1387,28 @@ static func check_properties(card, property_filters: Dictionary) -> bool:
 					and comparison_type == "ne":
 				card_matches = false
 		elif property in CardConfig.PROPERTIES_NUMBERS:
-			var comparison_value: int
+			var comparison_value
 			if typeof(property_filters[property]) == TYPE_INT:
 				comparison_value = property_filters[property]
-			# We support comparing against counters. We assume any string
-			# value is a counter name
-			else:
+			# We support comparing against counters. We check if the value of the
+			# property is a counter name
+			elif cfc.NMAP.board.counters.needed_counters.has(property_filters[property]):
 				comparison_value = cfc.NMAP.board.counters.get_counter(
 						property_filters[property], card)
-			if not CFUtils.compare_numbers(
+			else:
+				# If the property value is a string, and that is not a counter name
+				# Then it must be a special value provided by the designer
+				# We obviously cannot compare it as int, so we will compare is as string.
+				comparison_value = property_filters[property]
+			if typeof(comparison_value) == TYPE_INT:
+				if not CFUtils.compare_numbers(
+						card.get_property(property),
+						comparison_value,
+						comparison_type):
+					card_matches = false
+			elif not CFUtils.compare_strings(
+					property_filters[property],
 					card.get_property(property),
-					comparison_value,
 					comparison_type):
 				card_matches = false
 		elif property == "Name":

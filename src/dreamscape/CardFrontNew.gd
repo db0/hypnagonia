@@ -107,12 +107,3 @@ func _add_title_bbcode(rtlabel: RichTextLabel):
 func _pop_title_bbcode(rtlabel: RichTextLabel):
 	rtlabel.pop()
 	rtlabel.pop()
-
-func set_label_text(node: Label, value):
-	if node == card_labels["Cost"] and int(value) < 0:
-		card_labels["Cost"].visible = false
-		return
-	# 100 Cost is used as an "X" cost, which means, use all the immersion currently available
-	elif node == card_labels["Cost"] and int(value) == 100:
-		value = 'X'
-	.set_label_text(node,value)

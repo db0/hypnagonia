@@ -13,7 +13,11 @@ extends Reference
 
 # Properties which are placed as they are in appropriate labels
 const PROPERTIES_STRINGS := ["Type", "Abilities"]
-# Properties which are converted into string using a format defined in setup()
+# Properties which expected to be provided as integers. 
+# Note that you can still use strings as their values (e.g. 'X'), but those will be skipped
+# During numerical comparisons, so you will have to handle those situations
+# in your own code.
+# Also see the REPLACEMENTS const.
 const PROPERTIES_NUMBERS := ["Cost"]
 # The name of these properties will be prepended before their value to their label.
 const NUMBER_WITH_LABEL := []
@@ -56,7 +60,17 @@ const EXPLANATIONS = {
 	"release": "[color=teal]Release[/color]: This card is removed permanently from the Dreamer's deck.",
 	"perturbation": "[color=white]Perturbation[/color]: Cards that tend to clutter your deck, and may have extra negative effects.",
 }
-
+# Allows the Card object and Card Viewer to replace specific entries during display.
+# For example, you can mark that a cost of 'U' is displayed as an empty string ('').
+# This const is a series of nested constants. 
+# Each top key is a property name. 
+# Each second-level key is value to replace.
+# The value is the replacement.
+const REPLACEMENTS = {
+#	"Cost": {
+#		'U': '',
+#	}
+}
 
 # Creates the format dictionary to convert strings pointing to amounts
 # text in the card abilities, into rich text numbers.

@@ -1,6 +1,6 @@
 extends Counters
 
-const COUNTER_DESCRITIONS := {
+const COUNTER_DESCRIPTIONS := {
 	"immersion": {
 		"CounterTitle": "Immersion: ",
 		"Description": "Immersion: Each card you play costs some. "\
@@ -26,7 +26,7 @@ onready var _description_label := $DescriptionPanel/Label
 func _ready() -> void:
 	counters_container = $VBC
 	value_node = "Value"
-	needed_counters = COUNTER_DESCRITIONS
+	needed_counters = COUNTER_DESCRIPTIONS
 	var all_counters = spawn_needed_counters()
 	for counter in all_counters:
 		counter.connect("mouse_entered", self, "_on_counter_enterred", [counter])
@@ -41,7 +41,7 @@ func _on_player_turn_started(turn: Turn) -> void:
 	mod_counter("immersion", 3, false, false, turn, ["New Turn"])
 
 func _on_counter_enterred(counter_node: Control) -> void:
-	var description_text : String = COUNTER_DESCRITIONS[counter_node.name]["Description"]
+	var description_text : String = needed_counters[counter_node.name]["Description"]
 	if description_text:
 		_description_label.text = description_text
 		_description_popup.visible = true
