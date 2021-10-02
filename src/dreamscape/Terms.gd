@@ -196,6 +196,11 @@ const ACTIVE_EFFECTS := {
 		"description": "{effect_name}: This {entity} has become more powerful in some fashion.",
 		"icon": preload("res://assets/icons/enrage.png"),
 	},
+	"enraged": {
+		"name": "Meandering Disquietude",
+		"description": "{effect_name}: Every time you play a Control card, this {entity} gains {amount} {strengthen}",
+		"icon": preload("res://assets/icons/wavy-itinerary.png"),
+	},
 	"creative_block": {
 		"name": "Creative Block",
 		"description": "{effect_name}: {entity} cannot upgrade any more cards this encounter.",

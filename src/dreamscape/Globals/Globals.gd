@@ -9,6 +9,7 @@ var journal: Journal
 # I use this to keep track of which journal texts I haven't used yet in this run
 # to avoid writing always the same thing
 var unused_journal_texts := {}
+#var utils := DeckbuilderUtils.new()
 
 # Test setup. This should happen at game start
 func _ready() -> void:

@@ -19,6 +19,9 @@ func _init(_journal: Node, _encounter: SingleEncounter).(_journal) -> void:
 				torment_card.setup(torment_name)
 				journal.enemy_cards[torment_name] = torment_card
 		formated_description = enemy_encounter.get_formated_description()
+	if encounter as EliteEncounter:
+		var elite_encounter: EliteEncounter = encounter
+		formated_description = elite_encounter.description
 	if encounter as BossEncounter:
 		var boss_encounter: BossEncounter = encounter
 		formated_description = boss_encounter.description

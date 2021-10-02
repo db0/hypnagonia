@@ -12,7 +12,7 @@ func _process(_delta: float) -> void:
 	rect_size = Vector2(0,0)
 	pass
 
-func display(is_boss := false) -> void:
+func display(card_draft_type := 'card_draft') -> void:
 	visible = true
 	if not draft_card_choices.empty():
 		return
@@ -20,17 +20,21 @@ func display(is_boss := false) -> void:
 #			if not c as Tween:
 #				c.queue_free()
 #		yield(get_tree().create_timer(0.1), "timeout")
-	populate_draft_cards(is_boss)
+	populate_draft_cards(card_draft_type)
 	$Tween.interpolate_property(get_parent(),
 			'rect_min_size:y', 0, CFConst.CARD_SIZE.y * CFConst.THUMBNAIL_SCALE, 1.0,
 			Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 	$Tween.start()
 
-func populate_draft_cards(is_boss: = false) -> void:
-	if is_boss:
-		retrieve_boss_draft()
-	else:
-		retrieve_draft_cards()
+func populate_draft_cards(card_draft_type := 'card_draft') -> void:
+#	print_debug(card_draft_type)
+	match card_draft_type:
+		'boss_card_draft':
+			retrieve_boss_draft()
+		'elite_card_draft':
+			retrieve_elite_draft()
+		'card_draft':
+			retrieve_draft_cards()
 	for index in range(draft_card_choices.size()):
 		var card_name: String = draft_card_choices[index]
 		var draft_card_object = CARD_DRAFT_SCENE.instance()
@@ -67,13 +71,13 @@ func retrieve_draft_cards() -> void:
 #		print_debug(str(rare_chance) + ' : ' + str(rare_chance + uncommon_chance))
 		if chance <= rare_chance:
 #			print_debug('Rare: ' + str(chance))
-			card_names = globals.player.compile_rarity_cards('Rares')
+			card_names = globals.player.compile_rarity_cards('Rare')
 		elif chance <= rare_chance + uncommon_chance:
 #			print_debug('Uncommon: ' + str(chance))
-			card_names = globals.player.compile_rarity_cards('Uncommons')
+			card_names = globals.player.compile_rarity_cards('Uncommon')
 		else:
 #			print_debug('common: ' + str(chance))
-			card_names = globals.player.compile_rarity_cards('Commons')
+			card_names = globals.player.compile_rarity_cards('Common')
 		CFUtils.shuffle_array(card_names)
 		if card_names.size():
 			for card_name in card_names:
@@ -84,10 +88,32 @@ func retrieve_draft_cards() -> void:
 					break
 	draft_card_choices += globals.current_encounter.return_extra_draft_cards()
 
+func retrieve_elite_draft() -> void:
+	draft_card_choices.clear()
+	for _iter in range(draft_amount):
+		var card_names: Array
+		var chance := CFUtils.randf_range(0.0, 1.0)
+#		print_debug(str(rare_chance) + ' : ' + str(rare_chance + uncommon_chance))
+		if chance <= (rare_chance * 2):
+#			print_debug('Rare: ' + str(chance))
+			card_names = globals.player.compile_rarity_cards('Rare')
+		elif chance <= (rare_chance * 2) + (uncommon_chance * 1.75):
+#			print_debug('Uncommon: ' + str(chance))
+			card_names = globals.player.compile_rarity_cards('Uncommon')
+		else:
+#			print_debug('common: ' + str(chance))
+			card_names = globals.player.compile_rarity_cards('Common')
+		CFUtils.shuffle_array(card_names)
+		if card_names.size():
+			for card_name in card_names:
+				if not card_name in draft_card_choices:
+					draft_card_choices.append(card_name)
+					break
+
 func retrieve_boss_draft() -> void:
 	draft_card_choices.clear()
 	for _iter in range(draft_amount):
-		var card_names: Array = globals.player.compile_rarity_cards('Rares')
+		var card_names: Array = globals.player.compile_rarity_cards('Rare')
 		CFUtils.shuffle_array(card_names)
 		if card_names.size():
 			for card_name in card_names:

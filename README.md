@@ -73,3 +73,7 @@ Major influences from [Slay the Spire](https://www.megacrit.com/) and other deck
 Everything except Assets and Shaders is licensed under the AGPL3
 
 Assets and Shaders will list their individual licenses in their respective folders or code.
+
+## Support
+
+If you wish to support the development of this game, consider becoming a patron via [liberapay](https://liberapay.com/db0/)

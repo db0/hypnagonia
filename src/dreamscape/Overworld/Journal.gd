@@ -9,8 +9,10 @@ onready var journal_choices := $HBC/JournalEntry/VBC/JournalChoices
 onready var card_storage := $EnemyCardStorage
 onready var reward_journal := $HBC/JournalEntry/VBC/RewardJournal
 onready var upgrade_journal := $HBC/JournalEntry/VBC/UpgradeJournal
+onready var artifact_journal := $HBC/JournalEntry/VBC/ArtifactJournal
 onready var card_draft := $HBC/JournalEntry/VBC/CardDraftSlide/CardDraft
-onready var card_upgrade := $HBC/JournalEntry/VBC/UgradetSlide/CardUpgrade
+onready var card_upgrade := $HBC/JournalEntry/VBC/UgradeSlide/CardUpgrade
+onready var artifact_choice := $HBC/JournalEntry/VBC/ArtifactSlide/ArtifactChoice
 onready var proceed := $HBC/JournalEntry/VBC/Proceed
 onready var _tween := $Tween
 onready var _description_label := $MetaDescription/Label
@@ -43,6 +45,16 @@ func display_rewards(reward_text: String) -> void:
 	if reward_text != '':
 		reward_journal.bbcode_text = reward_text
 		_reveal_entry(reward_journal, true, "card_draft")
+	if globals.player.deck.get_upgradeable_cards().size():
+		_reveal_entry(upgrade_journal, true)
+	proceed.bbcode_text = _get_entry_texts('PROCEED_TEXTS')
+	_reveal_entry(proceed, true)
+
+
+func display_elite_rewards(reward_text: String) -> void:
+	reward_journal.bbcode_text = reward_text
+	_reveal_entry(reward_journal, true, "elite_card_draft")
+	_reveal_entry(artifact_journal, true, "elite_artifact")
 	if globals.player.deck.get_upgradeable_cards().size():
 		_reveal_entry(upgrade_journal, true)
 	proceed.bbcode_text = _get_entry_texts('PROCEED_TEXTS')
@@ -87,7 +99,6 @@ func add_nested_choices(nested_choices: Dictionary) -> void:
 	var nested_choices_scene := NESTED_CHOICES_SCENE.instance()
 	journal_choices.add_child(nested_choices_scene)
 	nested_choices_scene.call_deferred("populate_choices", nested_choices, self)
-
 
 
 func _on_meta_clicked(meta_text: String) -> void:
@@ -166,15 +177,19 @@ func _disconnect_gui_inputs(rich_text_node: RichTextLabel) -> void:
 
 
 func _on_RewardJournal_meta_clicked(_meta: String) -> void:
+	# Now handled in _on_rte_gui_input()
 	match _meta:
 		"card_draft":
 			pass
 		"boss_card_draft":
-			card_draft.display(true)
-			reward_journal.bbcode_text = "[color=grey]" + reward_journal.text + "[/color]"
+			pass
 
 
 func _on_UpgradeJournal_meta_clicked(_meta):
+	pass # Replace with function body.
+
+
+func _on_ArtifactJournal_meta_clicked() -> void:
 	pass # Replace with function body.
 
 
@@ -192,23 +207,24 @@ func _on_rte_gui_input(event, rt_label: RichTextLabel, type = 'card_draft') -> v
 		match rt_label.name:
 			"RewardJournal":
 				_disconnect_gui_inputs(rt_label)
-				if type == "boss_card_draft":
-					card_draft.display(true)
-				else:
-					card_draft.display()
+				card_draft.display(type)
 				reward_journal.bbcode_text = "[color=grey]" + pre_highlight_bbcode_texts[rt_label] + "[/color]"
 			"UpgradeJournal":
 				_disconnect_gui_inputs(rt_label)
 				card_upgrade.display()
 				upgrade_journal.bbcode_text = "[color=grey]" + pre_highlight_bbcode_texts[rt_label] + "[/color]"
+			"ArtifactJournal":
+				_disconnect_gui_inputs(rt_label)
+				artifact_choice.display(type)
+				artifact_journal.bbcode_text = "[color=grey]" + pre_highlight_bbcode_texts[rt_label] + "[/color]"
 			"Loss":
 				pass
 			"Proceed":
 				if globals.current_encounter as BossEncounter:
-# warning-ignore:return_value_discarded
+					# warning-ignore:return_value_discarded
 					get_tree().change_scene(CFConst.PATH_CUSTOM + 'MainMenu/MainMenu.tscn')
 				else:
-# warning-ignore:return_value_discarded
+					# warning-ignore:return_value_discarded
 					get_tree().change_scene(CFConst.PATH_CUSTOM + 'Overworld/Journal.tscn')
 
 
@@ -232,12 +248,13 @@ func _get_entry_texts(entries_key: String) -> String:
 func _on_proceed_clicked(_meta: String) -> void:
 	match _meta:
 		"discord":
-# warning-ignore:return_value_discarded
+			# warning-ignore:return_value_discarded
 			OS.shell_open("https://discord.gg/KFKHt6Ch")
 		"main_menu":
-# warning-ignore:return_value_discarded
+			# warning-ignore:return_value_discarded
 			get_tree().change_scene(CFConst.PATH_CUSTOM + 'MainMenu/MainMenu.tscn')
 			globals.reset()
+
 
 func _show_description_popup(description_text: String) -> void:
 	_description_label.text = description_text

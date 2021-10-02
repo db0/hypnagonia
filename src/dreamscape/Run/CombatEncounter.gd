@@ -3,7 +3,7 @@ extends SingleEncounter
 
 var reward_description: String
 var current_combat: ViewportCardFocus
-var difficulty: String
+var difficulty: String = "medium"
 	
 func game_over() -> void:
 	current_combat.queue_free()

@@ -25,7 +25,7 @@ const FLYER:= {
 		"Interpretation",
 		"Confidence",
 	],
-	"Commons": [
+	"Common": [
 		"Out of Reach",
 		"Dive-in",
 		"Overview",
@@ -33,14 +33,14 @@ const FLYER:= {
 		"Loop de loop",
 		"Rapid Encirclement",
 	],
-	"Uncommons": [
+	"Uncommon": [
 		"Whirlwind",
 		"Safety of Air",
 		"Swoop",
 		"Barrel Through",
 		"Running Start",
 	],
-	"Rares": [
+	"Rare": [
 		"Master of Skies",
 		"Zen of Flight",
 	]
@@ -64,19 +64,19 @@ const MAD_SCIENTIST := {
 		"Interpretation",
 		"Change of Mind",
 	],
-	"Commons": [
+	"Common": [
 		"Recall",
 		"unnamed_card_5",
 		"unnamed_card_1",
 		"Change of Mind"
 	],
-	"Uncommons": [
+	"Uncommon": [
 		"Brilliance",
 		"Rapid Theorizing",
 		"Wild Inspiration",
 		"Detect Weaknesses"
 	],
-	"Rares": [
+	"Rare": [
 		"It's alive!",
 		"Eureka!",
 	],
@@ -95,12 +95,12 @@ const WARRIOR:= {
 	"Starting Cards": [
 		"War Paint",
 	],
-	"Commons": [
+	"Common": [
 		"War Paint",
 	],
-	"Uncommons": [
+	"Uncommon": [
 	],
-	"Rares": [],
+	"Rare": [],
 	"_is_inactive": true
 }
 
@@ -116,13 +116,13 @@ const RUNNER := {
 	],
 	"Starting Cards": [
 	],
-	"Commons": [
+	"Common": [
 		"Rapid Encirclement",
 	],
-	"Uncommons": [
+	"Uncommon": [
 		"Barrel Through",
 	],
-	"Rares": [],
+	"Rare": [],
 	"_is_inactive": true
 }
 
@@ -146,7 +146,7 @@ const FEARLESS:= {
 		"Confidence",
 		"Nothing to Fear",
 	],
-	"Commons": [
+	"Common": [
 		"Intimidate",
 		"Towering Presence",
 		"Audacity",
@@ -154,14 +154,14 @@ const FEARLESS:= {
 		"Confident Slap",
 		"Cocky Retort",
 	],
-	"Uncommons": [
+	"Uncommon": [
 		"Nothing to Fear",
 		"Barrel Through",
 		"Cheeky Approach",
 		"No Second Thoughts",
 		"High Morale",
 	],
-	"Rares": [
+	"Rare": [
 		"Laugh at Danger",
 		"Unassailable",
 		"Boast",
@@ -199,7 +199,7 @@ const RUBBER_CHICKEN := {
 		"Interpretation",
 		"Noisy Whip",
 	],
-	"Commons": [
+	"Common": [
 		"Confounding Movements",
 		"Noisy Whip",
 		"Headless",
@@ -207,14 +207,14 @@ const RUBBER_CHICKEN := {
 		"unnamed_card_1",
 		"unnamed_card_3",
 	],
-	"Uncommons": [
+	"Uncommon": [
 		"Rubber Eggs",
 		"The Joke",
 		"unnamed_card_2",
 		"Absurdity Unleashed",
 		"Gummiraptor",
 	],
-	"Rares": [
+	"Rare": [
 		"Nunclucks",
 		"Utterly Ridiculous",
 	]
@@ -236,13 +236,13 @@ const ABUSIVE_RELATIONSHIP := {
 	"Starting Cards": [
 		"Inner Justice",
 	],
-	"Commons": [
+	"Common": [
 		"unnamed_card_7",
 		"unnamed_card_8",
 		"unnamed_card_9",
 	],
-	"Uncommons": [
+	"Uncommon": [
 		"unnamed_card_6",
 	],
-	"Rares": []
+	"Rare": []
 }

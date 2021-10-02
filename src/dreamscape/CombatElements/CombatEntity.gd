@@ -59,7 +59,7 @@ func setup(entity_name: String, properties: Dictionary) -> void:
 	entity_size = Vector2(properties['_texture_size_x'],properties['_texture_size_y'])
 	character_art = properties.get('_character_art', 'nobody')
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	art.rect_min_size = entity_size
 	collision_shape.shape.extents = entity_size / 2
@@ -79,12 +79,14 @@ func _ready() -> void:
 	elif character_art_texture:
 		_set_texture(entity_texture, character_art_texture)
 
+
 func _set_texture(node: Node, stream: StreamTexture) -> void:
 		var new_texture = ImageTexture.new()
 		new_texture.storage = ImageTexture.STORAGE_COMPRESS_LOSSLESS
 		var _image = stream.get_data()
 		new_texture.create_from_image(_image)
 		node.texture = new_texture
+
 
 func _process(delta: float) -> void:
 	if is_dead and entity_texture.material as ShaderMaterial:
@@ -97,9 +99,11 @@ func _process(delta: float) -> void:
 		if shader_progress > 0.9:
 			queue_free()
 
+
 func set_defence(value) -> void:
 	defence = value
 	_update_health_label()
+
 
 func set_damage(value) -> void:
 	damage = value
@@ -107,6 +111,7 @@ func set_damage(value) -> void:
 		die()
 	else:
 		_update_health_label()
+
 
 func set_health(value) -> void:
 	health = value
@@ -143,6 +148,7 @@ func modify_damage(amount: int, dry_run := false, tags := ["Manual"], trigger = 
 		_update_health_label()
 	return(CFConst.ReturnCode.CHANGED)
 
+
 func receive_defence(amount: int, dry_run := false, tags := ["Manual"], trigger: CombatEntity = null) -> int:
 	if not dry_run:
 		if amount > 0:
@@ -151,17 +157,21 @@ func receive_defence(amount: int, dry_run := false, tags := ["Manual"], trigger:
 		_update_health_label()
 	return(CFConst.ReturnCode.CHANGED)
 
+
 func get_class() -> String:
 	return("CombatEntity")
+
 
 func show_predictions(value: int) -> void:
 	var incoming_node = INCOMING_SIGNIFIER_SCENE.instance()
 	incoming.add_child(incoming_node)
 	incoming_node.get_node("Label").text = str(value)
 
+
 func clear_predictions() -> void:
 	for node in incoming.get_children():
 		node.queue_free()
+
 
 # The entities do not have starting health which decreases as they take damage
 # Rather they have a damage meter which increases until it hits their max health.
@@ -169,18 +179,29 @@ func _update_health_label() -> void:
 	health_label.text = str(damage) + '/' + str(health)
 	defence_label.text = str(defence)
 
+
 func get_property(property_name: String):
 	return(_properties.get(property_name))
+
 
 func _on_Defence_mouse_entered() -> void:
 	var description_text := "{defence_name}: It is removed before {health} is accumulated."\
 			+ "\nIt is removed at the start of the {entity}'s turn"
 	_show_description_popup(description_text, defence_label)
 
+
 func _on_Health_mouse_entered() -> void:
+	var defeat_blurb: String
+	if entity_type == Terms.PLAYER:
+		defeat_blurb = "When your dreamer accumulates equal or higher than their total, "\
+						+ "they wake up and the run is ended."
+	else:
+		defeat_blurb = "When this torment accumulates equal or higher than its total, "\
+						+ "they are overcome and removed from this Ordeal."
 	var description_text := "{health} (accumulated/total): {damage_taken_verb}"\
-			+ " from {enemy} {opponent_actions}."
+			+ " from {enemy} {opponent_actions}.\n" + defeat_blurb
 	_show_description_popup(description_text, health_label)
+
 
 func _show_description_popup(description_text: String, popup_anchor: Node) -> void:
 	var format = Terms.COMMON_FORMATS[entity_type].duplicate()

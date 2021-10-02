@@ -32,7 +32,7 @@ const MaxHealth := {
 const StartingHeal := {
 	"canonical_name": "StartingHeal",
 	"name": "StartingHeal",
-	"description": "{artifact_name}: At the start of each Ordeal, {heal} for {heal_amount}.",
+	"description": "{artifact_name}: At the start of each Ordeal, {relax} for {heal_amount}.",
 	"icon": preload("res://assets/icons/artifacts/glass-heart.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Common",
@@ -396,7 +396,7 @@ const AccumulateArtifact := {
 const PowerHeal := {
 	"canonical_name": "PowerHeal",
 	"name": "Concentrated Rest",
-	"description": "{artifact_name}: Whenever you play a concentration, {heal} for {healing_amount}.",
+	"description": "{artifact_name}: Whenever you play a concentration, {relax} for {healing_amount}.",
 	"icon": preload("res://assets/icons/artifacts/nested-hearts.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Rare",

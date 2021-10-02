@@ -26,39 +26,7 @@ func prepare_intents(specific_index = null) -> void:
 		new_intents = unused_intents.pop_back().duplicate(true)
 	if new_intents.reshuffle:
 		reshuffle_intents()
-	for intent in get_children():
-		intent.queue_free()
-	yield(get_tree().create_timer(0.01), "timeout")
-	for intent in new_intents.intent_scripts:
-		# Some intents can use a generic format of "Intent Name: Value"
-		# Therefore we always split the intent name (i.e. the key) on a colon, and the name
-		# is always the first part.
-		var intent_array = intent.split(':')
-		# We store the name of the last script in the list of intents as the 
-		# intent name. Then we can use it for special animations and so on.
-		intent_name = intent_array[0]
-		var intent_scripts = all_intent_scripts.get_scripts(intent_name)
-		if not intent_scripts:
-			print_debug("WARNING: Intent with name '" + intent_name + "' not found!")
-		else:
-			# If there is a second value in the intent_array, it means this is
-			# a generic intent and the value is provided in the intent name
-			# after the colon separator.
-#			print_debug("Added Intent: " + intent_name)
-			if intent_array.size() > 1:
-				if intent_scripts[0].has("amount"):
-					intent_scripts[0].amount = int(intent_array[1])
-				else:
-					intent_scripts[0].modification = int(intent_array[1])
-#				print_debug("Set Intent Value: " + intent_array[1])
-			if intent_array.size() > 2:
-				if intent_scripts[0].has("effect_name"):
-					intent_scripts[0].effect_name = Terms.ACTIVE_EFFECTS[intent_array[2]].name
-			for single_intent in intent_scripts:
-				var new_intent : CombatSignifier = SINGLE_INTENT_SCENE.instance()
-				add_child(new_intent)
-				new_intent.setup(single_intent, intent_name)
-
+	_display_intents(new_intents)
 
 func reshuffle_intents() -> void:
 	unused_intents = all_intents.duplicate(true)
@@ -116,3 +84,44 @@ func execute_scripts(
 		#print("DEBUG:" + str(state_scripts))
 		sceng.execute(CFInt.RunType.ELSE)
 	return(sceng)
+
+
+# We have this externally to allow to override it if needed (e.g. for boss intents)
+func _get_intent_scripts(intent_name: String) -> Dictionary:
+	return(all_intent_scripts.get_scripts(intent_name))
+
+
+# Goes through the specified intents and shows their combat signifiers
+func _display_intents(new_intents: Dictionary) -> void:
+	for intent in get_children():
+		intent.queue_free()
+	yield(get_tree().create_timer(0.01), "timeout")
+	for intent in new_intents.intent_scripts:
+		# Some intents can use a generic format of "Intent Name: Value"
+		# Therefore we always split the intent name (i.e. the key) on a colon, and the name
+		# is always the first part.
+		var intent_array = intent.split(':')
+		# We store the name of the last script in the list of intents as the 
+		# intent name. Then we can use it for special animations and so on.
+		intent_name = intent_array[0]
+		var intent_scripts = _get_intent_scripts(intent_name)
+		if not intent_scripts:
+			print_debug("WARNING: Intent with name '" + intent_name + "' not found!")
+		else:
+			# If there is a second value in the intent_array, it means this is
+			# a generic intent and the value is provided in the intent name
+			# after the colon separator.
+#			print_debug("Added Intent: " + intent_name)
+			if intent_array.size() > 1:
+				if intent_scripts[0].has("amount"):
+					intent_scripts[0].amount = int(intent_array[1])
+				else:
+					intent_scripts[0].modification = int(intent_array[1])
+#				print_debug("Set Intent Value: " + intent_array[1])
+			if intent_array.size() > 2:
+				if intent_scripts[0].has("effect_name"):
+					intent_scripts[0].effect_name = Terms.ACTIVE_EFFECTS[intent_array[2]].name
+			for single_intent in intent_scripts:
+				var new_intent : CombatSignifier = SINGLE_INTENT_SCENE.instance()
+				add_child(new_intent)
+				new_intent.setup(single_intent, intent_name)

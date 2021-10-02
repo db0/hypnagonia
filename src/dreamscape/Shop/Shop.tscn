@@ -66,11 +66,33 @@ margin_right = 50.0
 margin_bottom = 740.0
 rect_min_size = Vector2( 50, 0 )
 
-[node name="ShopCards" type="GridContainer" parent="VBC/VBC/HBC"]
+[node name="MainArea" type="HBoxContainer" parent="VBC/VBC/HBC"]
 margin_left = 53.0
 margin_right = 1239.0
 margin_bottom = 740.0
 size_flags_horizontal = 3
+
+[node name="ShopUniqueCards" type="GridContainer" parent="VBC/VBC/HBC/MainArea"]
+margin_right = 591.0
+margin_bottom = 740.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ArtifactCC" type="CenterContainer" parent="VBC/VBC/HBC/MainArea"]
+margin_left = 594.0
+margin_right = 1186.0
+margin_bottom = 740.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Artifacts" type="GridContainer" parent="VBC/VBC/HBC/MainArea/ArtifactCC"]
+margin_left = 296.0
+margin_top = 370.0
+margin_right = 296.0
+margin_bottom = 370.0
+custom_constants/vseparation = 30
+custom_constants/hseparation = 30
+columns = 2
 
 [node name="Buttons" type="VBoxContainer" parent="VBC/VBC/HBC"]
 margin_left = 1242.0
@@ -155,31 +177,30 @@ margin_bottom = 28.0
 size_flags_horizontal = 3
 
 [node name="Deck" type="PopupPanel" parent="."]
-margin_left = 2.0
-margin_top = 2.0
-margin_right = 1453.0
-margin_bottom = 898.0
+margin_right = 1455.0
+margin_bottom = 900.0
 
 [node name="VBC" type="VBoxContainer" parent="Deck"]
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 1447.0
-margin_bottom = 892.0
+margin_right = 1451.0
+margin_bottom = 896.0
 
 [node name="OperationName" type="Label" parent="Deck/VBC"]
 margin_right = 1447.0
-margin_bottom = 24.0
+margin_bottom = 14.0
 align = 1
 
 [node name="OperationCost" type="Label" parent="Deck/VBC"]
-margin_right = 6.0
-margin_bottom = 24.0
+margin_top = 18.0
+margin_right = 1447.0
+margin_bottom = 32.0
 align = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Deck/VBC"]
-margin_top = 27.0
+margin_top = 36.0
 margin_right = 1447.0
-margin_bottom = 27.0
+margin_bottom = 636.0
 rect_min_size = Vector2( 0, 600 )
 
 [node name="GridContainer" type="GridContainer" parent="Deck/VBC/ScrollContainer"]

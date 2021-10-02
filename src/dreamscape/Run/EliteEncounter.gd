@@ -1,17 +1,17 @@
-class_name BossEncounter
+class_name EliteEncounter
 extends CombatEncounter
 
-var enemy_name: String
 var enemy_scene: PackedScene
 
-func _init(encounter: Dictionary, _boss_name: String):
+func _init(encounter: Dictionary, _difficulty: String):
 	description = encounter["journal_description"]
 	reward_description = encounter["journal_reward"]
-	enemy_name = _boss_name
 	enemy_scene = encounter['scene']
+	difficulty = _difficulty
+	prepare_journal_art(encounter)
 
 func begin() -> void:
-	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.boss)
+	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.elite)
 	.begin()
 	globals.journal.journal_cover.fade_to_black()
 	yield(globals.journal.journal_cover, "fade_finished")
@@ -29,4 +29,4 @@ func end() -> void:
 	yield(cfc.get_tree().create_timer(0.1), "timeout")
 	cfc.NMAP.clear()
 	cfc.are_all_nodes_mapped = false
-	globals.journal.display_boss_rewards(reward_description)
+	globals.journal.display_elite_rewards(reward_description)

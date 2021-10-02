@@ -123,15 +123,13 @@ func spawn_enemy_encounter(encounter: EnemyEncounter) -> void:
 				new_enemy.health += enemy_entry['health_modifier']
 		if enemy_entry.has('starting_defence'):
 				new_enemy.defence += enemy_entry['starting_defence']
-			
-			
+
 
 func spawn_enemy(enemy_properties) -> EnemyEntity:
 	if get_tree().get_nodes_in_group("EnemyEntities").size() >= 5:
 		return(null)
 	var enemy : EnemyEntity = ENEMY_ENTITY_SCENE.instance()
 	enemy.setup(enemy_properties.Name, enemy_properties)
-	enemy.entity_type = Terms.ENEMY
 	_enemy_area.add_child(enemy)
 	# warning-ignore:return_value_discarded
 	enemy.connect("finished_activation", self, "_on_finished_enemy_activation")
@@ -139,16 +137,17 @@ func spawn_enemy(enemy_properties) -> EnemyEntity:
 	enemy.connect("entity_killed", self, "_enemy_died")
 	return(enemy)
 
-func spawn_boss_encounter(encounter: BossEncounter) -> EnemyEntity:
-	var boss_entity: EnemyEntity = encounter.boss_scene.instance()
-	boss_entity.setup_boss()
-	_enemy_area.add_child(boss_entity)
+
+func spawn_advanced_enemy(encounter: CombatEncounter) -> EnemyEntity:
+	var advanced_entity: EnemyEntity = encounter.enemy_scene.instance()
+	advanced_entity.setup_advanced(encounter.difficulty)
+	_enemy_area.add_child(advanced_entity)
 	# warning-ignore:return_value_discarded
-	boss_entity.connect("finished_activation", self, "_on_finished_enemy_activation")
+	advanced_entity.connect("finished_activation", self, "_on_finished_enemy_activation")
 	# warning-ignore:return_value_discarded
-	boss_entity.connect("entity_killed", self, "_enemy_died")
-	boss_battle = true
-	return(boss_entity)
+	advanced_entity.connect("entity_killed", self, "_enemy_died")
+	return(advanced_entity)
+
 
 # This function is to avoid relating the logic in the card objects
 # to a node which might not be there in another game

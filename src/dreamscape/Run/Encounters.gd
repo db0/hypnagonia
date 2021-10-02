@@ -2,6 +2,7 @@ class_name SingleRun
 extends Reference
 
 var remaining_enemies := Act1.ENEMIES.duplicate(true)
+var remaining_elites := Act1.ELITES.duplicate(true)
 var boss_name : String
 var current_encounter
 var deep_sleeps := 0
@@ -10,6 +11,7 @@ var encounter_number := 0
 
 func setup() -> void:
 	CFUtils.shuffle_array(remaining_enemies)
+	CFUtils.shuffle_array(remaining_elites)
 	var boss_choices := Act1.BOSSES.keys()
 	CFUtils.shuffle_array(boss_choices)
 	boss_name = boss_choices[0]
@@ -21,6 +23,9 @@ func generate_journal_choices() -> Array:
 	if remaining_enemies.empty():
 		remaining_enemies = Act1.ENEMIES.duplicate(true)
 		CFUtils.shuffle_array(remaining_enemies)
+	if remaining_elites.empty():
+		remaining_elites = Act1.ELITES.duplicate(true)
+		CFUtils.shuffle_array(remaining_elites)
 	var journal_options := []
 	if globals.encounters.encounter_number != 1:
 		globals.player.pathos.repress()
@@ -30,16 +35,20 @@ func generate_journal_choices() -> Array:
 	var new_options := _get_journal_options(CFUtils.randi_range(1,3))
 #	var new_options := _get_journal_options(1)
 #	print_debug(globals.player.pathos.repressed, new_options)
+	# We use these to be able to adjust the amount of pathos increments in one place (Pathos class)
+	var enemy_pathos_avg = globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.enemy)
+	var elite_pathos_avg = globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.elite)
+	var boss_pathos_avg = globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.boss)
 	for option in new_options:
 		match option:
 			Terms.RUN_ACCUMULATION_NAMES.enemy:
 				var next_enemy = remaining_enemies.pop_back()
 				var difficulty : String
-				if globals.player.pathos.repressed[option] < 30\
-						and globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.boss] < 40:
+				if globals.player.pathos.repressed[option] < enemy_pathos_avg * 2\
+						and globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.boss] < boss_pathos_avg * 8:
 					difficulty = "easy"
-				elif globals.player.pathos.repressed[option] < 30\
-						or globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.boss] < 40:
+				elif globals.player.pathos.repressed[option] < enemy_pathos_avg * 2\
+						or globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.boss] < boss_pathos_avg * 8:
 					difficulty = "medium"
 				else:
 					difficulty = "hard"
@@ -52,6 +61,18 @@ func generate_journal_choices() -> Array:
 				journal_options.append(preload("res://src/dreamscape/Run/NCE/Artifact.gd").new())
 			Terms.RUN_ACCUMULATION_NAMES.nce:
 				journal_options.append(preload("res://src/dreamscape/Run/NCE/RandomNCE.gd").new())
+			Terms.RUN_ACCUMULATION_NAMES.elite:
+				var next_enemy = remaining_elites.pop_back()
+				var difficulty : String
+				if globals.player.pathos.repressed[option] < elite_pathos_avg * 4\
+						and globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.boss] < boss_pathos_avg * 8:
+					difficulty = "easy"
+				elif globals.player.pathos.repressed[option] < elite_pathos_avg * 4\
+						or globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.boss] < boss_pathos_avg * 8:
+					difficulty = "medium"
+				else:
+					difficulty = "hard"
+				journal_options.append(EliteEncounter.new(next_enemy, difficulty))
 			Terms.RUN_ACCUMULATION_NAMES.boss:
 				journal_options.append(BossEncounter.new(Act1.BOSSES[boss_name], boss_name))
 	return(journal_options)

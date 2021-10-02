@@ -1,23 +1,28 @@
 extends PanelContainer
 
 const CARD_SHOP_SCENE = preload("res://src/dreamscape/Shop/ShopCardChoice.tscn")
+const ARTIFACT_SHOP_SCENE = preload("res://src/dreamscape/Shop/ShopArtifactChoice.tscn")
 const CARD_CHOICE_SCENE = preload("res://src/dreamscape/ChoiceCardObject.tscn")
 
-var card_price_multipliers := {
-	"Commons": 3,
-	"Uncommons": 5,
-	"Rares": 10,
+var rarity_price_multipliers := {
+	"Common": 3,
+	"Uncommon": 5,
+	"Rare": 10,
 }
+# Artifacts tend to be more expensive based on their pathos average
+# So we multiply their cost a bit further
+var artifact_cost_multiplier := 1.5
 
-var uncommon_chance : float = 25.0/100
-var rare_chance : float = 5.0/100
-
-var shop_choices := {
-	"Commons": [],
-	"Uncommons": [],
-	"Rares": [],
+var uncommon_chance := 25
+var rare_chance := 5
+var shop_card_choices := {
+	"Common": [],
+	"Uncommon": [],
+	"Rare": [],
 }
 var all_card_pool_choices := []
+var artifact_prep: ArtifactPrep
+var all_artifact_choices := []
 
 var current_decklist_cache: Array
 var deck_operation : String
@@ -37,8 +42,10 @@ var card_progress_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.rest
 # have no NCEs to accumulate
 #var card_pool_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.nce
 var card_pool_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.enemy
+var artifact_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.elite
 
 onready var card_pool_shop := $VBC/VBC/CC/CardPoolShop
+onready var artifact_shop := $VBC/VBC/HBC/MainArea/ArtifactCC/Artifacts
 onready var _deck_button := $VBC/VBC/HBC/Buttons/Remove
 onready var _deck_preview_popup := $Deck
 onready var _deck_operation_name := $Deck/VBC/OperationName/
@@ -54,45 +61,51 @@ onready var back_button := $VBC/VBC/HBoxContainer/Back
 
 
 func _ready() -> void:
+	## DEBUG - Allows to run scene by itself ##
+	if not globals.journal:
+		cfc.game_rng_seed = CFUtils.generate_random_seed()
+		# warning-ignore:return_value_discarded
+		NewGameMenu.randomize_aspect_choices()
+		globals.player.setup()
+		globals.player.deck.add_new_card("+ Confidence +")
+		globals.player.deck.add_new_card("+ Confidence +")
+		globals.player.deck.add_new_card("+ Confidence +")
+		globals.player.deck.add_new_card("+ Confidence +")
+		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.nce] = 160
+		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.rest] = 20
+		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.elite] = 40
+	## END DEBUG ##
 	populate_shop_cards()
+	populate_shop_artifacts()
+
 
 func populate_shop_cards() -> void:
-#	cfc.game_rng_seed = CFUtils.generate_random_seed()
-#	NewGameMenu.randomize_aspect_choices()
-#	globals.player.setup()
-#	globals.player.deck.add_new_card("+ Confidence +")
-#	globals.player.deck.add_new_card("+ Confidence +")
-#	globals.player.deck.add_new_card("+ Confidence +")
-#	globals.player.deck.add_new_card("+ Confidence +")
-#	globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.nce] = 160
-#	globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.rest] = 20
 	_update_progress_cost()
 	_update_remove_cost()
 	for _iter in range(5):
-		var card_names: Array
-		var chance := CFUtils.randf_range(0.0, 1.0)
+		var chance := CFUtils.randi_range(1, 100)
 #		print_debug(str(rare_chance) + ' : ' + str(rare_chance + uncommon_chance))
 		if chance <= rare_chance:
-			shop_choices['Rares'].append(_get_shop_choice(
-					globals.player.compile_rarity_cards('Rares')))
+			shop_card_choices['Rare'].append(_get_shop_choice(
+					globals.player.compile_rarity_cards('Rare')))
 		elif chance <= rare_chance + uncommon_chance:
-			shop_choices['Uncommons'].append(_get_shop_choice(
-					globals.player.compile_rarity_cards('Uncommons')))
+			shop_card_choices['Uncommon'].append(_get_shop_choice(
+					globals.player.compile_rarity_cards('Uncommon')))
 		else:
-			shop_choices['Commons'].append(_get_shop_choice(
-					globals.player.compile_rarity_cards('Commons')))
-	for rarity in shop_choices:
-		for card_name in shop_choices[rarity]:
+			shop_card_choices['Common'].append(_get_shop_choice(
+					globals.player.compile_rarity_cards('Common')))
+	for rarity in shop_card_choices:
+		for card_name in shop_card_choices[rarity]:
 			# By separating the cost_type like this, I can theoretically
 			# randomize the cost_type per card.
 			var cost_type : String = card_pool_cost_type
 			var prog_avg : float = globals.player.pathos.get_progression_average(
 						cost_type)
 			var card_cost =\
-					(prog_avg * card_price_multipliers[rarity])\
+					(prog_avg * rarity_price_multipliers[rarity])\
 					+ (CFUtils.randi_range(
-						prog_avg / -5 * card_price_multipliers[rarity],
-						prog_avg / 5 * card_price_multipliers[rarity]))
+						prog_avg / -5 * rarity_price_multipliers[rarity],
+						prog_avg / 5 * rarity_price_multipliers[rarity]))
 			var shop_choice_dict = {
 				"card_name": card_name,
 				"cost": card_cost,
@@ -110,15 +123,46 @@ func populate_shop_cards() -> void:
 		shop_card_object.shop_card_display.connect("card_selected", self, "_on_shop_card_selected", [shop_card_object])
 
 
-func _get_shop_choice(card_names: Array) -> String:
-	CFUtils.shuffle_array(card_names)
-	if card_names.size():
-		for card_name in card_names:
+func populate_shop_artifacts() -> void:
+	artifact_prep = ArtifactPrep.new(rare_chance, uncommon_chance, 4)
+	for artifact in artifact_prep.selected_artifacts:
+		var rarity = artifact.rarity
+		# By separating the cost_type like this, I can theoretically
+		# randomize the cost_type per card.
+		var cost_type : String = artifact_cost_type
+		var prog_avg : float = globals.player.pathos.get_progression_average(
+					cost_type)
+		var artifact_cost =\
+				(round(prog_avg * rarity_price_multipliers[rarity] * artifact_cost_multiplier))\
+				+ (CFUtils.randi_range(
+					prog_avg / -5 * rarity_price_multipliers[rarity],
+					prog_avg / 5 * rarity_price_multipliers[rarity]))
+		var shop_choice_dict = {
+			"artifact_name": artifact.name,
+			"cost": artifact_cost,
+			"cost_type": cost_type,
+		}
+		all_artifact_choices.append(shop_choice_dict)
+	for index in range(4):
+		var artifact: Dictionary = artifact_prep.selected_artifacts[index]
+		var shop_artifact_object = ARTIFACT_SHOP_SCENE.instance()
+		artifact_shop.add_child(shop_artifact_object)
+		shop_artifact_object.cost_type = all_artifact_choices[index].cost_type
+		shop_artifact_object.cost = all_artifact_choices[index].cost
+		shop_artifact_object.shop_artifact_display.setup(artifact, artifact.canonical_name)
+		shop_artifact_object.shop_artifact_display.index = index
+		shop_artifact_object.shop_artifact_display.connect("artifact_selected", self, "_on_shop_artifact_selected", [shop_artifact_object])
+
+
+func _get_shop_choice(choices_list: Array) -> String:
+	CFUtils.shuffle_array(choices_list)
+	if choices_list.size():
+		for card_name in choices_list:
 			# We use this to ensure no duplicates exist
 			var card_pool_choices := []
 			# We do not want a duplicate card choice option for the shop
-			for rarity in shop_choices:
-				card_pool_choices += shop_choices[rarity]
+			for rarity in shop_card_choices:
+				card_pool_choices += shop_card_choices[rarity]
 			if not card_name in card_pool_choices:
 				return(card_name)
 	return('')
@@ -134,6 +178,16 @@ func _on_shop_card_selected(index: int, shop_card_object) -> void:
 	shop_card_object.modulate.a = 0
 	_update_progress_cost()
 	_update_remove_cost()
+
+
+func _on_shop_artifact_selected(index: int, shop_artifact_object) -> void:
+	if globals.player.pathos.released[all_artifact_choices[index].cost_type] <\
+			all_artifact_choices[index].cost:
+		return
+	globals.player.pathos.released[all_artifact_choices[index].cost_type] -=\
+			all_artifact_choices[index].cost
+	globals.player.add_artifact(shop_artifact_object.shop_artifact_display.canonical_name)
+	shop_artifact_object.modulate.a = 0
 
 
 func _display_deck() -> void:
@@ -187,6 +241,7 @@ func _on_deck_card_selected(card_entry: CardEntry, deck_card_object) -> void:
 	if deck_operation == "progress" and\
 			 progress_cost <= globals.player.pathos.released[card_progress_cost_type]:
 		globals.player.pathos.released[card_progress_cost_type] -= progress_cost
+		# warning-ignore:return_value_discarded
 		card_entry.record_use()
 		deck_card_object.refresh_preview_card()
 		progress_uses += 1
@@ -203,6 +258,7 @@ func _on_deck_card_selected(card_entry: CardEntry, deck_card_object) -> void:
 # This means, the more upgraded the deck is, the more costly it is to
 # further upgrade cards
 func _update_progress_cost() -> void:
+	# warning-ignore:narrowing_conversion
 	progress_cost = round(
 			globals.player.pathos.get_progression_average(
 				card_progress_cost_type)
@@ -231,6 +287,7 @@ func _update_progress_cost() -> void:
 # The cost to upgrade is equals three times the average enemy progression
 # + 25 for every card already removed from the deck.
 func _update_remove_cost() -> void:
+# warning-ignore:narrowing_conversion
 	remove_cost = round(
 			globals.player.pathos.get_progression_average(
 				card_removal_cost_type)

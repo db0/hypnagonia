@@ -41,11 +41,20 @@ func get_unique_enemies() -> Array:
 func begin() -> void:
 	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.enemy)
 	.begin()
+	# Even though the next two lines should be in all combat encounters
+	# I do not put them into the CombatEncounter begin() function
+	# Because I would anwyay need the yield in this function
+	# So it would just save me a single line,
+	# and leaving it here, makes it more obvious what is happening.
 	globals.journal.journal_cover.fade_to_black()
 	yield(globals.journal.journal_cover, "fade_finished")
 	current_combat = load(CFConst.PATH_CUSTOM + 'Main.tscn').instance()
 	cfc.get_tree().get_root().call_deferred("add_child", current_combat)
+	# Once we spawn the board/main, we need to wait until all relevant scenes
+	# have been readied before proceeding.
 	yield(cfc, "all_nodes_mapped")
+	# We hide the journal black cover, so that when the board fades out
+	# The journal appears behind it
 	globals.journal.journal_cover.visible = false
 	cfc.NMAP.board.spawn_enemy_encounter(self)
 	cfc.NMAP.board.begin_encounter()
