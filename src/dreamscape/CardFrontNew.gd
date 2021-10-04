@@ -75,7 +75,7 @@ func set_tag_icon(tags: Array) -> void:
 			tag_icon2.texture = new_texture
 			tag_container2.visible = true
 
-func apply_sharer(shader_path: String) -> void:
+func apply_shader(shader_path: String) -> void:
 	bbc.visible = true
 	shader_effect.visible = true
 	shader_effect.material = ShaderMaterial.new()

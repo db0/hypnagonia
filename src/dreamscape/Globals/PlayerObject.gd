@@ -4,7 +4,7 @@ extends Reference
 signal artifact_added(artifact_name)
 
 var health: int = 90 setget set_health
-var damage: int setget set_damage
+var damage: int = 0 setget set_damage
 var deck: Deck
 var pathos: Pathos
 var artifacts := []

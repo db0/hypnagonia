@@ -2540,7 +2540,7 @@ const CARDS := {
 	},
 	"Rapid Theorizing": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.swift.name],
+		"Tags": [Terms.GENERIC_TAGS.swift.name, Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "Gain {defence_amount} {confidence}.\n"\
 				+ "If you've {shuffle}d your deck this turn, "\
 				+ "gain {defence_amount2} {confidence} and draw {draw_amount} card.",
@@ -2914,7 +2914,6 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	#TODO
 	"unnamed_card_6": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.swift.name, Terms.GENERIC_TAGS.slumber.name],
@@ -2960,49 +2959,60 @@ const CARDS := {
 	"unnamed_card_7": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Gain {immersion_amount} {immersion}. Next turn lose {immersion_amount2} {immersion}. {forget}",
+		"Abilities": "Gain {immersion_amount} {immersion}\nGain {effect_stacks} {drain}\n{forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": ["forget"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.drain.name: Terms.PLAYER
+		},
 		"_amounts": {
 			"immersion_amount": 2,
-			"immersion_amount2": 1,
+			"effect_stacks": 1,
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"! unnamed_card_7 !",
+			"Improved unnamed_card_7",
 			"+ unnamed_card_7 +",
 		],
 	},
-	"! unnamed_card_7 !": {
+	"Improved unnamed_card_7": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.swift.name, Terms.GENERIC_TAGS.purpose.name],
-		"Abilities": "Gain {immersion_amount} {immersion} and draw a card. Next turn lose {immersion_amount2} {immersion}. {forget}",
+		"Abilities": "Gain {immersion_amount} {immersion}\nDraw {draw_amount} card\nGain {effect_stacks} {drain}\n{forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": ["forget"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.drain.name: Terms.PLAYER
+		},
 		"_amounts": {
 			"immersion_amount": 2,
-			"immersion_amount2": 1,
+			"effect_stacks": 1,
+			"draw_amount": 1,
 		},
 		"_is_upgrade": true,
 	},
 	"+ unnamed_card_7 +": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Gain {immersion_amount} {immersion}. Next turn lose {immersion_amount2} {immersion}. {forget}",
+		"Abilities": "Gain {immersion_amount} {immersion}\nGain {effect_stacks} {drain}\n{forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": ["forget"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.drain.name: Terms.PLAYER
+		},
 		"_amounts": {
 			"immersion_amount": 3,
-			"immersion_amount2": 1,
+			"effect_stacks": 1,
 		},
 		"_is_upgrade": true,
 	},
+	#TODO
 	"unnamed_card_8": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
@@ -3077,7 +3087,8 @@ const CARDS := {
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 7,
+			"damage_amount": 6,
+			"x_modifer": "+1"
 		},
 		"_upgrade_threshold": 7,
 		"_is_upgrade": true,

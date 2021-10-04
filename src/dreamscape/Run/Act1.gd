@@ -287,7 +287,7 @@ const Butterfly = {
 
 const BrokenMirrors = {
 	"journal_description":\
-		'Am I cursed[url={torment_tag1}]or is it just bad luck[/url]?',
+		'Am I cursed[url={torment_tag1}] or is it just bad luck[/url]?',
 	"journal_reward":\
 		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
 	"enemies": {
@@ -379,9 +379,17 @@ const RushElite = {
 	"journal_reward":\
 		'I finally understood what these infinite twists and turns represented.',
 }
+const Bully = {
+	"scene": preload("res://src/dreamscape/CombatElements/Enemies/Elites/Bully.tscn"),
+	"journal_description":\
+		'My mind took me back to uncomfortable memories of schoolyard bullying.',
+	"journal_reward":\
+		'This time, I fortunately knew how to respond.',
+}
 
 const ELITES = [
-	RushElite
+	RushElite,
+	Bully
 ]
 
 const Narcissus = {
@@ -397,3 +405,11 @@ const Narcissus = {
 const BOSSES := {
 	"Narcissus": Narcissus
 }
+
+const NCE := [
+	preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd"),
+	preload("res://src/dreamscape/Run/NCE/Act1/SlayTheSpire.gd"),
+	preload("res://src/dreamscape/Run/NCE/Act1/SleepOfOblivion.gd"),
+	preload("res://src/dreamscape/Run/NCE/Act1/MultipleOptions.gd"),
+	preload("res://src/dreamscape/Run/NCE/Act1/PathosForAnxiety.gd"),
+]

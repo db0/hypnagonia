@@ -1,6 +1,8 @@
 #class_name DreamscapeScriptingEngine
 extends ScriptingEngine
 
+var x_usage: int
+
 # Just calls the parent class.
 func _init(state_scripts: Array,
 		owner,
@@ -12,6 +14,7 @@ func _init(state_scripts: Array,
 	pass
 
 
+# Predicts the effects of the action cards on the table.
 func predict() -> void:
 	run_type = CFInt.RunType.COST_CHECK
 	var prev_subjects := []
@@ -51,7 +54,7 @@ func predict() -> void:
 				entity.show_predictions(amount)
 
 
-# Will return the adjusted amount of whatever the scripts are doing
+# Will return the adjusted amount of whatever the intent scripts are doing
 # if there is one.
 func predict_intent_amount() -> int:
 	run_type = CFInt.RunType.COST_CHECK
@@ -86,7 +89,18 @@ func predict_intent_amount() -> int:
 #					"requesting_object": script.owner,
 #					"modifier": _retrieve_temp_modifiers(script, "properties")
 #				}
-			if not script.is_skipped and has_method(prediction_method):
+			# This checks if the script pretends to be a different type of
+			# script, for showing, in the intents
+			if not script.is_skipped\
+					and script.get_property("predict_as")\
+					and script.owner.intents.has_method("calculate_special"):
+				var amount = script.owner.intents.calculate_special(self, entity, script)
+				if amount is GDScriptFunctionState:
+					amount = yield(amount, "completed")
+				total_amount += amount
+			# This calculates what the numerical results of the intent will be 
+			# to put in the intent icon.
+			elif not script.is_skipped and has_method(prediction_method):
 				var amount = call(prediction_method, entity, script)
 				if amount is GDScriptFunctionState:
 					amount = yield(amount, "completed")
@@ -135,7 +149,8 @@ func calculate_modify_damage(subject: CombatEntity, script: ScriptTask) -> int:
 	alteration = _check_for_effect_alterants(script, modification, subject, self)
 	if alteration is GDScriptFunctionState:
 		alteration = yield(alteration, "completed")
-	return(modification + alteration)
+	var final_result = _check_for_x(script, modification + alteration)
+	return(final_result)
 
 
 func modify_damage(script: ScriptTask) -> int:
@@ -177,7 +192,8 @@ func calculate_assign_defence(subject: CombatEntity, script: ScriptTask) -> int:
 	alteration = _check_for_effect_alterants(script, modification, subject, self)
 	if alteration is GDScriptFunctionState:
 		alteration = yield(alteration, "completed")
-	return(modification + alteration)
+	var final_result = _check_for_x(script, modification + alteration)
+	return(final_result)
 
 func assign_defence(script: ScriptTask) -> int:
 	var retcode: int
@@ -215,7 +231,7 @@ func apply_effect(script: ScriptTask) -> int:
 				null,
 				script.subjects)
 		modification = per_msg.found_things
-		print_debug(per_msg.found_things, modification)
+#		print_debug(per_msg.found_things, modification)
 	else:
 		modification = script.get_property(SP.KEY_MODIFICATION)
 	var set_to_mod: bool = script.get_property(SP.KEY_SET_TO_MOD)
@@ -228,6 +244,7 @@ func apply_effect(script: ScriptTask) -> int:
 			alteration = _check_for_effect_alterants(script, modification, entity, self)
 			if alteration is GDScriptFunctionState:
 				alteration = yield(alteration, "completed")
+		var final_amount = _check_for_x(script, modification + alteration)
 		var current_stacks: int
 		# If we're storing the integer, we want to store the difference
 		# cumulative difference between the current and modified effect stacks
@@ -240,14 +257,14 @@ func apply_effect(script: ScriptTask) -> int:
 		if script.get_property(SP.KEY_STORE_INTEGER):
 			current_stacks = entity.active_effects.get_effect_stacks(effect_name)
 			if set_to_mod:
-				stacks_diff += modification + alteration - current_stacks
-			elif current_stacks + modification + alteration < 0:
+				stacks_diff += final_amount - current_stacks
+			elif current_stacks + final_amount < 0:
 				stacks_diff += -current_stacks
 			else:
-				stacks_diff = modification + alteration
+				stacks_diff = final_amount
 		retcode = entity.active_effects.mod_effect(
 				effect_name,
-				modification + alteration,
+				final_amount,
 				set_to_mod,
 				costs_dry_run(),
 				tags,
@@ -393,6 +410,8 @@ func spawn_enemy(script: ScriptTask) -> void:
 		if enemy_entity:
 			var health_modify: int = script.get_property(SP.KEY_MODIFY_SPAWN_HEALTH, 0)
 			enemy_entity.health += health_modify
+			if enemy_entity.health <= 0:
+				enemy_entity.health = 1
 			enemy_entity.emit_signal("finished_activation", enemy_entity)
 			var stating_intent = script.get_property('starting_intent', null)
 			if stating_intent:
@@ -412,17 +431,44 @@ func draw_cards(script: ScriptTask) -> int:
 		# We inject the tags from the script into the tags sent by the signal
 		var _tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
 		var card_count: int = script.get_property(SP.KEY_CARD_COUNT)
+		var drawn_cards := []
 		for _iter in range(card_count):
-			cfc.NMAP.hand.draw_card(cfc.NMAP.deck)
+			var dcard = cfc.NMAP.hand.draw_card(cfc.NMAP.deck)
+			if dcard is GDScriptFunctionState:
+				dcard = yield(dcard, "completed")
+			drawn_cards.append(dcard)
 			yield(cfc.get_tree().create_timer(0.05), "timeout")
+		# We set the drawn cards as the subjects, so that they can be
+		# used by other followup scripts
+		script.subjects = drawn_cards
 	return(retcode)
+
+func enable_rider(script: ScriptTask) -> int:
+	var retcode: int = CFConst.ReturnCode.CHANGED
+	if not costs_dry_run():
+		# We inject the tags from the script into the tags sent by the signal
+		var _tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
+		var rider: String = script.get_property(SP.RIDER)
+		for card in script.subjects:
+			card.enable_rider(rider)
+	return(retcode)
+
+
+# Executes custom definitions in the enemy intents script.
+# Typically used in Bosses and Elites for specialized effects.
+func torment_special(script: ScriptTask) -> int:
+	var retcode = script.owner.intents.execute_special(script, costs_dry_run())
+	if retcode is GDScriptFunctionState:
+		retcode = yield(retcode, "completed")
+	return(retcode)
+
 
 # Used to perform some post-play activities, once all the script costs
 # have been paid.
 func confirm_play(script: ScriptTask) -> int:
 	var retcode: int = CFConst.ReturnCode.CHANGED
 	if not costs_dry_run():
-		if not cfc.NMAP.board.dreamer.active_effects.get_effect_stacks("Creative Block"): 
+		if not cfc.NMAP.board.dreamer.active_effects.get_effect_stacks("Creative Block"):
 			if script.owner.deck_card_entry.record_use():
 				cfc.NMAP.board.dreamer.upgrades_increased += 1
 		var turn_event_count = cfc.NMAP.board.turn.turn_event_count
@@ -461,6 +507,7 @@ static func _check_for_effect_alterants(
 	# E.g. we don't want effects which decrease damage when attacked, to decrease
 	# damage when we're attacking someone else.
 	var source_effects : Array = source_object.active_effects.get_all_effects().values()
+	# warning-ignore:unused_variable
 	var subject_effects : Array = subject.active_effects.get_all_effects().values()
 	var artifacts : Array = cfc.NMAP.board.player_info.get_all_artifacts().values()
 	# We grab the ordered dictionary for each type of effect. Source, Subject and Artifact
@@ -490,3 +537,33 @@ static func _check_for_effect_alterants(
 	return(new_value - value)
 
 
+# X is a result in the scripts that is based on how much immersion the player has
+# at the moment of playing the card
+func _get_x(x_modifier) -> int:
+	var x : int = x_usage
+	if x_modifier:
+		# If the modifier is 0. then X is exactly the amount of immersion the player has
+		# If the modifier is +/- then X is the number of immersion the the player has +/- this modifier
+		if x_modifier.is_valid_integer():
+			x += int(x_modifier)
+		# If the modifier has a '*', X is the number of immersion the the player multiplied by this modifier.
+		elif '*' in x_modifier:
+			x += int(x_modifier.lstrip('*'))
+		# If the modifier has a '/', X is the number of immersion the the player divided by this modifier.
+		elif '/' in x_modifier:
+			x += int(x_modifier.lstrip('/'))
+	return(x)
+
+
+func _check_for_x(script: ScriptTask, final_amount: int) -> int:
+	var x_operation = script.get_property(SP.KEY_X_OPERATION)
+	if x_operation:
+		var x_modifier = _get_x(script.get_property(SP.KEY_X_MODIFIER))
+		if x_operation == 'add':
+			return(final_amount + x_modifier)
+		else:
+			return(final_amount * x_modifier)
+	# If no "x_operation" property has been defined on the script, we
+	# can just return the usual results
+	else:
+		return(final_amount)

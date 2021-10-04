@@ -264,6 +264,12 @@ func flush_cache() -> void:
 	alterant_cache.clear()
 	emit_signal("cache_cleared")
 
+
+func hide_all_previews() -> void:
+	for card_preview_node in cfc.get_tree().get_nodes_in_group("card_preview"):
+		card_preview_node.hide_preview_card()
+
+
 # The SignalPropagator is responsible for collecting all card signals
 # and asking all cards to check if there's any automation they need to perform
 class SignalPropagator:

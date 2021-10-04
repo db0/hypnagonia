@@ -54,7 +54,7 @@ func _on_card_draft_selected(option: int, draft_card_object) -> void:
 					Tween.TRANS_SINE, Tween.EASE_IN)
 		else:
 			child.disconnect("card_selected", self, "_on_card_draft_selected")
-			child.display_card.card_front.apply_sharer("res://shaders/grayscale.shader")
+			child.display_card.card_front.apply_shader("res://shaders/grayscale.shader")
 	$Tween.start()
 	yield($Tween, "tween_all_completed")
 	for child in get_children():

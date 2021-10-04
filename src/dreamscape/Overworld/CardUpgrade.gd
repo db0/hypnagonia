@@ -38,6 +38,6 @@ func _on_card_upgrade_selected(option: int, draft_card_object) -> void:
 		select_return = yield(select_return, "completed")
 		if typeof(select_return) == TYPE_ARRAY:
 			draft_card_object.disconnect("card_selected", self, "_on_card_upgrade_selected")
-			draft_card_object.display_card.card_front.apply_sharer("res://shaders/grayscale.shader")
+			draft_card_object.display_card.card_front.apply_shader("res://shaders/grayscale.shader")
 			globals.player.deck.remove_card(upgradable_cards[option])
 			globals.player.deck.add_new_card(select_return[0])

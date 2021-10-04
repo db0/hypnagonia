@@ -1355,7 +1355,7 @@ func get_scripts(card_name: String) -> Dictionary:
 						"subject": "dreamer",
 						"amount": cfc.card_definitions[card_name]\
 								.get("_amounts",{}).get("defence_amount2"),
-						"filter_event_count": {
+						"filter_turn_event_count": {
 							"event": "deck_shuffled",
 							"filter_count": 1,
 							"comparison": "ge",
@@ -1505,6 +1505,159 @@ func get_scripts(card_name: String) -> Dictionary:
 							"filter_count": 1,
 							"comparison": "ge",
 						}
+					},
+				],
+			},
+		},
+		"unnamed_card_6": {
+			"manual": {
+				"hand": [
+					{
+						"name": "draw_cards",
+						"card_count": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("draw_amount"),
+					},
+					{
+						"name": "modify_properties",
+						"set_properties": {"Cost": "0"},
+						"subject": "previous",
+					},
+					{
+						"name": "enable_rider",
+						"rider": "reset_cost_after_play",
+						"subject": "previous",
+					},
+					{
+						"name": "move_card_to_container",
+						"subject": "self",
+						"dest_container": cfc.NMAP.forgotten,
+					},
+				],
+			},
+		},
+		"Sustained unnamed_card_6": {
+			"manual": {
+				"hand": [
+					{
+						"name": "draw_cards",
+						"card_count": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("draw_amount"),
+					},
+					{
+						"name": "modify_properties",
+						"set_properties": {"Cost": "0"},
+						"subject": "previous",
+					},
+					{
+						"name": "enable_rider",
+						"rider": "reset_cost_after_play",
+						"subject": "previous",
+					},
+				],
+			},
+		},
+		"unnamed_card_7": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.drain.name,
+						"subject": "dreamer",
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("effect_stacks"),
+					},
+					{
+						"name": "mod_counter",
+						"counter_name": "immersion",
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("immersion_amount"),
+					},
+					{
+						"name": "move_card_to_container",
+						"subject": "self",
+						"dest_container": cfc.NMAP.forgotten,
+					},
+				],
+			},
+		},
+		"Improved unnamed_card_7": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.drain.name,
+						"subject": "dreamer",
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("effect_stacks"),
+					},
+					{
+						"name": "mod_counter",
+						"counter_name": "immersion",
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("immersion_amount"),
+					},
+					{
+						"name": "draw_cards",
+						"card_count": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("draw_amount"),
+					},
+					{
+						"name": "move_card_to_container",
+						"subject": "self",
+						"dest_container": cfc.NMAP.forgotten,
+					},
+				],
+			},
+		},
+		"unnamed_card_8": {
+			"manual": {
+				"hand": [
+					{
+						"name": "modify_damage",
+						"subject": "target",
+						"is_cost": true,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
+						"tags": ["Attack"],
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
+					},
+					{
+						"name": "modify_damage",
+						"is_cost": true,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount2"),
+						"tags": ["Attack"],
+						"subject": "previous",
+						"filter_turn_event_count": {
+							"event": "immersion_increased",
+							"filter_count": 1,
+							"comparison": "ge",
+						},
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
+					},
+				],
+			},
+		},
+		"unnamed_card_9": {
+			"manual": {
+				"hand": [
+					{
+						"name": "modify_damage",
+						"subject": "target",
+						"is_cost": true,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
+						"x_modifier": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("x_modifer", '0'),
+						"x_operation": "multiply",
+						"tags": ["Attack"],
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
 					},
 				],
 			},

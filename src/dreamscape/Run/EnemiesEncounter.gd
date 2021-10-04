@@ -65,7 +65,7 @@ func end() -> void:
 	yield(cfc.get_tree().create_timer(0.1), "timeout")
 	cfc.NMAP.clear()
 	cfc.are_all_nodes_mapped = false
-	globals.journal.display_rewards(reward_description)
+	globals.journal.display_enemy_rewards(reward_description)
 
 
 func return_extra_draft_cards() -> Array:

@@ -1,8 +1,12 @@
 class_name SingleRun
 extends Reference
 
+# The chance to get this many choices for the next encounter
+const choices_chances = [3,2,2,2,2,2,1,1,1,1,1]
+
 var remaining_enemies := Act1.ENEMIES.duplicate(true)
 var remaining_elites := Act1.ELITES.duplicate(true)
+var remaining_nce := Act1.NCE.duplicate(true)
 var boss_name : String
 var current_encounter
 var deep_sleeps := 0
@@ -12,6 +16,7 @@ var encounter_number := 0
 func setup() -> void:
 	CFUtils.shuffle_array(remaining_enemies)
 	CFUtils.shuffle_array(remaining_elites)
+	CFUtils.shuffle_array(remaining_nce)
 	var boss_choices := Act1.BOSSES.keys()
 	CFUtils.shuffle_array(boss_choices)
 	boss_name = boss_choices[0]
@@ -26,13 +31,22 @@ func generate_journal_choices() -> Array:
 	if remaining_elites.empty():
 		remaining_elites = Act1.ELITES.duplicate(true)
 		CFUtils.shuffle_array(remaining_elites)
+	if remaining_nce.empty():
+		remaining_nce = Act1.NCE.duplicate(true)
+		CFUtils.shuffle_array(remaining_nce)
 	var journal_options := []
 	if globals.encounters.encounter_number != 1:
-		globals.player.pathos.repress()
-	# Normally every journal should have 2-3 options
-	# but with most of my progressions disabled, it makes no sense
-	# so for now, only 1
-	var new_options := _get_journal_options(CFUtils.randi_range(1,3))
+		# We want to avoid the player encountering elites in the first 3
+		# encounters.
+		if globals.encounters.encounter_number <= 3:
+			globals.player.pathos.repress([Terms.RUN_ACCUMULATION_NAMES.elite])
+		else:
+			globals.player.pathos.repress()
+	# Every journal page should have 1-3 options
+	# The change to get 3 or 2 options is less than getting only 1 option
+	var cc := choices_chances.duplicate()
+	CFUtils.shuffle_array(cc)
+	var new_options := _get_journal_options(cc[0])
 #	var new_options := _get_journal_options(1)
 #	print_debug(globals.player.pathos.repressed, new_options)
 	# We use these to be able to adjust the amount of pathos increments in one place (Pathos class)
@@ -60,7 +74,8 @@ func generate_journal_choices() -> Array:
 			Terms.RUN_ACCUMULATION_NAMES.artifact:
 				journal_options.append(preload("res://src/dreamscape/Run/NCE/Artifact.gd").new())
 			Terms.RUN_ACCUMULATION_NAMES.nce:
-				journal_options.append(preload("res://src/dreamscape/Run/NCE/RandomNCE.gd").new())
+				var next_nce = remaining_nce.pop_back()
+				journal_options.append(next_nce.new())
 			Terms.RUN_ACCUMULATION_NAMES.elite:
 				var next_enemy = remaining_elites.pop_back()
 				var difficulty : String

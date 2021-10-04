@@ -15,7 +15,7 @@ func setup(signifier_details: Dictionary, signifier_name: String) -> void:
 	.setup(updated_detail, signifier_name)
 
 
-func apply_sharer(shader_path: String) -> void:
+func apply_shader(shader_path: String) -> void:
 	bbc.visible = true
 	shader_effect.visible = true
 	shader_effect.material = ShaderMaterial.new()

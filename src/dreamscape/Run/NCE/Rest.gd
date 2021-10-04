@@ -18,9 +18,9 @@ func continue_encounter(key) -> void:
 	match key:
 		"rest": 
 			globals.player.damage -= globals.player.health * 0.25
-			globals.journal.display_rewards('')
+			globals.journal.display_nce_rewards('')
 		"resist": 
-			globals.journal.display_rewards('')
+			globals.journal.display_nce_rewards('')
 #		"rest": globals.journal.add_nested_choices({3: "Test1", 4: "Test2"})
 #		"resist": globals.journal.add_nested_choices({5: "Test3", 6: "Test4"})
 	

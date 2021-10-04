@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "Act1",
 "language": "GDScript",
-"path": "res://src/dreamscape/Run/Act1CombatEncounters.gd"
+"path": "res://src/dreamscape/Run/Act1.gd"
 }, {
 "base": "GridContainer",
 "class": "ActiveEffects",
@@ -397,7 +397,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "Pathos",
 "language": "GDScript",
-"path": "res://src/dreamscape/Overworld/Pathos.gd"
+"path": "res://src/dreamscape/Globals/Pathos.gd"
 }, {
 "base": "Reference",
 "class": "Perturbations",
@@ -468,6 +468,11 @@ _global_script_classes=[ {
 "class": "SecondaryChoiceSlide",
 "language": "GDScript",
 "path": "res://src/dreamscape/Overworld/SecondaryChoicesSlide.gd"
+}, {
+"base": "PopupPanel",
+"class": "SelectionDeck",
+"language": "GDScript",
+"path": "res://src/dreamscape/SelectionDeck.gd"
 }, {
 "base": "AcceptDialog",
 "class": "SelectionWindow",
@@ -622,6 +627,7 @@ _global_script_class_icons={
 "ScriptTask": "",
 "ScriptingEngine": "",
 "SecondaryChoiceSlide": "",
+"SelectionDeck": "",
 "SelectionWindow": "",
 "SingleEncounter": "",
 "SingleRun": "",

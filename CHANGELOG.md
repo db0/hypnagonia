@@ -6,6 +6,8 @@
 * Enabled Foreboding Pathos which is what Elites use
 * Added artifacts in the shop. They are purchased with Foreboding.
 * Every run will give the player some random initial released Pathos, in case of an early shop.
+* Added new cards for Abusive Partner
+* Added 2 new starting cards to Abusive partnet to avoid the starting deck being optimized too easily
 
 ## v0.11.0
 

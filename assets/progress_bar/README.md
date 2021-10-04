@@ -1,0 +1,1 @@
+Healthbars are CC-BY-SA 3.0 and taken from OGA: https://opengameart.org/content/health-and-mana-bars

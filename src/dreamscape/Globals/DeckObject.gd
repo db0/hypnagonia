@@ -17,6 +17,7 @@ func assemble_starting_deck() -> void:
 			var new_card := CardEntry.new(card_name)
 			cards.append(new_card)
 
+
 func update_card_group(type: String, card_group: String) -> void:
 	deck_groups[type] = card_group
 
@@ -52,6 +53,7 @@ func count_cards() -> int:
 	return(list_all_cards().size())
 
 
+# Gets all cards which have enough progress to be upgraded
 func get_upgradeable_cards() -> Array:
 	var upgradeable_cards := []
 	for card_entry in cards:
@@ -92,3 +94,29 @@ func get_upgrade_percentage() -> float:
 	var upg_cards : float = count_upgradeable_cards() + count_upgraded_cards()
 	var all_cards : float = count_cards()
 	return(upg_cards / all_cards)
+
+
+func get_upgradable_card_type(type:= "least_progress") -> CardEntry:
+	var upg_cards := get_progressing_cards()
+	var results_dict := {
+		"least_progress": {
+			"cards":[],
+			"value": 0
+		},
+		"most_progress": {
+			"cards":[],
+			"value": 0
+		},
+	}
+	for ce in upg_cards:
+		if results_dict[type]["value"] == ce.upgrade_progress:
+			results_dict[type]["cards"].append(ce)
+		elif results_dict[type]["value"] > ce.upgrade_progress:
+			results_dict["most_progress"]["cards"] = [ce]
+			results_dict["most_progress"]["value"] = ce.upgrade_progress
+		elif results_dict[type]["value"] < ce.upgrade_progress:
+			results_dict["least_progress"]["cards"] = [ce]
+			results_dict["least_progress"]["value"] = ce.upgrade_progress
+	if results_dict[type]["cards"].size() > 1:
+		CFUtils.shuffle_array(results_dict[type]["cards"])
+	return(results_dict[type]["cards"][0])

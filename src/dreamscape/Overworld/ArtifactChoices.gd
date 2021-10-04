@@ -46,7 +46,7 @@ func _on_artifact_selected(_option: int, artifact_object) -> void:
 					Tween.TRANS_SINE, Tween.EASE_IN)
 		else:
 			child.disconnect("artifact_selected", self, "_on_artifact_selected")
-			child.apply_sharer("res://shaders/grayscale.shader")
+			child.apply_shader("res://shaders/grayscale.shader")
 	$Tween.start()
 	yield($Tween, "tween_all_completed")
 	for child in get_children():

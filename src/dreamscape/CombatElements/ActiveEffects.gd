@@ -11,6 +11,7 @@ const EFFECTS := {
 	Terms.ACTIVE_EFFECTS.impervious.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Impervious.tscn"),
 	Terms.ACTIVE_EFFECTS.fortify.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Fortify.tscn"),
 	Terms.ACTIVE_EFFECTS.buffer.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Buffer.tscn"),
+	Terms.ACTIVE_EFFECTS.drain.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Drain.tscn"),
 	Terms.ACTIVE_EFFECTS.outrage.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Outrage.tscn"),
 	Terms.ACTIVE_EFFECTS.enraged.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Enraged.tscn"),
 	Terms.ACTIVE_EFFECTS.strengthen.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Strengthen.tscn"),

@@ -297,9 +297,10 @@ func game_over() -> void:
 func _input(event):
 	if event.is_action_pressed("init_debug_game"):
 # warning-ignore:unused_variable
-		var torment = spawn_enemy(EnemyDefinitions.GASLIGHTER)
-		var torment2 = spawn_enemy(EnemyDefinitions.CLOWN)
-		var torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
+		_debug_advanced_enemy()
+#		var torment = spawn_enemy(EnemyDefinitions.GASLIGHTER)
+#		var torment2 = spawn_enemy(EnemyDefinitions.CLOWN)
+#		var torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
 #		var torment2 = spawn_enemy("The Critic")
 #		var torment3 = spawn_enemy("Gaslighter")
 #		var torment2 = spawn_enemy("Gaslighter")
@@ -311,15 +312,9 @@ func _input(event):
 #		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 8)
 		for c in [
-			"Absurdity Unleashed",
-			"unnamed_card_1",
-			"Absurdity Unleashed",
-			"Absurdity Unleashed",
-			"Absurdity Unleashed",
-			"Absurdity Unleashed",
-			"Absurdity Unleashed",
-#			"Apathy",
-#			"Apathy",
+			"Sustained unnamed_card_1",
+			"unnamed_card_9",
+			"@ unnamed_card_9 @",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.deck.add_child(card)
@@ -334,6 +329,15 @@ func _input(event):
 	if event.is_action_pressed("lose_battle"):
 		game_over()
 
+
+func _debug_advanced_enemy() -> void:
+	pass
+	var advanced_entity: EnemyEntity =\
+			preload("res://src/dreamscape/CombatElements/Enemies/Elites/Bully.tscn").instance()
+	advanced_entity.setup_advanced("medium")
+	_enemy_area.add_child(advanced_entity)
+	advanced_entity.connect("finished_activation", self, "_on_finished_enemy_activation")
+	
 
 func _on_Debug_pressed() -> void:
 	# warning-ignore:return_value_discarded

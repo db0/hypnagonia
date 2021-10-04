@@ -2,7 +2,6 @@ extends PanelContainer
 
 const CARD_SHOP_SCENE = preload("res://src/dreamscape/Shop/ShopCardChoice.tscn")
 const ARTIFACT_SHOP_SCENE = preload("res://src/dreamscape/Shop/ShopArtifactChoice.tscn")
-const CARD_CHOICE_SCENE = preload("res://src/dreamscape/ChoiceCardObject.tscn")
 
 var rarity_price_multipliers := {
 	"Common": 3,
@@ -24,8 +23,6 @@ var all_card_pool_choices := []
 var artifact_prep: ArtifactPrep
 var all_artifact_choices := []
 
-var current_decklist_cache: Array
-var deck_operation : String
 var progress_cost: int
 var progress_uses: int = 0
 var progress_max_usage: int = 3
@@ -48,10 +45,6 @@ onready var card_pool_shop := $VBC/VBC/CC/CardPoolShop
 onready var artifact_shop := $VBC/VBC/HBC/MainArea/ArtifactCC/Artifacts
 onready var _deck_button := $VBC/VBC/HBC/Buttons/Remove
 onready var _deck_preview_popup := $Deck
-onready var _deck_operation_name := $Deck/VBC/OperationName/
-onready var _deck_operation_cost := $Deck/VBC/OperationCost/
-onready var _deck_preview_scroll := $Deck/VBC/ScrollContainer/
-onready var _deck_preview_grid := $Deck/VBC/ScrollContainer/GridContainer
 onready var _progress_cost := $VBC/VBC/HBC/Buttons/ProgressCost
 onready var _progress_button := $VBC/VBC/HBC/Buttons/Progress
 onready var _remove_cost := $VBC/VBC/HBC/Buttons/RemoveCost
@@ -74,7 +67,9 @@ func _ready() -> void:
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.nce] = 160
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.rest] = 20
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.elite] = 40
+		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.enemy] = 400
 	## END DEBUG ##
+	_deck_preview_popup.connect("operation_performed", self, "_on_deck_operation_performed")
 	populate_shop_cards()
 	populate_shop_artifacts()
 
@@ -174,6 +169,9 @@ func _on_shop_card_selected(index: int, shop_card_object) -> void:
 		return
 	globals.player.pathos.released[all_card_pool_choices[index].cost_type] -=\
 			all_card_pool_choices[index].cost
+	globals.player.pathos.release_pathos(
+			all_card_pool_choices[index].cost_type, 
+			-all_card_pool_choices[index].cost)
 	globals.player.deck.add_new_card(all_card_pool_choices[index].card_name)
 	shop_card_object.modulate.a = 0
 	_update_progress_cost()
@@ -190,67 +188,14 @@ func _on_shop_artifact_selected(index: int, shop_artifact_object) -> void:
 	shop_artifact_object.modulate.a = 0
 
 
-func _display_deck() -> void:
-	var popup_size_x = (CFConst.CARD_SIZE.x * CFConst.THUMBNAIL_SCALE * _deck_preview_grid.columns)\
-			+ _deck_preview_grid.get("custom_constants/vseparation") * _deck_preview_grid.columns
-	_deck_preview_popup.rect_size = Vector2(popup_size_x,600)
-	_deck_preview_popup.popup_centered()
-	populate_preview_cards()
-
-
-func populate_preview_cards() -> void:
-	if current_decklist_cache != globals.player.deck.list_all_cards():
-		for card in _deck_preview_grid.get_children():
-			card.queue_free()
-		current_decklist_cache = globals.player.deck.list_all_cards()
-		for index in range(globals.player.deck.cards.size()):
-			var card_preview_container = CARD_CHOICE_SCENE.instance()
-			_deck_preview_grid.add_child(card_preview_container)
-			card_preview_container.index = globals.player.deck.cards[index]
-			card_preview_container.setup(globals.player.deck.cards[index].card_name)
-			card_preview_container.display_card.deck_card_entry = globals.player.deck.cards[index]
-			card_preview_container.connect("card_selected", self, "_on_deck_card_selected", [card_preview_container])
-
-
 func _on_Remove_pressed() -> void:
-	deck_operation = "remove"
-	_deck_operation_name.text = "Remove Card"
-	_display_deck()
+	_deck_preview_popup.initiate_card_removal(remove_cost, card_removal_cost_type)
+	_update_remove_cost()
 
 
 func _on_ProgressCards_pressed() -> void:
-	deck_operation = "progress"
-	_deck_operation_name.text = "Progress Card Upgrade"
+	_deck_preview_popup.initiate_card_progress(progress_cost, card_progress_cost_type)
 	_update_progress_cost()
-	_display_deck()
-
-
-func _on_deck_card_selected(card_entry: CardEntry, deck_card_object) -> void:
-	if deck_operation == "remove" and\
-			 remove_cost <= globals.player.pathos.released[card_removal_cost_type]:
-		globals.player.pathos.released[card_removal_cost_type] -= remove_cost
-		globals.player.deck.remove_card(card_entry)
-		deck_card_object.queue_free()
-		globals.encounters.shop_deck_removals += 1
-		remove_uses += 1
-		_update_remove_cost()
-		if remove_uses >= remove_max_usage:
-			_deck_preview_popup.hide()
-			_remove_button.disabled = true
-			deck_card_object.preview_popup.hide_preview_card()
-	if deck_operation == "progress" and\
-			 progress_cost <= globals.player.pathos.released[card_progress_cost_type]:
-		globals.player.pathos.released[card_progress_cost_type] -= progress_cost
-		# warning-ignore:return_value_discarded
-		card_entry.record_use()
-		deck_card_object.refresh_preview_card()
-		progress_uses += 1
-		_update_progress_cost()
-		# Each visit to the shop only allows a limited amount of uses of the upgrade
-		if progress_uses >= progress_max_usage:
-			_deck_preview_popup.hide()
-			_progress_button.disabled = true
-			deck_card_object.preview_popup.hide_preview_card()
 
 
 # The cost to progress is equals three times the average rest progression
@@ -273,16 +218,19 @@ func _update_progress_cost() -> void:
 		"uses_max": str(progress_max_usage),
 	}
 	_progress_cost.text = "{cost} {pathos}\n({uses_avail}/{uses_max} uses)".format(progress_text_format)
-	if deck_operation == "progress":
-		_deck_operation_cost.text = "{cost} {pathos} ({uses_avail}/{uses_max} uses)".format(progress_text_format)
+	if _deck_preview_popup.operation == "progress":
+		_deck_preview_popup.operation_cost = progress_cost
+		_deck_preview_popup.update_header(
+				"{cost} {pathos} ({uses_avail}/{uses_max} uses)".format(progress_text_format))
 	if progress_cost > globals.player.pathos.released[card_progress_cost_type]:
-		if deck_operation == "progress":
-			_deck_operation_cost.add_color_override("font_color", Color(1,0,0))
+		if _deck_preview_popup.operation == "progress":
+			_deck_preview_popup.update_color(Color(1,0,0))
 		_progress_cost.add_color_override("font_color", Color(1,0,0))
 	else:
-		if deck_operation == "progress":
-			_deck_operation_cost.add_color_override("font_color", Color(1,1,0))
+		if _deck_preview_popup.operation == "progress":
+			_deck_preview_popup.update_color(Color(1,1,0))
 		_progress_cost.add_color_override("font_color", Color(1,1,0))
+
 
 # The cost to upgrade is equals three times the average enemy progression
 # + 25 for every card already removed from the deck.
@@ -300,13 +248,36 @@ func _update_remove_cost() -> void:
 		"uses_max": str(remove_max_usage),
 	}
 	_remove_cost.text = "{cost} {pathos}\n({uses_avail}/{uses_max} uses)".format(remove_text_format)
-	if deck_operation == "remove":
-		_deck_operation_cost.text = "{cost} {pathos} ({uses_avail}/{uses_max} uses)".format(remove_text_format)
+	if _deck_preview_popup.operation == "remove":
+		_deck_preview_popup.operation_cost = remove_cost
+		_deck_preview_popup.update_header(
+				"{cost} {pathos} ({uses_avail}/{uses_max} uses)".format(remove_text_format))
 	if remove_cost > globals.player.pathos.released[card_removal_cost_type]:
-		if deck_operation == "remove":
-			_deck_operation_cost.add_color_override("font_color", Color(1,0,0))
+		if _deck_preview_popup.operation == "remove":
+			_deck_preview_popup.update_color(Color(1,0,0))
 		_remove_cost.add_color_override("font_color", Color(1,0,0))
 	else:
-		if deck_operation == "remove":
-			_deck_operation_cost.add_color_override("font_color", Color(1,1,0))
+		if _deck_preview_popup.operation == "remove":
+			_deck_preview_popup.update_color(Color(1,1,0))
 		_remove_cost.add_color_override("font_color", Color(1,1,0))
+
+
+func _on_deck_operation_performed(operation: String) -> void:
+	if operation == "remove":
+		remove_uses += 1
+		# Each use makes further uses more expensive in this run
+		globals.encounters.shop_deck_removals += 1
+		_update_remove_cost()
+		if remove_uses >= remove_max_usage:
+			_deck_preview_popup.hide()
+			_remove_button.disabled = true
+			cfc.hide_all_previews()
+	elif operation == "progress":
+		progress_uses += 1
+		_update_progress_cost()
+		# Each visit to the shop only allows a limited amount of uses of the upgrade
+		if progress_uses >= progress_max_usage:
+			_deck_preview_popup.hide()
+			_progress_button.disabled = true
+			cfc.hide_all_previews()
+

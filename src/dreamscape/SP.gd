@@ -11,6 +11,12 @@ extends ScriptProperties
 # e.g. amount of damage, or amount of armor
 const KEY_SUBJECT_V_PLAYER = "dreamer"
 const KEY_AMOUNT = "amount"
+# If the card is using an X cost, we need to specify if the X value is going to
+# be modified (e.g. "X+1) at all.
+const KEY_X_MODIFIER = "x_modifier"
+# If the card is using an X cost, we need to specify if the X value
+# is being added to the total, or multiplying the total.
+const KEY_X_OPERATION = "x_operation"
 const KEY_EFFECT = "effect_name"
 
 const FILTER_EFFECTS = "filter_effects"
@@ -33,6 +39,7 @@ const KEY_CARD_COUNT := "card_count"
 const KEY_PER_DEFENCE := "per_defence"
 const KEY_PER_TURN_EVENT_COUNT := "per_turn_event_count"
 const KEY_PER_ENCOUNTER_EVENT_COUNT := "per_encounter_event_count"
+const RIDER := "rider"
 # This call has been setup to call the original, and allow futher extension
 # simply create new filter
 static func filter_trigger(
@@ -83,14 +90,14 @@ static func filter_trigger(
 				required_stacks,
 				comparison_type):
 			is_valid = false
-	
-	# Checks if the aount of cards with a specific card played
+
+	# Checks if the amount of cards with a specific card played
 	# match the filter requested by this effect
 	if is_valid and card_scripts.has(FILTER_TURN_EVENT_COUNT):
 		var filter_event_count = card_scripts[FILTER_TURN_EVENT_COUNT]
 		var comparison_type = filter_event_count.get(
 				ScriptProperties.KEY_COMPARISON, get_default(ScriptProperties.KEY_COMPARISON))
-		var current_event_count = cfc.NMAP.board.turn.turn_event_count.get(filter_event_count["event"], 0)	
+		var current_event_count = cfc.NMAP.board.turn.turn_event_count.get(filter_event_count["event"], 0)
 		var requested_count : int = card_scripts.get(ScriptProperties.FILTER_COUNT, 1)
 		if not CFUtils.compare_numbers(
 				current_event_count,
@@ -102,7 +109,7 @@ static func filter_trigger(
 		var filter_event_count = card_scripts[FILTER_ENCOUNTER_EVENT_COUNT]
 		var comparison_type = filter_event_count.get(
 				ScriptProperties.KEY_COMPARISON, get_default(ScriptProperties.KEY_COMPARISON))
-		var current_event_count = cfc.NMAP.board.turn.encounter_event_count.get(filter_event_count["event"], 0)	
+		var current_event_count = cfc.NMAP.board.turn.encounter_event_count.get(filter_event_count["event"], 0)
 		var requested_count : int = card_scripts.get(ScriptProperties.FILTER_COUNT, 1)
 		if not CFUtils.compare_numbers(
 				current_event_count,

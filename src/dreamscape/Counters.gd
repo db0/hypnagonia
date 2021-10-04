@@ -32,6 +32,44 @@ func _ready() -> void:
 		counter.connect("mouse_entered", self, "_on_counter_enterred", [counter])
 		counter.connect("mouse_exited", self, "_on_counter_exited")
 
+
+# We need to extend this function so that we can capture counter increases
+# as events
+func mod_counter(counter_name: String,
+		value: int,
+		set_to_mod := false,
+		check := false,
+		requesting_object = null,
+		tags := ["Manual"]) -> int:
+	var retcode = .mod_counter(
+			counter_name,
+			value,
+			set_to_mod,
+			check,
+			requesting_object,
+			tags
+	)
+	if not check and retcode == CFConst.ReturnCode.CHANGED:
+		# We store each immersion increase as an event, but not those happening
+		# automatically at turn start
+		if counter_name == "immersion" and value > 0 and not "New Turn" in tags:
+			var total_immersion_gain := value
+			if set_to_mod:
+				total_immersion_gain = value - counters[counter_name]
+			if total_immersion_gain > 1:
+				var event_name = "immersion_increased"
+				var turn_event_count = cfc.NMAP.board.turn.turn_event_count
+				var existing_turn_count = turn_event_count.get(event_name,0)
+				turn_event_count[event_name] = existing_turn_count + 1
+				var encounter_event_count = cfc.NMAP.board.turn.encounter_event_count
+				var existing_encounter_count = encounter_event_count.get(event_name,0)
+				encounter_event_count[event_name] = existing_encounter_count + 1
+				# We also accumulate all immersion gained throughout the game for 
+				# filters
+				var immersion_total_gained = encounter_event_count.get("total_immersion_gained",0)
+				encounter_event_count["total_immersion_gained"] = immersion_total_gained + total_immersion_gain
+	return(retcode)
+
 func _on_player_turn_ended(turn: Turn) -> void:
 	# warning-ignore:return_value_discarded
 	mod_counter("immersion", 0, true, false, turn, ["End Turn"])

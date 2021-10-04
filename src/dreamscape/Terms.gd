@@ -113,6 +113,14 @@ const ACTIVE_EFFECTS := {
 		"description": "{effect_name} ({effect_icon}): At the start of your turn gain 1 {energy} per stack."\
 				+ " then remove all stacks of {effect_icon}."
 	},
+	"drain":  {
+		"name": "Apathy",
+		"icon": preload("res://assets/icons/shrug.png"),
+		"generic_description": "{effect_name}: Delayed Immersion loss.",
+		"rich_text_icon": "res://fonts/rich_text_icons/shrug.png",
+		"description": "{effect_name} ({effect_icon}): At the start of your turn lose 1 {energy} per stack."\
+				+ " then remove all stacks of {effect_icon}."
+	},
 	"disempower": {
 		"name": "Confusion",
 		"icon": preload("res://assets/icons/misdirection.png"),

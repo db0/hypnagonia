@@ -17,17 +17,18 @@ func display() -> void:
 #	for c in secondary_choices_container.get_children():
 #		print_debug(c.text, c.rect_size.y)
 
-func populate_choices(nested_choices: Dictionary, _journal) -> void:
+func populate_choices(nested_choices: Dictionary, _journal, disabled_choices := []) -> void:
 	secondary_choices_container.rect_min_size.x = rect_size.x - get("custom_constants/margin_left")
 	for choice_key in nested_choices:
 			var secondary_choice = JournalNestedChoice.new(_journal, nested_choices[choice_key])
 			secondary_choice.rect_min_size.x = rect_size.x - get("custom_constants/margin_left")
 			secondary_choices_container.add_child(secondary_choice)
-			secondary_choice.connect(
-					"pressed", 
-					self, 
-					"_on_choice_pressed", 
-					[secondary_choice, choice_key])
+			if not choice_key in disabled_choices:
+				secondary_choice.connect(
+						"pressed", 
+						self, 
+						"_on_choice_pressed", 
+						[secondary_choice, choice_key])
 	call_deferred("display")
 
 

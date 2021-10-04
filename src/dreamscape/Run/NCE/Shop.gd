@@ -18,5 +18,5 @@ func begin() -> void:
 
 
 func on_shop_back_pressed() -> void:
-	globals.journal.display_rewards('')
+	globals.journal.display_nce_rewards('')
 	current_shop.queue_free()

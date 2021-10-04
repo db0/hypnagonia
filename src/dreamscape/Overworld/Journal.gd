@@ -2,6 +2,7 @@ class_name Journal
 extends PanelContainer
 
 const NESTED_CHOICES_SCENE = preload("res://src/dreamscape/Overworld/SecondaryChoicesSlide.tscn")
+const SELECTION_DECK_SCENE = preload("res://src/dreamscape/SelectionDeck.tscn")
 
 onready var page_illustration := $HBC/JournalPageIllustration
 onready var journal_intro := $HBC/JournalEntry/VBC/DayIntro
@@ -41,7 +42,20 @@ func _ready() -> void:
 		yield(_tween, "tween_all_completed")
 
 
-func display_rewards(reward_text: String) -> void:
+func display_nce_rewards(reward_text: String) -> void:
+	# This catches the player losing in an NCE
+	if globals.player.damage >= globals.player.health:
+		display_loss()
+		return
+	if reward_text != '':
+		reward_journal.bbcode_text = reward_text
+		_reveal_entry(reward_journal, false)
+	if globals.player.deck.get_upgradeable_cards().size():
+		_reveal_entry(upgrade_journal, true)
+	proceed.bbcode_text = _get_entry_texts('PROCEED_TEXTS')
+	_reveal_entry(proceed, true)
+
+func display_enemy_rewards(reward_text: String) -> void:
 	if reward_text != '':
 		reward_journal.bbcode_text = reward_text
 		_reveal_entry(reward_journal, true, "card_draft")
@@ -72,7 +86,9 @@ func display_boss_rewards(reward_text: String) -> void:
 		+ "If you're a character artist, graphics designer, storyteller, card game designer, illustrator, or just someone who wants to give feedback, "\
 		+ "do hit us up on our discord server: [url=discord]https://discord.gg/KFKHt6Ch[/url].\n\n"\
 		+ "[url=main_menu]Back to Main Menu[/url]."
-	_reveal_entry(proceed, true)
+	proceed.connect("meta_clicked", self, "_on_proceed_clicked")
+	_reveal_entry(proceed, false)
+
 
 func display_loss() -> void:
 	proceed.bbcode_text = "And at this point I woke up in cold sweat!!\n\n"\
@@ -84,7 +100,7 @@ func display_loss() -> void:
 		+ "[url=main_menu]Back to Main Menu[/url]."
 # warning-ignore:return_value_discarded
 	proceed.connect("meta_clicked", self, "_on_proceed_clicked")
-	_reveal_entry(proceed, true)
+	_reveal_entry(proceed, false)
 
 
 func set_illustration(image: ImageTexture) -> void:
@@ -95,11 +111,18 @@ func unset_illustration() -> void:
 	page_illustration.texture = null
 
 
-func add_nested_choices(nested_choices: Dictionary) -> void:
+# Adds more choices to the journal. 
+# Choices keys passed in the disabled_choices will not be clickable using gui_input
+func add_nested_choices(nested_choices: Dictionary, disabled_choices := []) -> void:
 	var nested_choices_scene := NESTED_CHOICES_SCENE.instance()
 	journal_choices.add_child(nested_choices_scene)
-	nested_choices_scene.call_deferred("populate_choices", nested_choices, self)
+	nested_choices_scene.call_deferred("populate_choices", nested_choices, self, disabled_choices)
 
+
+func spawn_selection_deck() -> SelectionDeck:
+	var selection_deck = SELECTION_DECK_SCENE.instance()
+	add_child(selection_deck)
+	return(selection_deck)
 
 func _on_meta_clicked(meta_text: String) -> void:
 # warning-ignore:unused_variable
@@ -217,8 +240,6 @@ func _on_rte_gui_input(event, rt_label: RichTextLabel, type = 'card_draft') -> v
 				_disconnect_gui_inputs(rt_label)
 				artifact_choice.display(type)
 				artifact_journal.bbcode_text = "[color=grey]" + pre_highlight_bbcode_texts[rt_label] + "[/color]"
-			"Loss":
-				pass
 			"Proceed":
 				if globals.current_encounter as BossEncounter:
 					# warning-ignore:return_value_discarded

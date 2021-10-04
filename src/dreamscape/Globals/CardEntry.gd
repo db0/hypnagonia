@@ -40,7 +40,7 @@ func set_upgrade_progress(amount) -> void:
 	# If the card upgrade progress is -1 it means it's not upgradable
 	if upgrade_threshold < 0:
 		return
-	upgrade_progress += amount
+	upgrade_progress = amount
 	if upgrade_progress > upgrade_threshold:
 		upgrade_progress = upgrade_threshold
 	elif upgrade_progress < 0:

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/dreamscape/Shop/Shop.gd" type="Script" id=1]
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=2]
 [ext_resource path="res://src/dreamscape/PlayerInfo.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/dreamscape/SelectionDeck.tscn" type="PackedScene" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0588235, 0.0588235, 0.0588235, 1 )
@@ -176,37 +177,7 @@ margin_right = 1455.0
 margin_bottom = 28.0
 size_flags_horizontal = 3
 
-[node name="Deck" type="PopupPanel" parent="."]
-margin_right = 1455.0
-margin_bottom = 900.0
-
-[node name="VBC" type="VBoxContainer" parent="Deck"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 1451.0
-margin_bottom = 896.0
-
-[node name="OperationName" type="Label" parent="Deck/VBC"]
-margin_right = 1447.0
-margin_bottom = 14.0
-align = 1
-
-[node name="OperationCost" type="Label" parent="Deck/VBC"]
-margin_top = 18.0
-margin_right = 1447.0
-margin_bottom = 32.0
-align = 1
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Deck/VBC"]
-margin_top = 36.0
-margin_right = 1447.0
-margin_bottom = 636.0
-rect_min_size = Vector2( 0, 600 )
-
-[node name="GridContainer" type="GridContainer" parent="Deck/VBC/ScrollContainer"]
-custom_constants/vseparation = 10
-custom_constants/hseparation = 10
-columns = 5
+[node name="Deck" parent="." instance=ExtResource( 4 )]
 
 [connection signal="pressed" from="VBC/VBC/HBC/Buttons/Remove" to="." method="_on_Remove_pressed"]
 [connection signal="pressed" from="VBC/VBC/HBC/Buttons/Progress" to="." method="_on_ProgressCards_pressed"]

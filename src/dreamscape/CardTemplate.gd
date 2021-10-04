@@ -21,9 +21,15 @@ var pertub_destination : CardContainer
 # This is used to store permanent changes to this card that will persist
 # Between encounters
 var deck_card_entry
+# Stores the riders currently active on this card
+var enabled_riders := []
+# Stores the original properties of the card
+var printed_properties := {}
 
 func _ready() -> void:
+	# warning-ignore:return_value_discarded
 	connect("card_played", cfc.signal_propagator, "_on_signal_received")
+
 
 func _process(delta: float) -> void:
 	match state:
@@ -79,13 +85,16 @@ func _process(delta: float) -> void:
 				_tween_stuck_time = 0
 				move_to(pertub_destination)
 				pertub_destination = null
+	highlight_modified_properties()
+
 
 func setup() -> void:
 	.setup()
 	card_front.set_rarity()
 	if get_parent().name != "Viewport":
 		card_front.set_tag_icon(get_property("Tags"))
-
+	if printed_properties.empty():
+		printed_properties = properties.duplicate()
 
 # Sample code on how to figure out costs of a card
 func get_modified_credits_cost() -> int:
@@ -110,6 +119,7 @@ func retrieve_scripts(trigger: String) -> Dictionary:
 		found_scripts["hand"] += generate_play_confirm_scripts()
 	return(found_scripts)
 
+
 # Sets a flag when an action card is dragged to the board manually
 # which will trigger the game to execute its scripts
 # warning-ignore:unused_argument
@@ -119,6 +129,7 @@ func common_pre_move_scripts(new_container: Node, old_container: Node, tags: Arr
 			and old_container == cfc.NMAP.hand:
 		attempted_action_drop_to_board = true
 	return(target_container)
+
 
 # Executes some extra logic depending on the type of card moved
 func common_post_move_scripts(new_container: Node, old_container: Node, tags: Array) -> void:
@@ -148,16 +159,20 @@ func common_post_move_scripts(new_container: Node, old_container: Node, tags: Ar
 				}
 		)
 
+
 func get_modified_immersion_cost() -> Dictionary:
 	var immersion_cost_details : Dictionary =\
 			get_property_and_alterants("Cost")
-	var modified_cost : int = immersion_cost_details.value
+	var modified_cost = immersion_cost_details.value
+	if str(immersion_cost_details.value) == 'X':
+		modified_cost = cfc.NMAP.board.counters.get_counter("immersion", self)
 	var return_dict = {
 		"modified_cost": modified_cost,
 		"cards_modifier": immersion_cost_details.alteration.value_alteration,
 		"alterant_cards": merge_modifier_dicts(immersion_cost_details)
 	}
 	return(return_dict)
+
 
 # Merges alterant modifiers with temp_modifiers into one Dictionary
 func merge_modifier_dicts(container_dict) -> Dictionary:
@@ -170,6 +185,7 @@ func merge_modifier_dicts(container_dict) -> Dictionary:
 			modifier_details[c] = container_dict.temp_modifiers.modifier_details[c]
 	return(modifier_details)
 
+
 # Adds payment costs into a card's custom scripts under a special trigger
 # and executes them so that they are all processed by the ScriptingEngine
 func pay_play_costs() -> void:
@@ -178,6 +194,7 @@ func pay_play_costs() -> void:
 	scripts["payments"][state_exec] = generate_play_costs_tasks()
 	execute_scripts(self,"payments")
 	scripts["payments"].clear()
+
 
 # Uses a template to create task definitions for paying immersion costs
 # then returns it to the calling function to execute or insert it into
@@ -191,12 +208,13 @@ func generate_play_costs_tasks() -> Array:
 			"counter_name":  "counter"}
 	var pay_tasks = []
 	var immersion_cost = get_modified_immersion_cost().modified_cost
-	if immersion_cost:
+	if immersion_cost and typeof(immersion_cost) == TYPE_INT:
 		var cost_script = payment_script_template.duplicate()
 		cost_script["modification"] = -immersion_cost
 		cost_script["counter_name"] = "immersion"
 		pay_tasks.append(cost_script)
 	return(pay_tasks)
+
 
 # Uses a template to create task definitions for discarding a card
 # then returns it to the calling function to execute or insert it into
@@ -215,6 +233,7 @@ func generate_discard_tasks(only_from_hand := true) -> Array:
 	var discard_tasks = [discard_script_template]
 	return(discard_tasks)
 
+
 # Uses a template to inject a sceng task which increments a counter
 # for each tag the card has. This allows us to keep track of how many cards
 # with each tag we've played, to hook onto with othr effects.
@@ -229,6 +248,7 @@ func generate_play_confirm_scripts() -> Array:
 		}
 	return([confirm_play_template])
 
+
 # Uses a template to create task definitions for removing  a card permenanently from the deck
 # then returns it to the calling function to execute or insert it into
 # the cards existing scripts for its state.
@@ -241,6 +261,7 @@ func generate_remove_from_deck_tasks(permanent := false) -> Array:
 			"tags": ["Played"]}
 	var remove_tasks = [remove_script_template]
 	return(remove_tasks)
+
 
 # Injects the play costs into the existing scripts
 func insert_payment_costs(found_scripts) -> Dictionary:
@@ -264,6 +285,8 @@ func execute_scripts(
 		trigger: String = "manual",
 		trigger_details: Dictionary = {},
 		only_cost_check := false):
+	if is_executing_scripts:
+		return
 	var sceng = .execute_scripts(
 		trigger_card,
 		trigger,
@@ -277,6 +300,9 @@ func execute_scripts(
 
 # I'm using this to show the predicted damage on enemies
 func common_pre_run(sceng) -> void:
+	# We need to store the immersion before it's used by the scripts
+	# so that the X effects remember what it was
+	sceng.x_usage = cfc.NMAP.board.counters.get_counter("immersion")
 	sceng.predict()
 
 
@@ -297,7 +323,7 @@ func remove_from_deck(permanent := true, tags := []) -> void:
 					"tags": tags
 				}
 		)
-#	card_front.apply_sharer("res://shaders/consume.shader")
+#	card_front.apply_shader("res://shaders/consume.shader")
 	card_front.material = preload("res://shaders/dissolve.tres")
 #	card_front.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
 	state = ExtendedCardState.REMOVE_FROM_GAME
@@ -312,18 +338,40 @@ func remove_from_deck(permanent := true, tags := []) -> void:
 func check_play_costs() -> Color:
 	var ret : Color = CFConst.CostsState.OK
 	var immersion_cost = get_modified_immersion_cost().modified_cost
-
-	if immersion_cost > cfc.NMAP.board.counters.get_counter("immersion", self):
+	if typeof(immersion_cost) == TYPE_STRING:
 		ret = CFConst.CostsState.IMPOSSIBLE
-	elif immersion_cost > properties.get("Cost", 0):
+	elif immersion_cost > cfc.NMAP.board.counters.get_counter("immersion", self):
+		ret = CFConst.CostsState.IMPOSSIBLE
+	# I need to check the type due to X costs
+	elif typeof(properties.get("Cost")) == TYPE_INT and immersion_cost > properties.get("Cost", 0):
 		ret = CFConst.CostsState.INCREASED
-	elif immersion_cost < properties.get("Cost", 0):
+	elif typeof(properties.get("Cost")) == TYPE_INT and immersion_cost < properties.get("Cost", 0):
 		ret = CFConst.CostsState.DECREASED
 	if cfc.NMAP.board.turn.current_turn != Turn.Turns.PLAYER_TURN:
 		ret = CFConst.CostsState.IMPOSSIBLE
 	if properties.get("_is_unplayable", false):
 		ret = CFConst.CostsState.IMPOSSIBLE
 	return(ret)
+
+
+# Riders are special flags set to the card which will perform something
+# when a certain condition is met
+func enable_rider(rider: String) -> void:
+	if not rider in enabled_riders:
+		enabled_riders.append(rider)
+	match rider:
+		# Resets the card's cost to its printed value after being played.
+		"reset_cost_after_play":
+# warning-ignore:return_value_discarded
+			connect("card_played", self, "_on_self_played")
+
+
+func _on_self_played(_card,_trigger,_details) -> void:
+	if "reset_cost_after_play" in enabled_riders:
+# warning-ignore:return_value_discarded
+		modify_property("Cost", printed_properties['Cost'])
+		highlight_modified_properties()
+		enabled_riders.erase("reset_cost_after_play")
 
 
 # Overridable function for formatting card text
@@ -333,3 +381,24 @@ func _get_formatted_text(value) -> String:
 	if not amounts_format.size():
 		amounts_format = CardConfig.get_amounts_format(cfc.card_definitions[canonical_name])
 	return(text.format(amounts_format))
+
+
+func highlight_modified_properties() -> void:
+	# We don't check cards in deck to reduce operations
+	if state != CardState.IN_PILE:
+		for property in properties:
+			if property.begins_with("_"):
+				continue
+			var label_node = card_front.card_labels[property]
+			var current_property = get_property(property)
+			if property in CardConfig.PROPERTIES_NUMBERS:
+				var value_text := str(current_property)
+				if current_property != printed_properties.get(property)\
+						and value_text != label_node.text:
+					card_front.set_label_text(label_node,value_text)
+				if current_property < printed_properties.get(property):
+					label_node.modulate = Color(0,1,0)
+				elif current_property > printed_properties.get(property):
+					label_node.modulate = Color(1,0,0)
+				else:
+					label_node.modulate = Color(1,1,1)

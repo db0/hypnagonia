@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/white_bar.png-1521c5180ad7b13c7d06585a135ab476.stex"
+path="res://.import/shrug.png-b565f03070662b6c37364248ed8d119c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/progress_bar/white_bar.png"
-dest_files=[ "res://.import/white_bar.png-1521c5180ad7b13c7d06585a135ab476.stex" ]
+source_file="res://fonts/rich_text_icons/shrug.png"
+dest_files=[ "res://.import/shrug.png-b565f03070662b6c37364248ed8d119c.stex" ]
 
 [params]
 
