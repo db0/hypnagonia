@@ -178,6 +178,8 @@ func clear_predictions() -> void:
 func _update_health_label() -> void:
 	health_label.text = str(damage) + '/' + str(health)
 	defence_label.text = str(defence)
+	$HealthBar.max_value = health
+	$HealthBar.value = damage
 
 
 func get_property(property_name: String):
