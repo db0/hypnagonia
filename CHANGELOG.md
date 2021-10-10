@@ -1,13 +1,18 @@
 # Dreams: Changelog
 
-## v0.12.0 (Ongoing)
+## v0.12.0
 
 * Added framework for Elites
+* Added first two Act1 Elites.
 * Enabled Foreboding Pathos which is what Elites use
+* Added framework for Non-Combat Encounters.
+* Added first five NCEs
+* Enabled Curiosity Pathos which is what Elites use
 * Added artifacts in the shop. They are purchased with Foreboding.
 * Every run will give the player some random initial released Pathos, in case of an early shop.
 * Added new cards for Abusive Partner
 * Added 2 new starting cards to Abusive partnet to avoid the starting deck being optimized too easily
+* Changed cost to buy cards to Curiosity. However One card in the shop will always be paid in frustration.
 
 ## v0.11.0
 

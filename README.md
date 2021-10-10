@@ -1,4 +1,4 @@
-# Project Dreams: A Deckbuilding Therapy Session [v0.11](CHANGELOG.md)
+# Project Dreams: A Deckbuilding Therapy Session [v0.12](CHANGELOG.md)
 
 
 [![Project Dreams preview image](http://dreams.dbzer0.com/dreams_showcase.gif "Project Dreams preview image")](https://www.youtube.com/watch?v=Oc1_G28q328)

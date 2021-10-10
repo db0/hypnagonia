@@ -11,12 +11,12 @@
 bg_color = Color( 0.145098, 0.145098, 0.145098, 1 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 46
+size = 80
 use_filter = true
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 60
+size = 50
 font_data = ExtResource( 4 )
 
 [sub_resource type="StyleBoxFlat" id=4]
@@ -85,17 +85,17 @@ margin_bottom = 435.0
 
 [node name="Title" type="Label" parent="MainMenu/VBox/Margin/VBoxContainer"]
 margin_right = 1455.0
-margin_bottom = 47.0
+margin_bottom = 81.0
 custom_fonts/font = SubResource( 2 )
-text = "Dreams"
+text = "Theraltes"
 align = 1
 
 [node name="Subtitle" type="Label" parent="MainMenu/VBox/Margin/VBoxContainer"]
-margin_top = 50.0
+margin_top = 84.0
 margin_right = 1455.0
-margin_bottom = 114.0
+margin_bottom = 139.0
 custom_fonts/font = SubResource( 3 )
-text = "A deckbuilding therapy session"
+text = "Therapy through Nightmares"
 align = 1
 
 [node name="Center" type="CenterContainer" parent="MainMenu/VBox"]

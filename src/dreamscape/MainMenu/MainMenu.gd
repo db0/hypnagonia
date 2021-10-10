@@ -1,12 +1,19 @@
 extends Panel
 
-const README := "Thank you for trying out Dreams!\n\n"\
+const README := "Thank you for trying out Theraltes!\n\n"\
 		+ "This game is a Free Software 'Spire-like' deckbuilder. "\
 		+ "This means it's free to download, use, modify and redistribute\n\n"\
 		+ "This game is a heavy work in progress. At this point many bugs are expected "\
 		+ "and most of the expected features are missing.\n"\
 		+ "However whatever is there is fully playable.\n\n"\
 		+ "Tutorials, Campaign and lots more card groups will be coming out soon."
+
+const SUBTITLES := [
+	"A deckbuilding therapy session",
+	"Therapy through nightmares",
+	"That sinking stone in your heart",
+	"The weight of the mind",
+]
 
 # The time it takes to switch from one menu tab to another
 const menu_switch_time = 0.35
@@ -19,6 +26,7 @@ onready var new_game := $NewGame
 onready var _readme_label := $ReadMe/Label
 onready var _readme_popup := $ReadMe
 onready var menu_tween := $MenuTween
+onready var _subtitle := $MainMenu/VBox/Margin/VBoxContainer/Subtitle
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -33,6 +41,10 @@ func _ready() -> void:
 	# warning-ignore:return_value_discarded
 	get_viewport().connect("size_changed", self, '_on_Menu_resized')
 	_readme_label.text = README
+	randomize()
+	SUBTITLES.shuffle()
+	_subtitle.text = SUBTITLES[0]
+	
 
 
 func on_button_pressed(_button_name : String) -> void:

@@ -38,7 +38,9 @@ var card_progress_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.rest
 # Normally it will be based on NCE pathos, but switched to enemy while we
 # have no NCEs to accumulate
 #var card_pool_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.nce
-var card_pool_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.enemy
+var card_pool_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.nce
+# We want one of the card choices to use a different currency
+var card_pool_secondary_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.enemy
 var artifact_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.elite
 
 onready var card_pool_shop := $VBC/VBC/CC/CardPoolShop
@@ -89,11 +91,16 @@ func populate_shop_cards() -> void:
 		else:
 			shop_card_choices['Common'].append(_get_shop_choice(
 					globals.player.compile_rarity_cards('Common')))
+	var card_number := 0
 	for rarity in shop_card_choices:
 		for card_name in shop_card_choices[rarity]:
+			card_number += 1
 			# By separating the cost_type like this, I can theoretically
 			# randomize the cost_type per card.
 			var cost_type : String = card_pool_cost_type
+			# I want at least one card to use frustration for cost
+			if card_number == 5:
+				cost_type = card_pool_secondary_cost_type
 			var prog_avg : float = globals.player.pathos.get_progression_average(
 						cost_type)
 			var card_cost =\
