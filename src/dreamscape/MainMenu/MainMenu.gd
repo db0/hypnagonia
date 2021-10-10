@@ -1,6 +1,6 @@
 extends Panel
 
-const README := "Thank you for trying out Theraltes!\n\n"\
+const README := "Thank you for trying out Dreams!\n\n"\
 		+ "This game is a Free Software 'Spire-like' deckbuilder. "\
 		+ "This means it's free to download, use, modify and redistribute\n\n"\
 		+ "This game is a heavy work in progress. At this point many bugs are expected "\
