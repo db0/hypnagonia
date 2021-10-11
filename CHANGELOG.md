@@ -1,5 +1,13 @@
 # Dreams: Changelog
 
+## v0.12.1
+
+* Player Info will now properly update anxiety after dreamer wakes up
+* Boss/Elites which spawn minions will now correctly be defeated if they are overcome while minions are still there.
+* Fascination will now properly trigger unnamed_card_8
+* Marked journal reward options with tags to make them more obvious
+ 
+
 ## v0.12.0
 
 * Added framework for Elites
