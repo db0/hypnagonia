@@ -89,6 +89,7 @@ func _get_boss_scripts(intent_name: String) -> Dictionary:
 				"enemy": EnemyDefinitions.GASLIGHTER,
 				"tags": ["Intent"],
 				"modify_spawn_health": -25 + (get_outrage() * 2),
+				"set_spawn_as_minion": true,
 				"icon": preload("res://assets/icons/alien-egg.png"),
 				"description": "...that's not a big deal."
 			}

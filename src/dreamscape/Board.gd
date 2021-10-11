@@ -259,7 +259,8 @@ func _on_finished_enemy_activation(enemy: EnemyEntity) -> void:
 
 func _enemy_died() -> void:
 	yield(get_tree().create_timer(2), "timeout")
-	if get_tree().get_nodes_in_group("EnemyEntities").size() == 0:
+	if get_tree().get_nodes_in_group("EnemyEntities").size()\
+			- get_tree().get_nodes_in_group("Minions").size() == 0:
 		complete_battle()
 
 

@@ -29,7 +29,13 @@ const KEY_UPGRADE_NAME = "upgrade_name"
 const KEY_EVENT_NAME = "event_name"
 const KEY_ENEMY_NAME = "enemy_name"
 const KEY_ENEMY = "enemy"
+# Type: int
+# Adjusts the spawned enemy health by this amount
 const KEY_MODIFY_SPAWN_HEALTH = "modify_spawn_health"
+# Type: bool
+# Sets the spawnm to be automatically defeated when the main enemy is defeated
+# Typically used with bosses
+const KEY_SET_SPAWN_AS_MINION = "set_spawn_as_minion"
 # Used when removing a card from the deck. If set to true, removes the card
 # for the whole run
 const KEY_PERMANENT = "is_permanent"

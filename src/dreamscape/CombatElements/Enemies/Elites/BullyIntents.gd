@@ -57,6 +57,7 @@ func execute_special(script: ScriptTask, costs_dry_run := false) -> int:
 		"enemy": EnemyDefinitions.THE_LAUGHING_ONE,
 		"tags": ["Intent"],
 		"modify_spawn_health": -15 + crowd_health_mod,
+		"set_spawn_as_minion": true
 	}]
 	var atk_anxiety : int
 	match script.get_property("torment_special"):
