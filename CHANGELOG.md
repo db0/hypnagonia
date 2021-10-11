@@ -13,6 +13,7 @@
 * Added new cards for Abusive Partner
 * Added 2 new starting cards to Abusive partnet to avoid the starting deck being optimized too easily
 * Changed cost to buy cards to released curiosity. However One card in the shop will always be paid in released frustration.
+* Added health bars (with help from @DioBal)
 
 ## v0.11.0
 
