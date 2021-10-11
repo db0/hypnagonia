@@ -63,7 +63,7 @@ func activate() -> void:
 
 func die() -> void:
 	is_dead = true
-	emit_signal("entity_killed")
+	emit_signal("entity_killed", damage)
 	if animated_art:
 		animated_art.defeat()
 		yield(animated_art.animation_player, "animation_finished")

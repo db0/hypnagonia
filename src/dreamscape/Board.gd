@@ -257,14 +257,15 @@ func _on_finished_enemy_activation(enemy: EnemyEntity) -> void:
 		turn.start_player_turn()
 
 
-func _enemy_died() -> void:
+func _enemy_died(_final_damage) -> void:
 	yield(get_tree().create_timer(2), "timeout")
 	if get_tree().get_nodes_in_group("EnemyEntities").size()\
 			- get_tree().get_nodes_in_group("Minions").size() == 0:
 		complete_battle()
 
 
-func _dreamer_died() -> void:
+func _dreamer_died(final_damage) -> void:
+	globals.player.damage = final_damage
 	yield(get_tree().create_timer(1), "timeout")
 	game_over()
 
@@ -327,8 +328,8 @@ func _input(event):
 		_on_Debug_pressed()
 	if event.is_action_pressed("complete_battle"):
 		complete_battle()
-	if event.is_action_pressed("lose_battle"):
-		game_over()
+#	if event.is_action_pressed("lose_battle"):
+#		game_over()
 
 
 func _debug_advanced_enemy() -> void:

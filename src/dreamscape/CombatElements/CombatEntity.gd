@@ -11,7 +11,7 @@ signal entity_attacked(entity, amount, trigger, tags)
 signal entity_damaged(entity, amount, trigger, tags)
 signal entity_healed(entity, amount, trigger, tags)
 signal entity_defended(entity, amount, trigger, tags)
-signal entity_killed
+signal entity_killed(final_damage)
 
 
 onready var art := $Art
@@ -120,7 +120,7 @@ func set_health(value) -> void:
 
 func die() -> void:
 	is_dead = true
-	emit_signal("entity_killed")
+	emit_signal("entity_killed", damage)
 	entity_texture.material = ShaderMaterial.new()
 	entity_texture.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
 
