@@ -57,7 +57,7 @@ func display_nce_rewards(reward_text: String) -> void:
 
 func display_enemy_rewards(reward_text: String) -> void:
 	if reward_text != '':
-		reward_journal.bbcode_text = reward_text
+		reward_journal.bbcode_text = "[Card Draft] " + reward_text
 		_reveal_entry(reward_journal, true, "card_draft")
 	if globals.player.deck.get_upgradeable_cards().size():
 		_reveal_entry(upgrade_journal, true)
@@ -66,7 +66,7 @@ func display_enemy_rewards(reward_text: String) -> void:
 
 
 func display_elite_rewards(reward_text: String) -> void:
-	reward_journal.bbcode_text = reward_text
+	reward_journal.bbcode_text = "[Card Draft] " + reward_text
 	_reveal_entry(reward_journal, true, "elite_card_draft")
 	_reveal_entry(artifact_journal, true, "elite_artifact")
 	if globals.player.deck.get_upgradeable_cards().size():
@@ -76,7 +76,7 @@ func display_elite_rewards(reward_text: String) -> void:
 
 
 func display_boss_rewards(reward_text: String) -> void:
-	reward_journal.bbcode_text = reward_text
+	reward_journal.bbcode_text = "[Card Draft] " + reward_text
 	_reveal_entry(reward_journal, true, "boss_card_draft")
 	if globals.player.deck.get_upgradeable_cards().size():
 		_reveal_entry(upgrade_journal, true)

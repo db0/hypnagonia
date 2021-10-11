@@ -104,8 +104,8 @@ margin_right = 720.0
 margin_bottom = 106.0
 rect_min_size = Vector2( 0, 50 )
 bbcode_enabled = true
-bbcode_text = "The act of repeating made me more creative"
-text = "The act of repeating made me more creative"
+bbcode_text = "[Upgrade Cards] The act of repeating made me more creative"
+text = "[Upgrade Cards] The act of repeating made me more creative"
 fit_content_height = true
 
 [node name="UgradeSlide" type="ScrollContainer" parent="VBC/Journal/HBC/JournalEntry/VBC"]
@@ -127,8 +127,8 @@ margin_right = 720.0
 margin_bottom = 106.0
 rect_min_size = Vector2( 0, 50 )
 bbcode_enabled = true
-bbcode_text = "What a curious thing. Did I always have it with me..?"
-text = "What a curious thing. Did I always have it with me..?"
+bbcode_text = "[Curio] What a curious thing. Did I always have it with me..?"
+text = "[Curio] What a curious thing. Did I always have it with me..?"
 fit_content_height = true
 
 [node name="ArtifactSlide" type="ScrollContainer" parent="VBC/Journal/HBC/JournalEntry/VBC"]
