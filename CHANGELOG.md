@@ -1,5 +1,10 @@
 # Dreams: Changelog
 
+## v0.12.2
+
+* Fixed wrong buff/debuff icon.
+* Fixed overwriting labyrinth intents with the bully's
+
 ## v0.12.1
 
 * Player Info will now properly update anxiety after dreamer wakes up

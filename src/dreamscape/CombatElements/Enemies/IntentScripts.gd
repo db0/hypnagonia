@@ -35,7 +35,7 @@ func get_scripts(intent_name: String) -> Dictionary:
 				"tags": ["Intent"],
 				"subject": "dreamer",
 				"modification": null,
-				"icon": ICON_BUFF,
+				"icon": ICON_DEBUFF,
 				"description": "This Torment is planning to apply a debuff to the Dreamer."
 			}
 		],
@@ -46,7 +46,7 @@ func get_scripts(intent_name: String) -> Dictionary:
 				"tags": ["Intent"],
 				"subject": "self",
 				"modification": null,
-				"icon": ICON_DEBUFF,
+				"icon": ICON_BUFF,
 				"description": "This Torment is planning to buff itself."
 			}
 		],
