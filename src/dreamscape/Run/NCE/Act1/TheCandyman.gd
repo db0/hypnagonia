@@ -30,7 +30,7 @@ func begin() -> void:
 	var candies_bbc := []
 	# Player gets 3 candy choices
 	var colours = COLOUR_MAP.keys()
-	for colour in colours:
+	for colour in colours.duplicate():
 		if globals.player.deck.filter_cards("Type", COLOUR_MAP[colour]).size() < 1:
 			colours.erase(colour)
 	while candies.size() < 3:
@@ -56,11 +56,21 @@ func begin() -> void:
 			# This ensures a same colour candy won't appear as, for example, "Blue/Blue"
 		var candy_exists := false
 		for candy in candies:
-			if candy_colours[0] in candy and candy_colours[1] in candy:
+			# That's the only way to compare the arrays without
+			# always having the same sorting of colours displayed.
+			var dcc = candy_colours
+			var c = candy
+			dcc.sort()
+			c.sort()
+			if dcc == c:
 				candy_exists = true
 		if not candy_exists:
 			candies.append(candy_colours)
 			candies_bbc.append(cc_bbformat)
+		# If the player has only one type of card in their deck, we have to
+		# break here to avoid an infinite loop
+		if colours.size() == 1:
+			break
 	var choice_strings = [
 		'[{candy_key}] Eat a delicious candy.',
 		'[{candy_key}] Eat a pretty candy.',

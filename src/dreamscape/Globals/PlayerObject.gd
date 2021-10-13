@@ -35,7 +35,7 @@ func setup() -> void:
 	# Debug #
 #	add_artifact("StartingImmersion")
 #	add_artifact("PerturbationHeal")
-#	deck.add_new_card("Dread")
+	deck.add_new_card("@ Inner Justice @")
 #	deck.add_new_card("Dread")
 
 func get_current_archetypes() -> Array:
