@@ -182,5 +182,7 @@ margin_bottom = 26.0
 visible = false
 
 [connection signal="meta_clicked" from="VBC/Journal/HBC/JournalEntry/VBC/RewardJournal" to="VBC/Journal" method="_on_RewardJournal_meta_clicked"]
+[connection signal="meta_hover_ended" from="VBC/Journal/HBC/JournalEntry/VBC/RewardJournal" to="VBC/Journal" method="_on_meta_hover_ended"]
+[connection signal="meta_hover_started" from="VBC/Journal/HBC/JournalEntry/VBC/RewardJournal" to="VBC/Journal" method="_on_meta_hover_started"]
 [connection signal="meta_clicked" from="VBC/Journal/HBC/JournalEntry/VBC/UpgradeJournal" to="VBC/Journal" method="_on_UpgradeJournal_meta_clicked"]
 [connection signal="meta_clicked" from="VBC/Journal/HBC/JournalEntry/VBC/ArtifactJournal" to="VBC/Journal" method="_on_ArtifactJournal_meta_clicked"]

@@ -113,7 +113,7 @@ func _on_StartingCards_pressed() -> void:
 	_starting_cards_popup.rect_size = Vector2(1000,400)
 	_starting_cards_popup.popup_centered()
 	_all_starting_cards_display.rect_min_size.x = _starting_cards_popup.rect_size.x
-	var current_deck_archetypes : Array = globals.player.get_currrent_archetypes()
+	var current_deck_archetypes : Array = globals.player.get_current_archetypes()
 	_all_starting_cards_display.populate_starting_cards(current_deck_archetypes, _starting_cards_popup)
 	var all_tags := []
 	for archetype in current_deck_archetypes:

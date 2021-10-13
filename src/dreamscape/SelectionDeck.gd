@@ -5,7 +5,7 @@ extends PopupPanel
 
 # Emited after a succesful operation. The calling object should hook into it
 # to know when to close this popup.
-signal operation_performed(operation_type)
+signal operation_performed(operation_type, card_name)
 
 const CARD_CHOICE_SCENE = preload("res://src/dreamscape/ChoiceCardObject.tscn")
 
@@ -22,6 +22,8 @@ var progress_amount := 1
 # If set to true, this deck will close and clear itself after the operation.
 # This prevents having to hook onto the SelectionDeck's signal, just to close it
 var auto_close := false
+# Specifies which types of cards to display from the deck
+var card_type := "any"
 
 onready var _deck_operation_name := $VBC/OperationName/
 onready var _deck_operation_cost := $VBC/OperationCost/
@@ -76,12 +78,18 @@ func _populate_preview_cards() -> void:
 			card.queue_free()
 		current_decklist_cache = globals.player.deck.list_all_cards()
 		for index in range(globals.player.deck.cards.size()):
+			if card_type != 'any' and card_type != globals.player.deck.cards[index].get_property('Type'):
+				continue
 			var card_preview_container = CARD_CHOICE_SCENE.instance()
 			_deck_preview_grid.add_child(card_preview_container)
 			card_preview_container.index = globals.player.deck.cards[index]
 			card_preview_container.setup(globals.player.deck.cards[index].card_name)
 			card_preview_container.display_card.deck_card_entry = globals.player.deck.cards[index]
-			card_preview_container.connect("card_selected", self, "_on_deck_card_selected", [card_preview_container])
+			card_preview_container.connect(
+					"card_selected", 
+					self, 
+					"_on_deck_card_selected", 
+					[card_preview_container])
 
 
 # Triggers the operation requested on the selected card, if the player has enough
@@ -89,6 +97,12 @@ func _populate_preview_cards() -> void:
 func _on_deck_card_selected(card_entry: CardEntry, deck_card_object) -> void:
 	if not operation_cost <= globals.player.pathos.released[operation_cost_type]:
 		return
+	# We store that to send with the signal
+	var signal_payload := {
+		"card_name": card_entry.card_name,
+		"upgraded": card_entry.is_upgraded(),
+		"progress": card_entry.upgrade_progress,
+	}
 	globals.player.pathos.released[operation_cost_type] -= operation_cost
 	if operation == "remove":
 		globals.player.deck.remove_card(card_entry)
@@ -98,7 +112,8 @@ func _on_deck_card_selected(card_entry: CardEntry, deck_card_object) -> void:
 		# We have to refresh the preview card to allow the player to see
 		# The progress on the info panels.
 		deck_card_object.refresh_preview_card()
-	emit_signal("operation_performed", operation)
+	signal_payload["operation"] = operation
+	emit_signal("operation_performed", signal_payload)
 	if auto_close:
 		cfc.hide_all_previews()
 		queue_free()

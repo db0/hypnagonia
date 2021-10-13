@@ -1,5 +1,9 @@
 # Dreams: Changelog
 
+## v0.12.3
+
+* Added The Candyman encounter
+
 ## v0.12.2
 
 * Fixed wrong buff/debuff icon.

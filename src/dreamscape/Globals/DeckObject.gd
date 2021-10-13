@@ -13,7 +13,7 @@ func _init(_deck_groups) -> void:
 
 func assemble_starting_deck() -> void:
 	for key in deck_groups:
-		for card_name in Aspects[key.to_upper()][deck_groups[key]]["Starting Cards"]:
+		for card_name in Aspects[key.to_upper()][deck_groups[key]]["Basic"]:
 			var new_card := CardEntry.new(card_name)
 			cards.append(new_card)
 
@@ -29,8 +29,11 @@ func instance_cards() -> Array:
 	return(card_nodes)
 
 
-func add_new_card(card_name) -> void:
+# Adds a new card to the deck, 
+# and optionally starts it with some ugprade progress
+func add_new_card(card_name, progress := 0) -> void:
 	var new_card := CardEntry.new(card_name)
+	new_card.upgrade_progress = progress
 	cards.append(new_card)
 	emit_signal("card_added", new_card)
 
@@ -120,3 +123,22 @@ func get_upgradable_card_type(type:= "least_progress") -> CardEntry:
 	if results_dict[type]["cards"].size() > 1:
 		CFUtils.shuffle_array(results_dict[type]["cards"])
 	return(results_dict[type]["cards"][0])
+
+
+# Returns a list of all card entries with a specific property match
+func filter_cards(property: String, filter) -> Array:
+	var card_list := []
+	for card_entry in cards:
+		var card_prop = card_entry.get_property(property)
+		# If the property is an array, we assume the player is trying to 
+		# match an element in it
+		if typeof(card_prop) == TYPE_ARRAY:
+			if filter in card_prop:
+				card_list.append(card_entry)
+		elif typeof(card_prop) == typeof(filter):
+			if card_entry.get_property(property) == filter:
+				card_list.append(card_entry)
+		else:
+			if str(card_entry.get_property(property)) == str(filter):
+				card_list.append(card_entry)
+	return(card_list)

@@ -3,7 +3,7 @@ extends CombatEncounter
 
 const TORMENT_META_DICT := {
 	"name": '',
-	"meta_type": "torment_card",
+	"meta_type": "popup_card",
 }
 
 var enemies: Array
@@ -26,6 +26,7 @@ func get_formated_description() -> String:
 		var torment_tag = TORMENT_META_DICT.duplicate(true)
 		torment_tag["name"] = torment_name
 		tag_format[rich_text_format_tag] = JSON.print(torment_tag)
+#	print_debug(description.format(tag_format))
 	return(description.format(tag_format))
 
 

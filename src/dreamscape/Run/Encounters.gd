@@ -90,6 +90,9 @@ func generate_journal_choices() -> Array:
 				journal_options.append(EliteEncounter.new(next_enemy, difficulty))
 			Terms.RUN_ACCUMULATION_NAMES.boss:
 				journal_options.append(BossEncounter.new(Act1.BOSSES[boss_name], boss_name))
+		### Debug ###
+#		journal_options.append(preload("res://src/dreamscape/Run/NCE/Act1/TheCandyman.gd").new())
+		### End Debug ##
 	return(journal_options)
 
 

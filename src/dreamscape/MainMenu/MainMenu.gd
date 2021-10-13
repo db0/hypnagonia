@@ -145,7 +145,7 @@ func _process_card_export(card_name: String) -> Dictionary:
 			Aspects.INSTRUMENT,
 			Aspects.INJUSTICE]:
 		for archetype in aspect:
-			for rarity in ['Starting Cards','Common','Uncommon','Rare']:
+			for rarity in ['Basic','Common','Uncommon','Rare']:
 				for card in aspect[archetype].get(rarity,[]):
 					if card_name == card:
 						if not archetype in card_entry['archetypes']:

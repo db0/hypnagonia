@@ -524,6 +524,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/Turn.gd"
 }, {
+"base": "Reference",
+"class": "Understanding",
+"language": "GDScript",
+"path": "res://src/dreamscape/Understandings.gd"
+}, {
 "base": "Node2D",
 "class": "ViewportCardFocus",
 "language": "GDScript",
@@ -638,6 +643,7 @@ _global_script_class_icons={
 "Token": "",
 "TokenDrawer": "",
 "Turn": "",
+"Understanding": "",
 "ViewportCardFocus": "",
 "perMessage": ""
 }

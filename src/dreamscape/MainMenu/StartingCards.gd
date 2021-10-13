@@ -11,7 +11,7 @@ func populate_starting_cards(types: Array, _rel_parent: Node) -> void:
 	for type in types:
 		for archetype in Terms.CARD_GROUP_TERMS.values():
 			if Aspects[archetype.to_upper()].has(type):
-				for card_name in Aspects[archetype.to_upper()][type]["Starting Cards"]:
+				for card_name in Aspects[archetype.to_upper()][type]["Basic"]:
 					var preview_card_object := STARTING_CARD_PREVIEW_SCENE.instance()
 					_starting_cards_container.add_child(preview_card_object)
 					preview_card_object.setup(card_name)	

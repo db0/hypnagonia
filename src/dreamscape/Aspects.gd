@@ -70,6 +70,6 @@ static func get_complete_archetype_list() -> Array:
 
 static func get_all_cards_in_archetype(archetype) -> Array:
 	var all_cards := []
-	for card_rarity in ["Starting Cards","Common","Uncommon","Rare"]:
+	for card_rarity in ["Basic","Common","Uncommon","Rare"]:
 		all_cards += get_archetype_value(archetype,card_rarity)
 	return(all_cards)

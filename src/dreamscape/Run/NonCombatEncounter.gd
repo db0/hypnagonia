@@ -5,6 +5,10 @@ const NCE_META_DICT := {
 	"name": '',
 	"meta_type": "nce",
 }
+const NCE_POPUP_DICT := {
+	"name": '',
+	"meta_type": "popup_card",
+}
 
 
 var reward_description: String

@@ -3,6 +3,7 @@ extends PanelContainer
 
 const NESTED_CHOICES_SCENE = preload("res://src/dreamscape/Overworld/SecondaryChoicesSlide.tscn")
 const SELECTION_DECK_SCENE = preload("res://src/dreamscape/SelectionDeck.tscn")
+const CARD_PREVIEW_SCENE = preload("res://src/dreamscape/MainMenu/StartingCardPreviewObject.tscn")
 
 onready var page_illustration := $HBC/JournalPageIllustration
 onready var journal_intro := $HBC/JournalEntry/VBC/DayIntro
@@ -21,7 +22,8 @@ onready var _description_popup := $MetaDescription
 onready var player_info := $"../PlayerInfo"
 onready var journal_cover := $"../../FadeToBlack"
 
-var enemy_cards := {}
+# This dictionary holds links to card nodes which have been instanced as preview cards
+var popup_cards := {}
 var pre_highlight_bbcode_texts := {}
 
 func _ready() -> void:
@@ -124,6 +126,15 @@ func spawn_selection_deck() -> SelectionDeck:
 	add_child(selection_deck)
 	return(selection_deck)
 
+
+func prepare_popup_card(card_name: String) -> void:
+	if not popup_cards.has(card_name):
+		var popup_card = CARD_PREVIEW_SCENE.instance()
+		card_storage.add_child(popup_card)
+		popup_card.setup(card_name)
+		popup_cards[card_name] = popup_card
+
+
 func _on_meta_clicked(meta_text: String) -> void:
 # warning-ignore:unused_variable
 	var meta_tag := _parse_meta_tag(meta_text)
@@ -132,10 +143,11 @@ func _on_meta_clicked(meta_text: String) -> void:
 
 func _on_meta_hover_started(meta_text: String) -> void:
 	var meta_tag := _parse_meta_tag(meta_text)
+#	print_debug(meta_tag)
 	match meta_tag["meta_type"]:
-		"torment_card":
-			var torment_name : String = meta_tag["name"]
-			enemy_cards[torment_name]._on_GridCardObject_mouse_entered()
+		"popup_card":
+			var card_name : String = meta_tag["name"]
+			popup_cards[card_name]._on_GridCardObject_mouse_entered()
 		"nce":
 			_show_description_popup(
 					globals.current_encounter.get_meta_hover_description(
@@ -145,9 +157,9 @@ func _on_meta_hover_started(meta_text: String) -> void:
 func _on_meta_hover_ended(meta_text: String) -> void:
 	var meta_tag := _parse_meta_tag(meta_text)
 	match meta_tag["meta_type"]:
-		"torment_card":
-			var torment_name : String = meta_tag["name"]
-			enemy_cards[torment_name]._on_GridCardObject_mouse_exited()
+		"popup_card":
+			var card_name : String = meta_tag["name"]
+			popup_cards[card_name]._on_GridCardObject_mouse_exited()
 		"nce":
 			_description_popup.visible = false
 
@@ -166,8 +178,8 @@ func _on_choice_pressed(encounter: SingleEncounter, rich_text_choice: JournalCho
 			choice.visible = false
 	# To ensure card previews are hidden in case the player is too fast.
 	_description_popup.visible = false
-	for torment_name in enemy_cards:
-		enemy_cards[torment_name]._on_GridCardObject_mouse_exited()
+	for torment_name in popup_cards:
+		popup_cards[torment_name]._on_GridCardObject_mouse_exited()
 	encounter.begin()
 
 

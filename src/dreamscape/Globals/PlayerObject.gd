@@ -17,6 +17,7 @@ var deck_groups : Dictionary = {
 }
 
 
+# Returns false if not all deck archetypes have been selected for the deck
 func is_deck_completed() -> bool:
 	for archetype in deck_groups:
 		if not deck_groups[archetype]:
@@ -33,9 +34,11 @@ func setup() -> void:
 	deck.assemble_starting_deck()
 	# Debug #
 #	add_artifact("StartingImmersion")
-#	add_artifact("StartingThorns")
+#	add_artifact("PerturbationHeal")
+#	deck.add_new_card("Dread")
+#	deck.add_new_card("Dread")
 
-func get_currrent_archetypes() -> Array:
+func get_current_archetypes() -> Array:
 	var all_archetypes := []
 	for aspect in deck_groups:
 		if deck_groups[aspect]:
@@ -68,6 +71,32 @@ func compile_rarity_cards(rarity: String) -> Array:
 	return(rarity_cards)
 
 
+# Returns all cards from the player's archetypes which match a specific card type 
+# and are of any of the given rarities
+func compile_card_type(
+		type: String, 
+		rarities := ["Common","Uncommon", "Rare"],
+		upgraded := false) -> Array:
+	if type == "Perturbation":
+		return(Perturbations.gather_perturbations(get_archetype_perturbations()))
+	if type == "Understanding":
+		# gather_understanding() uses a trinary choice for knowing whether to
+		# return upgraded cards. So we need to convert our bool into yes/no string
+		var upgraded_choice := {true:"yes", false:"no"}
+		return(Understanding.gather_understanding(upgraded_choice[upgraded]))
+	var all_cards :=  []
+	for rarity in rarities:
+		all_cards += compile_rarity_cards(rarity)
+	var typecards := []
+	for card_name in all_cards:
+		if cfc.card_definitions[card_name].get(CardConfig.SCENE_PROPERTY) == type:
+			if (upgraded and not cfc.card_definitions[card_name].get("_is_upgrade"))\
+					or (not upgraded and cfc.card_definitions[card_name].get("_is_upgrade")):
+				continue
+			typecards.append(card_name)
+	return(typecards)
+
+
 func add_artifact(artifact_name: String) -> void:
 	if not artifact_name in get_all_artifact_names():
 		var new_artifact = ArtifactObject.new(artifact_name)
@@ -93,7 +122,7 @@ func get_all_artifact_names() -> Array:
 # Returns a list with all artifacts tied to all archetypes of the player.
 func get_archetype_artifacts() -> Array:
 	var artifacts := []
-	for arch in get_currrent_archetypes():
+	for arch in get_current_archetypes():
 		artifacts += Aspects.get_archetype_value(arch, "Artifacts")
 	return(artifacts)
 
@@ -105,6 +134,6 @@ func get_archetype_artifacts() -> Array:
 # for the specified perturbations to appear when that archetype is being used.
 func get_archetype_perturbations() -> Array:
 	var perturbations := []
-	for arch in get_currrent_archetypes():
+	for arch in get_current_archetypes():
 		perturbations += Aspects.get_archetype_value(arch, "Perturbations")
 	return(perturbations)

@@ -20,7 +20,7 @@ const FLYER:= {
 	"Perturbations": [
 		
 	],
-	"Starting Cards": [
+	"Basic": [
 		"Out of Reach",
 		"Interpretation",
 		"Confidence",
@@ -59,7 +59,7 @@ const MAD_SCIENTIST := {
 	"Perturbations": [
 		"Apathy",
 	],
-	"Starting Cards": [
+	"Basic": [
 		"Confidence",
 		"Interpretation",
 		"Change of Mind",
@@ -92,7 +92,7 @@ const WARRIOR:= {
 	"Perturbations": [
 		
 	],
-	"Starting Cards": [
+	"Basic": [
 		"War Paint",
 	],
 	"Common": [
@@ -114,7 +114,7 @@ const RUNNER := {
 	"Perturbations": [
 		
 	],
-	"Starting Cards": [
+	"Basic": [
 	],
 	"Common": [
 		"Rapid Encirclement",
@@ -141,7 +141,7 @@ const FEARLESS:= {
 	"Perturbations": [
 		
 	],
-	"Starting Cards": [
+	"Basic": [
 		"Confidence",
 		"Confidence",
 		"Nothing to Fear",
@@ -194,7 +194,7 @@ const RUBBER_CHICKEN := {
 	"Perturbations": [
 		
 	],
-	"Starting Cards": [
+	"Basic": [
 		"Interpretation",
 		"Interpretation",
 		"Noisy Whip",
@@ -233,7 +233,7 @@ const ABUSIVE_RELATIONSHIP := {
 	"Perturbations": [
 		
 	],
-	"Starting Cards": [
+	"Basic": [
 		"Inner Justice",
 		"Interpretation",
 		"Confidence",

@@ -405,6 +405,17 @@ const PowerHeal := {
 	},
 }
 
+const PerturbationHeal := {
+	"canonical_name": "StartingHeal",
+	"name": "A taste for liquorice",
+	"description": "{artifact_name}: At the start of each Ordeal, {relax} for {heal_amount} per Perturbation in your deck.",
+	"icon": preload("res://assets/icons/artifacts/pretzel.png"),
+	"context": EffectContext.BATTLE,
+	"rarity": "Common",
+	"amounts": {
+		"heal_amount": 1
+	},
+}
 
 # Generic artifacts which have a chance to appear in any playthrough
 const GENERIC := [

@@ -9,7 +9,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Starting",
+		"_rarity": "Basic",
 		"_keywords": ["confidence"],
 		"_amounts": {
 			"defence_amount": 5
@@ -27,7 +27,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Starting",
+		"_rarity": "Basic",
 		"_keywords": ["confidence"],
 		"_amounts": {
 			"defence_amount": 8
@@ -40,7 +40,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}",
 		"Cost": 0,
 		"_illustration": "Nobody",
-		"_rarity": "Starting",
+		"_rarity": "Basic",
 		"_keywords": ["confidence"],
 		"_amounts": {
 			"defence_amount": 4
@@ -53,7 +53,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}. {release}",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Starting",
+		"_rarity": "Basic",
 		"_keywords": ["confidence","release"],
 		"_avoid_normal_discard": true,
 		"_amounts": {
@@ -67,7 +67,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Starting",
+		"_rarity": "Basic",
 		"_keywords": ["interpretation"],
 		"_amounts": {
 			"damage_amount": 6
@@ -85,7 +85,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}",
 		"Cost": 0,
 		"_illustration": "Nobody",
-		"_rarity": "Starting",
+		"_rarity": "Basic",
 		"_keywords": ["interpretation"],
 		"_amounts": {
 			"damage_amount": 5
@@ -98,7 +98,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Starting",
+		"_rarity": "Basic",
 		"_keywords": ["interpretation"],
 		"_amounts": {
 			"damage_amount": 9
@@ -111,7 +111,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}. {release}",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Starting",
+		"_rarity": "Basic",
 		"_keywords": ["interpretation","release"],
 		"_avoid_normal_discard": true,
 		"_amounts": {
@@ -448,7 +448,7 @@ const CARDS := {
 		"Abilities": "Gain {immersion_amount} {immersion}",
 		"Cost": 3,
 		"_illustration": "Nobody",
-		"_rarity": "Starting",
+		"_rarity": "Basic",
 		"_amounts": {
 			"immersion_amount": 4,
 		},
@@ -465,7 +465,7 @@ const CARDS := {
 		"Abilities": "Gain {immersion_amount} {immersion}",
 		"Cost": 2,
 		"_illustration": "Nobody",
-		"_rarity": "Starting",
+		"_rarity": "Basic",
 		"_amounts": {
 			"immersion_amount": 3,
 		},
@@ -477,7 +477,7 @@ const CARDS := {
 		"Abilities": "Gain {immersion_amount} {immersion}",
 		"Cost": 4,
 		"_illustration": "Nobody",
-		"_rarity": "Starting",
+		"_rarity": "Basic",
 		"_amounts": {
 			"immersion_amount": 7,
 		},
@@ -489,7 +489,7 @@ const CARDS := {
 		"Abilities": "Gain {immersion_amount} {immersion}. {forget}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
-		"_rarity": "Starting",
+		"_rarity": "Basic",
 		"_amounts": {
 			"immersion_amount": 2,
 		},

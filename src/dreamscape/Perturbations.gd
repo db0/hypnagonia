@@ -1,3 +1,4 @@
+# A class to quickly do operations around perturbation cards
 class_name Perturbations
 extends Reference
 
@@ -19,6 +20,7 @@ static func gather_perturbations(archetype_perturbations := []) -> Array:
 				and not card_name in EXCLUDED_PERTURBATIONS:
 			perturbations.append(card_name)
 	return(perturbations)
+
 
 static func get_random_perturbation(archetype_perturbations := []) -> String:
 	var parray = gather_perturbations(archetype_perturbations)

@@ -16,7 +16,10 @@ shader_param/pattern = 2
 shader_param/inside = false
 shader_param/add_margins = false
 
-[node name="RushElite" groups=["BossEntities", "EnemyEntities"] instance=ExtResource( 3 )]
+[node name="RushElite" groups=[
+"BossEntities",
+"EnemyEntities",
+] instance=ExtResource( 3 )]
 script = ExtResource( 5 )
 character_art_texture = ExtResource( 6 )
 

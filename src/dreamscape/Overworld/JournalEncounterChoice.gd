@@ -13,11 +13,7 @@ func _init(_journal: Node, _encounter: SingleEncounter).(_journal) -> void:
 	if encounter as EnemyEncounter:
 		var enemy_encounter: EnemyEncounter = encounter
 		for torment_name in enemy_encounter.get_unique_enemies():
-			if not journal.enemy_cards.has(torment_name):
-				var torment_card = ENEMY_CARD_PREVIEW_SCENE.instance()
-				journal.card_storage.add_child(torment_card)
-				torment_card.setup(torment_name)
-				journal.enemy_cards[torment_name] = torment_card
+			journal.prepare_popup_card(torment_name)
 		formated_description = enemy_encounter.get_formated_description()
 	if encounter as EliteEncounter:
 		var elite_encounter: EliteEncounter = encounter

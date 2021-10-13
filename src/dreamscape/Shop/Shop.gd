@@ -269,8 +269,8 @@ func _update_remove_cost() -> void:
 		_remove_cost.add_color_override("font_color", Color(1,1,0))
 
 
-func _on_deck_operation_performed(operation: String) -> void:
-	if operation == "remove":
+func _on_deck_operation_performed(operation_details: Dictionary) -> void:
+	if operation_details["operation"] == "remove":
 		remove_uses += 1
 		# Each use makes further uses more expensive in this run
 		globals.encounters.shop_deck_removals += 1
@@ -279,7 +279,7 @@ func _on_deck_operation_performed(operation: String) -> void:
 			_deck_preview_popup.hide()
 			_remove_button.disabled = true
 			cfc.hide_all_previews()
-	elif operation == "progress":
+	elif operation_details["operation"] == "progress":
 		progress_uses += 1
 		_update_progress_cost()
 		# Each visit to the shop only allows a limited amount of uses of the upgrade
