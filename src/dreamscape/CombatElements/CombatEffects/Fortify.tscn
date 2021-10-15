@@ -6,15 +6,11 @@
 
 [node name="Fortify" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
+decrease_type = 1
 
 [node name="Label" parent="Signifier" index="0"]
 visible = false
 text = "C"
 
-[node name="Icon" parent="Signifier" index="1"]
+[node name="Icon" parent="Signifier" index="2"]
 texture = ExtResource( 3 )
-
-[node name="Amount" parent="MC" index="0"]
-margin_top = 24.0
-margin_right = 32.0
-margin_bottom = 38.0

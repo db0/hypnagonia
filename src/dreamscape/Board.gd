@@ -51,6 +51,7 @@ func _ready() -> void:
 	_player_area.add_child(dreamer)
 	dreamer.rect_position = Vector2(100,100)
 	_on_viewport_resized()
+	cfc.connect("cache_cleared", self, '_recalculate_predictions')
 #	begin_encounter()
 #
 func _process(_delta: float) -> void:
@@ -135,6 +136,7 @@ func spawn_enemy(enemy_properties) -> EnemyEntity:
 	enemy.connect("finished_activation", self, "_on_finished_enemy_activation")
 	# warning-ignore:return_value_discarded
 	enemy.connect("entity_killed", self, "_enemy_died")
+	cfc.flush_cache()
 	return(enemy)
 
 
@@ -314,9 +316,9 @@ func _input(event):
 #		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 8)
 		for c in [
-			"Sustained unnamed_card_1",
-			"unnamed_card_9",
-			"@ unnamed_card_9 @",
+			"Out of Reach",
+			"Out of Reach",
+			"Out of Reach",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.deck.add_child(card)
@@ -385,3 +387,17 @@ func _fade_to_transparent() -> void:
 			'modulate:a', 1, 0, 1,
 			Tween.TRANS_SINE, Tween.EASE_IN)
 	_tween.start()
+
+
+func _recalculate_predictions() -> void:
+	yield(get_tree(), "idle_frame")
+	var snapshot_id = CFUtils.randi_range(1,100000)
+	get_tree().call_group_flags(get_tree().GROUP_CALL_REALTIME, "combat_effects", "take_snapshot", snapshot_id)
+	# I want the enemies to be predicted serially
+	for enemy in get_tree().get_nodes_in_group("EnemyEntities"):
+		# It might have died of poison in the meantime
+		if is_instance_valid(enemy):
+#		print_debug("Activating Intents: " + enemy.canonical_name)
+			enemy.intents.predict_intents(snapshot_id)
+			yield(enemy.intents, "intents_predicted")
+	

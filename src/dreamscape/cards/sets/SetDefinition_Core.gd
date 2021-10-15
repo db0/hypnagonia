@@ -130,7 +130,7 @@ const CARDS := {
 		},
 		"_rarity": "Common",
 		"_amounts": {
-			"effect_stacks": 1
+			"effect_stacks": 3
 		},
 		"_upgrade_threshold": 6,
 		"_upgrades": [
@@ -149,7 +149,7 @@ const CARDS := {
 		},
 		"_rarity": "Common",
 		"_amounts": {
-			"effect_stacks": 1
+			"effect_stacks": 3
 		},
 		"_is_upgrade": true,
 	},
@@ -164,7 +164,7 @@ const CARDS := {
 		},
 		"_rarity": "Common",
 		"_amounts": {
-			"effect_stacks": 2
+			"effect_stacks": 4
 		},
 		"_is_upgrade": true,
 	},
@@ -1672,7 +1672,7 @@ const CARDS := {
 		"_keywords": ["interpretation", "overcome"],
 		"_amounts": {
 			"damage_amount": 12,
-			"effect_stacks": 1,
+			"effect_stacks": 2,
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
@@ -1693,7 +1693,7 @@ const CARDS := {
 		"_keywords": ["interpretation", "overcome"],
 		"_amounts": {
 			"damage_amount": 16,
-			"effect_stacks": 1,
+			"effect_stacks": 2,
 		},
 		"_is_upgrade": true,
 	},
@@ -1710,7 +1710,7 @@ const CARDS := {
 		"_keywords": ["interpretation", "overcome"],
 		"_amounts": {
 			"damage_amount": 11,
-			"effect_stacks": 1,
+			"effect_stacks": 2,
 		},
 		"_is_upgrade": true,
 	},
@@ -1839,7 +1839,7 @@ const CARDS := {
 	"Zen of Flight": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
-		"Abilities": "At the end of each turn, {relax} {effect_amount}.\nIf you have {untouchable}, {relax} {effect_amount} extra.",
+		"Abilities": "At the end of each turn, {relax} for {effect_amount}.\nIf you have {untouchable}, {relax} {effect_amount} extra.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -1858,7 +1858,7 @@ const CARDS := {
 	"@ Zen of Flight @": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
-		"Abilities": "At the end of each turn, {relax} {effect_amount}.\nIf you have {untouchable}, {relax} {effect_amount} extra.",
+		"Abilities": "At the end of each turn, {relax} for {effect_amount}.\nIf you have {untouchable}, {relax} {effect_amount} extra.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -1873,7 +1873,7 @@ const CARDS := {
 	"Masterful Zen of Flight": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
-		"Abilities": "At the end of each turn, {relax} {effect_amount}.\nIf you have {untouchable}, {relax} {effect_amount} extra.",
+		"Abilities": "At the end of each turn, {relax} for {effect_amount}.\nIf you have {untouchable}, {relax} {effect_amount} extra.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {

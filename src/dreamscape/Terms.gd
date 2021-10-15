@@ -153,15 +153,15 @@ const ACTIVE_EFFECTS := {
 		"generic_description": "{effect_name}: Prevents concentration from expiring each turn.",
 		"rich_text_icon": "res://fonts/rich_text_icons/beams-aura.png",
 		"description": "{effect_name} ({effect_icon}): {defence} is not removed at start of turn.\n"\
-				+ "Reduce these stacks by 1 at the start of the turn."
+				+ "Halve (rounded down) the amount of these stacks at the start of the turn."
 	},
 	"impervious": {
 		"name": "Untouchable",
 		"icon": preload("res://assets/icons/dodging.png"),
 		"generic_description": "{effect_name}: Prevents all anxiety from Torment-induced stress.",
 		"rich_text_icon": "res://fonts/rich_text_icons/dodging.png",
-		"description": "{effect_name} ({effect_icon}): No {health} is taken this turn from {opponent_attack}.\n" \
-				+ "Reduce these stacks by 1 at the start of the turn."
+		"description": "{effect_name} ({effect_icon}): The next {amount} {opponent_attack} does not increase {health}.\n"\
+				+ "Remove all stacks at the start of the turn."
 	},
 	"poison": {
 		"name": "Doubt",

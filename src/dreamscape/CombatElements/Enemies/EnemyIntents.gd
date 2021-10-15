@@ -1,6 +1,8 @@
 class_name EnemyIntents
 extends HBoxContainer
 
+signal intents_predicted
+
 const SINGLE_INTENT_SCENE = preload("res://src/dreamscape/CombatElements/Enemies/SingleIntent.tscn")
 
 var all_intents: Array
@@ -85,6 +87,12 @@ func execute_scripts(
 		sceng.execute(CFInt.RunType.ELSE)
 	return(sceng)
 
+
+func predict_intents(snapshot_id: int) -> void:
+	yield(get_tree(), "idle_frame")
+	for intent in get_children():
+		intent.recalculate_amount(snapshot_id)
+	emit_signal("intents_predicted")
 
 # We have this externally to allow to override it if needed (e.g. for boss intents)
 func _get_intent_scripts(intent_name: String) -> Dictionary:

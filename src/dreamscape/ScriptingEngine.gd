@@ -2,6 +2,7 @@
 extends ScriptingEngine
 
 var x_usage: int
+var snapshot_id := 0
 
 # Just calls the parent class.
 func _init(state_scripts: Array,
@@ -56,7 +57,8 @@ func predict() -> void:
 
 # Will return the adjusted amount of whatever the intent scripts are doing
 # if there is one.
-func predict_intent_amount() -> int:
+func predict_intent_amount(_snapshot_id: int) -> int:
+	snapshot_id = _snapshot_id
 	run_type = CFInt.RunType.COST_CHECK
 	var total_amount := 0
 	var prev_subjects := []

@@ -7,6 +7,12 @@ enum SELF_DECREASE {
 	TURN_END
 }
 
+enum DECREASE_TYPE {
+	REDUCE
+	HALVE
+	ZERO
+}
+
 enum PRIORITY {
 	ADD
 	MULTIPLY
@@ -14,11 +20,13 @@ enum PRIORITY {
 }
 
 export(SELF_DECREASE) var self_decreasing
+export(DECREASE_TYPE) var decrease_type
 export(PRIORITY) var priority
 
 var entity_type: String
 var owning_entity: CombatEntity
 var stacks: int = 0 setget set_stacks
+var snapshot_stacks: Dictionary
 # Used for custom effects from cards which can be upgraded
 # The string signifies the upgrade used, and should be handled
 # By the script code directly.
@@ -135,19 +143,34 @@ func execute_script(
 		sceng.execute(CFInt.RunType.ELSE)
 	return(sceng)
 
+func take_snapshot(id: int) -> void:
+	snapshot_stacks[id] = stacks
+
+func clear_snapshot(id: int) -> void:
+	snapshot_stacks.erase(id)
 
 func _on_player_turn_ended(_turn: Turn) -> void:
 	if entity_type == Terms.PLAYER and self_decreasing == SELF_DECREASE.TURN_END:
-		set_stacks(stacks - 1)
+		_decrease_stacks()
 
 func _on_player_turn_started(_turn: Turn) -> void:
 	if entity_type == Terms.PLAYER and self_decreasing == SELF_DECREASE.TURN_START:
-		set_stacks(stacks - 1)
+		_decrease_stacks()
 
 func _on_enemy_turn_ended(_turn: Turn) -> void:
 	if entity_type == Terms.ENEMY and self_decreasing == SELF_DECREASE.TURN_END:
-		set_stacks(stacks - 1)
+		_decrease_stacks()
 
 func _on_enemy_turn_started(_turn: Turn) -> void:
 	if entity_type == Terms.ENEMY and self_decreasing == SELF_DECREASE.TURN_START:
-		set_stacks(stacks - 1)
+		_decrease_stacks()
+
+func _decrease_stacks() -> void:
+	match decrease_type:
+		DECREASE_TYPE.REDUCE:
+			set_stacks(stacks - 1)
+		DECREASE_TYPE.HALVE:
+			set_stacks(stacks / 2)
+		DECREASE_TYPE.ZERO:
+			set_stacks(0)
+			

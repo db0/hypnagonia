@@ -7,11 +7,12 @@
 [node name="Impervious" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
 self_decreasing = 1
+decrease_type = 2
 priority = 2
 
 [node name="Label" parent="Signifier" index="0"]
 visible = false
 text = "U"
 
-[node name="Icon" parent="Signifier" index="1"]
+[node name="Icon" parent="Signifier" index="2"]
 texture = ExtResource( 3 )

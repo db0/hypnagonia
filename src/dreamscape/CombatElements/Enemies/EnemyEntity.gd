@@ -36,7 +36,7 @@ func setup(entity_name: String, properties: Dictionary) -> void:
 	.setup(entity_name,properties)
 	health += CFUtils.randi_range(-properties['_health_variability'], properties['_health_variability'])
 		
-	
+
 func activate() -> void:
 	# Just in case the end-turn button is pressed too fast
 	if is_dead: 
