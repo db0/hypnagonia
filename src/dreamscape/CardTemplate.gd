@@ -236,7 +236,7 @@ func generate_discard_tasks(only_from_hand := true) -> Array:
 
 # Uses a template to inject a sceng task which increments a counter
 # for each tag the card has. This allows us to keep track of how many cards
-# with each tag we've played, to hook onto with othr effects.
+# with each tag we've played, to hook onto with other effects.
 #
 # The reason to go via sceng, is because we  don't want to increment if costs
 # cannot be paid. 

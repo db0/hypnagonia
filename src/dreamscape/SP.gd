@@ -21,6 +21,7 @@ const KEY_EFFECT = "effect_name"
 
 const FILTER_EFFECTS = "filter_effects"
 const FILTER_IS_NOT_SPECIFIED_ENEMY = "filter_not_enemy"
+const FILTER_DREAMER_DEFENCE = "filter_dreamer_defence"
 const FILTER_STACKS = "filter_stacks"
 const FILTER_TURN_EVENT_COUNT = "filter_turn_event_count"
 const FILTER_ENCOUNTER_EVENT_COUNT = "filter_encounter_event_count"
@@ -77,6 +78,13 @@ static func filter_trigger(
 		if not CFUtils.compare_numbers(
 				current_stacks,
 				requested_stacks,
+				comparison):
+			is_valid = false
+	if is_valid and card_scripts.get("filter_dreamer_defence"):
+		var requested_defence : int = card_scripts.get(FILTER_DREAMER_DEFENCE, 1)
+		if not CFUtils.compare_numbers(
+				cfc.NMAP.board.dreamer.defence,
+				requested_defence,
 				comparison):
 			is_valid = false
 

@@ -268,11 +268,19 @@ const ACTIVE_EFFECTS := {
 	},
 	"zen_of_flight":  {
 		"name": "Zen of Flight",
-		"description": "{effect_name}: At the end of each turn, {heal} 1. If {untouchable}, {heal} 1 extra.",
+		"description": "{effect_name}: At the end of each turn, {heal} for 1. If you have {untouchable}, {heal} 1 extra.",
 		"upgraded_descriptions": {
-			"masterful": "{effect_name}: At the end of each turn, {heal} 2. If {untouchable}, {heal} 2 extra.",
+			"masterful": "{effect_name}: At the end of each turn, {heal} for 2. If you have {untouchable}, {heal} 2 extra.",
 		},
 		"icon": preload("res://assets/icons/windy-stripes.png"),
+	},
+	"introspection":  {
+		"name": "Introspection",
+		"description": "{effect_name}: At the end of each turn, {heal} 2 if you have not played any {attack_card} cards this turn.",
+		"upgraded_descriptions": {
+			"light": "{effect_name}: At the end of each turn, {heal} 2 if you have not played more than 1 {attack_card} card this turn.",
+		},
+		"icon": preload("res://assets/icons/inner-self.png"),
 	},
 	"absurdity_unleashed":  {
 		"name": "Absurdity Unleashed",
@@ -406,23 +414,23 @@ const GENERIC_CARD_BBCODE := {
 		"name": "Release",
 		"rich_text_color": "teal",
 	},
-	"attack": {
+	"attack_card": {
 		"name": "Action",
 		"rich_text_color": "red",
 	},
-	"skill": {
+	"skill_card": {
 		"name": "Control",
 		"rich_text_color": "blue",
 	},
-	"power": {
+	"power_card": {
 		"name": "Concentration",
 		"rich_text_color": "green",
 	},
-	"condition": {
+	"condition_card": {
 		"name": "Perturbation",
 		"rich_text_color": "white",
 	},
-	"understanding": {
+	"understanding_card": {
 		"name": "Understanding",
 		"rich_text_color": "purple",
 	},

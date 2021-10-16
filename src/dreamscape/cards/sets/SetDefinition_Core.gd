@@ -1839,7 +1839,8 @@ const CARDS := {
 	"Zen of Flight": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
-		"Abilities": "At the end of each turn, {relax} for {effect_amount}.\nIf you have {untouchable}, {relax} {effect_amount} extra.",
+		"Abilities": "At the end of each turn, {relax} for {effect_amount}.\n"\
+				+ "If you have {untouchable}, {relax} {effect_amount} extra.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -1858,7 +1859,8 @@ const CARDS := {
 	"@ Zen of Flight @": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
-		"Abilities": "At the end of each turn, {relax} for {effect_amount}.\nIf you have {untouchable}, {relax} {effect_amount} extra.",
+		"Abilities": "At the end of each turn, {relax} for {effect_amount}.\n"\
+				+ "If you have {untouchable}, {relax} {effect_amount} extra.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -1873,7 +1875,8 @@ const CARDS := {
 	"Masterful Zen of Flight": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
-		"Abilities": "At the end of each turn, {relax} for {effect_amount}.\nIf you have {untouchable}, {relax} {effect_amount} extra.",
+		"Abilities": "At the end of each turn, {relax} for {effect_amount}.\n"\
+				+ "If you have {untouchable}, {relax} {effect_amount} extra.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -3107,4 +3110,104 @@ const CARDS := {
 		"_upgrade_threshold": 7,
 		"_is_upgrade": true,
 	},
+	"Dodge": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
+		"Abilities": "Requires at least {requirements_amount} {confidence} to play.\nGain {effect_stacks} {untouchable}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
+		},
+		"_rarity": "Common",
+		"_amounts": {
+			"effect_stacks": 1,
+			"requirements_amount": 3
+		},
+		"_upgrade_threshold": 6,
+		"_upgrades": [
+			"@ Dodge @",
+			"* Dodge *",
+		],
+	},
+	"@ Dodge @": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
+		"Abilities": "Requires at least {requirements_amount} {confidence} to play.\nGain {effect_stacks} {untouchable}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
+		},
+		"_rarity": "Common",
+		"_amounts": {
+			"effect_stacks": 1,
+			"requirements_amount": 3
+		},
+		"_is_upgrade": true,
+	},
+	"* Dodge *": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
+		"Abilities": "Requires at least {requirements_amount} {confidence} to play.\nGain {effect_stacks} {untouchable}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
+		},
+		"_rarity": "Common",
+		"_amounts": {
+			"effect_stacks": 2,
+			"requirements_amount": 3
+		},
+		"_is_upgrade": true,
+	},
+	"Introspection": {
+		"Type": "Concentration",
+		"Tags": [Terms.GENERIC_TAGS.relax.name],
+		"Abilities": "At the end of each turn, {relax} for {effect_amount} if you have not played any {attack_card} cards this turn.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_keywords": ["interpretation"],
+		"_rarity": "Rare",
+		"_amounts": {
+			"effect_amount": 2,
+		},
+		"_upgrade_threshold": 8,
+		"_upgrades": [
+			"Deep Introspection",
+			"Light Introspection",
+		],
+	},
+	"Deep Introspection": {
+		"Type": "Concentration",
+		"Tags": [Terms.GENERIC_TAGS.relax.name],
+		"Abilities": "At the end of each turn, {relax} for {effect_amount} if you have not played any {attack_card} cards this turn.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
+		},
+		"_rarity": "Rare",
+		"_amounts": {
+			"effect_amount": 3,
+		},
+		"_is_upgrade": true,
+	},
+	"Light Introspection": {
+		"Type": "Concentration",
+		"Tags": [Terms.GENERIC_TAGS.relax.name],
+		"Abilities": "At the end of each turn, {relax} for {effect_amount} if you have not played more than 1 {attack_card} card this turn.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
+		},
+		"_rarity": "Rare",
+		"_amounts": {
+			"effect_amount": 2,
+		},
+		"_is_upgrade": true,
+	},
+
 }

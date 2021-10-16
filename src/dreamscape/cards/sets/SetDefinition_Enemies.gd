@@ -230,7 +230,7 @@ const CARDS := {
 		},
 		"_keywords": ["forget"],
 		"_amounts": {
-			"effect_stacks": 1,
+			"effect_stacks": 3,
 		},
 		"_upgrade_threshold": 12,
 		"_upgrades": [
@@ -250,7 +250,7 @@ const CARDS := {
 		},
 		"_keywords": ["forget"],
 		"_amounts": {
-			"effect_stacks": 1,
+			"effect_stacks": 3,
 		},
 		"_is_upgrade": true,
 	},
@@ -268,7 +268,7 @@ const CARDS := {
 		},
 		"_keywords": ["forget", "confidence", "relax"],
 		"_amounts": {
-			"effect_stacks": 1,
+			"effect_stacks": 3,
 		},
 		"_is_upgrade": true,
 	},

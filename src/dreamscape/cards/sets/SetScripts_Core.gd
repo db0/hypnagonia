@@ -1662,6 +1662,60 @@ func get_scripts(card_name: String) -> Dictionary:
 				],
 			},
 		},
+		"Dodge": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"is_cost": true,
+						"effect_name": Terms.ACTIVE_EFFECTS.impervious.name,
+						"subject": "dreamer",
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("effect_stacks"),
+						"filter_dreamer_defence": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("requirements_amount"),
+					},
+				],
+			},
+		},
+		"Introspection": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.introspection.name,
+						"subject": "dreamer",
+						"modification": 1,
+					},
+				],
+			},
+		},
+		"Light Introspection": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.introspection.name,
+						"subject": "dreamer",
+						"modification": 1,
+						"upgrade_name": "light",
+					},
+				],
+			},
+		},
+		"Deep Introspection": {
+			"manual": {
+				"hand": [
+					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.introspection.name,
+						"subject": "dreamer",
+						"modification": 1,
+						"upgrade_name": "deep",
+					},
+				],
+			},
+		},
 	}
 	return(_prepare_scripts(scripts, card_name))
 

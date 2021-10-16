@@ -29,6 +29,7 @@ const EFFECTS := {
 	Terms.ACTIVE_EFFECTS.brilliance.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Brilliance.tscn"),
 	Terms.ACTIVE_EFFECTS.recall.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Recall.tscn"),
 	Terms.ACTIVE_EFFECTS.eureka.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Eureka.tscn"),
+	Terms.ACTIVE_EFFECTS.introspection.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Introspection.tscn"),
 }
 
 # When a stack of an effect is added and its opposite exists, before adding a stack

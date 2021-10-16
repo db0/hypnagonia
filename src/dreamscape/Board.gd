@@ -298,42 +298,6 @@ func game_over() -> void:
 #		card.set_to_idle()
 
 
-func _input(event):
-	if event.is_action_pressed("init_debug_game"):
-# warning-ignore:unused_variable
-		_debug_advanced_enemy()
-#		var torment = spawn_enemy(EnemyDefinitions.GASLIGHTER)
-#		var torment2 = spawn_enemy(EnemyDefinitions.CLOWN)
-#		var torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
-#		var torment2 = spawn_enemy("The Critic")
-#		var torment3 = spawn_enemy("Gaslighter")
-#		var torment2 = spawn_enemy("Gaslighter")
-#		torment2.rect_position = Vector2(800,100)
-#		torment3.rect_position = Vector2(200,300)
-#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.creative_block.name, 15)
-#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 15)
-#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 5)
-#		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
-#		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 8)
-		for c in [
-			"Out of Reach",
-			"Out of Reach",
-			"Out of Reach",
-		]:
-			var card = cfc.instance_card(c)
-			cfc.NMAP.deck.add_child(card)
-			#card.set_is_faceup(false,true)
-			card._determine_idle_state()
-		cfc.NMAP.deck.shuffle_cards(false)
-		begin_encounter()
-	if event.is_action_pressed("debug"):
-		_on_Debug_pressed()
-	if event.is_action_pressed("complete_battle"):
-		complete_battle()
-#	if event.is_action_pressed("lose_battle"):
-#		game_over()
-
-
 func _debug_advanced_enemy() -> void:
 	pass
 	var advanced_entity: EnemyEntity =\
@@ -400,4 +364,42 @@ func _recalculate_predictions() -> void:
 #		print_debug("Activating Intents: " + enemy.canonical_name)
 			enemy.intents.predict_intents(snapshot_id)
 			yield(enemy.intents, "intents_predicted")
+
 	
+func _input(event):
+	if event.is_action_pressed("init_debug_game"):
+# warning-ignore:unused_variable
+		_debug_advanced_enemy()
+#		var torment = spawn_enemy(EnemyDefinitions.GASLIGHTER)
+#		var torment2 = spawn_enemy(EnemyDefinitions.CLOWN)
+#		var torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
+#		var torment2 = spawn_enemy("The Critic")
+#		var torment3 = spawn_enemy("Gaslighter")
+#		var torment2 = spawn_enemy("Gaslighter")
+#		torment2.rect_position = Vector2(800,100)
+#		torment3.rect_position = Vector2(200,300)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.creative_block.name, 15)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 15)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 5)
+#		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
+#		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 8)
+		for c in [
+			"Introspection",
+			"Deep Introspection",
+			"Light Introspection",
+			"Masterful Zen of Flight",
+			"Zen of Flight",
+		]:
+			var card = cfc.instance_card(c)
+			cfc.NMAP.deck.add_child(card)
+			#card.set_is_faceup(false,true)
+			card._determine_idle_state()
+		cfc.NMAP.deck.shuffle_cards(false)
+		begin_encounter()
+	if event.is_action_pressed("debug"):
+		_on_Debug_pressed()
+	if event.is_action_pressed("complete_battle"):
+		complete_battle()
+#	if event.is_action_pressed("lose_battle"):
+#		game_over()
+
