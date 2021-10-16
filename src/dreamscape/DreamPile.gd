@@ -14,6 +14,11 @@ func _ready():
 	$Control.connect("mouse_entered", self, "_on_DreamPile_mouse_entered")
 	# warning-ignore:return_value_discarded
 	$Control.connect("mouse_exited", self, "_on_DreamPile_mouse_exited")
+	if not cfc.game_settings.get('enable_visible_shuffle'):
+		disable_shuffle()
+
+func disable_shuffle() -> void:
+	shuffle_style = CFConst.ShuffleStyle.NONE
 
 func _on_DreamPile_input_event(event) -> void:
 	if event.is_pressed()\
@@ -31,3 +36,4 @@ func _on_DreamPile_mouse_entered() -> void:
 func _on_DreamPile_mouse_exited() -> void:
 	if not are_cards_still_animating():
 		highlight.set_highlight(false)
+

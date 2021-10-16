@@ -5,6 +5,7 @@ extends PanelContainer
 
 const CARD_PREVIEW_SCENE = preload("res://src/dreamscape/MainMenu/StartingCardPreviewObject.tscn")
 const PATHOS_INFO_SCENE = preload("res://src/dreamscape/PathosEntryInfo.tscn")
+const SETTINGS_SCENE = preload("res://src/dreamscape/MainMenu/SettingsMenu.tscn")
 
 # Because we do not have a common PlayerInfo node throughout the whole game
 # but rather we have different instances for it for each scene which
@@ -17,6 +18,7 @@ export(ArtifactDefinitions.EffectContext) var context
 
 var current_decklist_cache: Array
 var pathos_infos := {}
+var popup_settings : PopupPanel
 
 onready var _deck_preview_popup := $DeckPreview
 onready var _deck_preview_scroll := $DeckPreview/ScrollContainer/
@@ -45,7 +47,22 @@ func _process(_delta: float) -> void:
 	_update_deck_count()
 
 func _on_Settings_pressed() -> void:
-	pass # Replace with function body.
+	cfc.game_paused = true
+	popup_settings = PopupPanel.new()
+	self.add_child(popup_settings)
+	var settings_menu = SETTINGS_SCENE.instance()
+	popup_settings.add_child(settings_menu)
+	yield(get_tree(), "idle_frame")
+	popup_settings.popup_centered_minsize()
+	settings_menu.back_button.text = "Close"
+	settings_menu.back_button.connect('pressed', self, '_on_Settings_hide')
+	# warning-ignore:return_value_discarded
+	popup_settings.connect('popup_hide', self, '_on_Settings_hide')
+
+
+func _on_Settings_hide() -> void:
+	popup_settings.queue_free()
+	cfc.game_paused = false
 
 
 func _on_Deck_pressed() -> void:

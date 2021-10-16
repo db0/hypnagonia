@@ -1,0 +1,94 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://src/dreamscape/MainMenu/SettingsMenu.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 22
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 25
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 35
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 1 )
+
+[node name="SettingsMenu" type="CenterContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PC" type="PanelContainer" parent="."]
+self_modulate = Color( 1, 1, 1, 0.690196 )
+margin_left = 580.0
+margin_top = 388.0
+margin_right = 875.0
+margin_bottom = 512.0
+
+[node name="VBC" type="VBoxContainer" parent="PC"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 288.0
+margin_bottom = 117.0
+size_flags_horizontal = 3
+custom_constants/separation = 20
+
+[node name="SimpleAnimations" type="CheckButton" parent="PC/VBC"]
+visible = false
+margin_right = 344.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 1 )
+text = "Simple Card Animations"
+
+[node name="AnimateTextBackground" type="CheckButton" parent="PC/VBC"]
+visible = false
+margin_right = 340.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 1 )
+
+[node name="FancyAnimations" type="CheckButton" parent="PC/VBC"]
+margin_right = 281.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 1 )
+text = "Fancy Animations"
+
+[node name="PreBuilts" type="Button" parent="PC/VBC"]
+visible = false
+margin_top = 60.0
+margin_right = 340.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Restore Pre-Built Decks"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PC/VBC"]
+margin_top = 60.0
+margin_right = 281.0
+margin_bottom = 110.0
+
+[node name="Back" type="Button" parent="PC/VBC/HBoxContainer"]
+margin_right = 281.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 3 )
+text = "BACK"
+
+[connection signal="toggled" from="PC/VBC/SimpleAnimations" to="." method="_on_AnimateHand_toggled"]
+[connection signal="toggled" from="PC/VBC/AnimateTextBackground" to="." method="_on_AnimateBoard_toggled"]
+[connection signal="toggled" from="PC/VBC/FancyAnimations" to="." method="_on_FancAnimations_toggled"]
