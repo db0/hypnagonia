@@ -1,0 +1,139 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/icons/GUI/previous-button.png" type="Texture" id=3]
+[ext_resource path="res://assets/icons/GUI/next-button.png" type="Texture" id=4]
+[ext_resource path="res://src/dreamscape/Tutorials/Tutorial.gd" type="Script" id=5]
+[ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=6]
+[ext_resource path="res://assets/icons/GUI/cancel.png" type="Texture" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 35
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="Tutorial" type="CenterContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_right = 2.0
+rect_min_size = Vector2( 1455, 900 )
+theme = ExtResource( 6 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PC" type="PanelContainer" parent="."]
+self_modulate = Color( 1, 1, 1, 0.901961 )
+margin_left = 227.0
+margin_top = 200.0
+margin_right = 1227.0
+margin_bottom = 700.0
+rect_min_size = Vector2( 1000, 500 )
+
+[node name="VBC" type="VBoxContainer" parent="PC"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 998.0
+margin_bottom = 498.0
+
+[node name="HBC2" type="HBoxContainer" parent="PC/VBC"]
+margin_right = 996.0
+margin_bottom = 50.0
+
+[node name="Title" type="Label" parent="PC/VBC/HBC2"]
+margin_top = 13.0
+margin_right = 943.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+text = "Quick Reference"
+align = 1
+uppercase = true
+
+[node name="Exit" type="Button" parent="PC/VBC/HBC2"]
+margin_left = 946.0
+margin_right = 996.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = SubResource( 1 )
+icon = ExtResource( 7 )
+flat = true
+expand_icon = true
+
+[node name="HBC" type="HBoxContainer" parent="PC/VBC"]
+margin_top = 53.0
+margin_right = 996.0
+margin_bottom = 496.0
+size_flags_vertical = 3
+
+[node name="LeftButtons" type="VBoxContainer" parent="PC/VBC/HBC"]
+margin_right = 50.0
+margin_bottom = 443.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="Push1" type="Control" parent="PC/VBC/HBC/LeftButtons"]
+margin_right = 50.0
+margin_bottom = 220.0
+size_flags_vertical = 3
+
+[node name="Previous" type="Button" parent="PC/VBC/HBC/LeftButtons"]
+visible = false
+margin_top = 196.0
+margin_right = 50.0
+margin_bottom = 246.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+icon = ExtResource( 3 )
+flat = true
+expand_icon = true
+
+[node name="Push2" type="Control" parent="PC/VBC/HBC/LeftButtons"]
+margin_top = 223.0
+margin_right = 50.0
+margin_bottom = 443.0
+size_flags_vertical = 3
+
+[node name="PageContainer" type="MarginContainer" parent="PC/VBC/HBC"]
+margin_left = 53.0
+margin_right = 943.0
+margin_bottom = 443.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="RightButtons" type="VBoxContainer" parent="PC/VBC/HBC"]
+margin_left = 946.0
+margin_right = 996.0
+margin_bottom = 443.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="Push1" type="Control" parent="PC/VBC/HBC/RightButtons"]
+margin_right = 50.0
+margin_bottom = 193.0
+size_flags_vertical = 3
+
+[node name="Next" type="Button" parent="PC/VBC/HBC/RightButtons"]
+margin_top = 196.0
+margin_right = 50.0
+margin_bottom = 246.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+icon = ExtResource( 4 )
+flat = true
+expand_icon = true
+
+[node name="Push2" type="Control" parent="PC/VBC/HBC/RightButtons"]
+margin_top = 249.0
+margin_right = 50.0
+margin_bottom = 443.0
+size_flags_vertical = 3
+
+[connection signal="pressed" from="PC/VBC/HBC2/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="PC/VBC/HBC/LeftButtons/Previous" to="." method="_on_Previous_pressed"]
+[connection signal="pressed" from="PC/VBC/HBC/RightButtons/Next" to="." method="_on_Next_pressed"]

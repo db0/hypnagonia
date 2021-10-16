@@ -1,0 +1,212 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/tutorial/ordeal/deck_immersion.png" type="Texture" id=1]
+[ext_resource path="res://assets/tutorial/ordeal/discard_forgotten_endturn.png" type="Texture" id=2]
+[ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=3]
+
+[node name="OrdealHelpPage1" type="Control"]
+margin_left = 54.0
+margin_right = 932.0
+margin_bottom = 432.0
+rect_min_size = Vector2( 878, 432 )
+size_flags_horizontal = 3
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+visible = false
+margin_right = 145.0
+margin_bottom = 24.0
+text = "Ordeal Reference"
+
+[node name="Deck_Immersion" type="TextureRect" parent="."]
+margin_left = 144.0
+margin_top = 1.0
+margin_right = 273.0
+margin_bottom = 319.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Immersion" type="PanelContainer" parent="."]
+margin_left = -13.379
+margin_top = 8.85657
+margin_right = 71.621
+margin_bottom = 36.8566
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Immersion"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 97.0
+margin_bottom = 26.0
+text = "Immersion"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="Immersion"]
+position = Vector2( 57.5571, -30.2381 )
+scale = Vector2( 0.685019, 1 )
+points = PoolVector2Array( 145.083, 44.1172, 58.7169, 44.7077 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="Deck" type="PanelContainer" parent="."]
+margin_left = -5.5217
+margin_top = 91.4123
+margin_right = 40.4783
+margin_bottom = 119.412
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Deck"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 50.0
+margin_bottom = 26.0
+text = "Deck"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="Deck"]
+position = Vector2( 57.5571, -30.2381 )
+scale = Vector2( 0.685019, 1 )
+points = PoolVector2Array( 145.083, 44.1172, -9.24641, 44.269 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="Discard_Forgotten" type="TextureRect" parent="."]
+margin_left = 142.11
+margin_top = 186.208
+margin_right = 271.11
+margin_bottom = 504.208
+rect_scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EndTurn" type="PanelContainer" parent="."]
+margin_left = 2.48734
+margin_top = 190.858
+margin_right = 71.4873
+margin_bottom = 218.858
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="EndTurn"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 86.0
+margin_bottom = 26.0
+text = "End Turn"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="EndTurn"]
+position = Vector2( 57.5571, -30.2381 )
+scale = Vector2( 0.685019, 1 )
+points = PoolVector2Array( 124.739, 44.2242, 45.2002, 45.8179 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="Forgotten" type="PanelContainer" parent="."]
+margin_left = -12.4713
+margin_top = 272.866
+margin_right = 90.5287
+margin_bottom = 312.866
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Forgotten"]
+margin_left = 2.0
+margin_top = 8.0
+margin_right = 130.0
+margin_bottom = 32.0
+text = "Forgotten Pile"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="Forgotten"]
+position = Vector2( 57.5571, -30.2381 )
+scale = Vector2( 0.685019, 1 )
+points = PoolVector2Array( 148.483, 35.6293, 109.751, 41.2076 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="Discard" type="PanelContainer" parent="."]
+margin_left = -11.7642
+margin_top = 355.504
+margin_right = 78.2358
+margin_bottom = 395.504
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Discard"]
+margin_left = 2.0
+margin_top = 8.0
+margin_right = 109.0
+margin_bottom = 32.0
+text = "Discard Pile"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="Discard"]
+position = Vector2( 57.5571, -30.2381 )
+scale = Vector2( 0.685019, 1 )
+points = PoolVector2Array( 152.091, 41.0081, 77.0278, 46.3499 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="Tutorial" type="RichTextLabel" parent="."]
+margin_left = 290.87
+margin_top = 0.881104
+margin_right = 863.87
+margin_bottom = 402.881
+bbcode_enabled = true
+bbcode_text = "This is the Ordeal Encounter.
+
+In an ordeal, the dreamer imagines Torments of their own making, which they have to interpret by playing cards, in order to proceed in their dreams.
+
+Each turn you gain some Immersion and draw 5 cards. You play card by double-clicking them or dragging them to the board. After a card is played, it is either moved to the discard pile or the forgotten pile.
+
+Once you have played all cards for this turn, press the \"End Turn\" button to refill your hand and immersion and proceed to the Torment's turn. If your deck runs out, your discard pile will be automatically reshuffled into a new deck and you will continue drawing."
+text = "This is the Ordeal Encounter.
+
+In an ordeal, the dreamer imagines Torments of their own making, which they have to interpret by playing cards, in order to proceed in their dreams.
+
+Each turn you gain some Immersion and draw 5 cards. You play card by double-clicking them or dragging them to the board. After a card is played, it is either moved to the discard pile or the forgotten pile.
+
+Once you have played all cards for this turn, press the \"End Turn\" button to refill your hand and immersion and proceed to the Torment's turn. If your deck runs out, your discard pile will be automatically reshuffled into a new deck and you will continue drawing."
+__meta__ = {
+"_edit_use_anchors_": false
+}

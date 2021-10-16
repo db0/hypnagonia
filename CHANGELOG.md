@@ -3,6 +3,10 @@
 ## v0.12.3
 
 * Added The Candyman encounter
+* Added two New Flight Cards
+* The way untouchable works has been adjusted. Instead of protecting for everything in a turn, it protects only for 1 attack. All untouchable are lost at turn end.
+* Enabled the Settings button. Only one option for the moment, to disable fancy animations and shuffle for a faster game.
+
 
 ## v0.12.2
 

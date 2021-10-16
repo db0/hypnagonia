@@ -51,6 +51,7 @@ func _ready() -> void:
 	_player_area.add_child(dreamer)
 	dreamer.rect_position = Vector2(100,100)
 	_on_viewport_resized()
+# warning-ignore:return_value_discarded
 	cfc.connect("cache_cleared", self, '_recalculate_predictions')
 #	begin_encounter()
 #
@@ -304,6 +305,7 @@ func _debug_advanced_enemy() -> void:
 			preload("res://src/dreamscape/CombatElements/Enemies/Elites/Bully.tscn").instance()
 	advanced_entity.setup_advanced("medium")
 	_enemy_area.add_child(advanced_entity)
+# warning-ignore:return_value_discarded
 	advanced_entity.connect("finished_activation", self, "_on_finished_enemy_activation")
 	
 

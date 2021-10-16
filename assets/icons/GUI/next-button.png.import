@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cog.png-272c7906438e6d08480386cb605de57a.stex"
+path="res://.import/next-button.png-39b4361f28b05f4ba63b5904f68d33f2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/cog.png"
-dest_files=[ "res://.import/cog.png-272c7906438e6d08480386cb605de57a.stex" ]
+source_file="res://assets/icons/GUI/next-button.png"
+dest_files=[ "res://.import/next-button.png-39b4361f28b05f4ba63b5904f68d33f2.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

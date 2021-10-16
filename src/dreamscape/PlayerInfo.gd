@@ -29,6 +29,8 @@ onready var _deck_button := $HBC/Deck
 onready var _pathos_details := $PathosDetails
 onready var _pathos_details_list := $PathosDetails/VBC
 onready var _pathos_button := $HBC/Pathos
+onready var _help := $Help
+onready var _tutorial := $Help/Tutorial
 onready var _artifacts := $HBC/Artifacts
 
 func _ready() -> void:
@@ -128,6 +130,11 @@ func _on_Pathos_pressed() -> void:
 		_pathos_button.rect_global_position + Vector2(-_pathos_details.rect_size.x,50)
 
 
+func _on_Help_pressed() -> void:
+	cfc.game_paused = true
+	_tutorial.setup("ordeal", _help)
+	_help.popup_centered_minsize()
+
 func _on_artifact_added(artifact_object: ArtifactObject) -> void:
 	_instance_artifact(artifact_object, true)
 
@@ -145,4 +152,3 @@ func _instance_artifact(artifact_object: ArtifactObject, new_addition := false) 
 		artifact_active = true
 	new_artifact.setup_artifact(artifact_object, artifact_active, new_addition)
 	_artifacts.add_child(new_artifact)
-

@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/book-pile.png-a544f553cdff51d40c49e6e4c7874938.stex"
+path="res://.import/info.png-31e9e6388cd1da3fe5955487719014f0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/book-pile.png"
-dest_files=[ "res://.import/book-pile.png-a544f553cdff51d40c49e6e4c7874938.stex" ]
+source_file="res://assets/icons/GUI/info.png"
+dest_files=[ "res://.import/info.png-31e9e6388cd1da3fe5955487719014f0.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
