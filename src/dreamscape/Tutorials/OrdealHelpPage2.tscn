@@ -1,0 +1,273 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/tutorial/ordeal/Interpretation.png" type="Texture" id=1]
+[ext_resource path="res://assets/tutorial/ordeal/Confidence.png" type="Texture" id=2]
+[ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=3]
+[ext_resource path="res://assets/tutorial/ordeal/Nothing to Fear.png" type="Texture" id=4]
+
+[node name="OrdealHelpPage2" type="Control"]
+margin_right = 878.0
+margin_bottom = 432.0
+rect_min_size = Vector2( 878, 432 )
+size_flags_horizontal = 3
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+visible = false
+margin_right = 145.0
+margin_bottom = 24.0
+text = "Card Layout"
+
+[node name="Interpretation" type="TextureRect" parent="."]
+margin_left = 238.085
+margin_top = 70.1822
+margin_right = 338.085
+margin_bottom = 220.182
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="TextureRect" parent="."]
+margin_left = 192.844
+margin_top = 146.378
+margin_right = 292.844
+margin_bottom = 296.378
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Concentration" type="TextureRect" parent="."]
+margin_left = 242.847
+margin_top = 265.432
+margin_right = 342.847
+margin_bottom = 415.432
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InfoPanel" type="PanelContainer" parent="."]
+margin_left = 97.0467
+margin_top = 3.66687
+margin_right = 201.047
+margin_bottom = 31.6669
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InfoPanel"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 102.0
+margin_bottom = 26.0
+text = "Card Name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel"]
+position = Vector2( 57.5571, -30.2381 )
+scale = Vector2( 0.685019, 1 )
+points = PoolVector2Array( 170.167, 99.1487, 68.8742, 41.5598 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="InfoPanel2" type="PanelContainer" parent="."]
+margin_left = 79.6595
+margin_top = 102.309
+margin_right = 183.659
+margin_bottom = 130.309
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InfoPanel2"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 102.0
+margin_bottom = 26.0
+text = "Card type"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel2"]
+position = Vector2( 57.5571, -30.2381 )
+scale = Vector2( 0.685019, 1 )
+points = PoolVector2Array( 180.363, 15.7585, 67.2136, 42.0596 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="InfoPanel3" type="PanelContainer" parent="."]
+margin_left = 4.94955
+margin_top = 172.476
+margin_right = 103.95
+margin_bottom = 226.476
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InfoPanel3"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 97.0
+margin_bottom = 52.0
+text = "Immersion
+cost"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel3"]
+position = Vector2( 57.5571, -30.2381 )
+scale = Vector2( 0.685019, 1 )
+points = PoolVector2Array( 251.149, 76.6933, 59.7649, 58.7137 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="InfoPanel4" type="PanelContainer" parent="."]
+margin_left = 65.2715
+margin_top = 290.739
+margin_right = 126.271
+margin_bottom = 318.739
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InfoPanel4"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 59.0
+margin_bottom = 26.0
+text = "Rarity"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel4"]
+position = Vector2( 57.5571, -30.2381 )
+scale = Vector2( 0.685019, 1 )
+points = PoolVector2Array( 191.302, 19.1879, 5.97677, 45.1444 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="Pointer2" type="Line2D" parent="InfoPanel4"]
+position = Vector2( 57.5571, -30.2381 )
+scale = Vector2( 0.685019, 1 )
+points = PoolVector2Array( 245.728, 96.1136, 4.5989, 45.1444 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="InfoPanel5" type="PanelContainer" parent="."]
+margin_left = 382.173
+margin_top = 385.626
+margin_right = 432.173
+margin_bottom = 413.626
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InfoPanel5"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 48.0
+margin_bottom = 26.0
+text = "Tags"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel5"]
+position = Vector2( 57.5571, -30.2381 )
+scale = Vector2( 0.685019, 1 )
+points = PoolVector2Array( -144.294, 1.74472, -64.2389, 27.5694 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="Pointer2" type="Line2D" parent="InfoPanel5"]
+position = Vector2( 57.5571, -30.2381 )
+scale = Vector2( 0.685019, 1 )
+points = PoolVector2Array( -260.159, -2.22379, -63.1452, 29.0677 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="InfoPanel6" type="PanelContainer" parent="."]
+margin_left = 48.8843
+margin_top = 385.744
+margin_right = 171.884
+margin_bottom = 413.744
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InfoPanel6"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 121.0
+margin_bottom = 26.0
+text = "Card abilities"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel6"]
+position = Vector2( 57.5571, -30.2381 )
+scale = Vector2( 0.685019, 1 )
+points = PoolVector2Array( 202.27, 35.4945, 96.7792, 43.6389 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="Tutorial" type="RichTextLabel" parent="."]
+margin_left = 377.0
+margin_top = 21.0
+margin_right = 841.0
+margin_bottom = 339.0
+bbcode_enabled = true
+bbcode_text = "There are many types of cards, but they all share similar properties.
+[ul]
+* Card name: The unique card name
+* Card type: The type of card defines what kind of 
+   effects it provides.
+* Immersion cost: How much immersion it takes to play
+   this card.
+* Rarity: How likely you are to find this card.
+* Card abilities: The effects of the card.
+* Tags: Quick reference to effects caused by the card
+   or special rules applied to it."
+text = "There are many types of cards, but they all share similar properties.
+
+* Card name: The unique card name
+* Card type: The type of card defines what kind of 
+   effects it provides.
+* Immersion cost: How much immersion it takes to play
+   this card.
+* Rarity: How likely you are to find this card.
+* Card abilities: The effects of the card.
+* Tags: Quick reference to effects caused by the card
+   or special rules applied to it."
+__meta__ = {
+"_edit_use_anchors_": false
+}

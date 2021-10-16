@@ -152,21 +152,6 @@ func spawn_advanced_enemy(encounter: CombatEncounter) -> EnemyEntity:
 	return(advanced_entity)
 
 
-# This function is to avoid relating the logic in the card objects
-# to a node which might not be there in another game
-# You can remove this function and the FancyMovementToggle button
-# without issues
-func _on_FancyMovementToggle_toggled(_button_pressed) -> void:
-#	cfc.game_settings.fancy_movement = $FancyMovementToggle.pressed
-	cfc.set_setting('fancy_movement', $FancyMovementToggle.pressed)
-
-
-func _on_OvalHandToggle_toggled(_button_pressed: bool) -> void:
-	cfc.set_setting("hand_use_oval_shape", $OvalHandToggle.pressed)
-	for c in cfc.NMAP.hand.get_all_cards():
-		c.reorganize_self()
-
-
 # Reshuffles all Card objects created back into the deck
 func _on_ReshuffleAllDeck_pressed() -> void:
 	reshuffle_all_in_pile(cfc.NMAP.deck)
@@ -187,11 +172,6 @@ func reshuffle_all_in_pile(pile = cfc.NMAP.deck):
 		yield(last_card._tween, "tween_all_completed")
 	yield(get_tree().create_timer(0.2), "timeout")
 	pile.shuffle_cards()
-
-
-# Button to change focus mode
-func _on_ScalingFocusOptions_item_selected(index) -> void:
-	cfc.set_setting('focus_style', index)
 
 
 # Button to make all cards act as attachments

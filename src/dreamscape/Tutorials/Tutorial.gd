@@ -7,12 +7,13 @@ var popup_node : Popup
 var tutorials := {
 	"ordeal": [
 		preload("res://src/dreamscape/Tutorials/OrdealHelpPage1.tscn"),
+		preload("res://src/dreamscape/Tutorials/OrdealHelpPage2.tscn"),
 	]
 }
 
 onready var _page_container = $PC/VBC/HBC/PageContainer
 onready var _next = $PC/VBC/HBC/RightButtons/Next
-onready var _previous = $PC/VBC/HBC/RightButtons/Previous
+onready var _previous = $PC/VBC/HBC/LeftButtons/Previous
 onready var _title = $PC/VBC/HBC2/Title
 
 func _ready() -> void:
@@ -52,6 +53,7 @@ func _on_Next_pressed() -> void:
 func _on_Exit_pressed() -> void:
 	popup_node.hide()
 	_clear_page()
+	cfc.game_paused = false
 
 
 func _clear_page() -> void:
