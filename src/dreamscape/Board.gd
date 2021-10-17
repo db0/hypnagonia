@@ -71,6 +71,9 @@ func begin_encounter() -> void:
 	turn.encounter_event_count.clear()
 	emit_signal("battle_begun")
 	turn.start_player_turn()
+	if not cfc.game_settings.get('first_ordeal_tutorial_done'):
+		player_info._on_Help_pressed()
+		cfc.set_setting('first_ordeal_tutorial_done', true)
 
 func _retrieve_alpha() -> int:
 	var alpha_count := 0

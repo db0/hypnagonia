@@ -42,6 +42,9 @@ func _ready() -> void:
 		journal_choice.connect("pressed", self, "_on_choice_pressed", [encounter, journal_choice])
 		_reveal_entry(journal_choice)
 		yield(_tween, "tween_all_completed")
+	if not cfc.game_settings.get('first_journal_tutorial_done'):
+		player_info._on_Help_pressed()
+		cfc.set_setting('first_journal_tutorial_done', true)
 
 
 func display_nce_rewards(reward_text: String) -> void:

@@ -53,6 +53,7 @@ onready var _remove_cost := $VBC/VBC/HBC/Buttons/RemoveCost
 onready var _remove_button := $VBC/VBC/HBC/Buttons/Remove
 # This button is connected to the event code.
 onready var back_button := $VBC/VBC/HBoxContainer/Back
+onready var player_info := $VBC/PlayerInfo
 
 
 func _ready() -> void:
@@ -74,6 +75,9 @@ func _ready() -> void:
 	_deck_preview_popup.connect("operation_performed", self, "_on_deck_operation_performed")
 	populate_shop_cards()
 	populate_shop_artifacts()
+	if not cfc.game_settings.get('first_shop_tutorial_done'):
+		player_info._on_Help_pressed()
+		cfc.set_setting('first_shop_tutorial_done', true)
 
 
 func populate_shop_cards() -> void:
