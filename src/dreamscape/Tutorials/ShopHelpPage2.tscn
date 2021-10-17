@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/tutorial/shop/card_pool.png" type="Texture" id=1]
+[ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=3]
+
+[node name="ShopHelpPage2" type="Control"]
+margin_left = 54.0
+margin_right = 932.0
+margin_bottom = 432.0
+rect_min_size = Vector2( 878, 432 )
+size_flags_horizontal = 3
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+visible = false
+margin_right = 145.0
+margin_bottom = 24.0
+text = "Shop Card Pool"
+
+[node name="CardPool" type="TextureRect" parent="."]
+margin_left = 129.342
+margin_top = 23.5631
+margin_right = 1404.34
+margin_bottom = 328.563
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tutorial" type="RichTextLabel" parent="."]
+margin_left = 121.162
+margin_top = 195.881
+margin_right = 760.162
+margin_bottom = 409.881
+bbcode_enabled = true
+bbcode_text = "The top area of the shop represents cards available to add to your deck. These cards are always coming from your card pool based on your chosen Archetypes.
+
+Most of them are bought using the same released pathos, but one is always using a different one."
+text = "The top area of the shop represents cards available to add to your deck. These cards are always coming from your card pool based on your chosen Archetypes.
+
+Most of them are bought using the same released pathos, but one is always using a different one."
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -20,6 +20,12 @@ var tutorials := {
 		preload("res://src/dreamscape/Tutorials/JournalHelpPage3.tscn"),
 		preload("res://src/dreamscape/Tutorials/JournalHelpPage4.tscn"),
 		preload("res://src/dreamscape/Tutorials/JournalHelpPage5.tscn"),
+	],
+	ArtifactDefinitions.EffectContext.SHOP: [
+		preload("res://src/dreamscape/Tutorials/ShopHelpPage1.tscn"),
+		preload("res://src/dreamscape/Tutorials/ShopHelpPage2.tscn"),
+		preload("res://src/dreamscape/Tutorials/ShopHelpPage3.tscn"),
+		preload("res://src/dreamscape/Tutorials/ShopHelpPage4.tscn"),
 	]
 }
 

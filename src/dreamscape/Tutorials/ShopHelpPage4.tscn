@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/tutorial/shop/shiop_deck.png" type="Texture" id=1]
+[ext_resource path="res://assets/tutorial/shop/buttons.png" type="Texture" id=2]
+[ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=3]
+
+[node name="ShopHelpPage3" type="Control"]
+margin_left = 54.0
+margin_right = 932.0
+margin_bottom = 432.0
+rect_min_size = Vector2( 878, 432 )
+size_flags_horizontal = 3
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+visible = false
+margin_right = 145.0
+margin_bottom = 24.0
+text = "Shop Services"
+
+[node name="Buttons" type="TextureRect" parent="."]
+margin_left = 7.96832
+margin_top = 18.3122
+margin_right = 201.968
+margin_bottom = 495.312
+rect_scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="deck" type="TextureRect" parent="."]
+margin_left = 234.954
+margin_top = 237.583
+margin_right = 1130.95
+margin_bottom = 561.583
+rect_scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tutorial" type="RichTextLabel" parent="."]
+margin_left = 145.0
+margin_top = 13.0
+margin_right = 836.0
+margin_bottom = 270.0
+bbcode_enabled = true
+bbcode_text = "Finally there are some service available which can be used to tweak your current deck. Clicking on any of these buttons will reveal your current deck where you can click on the card you wish to select for that service.
+
+The Remove Card service allows to remove cards which are not as powerful, or synergistic. Typically used to remove Basic cards, you can also remove {perturbations}. Each use of this service, makes future uses more expensive
+
+The Progress Card service provides assistance in upgrading your more useful cards. its cost is proportional to the number of already upgraded cards in your deck."
+text = "Finally there are some service available which can be used to tweak your current deck. Clicking on any of these buttons will reveal your current deck where you can click on the card you wish to select for that service.
+
+The Remove Card service allows to remove cards which are not as powerful, or synergistic. Typically used to remove Basic cards, you can also remove {perturbations}. Each use of this service, makes future uses more expensive
+
+The Progress Card service provides assistance in upgrading your more useful cards. its cost is proportional to the number of already upgraded cards in your deck."
+__meta__ = {
+"_edit_use_anchors_": false
+}
