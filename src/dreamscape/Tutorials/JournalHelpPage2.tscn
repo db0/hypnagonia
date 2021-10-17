@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/tutorial/journal/journal_choices3.png" type="Texture" id=1]
+[ext_resource path="res://assets/tutorial/journal/journal_choices2.png" type="Texture" id=2]
+[ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=3]
+[ext_resource path="res://assets/tutorial/journal/journal_choices1.png" type="Texture" id=4]
+
+[node name="JournalHelpPage2" type="Control"]
+margin_left = 54.0
+margin_right = 932.0
+margin_bottom = 432.0
+rect_min_size = Vector2( 878, 432 )
+size_flags_horizontal = 3
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+visible = false
+margin_right = 145.0
+margin_bottom = 24.0
+text = "Dream Choices"
+
+[node name="Choices1" type="TextureRect" parent="."]
+margin_left = 8.73016
+margin_top = 13.1892
+margin_right = 741.73
+margin_bottom = 231.189
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Choices2" type="TextureRect" parent="."]
+margin_left = 8.48706
+margin_top = 138.783
+margin_right = 746.487
+margin_bottom = 349.783
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Choices3" type="TextureRect" parent="."]
+margin_left = 52.2751
+margin_top = 259.021
+margin_right = 793.275
+margin_bottom = 822.021
+rect_scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tutorial" type="RichTextLabel" parent="."]
+margin_left = 389.0
+margin_top = 22.0
+margin_right = 866.0
+margin_bottom = 391.0
+bbcode_enabled = true
+bbcode_text = "Each journal encounter will start by providing you a set of one of more options for the next dream, to choose from. Depending on your choice, a different dream encounter will begin.
+
+The most typical dream  will begin an Ordeal for the dreamer. In this, the dreamer will have to face and overcome their internal Torments.
+
+But there's a lot of other dreams to be had, a lot of them might have a chain of choices, each giving different results.
+
+Any time you see an underlined text, you can mouse over to see information about it. Sometimes even clicking it will do stuff!"
+text = "Each journal encounter will start by providing you a set of one of more options for the next dream, to choose from. Depending on your choice, a different dream encounter will begin.
+
+The most typical dream  will begin an Ordeal for the dreamer. In this, the dreamer will have to face and overcome their internal Torments.
+
+But there's a lot of other dreams to be had, a lot of them might have a chain of choices, each giving different results.
+
+Any time you see an underlined text, you can mouse over to see information about it. Sometimes even clicking it will do stuff!"
+__meta__ = {
+"_edit_use_anchors_": false
+}

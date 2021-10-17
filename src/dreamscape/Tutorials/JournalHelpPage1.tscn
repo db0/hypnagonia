@@ -1,0 +1,260 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/tutorial/journal/playerinfo.png" type="Texture" id=1]
+[ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=3]
+
+[node name="JournalHelpPage1" type="Control"]
+margin_left = 54.0
+margin_right = 932.0
+margin_bottom = 432.0
+rect_min_size = Vector2( 878, 432 )
+size_flags_horizontal = 3
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+visible = false
+margin_right = 145.0
+margin_bottom = 24.0
+text = "Journal Reference"
+
+[node name="Deck_Immersion" type="TextureRect" parent="."]
+margin_left = 49.8967
+margin_top = 61.6129
+margin_right = 773.897
+margin_bottom = 114.613
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InfoPanel" type="PanelContainer" parent="."]
+margin_left = 12.621
+margin_top = 8.85657
+margin_right = 86.621
+margin_bottom = 36.8566
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InfoPanel"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 72.0
+margin_bottom = 26.0
+text = "Anxiety"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel"]
+position = Vector2( 57.5571, -30.2381 )
+scale = Vector2( 0.685019, 1 )
+points = PoolVector2Array( 36.6263, 94.6278, -30.6317, 57.5447 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="InfoPanel2" type="PanelContainer" parent="."]
+margin_left = 156.107
+margin_top = 8.11649
+margin_right = 230.107
+margin_bottom = 36.1165
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InfoPanel2"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 72.0
+margin_bottom = 26.0
+text = "Curios"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel2"]
+position = Vector2( 57.5571, -30.2381 )
+scale = Vector2( 0.685019, 1 )
+points = PoolVector2Array( -49.6831, 97.3388, -30.6317, 57.5447 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="Pointer2" type="Line2D" parent="InfoPanel2"]
+position = Vector2( 57.5571, -30.2381 )
+scale = Vector2( 0.685019, 1 )
+points = PoolVector2Array( -21.4493, 97.3388, -30.6317, 57.5447 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="InfoPanel3" type="PanelContainer" parent="."]
+margin_left = 307.084
+margin_top = 10.444
+margin_right = 459.084
+margin_bottom = 38.444
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InfoPanel3"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 150.0
+margin_bottom = 26.0
+text = "Encounter Name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel3"]
+position = Vector2( 102.557, -30.2381 )
+scale = Vector2( 0.685019, 1 )
+points = PoolVector2Array( -30.5178, 99.5096, -30.6317, 57.5447 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="InfoPanel4" type="PanelContainer" parent="."]
+margin_left = 531.144
+margin_top = 9.50342
+margin_right = 600.144
+margin_bottom = 37.5034
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InfoPanel4"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 67.0
+margin_bottom = 26.0
+text = "Pathos"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel4"]
+position = Vector2( 58.7105, -17.7125 )
+scale = Vector2( 0.419192, 0.778483 )
+points = PoolVector2Array( -30.5178, 99.5096, -30.6317, 57.5447 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="InfoPanel5" type="PanelContainer" parent="."]
+margin_left = 616.144
+margin_top = 9.50342
+margin_right = 668.144
+margin_bottom = 37.5034
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InfoPanel5"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 50.0
+margin_bottom = 26.0
+text = "Deck"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel5"]
+position = Vector2( 38.7104, -17.7125 )
+scale = Vector2( 0.419192, 0.778483 )
+points = PoolVector2Array( -30.5178, 99.5096, -30.6317, 57.5447 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="InfoPanel6" type="PanelContainer" parent="."]
+margin_left = 671.144
+margin_top = 9.50342
+margin_right = 723.144
+margin_bottom = 37.5034
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InfoPanel6"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 50.0
+margin_bottom = 26.0
+text = "Help"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel6"]
+position = Vector2( 38.7104, -17.7125 )
+scale = Vector2( 0.419192, 0.778483 )
+points = PoolVector2Array( -30.5178, 99.5096, -30.6317, 57.5447 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="InfoPanel7" type="PanelContainer" parent="."]
+margin_left = 730.144
+margin_top = 9.50342
+margin_right = 811.144
+margin_bottom = 37.5034
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InfoPanel7"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 79.0
+margin_bottom = 26.0
+text = "Settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel7"]
+position = Vector2( 38.7104, -17.7125 )
+scale = Vector2( 0.419192, 0.778483 )
+points = PoolVector2Array( -63.9351, 98.3069, -30.6317, 57.5447 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="Tutorial" type="RichTextLabel" parent="."]
+margin_left = 26.0
+margin_top = 122.0
+margin_right = 866.0
+margin_bottom = 423.0
+bbcode_enabled = true
+bbcode_text = "Each Dreamer you control is compelled to write about this weird experience in their dream journal. Throughout this night, the dreamer will encounter various types of dreams, each with their own effect on them. 
+
+The top bar appears at every point and every encounter. it is a convenient way to keep track of the state of the dreamer.
+
+{anxiety} Anxiety shows how close the dreamer is to waking up due to stress from their dreams. If this ever reaches the threshold, this run will end. But you can always try again!
+Curios are things the dreamer imagines during their sleep. They may be items, insights or feelings and they all slightly change the rules of the game, usually to your advantage.
+Pathos/Deck/Help/Settings: Use these buttons to see more info about your run. They will be explained in details in the next pages."
+text = "Each Dreamer you control is compelled to write about this weird experience in their dream journal. Throughout this night, the dreamer will encounter various types of dreams, each with their own effect on them. 
+
+The top bar appears at every point and every encounter. it is a convenient way to keep track of the state of the dreamer.
+
+{anxiety} Anxiety shows how close the dreamer is to waking up due to stress from their dreams. If this ever reaches the threshold, this run will end. But you can always try again!
+Curios are things the dreamer imagines during their sleep. They may be items, insights or feelings and they all slightly change the rules of the game, usually to your advantage.
+Pathos/Deck/Help/Settings: Use these buttons to see more info about your run. They will be explained in details in the next pages."
+__meta__ = {
+"_edit_use_anchors_": false
+}

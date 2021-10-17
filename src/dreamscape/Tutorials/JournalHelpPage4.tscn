@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/tutorial/journal/deck.png" type="Texture" id=1]
+[ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=3]
+
+[node name="JournalHelpPage4" type="Control"]
+margin_left = 54.0
+margin_right = 932.0
+margin_bottom = 432.0
+rect_min_size = Vector2( 878, 432 )
+size_flags_horizontal = 3
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+visible = false
+margin_right = 145.0
+margin_bottom = 24.0
+text = "Deck View"
+
+[node name="Deck" type="TextureRect" parent="."]
+margin_left = -5.25758
+margin_top = 85.6545
+margin_right = 909.742
+margin_bottom = 700.654
+rect_scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tutorial" type="RichTextLabel" parent="."]
+margin_left = 377.586
+margin_top = 64.598
+margin_right = 861.586
+margin_bottom = 358.598
+bbcode_enabled = true
+bbcode_text = "The deck represents all the things the dreamer will potentially see themselves doing during this dream sequence.
+
+These cards will be shuffled and dealt to the player during an Ordeal, at which point they have to use them to overcome their Torments.
+
+The deck display can be opened at any time and used to plan the journal choices. Mousing over any card will show information about that card, such as how much progress has been made to upgrade it."
+text = "The deck represents all the things the dreamer will potentially see themselves doing during this dream sequence.
+
+These cards will be shuffled and dealt to the player during an Ordeal, at which point they have to use them to overcome their Torments.
+
+The deck display can be opened at any time and used to plan the journal choices. Mousing over any card will show information about that card, such as how much progress has been made to upgrade it."
+__meta__ = {
+"_edit_use_anchors_": false
+}

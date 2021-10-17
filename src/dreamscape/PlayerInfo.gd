@@ -49,7 +49,8 @@ func _process(_delta: float) -> void:
 	_update_deck_count()
 
 func _on_Settings_pressed() -> void:
-	cfc.game_paused = true
+	if context == ArtifactDefinitions.EffectContext.BATTLE:
+		cfc.game_paused = true
 	popup_settings = PopupPanel.new()
 	self.add_child(popup_settings)
 	var settings_menu = SETTINGS_SCENE.instance()
@@ -64,7 +65,8 @@ func _on_Settings_pressed() -> void:
 
 func _on_Settings_hide() -> void:
 	popup_settings.queue_free()
-	cfc.game_paused = false
+	if context == ArtifactDefinitions.EffectContext.BATTLE:
+		cfc.game_paused = false
 
 
 func _on_Deck_pressed() -> void:
@@ -131,7 +133,8 @@ func _on_Pathos_pressed() -> void:
 
 
 func _on_Help_pressed() -> void:
-	cfc.game_paused = true
+	if context == ArtifactDefinitions.EffectContext.BATTLE:
+		cfc.game_paused = true
 	_tutorial.setup(context, _help)
 	_help.popup_centered_minsize()
 

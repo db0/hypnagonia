@@ -12,6 +12,14 @@ var tutorials := {
 		preload("res://src/dreamscape/Tutorials/OrdealHelpPage4.tscn"),
 		preload("res://src/dreamscape/Tutorials/OrdealHelpPage5.tscn"),
 		preload("res://src/dreamscape/Tutorials/OrdealHelpPage6.tscn"),
+	],
+	ArtifactDefinitions.EffectContext.OVERWORLD: [
+		preload("res://src/dreamscape/Tutorials/JournalHelpPage0.tscn"),
+		preload("res://src/dreamscape/Tutorials/JournalHelpPage1.tscn"),
+		preload("res://src/dreamscape/Tutorials/JournalHelpPage2.tscn"),
+		preload("res://src/dreamscape/Tutorials/JournalHelpPage3.tscn"),
+		preload("res://src/dreamscape/Tutorials/JournalHelpPage4.tscn"),
+		preload("res://src/dreamscape/Tutorials/JournalHelpPage5.tscn"),
 	]
 }
 
@@ -57,7 +65,8 @@ func _on_Next_pressed() -> void:
 func _on_Exit_pressed() -> void:
 	popup_node.hide()
 	_clear_page()
-	cfc.game_paused = false
+	if type == ArtifactDefinitions.EffectContext.BATTLE:
+		cfc.game_paused = false
 
 
 func _clear_page() -> void:

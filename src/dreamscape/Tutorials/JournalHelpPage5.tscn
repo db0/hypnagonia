@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/icons/GUI/cog.png" type="Texture" id=1]
+[ext_resource path="res://assets/icons/GUI/info.png" type="Texture" id=2]
+[ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=3]
+
+[node name="JournalHelpPage5" type="Control"]
+margin_left = 54.0
+margin_right = 932.0
+margin_bottom = 432.0
+rect_min_size = Vector2( 878, 432 )
+size_flags_horizontal = 3
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+visible = false
+margin_right = 145.0
+margin_bottom = 24.0
+text = "Help and Settings"
+
+[node name="Help" type="TextureRect" parent="."]
+margin_left = 10.1444
+margin_top = 21.6745
+margin_right = 160.144
+margin_bottom = 171.674
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="TextureRect" parent="."]
+margin_left = 688.967
+margin_top = 245.12
+margin_right = 838.967
+margin_bottom = 395.12
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tutorial" type="RichTextLabel" parent="."]
+margin_left = 226.125
+margin_top = 67.2132
+margin_right = 673.125
+margin_bottom = 410.213
+bbcode_enabled = true
+bbcode_text = "The Help and Settings buttons are always visible to help you play the game.
+
+The Help button will show a Reference window like this one, relevant to the different interfaces throughout the game. You can always press it to refresh your memory. You can also open it by pressing [color=yellow]'H'[/color] on your keyboard
+
+The Settings button will open a window where you can change how the game looks to fit your needs. For example, you might wish for less fancy card animations."
+text = "The Help and Settings buttons are always visible to help you play the game.
+
+The Help button will show a Reference window like this one, relevant to the different interfaces throughout the game. You can always press it to refresh your memory. You can also open it by pressing 'H' on your keyboard
+
+The Settings button will open a window where you can change how the game looks to fit your needs. For example, you might wish for less fancy card animations."
+__meta__ = {
+"_edit_use_anchors_": false
+}
