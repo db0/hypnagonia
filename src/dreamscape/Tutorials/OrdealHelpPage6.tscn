@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=3]
+
+[node name="OrdealHelpPage6" type="Control"]
+margin_right = 878.0
+margin_bottom = 432.0
+rect_min_size = Vector2( 878, 432 )
+size_flags_horizontal = 3
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+visible = false
+margin_right = 145.0
+margin_bottom = 24.0
+text = "Ordeal Basics"
+
+[node name="Tutorial" type="RichTextLabel" parent="."]
+margin_left = 121.55
+margin_top = 21.0
+margin_right = 762.55
+margin_bottom = 445.0
+bbcode_enabled = true
+bbcode_text = "To put these all together: Each turn try to play as many cards as you can to overcome all Torments.
+
+{immersion} - Play as many cards as your immersion allows
+
+{confidence} - Block incoming {stress} as there will be more Torments to face later.
+
+{damage} - interpet the Torments as fast you can. Sometimes offense if the best defence.
+
+{buffer} {poison} {confusion} - Combine your cards in interesting ways to optimize the {damage} you do and reduce {stress} taken."
+text = "To put these all together: Each turn try to play as many cards as you can to overcome all Torments.
+
+{immersion} - Play as many cards as your immersion allows
+
+{confidence} - Block incoming {stress} as there will be more Torments to face later.
+
+{damage} - interpet the Torments as fast you can. Sometimes offense if the best defence.
+
+{buffer} {poison} {confusion} - Combine your cards in interesting ways to optimize the {damage} you do and reduce {stress} taken."
+__meta__ = {
+"_edit_use_anchors_": false
+}

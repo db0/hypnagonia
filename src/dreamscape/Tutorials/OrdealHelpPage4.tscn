@@ -1,0 +1,283 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/tutorial/ordeal/Torment.png" type="Texture" id=1]
+[ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=3]
+
+[node name="OrdealHelpPage4" type="Control"]
+margin_right = 878.0
+margin_bottom = 432.0
+rect_min_size = Vector2( 878, 432 )
+size_flags_horizontal = 3
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+visible = false
+margin_right = 145.0
+margin_bottom = 24.0
+text = "Torment Layout"
+
+[node name="Torment" type="TextureRect" parent="."]
+margin_left = 192.972
+margin_top = 22.7827
+margin_right = 349.972
+margin_bottom = 418.783
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InfoPanel" type="PanelContainer" parent="."]
+anchor_left = 0.000358755
+anchor_right = 0.000358755
+margin_left = 22.572
+margin_top = 62.4652
+margin_right = 127.572
+margin_bottom = 90.4652
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InfoPanel"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 126.0
+margin_bottom = 26.0
+text = "1. Card Effect"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel"]
+position = Vector2( 410.561, -23.5303 )
+scale = Vector2( 2.12469, 0.842551 )
+points = PoolVector2Array( -133.104, 43.6034, -82.619, 43.603 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="InfoPanel2" type="PanelContainer" parent="."]
+anchor_left = 0.000358755
+anchor_right = 0.000358755
+margin_left = 22.572
+margin_top = 109.465
+margin_right = 127.572
+margin_bottom = 137.465
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InfoPanel2"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 103.0
+margin_bottom = 52.0
+text = "2. Torment
+     intents"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel2"]
+position = Vector2( 347.601, -23.5303 )
+scale = Vector2( 1.8235, 0.842551 )
+points = PoolVector2Array( -133.104, 43.6034, -82.619, 43.603 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="InfoPanel3" type="PanelContainer" parent="."]
+anchor_left = 0.000358755
+anchor_right = 0.000358755
+margin_left = 23.1791
+margin_top = 169.634
+margin_right = 127.179
+margin_bottom = 197.634
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InfoPanel3"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 102.0
+margin_bottom = 26.0
+text = "3. Torment"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel3"]
+position = Vector2( 372.027, -23.5303 )
+scale = Vector2( 2.01885, 0.842551 )
+points = PoolVector2Array( -133.104, 43.6034, -82.619, 43.603 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="InfoPanel4" type="PanelContainer" parent="."]
+anchor_left = 0.000358755
+anchor_right = 0.000358755
+margin_left = 22.572
+margin_top = 230.465
+margin_right = 143.572
+margin_bottom = 284.465
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InfoPanel4"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 142.0
+margin_bottom = 52.0
+text = "4. Target Arrow
+    & Selection"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel4"]
+position = Vector2( 237.554, -6.5303 )
+scale = Vector2( 0.703426, 0.842551 )
+points = PoolVector2Array( -133.104, 43.6034, -82.619, 43.603 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="Pointer2" type="Line2D" parent="InfoPanel4"]
+position = Vector2( 247.364, -6.5303 )
+scale = Vector2( 0.775403, 0.842551 )
+points = PoolVector2Array( -133.104, 43.6034, -72.7594, 11.1705 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="InfoPanel5" type="PanelContainer" parent="."]
+anchor_left = 0.000358755
+anchor_right = 0.000358755
+margin_left = 22.572
+margin_top = 294.465
+margin_right = 103.572
+margin_bottom = 322.465
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InfoPanel5"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 151.0
+margin_bottom = 26.0
+text = "5. Interpretation"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel5"]
+position = Vector2( 243.961, -23.5303 )
+scale = Vector2( 0.599122, 0.842551 )
+points = PoolVector2Array( -133.104, 43.6034, -82.619, 43.603 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="InfoPanel6" type="PanelContainer" parent="."]
+anchor_left = 0.000358755
+anchor_right = 0.000358755
+margin_left = 22.572
+margin_top = 327.465
+margin_right = 117.572
+margin_bottom = 355.465
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InfoPanel6"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 116.0
+margin_bottom = 26.0
+text = "6. Perplexity"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel6"]
+position = Vector2( 267.422, -23.5303 )
+scale = Vector2( 0.867047, 0.842551 )
+points = PoolVector2Array( -160.431, 44.0117, -78.696, 33.0731 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="InfoPanel7" type="PanelContainer" parent="."]
+anchor_left = 0.000358755
+anchor_right = 0.000358755
+margin_left = 22.572
+margin_top = 369.465
+margin_right = 152.572
+margin_bottom = 397.465
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InfoPanel7"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 147.0
+margin_bottom = 26.0
+text = "7. Active Effects"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel7"]
+position = Vector2( 268.257, -23.5303 )
+scale = Vector2( 0.896793, 0.842551 )
+points = PoolVector2Array( -133.104, 43.6034, -82.619, 43.603 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="Tutorial" type="RichTextLabel" parent="."]
+margin_left = 377.0
+margin_top = 21.0
+margin_right = 840.0
+margin_bottom = 445.0
+bbcode_enabled = true
+bbcode_text = "During an Ordeal, the Dreamer will have to interpret and overcome their Torments. 
+Each Torment is represented with some art, as well as the various elements which represent their current status.
+Mousing over any element, will provide further information about it.
+
+1. The effects of targeting the torment with the card.
+2. The results of this Torment's turn.
+3. The torment art.
+4. The blue highlight points the current target.
+5. The current and remaining interpretation. When this bar is filled, the Torment is overcome and removed.
+6. Each point of Perplexity prevents 1 point of interpretation of this Torment.
+7. The current buff and debuffs affecting this Torment."
+text = "During an Ordeal, the Dreamer will have to interpret and overcome their Torments. 
+Each Torment is represented with some art, as well as the various elements which represent their current status.
+Mousing over any element, will provide further information about it.
+
+1. The effects of targeting the torment with the card.
+2. The results of this Torment's turn.
+3. The torment art.
+4. The blue highlight points the current target.
+5. The current and remaining interpretation. When this bar is filled, the Torment is overcome and removed.
+6. Each point of Perplexity prevents 1 point of interpretation of this Torment.
+7. The current buff and debuffs affecting this Torment."
+__meta__ = {
+"_edit_use_anchors_": false
+}

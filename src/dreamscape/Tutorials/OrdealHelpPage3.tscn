@@ -1,0 +1,260 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/tutorial/ordeal/Interpretation.png" type="Texture" id=1]
+[ext_resource path="res://assets/tutorial/ordeal/Confidence.png" type="Texture" id=2]
+[ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=3]
+[ext_resource path="res://assets/tutorial/ordeal/Nothing to Fear.png" type="Texture" id=4]
+[ext_resource path="res://assets/tutorial/ordeal/Gaslighter.png" type="Texture" id=5]
+[ext_resource path="res://assets/tutorial/ordeal/Lacuna.png" type="Texture" id=6]
+
+[node name="OrdealHelpPage3" type="Control"]
+margin_right = 878.0
+margin_bottom = 432.0
+rect_min_size = Vector2( 878, 432 )
+size_flags_horizontal = 3
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+visible = false
+margin_right = 145.0
+margin_bottom = 24.0
+text = "Card Types"
+
+[node name="Concentration" type="TextureRect" parent="."]
+margin_left = 11.1332
+margin_top = 5.94577
+margin_right = 111.133
+margin_bottom = 155.946
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="TextureRect" parent="."]
+margin_left = 75.1837
+margin_top = 66.9716
+margin_right = 175.184
+margin_bottom = 216.972
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Action" type="TextureRect" parent="."]
+margin_left = 135.497
+margin_top = 131.297
+margin_right = 235.497
+margin_bottom = 281.297
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Understanding" type="TextureRect" parent="."]
+margin_left = 198.393
+margin_top = 199.596
+margin_right = 298.393
+margin_bottom = 349.596
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Perturbation" type="TextureRect" parent="."]
+margin_left = 259.817
+margin_top = 268.134
+margin_right = 359.817
+margin_bottom = 418.134
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InfoPanel" type="PanelContainer" parent="."]
+margin_left = 280.0
+margin_top = 149.263
+margin_right = 345.0
+margin_bottom = 177.263
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InfoPanel"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 63.0
+margin_bottom = 26.0
+text = "Action"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel"]
+position = Vector2( 53.2692, -30.2381 )
+scale = Vector2( 0.632484, 1 )
+points = PoolVector2Array( -156.649, 44.2005, -82.6194, 44.2005 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="InfoPanel2" type="PanelContainer" parent="."]
+anchor_top = -0.000649558
+anchor_bottom = -0.000649558
+margin_left = 272.0
+margin_top = 80.2806
+margin_right = 346.0
+margin_bottom = 108.281
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InfoPanel2"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 72.0
+margin_bottom = 26.0
+text = "Control"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel2"]
+position = Vector2( 110.524, -30.2381 )
+scale = Vector2( 1.33397, 1 )
+points = PoolVector2Array( -156.649, 44.2005, -82.6194, 44.2005 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="InfoPanel3" type="PanelContainer" parent="."]
+margin_left = 216.0
+margin_top = 20.671
+margin_right = 348.0
+margin_bottom = 48.671
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InfoPanel3"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 130.0
+margin_bottom = 26.0
+text = "Concentration"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel3"]
+position = Vector2( 172.247, -30.2381 )
+scale = Vector2( 2.0902, 1 )
+points = PoolVector2Array( -133.104, 43.6034, -82.619, 43.603 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="InfoPanel4" type="PanelContainer" parent="."]
+anchor_left = 0.000358755
+anchor_right = 0.000358755
+margin_left = 5.73509
+margin_top = 290.325
+margin_right = 142.735
+margin_bottom = 318.325
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InfoPanel4"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 135.0
+margin_bottom = 26.0
+text = "Understanding"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel4"]
+position = Vector2( 283.893, -23.5303 )
+scale = Vector2( 1.10511, 0.842551 )
+points = PoolVector2Array( -133.104, 43.6034, -82.619, 43.603 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="InfoPanel5" type="PanelContainer" parent="."]
+anchor_left = 0.000358755
+anchor_right = 0.000358755
+margin_left = 8.9135
+margin_top = 368.725
+margin_right = 126.913
+margin_bottom = 396.725
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InfoPanel5"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 116.0
+margin_bottom = 26.0
+text = "Perturbation"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel5"]
+position = Vector2( 439.418, -23.5303 )
+scale = Vector2( 2.26485, 0.842551 )
+points = PoolVector2Array( -133.104, 43.6034, -82.619, 43.603 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="Tutorial" type="RichTextLabel" parent="."]
+margin_left = 377.0
+margin_top = 21.0
+margin_right = 862.0
+margin_bottom = 469.0
+bbcode_enabled = true
+bbcode_text = "There are 5  types of cards available. 
+
+[color=green]Concentration[/color] cards become permanent effects on the dreamer, giving constant benefits.
+
+[color=blue]Control[/color] cards tend to have defensive or utility results in the ordeal. The most common is providing {defence} defence.
+
+[color=red]Action[/color] are the main way the dreamer {damage} interprets the Torments they face. 
+
+[color=purple]Understanding[/color] are wildcards. You can typicaly only find them after overcoming Torments and they are specific to each Torment..
+
+[color=black][font=res://fonts/BlackFont.tres]Perturbation[/font][/color] are detrimental cards that clog up your deck, and may even cause other harmful effects. Try to get rid of them as soon as possible.
+"
+text = "There are 5  types of cards available. 
+
+Concentration cards become permanent effects on the dreamer, giving constant benefits.
+
+Control cards tend to have defensive or utility results in the ordeal. The most common is providing {defence} defence.
+
+Action are the main way the dreamer {damage} interprets the Torments they face. 
+
+Understanding are wildcards. You can typicaly only find them after overcoming Torments and they are specific to each Torment..
+
+Perturbation are detrimental cards that clog up your deck, and may even cause other harmful effects. Try to get rid of them as soon as possible.
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}

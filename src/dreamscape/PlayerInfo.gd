@@ -132,7 +132,7 @@ func _on_Pathos_pressed() -> void:
 
 func _on_Help_pressed() -> void:
 	cfc.game_paused = true
-	_tutorial.setup("ordeal", _help)
+	_tutorial.setup(context, _help)
 	_help.popup_centered_minsize()
 
 func _on_artifact_added(artifact_object: ArtifactObject) -> void:
@@ -152,3 +152,11 @@ func _instance_artifact(artifact_object: ArtifactObject, new_addition := false) 
 		artifact_active = true
 	new_artifact.setup_artifact(artifact_object, artifact_active, new_addition)
 	_artifacts.add_child(new_artifact)
+
+
+
+func _input(event):
+	# We use this to allow the developer to take card screenshots
+	# for any number of purposes
+	if event.is_action_pressed("help"):
+		_on_Help_pressed()

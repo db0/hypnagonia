@@ -189,8 +189,8 @@ text = "Released"
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1462.0
-margin_bottom = 907.0
-rect_min_size = Vector2( 1455, 900 )
+margin_bottom = 937.0
+rect_min_size = Vector2( 1455, 930 )
 popup_exclusive = true
 
 [node name="Tutorial" parent="Help" instance=ExtResource( 12 )]

@@ -1,0 +1,183 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/tutorial/ordeal/dreamer.png" type="Texture" id=1]
+[ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=3]
+
+[node name="OrdealHelpPage5" type="Control"]
+margin_right = 878.0
+margin_bottom = 432.0
+rect_min_size = Vector2( 878, 432 )
+size_flags_horizontal = 3
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+visible = false
+margin_right = 145.0
+margin_bottom = 24.0
+text = "Dreamer Layout"
+
+[node name="Dreamer" type="TextureRect" parent="."]
+margin_left = 201.296
+margin_top = 102.46
+margin_right = 342.296
+margin_bottom = 331.46
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InfoPanel3" type="PanelContainer" parent="."]
+anchor_left = 0.000358755
+anchor_right = 0.000358755
+margin_left = 23.1791
+margin_top = 125.634
+margin_right = 128.179
+margin_bottom = 153.634
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InfoPanel3"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 103.0
+margin_bottom = 26.0
+text = "1. Dreamer"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel3"]
+position = Vector2( 319.713, -23.5303 )
+scale = Vector2( 1.53384, 0.842551 )
+points = PoolVector2Array( -133.104, 43.6034, -82.619, 43.603 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="InfoPanel5" type="PanelContainer" parent="."]
+anchor_left = 0.000358755
+anchor_right = 0.000358755
+margin_left = 22.572
+margin_top = 190.465
+margin_right = 119.572
+margin_bottom = 218.465
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel5"]
+position = Vector2( 352.101, -23.5303 )
+scale = Vector2( 1.92406, 0.842551 )
+points = PoolVector2Array( -133.104, 43.6034, -84.3249, 72.2461 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="Label" type="Label" parent="InfoPanel5"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 95.0
+margin_bottom = 26.0
+text = "2. Anxiety"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InfoPanel6" type="PanelContainer" parent="."]
+anchor_left = 0.000358755
+anchor_right = 0.000358755
+margin_left = 22.572
+margin_top = 238.465
+margin_right = 151.572
+margin_bottom = 266.465
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InfoPanel6"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 127.0
+margin_bottom = 26.0
+text = "6. Confidence"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel6"]
+position = Vector2( 256.485, -23.5303 )
+scale = Vector2( 0.799297, 0.842551 )
+points = PoolVector2Array( -160.431, 44.0117, -78.9351, 44.4532 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="InfoPanel7" type="PanelContainer" parent="."]
+anchor_left = 0.000358755
+anchor_right = 0.000358755
+margin_left = 22.572
+margin_top = 290.465
+margin_right = 171.572
+margin_bottom = 318.465
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InfoPanel7"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 147.0
+margin_bottom = 26.0
+text = "7. Active Effects"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel7"]
+position = Vector2( 250.9, -23.5303 )
+scale = Vector2( 0.767364, 0.842551 )
+points = PoolVector2Array( -133.104, 43.6034, -82.619, 43.603 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="Tutorial" type="RichTextLabel" parent="."]
+margin_left = 377.0
+margin_top = 21.0
+margin_right = 840.0
+margin_bottom = 445.0
+bbcode_enabled = true
+bbcode_text = "During an Ordeal, the Dreamer will have to avoid receiving too much anxiety as that would make them wake up and end the run!
+Like with Torments, the Dreamer has some art and elements which describe their state.
+As always, mousing over any element, will provide further information about it.
+
+1. The dreamer art.
+
+2. The current and remaining {anxiety} Anxiety. When this bar is filled, the Dreamer wakes up and the run ends.
+
+3. Each point of {defence} Confidence prevents 1 point of anxiety taken.
+
+4. The current buff and debuffs affecting the Dreamer."
+text = "During an Ordeal, the Dreamer will have to avoid receiving too much anxiety as that would make them wake up and end the run!
+Like with Torments, the Dreamer has some art and elements which describe their state.
+As always, mousing over any element, will provide further information about it.
+
+1. The dreamer art.
+
+2. The current and remaining {anxiety} Anxiety. When this bar is filled, the Dreamer wakes up and the run ends.
+
+3. Each point of {defence} Confidence prevents 1 point of anxiety taken.
+
+4. The current buff and debuffs affecting the Dreamer."
+__meta__ = {
+"_edit_use_anchors_": false
+}

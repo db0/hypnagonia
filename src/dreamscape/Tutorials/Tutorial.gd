@@ -1,13 +1,17 @@
 extends CenterContainer
 
-var type : String = "ordeal"
+var type : int = 0
 var current_index: int
 var popup_node : Popup
 
 var tutorials := {
-	"ordeal": [
+	ArtifactDefinitions.EffectContext.BATTLE: [
 		preload("res://src/dreamscape/Tutorials/OrdealHelpPage1.tscn"),
 		preload("res://src/dreamscape/Tutorials/OrdealHelpPage2.tscn"),
+		preload("res://src/dreamscape/Tutorials/OrdealHelpPage3.tscn"),
+		preload("res://src/dreamscape/Tutorials/OrdealHelpPage4.tscn"),
+		preload("res://src/dreamscape/Tutorials/OrdealHelpPage5.tscn"),
+		preload("res://src/dreamscape/Tutorials/OrdealHelpPage6.tscn"),
 	]
 }
 
@@ -20,7 +24,7 @@ func _ready() -> void:
 	_title.add_font_override("font", theme.get_font("TutorialHeader", "Label"))
 	
 
-func setup(tutorial_type: String, _popup_node: Popup) -> void:
+func setup(tutorial_type: int, _popup_node: Popup) -> void:
 	popup_node = _popup_node	
 	current_index = 0
 	type = tutorial_type
@@ -63,3 +67,5 @@ func _clear_page() -> void:
 func _add_page(page_node: Control) -> void:
 	_page_container.add_child(page_node)
 	_title.text = page_node.get_node("Title").text
+	var tutorial_node = page_node.get_node("Tutorial")
+	tutorial_node.bbcode_text = tutorial_node.bbcode_text.format(Terms.get_bbcode_formats())
