@@ -52,12 +52,12 @@ margin_bottom = 270.0
 bbcode_enabled = true
 bbcode_text = "Finally there are some service available which can be used to tweak your current deck. Clicking on any of these buttons will reveal your current deck where you can click on the card you wish to select for that service.
 
-The Remove Card service allows to remove cards which are not as powerful, or synergistic. Typically used to remove Basic cards, you can also remove {perturbations}. Each use of this service, makes future uses more expensive
+The Remove Card service allows to remove cards which are not as powerful, or synergistic. Typically used to remove Basic cards, you can also remove {perturbation}s. Each use of this service, makes future uses more expensive
 
 The Progress Card service provides assistance in upgrading your more useful cards. its cost is proportional to the number of already upgraded cards in your deck."
 text = "Finally there are some service available which can be used to tweak your current deck. Clicking on any of these buttons will reveal your current deck where you can click on the card you wish to select for that service.
 
-The Remove Card service allows to remove cards which are not as powerful, or synergistic. Typically used to remove Basic cards, you can also remove {perturbations}. Each use of this service, makes future uses more expensive
+The Remove Card service allows to remove cards which are not as powerful, or synergistic. Typically used to remove Basic cards, you can also remove {perturbation}s. Each use of this service, makes future uses more expensive
 
 The Progress Card service provides assistance in upgrading your more useful cards. its cost is proportional to the number of already upgraded cards in your deck."
 __meta__ = {

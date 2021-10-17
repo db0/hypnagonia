@@ -34,7 +34,7 @@ __meta__ = {
 [node name="InfoPanel" type="PanelContainer" parent="."]
 margin_left = 29.3384
 margin_top = 9.90316
-margin_right = 133.339
+margin_right = 150.338
 margin_bottom = 37.9032
 __meta__ = {
 "_edit_group_": true,
@@ -44,9 +44,9 @@ __meta__ = {
 [node name="Label" type="Label" parent="InfoPanel"]
 margin_left = 2.0
 margin_top = 2.0
-margin_right = 102.001
+margin_right = 119.0
 margin_bottom = 26.0
-text = "Card Name"
+text = "1.Card Name"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -54,7 +54,7 @@ __meta__ = {
 [node name="Pointer" type="Line2D" parent="InfoPanel"]
 position = Vector2( 57.5571, -30.2381 )
 scale = Vector2( 0.685019, 1 )
-points = PoolVector2Array( 196.926, 90.3552, 68.8742, 41.5598 )
+points = PoolVector2Array( 196.926, 90.3552, 90.092, 56.1641 )
 width = 1.0
 default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
 antialiased = true
@@ -62,7 +62,7 @@ antialiased = true
 [node name="InfoPanel2" type="PanelContainer" parent="."]
 margin_left = 16.4057
 margin_top = 112.109
-margin_right = 120.405
+margin_right = 127.406
 margin_bottom = 140.109
 __meta__ = {
 "_edit_group_": true,
@@ -72,9 +72,9 @@ __meta__ = {
 [node name="Label" type="Label" parent="InfoPanel2"]
 margin_left = 2.0
 margin_top = 2.0
-margin_right = 101.999
+margin_right = 109.0
 margin_bottom = 26.0
-text = "Card type"
+text = "2.Card type"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -82,7 +82,7 @@ __meta__ = {
 [node name="Pointer" type="Line2D" parent="InfoPanel2"]
 position = Vector2( 57.5571, -30.2381 )
 scale = Vector2( 0.685019, 1 )
-points = PoolVector2Array( 180.363, 15.7585, 67.2136, 42.0596 )
+points = PoolVector2Array( 180.363, 15.7585, 76.1056, 38.9801 )
 width = 1.0
 default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
 antialiased = true
@@ -90,7 +90,7 @@ antialiased = true
 [node name="InfoPanel3" type="PanelContainer" parent="."]
 margin_left = 20.0948
 margin_top = 157.331
-margin_right = 119.095
+margin_right = 136.095
 margin_bottom = 211.331
 __meta__ = {
 "_edit_group_": true,
@@ -100,10 +100,10 @@ __meta__ = {
 [node name="Label" type="Label" parent="InfoPanel3"]
 margin_left = 2.0
 margin_top = 2.0
-margin_right = 97.0002
+margin_right = 114.0
 margin_bottom = 52.0
-text = "Immersion
-cost"
+text = "3.Immersion
+   cost"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -111,7 +111,7 @@ __meta__ = {
 [node name="Pointer" type="Line2D" parent="InfoPanel3"]
 position = Vector2( 57.5571, -30.2381 )
 scale = Vector2( 0.685019, 1 )
-points = PoolVector2Array( 227.327, 78.3443, 59.7649, 58.7137 )
+points = PoolVector2Array( 227.327, 78.3443, 84.0825, 63.9071 )
 width = 1.0
 default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
 antialiased = true
@@ -129,9 +129,9 @@ __meta__ = {
 [node name="Label" type="Label" parent="InfoPanel4"]
 margin_left = 2.0
 margin_top = 2.0
-margin_right = 59.0
+margin_right = 76.0
 margin_bottom = 26.0
-text = "Rarity"
+text = "5.Rarity"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -139,7 +139,7 @@ __meta__ = {
 [node name="Pointer2" type="Line2D" parent="InfoPanel4"]
 position = Vector2( 57.5571, -30.2381 )
 scale = Vector2( 0.685019, 1 )
-points = PoolVector2Array( 234.208, -3.39194, 4.5989, 45.1444 )
+points = PoolVector2Array( 234.208, -3.39194, 27.547, 42.4034 )
 width = 1.0
 default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
 antialiased = true
@@ -147,7 +147,7 @@ antialiased = true
 [node name="InfoPanel7" type="PanelContainer" parent="."]
 margin_left = 231.87
 margin_top = 9.21509
-margin_right = 292.87
+margin_right = 309.87
 margin_bottom = 37.2151
 __meta__ = {
 "_edit_group_": true,
@@ -157,9 +157,9 @@ __meta__ = {
 [node name="Label" type="Label" parent="InfoPanel7"]
 margin_left = 2.0
 margin_top = 2.0
-margin_right = 59.0
+margin_right = 76.0
 margin_bottom = 26.0
-text = "Rarity"
+text = "5.Rarity"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -175,7 +175,7 @@ antialiased = true
 [node name="Pointer2" type="Line2D" parent="InfoPanel7"]
 position = Vector2( 57.5571, -30.2381 )
 scale = Vector2( 0.685019, 1 )
-points = PoolVector2Array( 54.7324, 85.6979, 5.31168, 57.1891 )
+points = PoolVector2Array( 54.7324, 85.6979, 27.8918, 56.5623 )
 width = 1.0
 default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
 antialiased = true
@@ -183,7 +183,7 @@ antialiased = true
 [node name="InfoPanel5" type="PanelContainer" parent="."]
 margin_left = 396.427
 margin_top = 342.863
-margin_right = 446.427
+margin_right = 463.427
 margin_bottom = 370.863
 __meta__ = {
 "_edit_group_": true,
@@ -193,9 +193,9 @@ __meta__ = {
 [node name="Label" type="Label" parent="InfoPanel5"]
 margin_left = 2.0
 margin_top = 2.0
-margin_right = 48.0
+margin_right = 65.0
 margin_bottom = 26.0
-text = "Tags"
+text = "4.Tags"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -203,7 +203,7 @@ __meta__ = {
 [node name="Pointer" type="Line2D" parent="InfoPanel5"]
 position = Vector2( 57.5571, -30.2381 )
 scale = Vector2( 0.685019, 1 )
-points = PoolVector2Array( -164.683, -69.7701, -60.6389, 30.9014 )
+points = PoolVector2Array( -164.683, -69.7701, -82.7478, 29.9275 )
 width = 1.0
 default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
 antialiased = true
@@ -211,7 +211,7 @@ antialiased = true
 [node name="InfoPanel8" type="PanelContainer" parent="."]
 margin_left = 33.8316
 margin_top = 233.282
-margin_right = 83.8316
+margin_right = 100.832
 margin_bottom = 261.282
 __meta__ = {
 "_edit_group_": true,
@@ -221,9 +221,9 @@ __meta__ = {
 [node name="Label" type="Label" parent="InfoPanel8"]
 margin_left = 2.0
 margin_top = 2.0
-margin_right = 48.0
+margin_right = 65.0
 margin_bottom = 26.0
-text = "Tags"
+text = "4.Tags"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -231,7 +231,7 @@ __meta__ = {
 [node name="Pointer" type="Line2D" parent="InfoPanel8"]
 position = Vector2( 57.5571, -30.2381 )
 scale = Vector2( 0.685019, 1 )
-points = PoolVector2Array( 95.4266, 27.3378, -12.5187, 43.374 )
+points = PoolVector2Array( 95.4266, 27.3378, 28.6288, 38.9561 )
 width = 1.0
 default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
 antialiased = true
@@ -249,9 +249,9 @@ __meta__ = {
 [node name="Label" type="Label" parent="InfoPanel6"]
 margin_left = 2.0
 margin_top = 2.0
-margin_right = 121.0
+margin_right = 138.0
 margin_bottom = 26.0
-text = "Card abilities"
+text = "6.Card abilities"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -259,7 +259,7 @@ __meta__ = {
 [node name="Pointer" type="Line2D" parent="InfoPanel6"]
 position = Vector2( 57.5571, -30.2381 )
 scale = Vector2( 0.685019, 1 )
-points = PoolVector2Array( 144.983, -6.63431, 96.7792, 43.6389 )
+points = PoolVector2Array( 144.983, -6.63431, 117.089, 30.4434 )
 width = 1.0
 default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
 antialiased = true
@@ -272,26 +272,32 @@ margin_bottom = 339.0
 bbcode_enabled = true
 bbcode_text = "All cards have a number of properties that define them.
 
-* Card name: The unique card name
-* Card type: The type of card defines what kind of 
+1.Card name: The unique card name
+2.Card type: The type of card defines what kind of 
    effects it provides.
-* Immersion cost: How much immersion it takes to play
+3.Immersion cost: How much immersion it takes to play
    this card.
-* Rarity: How likely you are to find this card.
-* Card abilities: The effects of the card.
-* Tags: Quick reference to effects caused by the card
-   or special rules applied to it."
+4.Tags: Quick reference to effects caused by the card
+   or special rules applied to it.
+5.Rarity: How likely you are to find this card. 
+   There's 4 rarities: [color=grey]Basic[/color], [color=#00e6ff]Common[/color], [color=#56e000]Uncommon[/color],
+   and [color=#ff6e00]Rare[/color]
+6.Card abilities: The effects of the card.
+"
 text = "All cards have a number of properties that define them.
 
-* Card name: The unique card name
-* Card type: The type of card defines what kind of 
+1.Card name: The unique card name
+2.Card type: The type of card defines what kind of 
    effects it provides.
-* Immersion cost: How much immersion it takes to play
+3.Immersion cost: How much immersion it takes to play
    this card.
-* Rarity: How likely you are to find this card.
-* Card abilities: The effects of the card.
-* Tags: Quick reference to effects caused by the card
-   or special rules applied to it."
+4.Tags: Quick reference to effects caused by the card
+   or special rules applied to it.
+5.Rarity: How likely you are to find this card. 
+   There's 4 rarities: Basic, Common, Uncommon,
+   and Rare
+6.Card abilities: The effects of the card.
+"
 __meta__ = {
 "_edit_use_anchors_": false
 }

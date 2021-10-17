@@ -31,7 +31,7 @@ bbcode_text = "To put these all together: Each turn try to play as many cards as
 
 {confidence} - Block incoming {stress} as there will be more Torments to face later.
 
-{damage} - interpet the Torments as fast you can. Sometimes offense if the best defence.
+{damage} - Interpet the Torments as fast you can. Sometimes offense if the best defence.
 
 {buffer} {poison} {confusion} - Combine your cards in interesting ways to optimize the {damage} you do and reduce {stress} taken."
 text = "To put these all together: Each turn try to play as many cards as you can to overcome all Torments.
@@ -40,7 +40,7 @@ text = "To put these all together: Each turn try to play as many cards as you ca
 
 {confidence} - Block incoming {stress} as there will be more Torments to face later.
 
-{damage} - interpet the Torments as fast you can. Sometimes offense if the best defence.
+{damage} - Interpet the Torments as fast you can. Sometimes offense if the best defence.
 
 {buffer} {poison} {confusion} - Combine your cards in interesting ways to optimize the {damage} you do and reduce {stress} taken."
 __meta__ = {

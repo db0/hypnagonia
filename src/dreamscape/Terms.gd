@@ -428,7 +428,7 @@ const GENERIC_CARD_BBCODE := {
 	},
 	"condition_card": {
 		"name": "Perturbation",
-		"rich_text_color": "white",
+		"rich_text_color": "black",
 	},
 	"understanding_card": {
 		"name": "Understanding",
