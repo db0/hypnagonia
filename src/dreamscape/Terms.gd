@@ -494,10 +494,17 @@ static func get_bbcode_formats(preset_icon_size = null) -> Dictionary:
 				complete_format_dict[terms_dict[entry].name.to_lower()] =\
 						"[img={icon_size}]{rich_text_icon}[/img]".format(terms_dict[entry]).format(icon_size)
 			elif terms_dict[entry].has("rich_text_color"):
-				complete_format_dict[entry.to_lower()] =\
-						"[color={rich_text_color}]{name}[/color]".format(terms_dict[entry])
-				complete_format_dict[terms_dict[entry].name.to_lower()] =\
-						"[color={rich_text_color}]{name}[/color]".format(terms_dict[entry])
+				# Black colour needs a special font which provides text outline
+				if terms_dict[entry].get("rich_text_color") == "black":
+					complete_format_dict[entry.to_lower()] =\
+							"[font=res://fonts/BlackFont.tres][color={rich_text_color}]{name}[/color][/font]".format(terms_dict[entry])
+					complete_format_dict[terms_dict[entry].name.to_lower()] =\
+							"[font=res://fonts/BlackFont.tres][color={rich_text_color}]{name}[/color][/font]".format(terms_dict[entry])
+				else:
+					complete_format_dict[entry.to_lower()] =\
+							"[color={rich_text_color}]{name}[/color]".format(terms_dict[entry])
+					complete_format_dict[terms_dict[entry].name.to_lower()] =\
+							"[color={rich_text_color}]{name}[/color]".format(terms_dict[entry])
 			elif terms_dict[entry].has("rich_text_effect"):
 				match terms_dict[entry]["rich_text_effect"]:
 					"fade":
