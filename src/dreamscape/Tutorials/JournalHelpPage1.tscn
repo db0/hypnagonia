@@ -19,7 +19,7 @@ __meta__ = {
 visible = false
 margin_right = 145.0
 margin_bottom = 24.0
-text = "Journal Reference"
+text = "Dream Journal Reference"
 
 [node name="Deck_Immersion" type="TextureRect" parent="."]
 margin_left = 49.8967

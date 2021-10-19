@@ -87,7 +87,7 @@ margin_bottom = 435.0
 margin_right = 1455.0
 margin_bottom = 81.0
 custom_fonts/font = SubResource( 2 )
-text = "Dreams"
+text = "Hypnagonia"
 align = 1
 
 [node name="Subtitle" type="Label" parent="MainMenu/VBox/Margin/VBoxContainer"]

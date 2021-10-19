@@ -1,10 +1,18 @@
 # Dreams: Changelog
 
+## v0.13.1
+
+* Renamed game to Hypnagonia
+* Changes subtitle to "Therapy through Nightmares"
+
+
 ## v0.13.0
 
 * Added two New Flight Cards
 * The way untouchable works has been adjusted. Instead of protecting for everything in a turn, it protects only for 1 attack. All untouchable are lost at turn end.
-* Enabled the Settings button. Only two option for the moment, 1. Disable fancy animations and shuffle for a faster game. 2. Disable large card focus display.
+* Enabled the Settings button. Only two option for the moment, 
+   * Disable fancy animations and shuffle for a faster game. 
+   * Disable large card focus display.
 * Added icon for the end-turn button and reorganized that area a bit.
 * **Added Tutorials**. They will trigger the first time each interface is opened. Afterwards they can be triggered with an icon or pressing 'H'. Tutorial format inspired by [The Zone](https://store.steampowered.com/app/1299540/The_Zone_Stalker_Stories/)'s Quick references.
 

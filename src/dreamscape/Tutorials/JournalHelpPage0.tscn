@@ -18,7 +18,7 @@ __meta__ = {
 visible = false
 margin_right = 145.0
 margin_bottom = 24.0
-text = "Therapy through Nightmares"
+text = "A Deckbuilding Therapy Session"
 
 [node name="Tutorial" type="RichTextLabel" parent="."]
 margin_left = 38.2132
@@ -26,24 +26,21 @@ margin_top = 43.6568
 margin_right = 894.213
 margin_bottom = 372.657
 bbcode_enabled = true
-bbcode_text = "Welcome to Project Dreams (name provisional). 
-
-In this game, you take the role of guiding the Dreamer through a night's sleep, as their mental state has caused them to be trapped into a sequence of dreams which reflect their mental anguish. 
+bbcode_text = "In this game, you take the role of guiding the Dreamer through a night's sleep, as their mental state has caused them to be trapped into a sequence of dreams which reflect their internal anguish. 
 
 The objective of the player is to overcome the Dreamer's torments while avoiding accumulating too much anxiety which will cause the dreamer to wake up and you to lose the game. 
 
-Eventually you will reach the cause of this Dreamer's issue and if you play your cards well enoug, you might have a psychological breakthrough that will allow this dreamer to break out of these recurring nightmares.
+Eventually you will reach the cause of this Dreamer's issue and if you play your cards well enough, you might have a psychological breakthrough that will allow them to break out of these recurring nightmares.
 
-The next few pages of this help, will give you a tour of the GUI and provide some assistance through this reverie."
-text = "Welcome to Project Dreams (name provisional). 
-
-In this game, you take the role of guiding the Dreamer through a night's sleep, as their mental state has caused them to be trapped into a sequence of dreams which reflect their mental anguish. 
+The next few pages of this help, will give you a tour of the GUI and provide some assistance through this Hypnagonia."
+text = "In this game, you take the role of guiding the Dreamer through a night's sleep, as their mental state has caused them to be trapped into a sequence of dreams which reflect their internal anguish. 
 
 The objective of the player is to overcome the Dreamer's torments while avoiding accumulating too much anxiety which will cause the dreamer to wake up and you to lose the game. 
 
-Eventually you will reach the cause of this Dreamer's issue and if you play your cards well enoug, you might have a psychological breakthrough that will allow this dreamer to break out of these recurring nightmares.
+Eventually you will reach the cause of this Dreamer's issue and if you play your cards well enough, you might have a psychological breakthrough that will allow them to break out of these recurring nightmares.
 
-The next few pages of this help, will give you a tour of the GUI and provide some assistance through this reverie."
+The next few pages of this help, will give you a tour of the GUI and provide some assistance through this Hypnagonia."
+scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }

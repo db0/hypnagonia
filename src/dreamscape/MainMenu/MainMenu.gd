@@ -1,6 +1,6 @@
 extends Panel
 
-const README := "Thank you for trying out Dreams!\n\n"\
+const README := "Thank you for trying out Hypnagonia!\n\n"\
 		+ "This game is a Free Software 'Spire-like' deckbuilder. "\
 		+ "This means it's free to download, use, modify and redistribute\n\n"\
 		+ "This game is a heavy work in progress. At this point many bugs are expected "\
@@ -114,9 +114,9 @@ func _input(event):
 	if event.is_action_pressed("init_debug_game"):
 		match OS.get_name():
 			"Windows":
-				print('Card Library Saved in %APPDATA%\\Godot\\app_userdata\\Dreams\\library.json')
+				print('Card Library Saved in %APPDATA%\\Godot\\app_userdata\\Hypnagonia\\library.json')
 			"X11":
-				print('Card Library Saved in ${HOME}/.local/share/godot/app_userdata/Dreams/library.json')
+				print('Card Library Saved in ${HOME}/.local/share/godot/app_userdata/Hypnagonia/library.json')
 		var ordered_list := []
 		for libcard in cfc.card_definitions:
 			var card_export := _process_card_export(libcard)

@@ -650,7 +650,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Dreams"
+config/name="Hypnagonia"
 config/description="Therapy through nightmares"
 run/main_scene="res://src/dreamscape/MainMenu/MainMenu.tscn"
 config/icon="res://icon.png"

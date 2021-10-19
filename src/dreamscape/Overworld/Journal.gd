@@ -86,7 +86,7 @@ func display_boss_rewards(reward_text: String) -> void:
 	if globals.player.deck.get_upgradeable_cards().size():
 		_reveal_entry(upgrade_journal, true)
 	proceed.bbcode_text = "And I woke up from the most restful sleep I had in months!\n\n"\
-		+ "[b]Note from Developer:[/b]\nThanks for playing this early version of Project Dreams. This is all we have at the moment. "\
+		+ "[b]Note from Developer:[/b]\nThanks for playing this early version of Hypnagonia. This is all we have at the moment. "\
 		+ "Please check back regularly for new updates! And remember, we're actively looking for collaborators.\n"\
 		+ "If you're a character artist, graphics designer, storyteller, card game designer, illustrator, or just someone who wants to give feedback, "\
 		+ "do hit us up on our discord server: [url=discord]https://discord.gg/KFKHt6Ch[/url].\n\n"\
@@ -97,7 +97,7 @@ func display_boss_rewards(reward_text: String) -> void:
 
 func display_loss() -> void:
 	proceed.bbcode_text = "And at this point I woke up in cold sweat!!\n\n"\
-		+ "[b]Note from Developer:[/b]\nThanks for playing this early version of Project Dreams."\
+		+ "[b]Note from Developer:[/b]\nThanks for playing this early version of Hypnagonia."\
 		+ "There's still more to play. Can you reach and defeat the first 'Boss'?\n\n"\
 		+ "Please check back regularly for new updates! And remember, we're actively looking for collaborators.\n"\
 		+ "If you're a character artist, graphics designer, storyteller, card game designer, illustrator, or just someone who wants to give feedback, "\

@@ -1,9 +1,9 @@
-# Project Dreams: A Deckbuilding Therapy Session [v0.13](CHANGELOG.md)
+# Hypnagonia: Therapy through Nightmares [v0.13](CHANGELOG.md)
 
 
-[![Project Dreams preview image](http://dreams.dbzer0.com/dreams_showcase.gif "Project Dreams preview image")](https://www.youtube.com/watch?v=Oc1_G28q328)
+[![Hypnagonia preview image](http://dreams.dbzer0.com/dreams_showcase.gif "Hypnagonia preview image")](https://www.youtube.com/watch?v=Oc1_G28q328)
 
-Dreams is a 'spire-like' deckbuilder card game where you take the part of a dreamer captured in a nightmare realm in their recurring dreams and struggling to overcome their own issues to break out of this loop.
+Hypnagonia is a 'spire-like' deckbuilder card game where you take the part of a dreamer captured in a nightmare realm in their recurring dreams and struggling to overcome their own issues to break out of this loop.
 
 This an early release and the balance will be off. A very basic skeleton of encounters and a boss have been added, so it should be possible to make a complete run with what is there.
 
