@@ -13,6 +13,7 @@ const SUBTITLES := [
 	"Therapy through nightmares",
 	"That sinking stone in your heart",
 	"The weight of the mind",
+	"A rhapsody of reverie and retrospection",
 ]
 
 # The time it takes to switch from one menu tab to another
