@@ -8,7 +8,7 @@ Hypnagonia is a 'spire-like' deckbuilder card game where you take the part of a 
 This an early release and the balance will be off. A very basic skeleton of encounters and a boss have been added, so it should be possible to make a complete run with what is there.
 
 Feel free to download and try. Tutorial is forthcoming.
-You can also [play it online](http://dreams.dbzer0.com/)
+You can also [play it online](http://hypnagonia.dbzer0.com/)
 
 ## Story
 
