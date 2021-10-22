@@ -356,19 +356,19 @@ func _input(event):
 # warning-ignore:unused_variable
 		_debug_advanced_enemy()
 		var torment = spawn_enemy(EnemyDefinitions.BUTTERFLY)
-#		var torment2 = spawn_enemy(EnemyDefinitions.CLOWN)
+		var torment2 = spawn_enemy(EnemyDefinitions.CLOWN)
 #		var torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
 #		var torment2 = spawn_enemy("The Critic")
 #		var torment3 = spawn_enemy("Gaslighter")
 #		var torment2 = spawn_enemy("Gaslighter")
 #		torment2.rect_position = Vector2(800,100)
 #		torment3.rect_position = Vector2(200,300)
-#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 8)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.armor.name, 6)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.fortify.name, 5)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.nothing_to_fear.name, 1)
 #		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
-		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 3)
-		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
+#		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.armor.name, 3)
+#		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
 			"Gaslighter",
 			"Lacuna",

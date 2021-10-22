@@ -190,7 +190,7 @@ const ACTIVE_EFFECTS := {
 				+ "Reduce these stacks by 1 at the end of the turn."
 	},
 	"thorns": {
-		"name": "Retaliation",
+		"name": "Revenge",
 		"icon": preload("res://assets/icons/light-thorny-triskelion.png"),
 		"generic_description": "{effect_name}: Interprets torments as they stress the dreamer.",
 		"rich_text_icon": "res://fonts/rich_text_icons/light-thorny-triskelion.png",
@@ -198,6 +198,15 @@ const ACTIVE_EFFECTS := {
 				+ "it automatically {attack} for {amount}.\n"\
 				+ "Reduce these stacks by 1 at the start of its turn."\
 				+ "\n({defence} can prevent {effect_icon})"
+	},
+	"armor": {
+		"name": "Contentment",
+		"icon": preload("res://assets/icons/heart-shield.png"),
+		"generic_description": "{effect_name}: Prevents damage and degrades per-hit only.",
+		"rich_text_icon": "res://fonts/rich_text_icons/heart-shield.png",
+		"description": "{effect_name} ({effect_icon}): Reduce {opponent_attack} on this {entity}, "\
+				+ "by {amount}, then reduce these stacks by 1.\n"\
+				+ "(This reduction happens before {defence})",
 	},
 	"outrage": {
 		"name": "Outrage",
