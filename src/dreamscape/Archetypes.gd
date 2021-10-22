@@ -226,6 +226,7 @@ const ABUSIVE_RELATIONSHIP := {
 #		"Icon": preload("res://icon.png"),
 	"Tags": [
 		Terms.GENERIC_TAGS.purpose.name,
+		Terms.GENERIC_TAGS.exert.name,
 	],
 	"Artifacts": [
 		
@@ -242,9 +243,12 @@ const ABUSIVE_RELATIONSHIP := {
 		"unnamed_card_7",
 		"unnamed_card_8",
 		"unnamed_card_9",
+		"unnamed_card_11",
+		"Dismissal",
 	],
 	"Uncommon": [
 		"unnamed_card_6",
+		"The Happy Place",
 	],
 	"Rare": []
 }

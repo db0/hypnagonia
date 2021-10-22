@@ -3209,5 +3209,141 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"Dismissal": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.exert.name],
+		"Abilities": "Take {exert_amount} {anxiety}\nGain {defence_amount} {defence}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"exert_amount": 2,
+			"defence_amount": 12
+		},
+		"_upgrade_threshold": 6,
+		"_upgrades": [
+			"+ Dismissal +",
+			"% Dismissal %",
+		],
+	},
+	"+ Dismissal +": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.exert.name],
+		"Abilities": "Take {exert_amount} {anxiety}\nGain {defence_amount} {defence}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"exert_amount": 2,
+			"defence_amount": 15
+		},
+		"_is_upgrade": true,
+	},
+	"% Dismissal %": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.exert.name],
+		"Abilities": "Take {exert_amount} {anxiety}\nGain {defence_amount} {defence}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"exert_amount": 1,
+			"defence_amount": 13
+		},
+		"_is_upgrade": true,
+	},
+	"unnamed_card_11": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.exert.name],
+		"Abilities": "Take {exert_amount} {anxiety}\n{damage} for {damage_amount}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"exert_amount": 3,
+			"damage_amount": 12,
+		},
+		"_upgrade_threshold": 6,
+		"_upgrades": [
+			"+ unnamed_card_11 +",
+			"% unnamed_card_11 %",
+		],
+	},
+	"+ unnamed_card_11 +": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.exert.name],
+		"Abilities": "Take {exert_amount} {anxiety}\n{damage} for {damage_amount}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"exert_amount": 3,
+			"damage_amount": 16,
+		},
+		"_is_upgrade": true,
+	},
+	"% unnamed_card_11 %": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.exert.name],
+		"Abilities": "Take {exert_amount} {anxiety}\n{damage} for {damage_amount}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"exert_amount": 2,
+			"damage_amount": 14,
+		},
+		"_is_upgrade": true,
+	},
+	"The Happy Place": {
+		"Type": "Concentration",
+		"Tags": [Terms.ACTIVE_EFFECTS.armor.name],
+		"Abilities": "Whenever you take {anxiety} during your turn, gain {effect_amount} {armor}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_keywords": ["interpretation"],
+		"_rarity": "Uncommon",
+		"_amounts": {
+			"effect_amount": 1,
+		},
+		"_upgrade_threshold": 8,
+		"_upgrades": [
+			"@ The Happy Place @",
+			"^ The Happy Place ^",
+		],
+	},
+	"@ The Happy Place @": {
+		"Type": "Concentration",
+		"Tags": [Terms.ACTIVE_EFFECTS.armor.name],
+		"Abilities": "Whenever you take {anxiety} during your turn, gain {effect_amount} {armor}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_keywords": ["interpretation"],
+		"_rarity": "Uncommon",
+		"_amounts": {
+			"effect_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"^ The Happy Place ^": {
+		"Type": "Concentration",
+		"Tags": [Terms.ACTIVE_EFFECTS.armor.name,Terms.GENERIC_TAGS.alpha.name],
+		"Abilities": "Whenever you take {anxiety} during your turn, gain {effect_amount} {armor}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_keywords": ["interpretation"],
+		"_rarity": "Uncommon",
+		"_amounts": {
+			"effect_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+
 
 }

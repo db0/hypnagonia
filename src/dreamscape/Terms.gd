@@ -190,7 +190,7 @@ const ACTIVE_EFFECTS := {
 				+ "Reduce these stacks by 1 at the end of the turn."
 	},
 	"thorns": {
-		"name": "Revenge",
+		"name": "Rancor",
 		"icon": preload("res://assets/icons/light-thorny-triskelion.png"),
 		"generic_description": "{effect_name}: Interprets torments as they stress the dreamer.",
 		"rich_text_icon": "res://fonts/rich_text_icons/light-thorny-triskelion.png",
@@ -379,6 +379,11 @@ const GENERIC_TAGS := {
 		"icon": preload("res://assets/icons/omega.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/omega.png",
 		"generic_description": "[color=purple]{effect_name} ({effect_icon}): This card will always start at the bottom of the deck.[/color]"},
+	"exert": {
+		"name": "Rationalizations",
+		"icon": preload("res://assets/icons/skills.png"),
+		"rich_text_icon": "res://fonts/rich_text_icons/skills.png",
+		"generic_description": "{effect_name} ({effect_icon}): Increases Anxiety when played."},
 }
 
 

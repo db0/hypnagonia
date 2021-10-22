@@ -284,13 +284,13 @@ func game_over() -> void:
 
 func _debug_advanced_enemy() -> void:
 	pass
-#	var advanced_entity: EnemyEntity =\
-#			preload("res://src/dreamscape/CombatElements/Enemies/Elites/Bully.tscn").instance()
-#	advanced_entity.setup_advanced("medium")
-#	_enemy_area.add_child(advanced_entity)
-## warning-ignore:return_value_discarded
-#	advanced_entity.connect("finished_activation", self, "_on_finished_enemy_activation")
-	
+	var advanced_entity: EnemyEntity =\
+			preload("res://src/dreamscape/CombatElements/Enemies/Elites/RushElite.tscn").instance()
+	advanced_entity.setup_advanced("medium")
+	_enemy_area.add_child(advanced_entity)
+# warning-ignore:return_value_discarded
+	advanced_entity.connect("finished_activation", self, "_on_finished_enemy_activation")
+
 
 func _on_Debug_pressed() -> void:
 	# warning-ignore:return_value_discarded
@@ -350,7 +350,7 @@ func _recalculate_predictions() -> void:
 			enemy.intents.predict_intents(snapshot_id)
 			yield(enemy.intents, "intents_predicted")
 
-	
+
 func _input(event):
 	if event.is_action_pressed("init_debug_game"):
 # warning-ignore:unused_variable
@@ -363,7 +363,7 @@ func _input(event):
 #		var torment2 = spawn_enemy("Gaslighter")
 #		torment2.rect_position = Vector2(800,100)
 #		torment3.rect_position = Vector2(200,300)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.armor.name, 6)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.empower.name, 6)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.fortify.name, 5)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.nothing_to_fear.name, 1)
 #		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)

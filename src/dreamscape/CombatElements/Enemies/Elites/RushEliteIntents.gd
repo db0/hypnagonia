@@ -78,11 +78,11 @@ func _get_elite_scripts(intent_name: String) -> Dictionary:
 		"Despair": [
 			{
 				"name": "apply_effect",
-				"effect_name": Terms.ACTIVE_EFFECTS.vulnerable.name,
+				"effect_name": Terms.ACTIVE_EFFECTS.empower.name,
 				"tags": ["Intent"],
-				"subject": "dreamer",
+				"subject": "self",
 				"modification": 2,
-				"icon": all_intent_scripts.ICON_DEBUFF,
+				"icon": all_intent_scripts.ICON_BUFF,
 				"description": "Did I pass here before?"
 			},
 			{
