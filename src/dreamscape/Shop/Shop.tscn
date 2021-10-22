@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/dreamscape/Shop/Shop.gd" type="Script" id=1]
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=2]
 [ext_resource path="res://src/dreamscape/PlayerInfo.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/dreamscape/SelectionDeck.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/icons/GUI/return-arrow.png" type="Texture" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0588235, 0.0588235, 0.0588235, 1 )
@@ -34,10 +35,24 @@ margin_bottom = 900.0
 size_flags_vertical = 3
 theme = ExtResource( 2 )
 
-[node name="Push" type="Control" parent="VBC/VBC"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBC/VBC"]
 margin_right = 1455.0
 margin_bottom = 70.0
-rect_min_size = Vector2( 0, 70 )
+hint_tooltip = "Back"
+
+[node name="Back" type="Button" parent="VBC/VBC/HBoxContainer"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+icon = ExtResource( 5 )
+flat = true
+expand_icon = true
+
+[node name="Right" type="Control" parent="VBC/VBC/HBoxContainer"]
+margin_left = 73.0
+margin_right = 1455.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
 
 [node name="CC" type="CenterContainer" parent="VBC/VBC"]
 margin_top = 73.0
@@ -59,38 +74,38 @@ custom_styles/panel = SubResource( 2 )
 [node name="HBC" type="HBoxContainer" parent="VBC/VBC"]
 margin_top = 76.0
 margin_right = 1455.0
-margin_bottom = 816.0
+margin_bottom = 847.0
 size_flags_vertical = 3
 
 [node name="MarginLeft" type="Control" parent="VBC/VBC/HBC"]
 margin_right = 50.0
-margin_bottom = 740.0
+margin_bottom = 771.0
 rect_min_size = Vector2( 50, 0 )
 
 [node name="MainArea" type="HBoxContainer" parent="VBC/VBC/HBC"]
 margin_left = 53.0
 margin_right = 1239.0
-margin_bottom = 740.0
+margin_bottom = 771.0
 size_flags_horizontal = 3
 
 [node name="ShopUniqueCards" type="GridContainer" parent="VBC/VBC/HBC/MainArea"]
 margin_right = 591.0
-margin_bottom = 740.0
+margin_bottom = 771.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ArtifactCC" type="CenterContainer" parent="VBC/VBC/HBC/MainArea"]
 margin_left = 594.0
 margin_right = 1186.0
-margin_bottom = 740.0
+margin_bottom = 771.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Artifacts" type="GridContainer" parent="VBC/VBC/HBC/MainArea/ArtifactCC"]
 margin_left = 296.0
-margin_top = 370.0
+margin_top = 385.0
 margin_right = 296.0
-margin_bottom = 370.0
+margin_bottom = 385.0
 custom_constants/vseparation = 30
 custom_constants/hseparation = 30
 columns = 2
@@ -98,52 +113,52 @@ columns = 2
 [node name="Buttons" type="VBoxContainer" parent="VBC/VBC/HBC"]
 margin_left = 1242.0
 margin_right = 1402.0
-margin_bottom = 740.0
+margin_bottom = 771.0
 
 [node name="MarginUp" type="Control" parent="VBC/VBC/HBC/Buttons"]
 margin_right = 160.0
-margin_bottom = 118.0
+margin_bottom = 128.0
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Remove" type="Button" parent="VBC/VBC/HBC/Buttons"]
-margin_top = 121.0
+margin_top = 131.0
 margin_right = 160.0
-margin_bottom = 281.0
+margin_bottom = 291.0
 rect_min_size = Vector2( 160, 160 )
 text = "Remove Card"
 
 [node name="RemoveCost" type="Label" parent="VBC/VBC/HBC/Buttons"]
-margin_top = 284.0
+margin_top = 294.0
 margin_right = 160.0
-margin_bottom = 308.0
+margin_bottom = 318.0
 align = 1
 
 [node name="Push" type="Control" parent="VBC/VBC/HBC/Buttons"]
-margin_top = 311.0
+margin_top = 321.0
 margin_right = 160.0
-margin_bottom = 429.0
+margin_bottom = 449.0
 size_flags_vertical = 3
 
 [node name="Progress" type="Button" parent="VBC/VBC/HBC/Buttons"]
-margin_top = 432.0
+margin_top = 452.0
 margin_right = 160.0
-margin_bottom = 592.0
+margin_bottom = 612.0
 rect_min_size = Vector2( 160, 160 )
 text = "Progress Card"
 
 [node name="ProgressCost" type="Label" parent="VBC/VBC/HBC/Buttons"]
-margin_top = 595.0
+margin_top = 615.0
 margin_right = 160.0
-margin_bottom = 619.0
+margin_bottom = 639.0
 align = 1
 
 [node name="MarginDown" type="Control" parent="VBC/VBC/HBC/Buttons"]
-margin_top = 622.0
+margin_top = 642.0
 margin_right = 160.0
-margin_bottom = 740.0
+margin_bottom = 771.0
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -152,30 +167,8 @@ __meta__ = {
 [node name="MarginRight" type="Control" parent="VBC/VBC/HBC"]
 margin_left = 1405.0
 margin_right = 1455.0
-margin_bottom = 740.0
+margin_bottom = 771.0
 rect_min_size = Vector2( 50, 0 )
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBC/VBC"]
-margin_top = 819.0
-margin_right = 1455.0
-margin_bottom = 847.0
-
-[node name="Left" type="Control" parent="VBC/VBC/HBoxContainer"]
-margin_right = 702.0
-margin_bottom = 28.0
-size_flags_horizontal = 3
-
-[node name="Back" type="Button" parent="VBC/VBC/HBoxContainer"]
-margin_left = 705.0
-margin_right = 750.0
-margin_bottom = 28.0
-text = "Back"
-
-[node name="Right" type="Control" parent="VBC/VBC/HBoxContainer"]
-margin_left = 753.0
-margin_right = 1455.0
-margin_bottom = 28.0
-size_flags_horizontal = 3
 
 [node name="Deck" parent="." instance=ExtResource( 4 )]
 

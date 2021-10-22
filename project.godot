@@ -664,7 +664,6 @@ globals="*res://src/dreamscape/Globals/Globals.gd"
 
 window/size/width=1455
 window/size/height=900
-window/stretch/aspect="keep"
 
 [global]
 
