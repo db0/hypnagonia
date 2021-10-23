@@ -190,7 +190,7 @@ const ACTIVE_EFFECTS := {
 				+ "Reduce these stacks by 1 at the end of the turn."
 	},
 	"thorns": {
-		"name": "Rancor",
+		"name": "Grudge",
 		"icon": preload("res://assets/icons/light-thorny-triskelion.png"),
 		"generic_description": "{effect_name}: Interprets torments as they stress the dreamer.",
 		"rich_text_icon": "res://fonts/rich_text_icons/light-thorny-triskelion.png",
@@ -322,6 +322,37 @@ const ACTIVE_EFFECTS := {
 			"inspired": "{effect_name}: Gain 2 {buffer} every other time you shuffle your deck.",
 		},
 		"icon": preload("res://assets/icons/wisdom.png"),
+	},
+	"the_happy_place":  {
+		"name": "The Happy Place",
+		"description": "{effect_name}: Whenever you take {anxiety} during your turn, gain {amount} {armor}",
+		"icon": preload("res://assets/icons/oasis.png"),
+	},
+	"lash_out":  {
+		"name": "Lash-out",
+		"description": "{effect_name}: After you take {anxiety} during your turn, {damage} a random Torment for the same amount.",
+		"upgraded_descriptions": {
+			"frustrated": "{effect_name}: After you take {anxiety} during your turn, {damage} a random Torment for double that amount.",
+		},
+		"icon": preload("res://assets/icons/whiplash.png"),
+	},
+	"excuses":  {
+		"name": "Excuses",
+		"description": "{effect_name}: The first {amount} times you take {anxiety} during your turn reduce it to 1.",
+		"upgraded_descriptions": {
+			"endless": "{effect_name}: The first {double_amount} times you take {anxiety} during your turn reduce it to 1.",
+		},
+		"icon": preload("res://assets/icons/chained-heart.png"),
+	},
+	"tolerance":  {
+		"name": "Tolerance",
+		"description": "{effect_name}: The next {amount} time your {anxiety} would reach its maximum, "\
+				+ "you take no {anxiety}, gain {amount} {immersion} and draw {amount} card.",
+		"upgraded_descriptions": {
+			"extreme": "{effect_name}: The next {amount} time your {anxiety} would reach its maximum, "\
+				+ "you take no {anxiety}, gain {double_amount} {immersion} and draw {double_amount} cards.",
+		},
+		"icon": preload("res://assets/icons/defibrilate.png"),
 	},
 }
 

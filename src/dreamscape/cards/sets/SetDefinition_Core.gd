@@ -3255,7 +3255,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"unnamed_card_11": {
+	"Could Be Worse": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "Take {exert_amount} {anxiety}\n{damage} for {damage_amount}.",
@@ -3269,11 +3269,11 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 6,
 		"_upgrades": [
-			"+ unnamed_card_11 +",
-			"% unnamed_card_11 %",
+			"+ Could Be Worse +",
+			"% Could Be Worse %",
 		],
 	},
-	"+ unnamed_card_11 +": {
+	"+ Could Be Worse +": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "Take {exert_amount} {anxiety}\n{damage} for {damage_amount}.",
@@ -3287,7 +3287,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"% unnamed_card_11 %": {
+	"% Could Be Worse %": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "Take {exert_amount} {anxiety}\n{damage} for {damage_amount}.",
@@ -3308,6 +3308,9 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER
+		},
 		"_rarity": "Rare",
 		"_amounts": {
 			"effect_amount": 1,
@@ -3325,6 +3328,9 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER
+		},
 		"_rarity": "Rare",
 		"_amounts": {
 			"effect_amount": 1,
@@ -3338,18 +3344,21 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_keywords": ["interpretation"],
-		"_rarity": "Rare ",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER
+		},
+		"_rarity": "Rare",
 		"_amounts": {
 			"effect_amount": 1,
 		},
 		"_is_upgrade": true,
 	},
 	"Self-Deception": {
-		"Type": "Action",
+		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Take {exert_amount} {anxiety}\nDraw {draw_amount} {exert} card.\n"\
 				+ "Draw {draw_amount2} card.",
-		"Cost": 1,
+		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": [],
@@ -3365,11 +3374,11 @@ const CARDS := {
 		],
 	},
 	"! Self-Deception !": {
-		"Type": "Action",
+		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Take {exert_amount} {anxiety}\nDraw {draw_amount} {exert} card.\n"\
 				+ "Draw {draw_amount2} cards.",
-		"Cost": 1,
+		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": [],
@@ -3381,10 +3390,10 @@ const CARDS := {
 		"_is_upgrade": true,
 	},
 	"% Self-Deception %": {
-		"Type": "Action",
+		"Type": "Control",
 		"Tags": [],
 		"Abilities": "Draw {draw_amount} {exert} cards.",
-		"Cost": 1,
+		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": [],
@@ -3410,7 +3419,7 @@ const CARDS := {
 		"_upgrades": [
 			"% unnamed_card_12 %",
 			"+ unnamed_card_12 +",
-			"! unnamed_card_12 !",
+			"Swift unnamed_card_12",
 		],
 	},
 	"% unnamed_card_12 %": {
@@ -3421,7 +3430,7 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_amounts": {
-			"exert_amount": 2,
+			"exert_amount": 1,
 			"immersion_amount": 3,
 		},
 		"_is_upgrade": true,
@@ -3439,7 +3448,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"! unnamed_card_12 !": {
+	"Swift unnamed_card_12": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "Take {exert_amount} {anxiety}\nGain {immersion_amount} {immersion}.\nDraw {draw_amount} card. {forget}.",
@@ -3463,7 +3472,7 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 5,
+			"damage_amount": 6,
 		},
 		"_upgrade_threshold": 6,
 		"_upgrades": [
@@ -3488,13 +3497,555 @@ const CARDS := {
 	"Justified Rancor": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
-		"Abilities": "{damage} all Torments by double the amount of damage you've taken during your turn.",
+		"Abilities": "{damage} all Torments by triple the amount of damage you've taken during your turn.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_is_upgrade": true,
 	},
-
+	"Lash-out": {
+		"Type": "Concentration",
+		"Tags": [],
+		"Abilities": "After you take {anxiety} during your turn, {damage} a random Torment for the same amount.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_keywords": ["interpretation"],
+		"_rarity": "Uncommon",
+		"_upgrade_threshold": 8,
+		"_upgrades": [
+			"@ Lash-out @",
+			"^ Lash-out ^",
+			"Frustrated Lash-out",
+		],
+	},
+	"@ Lash-out @": {
+		"Type": "Concentration",
+		"Tags": [],
+		"Abilities": "After you take {anxiety} during your turn, {damage} a random Torment for the same amount.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_keywords": ["interpretation"],
+		"_rarity": "Uncommon",
+		"_is_upgrade": true,
+	},
+	"^ Lash-out ^": {
+		"Type": "Concentration",
+		"Tags": [Terms.GENERIC_TAGS.alpha.name],
+		"Abilities": "After you take {anxiety} during your turn, {damage} a random Torment for the same amount.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_keywords": ["interpretation"],
+		"_rarity": "Uncommon",
+		"_is_upgrade": true,
+	},
+	"Frustrated Lash-out": {
+		"Type": "Concentration",
+		"Tags": [Terms.GENERIC_TAGS.alpha.name],
+		"Abilities": "After you take {anxiety} during your turn, {damage} a random Torment for double that amount.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_keywords": ["interpretation"],
+		"_rarity": "Uncommon",
+		"_is_upgrade": true,
+	},
+	"unnamed_card_13": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.chain.name, Terms.GENERIC_TAGS.exert.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "You may take {exert_amount} {anxiety} to {damage} all other Torments for {damage_amount}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 8,
+			"exert_amount": 3,
+		},
+		"_upgrade_threshold": 6,
+		"_upgrades": [
+			"+ unnamed_card_13 +",
+			"% unnamed_card_13 %",
+		],
+	},
+	"+ unnamed_card_13 +": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.chain.name, Terms.GENERIC_TAGS.exert.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "You may take {exert_amount} {anxiety} to {damage} all other Torments for {damage_amount}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 11,
+			"exert_amount": 3,
+		},
+		"_is_upgrade": true,
+	},
+	"% unnamed_card_13 %": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.chain.name, Terms.GENERIC_TAGS.exert.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "You may take {exert_amount} {anxiety} to {damage} all other Torments for {damage_amount}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 9,
+			"exert_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"unnamed_card_14": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.exert.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "You may take {exert_amount} {anxiety} to bypass {defence}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 9,
+			"exert_amount": 3,
+		},
+		"_upgrade_threshold": 6,
+		"_upgrades": [
+			"+ unnamed_card_14 +",
+			"% unnamed_card_14 %",
+		],
+	},
+	"+ unnamed_card_14 +": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.exert.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "You may take {exert_amount} {anxiety} to bypass {defence}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 12,
+			"exert_amount": 3,
+		},
+		"_is_upgrade": true,
+	},
+	"% unnamed_card_14 %": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.exert.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "You may take {exert_amount} {anxiety} to bypass {defence}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 10,
+			"exert_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"unnamed_card_15": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.exert.name, Terms.ACTIVE_EFFECTS.poison.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "You may take {exert_amount} {anxiety} to inflict {effect_stacks} {poison}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
+		},
+		"_amounts": {
+			"damage_amount": 9,
+			"exert_amount": 2,
+			"effect_stacks": 2,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"+ unnamed_card_15 +",
+			"* unnamed_card_15 *",
+		],
+	},
+	"+ unnamed_card_15 +": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.exert.name, Terms.ACTIVE_EFFECTS.poison.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "You may take {exert_amount} {anxiety} to inflict {effect_stacks} {poison}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
+		},
+		"_amounts": {
+			"damage_amount": 12,
+			"exert_amount": 2,
+			"effect_stacks": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"* unnamed_card_15 *": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.exert.name, Terms.ACTIVE_EFFECTS.poison.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "You may take {exert_amount} {anxiety} to inflict {effect_stacks} {poison}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
+		},
+		"_amounts": {
+			"damage_amount": 10,
+			"exert_amount": 4,
+			"effect_stacks": 5,
+		},
+		"_is_upgrade": true,
+	},
+	"unnamed_card_16": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.exert.name, Terms.ACTIVE_EFFECTS.fortify.name],
+		"Abilities": "Gain {defence_amount} {defence}\n"\
+				+ "You may take {exert_amount} {anxiety} to gain {effect_stacks} {fortify}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
+		},
+		"_amounts": {
+			"exert_amount": 4,
+			"defence_amount": 8,
+			"effect_stacks": 1,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"+ unnamed_card_16 +",
+			"% unnamed_card_16 %",
+		],
+	},
+	"+ unnamed_card_16 +": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.exert.name, Terms.ACTIVE_EFFECTS.fortify.name],
+		"Abilities": "Gain {defence_amount} {defence}\n"\
+				+ "You may take {exert_amount} {anxiety} to gain {effect_stacks} {fortify}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
+		},
+		"_amounts": {
+			"exert_amount": 4,
+			"defence_amount": 11,
+			"effect_stacks": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"% unnamed_card_16 %": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.exert.name, Terms.ACTIVE_EFFECTS.fortify.name],
+		"Abilities": "Gain {defence_amount} {defence}\n"\
+				+ "You may take {exert_amount} {anxiety} to gain {effect_stacks} {fortify}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
+		},
+		"_amounts": {
+			"exert_amount": 7,
+			"defence_amount": 12,
+			"effect_stacks": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"Excuses": {
+		"Type": "Concentration",
+		"Tags": [],
+		"Abilities": "The first {effect_amount} time you take {anxiety} during your turn reduce it to 1.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": [],
+		"_amounts": {
+			"effect_amount": 1,
+		},
+		"_upgrade_threshold": 8,
+		"_upgrades": [
+			"@ Excuses @",
+			"Endless Excuses",
+		],
+	},
+	"@ Excuses @": {
+		"Type": "Concentration",
+		"Tags": [],
+		"Abilities": "The first {effect_amount} time you take {anxiety} during your turn reduce it to 1.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": [],
+		"_amounts": {
+			"effect_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"Endless Excuses": {
+		"Type": "Concentration",
+		"Tags": [],
+		"Abilities": "The first {effect_amount} times you take {anxiety} during your turn reduce it to 1.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": [],
+		"_amounts": {
+			"effect_amount": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"Tolerance": {
+		"Type": "Concentration",
+		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.swift.name],
+		"Abilities": "The next {effect_stacks} time your {anxiety} would reach its maximum, "\
+				+ "you take no {anxiety}, gain {effect_amount} {immersion} and draw {effect_amount} card.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": [],
+		"_amounts": {
+			"effect_stacks": 1,
+			"effect_amount": 1,
+		},
+		"_upgrade_threshold": 8,
+		"_upgrades": [
+			"* Tolerance *",
+			"Extreme Tolerance",
+		],
+	},
+	"* Tolerance *": {
+		"Type": "Concentration",
+		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.swift.name],
+		"Abilities": "The next {effect_stacks} times your {anxiety} would reach its maximum, "\
+				+ "you take no {anxiety}, gain {effect_amount} {immersion} and draw {effect_amount} card.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": [],
+		"_amounts": {
+			"effect_stacks": 2,
+			"effect_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"Extreme Tolerance": {
+		"Type": "Concentration",
+		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.swift.name],
+		"Abilities": "The next {effect_stacks} time your {anxiety} would reach its maximum, "\
+				+ "you take no {anxiety}, gain {effect_amount} {immersion} and draw {effect_amount} cards.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": [],
+		"_amounts": {
+			"effect_stacks": 1,
+			"effect_amount": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"Catatonia": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.relax.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "If your {anxiety} is at least {health_percent}% full, {relax} for {healing_amount}.\n"\
+				+ "If you have taken at least {anxiety_taken} {anxiety} during your turn during "\
+				+ "this Ordeal, {relax} for {healing_amount}.\n{forget}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": [],
+		"_amounts": {
+			"healing_amount": 5,
+			"health_percent": 70,
+			"anxiety_taken": 10,
+		},
+		"_upgrade_threshold": 8,
+		"_upgrades": [
+			"+ Catatonia +",
+			"% Catatonia %",
+		],
+	},
+	"+ Catatonia +": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.relax.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "If your {anxiety} is at least {health_percent}% full, {relax} for {healing_amount}.\n"\
+				+ "If you have taken at least {anxiety_taken} {anxiety} during your turn during "\
+				+ "this Ordeal, {relax} for {healing_amount}.\n{forget}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": [],
+		"_amounts": {
+			"healing_amount": 7,
+			"health_percent": 70,
+			"anxiety_taken": 10,
+		},
+		"_is_upgrade": true,
+	},
+	"% Catatonia %": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.relax.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "If your {anxiety} is at least {health_percent}% full, {relax} for {healing_amount}.\n"\
+				+ "If you have taken at least {anxiety_taken} {anxiety} during your turn during "\
+				+ "this Ordeal, {relax} for {healing_amount}.\n{forget}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": [],
+		"_amounts": {
+			"healing_amount": 5,
+			"health_percent": 60,
+			"anxiety_taken": 8,
+		},
+		"_is_upgrade": true,
+	},
+	"unnamed_card_17": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}\nGain {defence_amount} {defence}",
+		"Cost": 4,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["interpretation","confidence"],
+		"_amounts": {
+			"damage_amount": 25,
+			"defence_amount": 25,
+		},
+		"_upgrade_threshold": 6,
+		"_upgrades": [
+			"+ unnamed_card_17 +",
+			"@ unnamed_card_17 @",
+			"- unnamed_card_17 -",
+		],
+	},
+	"+ unnamed_card_17 +": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}\nGain {defence_amount} {defence}",
+		"Cost": 4,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["interpretation","confidence"],
+		"_amounts": {
+			"damage_amount": 34,
+			"defence_amount": 34,
+		},
+		"_is_upgrade": true,
+	},
+	"- unnamed_card_17 -": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}\nGain {defence_amount} {defence}\n{release}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["interpretation","confidence","release"],
+		"_amounts": {
+			"damage_amount": 25,
+			"defence_amount": 25,
+		},
+		"_is_upgrade": true,
+	},
+	"@ unnamed_card_17 @": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}\nGain {defence_amount} {defence}",
+		"Cost": 5,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["interpretation","confidence"],
+		"_amounts": {
+			"damage_amount": 50,
+			"defence_amount": 50,
+		},
+		"_is_upgrade": true,
+	},
+	"unnamed_card_18": {
+		"Type": "Control",
+		"Tags": [],
+		"Abilities": "Gain {defence_amount} {defence}.\n"\
+				+ "If your {anxiety} is at least {health_percent}% full, gain {immersion_amount} {immersion}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation","confidence"],
+		"_amounts": {
+			"immersion_amount": 1,
+			"defence_amount": 12,
+			"health_percent": 70,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"+ unnamed_card_18 +",
+			"= unnamed_card_18 =",
+			"% unnamed_card_18 %",
+		],
+	},
+	"+ unnamed_card_18 +": {
+		"Type": "Control",
+		"Tags": [],
+		"Abilities": "Gain {defence_amount} {defence}.\n"\
+				+ "If your {anxiety} is at least {health_percent}% full, gain {immersion_amount} {immersion}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"immersion_amount": 1,
+			"defence_amount": 16,
+			"health_percent": 70,
+		},
+		"_is_upgrade": true,
+	},
+	"= unnamed_card_18 =": {
+		"Type": "Control",
+		"Tags": [],
+		"Abilities": "Gain {defence_amount} {defence}.\n"\
+				+ "If your {anxiety} is at least {health_percent}% full, gain {immersion_amount} {immersion}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"immersion_amount": 1,
+			"defence_amount": 13,
+			"health_percent": 60,
+		},
+		"_is_upgrade": true,
+	},
+	"% unnamed_card_18 %": {
+		"Type": "Control",
+		"Tags": [],
+		"Abilities": "Gain {defence_amount} {defence}.\n"\
+				+ "If your {anxiety} is at least {health_percent}% full, gain {immersion_amount} {immersion}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"immersion_amount": 2,
+			"defence_amount": 13,
+			"health_percent": 80,
+		},
+		"_is_upgrade": true,
+	},
 
 }
+

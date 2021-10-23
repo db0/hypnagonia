@@ -31,6 +31,10 @@ const EFFECTS := {
 	Terms.ACTIVE_EFFECTS.recall.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Recall.tscn"),
 	Terms.ACTIVE_EFFECTS.eureka.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Eureka.tscn"),
 	Terms.ACTIVE_EFFECTS.introspection.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Introspection.tscn"),
+	Terms.ACTIVE_EFFECTS.the_happy_place.name: preload("res://src/dreamscape/CombatElements/CombatEffects/TheHappyPlace.tscn"),
+	Terms.ACTIVE_EFFECTS.lash_out.name: preload("res://src/dreamscape/CombatElements/CombatEffects/LashOut.tscn"),
+	Terms.ACTIVE_EFFECTS.excuses.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Excuses.tscn"),
+	Terms.ACTIVE_EFFECTS.tolerance.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Tolerance.tscn"),
 }
 
 # When a stack of an effect is added and its opposite exists, before adding a stack

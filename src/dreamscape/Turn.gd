@@ -33,6 +33,7 @@ var turn_event_count := {}
 # Tracks how many event of any type have happened throughout the game
 # These events do not reset turn to turn, but only between encounters
 var encounter_event_count := {}
+# Tracks whose turn it currently is, the player's, or the enemies.
 var current_turn : int = Turns.PLAYER_TURN
 
 

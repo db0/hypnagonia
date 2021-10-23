@@ -284,12 +284,12 @@ func game_over() -> void:
 
 func _debug_advanced_enemy() -> void:
 	pass
-	var advanced_entity: EnemyEntity =\
-			preload("res://src/dreamscape/CombatElements/Enemies/Elites/RushElite.tscn").instance()
-	advanced_entity.setup_advanced("medium")
-	_enemy_area.add_child(advanced_entity)
-# warning-ignore:return_value_discarded
-	advanced_entity.connect("finished_activation", self, "_on_finished_enemy_activation")
+#	var advanced_entity: EnemyEntity =\
+#			preload("res://src/dreamscape/CombatElements/Enemies/Elites/RushElite.tscn").instance()
+#	advanced_entity.setup_advanced("medium")
+#	_enemy_area.add_child(advanced_entity)
+## warning-ignore:return_value_discarded
+#	advanced_entity.connect("finished_activation", self, "_on_finished_enemy_activation")
 
 
 func _on_Debug_pressed() -> void:
@@ -355,26 +355,29 @@ func _input(event):
 	if event.is_action_pressed("init_debug_game"):
 # warning-ignore:unused_variable
 		_debug_advanced_enemy()
-		var torment = spawn_enemy(EnemyDefinitions.BUTTERFLY)
-		var torment2 = spawn_enemy(EnemyDefinitions.CLOWN)
+#		var torment = spawn_enemy(EnemyDefinitions.BUTTERFLY)
+#		var torment2 = spawn_enemy(EnemyDefinitions.CLOWN)
 #		var torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
-#		var torment2 = spawn_enemy("The Critic")
-#		var torment3 = spawn_enemy("Gaslighter")
+		var torment2 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
+		var torment3 = spawn_enemy(EnemyDefinitions.GASLIGHTER)
 #		var torment2 = spawn_enemy("Gaslighter")
 #		torment2.rect_position = Vector2(800,100)
 #		torment3.rect_position = Vector2(200,300)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.empower.name, 6)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 20)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.fortify.name, 5)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.nothing_to_fear.name, 1)
 #		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.armor.name, 3)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
-			"Gaslighter",
-			"Lacuna",
-			"Light Introspection",
-			"Masterful Zen of Flight",
-			"Zen of Flight",
+			"unnamed_card_18",
+			"= unnamed_card_18 =",
+			"Self-Deception",
+			"Self-Deception",
+			"Self-Deception",
+			"Self-Deception",
+			"Catatonia",
+			"% Catatonia %",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.deck.add_child(card)

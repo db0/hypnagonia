@@ -112,11 +112,19 @@ func retrieve_scripts(trigger: String) -> Dictionary:
 	var found_scripts = .retrieve_scripts(trigger).duplicate(true)
 	if trigger == "manual" and get_state_exec() == "hand":
 		found_scripts = insert_payment_costs(found_scripts)
-		if get_property("Type") == "Concentration":
-			found_scripts["hand"] += generate_remove_from_deck_tasks()
+		if typeof(found_scripts["hand"]) == TYPE_ARRAY:
+			if get_property("Type") == "Concentration":
+				found_scripts["hand"] += generate_remove_from_deck_tasks()
+			else:
+				found_scripts["hand"] += generate_discard_tasks()
+			found_scripts["hand"] += generate_play_confirm_scripts()
 		else:
-			found_scripts["hand"] += generate_discard_tasks()
-		found_scripts["hand"] += generate_play_confirm_scripts()
+			for key in found_scripts["hand"]:
+				if get_property("Type") == "Concentration":
+					found_scripts["hand"][key] += generate_remove_from_deck_tasks()
+				else:
+					found_scripts["hand"][key] += generate_discard_tasks()
+				found_scripts["hand"][key] += generate_play_confirm_scripts()
 	return(found_scripts)
 
 

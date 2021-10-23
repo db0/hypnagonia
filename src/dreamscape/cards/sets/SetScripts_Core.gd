@@ -40,1031 +40,1995 @@ const EPHEMERAL_TASK := {
 	"subject": "self",
 }
 
+
+
 # This fuction returns all the scripts of the specified card name.
 #
 # if no scripts have been defined, an empty dictionary is returned instead.
 func get_scripts(card_name: String) -> Dictionary:
-	var scripts := {
-		"Interpretation": {
-			"manual": {
-				"hand": [
-					{
-						"name": "modify_damage",
-						"subject": "target",
-						"is_cost": true,
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("damage_amount"),
-						"tags": ["Attack"],
-						"filter_state_subject": [{
-							"filter_group": "EnemyEntities",
-						}],
-					},
-				],
-			},
+	var Interpretation = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"is_cost": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+			],
 		},
-		"Confidence": {
-			"manual": {
-				"hand": [
-					{
-						"name": "assign_defence",
+	}
+	var Confidence = {
+		"manual": {
+			"hand": [
+				{
+					"name": "assign_defence",
+					"subject": "dreamer",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("defence_amount"),
+				}
+			],
+		},
+	}
+	var NoisyWhip = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"is_cost": true,
+					"amount": 5,
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.disempower.name,
+					"subject": "previous",
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("effect_stacks"),
+				}
+			],
+		},
+	}
+	var Divein = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.vulnerable.name,
+					"subject": "dreamer",
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("effect_stacks"),
+				},
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.advantage.name,
+					"subject": "dreamer",
+					"modification": 1,
+				}
+			],
+		},
+	}
+	var PowerfulDivein = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.vulnerable.name,
+					"subject": "dreamer",
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("effect_stacks"),
+				},
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.advantage.name,
+					"subject": "dreamer",
+					"modification": 1,
+					"upgrade_name": "powerful",
+				}
+			],
+		},
+	}
+	var SafetyofAir = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "dreamer",
+					"amount": -cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("healing_amount", 0),
+					"tags": ["Healing"],
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": cfc.NMAP.forgotten,
+				},
+			],
+		},
+	}
+	var SustainedSafetyofAir = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "dreamer",
+					"amount": -cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("healing_amount", 0),
+					"tags": ["Healing"],
+				},
+			],
+		},
+	}
+	var NothingtoFear = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.nothing_to_fear.name,
+					"subject": "dreamer",
+					"modification": 1,
+				},
+			],
+		},
+	}
+	var AbsolutelyNothingtoFear = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.nothing_to_fear.name,
+					"subject": "dreamer",
+					"modification": 1,
+					"upgrade_name": "absolutely",
+				},
+			],
+		},
+	}
+	var OutofReach = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.impervious.name,
+					"subject": "dreamer",
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("effect_stacks"),
+				},
+			],
+		},
+	}
+	var ConfoundingMovements = {
+		"manual": {
+			"hand": [
+				{
+					"name": "assign_defence",
+					"subject": "dreamer",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("defence_amount"),
+				},
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.disempower.name,
+					"subject": "target",
+					"is_cost": true,
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("effect_stacks"),
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				}
+			],
+		},
+	}
+	var InnerJustice = {
+		"manual": {
+			"hand": [
+				{
+					"name": "mod_counter",
+					"counter_name": "immersion",
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("immersion_amount"),
+				},
+			],
+		},
+	}
+	var Whirlwind = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"is_cost": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "modify_damage",
+					"subject": "previous",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+				},
+				{
+					"name": "modify_damage",
+					"subject": "previous",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+				},
+			],
+		},
+	}
+	var WildWhirlwind = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"is_cost": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "modify_damage",
+					"subject": "previous",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+				},
+				{
+					"name": "modify_damage",
+					"subject": "previous",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+				},
+				{
+					"name": "modify_damage",
+					"subject": "previous",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+				},
+			],
+		},
+	}
+	var Overview = {
+		"manual": {
+			"hand": [
+				{
+					"name": "assign_defence",
+					"subject": "target",
+					"amount": 0,
+					"set_to_mod": true,
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+			],
+		},
+	}
+	var PiercingOverview = {
+		"manual": {
+			"hand": [
+				{
+					"name": "assign_defence",
+					"subject": "target",
+					"amount": 0,
+					"set_to_mod": true,
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.vulnerable.name,
+					"subject": "previous",
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("effect_stacks"),
+				},
+			],
+		},
+	}
+	var RubberEggs = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.rubber_eggs.name,
+					"subject": "dreamer",
+					"modification": 1,
+				},
+			],
+		},
+	}
+	var HardRubberEggs = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.rubber_eggs.name,
+					"subject": "dreamer",
+					"modification": 1,
+					"upgrade_name": "hard",
+				},
+			],
+		},
+	}
+	var BouncyRubberEggs = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.rubber_eggs.name,
+					"subject": "dreamer",
+					"modification": 1,
+					"upgrade_name": "bouncy",
+				},
+			],
+		},
+	}
+	var TheJoke = {
+		"manual": {
+			"hand": [
+				{
+					"name": "custom_script",
+					"subject": "target",
+					"is_cost": true,
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				}
+			],
+		},
+	}
+	var Nunclucks = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.nunclucks.name,
+					"subject": "dreamer",
+					"modification": 1,
+				},
+			],
+		},
+	}
+	var MassiveNunclucks = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.nunclucks.name,
+					"subject": "dreamer",
+					"modification": 1,
+					"upgrade_name": "massive",
+				},
+			],
+		},
+	}
+	var Gummiraptor = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"is_cost": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "modify_damage",
+					"is_cost": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+					"subject": "previous",
+					"filter_gummiraptor": true,
+				}
+			],
+		},
+	}
+	var SmartGummiraptor = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"is_cost": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "modify_damage",
+					"is_cost": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+					"subject": "previous",
+					"filter_smart_gummiraptor": true,
+				}
+			],
+		},
+	}
+	var CockyRetort = {
+		"manual": {
+			"hand": [
+				# We have a function to discard manually to ensure
+				# it's not counted for checking if the hand is full
+				{
+					"name": "move_card_to_container",
+					"dest_container": cfc.NMAP.discard,
+					"subject": "self",
+				},
+				{
+					"name": "assign_defence",
+					"subject": "dreamer",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("defence_amount"),
+				},
+				{
+					"name": "draw_cards",
+					"card_count": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("draw_amount"),
+				},
+			],
+		},
+	}
+	var RapidEncirclement = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.vulnerable.name,
+					"subject": "boardseek",
+					"subject_count": "all",
+					"modification": 2,
+					"filter_state_seek": [{
+						"filter_group": "EnemyEntities",
+					}],
+				}
+			],
+		},
+	}
+	var BarrelThrough = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"is_cost": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "custom_script",
+					"subject": "previous",
+				},
+			],
+		},
+	}
+	var Intimidate = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.poison.name,
+					"subject": "boardseek",
+					"subject_count": "all",
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("effect_stacks"),
+					"filter_state_seek": [{
+						"filter_group": "EnemyEntities",
+					}],
+				}
+			],
+		},
+	}
+	var CheekyApproach = {
+		"manual": {
+			"hand": [
+				{
+					"name": "assign_defence",
+					"subject": "dreamer",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("defence_amount"),
+				},
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.poison.name,
+					"subject": "target",
+					"is_cost": true,
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("effect_stacks"),
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				}
+			],
+		},
+	}
+	var LaughatDanger = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.laugh_at_danger.name,
+					"subject": "dreamer",
+					"modification": 1,
+				},
+			],
+		},
+	}
+	var RoaringLaughatDanger = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.laugh_at_danger.name,
+					"subject": "dreamer",
+					"modification": 1,
+					"upgrade_name": "roaring",
+				},
+			],
+		},
+	}
+	var ToweringPresence = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"is_cost": true,
+					"tags": ["Attack"],
+					"amount": "per_defence",
+					"per_defence": {
 						"subject": "dreamer",
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("defence_amount"),
-					}
-				],
-			},
-		},
-		"Noisy Whip": {
-			"manual": {
-				"hand": [
-					{
-						"name": "modify_damage",
-						"subject": "target",
-						"is_cost": true,
-						"amount": 5,
-						"tags": ["Attack"],
-						"filter_state_subject": [{
-							"filter_group": "EnemyEntities",
-						}],
 					},
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.disempower.name,
-						"subject": "previous",
-						"modification": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("effect_stacks"),
-					}
-				],
-			},
+				},
+			],
 		},
-		"Dive-in": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.vulnerable.name,
+	}
+	var OverwhelmingPresence = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"is_cost": true,
+					"tags": ["Attack"],
+					"amount": "per_defence",
+					"per_defence": {
 						"subject": "dreamer",
-						"modification": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("effect_stacks"),
 					},
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.advantage.name,
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "modify_damage",
+					"subject": "previous",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+				},
+			],
+		},
+	}
+	var Unassailable = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.unassailable.name,
+					"subject": "dreamer",
+					"modification": 1,
+				},
+			],
+		},
+	}
+	var CompletelyUnassailable = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.unassailable.name,
+					"subject": "dreamer",
+					"modification": 1,
+					"upgrade_name": "completely",
+				},
+			],
+		},
+	}
+	var Audacity = {
+		"manual": {
+			"hand": [
+				{
+					"name": "assign_defence",
+					"subject": "dreamer",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("defence_amount"),
+				},
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.fortify.name,
+					"subject": "dreamer",
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("effect_stacks"),
+				},
+			],
+		},
+	}
+	var Boast = {
+		"manual": {
+			"hand": [
+				{
+					"name": "assign_defence",
+					"subject": "dreamer",
+					"amount": "per_defence",
+					"per_defence": {
 						"subject": "dreamer",
-						"modification": 1,
-					}
-				],
-			},
+					},
+				},
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.fortify.name,
+					"subject": "dreamer",
+					"modification": 0,
+					"set_to_mod": true
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": cfc.NMAP.forgotten,
+				},
+			],
 		},
-		"Powerful Dive-in": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.vulnerable.name,
+	}
+	var MassiveBoast = {
+		"manual": {
+			"hand": [
+				{
+					"name": "assign_defence",
+					"subject": "dreamer",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("defence_amount"),
+				},
+				{
+					"name": "assign_defence",
+					"subject": "dreamer",
+					"amount": "per_defence",
+					"per_defence": {
 						"subject": "dreamer",
-						"modification": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("effect_stacks"),
 					},
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.advantage.name,
+				},
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.fortify.name,
+					"subject": "dreamer",
+					"modification": 0,
+					"set_to_mod": true
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": cfc.NMAP.forgotten,
+				},
+			],
+		},
+	}
+	var SustainedBoast = {
+		"manual": {
+			"hand": [
+				{
+					"name": "assign_defence",
+					"subject": "dreamer",
+					"amount": "per_defence",
+					"per_defence": {
 						"subject": "dreamer",
-						"modification": 1,
-						"upgrade_name": "powerful",
-					}
-				],
-			},
+					},
+				},
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.fortify.name,
+					"subject": "dreamer",
+					"modification": 0,
+					"set_to_mod": true
+				},
+			],
 		},
-		"Safety of Air": {
-			"manual": {
-				"hand": [
-					{
-						"name": "modify_damage",
-						"subject": "dreamer",
-						"amount": -cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("healing_amount", 0),
-						"tags": ["Healing"],
-					},
-					{
-						"name": "move_card_to_container",
-						"subject": "self",
-						"dest_container": cfc.NMAP.forgotten,
-					},
-				],
-			},
+	}
+	var SolidUnderstanding = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"is_cost": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "assign_defence",
+					"subject": "dreamer",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("defence_amount"),
+				},
+			],
 		},
-		"Sustained Safety of Air": {
-			"manual": {
-				"hand": [
-					{
-						"name": "modify_damage",
-						"subject": "dreamer",
-						"amount": -cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("healing_amount", 0),
-						"tags": ["Healing"],
-					},
-				],
-			},
+	}
+	var NoSecondThoughts = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.fortify.name,
+					"subject": "dreamer",
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("effect_stacks"),
+				},
+			],
 		},
-		"Nothing to Fear": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.nothing_to_fear.name,
-						"subject": "dreamer",
-						"modification": 1,
-					},
-				],
-			},
-		},
-		"Absolutely Nothing to Fear": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.nothing_to_fear.name,
-						"subject": "dreamer",
-						"modification": 1,
-						"upgrade_name": "absolutely",
-					},
-				],
-			},
-		},
-		"Out of Reach": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.impervious.name,
-						"subject": "dreamer",
-						"modification": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("effect_stacks"),
-					},
-				],
-			},
-		},
-		"Confounding Movements": {
-			"manual": {
-				"hand": [
-					{
-						"name": "assign_defence",
-						"subject": "dreamer",
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("defence_amount"),
-					},
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.disempower.name,
-						"subject": "target",
-						"is_cost": true,
-						"modification": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("effect_stacks"),
-						"filter_state_subject": [{
-							"filter_group": "EnemyEntities",
-						}],
-					}
-				],
-			},
-		},
-		"Inner Justice": {
-			"manual": {
-				"hand": [
-					{
-						"name": "mod_counter",
-						"counter_name": "immersion",
-						"modification": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("immersion_amount"),
-					},
-				],
-			},
-		},
-		"Whirlwind": {
-			"manual": {
-				"hand": [
-					{
-						"name": "modify_damage",
-						"subject": "target",
-						"is_cost": true,
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("damage_amount"),
-						"tags": ["Attack"],
-						"filter_state_subject": [{
-							"filter_group": "EnemyEntities",
-						}],
-					},
-					{
-						"name": "modify_damage",
-						"subject": "previous",
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("damage_amount"),
-						"tags": ["Attack"],
-					},
-					{
-						"name": "modify_damage",
-						"subject": "previous",
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("damage_amount"),
-						"tags": ["Attack"],
-					},
-				],
-			},
-		},
-		"Wild Whirlwind": {
-			"manual": {
-				"hand": [
-					{
-						"name": "modify_damage",
-						"subject": "target",
-						"is_cost": true,
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("damage_amount"),
-						"tags": ["Attack"],
-						"filter_state_subject": [{
-							"filter_group": "EnemyEntities",
-						}],
-					},
-					{
-						"name": "modify_damage",
-						"subject": "previous",
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("damage_amount"),
-						"tags": ["Attack"],
-					},
-					{
-						"name": "modify_damage",
-						"subject": "previous",
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("damage_amount"),
-						"tags": ["Attack"],
-					},
-					{
-						"name": "modify_damage",
-						"subject": "previous",
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("damage_amount"),
-						"tags": ["Attack"],
-					},
-				],
-			},
-		},
-		"Overview": {
-			"manual": {
-				"hand": [
-					{
-						"name": "assign_defence",
-						"subject": "target",
-						"amount": 0,
-						"set_to_mod": true,
-						"filter_state_subject": [{
-							"filter_group": "EnemyEntities",
-						}],
-					},
-				],
-			},
-		},
-		"Piercing Overview": {
-			"manual": {
-				"hand": [
-					{
-						"name": "assign_defence",
-						"subject": "target",
-						"amount": 0,
-						"set_to_mod": true,
-						"filter_state_subject": [{
-							"filter_group": "EnemyEntities",
-						}],
-					},
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.vulnerable.name,
-						"subject": "previous",
-						"modification": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("effect_stacks"),
-					},
-				],
-			},
-		},
-		"Rubber Eggs": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.rubber_eggs.name,
-						"subject": "dreamer",
-						"modification": 1,
-					},
-				],
-			},
-		},
-		"Hard Rubber Eggs": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.rubber_eggs.name,
-						"subject": "dreamer",
-						"modification": 1,
-						"upgrade_name": "hard",
-					},
-				],
-			},
-		},
-		"Bouncy Rubber Eggs": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.rubber_eggs.name,
-						"subject": "dreamer",
-						"modification": 1,
-						"upgrade_name": "bouncy",
-					},
-				],
-			},
-		},
-		"The Joke": {
-			"manual": {
-				"hand": [
-					{
-						"name": "custom_script",
-						"subject": "target",
-						"is_cost": true,
-						"filter_state_subject": [{
-							"filter_group": "EnemyEntities",
-						}],
-					}
-				],
-			},
-		},
-		"Nunclucks": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.nunclucks.name,
-						"subject": "dreamer",
-						"modification": 1,
-					},
-				],
-			},
-		},
-		"Massive Nunclucks": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.nunclucks.name,
-						"subject": "dreamer",
-						"modification": 1,
-						"upgrade_name": "massive",
-					},
-				],
-			},
-		},
-		"Gummiraptor": {
-			"manual": {
-				"hand": [
-					{
-						"name": "modify_damage",
-						"subject": "target",
-						"is_cost": true,
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("damage_amount"),
-						"tags": ["Attack"],
-						"filter_state_subject": [{
-							"filter_group": "EnemyEntities",
-						}],
-					},
-					{
-						"name": "modify_damage",
-						"is_cost": true,
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("damage_amount"),
-						"tags": ["Attack"],
-						"subject": "previous",
-						"filter_gummiraptor": true,
-					}
-				],
-			},
-		},
-		"Smart Gummiraptor": {
-			"manual": {
-				"hand": [
-					{
-						"name": "modify_damage",
-						"subject": "target",
-						"is_cost": true,
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("damage_amount"),
-						"tags": ["Attack"],
-						"filter_state_subject": [{
-							"filter_group": "EnemyEntities",
-						}],
-					},
-					{
-						"name": "modify_damage",
-						"is_cost": true,
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("damage_amount"),
-						"tags": ["Attack"],
-						"subject": "previous",
-						"filter_smart_gummiraptor": true,
-					}
-				],
-			},
-		},
-		"Cocky Retort": {
-			"manual": {
-				"hand": [
-					# We have a function to discard manually to ensure
-					# it's not counted for checking if the hand is full
-					{
-						"name": "move_card_to_container",
-						"dest_container": cfc.NMAP.discard,
-						"subject": "self",
-					},
-					{
-						"name": "assign_defence",
-						"subject": "dreamer",
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("defence_amount"),
-					},
-					{
-						"name": "draw_cards",
-						"card_count": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("draw_amount"),
-					},
-				],
-			},
-		},
-		"Rapid Encirclement": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.vulnerable.name,
-						"subject": "boardseek",
-						"subject_count": "all",
-						"modification": 2,
-						"filter_state_seek": [{
-							"filter_group": "EnemyEntities",
-						}],
-					}
-				],
-			},
-		},
-		"Barrel Through": {
-			"manual": {
-				"hand": [
-					{
-						"name": "modify_damage",
-						"subject": "target",
-						"is_cost": true,
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("damage_amount"),
-						"tags": ["Attack"],
-						"filter_state_subject": [{
-							"filter_group": "EnemyEntities",
-						}],
-					},
-					{
-						"name": "custom_script",
-						"subject": "previous",
-					},
-				],
-			},
-		},
-		"Intimidate": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.poison.name,
-						"subject": "boardseek",
-						"subject_count": "all",
-						"modification": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("effect_stacks"),
-						"filter_state_seek": [{
-							"filter_group": "EnemyEntities",
-						}],
-					}
-				],
-			},
-		},
-		"Cheeky Approach": {
-			"manual": {
-				"hand": [
-					{
-						"name": "assign_defence",
-						"subject": "dreamer",
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("defence_amount"),
-					},
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.poison.name,
-						"subject": "target",
-						"is_cost": true,
-						"modification": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("effect_stacks"),
-						"filter_state_subject": [{
-							"filter_group": "EnemyEntities",
-						}],
-					}
-				],
-			},
-		},
-		"Laugh at Danger": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.laugh_at_danger.name,
-						"subject": "dreamer",
-						"modification": 1,
-					},
-				],
-			},
-		},
-		"Roaring Laugh at Danger": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.laugh_at_danger.name,
-						"subject": "dreamer",
-						"modification": 1,
-						"upgrade_name": "roaring",
-					},
-				],
-			},
-		},
-		"Towering Presence": {
-			"manual": {
-				"hand": [
-					{
-						"name": "modify_damage",
-						"subject": "target",
-						"is_cost": true,
-						"tags": ["Attack"],
-						"amount": "per_defence",
-						"per_defence": {
-							"subject": "dreamer",
-						},
-					},
-				],
-			},
-		},
-		"Overwhelming Presence": {
-			"manual": {
-				"hand": [
-					{
-						"name": "modify_damage",
-						"subject": "target",
-						"is_cost": true,
-						"tags": ["Attack"],
-						"amount": "per_defence",
-						"per_defence": {
-							"subject": "dreamer",
-						},
-						"filter_state_subject": [{
-							"filter_group": "EnemyEntities",
-						}],
-					},
-					{
-						"name": "modify_damage",
-						"subject": "previous",
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("damage_amount"),
-						"tags": ["Attack"],
-					},
-				],
-			},
-		},
-		"Unassailable": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.unassailable.name,
-						"subject": "dreamer",
-						"modification": 1,
-					},
-				],
-			},
-		},
-		"Completely Unassailable": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.unassailable.name,
-						"subject": "dreamer",
-						"modification": 1,
-						"upgrade_name": "completely",
-					},
-				],
-			},
-		},
-		"Audacity": {
-			"manual": {
-				"hand": [
-					{
-						"name": "assign_defence",
-						"subject": "dreamer",
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("defence_amount"),
-					},
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.fortify.name,
-						"subject": "dreamer",
-						"modification": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("effect_stacks"),
-					},
-				],
-			},
-		},
-		"Boast": {
-			"manual": {
-				"hand": [
-					{
-						"name": "assign_defence",
-						"subject": "dreamer",
-						"amount": "per_defence",
-						"per_defence": {
-							"subject": "dreamer",
-						},
-					},
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.fortify.name,
-						"subject": "dreamer",
-						"modification": 0,
-						"set_to_mod": true
-					},
-					{
-						"name": "move_card_to_container",
-						"subject": "self",
-						"dest_container": cfc.NMAP.forgotten,
-					},
-				],
-			},
-		},
-		"Massive Boast": {
-			"manual": {
-				"hand": [
-					{
-						"name": "assign_defence",
-						"subject": "dreamer",
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("defence_amount"),
-					},
-					{
-						"name": "assign_defence",
-						"subject": "dreamer",
-						"amount": "per_defence",
-						"per_defence": {
-							"subject": "dreamer",
-						},
-					},
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.fortify.name,
-						"subject": "dreamer",
-						"modification": 0,
-						"set_to_mod": true
-					},
-					{
-						"name": "move_card_to_container",
-						"subject": "self",
-						"dest_container": cfc.NMAP.forgotten,
-					},
-				],
-			},
-		},
-		"Sustained Boast": {
-			"manual": {
-				"hand": [
-					{
-						"name": "assign_defence",
-						"subject": "dreamer",
-						"amount": "per_defence",
-						"per_defence": {
-							"subject": "dreamer",
-						},
-					},
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.fortify.name,
-						"subject": "dreamer",
-						"modification": 0,
-						"set_to_mod": true
-					},
-				],
-			},
-		},
-		"Solid Understanding": {
-			"manual": {
-				"hand": [
-					{
-						"name": "modify_damage",
-						"subject": "target",
-						"is_cost": true,
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("damage_amount"),
-						"tags": ["Attack"],
-						"filter_state_subject": [{
-							"filter_group": "EnemyEntities",
-						}],
-					},
-					{
-						"name": "assign_defence",
-						"subject": "dreamer",
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("defence_amount"),
-					},
-				],
-			},
-		},
-		"No Second Thoughts": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.fortify.name,
-						"subject": "dreamer",
-						"modification": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("effect_stacks"),
-					},
-				],
-			},
-		},
-		"High Morale": {
-			"manual": {
-				"hand": [
-					{
-						"name": "move_card_to_container",
-						"dest_container": cfc.NMAP.discard,
-						"subject": "self",
-					},
-					{
-						"name": "modify_damage",
-						"subject": "target",
-						"is_cost": true,
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("damage_amount"),
-						"tags": ["Attack"],
-						"filter_state_subject": [{
-							"filter_group": "EnemyEntities",
-						}],
-					},
-					{
-						"name": "move_card_to_container",
-						"subject": "tutor",
-						"subject_count": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("draw_amount"),
-						"src_container":  cfc.NMAP.deck,
-						"dest_container":  cfc.NMAP.hand,
-						"filter_state_tutor": [
-							{
-								"filter_properties": {
-									"Tags": Terms.ACTIVE_EFFECTS.fortify.name
-								}
+	}
+	var HighMorale = {
+		"manual": {
+			"hand": [
+				{
+					"name": "move_card_to_container",
+					"dest_container": cfc.NMAP.discard,
+					"subject": "self",
+				},
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"is_cost": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "tutor",
+					"subject_count": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("draw_amount"),
+					"src_container":  cfc.NMAP.deck,
+					"dest_container":  cfc.NMAP.hand,
+					"filter_state_tutor": [
+						{
+							"filter_properties": {
+								"Tags": Terms.ACTIVE_EFFECTS.fortify.name
 							}
-						],
-					},
-				],
-			},
+						}
+					],
+				},
+			],
 		},
-		"Confident Slap": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.poison.name,
-						"subject": "target",
-						"is_cost": true,
-						"modification": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("effect_stacks"),
-						"filter_state_subject": [{
-							"filter_group": "EnemyEntities",
-						}],
-					}
-				],
-			},
+	}
+	var ConfidentSlap = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.poison.name,
+					"subject": "target",
+					"is_cost": true,
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("effect_stacks"),
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				}
+			],
 		},
-		"Swoop": {
-			"manual": {
-				"hand": [
-					{
-						"name": "modify_damage",
-						"subject": "target",
-						"is_cost": true,
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("damage_amount"),
-						"tags": ["Attack"],
-						"filter_state_subject": [{
-							"filter_group": "EnemyEntities",
-						}],
-						"filter_dreamer_effect": Terms.ACTIVE_EFFECTS.impervious.name,
-						"filter_stacks": 0,
-						"comparison": "eq",
-					},
-					{
-						"name": "modify_damage",
-						"subject": "target",
-						"is_cost": true,
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("damage_amount2"),
-						"tags": ["Attack"],
-						"filter_state_subject": [{
-							"filter_group": "EnemyEntities",
-						}],
-						"filter_dreamer_effect": Terms.ACTIVE_EFFECTS.impervious.name,
-						"filter_stacks": 1,
-						"comparison": "ge",
-					},
-				],
-			},
+	}
+	var Swoop = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"is_cost": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+					"filter_dreamer_effect": Terms.ACTIVE_EFFECTS.impervious.name,
+					"filter_stacks": 0,
+					"comparison": "eq",
+				},
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"is_cost": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount2"),
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+					"filter_dreamer_effect": Terms.ACTIVE_EFFECTS.impervious.name,
+					"filter_stacks": 1,
+					"comparison": "ge",
+				},
+			],
 		},
-		"Drag and Drop": {
-			"manual": {
-				"hand": [
-					{
-						"name": "modify_damage",
-						"subject": "target",
-						"is_cost": true,
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("damage_amount"),
-						"tags": ["Attack"],
-						"filter_state_subject": [{
-							"filter_group": "EnemyEntities",
-						}],
-					},
-					{
-						"name": "custom_script",
-						"subject": "previous",
-					},
-				],
-			},
+	}
+	var DragandDrop = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"is_cost": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "custom_script",
+					"subject": "previous",
+				},
+			],
 		},
-		"Running Start": {
-			"manual": {
-				"hand": [
-					{
-						"name": "move_card_to_container",
-						"dest_container": cfc.NMAP.discard,
-						"subject": "self",
-					},
-					{
-						"name": "modify_damage",
-						"subject": "target",
-						"is_cost": true,
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("damage_amount"),
-						"tags": ["Attack"],
-						"filter_state_subject": [{
-							"filter_group": "EnemyEntities",
-						}],
-					},
-					{
-						"name": "move_card_to_container",
-						"subject": "tutor",
-						"subject_count": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("draw_amount"),
-						"src_container":  cfc.NMAP.deck,
-						"dest_container":  cfc.NMAP.hand,
-						"filter_state_tutor": [
-							{
-								"filter_properties": {
-									"Tags": Terms.ACTIVE_EFFECTS.impervious.name
-								}
+	}
+	var RunningStart = {
+		"manual": {
+			"hand": [
+				{
+					"name": "move_card_to_container",
+					"dest_container": cfc.NMAP.discard,
+					"subject": "self",
+				},
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"is_cost": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "tutor",
+					"subject_count": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("draw_amount"),
+					"src_container":  cfc.NMAP.deck,
+					"dest_container":  cfc.NMAP.hand,
+					"filter_state_tutor": [
+						{
+							"filter_properties": {
+								"Tags": Terms.ACTIVE_EFFECTS.impervious.name
 							}
-						],
-					},
-				],
-			},
+						}
+					],
+				},
+			],
 		},
-		"Master of Skies": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.master_of_skies.name,
-						"subject": "dreamer",
-						"modification": 1,
-					},
-				],
-			},
+	}
+	var MasterofSkies = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.master_of_skies.name,
+					"subject": "dreamer",
+					"modification": 1,
+				},
+			],
 		},
-		"Glorious Master of Skies": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.master_of_skies.name,
-						"subject": "dreamer",
-						"modification": 1,
-						"upgrade_name": "glorious",
-					},
-				],
-			},
+	}
+	var GloriousMasterofSkies = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.master_of_skies.name,
+					"subject": "dreamer",
+					"modification": 1,
+					"upgrade_name": "glorious",
+				},
+			],
 		},
-		"Zen of Flight": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.zen_of_flight.name,
-						"subject": "dreamer",
-						"modification": 1,
-					},
-				],
-			},
+	}
+	var ZenofFlight = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.zen_of_flight.name,
+					"subject": "dreamer",
+					"modification": 1,
+				},
+			],
 		},
-		"Masterful Zen of Flight": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.zen_of_flight.name,
-						"subject": "dreamer",
-						"modification": 1,
-						"upgrade_name": "masterful",
-					},
-				],
-			},
+	}
+	var MasterfulZenofFlight = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.zen_of_flight.name,
+					"subject": "dreamer",
+					"modification": 1,
+					"upgrade_name": "masterful",
+				},
+			],
 		},
-		"Loop de loop": {
-			"manual": {
-				"hand": [
-					{
-						"name": "assign_defence",
-						"subject": "dreamer",
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("defence_amount"),
-					},
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.buffer.name,
-						"subject": "dreamer",
-						"modification": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("effect_stacks"),
-					}
-				],
-			},
+	}
+	var Loopdeloop = {
+		"manual": {
+			"hand": [
+				{
+					"name": "assign_defence",
+					"subject": "dreamer",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("defence_amount"),
+				},
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.buffer.name,
+					"subject": "dreamer",
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("effect_stacks"),
+				}
+			],
 		},
-		"Headless": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.buffer.name,
-						"subject": "dreamer",
-						"modification": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("effect_stacks"),
-					}
-				],
-			},
+	}
+	var Headless = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.buffer.name,
+					"subject": "dreamer",
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("effect_stacks"),
+				}
+			],
 		},
-		"Utterly Ridiculous": {
-			"manual": {
-				"hand": [
-					{
-						"name": "modify_damage",
-						"subject": "boardseek",
-						"subject_count": "all",
-						"tags": ["Attack"],
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("damage_amount"),
-						"filter_state_seek": [{
-							"filter_group": "EnemyEntities",
-						}],
-					}
-				],
-				"filter_per_effect_stacks": {
+	}
+	var UtterlyRidiculous = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "boardseek",
+					"subject_count": "all",
+					"tags": ["Attack"],
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"filter_state_seek": [{
+						"filter_group": "EnemyEntities",
+					}],
+				}
+			],
+			"filter_per_effect_stacks": {
+				"subject": "boardseek",
+				"subject_count": "all",
+				"filter_state_seek": [{
+					"filter_group": "EnemyEntities",
+				}],
+				"effect_name": Terms.ACTIVE_EFFECTS.disempower.name,
+				"filter_stacks": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("filter_amount"),
+				"comparison": "ge",
+			}
+		},
+	}
+	var Ventriloquism = {
+		"manual": {
+			"hand": [
+				{
+					"name": "move_card_to_container",
+					"dest_container": cfc.NMAP.discard,
+					"subject": "self",
+				},
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"is_cost": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "tutor",
+					"subject_count": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("draw_amount"),
+					"src_container":  cfc.NMAP.deck,
+					"dest_container":  cfc.NMAP.hand,
+					"filter_state_tutor": [
+						{
+							"filter_properties": {
+								"Tags": Terms.ACTIVE_EFFECTS.disempower.name
+							}
+						}
+					],
+				},
+			],
+		},
+	}
+	var unnamed_card_1 = {
+		"manual": {
+			"hand": [
+				{
+					"name": "move_card_to_container",
+					"src_container": cfc.NMAP.discard,
+					"dest_container": cfc.NMAP.deck,
+					"subject_count": "all",
+					"subject": "index",
+					"subject_index": "top",
+				},
+				{
+					"name": "shuffle_container",
+					"dest_container": cfc.NMAP.deck,
+				},
+				{
+					"name": "autoplay_card",
+					"src_container": cfc.NMAP.deck,
+					"subject_count": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("draw_amount"),
+					"subject": "index",
+					"subject_index": "random",
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": cfc.NMAP.forgotten,
+				},
+			],
+		},
+	}
+	var Sustainedunnamed_card_1 = {
+		"manual": {
+			"hand": [
+				{
+					"name": "move_card_to_container",
+					"src_container": cfc.NMAP.discard,
+					"dest_container": cfc.NMAP.deck,
+					"subject_count": "all",
+					"subject": "index",
+					"subject_index": "top",
+				},
+				{
+					"name": "shuffle_container",
+					"dest_container": cfc.NMAP.deck,
+				},
+				{
+					"name": "autoplay_card",
+					"src_container": cfc.NMAP.deck,
+					"subject_count": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("draw_amount"),
+					"subject": "index",
+					"subject_index": "random",
+				},
+			],
+		},
+	}
+	var unnamed_card_2=  {
+		"manual": {
+			"hand": [
+				{
+					"name": "custom_script",
 					"subject": "boardseek",
 					"subject_count": "all",
 					"filter_state_seek": [{
 						"filter_group": "EnemyEntities",
 					}],
-					"effect_name": Terms.ACTIVE_EFFECTS.disempower.name,
-					"filter_stacks": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("filter_amount"),
-					"comparison": "ge",
 				}
-			},
+			],
 		},
-		"Ventriloquism": {
-			"manual": {
-				"hand": [
+	}
+	var unnamed_card_3 = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "boardseek",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"subject_count": "all",
+					"tags": ["Attack"],
+					"filter_state_seek": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+			],
+		},
+	}
+	var AbsurdityUnleashed = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.absurdity_unleashed.name,
+					"subject": "dreamer",
+					"modification": 1,
+				},
+			],
+		},
+	}
+	var TotalAbsurdityUnleashed = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.absurdity_unleashed.name,
+					"subject": "dreamer",
+					"modification": 1,
+					"upgrade_name": "total",
+				},
+			],
+		},
+	}
+	var unnamed_card_4 = {
+		"manual": {
+			"hand": [
+				{
+					"name": "assign_defence",
+					"subject": "dreamer",
+					"amount": 11,
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": cfc.NMAP.forgotten,
+				},
+			],
+		},
+		"on_player_turn_ended": {
+			"hand": [
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": cfc.NMAP.forgotten,
+				},
+			],
+		},
+	}
+	var ChangeofMind = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"is_cost": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": cfc.NMAP.deck,
+				},
+				{
+					"name": "shuffle_container",
+					"dest_container": cfc.NMAP.deck,
+				},
+			],
+		},
+	}
+	var Brilliance = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.brilliance.name,
+					"subject": "dreamer",
+					"modification": 1,
+				},
+			],
+		},
+	}
+	var BlindingBrilliance = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.brilliance.name,
+					"subject": "dreamer",
+					"modification": 1,
+					"upgrade_name": "blinding",
+				},
+			],
+		},
+	}
+	var Recall = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.recall.name,
+					"subject": "dreamer",
+					"modification": 1,
+				},
+			],
+		},
+	}
+	var TotalRecall = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.recall.name,
+					"subject": "dreamer",
+					"modification": 1,
+					"upgrade_name": "total",
+				},
+			],
+		},
+	}
+	var Eureka = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.eureka.name,
+					"subject": "dreamer",
+					"modification": 1,
+				},
+			],
+		},
+	}
+	var InspiredEureka = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.eureka.name,
+					"subject": "dreamer",
+					"modification": 1,
+					"upgrade_name": "inspired",
+				},
+			],
+		},
+	}
+	var RapidTheorizing = {
+		"manual": {
+			"hand": [
+				# We have a function to discard manually to ensure
+				# it's not counted for checking if the hand is full
+				{
+					"name": "move_card_to_container",
+					"dest_container": cfc.NMAP.discard,
+					"subject": "self",
+				},
+				{
+					"name": "assign_defence",
+					"subject": "dreamer",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("defence_amount"),
+				},
+				{
+					"name": "assign_defence",
+					"subject": "dreamer",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("defence_amount2"),
+					"filter_turn_event_count": {
+						"event": "deck_shuffled",
+						"filter_count": 1,
+						"comparison": "ge",
+					}
+				},
+				{
+					"name": "draw_cards",
+					"card_count": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("draw_amount"),
+					"filter_turn_event_count": {
+						"event": "deck_shuffled",
+						"filter_count": 1,
+						"comparison": "ge",
+					}
+				},
+			],
+		},
+	}
+	var WildInspiration = {
+		"manual": {
+			"hand": [
+				{
+					"name": "move_card_to_container",
+					"dest_container": cfc.NMAP.discard,
+					"subject": "self",
+				},
+				{
+					"name": "move_card_to_container",
+					"dest_container": cfc.NMAP.forgotten,
+					"src_container": cfc.NMAP.deck,
+					"subject": "index",
+					"subject_index": "top",
+					"subject_count": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("forget_amount"),
+					"is_cost": true,
+				},
+				{
+					"name": "mod_counter",
+					"counter_name": "immersion",
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("immersion_amount"),
+				},
+				{
+					"name": "draw_cards",
+					"card_count": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("draw_amount"),
+				},
+			],
+		},
+	}
+	var unnamed_card_5 = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"is_cost": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "nested_script",
+					"nested_tasks": [
+						{
+							"name": "move_card_to_container",
+							"is_cost": true,
+							"subject": "index",
+							"subject_count": "all",
+							"subject_index": "top",
+							SP.KEY_NEEDS_SELECTION: true,
+							SP.KEY_SELECTION_COUNT: cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("discard_amount"),
+							SP.KEY_SELECTION_TYPE: "equal",
+							SP.KEY_SELECTION_OPTIONAL: true,
+							SP.KEY_SELECTION_IGNORE_SELF: true,
+							"src_container": cfc.NMAP.hand,
+							"dest_container": cfc.NMAP.discard,
+						},
+						{
+							"name": "move_card_to_container",
+							"subject": "self",
+							"dest_container": cfc.NMAP.deck,
+						},
+						{
+							"name": "shuffle_container",
+							"dest_container": cfc.NMAP.deck,
+						},
+					]
+				}
+			],
+		},
+	}
+	var Itsalive = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"is_cost": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "modify_damage",
+					"subject": "previous",
+					"amount": "per_encounter_event_count",
+					"tags": ["Attack"],
+					"per_encounter_event_count": {
+						"event_name": "deck_shuffled",
+						"multiplier": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount2"),
+					}
+				},
+			],
+		},
+	}
+	var DetectWeaknesses = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"is_cost": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.vulnerable.name,
+					"subject": "previous",
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("effect_stacks"),
+					"filter_turn_event_count": {
+						"event": "deck_shuffled",
+						"filter_count": 1,
+						"comparison": "ge",
+					}
+				},
+			],
+		},
+	}
+	var unnamed_card_6 = {
+		"manual": {
+			"hand": [
+				{
+					"name": "draw_cards",
+					"card_count": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("draw_amount"),
+				},
+				{
+					"name": "modify_properties",
+					"set_properties": {"Cost": "0"},
+					"subject": "previous",
+				},
+				{
+					"name": "enable_rider",
+					"rider": "reset_cost_after_play",
+					"subject": "previous",
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": cfc.NMAP.forgotten,
+				},
+			],
+		},
+	}
+	var Sustainedunnamed_card_6 = {
+		"manual": {
+			"hand": [
+				{
+					"name": "draw_cards",
+					"card_count": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("draw_amount"),
+				},
+				{
+					"name": "modify_properties",
+					"set_properties": {"Cost": "0"},
+					"subject": "previous",
+				},
+				{
+					"name": "enable_rider",
+					"rider": "reset_cost_after_play",
+					"subject": "previous",
+				},
+			],
+		},
+	}
+	var unnamed_card_7 = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.drain.name,
+					"subject": "dreamer",
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("effect_stacks"),
+				},
+				{
+					"name": "mod_counter",
+					"counter_name": "immersion",
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("immersion_amount"),
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": cfc.NMAP.forgotten,
+				},
+			],
+		},
+	}
+	var Improvedunnamed_card_7 = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.drain.name,
+					"subject": "dreamer",
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("effect_stacks"),
+				},
+				{
+					"name": "mod_counter",
+					"counter_name": "immersion",
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("immersion_amount"),
+				},
+				{
+					"name": "draw_cards",
+					"card_count": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("draw_amount"),
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": cfc.NMAP.forgotten,
+				},
+			],
+		},
+	}
+	var unnamed_card_8 = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"is_cost": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "modify_damage",
+					"is_cost": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount2"),
+					"tags": ["Attack"],
+					"subject": "previous",
+					"filter_turn_event_count": {
+						"event": "immersion_increased",
+						"filter_count": 1,
+						"comparison": "ge",
+					},
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+			],
+		},
+	}
+	var unnamed_card_9 = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"is_cost": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"x_modifier": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("x_modifer", '0'),
+					"x_operation": "multiply",
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+			],
+		},
+	}
+	var Dodge = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"is_cost": true,
+					"effect_name": Terms.ACTIVE_EFFECTS.impervious.name,
+					"subject": "dreamer",
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("effect_stacks"),
+					"filter_dreamer_defence": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("requirements_amount"),
+				},
+			],
+		},
+	}
+	var Introspection = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.introspection.name,
+					"subject": "dreamer",
+					"modification": 1,
+				},
+			],
+		},
+	}
+	var LightIntrospection = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.introspection.name,
+					"subject": "dreamer",
+					"modification": 1,
+					"upgrade_name": "light",
+				},
+			],
+		},
+	}
+	var DeepIntrospection = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.introspection.name,
+					"subject": "dreamer",
+					"modification": 1,
+					"upgrade_name": "deep",
+				},
+			],
+		},
+	}
+	var Dismissal = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "dreamer",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("exert_amount"),
+					"tags": ["Exert"],
+				},
+				{
+					"name": "assign_defence",
+					"subject": "dreamer",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("defence_amount"),
+				}
+			],
+		},
+	}
+	var CouldBeWorse = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"is_cost": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "modify_damage",
+					"subject": "dreamer",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("exert_amount"),
+					"tags": ["Exert"],
+				},
+			],
+		},
+	}
+	var TheHappyPlace = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.the_happy_place.name,
+					"subject": "dreamer",
+					"modification": 1,
+				},
+			],
+		},
+	}
+	var SelfDeception = {
+		"manual": {
+			"hand": [
+				# We have a function to discard manually to ensure
+				# it's not counted for checking if the hand is full
+				{
+					"name": "move_card_to_container",
+					"dest_container": cfc.NMAP.discard,
+					"subject": "self",
+				},
+				{
+					"name": "modify_damage",
+					"subject": "dreamer",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("exert_amount"),
+					"tags": ["Exert"],
+				},
+				{
+					"name": "draw_cards",
+					"card_count": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("draw_amount"),
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "tutor",
+					"subject_count": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("draw_amount2"),
+					"src_container":  cfc.NMAP.deck,
+					"dest_container":  cfc.NMAP.hand,
+					"filter_state_tutor": [
+						{
+							"filter_properties": {
+								"Tags": Terms.GENERIC_TAGS.exert.name
+							}
+						}
+					],
+				},
+			],
+		},
+	}
+	var unnamed_card_12 = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "dreamer",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("exert_amount"),
+					"tags": ["Exert"],
+				},
+				{
+					"name": "mod_counter",
+					"counter_name": "immersion",
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("immersion_amount"),
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": cfc.NMAP.forgotten,
+				},
+			],
+		},
+	}
+	var Swiftunnamed_card_12 = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "dreamer",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("exert_amount"),
+					"tags": ["Exert"],
+				},
+				{
+					"name": "mod_counter",
+					"counter_name": "immersion",
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("immersion_amount"),
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": cfc.NMAP.forgotten,
+				},
+				{
+					"name": "draw_cards",
+					"card_count": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("draw_amount"),
+				},
+
+			],
+		},
+	}
+	var unnamed_card_13 = {
+		"manual": {
+			"hand": {
+				"Take Anxiety to Interpret all Torments": [
 					{
-						"name": "move_card_to_container",
-						"dest_container": cfc.NMAP.discard,
-						"subject": "self",
+						"name": "modify_damage",
+						"subject": "dreamer",
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("exert_amount"),
+						"tags": ["Exert"],
+					},
+					{
+						"name": "modify_damage",
+						"subject": "boardseek",
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
+						"subject_count": "all",
+						"tags": ["Attack"],
+						"filter_state_seek": [{
+							"filter_group": "EnemyEntities",
+						}],
+					},
+				],
+				"Interpret single Torment": [
+					{
+						"name": "modify_damage",
+						"subject": "target",
+						"is_cost": true,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
+						"tags": ["Attack"],
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
+					},
+				],
+			}
+		},
+	}
+	var Rancor = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"is_cost": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "modify_damage",
+					"subject": "boardseek",
+					"amount": "per_turn_event_count",
+					"tags": ["Attack"],
+					"per_turn_event_count": {
+						"event_name": "player_total_damage",
+					},
+					"subject_count": "all",
+					"filter_state_seek": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+			],
+		},
+	}
+	var JustifiedRancor = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "boardseek",
+					"amount": "per_turn_event_count",
+					"tags": ["Attack"],
+					"per_turn_event_count": {
+						"multiplier": 3,
+						"event_name": "player_total_damage",
+					},
+					"subject_count": "all",
+					"filter_state_seek": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+			],
+		},
+	}
+	var LastOut = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.lash_out.name,
+					"subject": "dreamer",
+					"modification": 1,
+				},
+			],
+		},
+	}
+	var FrustratedLastOut = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.lash_out.name,
+					"subject": "dreamer",
+					"modification": 1,
+					"upgrade_name": "frustrated",
+				},
+			],
+		},
+	}
+	var unnamed_card_14 = {
+		"manual": {
+			"hand": {
+				"Take Anxiety to interpret single Torment bypassing perplexity": [
+					{
+						"name": "modify_damage",
+						"subject": "dreamer",
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("exert_amount"),
+						"tags": ["Exert"],
+					},
+					{
+						"name": "modify_damage",
+						"subject": "target",
+						"is_cost": true,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
+						"tags": ["Attack", "Unblockable"],
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
+					},
+				],
+				"Interpret single Torment": [
+					{
+						"name": "modify_damage",
+						"subject": "target",
+						"is_cost": true,
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("damage_amount"),
+						"tags": ["Attack"],
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
+					},
+				],
+			}
+		},
+	}
+	var unnamed_card_15 = {
+		"manual": {
+			"hand": {
+				"Take Anxiety to interpret and inflict Doubt on single Torment.": [
+					{
+						"name": "modify_damage",
+						"subject": "dreamer",
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("exert_amount"),
+						"tags": ["Exert"],
 					},
 					{
 						"name": "modify_damage",
@@ -1078,164 +2042,17 @@ func get_scripts(card_name: String) -> Dictionary:
 						}],
 					},
 					{
-						"name": "move_card_to_container",
-						"subject": "tutor",
-						"subject_count": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("draw_amount"),
-						"src_container":  cfc.NMAP.deck,
-						"dest_container":  cfc.NMAP.hand,
-						"filter_state_tutor": [
-							{
-								"filter_properties": {
-									"Tags": Terms.ACTIVE_EFFECTS.disempower.name
-								}
-							}
-						],
-					},
-				],
-			},
-		},
-		"unnamed_card_1": {
-			"manual": {
-				"hand": [
-					{
-						"name": "move_card_to_container",
-						"src_container": cfc.NMAP.discard,
-						"dest_container": cfc.NMAP.deck,
-						"subject_count": "all",
-						"subject": "index",
-						"subject_index": "top",
-					},
-					{
-						"name": "shuffle_container",
-						"dest_container": cfc.NMAP.deck,
-					},
-					{
-						"name": "autoplay_card",
-						"src_container": cfc.NMAP.deck,
-						"subject_count": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("draw_amount"),
-						"subject": "index",
-						"subject_index": "random",
-					},
-					{
-						"name": "move_card_to_container",
-						"subject": "self",
-						"dest_container": cfc.NMAP.forgotten,
-					},
-				],
-			},
-		},
-		"Sustained unnamed_card_1": {
-			"manual": {
-				"hand": [
-					{
-						"name": "move_card_to_container",
-						"src_container": cfc.NMAP.discard,
-						"dest_container": cfc.NMAP.deck,
-						"subject_count": "all",
-						"subject": "index",
-						"subject_index": "top",
-					},
-					{
-						"name": "shuffle_container",
-						"dest_container": cfc.NMAP.deck,
-					},
-					{
-						"name": "autoplay_card",
-						"src_container": cfc.NMAP.deck,
-						"subject_count": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("draw_amount"),
-						"subject": "index",
-						"subject_index": "random",
-					},
-				],
-			},
-		},
-		"unnamed_card_2": {
-			"manual": {
-				"hand": [
-					{
-						"name": "custom_script",
-						"subject": "boardseek",
-						"subject_count": "all",
-						"filter_state_seek": [{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.poison.name,
+						"subject": "previous",
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("effect_stacks"),
+						"filter_state_subject": [{
 							"filter_group": "EnemyEntities",
 						}],
 					}
 				],
-			},
-		},
-		"unnamed_card_3": {
-			"manual": {
-				"hand": [
-					{
-						"name": "modify_damage",
-						"subject": "boardseek",
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("damage_amount"),
-						"subject_count": "all",
-						"tags": ["Attack"],
-						"filter_state_seek": [{
-							"filter_group": "EnemyEntities",
-						}],
-					},
-				],
-			},
-		},
-		"Absurdity Unleashed": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.absurdity_unleashed.name,
-						"subject": "dreamer",
-						"modification": 1,
-					},
-				],
-			},
-		},
-		"Total Absurdity Unleashed": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.absurdity_unleashed.name,
-						"subject": "dreamer",
-						"modification": 1,
-						"upgrade_name": "total",
-					},
-				],
-			},
-		},
-		"unnamed_card_4": {
-			"manual": {
-				"hand": [
-					{
-						"name": "assign_defence",
-						"subject": "dreamer",
-						"amount": 11,
-					},
-					{
-						"name": "move_card_to_container",
-						"subject": "self",
-						"dest_container": cfc.NMAP.forgotten,
-					},
-				],
-			},
-			"on_player_turn_ended": {
-				"hand": [
-					{
-						"name": "move_card_to_container",
-						"subject": "self",
-						"dest_container": cfc.NMAP.forgotten,
-					},
-				],
-			},
-		},
-		"Change of Mind": {
-			"manual": {
-				"hand": [
+				"Interpret single Torment": [
 					{
 						"name": "modify_damage",
 						"subject": "target",
@@ -1247,102 +2064,20 @@ func get_scripts(card_name: String) -> Dictionary:
 							"filter_group": "EnemyEntities",
 						}],
 					},
-					{
-						"name": "move_card_to_container",
-						"subject": "self",
-						"dest_container": cfc.NMAP.deck,
-					},
-					{
-						"name": "shuffle_container",
-						"dest_container": cfc.NMAP.deck,
-					},
 				],
-			},
+			}
 		},
-		"Brilliance": {
-			"manual": {
-				"hand": [
+	}
+	var unnamed_card_16 = {
+		"manual": {
+			"hand": {
+				"Take Anxiety to gain Confidence and Courage.": [
 					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.brilliance.name,
+						"name": "modify_damage",
 						"subject": "dreamer",
-						"modification": 1,
-					},
-				],
-			},
-		},
-		"Blinding Brilliance": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.brilliance.name,
-						"subject": "dreamer",
-						"modification": 1,
-						"upgrade_name": "blinding",
-					},
-				],
-			},
-		},
-		"Recall": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.recall.name,
-						"subject": "dreamer",
-						"modification": 1,
-					},
-				],
-			},
-		},
-		"Total Recall": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.recall.name,
-						"subject": "dreamer",
-						"modification": 1,
-						"upgrade_name": "total",
-					},
-				],
-			},
-		},
-		"Eureka!": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.eureka.name,
-						"subject": "dreamer",
-						"modification": 1,
-					},
-				],
-			},
-		},
-		"Inspired Eureka!": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.eureka.name,
-						"subject": "dreamer",
-						"modification": 1,
-						"upgrade_name": "inspired",
-					},
-				],
-			},
-		},
-		"Rapid Theorizing": {
-			"manual": {
-				"hand": [
-					# We have a function to discard manually to ensure
-					# it's not counted for checking if the hand is full
-					{
-						"name": "move_card_to_container",
-						"dest_container": cfc.NMAP.discard,
-						"subject": "self",
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("exert_amount"),
+						"tags": ["Exert"],
 					},
 					{
 						"name": "assign_defence",
@@ -1351,371 +2086,269 @@ func get_scripts(card_name: String) -> Dictionary:
 								.get("_amounts",{}).get("defence_amount"),
 					},
 					{
+						"name": "apply_effect",
+						"effect_name": Terms.ACTIVE_EFFECTS.fortify.name,
+						"subject": "dreamer",
+						"modification": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("effect_stacks"),
+						"filter_state_subject": [{
+							"filter_group": "EnemyEntities",
+						}],
+					}
+				],
+				"Gain Confidence": [
+					{
 						"name": "assign_defence",
 						"subject": "dreamer",
 						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("defence_amount2"),
-						"filter_turn_event_count": {
-							"event": "deck_shuffled",
-							"filter_count": 1,
-							"comparison": "ge",
-						}
-					},
-					{
-						"name": "draw_cards",
-						"card_count": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("draw_amount"),
-						"filter_turn_event_count": {
-							"event": "deck_shuffled",
-							"filter_count": 1,
-							"comparison": "ge",
-						}
-					},
-				],
-			},
-		},
-		"Wild Inspiration": {
-			"manual": {
-				"hand": [
-					{
-						"name": "move_card_to_container",
-						"dest_container": cfc.NMAP.discard,
-						"subject": "self",
-					},
-					{
-						"name": "move_card_to_container",
-						"dest_container": cfc.NMAP.forgotten,
-						"src_container": cfc.NMAP.deck,
-						"subject": "index",
-						"subject_index": "top",
-						"subject_count": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("forget_amount"),
-						"is_cost": true,
-					},
-					{
-						"name": "mod_counter",
-						"counter_name": "immersion",
-						"modification": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("immersion_amount"),
-					},
-					{
-						"name": "draw_cards",
-						"card_count": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("draw_amount"),
-					},
-				],
-			},
-		},
-		"unnamed_card_5": {
-			"manual": {
-				"hand": [
-					{
-						"name": "modify_damage",
-						"subject": "target",
-						"is_cost": true,
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("damage_amount"),
-						"tags": ["Attack"],
-						"filter_state_subject": [{
-							"filter_group": "EnemyEntities",
-						}],
-					},
-					{
-						"name": "nested_script",
-						"nested_tasks": [
-							{
-								"name": "move_card_to_container",
-								"is_cost": true,
-								"subject": "index",
-								"subject_count": "all",
-								"subject_index": "top",
-								SP.KEY_NEEDS_SELECTION: true,
-								SP.KEY_SELECTION_COUNT: cfc.card_definitions[card_name]\
-									.get("_amounts",{}).get("discard_amount"),
-								SP.KEY_SELECTION_TYPE: "equal",
-								SP.KEY_SELECTION_OPTIONAL: true,
-								SP.KEY_SELECTION_IGNORE_SELF: true,
-								"src_container": cfc.NMAP.hand,
-								"dest_container": cfc.NMAP.discard,
-							},
-							{
-								"name": "move_card_to_container",
-								"subject": "self",
-								"dest_container": cfc.NMAP.deck,
-							},
-							{
-								"name": "shuffle_container",
-								"dest_container": cfc.NMAP.deck,
-							},
-						]
+								.get("_amounts",{}).get("defence_amount"),
 					}
 				],
-			},
+			}
 		},
-		"It's alive!": {
-			"manual": {
-				"hand": [
-					{
-						"name": "modify_damage",
-						"subject": "target",
-						"is_cost": true,
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("damage_amount"),
-						"tags": ["Attack"],
-						"filter_state_subject": [{
-							"filter_group": "EnemyEntities",
-						}],
-					},
-					{
-						"name": "modify_damage",
-						"subject": "previous",
-						"amount": "per_encounter_event_count",
-						"tags": ["Attack"],
-						"per_encounter_event_count": {
-							"event_name": "deck_shuffled",
-							"multiplier": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("damage_amount2"),
-						}
-					},
-				],
-			},
+	}
+	var Excuses = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.excuses.name,
+					"subject": "dreamer",
+					"modification": 1,
+				},
+			],
 		},
-		"Detect Weaknesses": {
-			"manual": {
-				"hand": [
-					{
-						"name": "modify_damage",
-						"subject": "target",
-						"is_cost": true,
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("damage_amount"),
-						"tags": ["Attack"],
-						"filter_state_subject": [{
-							"filter_group": "EnemyEntities",
-						}],
-					},
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.vulnerable.name,
-						"subject": "previous",
-						"modification": cfc.card_definitions[card_name]\
+	}
+	var EndlessExcuses = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.excuses.name,
+					"subject": "dreamer",
+					"modification": 1,
+					"upgrade_name": "endless",
+				},
+			],
+		},
+	}
+	var Tolerance = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.tolerance.name,
+					"subject": "dreamer",
+					"modification": cfc.card_definitions[card_name]\
 								.get("_amounts",{}).get("effect_stacks"),
-						"filter_turn_event_count": {
-							"event": "deck_shuffled",
-							"filter_count": 1,
-							"comparison": "ge",
-						}
-					},
-				],
-			},
+				},
+			],
 		},
-		"unnamed_card_6": {
-			"manual": {
-				"hand": [
-					{
-						"name": "draw_cards",
-						"card_count": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("draw_amount"),
-					},
-					{
-						"name": "modify_properties",
-						"set_properties": {"Cost": "0"},
-						"subject": "previous",
-					},
-					{
-						"name": "enable_rider",
-						"rider": "reset_cost_after_play",
-						"subject": "previous",
-					},
-					{
-						"name": "move_card_to_container",
-						"subject": "self",
-						"dest_container": cfc.NMAP.forgotten,
-					},
-				],
-			},
-		},
-		"Sustained unnamed_card_6": {
-			"manual": {
-				"hand": [
-					{
-						"name": "draw_cards",
-						"card_count": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("draw_amount"),
-					},
-					{
-						"name": "modify_properties",
-						"set_properties": {"Cost": "0"},
-						"subject": "previous",
-					},
-					{
-						"name": "enable_rider",
-						"rider": "reset_cost_after_play",
-						"subject": "previous",
-					},
-				],
-			},
-		},
-		"unnamed_card_7": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.drain.name,
-						"subject": "dreamer",
-						"modification": cfc.card_definitions[card_name]\
+	}
+	var ExtremeTolerance = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.tolerance.name,
+					"subject": "dreamer",
+					"modification": cfc.card_definitions[card_name]\
 								.get("_amounts",{}).get("effect_stacks"),
-					},
-					{
-						"name": "mod_counter",
-						"counter_name": "immersion",
-						"modification": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("immersion_amount"),
-					},
-					{
-						"name": "move_card_to_container",
-						"subject": "self",
-						"dest_container": cfc.NMAP.forgotten,
-					},
-				],
-			},
+					"upgrade_name": "extreme",
+				},
+			],
 		},
-		"Improved unnamed_card_7": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.drain.name,
-						"subject": "dreamer",
-						"modification": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("effect_stacks"),
+	}
+	var Catatonia = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "dreamer",
+					"amount": -cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("healing_amount", 0),
+					"tags": ["Healing"],
+					"filter_damage_percent": {
+						"percent": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("health_percent", 0),
+						"comparison": "ge",
 					},
-					{
-						"name": "mod_counter",
-						"counter_name": "immersion",
-						"modification": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("immersion_amount"),
+				},
+				{
+					"name": "modify_damage",
+					"amount": -cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("healing_amount", 0),
+					"tags": ["Healing"],
+					"subject": "dreamer",
+					"filter_encounter_event_count": {
+						"event": "player_total_damage_own_turn",
+						"filter_count": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("anxiety_taken", 0),
+						"comparison": "ge",
 					},
-					{
-						"name": "draw_cards",
-						"card_count": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("draw_amount"),
-					},
-					{
-						"name": "move_card_to_container",
-						"subject": "self",
-						"dest_container": cfc.NMAP.forgotten,
-					},
-				],
-			},
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": cfc.NMAP.forgotten,
+				},
+			],
 		},
-		"unnamed_card_8": {
-			"manual": {
-				"hand": [
-					{
-						"name": "modify_damage",
-						"subject": "target",
-						"is_cost": true,
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("damage_amount"),
-						"tags": ["Attack"],
-						"filter_state_subject": [{
-							"filter_group": "EnemyEntities",
-						}],
-					},
-					{
-						"name": "modify_damage",
-						"is_cost": true,
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("damage_amount2"),
-						"tags": ["Attack"],
-						"subject": "previous",
-						"filter_turn_event_count": {
-							"event": "immersion_increased",
-							"filter_count": 1,
-							"comparison": "ge",
-						},
-						"filter_state_subject": [{
-							"filter_group": "EnemyEntities",
-						}],
-					},
-				],
-			},
+	}
+	var unnamed_card_17 = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"is_cost": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "assign_defence",
+					"subject": "dreamer",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("defence_amount"),
+				},
+			],
 		},
-		"unnamed_card_9": {
-			"manual": {
-				"hand": [
-					{
-						"name": "modify_damage",
-						"subject": "target",
-						"is_cost": true,
-						"amount": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("damage_amount"),
-						"x_modifier": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("x_modifer", '0'),
-						"x_operation": "multiply",
-						"tags": ["Attack"],
-						"filter_state_subject": [{
-							"filter_group": "EnemyEntities",
-						}],
+	}
+	var unnamed_card_18 = {
+		"manual": {
+			"hand": [
+				{
+					"name": "assign_defence",
+					"subject": "dreamer",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("defence_amount"),
+				},
+				{
+					"name": "mod_counter",
+					"counter_name": "immersion",
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("immersion_amount"),
+					"filter_damage_percent": {
+						"percent": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("health_percent", 0),
+						"comparison": "ge",
 					},
-				],
-			},
+				},
+			],
 		},
-		"Dodge": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"is_cost": true,
-						"effect_name": Terms.ACTIVE_EFFECTS.impervious.name,
-						"subject": "dreamer",
-						"modification": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("effect_stacks"),
-						"filter_dreamer_defence": cfc.card_definitions[card_name]\
-								.get("_amounts",{}).get("requirements_amount"),
-					},
-				],
-			},
-		},
-		"Introspection": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.introspection.name,
-						"subject": "dreamer",
-						"modification": 1,
-					},
-				],
-			},
-		},
-		"Light Introspection": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.introspection.name,
-						"subject": "dreamer",
-						"modification": 1,
-						"upgrade_name": "light",
-					},
-				],
-			},
-		},
-		"Deep Introspection": {
-			"manual": {
-				"hand": [
-					{
-						"name": "apply_effect",
-						"effect_name": Terms.ACTIVE_EFFECTS.introspection.name,
-						"subject": "dreamer",
-						"modification": 1,
-						"upgrade_name": "deep",
-					},
-				],
-			},
-		},
+	}
+
+
+	# This format allows me to trace which script failed during load
+	var scripts := {
+		"Interpretation": Interpretation,
+		"Confidence": Confidence,
+		"Noisy Whip": NoisyWhip,
+		"Dive-in": Divein,
+		"Powerful Dive-in": PowerfulDivein,
+		"Safety of Air": SafetyofAir,
+		"Sustained Safety of Air": SustainedSafetyofAir,
+		"Nothing to Fear": NothingtoFear,
+		"Absolutely Nothing to Fear": AbsolutelyNothingtoFear,
+		"Out of Reach": OutofReach,
+		"Confounding Movements": ConfoundingMovements,
+		"Inner Justice": InnerJustice,
+		"Whirlwind": Whirlwind,
+		"Wild Whirlwind": WildWhirlwind,
+		"Overview": Overview,
+		"Piercing Overview": PiercingOverview,
+		"Rubber Eggs": RubberEggs,
+		"Hard Rubber Eggs": HardRubberEggs,
+		"Bouncy Rubber Eggs": BouncyRubberEggs,
+		"The Joke": TheJoke,
+		"Nunclucks": Nunclucks,
+		"Massive Nunclucks": MassiveNunclucks,
+		"Gummiraptor": Gummiraptor,
+		"Smart Gummiraptor": SmartGummiraptor,
+		"Cocky Retort": CockyRetort,
+		"Rapid Encirclement": RapidEncirclement,
+		"Barrel Through": BarrelThrough,
+		"Intimidate": Intimidate,
+		"Cheeky Approach": CheekyApproach,
+		"Laugh at Danger": LaughatDanger,
+		"Roaring Laugh at Danger": RoaringLaughatDanger,
+		"Towering Presence": ToweringPresence,
+		"Overwhelming Presence": OverwhelmingPresence,
+		"Unassailable": Unassailable,
+		"Completely Unassailable": CompletelyUnassailable,
+		"Audacity": Audacity,
+		"Boast": Boast,
+		"Massive Boast": MassiveBoast,
+		"Sustained Boast": SustainedBoast,
+		"Solid Understanding": SolidUnderstanding,
+		"No Second Thoughts": NoSecondThoughts,
+		"High Morale": HighMorale,
+		"Confident Slap": ConfidentSlap,
+		"Swoop": Swoop,
+		"Drag and Drop": DragandDrop,
+		"Running Start": RunningStart,
+		"Master of Skies": MasterofSkies,
+		"Glorious Master of Skies": GloriousMasterofSkies,
+		"Zen of Flight": ZenofFlight,
+		"Masterful Zen of Flight": MasterfulZenofFlight,
+		"Loop de loop": Loopdeloop,
+		"Headless": Headless,
+		"Utterly Ridiculous": UtterlyRidiculous,
+		"Ventriloquism": Ventriloquism,
+		"unnamed_card_1": unnamed_card_1,
+		"Sustained unnamed_card_1": Sustainedunnamed_card_1,
+		"unnamed_card_2": unnamed_card_2,
+		"unnamed_card_3": unnamed_card_3,
+		"Absurdity Unleashed": AbsurdityUnleashed,
+		"Total Absurdity Unleashed": TotalAbsurdityUnleashed,
+		"unnamed_card_4": unnamed_card_4,
+		"Change of Mind": ChangeofMind,
+		"Brilliance": Brilliance,
+		"Blinding Brilliance": BlindingBrilliance,
+		"Recall": Recall,
+		"Total Recall": TotalRecall,
+		"Eureka!": Eureka,
+		"Inspired Eureka!": InspiredEureka,
+		"Rapid Theorizing": RapidTheorizing,
+		"Wild Inspiration": WildInspiration,
+		"unnamed_card_5": unnamed_card_5,
+		"It's alive!": Itsalive,
+		"Detect Weaknesses": DetectWeaknesses,
+		"unnamed_card_6": unnamed_card_6,
+		"Sustained unnamed_card_6": Sustainedunnamed_card_6,
+		"unnamed_card_7": unnamed_card_7,
+		"Improved unnamed_card_7": Improvedunnamed_card_7,
+		"unnamed_card_8": unnamed_card_8,
+		"unnamed_card_9": unnamed_card_9,
+		"Dodge": Dodge,
+		"Introspection": Introspection,
+		"Light Introspection": LightIntrospection,
+		"Deep Introspection": DeepIntrospection,
+		"Dismissal": Dismissal,
+		"Could Be Worse": CouldBeWorse,
+		"The Happy Place": TheHappyPlace,
+		"Self-Deception": SelfDeception,
+		"unnamed_card_12": unnamed_card_12,
+		"Swiftunnamed_card_12": Swiftunnamed_card_12,
+		"unnamed_card_13": unnamed_card_13,
+		"Rancor": Rancor,
+		"Justified Rancor": JustifiedRancor,
+		"Lash-out": LastOut,
+		"Frustrated Lash-out": FrustratedLastOut,
+		"unnamed_card_14": unnamed_card_14,
+		"unnamed_card_15": unnamed_card_15,
+		"unnamed_card_16": unnamed_card_16,
+		"Excuses": Excuses,
+		"Endless Excuses": EndlessExcuses,
+		"Tolerance": Tolerance,
+		"Extreme Tolerance": ExtremeTolerance,
+		"Catatonia": Catatonia,
+		"unnamed_card_17": unnamed_card_17,
+		"unnamed_card_18": unnamed_card_18,
 	}
 	return(_prepare_scripts(scripts, card_name))
 

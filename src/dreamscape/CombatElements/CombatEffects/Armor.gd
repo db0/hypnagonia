@@ -17,6 +17,11 @@ func get_effect_alteration(
 	if new_value < 0:
 		new_value = 0
 	if sceng.snapshot_id > 0:
+		# This can only happen if this effect was spawned as part of playing the card
+		# but it was not yet there when taking the snapshot.
+		# So we're using this as a failsafe
+		if not snapshot_stacks.has(sceng.snapshot_id):
+			snapshot_stacks[sceng.snapshot_id] = stacks
 		snapshot_stacks[sceng.snapshot_id] -= 1
 	else:
 		set_stacks(stacks - 1)

@@ -119,10 +119,15 @@ func set_health(value) -> void:
 
 
 func die() -> void:
-	is_dead = true
-	emit_signal("entity_killed", damage)
-	entity_texture.material = ShaderMaterial.new()
-	entity_texture.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
+	# We add a two frame wait and another check, in case there's an effect which will
+	# revive this entity when it triggers its death
+	yield(get_tree(), "idle_frame")
+	yield(get_tree(), "idle_frame")
+	if damage >= health:
+		is_dead = true
+		emit_signal("entity_killed", damage)
+		entity_texture.material = ShaderMaterial.new()
+		entity_texture.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
 
 
 func modify_damage(amount: int, dry_run := false, tags := ["Manual"], trigger = null) -> int:
@@ -131,7 +136,9 @@ func modify_damage(amount: int, dry_run := false, tags := ["Manual"], trigger = 
 			emit_signal("entity_attacked", self, amount, trigger, tags)
 		elif amount < 0:
 			emit_signal("entity_healed", self, amount, trigger, tags)
-		if defence > 0 and ("Attack" in tags or "Blockable" in tags):
+		if defence > 0\
+				and ("Attack" in tags or "Blockable" in tags)\
+				and not "Unblockable" in tags:
 			if amount >= defence:
 				amount -= defence
 				defence = 0

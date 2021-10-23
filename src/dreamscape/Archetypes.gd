@@ -245,16 +245,26 @@ const ABUSIVE_RELATIONSHIP := {
 		"unnamed_card_7",
 		"unnamed_card_8",
 		"unnamed_card_9",
-		"unnamed_card_11",
+		"Could Be Worse",
 		"Dismissal",
-		"unnamed_card_12"
+		"unnamed_card_12",
+		"unnamed_card_13",
+		"unnamed_card_14",
 	],
 	"Uncommon": [
 		"unnamed_card_6",
+		"unnamed_card_15",
+		"unnamed_card_16",
 		"Self-Deception",
 		"Rancor",
+		"Lash-out",
+		"unnamed_card_17",
+		"unnamed_card_18",
 	],
 	"Rare": [
 		"The Happy Place",
+		"Tolerance",
+		"Catatonia",
+		"unnamed_card_17"
 	]
 }

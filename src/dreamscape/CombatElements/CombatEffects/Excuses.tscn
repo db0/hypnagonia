@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/dreamscape/CombatElements/CombatEffects/Excuses.gd" type="Script" id=1]
+[ext_resource path="res://src/dreamscape/CombatElements/CombatEffects/CombatEffectTemplate.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/icons/dodging.png" type="Texture" id=3]
+
+[node name="Excuses" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+priority = 2
+
+[node name="Label" parent="Signifier" index="0"]
+visible = false
+text = "U"
+
+[node name="Icon" parent="Signifier" index="2"]
+texture = ExtResource( 3 )

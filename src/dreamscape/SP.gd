@@ -9,8 +9,11 @@ extends ScriptProperties
 
 # Used for specifying the amount of something a script provides
 # e.g. amount of damage, or amount of armor
-const KEY_SUBJECT_V_PLAYER = "dreamer"
 const KEY_AMOUNT = "amount"
+# Used to specifying the percent required.
+# see FILTER_DAMAGE_PCT
+const KEY_PERCENT = "percent"
+const KEY_SUBJECT_V_PLAYER = "dreamer"
 # If the card is using an X cost, we need to specify if the X value is going to
 # be modified (e.g. "X+1) at all.
 const KEY_X_MODIFIER = "x_modifier"
@@ -25,6 +28,7 @@ const FILTER_DREAMER_DEFENCE = "filter_dreamer_defence"
 const FILTER_STACKS = "filter_stacks"
 const FILTER_TURN_EVENT_COUNT = "filter_turn_event_count"
 const FILTER_ENCOUNTER_EVENT_COUNT = "filter_encounter_event_count"
+const FILTER_DAMAGE_PCT = "filter_damage_percent"
 const KEY_EFFECT_NAME = "effect_name"
 const KEY_UPGRADE_NAME = "upgrade_name"
 const KEY_EVENT_NAME = "event_name"
@@ -108,11 +112,11 @@ static func filter_trigger(
 	# Checks if the amount of cards with a specific card played
 	# match the filter requested by this effect
 	if is_valid and card_scripts.has(FILTER_TURN_EVENT_COUNT):
-		var filter_event_count = card_scripts[FILTER_TURN_EVENT_COUNT]
+		var filter_event_count : Dictionary = card_scripts[FILTER_TURN_EVENT_COUNT]
 		var comparison_type = filter_event_count.get(
 				ScriptProperties.KEY_COMPARISON, get_default(ScriptProperties.KEY_COMPARISON))
 		var current_event_count = cfc.NMAP.board.turn.turn_event_count.get(filter_event_count["event"], 0)
-		var requested_count : int = card_scripts.get(ScriptProperties.FILTER_COUNT, 1)
+		var requested_count : int = filter_event_count.get(ScriptProperties.FILTER_COUNT, 1)
 		if not CFUtils.compare_numbers(
 				current_event_count,
 				requested_count,
@@ -120,14 +124,26 @@ static func filter_trigger(
 			is_valid = false
 
 	if is_valid and card_scripts.has(FILTER_ENCOUNTER_EVENT_COUNT):
-		var filter_event_count = card_scripts[FILTER_ENCOUNTER_EVENT_COUNT]
+		var filter_event_count : Dictionary = card_scripts[FILTER_ENCOUNTER_EVENT_COUNT]
 		var comparison_type = filter_event_count.get(
 				ScriptProperties.KEY_COMPARISON, get_default(ScriptProperties.KEY_COMPARISON))
 		var current_event_count = cfc.NMAP.board.turn.encounter_event_count.get(filter_event_count["event"], 0)
-		var requested_count : int = card_scripts.get(ScriptProperties.FILTER_COUNT, 1)
+		var requested_count : int = filter_event_count.get(ScriptProperties.FILTER_COUNT, 1)
 		if not CFUtils.compare_numbers(
 				current_event_count,
 				requested_count,
+				comparison_type):
+			is_valid = false
+
+	if is_valid and card_scripts.has(FILTER_DAMAGE_PCT):
+		var filter_health_pct : Dictionary = card_scripts[FILTER_DAMAGE_PCT]
+		var comparison_type = filter_health_pct.get(
+				ScriptProperties.KEY_COMPARISON, get_default(ScriptProperties.KEY_COMPARISON))
+		var current_damage_pct = int(float(cfc.NMAP.board.dreamer.damage) / float(cfc.NMAP.board.dreamer.health) * 100)
+		var requested_pct : int = filter_health_pct.get(KEY_PERCENT, 10)
+		if not CFUtils.compare_numbers(
+				current_damage_pct,
+				requested_pct,
 				comparison_type):
 			is_valid = false
 	return(is_valid)
