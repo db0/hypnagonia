@@ -32,6 +32,7 @@ const FLYER:= {
 		"Drag and Drop",
 		"Loop de loop",
 		"Rapid Encirclement",
+		"Dodge",
 	],
 	"Uncommon": [
 		"Whirlwind",
@@ -39,6 +40,7 @@ const FLYER:= {
 		"Swoop",
 		"Barrel Through",
 		"Running Start",
+		"Introspection",
 	],
 	"Rare": [
 		"Master of Skies",
@@ -245,10 +247,14 @@ const ABUSIVE_RELATIONSHIP := {
 		"unnamed_card_9",
 		"unnamed_card_11",
 		"Dismissal",
+		"unnamed_card_12"
 	],
 	"Uncommon": [
 		"unnamed_card_6",
-		"The Happy Place",
+		"Self-Deception",
+		"Rancor",
 	],
-	"Rare": []
+	"Rare": [
+		"The Happy Place",
+	]
 }
