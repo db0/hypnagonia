@@ -4,7 +4,9 @@
 
 * Renamed game to Hypnagonia
 * Changes subtitle to "Therapy through Nightmares"
-
+* Fleshed out Abusive Relationship by bringing it to 20 unique cards
+* Added code to handle filters based on health percentage
+* Added code to handle filters based on encounter own-turn damage taken
 
 ## v0.13.0
 
