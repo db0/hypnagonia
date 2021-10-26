@@ -26,7 +26,6 @@ const FLYER:= {
 		"Confidence",
 	],
 	"Common": [
-		"Out of Reach",
 		"Dive-in",
 		"Overview",
 		"Drag and Drop",
@@ -63,14 +62,14 @@ const MAD_SCIENTIST := {
 	],
 	"Basic": [
 		"Confidence",
-		"Interpretation",
+		"Change of Mind",
 		"Change of Mind",
 	],
 	"Common": [
 		"Recall",
 		"unnamed_card_5",
 		"unnamed_card_1",
-		"Change of Mind"
+		"unnamed_card_1",
 	],
 	"Uncommon": [
 		"Brilliance",
@@ -197,17 +196,16 @@ const RUBBER_CHICKEN := {
 		
 	],
 	"Basic": [
-		"Interpretation",
-		"Interpretation",
+		"Noisy Whip",
+		"Noisy Whip",
 		"Noisy Whip",
 	],
 	"Common": [
 		"Confounding Movements",
-		"Noisy Whip",
 		"Headless",
 		"Ventriloquism",
-		"unnamed_card_1",
 		"unnamed_card_3",
+		"A Thousand Squeaks"
 	],
 	"Uncommon": [
 		"Rubber Eggs",
@@ -249,7 +247,7 @@ const ABUSIVE_RELATIONSHIP := {
 		"Dismissal",
 		"unnamed_card_12",
 		"unnamed_card_13",
-		"unnamed_card_14",
+		"Is it my fault?",
 	],
 	"Uncommon": [
 		"unnamed_card_6",

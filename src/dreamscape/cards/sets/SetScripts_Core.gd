@@ -1980,7 +1980,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
-	var unnamed_card_14 = {
+	var IsItMyFault = {
 		"manual": {
 			"hand": {
 				"Take Anxiety to interpret single Torment bypassing perplexity": [
@@ -2241,6 +2241,39 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
+	var AThousandSqueaks = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "boardseek",
+					"subject_count": "all",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"x_modifier": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("x_modifer", '0'),
+					"x_operation": "multiply",
+					"tags": ["Attack"],
+					"filter_state_seek": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.disempower.name,
+					"subject": "boardseek",
+					"subject_count": "all",
+					"modification": 1,
+					"x_modifier": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("x_modifer", '0'),
+					"x_operation": "multiply",
+					"filter_state_seek": [{
+						"filter_group": "EnemyEntities",
+					}],
+				}
+			],
+		},
+	}
 
 
 	# This format allows me to trace which script failed during load
@@ -2339,7 +2372,7 @@ func get_scripts(card_name: String) -> Dictionary:
 		"Justified Rancor": JustifiedRancor,
 		"Lash-out": LastOut,
 		"Frustrated Lash-out": FrustratedLastOut,
-		"unnamed_card_14": unnamed_card_14,
+		"Is it my fault?": IsItMyFault,
 		"unnamed_card_15": unnamed_card_15,
 		"unnamed_card_16": unnamed_card_16,
 		"Excuses": Excuses,
@@ -2349,6 +2382,7 @@ func get_scripts(card_name: String) -> Dictionary:
 		"Catatonia": Catatonia,
 		"unnamed_card_17": unnamed_card_17,
 		"unnamed_card_18": unnamed_card_18,
+		"A Thousand Squeaks": AThousandSqueaks,
 	}
 	return(_prepare_scripts(scripts, card_name))
 

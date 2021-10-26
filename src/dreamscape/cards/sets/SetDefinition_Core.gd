@@ -128,7 +128,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
-		"_rarity": "Common",
+		"_rarity": "Basic",
 		"_amounts": {
 			"effect_stacks": 3
 		},
@@ -147,7 +147,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
-		"_rarity": "Common",
+		"_rarity": "Basic",
 		"_amounts": {
 			"effect_stacks": 3
 		},
@@ -157,14 +157,14 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
 		"Abilities": "Gain {effect_stacks} {untouchable}",
-		"Cost": 5,
+		"Cost": 4,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
-		"_rarity": "Common",
+		"_rarity": "Basic",
 		"_amounts": {
-			"effect_stacks": 4
+			"effect_stacks": 6
 		},
 		"_is_upgrade": true,
 	},
@@ -378,17 +378,18 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
-		"_rarity": "Common",
+		"_rarity": "Basic",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 6,
+			"damage_amount": 5,
 			"effect_stacks": 1,
 		},
-		"_upgrade_threshold": 6,
+		"_upgrade_threshold": 5,
 		"_upgrades": [
 			"+ Noisy Whip +",
 			"@ Noisy Whip @",
 			"* Noisy Whip *",
+			"- Noisy Whip -",
 		],
 	},
 	"@ Noisy Whip @": {
@@ -400,10 +401,10 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
-		"_rarity": "Common",
+		"_rarity": "Basic",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 5,
+			"damage_amount": 4,
 			"effect_stacks": 1,
 		},
 		"_is_upgrade": true,
@@ -417,10 +418,10 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
-		"_rarity": "Common",
+		"_rarity": "Basic",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 9,
+			"damage_amount": 8,
 			"effect_stacks": 1,
 		},
 		"_is_upgrade": true,
@@ -434,11 +435,28 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
-		"_rarity": "Common",
+		"_rarity": "Basic",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 6,
+			"damage_amount": 5,
 			"effect_stacks": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"- Noisy Whip -": {
+		"Type": "Action",
+		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
+		"Abilities": "{damage} for {damage_amount}.\nApply {effect_stacks} {confusion}\n{release}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
+		"_rarity": "Basic",
+		"_keywords": ["interpretation","release"],
+		"_amounts": {
+			"damage_amount": 10,
+			"effect_stacks": 3,
 		},
 		"_is_upgrade": true,
 	},
@@ -2445,12 +2463,12 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_avoid_normal_discard": true,
-		"_rarity": "Common",
+		"_rarity": "Basic",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 8,
+			"damage_amount": 7,
 		},
-		"_upgrade_threshold": 6,
+		"_upgrade_threshold": 5,
 		"_upgrades": [
 			"+ Change of Mind +",
 			"@ Change of Mind @",
@@ -2480,7 +2498,7 @@ const CARDS := {
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 6,
+			"damage_amount": 5,
 		},
 		"_is_upgrade": true,
 	},
@@ -3073,7 +3091,7 @@ const CARDS := {
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 7,
+			"damage_amount": 8,
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
@@ -3105,7 +3123,7 @@ const CARDS := {
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 8,
+			"damage_amount": 9,
 		},
 		"_upgrade_threshold": 7,
 		"_is_upgrade": true,
@@ -3598,7 +3616,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"unnamed_card_14": {
+	"Is it my fault?": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
@@ -3613,11 +3631,11 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 6,
 		"_upgrades": [
-			"+ unnamed_card_14 +",
-			"% unnamed_card_14 %",
+			"+ Is it my fault? +",
+			"% Is it my fault? %",
 		],
 	},
-	"+ unnamed_card_14 +": {
+	"+ Is it my fault? +": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
@@ -3632,7 +3650,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"% unnamed_card_14 %": {
+	"% Is it my fault? %": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
@@ -4043,6 +4061,62 @@ const CARDS := {
 			"immersion_amount": 2,
 			"defence_amount": 13,
 			"health_percent": 80,
+		},
+		"_is_upgrade": true,
+	},
+	"A Thousand Squeaks": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} all Torments for X * {damage_amount}\n"\
+				+ "All Torments gain X {confusion}",
+		"Cost": 'X',
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
+		"_amounts": {
+			"damage_amount": 4,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"+ A Thousand Squeaks +",
+			"@ A Thousand Squeaks @",
+		],
+	},
+	"+ A Thousand Squeaks +": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} all Torments for X * {damage_amount}\n"\
+				+ "All Torments gain X {confusion}",
+		"Cost": 'X',
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
+		"_amounts": {
+			"damage_amount": 6,
+		},
+		"_is_upgrade": true,
+	},
+	"@ A Thousand Squeaks @": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} all Torments for (X + 1) * {damage_amount}\n"\
+				+ "All Torments gain (X + 1) {confusion}",
+		"Cost": 'X',
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
+		"_amounts": {
+			"damage_amount": 4,
+			"x_modifer": "+1",
 		},
 		"_is_upgrade": true,
 	},
