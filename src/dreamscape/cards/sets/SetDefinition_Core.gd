@@ -2498,7 +2498,7 @@ const CARDS := {
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 5,
+			"damage_amount": 6,
 		},
 		"_is_upgrade": true,
 	},
@@ -2738,9 +2738,9 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"unnamed_card_5": {
+	"Vexing Concept": {
 		"Type": "Action",
-		"Tags": [Terms.GENERIC_TAGS.spark.name],
+		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.insomnia.name],
 		"Abilities": "{damage} for {damage_amount}. You may {discard} {discard_amount} cards from your hand "\
 				+ "to {shuffle} this card into your deck.",
 		"Cost": 1,
@@ -2752,13 +2752,13 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"+ unnamed_card_5 +",
-			"! unnamed_card_5 !",
+			"+ Vexing Concept +",
+			"! Vexing Concept !",
 		],
 	},
-	"+ unnamed_card_5 +": {
+	"+ Vexing Concept +": {
 		"Type": "Action",
-		"Tags": [Terms.GENERIC_TAGS.spark.name],
+		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.insomnia.name],
 		"Abilities": "{damage} for {damage_amount}. You may {discard} {discard_amount} cards from your hand "\
 				+ "to {shuffle} this card into your deck.",
 		"Cost": 1,
@@ -2770,9 +2770,9 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"! unnamed_card_5 !": {
+	"! Vexing Concept !": {
 		"Type": "Action",
-		"Tags": [Terms.GENERIC_TAGS.spark.name],
+		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.insomnia.name],
 		"Abilities": "{damage} for {damage_amount}. You may {discard} {discard_amount} card from your hand "\
 				+ "to {shuffle} this card into your deck.",
 		"Cost": 1,
@@ -4117,6 +4117,64 @@ const CARDS := {
 		"_amounts": {
 			"damage_amount": 4,
 			"x_modifer": "+1",
+		},
+		"_is_upgrade": true,
+	},
+	"Hyperfocus": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
+		"Abilities": "Gain X * {defence_amount} {confidence}\n"\
+				+ "Gain X * {effect_stacks} {fascination}",
+		"Cost": 'X',
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["confidence"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
+		},
+		"_amounts": {
+			"defence_amount": 3,
+			"effect_stacks": 2,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"+ Hyperfocus +",
+			"* Hyperfocus *",
+		],
+	},
+	"+ Hyperfocus +": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
+		"Abilities": "Gain X * {defence_amount} {confidence}\n"\
+				+ "Gain X * {effect_stacks} {fascination}",
+		"Cost": 'X',
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["confidence"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
+		},
+		"_amounts": {
+			"defence_amount": 5,
+			"effect_stacks": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"* Hyperfocus *": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
+		"Abilities": "Gain X * {defence_amount} {confidence}\n"\
+				+ "Gain X * {effect_stacks} {fascination}",
+		"Cost": 'X',
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["confidence"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
+		},
+		"_amounts": {
+			"defence_amount": 3,
+			"effect_stacks": 3,
 		},
 		"_is_upgrade": true,
 	},

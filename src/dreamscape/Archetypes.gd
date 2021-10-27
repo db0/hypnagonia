@@ -67,9 +67,10 @@ const MAD_SCIENTIST := {
 	],
 	"Common": [
 		"Recall",
-		"unnamed_card_5",
+		"Vexing Concept",
 		"unnamed_card_1",
 		"unnamed_card_1",
+		"Hyperfocus",
 	],
 	"Uncommon": [
 		"Brilliance",

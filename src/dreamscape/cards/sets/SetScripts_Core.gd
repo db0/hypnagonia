@@ -1407,7 +1407,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
-	var unnamed_card_5 = {
+	var VexingConcept = {
 		"manual": {
 			"hand": [
 				{
@@ -2274,6 +2274,31 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
+	var Hyperfocus = {
+		"manual": {
+			"hand": [
+				{
+					"name": "assign_defence",
+					"subject": "dreamer",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("defence_amount"),
+					"x_modifier": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("x_modifer", '0'),
+					"x_operation": "multiply",
+				},
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.buffer.name,
+					"subject": "dreamer",
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("effect_stacks", '0'),
+					"x_modifier": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("x_modifer", '0'),
+					"x_operation": "multiply",
+				}
+			],
+		},
+	}
 
 
 	# This format allows me to trace which script failed during load
@@ -2348,7 +2373,7 @@ func get_scripts(card_name: String) -> Dictionary:
 		"Inspired Eureka!": InspiredEureka,
 		"Rapid Theorizing": RapidTheorizing,
 		"Wild Inspiration": WildInspiration,
-		"unnamed_card_5": unnamed_card_5,
+		"Vexing Concept": VexingConcept,
 		"It's alive!": Itsalive,
 		"Detect Weaknesses": DetectWeaknesses,
 		"unnamed_card_6": unnamed_card_6,
@@ -2383,6 +2408,7 @@ func get_scripts(card_name: String) -> Dictionary:
 		"unnamed_card_17": unnamed_card_17,
 		"unnamed_card_18": unnamed_card_18,
 		"A Thousand Squeaks": AThousandSqueaks,
+		"Hyperfocus": Hyperfocus,
 	}
 	return(_prepare_scripts(scripts, card_name))
 

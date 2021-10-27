@@ -390,6 +390,11 @@ const GENERIC_TAGS := {
 		"icon": preload("res://assets/icons/sleepy.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/sleepy.png",
 		"generic_description": "{effect_name} ({effect_icon}): A phase of deep sleep which typically causes forgetfulness."},
+	"insomnia": {
+		"name": "Insomnia",
+		"icon": preload("res://assets/icons/spikeball.png"),
+		"rich_text_icon": "res://fonts/rich_text_icons/spikeball.png",
+		"generic_description": "{effect_name} ({effect_icon}): Difficult sleeping leads to card discarding."},
 	"fading": {
 		"name": "Fading",
 		"icon": preload("res://assets/icons/empty-hourglass.png"),
