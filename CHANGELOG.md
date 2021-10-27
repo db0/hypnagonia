@@ -1,5 +1,12 @@
 # Dreams: Changelog
 
+## v0.13.2
+
+* Changed some cards to be archetype-specific basic cards for more starting variability
+* Added Hyperfocus
+* Added A Thousand Squeaks
+* Added Insomnia tag
+
 ## v0.13.1
 
 * Renamed game to Hypnagonia
