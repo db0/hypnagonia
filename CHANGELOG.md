@@ -1,5 +1,12 @@
 # Dreams: Changelog
 
+## v0.13.3
+
+* Added Hyperfocus art (@Marablack)[https://www.deviantart.com/marablack3]
+* Added Rapid Theorizing art (@Marablack)[https://www.deviantart.com/marablack3]
+* Added Misunderstood
+* Added Death Ray
+
 ## v0.13.2
 
 * Changed some cards to be archetype-specific basic cards for more starting variability
@@ -20,8 +27,8 @@
 
 * Added two New Flight Cards
 * The way untouchable works has been adjusted. Instead of protecting for everything in a turn, it protects only for 1 attack. All untouchable are lost at turn end.
-* Enabled the Settings button. Only two option for the moment, 
-   * Disable fancy animations and shuffle for a faster game. 
+* Enabled the Settings button. Only two option for the moment,
+   * Disable fancy animations and shuffle for a faster game.
    * Disable large card focus display.
 * Added icon for the end-turn button and reorganized that area a bit.
 * **Added Tutorials**. They will trigger the first time each interface is opened. Afterwards they can be triggered with an icon or pressing 'H'. Tutorial format inspired by [The Zone](https://store.steampowered.com/app/1299540/The_Zone_Stalker_Stories/)'s Quick references.
@@ -42,7 +49,7 @@
 * Boss/Elites which spawn minions will now correctly be defeated if they are overcome while minions are still there.
 * Fascination will now properly trigger unnamed_card_8
 * Marked journal reward options with tags to make them more obvious
- 
+
 
 ## v0.12.0
 
@@ -64,7 +71,7 @@
 * Added framework for adding curios and using curios
 * Added ~30 new curios
 * Activated the desire pathos. Now only 2/7 are still inactive
-* Added the desire encounter which has a chance to occur as your repressed desire increases. It always gives an artifact of The higher the desire when triggered, the higher the rarity chances of the curio. 
+* Added the desire encounter which has a chance to occur as your repressed desire increases. It always gives an artifact of The higher the desire when triggered, the higher the rarity chances of the curio.
   curios gained from this encounter always add a perturbation in the deck
 * Added ~10 new perturbations
 * curios can now be limited to specific Archetypes, which allows us to have a small core of common curios and allow to expand the curio pool infinitelly without diluting the chance for good combos
@@ -74,11 +81,11 @@
 ## v0.10.0
 
 * Added Pathos Repression and Release
-	
+
 	Pathos accumulation consists of 7 different types. Each of which represents a chance to encounter a different thing. For example, The more your frustration rises, the more likely it is to encounter a Torment. On the other hand, your dreamer's loneliness might cause a shop to appear. Accumulated pathos is called "repressed".
-	
+
 	Each time you take a journal choice, the relevant type of pathos is "released". Released pathos can be used in the shop. Each type, allows the player to buy different things.
-	
+
 	Currently only 4/7 Pathos are active. The Non-Combat Encounters, Elite Enemies and the curios are disabled as these don't exist in the game yet.
 * Added Shop (currency is released pathos)
 * Reworked the way encounters work
@@ -139,7 +146,7 @@
 * Cannot play 0 cost cards on opponent turns anymore
 * Improved background quality
 * Added outline on intent icons to make them clearer in light backgrounds
-* Highlight on enemies during targetting will not now highlight things other than the target 
+* Highlight on enemies during targetting will not now highlight things other than the target
 * Improved Boss character art - insomniacUNDERSCORElemon
 
 ## v0.6.1
@@ -190,7 +197,7 @@
 * Added a journal for progressing between encounters.
 
 ## v0.4.0
- 
+
 * Added fresh card layout. Unfortunately its assets are under a properietary license.
 * Converted tags into icons on card front to improve readability
 * Increased overall card size by 25%

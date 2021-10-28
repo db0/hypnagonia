@@ -24,7 +24,6 @@ const FLYER:= {
 		"Out of Reach",
 		"Interpretation",
 		"Confidence",
-		"Rapid Theorizing",
 	],
 	"Common": [
 		"Dive-in",
@@ -72,12 +71,14 @@ const MAD_SCIENTIST := {
 		"unnamed_card_1",
 		"unnamed_card_1",
 		"Hyperfocus",
+		"Misunderstood",
 	],
 	"Uncommon": [
 		"Brilliance",
 		"Rapid Theorizing",
 		"Wild Inspiration",
-		"Detect Weaknesses"
+		"Detect Weaknesses",
+		"Death Ray",
 	],
 	"Rare": [
 		"It's alive!",

@@ -2343,6 +2343,42 @@ func get_scripts(card_name: String) -> Dictionary:
 			}
 		},
 	}
+	var DeathRay = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "boardseek",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"subject_count": "all",
+					"tags": ["Attack"],
+					"filter_state_seek": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "modify_damage",
+					"subject": "boardseek",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount2"),
+					"subject_count": "all",
+					"tags": ["Attack"],
+					"filter_state_seek": [{
+						"filter_group": "EnemyEntities",
+					}],
+					"filter_per_tutor_count": {
+						"src_container": cfc.NMAP.deck,
+						"subject": "tutor",
+						"subject_count": "all",
+						"filter_card_count": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("deck_size", 0),
+						"comparison": "ge",
+					},
+				},
+			],
+		},
+	}
 
 
 	# This format allows me to trace which script failed during load
@@ -2454,6 +2490,7 @@ func get_scripts(card_name: String) -> Dictionary:
 		"A Thousand Squeaks": AThousandSqueaks,
 		"Hyperfocus": Hyperfocus,
 		"Misunderstood": Misunderstood,
+		"Death Ray": DeathRay,
 	}
 	return(_prepare_scripts(scripts, card_name))
 

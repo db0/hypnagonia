@@ -75,12 +75,19 @@ func set_tag_icon(tags: Array) -> void:
 			tag_icon2.texture = new_texture
 			tag_container2.visible = true
 
+
 func apply_shader(shader_path: String) -> void:
 	bbc.visible = true
 	shader_effect.visible = true
 	shader_effect.material = ShaderMaterial.new()
 	shader_effect.material.shader = load(shader_path)
 
+
+func set_card_art(filename) -> void:
+	var new_texture = CFUtils.convert_texture_to_image(filename)
+	art.texture = new_texture
+	art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	
 
 func _get_bbcode_format() -> Dictionary:
 	return(Terms.get_bbcode_formats())

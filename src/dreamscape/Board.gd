@@ -370,8 +370,13 @@ func _input(event):
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.armor.name, 3)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
-			"Misunderstood",
-			"Rapid Theorizing",
+			"Death Ray",
+			"Death Ray",
+			"Death Ray",
+			"Death Ray",
+			"Death Ray",
+			"Death Ray",
+			"Death Ray",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.deck.add_child(card)

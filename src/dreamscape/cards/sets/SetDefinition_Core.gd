@@ -4230,5 +4230,74 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"Death Ray": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.chain.name],
+		"Abilities": "{damage} all Torments for {damage_amount}.\n"\
+				+ "If your deck currently has at least {deck_size} cards, "\
+				+ "{damage} all Torments for {damage_amount2}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_amounts": {
+			"damage_amount": 15,
+			"damage_amount2": 15,
+			"deck_size": 10,
+		},
+		"_upgrade_threshold": 8,
+		"_upgrades": [
+			"+ Death Ray +",
+			"% Death Ray %",
+			"= Death Ray =",
+		],
+	},
+	"+ Death Ray +": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.chain.name],
+		"Abilities": "{damage} all Torments for {damage_amount}.\n"\
+				+ "If your deck currently has at least {deck_size} cards, "\
+				+ "{damage} all Torments for {damage_amount2}",
+		"Cost": 3,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_amounts": {
+			"damage_amount": 22,
+			"damage_amount2": 15,
+			"deck_size": 10,
+		},
+		"_is_upgrade": true,
+	},
+	"% Death Ray %": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.chain.name],
+		"Abilities": "{damage} all Torments for {damage_amount}.\n"\
+				+ "If your deck currently has at least {deck_size} cards, "\
+				+ "{damage} all Torments for {damage_amount2}",
+		"Cost": 3,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_amounts": {
+			"damage_amount": 15,
+			"damage_amount2": 25,
+			"deck_size": 10,
+		},
+		"_is_upgrade": true,
+	},
+	"= Death Ray =": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.chain.name],
+		"Abilities": "{damage} all Torments for {damage_amount}.\n"\
+				+ "If your deck currently has at least {deck_size} cards, "\
+				+ "{damage} all Torments for {damage_amount2}",
+		"Cost": 3,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_amounts": {
+			"damage_amount": 19,
+			"damage_amount2": 19,
+			"deck_size": 8,
+		},
+		"_is_upgrade": true,
+	},
 }
 

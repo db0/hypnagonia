@@ -95,12 +95,15 @@ func setup() -> void:
 		card_front.set_tag_icon(get_property("Tags"))
 	if printed_properties.empty():
 		printed_properties = properties.duplicate()
-	var card_art_file: String = "res://assets/cards/" + canonical_name
+	var card_art_file: String
+	if get_property("_is_upgrade"):
+		var card_upgrade_parent_name =  _find_upgrade_parent()
+		card_art_file = "res://assets/cards/" + card_upgrade_parent_name
+	else:
+		card_art_file = "res://assets/cards/" + canonical_name
 	for extension in ['.jpg','.jpeg','.png']:
 		if ResourceLoader.exists(card_art_file + extension):
-			var new_texture = CFUtils.convert_texture_to_image(card_art_file + extension)
-			card_front.art.texture = new_texture
-			card_front.art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+			card_front.set_card_art(card_art_file + extension)
 
 # Sample code on how to figure out costs of a card
 func get_modified_credits_cost() -> int:
@@ -416,3 +419,10 @@ func highlight_modified_properties() -> void:
 					label_node.modulate = Color(1,0,0)
 				else:
 					label_node.modulate = Color(1,1,1)
+
+func _find_upgrade_parent():
+	for card_name in cfc.card_definitions:
+		var upgrades = cfc.card_definitions[card_name].get("_upgrades")
+		if upgrades and canonical_name in upgrades:
+			return(card_name)
+	return(false)
