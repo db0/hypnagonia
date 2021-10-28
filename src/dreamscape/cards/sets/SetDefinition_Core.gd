@@ -2566,7 +2566,7 @@ const CARDS := {
 				+ "If you've {shuffle}d your deck this turn, "\
 				+ "gain {defence_amount2} {confidence} and draw {draw_amount} card.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {

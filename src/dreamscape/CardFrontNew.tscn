@@ -105,10 +105,11 @@ __meta__ = {
 
 [node name="Art" type="TextureRect" parent="."]
 use_parent_material = true
-margin_top = 30.0
-margin_right = 200.0
-margin_bottom = 130.0
-rect_min_size = Vector2( 200, 110 )
+margin_left = 10.0
+margin_top = 22.0
+margin_right = 190.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 180, 115 )
 mouse_filter = 2
 texture = ExtResource( 8 )
 expand = true

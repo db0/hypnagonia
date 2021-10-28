@@ -371,7 +371,7 @@ func _input(event):
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
 			"Hyperfocus",
-			"Hyperfocus",
+			"Rapid Theorizing",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.deck.add_child(card)

@@ -95,6 +95,12 @@ func setup() -> void:
 		card_front.set_tag_icon(get_property("Tags"))
 	if printed_properties.empty():
 		printed_properties = properties.duplicate()
+	var card_art_file: String = "res://assets/cards/" + canonical_name
+	for extension in ['.jpg','.jpeg','.png']:
+		if ResourceLoader.exists(card_art_file + extension):
+			var new_texture = CFUtils.convert_texture_to_image(card_art_file + extension)
+			card_front.art.texture = new_texture
+			card_front.art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 
 # Sample code on how to figure out costs of a card
 func get_modified_credits_cost() -> int:

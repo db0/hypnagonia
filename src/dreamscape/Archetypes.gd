@@ -24,6 +24,7 @@ const FLYER:= {
 		"Out of Reach",
 		"Interpretation",
 		"Confidence",
+		"Rapid Theorizing",
 	],
 	"Common": [
 		"Dive-in",

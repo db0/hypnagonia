@@ -1,0 +1,1 @@
+Unless explicitly stated otherwise, all images here are licensed under CC-BY-SA 4
