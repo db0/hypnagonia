@@ -4178,6 +4178,57 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-
+	"Misunderstood": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.exert.name],
+		"Abilities": "Gain {defence_amount} {confidence}. "\
+				+ "You may take {exert_amount} {anxiety} "\
+				+ "to {shuffle} this card into your deck.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_avoid_normal_discard": true,
+		"_rarity": "Common",
+		"_amounts": {
+			"defence_amount": 8,
+			"exert_amount": 2,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"+ Misunderstood +",
+			"% Misunderstood %",
+		],
+	},
+	"+ Misunderstood +": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.exert.name],
+		"Abilities": "Gain {defence_amount} {confidence}. "\
+				+ "You may take {exert_amount} {anxiety} "\
+				+ "to {shuffle} this card into your deck.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_avoid_normal_discard": true,
+		"_rarity": "Common",
+		"_amounts": {
+			"defence_amount": 11,
+			"exert_amount": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"% Misunderstood %": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.exert.name],
+		"Abilities": "Gain {defence_amount} {confidence}. "\
+				+ "You may take {exert_amount} {anxiety} "\
+				+ "to {shuffle} this card into your deck.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_avoid_normal_discard": true,
+		"_rarity": "Common",
+		"_amounts": {
+			"defence_amount": 13,
+			"exert_amount": 5,
+		},
+		"_is_upgrade": true,
+	},
 }
 

@@ -2299,6 +2299,50 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
+	var Misunderstood = {
+		"manual": {
+			"hand": {
+				"Gain Confidence, take Anxiety and shuffle card back into the deck.": [
+					{
+						"name": "modify_damage",
+						"subject": "dreamer",
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("exert_amount"),
+						"tags": ["Exert"],
+					},
+					{
+						"name": "assign_defence",
+						"subject": "dreamer",
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("defence_amount"),
+					},
+					{
+						"name": "move_card_to_container",
+						"subject": "self",
+						"dest_container": cfc.NMAP.deck,
+					},
+					{
+						"name": "shuffle_container",
+						"dest_container": cfc.NMAP.deck,
+					},
+				],
+				"Gain Confidence": [
+					{
+						"name": "assign_defence",
+						"subject": "dreamer",
+						"amount": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("defence_amount"),
+					},
+					# We add the discard manually, because the card ignores normal discard.
+					{
+						"name": "move_card_to_container",
+						"subject": "self",
+						"dest_container": cfc.NMAP.discard,
+					},
+				],
+			}
+		},
+	}
 
 
 	# This format allows me to trace which script failed during load
@@ -2409,6 +2453,7 @@ func get_scripts(card_name: String) -> Dictionary:
 		"unnamed_card_18": unnamed_card_18,
 		"A Thousand Squeaks": AThousandSqueaks,
 		"Hyperfocus": Hyperfocus,
+		"Misunderstood": Misunderstood,
 	}
 	return(_prepare_scripts(scripts, card_name))
 
