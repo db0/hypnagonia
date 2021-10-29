@@ -4299,5 +4299,22 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"+ Unconventional +": {
+		"Type": "Control",
+		"Tags": [],
+		"Abilities": "Gain {defence_amount} {confidence}. "\
+				+ "You may take {exert_amount} {anxiety} "\
+				+ "to {shuffle} this card into your deck.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_avoid_normal_discard": true,
+		"_rarity": "Common",
+		"_amounts": {
+			"defence_amount": 11,
+			"exert_amount": 2,
+		},
+		"_is_upgrade": true,
+	},
+
 }
 
