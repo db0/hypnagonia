@@ -226,133 +226,88 @@ const ACTIVE_EFFECTS := {
 	# Below are unique effects. Typically from concentrations
 	"laugh_at_danger":  {
 		"name": "Laugh at Danger",
-		"description": "{effect_name}: After a {enemy} {opponent_attack} the {entity}, it gains 1 {doubt}.",
-		"upgraded_descriptions": {
-			"roaring": "{effect_name}: After a {enemy} {opponent_attack} the {entity}, it gains 2 {doubt}.",
-		},
+		"is_card_reference": true,
 		"icon": preload("res://assets/icons/delighted.png"),
 	},
 	"nothing_to_fear":  {
 		"name": "Nothing to Fear",
-		"description": "{effect_name}: Add {amount} {energy} at the start of the turn.\n"\
-				+ "All {health} taken is increased by {double_amount}.",
-		"upgraded_descriptions": {
-			"absolutely": "{effect_name}: Add {amount} {energy} at the start of the turn.\n"\
-					+ "All {health} taken is increased by {amount}.",
-		},
+		"is_card_reference": true,
 		"icon": preload("res://assets/icons/one-eyed.png"),
 	},
 	"rubber_eggs":  {
 		"name": "Rubber Eggs",
-		"description": "{effect_name}: At the end of your turn, {attack} a random Confused {enemy} for 6.",
-		"upgraded_descriptions": {
-			"hard": "{effect_name}: At the end of your turn, {attack} a random Confused {enemy} for 9.",
-			"bouncy": "{effect_name}: At the end of your turn, {attack} all Confused {enemy} for 6.",
-		},
+		"is_card_reference": true,
 		"icon": preload("res://assets/icons/egg-defense.png"),
 	},
 	"nunclucks":  {
 		"name": "Nunclucks",
-		"description": "{effect_name}: Increase your {damage} by 1, for each stack of {confusion} on the {enemy}.",
-		"upgraded_descriptions": {
-			"massive": "{effect_name}: Increase your {damage} by 2, for each stack of {confusion} on the {enemy}.",
-		},
+		"is_card_reference": true,
 		"icon": preload("res://assets/icons/nunchaku.png"),
 	},
 	"unassailable":  {
 		"name": "Unassailable",
-		"description": "{effect_name}: Whenever you apply {doubt}, gain 2 {defence}.",
-		"upgraded_descriptions": {
-			"completely": "{effect_name}: Whenever you apply {doubt}, gain 3 {defence}.",
-		},
+		"is_card_reference": true,
 		"icon": preload("res://assets/icons/psychic-waves.png"),
 	},
 	"master_of_skies":  {
 		"name": "Master of Skies",
-		"description": "{effect_name}: Whenever you Gain {untouchable}, gain 1 {energy}.",
-		"upgraded_descriptions": {
-			"glorious": "{effect_name}: Whenever you Gain {untouchable}, gain 2 {energy}.",
-		},
+		"is_card_reference": true,
 		"icon": preload("res://assets/icons/wing-cloak.png"),
 	},
 	"zen_of_flight":  {
 		"name": "Zen of Flight",
-		"description": "{effect_name}: At the end of each turn, {heal} for 1. If you have {untouchable}, {heal} 1 extra.",
-		"upgraded_descriptions": {
-			"masterful": "{effect_name}: At the end of each turn, {heal} for 2. If you have {untouchable}, {heal} 2 extra.",
-		},
+		"is_card_reference": true,
 		"icon": preload("res://assets/icons/windy-stripes.png"),
 	},
 	"introspection":  {
 		"name": "Introspection",
-		"description": "{effect_name}: At the end of each turn, {heal} 2 if you have not played any {attack_card} cards this turn.",
-		"upgraded_descriptions": {
-			"light": "{effect_name}: At the end of each turn, {heal} 2 if you have not played more than 1 {attack_card} card this turn.",
-		},
+		"is_card_reference": true,
 		"icon": preload("res://assets/icons/inner-self.png"),
 	},
 	"absurdity_unleashed":  {
 		"name": "Absurdity Unleashed",
-		"description": "{effect_name}: Whenever you apply {confusion} to a Torment, {attack} it for 4",
-		"upgraded_descriptions": {
-			"total": "{effect_name}: Whenever you apply {confusion} to a Torment, {attack} it for 6",
-		},
+		"is_card_reference": true,
 		"icon": preload("res://assets/icons/absurdity-unleashed.png"),
 	},
 	"brilliance":  {
 		"name": "Brilliance",
-		"description": "{effect_name}: Whenever you {shuffle} your deck gain 4 {confidence}",
-		"upgraded_descriptions": {
-			"blinding": "{effect_name}: Whenever you {shuffle} your deck gain 6 {confidence}",
-		},
+		"is_card_reference": true,
 		"icon": preload("res://assets/icons/mad-scientist.png"),
 	},
 	"recall":  {
 		"name": "Recall",
-		"description": "{effect_name}: At the end of your turn, shuffle 1 card from your discard pile into your deck.",
-		"upgraded_descriptions": {
-			"total": "{effect_name}: At the end of your turn, shuffle 2 cards from your discard pile into your deck.",
-		},
+		"is_card_reference": true,
 		"icon": preload("res://assets/icons/think.png"),
 	},
 	"eureka":  {
 		"name": "Eureka!",
-		"description": "{effect_name}: Gain 1 {buffer} every other time you shuffle your deck.",
-		"upgraded_descriptions": {
-			"inspired": "{effect_name}: Gain 2 {buffer} every other time you shuffle your deck.",
-		},
+		"is_card_reference": true,
 		"icon": preload("res://assets/icons/wisdom.png"),
 	},
 	"the_happy_place":  {
 		"name": "The Happy Place",
-		"description": "{effect_name}: Whenever you take {anxiety} during your turn, gain {amount} {armor}",
+		"is_card_reference": true,
 		"icon": preload("res://assets/icons/oasis.png"),
 	},
 	"lash_out":  {
 		"name": "Lash-out",
-		"description": "{effect_name}: After you take {anxiety} during your turn, {damage} a random Torment for the same amount.",
-		"upgraded_descriptions": {
-			"frustrated": "{effect_name}: After you take {anxiety} during your turn, {damage} a random Torment for double that amount.",
-		},
+		"is_card_reference": true,
 		"icon": preload("res://assets/icons/whiplash.png"),
 	},
 	"excuses":  {
 		"name": "Excuses",
-		"description": "{effect_name}: The first {amount} times you take {anxiety} during your turn reduce it to 1.",
-		"upgraded_descriptions": {
-			"endless": "{effect_name}: The first {double_amount} times you take {anxiety} during your turn reduce it to 1.",
-		},
+		"is_card_reference": true,
 		"icon": preload("res://assets/icons/chained-heart.png"),
 	},
 	"tolerance":  {
 		"name": "Tolerance",
-		"description": "{effect_name}: The next {amount} time your {anxiety} would reach its maximum, "\
-				+ "you take no {anxiety}, gain {amount} {immersion} and draw {amount} card.",
-		"upgraded_descriptions": {
-			"extreme": "{effect_name}: The next {amount} time your {anxiety} would reach its maximum, "\
-				+ "you take no {anxiety}, gain {double_amount} {immersion} and draw {double_amount} cards.",
-		},
+		"is_card_reference": true,
 		"icon": preload("res://assets/icons/defibrilate.png"),
+	},
+	"unconventional":  {
+		"name": "Unconventional",
+		"icon": preload("res://assets/icons/abstract-104.png"),
+		"is_card_reference": true
 	},
 }
 

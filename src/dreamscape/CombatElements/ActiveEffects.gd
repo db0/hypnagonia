@@ -35,6 +35,7 @@ const EFFECTS := {
 	Terms.ACTIVE_EFFECTS.lash_out.name: preload("res://src/dreamscape/CombatElements/CombatEffects/LashOut.tscn"),
 	Terms.ACTIVE_EFFECTS.excuses.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Excuses.tscn"),
 	Terms.ACTIVE_EFFECTS.tolerance.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Tolerance.tscn"),
+	Terms.ACTIVE_EFFECTS.unconventional.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Unconventional.tscn"),
 }
 
 # When a stack of an effect is added and its opposite exists, before adding a stack

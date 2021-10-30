@@ -4299,22 +4299,57 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"+ Unconventional +": {
-		"Type": "Control",
+	"Unconventional": {
+		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Gain {defence_amount} {confidence}. "\
-				+ "You may take {exert_amount} {anxiety} "\
-				+ "to {shuffle} this card into your deck.",
+		"Abilities": "At the start of your turn, "\
+				+ "if your discard pile has at most {discard_size} cards, "\
+				+ "gain {effect_defence} {confidence}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_avoid_normal_discard": true,
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_amounts": {
-			"defence_amount": 11,
-			"exert_amount": 2,
+			"effect_defence": 3,
+			"discard_size": 5,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"Weirdly Unconventional",
+			"@ Unconventional @",
+		],
+	},
+	"Weirdly Unconventional": {
+		"Type": "Concentration",
+		"Tags": [],
+		"Abilities": "At the start of your turn, "\
+				+ "if your discard pile has at most {discard_size} cards, "\
+				+ "gain {effect_defence} {confidence}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_avoid_normal_discard": true,
+		"_rarity": "Uncommon",
+		"_amounts": {
+			"effect_defence": 4,
+			"discard_size": 6,
 		},
 		"_is_upgrade": true,
 	},
-
+	"@ Unconventional @": {
+		"Type": "Concentration",
+		"Tags": [],
+		"Abilities": "At the start of your turn, "\
+				+ "if your discard pile has at most {discard_size} cards, "\
+				+ "gain {effect_defence} {confidence}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_avoid_normal_discard": true,
+		"_rarity": "Uncommon",
+		"_amounts": {
+			"effect_defence": 3,
+			"discard_size": 5,
+		},
+		"_is_upgrade": true,
+	},
 }
 

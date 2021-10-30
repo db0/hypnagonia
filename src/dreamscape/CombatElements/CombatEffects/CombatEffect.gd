@@ -80,20 +80,17 @@ func _set_current_description() -> void:
 	format["triple_amount"] = str(3*stacks)
 	# warning-ignore:integer_division
 	format["half_amount"] = str(stacks/2)
+	
 	decription_label.bbcode_text = _get_effect_description().\
 			format(format).format(Terms.get_bbcode_formats(18))
 
 func _get_effect_description() -> String:
-	var default_desc : String = Terms.ACTIVE_EFFECTS[_get_template_name()].description
-	if upgrade == '':
-		return(default_desc)
-	else:
-		var upgraded_desc = Terms.ACTIVE_EFFECTS[_get_template_name()].get(
-				"upgraded_descriptions",{}).get(upgrade)
-		if upgraded_desc:
-			return(upgraded_desc)
-		else:
-			return(default_desc)
+	var effect_entry : Dictionary = Terms.ACTIVE_EFFECTS[_get_template_name()]
+	var default_desc : String = effect_entry.get('description', '')
+	if effect_entry.get("is_card_reference"):
+		var card_reference = cfc.card_definitions.get(name)
+		default_desc = card_reference["Abilities"].format(card_reference.get("_amounts", {}))
+	return(default_desc)
 
 # Returns the lowercase name of the token
 func get_effect_name() -> String:
