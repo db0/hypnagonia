@@ -2391,6 +2391,19 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
+	var WeirdlyUnconventional = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.unconventional.name,
+					"subject": "dreamer",
+					"modification": 1,
+					"upgrade_name": "weirdly"
+				},
+			],
+		},
+	}
 
 
 	# This format allows me to trace which script failed during load
@@ -2504,6 +2517,7 @@ func get_scripts(card_name: String) -> Dictionary:
 		"Misunderstood": Misunderstood,
 		"Death Ray": DeathRay,
 		"Unconventional": Unconventional,
+		"Weirdly Unconventional": WeirdlyUnconventional,
 	}
 	return(_prepare_scripts(scripts, card_name))
 

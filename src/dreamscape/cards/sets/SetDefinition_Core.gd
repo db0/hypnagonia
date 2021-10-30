@@ -4341,7 +4341,7 @@ const CARDS := {
 		"Abilities": "At the start of your turn, "\
 				+ "if your discard pile has at most {discard_size} cards, "\
 				+ "gain {effect_defence} {confidence}.",
-		"Cost": 1,
+		"Cost": 0,
 		"_illustration": "Nobody",
 		"_avoid_normal_discard": true,
 		"_rarity": "Uncommon",

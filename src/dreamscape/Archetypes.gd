@@ -79,6 +79,7 @@ const MAD_SCIENTIST := {
 		"Wild Inspiration",
 		"Detect Weaknesses",
 		"Death Ray",
+		"Unconventional",
 	],
 	"Rare": [
 		"It's alive!",
