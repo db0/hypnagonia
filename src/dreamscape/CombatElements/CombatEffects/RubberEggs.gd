@@ -3,9 +3,8 @@ extends CombatEffect
 func _on_player_turn_ended(turn: Turn) -> void:
 	._on_player_turn_ended(turn)
 	var all_enemies := get_tree().get_nodes_in_group("EnemyEntities")
-	var damage_amount = 6
-	if upgrade == "hard":
-		damage_amount = 9
+	var damage_amount : int = cfc.card_definitions[name]\
+			.get("_amounts",{}).get("effect_damage")
 	for _iter in range(stacks):
 		CFUtils.shuffle_array(all_enemies)
 		for rng_enemy in all_enemies:

@@ -6,9 +6,8 @@ func _ready() -> void:
 func _on_deck_shuffled(_deck) -> void:
 	# We pause slighty, to allow the signals to propagate to the turn first
 	yield(get_tree().create_timer(0.1), "timeout")
-	var multiplier = 1
-	if upgrade == 'inspired':
-		multiplier = 2
+	var multiplier = cfc.card_definitions[name]\
+			.get("_amounts",{}).get("effect_amount")
 	if not cfc.NMAP.board.turn.encounter_event_count.get("deck_shuffled",0) % 2:
 		var eureka = [{
 					"name": "apply_effect",

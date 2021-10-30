@@ -9,5 +9,6 @@ func on_dreamer_effect_added(_entity: CombatEntity, _trigger: String, details: D
 		and details[SP.TRIGGER_PREV_COUNT] < details[SP.TRIGGER_NEW_COUNT]:
 			var amount = stacks
 			if upgrade == 'glorious':
-				amount *= 2
+				amount *= cfc.card_definitions[name]\
+						.get("_amounts",{}).get("effect_amount")
 			cfc.NMAP.board.counters.mod_counter("immersion", amount, false, false, self, ["Effect"])

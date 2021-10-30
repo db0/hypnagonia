@@ -1,10 +1,10 @@
 extends CombatEffect
 
 func _on_player_turn_ended(_turn: Turn) -> void:
-	var cards := 1
+	var cards = cfc.card_definitions[name]\
+			.get("_amounts",{}).get("effect_amount")
 	var wait_time := 0.3
 	if upgrade == "total":
-		cards = 2
 		# Because Recall and total recall use different instances
 		# of this effect, we make total recall wait longer before initializing
 		# to avoid executing at the same time as Recall and possibly

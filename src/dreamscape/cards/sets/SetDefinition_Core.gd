@@ -2352,7 +2352,7 @@ const CARDS := {
 	"Absurdity Unleashed": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you apply {confusion} to a Torment, {damage} it for {damage_amount}",
+		"Abilities": "Whenever you apply {confusion} to a Torment, {damage} it for {effect_damage}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -2361,7 +2361,7 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 4
+			"effect_damage": 4
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
@@ -2372,7 +2372,7 @@ const CARDS := {
 	"@ Absurdity Unleashed @": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you apply {confusion} to a Torment, {damage} it for {damage_amount}",
+		"Abilities": "Whenever you apply {confusion} to a Torment, {damage} it for {effect_damage}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -2381,14 +2381,14 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 4
+			"effect_damage": 4
 		},
 		"_is_upgrade": true,
 	},
 	"Total Absurdity Unleashed": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you apply {confusion} to a Torment, {damage} it for {damage_amount}",
+		"Abilities": "Whenever you apply {confusion} to a Torment, {damage} it for {effect_damage}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -2397,7 +2397,7 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 6
+			"effect_damage": 6
 		},
 		"_is_upgrade": true,
 	},
@@ -4236,7 +4236,7 @@ const CARDS := {
 		"Abilities": "{damage} all Torments for {damage_amount}.\n"\
 				+ "If your deck currently has at least {deck_size} cards, "\
 				+ "{damage} all Torments for {damage_amount2}",
-		"Cost": 1,
+		"Cost": 3,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_amounts": {

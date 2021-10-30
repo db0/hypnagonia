@@ -8,4 +8,6 @@ func _on_entity_damaged(_entity, _amount, trigger: Node, _tags: Array) -> void:
 		return
 	if entity_type != Terms.PLAYER:
 		return
-	owning_entity.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.armor.name, 1)
+	var armor = cfc.card_definitions[name]\
+			.get("_amounts",{}).get("effect_amount")
+	owning_entity.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.armor.name, armor)
