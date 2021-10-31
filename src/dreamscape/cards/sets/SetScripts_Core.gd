@@ -968,7 +968,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
-	var Headless = {
+	var Mania = {
 		"manual": {
 			"hand": [
 				{
@@ -2583,7 +2583,7 @@ func get_scripts(card_name: String) -> Dictionary:
 		"Zen of Flight": ZenofFlight,
 		"Masterful Zen of Flight": MasterfulZenofFlight,
 		"Loop de loop": Loopdeloop,
-		"Headless": Headless,
+		"Mania": Mania,
 		"Utterly Ridiculous": UtterlyRidiculous,
 		"Ventriloquism": Ventriloquism,
 		"unnamed_card_1": unnamed_card_1,

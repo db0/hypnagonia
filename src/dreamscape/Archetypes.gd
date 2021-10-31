@@ -83,6 +83,7 @@ const MAD_SCIENTIST := {
 		"Unconventional",
 		"Endless Posibilities",
 		"A Fine Specimen",
+		"Mania",
 	],
 	"Rare": [
 		"It's alive!",

@@ -1964,7 +1964,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Headless": {
+	"Mania": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "Gain {effect_stacks} {fascination}",
@@ -1979,12 +1979,12 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"@ Headless @",
-			"* Headless *",
-			"% Headless %",
+			"@ Mania @",
+			"* Mania *",
+			"% Mania %",
 		],
 	},
-	"@ Headless @": {
+	"@ Mania @": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "Gain {effect_stacks} {fascination}",
@@ -1999,7 +1999,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"* Headless *": {
+	"* Mania *": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "Gain {effect_stacks} {fascination}",
@@ -2014,7 +2014,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"% Headless %": {
+	"% Mania %": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "Gain {effect_stacks} {fascination}",

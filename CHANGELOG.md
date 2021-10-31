@@ -1,10 +1,15 @@
 # Dreams: Changelog
 
+## v0.13.4
+
+* Finalized Mad Scientist cards
+
 ## v0.13.3
 
 * Added Hyperfocus art (@Marablack)[https://www.deviantart.com/marablack3]
 * Added Rapid Theorizing art (@Marablack)[https://www.deviantart.com/marablack3]
-* Added more Mad Scientist cards
+* Added Misunderstood
+* Added Death Ray
 
 ## v0.13.2
 
@@ -31,6 +36,10 @@
    * Disable large card focus display.
 * Added icon for the end-turn button and reorganized that area a bit.
 * **Added Tutorials**. They will trigger the first time each interface is opened. Afterwards they can be triggered with an icon or pressing 'H'. Tutorial format inspired by [The Zone](https://store.steampowered.com/app/1299540/The_Zone_Stalker_Stories/)'s Quick references.
+
+## v0.12.4
+
+* Finalized Mad Scientist cards
 
 ## v0.12.3
 
@@ -173,6 +182,10 @@
 * Deck/Discard/Forgotten piles are smaller
 * Added way to see the deck contents
 
+## v0.5.4
+
+* Finalized Mad Scientist cards
+
 ## v0.5.3
 
 * Added polygon-art for the fearmonger - insomniacUNDERSCORElemon
@@ -201,6 +214,10 @@
 * Converted tags into icons on card front to improve readability
 * Increased overall card size by 25%
 
+## v0.3.4
+
+* Finalized Mad Scientist cards
+
 ## v0.3.0
 
 * Added randomized backgrounds
@@ -210,6 +227,10 @@
 
 * Added polygon-art for the laughing one (Credit to https://www.reddit.com/user/insomniac_lemon)
 * Fixed card draw not reshuffling the deck
+
+## v0.2.4
+
+* Finalized Mad Scientist cards
 
 ## v0.2.3
 
@@ -231,6 +252,8 @@
 * Added icons
 * Added image for first boss
 
-## v0.1
+## v0.14
+
+Initial * Finalized Mad Scientist cardsrelease. Full working start with 4 card groups, 3 Torments, 1 Boss
 
 Initial release. Full working start with 4 card groups, 3 Torments, 1 Boss
