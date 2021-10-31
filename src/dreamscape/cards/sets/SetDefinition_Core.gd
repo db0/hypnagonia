@@ -969,7 +969,8 @@ const CARDS := {
 	"Barrel Through": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
-		"Abilities": "{damage} for {damage_amount}.\nIf the Torment has {shaken}, {damage} all other Torments for {damage_amount2}.",
+		"Abilities": "{damage} for {damage_amount}.\nIf the Torment has {shaken}, "\
+				+ "{damage} all other Torments for {damage_amount2}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -990,7 +991,8 @@ const CARDS := {
 	"+ Barrel Through +": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
-		"Abilities": "{damage} for {damage_amount}.\nIf the Torment has {shaken}, {damage} all other Torments for {damage_amount2}.",
+		"Abilities": "{damage} for {damage_amount}.\nIf the Torment has {shaken}, "\
+				+ "{damage} all other Torments for {damage_amount2}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -1007,7 +1009,8 @@ const CARDS := {
 	"= Barrel Through =": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
-		"Abilities": "{damage} for {damage_amount}.\nIf the Torment has {shaken}, {damage} all other Torments for {damage_amount2}.",
+		"Abilities": "{damage} for {damage_amount}.\nIf the Torment has {shaken}, "\
+				+ "{damage} all other Torments for {damage_amount2}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
