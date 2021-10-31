@@ -250,62 +250,12 @@ func get_scripts(card_name: String) -> Dictionary:
 					"is_cost": true,
 					"amount": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("damage_amount"),
+					"repeat": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("chain_amount"),
 					"tags": ["Attack"],
 					"filter_state_subject": [{
 						"filter_group": "EnemyEntities",
 					}],
-				},
-				{
-					"name": "modify_damage",
-					"subject": "previous",
-					"amount": cfc.card_definitions[card_name]\
-							.get("_amounts",{}).get("damage_amount"),
-					"tags": ["Attack"],
-				},
-				{
-					"name": "modify_damage",
-					"subject": "previous",
-					"amount": cfc.card_definitions[card_name]\
-							.get("_amounts",{}).get("damage_amount"),
-					"tags": ["Attack"],
-				},
-			],
-		},
-	}
-	var WildWhirlwind = {
-		"manual": {
-			"hand": [
-				{
-					"name": "modify_damage",
-					"subject": "target",
-					"is_cost": true,
-					"amount": cfc.card_definitions[card_name]\
-							.get("_amounts",{}).get("damage_amount"),
-					"tags": ["Attack"],
-					"filter_state_subject": [{
-						"filter_group": "EnemyEntities",
-					}],
-				},
-				{
-					"name": "modify_damage",
-					"subject": "previous",
-					"amount": cfc.card_definitions[card_name]\
-							.get("_amounts",{}).get("damage_amount"),
-					"tags": ["Attack"],
-				},
-				{
-					"name": "modify_damage",
-					"subject": "previous",
-					"amount": cfc.card_definitions[card_name]\
-							.get("_amounts",{}).get("damage_amount"),
-					"tags": ["Attack"],
-				},
-				{
-					"name": "modify_damage",
-					"subject": "previous",
-					"amount": cfc.card_definitions[card_name]\
-							.get("_amounts",{}).get("damage_amount"),
-					"tags": ["Attack"],
 				},
 			],
 		},
@@ -450,7 +400,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
-	var SmartGummiraptor = {
+	var CleverGummiraptor = {
 		"manual": {
 			"hand": [
 				{
@@ -2541,7 +2491,6 @@ func get_scripts(card_name: String) -> Dictionary:
 		"Confounding Movements": ConfoundingMovements,
 		"Inner Justice": InnerJustice,
 		"Whirlwind": Whirlwind,
-		"Wild Whirlwind": WildWhirlwind,
 		"Overview": Overview,
 		"Piercing Overview": PiercingOverview,
 		"Rubber Eggs": RubberEggs,
@@ -2551,7 +2500,7 @@ func get_scripts(card_name: String) -> Dictionary:
 		"Nunclucks": Nunclucks,
 		"Massive Nunclucks": MassiveNunclucks,
 		"Gummiraptor": Gummiraptor,
-		"Smart Gummiraptor": SmartGummiraptor,
+		"Clever Gummiraptor": CleverGummiraptor,
 		"Cocky Retort": CockyRetort,
 		"Rapid Encirclement": RapidEncirclement,
 		"Barrel Through": BarrelThrough,

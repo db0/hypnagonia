@@ -528,7 +528,7 @@ const CARDS := {
 		"_upgrade_threshold": 7,
 		"_upgrades": [
 			"+ Whirlwind +",
-			"Wild Whirlwind",
+			"= Whirlwind =",
 		],
 	},
 	"+ Whirlwind +": {
@@ -545,7 +545,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Wild Whirlwind": {
+	"= Whirlwind =": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times",
@@ -555,7 +555,7 @@ const CARDS := {
 		"_keywords": ["interpretation"],
 		"_amounts": {
 			"damage_amount": 3,
-			"chain_amount": 5,
+			"chain_amount": 4,
 		},
 		"_is_upgrade": true,
 	},
@@ -826,7 +826,7 @@ const CARDS := {
 		"_upgrades": [
 			"@ Gummiraptor @",
 			"+ Gummiraptor +",
-			"Smart Gummiraptor",
+			"Clever Gummiraptor",
 		],
 	},
 	"@ Gummiraptor @": {
@@ -857,7 +857,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Smart Gummiraptor": {
+	"Clever Gummiraptor": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
