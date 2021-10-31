@@ -2747,7 +2747,7 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_amounts": {
-			"damage_amount": 10,
+			"damage_amount": 9,
 			"discard_amount": 2,
 		},
 		"_upgrade_threshold": 7,
@@ -2765,7 +2765,7 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_amounts": {
-			"damage_amount": 14,
+			"damage_amount": 12,
 			"discard_amount": 2,
 		},
 		"_is_upgrade": true,
@@ -2779,14 +2779,14 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_amounts": {
-			"damage_amount": 11,
+			"damage_amount": 10,
 			"discard_amount": 1,
 		},
 		"_is_upgrade": true,
 	},
 	"It's alive!": {
 		"Type": "Action",
-		"Tags": [],
+		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "{damage} for {damage_amount2} for each time your deck was shuffled.",
 		"Cost": 2,
@@ -4452,11 +4452,11 @@ const CARDS := {
 	"I'll Show Them All": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.purpose.name,Terms.GENERIC_TAGS.swift.name],
-		"Abilities": "Remove at least 1 {buffer}: Gain that much {immersion} "\
+		"Abilities": "Remove all {buffer}: Gain that much {immersion} "\
 				+ "and draw that many cards + {draw_amount}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
-		"_rarity": "Uncommon",
+		"_rarity": "Rare",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
 		},
@@ -4472,11 +4472,11 @@ const CARDS := {
 	"! I'll Show Them All !": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.purpose.name,Terms.GENERIC_TAGS.swift.name],
-		"Abilities": "Remove at least 1 {buffer}: Gain that much {immersion} "\
+		"Abilities": "Remove all {buffer}: Gain that much {immersion} "\
 				+ "and draw that many cards + {draw_amount}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
-		"_rarity": "Uncommon",
+		"_rarity": "Rare",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
 		},
@@ -4488,20 +4488,73 @@ const CARDS := {
 	"@ I'll Show Them All @": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.purpose.name,Terms.GENERIC_TAGS.swift.name],
-		"Abilities": "Remove at least 1 {buffer}: Gain that much {immersion} + {immersion_amount} "\
-				+ "and draw that many cards + {draw_amount}.",
+		"Abilities": "Remove all {buffer}: Gain that much {immersion} + {immersion_amount} "\
+				+ "and draw that many cards + 1.",
 		"Cost": 0,
 		"_illustration": "Nobody",
-		"_rarity": "Uncommon",
+		"_rarity": "Rare",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
 		},
 		"_amounts": {
-			"draw_amount": 1,
+			# It is 0 here, becuase immersion will adjust the stored integer + 1
+			"draw_amount": 0,
 			"immersion_amount": 1,
 		},
 		"_is_upgrade": true,
 	},
-
+	"A Fine Specimen": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.chain.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "increase this damage by {chain_amount} for every {per_division} cards currently in your deck.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 7,
+			"chain_amount": 1,
+			"per_division": 5,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"+ A Fine Specimen +",
+			"% A Fine Specimen %",
+			"= A Fine Specimen =",
+		],
+	},
+	"+ A Fine Specimen +": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.chain.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "increase this damage by {chain_amount} for every {per_division} cards currently in your deck.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 10,
+			"chain_amount": 1,
+			"per_division": 5,
+		},
+		"_is_upgrade": true,
+	},
+	"% A Fine Specimen %": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.chain.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "increase this damage by {chain_amount} for every {per_division} cards currently in your deck.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 7,
+			"chain_amount": 2,
+			"per_division": 4,
+		},
+		"_is_upgrade": true,
+	},
 }
 

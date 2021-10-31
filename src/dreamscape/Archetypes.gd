@@ -81,11 +81,12 @@ const MAD_SCIENTIST := {
 		"Death Ray",
 		"Unconventional",
 		"Endless Posibilities",
-		"I'll show them all",
+		"A Fine Specimen",
 	],
 	"Rare": [
 		"It's alive!",
 		"Eureka!",
+		"I'll Show Them All",
 	],
 }
 

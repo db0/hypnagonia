@@ -2472,7 +2472,6 @@ func get_scripts(card_name: String) -> Dictionary:
 					"modification": 0,
 					"store_integer": true,
 					"set_to_mod": true,
-					"is_cost": true,
 				},
 				{
 					"name": "mod_counter",
@@ -2490,6 +2489,38 @@ func get_scripts(card_name: String) -> Dictionary:
 							.get("_amounts",{}).get("draw_amount", 0),
 				},
 
+			],
+		},
+	}
+	var AFineSpecimen = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"is_cost": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "modify_damage",
+					"subject": "previous",
+					"amount": "per_tutor",
+					"tags": ["Attack"],
+					"per_tutor": {
+						"src_container": cfc.NMAP.deck,
+						"subject": "tutor",
+						"subject_count": "all",
+						"multiplier": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("chain_amount"),
+						"divider": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("per_division"),
+					},
+				},
 			],
 		},
 	}
@@ -2609,6 +2640,7 @@ func get_scripts(card_name: String) -> Dictionary:
 		"Weirdly Unconventional": WeirdlyUnconventional,
 		"Endless Posibilities": EndlessPosibilities,
 		"I'll Show Them All": IllShowThemAll,
+		"A Fine Specimen": AFineSpecimen,
 	}
 	return(_prepare_scripts(scripts, card_name))
 

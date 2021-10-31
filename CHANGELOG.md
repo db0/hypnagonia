@@ -4,8 +4,7 @@
 
 * Added Hyperfocus art (@Marablack)[https://www.deviantart.com/marablack3]
 * Added Rapid Theorizing art (@Marablack)[https://www.deviantart.com/marablack3]
-* Added Misunderstood
-* Added Death Ray
+* Added more Mad Scientist cards
 
 ## v0.13.2
 

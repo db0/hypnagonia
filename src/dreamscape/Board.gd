@@ -371,9 +371,10 @@ func _input(event):
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.armor.name, 3)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
-			"I'll Show Them All",
-			"I'll Show Them All",
-			"@ I'll Show Them All @",
+			"A Fine Specimen",
+			"A Fine Specimen",
+			"% A Fine Specimen %",
+			"% A Fine Specimen %",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.deck.add_child(card)
