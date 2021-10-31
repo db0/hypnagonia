@@ -294,8 +294,8 @@ func _debug_advanced_enemy() -> void:
 
 func _on_Debug_pressed() -> void:
 	# warning-ignore:return_value_discarded
-	counters.mod_counter("immersion",10)
-	for _iter in range(5):
+	counters.mod_counter("immersion",3)
+	for _iter in range(3):
 		cfc.NMAP.hand.draw_card(cfc.NMAP.deck)
 
 
@@ -364,24 +364,16 @@ func _input(event):
 #		torment2.rect_position = Vector2(800,100)
 #		torment3.rect_position = Vector2(200,300)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 20)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.nunclucks.name, 1)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.unassailable.name, 1)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.nothing_to_fear.name, 1)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.introspection.name, 1)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.absurdity_unleashed.name, 1)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 3)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.unconventional.name, 1, false, false, ['Debug'], 'weirdly')
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.nothing_to_fear.name, 1)
 #		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.armor.name, 3)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
-			"Death Ray",
-			"Death Ray",
-			"Death Ray",
-			"Death Ray",
-			"Death Ray",
-			"Death Ray",
-			"Death Ray",
+			"I'll Show Them All",
+			"I'll Show Them All",
+			"@ I'll Show Them All @",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.deck.add_child(card)
@@ -390,6 +382,7 @@ func _input(event):
 		cfc.NMAP.deck.shuffle_cards(false)
 		begin_encounter()
 	if event.is_action_pressed("debug"):
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 3)
 		_on_Debug_pressed()
 	if event.is_action_pressed("complete_battle"):
 		complete_battle()

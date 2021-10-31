@@ -2404,6 +2404,95 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
+	var EndlessPosibilities = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.armor.name,
+					"subject": "dreamer",
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("effect_stacks"),
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": cfc.NMAP.deck,
+					"filter_per_tutor_count": {
+						"src_container": cfc.NMAP.deck,
+						"subject": "tutor",
+						"subject_count": "all",
+						"filter_card_count": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("deck_size", 0),
+						"comparison": "ge",
+					},
+				},
+				{
+					"name": "shuffle_container",
+					"dest_container": cfc.NMAP.deck,
+					"filter_per_tutor_count": {
+						"src_container": cfc.NMAP.deck,
+						"subject": "tutor",
+						"subject_count": "all",
+						"filter_card_count": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("deck_size", 0),
+						"comparison": "ge",
+					},
+				},
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.buffer.name,
+					"subject": "dreamer",
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("effect_stacks2"),
+					"filter_per_tutor_count": {
+						"src_container": cfc.NMAP.deck,
+						"subject": "tutor",
+						"subject_count": "all",
+						"filter_card_count": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("deck_size", 0),
+						"comparison": "ge",
+					},
+				},
+			],
+		},
+	}
+	var IllShowThemAll = {
+		"manual": {
+			"hand": [
+				{
+					"name": "move_card_to_container",
+					"dest_container": cfc.NMAP.discard,
+					"subject": "self",
+				},
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.buffer.name,
+					"subject": "dreamer",
+					"modification": 0,
+					"store_integer": true,
+					"set_to_mod": true,
+					"is_cost": true,
+				},
+				{
+					"name": "mod_counter",
+					"counter_name": "immersion",
+					"modification": "retrieve_integer",
+					"adjust_retrieved_integer": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("immersion_amount", 0),
+					"store_integer": true,
+					"is_inverted": true
+				},
+				{
+					"name": "draw_cards",
+					"card_count": "retrieve_integer",
+					"adjust_retrieved_integer": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("draw_amount", 0),
+				},
+
+			],
+		},
+	}
 
 
 	# This format allows me to trace which script failed during load
@@ -2518,6 +2607,8 @@ func get_scripts(card_name: String) -> Dictionary:
 		"Death Ray": DeathRay,
 		"Unconventional": Unconventional,
 		"Weirdly Unconventional": WeirdlyUnconventional,
+		"Endless Posibilities": EndlessPosibilities,
+		"I'll Show Them All": IllShowThemAll,
 	}
 	return(_prepare_scripts(scripts, card_name))
 

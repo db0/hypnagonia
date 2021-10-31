@@ -206,7 +206,8 @@ const ACTIVE_EFFECTS := {
 		"rich_text_icon": "res://fonts/rich_text_icons/heart-shield.png",
 		"description": "{effect_name} ({effect_icon}): Reduce {opponent_attack} on this {entity}, "\
 				+ "by {amount}, then reduce these stacks by 1.\n"\
-				+ "(This reduction happens before {defence})",
+				+ "(This reduction happens before {defence})\n"\
+				+ "Reduce these stacks by 1 at the start of the turn.",
 	},
 	"outrage": {
 		"name": "Outrage",

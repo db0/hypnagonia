@@ -138,6 +138,7 @@ func calculate_modify_damage(subject: CombatEntity, script: ScriptTask) -> int:
 		modification = stored_integer
 		if script.get_property(SP.KEY_IS_INVERTED):
 			modification *= -1
+		modification += script.get_property(SP.KEY_ADJUST_RETRIEVED_INTEGER)
 	elif SP.VALUE_PER in str(script.get_property(SP.KEY_AMOUNT)):
 		var per_msg = perMessage.new(
 				script.get_property(SP.KEY_AMOUNT),
@@ -181,6 +182,7 @@ func calculate_assign_defence(subject: CombatEntity, script: ScriptTask) -> int:
 		modification = stored_integer
 		if script.get_property(SP.KEY_IS_INVERTED):
 			modification *= -1
+		modification += script.get_property(SP.KEY_ADJUST_RETRIEVED_INTEGER)
 	elif SP.VALUE_PER in str(script.get_property(SP.KEY_AMOUNT)):
 		var per_msg = perMessage.new(
 				script.get_property(SP.KEY_AMOUNT),
@@ -225,6 +227,7 @@ func apply_effect(script: ScriptTask) -> int:
 		modification = stored_integer
 		if script.get_property(SP.KEY_IS_INVERTED):
 			modification *= -1
+		modification += script.get_property(SP.KEY_ADJUST_RETRIEVED_INTEGER)
 	elif SP.VALUE_PER in str(script.get_property(SP.KEY_MODIFICATION)):
 		var per_msg = perMessage.new(
 				script.get_property(SP.KEY_MODIFICATION),
@@ -355,6 +358,7 @@ func perturb(script: ScriptTask) -> void:
 		count = stored_integer
 		if script.get_property(SP.KEY_IS_INVERTED):
 			count *= -1
+		count += script.get_property(SP.KEY_ADJUST_RETRIEVED_INTEGER)
 	elif SP.VALUE_PER in str(script.get_property(SP.KEY_OBJECT_COUNT)):
 		var per_msg = perMessage.new(
 				script.get_property(SP.KEY_OBJECT_COUNT),
@@ -391,6 +395,7 @@ func spawn_enemy(script: ScriptTask) -> void:
 		count = stored_integer
 		if script.get_property(SP.KEY_IS_INVERTED):
 			count *= -1
+		count += script.get_property(SP.KEY_ADJUST_RETRIEVED_INTEGER)
 	elif SP.VALUE_PER in str(script.get_property(SP.KEY_OBJECT_COUNT)):
 		var per_msg = perMessage.new(
 				script.get_property(SP.KEY_OBJECT_COUNT),
@@ -435,7 +440,14 @@ func draw_cards(script: ScriptTask) -> int:
 	if not costs_dry_run():
 		# We inject the tags from the script into the tags sent by the signal
 		var _tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
-		var card_count: int = script.get_property(SP.KEY_CARD_COUNT)
+		var card_count: int
+		if str(script.get_property(SP.KEY_CARD_COUNT)) == SP.VALUE_RETRIEVE_INTEGER:
+			card_count = stored_integer
+			if script.get_property(SP.KEY_IS_INVERTED):
+				card_count *= -1
+			card_count += script.get_property(SP.KEY_ADJUST_RETRIEVED_INTEGER)
+		else:
+			card_count = script.get_property(SP.KEY_CARD_COUNT)
 		var drawn_cards := []
 		for _iter in range(card_count):
 			var dcard = cfc.NMAP.hand.draw_card(cfc.NMAP.deck)

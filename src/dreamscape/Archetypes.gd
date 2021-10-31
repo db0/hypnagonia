@@ -80,6 +80,8 @@ const MAD_SCIENTIST := {
 		"Detect Weaknesses",
 		"Death Ray",
 		"Unconventional",
+		"Endless Posibilities",
+		"I'll show them all",
 	],
 	"Rare": [
 		"It's alive!",

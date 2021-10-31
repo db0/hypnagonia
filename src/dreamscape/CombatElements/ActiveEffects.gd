@@ -75,7 +75,9 @@ func mod_effect(
 			combined_effect_name = upgrade_string.capitalize() + ' ' + effect_name
 		var effect : CombatEffect = get_all_effects().get(combined_effect_name, null)
 		if not effect and mod <= 0:
-			pass
+			retcode = CFConst.ReturnCode.OK
+		elif effect and set_to_mod and effect.stacks == mod:
+			retcode = CFConst.ReturnCode.OK
 		elif not check:
 			if not effect:
 				var opposite_name = OPPOSITES.get(effect_name)

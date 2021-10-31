@@ -4124,7 +4124,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "Gain X * {defence_amount} {confidence}\n"\
-				+ "Gain X * {effect_stacks} {fascination}",
+				+ "Gain X * {effect_stacks} {buffer}",
 		"Cost": 'X',
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -4146,7 +4146,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "Gain X * {defence_amount} {confidence}\n"\
-				+ "Gain X * {effect_stacks} {fascination}",
+				+ "Gain X * {effect_stacks} {buffer}",
 		"Cost": 'X',
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -4164,7 +4164,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "Gain X * {defence_amount} {confidence}\n"\
-				+ "Gain X * {effect_stacks} {fascination}",
+				+ "Gain X * {effect_stacks} {buffer}",
 		"Cost": 'X',
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -4188,6 +4188,7 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_avoid_normal_discard": true,
 		"_rarity": "Common",
+		"_keywords": ["confidence"],
 		"_amounts": {
 			"defence_amount": 8,
 			"exert_amount": 2,
@@ -4208,6 +4209,7 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_avoid_normal_discard": true,
 		"_rarity": "Common",
+		"_keywords": ["confidence"],
 		"_amounts": {
 			"defence_amount": 11,
 			"exert_amount": 2,
@@ -4224,6 +4226,7 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_avoid_normal_discard": true,
 		"_rarity": "Common",
+		"_keywords": ["confidence"],
 		"_amounts": {
 			"defence_amount": 13,
 			"exert_amount": 5,
@@ -4239,6 +4242,7 @@ const CARDS := {
 		"Cost": 3,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
 		"_amounts": {
 			"damage_amount": 15,
 			"damage_amount2": 15,
@@ -4260,6 +4264,7 @@ const CARDS := {
 		"Cost": 3,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
 		"_amounts": {
 			"damage_amount": 22,
 			"damage_amount2": 15,
@@ -4276,6 +4281,7 @@ const CARDS := {
 		"Cost": 3,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
 		"_amounts": {
 			"damage_amount": 15,
 			"damage_amount2": 25,
@@ -4292,6 +4298,7 @@ const CARDS := {
 		"Cost": 3,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
 		"_amounts": {
 			"damage_amount": 19,
 			"damage_amount2": 19,
@@ -4309,6 +4316,7 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_avoid_normal_discard": true,
 		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
 		"_amounts": {
 			"effect_defence": 3,
 			"discard_size": 5,
@@ -4329,6 +4337,7 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_avoid_normal_discard": true,
 		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
 		"_amounts": {
 			"effect_defence": 4,
 			"discard_size": 6,
@@ -4345,11 +4354,154 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_avoid_normal_discard": true,
 		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
 		"_amounts": {
 			"effect_defence": 3,
 			"discard_size": 5,
 		},
 		"_is_upgrade": true,
 	},
+	"Endless Posibilities": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.ACTIVE_EFFECTS.armor.name],
+		"Abilities": "Gain {effect_stacks} {armor}.\n"\
+				+ "If your deck currently has at least {deck_size} cards, "\
+				+ "shuffle this card back into the deck and gain {effect_stacks2} {buffer}.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
+		},
+		"_amounts": {
+			"effect_stacks": 4,
+			"effect_stacks2": 2,
+			"deck_size": 9,
+		},
+		"_upgrade_threshold": 8,
+		"_upgrades": [
+			"+ Endless Posibilities +",
+			"* Endless Posibilities *",
+			"% Endless Posibilities %",
+		],
+	},
+	"+ Endless Posibilities +": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.ACTIVE_EFFECTS.armor.name],
+		"Abilities": "Gain {effect_stacks} {armor}.\n"\
+				+ "If your deck currently has at least {deck_size} cards, "\
+				+ "shuffle this card back into the deck and gain {effect_stacks2} {buffer}.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
+		},
+		"_amounts": {
+			"effect_stacks": 5,
+			"effect_stacks2": 2,
+			"deck_size": 9,
+		},
+		"_is_upgrade": true,
+	},
+	"* Endless Posibilities *": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.ACTIVE_EFFECTS.armor.name],
+		"Abilities": "Gain {effect_stacks} {armor}.\n"\
+				+ "If your deck currently has at least {deck_size} cards, "\
+				+ "shuffle this card back into the deck and gain {effect_stacks2} {buffer}.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
+		},
+		"_amounts": {
+			"effect_stacks": 4,
+			"effect_stacks2": 3,
+			"deck_size": 9,
+		},
+		"_is_upgrade": true,
+	},
+	"% Endless Posibilities %": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.ACTIVE_EFFECTS.armor.name],
+		"Abilities": "Gain {effect_stacks} {armor}.\n"\
+				+ "If your deck currently has at least {deck_size} cards, "\
+				+ "shuffle this card back into the deck and gain {effect_stacks2} {buffer}.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
+		},
+		"_amounts": {
+			"effect_stacks": 5,
+			"effect_stacks2": 3,
+			"deck_size": 15,
+		},
+		"_is_upgrade": true,
+	},
+	"I'll Show Them All": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.purpose.name,Terms.GENERIC_TAGS.swift.name],
+		"Abilities": "Remove at least 1 {buffer}: Gain that much {immersion} "\
+				+ "and draw that many cards + {draw_amount}.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
+		},
+		"_amounts": {
+			"draw_amount": 1,
+		},
+		"_upgrade_threshold": 9,
+		"_upgrades": [
+			"! I'll Show Them All !",
+			"@ I'll Show Them All @",
+		],
+	},
+	"! I'll Show Them All !": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.purpose.name,Terms.GENERIC_TAGS.swift.name],
+		"Abilities": "Remove at least 1 {buffer}: Gain that much {immersion} "\
+				+ "and draw that many cards + {draw_amount}.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
+		},
+		"_amounts": {
+			"draw_amount": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"@ I'll Show Them All @": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.purpose.name,Terms.GENERIC_TAGS.swift.name],
+		"Abilities": "Remove at least 1 {buffer}: Gain that much {immersion} + {immersion_amount} "\
+				+ "and draw that many cards + {draw_amount}.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
+		},
+		"_amounts": {
+			"draw_amount": 1,
+			"immersion_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+
 }
 
