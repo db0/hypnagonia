@@ -1,9 +1,7 @@
 class_name DreamPile
 extends Pile
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var _prev_shuffle_style
 
 
 # Called when the node enters the scene tree for the first time.
@@ -18,7 +16,11 @@ func _ready():
 		disable_shuffle()
 
 func disable_shuffle() -> void:
+	_prev_shuffle_style = shuffle_style
 	shuffle_style = CFConst.ShuffleStyle.NONE
+
+func enable_shuffle() -> void:
+	shuffle_style = _prev_shuffle_style
 
 func _on_DreamPile_input_event(event) -> void:
 	if event.is_pressed()\

@@ -29,7 +29,10 @@ func _ready() -> void:
 func _on_FancAnimations_toggled(button_pressed: bool) -> void:
 	cfc.set_setting('fancy_movement',button_pressed)
 	cfc.set_setting('enable_visible_shuffle',button_pressed)
-	get_tree().call_group("piles", "disable_shuffle")
+	if button_pressed:
+		get_tree().call_group("piles", "enable_shuffle")
+	else:
+		get_tree().call_group("piles", "disable_shuffle")
 
 
 func _on_FocusStyle_toggled(button_pressed: bool) -> void:

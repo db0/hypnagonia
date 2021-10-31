@@ -3891,7 +3891,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
-		"_keywords": [],
+		"_keywords": ["forget"],
 		"_amounts": {
 			"healing_amount": 5,
 			"health_percent": 70,
@@ -3912,7 +3912,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
-		"_keywords": [],
+		"_keywords": ["forget"],
 		"_amounts": {
 			"healing_amount": 7,
 			"health_percent": 70,
@@ -3929,7 +3929,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
-		"_keywords": [],
+		"_keywords": ["forget"],
 		"_amounts": {
 			"healing_amount": 5,
 			"health_percent": 60,
@@ -4184,7 +4184,7 @@ const CARDS := {
 	"Misunderstood": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.exert.name],
-		"Abilities": "Gain {defence_amount} {confidence}. "\
+		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "You may take {exert_amount} {anxiety} "\
 				+ "to {shuffle} this card into your deck.",
 		"Cost": 1,
@@ -4205,7 +4205,7 @@ const CARDS := {
 	"+ Misunderstood +": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.exert.name],
-		"Abilities": "Gain {defence_amount} {confidence}. "\
+		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "You may take {exert_amount} {anxiety} "\
 				+ "to {shuffle} this card into your deck.",
 		"Cost": 1,
@@ -4222,7 +4222,7 @@ const CARDS := {
 	"% Misunderstood %": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.exert.name],
-		"Abilities": "Gain {defence_amount} {confidence}. "\
+		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "You may take {exert_amount} {anxiety} "\
 				+ "to {shuffle} this card into your deck.",
 		"Cost": 1,
@@ -4460,6 +4460,7 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
+		"_keywords": ["immersion"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
 		},
@@ -4480,6 +4481,7 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
+		"_keywords": ["immersion"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
 		},
@@ -4496,6 +4498,7 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
+		"_keywords": ["immersion"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
 		},
@@ -4524,7 +4527,6 @@ const CARDS := {
 		"_upgrades": [
 			"+ A Fine Specimen +",
 			"% A Fine Specimen %",
-			"= A Fine Specimen =",
 		],
 	},
 	"+ A Fine Specimen +": {
@@ -4557,6 +4559,106 @@ const CARDS := {
 			"chain_amount": 2,
 			"per_division": 4,
 		},
+		"_is_upgrade": true,
+	},
+	"Misplaced Research": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.spark.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "Shuffle the top {card_amount} card of the discard pile into the deck.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 9,
+			"card_amount": 1,
+		},
+		"_upgrade_threshold": 6,
+		"_upgrades": [
+			"+ Misplaced Research +",
+			"! Misplaced Research !",
+		],
+	},
+	"+ Misplaced Research +": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.spark.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "Shuffle the top {card_amount} card of the discard pile into the deck.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 12,
+			"card_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"! Misplaced Research !": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.spark.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "Shuffle the top {card_amount} cards of the discard pile into the deck.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 10,
+			"card_amount": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"Excogitate": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.spark.name],
+		"Abilities": "Gain {defence_amount} {confidence}\n"\
+				+ "Shuffle {card_amount} random card from the forgotten pile into the deck.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 13,
+			"card_amount": 1,
+		},
+		"_upgrade_threshold": 8,
+		"_upgrades": [
+			"! Excogitate !",
+			"Ω Excogitate Ω",
+		],
+	},
+	"! Excogitate !": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.spark.name],
+		"Abilities": "Gain {defence_amount} {confidence}\n"\
+				+ "Shuffle {card_amount} random card from the forgotten pile into the deck.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 12,
+			"card_amount": 2,
+		},
+		"_upgrade_threshold": 8,
+		"_is_upgrade": true,
+	},
+	"Ω Excogitate Ω": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.omega.name],
+		"Abilities": "Gain {defence_amount} {confidence}\n"\
+				+ "Shuffle {card_amount} random card from the forgotten pile into the deck.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 15,
+			"card_amount": 1,
+		},
+		"_upgrade_threshold": 8,
 		"_is_upgrade": true,
 	},
 }

@@ -2474,6 +2474,61 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
+	var MisplacedResearch = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"is_cost": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "move_card_to_container",
+					"src_container": cfc.NMAP.discard,
+					"dest_container": cfc.NMAP.deck,
+					"subject_count": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("card_amount"),
+					"subject": "index",
+					"subject_index": "top",
+				},
+				{
+					"name": "shuffle_container",
+					"dest_container": cfc.NMAP.deck,
+				},
+			],
+		},
+	}
+	var Excogitate = {
+		"manual": {
+			"hand": [
+				{
+					"name": "assign_defence",
+					"subject": "dreamer",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("defence_amount"),
+				},
+				{
+					"name": "move_card_to_container",
+					"src_container": cfc.NMAP.forgotten,
+					"dest_container": cfc.NMAP.deck,
+					"subject_count": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("card_amount"),
+					"subject": "index",
+					"subject_index": "random",
+				},
+				{
+					"name": "shuffle_container",
+					"dest_container": cfc.NMAP.deck,
+				},
+			],
+		},
+	}
 
 
 	# This format allows me to trace which script failed during load
@@ -2590,6 +2645,8 @@ func get_scripts(card_name: String) -> Dictionary:
 		"Endless Posibilities": EndlessPosibilities,
 		"I'll Show Them All": IllShowThemAll,
 		"A Fine Specimen": AFineSpecimen,
+		"Misplaced Research": MisplacedResearch,
+		"Excogitate": Excogitate,
 	}
 	return(_prepare_scripts(scripts, card_name))
 

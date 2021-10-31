@@ -446,7 +446,7 @@ func shuffle_container(script: ScriptTask) -> void:
 	while container.are_cards_still_animating():
 		yield(container.get_tree().create_timer(0.2), "timeout")
 	container.shuffle_cards()
-	if container.is_in_group("piles"):
+	if container.is_in_group("piles") and container.shuffle_style != CFConst.ShuffleStyle.NONE:
 		yield(container, "shuffle_completed")
 
 

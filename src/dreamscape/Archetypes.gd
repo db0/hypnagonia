@@ -72,6 +72,7 @@ const MAD_SCIENTIST := {
 		"unnamed_card_1",
 		"Hyperfocus",
 		"Misunderstood",
+		"Misplaced Research",
 	],
 	"Uncommon": [
 		"Brilliance",
@@ -87,6 +88,7 @@ const MAD_SCIENTIST := {
 		"It's alive!",
 		"Eureka!",
 		"I'll Show Them All",
+		"Excogitate",
 	],
 }
 

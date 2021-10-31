@@ -355,10 +355,15 @@ func _input(event):
 	if event.is_action_pressed("init_debug_game"):
 # warning-ignore:unused_variable
 		_debug_advanced_enemy()
+		# warning-ignore:unused_variable
 #		var torment = spawn_enemy(EnemyDefinitions.BUTTERFLY)
+		# warning-ignore:unused_variable
 #		var torment2 = spawn_enemy(EnemyDefinitions.CLOWN)
+		# warning-ignore:unused_variable
 #		var torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
+		# warning-ignore:unused_variable
 		var torment2 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
+		# warning-ignore:unused_variable
 		var torment3 = spawn_enemy(EnemyDefinitions.GASLIGHTER)
 #		var torment2 = spawn_enemy("Gaslighter")
 #		torment2.rect_position = Vector2(800,100)
@@ -371,10 +376,14 @@ func _input(event):
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.armor.name, 3)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
-			"Whirlwind",
-			"= Whirlwind =",
-			"% A Fine Specimen %",
-			"% A Fine Specimen %",
+			"Safety of Air",
+			"Safety of Air",
+			"Safety of Air",
+			"Safety of Air",
+			"Safety of Air",
+			"Excogitate",
+			"! Excogitate !",
+			"Ω Excogitate Ω",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.deck.add_child(card)
