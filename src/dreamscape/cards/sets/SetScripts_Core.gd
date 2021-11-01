@@ -2507,6 +2507,83 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
+	var TheWhippyFlippy = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.buffer.name,
+					"subject": "dreamer",
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("effect_stacks1"),
+					"store_integer": true,
+					"filter_intent_stress": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("stress_threshold1"),
+				},
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.empower.name,
+					"subject": "dreamer",
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("effect_stacks2"),
+					"store_integer": true,
+					"filter_intent_stress": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("stress_threshold2"),
+				},
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.strengthen.name,
+					"subject": "dreamer",
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("effect_stacks3"),
+					"store_integer": true,
+					"filter_intent_stress": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("stress_threshold3"),
+				},
+			],
+		},
+	}
+	var LaughingStrike = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"is_cost": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "nested_script",
+					"nested_tasks": [
+						{
+							"name": "assign_defence",
+							"subject": "dreamer",
+							"amount": cfc.card_definitions[card_name]\
+									.get("_amounts",{}).get("defence_amount"),
+						},
+						{
+							"name": "apply_effect",
+							"effect_name": Terms.ACTIVE_EFFECTS.buffer.name,
+							"subject": "dreamer",
+							"modification": cfc.card_definitions[card_name]\
+									.get("_amounts",{}).get("effect_stacks"),
+						},
+					],
+					# This trick allows me to trigger parts of the script only
+					# if the previous target matches a filter
+					"subject": "previous",
+					"filter_state_subject": [{
+						"filter_effects": "Confusion",
+					}],
+				}
+			],
+		},
+	}
 
 
 	# This format allows me to trace which script failed during load
@@ -2624,6 +2701,8 @@ func get_scripts(card_name: String) -> Dictionary:
 		"A Fine Specimen": AFineSpecimen,
 		"Misplaced Research": MisplacedResearch,
 		"Excogitate": Excogitate,
+		"The Whippy-Flippy": TheWhippyFlippy,
+		"Laughing Strike": LaughingStrike,
 	}
 	return(_prepare_scripts(scripts, card_name))
 

@@ -369,17 +369,16 @@ func _input(event):
 #		torment2.rect_position = Vector2(800,100)
 #		torment3.rect_position = Vector2(200,300)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 20)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 3)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 3)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.unconventional.name, 1, false, false, ['Debug'], 'weirdly')
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.nothing_to_fear.name, 1)
 #		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
-#		torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 10)
+		torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 10)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
-			"Gummiraptor",
-			"Gummiraptor",
-			"% Gummiraptor %",
-			"% Gummiraptor %",
+			"Laughing Strike",
+			"Laughing Strike",
+			"% Laughing Strike %",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.deck.add_child(card)

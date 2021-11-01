@@ -326,7 +326,7 @@ const CARDS := {
 		"_rarity": "Common",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"defence_amount": 9,
+			"defence_amount": 8,
 			"effect_stacks": 1,
 		},
 		"_upgrade_threshold": 7,
@@ -347,7 +347,7 @@ const CARDS := {
 		"_rarity": "Common",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"defence_amount": 14,
+			"defence_amount": 11,
 			"effect_stacks": 1,
 		},
 		"_is_upgrade": true,
@@ -364,7 +364,7 @@ const CARDS := {
 		"_rarity": "Common",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"defence_amount": 10,
+			"defence_amount": 9,
 			"effect_stacks": 2,
 		},
 		"_is_upgrade": true,
@@ -2126,7 +2126,7 @@ const CARDS := {
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 6,
+			"damage_amount": 8,
 			"draw_amount": 1,
 		},
 		"_upgrade_threshold": 7,
@@ -2148,7 +2148,7 @@ const CARDS := {
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 4,
+			"damage_amount": 6,
 			"draw_amount": 1,
 		},
 		"_is_upgrade": true,
@@ -2165,7 +2165,7 @@ const CARDS := {
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 10,
+			"damage_amount": 11,
 			"draw_amount": 1,
 		},
 		"_is_upgrade": true,
@@ -2182,7 +2182,7 @@ const CARDS := {
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 6,
+			"damage_amount": 8,
 			"draw_amount": 2,
 		},
 		"_is_upgrade": true,
@@ -4771,6 +4771,87 @@ const CARDS := {
 			"stress_threshold2": 7,
 			"effect_stacks3": 1,
 			"stress_threshold3": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"Laughing Strike": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
+		"Abilities": "{damage} for {damage_amount}. "\
+				+ "If the target has {confusion}, Gain {effect_stacks} and {defence_amount} {confidence}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation", "confidence"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"damage_amount": 7,
+			"defence_amount": 4,
+			"effect_stacks": 1,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"+ Laughing Strike +",
+			"* Laughing Strike *",
+			"% Laughing Strike %",
+		],
+	},
+	"+ Laughing Strike +": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
+		"Abilities": "{damage} for {damage_amount}. "\
+				+ "If the target has {confusion}, Gain {effect_stacks} and {defence_amount} {confidence}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation", "confidence"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"damage_amount": 10,
+			"defence_amount": 4,
+			"effect_stacks": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"* Laughing Strike *": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
+		"Abilities": "{damage} for {damage_amount}. "\
+				+ "If the target has {confusion}, Gain {effect_stacks} and {defence_amount} {confidence}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation", "confidence"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"damage_amount": 7,
+			"defence_amount": 5,
+			"effect_stacks": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"% Laughing Strike %": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
+		"Abilities": "{damage} for {damage_amount}. "\
+				+ "If the target has {confusion}, Gain {defence_amount} {confidence}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation", "confidence"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"damage_amount": 9,
+			"defence_amount": 8,
+			"effect_stacks": 0,
 		},
 		"_is_upgrade": true,
 	},

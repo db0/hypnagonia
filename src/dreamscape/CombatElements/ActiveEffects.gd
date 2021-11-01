@@ -43,6 +43,8 @@ const EFFECTS := {
 const OPPOSITES := {
 	Terms.ACTIVE_EFFECTS.empower: Terms.ACTIVE_EFFECTS.disempower,
 	Terms.ACTIVE_EFFECTS.disempower: Terms.ACTIVE_EFFECTS.empower,
+	Terms.ACTIVE_EFFECTS.buffer: Terms.ACTIVE_EFFECTS.drain,
+	Terms.ACTIVE_EFFECTS.drain: Terms.ACTIVE_EFFECTS.buffer,
 }
 
 var all_effects: Dictionary

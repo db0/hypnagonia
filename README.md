@@ -18,14 +18,14 @@ In every game you start, you represent someone who has been captured in the pull
 
 # Basic Gameplay
 
-Your Dreamer represents the character guiding to have a breakthrough. Before you start the game, you choose the aspects of their personality, which will affect how they interact with the nightmare realm. 
+Your Dreamer represents the character guiding to have a breakthrough. Before you start the game, you choose the aspects of their personality, which will affect how they interact with the nightmare realm.
 As with all dreams, the manifestations of these aspects tend towards the surreal.
 
 As part of your quest for your personal breakthrough, you will be enountering enemies (called "Torments") which are a mental manifestation of the things that caused your dreamer to be having these nightmares in the first place.
 
 You short objective when facing a torment is to "interpret" it and therefore help you find meaning in your dreams. On the other hand, the torments you're facing will be causing you stress, as aspects of your real life problems are bleeding into your dreams. Accumulate enough Anxiety, and your dreamer will wake up in cold-sweats, and you'll have failed that run.
 
-The game follows the typical gameplay of a deckbuilder. You draw 5 cards per turn, and you use them to deal with the current situation. Any cards you didn't use will be discarded, and you'll draw 5 new ones at the end of your turn. You will also have the capacity to draft new cards whenever you complete an Toroments encounter. 
+The game follows the typical gameplay of a deckbuilder. You draw 5 cards per turn, and you use them to deal with the current situation. Any cards you didn't use will be discarded, and you'll draw 5 new ones at the end of your turn. You will also have the capacity to draft new cards whenever you complete an Toroments encounter.
 
 ## Basic Terminology
 
@@ -70,7 +70,7 @@ Major influences from [Slay the Spire](https://www.megacrit.com/) and other deck
 
 ## License
 
-Everything except Assets and Shaders is licensed under the AGPL3
+Everything except Assets and Shaders is licensed under the AGPL3. However [an addendum](ADDENDUM1) has been added to allow distribution via Steam and integration with Steamworks SDK.
 
 Assets and Shaders will list their individual licenses in their respective folders or code.
 
