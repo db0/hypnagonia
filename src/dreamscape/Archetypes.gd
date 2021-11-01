@@ -227,6 +227,7 @@ const RUBBER_CHICKEN := {
 	"Rare": [
 		"Nunclucks",
 		"Utterly Ridiculous",
+		"The Whippy-Flippy",
 	]
 }
 

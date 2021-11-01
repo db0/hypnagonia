@@ -4665,5 +4665,115 @@ const CARDS := {
 		"_upgrade_threshold": 8,
 		"_is_upgrade": true,
 	},
+	"The Whippy-Flippy": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name, Terms.ACTIVE_EFFECTS.empower.name],
+		"Abilities": "If every Torment {stress}:\n"\
+				+ "{stress} ≤ {stress_threshold1}: Gain {effect_stacks1} {buffer}\n"\
+				+ "{stress} ≤ {stress_threshold2}: Gain {effect_stacks2} {empower}\n"\
+				+ "{stress} ≤ {stress_threshold3}: Gain {effect_stacks3} {strengthen}\n",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["stress"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.empower.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"effect_stacks1": 2,
+			"stress_threshold1": 10,
+			"effect_stacks2": 2,
+			"stress_threshold2": 5,
+			"effect_stacks3": 1,
+			"stress_threshold3": 0,
+		},
+		"_upgrade_threshold": 8,
+		"_upgrades": [
+			"* The Whippy-Flippy *",
+			"% The Whippy-Flippy %",
+			"= The Whippy-Flippy =",
+		],
+	},
+	"* The Whippy-Flippy *": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name, Terms.ACTIVE_EFFECTS.empower.name],
+		"Abilities": "If every Torment {stress}:\n"\
+				+ "{stress} ≤ {stress_threshold1}: Gain {effect_stacks1} {buffer}\n"\
+				+ "{stress} ≤ {stress_threshold2}: Gain {effect_stacks2} {empower}\n"\
+				+ "{stress} ≤ {stress_threshold3}: Gain {effect_stacks3} {strengthen}\n",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["stress"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.empower.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"effect_stacks1": 3,
+			"stress_threshold1": 10,
+			"effect_stacks2": 3,
+			"stress_threshold2": 5,
+			"effect_stacks3": 1,
+			"stress_threshold3": 0,
+		},
+		"_is_upgrade": true,
+	},
+	"% The Whippy-Flippy %": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name, Terms.ACTIVE_EFFECTS.empower.name],
+		"Abilities": "If every Torment {stress}:\n"\
+				+ "{stress} ≤ {stress_threshold1}: Gain {effect_stacks1} {buffer}\n"\
+				+ "{stress} ≤ {stress_threshold2}: Gain {effect_stacks2} {empower}\n"\
+				+ "{stress} ≤ {stress_threshold3}: Gain {effect_stacks3} {strengthen}\n",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["stress"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.empower.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"effect_stacks1": 1,
+			"stress_threshold1": 10,
+			"effect_stacks2": 1,
+			"stress_threshold2": 5,
+			"effect_stacks3": 2,
+			"stress_threshold3": 0,
+		},
+		"_is_upgrade": true,
+	},
+	"= The Whippy-Flippy =": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name, Terms.ACTIVE_EFFECTS.empower.name],
+		"Abilities": "If every Torment {stress}:\n"\
+				+ "{stress} ≤ {stress_threshold1}: Gain {effect_stacks1} {buffer}\n"\
+				+ "{stress} ≤ {stress_threshold2}: Gain {effect_stacks2} {empower}\n"\
+				+ "{stress} ≤ {stress_threshold3}: Gain {effect_stacks3} {strengthen}\n",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["stress"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.empower.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"effect_stacks1": 3,
+			"stress_threshold1": 12,
+			"effect_stacks2": 3,
+			"stress_threshold2": 7,
+			"effect_stacks3": 1,
+			"stress_threshold3": 2,
+		},
+		"_is_upgrade": true,
+	},
+
 }
 
