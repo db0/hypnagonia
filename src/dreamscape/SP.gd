@@ -51,6 +51,8 @@ const KEY_PER_DEFENCE := "per_defence"
 const KEY_PER_TURN_EVENT_COUNT := "per_turn_event_count"
 const KEY_PER_ENCOUNTER_EVENT_COUNT := "per_encounter_event_count"
 const RIDER := "rider"
+const FILTER_INTENT_STRESS = "filter_intent_stress"
+
 # This call has been setup to call the original, and allow futher extension
 # simply create new filter
 static func filter_trigger(
@@ -67,13 +69,10 @@ static func filter_trigger(
 			ScriptProperties.KEY_COMPARISON,
 			get_default(ScriptProperties.KEY_COMPARISON))
 
-	if is_valid and card_scripts.get("filter_gummiraptor"):
+
+	if is_valid and card_scripts.get(FILTER_INTENT_STRESS) != null:
 		for enemy in cfc.get_tree().get_nodes_in_group("EnemyEntities"):
-			if enemy.intents.get_total_damage() > 0:
-				is_valid = false
-	if is_valid and card_scripts.get("filter_smart_gummiraptor"):
-		for enemy in cfc.get_tree().get_nodes_in_group("EnemyEntities"):
-			if enemy.intents.get_total_damage() > 5:
+			if enemy.intents.get_total_damage() > card_scripts.get(FILTER_INTENT_STRESS):
 				is_valid = false
 	if is_valid and card_scripts.get("filter_dreamer_effect"):
 		var current_stacks = cfc.NMAP.board.dreamer.active_effects.get_effect_stacks(

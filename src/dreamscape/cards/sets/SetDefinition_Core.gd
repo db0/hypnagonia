@@ -820,13 +820,14 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "stress"],
 		"_amounts": {
-			"damage_amount": 14,
+			"damage_amount": 15,
+			"stress_amount": 0,
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
 			"@ Gummiraptor @",
 			"+ Gummiraptor +",
-			"Clever Gummiraptor",
+			"% Gummiraptor %",
 		],
 	},
 	"@ Gummiraptor @": {
@@ -839,7 +840,8 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "stress"],
 		"_amounts": {
-			"damage_amount": 12,
+			"damage_amount": 14,
+			"stress_amount": 0,
 		},
 		"_is_upgrade": true,
 	},
@@ -854,20 +856,22 @@ const CARDS := {
 		"_keywords": ["interpretation", "stress"],
 		"_amounts": {
 			"damage_amount": 19,
+			"stress_amount": 0,
 		},
 		"_is_upgrade": true,
 	},
-	"Clever Gummiraptor": {
+	"% Gummiraptor %": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-			+ "Repeat this if Torments are going to be inflicting 5 or less {stress} this turn.",
+			+ "Repeat this if no Torment is going to be inflicting more than {stress_amount} {stress} this turn.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "stress"],
 		"_amounts": {
 			"damage_amount": 15,
+			"stress_amount": 5,
 		},
 		"_is_upgrade": true,
 	},
@@ -4513,7 +4517,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "increase this damage by {chain_amount} for every {per_division} cards currently in your deck.",
+				+ "{damage} for {chain_amount} for every {per_division} cards currently in your deck.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -4533,7 +4537,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "increase this damage by {chain_amount} for every {per_division} cards currently in your deck.",
+				+ "{damage} for {chain_amount} for every {per_division} cards currently in your deck.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -4549,7 +4553,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "increase this damage by {chain_amount} for every {per_division} cards currently in your deck.",
+				+ "{damage} for {chain_amount} for every {per_division} cards currently in your deck.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -4639,7 +4643,7 @@ const CARDS := {
 		"_rarity": "Rare",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"defence_amount": 12,
+			"defence_amount": 11,
 			"card_amount": 2,
 		},
 		"_upgrade_threshold": 8,

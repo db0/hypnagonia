@@ -212,7 +212,7 @@ const RUBBER_CHICKEN := {
 	],
 	"Common": [
 		"Confounding Movements",
-		"Headless",
+		"Mania",
 		"Ventriloquism",
 		"unnamed_card_3",
 		"A Thousand Squeaks"

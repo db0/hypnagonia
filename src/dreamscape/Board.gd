@@ -373,17 +373,13 @@ func _input(event):
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.unconventional.name, 1, false, false, ['Debug'], 'weirdly')
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.nothing_to_fear.name, 1)
 #		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
-#		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.armor.name, 3)
+#		torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 10)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
-			"Safety of Air",
-			"Safety of Air",
-			"Safety of Air",
-			"Safety of Air",
-			"Safety of Air",
-			"Excogitate",
-			"! Excogitate !",
-			"Ω Excogitate Ω",
+			"Gummiraptor",
+			"Gummiraptor",
+			"% Gummiraptor %",
+			"% Gummiraptor %",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.deck.add_child(card)
@@ -392,7 +388,7 @@ func _input(event):
 		cfc.NMAP.deck.shuffle_cards(false)
 		begin_encounter()
 	if event.is_action_pressed("debug"):
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 3)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.armor.name, 3)
 		_on_Debug_pressed()
 	if event.is_action_pressed("complete_battle"):
 		complete_battle()

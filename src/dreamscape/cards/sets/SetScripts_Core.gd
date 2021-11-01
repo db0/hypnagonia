@@ -395,33 +395,11 @@ func get_scripts(card_name: String) -> Dictionary:
 							.get("_amounts",{}).get("damage_amount"),
 					"tags": ["Attack"],
 					"subject": "previous",
-					"filter_gummiraptor": true,
-				}
-			],
-		},
-	}
-	var CleverGummiraptor = {
-		"manual": {
-			"hand": [
-				{
-					"name": "modify_damage",
-					"subject": "target",
-					"is_cost": true,
-					"amount": cfc.card_definitions[card_name]\
-							.get("_amounts",{}).get("damage_amount"),
-					"tags": ["Attack"],
+					"filter_intent_stress": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("stress_amount"),
 					"filter_state_subject": [{
 						"filter_group": "EnemyEntities",
 					}],
-				},
-				{
-					"name": "modify_damage",
-					"is_cost": true,
-					"amount": cfc.card_definitions[card_name]\
-							.get("_amounts",{}).get("damage_amount"),
-					"tags": ["Attack"],
-					"subject": "previous",
-					"filter_smart_gummiraptor": true,
 				}
 			],
 		},
@@ -2555,7 +2533,6 @@ func get_scripts(card_name: String) -> Dictionary:
 		"Nunclucks": Nunclucks,
 		"Massive Nunclucks": MassiveNunclucks,
 		"Gummiraptor": Gummiraptor,
-		"Clever Gummiraptor": CleverGummiraptor,
 		"Cocky Retort": CockyRetort,
 		"Rapid Encirclement": RapidEncirclement,
 		"Barrel Through": BarrelThrough,
