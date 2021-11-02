@@ -4855,7 +4855,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"One Weird Gaida": {
+	"A Strange Gaida": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.ACTIVE_EFFECTS.marked.name],
 		"Abilities": "All Torments gain {effect_stacks} {confusion} and {effect_stacks} {marked}. {forget}",
@@ -4872,11 +4872,11 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"* One Weird Gaida *",
-			"@ One Weird Gaida @",
+			"* A Strange Gaida *",
+			"@ A Strange Gaida @",
 		],
 	},
-	"* One Weird Gaida *": {
+	"* A Strange Gaida *": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.ACTIVE_EFFECTS.marked.name],
 		"Abilities": "All Torments gain {effect_stacks} {confusion} and {effect_stacks} {marked}. {forget}",
@@ -4893,7 +4893,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"@ One Weird Gaida @": {
+	"@ A Strange Gaida @": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.ACTIVE_EFFECTS.marked.name],
 		"Abilities": "All Torments gain {effect_stacks} {confusion} and {effect_stacks} {marked}. {forget}",
@@ -4910,6 +4910,86 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-
+	"One With The Poultry": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.armor.name],
+		"Abilities": "Gain {defence_amount} {confidence}\n"\
+				+ "If you have {buffer}, gain {effect_stacks} {armor}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"defence_amount": 8,
+			"effect_stacks": 2,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"* One With The Poultry *",
+			"+ One With The Poultry +",
+			"% One With The Poultry %",
+		],
+	},
+	"* One With The Poultry *": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.armor.name],
+		"Abilities": "Gain {defence_amount} {confidence}\n"\
+				+ "If you have {buffer}, gain {effect_stacks} {armor}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"defence_amount": 8,
+			"effect_stacks": 3,
+		},
+		"_is_upgrade": true,
+	},
+	"+ One With The Poultry +": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.armor.name],
+		"Abilities": "Gain {defence_amount} {confidence}\n"\
+				+ "If you have {buffer}, gain {effect_stacks} {armor}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"defence_amount": 11,
+			"effect_stacks": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"% One With The Poultry %": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.armor.name],
+		"Abilities": "Gain {defence_amount} {confidence}\n"\
+				+ "If you have {buffer}, gain {effect_stacks} {armor}",
+		"Cost": 3,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"defence_amount": 20,
+			"effect_stacks": 5,
+		},
+		"_is_upgrade": true,
+	},
 }
 

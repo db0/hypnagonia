@@ -225,6 +225,7 @@ const RUBBER_CHICKEN := {
 		"Absurdity Unleashed",
 		"Gummiraptor",
 		"Laughing Strike",
+		"One With The Poultry",
 	],
 	"Rare": [
 		"Nunclucks",

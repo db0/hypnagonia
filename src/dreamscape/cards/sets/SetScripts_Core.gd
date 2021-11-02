@@ -2584,7 +2584,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
-	var OneWeirdGaida = {
+	var AStrangeGaida = {
 		"manual": {
 			"hand": [
 				{
@@ -2614,6 +2614,36 @@ func get_scripts(card_name: String) -> Dictionary:
 					"subject": "self",
 					"dest_container": cfc.NMAP.forgotten,
 				},
+			],
+		},
+	}
+	var OneWithThePoultry = {
+		"manual": {
+			"hand": [
+				{
+					"name": "assign_defence",
+					"subject": "dreamer",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("defence_amount"),
+				},
+				{
+					"name": "nested_script",
+					"nested_tasks": [
+						{
+							"name": "apply_effect",
+							"effect_name": Terms.ACTIVE_EFFECTS.armor.name,
+							"subject": "dreamer",
+							"modification": cfc.card_definitions[card_name]\
+									.get("_amounts",{}).get("effect_stacks"),
+						},
+					],
+					# This trick allows me to trigger parts of the script only
+					# if the previous target matches a filter
+					"subject": "dreamer",
+					"filter_state_subject": [{
+						"filter_effects": "Fascination",
+					}],
+				}
 			],
 		},
 	}
@@ -2736,7 +2766,8 @@ func get_scripts(card_name: String) -> Dictionary:
 		"Excogitate": Excogitate,
 		"The Whippy-Flippy": TheWhippyFlippy,
 		"Laughing Strike": LaughingStrike,
-		"One Weird Gaida": OneWeirdGaida,
+		"A Strange Gaida": AStrangeGaida,
+		"One With The Poultry": OneWithThePoultry,
 	}
 	return(_prepare_scripts(scripts, card_name))
 

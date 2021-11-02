@@ -376,9 +376,9 @@ func _input(event):
 		torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 10)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
-			"One Weird Gaida",
-			"* One Weird Gaida *",
-			"% Laughing Strike %",
+			"One With The Poultry",
+			"* One With The Poultry *",
+			"% One With The Poultry %",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.deck.add_child(card)
@@ -387,7 +387,7 @@ func _input(event):
 		cfc.NMAP.deck.shuffle_cards(false)
 		begin_encounter()
 	if event.is_action_pressed("debug"):
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.armor.name, 3)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 3)
 		_on_Debug_pressed()
 	if event.is_action_pressed("complete_battle"):
 		complete_battle()
