@@ -376,8 +376,8 @@ func _input(event):
 		torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 10)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
-			"Laughing Strike",
-			"Laughing Strike",
+			"One Weird Gaida",
+			"* One Weird Gaida *",
 			"% Laughing Strike %",
 		]:
 			var card = cfc.instance_card(c)

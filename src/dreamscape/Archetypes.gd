@@ -215,7 +215,8 @@ const RUBBER_CHICKEN := {
 		"Mania",
 		"Ventriloquism",
 		"unnamed_card_3",
-		"A Thousand Squeaks"
+		"A Thousand Squeaks",
+		"One Weird Gaida",
 	],
 	"Uncommon": [
 		"Rubber Eggs",
@@ -223,6 +224,7 @@ const RUBBER_CHICKEN := {
 		"unnamed_card_2",
 		"Absurdity Unleashed",
 		"Gummiraptor",
+		"Laughing Strike",
 	],
 	"Rare": [
 		"Nunclucks",

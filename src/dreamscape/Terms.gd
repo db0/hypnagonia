@@ -189,6 +189,14 @@ const ACTIVE_EFFECTS := {
 		"description": "{effect_name} ({effect_icon}): {defence} added to this {entity} is reduced by 25%.\n" \
 				+ "Reduce these stacks by 1 at the end of the turn."
 	},
+	"marked": {
+		"name": "Prominent",
+		"icon": preload("res://assets/icons/light-projector.png"),
+		"generic_description": "{effect_name}: Increases Interpretation on specific Torments.",
+		"rich_text_icon": "res://fonts/rich_text_icons/light-projector.png",
+		"description": "{effect_name} ({effect_icon}): {damage} done to this {entity} by {opponent_attack} is increased by 50%.\n" \
+				+ "Reduce these stacks by 1 at the end of the turn."
+	},
 	"thorns": {
 		"name": "Grudge",
 		"icon": preload("res://assets/icons/light-thorny-triskelion.png"),

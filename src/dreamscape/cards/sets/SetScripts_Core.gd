@@ -2584,6 +2584,39 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
+	var OneWeirdGaida = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.disempower.name,
+					"subject": "boardseek",
+					"subject_count": "all",
+					"modification": cfc.card_definitions[card_name]\
+						.get("_amounts",{}).get("effect_stacks"),
+					"filter_state_seek": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.marked.name,
+					"subject": "boardseek",
+					"subject_count": "all",
+					"modification": cfc.card_definitions[card_name]\
+						.get("_amounts",{}).get("effect_stacks"),
+					"filter_state_seek": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": cfc.NMAP.forgotten,
+				},
+			],
+		},
+	}
 
 
 	# This format allows me to trace which script failed during load
@@ -2703,6 +2736,7 @@ func get_scripts(card_name: String) -> Dictionary:
 		"Excogitate": Excogitate,
 		"The Whippy-Flippy": TheWhippyFlippy,
 		"Laughing Strike": LaughingStrike,
+		"One Weird Gaida": OneWeirdGaida,
 	}
 	return(_prepare_scripts(scripts, card_name))
 

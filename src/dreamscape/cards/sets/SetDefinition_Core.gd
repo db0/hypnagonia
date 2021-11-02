@@ -4855,6 +4855,61 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"One Weird Gaida": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.ACTIVE_EFFECTS.marked.name],
+		"Abilities": "All Torments gain {effect_stacks} {confusion} and {effect_stacks} {marked}. {forget}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["forget"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY,
+			Terms.ACTIVE_EFFECTS.marked.name: Terms.ENEMY,
+		},
+		"_amounts": {
+			"effect_stacks": 3,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"* One Weird Gaida *",
+			"@ One Weird Gaida @",
+		],
+	},
+	"* One Weird Gaida *": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.ACTIVE_EFFECTS.marked.name],
+		"Abilities": "All Torments gain {effect_stacks} {confusion} and {effect_stacks} {marked}. {forget}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["forget"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY,
+			Terms.ACTIVE_EFFECTS.marked.name: Terms.ENEMY,
+		},
+		"_amounts": {
+			"effect_stacks": 5,
+		},
+		"_is_upgrade": true,
+	},
+	"@ One Weird Gaida @": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.ACTIVE_EFFECTS.marked.name],
+		"Abilities": "All Torments gain {effect_stacks} {confusion} and {effect_stacks} {marked}. {forget}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["forget"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY,
+			Terms.ACTIVE_EFFECTS.marked.name: Terms.ENEMY,
+		},
+		"_amounts": {
+			"effect_stacks": 2,
+		},
+		"_is_upgrade": true,
+	},
 
 }
 

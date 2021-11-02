@@ -7,6 +7,7 @@ const EFFECTS := {
 	Terms.ACTIVE_EFFECTS.poison.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Poison.tscn"),
 	Terms.ACTIVE_EFFECTS.burn.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Burn.tscn"),
 	Terms.ACTIVE_EFFECTS.vulnerable.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Vulnerable.tscn"),
+	Terms.ACTIVE_EFFECTS.marked.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Marked.tscn"),
 	Terms.ACTIVE_EFFECTS.advantage.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Advantage.tscn"),
 	Terms.ACTIVE_EFFECTS.impervious.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Impervious.tscn"),
 	Terms.ACTIVE_EFFECTS.fortify.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Fortify.tscn"),
