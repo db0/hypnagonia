@@ -2659,6 +2659,34 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
+	var Sensuous = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.disempower.name,
+					"subject": "target",
+					"is_cost": true,
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("effect_stacks"),
+				},
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.thorns.name,
+					"subject": "dreamer",
+					"modification": "per_effect_stacks",
+					"per_effect_stacks": {
+						"effect_name": "Confusion",
+						"subject": "previous",
+						"original_previous": true,
+					}
+				},
+			],
+		},
+	}
 
 
 	# This format allows me to trace which script failed during load
@@ -2781,6 +2809,7 @@ func get_scripts(card_name: String) -> Dictionary:
 		"A Strange Gaida": AStrangeGaida,
 		"One With The Poultry": OneWithThePoultry,
 		"Sneaky-Beaky": SneakBeaky,
+		"Sensuous": Sensuous,
 	}
 	return(_prepare_scripts(scripts, card_name))
 

@@ -204,7 +204,7 @@ const ACTIVE_EFFECTS := {
 		"rich_text_icon": "res://fonts/rich_text_icons/light-thorny-triskelion.png",
 		"description": "{effect_name} ({effect_icon}): After an {opponent_attack} on this {entity}, "\
 				+ "it automatically {attack} for {amount}.\n"\
-				+ "Reduce these stacks by 1 at the start of its turn."\
+				+ "Reduce these stacks by 1 at the start of the turn."\
 				+ "\n({defence} can prevent {effect_icon})"
 	},
 	"armor": {

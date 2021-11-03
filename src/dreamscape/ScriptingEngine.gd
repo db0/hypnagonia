@@ -145,7 +145,8 @@ func calculate_modify_damage(subject: CombatEntity, script: ScriptTask) -> int:
 				script.owner,
 				script.get_property(script.get_property(SP.KEY_AMOUNT)),
 				null,
-				script.subjects)
+				script.subjects,
+				script.prev_subjects)
 		modification = per_msg.found_things
 	else:
 		modification = script.get_property(SP.KEY_AMOUNT)
@@ -189,7 +190,8 @@ func calculate_assign_defence(subject: CombatEntity, script: ScriptTask) -> int:
 				script.owner,
 				script.get_property(script.get_property(SP.KEY_AMOUNT)),
 				null,
-				script.subjects)
+				script.subjects,
+				script.prev_subjects)
 		modification = per_msg.found_things
 	else:
 		modification = script.get_property(SP.KEY_AMOUNT)
@@ -234,7 +236,8 @@ func apply_effect(script: ScriptTask) -> int:
 				script.owner,
 				script.get_property(script.get_property(SP.KEY_MODIFICATION)),
 				null,
-				script.subjects)
+				script.subjects,
+				script.prev_subjects)
 		modification = per_msg.found_things
 #		print_debug(per_msg.found_things, modification)
 	else:
@@ -365,7 +368,8 @@ func perturb(script: ScriptTask) -> void:
 				script.owner,
 				script.get_property(script.get_property(SP.KEY_OBJECT_COUNT)),
 				null,
-				script.subjects)
+				script.subjects,
+				script.prev_subjects)
 		count = per_msg.found_things
 	else:
 		count = script.get_property(SP.KEY_OBJECT_COUNT)
@@ -402,7 +406,8 @@ func spawn_enemy(script: ScriptTask) -> void:
 				script.owner,
 				script.get_property(script.get_property(SP.KEY_OBJECT_COUNT)),
 				null,
-				script.subjects)
+				script.subjects,
+				script.prev_subjects)
 		count = per_msg.found_things
 	else:
 		count = script.get_property(SP.KEY_OBJECT_COUNT)

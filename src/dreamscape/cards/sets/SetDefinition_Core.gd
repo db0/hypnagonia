@@ -5008,11 +5008,11 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 8,
 		"_upgrades": [
-			"* Sneaky-Beaky *",
+			"@ Sneaky-Beaky @",
 			"^ Sneaky-Beaky ^",
 		],
 	},
-	"* Sneaky-Beaky *": {
+	"@ Sneaky-Beaky @": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "Whenever you succesfully {damage} a Torment, "\
@@ -5020,7 +5020,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "Sneaky-Beaky"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY,
 		},
@@ -5037,12 +5037,70 @@ const CARDS := {
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "Sneaky-Beaky"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY,
 		},
 		"_amounts": {
 			"effect_stacks": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"Sensuous": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name,Terms.ACTIVE_EFFECTS.thorns.name],
+		"Abilities": "Apply {effect_stacks} {confusion} to Target Torment, "\
+				+ "then gain {thorns} equal to the target's {confusion}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": [],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY,
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"effect_stacks": 3,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"* Sensuous *",
+			"Ω Sensuous Ω",
+		],
+	},
+	"* Sensuous *": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name,Terms.ACTIVE_EFFECTS.thorns.name],
+		"Abilities": "Apply {effect_stacks} {confusion} to Target Torment, "\
+				+ "then gain {thorns} equal to the target's {confusion}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": [],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY,
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"effect_stacks": 5,
+		},
+		"_is_upgrade": true,
+	},
+	"Ω Sensuous Ω": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.GENERIC_TAGS.omega.name],
+		"Abilities": "Apply {effect_stacks} {confusion} to Target Torment, "\
+				+ "then gain {thorns} equal to the target's {confusion}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": [],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY,
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"effect_stacks": 4,
 		},
 		"_is_upgrade": true,
 	},
