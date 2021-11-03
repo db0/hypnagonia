@@ -318,6 +318,11 @@ const ACTIVE_EFFECTS := {
 		"icon": preload("res://assets/icons/abstract-104.png"),
 		"is_card_reference": true
 	},
+	"sneaky_beaky":  {
+		"name": "Sneaky-Beaky",
+		"icon": preload("res://assets/icons/kenku-head.png"),
+		"is_card_reference": true
+	},
 }
 
 

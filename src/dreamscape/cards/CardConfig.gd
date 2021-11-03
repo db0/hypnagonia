@@ -59,6 +59,8 @@ const EXPLANATIONS = {
 	"forget": "[color=teal]Forget[/color]: This card is removed from this encounter and will not be reshuffled into the deck.",
 	"release": "[color=teal]Release[/color]: This card is removed permanently from the Dreamer's deck.",
 	"perturbation": "[color=white]Perturbation[/color]: Cards that tend to clutter your deck, and may have extra negative effects.",
+	
+	'Sneaky-Beaky': "This effect will not trigger from combat effects such as {poison} or {burn}."
 }
 # Allows the Card object and Card Viewer to replace specific entries during display.
 # For example, you can mark that a cost of 'U' is displayed as an empty string ('').

@@ -4991,5 +4991,61 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"Sneaky-Beaky": {
+		"Type": "Concentration",
+		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
+		"Abilities": "Whenever you succesfully {damage} a Torment, "\
+				+ "it gains it {effect_stacks} {confusion}.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["interpretation", "Sneaky-Beaky"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY,
+		},
+		"_amounts": {
+			"effect_stacks": 1,
+		},
+		"_upgrade_threshold": 8,
+		"_upgrades": [
+			"* Sneaky-Beaky *",
+			"^ Sneaky-Beaky ^",
+		],
+	},
+	"* Sneaky-Beaky *": {
+		"Type": "Concentration",
+		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
+		"Abilities": "Whenever you succesfully {damage} a Torment, "\
+				+ "it gains it {effect_stacks} {confusion}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY,
+		},
+		"_amounts": {
+			"effect_stacks": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"^ Sneaky-Beaky ^": {
+		"Type": "Concentration",
+		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.GENERIC_TAGS.alpha.name],
+		"Abilities": "Whenever you succesfully {damage} a Torment, "\
+				+ "it gains it {effect_stacks} {confusion}.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY,
+		},
+		"_amounts": {
+			"effect_stacks": 1,
+		},
+		"_is_upgrade": true,
+	},
+
 }
 

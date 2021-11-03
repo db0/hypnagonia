@@ -376,9 +376,8 @@ func _input(event):
 		torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 10)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
-			"One With The Poultry",
-			"* One With The Poultry *",
-			"% One With The Poultry %",
+			"The Happy Place",
+			"^ Sneaky-Beaky ^",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.deck.add_child(card)

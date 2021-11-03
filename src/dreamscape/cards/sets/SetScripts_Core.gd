@@ -2647,6 +2647,18 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
+	var SneakBeaky = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.sneaky_beaky.name,
+					"subject": "dreamer",
+					"modification": 1,
+				},
+			],
+		},
+	}
 
 
 	# This format allows me to trace which script failed during load
@@ -2768,6 +2780,7 @@ func get_scripts(card_name: String) -> Dictionary:
 		"Laughing Strike": LaughingStrike,
 		"A Strange Gaida": AStrangeGaida,
 		"One With The Poultry": OneWithThePoultry,
+		"Sneaky-Beaky": SneakBeaky,
 	}
 	return(_prepare_scripts(scripts, card_name))
 

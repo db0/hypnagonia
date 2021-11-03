@@ -51,7 +51,6 @@ const MAD_SCIENTIST := {
 #	"Icon": preload("res://icon.png"),
 	"Tags": [
 		Terms.GENERIC_TAGS.spark.name,
-		Terms.GENERIC_TAGS.slumber.name,
 		Terms.ACTIVE_EFFECTS.buffer.name,
 	],
 	"Artifacts": [
@@ -144,7 +143,6 @@ const FEARLESS:= {
 	"Tags": [
 		Terms.ACTIVE_EFFECTS.poison.name,
 		Terms.ACTIVE_EFFECTS.fortify.name,
-		Terms.GENERIC_TAGS.risky.name,
 	],
 	"Artifacts": [
 		ArtifactDefinitions.ImprovePoison
@@ -231,6 +229,7 @@ const RUBBER_CHICKEN := {
 		"Nunclucks",
 		"Utterly Ridiculous",
 		"The Whippy-Flippy",
+		"Sneaky-Beaky",
 	]
 }
 
