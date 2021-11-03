@@ -5,7 +5,7 @@ extends NonCombatEncounter
 var secondary_choices := {
 		'calm': '[Calm]: Gain {calm_random_pathos_amount} repressed {calm_random_pathos}.',
 		'stress': '[Stress]: Take {stress_amount} anxiety. Gain {stress_random_pathos_amount} repressed {stress_random_pathos}.',
-		'fear': '[Fear]: Gain {fear_amount} anxiety. Gain {fear_random_pathos_amount} repressed {fear_random_pathos}.',
+		'fear': '[Fear]: Take {fear_amount} anxiety. Gain {fear_random_pathos_amount} repressed {fear_random_pathos}.',
 	}
 	
 var nce_resul_fluff := {
