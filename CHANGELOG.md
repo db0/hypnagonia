@@ -1,5 +1,10 @@
 # Dreams: Changelog
 
+## v0.13.5
+
+* Added thresholds for Pathos
+* More Rubber Chicken cards
+
 ## v0.13.4
 
 * Finalized Mad Scientist cards
@@ -36,6 +41,10 @@
    * Disable large card focus display.
 * Added icon for the end-turn button and reorganized that area a bit.
 * **Added Tutorials**. They will trigger the first time each interface is opened. Afterwards they can be triggered with an icon or pressing 'H'. Tutorial format inspired by [The Zone](https://store.steampowered.com/app/1299540/The_Zone_Stalker_Stories/)'s Quick references.
+
+## v0.12.5
+
+* Added
 
 ## v0.12.4
 
@@ -94,6 +103,10 @@
 
 	Each time you take a journal choice, the relevant type of pathos is "released". Released pathos can be used in the shop. Each type, allows the player to buy different things.
 
+	Currently only 4/7 Pathos are active. The Non-Combat Encounters, Elite Enemies and the curios are disabled as these don't exist in the game yet5
+
+   * Added
+* Added Shop (currency is released pathos)
 	Currently only 4/7 Pathos are active. The Non-Combat Encounters, Elite Enemies and the curios are disabled as these don't exist in the game yet.
 * Added Shop (currency is released pathos)
 * Reworked the way encounters work
@@ -176,11 +189,19 @@
 * Fixed expiry on confusion
 * Added the first archetype icon in the new game menu
 
+## v0.5.5
+
+* Added
+
 ## v0.5.4
 
 * Made card/hand layout control-based
 * Deck/Discard/Forgotten piles are smaller
 * Added way to see the deck contents
+
+## v0.5.5
+
+* Added
 
 ## v0.5.4
 
@@ -208,11 +229,19 @@
 
 * Added a journal for progressing between encounters.
 
+## v0.4.5
+
+* Added
+
 ## v0.4.0
 
 * Added fresh card layout. Unfortunately its assets are under a properietary license.
 * Converted tags into icons on card front to improve readability
 * Increased overall card size by 25%
+
+## v0.3.5
+
+* Added
 
 ## v0.3.4
 
@@ -223,10 +252,18 @@
 * Added randomized backgrounds
 * Added art credits on Torment mouseover
 
+## v0.2.5
+
+* Added
+
 ## v0.2.4
 
 * Added polygon-art for the laughing one (Credit to https://www.reddit.com/user/insomniac_lemon)
 * Fixed card draw not reshuffling the deck
+
+## v0.2.5
+
+* Added
 
 ## v0.2.4
 
@@ -254,6 +291,12 @@
 
 ## v0.14
 
-Initial * Finalized Mad Scientist cardsrelease. Full working start with 4 card groups, 3 Torments, 1 Boss
+Initial * Finalized Mad Scientist cardsrelease. Full working start with 4 card groups, 3 Torments, 1 Bos5
 
+* Added
+
+ * Finalized Mad Scientist cardsrelease. Full working start with 4 card groups, 3 Torments, 1 Boss5
+
+ * Added
 Initial release. Full working start with 4 card groups, 3 Torments, 1 Boss
+ release. Full working start with 4 card groups, 3 Torments, 1 Boss

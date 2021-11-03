@@ -3,6 +3,9 @@ extends Reference
 
 # The chance to get this many choices for the next encounter
 const choices_chances = [3,2,2,2,2,2,1,1,1,1,1]
+# If none of the pathos have reached the threshold to select them as an encounter
+# fallback to this one only.
+const fallback_encounter = Terms.RUN_ACCUMULATION_NAMES.enemy
 
 var remaining_enemies := Act1.ENEMIES.duplicate(true)
 var remaining_elites := Act1.ELITES.duplicate(true)
@@ -36,12 +39,7 @@ func generate_journal_choices() -> Array:
 		CFUtils.shuffle_array(remaining_nce)
 	var journal_options := []
 	if globals.encounters.encounter_number != 1:
-		# We want to avoid the player encountering elites in the first 3
-		# encounters.
-		if globals.encounters.encounter_number <= 3:
-			globals.player.pathos.repress([Terms.RUN_ACCUMULATION_NAMES.elite])
-		else:
-			globals.player.pathos.repress()
+		globals.player.pathos.repress()
 	# Every journal page should have 1-3 options
 	# The change to get 3 or 2 options is less than getting only 1 option
 	var cc := choices_chances.duplicate()
@@ -100,19 +98,27 @@ func generate_journal_choices() -> Array:
 func _get_journal_options(requested_options := 3) -> Array:
 	var journal_choices_list := []
 	var selected_options := []
+	var pathos : Pathos = globals.player.pathos
 	# If boss accumulation is >= 100, then it becomes the only option
-	if globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.boss] >= 100:
+	if pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.boss] >= 100:
 		selected_options.append(Terms.RUN_ACCUMULATION_NAMES.boss)
 	else:
-		for acc in globals.player.pathos.repressed:
+		for acc in pathos.repressed:
 			if acc == Terms.RUN_ACCUMULATION_NAMES.boss:
 				continue
-			for _iter in range(globals.player.pathos.repressed[acc]):
-				journal_choices_list.append(acc)
+			if pathos.repressed[acc] > pathos.get_threshold(acc):
+				for _iter in range(pathos.repressed[acc]):
+					journal_choices_list.append(acc)
+#			else:
+#				print_debug(pathos.repressed[acc], acc, pathos.get_threshold(acc))
 		CFUtils.shuffle_array(journal_choices_list)
 		for _iter in range(requested_options):
+			if journal_choices_list.empty():
+				break
 			var choice = journal_choices_list.pop_back()
 			while choice in journal_choices_list:
 				journal_choices_list.erase(choice)
 			selected_options.append(choice)
+	if selected_options.empty():
+		selected_options.append(fallback_encounter)
 	return(selected_options)
