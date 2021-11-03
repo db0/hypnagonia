@@ -4781,7 +4781,7 @@ const CARDS := {
 				+ "If the target has {confusion}, Gain {effect_stacks} and {defence_amount} {confidence}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "confidence"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER,
@@ -4805,7 +4805,7 @@ const CARDS := {
 				+ "If the target has {confusion}, Gain {effect_stacks} and {defence_amount} {confidence}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "confidence"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER,
@@ -4824,7 +4824,7 @@ const CARDS := {
 				+ "If the target has {confusion}, Gain {effect_stacks} and {defence_amount} {confidence}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "confidence"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER,
@@ -4843,7 +4843,7 @@ const CARDS := {
 				+ "If the target has {confusion}, Gain {defence_amount} {confidence}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "confidence"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER,

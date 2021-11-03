@@ -379,13 +379,13 @@ func enable_rider(rider: String) -> void:
 	match rider:
 		# Resets the card's cost to its printed value after being played.
 		"reset_cost_after_play":
-# warning-ignore:return_value_discarded
+			# warning-ignore:return_value_discarded
 			connect("card_played", self, "_on_self_played")
 
 
 func _on_self_played(_card,_trigger,_details) -> void:
 	if "reset_cost_after_play" in enabled_riders:
-# warning-ignore:return_value_discarded
+		# warning-ignore:return_value_discarded
 		modify_property("Cost", printed_properties['Cost'])
 		highlight_modified_properties()
 		enabled_riders.erase("reset_cost_after_play")

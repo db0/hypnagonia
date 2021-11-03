@@ -216,7 +216,7 @@ const RUBBER_CHICKEN := {
 		"Ventriloquism",
 		"unnamed_card_3",
 		"A Thousand Squeaks",
-		"One Weird Gaida",
+		"A Strange Gaida",
 	],
 	"Uncommon": [
 		"Rubber Eggs",
