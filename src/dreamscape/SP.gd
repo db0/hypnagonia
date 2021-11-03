@@ -158,9 +158,38 @@ static func check_validity(obj, card_scripts, type := "trigger") -> bool:
 				# I.e. if we have filter_properties and filter_properties2
 				# It will treat these two states as an "AND"
 				if filter == FILTER_EFFECTS\
-						and not obj.active_effects.get_effect(state_filters[filter]):
+						and not check_effect_filter(obj, state_filters[filter]):
 					card_matches = false
 				if filter == FILTER_IS_NOT_SPECIFIED_ENEMY\
 						and obj == state_filters[filter]:
 					card_matches = false
 	return(card_matches)
+
+
+# Returns true if the card tokens match against filters specified in
+# the provided card_scripts, of if no token filters were requested.
+# Otherwise returns false.
+static func check_effect_filter(entity, effect_states: Array) -> bool:
+	# Each array element, is an individual token name
+	# for which to check against.
+	var entity_matches := true
+	# Effect filters always contain an array of effect states
+	for effect_state in effect_states:
+		var comparison_default : String = get_default(ScriptProperties.KEY_COMPARISON)
+		# If the token count is not defined, we are awlays checking if there
+		# is any number of tokens of this type on this card
+		# Therefore it's effectively a "ge 1" comparison
+		if effect_state.get(ScriptProperties.FILTER_COUNT) == null:
+			comparison_default = 'ge'
+		var comparison_type : String = effect_state.get(
+				ScriptProperties.KEY_COMPARISON, comparison_default)
+		if effect_state.get("filter_" + KEY_EFFECT_NAME):
+			var effect_count : int = entity.active_effects.get_effect_stacks(
+					effect_state.get("filter_" + KEY_EFFECT_NAME))
+			var filter_count = effect_state.get(ScriptProperties.FILTER_COUNT,1)
+			if not CFUtils.compare_numbers(
+					effect_count,
+					filter_count,
+					comparison_type):
+				entity_matches = false
+	return(entity_matches)

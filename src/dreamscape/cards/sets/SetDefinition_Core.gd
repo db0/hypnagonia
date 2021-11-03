@@ -2244,7 +2244,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"unnamed_card_2": {
+	"Fowl Language": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "Each Torment is applied {doubt} equals to its {confusion} x{multiplier_amount}",
@@ -2260,12 +2260,12 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"@ unnamed_card_2 @",
-			"* unnamed_card_2 *",
-			"% unnamed_card_2 %",
+			"@ Fowl Language @",
+			"* Fowl Language *",
+			"% Fowl Language %",
 		],
 	},
-	"@ unnamed_card_2 @": {
+	"@ Fowl Language @": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "Each Torment is applied {doubt} equals to its {confusion}x{multiplier_amount}",
@@ -2281,7 +2281,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"* unnamed_card_2 *": {
+	"* Fowl Language *": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "Each Torment is applied {doubt} equals to its {confusion}x{multiplier_amount}",
@@ -2297,7 +2297,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"% unnamed_card_2 %": {
+	"% Fowl Language %": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "Each Torment is applied {doubt} equals to its ({confusion}+1)x{multiplier_amount}",
@@ -2313,7 +2313,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"unnamed_card_3": {
+	"Cockfighting": {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} all Torments for {damage_amount}",
@@ -2326,11 +2326,11 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 8,
 		"_upgrades": [
-			"+ unnamed_card_3 +",
-			"~ unnamed_card_3 ~",
+			"+ Cockfighting +",
+			"~ Cockfighting ~",
 		],
 	},
-	"+ unnamed_card_3 +": {
+	"+ Cockfighting +": {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} all Torments for {damage_amount}",
@@ -2343,7 +2343,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"~ unnamed_card_3 ~": {
+	"~ Cockfighting ~": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "{damage} all Torments for {damage_amount}.\n{forget}",
@@ -4775,10 +4775,10 @@ const CARDS := {
 		"_is_upgrade": true,
 	},
 	"Laughing Strike": {
-		"Type": "Control",
+		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "{damage} for {damage_amount}. "\
-				+ "If the target has {confusion}, Gain {effect_stacks} and {defence_amount} {confidence}.",
+				+ "If the target has {confusion}, Gain {effect_stacks} {buffer} and {defence_amount} {confidence}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -4799,10 +4799,10 @@ const CARDS := {
 		],
 	},
 	"+ Laughing Strike +": {
-		"Type": "Control",
+		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "{damage} for {damage_amount}. "\
-				+ "If the target has {confusion}, Gain {effect_stacks} and {defence_amount} {confidence}.",
+				+ "If the target has {confusion}, Gain {effect_stacks} {buffer} and {defence_amount} {confidence}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -4818,7 +4818,7 @@ const CARDS := {
 		"_is_upgrade": true,
 	},
 	"* Laughing Strike *": {
-		"Type": "Control",
+		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "{damage} for {damage_amount}. "\
 				+ "If the target has {confusion}, Gain {effect_stacks} and {defence_amount} {confidence}.",
@@ -4837,7 +4837,7 @@ const CARDS := {
 		"_is_upgrade": true,
 	},
 	"% Laughing Strike %": {
-		"Type": "Control",
+		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "{damage} for {damage_amount}. "\
 				+ "If the target has {confusion}, Gain {defence_amount} {confidence}.",
@@ -5060,7 +5060,7 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
 		},
 		"_amounts": {
-			"effect_stacks": 3,
+			"effect_stacks": 2,
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
@@ -5082,7 +5082,7 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
 		},
 		"_amounts": {
-			"effect_stacks": 5,
+			"effect_stacks": 4,
 		},
 		"_is_upgrade": true,
 	},
@@ -5100,7 +5100,99 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
 		},
 		"_amounts": {
-			"effect_stacks": 4,
+			"effect_stacks": 3,
+		},
+		"_is_upgrade": true,
+	},
+	"Massive Eggression": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}. Gain {effect_stacks} {confusion}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 19,
+			"effect_stacks": 2,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"+ Massive Eggression +",
+			"% Massive Eggression %",
+		],
+	},
+	"+ Massive Eggression +": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}. Gain {effect_stacks} {confusion}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 24,
+			"effect_stacks": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"% Massive Eggression %": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}. Gain {effect_stacks} {confusion}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 30,
+			"effect_stacks": 3,
+		},
+		"_is_upgrade": true,
+	},
+	"The Plot Chickens...": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}. "\
+				+ "If the target has {confusion}, bypass their {defence}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 9,
+		},
+		"_upgrade_threshold": 8,
+		"_upgrades": [
+			"+ The Plot Chickens... +",
+			"Ω The Plot Chickens... Ω",
+		],
+	},
+	"+ The Plot Chickens... +": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}. "\
+				+ "If the target has {confusion}, bypass their {defence}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 12,
+		},
+		"_is_upgrade": true,
+	},
+	"Ω The Plot Chickens... Ω": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}. "\
+				+ "If the target has {confusion}, bypass their {defence}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 11,
 		},
 		"_is_upgrade": true,
 	},

@@ -1,5 +1,9 @@
 # Dreams: Changelog
 
+## v0.13.6
+
+* Finalized Rubber Chicken archetype
+
 ## v0.13.5
 
 * Added thresholds for Pathos
@@ -7,7 +11,7 @@
 
 ## v0.13.4
 
-* Finalized Mad Scientist cards
+* Finalized Mad Scientist archetype
 
 ## v0.13.3
 
@@ -27,7 +31,7 @@
 
 * Renamed game to Hypnagonia
 * Changes subtitle to "Therapy through Nightmares"
-* Fleshed out Abusive Relationship by bringing it to 20 unique cards
+* Finalized out Abusive Relationship archetype by bringing it to 20 unique cards
 * Added code to handle filters based on health percentage
 * Added code to handle filters based on encounter own-turn damage taken
 * Refactored card scripts a bit

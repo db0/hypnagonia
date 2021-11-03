@@ -1081,7 +1081,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
-	var unnamed_card_2=  {
+	var FowlLanguage =  {
 		"manual": {
 			"hand": [
 				{
@@ -1095,7 +1095,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
-	var unnamed_card_3 = {
+	var Cockfighting = {
 		"manual": {
 			"hand": [
 				{
@@ -2578,7 +2578,11 @@ func get_scripts(card_name: String) -> Dictionary:
 					# if the previous target matches a filter
 					"subject": "previous",
 					"filter_state_subject": [{
-						"filter_effects": "Confusion",
+						"filter_effects": [
+							{
+								"filter_effect_name": "Confusion",
+							},
+						]
 					}],
 				}
 			],
@@ -2641,7 +2645,11 @@ func get_scripts(card_name: String) -> Dictionary:
 					# if the previous target matches a filter
 					"subject": "dreamer",
 					"filter_state_subject": [{
-						"filter_effects": "Fascination",
+						"filter_effects": [
+							{
+								"filter_effect_name": "Fascination",
+							},
+						]
 					}],
 				}
 			],
@@ -2683,6 +2691,77 @@ func get_scripts(card_name: String) -> Dictionary:
 						"subject": "previous",
 						"original_previous": true,
 					}
+				},
+			],
+		},
+	}
+	var MassiveEggression = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"is_cost": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.disempower.name,
+					"subject": "dreamer",
+					"modification": cfc.card_definitions[card_name]\
+						.get("_amounts",{}).get("effect_stacks"),
+				},
+			],
+		},
+	}
+	var ThePlotChickens = {
+		"manual": {
+			"hand": [
+				{
+					"name": "null_script",
+					"subject": "target",
+					"is_cost": true,
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "modify_damage",
+					"subject": "previous",
+					"protect_previous": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack", "Unblockable"],
+					"filter_state_subject": [{
+						"filter_effects": [
+							{
+								"filter_effect_name": "Confusion",
+								"filter_count": 1,
+								"comparison": "ge",
+							},
+						]
+					}],
+				},
+				{
+					"name": "modify_damage",
+					"subject": "previous",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_effects": [
+							{
+								"filter_effect_name": "Confusion",
+								"filter_count": 0,
+								"comparison": "eq",
+							},
+						]
+					}],
 				},
 			],
 		},
@@ -2745,8 +2824,8 @@ func get_scripts(card_name: String) -> Dictionary:
 		"Ventriloquism": Ventriloquism,
 		"unnamed_card_1": unnamed_card_1,
 		"Sustained unnamed_card_1": Sustainedunnamed_card_1,
-		"unnamed_card_2": unnamed_card_2,
-		"unnamed_card_3": unnamed_card_3,
+		"Fowl Language": FowlLanguage,
+		"Cockfighting": Cockfighting,
 		"Absurdity Unleashed": AbsurdityUnleashed,
 		"Total Absurdity Unleashed": TotalAbsurdityUnleashed,
 		"unnamed_card_4": unnamed_card_4,
@@ -2810,6 +2889,8 @@ func get_scripts(card_name: String) -> Dictionary:
 		"One With The Poultry": OneWithThePoultry,
 		"Sneaky-Beaky": SneakBeaky,
 		"Sensuous": Sensuous,
+		"Massive Eggression": MassiveEggression,
+		"The Plot Chickens...": ThePlotChickens,
 	}
 	return(_prepare_scripts(scripts, card_name))
 

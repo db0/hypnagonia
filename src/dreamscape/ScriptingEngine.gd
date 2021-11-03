@@ -35,7 +35,8 @@ func predict() -> void:
 			"modifier": _retrieve_temp_modifiers(script, "properties")
 		}
 		script.subjects = predict_subjects(script, prev_subjects)
-		prev_subjects = script.subjects
+		if not script.get_property(SP.KEY_PROTECT_PREVIOUS):
+			prev_subjects = script.subjects
 		#print("Scripting Subjects: " + str(script.subjects)) # Debug
 		if script.script_name == "custom_script": # TODO
 			# This class contains the customly defined scripts for each
@@ -115,9 +116,17 @@ func predict_intent_amount(_snapshot_id: int) -> int:
 func predict_subjects(script: ScriptTask, prev_subjects: Array) -> Array:
 	match script.get_property(SP.KEY_SUBJECT):
 		SP.KEY_SUBJECT_V_TARGET:
-			return(cfc.get_tree().get_nodes_in_group("EnemyEntities"))
+			var potential_subjects := []
+			for entity in cfc.get_tree().get_nodes_in_group("EnemyEntities"):
+				if SP.check_validity(entity, script.script_definition, "subject"):
+					potential_subjects.append(entity)
+			return(potential_subjects)
 		SP.KEY_SUBJECT_V_PREVIOUS:
-			return(prev_subjects)
+			var potential_subjects := []
+			for entity in prev_subjects:
+				if SP.check_validity(entity, script.script_definition, "subject"):
+					potential_subjects.append(entity)
+			return(potential_subjects)
 		SP.KEY_SUBJECT_V_PLAYER:
 			if is_instance_valid(cfc.NMAP.board.dreamer) and not cfc.NMAP.board.dreamer.is_dead:
 				return([cfc.NMAP.board.dreamer])

@@ -43,6 +43,7 @@ func _ready() -> void:
 	get_viewport().connect("size_changed", self, '_on_Menu_resized')
 	_readme_label.text = README
 	randomize()
+	cfc.game_rng_seed = CFUtils.generate_random_seed()
 	SUBTITLES.shuffle()
 	_subtitle.text = SUBTITLES[0]
 	
