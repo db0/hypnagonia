@@ -67,6 +67,8 @@ const HAND_USE_OVAL_SHAPE := true
 const CARD_SCALE_WHILE_DRAGGING := Vector2(0.75, 0.75)
 # The location and name of the file into which to store game settings
 const SETTINGS_FILENAME := "user://CGFSettings.json"
+# The location and name of the file into which to store the font size cache
+const FONT_SIZE_CACHE := "user://CGFFontCache.json"
 # The location where this game will store deck files
 const DECKS_PATH := "user://Decks/"
 # The path where the Card Game Framework core files exist.
@@ -117,7 +119,7 @@ const PATH_MOUSE_POINTER := PATH_CORE + "MousePointer.tscn"
 # It's based on the card width. Bigger percentage means larger push.
 const NEIGHBOUR_PUSH := 0.75
 # The scale of a card while on the play area
-const PLAY_AREA_SCALE := Vector2(1, 1) * 0.8
+const PLAY_AREA_SCALE := 0.8
 # The scale of a card while on a thumbnail area such as the deckbuilder
 const THUMBNAIL_SCALE := 0.85
 # The scale of a card while on a larger preview following the mouse
