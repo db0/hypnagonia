@@ -21,7 +21,6 @@ corner_radius_bottom_right = 25
 collision_layer = 3
 collision_mask = 2147483651
 script = ExtResource( 2 )
-thumbnail_scale = 0.85
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 75, 120 )

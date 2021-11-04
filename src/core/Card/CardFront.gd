@@ -185,9 +185,15 @@ func set_rich_label_text(node: RichTextLabel, value: String, is_resize := false,
 		# After we set the bbcode, we need to wait for the next frame for the label to adjust
 		# and then we can grab its height
 		yield(get_tree(), "idle_frame")
-		while node.get_content_height() == 0 or node.get_content_height() > 1000:
-			yield(get_tree(), "idle_frame")
+		var _retries := 0
 		var bbcode_height = node.get_content_height()
+		while bbcode_height == 0 or bbcode_height > 1000:
+			_retries += 1
+			print_debug("BBcode height:" + bbcode_height + " retrying: " + _retries)
+			yield(get_tree(), "idle_frame")
+			bbcode_height = node.get_content_height()
+			if _retries >= 10:
+				break
 		# To save some time, we use the same trick we do in normal labels
 		# where we reduce the font size to fits its rect
 		# However unlike normal labels, we might have icons and different font sizes
@@ -214,7 +220,7 @@ func set_rich_label_text(node: RichTextLabel, value: String, is_resize := false,
 			_assign_bbcode_text(node, value, starting_font_size + font_adjustment)
 			yield(get_tree(), "idle_frame")
 			bbcode_height = node.get_content_height()
-			var _retries := 0
+			_retries = 0
 			while bbcode_height == 0 or bbcode_height > 1000:
 				_retries += 1
 				print_debug("BBcode height:" + bbcode_height + " retrying: " + _retries)
@@ -233,7 +239,6 @@ func set_rich_label_text(node: RichTextLabel, value: String, is_resize := false,
 	#			yield(get_tree(), "idle_frame")
 	#			bbcode_height = node.get_content_height()
 			if starting_font_size + font_adjustment == 4:
-				print_debug(bbcode_height, value)
 				break
 		_cache_font_size(node,value,starting_font_size + font_adjustment, scale)
 	modulate.a = 1

@@ -1,5 +1,12 @@
 # Dreams: Changelog
 
+## v0.14
+
+* Upgraded to CGF 1.15
+* Improved loading and instancing performance
+* Fixed thumbnail image font skew
+* Fixed sometimes card preview image having tiny text
+
 ## v0.13.6
 
 * Finalized Rubber Chicken archetype
