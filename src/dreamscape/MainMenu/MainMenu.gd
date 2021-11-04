@@ -28,6 +28,7 @@ onready var _readme_label := $ReadMe/Label
 onready var _readme_popup := $ReadMe
 onready var menu_tween := $MenuTween
 onready var _subtitle := $MainMenu/VBox/Margin/VBoxContainer/Subtitle
+onready var _version := $MainMenu/VBox/Version
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -46,6 +47,7 @@ func _ready() -> void:
 	cfc.game_rng_seed = CFUtils.generate_random_seed()
 	SUBTITLES.shuffle()
 	_subtitle.text = SUBTITLES[0]
+	_version.text = globals.VERSION
 	
 
 

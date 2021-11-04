@@ -32,6 +32,7 @@ onready var _pathos_button := $HBC/Pathos
 onready var _help := $Help
 onready var _tutorial := $Help/Tutorial
 onready var _artifacts := $HBC/Artifacts
+onready var _version := $HBC/Version
 
 func _ready() -> void:
 	if globals.player.pathos:
@@ -42,7 +43,8 @@ func _ready() -> void:
 			pinfo.setup(entry)
 	globals.player.connect("artifact_added", self, "_on_artifact_added")
 	_init_artifacts()
-
+	_version.text = globals.VERSION
+	
 func _process(_delta: float) -> void:
 	_update_health_label()
 	_update_encounter_label()

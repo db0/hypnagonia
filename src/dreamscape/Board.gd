@@ -377,8 +377,8 @@ func _input(event):
 		torment2.defence = 10
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
-			"Laughing Strike",
-			"Laughing Strike",
+			"@ Change of Mind @",
+			"@ Change of Mind @",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.deck.add_child(card)
