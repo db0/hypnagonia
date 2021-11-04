@@ -145,13 +145,19 @@ func _on_artifact_removed() -> void:
 func _on_artifact_counter_modified(value: int) -> void:
 	update_amount(value)
 
-# Marks this artifact as activated for this Ordeal
+# Marks this artifact as activated.
 # Returns false if already activated. Else returns true
 func _activate() -> bool:
 	if _is_activated:
 		return(false)
 	_is_activated = true
 	return(true)
+
+# Marks this artifact as ready to be reactivated again.
+# Simple function for now which I will extend with
+# code to make the activation/refesh more obvious in the future
+func _refresh():
+	_is_activated = false
 
 
 func _on_player_turn_ended(_turn: Turn) -> void:

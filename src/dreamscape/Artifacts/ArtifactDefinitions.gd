@@ -218,7 +218,8 @@ const UpgradedConcentration := {
 const ThinCardDraw := {
 	"canonical_name": "ThinCardDraw",
 	"name": "Light Backpack",
-	"description": "{artifact_name}: Every time you reshuffle the deck, draw {draw_amount} card.",
+	"description": "{artifact_name}: Every time you reshuffle the deck, draw {draw_amount} card.\n"\
+			+ "This effect stops for the turn you draw the same card three times.",
 	"icon": preload("res://assets/icons/artifacts/light-backpack.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Common",

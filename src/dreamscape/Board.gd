@@ -375,6 +375,7 @@ func _input(event):
 #		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
 		torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 10)
 		torment2.defence = 10
+		globals.player.add_artifact("ThinCardDraw")
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
 			"@ Change of Mind @",
