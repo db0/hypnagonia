@@ -1469,26 +1469,26 @@ const CARDS := {
 		},
 		"_rarity": "Uncommon",
 		"_amounts": {
-			"effect_stacks": 2,
+			"effect_stacks": 3,
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"* No Second Thoughts *",
+			"@ No Second Thoughts @",
 			"~ No Second Thoughts ~",
 		],
 	},
-	"* No Second Thoughts *": {
+	"@ No Second Thoughts @": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "Gain {effect_stacks} {courage}",
-		"Cost": 2,
+		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
 		},
 		"_rarity": "Uncommon",
 		"_amounts": {
-			"effect_stacks": 3,
+			"effect_stacks": 1,
 		},
 		"_is_upgrade": true,
 	},
@@ -1503,7 +1503,7 @@ const CARDS := {
 		},
 		"_rarity": "Uncommon",
 		"_amounts": {
-			"effect_stacks": 2,
+			"effect_stacks": 3,
 		},
 		"_is_upgrade": true,
 	},
@@ -5112,6 +5112,9 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.PLAYER,
+		},
 		"_amounts": {
 			"damage_amount": 19,
 			"effect_stacks": 2,
@@ -5130,6 +5133,9 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.PLAYER,
+		},
 		"_amounts": {
 			"damage_amount": 24,
 			"effect_stacks": 2,
@@ -5144,6 +5150,9 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.PLAYER,
+		},
 		"_amounts": {
 			"damage_amount": 30,
 			"effect_stacks": 3,
@@ -5159,6 +5168,9 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY,
+		},
 		"_amounts": {
 			"damage_amount": 9,
 		},
@@ -5177,6 +5189,9 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY,
+		},
 		"_amounts": {
 			"damage_amount": 12,
 		},
@@ -5191,6 +5206,9 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY,
+		},
 		"_amounts": {
 			"damage_amount": 11,
 		},
@@ -5279,6 +5297,67 @@ const CARDS := {
 		"_keywords": ["confidence"],
 		"_amounts": {
 			"effect_defence": 3,
+		},
+		"_is_upgrade": true,
+	},
+	"The Finger": {
+		"Type": "Action",
+		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "If you have {defence} ≤ {requirements_amount}, gain {effect_stacks} {fortify}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"damage_amount": 8,
+			"requirements_amount": 0,
+			"effect_stacks": 1,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"+ The Finger +",
+			"% The Finger %",
+		],
+	},
+	"+ The Finger +": {
+		"Type": "Action",
+		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "If you have {defence} ≤ {requirements_amount}, gain {effect_stacks} {fortify}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"damage_amount": 11,
+			"requirements_amount": 0,
+			"effect_stacks": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"% The Finger %": {
+		"Type": "Action",
+		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "If you have {defence} ≤ {requirements_amount}, gain {effect_stacks} {fortify}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"damage_amount": 8,
+			"requirements_amount": 5,
+			"effect_stacks": 1,
 		},
 		"_is_upgrade": true,
 	},

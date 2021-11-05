@@ -1605,6 +1605,8 @@ func get_scripts(card_name: String) -> Dictionary:
 							.get("_amounts",{}).get("effect_stacks"),
 					"filter_dreamer_defence": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("requirements_amount"),
+					"comparison": "ge",
+					"fail_cost_on_skip": true,
 				},
 			],
 		},
@@ -2828,6 +2830,33 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
+	var TheFinger = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"is_cost": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.fortify.name,
+					"subject": "dreamer",
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("effect_stacks"),
+					"filter_dreamer_defence": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("requirements_amount"),
+					"comparison": "le",
+				},
+			],
+		},
+	}
 
 
 	# This format allows me to trace which script failed during load
@@ -2957,6 +2986,7 @@ func get_scripts(card_name: String) -> Dictionary:
 		"Confidently Unshakeable": ConfidentlyUnshakeable,
 		"Tenacity": Tenacity,
 		"Dogged Tenacity": DoggedTenacity,
+		"The Finger": TheFinger,
 	}
 	return(_prepare_scripts(scripts, card_name))
 

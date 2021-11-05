@@ -159,8 +159,13 @@ func execute(_run_type := CFInt.RunType.NORMAL) -> void:
 			# (such as because the subjects cannot be matched)
 			# Then we consider the costs cannot be paid.
 			# However is the task was merely skipped (because filters didn't match)
-			# we don't consider the whole script failed
+			# we don't consider the whole script failed.
+			# This allows us to have conditional costs based on the trigger.
 			elif not script.is_valid and script.is_cost:
+				can_all_costs_be_paid = false
+			elif script.is_skipped\
+					and script.get_property(SP.KEY_FAIL_COST_ON_SKIP)\
+					and script.is_cost:
 				can_all_costs_be_paid = false
 			# At the end of the task run, we loop back to the start, but of course
 			# with one less item in our scripts_queue.
