@@ -8,6 +8,7 @@ onready var tag_icon1 := $TagContainer1/TagIcon
 onready var tag_icon2 := $TagContainer2/TagIcon
 onready var card_design := $CardDesign
 onready var shader_effect := $ShaderEffect
+onready var text_shader := $TextShader
 onready var bbc := $BackBufferCopy
 onready var art := $Art
 onready var text_background := $TextBackground
@@ -31,7 +32,6 @@ func _ready() -> void:
 	card_labels["Abilities"] = $"CardText/OutsideArt/Abilities"
 	card_labels["Tags"] = $Tags
 	card_labels["Cost"] = $CostContainer/Cost
-
 
 	# These set te max size of each label. This is used to calculate how much
 	# To shrink the font when it doesn't fit in the rect.
@@ -57,6 +57,8 @@ func _ready() -> void:
 				original_font_sizes[label] = 20
 			_:
 				original_font_sizes[label] = 18
+	var time_offset = CFUtils.randf_range(0.1,100.0)
+	text_shader.material.set_shader_param("time_offset", time_offset)
 
 
 func set_tag_icon(tags: Array) -> void:
@@ -114,3 +116,8 @@ func _add_title_bbcode(rtlabel: RichTextLabel):
 func _pop_title_bbcode(rtlabel: RichTextLabel):
 	rtlabel.pop()
 	rtlabel.pop()
+
+# Sets parameters for the shader, and also stores them in a dictionary to be
+# reused by the viewport duplicate.
+func _set_shader_param(parameter: String, value) -> void:
+	material.set_shader_param(parameter, value)

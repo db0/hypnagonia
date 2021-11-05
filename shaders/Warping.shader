@@ -9,6 +9,7 @@ shader_type canvas_item;
 // https://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US
 
 uniform bool is_card = true;
+uniform float time_offset;
 //uniform float iTime;
 
 const mat2 m = mat2(vec2(0.80,  0.60), vec2(-0.60,  0.80) );
@@ -68,13 +69,13 @@ void fragment()
 //    vec2 p = (-iResolution.xy+2.0*FRAGCOORD.xy)/iResolution.y;
     vec2 p = UV;
 	p -= 0.5;
-    
+    float iTime = TIME + time_offset;
 
     float e = 0.0045;
 
-    vec3 colc = map( p , TIME              ); float gc = dot(colc,vec3(0.333));
-    vec3 cola = map( p + vec2(e,0.0), TIME ); float ga = dot(cola,vec3(0.333));
-    vec3 colb = map( p + vec2(0.0,e), TIME ); float gb = dot(colb,vec3(0.333));
+    vec3 colc = map( p , iTime              ); float gc = dot(colc,vec3(0.333));
+    vec3 cola = map( p + vec2(e,0.0), iTime ); float ga = dot(cola,vec3(0.333));
+    vec3 colb = map( p + vec2(0.0,e), iTime ); float gb = dot(colb,vec3(0.333));
     
     vec3 nor = normalize( vec3(ga-gc, e, gb-gc ) );
 

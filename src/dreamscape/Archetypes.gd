@@ -170,11 +170,13 @@ const FEARLESS:= {
 		"No Second Thoughts",
 		"High Morale",
 		"Impugn",
+		"Tenacity",
 	],
 	"Rare": [
 		"Laugh at Danger",
 		"Unassailable",
 		"Boast",
+		"Unshakeable"
 	]
 }
 	# Archetypes: Self-harm

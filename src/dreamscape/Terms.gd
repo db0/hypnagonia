@@ -323,6 +323,11 @@ const ACTIVE_EFFECTS := {
 		"icon": preload("res://assets/icons/kenku-head.png"),
 		"is_card_reference": true
 	},
+	"tenacity":  {
+		"name": "Tenacity",
+		"icon": preload("res://assets/icons/eyepatch.png"),
+		"is_card_reference": true
+	},
 }
 
 

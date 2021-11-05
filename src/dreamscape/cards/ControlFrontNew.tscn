@@ -8,17 +8,20 @@ bg_color = Color( 0.00392157, 0, 0.0627451, 1 )
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
-[sub_resource type="ShaderMaterial" id=3]
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
 shader = ExtResource( 2 )
 shader_param/is_card = true
+shader_param/time_offset = null
 
 [node name="Front" instance=ExtResource( 1 )]
 
 [node name="ArtBackground" parent="." index="0"]
 color = Color( 0, 0.0431373, 0.282353, 1 )
 
-[node name="TextBackground" parent="." index="1"]
+[node name="TextBackground" parent="." index="2"]
 custom_styles/panel = SubResource( 1 )
 
-[node name="TextShader" parent="." index="2"]
-material = SubResource( 3 )
+[node name="TextShader" parent="." index="3"]
+self_modulate = Color( 1, 1, 1, 0.254902 )
+material = SubResource( 2 )

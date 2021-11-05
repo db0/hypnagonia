@@ -2803,6 +2803,31 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
+	var Tenacity = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.tenacity.name,
+					"subject": "dreamer",
+					"modification": 1,
+				},
+			],
+		},
+	}
+	var DoggedTenacity = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.tenacity.name,
+					"subject": "dreamer",
+					"modification": 1,
+					"upgrade_name": "dogged",
+				},
+			],
+		},
+	}
 
 
 	# This format allows me to trace which script failed during load
@@ -2930,6 +2955,8 @@ func get_scripts(card_name: String) -> Dictionary:
 		"Impugn": Impugn,
 		"Unshakeable": Unshakeable,
 		"Confidently Unshakeable": ConfidentlyUnshakeable,
+		"Tenacity": Tenacity,
+		"Dogged Tenacity": DoggedTenacity,
 	}
 	return(_prepare_scripts(scripts, card_name))
 

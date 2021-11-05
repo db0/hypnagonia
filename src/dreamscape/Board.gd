@@ -375,13 +375,11 @@ func _input(event):
 #		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
 		torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 10)
 		torment2.defence = 10
-		globals.player.add_artifact("ThinCardDraw")
+#		globals.player.add_artifact("ThinCardDraw")
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
-			"Confidently Unshakeable",
-			"Unshakeable",
-			"Overview",
-			"Overview",
+			"Tenacity",
+			"Dogged Tenacity",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.deck.add_child(card)

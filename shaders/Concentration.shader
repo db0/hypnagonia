@@ -9,6 +9,8 @@ shader_type canvas_item;
 // https://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US
 
 uniform bool is_card = true;
+uniform float time_offset;
+
 float magicBox(vec3 p) 
 {
     p = 1. - abs(1. - mod(p, 2.));
@@ -27,6 +29,7 @@ void fragment()
 {
 	vec2 iResolution =  1.0 / SCREEN_PIXEL_SIZE;
 	vec2 s = iResolution.xy;
+	float iTime = TIME + time_offset;
 	
 //	vec2 uv = (2.*FRAGCOORD.xy-s)/s.y * .2;
 	vec2 uv = (UV - 0.5) * 1.;
@@ -43,7 +46,7 @@ void fragment()
 	COLOR.rgb = mix( topColor, bottomColor, sqrt(UV).y );
 	
 	// fractal
-	float fc = magicBox(vec3(uv,0)) + a*n + TIME * 2.;
+	float fc = magicBox(vec3(uv,0)) + a*n + iTime * 2.;
 	
 	COLOR.rgb += cos(fc) + .000001/dot(uv,uv);
 }

@@ -1248,7 +1248,7 @@ const CARDS := {
 		"_rarity": "Rare",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"effect_defence": 1,
+			"effect_defence": 2,
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
@@ -1278,7 +1278,7 @@ const CARDS := {
 		"_rarity": "Rare",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"effect_defence": 3,
+			"effect_defence": 4,
 		},
 		"_is_upgrade": true,
 	},
@@ -5199,7 +5199,7 @@ const CARDS := {
 	"Unshakeable": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Gain {defence_amount} {defence}. {forget}",
+		"Abilities": "Gain {defence_amount} {defence}\n{forget}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
@@ -5216,7 +5216,7 @@ const CARDS := {
 	"+ Unshakeable +": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Gain {defence_amount} {defence}. {forget}",
+		"Abilities": "Gain {defence_amount} {defence}\n{forget}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
@@ -5229,7 +5229,7 @@ const CARDS := {
 	"Confidently Unshakeable": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Set your {defence_amount} to {defence}.",
+		"Abilities": "Set your {defence_amount} to {defence}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
@@ -5239,5 +5239,49 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"Tenacity": {
+		"Type": "Concentration",
+		"Tags": [],
+		"Abilities": "At the end of each turn, gain {effect_defence} {defence}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"effect_defence": 3,
+		},
+		"_upgrade_threshold": 8,
+		"_upgrades": [
+			"Dogged Tenacity",
+			"@ Tenacity @",
+		],
+	},
+	"Dogged Tenacity": {
+		"Type": "Concentration",
+		"Tags": [],
+		"Abilities": "At the end of each turn, gain {effect_defence} {defence}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"effect_defence": 4,
+		},
+		"_is_upgrade": true,
+	},
+	"@ Tenacity @": {
+		"Type": "Concentration",
+		"Tags": [],
+		"Abilities": "At the end of each turn, gain {effect_defence} {defence}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"effect_defence": 3,
+		},
+		"_is_upgrade": true,
+	},
+
 }
 

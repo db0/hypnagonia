@@ -9,6 +9,7 @@ shader_type canvas_item;
 // https://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US
 
 uniform bool is_card = true;
+uniform float time_offset;
 //uniform float iTime;
 
 float sdSphere(vec3 pos, float size)
@@ -84,8 +85,9 @@ void fragment()
     vec2 p = (UV - 0.5) * 2.0;
 
     // camera
-    vec3 cameraOrigin = vec3(0.0, 0.0, -10.0 + TIME * 4.0);
-    vec3 cameraTarget = vec3(cos(TIME) + sin(TIME / 2.0) * 10.0, exp(sin(TIME)) * 2.0, 3.0 + TIME * 4.0);
+	float iTime = TIME / 5. + time_offset;
+    vec3 cameraOrigin = vec3(0.0, 0.0, -10.0 + iTime * 4.0);
+    vec3 cameraTarget = vec3(cos(iTime) + sin(iTime / 2.0) * 10.0, exp(sin(iTime)) * 2.0, 3.0 + iTime * 4.0);
     vec3 upDirection = vec3(0.0, 1.0, 0.0);
     vec3 cameraDir = normalize(cameraTarget - cameraOrigin);
     vec3 cameraRight = normalize(cross(upDirection, cameraOrigin));
@@ -100,14 +102,14 @@ void fragment()
     for(int i = 0; i < 80; i++)
     {
         rayPos = cameraOrigin + rayDirection * depth;
-        d = getDistance(rayPos, p, TIME);
+        d = getDistance(rayPos, p, iTime);
 
         if(abs(d) < 0.0001)
         {
             break;
         }
 
-        ac += exp(-d * mix(5.0, 10.0, abs(sin(TIME))));        
+        ac += exp(-d * mix(5.0, 10.0, abs(sin(iTime))));        
         depth += d;
     }
     

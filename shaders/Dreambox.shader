@@ -10,6 +10,7 @@ shader_type canvas_item;
 
 
 uniform bool is_card = true;
+uniform float time_offset;
 //uniform float iTime;
 
 uniform float eps = 0.0001;
@@ -111,10 +112,10 @@ void fragment()
     vec2 uv = UV;
     uv  = uv * 2.0 - 1.0;
 //    uv.x *= iResolution.x / iResolution.y;
-    
+    float iTime = TIME + time_offset;
     
     vec3 lookingTo = vec3(0.,0.,0.);
-    float it = TIME / 20.;
+    float it = iTime / 20.;
     vec3 viewer = vec3(
         0.1+sin(it/2.5) * 1.,
         0.2+cos(it/3.0) * 1.,
