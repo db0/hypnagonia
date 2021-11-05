@@ -5361,6 +5361,63 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-
+	"Bring It!": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.risky.name],
+		"Abilities": "{damage} all Torments for {damage_amount}.\n"\
+				+ "Give a random Torment {effect_stacks} {advantage}.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.advantage.name: Terms.ENEMY,
+		},
+		"_amounts": {
+			"damage_amount": 8,
+			"effect_stacks": 1,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"+ Bring it! +",
+			"Ω Bring it! Ω",
+		],
+	},
+	"+ Bring It! +": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.risky.name],
+		"Abilities": "{damage} all Torments for {damage_amount}.\n"\
+				+ "Give a random Torment {effect_stacks} {advantage}.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.advantage.name: Terms.ENEMY,
+		},
+		"_amounts": {
+			"damage_amount": 11,
+			"effect_stacks": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"Ω Bring It! Ω": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.risky.name],
+		"Abilities": "{damage} all Torments for {damage_amount}.\n"\
+				+ "Give a random Torment {effect_stacks} {advantage}.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.advantage.name: Terms.ENEMY,
+		},
+		"_amounts": {
+			"damage_amount": 9,
+			"effect_stacks": 1,
+		},
+		"_is_upgrade": true,
+	},
 }
 

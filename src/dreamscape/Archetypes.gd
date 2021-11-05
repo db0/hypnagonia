@@ -172,6 +172,7 @@ const FEARLESS:= {
 		"High Morale",
 		"Impugn",
 		"Tenacity",
+		"Bring It!",
 	],
 	"Rare": [
 		"Laugh at Danger",

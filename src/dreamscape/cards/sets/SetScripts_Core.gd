@@ -2857,6 +2857,34 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
+	var BringIt = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "boardseek",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"subject_count": "all",
+					"tags": ["Attack"],
+					"filter_state_seek": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.advantage.name,
+					"subject": "boardseek",
+					"sort_by": "random",
+					"modification": cfc.card_definitions[card_name]\
+						.get("_amounts",{}).get("effect_stacks"),
+					"filter_state_seek": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+			],
+		},
+	}
 
 
 	# This format allows me to trace which script failed during load
@@ -2987,6 +3015,7 @@ func get_scripts(card_name: String) -> Dictionary:
 		"Tenacity": Tenacity,
 		"Dogged Tenacity": DoggedTenacity,
 		"The Finger": TheFinger,
+		"Bring It!": BringIt,
 	}
 	return(_prepare_scripts(scripts, card_name))
 
