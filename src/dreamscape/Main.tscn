@@ -10,17 +10,15 @@ script = ExtResource( 2 )
 board_scene = ExtResource( 4 )
 info_panel_scene = ExtResource( 3 )
 
-[node name="ViewportContainer" parent="." index="1"]
+[node name="ViewportContainer" parent="." index="0"]
 margin_right = 1456.59
 margin_bottom = 904.762
 
 [node name="Viewport" parent="ViewportContainer" index="0"]
 size = Vector2( 1455, 900 )
 
-[node name="VBC" parent="." index="2"]
+[node name="VBC" parent="." index="1"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_right = 300.0
-margin_bottom = 454.0
 
 [node name="Focus" parent="VBC" index="0"]
 margin_right = 400.0

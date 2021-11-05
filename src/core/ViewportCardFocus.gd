@@ -26,7 +26,7 @@ func _ready():
 		yield(cfc, "all_nodes_mapped")
 	# warning-ignore:return_value_discarded
 	get_viewport().connect("size_changed",self,"_on_Viewport_size_changed")
-	$ViewportContainer.rect_size = get_viewport().size
+	_on_Viewport_size_changed()
 	for container in get_tree().get_nodes_in_group("card_containers"):
 		container.re_place()
 	focus_info.info_panel_scene = info_panel_scene
@@ -36,6 +36,15 @@ func _ready():
 func _process(_delta) -> void:
 #	if cfc.game_paused:
 #		print_debug(_current_focus_source)
+	# This code makes sure that the focus viewport size always matches the size of the card
+	# shown into it.
+	if _current_focus_source:
+		card_focus.rect_min_size = _current_focus_source.canonical_size * _current_focus_source.focused_scale * cfc.curr_scale
+		card_focus.rect_min_size.y *= 1.25
+		card_focus.rect_size = _current_focus_source.canonical_size * _current_focus_source.focused_scale * cfc.curr_scale
+		card_focus.rect_size.y *= 1.25
+		_focus_viewport.size = _current_focus_source.canonical_size * _current_focus_source.focused_scale * cfc.curr_scale
+		focus_info.rect_size.x = _current_focus_source.canonical_size.x * _current_focus_source.focused_scale * cfc.curr_scale
 	# The below makes sure to display the closeup of the card, only on the side
 	# the player's mouse is not in.
 	if _current_focus_source\
@@ -46,6 +55,8 @@ func _process(_delta) -> void:
 		$VBC.rect_position.x = get_viewport().size.x - $VBC.rect_size.x
 	# The below performs some garbage collection on previously focused cards.
 	for c in _previously_focused_cards:
+		if not is_instance_valid(_previously_focused_cards[c]):
+			continue
 		var current_dupe_focus: Card = _previously_focused_cards[c]
 		# We don't delete old dupes, to avoid overhead to the engine
 		# insteas, we just hide them.
@@ -54,12 +65,6 @@ func _process(_delta) -> void:
 			current_dupe_focus.visible = false
 	if not is_instance_valid(_current_focus_source) and $VBC/Focus.modulate.a != 0 and not $VBC/Focus/Tween.is_active():
 		$VBC/Focus.modulate.a = 0
-
-
-# Takes care to resize the child viewport, when the main viewport is resized
-func _on_Viewport_size_changed() -> void:
-	if ProjectSettings.get("display/window/stretch/mode") == "disabled" and is_instance_valid(get_viewport()):
-		$ViewportContainer.rect_size = get_viewport().size
 
 
 # Displays the card closeup in the Focus viewport
@@ -72,7 +77,7 @@ func focus_card(card: Card) -> void:
 		# This way we can standardize its scale and look and not worry about
 		# what happens on the table.
 		var dupe_focus: Card
-		if _previously_focused_cards.has(card):
+		if _previously_focused_cards.has(card) and is_instance_valid(_previously_focused_cards[card]):
 			dupe_focus = _previously_focused_cards[card]
 		else:
 			dupe_focus = card.duplicate(DUPLICATE_USE_INSTANCING)
@@ -87,6 +92,8 @@ func focus_card(card: Card) -> void:
 			dupe_focus.is_viewed = card.is_viewed
 		_current_focus_source = card
 		for c in _previously_focused_cards.values():
+			if not is_instance_valid(c):
+				continue
 			if c != dupe_focus:
 				c.visible = false
 			else:
@@ -156,8 +163,8 @@ func _extra_dupe_preparation(dupe_focus: Card, card: Card) -> void:
 # warning-ignore:unused_argument
 # warning-ignore:unused_argument
 func _extra_dupe_ready(dupe_focus: Card, card: Card) -> void:
-	dupe_focus.resize_recursively(dupe_focus._control, dupe_focus.focused_scale)
-	dupe_focus.card_front.scale_to(dupe_focus.focused_scale)
+	dupe_focus.resize_recursively(dupe_focus._control, dupe_focus.focused_scale * cfc.curr_scale)
+	dupe_focus.card_front.scale_to(dupe_focus.focused_scale * cfc.curr_scale)
 
 
 func _input(event):
@@ -170,3 +177,11 @@ func _input(event):
 		img.convert(Image.FORMAT_RGBA8)
 		img.flip_y()
 		img.save_png("user://" + _current_focus_source.canonical_name + ".png")
+
+
+# Takes care to resize the child viewport, when the main viewport is resized
+func _on_Viewport_size_changed() -> void:
+	if ProjectSettings.get("display/window/stretch/mode") == "disabled" and is_instance_valid(get_viewport()):
+		$ViewportContainer.rect_size = get_viewport().size
+		for c in _previously_focused_cards.values().duplicate():
+			c.queue_free()

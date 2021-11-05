@@ -39,6 +39,7 @@ func _ready() -> void:
 		# warning-ignore:return_value_discarded
 		choice_button.connect("mouse_exited", self, "on_aspect_icon_mouse_exited", [choice_icon])
 	get_viewport().connect("size_changed", self, '_on_Menu_resized')
+	_on_Menu_resized()
 
 func on_aspect_button_pressed(button_name : String):
 	populate_choices(button_name)

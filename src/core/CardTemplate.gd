@@ -2472,15 +2472,15 @@ func _process_card_state() -> void:
 			$Control/Tokens.visible = false
 			# We scale the card dupe to allow the player a better viewing experience
 			if CFConst.VIEWPORT_FOCUS_ZOOM_TYPE == "scale":
-				scale = Vector2(1,1) * focused_scale
+				scale = Vector2(1,1) * focused_scale * cfc.curr_scale
 			else:
 				# We need to reset its scale,
 				# in case it was already scaled due to being on the table etc.
 				scale = Vector2(1,1)
-				resize_recursively(_control, focused_scale)
+				resize_recursively(_control, focused_scale * cfc.curr_scale)
 #				set_card_size(CFConst.CARD_SIZE * CFConst.FOCUSED_SCALE, true)
-				card_front.scale_to(focused_scale)
-				card_back.scale_to(focused_scale)
+				card_front.scale_to(focused_scale * cfc.curr_scale)
+				card_back.scale_to(focused_scale * cfc.curr_scale)
 			# If the card has already been been viewed while down,
 			# we allow the player hovering over it to see it
 			if not is_faceup:
@@ -2497,11 +2497,11 @@ func _process_card_state() -> void:
 			$Control.rect_rotation = 0
 			# We scale the card to allow the player a better viewing experience
 			if CFConst.VIEWPORT_FOCUS_ZOOM_TYPE == "scale":
-				scale = Vector2(1,1) * preview_scale
+				scale = Vector2(1,1) * preview_scale * cfc.curr_scale
 			else:
 #				set_card_size(CFConst.CARD_SIZE * CFConst.PREVIEW_SCALE)
-				resize_recursively(_control, preview_scale)
-				card_front.scale_to(preview_scale)
+				resize_recursively(_control, preview_scale * cfc.curr_scale)
+				card_front.scale_to(preview_scale * cfc.curr_scale)
 
 		CardState.DECKBUILDER_GRID:
 			$Control.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -2518,8 +2518,8 @@ func _process_card_state() -> void:
 			# Font resizing
 			else:
 #				set_card_size(CFConst.CARD_SIZE * thumbnail_scale)
-				resize_recursively(_control, thumbnail_scale)
-				card_front.scale_to(thumbnail_scale)
+				resize_recursively(_control, thumbnail_scale * cfc.curr_scale)
+				card_front.scale_to(thumbnail_scale * cfc.curr_scale)
 
 
 
