@@ -5419,5 +5419,49 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"Sanguine": {
+		"Type": "Control",
+		"Tags": [],
+		"Abilities": "Gain X * {defence_amount} {defence}",
+		"Cost": 'X',
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 7,
+		},
+		"_upgrade_threshold": 8,
+		"_upgrades": [
+			"@ Sanguine @",
+			"+ Sanguine +",
+		],
+	},
+	"+ Sanguine +": {
+		"Type": "Control",
+		"Tags": [],
+		"Abilities": "Gain X * {defence_amount} {defence}",
+		"Cost": 'X',
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 9,
+		},
+		"_is_upgrade": true,
+	},
+	"@ Sanguine @": {
+		"Type": "Control",
+		"Tags": [],
+		"Abilities": "Gain (X + 1) * {defence_amount} {defence}",
+		"Cost": 'X',
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 7,
+			"x_modifer": "+1"
+		},
+		"_is_upgrade": true,
+	},
 }
 

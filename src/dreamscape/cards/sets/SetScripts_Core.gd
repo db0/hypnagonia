@@ -2885,6 +2885,21 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
+	var Sanguine = {
+		"manual": {
+			"hand": [
+				{
+					"name": "assign_defence",
+					"subject": "dreamer",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("defence_amount"),
+					"x_modifier": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("x_modifer", '0'),
+					"x_operation": "multiply",
+				}
+			],
+		},
+	}
 
 
 	# This format allows me to trace which script failed during load
@@ -3016,6 +3031,7 @@ func get_scripts(card_name: String) -> Dictionary:
 		"Dogged Tenacity": DoggedTenacity,
 		"The Finger": TheFinger,
 		"Bring It!": BringIt,
+		"Sanguine": Sanguine,
 	}
 	return(_prepare_scripts(scripts, card_name))
 
