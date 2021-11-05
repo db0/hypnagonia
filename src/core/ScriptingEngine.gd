@@ -770,6 +770,7 @@ func nested_script(script: ScriptTask) -> int:
 
 
 # Does nothing. Useful for selecting subjects to pass to further filters etc.
+# warning-ignore:unused_argument
 func null_script(script: ScriptTask) -> int:
 	return(CFConst.ReturnCode.CHANGED)
 

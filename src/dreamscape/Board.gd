@@ -378,8 +378,10 @@ func _input(event):
 		globals.player.add_artifact("ThinCardDraw")
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
-			"@ Change of Mind @",
-			"@ Change of Mind @",
+			"Confidently Unshakeable",
+			"Unshakeable",
+			"Overview",
+			"Overview",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.deck.add_child(card)

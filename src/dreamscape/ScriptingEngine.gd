@@ -213,14 +213,16 @@ func calculate_assign_defence(subject: CombatEntity, script: ScriptTask) -> int:
 func assign_defence(script: ScriptTask) -> int:
 	var retcode: int
 	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
+	var set_to_mod: bool = script.get_property(SP.KEY_SET_TO_MOD)
 	for combat_entity in script.subjects:
 		if combat_entity.is_dead:
 			continue
 		var defence = calculate_assign_defence(combat_entity, script)
 		# To allow effects like advantage to despawn
 		yield(cfc.get_tree().create_timer(0.01), "timeout")
-		retcode = combat_entity.receive_defence(
+		retcode = combat_entity.modify_defence(
 				defence,
+				set_to_mod,
 				costs_dry_run(),
 				tags,
 				script.owner)

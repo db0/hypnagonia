@@ -169,6 +169,7 @@ const FEARLESS:= {
 		"Cheeky Approach",
 		"No Second Thoughts",
 		"High Morale",
+		"Impugn",
 	],
 	"Rare": [
 		"Laugh at Danger",
@@ -223,7 +224,6 @@ const RUBBER_CHICKEN := {
 		"Fowl Language",
 		"Absurdity Unleashed",
 		"Gummiraptor",
-		"Laughing Strike",
 		"One With The Poultry",
 		"Sensuous",
 		"The Plot Chickens...",

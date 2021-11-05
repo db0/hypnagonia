@@ -156,12 +156,31 @@ func modify_damage(amount: int, dry_run := false, tags := ["Manual"], trigger = 
 	return(CFConst.ReturnCode.CHANGED)
 
 
-func receive_defence(amount: int, dry_run := false, tags := ["Manual"], trigger: CombatEntity = null) -> int:
-	if not dry_run:
-		if amount > 0:
-			emit_signal("entity_defended", self, amount, trigger, tags)
-		defence += amount
-		_update_health_label()
+func modify_defence(
+			amount: int, 
+			set_to_mod := false,
+			dry_run := false, 
+			tags := ["Manual"], 
+			trigger: CombatEntity = null) -> int:
+	var retcode: int = CFConst.ReturnCode.CHANGED
+	if set_to_mod and defence == amount:
+		retcode = CFConst.ReturnCode.OK
+	else:
+		if defence + amount < 0:
+			retcode = CFConst.ReturnCode.FAILED
+			amount = -defence
+		if not dry_run:
+			var prev_defence = defence
+			if set_to_mod:
+				set_defence(amount)
+			else:
+				set_defence(defence + amount)
+			if defence > prev_defence:
+				emit_signal("entity_defended", self, amount, trigger, tags)
+	# For now I'm returning always CHANGED, as I don't have any card effects
+	# for which it is a cost to reduce defence.
+	# If and when I add them, I may need to refactor a bit because I'm relying a lot
+	# on targeting being a cost, so that playing cards targeting nothing fails.
 	return(CFConst.ReturnCode.CHANGED)
 
 

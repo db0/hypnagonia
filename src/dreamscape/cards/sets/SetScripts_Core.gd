@@ -268,6 +268,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					"subject": "target",
 					"amount": 0,
 					"set_to_mod": true,
+					"is_cost": true,
 					"filter_state_subject": [{
 						"filter_group": "EnemyEntities",
 					}],
@@ -283,6 +284,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					"subject": "target",
 					"amount": 0,
 					"set_to_mod": true,
+					"is_cost": true,
 					"filter_state_subject": [{
 						"filter_group": "EnemyEntities",
 					}],
@@ -2543,7 +2545,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
-	var LaughingStrike = {
+	var ThePlotChickens = {
 		"manual": {
 			"hand": [
 				{
@@ -2719,7 +2721,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
-	var ThePlotChickens = {
+	var Impugn = {
 		"manual": {
 			"hand": [
 				{
@@ -2740,7 +2742,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					"filter_state_subject": [{
 						"filter_effects": [
 							{
-								"filter_effect_name": "Confusion",
+								"filter_effect_name": "Doubt",
 								"filter_count": 1,
 								"comparison": "ge",
 							},
@@ -2756,13 +2758,48 @@ func get_scripts(card_name: String) -> Dictionary:
 					"filter_state_subject": [{
 						"filter_effects": [
 							{
-								"filter_effect_name": "Confusion",
+								"filter_effect_name": "Doubt",
 								"filter_count": 0,
 								"comparison": "eq",
 							},
 						]
 					}],
 				},
+			],
+		},
+	}
+	var Unshakeable = {
+		"manual": {
+			"hand": [
+				{
+					"name": "assign_defence",
+					"subject": "dreamer",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("defence_amount"),
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": cfc.NMAP.forgotten,
+				},
+			],
+		},
+	}
+	var ConfidentlyUnshakeable = {
+		"manual": {
+			"hand": [
+				{
+					"name": "assign_defence",
+					"subject": "dreamer",
+					"amount": 0,
+					"set_to_mod": true,
+				},
+				{
+					"name": "assign_defence",
+					"subject": "dreamer",
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("defence_amount"),
+				}
 			],
 		},
 	}
@@ -2884,13 +2921,15 @@ func get_scripts(card_name: String) -> Dictionary:
 		"Misplaced Research": MisplacedResearch,
 		"Excogitate": Excogitate,
 		"The Whippy-Flippy": TheWhippyFlippy,
-		"Laughing Strike": LaughingStrike,
 		"A Strange Gaida": AStrangeGaida,
 		"One With The Poultry": OneWithThePoultry,
 		"Sneaky-Beaky": SneakBeaky,
 		"Sensuous": Sensuous,
 		"Massive Eggression": MassiveEggression,
 		"The Plot Chickens...": ThePlotChickens,
+		"Impugn": Impugn,
+		"Unshakeable": Unshakeable,
+		"Confidently Unshakeable": ConfidentlyUnshakeable,
 	}
 	return(_prepare_scripts(scripts, card_name))
 

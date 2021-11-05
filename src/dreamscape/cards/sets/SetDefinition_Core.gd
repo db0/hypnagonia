@@ -563,19 +563,19 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "Remove all {defence} from target Torment.",
-		"Cost": 1,
+		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": ["perplexity"],
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"@ Overview @",
+			"Ω Overview Ω",
 			"Piercing Overview",
 		],
 	},
-	"@ Overview @": {
+	"Ω Overview Ω": {
 		"Type": "Action",
-		"Tags": [],
+		"Tags": [Terms.GENERIC_TAGS.omega.name],
 		"Abilities": "Remove all {defence} from target Torment.",
 		"Cost": 0,
 		"_illustration": "Nobody",
@@ -587,12 +587,12 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name],
 		"Abilities": "Remove all {defence} from target Torment and apply {effect_stacks} Shaken",
-		"Cost": 1,
+		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": ["perplexity"],
 		"_amounts": {
-			"effect_stacks": 3,
+			"effect_stacks": 2,
 		},
 		"_is_upgrade": true,
 		"_effects_info": {
@@ -4774,7 +4774,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Laughing Strike": {
+	"The Plot Chickens...": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "{damage} for {damage_amount}. "\
@@ -4793,12 +4793,12 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"+ Laughing Strike +",
-			"* Laughing Strike *",
-			"% Laughing Strike %",
+			"+ The Plot Chickens... +",
+			"* The Plot Chickens... *",
+			"% The Plot Chickens... %",
 		],
 	},
-	"+ Laughing Strike +": {
+	"+ The Plot Chickens... +": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "{damage} for {damage_amount}. "\
@@ -4817,7 +4817,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"* Laughing Strike *": {
+	"* The Plot Chickens... *": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "{damage} for {damage_amount}. "\
@@ -4836,7 +4836,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"% Laughing Strike %": {
+	"% The Plot Chickens... %": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "{damage} for {damage_amount}. "\
@@ -5150,11 +5150,11 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"The Plot Chickens...": {
+	"Impugn": {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}. "\
-				+ "If the target has {confusion}, bypass their {defence}",
+				+ "If the target has {poison}, bypass their {defence}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -5164,11 +5164,11 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 8,
 		"_upgrades": [
-			"+ The Plot Chickens... +",
-			"Ω The Plot Chickens... Ω",
+			"+ Impugn +",
+			"Ω Impugn Ω",
 		],
 	},
-	"+ The Plot Chickens... +": {
+	"+ Impugn +": {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}. "\
@@ -5182,7 +5182,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Ω The Plot Chickens... Ω": {
+	"Ω Impugn Ω": {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}. "\
@@ -5196,6 +5196,48 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-
+	"Unshakeable": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "Gain {defence_amount} {defence}. {forget}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 30,
+		},
+		"_upgrade_threshold": 9,
+		"_upgrades": [
+			"+ Unshakeable +",
+			"Confidently Unshakeable",
+		],
+	},
+	"+ Unshakeable +": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "Gain {defence_amount} {defence}. {forget}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 40,
+		},
+		"_is_upgrade": true,
+	},
+	"Confidently Unshakeable": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "Set your {defence_amount} to {defence}.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 30,
+		},
+		"_is_upgrade": true,
+	},
 }
 
