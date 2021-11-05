@@ -42,7 +42,6 @@ align = 1
 margin_top = 90.0
 margin_right = 1441.0
 margin_bottom = 498.0
-rect_min_size = Vector2( 0, 400 )
 
 [node name="Choices" type="HBoxContainer" parent="VBC/CC"]
 margin_left = 150.0

@@ -38,7 +38,7 @@ func _ready() -> void:
 		choice_button.connect("mouse_entered", self, "on_aspect_icon_mouse_entered", [choice_icon])
 		# warning-ignore:return_value_discarded
 		choice_button.connect("mouse_exited", self, "on_aspect_icon_mouse_exited", [choice_icon])
-
+	get_viewport().connect("size_changed", self, '_on_Menu_resized')
 
 func on_aspect_button_pressed(button_name : String):
 	populate_choices(button_name)
@@ -150,3 +150,17 @@ func on_aspect_icon_mouse_exited(icon: TextureRect) -> void:
 			icon.modulate.a, 1, 0.5,
 			Tween.TRANS_SINE, Tween.EASE_IN)
 	_choice_tween.start()
+#
+func _on_Menu_resized() -> void:
+	for button in _aspect_buttons.values():
+		button.rect_min_size.x = get_viewport().size.x * 0.185
+		button.rect_min_size.y = get_viewport().size.y * 0.43
+	for b in $VBC/ControlButtons/VBC.get_children():
+		b.rect_min_size.x = get_viewport().size.x * 0.274
+		b.rect_min_size.y = get_viewport().size.y * 0.05
+	for m in [$VBC/MarginUp, $VBC/MarginDown]:
+		m.rect_min_size.y = get_viewport().size.y * 0.05
+	$VBC/ControlButtons/VBC.set("custom_constants/separation", get_viewport().size.y * 0.02)
+	_archetype_starting_cards_tags.rect_min_size.y = get_viewport().size.y * 0.08
+	_archetype_starting_cards_display.rect_min_size.x = get_viewport().size.x * 0.54
+	_archetype_starting_cards_display.rect_min_size.y = get_viewport().size.y * 0.31

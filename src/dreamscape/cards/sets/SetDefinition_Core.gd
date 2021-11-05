@@ -5421,7 +5421,7 @@ const CARDS := {
 	},
 	"Sanguine": {
 		"Type": "Control",
-		"Tags": [],
+		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "Gain X * {defence_amount} {defence}",
 		"Cost": 'X',
 		"_illustration": "Nobody",
@@ -5438,7 +5438,7 @@ const CARDS := {
 	},
 	"+ Sanguine +": {
 		"Type": "Control",
-		"Tags": [],
+		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "Gain X * {defence_amount} {defence}",
 		"Cost": 'X',
 		"_illustration": "Nobody",
@@ -5451,7 +5451,7 @@ const CARDS := {
 	},
 	"@ Sanguine @": {
 		"Type": "Control",
-		"Tags": [],
+		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "Gain (X + 1) * {defence_amount} {defence}",
 		"Cost": 'X',
 		"_illustration": "Nobody",

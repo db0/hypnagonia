@@ -14,7 +14,8 @@ func setup(archetype: String, type: String) -> void:
 	if archetype_texture:
 		icon.texture = archetype_texture
 		icon.visible = true
-
+	button.rect_min_size.x = get_viewport().size.x * 0.185
+	button.rect_min_size.y = get_viewport().size.y * 0.43
 
 func _on_Button_mouse_entered() -> void:
 	_tween.remove_all()
