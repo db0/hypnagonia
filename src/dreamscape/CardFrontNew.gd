@@ -91,8 +91,8 @@ func set_card_art(filename) -> void:
 	art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 	
 
-func _get_bbcode_format() -> Dictionary:
-	return(Terms.get_bbcode_formats())
+func _get_bbcode_format(font_size = null) -> Dictionary:
+	return(Terms.get_bbcode_formats(font_size))
 
 
 func set_rarity() -> void:

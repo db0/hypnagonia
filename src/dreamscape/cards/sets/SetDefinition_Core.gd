@@ -3627,11 +3627,11 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "You may take {exert_amount} {anxiety} to bypass {defence}",
+				+ "You may take {exert_amount} {anxiety} {pierce}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "pierce"],
 		"_amounts": {
 			"damage_amount": 9,
 			"exert_amount": 3,
@@ -3646,11 +3646,11 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "You may take {exert_amount} {anxiety} to bypass {defence}",
+				+ "You may take {exert_amount} {anxiety} to {pierce}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "pierce"],
 		"_amounts": {
 			"damage_amount": 12,
 			"exert_amount": 3,
@@ -3661,11 +3661,11 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "You may take {exert_amount} {anxiety} to bypass {defence}",
+				+ "You may take {exert_amount} {anxiety} to {pierce}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "pierce"],
 		"_amounts": {
 			"damage_amount": 10,
 			"exert_amount": 1,
@@ -5163,11 +5163,11 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}. "\
-				+ "If the target has {poison}, bypass their {defence}",
+				+ "If the target has {poison}, {pierce}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation","pierce"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY,
 		},
@@ -5184,11 +5184,11 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}. "\
-				+ "If the target has {confusion}, bypass their {defence}",
+				+ "If the target has {confusion}, {pierce}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation","pierce"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY,
 		},
@@ -5201,11 +5201,11 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}. "\
-				+ "If the target has {confusion}, bypass their {defence}",
+				+ "If the target has {confusion}, {pierce}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation","pierce"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY,
 		},
@@ -5304,11 +5304,11 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "If you have {defence} ≤ {requirements_amount}, gain {effect_stacks} {fortify}",
+				+ "If you have {requirements_amount} {defence}, gain {effect_stacks} {fortify}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation","confidence"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER,
 		},
@@ -5327,11 +5327,11 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "If you have {defence} ≤ {requirements_amount}, gain {effect_stacks} {fortify}",
+				+ "If you have  {requirements_amount} {defence}, gain {effect_stacks} {fortify}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation","confidence"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER,
 		},
@@ -5346,11 +5346,11 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "If you have {defence} ≤ {requirements_amount}, gain {effect_stacks} {fortify}",
+				+ "If you have {requirements_amount} or less {defence}, gain {effect_stacks} {fortify}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation","confidence"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER,
 		},

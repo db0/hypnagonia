@@ -466,6 +466,10 @@ const GENERIC_CARD_BBCODE := {
 		"name": "Unplayable",
 		"rich_text_color": "black",
 	},
+	"pierce": {
+		"name": "Pierce",
+		"rich_text_color": "teal",
+	},
 }
 
 

@@ -162,6 +162,7 @@ const FEARLESS:= {
 		"Solid Understanding",
 		"Confident Slap",
 		"Cocky Retort",
+		"The Finger",
 	],
 	"Uncommon": [
 		"Nothing to Fear",
