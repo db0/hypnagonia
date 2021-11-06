@@ -1,6 +1,5 @@
 extends Node
 
-const VERSION := "v0.14.1"
 const PLAYER_COMBAT_ENTITY_SIZE = Vector2(120,120)
 
 var player: Player

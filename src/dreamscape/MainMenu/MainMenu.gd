@@ -47,7 +47,7 @@ func _ready() -> void:
 	cfc.game_rng_seed = CFUtils.generate_random_seed()
 	SUBTITLES.shuffle()
 	_subtitle.text = SUBTITLES[0]
-	_version.text = globals.VERSION
+	_version.text = CFConst.GAME_VERSION
 	
 
 

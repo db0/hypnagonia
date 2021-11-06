@@ -44,7 +44,7 @@ func _ready() -> void:
 # warning-ignore:return_value_discarded
 	globals.player.connect("artifact_added", self, "_on_artifact_added")
 	_init_artifacts()
-	_version.text = globals.VERSION
+	_version.text = CFConst.GAME_VERSION
 # warning-ignore:return_value_discarded
 	get_viewport().connect("size_changed",self,"_on_Viewport_size_changed")
 		
