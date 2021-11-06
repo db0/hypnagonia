@@ -39,12 +39,13 @@ func _process(_delta) -> void:
 	# This code makes sure that the focus viewport size always matches the size of the card
 	# shown into it.
 	if _current_focus_source:
+		pass
 		card_focus.rect_min_size = _current_focus_source.canonical_size * _current_focus_source.focused_scale * cfc.curr_scale
-		card_focus.rect_min_size.y *= 1.25
+#		card_focus.rect_min_size.y *= 1.25
 		card_focus.rect_size = _current_focus_source.canonical_size * _current_focus_source.focused_scale * cfc.curr_scale
-		card_focus.rect_size.y *= 1.25
+#		card_focus.rect_size.y *= 1.25
 		_focus_viewport.size = _current_focus_source.canonical_size * _current_focus_source.focused_scale * cfc.curr_scale
-		focus_info.rect_size.x = _current_focus_source.canonical_size.x * _current_focus_source.focused_scale * cfc.curr_scale
+#		focus_info.rect_size.x = _current_focus_source.canonical_size.x * _current_focus_source.focused_scale * cfc.curr_scale
 	# The below makes sure to display the closeup of the card, only on the side
 	# the player's mouse is not in.
 	if _current_focus_source\
@@ -187,5 +188,5 @@ func _input(event):
 func _on_Viewport_size_changed() -> void:
 	if ProjectSettings.get("display/window/stretch/mode") == "disabled" and is_instance_valid(get_viewport()):
 		$ViewportContainer.rect_size = get_viewport().size
-		for c in _previously_focused_cards.values().duplicate():
-			c.queue_free()
+#		for c in _previously_focused_cards.values().duplicate():
+#			c.queue_free()
