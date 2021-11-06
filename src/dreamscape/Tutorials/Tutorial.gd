@@ -36,10 +36,10 @@ onready var _title = $PC/VBC/HBC2/Title
 
 func _ready() -> void:
 	_title.add_font_override("font", theme.get_font("TutorialHeader", "Label"))
-	
+
 
 func setup(tutorial_type: int, _popup_node: Popup) -> void:
-	popup_node = _popup_node	
+	popup_node = _popup_node
 	_reset()
 	type = tutorial_type
 	var page = tutorials[type][current_index].instance()
@@ -47,12 +47,14 @@ func setup(tutorial_type: int, _popup_node: Popup) -> void:
 	if tutorials[type].size() == 1:
 		_next.visible = false
 
+
 func _reset() -> void:
 	_clear_page()
 	current_index = 0
 	_previous.visible = false
 	_next.visible = true
-	
+
+
 func _on_Previous_pressed() -> void:
 	_clear_page()
 	_next.visible = true
@@ -83,6 +85,7 @@ func _on_Exit_pressed() -> void:
 func _clear_page() -> void:
 	for h in _page_container.get_children():
 		h.queue_free()
+
 
 func _add_page(page_node: Control) -> void:
 	_page_container.add_child(page_node)

@@ -41,14 +41,18 @@ func _ready() -> void:
 			_pathos_details_list.add_child(pinfo)
 			pathos_infos[entry] = pinfo
 			pinfo.setup(entry)
+# warning-ignore:return_value_discarded
 	globals.player.connect("artifact_added", self, "_on_artifact_added")
 	_init_artifacts()
 	_version.text = globals.VERSION
-	
+# warning-ignore:return_value_discarded
+	get_viewport().connect("size_changed",self,"_on_Viewport_size_changed")
+		
 func _process(_delta: float) -> void:
 	_update_health_label()
 	_update_encounter_label()
 	_update_deck_count()
+
 
 func _on_Settings_pressed() -> void:
 	if context == ArtifactDefinitions.EffectContext.BATTLE:
@@ -72,7 +76,7 @@ func _on_Settings_hide() -> void:
 
 
 func _on_Deck_pressed() -> void:
-	var popup_size_x = (CFConst.CARD_SIZE.x * CFConst.THUMBNAIL_SCALE * _deck_preview_grid.columns)\
+	var popup_size_x = (CFConst.CARD_SIZE.x * CFConst.THUMBNAIL_SCALE * _deck_preview_grid.columns * cfc.curr_scale)\
 			+ _deck_preview_grid.get("custom_constants/vseparation") * _deck_preview_grid.columns
 	_deck_preview_popup.rect_size = Vector2(popup_size_x,600)
 	_deck_preview_popup.popup_centered()
@@ -119,8 +123,10 @@ func _update_health_label() -> void:
 	else:
 		_player_health_label.text = str(globals.player.damage) + '/' + str(globals.player.health)
 
+
 func _update_encounter_label() -> void:
 	_encounter_label.text = 'Encounter ' + str(globals.encounters.encounter_number)
+
 
 func _update_deck_count() -> void:
 	_deck_button.text = str(globals.player.deck.count_cards())
@@ -138,6 +144,7 @@ func _on_Help_pressed() -> void:
 	if context == ArtifactDefinitions.EffectContext.BATTLE:
 		cfc.game_paused = true
 	_tutorial.setup(context, _help)
+	_tutorial.rect_size = get_viewport().size
 	_help.popup_centered_minsize()
 
 func _on_artifact_added(artifact_object: ArtifactObject) -> void:
@@ -159,9 +166,14 @@ func _instance_artifact(artifact_object: ArtifactObject, new_addition := false) 
 	_artifacts.add_child(new_artifact)
 
 
-
 func _input(event):
 	# We use this to allow the developer to take card screenshots
 	# for any number of purposes
 	if event.is_action_pressed("help"):
 		_on_Help_pressed()
+
+
+# Wipes the deck cache so that the cards can be recreated in the right size
+func _on_Viewport_size_changed() -> void:
+	current_decklist_cache = []
+	

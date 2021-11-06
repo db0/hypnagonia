@@ -85,7 +85,6 @@ func get_preview_placement() -> Vector2:
 				- focus_info.rect_size.y
 	else:
 		ret.y = get_global_mouse_position().y
-	ret.y = get_global_mouse_position().y
 #	print_debug(ret)
 	return(ret)
 
