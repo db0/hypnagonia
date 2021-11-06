@@ -1,4 +1,4 @@
-# Hypnagonia: Therapy through Nightmares [v0.13](CHANGELOG.md)
+# Hypnagonia: Therapy through Nightmares [v0.14](CHANGELOG.md)
 
 
 [![Hypnagonia preview image](http://hypnagonia.dbzer0.com/hypnagonia_showcase.gif "Hypnagonia preview image")](https://www.youtube.com/watch?v=Oc1_G28q328)
@@ -7,8 +7,7 @@ Hypnagonia is a 'spire-like' deckbuilder card game where you take the part of a 
 
 This an early release and the balance will be off. A very basic skeleton of encounters and a boss have been added, so it should be possible to make a complete run with what is there.
 
-Feel free to download and try. Tutorial is forthcoming.
-You can also [play it online](http://hypnagonia.dbzer0.com/)
+Feel free to [download or play online](https://dbzer0.itch.io/hypnagonia)
 
 ## Story
 
@@ -46,19 +45,20 @@ Most other terms you'll encounter will be explained when mousing over cards or i
 * Different Acts
 * Encounters based on the player's selected injustice
 * More Bosses
-* Artifacts
 * Waking-world sections between runs
-* More things to do as encounters instead of overoming torments
 * Campaign with Legacy elements
 * Increased difficulties
 * Balancing
+* More Curios
 
 See the issue tracker for progress and more ideas and feel free to suggest more.
 
 ## Done
 
-* 4 initial card groups
+* 5 initial card groups
 * Some enemies, encounter and a boss.
+* Curios
+* More things to do as encounters instead of overoming torments
 
 ## Credits
 
@@ -76,4 +76,22 @@ Assets and Shaders will list their individual licenses in their respective folde
 
 ## Support
 
-If you wish to support the development of this game, consider becoming a patron via [liberapay](https://liberapay.com/db0/)
+If you wish to support the development of this game, consider becoming a patron via [liberapay](https://liberapay.com/db0/) or contributing via the itch.io page.
+
+## Collaborating
+
+We're always on the lookout for more people to bring our vision to life. We're actively looking for
+
+* Lead Writer: Lead the campaign design and the main storyline
+* Writers: Provide stories for encounters, and ideas for personal quests
+* Lead Artist: Lead the overall look of the game's art
+* Illustration Artists: We have hundreds of cards needing illustrations
+* Character Artists: We have dozens of Torments which will be displayed on the screen. Some animation would help
+* GUI Designer: The game suffers from some serious "programmer art" syndrome.
+
+We have people doing the following, but we can always use more help:
+
+* Card game designer: Ideas for new archetypes and card mechanics are always useful. You will be part of the team that shapes the underlying gameplay.
+* Godot gdscript programmer
+
+If any of these interest you, please contact us on [discord](https://discord.gg/MqTMVDCbR3) or [itch.io](https://itch.io/t/1743902/looking-for-collaborators)
