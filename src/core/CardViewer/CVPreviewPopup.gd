@@ -9,6 +9,7 @@ var preview_card: Card
 onready var focus_info := $FocusInfo
 
 func _ready() -> void:
+# warning-ignore:return_value_discarded
 	get_viewport().connect("size_changed", self, '_on_viewport_resized')
 
 
@@ -16,16 +17,17 @@ func _process(_delta: float) -> void:
 	if visible and is_instance_valid(preview_card):
 		rect_position = get_preview_placement()
 		# This ensures the FocusInfoPanel is always on the bottom of the card
-		for c in focus_info.get_children():
-			# We use this to adjust the info panel labels depending on how the 
-			# PREVIEW_SCALE is
-			c.get_node("Details").rect_min_size.x = preview_card.canonical_size.x * preview_card.preview_scale * cfc.curr_scale
-			c.get_node("Details").rect_size.x = preview_card.canonical_size.x * preview_card.preview_scale * cfc.curr_scale
-			c.rect_min_size.x = preview_card.canonical_size.x * preview_card.preview_scale * cfc.curr_scale
-			c.rect_size.x = preview_card.canonical_size.x * preview_card.preview_scale * cfc.curr_scale
+#		for c in focus_info.get_children():
+#			# We use this to adjust the info panel labels depending on how the 
+#			# PREVIEW_SCALE is
+#			c.get_node("Details").rect_min_size.x = preview_card.canonical_size.x * preview_card.preview_scale * cfc.curr_scale
+#			c.get_node("Details").rect_size.x = preview_card.canonical_size.x * preview_card.preview_scale * cfc.curr_scale
+#			c.rect_min_size.x = preview_card.canonical_size.x * preview_card.preview_scale * cfc.curr_scale
+#			c.rect_size.x = preview_card.canonical_size.x * preview_card.preview_scale * cfc.curr_scale
 		focus_info.rect_min_size.x = 0.0
 		focus_info.rect_size.x = 0.0
-		focus_info.rect_position.y = preview_card.canonical_size.y * preview_card.preview_scale * cfc.curr_scale
+		focus_info.rect_position.y = 0
+		focus_info.rect_position.x = preview_card.canonical_size.x * preview_card.preview_scale * cfc.curr_scale
 
 
 # Figures out where to place the card preview in respect to the player's mouse.
@@ -33,29 +35,58 @@ func get_preview_placement() -> Vector2:
 	# warning-ignore:unassigned_variable
 	var ret : Vector2
 	var focus_panel_offset = 0
+	var card_size : Vector2 = preview_card.canonical_size * preview_card.preview_scale * cfc.curr_scale
+	# If the card width is to small, we will place the info panels instead to the left of the card preview
 	if focus_info.visible:
 		focus_panel_offset = focus_info.rect_size.y
-	var card_size : Vector2 = preview_card.canonical_size * preview_card.preview_scale * cfc.curr_scale
 	# We want the card to be on the right of the mouse always
 	# Unless that would make it hide outside the viewport.
 	# In which case we place it on the left of the mouse instead
+#	if get_global_mouse_position().x\
+#			+ card_size.x\
+#			+ 20\
+#			> get_viewport().size.x:
+#		ret.x = get_global_mouse_position().x - card_size.x - 20
+#	else:
+#		ret.x = get_global_mouse_position().x + 20
+#	if is_instance_valid(preview_card) and get_global_mouse_position().y\
+#			+ card_size.y\
+#			+ focus_panel_offset\
+#			> get_viewport().size.y:
+#		ret.y = get_viewport().size.y\
+#				- card_size.y\
+#				* preview_card.scale.y\
+#				- focus_panel_offset
+#	else:
+#		ret.y = get_global_mouse_position().y
+	if focus_info.visible:
+		focus_panel_offset = focus_info.rect_size.x
 	if get_global_mouse_position().x\
 			+ card_size.x\
 			+ 20\
+			+ focus_panel_offset\
 			> get_viewport().size.x:
-		ret.x = get_global_mouse_position().x - card_size.x - 20
+		ret.x = get_global_mouse_position().x - card_size.x - 20 - focus_panel_offset
 	else:
 		ret.x = get_global_mouse_position().x + 20
-	if is_instance_valid(preview_card) and get_global_mouse_position().y\
+	var card_offscreen_y = get_global_mouse_position().y\
 			+ card_size.y\
-			+ focus_panel_offset\
-			> get_viewport().size.y:
+			* preview_card.scale.y
+	var focus_offscreen_y = get_global_mouse_position().y + focus_info.rect_size.y
+	if card_offscreen_y > focus_offscreen_y\
+			and is_instance_valid(preview_card)\
+			and card_offscreen_y > get_viewport().size.y:
 		ret.y = get_viewport().size.y\
 				- card_size.y\
-				* preview_card.scale.y\
-				- focus_panel_offset
+				* preview_card.scale.y
+	elif card_offscreen_y < focus_offscreen_y\
+			and focus_offscreen_y > get_viewport().size.y:
+		ret.y = get_viewport().size.y\
+				- focus_info.rect_size.y
 	else:
 		ret.y = get_global_mouse_position().y
+	ret.y = get_global_mouse_position().y
+#	print_debug(ret)
 	return(ret)
 
 # Instances a card object. Populates it with the card details

@@ -63,12 +63,14 @@ func _process(_delta) -> void:
 		if _current_focus_source != c\
 				and not $VBC/Focus/Tween.is_active():
 			current_dupe_focus.visible = false
-	if not is_instance_valid(_current_focus_source) and $VBC/Focus.modulate.a != 0 and not $VBC/Focus/Tween.is_active():
+	if not is_instance_valid(_current_focus_source)\
+			and $VBC/Focus.modulate.a != 0\
+			and not $VBC/Focus/Tween.is_active():
 		$VBC/Focus.modulate.a = 0
 
 
 # Displays the card closeup in the Focus viewport
-func focus_card(card: Card) -> void:
+func focus_card(card: Card, show_preview := true) -> void:
 	# We check if we're already focused on this card, to avoid making duplicates
 	# the whole time
 	if not _current_focus_source:
@@ -127,6 +129,8 @@ func focus_card(card: Card) -> void:
 					focus_info.modulate, Color(1,1,1,0), 0.25,
 					Tween.TRANS_SINE, Tween.EASE_IN)
 		$VBC/Focus/Tween.start()
+		card_focus.visible = show_preview
+			
 
 
 # Hides the focus viewport when we're done looking at it

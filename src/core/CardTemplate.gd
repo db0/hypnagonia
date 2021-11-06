@@ -1609,7 +1609,10 @@ func set_focus(requestedFocus: bool, colour := CFConst.FOCUS_HOVER_COLOUR) -> vo
 			and cfc.game_settings.focus_style\
 			and cfc.NMAP.has("main"):
 		if requestedFocus:
-			cfc.NMAP.main.focus_card(self)
+			var show_preview := true
+			if cfc.curr_scale < 0.8:
+				show_preview = false
+			cfc.NMAP.main.focus_card(self, show_preview)
 		else:
 			cfc.NMAP.main.unfocus(self)
 	# Tokens drawer is an optional node, so we check if it exists
