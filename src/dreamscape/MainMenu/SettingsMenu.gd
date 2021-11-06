@@ -12,18 +12,8 @@ func _ready() -> void:
 	cfc.game_settings['fancy_movement'] = cfc.game_settings.get('fancy_movement', CFConst.FANCY_MOVEMENT)
 	cfc.game_settings['enable_visible_shuffle'] = cfc.game_settings.get('enable_visible_shuffle', CFConst.FANCY_MOVEMENT)
 #	animate_in_hand.pressed = cfc.game_settings.animate_in_hand
-	if cfc.game_settings.focus_style == 2:
-		focus_style.pressed = true
-	else:
-		focus_style.pressed = false
+	focus_style.selected = focus_style.get_item_index(cfc.game_settings.focus_style)
 	fancy_movement.pressed = cfc.game_settings.fancy_movement
-
-#func _on_AnimateBoard_toggled(button_pressed: bool) -> void:
-#	cfc.set_setting('animate_on_board',button_pressed)
-#
-#
-#func _on_AnimateHand_toggled(button_pressed: bool) -> void:
-#	cfc.set_setting('animate_in_hand',button_pressed)
 
 
 func _on_FancAnimations_toggled(button_pressed: bool) -> void:
@@ -35,8 +25,6 @@ func _on_FancAnimations_toggled(button_pressed: bool) -> void:
 		get_tree().call_group("piles", "disable_shuffle")
 
 
-func _on_FocusStyle_toggled(button_pressed: bool) -> void:
-	if not button_pressed:
-		cfc.set_setting('focus_style', 0)
-	else:
-		cfc.set_setting('focus_style', 2)
+func _on_FocusStyle_item_selected(index: int) -> void:
+	cfc.set_setting('focus_style', focus_style.get_item_id(index))
+
