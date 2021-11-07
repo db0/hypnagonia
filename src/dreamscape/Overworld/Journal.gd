@@ -89,7 +89,7 @@ func display_boss_rewards(reward_text: String) -> void:
 		+ "[b]Note from Developer:[/b]\nThanks for playing this early version of Hypnagonia. This is all we have at the moment. "\
 		+ "Please check back regularly for new updates! And remember, we're actively looking for collaborators.\n"\
 		+ "If you're a character artist, graphics designer, storyteller, card game designer, illustrator, or just someone who wants to give feedback, "\
-		+ "do hit us up on our discord server: [url=discord]https://discord.gg/KFKHt6Ch[/url].\n\n"\
+		+ "do hit us up on our discord server: [url=discord]https://discord.gg/MqTMVDCbR3[/url].\n\n"\
 		+ "[url=main_menu]Back to Main Menu[/url]."
 	proceed.connect("meta_clicked", self, "_on_proceed_clicked")
 	_reveal_entry(proceed, false)
@@ -101,7 +101,7 @@ func display_loss() -> void:
 		+ "There's still more to play. Can you reach and defeat the first 'Boss'?\n\n"\
 		+ "Please check back regularly for new updates! And remember, we're actively looking for collaborators.\n"\
 		+ "If you're a character artist, graphics designer, storyteller, card game designer, illustrator, or just someone who wants to give feedback, "\
-		+ "do hit us up on our discord server: [url=discord]https://discord.gg/KFKHt6Ch[/url].\n\n"\
+		+ "do hit us up on our discord server: [url=discord]https://discord.gg/MqTMVDCbR3[/url].\n\n"\
 		+ "[url=main_menu]Back to Main Menu[/url]."
 # warning-ignore:return_value_discarded
 	proceed.connect("meta_clicked", self, "_on_proceed_clicked")
@@ -285,7 +285,7 @@ func _on_proceed_clicked(_meta: String) -> void:
 	match _meta:
 		"discord":
 			# warning-ignore:return_value_discarded
-			OS.shell_open("https://discord.gg/KFKHt6Ch")
+			OS.shell_open("https://discord.gg/MqTMVDCbR3")
 		"main_menu":
 			# warning-ignore:return_value_discarded
 			get_tree().change_scene(CFConst.PATH_CUSTOM + 'MainMenu/MainMenu.tscn')
