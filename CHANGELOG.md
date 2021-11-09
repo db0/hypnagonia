@@ -1,5 +1,15 @@
 # Dreams: Changelog
 
+## v0.14.3
+
+* Removed all non-free assets such as card backs, icons and the logo appearing when there is no art.
+* Added Eureka! art ((@Marablack)[https://www.deviantart.com/marablack3])
+* Added new "No art available" Art ((@Marablack)[https://www.deviantart.com/marablack3])
+* Changed card backs
+* Changed background to combat effects
+* Changed Immersion background
+* Added Info-only focus mode for the card focus and relevant setting
+
 ## v0.14
 
 * Upgraded to CGF 1.15
@@ -22,8 +32,8 @@
 
 ## v0.13.3
 
-* Added Hyperfocus art (@Marablack)[https://www.deviantart.com/marablack3]
-* Added Rapid Theorizing art (@Marablack)[https://www.deviantart.com/marablack3]
+* Added Hyperfocus art ((@Marablack)[https://www.deviantart.com/marablack3])
+* Added Rapid Theorizing art ((@Marablack)[https://www.deviantart.com/marablack3])
 * Added Misunderstood
 * Added Death Ray
 
@@ -33,7 +43,7 @@
 * Added Hyperfocus
 * Added A Thousand Squeaks
 * Added Insomnia tag
-
+q
 ## v0.13.1
 
 * Renamed game to Hypnagonia
