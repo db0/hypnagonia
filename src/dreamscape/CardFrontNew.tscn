@@ -7,7 +7,7 @@
 [ext_resource path="res://fonts/Butler/Butler_Regular.otf" type="DynamicFontData" id=5]
 [ext_resource path="res://assets/card_front/dream card/tag_circle.png" type="Texture" id=6]
 [ext_resource path="res://shaders/Dreambox.shader" type="Shader" id=7]
-[ext_resource path="res://assets/card_front/Game_logo.png" type="Texture" id=8]
+[ext_resource path="res://assets/card_front/Game_logo.jpg" type="Texture" id=8]
 [ext_resource path="res://assets/card_front/dream card/gem.png" type="Texture" id=9]
 [ext_resource path="res://assets/card_front/dream card/dream_card_body_2_frame_white.png" type="Texture" id=11]
 [ext_resource path="res://assets/card_front/dream card/CostBackground.png" type="Texture" id=12]
@@ -115,7 +115,7 @@ rect_min_size = Vector2( 180, 115 )
 mouse_filter = 2
 texture = ExtResource( 8 )
 expand = true
-stretch_mode = 6
+stretch_mode = 7
 __meta__ = {
 "_edit_use_anchors_": false
 }

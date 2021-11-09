@@ -11,6 +11,7 @@ corner_radius_bottom_left = 50
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 2 )
 shader_param/is_card = true
+shader_param/time_offset = null
 
 [node name="Front" instance=ExtResource( 1 )]
 
@@ -27,3 +28,6 @@ margin_left = 3.62369
 margin_top = 136.743
 margin_right = 193.624
 margin_bottom = 276.743
+
+[node name="Art" parent="." index="4"]
+self_modulate = Color( 0.807843, 1, 0.819608, 1 )

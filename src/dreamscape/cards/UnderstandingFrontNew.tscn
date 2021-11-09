@@ -13,6 +13,7 @@ corner_radius_bottom_left = 50
 resource_local_to_scene = true
 shader = ExtResource( 3 )
 shader_param/is_card = true
+shader_param/time_offset = null
 shader_param/eps = 0.0001
 shader_param/steps = 32
 shader_param/minDist = 0.01
@@ -34,6 +35,9 @@ custom_styles/panel = SubResource( 1 )
 
 [node name="TextShader" parent="." index="3"]
 material = SubResource( 2 )
+
+[node name="Art" parent="." index="4"]
+self_modulate = Color( 0.976471, 0.792157, 1, 1 )
 
 [node name="CardDesign" parent="." index="7"]
 texture = ExtResource( 2 )

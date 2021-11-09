@@ -74,8 +74,7 @@ func _process(_delta) -> void:
 		var top_card = get_top_card()
 		if cfc.NMAP.board.mouse_pointer in get_overlapping_areas()\
 				and not cfc.card_drag_ongoing:
-			if (top_card.is_faceup or top_card.is_viewed)\
-					and top_card.state == Card.CardState.IN_PILE:
+			if top_card.state == Card.CardState.IN_PILE:
 				top_card.state = Card.CardState.VIEWED_IN_PILE
 		elif top_card.state == Card.CardState.VIEWED_IN_PILE:
 			top_card.state = Card.CardState.IN_PILE

@@ -10,6 +10,7 @@ var journal: Journal
 # to avoid writing always the same thing
 var unused_journal_texts := {}
 #var utils := DeckbuilderUtils.new()
+var card_back_texture_selection := 0
 
 # Test setup. This should happen at game start
 func _ready() -> void:

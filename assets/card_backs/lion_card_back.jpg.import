@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TCG_vol12_back.png-1ea0b77958ce5309569e057763bca2d4.stex"
+path="res://.import/lion_card_back.jpg-2f4269ae520dbbd4c6589b263ed43f0a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/card_backs/TCG_vol12_back.png"
-dest_files=[ "res://.import/TCG_vol12_back.png-1ea0b77958ce5309569e057763bca2d4.stex" ]
+source_file="res://assets/card_backs/lion_card_back.jpg"
+dest_files=[ "res://.import/lion_card_back.jpg-2f4269ae520dbbd4c6589b263ed43f0a.stex" ]
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

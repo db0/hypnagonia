@@ -89,6 +89,8 @@ func set_card_art(filename) -> void:
 	var new_texture = CFUtils.convert_texture_to_image(filename)
 	art.texture = new_texture
 	art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	# In case the generic art has been modulated, se switch it back to normal colour
+	art.self_modulate = Color(1,1,1)
 	
 
 func _get_bbcode_format(font_size = null) -> Dictionary:

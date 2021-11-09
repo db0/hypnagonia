@@ -2894,7 +2894,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "Gain {effect_amount} {buffer} every other time you shuffle your deck.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Rare",
 		"_amounts": {
 			"effect_amount": 1,
@@ -2911,7 +2911,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "Gain {effect_amount} {buffer} every other time you shuffle your deck.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Rare",
 		"_amounts": {
 			"effect_amount": 1,
@@ -2923,7 +2923,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name, Terms.GENERIC_TAGS.alpha.name],
 		"Abilities": "Gain {effect_amount} {buffer} every other time you shuffle your deck.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Rare",
 		"_amounts": {
 			"effect_amount": 1,
@@ -2935,7 +2935,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "Gain {effect_amount} {buffer} every other time you shuffle your deck.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Rare",
 		"_amounts": {
 			"effect_amount": 2,

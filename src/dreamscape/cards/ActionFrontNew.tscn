@@ -25,5 +25,8 @@ self_modulate = Color( 1, 1, 1, 0.27451 )
 material = SubResource( 1 )
 custom_styles/panel = SubResource( 2 )
 
+[node name="Art" parent="." index="4"]
+self_modulate = Color( 1, 0.811765, 0.811765, 1 )
+
 [node name="CardDesign" parent="." index="7"]
 texture = ExtResource( 3 )

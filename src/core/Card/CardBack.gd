@@ -8,9 +8,9 @@ var viewed_node
 # while face down.
 var is_viewed_visible : bool setget set_is_viewed_visible
 
+
 # Stores a reference to the Card that is hosting this node
 onready var card_owner = get_parent().get_parent().get_parent()
-
 
 # This function can be overriden by any class extending CardBack
 # to implement their own way of signifying a viewed face-down card

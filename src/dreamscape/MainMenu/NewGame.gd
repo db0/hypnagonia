@@ -38,6 +38,7 @@ func _ready() -> void:
 		choice_button.connect("mouse_entered", self, "on_aspect_icon_mouse_entered", [choice_icon])
 		# warning-ignore:return_value_discarded
 		choice_button.connect("mouse_exited", self, "on_aspect_icon_mouse_exited", [choice_icon])
+# warning-ignore:return_value_discarded
 	get_viewport().connect("size_changed", self, '_on_Menu_resized')
 	_on_Menu_resized()
 
@@ -82,6 +83,7 @@ func start_new_game() -> void:
 	yield(get_parent().menu_tween, "tween_all_completed")
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene(CFConst.PATH_CUSTOM + 'Overworld/Journal.tscn')
+	globals.card_back_texture_selection = CFUtils.randi_range(0, HypnagoniaCardBack.TEXTURES_AMOUNT - 1)
 
 
 func _on_archetype_choice_pressed(archetype: String, _aspect: String, archetype_button) -> void:
