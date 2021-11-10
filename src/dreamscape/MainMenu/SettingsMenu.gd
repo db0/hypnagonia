@@ -28,3 +28,7 @@ func _on_FancAnimations_toggled(button_pressed: bool) -> void:
 func _on_FocusStyle_item_selected(index: int) -> void:
 	cfc.set_setting('focus_style', focus_style.get_item_id(index))
 
+
+
+func _on_ExitToMain_pressed() -> void:
+	globals.quit_to_main()

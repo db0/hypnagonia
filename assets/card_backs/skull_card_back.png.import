@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/triangle_card_back.jpg-8e39c33194f0642f9ce62b7601ad1206.stex"
+path="res://.import/skull_card_back.png-dbafea651c299ef7da0f23392146555c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/card_backs/triangle_card_back.jpg"
-dest_files=[ "res://.import/triangle_card_back.jpg-8e39c33194f0642f9ce62b7601ad1206.stex" ]
+source_file="res://assets/card_backs/skull_card_back.png"
+dest_files=[ "res://.import/skull_card_back.png-dbafea651c299ef7da0f23392146555c.stex" ]
 
 [params]
 

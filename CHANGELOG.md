@@ -1,5 +1,11 @@
 # Dreams: Changelog
 
+## v0.14.4
+
+* Added quit to main menu button in the settings
+* Added multiple rotating card backs
+* Fixed card back resolution
+
 ## v0.14.3
 
 * Removed all non-free assets such as card backs, icons and the logo appearing when there is no art.

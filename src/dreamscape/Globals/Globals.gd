@@ -22,3 +22,9 @@ func reset() -> void:
 	encounters = SingleRun.new()
 	current_encounter = null
 	journal = null
+
+
+func quit_to_main() -> void:
+	get_tree().change_scene(CFConst.PATH_CUSTOM + 'MainMenu/MainMenu.tscn')
+	cfc.quit_game()
+	reset()

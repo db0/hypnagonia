@@ -35,27 +35,27 @@ __meta__ = {
 [node name="PC" type="PanelContainer" parent="."]
 self_modulate = Color( 1, 1, 1, 0.690196 )
 margin_left = 580.0
-margin_top = 361.0
-margin_right = 875.0
-margin_bottom = 538.0
+margin_top = 326.0
+margin_right = 874.0
+margin_bottom = 573.0
 
 [node name="VBC" type="VBoxContainer" parent="PC"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 288.0
-margin_bottom = 170.0
+margin_right = 287.0
+margin_bottom = 240.0
 size_flags_horizontal = 3
 custom_constants/separation = 20
 
 [node name="FocusStyle" type="OptionButton" parent="PC/VBC"]
-margin_right = 281.0
+margin_right = 280.0
 margin_bottom = 33.0
 custom_fonts/font = SubResource( 1 )
 text = "Large Card Preview"
 items = [ "Large Card Preview", null, false, 2, null, "Info Panels Only", null, false, 3, null, "Hand Card Zoom", null, false, 0, null ]
 selected = 0
 
-[node name="InfoPanelsOnly" type="CheckButton" parent="PC/VBC"]
+[node name="Back" type="CheckButton" parent="PC/VBC"]
 visible = false
 margin_top = 60.0
 margin_right = 328.0
@@ -65,28 +65,27 @@ text = "Show only info panels"
 
 [node name="FancyAnimations" type="CheckButton" parent="PC/VBC"]
 margin_top = 53.0
-margin_right = 281.0
+margin_right = 280.0
 margin_bottom = 93.0
 custom_fonts/font = SubResource( 1 )
 text = "Fancy Animations"
 
-[node name="PreBuilts" type="Button" parent="PC/VBC"]
-visible = false
-margin_top = 60.0
-margin_right = 340.0
-margin_bottom = 110.0
+[node name="ExitToMain" type="Button" parent="PC/VBC"]
+margin_top = 113.0
+margin_right = 280.0
+margin_bottom = 163.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 2 )
-text = "Restore Pre-Built Decks"
+text = "Exit To Main Menu"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PC/VBC"]
-margin_top = 113.0
-margin_right = 281.0
-margin_bottom = 163.0
+margin_top = 183.0
+margin_right = 280.0
+margin_bottom = 233.0
 
 [node name="Back" type="Button" parent="PC/VBC/HBoxContainer"]
-margin_right = 281.0
+margin_right = 280.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
@@ -95,3 +94,4 @@ text = "BACK"
 
 [connection signal="item_selected" from="PC/VBC/FocusStyle" to="." method="_on_FocusStyle_item_selected"]
 [connection signal="toggled" from="PC/VBC/FancyAnimations" to="." method="_on_FancAnimations_toggled"]
+[connection signal="pressed" from="PC/VBC/ExitToMain" to="." method="_on_ExitToMain_pressed"]

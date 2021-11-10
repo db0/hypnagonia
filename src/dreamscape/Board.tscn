@@ -7,14 +7,14 @@
 [ext_resource path="res://src/dreamscape/Board.gd" type="Script" id=5]
 [ext_resource path="res://src/dreamscape/Counters.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/dreamscape/PlayerInfo.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/card_backs/triangle_card_back.jpg" type="Texture" id=8]
+[ext_resource path="res://assets/card_backs/owl_card_back.png" type="Texture" id=8]
 [ext_resource path="res://assets/backgrounds/tint.png" type="Texture" id=9]
 [ext_resource path="res://assets/icons/GUI/clockwise-rotation.png" type="Texture" id=10]
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=12]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 8 )
-region_rect = Rect2( 0, 0, 1412, 1998 )
+region_rect = Rect2( 0, 0, 490, 694 )
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 

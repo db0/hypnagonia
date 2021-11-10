@@ -258,7 +258,7 @@ func _on_rte_gui_input(event, rt_label: RichTextLabel, type = 'card_draft') -> v
 			"Proceed":
 				if globals.current_encounter as BossEncounter:
 					# warning-ignore:return_value_discarded
-					get_tree().change_scene(CFConst.PATH_CUSTOM + 'MainMenu/MainMenu.tscn')
+					globals.quit_to_main()
 				else:
 					# warning-ignore:return_value_discarded
 					get_tree().change_scene(CFConst.PATH_CUSTOM + 'Overworld/Journal.tscn')
@@ -291,8 +291,7 @@ func _on_proceed_clicked(_meta: String) -> void:
 			OS.shell_open("https://matrix.to/#/#hypnagonia:matrix.org")
 		"main_menu":
 			# warning-ignore:return_value_discarded
-			get_tree().change_scene(CFConst.PATH_CUSTOM + 'MainMenu/MainMenu.tscn')
-			globals.reset()
+			globals.quit_to_main()
 
 
 func _show_description_popup(description_text: String) -> void:
