@@ -90,6 +90,14 @@ var ov_utils  = load(CFConst.PATH_OVERRIDABLE_UTILS).new()
 var curr_scale: float
 
 func _ready() -> void:
+# warning-ignore:return_value_discarded
+	connect("all_nodes_mapped", self, "_on_all_nodes_mapped")
+# warning-ignore:return_value_discarded
+	get_viewport().connect("size_changed", self, '_on_viewport_resized')
+	_on_viewport_resized()
+	_setup()
+
+func _setup() -> void:
 	init_settings_from_file()
 	init_font_cache()
 	if not game_settings.has('fancy_movement'):
@@ -102,7 +110,6 @@ func _ready() -> void:
 	# as they repopulate during unit testing many times.
 	# warning-ignore:return_value_discarded
 	flush_cache()
-	connect("all_nodes_mapped", self, "_on_all_nodes_mapped")
 	# We need to reset these values for UNIT testing
 	NMAP = {}
 	are_all_nodes_mapped = false
@@ -114,8 +121,7 @@ func _ready() -> void:
 	# Initialize the game random seed
 	set_seed(game_rng_seed)
 	card_definitions = load_card_definitions()
-	get_viewport().connect("size_changed", self, '_on_viewport_resized')
-	_on_viewport_resized()	
+
 
 # Run when all necessary nodes (Board, CardContainers etc) for the game
 # have been initialized. Allows them to proceed with their ready() functions.
@@ -289,34 +295,16 @@ func init_font_cache() -> void:
 # the board loads for the first time. Only works when you're running
 # off of the Main scene.
 func reset_game() -> void:
-	var main = cfc.NMAP.main
-	clear()
-	yield(get_tree().create_timer(0.1), "timeout")
-	main._ready()
-
-
-# This function clears out the usual game nodes
-# and prepares to either quit the game or reset.
-func clear() -> void:
 	flush_cache()
+	var main = cfc.NMAP.main
 	are_all_nodes_mapped = false
 	card_drag_ongoing = null
-	if cfc.NMAP.has("board"):
-		cfc.NMAP.board.queue_free()
+	cfc.NMAP.board.queue_free()
 	# We need to give Godot time to deinstance all nodes.
 	yield(get_tree().create_timer(0.1), "timeout")
 	NMAP.clear()
+	main._ready()
 
-
-# This function exits the card-game part of the framework
-# for example as preparation for returning to the main menu.
-func quit_game() -> void:
-	var main = null
-	if cfc.NMAP.has("main"):
-		main = cfc.NMAP.main
-	clear()
-	if main:
-		main.queue_free()
 
 # Empties the alterants cache (only thing cached for now) which will cause
 # all the alterants engine fire anew for all requests.
