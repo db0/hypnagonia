@@ -52,7 +52,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "modify_damage",
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"amount": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("damage_amount"),
 					"tags": ["Attack"],
@@ -81,7 +81,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "modify_damage",
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"amount": 5,
 					"tags": ["Attack"],
 					"filter_state_subject": [{
@@ -219,7 +219,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					"name": "apply_effect",
 					"effect_name": Terms.ACTIVE_EFFECTS.disempower.name,
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"modification": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("effect_stacks"),
 					"filter_state_subject": [{
@@ -247,7 +247,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "modify_damage",
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"amount": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("damage_amount"),
 					"repeat": cfc.card_definitions[card_name]\
@@ -268,7 +268,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					"subject": "target",
 					"amount": 0,
 					"set_to_mod": true,
-					"is_cost": true,
+					"needs_subject": true,
 					"filter_state_subject": [{
 						"filter_group": "EnemyEntities",
 					}],
@@ -284,7 +284,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					"subject": "target",
 					"amount": 0,
 					"set_to_mod": true,
-					"is_cost": true,
+					"needs_subject": true,
 					"filter_state_subject": [{
 						"filter_group": "EnemyEntities",
 					}],
@@ -343,7 +343,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "custom_script",
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"filter_state_subject": [{
 						"filter_group": "EnemyEntities",
 					}],
@@ -382,7 +382,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "modify_damage",
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"amount": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("damage_amount"),
 					"tags": ["Attack"],
@@ -392,7 +392,6 @@ func get_scripts(card_name: String) -> Dictionary:
 				},
 				{
 					"name": "modify_damage",
-					"is_cost": true,
 					"amount": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("damage_amount"),
 					"tags": ["Attack"],
@@ -452,7 +451,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "modify_damage",
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"amount": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("damage_amount"),
 					"tags": ["Attack"],
@@ -497,7 +496,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					"name": "apply_effect",
 					"effect_name": Terms.ACTIVE_EFFECTS.poison.name,
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"modification": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("effect_stacks"),
 					"filter_state_subject": [{
@@ -538,7 +537,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "modify_damage",
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"tags": ["Attack"],
 					"amount": "per_defence",
 					"per_defence": {
@@ -554,7 +553,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "modify_damage",
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"tags": ["Attack"],
 					"amount": "per_defence",
 					"per_defence": {
@@ -703,7 +702,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "modify_damage",
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"amount": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("damage_amount"),
 					"tags": ["Attack"],
@@ -744,7 +743,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "modify_damage",
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"amount": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("damage_amount"),
 					"tags": ["Attack"],
@@ -777,7 +776,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					"name": "apply_effect",
 					"effect_name": Terms.ACTIVE_EFFECTS.poison.name,
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"modification": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("effect_stacks"),
 					"filter_state_subject": [{
@@ -793,7 +792,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "modify_damage",
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"amount": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("damage_amount"),
 					"tags": ["Attack"],
@@ -807,7 +806,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "modify_damage",
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"amount": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("damage_amount2"),
 					"tags": ["Attack"],
@@ -827,7 +826,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "modify_damage",
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"amount": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("damage_amount"),
 					"tags": ["Attack"],
@@ -853,7 +852,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "modify_damage",
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"amount": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("damage_amount"),
 					"tags": ["Attack"],
@@ -1000,7 +999,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "modify_damage",
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"amount": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("damage_amount"),
 					"tags": ["Attack"],
@@ -1170,7 +1169,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "modify_damage",
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"amount": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("damage_amount"),
 					"tags": ["Attack"],
@@ -1343,7 +1342,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "modify_damage",
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"amount": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("damage_amount"),
 					"tags": ["Attack"],
@@ -1389,7 +1388,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "modify_damage",
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"amount": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("damage_amount"),
 					"tags": ["Attack"],
@@ -1417,7 +1416,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "modify_damage",
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"amount": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("damage_amount"),
 					"tags": ["Attack"],
@@ -1546,7 +1545,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "modify_damage",
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"amount": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("damage_amount"),
 					"tags": ["Attack"],
@@ -1556,7 +1555,6 @@ func get_scripts(card_name: String) -> Dictionary:
 				},
 				{
 					"name": "modify_damage",
-					"is_cost": true,
 					"amount": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("damage_amount2"),
 					"tags": ["Attack"],
@@ -1579,7 +1577,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "modify_damage",
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"amount": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("damage_amount"),
 					"x_modifier": cfc.card_definitions[card_name]\
@@ -1674,7 +1672,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "modify_damage",
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"amount": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("damage_amount"),
 					"tags": ["Attack"],
@@ -1825,7 +1823,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "modify_damage",
 						"subject": "target",
-						"is_cost": true,
+						"needs_subject": true,
 						"amount": cfc.card_definitions[card_name]\
 								.get("_amounts",{}).get("damage_amount"),
 						"tags": ["Attack"],
@@ -1843,7 +1841,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "modify_damage",
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"amount": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("damage_amount"),
 					"tags": ["Attack"],
@@ -1926,7 +1924,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "modify_damage",
 						"subject": "target",
-						"is_cost": true,
+						"needs_subject": true,
 						"amount": cfc.card_definitions[card_name]\
 								.get("_amounts",{}).get("damage_amount"),
 						"tags": ["Attack", "Unblockable"],
@@ -1939,7 +1937,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "modify_damage",
 						"subject": "target",
-						"is_cost": true,
+						"needs_subject": true,
 						"amount": cfc.card_definitions[card_name]\
 								.get("_amounts",{}).get("damage_amount"),
 						"tags": ["Attack"],
@@ -1965,7 +1963,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "modify_damage",
 						"subject": "target",
-						"is_cost": true,
+						"needs_subject": true,
 						"amount": cfc.card_definitions[card_name]\
 								.get("_amounts",{}).get("damage_amount"),
 						"tags": ["Attack"],
@@ -1988,7 +1986,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "modify_damage",
 						"subject": "target",
-						"is_cost": true,
+						"needs_subject": true,
 						"amount": cfc.card_definitions[card_name]\
 								.get("_amounts",{}).get("damage_amount"),
 						"tags": ["Attack"],
@@ -2133,7 +2131,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "modify_damage",
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"amount": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("damage_amount"),
 					"tags": ["Attack"],
@@ -2430,7 +2428,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "modify_damage",
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"amount": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("damage_amount"),
 					"tags": ["Attack"],
@@ -2462,7 +2460,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "modify_damage",
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"amount": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("damage_amount"),
 					"tags": ["Attack"],
@@ -2553,7 +2551,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "modify_damage",
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"amount": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("damage_amount"),
 					"tags": ["Attack"],
@@ -2678,7 +2676,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					"name": "apply_effect",
 					"effect_name": Terms.ACTIVE_EFFECTS.disempower.name,
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"filter_state_subject": [{
 						"filter_group": "EnemyEntities",
 					}],
@@ -2705,7 +2703,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "modify_damage",
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"amount": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("damage_amount"),
 					"tags": ["Attack"],
@@ -2729,7 +2727,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "null_script",
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"filter_state_subject": [{
 						"filter_group": "EnemyEntities",
 					}],
@@ -2836,7 +2834,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "modify_damage",
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"amount": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("damage_amount"),
 					"tags": ["Attack"],
