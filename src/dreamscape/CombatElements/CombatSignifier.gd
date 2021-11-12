@@ -2,11 +2,13 @@ class_name CombatSignifier
 extends Control
 
 export(StreamTexture) var icon_container_texture :StreamTexture
+export(StreamTexture) var icon_extra_container_texture :StreamTexture
 var amount : int setget update_amount
 
 onready var signifier_label := $Signifier/Label
 onready var signifier_icon := $Signifier/Icon
 onready var signifier_icon_container := $Signifier/IconContainer
+onready var signifier_extra_container := $Signifier/ExtraContainer
 onready var signifier_amount := $MC/Amount
 onready var decription_popup := $Description
 onready var decription_label := $Description/Label
@@ -17,6 +19,9 @@ func _ready() -> void:
 	if icon_container_texture:
 		signifier_icon_container.texture = CFUtils.convert_texture_to_image(
 				icon_container_texture, true)
+	if icon_extra_container_texture:
+		signifier_extra_container.texture = CFUtils.convert_texture_to_image(
+				icon_extra_container_texture, true)
 
 func setup(signifier_details: Dictionary, signifier_name: String) -> void:
 #	print_debug("Setting up intent: " + intent_name)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/dreamscape/CombatElements/CombatSignifier.gd" type="Script" id=1]
 [ext_resource path="res://assets/icons/shield.png" type="Texture" id=2]
 [ext_resource path="res://themes/darktheme/fonts/Reggae_One/ReggaeOne-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/icons/GUI/ring.png" type="Texture" id=4]
 [ext_resource path="res://assets/card_front/tag_container.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
@@ -19,6 +20,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 icon_container_texture = ExtResource( 5 )
+icon_extra_container_texture = ExtResource( 4 )
 
 [node name="Signifier" type="CenterContainer" parent="."]
 margin_right = 24.0
@@ -30,10 +32,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Signifier"]
-margin_left = 2.0
-margin_top = 2.0
-margin_right = 38.0
-margin_bottom = 38.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 40.0
+margin_bottom = 40.0
 rect_min_size = Vector2( 36, 36 )
 mouse_filter = 1
 custom_fonts/font = SubResource( 1 )
@@ -42,17 +44,26 @@ align = 1
 uppercase = true
 
 [node name="IconContainer" type="TextureRect" parent="Signifier"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 42.0
+margin_bottom = 42.0
 rect_min_size = Vector2( 40, 40 )
 expand = true
 stretch_mode = 1
 
+[node name="ExtraContainer" type="TextureRect" parent="Signifier"]
+margin_right = 45.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 45, 45 )
+expand = true
+stretch_mode = 1
+
 [node name="Icon" type="TextureRect" parent="Signifier"]
-margin_left = 5.0
-margin_top = 5.0
-margin_right = 35.0
-margin_bottom = 35.0
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 37.0
+margin_bottom = 37.0
 rect_min_size = Vector2( 30, 30 )
 texture = ExtResource( 2 )
 expand = true
