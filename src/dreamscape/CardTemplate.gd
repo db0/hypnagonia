@@ -314,6 +314,11 @@ func execute_scripts(
 	for entity in cfc.get_tree().get_nodes_in_group("CombatEntities"):
 		entity.clear_predictions()
 
+func common_pre_execution_scripts(_trigger: String, trigger_details: Dictionary) -> void:
+	# We inject the amount of immersion we have into the trigger details
+	# So that it may be used for filter_x_amount if it exists
+	trigger_details["immersion_amount"] = cfc.NMAP.board.counters.get_counter("immersion")
+
 
 # I'm using this to show the predicted damage on enemies
 func common_pre_run(sceng) -> void:

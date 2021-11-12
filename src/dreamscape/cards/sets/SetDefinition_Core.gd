@@ -4133,7 +4133,7 @@ const CARDS := {
 		"Abilities": "Gain X * {defence_amount} {confidence}\n"\
 				+ "Gain X * {effect_stacks} {buffer}",
 		"Cost": 'X',
-		"_illustration": "Nobody",
+		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Common",
 		"_keywords": ["confidence"],
 		"_effects_info": {
@@ -4155,7 +4155,7 @@ const CARDS := {
 		"Abilities": "Gain X * {defence_amount} {confidence}\n"\
 				+ "Gain X * {effect_stacks} {buffer}",
 		"Cost": 'X',
-		"_illustration": "Nobody",
+		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Common",
 		"_keywords": ["confidence"],
 		"_effects_info": {
@@ -4173,7 +4173,7 @@ const CARDS := {
 		"Abilities": "Gain X * {defence_amount} {confidence}\n"\
 				+ "Gain X * {effect_stacks} {buffer}",
 		"Cost": 'X',
-		"_illustration": "Nobody",
+		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Common",
 		"_keywords": ["confidence"],
 		"_effects_info": {
@@ -5460,6 +5460,75 @@ const CARDS := {
 		"_amounts": {
 			"defence_amount": 7,
 			"x_modifer": "+1"
+		},
+		"_is_upgrade": true,
+	},
+	"Launch": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name,Terms.ACTIVE_EFFECTS.burn.name],
+		"Abilities": "Gain X {impervious}\n"\
+				+ "If X is at least {x_requirement}, all Torments gain {effect_stacks2} {burn}",
+		"Cost": 'X',
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"effect_stacks": 1,
+			"effect_stacks2": 2,
+			"x_requirement": 1,
+		},
+		"_upgrade_threshold": 8,
+		"_upgrades": [
+			"@ Launch @",
+			"* Launch *",
+			"% Launch %",
+		],
+	},
+	"@ Launch @": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name,Terms.ACTIVE_EFFECTS.burn.name],
+		"Abilities": "Gain X * {effect_stacks} {impervious}\n"\
+				+ "If X is at least {x_requirement}, all Torments gain {effect_stacks} {burn}",
+		"Cost": 'X',
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"effect_stacks": 2,
+			"effect_stacks2": 2,
+			"x_requirement": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"* Launch *": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name,Terms.ACTIVE_EFFECTS.burn.name],
+		"Abilities": "Gain X * {effect_stacks} {impervious}\n"\
+				+ "If X is at least {x_requirement}, all Torments gain {effect_stacks2} {burn}",
+		"Cost": 'X',
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"effect_stacks": 1,
+			"effect_stacks2": 3,
+			"x_requirement": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"% Launch %": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name,Terms.ACTIVE_EFFECTS.burn.name],
+		"Abilities": "Gain X * {effect_stacks} {impervious}\n"\
+				+ "All Torments gain {effect_stacks2} {burn}",
+		"Cost": 'X',
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"effect_stacks": 1,
+			"effect_stacks2": 2,
+			"x_requirement": 0,
 		},
 		"_is_upgrade": true,
 	},

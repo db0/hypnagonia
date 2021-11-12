@@ -29,6 +29,8 @@ const FILTER_STACKS = "filter_stacks"
 const FILTER_TURN_EVENT_COUNT = "filter_turn_event_count"
 const FILTER_ENCOUNTER_EVENT_COUNT = "filter_encounter_event_count"
 const FILTER_DAMAGE_PCT = "filter_damage_percent"
+# Filters based on how much immersion will be used by X
+const FILTER_X_USAGE = "filter_x_usage"
 const KEY_EFFECT_NAME = "effect_name"
 const KEY_UPGRADE_NAME = "upgrade_name"
 const KEY_EVENT_NAME = "event_name"
@@ -144,6 +146,18 @@ static func filter_trigger(
 		if not CFUtils.compare_numbers(
 				current_damage_pct,
 				requested_pct,
+				comparison_type):
+			is_valid = false
+
+	if is_valid and card_scripts.has(FILTER_X_USAGE):
+		var filter_x_usage_dict : Dictionary = card_scripts[FILTER_X_USAGE]
+		var comparison_type = filter_x_usage_dict.get(
+				ScriptProperties.KEY_COMPARISON, 'ge')
+		var current_x_usage = trigger_details.get("immersion_amount", 0)
+		var filter_x_usage = filter_x_usage_dict.get(ScriptProperties.FILTER_COUNT, 1)
+		if not CFUtils.compare_numbers(
+				current_x_usage,
+				filter_x_usage,
 				comparison_type):
 			is_valid = false
 	return(is_valid)

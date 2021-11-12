@@ -437,7 +437,8 @@ func get_scripts(card_name: String) -> Dictionary:
 					"effect_name": Terms.ACTIVE_EFFECTS.vulnerable.name,
 					"subject": "boardseek",
 					"subject_count": "all",
-					"modification": 2,
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("effect_stacks"),
 					"filter_state_seek": [{
 						"filter_group": "EnemyEntities",
 					}],
@@ -2898,6 +2899,38 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
+	var Launch = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.impervious.name,
+					"subject": "dreamer",
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("effect_stacks"),
+					"x_modifier": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("x_modifer", 0),
+					"x_operation": "multiply",
+				},
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.burn.name,
+					"subject": "boardseek",
+					"subject_count": "all",
+					"modification": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("effect_stacks2"),
+					"filter_state_seek": [{
+						"filter_group": "EnemyEntities",
+					}],
+					"filter_x_usage": {
+						"filter_count": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("x_requirement"),
+					}
+				}
+
+			],
+		},
+	}
 
 
 	# This format allows me to trace which script failed during load
@@ -3030,6 +3063,7 @@ func get_scripts(card_name: String) -> Dictionary:
 		"The Finger": TheFinger,
 		"Bring It!": BringIt,
 		"Sanguine": Sanguine,
+		"Launch": Launch,
 	}
 	return(_prepare_scripts(scripts, card_name))
 

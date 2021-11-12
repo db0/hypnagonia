@@ -32,9 +32,7 @@ func get_combat_entity() -> Node:
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 32, 32 )
 
-[node name="CombatEntity" type="VBoxContainer" groups=[
-"CombatEntities",
-]]
+[node name="CombatEntity" type="VBoxContainer" groups=["CombatEntities"]]
 margin_top = -30.4889
 margin_right = 69.0
 margin_bottom = 111.511
@@ -149,7 +147,7 @@ margin_right = 69.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 0, 36 )
 custom_constants/vseparation = 15
-custom_constants/hseparation = 15
+custom_constants/hseparation = 20
 
 [node name="Description" type="PopupPanel" parent="."]
 margin_right = 8.0
