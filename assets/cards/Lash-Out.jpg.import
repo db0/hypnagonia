@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Lash-Out.jpg-4b7212a1589b66ff0ea0d6e2281902fc.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://assets/cards/Lash-Out.jpg"
+dest_files=[ "res://.import/Lash-Out.jpg-4b7212a1589b66ff0ea0d6e2281902fc.stex" ]
+
+[params]
+
+compress/mode=1
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

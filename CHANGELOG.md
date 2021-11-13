@@ -1,5 +1,12 @@
 # Dreams: Changelog
 
+## v0.14.5
+
+* Added art for 11 cards from Abusive Relationship (h/t cabbage)
+* Finalized all unnamed Abusive Relationship cards
+* Moved Card Images to preloads, to hopefully shave some runtime.
+* Card Library can now filter cards by Illustrator
+* Added Prejustice illustration (@Marablack)[https://www.deviantart.com/marablack3]
 ## v0.14.4
 
 * Added quit to main menu button in the settings
@@ -9,8 +16,8 @@
 ## v0.14.3
 
 * Removed all non-free assets such as card backs, icons and the logo appearing when there is no art.
-* Added Eureka! art ((@Marablack)[https://www.deviantart.com/marablack3])
-* Added new "No art available" Art ((@Marablack)[https://www.deviantart.com/marablack3])
+* Added Eureka! art (@Marablack)[https://www.deviantart.com/marablack3]
+* Added new "No art available" Art (@Marablack)[https://www.deviantart.com/marablack3]
 * Changed card backs
 * Changed background to combat effects
 * Changed Immersion background
@@ -38,8 +45,8 @@
 
 ## v0.13.3
 
-* Added Hyperfocus art ((@Marablack)[https://www.deviantart.com/marablack3])
-* Added Rapid Theorizing art ((@Marablack)[https://www.deviantart.com/marablack3])
+* Added Hyperfocus art (@Marablack)[https://www.deviantart.com/marablack3]
+* Added Rapid Theorizing art (@Marablack)[https://www.deviantart.com/marablack3]
 * Added Misunderstood
 * Added Death Ray
 

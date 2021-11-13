@@ -40,6 +40,7 @@ const FLYER:= {
 		"Barrel Through",
 		"Running Start",
 		"Introspection",
+		"Launch",
 	],
 	"Rare": [
 		"Master of Skies",
@@ -67,8 +68,7 @@ const MAD_SCIENTIST := {
 	"Common": [
 		"Recall",
 		"Vexing Concept",
-		"unnamed_card_1",
-		"unnamed_card_1",
+		"Blind Trial",
 		"Hyperfocus",
 		"Misunderstood",
 		"Misplaced Research",
@@ -261,29 +261,28 @@ const ABUSIVE_RELATIONSHIP := {
 		"Confidence",
 	],
 	"Common": [
-		"unnamed_card_7",
-		"unnamed_card_8",
-		"unnamed_card_9",
+		"Perseverance",
+		"It's The Small Things",
+		"Confrontation",
 		"Could Be Worse",
 		"Dismissal",
-		"unnamed_card_12",
-		"unnamed_card_13",
+		"It's not about me",
+		"That too, shall pass",
 		"Is it my fault?",
 	],
 	"Uncommon": [
-		"unnamed_card_6",
-		"unnamed_card_15",
-		"unnamed_card_16",
+		"Flashbacks",
+		"Enough is enough!",
+		"Grit",
 		"Self-Deception",
 		"Rancor",
 		"Lash-out",
-		"unnamed_card_17",
-		"unnamed_card_18",
+		"Survival Mode",
 	],
 	"Rare": [
 		"The Happy Place",
 		"Tolerance",
 		"Catatonia",
-		"unnamed_card_17"
+		"Disengage"
 	]
 }

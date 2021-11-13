@@ -95,15 +95,14 @@ func setup() -> void:
 		card_front.set_tag_icon(get_property("Tags"))
 	if printed_properties.empty():
 		printed_properties = properties.duplicate()
-	var card_art_file: String
+	var card_art_file
 	if get_property("_is_upgrade"):
 		var card_upgrade_parent_name =  _find_upgrade_parent()
-		card_art_file = "res://assets/cards/" + card_upgrade_parent_name
+		card_art_file = ImageLibrary.CARD_IMAGES.get(card_upgrade_parent_name)
 	else:
-		card_art_file = "res://assets/cards/" + canonical_name
-	for extension in ['.jpg','.jpeg','.png']:
-		if ResourceLoader.exists(card_art_file + extension):
-			card_front.set_card_art(card_art_file + extension)
+		card_art_file = ImageLibrary.CARD_IMAGES.get(canonical_name)
+	if card_art_file as StreamTexture:
+		card_front.set_card_art(card_art_file)
 
 # Sample code on how to figure out costs of a card
 func get_modified_credits_cost() -> int:

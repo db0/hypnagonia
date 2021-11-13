@@ -35,6 +35,7 @@ criteria_map = {
 "a": "Abilities",
 "c": "Cost",
 "g": "Tags",
+"i": "_illustration",
 "r": "_rarity",
 "t": "Type"
 }

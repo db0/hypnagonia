@@ -1026,7 +1026,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
-	var unnamed_card_1 = {
+	var BlindTrial = {
 		"manual": {
 			"hand": [
 				{
@@ -1057,7 +1057,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
-	var Sustainedunnamed_card_1 = {
+	var SustainedBlindTrial = {
 		"manual": {
 			"hand": [
 				{
@@ -1440,7 +1440,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
-	var unnamed_card_6 = {
+	var Flashbacks = {
 		"manual": {
 			"hand": [
 				{
@@ -1466,7 +1466,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
-	var Sustainedunnamed_card_6 = {
+	var SustainedFlashbacks = {
 		"manual": {
 			"hand": [
 				{
@@ -1487,7 +1487,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
-	var unnamed_card_7 = {
+	var Perseverance = {
 		"manual": {
 			"hand": [
 				{
@@ -1511,7 +1511,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
-	var Improvedunnamed_card_7 = {
+	var ImprovedPerseverance = {
 		"manual": {
 			"hand": [
 				{
@@ -1540,7 +1540,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
-	var unnamed_card_8 = {
+	var ItsTheSmallThings = {
 		"manual": {
 			"hand": [
 				{
@@ -1572,7 +1572,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
-	var unnamed_card_9 = {
+	var Confrontation = {
 		"manual": {
 			"hand": [
 				{
@@ -1743,7 +1743,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
-	var unnamed_card_12 = {
+	var ThatTooShallPass = {
 		"manual": {
 			"hand": [
 				{
@@ -1767,7 +1767,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
-	var Swiftunnamed_card_12 = {
+	var ThatTooMustPass = {
 		"manual": {
 			"hand": [
 				{
@@ -1797,7 +1797,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
-	var unnamed_card_13 = {
+	var ItsNotAboutMe = {
 		"manual": {
 			"hand": {
 				"Take Anxiety to Interpret all Torments": [
@@ -1950,7 +1950,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			}
 		},
 	}
-	var unnamed_card_15 = {
+	var EnoughIsEnough = {
 		"manual": {
 			"hand": {
 				"Take Anxiety to interpret and inflict Doubt on single Torment.": [
@@ -1999,7 +1999,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			}
 		},
 	}
-	var unnamed_card_16 = {
+	var Grit = {
 		"manual": {
 			"hand": {
 				"Take Anxiety to gain Confidence and Courage.": [
@@ -2126,7 +2126,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
-	var unnamed_card_17 = {
+	var Disengage = {
 		"manual": {
 			"hand": [
 				{
@@ -2149,7 +2149,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
-	var unnamed_card_18 = {
+	var SurvivalMode = {
 		"manual": {
 			"hand": [
 				{
@@ -2987,8 +2987,8 @@ func get_scripts(card_name: String) -> Dictionary:
 		"Mania": Mania,
 		"Utterly Ridiculous": UtterlyRidiculous,
 		"Ventriloquism": Ventriloquism,
-		"unnamed_card_1": unnamed_card_1,
-		"Sustained unnamed_card_1": Sustainedunnamed_card_1,
+		"Blind Trial": BlindTrial,
+		"Sustained Blind Trial": SustainedBlindTrial,
 		"Fowl Language": FowlLanguage,
 		"Cockfighting": Cockfighting,
 		"Absurdity Unleashed": AbsurdityUnleashed,
@@ -3006,12 +3006,12 @@ func get_scripts(card_name: String) -> Dictionary:
 		"Vexing Concept": VexingConcept,
 		"It's alive!": Itsalive,
 		"Detect Weaknesses": DetectWeaknesses,
-		"unnamed_card_6": unnamed_card_6,
-		"Sustained unnamed_card_6": Sustainedunnamed_card_6,
-		"unnamed_card_7": unnamed_card_7,
-		"Improved unnamed_card_7": Improvedunnamed_card_7,
-		"unnamed_card_8": unnamed_card_8,
-		"unnamed_card_9": unnamed_card_9,
+		"Flashbacks": Flashbacks,
+		"Sustained Flashbacks": SustainedFlashbacks,
+		"Perseverance": Perseverance,
+		"Improved Perseverance": ImprovedPerseverance,
+		"It's The Small Things": ItsTheSmallThings,
+		"Confrontation": Confrontation,
 		"Dodge": Dodge,
 		"Introspection": Introspection,
 		"Light Introspection": LightIntrospection,
@@ -3020,23 +3020,23 @@ func get_scripts(card_name: String) -> Dictionary:
 		"Could Be Worse": CouldBeWorse,
 		"The Happy Place": TheHappyPlace,
 		"Self-Deception": SelfDeception,
-		"unnamed_card_12": unnamed_card_12,
-		"Swiftunnamed_card_12": Swiftunnamed_card_12,
-		"unnamed_card_13": unnamed_card_13,
+		"That too, shall pass": ThatTooShallPass,
+		"That too, must pass": ThatTooMustPass,
+		"It's not about me": ItsNotAboutMe,
 		"Rancor": Rancor,
 		"Justified Rancor": JustifiedRancor,
 		"Lash-out": LastOut,
 		"Frustrated Lash-out": FrustratedLastOut,
 		"Is it my fault?": IsItMyFault,
-		"unnamed_card_15": unnamed_card_15,
-		"unnamed_card_16": unnamed_card_16,
+		"Enough if enough!": EnoughIsEnough,
+		"Grit": Grit,
 		"Excuses": Excuses,
 		"Endless Excuses": EndlessExcuses,
 		"Tolerance": Tolerance,
 		"Extreme Tolerance": ExtremeTolerance,
 		"Catatonia": Catatonia,
-		"unnamed_card_17": unnamed_card_17,
-		"unnamed_card_18": unnamed_card_18,
+		"Disengage": Disengage,
+		"Survival Mode": SurvivalMode,
 		"A Thousand Squeaks": AThousandSqueaks,
 		"Hyperfocus": Hyperfocus,
 		"Misunderstood": Misunderstood,

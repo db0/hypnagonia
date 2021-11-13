@@ -66,7 +66,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Cabbage",
 		"_rarity": "Basic",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -465,7 +465,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.purpose.name],
 		"Abilities": "Gain {immersion_amount} {immersion}",
 		"Cost": 3,
-		"_illustration": "Nobody",
+		"_illustration": "Cabbage",
 		"_rarity": "Basic",
 		"_amounts": {
 			"immersion_amount": 4,
@@ -2187,7 +2187,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"unnamed_card_1": {
+	"Blind Trial": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "{shuffle} your discard pile into your deck.\nPlay {draw_amount} Random card from your deck. {forget}.",
@@ -2200,12 +2200,12 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 9,
 		"_upgrades": [
-			"@ unnamed_card_1 @",
-			"! unnamed_card_1 !",
-			"Sustained unnamed_card_1",
+			"@ Blind Trial @",
+			"! Blind Trial !",
+			"Sustained Blind Trial",
 		],
 	},
-	"@ unnamed_card_1 @": {
+	"@ Blind Trial @": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "{shuffle} your discard pile into your deck.\nPlay {draw_amount} Random card from your deck. {forget}.",
@@ -2218,7 +2218,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"! unnamed_card_1 !": {
+	"! Blind Trial !": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "{shuffle} your discard pile into your deck.\nPlay {draw_amount} Random card from your deck. {forget}.",
@@ -2231,7 +2231,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Sustained unnamed_card_1": {
+	"Sustained Blind Trial": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
 		"Abilities": "{shuffle} your discard pile into your deck.\nPlay {draw_amount} Random card from your deck.",
@@ -2942,7 +2942,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"unnamed_card_6": {
+	"Flashbacks": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.swift.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Draw {draw_amount} card. It costs 0 {immersion} until played. {forget}",
@@ -2955,11 +2955,11 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"! unnamed_card_6 !",
-			"Sustained unnamed_card_6",
+			"! Flashbacks !",
+			"Sustained Flashbacks",
 		],
 	},
-	"! unnamed_card_6 !": {
+	"! Flashbacks !": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.swift.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Draw {draw_amount} card. It costs 0 {immersion} until played. {forget}",
@@ -2972,7 +2972,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Sustained unnamed_card_6": {
+	"Sustained Flashbacks": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Draw {draw_amount} card. It costs 0 {immersion} until played.",
@@ -2984,7 +2984,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"unnamed_card_7": {
+	"Perseverance": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {immersion_amount} {immersion}\nGain {effect_stacks} {drain}\n{forget}",
@@ -3001,11 +3001,11 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"Improved unnamed_card_7",
-			"+ unnamed_card_7 +",
+			"Improved Perseverance",
+			"+ Perseverance +",
 		],
 	},
-	"Improved unnamed_card_7": {
+	"Improved Perseverance": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.swift.name, Terms.GENERIC_TAGS.purpose.name],
 		"Abilities": "Gain {immersion_amount} {immersion}\nDraw {draw_amount} card\nGain {effect_stacks} {drain}\n{forget}",
@@ -3023,7 +3023,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"+ unnamed_card_7 +": {
+	"+ Perseverance +": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {immersion_amount} {immersion}\nGain {effect_stacks} {drain}\n{forget}",
@@ -3040,8 +3040,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	#TODO
-	"unnamed_card_8": {
+	"It's The Small Things": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
@@ -3056,11 +3055,11 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"% unnamed_card_8 %",
-			"+ unnamed_card_8 +",
+			"% It's The Small Things %",
+			"+ It's The Small Things +",
 		],
 	},
-	"+ unnamed_card_8 +": {
+	"+ It's The Small Things +": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
@@ -3075,7 +3074,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"% unnamed_card_8 %": {
+	"% It's The Small Things %": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "If you have gained extra {immersion} this turn, {damage} for {damage_amount2}",
@@ -3089,7 +3088,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"unnamed_card_9": {
+	"Confrontation": {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} for X * {damage_amount}.",
@@ -3102,11 +3101,11 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"@ unnamed_card_9 @",
-			"+ unnamed_card_9 +",
+			"@ Confrontation @",
+			"+ Confrontation +",
 		],
 	},
-	"@ unnamed_card_9 @": {
+	"@ Confrontation @": {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} for (X + 1) * {damage_amount}.",
@@ -3121,7 +3120,7 @@ const CARDS := {
 		"_upgrade_threshold": 7,
 		"_is_upgrade": true,
 	},
-	"+ unnamed_card_9 +": {
+	"+ Confrontation +": {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} for X * {damage_amount}.",
@@ -3239,7 +3238,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "Take {exert_amount} {anxiety}\nGain {defence_amount} {defence}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Cabbage",
 		"_rarity": "Common",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -3285,7 +3284,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "Take {exert_amount} {anxiety}\n{damage} for {damage_amount}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Cabbage",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -3331,7 +3330,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.armor.name],
 		"Abilities": "Whenever you take {anxiety} during your turn, gain {effect_amount} {armor}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Cabbage",
 		"_keywords": ["interpretation"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER
@@ -3384,7 +3383,7 @@ const CARDS := {
 		"Abilities": "Take {exert_amount} {anxiety}\nDraw {draw_amount} {exert} card.\n"\
 				+ "Draw {draw_amount2} card.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Cabbage",
 		"_rarity": "Uncommon",
 		"_keywords": [],
 		"_amounts": {
@@ -3429,7 +3428,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"unnamed_card_12": {
+	"That too, shall pass": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "Take {exert_amount} {anxiety}\nGain {immersion_amount} {immersion}.\n{forget}.",
@@ -3442,12 +3441,12 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 8,
 		"_upgrades": [
-			"% unnamed_card_12 %",
-			"+ unnamed_card_12 +",
-			"Swift unnamed_card_12",
+			"% That too, shall pass %",
+			"+ That too, shall pass +",
+			"That too, must pass",
 		],
 	},
-	"% unnamed_card_12 %": {
+	"% That too, shall pass %": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "Take {exert_amount} {anxiety}\nGain {immersion_amount} {immersion}.\n{forget}.",
@@ -3460,7 +3459,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"+ unnamed_card_12 +": {
+	"+ That too, shall pass +": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "Take {exert_amount} {anxiety}\nGain {immersion_amount} {immersion}.\n{forget}.",
@@ -3473,7 +3472,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Swift unnamed_card_12": {
+	"That too, must pass": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "Take {exert_amount} {anxiety}\nGain {immersion_amount} {immersion}.\nDraw {draw_amount} card. {forget}.",
@@ -3493,7 +3492,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "{damage} all Torments by the amount of damage you've taken during your turn.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Cabbage",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -3534,7 +3533,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "After you take {anxiety} during your turn, {damage} a random Torment for the same amount.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Cabbage",
 		"_keywords": ["interpretation"],
 		"_rarity": "Uncommon",
 		"_upgrade_threshold": 8,
@@ -3574,7 +3573,7 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_is_upgrade": true,
 	},
-	"unnamed_card_13": {
+	"It's not about me": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name, Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
@@ -3589,11 +3588,11 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 6,
 		"_upgrades": [
-			"+ unnamed_card_13 +",
-			"% unnamed_card_13 %",
+			"+ It's not about me +",
+			"% It's not about me %",
 		],
 	},
-	"+ unnamed_card_13 +": {
+	"+ It's not about me +": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name, Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
@@ -3608,7 +3607,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"% unnamed_card_13 %": {
+	"% It's not about me %": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name, Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
@@ -3627,9 +3626,9 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "You may take {exert_amount} {anxiety} {pierce}",
+				+ "You may take {exert_amount} {anxiety} to {pierce}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Cabbage",
 		"_rarity": "Common",
 		"_keywords": ["interpretation", "pierce"],
 		"_amounts": {
@@ -3672,7 +3671,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"unnamed_card_15": {
+	"Enough is enough!": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.exert.name, Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
@@ -3691,11 +3690,11 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"+ unnamed_card_15 +",
-			"* unnamed_card_15 *",
+			"+ Enough is enough! +",
+			"* Enough is enough! *",
 		],
 	},
-	"+ unnamed_card_15 +": {
+	"+ Enough is enough! +": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.exert.name, Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
@@ -3714,7 +3713,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"* unnamed_card_15 *": {
+	"* Enough is enough! *": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.exert.name, Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
@@ -3733,7 +3732,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"unnamed_card_16": {
+	"Grit": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.exert.name, Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "Gain {defence_amount} {defence}\n"\
@@ -3752,11 +3751,11 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"+ unnamed_card_16 +",
-			"% unnamed_card_16 %",
+			"+ Grit +",
+			"% Grit %",
 		],
 	},
-	"+ unnamed_card_16 +": {
+	"+ Grit +": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.exert.name, Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "Gain {defence_amount} {defence}\n"\
@@ -3775,7 +3774,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"% unnamed_card_16 %": {
+	"% Grit %": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.exert.name, Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "Gain {defence_amount} {defence}\n"\
@@ -3843,7 +3842,7 @@ const CARDS := {
 		"Abilities": "The next {effect_stacks} time your {anxiety} would reach its maximum, "\
 				+ "you take no {anxiety}, gain {effect_amount} {immersion} and draw {effect_amount} card.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Cabbage",
 		"_rarity": "Rare",
 		"_keywords": [],
 		"_amounts": {
@@ -3893,7 +3892,7 @@ const CARDS := {
 				+ "If you have taken at least {anxiety_taken} {anxiety} during your turn during "\
 				+ "this Ordeal, {relax} for {healing_amount}.\n{forget}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Cabbage",
 		"_rarity": "Rare",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -3941,7 +3940,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"unnamed_card_17": {
+	"Disengage": {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}\nGain {defence_amount} {defence}",
@@ -3955,12 +3954,12 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 6,
 		"_upgrades": [
-			"+ unnamed_card_17 +",
-			"@ unnamed_card_17 @",
-			"- unnamed_card_17 -",
+			"+ Disengage +",
+			"@ Disengage @",
+			"- Disengage -",
 		],
 	},
-	"+ unnamed_card_17 +": {
+	"+ Disengage +": {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}\nGain {defence_amount} {defence}",
@@ -3974,7 +3973,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"- unnamed_card_17 -": {
+	"- Disengage -": {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}\nGain {defence_amount} {defence}\n{release}",
@@ -3988,7 +3987,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"@ unnamed_card_17 @": {
+	"@ Disengage @": {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}\nGain {defence_amount} {defence}",
@@ -4002,7 +4001,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"unnamed_card_18": {
+	"Survival Mode": {
 		"Type": "Control",
 		"Tags": [],
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
@@ -4018,12 +4017,12 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"+ unnamed_card_18 +",
-			"= unnamed_card_18 =",
-			"% unnamed_card_18 %",
+			"+ Survival Mode +",
+			"= Survival Mode =",
+			"% Survival Mode %",
 		],
 	},
-	"+ unnamed_card_18 +": {
+	"+ Survival Mode +": {
 		"Type": "Control",
 		"Tags": [],
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
@@ -4039,7 +4038,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"= unnamed_card_18 =": {
+	"= Survival Mode =": {
 		"Type": "Control",
 		"Tags": [],
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
@@ -4055,7 +4054,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"% unnamed_card_18 %": {
+	"% Survival Mode %": {
 		"Type": "Control",
 		"Tags": [],
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
