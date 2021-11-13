@@ -1,0 +1,77 @@
+name: Build and Export
+
+# Whenever a push is made to the master branch then run the job
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  # job id, can be anything
+  export_game:
+    # Always use ubuntu-latest for this action
+    runs-on: ubuntu-latest
+    # Job name, can be anything
+    name: Export Game Job
+    steps:
+      # Always include the checkout step so that
+      # your project is available for Godot to export
+    - name: checkout
+      uses: actions/checkout@v2
+      # Ensure that you get the entire project history
+      with:
+        fetch-depth: 0
+    - name: export game
+      # Use latest version (see releases for all versions)
+      uses: firebelley/godot-export@v3.0.0
+      with:
+        # Defining all the required inputs
+        # I used the mono version of Godot in this example
+        godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/3.4/Godot_v3.4-stable_linux_headless.64.zip
+        godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/3.4/Godot_v3.4-stable_export_templates.tpz
+        relative_project_path: ./
+        base_version: 0.14.5
+        create_release: false
+        archive_export_output: true
+      # env:
+      #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - shell: bash
+      run: cp -v /home/runner/.local/share/godot/dist/* .
+    - shell: bash
+      run: cp '/home/runner/.local/share/godot/builds/LinuxX11/Hypnagonia_Linux.x86_64' .
+    - shell: bash
+      run: cp '/home/runner/.local/share/godot/builds/Windows Desktop/Hypnagonia_Windows.exe' .
+    - shell: bash
+      run: cp '/home/runner/.local/share/godot/builds/Mac OSX/Hypnagonia_MacOSX.zip' .
+    - name: Upload HTML5 version to itch.io
+      uses: josephbmanley/butler-publish-itchio-action@master
+      env:
+        BUTLER_CREDENTIALS: "${{ secrets.BUTLER_CREDENTIALS }}"
+        CHANNEL: HTML5
+        ITCH_GAME: hypnagonia
+        ITCH_USER: dbzer0
+        PACKAGE: HTML5.zip
+    - name: Upload Windows version to itch.io
+      uses: josephbmanley/butler-publish-itchio-action@master
+      env:
+        BUTLER_CREDENTIALS: "${{ secrets.BUTLER_CREDENTIALS }}"
+        CHANNEL: windows
+        ITCH_GAME: hypnagonia
+        ITCH_USER: dbzer0
+        PACKAGE: Hypnagonia_Windows.exe
+    - name: Upload Linux version to itch.io
+      uses: josephbmanley/butler-publish-itchio-action@master
+      env:
+        BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+        CHANNEL: linux
+        ITCH_GAME: hypnagonia
+        ITCH_USER: dbzer0
+        PACKAGE: Hypnagonia_Linux.x86_64
+    - name: Upload OSX version to itch.io
+      uses: josephbmanley/butler-publish-itchio-action@master
+      env:
+        BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+        CHANNEL: osx
+        ITCH_GAME: hypnagonia
+        ITCH_USER: dbzer0
+        PACKAGE: Hypnagonia_MacOSX.zip
