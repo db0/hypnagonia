@@ -1,10 +1,9 @@
 name: Export and Upload
 
 on:
-  push:
-    tags:
-      - 'v*'
-
+  release:
+    types:
+      - created
 
 jobs:
   export_and_upload:
