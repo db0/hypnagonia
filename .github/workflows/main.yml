@@ -18,12 +18,13 @@ jobs:
       # Ensure that you get the entire project history
       with:
         fetch-depth: 0
-    - name: Release on push
+    - name: release
       uses: rymndhng/release-on-push-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         bump_version_scheme: patch
+        tag_prefix: ""
       # Always include the checkout step so that
       # your project is available for Godot to export
     - name: Commit new version
@@ -31,7 +32,7 @@ jobs:
           sed -i 's/GAME_VERSION := ".*"/GAME_VERSION := "${{ steps.release.outputs.version }}"/g' ./src/dreamscape/CFConst.gd
           git config user.email github-actions@github.com
           git config user.name github-actions
-          git commit -m 'version incremented'
+          git commit -am 'version incremented'
           git push
     # - name: export game
     #   # Use latest version (see releases for all versions)
