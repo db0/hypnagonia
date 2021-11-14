@@ -1,4 +1,4 @@
-name: Version and Release
+name: Prepare New Release
 
 on:
   push:
@@ -8,7 +8,6 @@ on:
 
 jobs:
   version_and_release:
-    # Always use ubuntu-latest for this action
     runs-on: ubuntu-latest
     # Job name, can be anything
     name: Export Game Job
@@ -31,6 +30,7 @@ jobs:
     - name: Commit new version
       run: |
           sed -i 's/GAME_VERSION := ".*"/GAME_VERSION := "${{ steps.release.outputs.version }}"/g' ./src/dreamscape/CFConst.gd
+          sed -i 's/Therapy through Nightmares \[v.*\]/Therapy through Nightmares ["${{ steps.release.outputs.version }}"]/g' README.md
           git config user.email github-actions@github.com
           git config user.name github-actions
           git commit -am 'version incremented'
@@ -49,14 +49,13 @@ jobs:
         archive_export_output: true
       # env:
       #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - shell: bash
-      run: cp -v /home/runner/.local/share/godot/dist/* .
-    - shell: bash
-      run: cp '/home/runner/.local/share/godot/builds/LinuxX11/Hypnagonia_Linux.x86_64' .
-    - shell: bash
-      run: cp '/home/runner/.local/share/godot/builds/Windows Desktop/Hypnagonia_Windows.exe' .
-    - shell: bash
-      run: cp '/home/runner/.local/share/godot/builds/Mac OSX/Hypnagonia_MacOSX.zip' .
+    - name: Prepare files for upload to itch.io
+      shell: bash
+      run: |
+          cp -v /home/runner/.local/share/godot/dist/* .
+          cp '/home/runner/.local/share/godot/builds/LinuxX11/Hypnagonia_Linux.x86_64' .
+          cp '/home/runner/.local/share/godot/builds/Windows Desktop/Hypnagonia_Windows.exe' .
+          cp '/home/runner/.local/share/godot/builds/Mac OSX/Hypnagonia_MacOSX.zip' .
     - name: Upload HTML5 version to itch.io
       uses: josephbmanley/butler-publish-itchio-action@master
       env:

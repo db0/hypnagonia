@@ -1,5 +1,4 @@
-# Hypnagonia: Therapy through Nightmares [v0.14](CHANGELOG.md)
-
+# Hypnagonia: Therapy through Nightmares [v0.14](/db0/hypnagonia/releases)
 
 [![Hypnagonia preview image](http://hypnagonia.dbzer0.com/hypnagonia_showcase.gif "Hypnagonia preview image")](https://www.youtube.com/watch?v=Oc1_G28q328)
 
