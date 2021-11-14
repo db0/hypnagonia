@@ -25,8 +25,10 @@ jobs:
       with:
         bump_version_scheme: patch
         tag_prefix: ""
-      # Always include the checkout step so that
-      # your project is available for Godot to export
+    - name: Check Output Parameters
+      run: |
+        echo "Got tag name ${{ steps.release.outputs.tag_name }}"
+        echo "Got release version ${{ steps.release.outputs.version }}"
     - name: Commit new version
       run: |
           sed -i 's/GAME_VERSION := ".*"/GAME_VERSION := "${{ steps.release.outputs.version }}"/g' ./src/dreamscape/CFConst.gd
