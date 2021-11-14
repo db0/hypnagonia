@@ -452,7 +452,7 @@ const GENERIC_CARD_BBCODE := {
 	},
 	"condition_card": {
 		"name": "Perturbation",
-		"rich_text_color": "black",
+		"rich_text_effect": "shake",
 	},
 	"understanding_card": {
 		"name": "Understanding",
@@ -464,7 +464,7 @@ const GENERIC_CARD_BBCODE := {
 	},
 	"unplayable": {
 		"name": "Unplayable",
-		"rich_text_color": "black",
+		"rich_text_effect": "ghost",
 	},
 	"pierce": {
 		"name": "Pierce",
@@ -540,4 +540,24 @@ static func get_bbcode_formats(preset_icon_size = null) -> Dictionary:
 								"[fade start=2 length=7]{name}[/fade]".format(terms_dict[entry])
 						complete_format_dict[terms_dict[entry].name.to_lower()] =\
 								"[fade start=2 length=7]{name}[/fade]".format(terms_dict[entry])
+					"wave":
+						complete_format_dict[entry.to_lower()] =\
+								"[wave amp=25 freq=2]{name}[/wave]".format(terms_dict[entry])
+						complete_format_dict[terms_dict[entry].name.to_lower()] =\
+								"[wave amp=25 freq=2]{name}[/wave]".format(terms_dict[entry])
+					"shake":
+						complete_format_dict[entry.to_lower()] =\
+								"[shake rate=3 level=10]{name}[/shake]".format(terms_dict[entry])
+						complete_format_dict[terms_dict[entry].name.to_lower()] =\
+								"[shake rate=3 level=10]{name}[/shake]".format(terms_dict[entry])
+					"rainbow":
+						complete_format_dict[entry.to_lower()] =\
+								"[rainbow freq=0.2 sat=1 val=20]{name}[/rainbow]".format(terms_dict[entry])
+						complete_format_dict[terms_dict[entry].name.to_lower()] =\
+								"[rainbow freq=0.2 sat=1 val=20]{name}[/rainbow]".format(terms_dict[entry])
+					"ghost":
+						complete_format_dict[entry.to_lower()] =\
+								"[ghost freq=2.0 span=7.0]{name}[/ghost]".format(terms_dict[entry])
+						complete_format_dict[terms_dict[entry].name.to_lower()] =\
+								"[ghost freq=2.0 span=7.0]{name}[/ghost]".format(terms_dict[entry])
 	return(complete_format_dict)
