@@ -2468,7 +2468,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
 		"Abilities": "{damage} for {damage_amount}. {shuffle} this card into your deck.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Maria Thoukydidou",
 		"_avoid_normal_discard": true,
 		"_rarity": "Basic",
 		"_keywords": ["interpretation"],
@@ -2486,7 +2486,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
 		"Abilities": "{damage} for {damage_amount}. {shuffle} this card into your deck.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Maria Thoukydidou",
 		"_avoid_normal_discard": true,
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
@@ -2500,7 +2500,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
 		"Abilities": "{damage} for {damage_amount}. {shuffle} this card into your deck.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Maria Thoukydidou",
 		"_avoid_normal_discard": true,
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
@@ -3191,7 +3191,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
 		"Abilities": "At the end of each turn, {relax} for {effect_amount} if you have not played any {attack_card} cards this turn.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Maria Thoukydidou",
 		"_keywords": ["interpretation"],
 		"_rarity": "Rare",
 		"_amounts": {
@@ -3208,7 +3208,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
 		"Abilities": "At the end of each turn, {relax} for {effect_amount} if you have not played any {attack_card} cards this turn.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Maria Thoukydidou",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
@@ -3223,7 +3223,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
 		"Abilities": "At the end of each turn, {relax} for {effect_amount} if you have not played more than 1 {attack_card} card this turn.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Maria Thoukydidou",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
@@ -4191,7 +4191,7 @@ const CARDS := {
 				+ "You may take {exert_amount} {anxiety} "\
 				+ "to {shuffle} this card into your deck.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Maria Thoukydidou",
 		"_avoid_normal_discard": true,
 		"_rarity": "Common",
 		"_keywords": ["confidence"],
@@ -4212,7 +4212,7 @@ const CARDS := {
 				+ "You may take {exert_amount} {anxiety} "\
 				+ "to {shuffle} this card into your deck.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Maria Thoukydidou",
 		"_avoid_normal_discard": true,
 		"_rarity": "Common",
 		"_keywords": ["confidence"],
@@ -4229,7 +4229,7 @@ const CARDS := {
 				+ "You may take {exert_amount} {anxiety} "\
 				+ "to {shuffle} this card into your deck.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Maria Thoukydidou",
 		"_avoid_normal_discard": true,
 		"_rarity": "Common",
 		"_keywords": ["confidence"],

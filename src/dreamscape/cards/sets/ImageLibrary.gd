@@ -19,5 +19,8 @@ const CARD_IMAGES := {
 	"Rapid Theorizing": preload("res://assets/cards/Rapid Theorizing.jpg"),
 	"Self-Deception": preload("res://assets/cards/Self-Deception.jpg"),
 	"The Happy Place": preload("res://assets/cards/The Happy Place.jpg"),
-	"Tolerance": preload("res://assets/cards/Tolerance.jpg")
+	"Tolerance": preload("res://assets/cards/Tolerance.jpg"),
+	"Introspection": preload("res://assets/cards/Introspection.jpg"),
+	"Change of Mind": preload("res://assets/cards/Change of Mind.jpg"),
+	"Misunderstood": preload("res://assets/cards/Misunderstood.jpg"),
 }
