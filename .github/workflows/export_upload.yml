@@ -4,6 +4,8 @@ on:
   release:
     types:
       - published
+      - created
+      - released
 
 jobs:
   export_and_upload:
