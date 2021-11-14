@@ -167,3 +167,7 @@ func _on_Menu_resized() -> void:
 	_archetype_starting_cards_tags.rect_min_size.y = get_viewport().size.y * 0.08
 	_archetype_starting_cards_display.rect_min_size.x = get_viewport().size.x * 0.54
 	_archetype_starting_cards_display.rect_min_size.y = get_viewport().size.y * 0.31
+
+
+func _on_popup_hide() -> void:
+	cfc.hide_all_previews()

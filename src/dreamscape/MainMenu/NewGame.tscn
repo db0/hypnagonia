@@ -317,3 +317,5 @@ rect_min_size = Vector2( 0, 280 )
 [connection signal="pressed" from="VBC/ControlButtons/VBC/StartingCards" to="." method="_on_StartingCards_pressed"]
 [connection signal="pressed" from="VBC/ControlButtons/VBC/Randomize" to="." method="_on_Randomize_pressed"]
 [connection signal="pressed" from="VBC/ControlButtons/VBC/Start" to="." method="_on_Start_pressed"]
+[connection signal="popup_hide" from="ChoicePopup" to="." method="_on_ChoicePopup_popup_hide"]
+[connection signal="popup_hide" from="StartingCardsPopup" to="." method="_on_popup_hide"]
