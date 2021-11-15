@@ -1,4 +1,4 @@
-name: Version and Release
+name: Prepare New Release
 
 on:
   push:
@@ -8,17 +8,16 @@ on:
 
 jobs:
   version_and_release:
-    # Always use ubuntu-latest for this action
     runs-on: ubuntu-latest
     # Job name, can be anything
     name: Export Game Job
     steps:
-    - name: checkout
+    - name: "✔️ Checkout"
       uses: actions/checkout@v2
       # Ensure that you get the entire project history
       with:
         fetch-depth: 0
-    - name: Release on push
+    - name: "📣 Release on push"
       id: release
       uses: rymndhng/release-on-push-action@master
       env:
@@ -28,14 +27,20 @@ jobs:
         use_github_release_notes: true
       # Always include the checkout step so that
       # your project is available for Godot to export
-    - name: Commit new version
+    - name: "✏️ Generate release changelog"
+      uses: heinrichreimer/github-changelog-generator-action@v2.3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        since-tag: v0.15.6
+    - name: "💾 Commit new version"
       run: |
           sed -i 's/GAME_VERSION := ".*"/GAME_VERSION := "${{ steps.release.outputs.version }}"/g' ./src/dreamscape/CFConst.gd
+          sed -i 's/Therapy through Nightmares \[v.*\]/Therapy through Nightmares ["${{ steps.release.outputs.version }}"]/g' README.md
           git config user.email github-actions@github.com
           git config user.name github-actions
           git commit -am 'version incremented'
           git push
-    - name: export game
+    - name: "🤖 Export game"
       # Use latest version (see releases for all versions)
       uses: firebelley/godot-export@v3.0.0
       with:
@@ -49,15 +54,14 @@ jobs:
         archive_export_output: true
       # env:
       #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - shell: bash
-      run: cp -v /home/runner/.local/share/godot/dist/* .
-    - shell: bash
-      run: cp '/home/runner/.local/share/godot/builds/LinuxX11/Hypnagonia_Linux.x86_64' .
-    - shell: bash
-      run: cp '/home/runner/.local/share/godot/builds/Windows Desktop/Hypnagonia_Windows.exe' .
-    - shell: bash
-      run: cp '/home/runner/.local/share/godot/builds/Mac OSX/Hypnagonia_MacOSX.zip' .
-    - name: Upload HTML5 version to itch.io
+    - name: "🛠 Prepare files for upload to itch.io"
+      shell: bash
+      run: |
+          cp -v /home/runner/.local/share/godot/dist/* .
+          cp '/home/runner/.local/share/godot/builds/LinuxX11/Hypnagonia_Linux.x86_64' .
+          cp '/home/runner/.local/share/godot/builds/Windows Desktop/Hypnagonia_Windows.exe' .
+          cp '/home/runner/.local/share/godot/builds/Mac OSX/Hypnagonia_MacOSX.zip' .
+    - name: "🚀 Upload HTML5 version to itch.io"
       uses: josephbmanley/butler-publish-itchio-action@master
       env:
         BUTLER_CREDENTIALS: "${{ secrets.BUTLER_CREDENTIALS }}"
@@ -66,7 +70,7 @@ jobs:
         ITCH_USER: dbzer0
         PACKAGE: HTML5.zip
         VERSION: "${{ steps.release.outputs.version }}"
-    - name: Upload Windows version to itch.io
+    - name: "☢ Upload Windows version to itch.io"
       uses: josephbmanley/butler-publish-itchio-action@master
       env:
         BUTLER_CREDENTIALS: "${{ secrets.BUTLER_CREDENTIALS }}"
@@ -75,7 +79,7 @@ jobs:
         ITCH_USER: dbzer0
         PACKAGE: Hypnagonia_Windows.exe
         VERSION: "${{ steps.release.outputs.version }}"
-    - name: Upload Linux version to itch.io
+    - name: "🐧 Upload Linux version to itch.io"
       uses: josephbmanley/butler-publish-itchio-action@master
       env:
         BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
@@ -84,7 +88,7 @@ jobs:
         ITCH_USER: dbzer0
         PACKAGE: Hypnagonia_Linux.x86_64
         VERSION: "${{ steps.release.outputs.version }}"
-    - name: Upload OSX version to itch.io
+    - name: "☣ Upload OSX version to itch.io"
       uses: josephbmanley/butler-publish-itchio-action@master
       env:
         BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
