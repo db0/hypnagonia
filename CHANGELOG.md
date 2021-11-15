@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.16.1](https://github.com/db0/hypnagonia/tree/v0.16.1) (2021-11-15)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.16.0...v0.16.1)
+
+**Merged pull requests:**
+
+- docs\(readme\): Fix version displayed in readme [\#53](https://github.com/db0/hypnagonia/pull/53) ([db0](https://github.com/db0))
+
 ## [v0.16.0](https://github.com/db0/hypnagonia/tree/v0.16.0) (2021-11-15)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.15.7...v0.16.0)
