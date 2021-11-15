@@ -34,7 +34,7 @@ jobs:
     - name: "💾 Commit new version"
       run: |
           sed -i 's/GAME_VERSION := ".*"/GAME_VERSION := "${{ steps.release.outputs.version }}"/g' ./src/dreamscape/CFConst.gd
-          sed -i 's/Therapy through Nightmares \[v.*\]/Therapy through Nightmares ["${{ steps.release.outputs.version }}"]/g' README.md
+          sed -i 's/Therapy through Nightmares \[.*\]/Therapy through Nightmares [${{ steps.release.outputs.version }}]/g' README.md
           git config user.email github-actions@github.com
           git config user.name github-actions
           git commit -am 'version incremented'
