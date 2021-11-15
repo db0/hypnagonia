@@ -31,7 +31,6 @@ jobs:
       uses: heinrichreimer/github-changelog-generator-action@v2.3
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        since-tag: v0.15.6
     - name: "💾 Commit new version"
       run: |
           sed -i 's/GAME_VERSION := ".*"/GAME_VERSION := "${{ steps.release.outputs.version }}"/g' ./src/dreamscape/CFConst.gd
