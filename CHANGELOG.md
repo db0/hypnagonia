@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.16.0](https://github.com/db0/hypnagonia/tree/v0.16.0) (2021-11-15)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.15.7...v0.16.0)
+
+**Merged pull requests:**
+
+- ci\(workflow\): No need to use singleTag [\#52](https://github.com/db0/hypnagonia/pull/52) ([db0](https://github.com/db0))
+
 ## [v0.15.7](https://github.com/db0/hypnagonia/tree/v0.15.7) (2021-11-15)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.15.6...v0.15.7)
