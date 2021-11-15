@@ -1,341 +1,197 @@
-# Dreams: Changelog
+# Changelog
 
-## v0.15.0
+## [v0.15.7](https://github.com/db0/hypnagonia/tree/v0.15.7) (2021-11-15)
 
-Moved to automatic versioning
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.15.6...v0.15.7)
 
-## v0.14.5
+**Merged pull requests:**
 
-* Added art for 11 cards from Abusive Relationship (h/t Cabbage#8560 on Discord)
-* Finalized all unnamed Abusive Relationship cards
-* Moved Card Images to preloads, to hopefully shave some runtime.
-* Card Library can now filter cards by Illustrator
-* Added Prejustice illustration Art ([@Marablack](https://www.deviantart.com/marablack3))
+- New images [\#51](https://github.com/db0/hypnagonia/pull/51) ([db0](https://github.com/db0))
 
-## v0.14.4
+## [v0.15.6](https://github.com/db0/hypnagonia/tree/v0.15.6) (2021-11-14)
 
-* Added quit to main menu button in the settings
-* Added multiple rotating card backs
-* Fixed card back resolution
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.15.5...v0.15.6)
 
-## v0.14.3
+**Merged pull requests:**
 
-* Removed all non-free assets such as card backs, icons and the logo appearing when there is no art.
-* Added Eureka! art Art ([@Marablack](https://www.deviantart.com/marablack3))
-* Added new "No art available" Art Art ([@Marablack](https://www.deviantart.com/marablack3))
-* Changed card backs
-* Changed background to combat effects
-* Changed Immersion background
-* Added Info-only focus mode for the card focus and relevant setting
+- Ci [\#50](https://github.com/db0/hypnagonia/pull/50) ([db0](https://github.com/db0))
 
-## v0.14
+## [v0.15.5](https://github.com/db0/hypnagonia/tree/v0.15.5) (2021-11-14)
 
-* Upgraded to CGF 1.15
-* Improved loading and instancing performance
-* Fixed thumbnail image font skew
-* Fixed sometimes card preview image having tiny text
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.15.4...v0.15.5)
 
-## v0.13.6
+**Merged pull requests:**
 
-* Finalized Rubber Chicken archetype
+- Ci [\#49](https://github.com/db0/hypnagonia/pull/49) ([db0](https://github.com/db0))
 
-## v0.13.5
+## [v0.15.4](https://github.com/db0/hypnagonia/tree/v0.15.4) (2021-11-14)
 
-* Added thresholds for Pathos
-* More Rubber Chicken cards
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.15.3...v0.15.4)
 
-## v0.13.4
+## [v0.15.3](https://github.com/db0/hypnagonia/tree/v0.15.3) (2021-11-14)
 
-* Finalized Mad Scientist archetype
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.15.2...v0.15.3)
 
-## v0.13.3
+**Merged pull requests:**
 
-* Added Hyperfocus art (@Marablack)[https://www.deviantart.com/marablack3]
-* Added Rapid Theorizing art (@Marablack)[https://www.deviantart.com/marablack3]
-* Added Misunderstood
-* Added Death Ray
+- ci\(workflows\): Trying to trigger on published release [\#48](https://github.com/db0/hypnagonia/pull/48) ([db0](https://github.com/db0))
 
-## v0.13.2
+## [v0.15.2](https://github.com/db0/hypnagonia/tree/v0.15.2) (2021-11-14)
 
-* Changed some cards to be archetype-specific basic cards for more starting variability
-* Added Hyperfocus
-* Added A Thousand Squeaks
-* Added Insomnia tag
-q
-## v0.13.1
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.15.1...v0.15.2)
 
-* Renamed game to Hypnagonia
-* Changes subtitle to "Therapy through Nightmares"
-* Finalized out Abusive Relationship archetype by bringing it to 20 unique cards
-* Added code to handle filters based on health percentage
-* Added code to handle filters based on encounter own-turn damage taken
-* Refactored card scripts a bit
+**Merged pull requests:**
 
-## v0.13.0
+- ci\(workflows\): Trying to trigger on published release [\#47](https://github.com/db0/hypnagonia/pull/47) ([db0](https://github.com/db0))
 
-* Added two New Flight Cards
-* The way untouchable works has been adjusted. Instead of protecting for everything in a turn, it protects only for 1 attack. All untouchable are lost at turn end.
-* Enabled the Settings button. Only two option for the moment,
-   * Disable fancy animations and shuffle for a faster game.
-   * Disable large card focus display.
-* Added icon for the end-turn button and reorganized that area a bit.
-* **Added Tutorials**. They will trigger the first time each interface is opened. Afterwards they can be triggered with an icon or pressing 'H'. Tutorial format inspired by [The Zone](https://store.steampowered.com/app/1299540/The_Zone_Stalker_Stories/)'s Quick references.
+## [v0.15.1](https://github.com/db0/hypnagonia/tree/v0.15.1) (2021-11-14)
 
-## v0.12.5
+[Full Changelog](https://github.com/db0/hypnagonia/compare/0.15.0...v0.15.1)
 
-* Added
+**Merged pull requests:**
 
-## v0.12.4
+- ci\(workflow\): Switch to action on release create [\#46](https://github.com/db0/hypnagonia/pull/46) ([db0](https://github.com/db0))
 
-* Finalized Mad Scientist cards
+## [0.15.0](https://github.com/db0/hypnagonia/tree/0.15.0) (2021-11-14)
 
-## v0.12.3
+[Full Changelog](https://github.com/db0/hypnagonia/compare/0.14.0...0.15.0)
 
-* Added The Candyman encounter
+**Closed issues:**
 
+- Name the Unnamed [\#43](https://github.com/db0/hypnagonia/issues/43)
+- Invalid Discord link [\#41](https://github.com/db0/hypnagonia/issues/41)
+- Create CD [\#39](https://github.com/db0/hypnagonia/issues/39)
+- OP combo between "@ Change of Mind @" and Light Backpack when deck is empty [\#36](https://github.com/db0/hypnagonia/issues/36)
 
-## v0.12.2
+**Merged pull requests:**
 
-* Fixed wrong buff/debuff icon.
-* Fixed overwriting labyrinth intents with the bully's
+- Fix Discord link [\#42](https://github.com/db0/hypnagonia/pull/42) ([IceTyp](https://github.com/IceTyp))
 
-## v0.12.1
+## [0.14.0](https://github.com/db0/hypnagonia/tree/0.14.0) (2021-11-04)
 
-* Player Info will now properly update anxiety after dreamer wakes up
-* Boss/Elites which spawn minions will now correctly be defeated if they are overcome while minions are still there.
-* Fascination will now properly trigger unnamed_card_8
-* Marked journal reward options with tags to make them more obvious
+[Full Changelog](https://github.com/db0/hypnagonia/compare/0.13.0...0.14.0)
 
+**Implemented enhancements:**
 
-## v0.12.0
+- Add "armor" effect  [\#18](https://github.com/db0/hypnagonia/issues/18)
 
-* Added framework for Elites
-* Added first two Act1 Elites.
-* Enabled Foreboding Pathos which is what Elites use
-* Added framework for Non-Combat Encounters.
-* Added first five NCEs
-* Enabled Curiosity Pathos which is what NCEs use
-* Added artifacts in the shop. They are purchased with released Foreboding.
-* Every run will give the player some random initial released Pathos, in case of an early shop.
-* Added new cards for Abusive Partner
-* Added 2 new starting cards to Abusive partnet to avoid the starting deck being optimized too easily
-* Changed cost to buy cards to released curiosity. However One card in the shop will always be paid in released frustration.
-* Added health bars (with help from @DioBal)
+**Fixed bugs:**
 
-## v0.11.0
+- Font size too small in preview of certain cards [\#35](https://github.com/db0/hypnagonia/issues/35)
+- All thumbnail text is slightly off-center, skewed to the right [\#31](https://github.com/db0/hypnagonia/issues/31)
 
-* Added framework for adding curios and using curios
-* Added ~30 new curios
-* Activated the desire pathos. Now only 2/7 are still inactive
-* Added the desire encounter which has a chance to occur as your repressed desire increases. It always gives an artifact of The higher the desire when triggered, the higher the rarity chances of the curio.
-  curios gained from this encounter always add a perturbation in the deck
-* Added ~10 new perturbations
-* curios can now be limited to specific Archetypes, which allows us to have a small core of common curios and allow to expand the curio pool infinitelly without diluting the chance for good combos
-* Specific perturbations can now receive greater chance of appearance based on the chosen archetype
+**Closed issues:**
 
+- Create Tutorial [\#25](https://github.com/db0/hypnagonia/issues/25)
+- Flesh out Abusive Relationship Archetype [\#24](https://github.com/db0/hypnagonia/issues/24)
+- Flesh out Rubber Chicken Archetype [\#23](https://github.com/db0/hypnagonia/issues/23)
+- Flesh out Mad Scientist Archetype [\#20](https://github.com/db0/hypnagonia/issues/20)
 
-## v0.10.0
+**Merged pull requests:**
 
-* Added Pathos Repression and Release
+- gain anxiety or take anxiety [\#33](https://github.com/db0/hypnagonia/pull/33) ([IceTyp](https://github.com/IceTyp))
 
-	Pathos accumulation consists of 7 different types. Each of which represents a chance to encounter a different thing. For example, The more your frustration rises, the more likely it is to encounter a Torment. On the other hand, your dreamer's loneliness might cause a shop to appear. Accumulated pathos is called "repressed".
+## [0.13.0](https://github.com/db0/hypnagonia/tree/0.13.0) (2021-10-17)
 
-	Each time you take a journal choice, the relevant type of pathos is "released". Released pathos can be used in the shop. Each type, allows the player to buy different things.
+[Full Changelog](https://github.com/db0/hypnagonia/compare/0.12.2...0.13.0)
 
-	Currently only 4/7 Pathos are active. The Non-Combat Encounters, Elite Enemies and the curios are disabled as these don't exist in the game yet5
+**Closed issues:**
 
-   * Added
-* Added Shop (currency is released pathos)
-	Currently only 4/7 Pathos are active. The Non-Combat Encounters, Elite Enemies and the curios are disabled as these don't exist in the game yet.
-* Added Shop (currency is released pathos)
-* Reworked the way encounters work
-* Added fade-to-black on journal (to hide battle loading time)
+- Populate Non-Combat Events [\#27](https://github.com/db0/hypnagonia/issues/27)
 
-## v0.9.2
+## [0.12.2](https://github.com/db0/hypnagonia/tree/0.12.2) (2021-10-12)
 
-* Added upgrades for all understanding cards
-* Added new tag Intuition. Cards tagged with it will be placed in the starting hand
-* Added new tag Enigma. Cards tagged with it will be placed at the bottom of the deck at the start of the encounter.
+[Full Changelog](https://github.com/db0/hypnagonia/compare/0.12.0...0.12.2)
 
-## v0.9.1
+## [0.12.0](https://github.com/db0/hypnagonia/tree/0.12.0) (2021-10-10)
 
-* Added upgrades for all core cards
-* Left-Clicking on a card in the Card Library will display all its potential upgrades
+[Full Changelog](https://github.com/db0/hypnagonia/compare/0.11.0...0.12.0)
 
-## v0.9.0
+**Closed issues:**
 
-* Added card upgrades
-   * Allows setting up card upgrades with minimum extra card and script definitions
-   * Can specify card amounts in the card properties. They will be bbcode coloured
-   * Card upgrades are selected in journal after each encounter
-   * Cards are slowly upgraded as they're played. Progress is currently only shown in info popups
-   * Each card can have multiple upgrades
-   * Non-upgraded cards don't have glowing rarity. Upgraded cards have glowing rarity
-   * Only a limited number of times can be progressed per encounter. The amount is equal to the deck size.
-   * Added way to provide upgraded effects, without setting new scenes and terms.
-* Added upgrades for starting cards and some more. Progress ongoing...
-* Added more Torments and tweaked intents (@DioBal)
-* Added two new effects: Retaliation and Resentment
-* Added new Ego Archetype: Mad Scientist (Design by @DioBal)
-* Can now setup enemies in encounters using starting effects or preselected intents
+- Add health bars [\#28](https://github.com/db0/hypnagonia/issues/28)
+- Add Elites [\#26](https://github.com/db0/hypnagonia/issues/26)
 
-## v0.8.1
+**Merged pull requests:**
 
-* Improved performance when loading the Card Library in Grid mode
-* Improved performance when opening focus cards.
+- Added Simple Health Bars \#28 [\#30](https://github.com/db0/hypnagonia/pull/30) ([DioBal](https://github.com/DioBal))
 
-## v0.8.0
+## [0.11.0](https://github.com/db0/hypnagonia/tree/0.11.0) (2021-09-25)
 
-* Changed Card layout to the one provided by [Lorenzo Andreozzi](https://tornioduva.itch.io/). Further tweaked the card image using shaders.
-* Added Card Library
+[Full Changelog](https://github.com/db0/hypnagonia/compare/0.10.0...0.11.0)
 
+## [0.10.0](https://github.com/db0/hypnagonia/tree/0.10.0) (2021-08-31)
 
-## v0.7.0
+[Full Changelog](https://github.com/db0/hypnagonia/compare/0.9.0...0.10.0)
 
-* Switched to Rich Text on almost all labels. Replaced text representation of tags and effects with icons. Added colour in text.
-* Changed Font to Butler
-* Fixed focus staying open sometimes
-* Added eyeglow to the laughing ones - insomniacUNDERSCORElemon
-* Improved Boss character art quality - insomniacUNDERSCORElemon
+**Merged pull requests:**
 
-## v0.6.2
+- Added Overworld progression method. Added Shop encounter. [\#19](https://github.com/db0/hypnagonia/pull/19) ([db0](https://github.com/db0))
 
-* Antialiased everything
-* Added 2 new enemies: Clown, and The Critic
-* Added 2 new encounters
-* Cannot play 0 cost cards on opponent turns anymore
-* Improved background quality
-* Added outline on intent icons to make them clearer in light backgrounds
-* Highlight on enemies during targetting will not now highlight things other than the target
-* Improved Boss character art - insomniacUNDERSCORElemon
+## [0.9.0](https://github.com/db0/hypnagonia/tree/0.9.0) (2021-08-09)
 
-## v0.6.1
+[Full Changelog](https://github.com/db0/hypnagonia/compare/0.8.0...0.9.0)
 
-* Fixed enemies dying from doubt sometimes preventing game from finishing
-* Fixed somethimes Understanding card preview getting stuck in journal
+**Merged pull requests:**
 
-## v0.6.0
+- Added card upgrades [\#17](https://github.com/db0/hypnagonia/pull/17) ([db0](https://github.com/db0))
+- Fiddled with enemies [\#16](https://github.com/db0/hypnagonia/pull/16) ([DioBal](https://github.com/DioBal))
+- Changed description on concentration, although the effect remains the… [\#15](https://github.com/db0/hypnagonia/pull/15) ([DioBal](https://github.com/DioBal))
 
-* Added framework for non-combat events
-* Added first non-combat event: Deep Sleep
-* Added top-bar with player status and current decklist
-* Reduced the game size to 20MB (from 100) by using lossy compression on the backgrounds
-* Fixed last enemy dying from doubt breaking the combat-end
+## [0.8.0](https://github.com/db0/hypnagonia/tree/0.8.0) (2021-07-24)
 
-## v0.5.5
+[Full Changelog](https://github.com/db0/hypnagonia/compare/0.7.0...0.8.0)
 
-* Some disturbing art
-* Fixed expiry on confusion
-* Added the first archetype icon in the new game menu
+## [0.7.0](https://github.com/db0/hypnagonia/tree/0.7.0) (2021-07-21)
 
-## v0.5.5
+[Full Changelog](https://github.com/db0/hypnagonia/compare/0.6...0.7.0)
 
-* Added
+**Implemented enhancements:**
 
-## v0.5.4
+- Intent icons need a background or outline [\#9](https://github.com/db0/hypnagonia/issues/9)
 
-* Made card/hand layout control-based
-* Deck/Discard/Forgotten piles are smaller
-* Added way to see the deck contents
+**Fixed bugs:**
 
-## v0.5.5
+- Target shader applied to textures does not always only apply to the actual target [\#10](https://github.com/db0/hypnagonia/issues/10)
 
-* Added
+**Closed issues:**
 
-## v0.5.4
+- Boss cutout PNG [\#12](https://github.com/db0/hypnagonia/issues/12)
 
-* Finalized Mad Scientist cards
+**Merged pull requests:**
 
-## v0.5.3
+- Rich text everywhere [\#14](https://github.com/db0/hypnagonia/pull/14) ([db0](https://github.com/db0))
+- v0.6.2 [\#13](https://github.com/db0/hypnagonia/pull/13) ([db0](https://github.com/db0))
+- Added eye glow to the laughing one [\#11](https://github.com/db0/hypnagonia/pull/11) ([insomniacUNDERSCORElemon](https://github.com/insomniacUNDERSCORElemon))
 
-* Added polygon-art for the fearmonger - insomniacUNDERSCORElemon
+## [0.6](https://github.com/db0/hypnagonia/tree/0.6) (2021-07-17)
 
-## v0.5.2
+[Full Changelog](https://github.com/db0/hypnagonia/compare/0.5.0...0.6)
 
-* Improved Shaders
-* Improved Highlights
-* Added better default Godot sprite
-* Added overcoming animation to The Laughing One (Credit to insomniacUNDERSCORElemon)
+**Merged pull requests:**
 
-## v0.5.1
+- Non-Combat Encounters [\#7](https://github.com/db0/hypnagonia/pull/7) ([db0](https://github.com/db0))
+- Encirclement typo [\#5](https://github.com/db0/hypnagonia/pull/5) ([DioBal](https://github.com/DioBal))
+- Rework fearmonger animations [\#3](https://github.com/db0/hypnagonia/pull/3) ([insomniacUNDERSCORElemon](https://github.com/insomniacUNDERSCORElemon))
+- New animated polygonal art for fearmonger [\#2](https://github.com/db0/hypnagonia/pull/2) ([insomniacUNDERSCORElemon](https://github.com/insomniacUNDERSCORElemon))
+- Add defeated animation for the laughing one [\#1](https://github.com/db0/hypnagonia/pull/1) ([insomniacUNDERSCORElemon](https://github.com/insomniacUNDERSCORElemon))
 
-* Fixed journal not refilling after 5th encounter
-* Fixed loss not triggerring
-* Change shuffle type as the overhand seems to cause some glitches
-* Scripted Understanding cards
+## [0.5.0](https://github.com/db0/hypnagonia/tree/0.5.0) (2021-07-11)
 
-## v0.5.0
+[Full Changelog](https://github.com/db0/hypnagonia/compare/0.4.0...0.5.0)
 
-* Added a journal for progressing between encounters.
+## [0.4.0](https://github.com/db0/hypnagonia/tree/0.4.0) (2021-07-08)
 
-## v0.4.5
+[Full Changelog](https://github.com/db0/hypnagonia/compare/0.3.0...0.4.0)
 
-* Added
+## [0.3.0](https://github.com/db0/hypnagonia/tree/0.3.0) (2021-07-08)
 
-## v0.4.0
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.1...0.3.0)
 
-* Added fresh card layout. Unfortunately its assets are under a properietary license.
-* Converted tags into icons on card front to improve readability
-* Increased overall card size by 25%
+## [v0.1](https://github.com/db0/hypnagonia/tree/v0.1) (2021-07-04)
 
-## v0.3.5
+[Full Changelog](https://github.com/db0/hypnagonia/compare/8e623506f516e18cb35156e15d3a51259b8bfa2d...v0.1)
 
-* Added
 
-## v0.3.4
 
-* Finalized Mad Scientist cards
-
-## v0.3.0
-
-* Added randomized backgrounds
-* Added art credits on Torment mouseover
-
-## v0.2.5
-
-* Added
-
-## v0.2.4
-
-* Added polygon-art for the laughing one (Credit to https://www.reddit.com/user/insomniac_lemon)
-* Fixed card draw not reshuffling the deck
-
-## v0.2.5
-
-* Added
-
-## v0.2.4
-
-* Finalized Mad Scientist cards
-
-## v0.2.3
-
-* Fixed post-battle menu not appearing
-* Fixed reseting game after game over
-
-## v0.2.1
-
-* Fixed unnamed_card_3
-* Scaled up all text and icons on the board ~50%
-* Stopped the laughing one from Laughing so much
-* Absurdity Unleashed works when having extra stacks
-* Absurdity Unleashed work when applying the stack after the first.
-* Fixed Doubt decreasing twice per turn instead of once
-* Added Game Over Screen
-
-## v0.2
-
-* Added icons
-* Added image for first boss
-
-## v0.14
-
-Initial * Finalized Mad Scientist cardsrelease. Full working start with 4 card groups, 3 Torments, 1 Bos5
-
-* Added
-
- * Finalized Mad Scientist cardsrelease. Full working start with 4 card groups, 3 Torments, 1 Boss5
-
- * Added
-Initial release. Full working start with 4 card groups, 3 Torments, 1 Boss
- release. Full working start with 4 card groups, 3 Torments, 1 Boss
+\* *This Changelog was automatically generated by [github_changelog_generator](https://github.com/github-changelog-generator/github-changelog-generator)*
