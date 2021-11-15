@@ -1973,7 +1973,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "Gain {effect_stacks} {fascination}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Maria Thoukydidou",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
 		},
@@ -1993,7 +1993,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "Gain {effect_stacks} {fascination}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Maria Thoukydidou",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
 		},
@@ -2008,7 +2008,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "Gain {effect_stacks} {fascination}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Maria Thoukydidou",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
 		},
@@ -2023,7 +2023,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "Gain {effect_stacks} {fascination}",
 		"Cost": 3,
-		"_illustration": "Nobody",
+		"_illustration": "Maria Thoukydidou",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
 		},
