@@ -9,6 +9,7 @@ margin_bottom = 120.0
 rect_min_size = Vector2( 120, 120 )
 script = ExtResource( 2 )
 icon_container_texture = null
+icon_extra_container_texture = null
 
 [node name="Signifier" parent="." index="0"]
 margin_right = 120.0
@@ -26,7 +27,14 @@ margin_top = 40.0
 margin_right = 80.0
 margin_bottom = 80.0
 
-[node name="Icon" parent="Signifier" index="2"]
+[node name="ExtraContainer" parent="Signifier" index="2"]
+visible = false
+margin_left = 37.0
+margin_top = 37.0
+margin_right = 82.0
+margin_bottom = 82.0
+
+[node name="Icon" parent="Signifier" index="3"]
 margin_left = 0.0
 margin_top = 0.0
 margin_right = 120.0
