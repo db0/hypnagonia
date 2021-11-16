@@ -1,5 +1,21 @@
 # Changelog
 
+## [Unreleased](https://github.com/db0/hypnagonia/tree/HEAD)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.16.1...HEAD)
+
+**Fixed bugs:**
+
+- When buying a card from the shop, the preview of this card is still there. [\#38](https://github.com/db0/hypnagonia/issues/38)
+
+**Closed issues:**
+
+- Flesh out Fearless Archetype [\#22](https://github.com/db0/hypnagonia/issues/22)
+
+**Merged pull requests:**
+
+- Various Shop fixes [\#57](https://github.com/db0/hypnagonia/pull/57) ([db0](https://github.com/db0))
+
 ## [v0.16.1](https://github.com/db0/hypnagonia/tree/v0.16.1) (2021-11-15)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.16.0...v0.16.1)

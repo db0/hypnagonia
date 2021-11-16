@@ -23,15 +23,17 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        bump_version_scheme: patch
+        bump_version_scheme: norelease
         use_github_release_notes: true
       # Always include the checkout step so that
       # your project is available for Godot to export
     - name: "✏️ Generate release changelog"
+      if: ${{ steps.release.outputs.version != '' }}
       uses: heinrichreimer/github-changelog-generator-action@v2.3
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
     - name: "💾 Commit new version"
+      if: ${{ steps.release.outputs.version != '' }}
       run: |
           sed -i 's/GAME_VERSION := ".*"/GAME_VERSION := "${{ steps.release.outputs.version }}"/g' ./src/dreamscape/CFConst.gd
           sed -i 's/Therapy through Nightmares \[.*\]/Therapy through Nightmares [${{ steps.release.outputs.version }}]/g' README.md
@@ -40,7 +42,7 @@ jobs:
           git commit -am 'version incremented'
           git push
     - name: "🤖 Export game"
-      # Use latest version (see releases for all versions)
+      if: ${{ steps.release.outputs.version != '' }}
       uses: firebelley/godot-export@v3.0.0
       with:
         # Defining all the required inputs
@@ -54,6 +56,7 @@ jobs:
       # env:
       #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: "🛠 Prepare files for upload to itch.io"
+      if: ${{ steps.release.outputs.version != '' }}
       shell: bash
       run: |
           cp -v /home/runner/.local/share/godot/dist/* .
@@ -61,6 +64,7 @@ jobs:
           cp '/home/runner/.local/share/godot/builds/Windows Desktop/Hypnagonia_Windows.exe' .
           cp '/home/runner/.local/share/godot/builds/Mac OSX/Hypnagonia_MacOSX.zip' .
     - name: "🚀 Upload HTML5 version to itch.io"
+      if: ${{ steps.release.outputs.version != '' }}
       uses: josephbmanley/butler-publish-itchio-action@master
       env:
         BUTLER_CREDENTIALS: "${{ secrets.BUTLER_CREDENTIALS }}"
@@ -70,6 +74,7 @@ jobs:
         PACKAGE: HTML5.zip
         VERSION: "${{ steps.release.outputs.version }}"
     - name: "☢ Upload Windows version to itch.io"
+      if: ${{ steps.release.outputs.version != '' }}
       uses: josephbmanley/butler-publish-itchio-action@master
       env:
         BUTLER_CREDENTIALS: "${{ secrets.BUTLER_CREDENTIALS }}"
@@ -79,6 +84,7 @@ jobs:
         PACKAGE: Hypnagonia_Windows.exe
         VERSION: "${{ steps.release.outputs.version }}"
     - name: "🐧 Upload Linux version to itch.io"
+      if: ${{ steps.release.outputs.version != '' }}
       uses: josephbmanley/butler-publish-itchio-action@master
       env:
         BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
@@ -88,6 +94,7 @@ jobs:
         PACKAGE: Hypnagonia_Linux.x86_64
         VERSION: "${{ steps.release.outputs.version }}"
     - name: "☣ Upload OSX version to itch.io"
+      if: ${{ steps.release.outputs.version != '' }}
       uses: josephbmanley/butler-publish-itchio-action@master
       env:
         BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
