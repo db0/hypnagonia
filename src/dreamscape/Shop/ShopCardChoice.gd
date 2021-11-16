@@ -16,3 +16,10 @@ func _process(delta: float) -> void:
 func set_cost(value) -> void:
 	cost = value
 	shop_card_cost.text = str(value) + ' ' + cost_type.capitalize()
+
+
+func disable() -> void:
+	modulate.a = 0
+	shop_card_display.is_disabled = true
+	shop_card_display._on_GridCardObject_mouse_exited()
+	
