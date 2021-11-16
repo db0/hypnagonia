@@ -184,7 +184,7 @@ func _on_shop_card_selected(index: int, shop_card_object) -> void:
 			all_card_pool_choices[index].cost_type, 
 			-all_card_pool_choices[index].cost)
 	globals.player.deck.add_new_card(all_card_pool_choices[index].card_name)
-	shop_card_object.modulate.a = 0
+	shop_card_object.disable()
 	_update_progress_cost()
 	_update_remove_cost()
 

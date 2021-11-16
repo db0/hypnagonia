@@ -1,8 +1,9 @@
-extends CVGridCardObject	
+extends CVGridCardObject
 
 signal card_selected(option)
 const info_panel_scene = preload("res://src/dreamscape/InfoPanel.tscn")
 
+var is_disabled := false
 var index
 
 func _ready() -> void:
@@ -17,9 +18,9 @@ func _process(_delta: float) -> void:
 func setup(card_name) -> Card:
 	var display_card = .setup(card_name)
 	if display_card is GDScriptFunctionState:
-		display_card = yield(display_card, "completed")	
+		display_card = yield(display_card, "completed")
 	return(display_card)
-	
+
 
 func _on_DraftCardObject_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
@@ -32,6 +33,8 @@ func refresh_preview_card() -> void:
 
 
 func _on_GridCardObject_mouse_entered() -> void:
+	if is_disabled:
+		return
 	preview_popup.show_preview_card(display_card.canonical_name)
 	preview_popup.preview_card.deck_card_entry = display_card.deck_card_entry
 	cfc.ov_utils.populate_info_panels(preview_popup.preview_card,preview_popup.focus_info)
