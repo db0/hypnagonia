@@ -23,7 +23,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        bump_version_scheme: patch
+        bump_version_scheme: norelease
         use_github_release_notes: true
       # Always include the checkout step so that
       # your project is available for Godot to export
