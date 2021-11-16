@@ -117,46 +117,46 @@ margin_bottom = 771.0
 
 [node name="MarginUp" type="Control" parent="VBC/VBC/HBC/Buttons"]
 margin_right = 160.0
-margin_bottom = 128.0
+margin_bottom = 130.0
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Remove" type="Button" parent="VBC/VBC/HBC/Buttons"]
-margin_top = 131.0
+margin_top = 133.0
 margin_right = 160.0
-margin_bottom = 291.0
+margin_bottom = 293.0
 rect_min_size = Vector2( 160, 160 )
 text = "Remove Card"
 
 [node name="RemoveCost" type="Label" parent="VBC/VBC/HBC/Buttons"]
-margin_top = 294.0
+margin_top = 296.0
 margin_right = 160.0
-margin_bottom = 318.0
+margin_bottom = 317.0
 align = 1
 
 [node name="Push" type="Control" parent="VBC/VBC/HBC/Buttons"]
-margin_top = 321.0
+margin_top = 320.0
 margin_right = 160.0
-margin_bottom = 449.0
+margin_bottom = 450.0
 size_flags_vertical = 3
 
 [node name="Progress" type="Button" parent="VBC/VBC/HBC/Buttons"]
-margin_top = 452.0
+margin_top = 453.0
 margin_right = 160.0
-margin_bottom = 612.0
+margin_bottom = 613.0
 rect_min_size = Vector2( 160, 160 )
 text = "Progress Card"
 
 [node name="ProgressCost" type="Label" parent="VBC/VBC/HBC/Buttons"]
-margin_top = 615.0
+margin_top = 616.0
 margin_right = 160.0
-margin_bottom = 639.0
+margin_bottom = 637.0
 align = 1
 
 [node name="MarginDown" type="Control" parent="VBC/VBC/HBC/Buttons"]
-margin_top = 642.0
+margin_top = 640.0
 margin_right = 160.0
 margin_bottom = 771.0
 size_flags_vertical = 3
