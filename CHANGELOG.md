@@ -1,8 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/db0/hypnagonia/tree/HEAD)
+## [v0.17.0](https://github.com/db0/hypnagonia/tree/v0.17.0) (2021-11-17)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.16.1...HEAD)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.16.1...v0.17.0)
 
 **Fixed bugs:**
 
@@ -14,7 +14,7 @@
 
 **Merged pull requests:**
 
-- Various Shop fixes [\#57](https://github.com/db0/hypnagonia/pull/57) ([db0](https://github.com/db0))
+- content\(cards\): Swoop and Careful Observation [\#58](https://github.com/db0/hypnagonia/pull/58) ([db0](https://github.com/db0))
 
 ## [v0.16.1](https://github.com/db0/hypnagonia/tree/v0.16.1) (2021-11-15)
 
