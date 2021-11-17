@@ -28,5 +28,4 @@ func _count_effect_stacks() -> int:
 	for subject in subjects:
 		if subject.is_in_group("CombatEntities"):
 			ret += subject.active_effects.get_effect_stacks(effect_name)
-			print_debug(effect_name, subject, ret)
 	return(ret)

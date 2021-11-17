@@ -41,6 +41,7 @@ const FLYER:= {
 		"Running Start",
 		"Introspection",
 		"Launch",
+		"Careful Observation"
 	],
 	"Rare": [
 		"Master of Skies",
@@ -210,7 +211,7 @@ const RUBBER_CHICKEN := {
 		
 	],
 	"Basic": [
-		"Noisy Whip",
+		"Interpretation",
 		"Noisy Whip",
 		"Noisy Whip",
 	],

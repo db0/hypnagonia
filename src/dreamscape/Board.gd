@@ -282,23 +282,6 @@ func game_over() -> void:
 #		card.set_to_idle()
 
 
-func _debug_advanced_enemy() -> void:
-	pass
-#	var advanced_entity: EnemyEntity =\
-#			preload("res://src/dreamscape/CombatElements/Enemies/Elites/RushElite.tscn").instance()
-#	advanced_entity.setup_advanced("medium")
-#	_enemy_area.add_child(advanced_entity)
-## warning-ignore:return_value_discarded
-#	advanced_entity.connect("finished_activation", self, "_on_finished_enemy_activation")
-
-
-func _on_Debug_pressed() -> void:
-	# warning-ignore:return_value_discarded
-	counters.mod_counter("immersion",3)
-	for _iter in range(3):
-		cfc.NMAP.hand.draw_card(cfc.NMAP.deck)
-
-
 func _on_viewport_resized() -> void:
 	_background.rect_min_size = get_viewport().size
 	_background.rect_size = get_viewport().size
@@ -375,12 +358,14 @@ func _input(event):
 #		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
 		torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 10)
 		torment2.defence = 10
+		torment2.health = 1000
+		torment3.health = 1000
 #		globals.player.add_artifact("ThinCardDraw")
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
-			"Launch",
-			"Launch",
-			"% Launch %",
+			"Swoop",
+			"Swoop",
+			"% Swoop %",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.deck.add_child(card)
@@ -395,4 +380,22 @@ func _input(event):
 		complete_battle()
 #	if event.is_action_pressed("lose_battle"):
 #		game_over()
+
+
+func _debug_advanced_enemy() -> void:
+	pass
+#	var advanced_entity: EnemyEntity =\
+#			preload("res://src/dreamscape/CombatElements/Enemies/Elites/RushElite.tscn").instance()
+#	advanced_entity.setup_advanced("medium")
+#	_enemy_area.add_child(advanced_entity)
+## warning-ignore:return_value_discarded
+#	advanced_entity.connect("finished_activation", self, "_on_finished_enemy_activation")
+
+
+func _on_Debug_pressed() -> void:
+	# warning-ignore:return_value_discarded
+	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.impervious.name, 1)
+	counters.mod_counter("immersion",3)
+	for _iter in range(3):
+		cfc.NMAP.hand.draw_card(cfc.NMAP.deck)
 

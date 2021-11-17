@@ -171,16 +171,18 @@ const CARDS := {
 	"Dive-in": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.risky.name],
-		"Abilities": "Gain {effect_stacks} {shaken}\nYour next {damage} is doubled.",
+		"Abilities": "Gain {effect_stacks} {shaken}\nGain {effect_stacks2} {advantage}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_effects_info": {
-			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.PLAYER
+			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.advantage.name: Terms.PLAYER
 		},
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"effect_stacks": 2
+			"effect_stacks": 2,
+			"effect_stacks2": 1
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
@@ -191,32 +193,36 @@ const CARDS := {
 	"Enhanced Dive-in": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.risky.name],
-		"Abilities": "Gain {effect_stacks} {shaken}\nYour next {damage} is doubled.",
+		"Abilities": "Gain {effect_stacks} {shaken}\nGain {effect_stacks2} {advantage}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_effects_info": {
-			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.PLAYER
+			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.advantage.name: Terms.PLAYER
 		},
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"effect_stacks": 1
+			"effect_stacks": 1,
+			"effect_stacks2": 1
 		},
 		"_is_upgrade": true,
 	},
-	"Powerful Dive-in": {
+	"* Dive-in *": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.risky.name],
-		"Abilities": "Gain {effect_stacks} {shaken}\nYour next {damage} is tripled.",
+		"Abilities": "Gain {effect_stacks} {shaken}\nGain {effect_stacks2} {advantage}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_effects_info": {
-			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.PLAYER
+			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.advantage.name: Terms.PLAYER
 		},
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"effect_stacks": 3
+			"effect_stacks": 3,
+			"effect_stacks2": 3
 		},
 		"_is_upgrade": true,
 	},
@@ -699,7 +705,7 @@ const CARDS := {
 			"+ The Joke +",
 			"= The Joke =",
 		],
-		
+
 	},
 	"* The Joke *": {
 		"Type": "Action",
@@ -1629,7 +1635,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Swoop": {
+	"Careful Observation": {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}. If you have {untouchable}, {damage} for {damage_amount2} instead.",
@@ -1646,11 +1652,11 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"+ Swoop +",
-			"% Swoop %",
+			"+ Careful Observation +",
+			"% Careful Observation %",
 		],
 	},
-	"+ Swoop +": {
+	"+ Careful Observation +": {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}. If you have {untouchable}, {damage} for {damage_amount2} instead.",
@@ -1667,7 +1673,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"% Swoop %": {
+	"% Careful Observation %": {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}. If you have {untouchable}, {damage} for {damage_amount2} instead.",
@@ -2411,8 +2417,8 @@ const CARDS := {
 	"unnamed_card_4": {
 		"Type": "Control",
 		"Tags": [
-			Terms.GENERIC_TAGS.fading.name, 
-			Terms.GENERIC_TAGS.slumber.name, 
+			Terms.GENERIC_TAGS.fading.name,
+			Terms.GENERIC_TAGS.slumber.name,
 		],
 		"Abilities": "Gain {defence_amount} {confidence}\n{forget}.",
 		"Cost": 0,
@@ -2432,8 +2438,8 @@ const CARDS := {
 	"+ unnamed_card_4 +": {
 		"Type": "Control",
 		"Tags": [
-			Terms.GENERIC_TAGS.fading.name, 
-			Terms.GENERIC_TAGS.slumber.name, 
+			Terms.GENERIC_TAGS.fading.name,
+			Terms.GENERIC_TAGS.slumber.name,
 		],
 		"Abilities": "Gain {defence_amount} {confidence}\n{forget}.",
 		"Cost": 0,
@@ -2449,7 +2455,7 @@ const CARDS := {
 	"^ unnamed_card_4 ^": {
 		"Type": "Control",
 		"Tags": [
-			Terms.GENERIC_TAGS.fading.name, 
+			Terms.GENERIC_TAGS.fading.name,
 			Terms.GENERIC_TAGS.alpha.name,
 		],
 		"Abilities": "Gain {defence_amount} {confidence}\n{forget}.",
@@ -5470,7 +5476,11 @@ const CARDS := {
 		"Cost": 'X',
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["confidence"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.burn.name: Terms.ENEMY
+		},
+		"_keywords": [],
 		"_amounts": {
 			"effect_stacks": 1,
 			"effect_stacks2": 2,
@@ -5491,7 +5501,11 @@ const CARDS := {
 		"Cost": 'X',
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["confidence"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.burn.name: Terms.ENEMY
+		},
+		"_keywords": [],
 		"_amounts": {
 			"effect_stacks": 2,
 			"effect_stacks2": 2,
@@ -5507,7 +5521,11 @@ const CARDS := {
 		"Cost": 'X',
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["confidence"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.burn.name: Terms.ENEMY
+		},
+		"_keywords": [],
 		"_amounts": {
 			"effect_stacks": 1,
 			"effect_stacks2": 3,
@@ -5523,11 +5541,73 @@ const CARDS := {
 		"Cost": 'X',
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["confidence"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.burn.name: Terms.ENEMY
+		},
+		"_keywords": [],
 		"_amounts": {
 			"effect_stacks": 1,
 			"effect_stacks2": 2,
 			"x_requirement": 0,
+		},
+		"_is_upgrade": true,
+	},
+	"Swoop": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.chain.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "Remove all {impervious} and repeat the same amount of times",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"damage_amount": 9,
+			"per_modifier": 1,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"+ Swoop +",
+			"% Swoop %",
+		],
+	},
+	"+ Swoop +": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.chain.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "Remove all {impervious} and repeat the same amount of times",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"damage_amount": 12,
+			"per_modifier": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"% Swoop %": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.chain.name],
+		"Abilities": "Remove all {impervious} "\
+				+ "and {damage} for {damage_amount} twice as many times",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"damage_amount": 10,
+			"per_multiplier": 2,
 		},
 		"_is_upgrade": true,
 	},
