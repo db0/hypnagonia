@@ -328,6 +328,11 @@ const ACTIVE_EFFECTS := {
 		"icon": preload("res://assets/icons/eyepatch.png"),
 		"is_card_reference": true
 	},
+	"panicked_takeoff":  {
+		"name": "Panicked Takeoff",
+		"icon": preload("res://assets/icons/flying-trout.png"),
+		"is_card_reference": true
+	},
 }
 
 

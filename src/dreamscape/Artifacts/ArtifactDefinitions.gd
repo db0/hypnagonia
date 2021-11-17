@@ -291,7 +291,7 @@ const ImproveThorns := {
 
 const ImprovePoison := {
 	"canonical_name": "ImprovePoison",
-	"name": "ImprovePoison",
+	"name": "ImproveDoubt",
 	"description": "{artifact_name}: Any time you would inflict {poison}, inflict {alteration_amount} more.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
@@ -304,7 +304,7 @@ const ImprovePoison := {
 
 const ImproveBurn := {
 	"canonical_name": "ImproveBurn",
-	"name": "ImproveBurn",
+	"name": "ImproveEnvy",
 	"description": "{artifact_name}: Any time you would inflict {burn}, inflict {alteration_amount} more.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
@@ -328,7 +328,7 @@ const ThickExplosion := {
 
 const AccumulateEnemy := {
 	"canonical_name": "AccumulateEnemy",
-	"name": "RepressedFrustration",
+	"name": "Repressed Frustration",
 	"description": "{artifact_name}: Increase your repressed Frustration by {pathos_amount}",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.OVERWORLD,
@@ -339,7 +339,7 @@ const AccumulateEnemy := {
 }
 const AccumulateRest := {
 	"canonical_name": "AccumulateRest",
-	"name": "RepressedLethargy",
+	"name": "Repressed Lethargy",
 	"description": "{artifact_name}: Increase your repressed Lethargy by {pathos_amount}",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.OVERWORLD,
@@ -350,7 +350,7 @@ const AccumulateRest := {
 }
 const AccumulateNCE := {
 	"canonical_name": "AccumulateNCE",
-	"name": "RepressedCuriosity",
+	"name": "Repressed Curiosity",
 	"description": "{artifact_name}: Increase your repressed Curiosity by {pathos_amount}",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.OVERWORLD,
@@ -361,7 +361,7 @@ const AccumulateNCE := {
 }
 const AccumulateShop := {
 	"canonical_name": "AccumulateShop",
-	"name": "RepressLoneliness",
+	"name": "Repress Loneliness",
 	"description": "{artifact_name}: Increase your repressed Loneliness by {pathos_amount}",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.OVERWORLD,
@@ -372,7 +372,7 @@ const AccumulateShop := {
 }
 const AccumulateElite := {
 	"canonical_name": "AccumulateElite",
-	"name": "RepressedForeboding",
+	"name": "Repressed Foreboding",
 	"description": "{artifact_name}: Increase your repressed Foreboding by {pathos_amount}",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.OVERWORLD,
@@ -383,7 +383,7 @@ const AccumulateElite := {
 }
 const AccumulateArtifact := {
 	"canonical_name": "AccumulateArtifact",
-	"name": "RepressedDesire",
+	"name": "Repressed Desire",
 	"description": "{artifact_name}: Increase your repressed Desire by {pathos_amount}",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.OVERWORLD,
@@ -393,7 +393,6 @@ const AccumulateArtifact := {
 	},
 }
 
-#TODO
 const PowerHeal := {
 	"canonical_name": "PowerHeal",
 	"name": "Concentrated Rest",
@@ -416,6 +415,16 @@ const PerturbationHeal := {
 	"amounts": {
 		"heal_amount": 1
 	},
+}
+
+### TODO
+const ImperviousHalved := {
+	"canonical_name": "ImperviousHalved",
+	"name": "ImperviousHalved",
+	"description": "{artifact_name}: At the start of the dreamer's turn, {impervious} is halved instead of removed.",
+	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"context": EffectContext.BATTLE,
+	"rarity": "Uncommon",
 }
 
 # Generic artifacts which have a chance to appear in any playthrough

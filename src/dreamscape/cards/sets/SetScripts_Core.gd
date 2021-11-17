@@ -2945,6 +2945,31 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
+	var PanickedTakeoff = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.panicked_takeoff.name,
+					"subject": "dreamer",
+					"modification": 1,
+				},
+			],
+		},
+	}
+	var WildlyPanickedTakeoff = {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.panicked_takeoff.name,
+					"subject": "dreamer",
+					"modification": 1,
+					"upgrade_name": "wildly",
+				},
+			],
+		},
+	}
 
 
 	# This format allows me to trace which script failed during load
@@ -3078,6 +3103,8 @@ func get_scripts(card_name: String) -> Dictionary:
 		"Sanguine": Sanguine,
 		"Launch": Launch,
 		"Swoop": Swoop,
+		"Panicked Takeoff": PanickedTakeoff,
+		"Wildly Panicked Takeoff": WildlyPanickedTakeoff,
 	}
 	return(_prepare_scripts(scripts, card_name))
 

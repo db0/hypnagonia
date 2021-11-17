@@ -32,20 +32,21 @@ const FLYER:= {
 		"Loop de loop",
 		"Rapid Encirclement",
 		"Dodge",
+		"Running Start",
 	],
 	"Uncommon": [
-		"Whirlwind",
 		"Safety of Air",
+		"Whirlwind",
 		"Swoop",
 		"Barrel Through",
-		"Running Start",
-		"Introspection",
 		"Launch",
-		"Careful Observation"
+		"Careful Observation",
+		"Introspection",
 	],
 	"Rare": [
 		"Master of Skies",
 		"Zen of Flight",
+		"Panicked Takeoff",
 	]
 }
 

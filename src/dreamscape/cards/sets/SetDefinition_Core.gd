@@ -232,7 +232,7 @@ const CARDS := {
 		"Abilities": "{relax} for {healing_amount}. {forget}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_amounts": {
 			"healing_amount": 4
@@ -250,7 +250,7 @@ const CARDS := {
 		"Abilities": "{relax} for {healing_amount}. {forget}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_amounts": {
 			"healing_amount": 7
@@ -263,7 +263,7 @@ const CARDS := {
 		"Abilities": "{relax} for {healing_amount}. {forget}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_amounts": {
 			"healing_amount": 4
@@ -276,7 +276,7 @@ const CARDS := {
 		"Abilities": "{relax} for {healing_amount}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_keywords": [],
 		"_amounts": {
 			"healing_amount": 4
@@ -1746,7 +1746,7 @@ const CARDS := {
 		"_is_upgrade": true,
 	},
 	"Running Start": {
-		"Type": "Control",
+		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {untouchable} card.",
 		"Cost": 1,
@@ -1768,7 +1768,7 @@ const CARDS := {
 		],
 	},
 	"+ Running Start +": {
-		"Type": "Control",
+		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {untouchable} card.",
 		"Cost": 1,
@@ -1785,7 +1785,7 @@ const CARDS := {
 		"_is_upgrade": true,
 	},
 	"! Running Start !": {
-		"Type": "Control",
+		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {untouchable} cards.",
 		"Cost": 1,
@@ -1802,7 +1802,7 @@ const CARDS := {
 		"_is_upgrade": true,
 	},
 	"@ Running Start @": {
-		"Type": "Control",
+		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {untouchable} card.",
 		"Cost": 0,
@@ -1820,16 +1820,17 @@ const CARDS := {
 	},
 	"Master of Skies": {
 		"Type": "Concentration",
-		"Tags": [Terms.GENERIC_TAGS.purpose.name],
-		"Abilities": "Whenever you gain {untouchable}, Gain {effect_amount} {immersion}",
+		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
+		"Abilities": "Whenever you gain {untouchable}, Gain {effect_stacks} {buffer}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
-			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
 		},
 		"_rarity": "Rare",
 		"_amounts": {
-			"effect_amount": 1,
+			"effect_stacks": 1,
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
@@ -1839,31 +1840,33 @@ const CARDS := {
 	},
 	"@ Master of Skies @": {
 		"Type": "Concentration",
-		"Tags": [Terms.GENERIC_TAGS.purpose.name],
-		"Abilities": "Whenever you gain {untouchable}, Gain {effect_amount} {immersion}",
+		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
+		"Abilities": "Whenever you gain {untouchable}, Gain {effect_stacks} {buffer}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
-			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
 		},
 		"_rarity": "Rare",
 		"_amounts": {
-			"effect_amount": 1,
+			"effect_stacks": 1,
 		},
 		"_is_upgrade": true,
 	},
 	"Glorious Master of Skies": {
 		"Type": "Concentration",
-		"Tags": [Terms.GENERIC_TAGS.purpose.name],
-		"Abilities": "Whenever you gain {untouchable}, Gain {effect_amount} {immersion}",
+		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
+		"Abilities": "Whenever you gain {untouchable}, Gain {effect_stacks} {buffer}",
 		"Cost": 3,
 		"_illustration": "Nobody",
 		"_effects_info": {
-			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
 		},
 		"_rarity": "Rare",
 		"_amounts": {
-			"effect_amount": 2,
+			"effect_stacks": 2,
 		},
 		"_is_upgrade": true,
 	},
@@ -3199,7 +3202,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Maria Thoukydidou",
 		"_keywords": ["interpretation"],
-		"_rarity": "Rare",
+		"_rarity": "Uncommon",
 		"_amounts": {
 			"effect_amount": 2,
 		},
@@ -3218,7 +3221,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
-		"_rarity": "Rare",
+		"_rarity": "Uncommon",
 		"_amounts": {
 			"effect_amount": 3,
 		},
@@ -3233,7 +3236,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
-		"_rarity": "Rare",
+		"_rarity": "Uncommon",
 		"_amounts": {
 			"effect_amount": 2,
 		},
@@ -5608,6 +5611,60 @@ const CARDS := {
 		"_amounts": {
 			"damage_amount": 10,
 			"per_multiplier": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"Panicked Takeoff": {
+		"Type": "Concentration",
+		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
+		"Abilities": "After the first time taking {anxiety} during Torment's turn, gain {effect_stacks} {impervious}",
+		"Cost": 3,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER,
+		},
+		"_keywords": [""],
+		"_rarity": "Rare",
+		"_amounts": {
+			"effect_stacks": 1,
+		},
+		"_upgrade_threshold": 8,
+		"_upgrades": [
+			"@ Panicked Takeoff @",
+			"Wildly Panicked Takeoff",
+		],
+	},
+	"@ Panicked Takeoff @": {
+		"Type": "Concentration",
+		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
+		"Abilities": "After the first time taking {anxiety} during Torment's turn, gain {effect_stacks} {impervious}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER,
+		},
+		"_keywords": [""],
+		"_rarity": "Rare",
+		"_amounts": {
+			"effect_stacks": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"Wildly Panicked Takeoff": {
+		"Type": "Concentration",
+		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name, Terms.GENERIC_TAGS.swift.name],
+		"Abilities": "After the first time taking {anxiety} during Torment's turn,"\
+				+ "gain {effect_stacks} {impervious} and draw {draw_amount} card.",
+		"Cost": 3,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER,
+		},
+		"_keywords": [""],
+		"_rarity": "Rare",
+		"_amounts": {
+			"effect_stacks": 1,
+			"draw_amount": 1,
 		},
 		"_is_upgrade": true,
 	},
