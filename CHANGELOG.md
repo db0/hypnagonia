@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.17.1](https://github.com/db0/hypnagonia/tree/v0.17.1) (2021-11-17)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.17.0...v0.17.1)
+
+**Merged pull requests:**
+
+- content\(art\) Added The Whippy-Flippy art by Maria Thoukydidou [\#60](https://github.com/db0/hypnagonia/pull/60) ([db0](https://github.com/db0))
+
 ## [v0.17.0](https://github.com/db0/hypnagonia/tree/v0.17.0) (2021-11-17)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.16.1...v0.17.0)
