@@ -24,4 +24,5 @@ const CARD_IMAGES := {
 	"Change of Mind": preload("res://assets/cards/Change of Mind.jpg"),
 	"Misunderstood": preload("res://assets/cards/Misunderstood.jpg"),
 	"Mania": preload("res://assets/cards/Mania.jpg"),
+	"The Whippy-Flippy": preload("res://assets/cards/The Whippy-Flippy.jpg"),
 }
