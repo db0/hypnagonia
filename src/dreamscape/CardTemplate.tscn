@@ -10,6 +10,10 @@
 
 [node name="Card" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+properties = {
+}
+scripts = {
+}
 board_placement = 0
 card_back_design = ExtResource( 6 )
 card_front_design = ExtResource( 3 )

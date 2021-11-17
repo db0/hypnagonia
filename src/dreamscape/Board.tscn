@@ -236,15 +236,15 @@ margin_right = 6.0
 margin_bottom = 6.0
 
 [node name="Position" parent="VBC/HandArea/HBC/DeckControl/VBC/Control/Deck/Debug" index="0"]
-margin_bottom = 24.0
+margin_bottom = 21.0
 
 [node name="AreaPos" parent="VBC/HandArea/HBC/DeckControl/VBC/Control/Deck/Debug" index="1"]
-margin_top = 27.0
-margin_bottom = 51.0
+margin_top = 24.0
+margin_bottom = 45.0
 
 [node name="Size" parent="VBC/HandArea/HBC/DeckControl/VBC/Control/Deck/Debug" index="2"]
-margin_top = 54.0
-margin_bottom = 78.0
+margin_top = 48.0
+margin_bottom = 69.0
 
 [node name="Push2" type="Control" parent="VBC/HandArea/HBC/DeckControl/VBC"]
 margin_top = 216.0
@@ -341,15 +341,15 @@ margin_right = 6.0
 margin_bottom = 6.0
 
 [node name="Position" parent="VBC/HandArea/HBC/DiscardsControl/VBC/ForgottenControl/Forgotten/Debug" index="0"]
-margin_bottom = 24.0
+margin_bottom = 21.0
 
 [node name="AreaPos" parent="VBC/HandArea/HBC/DiscardsControl/VBC/ForgottenControl/Forgotten/Debug" index="1"]
-margin_top = 27.0
-margin_bottom = 51.0
+margin_top = 24.0
+margin_bottom = 45.0
 
 [node name="Size" parent="VBC/HandArea/HBC/DiscardsControl/VBC/ForgottenControl/Forgotten/Debug" index="2"]
-margin_top = 54.0
-margin_bottom = 78.0
+margin_top = 48.0
+margin_bottom = 69.0
 
 [node name="Push" type="Control" parent="VBC/HandArea/HBC/DiscardsControl/VBC"]
 margin_top = 143.0
@@ -418,15 +418,15 @@ margin_right = 6.0
 margin_bottom = 6.0
 
 [node name="Position" parent="VBC/HandArea/HBC/DiscardsControl/VBC/DiscardControl/Discard/Debug" index="0"]
-margin_bottom = 24.0
+margin_bottom = 21.0
 
 [node name="AreaPos" parent="VBC/HandArea/HBC/DiscardsControl/VBC/DiscardControl/Discard/Debug" index="1"]
-margin_top = 27.0
-margin_bottom = 51.0
+margin_top = 24.0
+margin_bottom = 45.0
 
 [node name="Size" parent="VBC/HandArea/HBC/DiscardsControl/VBC/DiscardControl/Discard/Debug" index="2"]
-margin_top = 54.0
-margin_bottom = 78.0
+margin_top = 48.0
+margin_bottom = 69.0
 
 [node name="FadeToBlack" type="Panel" parent="."]
 visible = false

@@ -112,27 +112,8 @@ func get_scripts(card_name: String) -> Dictionary:
 					"name": "apply_effect",
 					"effect_name": Terms.ACTIVE_EFFECTS.advantage.name,
 					"subject": "dreamer",
-					"modification": 1,
-				}
-			],
-		},
-	}
-	var PowerfulDivein = {
-		"manual": {
-			"hand": [
-				{
-					"name": "apply_effect",
-					"effect_name": Terms.ACTIVE_EFFECTS.vulnerable.name,
-					"subject": "dreamer",
 					"modification": cfc.card_definitions[card_name]\
-							.get("_amounts",{}).get("effect_stacks"),
-				},
-				{
-					"name": "apply_effect",
-					"effect_name": Terms.ACTIVE_EFFECTS.advantage.name,
-					"subject": "dreamer",
-					"modification": 1,
-					"upgrade_name": "powerful",
+							.get("_amounts",{}).get("effect_stacks2"),
 				}
 			],
 		},
@@ -787,7 +768,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
-	var Swoop = {
+	var CarefulObservation = {
 		"manual": {
 			"hand": [
 				{
@@ -2931,6 +2912,39 @@ func get_scripts(card_name: String) -> Dictionary:
 			],
 		},
 	}
+	var Swoop = {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"needs_subject": true,
+					"amount": cfc.card_definitions[card_name]\
+							.get("_amounts",{}).get("damage_amount"),
+					"repeat": "per_effect_stacks",
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+					"per_effect_stacks": {
+						"effect_name": "Untouchable",
+						"subject": "dreamer",
+						"modifier": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("per_modifier", 0),
+						"multiplier": cfc.card_definitions[card_name]\
+								.get("_amounts",{}).get("per_multiplier", 1),
+					}
+				},
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.impervious.name,
+					"subject": "dreamer",
+					"modification": 0,
+					"set_to_mod": true
+				},
+			],
+		},
+	}
 
 
 	# This format allows me to trace which script failed during load
@@ -2939,7 +2953,6 @@ func get_scripts(card_name: String) -> Dictionary:
 		"Confidence": Confidence,
 		"Noisy Whip": NoisyWhip,
 		"Dive-in": Divein,
-		"Powerful Dive-in": PowerfulDivein,
 		"Safety of Air": SafetyofAir,
 		"Sustained Safety of Air": SustainedSafetyofAir,
 		"Nothing to Fear": NothingtoFear,
@@ -2976,7 +2989,7 @@ func get_scripts(card_name: String) -> Dictionary:
 		"No Second Thoughts": NoSecondThoughts,
 		"High Morale": HighMorale,
 		"Confident Slap": ConfidentSlap,
-		"Swoop": Swoop,
+		"CarefulObservation": CarefulObservation,
 		"Drag and Drop": DragandDrop,
 		"Running Start": RunningStart,
 		"Master of Skies": MasterofSkies,
@@ -3064,6 +3077,7 @@ func get_scripts(card_name: String) -> Dictionary:
 		"Bring It!": BringIt,
 		"Sanguine": Sanguine,
 		"Launch": Launch,
+		"Swoop": Swoop,
 	}
 	return(_prepare_scripts(scripts, card_name))
 
