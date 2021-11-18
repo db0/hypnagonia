@@ -126,8 +126,11 @@ func _setup() -> void:
 	set_seed(game_rng_seed)
 	card_definitions = load_card_definitions()
 	# We're loading the script definitions in a thread to avoid delaying game load too much
-	script_load_thread = Thread.new()
-	script_load_thread.start(self, "load_script_definitions")
+	if OS.get_name() == "HTML5":
+		load_script_definitions()
+	else:
+		script_load_thread = Thread.new()
+		script_load_thread.start(self, "load_script_definitions")
 
 
 # Run when all necessary nodes (Board, CardContainers etc) for the game
@@ -337,6 +340,10 @@ func _on_viewport_resized() -> void:
 	if curr_scale > 1:
 		curr_scale = 1
 	
+
+func _exit_tree():
+	script_load_thread.wait_to_finish()
+
 # The SignalPropagator is responsible for collecting all card signals
 # and asking all cards to check if there's any automation they need to perform
 class SignalPropagator:
@@ -391,7 +398,3 @@ class SignalPropagator:
 #		cfc.get_tree().call_group_flags(SceneTree.GROUP_CALL_UNIQUE  ,"cards",
 #				"execute_scripts",trigger_card,trigger,details)
 		emit_signal("signal_received", trigger_card, trigger, details)
-
-
-func _exit_tree():
-	script_load_thread.wait_to_finish()
