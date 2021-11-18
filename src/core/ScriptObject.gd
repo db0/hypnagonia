@@ -54,7 +54,24 @@ func _init(_owner, script: Dictionary, _trigger_object = null) -> void:
 func get_property(property: String, default = null):
 	if default == null:
 		default = SP.get_default(property)
+#	var found_value = lookup_script_property(script_definition.get(property,default))
 	return(script_definition.get(property,default))
+#
+#
+#func lookup_script_property(found_value):
+#	if typeof(found_value) == TYPE_DICTIONARY and found_value.has("lookup_property"):
+#		var lookup_property = found_value.get("lookup_property")
+#		var value_key = found_value.get("value_key")
+#		var default_value = found_value.get("default")
+#		var owner_name = owner.name
+#		if "canonical_name" in owner:
+#			owner_name = owner.canonical_name
+#		var value = cfc.card_definitions[owner.canonical_name]\
+#				.get(lookup_property, {}).get(value_key, default_value)
+#		if found_value.get("is_inverted"):
+#			value *= 1
+#		return(value)
+#	return(found_value)
 
 
 # Figures out what the subjects of this script is supposed to be.
