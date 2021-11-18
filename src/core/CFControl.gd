@@ -398,7 +398,3 @@ class SignalPropagator:
 #		cfc.get_tree().call_group_flags(SceneTree.GROUP_CALL_UNIQUE  ,"cards",
 #				"execute_scripts",trigger_card,trigger,details)
 		emit_signal("signal_received", trigger_card, trigger, details)
-
-
-func _exit_tree():
-	script_load_thread.wait_to_finish()
