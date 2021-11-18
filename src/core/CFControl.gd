@@ -272,8 +272,8 @@ func set_font_cache() -> void:
 	if not cache_commit_timer:
 		cache_commit_timer = get_tree().create_timer(1.0)
 		cache_commit_timer.connect("timeout", self, "_commit_font_cache")
-		
-	
+
+
 # Whenever a setting is changed via this function, it also stores it
 # permanently on-disk.
 func _commit_font_cache() -> void:
@@ -297,7 +297,7 @@ func init_font_cache() -> void:
 			if font_size_cache.get('version') == CFConst.GAME_VERSION:
 				font_size_cache = data.duplicate()
 			else:
-				# If the version of the game has increased, we wipe the 
+				# If the version of the game has increased, we wipe the
 				# font size cache and a new one will start being populated
 				font_size_cache['version'] = CFConst.GAME_VERSION
 
@@ -339,7 +339,7 @@ func _on_viewport_resized() -> void:
 	curr_scale = curr_pix / pix
 	if curr_scale > 1:
 		curr_scale = 1
-	
+
 
 func _exit_tree():
 	script_load_thread.wait_to_finish()
@@ -398,3 +398,7 @@ class SignalPropagator:
 #		cfc.get_tree().call_group_flags(SceneTree.GROUP_CALL_UNIQUE  ,"cards",
 #				"execute_scripts",trigger_card,trigger,details)
 		emit_signal("signal_received", trigger_card, trigger, details)
+
+
+func _exit_tree():
+	script_load_thread.wait_to_finish()
