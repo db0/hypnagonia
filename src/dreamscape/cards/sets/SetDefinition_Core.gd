@@ -3444,7 +3444,7 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["anxiety","immersion"],
+		"_keywords": ["anxiety"],
 		"_amounts": {
 			"exert_amount": 4,
 			"immersion_amount": 3,
@@ -3462,7 +3462,7 @@ const CARDS := {
 		"Abilities": "Take {exert_amount} {anxiety}\nGain {immersion_amount} {immersion}.\n{forget}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
-		"_keywords": ["anxiety","immersion"],
+		"_keywords": ["anxiety"],
 		"_rarity": "Common",
 		"_amounts": {
 			"exert_amount": 1,
@@ -3476,7 +3476,7 @@ const CARDS := {
 		"Abilities": "Take {exert_amount} {anxiety}\nGain {immersion_amount} {immersion}.\n{forget}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
-		"_keywords": ["anxiety","immersion"],
+		"_keywords": ["anxiety"],
 		"_rarity": "Common",
 		"_amounts": {
 			"exert_amount": 4,
@@ -3490,7 +3490,7 @@ const CARDS := {
 		"Abilities": "Take {exert_amount} {anxiety}\nGain {immersion_amount} {immersion}.\nDraw {draw_amount} card. {forget}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
-		"_keywords": ["anxiety","immersion"],
+		"_keywords": ["anxiety"],
 		"_rarity": "Common",
 		"_amounts": {
 			"exert_amount": 4,
@@ -4016,13 +4016,13 @@ const CARDS := {
 	},
 	"Survival Mode": {
 		"Type": "Control",
-		"Tags": [],
+		"Tags": [Terms.GENERIC_TAGS.purpose.name],
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If your {anxiety} is at least {health_percent}% full, gain {immersion_amount} {immersion}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["immersion","confidence", "anxiety"],
+		"_keywords": ["confidence", "anxiety"],
 		"_amounts": {
 			"immersion_amount": 1,
 			"defence_amount": 12,
@@ -4037,13 +4037,13 @@ const CARDS := {
 	},
 	"+ Survival Mode +": {
 		"Type": "Control",
-		"Tags": [],
+		"Tags": [Terms.GENERIC_TAGS.purpose.name],
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If your {anxiety} is at least {health_percent}% full, gain {immersion_amount} {immersion}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["immersion","confidence", "anxiety"],
+		"_keywords": ["confidence", "anxiety"],
 		"_amounts": {
 			"immersion_amount": 1,
 			"defence_amount": 16,
@@ -4053,13 +4053,13 @@ const CARDS := {
 	},
 	"= Survival Mode =": {
 		"Type": "Control",
-		"Tags": [],
+		"Tags": [Terms.GENERIC_TAGS.purpose.name],
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If your {anxiety} is at least {health_percent}% full, gain {immersion_amount} {immersion}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["immersion","confidence", "anxiety"],
+		"_keywords": ["confidence", "anxiety"],
 		"_amounts": {
 			"immersion_amount": 1,
 			"defence_amount": 13,
@@ -4069,13 +4069,13 @@ const CARDS := {
 	},
 	"% Survival Mode %": {
 		"Type": "Control",
-		"Tags": [],
+		"Tags": [Terms.GENERIC_TAGS.purpose.name],
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If your {anxiety} is at least {health_percent}% full, gain {immersion_amount} {immersion}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["immersion","confidence", "anxiety"],
+		"_keywords": ["confidence", "anxiety"],
 		"_amounts": {
 			"immersion_amount": 2,
 			"defence_amount": 13,
@@ -4476,7 +4476,7 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
-		"_keywords": ["immersion"],
+		"_keywords": [],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
 		},
@@ -4497,7 +4497,7 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
-		"_keywords": ["immersion"],
+		"_keywords": [],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
 		},
@@ -4514,7 +4514,7 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
-		"_keywords": ["immersion"],
+		"_keywords": [],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
 		},
