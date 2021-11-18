@@ -76,7 +76,7 @@ func get_scripts(card_name: String) -> Dictionary:
 								.get("_amounts",{}).get("immersion_amount"),
 					},
 				],
-				"filter_source": cfc.NMAP.deck,
+				"filter_source": "deck",
 			},
 			"on_player_turn_started": {
 				"hand": [
@@ -95,7 +95,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "move_card_to_container",
 						"subject": "self",
-						"dest_container": cfc.NMAP.forgotten,
+						"dest_container": "forgotten",
 					},
 				],
 			},
@@ -107,7 +107,7 @@ func get_scripts(card_name: String) -> Dictionary:
 						"name": "custom_script",
 					}
 				],
-				"filter_source": cfc.NMAP.deck,
+				"filter_source": "deck",
 			},
 		},
 	}

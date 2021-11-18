@@ -22,10 +22,13 @@ onready var player_info := $VBC/PlayerInfo
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var load_start_time = OS.get_ticks_msec()
+	print_debug("Board Enter Ready:" + str(OS.get_ticks_msec() - load_start_time) + 'ms')
 	_board_cover.visible = true
 	counters = $VBC/HBC/Counters
 	end_turn = $VBC/HBC/EndTurn
 	cfc.map_node(self)
+	print_debug("Board All Nodes Mapped:" + str(OS.get_ticks_msec() - load_start_time) + 'ms')
 	# warning-ignore:return_value_discarded
 	get_viewport().connect("size_changed",self,"_on_viewport_resized")
 	# We use the below while to wait until all the nodes we need have been mapped

@@ -190,7 +190,7 @@ func _tutor_subjects(stored_integer: int) -> Array:
 			subject_count *= -1
 	requested_subjects = subject_count
 	var subject_list := sort_subjects(
-			get_property(SP.KEY_SRC_CONTAINER).get_all_cards())
+			cfc.NMAP[get_property(SP.KEY_SRC_CONTAINER)].get_all_cards())
 	for c in subject_list:
 		if SP.check_validity(c, script_definition, "tutor"):
 			subjects_array.append(c)
@@ -207,7 +207,7 @@ func _index_seek_subjects(stored_integer: int) -> Array:
 	var subjects_array := []
 	# When we're seeking for index, we expect a
 	# source CardContainer to have been provided.
-	var src_container: CardContainer = get_property(SP.KEY_SRC_CONTAINER)
+	var src_container: CardContainer = cfc.NMAP[get_property(SP.KEY_SRC_CONTAINER)]
 	var index = get_property(SP.KEY_SUBJECT_INDEX)
 	if str(index) == SP.KEY_SUBJECT_INDEX_V_TOP:
 		# We use the CardContainer functions, inctead of the Piles ones

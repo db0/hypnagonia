@@ -131,7 +131,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "move_card_to_container",
 					"subject": "self",
-					"dest_container": cfc.NMAP.forgotten,
+					"dest_container": "forgotten",
 				},
 			],
 		},
@@ -393,7 +393,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				# it's not counted for checking if the hand is full
 				{
 					"name": "move_card_to_container",
-					"dest_container": cfc.NMAP.discard,
+					"dest_container": "discard",
 					"subject": "self",
 				},
 				{
@@ -620,7 +620,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "move_card_to_container",
 					"subject": "self",
-					"dest_container": cfc.NMAP.forgotten,
+					"dest_container": "forgotten",
 				},
 			],
 		},
@@ -652,7 +652,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "move_card_to_container",
 					"subject": "self",
-					"dest_container": cfc.NMAP.forgotten,
+					"dest_container": "forgotten",
 				},
 			],
 		},
@@ -719,7 +719,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			"hand": [
 				{
 					"name": "move_card_to_container",
-					"dest_container": cfc.NMAP.discard,
+					"dest_container": "discard",
 					"subject": "self",
 				},
 				{
@@ -738,8 +738,8 @@ func get_scripts(card_name: String) -> Dictionary:
 					"subject": "tutor",
 					"subject_count": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("draw_amount"),
-					"src_container":  cfc.NMAP.deck,
-					"dest_container":  cfc.NMAP.hand,
+					"src_container":  "deck",
+					"dest_container":  "hand",
 					"filter_state_tutor": [
 						{
 							"filter_properties": {
@@ -828,7 +828,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			"hand": [
 				{
 					"name": "move_card_to_container",
-					"dest_container": cfc.NMAP.discard,
+					"dest_container": "discard",
 					"subject": "self",
 				},
 				{
@@ -847,8 +847,8 @@ func get_scripts(card_name: String) -> Dictionary:
 					"subject": "tutor",
 					"subject_count": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("draw_amount"),
-					"src_container":  cfc.NMAP.deck,
-					"dest_container":  cfc.NMAP.hand,
+					"src_container":  "deck",
+					"dest_container":  "hand",
 					"filter_state_tutor": [
 						{
 							"filter_properties": {
@@ -975,7 +975,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			"hand": [
 				{
 					"name": "move_card_to_container",
-					"dest_container": cfc.NMAP.discard,
+					"dest_container": "discard",
 					"subject": "self",
 				},
 				{
@@ -994,8 +994,8 @@ func get_scripts(card_name: String) -> Dictionary:
 					"subject": "tutor",
 					"subject_count": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("draw_amount"),
-					"src_container":  cfc.NMAP.deck,
-					"dest_container":  cfc.NMAP.hand,
+					"src_container":  "deck",
+					"dest_container":  "hand",
 					"filter_state_tutor": [
 						{
 							"filter_properties": {
@@ -1012,19 +1012,19 @@ func get_scripts(card_name: String) -> Dictionary:
 			"hand": [
 				{
 					"name": "move_card_to_container",
-					"src_container": cfc.NMAP.discard,
-					"dest_container": cfc.NMAP.deck,
+					"src_container": "discard",
+					"dest_container": "deck",
 					"subject_count": "all",
 					"subject": "index",
 					"subject_index": "top",
 				},
 				{
 					"name": "shuffle_container",
-					"dest_container": cfc.NMAP.deck,
+					"dest_container": "deck",
 				},
 				{
 					"name": "autoplay_card",
-					"src_container": cfc.NMAP.deck,
+					"src_container": "deck",
 					"subject_count": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("draw_amount"),
 					"subject": "index",
@@ -1033,7 +1033,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "move_card_to_container",
 					"subject": "self",
-					"dest_container": cfc.NMAP.forgotten,
+					"dest_container": "forgotten",
 				},
 			],
 		},
@@ -1043,19 +1043,19 @@ func get_scripts(card_name: String) -> Dictionary:
 			"hand": [
 				{
 					"name": "move_card_to_container",
-					"src_container": cfc.NMAP.discard,
-					"dest_container": cfc.NMAP.deck,
+					"src_container": "discard",
+					"dest_container": "deck",
 					"subject_count": "all",
 					"subject": "index",
 					"subject_index": "top",
 				},
 				{
 					"name": "shuffle_container",
-					"dest_container": cfc.NMAP.deck,
+					"dest_container": "deck",
 				},
 				{
 					"name": "autoplay_card",
-					"src_container": cfc.NMAP.deck,
+					"src_container": "deck",
 					"subject_count": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("draw_amount"),
 					"subject": "index",
@@ -1131,7 +1131,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "move_card_to_container",
 					"subject": "self",
-					"dest_container": cfc.NMAP.forgotten,
+					"dest_container": "forgotten",
 				},
 			],
 		},
@@ -1140,7 +1140,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "move_card_to_container",
 					"subject": "self",
-					"dest_container": cfc.NMAP.forgotten,
+					"dest_container": "forgotten",
 				},
 			],
 		},
@@ -1162,11 +1162,11 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "move_card_to_container",
 					"subject": "self",
-					"dest_container": cfc.NMAP.deck,
+					"dest_container": "deck",
 				},
 				{
 					"name": "shuffle_container",
-					"dest_container": cfc.NMAP.deck,
+					"dest_container": "deck",
 				},
 			],
 		},
@@ -1253,7 +1253,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				# it's not counted for checking if the hand is full
 				{
 					"name": "move_card_to_container",
-					"dest_container": cfc.NMAP.discard,
+					"dest_container": "discard",
 					"subject": "self",
 				},
 				{
@@ -1291,13 +1291,13 @@ func get_scripts(card_name: String) -> Dictionary:
 			"hand": [
 				{
 					"name": "move_card_to_container",
-					"dest_container": cfc.NMAP.discard,
+					"dest_container": "discard",
 					"subject": "self",
 				},
 				{
 					"name": "move_card_to_container",
-					"dest_container": cfc.NMAP.forgotten,
-					"src_container": cfc.NMAP.deck,
+					"dest_container": "forgotten",
+					"src_container": "deck",
 					"subject": "index",
 					"subject_index": "top",
 					"subject_count": cfc.card_definitions[card_name]\
@@ -1347,17 +1347,17 @@ func get_scripts(card_name: String) -> Dictionary:
 							SP.KEY_SELECTION_TYPE: "equal",
 							SP.KEY_SELECTION_OPTIONAL: true,
 							SP.KEY_SELECTION_IGNORE_SELF: true,
-							"src_container": cfc.NMAP.hand,
-							"dest_container": cfc.NMAP.discard,
+							"src_container": "hand",
+							"dest_container": "discard",
 						},
 						{
 							"name": "move_card_to_container",
 							"subject": "self",
-							"dest_container": cfc.NMAP.deck,
+							"dest_container": "deck",
 						},
 						{
 							"name": "shuffle_container",
-							"dest_container": cfc.NMAP.deck,
+							"dest_container": "deck",
 						},
 					]
 				}
@@ -1442,7 +1442,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "move_card_to_container",
 					"subject": "self",
-					"dest_container": cfc.NMAP.forgotten,
+					"dest_container": "forgotten",
 				},
 			],
 		},
@@ -1487,7 +1487,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "move_card_to_container",
 					"subject": "self",
-					"dest_container": cfc.NMAP.forgotten,
+					"dest_container": "forgotten",
 				},
 			],
 		},
@@ -1516,7 +1516,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "move_card_to_container",
 					"subject": "self",
-					"dest_container": cfc.NMAP.forgotten,
+					"dest_container": "forgotten",
 				},
 			],
 		},
@@ -1691,7 +1691,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				# it's not counted for checking if the hand is full
 				{
 					"name": "move_card_to_container",
-					"dest_container": cfc.NMAP.discard,
+					"dest_container": "discard",
 					"subject": "self",
 				},
 				{
@@ -1711,8 +1711,8 @@ func get_scripts(card_name: String) -> Dictionary:
 					"subject": "tutor",
 					"subject_count": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("draw_amount2"),
-					"src_container":  cfc.NMAP.deck,
-					"dest_container":  cfc.NMAP.hand,
+					"src_container":  "deck",
+					"dest_container":  "hand",
 					"filter_state_tutor": [
 						{
 							"filter_properties": {
@@ -1743,7 +1743,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "move_card_to_container",
 					"subject": "self",
-					"dest_container": cfc.NMAP.forgotten,
+					"dest_container": "forgotten",
 				},
 			],
 		},
@@ -1767,7 +1767,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "move_card_to_container",
 					"subject": "self",
-					"dest_container": cfc.NMAP.forgotten,
+					"dest_container": "forgotten",
 				},
 				{
 					"name": "draw_cards",
@@ -2102,7 +2102,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "move_card_to_container",
 					"subject": "self",
-					"dest_container": cfc.NMAP.forgotten,
+					"dest_container": "forgotten",
 				},
 			],
 		},
@@ -2231,11 +2231,11 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "move_card_to_container",
 						"subject": "self",
-						"dest_container": cfc.NMAP.deck,
+						"dest_container": "deck",
 					},
 					{
 						"name": "shuffle_container",
-						"dest_container": cfc.NMAP.deck,
+						"dest_container": "deck",
 					},
 				],
 				"Gain Confidence": [
@@ -2249,7 +2249,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					{
 						"name": "move_card_to_container",
 						"subject": "self",
-						"dest_container": cfc.NMAP.discard,
+						"dest_container": "discard",
 					},
 				],
 			}
@@ -2280,7 +2280,7 @@ func get_scripts(card_name: String) -> Dictionary:
 						"filter_group": "EnemyEntities",
 					}],
 					"filter_per_tutor_count": {
-						"src_container": cfc.NMAP.deck,
+						"src_container": "deck",
 						"subject": "tutor",
 						"subject_count": "all",
 						"filter_card_count": cfc.card_definitions[card_name]\
@@ -2329,9 +2329,9 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "move_card_to_container",
 					"subject": "self",
-					"dest_container": cfc.NMAP.deck,
+					"dest_container": "deck",
 					"filter_per_tutor_count": {
-						"src_container": cfc.NMAP.deck,
+						"src_container": "deck",
 						"subject": "tutor",
 						"subject_count": "all",
 						"filter_card_count": cfc.card_definitions[card_name]\
@@ -2341,9 +2341,9 @@ func get_scripts(card_name: String) -> Dictionary:
 				},
 				{
 					"name": "shuffle_container",
-					"dest_container": cfc.NMAP.deck,
+					"dest_container": "deck",
 					"filter_per_tutor_count": {
-						"src_container": cfc.NMAP.deck,
+						"src_container": "deck",
 						"subject": "tutor",
 						"subject_count": "all",
 						"filter_card_count": cfc.card_definitions[card_name]\
@@ -2358,7 +2358,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					"modification": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("effect_stacks2"),
 					"filter_per_tutor_count": {
-						"src_container": cfc.NMAP.deck,
+						"src_container": "deck",
 						"subject": "tutor",
 						"subject_count": "all",
 						"filter_card_count": cfc.card_definitions[card_name]\
@@ -2374,7 +2374,7 @@ func get_scripts(card_name: String) -> Dictionary:
 			"hand": [
 				{
 					"name": "move_card_to_container",
-					"dest_container": cfc.NMAP.discard,
+					"dest_container": "discard",
 					"subject": "self",
 				},
 				{
@@ -2424,7 +2424,7 @@ func get_scripts(card_name: String) -> Dictionary:
 					"amount": "per_tutor",
 					"tags": ["Attack"],
 					"per_tutor": {
-						"src_container": cfc.NMAP.deck,
+						"src_container": "deck",
 						"subject": "tutor",
 						"subject_count": "all",
 						"multiplier": cfc.card_definitions[card_name]\
@@ -2452,8 +2452,8 @@ func get_scripts(card_name: String) -> Dictionary:
 				},
 				{
 					"name": "move_card_to_container",
-					"src_container": cfc.NMAP.discard,
-					"dest_container": cfc.NMAP.deck,
+					"src_container": "discard",
+					"dest_container": "deck",
 					"subject_count": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("card_amount"),
 					"subject": "index",
@@ -2461,7 +2461,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				},
 				{
 					"name": "shuffle_container",
-					"dest_container": cfc.NMAP.deck,
+					"dest_container": "deck",
 				},
 			],
 		},
@@ -2477,8 +2477,8 @@ func get_scripts(card_name: String) -> Dictionary:
 				},
 				{
 					"name": "move_card_to_container",
-					"src_container": cfc.NMAP.forgotten,
-					"dest_container": cfc.NMAP.deck,
+					"src_container": "forgotten",
+					"dest_container": "deck",
 					"subject_count": cfc.card_definitions[card_name]\
 							.get("_amounts",{}).get("card_amount"),
 					"subject": "index",
@@ -2486,7 +2486,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				},
 				{
 					"name": "shuffle_container",
-					"dest_container": cfc.NMAP.deck,
+					"dest_container": "deck",
 				},
 			],
 		},
@@ -2600,7 +2600,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "move_card_to_container",
 					"subject": "self",
-					"dest_container": cfc.NMAP.forgotten,
+					"dest_container": "forgotten",
 				},
 			],
 		},
@@ -2762,7 +2762,7 @@ func get_scripts(card_name: String) -> Dictionary:
 				{
 					"name": "move_card_to_container",
 					"subject": "self",
-					"dest_container": cfc.NMAP.forgotten,
+					"dest_container": "forgotten",
 				},
 			],
 		},
@@ -3118,7 +3118,7 @@ func _prepare_scripts(all_scripts: Dictionary, card_name: String) -> Dictionary:
 	var FLEETING_TASK := {
 		"name": "move_card_to_container",
 		"subject": "self",
-		"dest_container": cfc.NMAP.forgotten,
+		"dest_container": "forgotten",
 	}
 	var script_name := card_name
 	var break_loop := false

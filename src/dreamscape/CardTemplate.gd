@@ -148,9 +148,9 @@ func common_pre_move_scripts(new_container: Node, old_container: Node, tags: Arr
 
 
 # Executes some extra logic depending on the type of card moved
-func common_post_move_scripts(new_container: Node, old_container: Node, tags: Array) -> void:
-	if new_container == cfc.NMAP.board\
-			and old_container == cfc.NMAP.hand\
+func common_post_move_scripts(new_container: String, old_container: String, tags: Array) -> void:
+	if new_container == cfc.NMAP.board.name\
+			and old_container == cfc.NMAP.hand.name\
 			and not "Scripted" in tags:
 		pay_play_costs()
 	# if an action was dragged to the board, it will have returned to hand now
@@ -242,7 +242,7 @@ func generate_discard_tasks(only_from_hand := true) -> Array:
 			"name": "move_card_to_container",
 			"subject": "self",
 			"tags": ["Played"],
-			"dest_container": cfc.NMAP.discard,
+			"dest_container": cfc.NMAP.discard.name,
 		}
 	if only_from_hand:
 		discard_script_template["filter_state_subject"] = [{"filter_parent": cfc.NMAP.hand}]
@@ -340,7 +340,7 @@ func remove_from_deck(permanent := true, tags := []) -> void:
 				"card_played",
 				{
 					"destination": null,
-					"source": get_parent(),
+					"source": get_parent().name,
 					"tags": tags
 				}
 		)
