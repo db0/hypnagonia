@@ -350,10 +350,10 @@ const GENERIC_TAGS := {
 		"rich_text_icon": "res://fonts/rich_text_icons/meditation.png",
 		"generic_description": "{effect_name} ({effect_icon}): Reduces Dreamer {anxiety}."},
 	"purpose": {
-		"name": "Purpose",
+		"name": "Immersion",
 		"icon": preload("res://assets/icons/concentration-orb.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/concentration-orb.png",
-		"generic_description": "{effect_name} ({effect_icon}): Provides immersion."},
+		"generic_description": "{effect_name} ({effect_icon}): Used for playing cards."},
 	"chain": {
 		"name": "Chain",
 		"icon": preload("res://assets/icons/crossed-chains.png"),
