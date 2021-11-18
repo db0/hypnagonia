@@ -125,6 +125,8 @@ func _setup() -> void:
 	# Initialize the game random seed
 	set_seed(game_rng_seed)
 	card_definitions = load_card_definitions()
+	script_load_thread = Thread.new()
+	script_load_thread.start(self, "load_script_definitions")
 
 
 # Run when all necessary nodes (Board, CardContainers etc) for the game
@@ -142,8 +144,6 @@ func _on_all_nodes_mapped() -> void:
 		# viewports active
 		if NMAP.board and NMAP.board.has_node("ScalingFocusOptions"): # Needed for UT
 			NMAP.board.get_node("ScalingFocusOptions").disabled = true
-	script_load_thread = Thread.new()
-	script_load_thread.start(self, "load_script_definitions")
 
 
 # The below code allows us to quickly refer to nodes meant to host cards

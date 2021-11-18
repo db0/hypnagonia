@@ -54,7 +54,7 @@ func get_scripts(intent_name: String) -> Dictionary:
 			{
 				"name": "perturb",
 				"card_name": "Dread",
-				"dest_container": cfc.NMAP.discard,
+				"dest_container": "discard",
 				"object_count": 1,
 				"tags": ["Intent"],
 				"icon": preload("res://assets/icons/alien-stare.png"),
