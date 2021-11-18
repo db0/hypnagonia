@@ -367,7 +367,7 @@ func perturb(script: ScriptTask) -> void:
 	var count: int
 	var alteration = 0
 	var canonical_name: String = script.get_property(SP.KEY_CARD_NAME)
-	var dest_container: CardContainer = script.get_property(SP.KEY_DEST_CONTAINER)
+	var dest_container: CardContainer = cfc.NMAP[script.get_property(SP.KEY_DEST_CONTAINER).to_lower()]
 	if str(script.get_property(SP.KEY_OBJECT_COUNT)) == SP.VALUE_RETRIEVE_INTEGER:
 		count = stored_integer
 		if script.get_property(SP.KEY_IS_INVERTED):

@@ -4685,7 +4685,7 @@ const CARDS := {
 				+ "{stress} ≤ {stress_threshold2}: Gain {effect_stacks2} {empower}\n"\
 				+ "{stress} ≤ {stress_threshold3}: Gain {effect_stacks3} {strengthen}\n",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Rare",
 		"_keywords": ["stress"],
 		"_effects_info": {
@@ -4716,7 +4716,7 @@ const CARDS := {
 				+ "{stress} ≤ {stress_threshold2}: Gain {effect_stacks2} {empower}\n"\
 				+ "{stress} ≤ {stress_threshold3}: Gain {effect_stacks3} {strengthen}\n",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Rare",
 		"_keywords": ["stress"],
 		"_effects_info": {
@@ -4742,7 +4742,7 @@ const CARDS := {
 				+ "{stress} ≤ {stress_threshold2}: Gain {effect_stacks2} {empower}\n"\
 				+ "{stress} ≤ {stress_threshold3}: Gain {effect_stacks3} {strengthen}\n",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Rare",
 		"_keywords": ["stress"],
 		"_effects_info": {
@@ -4768,7 +4768,7 @@ const CARDS := {
 				+ "{stress} ≤ {stress_threshold2}: Gain {effect_stacks2} {empower}\n"\
 				+ "{stress} ≤ {stress_threshold3}: Gain {effect_stacks3} {strengthen}\n",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Rare",
 		"_keywords": ["stress"],
 		"_effects_info": {

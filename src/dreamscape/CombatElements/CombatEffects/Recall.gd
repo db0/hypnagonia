@@ -20,8 +20,8 @@ func _on_player_turn_ended(_turn: Turn) -> void:
 			continue
 		var recall = [{
 				"name": "move_card_to_container",
-				"dest_container": cfc.NMAP.deck,
-				"src_container": cfc.NMAP.discard,
+				"dest_container": "deck",
+				"src_container": "discard",
 				"subject": "index",
 				"subject_index": "top",
 				"subject_count": cards,
@@ -29,7 +29,7 @@ func _on_player_turn_ended(_turn: Turn) -> void:
 			},
 			{
 				"name": "shuffle_container",
-				"dest_container": cfc.NMAP.deck,
+				"dest_container": "deck",
 			},
 		]
 		# I am waiting a bit to avoid conflicting with the normal hand reshuffle.
