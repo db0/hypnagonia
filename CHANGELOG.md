@@ -1,5 +1,18 @@
 # Changelog
 
+## [v0.17.2](https://github.com/db0/hypnagonia/tree/v0.17.2) (2021-11-18)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.17.1...v0.17.2)
+
+**Closed issues:**
+
+- Need axiety keyword [\#63](https://github.com/db0/hypnagonia/issues/63)
+
+**Merged pull requests:**
+
+- Anxiety keyword [\#64](https://github.com/db0/hypnagonia/pull/64) ([db0](https://github.com/db0))
+- Added new screenshots with new art and layouts [\#62](https://github.com/db0/hypnagonia/pull/62) ([db0](https://github.com/db0))
+
 ## [v0.17.1](https://github.com/db0/hypnagonia/tree/v0.17.1) (2021-11-17)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.17.0...v0.17.1)
