@@ -125,6 +125,7 @@ func _setup() -> void:
 	# Initialize the game random seed
 	set_seed(game_rng_seed)
 	card_definitions = load_card_definitions()
+	# We're loading the script definitions in a thread to avoid delaying game load too much
 	script_load_thread = Thread.new()
 	script_load_thread.start(self, "load_script_definitions")
 
