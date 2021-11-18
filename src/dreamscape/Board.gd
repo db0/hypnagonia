@@ -363,13 +363,14 @@ func _input(event):
 #		globals.player.add_artifact("ThinCardDraw")
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
-			"Panicked Takeoff",
-			"Wildly Panicked Takeoff",
-			"Master of Skies",
-			"Glorious Master of Skies",
+			"Self-Deception",
+			"The Whippy-Flippy",
+			"Is it my fault?",
+			"Prejudice",
+			"Interpretation",
 		]:
 			var card = cfc.instance_card(c)
-			cfc.NMAP.deck.add_child(card)
+			cfc.NMAP.hand.add_child(card)
 			#card.set_is_faceup(false,true)
 			card._determine_idle_state()
 		cfc.NMAP.deck.shuffle_cards(false)

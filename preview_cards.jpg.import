@@ -2,20 +2,20 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/preview_cards.png-6fa2e0225af2d7d340fd5f76206addff.stex"
+path="res://.import/preview_cards.jpg-10a5c8d2f5bcfb8535113af21251511d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://preview_cards.png"
-dest_files=[ "res://.import/preview_cards.png-6fa2e0225af2d7d340fd5f76206addff.stex" ]
+source_file="res://preview_cards.jpg"
+dest_files=[ "res://.import/preview_cards.jpg-10a5c8d2f5bcfb8535113af21251511d.stex" ]
 
 [params]
 
 compress/mode=1
-compress/lossy_quality=0.7
+compress/lossy_quality=0.08
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true
