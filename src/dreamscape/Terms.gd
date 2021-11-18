@@ -125,7 +125,7 @@ const ACTIVE_EFFECTS := {
 		"name": "Confusion",
 		"icon": preload("res://assets/icons/misdirection.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/misdirection.png",
-		"generic_description": "{effect_name}: Reduces anxiety dealt by Torments by percentage.",
+		"generic_description": "{effect_name}: Reduces {stress} dealt by Torments by percentage.",
 		"description": "{effect_name} ({effect_icon}): {attack} {damage_verb} by this {entity} is reduced by 30%.\n"\
 				+ "Reduce these stacks by 1 at the end of the turn.",
 	},
@@ -158,7 +158,7 @@ const ACTIVE_EFFECTS := {
 	"impervious": {
 		"name": "Untouchable",
 		"icon": preload("res://assets/icons/dodging.png"),
-		"generic_description": "{effect_name}: Prevents all anxiety from Torment-induced stress.",
+		"generic_description": "{effect_name}: Prevents all {stress} from Torments",
 		"rich_text_icon": "res://fonts/rich_text_icons/dodging.png",
 		"description": "{effect_name} ({effect_icon}): The next {amount} {opponent_attack} does not increase {health}.\n"\
 				+ "Remove all stacks at the start of the turn."
@@ -343,7 +343,7 @@ const GENERIC_TAGS := {
 		"name": "Risky",
 		"icon": preload("res://assets/icons/tightrope.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/tightrope.png",
-		"generic_description": "{effect_name} ({effect_icon}): Increases Anxiety taken by Dreamer."},
+		"generic_description": "{effect_name} ({effect_icon}): Increases {anxiety} taken by Dreamer."},
 	"relax":  {
 		"name": "Relax",
 		"icon": preload("res://assets/icons/meditation.png"),
@@ -398,7 +398,7 @@ const GENERIC_TAGS := {
 		"name": "Rationalizations",
 		"icon": preload("res://assets/icons/skills.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/skills.png",
-		"generic_description": "{effect_name} ({effect_icon}): Increases Anxiety when played."},
+		"generic_description": "{effect_name} ({effect_icon}): Increases {anxiety} when played."},
 }
 
 

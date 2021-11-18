@@ -3249,7 +3249,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Cabbage",
 		"_rarity": "Common",
-		"_keywords": ["confidence"],
+		"_keywords": ["confidence", "anxiety"],
 		"_amounts": {
 			"exert_amount": 2,
 			"defence_amount": 12
@@ -3267,7 +3267,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["confidence"],
+		"_keywords": ["confidence", "anxiety"],
 		"_amounts": {
 			"exert_amount": 2,
 			"defence_amount": 15
@@ -3281,7 +3281,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["confidence"],
+		"_keywords": ["confidence", "anxiety"],
 		"_amounts": {
 			"exert_amount": 1,
 			"defence_amount": 13
@@ -3295,7 +3295,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Cabbage",
 		"_rarity": "Common",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "anxiety"],
 		"_amounts": {
 			"exert_amount": 3,
 			"damage_amount": 12,
@@ -3313,7 +3313,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "anxiety"],
 		"_amounts": {
 			"exert_amount": 3,
 			"damage_amount": 16,
@@ -3327,7 +3327,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "anxiety"],
 		"_amounts": {
 			"exert_amount": 2,
 			"damage_amount": 14,
@@ -3340,7 +3340,7 @@ const CARDS := {
 		"Abilities": "Whenever you take {anxiety} during your turn, gain {effect_amount} {armor}",
 		"Cost": 1,
 		"_illustration": "Cabbage",
-		"_keywords": ["interpretation"],
+		"_keywords": ["anxiety"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER
 		},
@@ -3360,7 +3360,7 @@ const CARDS := {
 		"Abilities": "Whenever you take {anxiety} during your turn, gain {effect_amount} {armor}",
 		"Cost": 0,
 		"_illustration": "Nobody",
-		"_keywords": ["interpretation"],
+		"_keywords": ["anxiety"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER
 		},
@@ -3376,7 +3376,7 @@ const CARDS := {
 		"Abilities": "Whenever you take {anxiety} during your turn, gain {effect_amount} {armor}",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_keywords": ["interpretation"],
+		"_keywords": ["anxiety"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER
 		},
@@ -3394,7 +3394,7 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Cabbage",
 		"_rarity": "Uncommon",
-		"_keywords": [],
+		"_keywords": ["anxiety"],
 		"_amounts": {
 			"exert_amount": 2,
 			"draw_amount": 1,
@@ -3414,7 +3414,7 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": [],
+		"_keywords": ["anxiety"],
 		"_amounts": {
 			"exert_amount": 2,
 			"draw_amount": 1,
@@ -3429,7 +3429,7 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": [],
+		"_keywords": ["anxiety"],
 		"_amounts": {
 			"exert_amount": 0,
 			"draw_amount": 2,
@@ -3444,6 +3444,7 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
+		"_keywords": ["anxiety","immersion"],
 		"_amounts": {
 			"exert_amount": 4,
 			"immersion_amount": 3,
@@ -3461,6 +3462,7 @@ const CARDS := {
 		"Abilities": "Take {exert_amount} {anxiety}\nGain {immersion_amount} {immersion}.\n{forget}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
+		"_keywords": ["anxiety","immersion"],
 		"_rarity": "Common",
 		"_amounts": {
 			"exert_amount": 1,
@@ -3474,6 +3476,7 @@ const CARDS := {
 		"Abilities": "Take {exert_amount} {anxiety}\nGain {immersion_amount} {immersion}.\n{forget}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
+		"_keywords": ["anxiety","immersion"],
 		"_rarity": "Common",
 		"_amounts": {
 			"exert_amount": 4,
@@ -3487,6 +3490,7 @@ const CARDS := {
 		"Abilities": "Take {exert_amount} {anxiety}\nGain {immersion_amount} {immersion}.\nDraw {draw_amount} card. {forget}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
+		"_keywords": ["anxiety","immersion"],
 		"_rarity": "Common",
 		"_amounts": {
 			"exert_amount": 4,
@@ -3499,11 +3503,11 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "{damage} all Torments by the amount of damage you've taken during your turn.",
+				+ "{damage} all Torments by the amount of {anxiety} you've taken during your turn.",
 		"Cost": 1,
 		"_illustration": "Cabbage",
 		"_rarity": "Uncommon",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "anxiety"],
 		"_amounts": {
 			"damage_amount": 6,
 		},
@@ -3517,11 +3521,11 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "{damage} all Torments by the amount of damage you've taken during your turn.",
+				+ "{damage} all Torments by the amount of {anxiety} you've taken during your turn.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "anxiety"],
 		"_amounts": {
 			"damage_amount": 9,
 		},
@@ -3530,11 +3534,11 @@ const CARDS := {
 	"Justified Rancor": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
-		"Abilities": "{damage} all Torments by triple the amount of damage you've taken during your turn.",
+		"Abilities": "{damage} all Torments by triple the amount of {anxiety} you've taken during your turn.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "anxiety"],
 		"_is_upgrade": true,
 	},
 	"Lash-out": {
@@ -3543,7 +3547,7 @@ const CARDS := {
 		"Abilities": "After you take {anxiety} during your turn, {damage} a random Torment for the same amount.",
 		"Cost": 1,
 		"_illustration": "Cabbage",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "anxiety"],
 		"_rarity": "Uncommon",
 		"_upgrade_threshold": 8,
 		"_upgrades": [
@@ -3558,7 +3562,7 @@ const CARDS := {
 		"Abilities": "After you take {anxiety} during your turn, {damage} a random Torment for the same amount.",
 		"Cost": 0,
 		"_illustration": "Nobody",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "anxiety"],
 		"_rarity": "Uncommon",
 		"_is_upgrade": true,
 	},
@@ -3568,7 +3572,7 @@ const CARDS := {
 		"Abilities": "After you take {anxiety} during your turn, {damage} a random Torment for the same amount.",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "anxiety"],
 		"_rarity": "Uncommon",
 		"_is_upgrade": true,
 	},
@@ -3578,7 +3582,7 @@ const CARDS := {
 		"Abilities": "After you take {anxiety} during your turn, {damage} a random Torment for double that amount.",
 		"Cost": 2,
 		"_illustration": "Nobody",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "anxiety"],
 		"_rarity": "Uncommon",
 		"_is_upgrade": true,
 	},
@@ -3590,7 +3594,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "anxiety"],
 		"_amounts": {
 			"damage_amount": 8,
 			"exert_amount": 3,
@@ -3609,7 +3613,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "anxiety"],
 		"_amounts": {
 			"damage_amount": 11,
 			"exert_amount": 3,
@@ -3624,7 +3628,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "anxiety"],
 		"_amounts": {
 			"damage_amount": 9,
 			"exert_amount": 1,
@@ -3639,7 +3643,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Cabbage",
 		"_rarity": "Common",
-		"_keywords": ["interpretation", "pierce"],
+		"_keywords": ["interpretation", "pierce", "anxiety"],
 		"_amounts": {
 			"damage_amount": 9,
 			"exert_amount": 3,
@@ -3658,7 +3662,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["interpretation", "pierce"],
+		"_keywords": ["interpretation", "pierce", "anxiety"],
 		"_amounts": {
 			"damage_amount": 12,
 			"exert_amount": 3,
@@ -3673,7 +3677,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["interpretation", "pierce"],
+		"_keywords": ["interpretation", "pierce", "anxiety"],
 		"_amounts": {
 			"damage_amount": 10,
 			"exert_amount": 1,
@@ -3688,7 +3692,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "anxiety"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
 		},
@@ -3711,7 +3715,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "anxiety"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
 		},
@@ -3730,7 +3734,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "anxiety"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
 		},
@@ -3749,7 +3753,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["confidence"],
+		"_keywords": ["confidence", "anxiety"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
 		},
@@ -3772,7 +3776,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["confidence"],
+		"_keywords": ["confidence", "anxiety"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
 		},
@@ -3791,7 +3795,7 @@ const CARDS := {
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["confidence"],
+		"_keywords": ["confidence", "anxiety"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
 		},
@@ -3809,7 +3813,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": [],
+		"_keywords": ["anxiety"],
 		"_amounts": {
 			"effect_amount": 1,
 		},
@@ -3826,7 +3830,7 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": [],
+		"_keywords": ["anxiety"],
 		"_amounts": {
 			"effect_amount": 1,
 		},
@@ -3839,7 +3843,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": [],
+		"_keywords": ["anxiety"],
 		"_amounts": {
 			"effect_amount": 2,
 		},
@@ -3853,7 +3857,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Cabbage",
 		"_rarity": "Rare",
-		"_keywords": [],
+		"_keywords": ["anxiety"],
 		"_amounts": {
 			"effect_stacks": 1,
 			"effect_amount": 1,
@@ -3872,7 +3876,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
-		"_keywords": [],
+		"_keywords": ["anxiety"],
 		"_amounts": {
 			"effect_stacks": 2,
 			"effect_amount": 1,
@@ -3887,7 +3891,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
-		"_keywords": [],
+		"_keywords": ["anxiety"],
 		"_amounts": {
 			"effect_stacks": 1,
 			"effect_amount": 2,
@@ -3903,7 +3907,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Cabbage",
 		"_rarity": "Rare",
-		"_keywords": ["forget"],
+		"_keywords": ["forget", "anxiety"],
 		"_amounts": {
 			"healing_amount": 5,
 			"health_percent": 70,
@@ -3924,7 +3928,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
-		"_keywords": ["forget"],
+		"_keywords": ["forget", "anxiety"],
 		"_amounts": {
 			"healing_amount": 7,
 			"health_percent": 70,
@@ -3941,7 +3945,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
-		"_keywords": ["forget"],
+		"_keywords": ["forget", "anxiety"],
 		"_amounts": {
 			"healing_amount": 5,
 			"health_percent": 60,
@@ -4018,7 +4022,7 @@ const CARDS := {
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["interpretation","confidence"],
+		"_keywords": ["immersion","confidence", "anxiety"],
 		"_amounts": {
 			"immersion_amount": 1,
 			"defence_amount": 12,
@@ -4039,7 +4043,7 @@ const CARDS := {
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["confidence"],
+		"_keywords": ["immersion","confidence", "anxiety"],
 		"_amounts": {
 			"immersion_amount": 1,
 			"defence_amount": 16,
@@ -4055,7 +4059,7 @@ const CARDS := {
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["confidence"],
+		"_keywords": ["immersion","confidence", "anxiety"],
 		"_amounts": {
 			"immersion_amount": 1,
 			"defence_amount": 13,
@@ -4071,7 +4075,7 @@ const CARDS := {
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["confidence"],
+		"_keywords": ["immersion","confidence", "anxiety"],
 		"_amounts": {
 			"immersion_amount": 2,
 			"defence_amount": 13,

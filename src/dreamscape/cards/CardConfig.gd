@@ -44,11 +44,14 @@ const EXPLANATIONS = {
 			+ "Increases interpretation on Torments by the specified amount.\n"\
 			+ "When this exceeds the Torment's max, it is overcome and removed from the encounter.",
 	"stress": "Stress ([img=24x24]res://fonts/rich_text_icons/terror.png[/img]): "\
-			+ "Increases Anxiety on the Dreamer by the specified amount.\n"\
+			+ "Increases [img=24x24]res://fonts/rich_text_icons/heart-beats.png[/img] on the Dreamer by the specified amount.\n"\
 			+ "When this exceeds the Dreamer's max, they wake up from their dream.",
 	"confidence": "Confidence ([img=24x24]res://fonts/rich_text_icons/shield.png[/img]): "\
-			+ "Anxiety from Torment intents reduces confidence "\
+			+ "[img=24x24]res://fonts/rich_text_icons/heart-beats.png[/img] from Torment intents reduces confidence "\
 			+ "before increasing the dreamer's anxiety.\n",
+	"anxiety": "Anxiety ([img=24x24]res://fonts/rich_text_icons/heart-beats.png[/img]): "\
+			+ "Anxiety increases during the dream, typically through Torment [img=24x24]res://fonts/rich_text_icons/terror.png[/img]. "\
+			+ "When this reaches the Dreamer's max, they wake up and the game is over.\n",
 	"perplexity": "Perplexity ([img=24x24]res://fonts/rich_text_icons/shield.png[/img]): "\
 			+ "Interpretation done by the Dreamer reduces perplexity "\
 			+ "before affecting the Torments.",
@@ -58,7 +61,7 @@ const EXPLANATIONS = {
 			+ "it is removed from the encounter.",
 	"forget": "[color=teal]Forget[/color]: This card is removed from this encounter and will not be reshuffled into the deck.",
 	"release": "[color=teal]Release[/color]: This card is removed permanently from the Dreamer's deck.",
-	"pierce": "[color=teal]Pierce[/color]: This effect bypasses [img=24x24]res://fonts/rich_text_icons/shield.png[/img].",
+	"pierce": "[color=teal]Pierce[/color]: This effect bypasses [img=24x24]res://fonts/rich_text_icons/shield.png[/img]",
 	"perturbation": "[color=white]Perturbation[/color]: Cards that tend to clutter your deck, and may have extra negative effects.",
 	
 	'Sneaky-Beaky': "Note: This effect will not trigger from combat effects such as "\
