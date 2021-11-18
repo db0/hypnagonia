@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.17.5](https://github.com/db0/hypnagonia/tree/v0.17.5) (2021-11-18)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.17.4...v0.17.5)
+
+**Merged pull requests:**
+
+- fix: Broke game by mistake [\#67](https://github.com/db0/hypnagonia/pull/67) ([db0](https://github.com/db0))
+
 ## [v0.17.4](https://github.com/db0/hypnagonia/tree/v0.17.4) (2021-11-18)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.17.3...v0.17.4)
