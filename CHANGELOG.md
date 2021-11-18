@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.17.4](https://github.com/db0/hypnagonia/tree/v0.17.4) (2021-11-18)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.17.3...v0.17.4)
+
+**Merged pull requests:**
+
+- Fix for Html5 export not supported multithreading [\#66](https://github.com/db0/hypnagonia/pull/66) ([db0](https://github.com/db0))
+
 ## [v0.17.3](https://github.com/db0/hypnagonia/tree/v0.17.3) (2021-11-18)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.17.2...v0.17.3)
