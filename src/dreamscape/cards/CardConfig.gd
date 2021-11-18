@@ -47,13 +47,13 @@ const EXPLANATIONS = {
 			+ "Increases [img=24x24]res://fonts/rich_text_icons/heart-beats.png[/img] on the Dreamer by the specified amount.\n"\
 			+ "When this exceeds the Dreamer's max, they wake up from their dream.",
 	"confidence": "Confidence ([img=24x24]res://fonts/rich_text_icons/shield.png[/img]): "\
-			+ "[img=24x24]res://fonts/rich_text_icons/heart-beats.png[/img] from Torment intents reduces confidence "\
-			+ "before increasing the dreamer's anxiety.\n",
+			+ "[img=24x24]res://fonts/rich_text_icons/terror.png[/img] from Torment intents reduces confidence "\
+			+ "before increasing the dreamer's [img=24x24]res://fonts/rich_text_icons/heart-beats.png[/img].\n",
 	"anxiety": "Anxiety ([img=24x24]res://fonts/rich_text_icons/heart-beats.png[/img]): "\
 			+ "Anxiety increases during the dream, typically through Torment [img=24x24]res://fonts/rich_text_icons/terror.png[/img]. "\
 			+ "When this reaches the Dreamer's max, they wake up and the game is over.\n",
 	"perplexity": "Perplexity ([img=24x24]res://fonts/rich_text_icons/shield.png[/img]): "\
-			+ "Interpretation done by the Dreamer reduces perplexity "\
+			+ "[img=24x24]res://fonts/rich_text_icons/magnifying-glass.png[/img] done by the Dreamer reduces perplexity "\
 			+ "before affecting the Torments.",
 	"immersion": "Immersion ([img=24x24]res://fonts/rich_text_icons/concentration-orb.png[/img]): "\
 			+ "Required to play most cards.",
