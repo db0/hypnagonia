@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.17.3](https://github.com/db0/hypnagonia/tree/v0.17.3) (2021-11-18)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.17.2...v0.17.3)
+
+**Merged pull requests:**
+
+- refactor\(performance\): Changed scripts into constants [\#65](https://github.com/db0/hypnagonia/pull/65) ([db0](https://github.com/db0))
+
 ## [v0.17.2](https://github.com/db0/hypnagonia/tree/v0.17.2) (2021-11-18)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.17.1...v0.17.2)
