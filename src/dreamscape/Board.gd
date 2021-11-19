@@ -366,8 +366,8 @@ func _input(event):
 #		globals.player.add_artifact("ThinCardDraw")
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
-			"Gaslighter",
-			"The Critic",
+			"A Chick of the Light",
+			"% A Chick of the Light %",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.hand.add_child(card)

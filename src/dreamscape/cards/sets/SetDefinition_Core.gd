@@ -816,7 +816,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Gummiraptor": {
+	"Find Weakness": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
@@ -831,12 +831,12 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"@ Gummiraptor @",
-			"+ Gummiraptor +",
-			"% Gummiraptor %",
+			"@ Find Weakness @",
+			"+ Find Weakness +",
+			"% Find Weakness %",
 		],
 	},
-	"@ Gummiraptor @": {
+	"@ Find Weakness @": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
@@ -851,7 +851,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"+ Gummiraptor +": {
+	"+ Find Weakness +": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
@@ -866,7 +866,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"% Gummiraptor %": {
+	"% Find Weakness %": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
@@ -5669,6 +5669,70 @@ const CARDS := {
 		"_amounts": {
 			"effect_stacks": 1,
 			"draw_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"A Chick of the Light": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
+		"Abilities": "Gain {defence_amount} {confidence}.\n"\
+			+ "If no Torment is going to be inflicting more than {stress_amount} "\
+					 + "this turn, gain {effect_stacks} {fortify}.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER,
+		},
+		"_keywords": ["confidence", "stress"],
+		"_amounts": {
+			"defence_amount": 12,
+			"stress_amount": 5,
+			"effect_stacks": 1
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"+ A Chick of the Light +",
+			"% A Chick of the Light %",
+		],
+	},
+	"+ A Chick of the Light +": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
+		"Abilities": "Gain {defence_amount} {confidence}.\n"\
+			+ "If no Torment is going to be inflicting more than {stress_amount} "\
+					 + "this turn, gain {effect_stacks} {fortify}.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER,
+		},
+		"_keywords": ["confidence", "stress"],
+		"_amounts": {
+			"defence_amount": 16,
+			"stress_amount": 5,
+			"effect_stacks": 1
+		},
+		"_is_upgrade": true,
+	},
+	"% A Chick of the Light %": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
+		"Abilities": "Gain {defence_amount} {confidence}.\n"\
+			+ "If no Torment is going to be inflicting more than {stress_amount} "\
+					 + "this turn, gain {effect_stacks} {fortify}.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER,
+		},
+		"_keywords": ["confidence", "stress"],
+		"_amounts": {
+			"defence_amount": 13,
+			"stress_amount": 8,
+			"effect_stacks": 1
 		},
 		"_is_upgrade": true,
 	},

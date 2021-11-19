@@ -384,7 +384,7 @@ const MassiveNunclucks = {
 		],
 	},
 }
-const Gummiraptor = {
+const FindWeakness = {
 	"manual": {
 		"hand": [
 			{
@@ -3340,6 +3340,33 @@ const WildlyPanickedTakeoff = {
 		],
 	},
 }
+const AChickOfTheLight = {
+	"manual": {
+		"hand": [
+			{
+				"name": "assign_defence",
+				"subject": "dreamer",
+				"amount": {
+					"lookup_property": "_amounts",
+					"value_key": "defence_amount"
+				},
+			},
+			{
+				"name": "apply_effect",
+				"effect_name": Terms.ACTIVE_EFFECTS.fortify.name,
+				"subject": "dreamer",
+				"modification": {
+					"lookup_property": "_amounts",
+					"value_key": "effect_stacks"
+				},
+				"filter_intent_stress": {
+					"lookup_property": "_amounts",
+					"value_key": "stress_amount"
+				},
+			}
+		],
+	},
+}
 
 # This fuction returns all the scripts of the specified card name.
 #
@@ -3367,7 +3394,7 @@ func get_scripts(card_name: String) -> Dictionary:
 		"The Joke": TheJoke,
 		"Nunclucks": Nunclucks,
 		"Massive Nunclucks": MassiveNunclucks,
-		"Gummiraptor": Gummiraptor,
+		"Find Weakness": FindWeakness,
 		"Cocky Retort": CockyRetort,
 		"Rapid Encirclement": RapidEncirclement,
 		"Barrel Through": BarrelThrough,
@@ -3478,6 +3505,7 @@ func get_scripts(card_name: String) -> Dictionary:
 		"Swoop": Swoop,
 		"Panicked Takeoff": PanickedTakeoff,
 		"Wildly Panicked Takeoff": WildlyPanickedTakeoff,
+		"A Chick of the Light": AChickOfTheLight,
 	}
 	return(_prepare_scripts(scripts, card_name))
 
