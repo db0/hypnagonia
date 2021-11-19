@@ -42,6 +42,7 @@ const FLYER:= {
 		"Launch",
 		"Careful Observation",
 		"Introspection",
+		"Find Weakness"
 	],
 	"Rare": [
 		"Master of Skies",
@@ -230,7 +231,7 @@ const RUBBER_CHICKEN := {
 		"The Joke",
 		"Fowl Language",
 		"Absurdity Unleashed",
-		"Gummiraptor",
+		"A Chick of the Light",
 		"One With The Poultry",
 		"Sensuous",
 		"The Plot Chickens...",
