@@ -1,5 +1,17 @@
 # Changelog
 
+## [v0.18.0](https://github.com/db0/hypnagonia/tree/v0.18.0) (2021-11-20)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.17.6...v0.18.0)
+
+**Closed issues:**
+
+- Flesh out Flyer Archetype [\#21](https://github.com/db0/hypnagonia/issues/21)
+
+**Merged pull requests:**
+
+- Finalized Flyer [\#69](https://github.com/db0/hypnagonia/pull/69) ([db0](https://github.com/db0))
+
 ## [v0.17.6](https://github.com/db0/hypnagonia/tree/v0.17.6) (2021-11-18)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.17.5...v0.17.6)
