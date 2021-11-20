@@ -418,10 +418,19 @@ const PerturbationHeal := {
 }
 
 ### TODO
-const ImperviousHalved := {
-	"canonical_name": "ImperviousHalved",
-	"name": "ImperviousHalved",
+const ImproveImpervious := {
+	"canonical_name": "ImproveImpervious",
+	"name": "ImproveImpervious",
 	"description": "{artifact_name}: At the start of the dreamer's turn, {impervious} is halved instead of removed.",
+	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"context": EffectContext.BATTLE,
+	"rarity": "Uncommon",
+}
+### TODO
+const Ataraxia := {
+	"canonical_name": "Ataraxia",
+	"name": "Ataraxia",
+	"description": "{artifact_name}: Whenever you lose {fortify}, gain that many stacks {armor}.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
@@ -465,6 +474,7 @@ const ARCHETYPE := [
 	ImproveThorns,
 	ImprovePoison,
 	ImproveBurn,
+	ImproveImpervious,
 	StartingThorns,
 ]
 

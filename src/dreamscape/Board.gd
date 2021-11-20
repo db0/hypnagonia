@@ -364,7 +364,7 @@ func _input(event):
 		torment2.health = 1000
 		torment3.health = 1000
 		dreamer.health = 1000
-#		globals.player.add_artifact("ThinCardDraw")
+		globals.player.add_artifact("ImproveImpervious")
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
 			"Near-ground Flight",

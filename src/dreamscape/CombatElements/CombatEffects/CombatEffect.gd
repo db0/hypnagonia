@@ -144,6 +144,7 @@ func take_snapshot(id: int) -> void:
 	snapshot_stacks[id] = stacks
 
 func clear_snapshot(id: int) -> void:
+	# warning-ignore:return_value_discarded
 	snapshot_stacks.erase(id)
 
 func _on_player_turn_ended(_turn: Turn) -> void:
@@ -167,6 +168,7 @@ func _decrease_stacks() -> void:
 		DECREASE_TYPE.REDUCE:
 			set_stacks(stacks - 1)
 		DECREASE_TYPE.HALVE:
+			# warning-ignore:integer_division
 			set_stacks(stacks / 2)
 		DECREASE_TYPE.ZERO:
 			set_stacks(0)
