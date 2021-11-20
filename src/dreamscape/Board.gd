@@ -363,11 +363,12 @@ func _input(event):
 		torment2.defence = 10
 		torment2.health = 1000
 		torment3.health = 1000
+		dreamer.health = 1000
 #		globals.player.add_artifact("ThinCardDraw")
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
-			"A Chick of the Light",
-			"% A Chick of the Light %",
+			"Near-ground Flight",
+			"= Near-ground Flight =",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.hand.add_child(card)
@@ -376,7 +377,6 @@ func _input(event):
 		cfc.NMAP.deck.shuffle_cards(false)
 		begin_encounter()
 	if event.is_action_pressed("debug"):
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 3)
 		_on_Debug_pressed()
 	if event.is_action_pressed("complete_battle"):
 		complete_battle()
@@ -396,6 +396,7 @@ func _debug_advanced_enemy() -> void:
 
 func _on_Debug_pressed() -> void:
 	# warning-ignore:return_value_discarded
+#	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 3)
 	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.impervious.name, 1)
 	counters.mod_counter("immersion",3)
 	for _iter in range(3):
