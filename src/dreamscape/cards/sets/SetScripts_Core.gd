@@ -2376,10 +2376,10 @@ const SurvivalMode = {
 				},
 				"filter_damage_percent": {
 					"percent": {
-					"lookup_property": "_amounts",
-					"value_key": "health_percent",
-					"default": 0,
-				},
+						"lookup_property": "_amounts",
+						"value_key": "health_percent",
+						"default": 0,
+					},
 					"comparison": "ge",
 				},
 			},
@@ -3367,6 +3367,37 @@ const AChickOfTheLight = {
 		],
 	},
 }
+const NearGroundFlight = {
+	"manual": {
+		"hand": [
+			{
+				"name": "assign_defence",
+				"subject": "dreamer",
+				"amount": {
+					"lookup_property": "_amounts",
+					"value_key": "defence_amount"
+				},
+			},
+			{
+				"name": "apply_effect",
+				"effect_name": Terms.ACTIVE_EFFECTS.buffer.name,
+				"subject": "dreamer",
+				"modification": {
+					"lookup_property": "_amounts",
+					"value_key": "effect_stacks"
+				},
+				"filter_damage_percent": {
+					"percent": {
+						"lookup_property": "_amounts",
+						"value_key": "health_percent",
+						"default": 0,
+					},
+					"comparison": "le",
+				},
+			},
+		],
+	},
+}
 
 # This fuction returns all the scripts of the specified card name.
 #
@@ -3506,6 +3537,7 @@ func get_scripts(card_name: String) -> Dictionary:
 		"Panicked Takeoff": PanickedTakeoff,
 		"Wildly Panicked Takeoff": WildlyPanickedTakeoff,
 		"A Chick of the Light": AChickOfTheLight,
+		"Near-ground Flight": NearGroundFlight,
 	}
 	return(_prepare_scripts(scripts, card_name))
 

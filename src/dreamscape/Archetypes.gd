@@ -42,7 +42,8 @@ const FLYER:= {
 		"Launch",
 		"Careful Observation",
 		"Introspection",
-		"Find Weakness"
+		"Find Weakness",
+		"Near-ground Flight"
 	],
 	"Rare": [
 		"Master of Skies",

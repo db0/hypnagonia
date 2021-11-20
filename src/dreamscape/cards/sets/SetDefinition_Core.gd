@@ -5736,5 +5736,87 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"Near-ground Flight": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
+		"Abilities": "Gain {defence_amount} {defence}.\n"\
+				+ "If your {anxiety} is less than {health_percent}% full, gain {effect_stacks} {buffer}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER,
+		},
+		"_keywords": ["confidence", "anxiety"],
+		"_amounts": {
+			"effect_stacks": 1,
+			"defence_amount": 12,
+			"health_percent": 25,
+		},
+		"_upgrade_threshold": 7,
+		"_upgrades": [
+			"+ Near-ground Flight +",
+			"= Near-ground Flight =",
+			"* Near-ground Flight *",
+		],
+	},
+	"+ Near-ground Flight +": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
+		"Abilities": "Gain {defence_amount} {defence}.\n"\
+				+ "If your {anxiety} is less than {health_percent}% full, gain {effect_stacks} {buffer}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER,
+		},
+		"_keywords": ["confidence", "anxiety"],
+		"_amounts": {
+			"effect_stacks": 1,
+			"defence_amount": 16,
+			"health_percent": 25,
+		},
+		"_is_upgrade": true,
+	},
+	"= Near-ground Flight =": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
+		"Abilities": "Gain {defence_amount} {defence}.\n"\
+				+ "If your {anxiety} is less than {health_percent}% full, gain {effect_stacks} {buffer}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER,
+		},
+		"_keywords": ["confidence", "anxiety"],
+		"_amounts": {
+			"effect_stacks": 1,
+			"defence_amount": 14,
+			"health_percent": 35,
+		},
+		"_is_upgrade": true,
+	},
+	"* Near-ground Flight *": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
+		"Abilities": "Gain {defence_amount} {defence}.\n"\
+				+ "If your {anxiety} is less than {health_percent}% full, gain {effect_stacks} {buffer}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER,
+		},
+		"_keywords": ["confidence", "anxiety"],
+		"_amounts": {
+			"effect_stacks": 2,
+			"defence_amount": 14,
+			"health_percent": 15,
+		},
+		"_is_upgrade": true,
+	},
+
 }
 
