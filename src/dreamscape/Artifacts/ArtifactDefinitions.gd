@@ -417,7 +417,6 @@ const PerturbationHeal := {
 	},
 }
 
-### TODO
 const ImproveImpervious := {
 	"canonical_name": "ImproveImpervious",
 	"name": "ImproveImpervious",
@@ -426,9 +425,9 @@ const ImproveImpervious := {
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
 }
-### TODO
-const Ataraxia := {
-	"canonical_name": "Ataraxia",
+
+const ImproveFortify := {
+	"canonical_name": "ImproveFortify",
 	"name": "Ataraxia",
 	"description": "{artifact_name}: Whenever you lose {fortify}, gain that many stacks {armor}.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
@@ -475,6 +474,7 @@ const ARCHETYPE := [
 	ImprovePoison,
 	ImproveBurn,
 	ImproveImpervious,
+	ImproveFortify,
 	StartingThorns,
 ]
 

@@ -45,7 +45,18 @@ func _ready() -> void:
 		turn.connect(turn_signal, self, "_on_" + turn_signal)
 
 
-func set_stacks(value: int) -> void:
+func set_stacks(value: int, tags := ["Manual"]) -> void:
+	if value < 0:
+		value == 0
+	owning_entity.emit_signal(
+			"effect_modified",
+			owning_entity,
+			"effect_modified",
+			{"effect_name": name,
+			"effect_node": self,
+			SP.TRIGGER_PREV_COUNT: stacks,
+			SP.TRIGGER_NEW_COUNT: value,
+			"tags": tags})
 	if value > 0:
 		signifier_amount.text = str(value)
 		stacks = value
@@ -166,10 +177,9 @@ func _on_enemy_turn_started(_turn: Turn) -> void:
 func _decrease_stacks() -> void:
 	match decrease_type:
 		DECREASE_TYPE.REDUCE:
-			set_stacks(stacks - 1)
+			set_stacks(stacks - 1, ["Turn Decrease"])
 		DECREASE_TYPE.HALVE:
 			# warning-ignore:integer_division
-			set_stacks(stacks / 2)
+			set_stacks(stacks / 2, ["Turn Decrease"])
 		DECREASE_TYPE.ZERO:
-			set_stacks(0)
-			
+			set_stacks(0, ["Turn Decrease"])

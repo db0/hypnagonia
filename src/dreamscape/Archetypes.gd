@@ -149,7 +149,8 @@ const FEARLESS:= {
 		Terms.ACTIVE_EFFECTS.fortify.name,
 	],
 	"Artifacts": [
-		ArtifactDefinitions.ImprovePoison
+		ArtifactDefinitions.ImprovePoison,
+		ArtifactDefinitions.ImproveFortify
 	],
 	"Perturbations": [
 		
