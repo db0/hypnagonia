@@ -109,6 +109,7 @@ func mod_effect(
 								combat_entity,
 								"effect_modified",
 								{"effect_name": opposite_name,
+								"effect_node": opposite,
 								SP.TRIGGER_PREV_COUNT: prev_op_value,
 								SP.TRIGGER_NEW_COUNT: new_op_value,
 								"tags": tags})
@@ -139,6 +140,7 @@ func mod_effect(
 					combat_entity,
 					"effect_modified",
 					{"effect_name": effect_name,
+					"effect_node": effect,
 					SP.TRIGGER_PREV_COUNT: prev_value,
 					SP.TRIGGER_NEW_COUNT: new_value,
 					"tags": tags})

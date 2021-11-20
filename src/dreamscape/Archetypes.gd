@@ -15,7 +15,7 @@ const FLYER:= {
 		Terms.GENERIC_TAGS.relax.name,
 	],
 	"Artifacts": [
-		
+		ArtifactDefinitions.ImproveImpervious
 	],
 	"Perturbations": [
 		

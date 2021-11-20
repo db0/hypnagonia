@@ -3600,8 +3600,6 @@ func _prepare_scripts(all_scripts: Dictionary, card_name: String) -> Dictionary:
 # This allows us to tweak the values of scripts from the card definitions 
 # and thus have only one adjustment point
 func lookup_script_property(script: Dictionary, card_name: String) -> void:
-	if card_name == "Interpretation":
-		print_debug(script)
 	for key in script:
 		if typeof(script[key]) == TYPE_DICTIONARY:
 			if script[key].has("lookup_property"):
