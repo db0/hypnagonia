@@ -90,29 +90,17 @@ func mod_effect(
 				if opposite_name:
 					var opposite : CombatEffect = get_all_effects().get(OPPOSITES[effect_name], null)
 					if opposite:
-						var prev_op_value = opposite.stacks
-						var new_op_value = 0
 						if set_to_mod:
-							opposite.stacks = 0
+							opposite.set_stacks(0, tags)
 						elif opposite.stacks - mod > 0:
-							opposite.stacks -= mod
-							new_op_value = opposite.stacks
+							opposite.set_stacks(opposite.stacks - mod, tags)
 							mod = 0
 						elif opposite.stacks - mod == 0:
-							opposite.stacks = 0
+							opposite.set_stacks(0, tags)
 							mod = 0
 						else:
-							opposite.stacks = 0
+							opposite.set_stacks(0, tags)
 							mod -= opposite.stacks
-						combat_entity.emit_signal(
-								"effect_modified",
-								combat_entity,
-								"effect_modified",
-								{"effect_name": opposite_name,
-								"effect_node": opposite,
-								SP.TRIGGER_PREV_COUNT: prev_op_value,
-								SP.TRIGGER_NEW_COUNT: new_op_value,
-								"tags": tags})
 				effect = EFFECTS[effect_name].instance()
 				effect.name = combined_effect_name
 				effect.owning_entity = combat_entity
@@ -126,24 +114,10 @@ func mod_effect(
 				}
 				effect.setup(setup_dict, effect_name)
 			cfc.flush_cache()
-			var prev_value := effect.stacks
-			var new_value := 0
 			if set_to_mod:
-				effect.stacks = mod
-				new_value = mod
+				effect.set_stacks(mod, tags)
 			else:
-				new_value = effect.stacks + mod
-				if new_value < 0: new_value = 0
-				effect.stacks += mod
-			combat_entity.emit_signal(
-					"effect_modified",
-					combat_entity,
-					"effect_modified",
-					{"effect_name": effect_name,
-					"effect_node": effect,
-					SP.TRIGGER_PREV_COUNT: prev_value,
-					SP.TRIGGER_NEW_COUNT: new_value,
-					"tags": tags})
+				effect.set_stacks(effect.stacks + mod, tags)
 	return(retcode)
 
 func get_all_effects() -> Dictionary:

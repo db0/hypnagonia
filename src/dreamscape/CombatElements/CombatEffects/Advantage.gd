@@ -24,5 +24,5 @@ func get_effect_alteration(
 	return(alteration)
 
 func _on_all_sceng_tasks_completed() -> void:
-	set_stacks(stacks - 1)
+	set_stacks(stacks - 1, ["Triggered"])
 	

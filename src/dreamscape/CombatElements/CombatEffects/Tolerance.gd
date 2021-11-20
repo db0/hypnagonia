@@ -8,7 +8,7 @@ func _on_entity_damaged(_entity, amount, trigger: Node, _tags: Array) -> void:
 		return
 	if owning_entity.damage >= owning_entity.health:
 		owning_entity.damage -= amount
-		set_stacks(stacks - 1)
+		set_stacks(stacks - 1, ["Triggered"])
 		var tolerance = [
 			{
 				"name": "draw_cards",

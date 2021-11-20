@@ -21,7 +21,7 @@ func get_effect_alteration(
 			snapshot_stacks[sceng.snapshot_id] = stacks
 		snapshot_stacks[sceng.snapshot_id] -= 1
 	else:
-		set_stacks(stacks - 1)
+		set_stacks(stacks - 1, ["Triggered"])
 	var new_value = 0
 	var alteration = new_value - value
 	return(alteration)

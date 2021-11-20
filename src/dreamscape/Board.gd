@@ -364,7 +364,7 @@ func _input(event):
 		torment2.health = 1000
 		torment3.health = 1000
 		dreamer.health = 1000
-		globals.player.add_artifact("ImproveImpervious")
+		globals.player.add_artifact(ArtifactDefinitions.ImproveFortify.canonical_name)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
 			"Near-ground Flight",
@@ -397,7 +397,7 @@ func _debug_advanced_enemy() -> void:
 func _on_Debug_pressed() -> void:
 	# warning-ignore:return_value_discarded
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 3)
-	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.impervious.name, 1)
+	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.fortify.name, 1)
 	counters.mod_counter("immersion",3)
 	for _iter in range(3):
 		cfc.NMAP.hand.draw_card(cfc.NMAP.deck)
