@@ -71,6 +71,8 @@ func begin_encounter() -> void:
 #	_on_player_turn_started(turn)
 #	turn._reset_turn()
 	turn.encounter_event_count.clear()
+	while not cfc.NMAP.hand.is_hand_refilled:
+		yield(cfc.NMAP.hand, "hand_refilled")
 	emit_signal("battle_begun")
 	turn.start_player_turn()
 	if not cfc.game_settings.get('first_ordeal_tutorial_done'):

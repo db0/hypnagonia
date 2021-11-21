@@ -97,9 +97,9 @@ func compile_card_type(
 	return(typecards)
 
 
-func add_artifact(artifact_name: String) -> void:
+func add_artifact(artifact_name: String, modifiers := {}) -> void:
 	if not artifact_name in get_all_artifact_names():
-		var new_artifact = ArtifactObject.new(artifact_name)
+		var new_artifact = ArtifactObject.new(artifact_name, modifiers)
 		artifacts.append(new_artifact)
 		emit_signal("artifact_added", new_artifact)
 

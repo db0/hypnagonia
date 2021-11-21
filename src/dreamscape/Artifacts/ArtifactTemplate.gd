@@ -32,13 +32,16 @@ func _ready() -> void:
 			# warning-ignore:return_value_discarded
 			turn.connect(turn_signal, self, "_on_" + turn_signal)
 	setup(artifact_object.definition, artifact_object.canonical_name)
+# warning-ignore:return_value_discarded
 	artifact_object.connect("removed", self, "_on_artifact_removed")
+# warning-ignore:return_value_discarded
 	artifact_object.connect("counter_modified", self, "_on_artifact_counter_modified")
 
 
 func setup_artifact(_artifact_object: ArtifactObject, _is_active: bool, new_addition: bool) -> void:
 	is_active = _is_active
 	artifact_object = _artifact_object
+	effect_context = artifact_object.context
 #	print_debug(_artifact_object.canonical_name, _is_active)
 	if new_addition:
 		_on_artifact_added()
@@ -96,10 +99,10 @@ func execute_script(
 # If an artifact needs to fire based on a card trigger, this is the place
 # to add that code
 func execute_scripts(
-		trigger_card: Card = null,
-		trigger: String = "manual",
-		trigger_details: Dictionary = {},
-		only_cost_check := false):
+		_trigger_card: Card = null,
+		_trigger: String = "manual",
+		_trigger_details: Dictionary = {},
+		_only_cost_check := false):
 	pass
 
 # Because I want artifacts to connect to the scriptables
@@ -107,7 +110,7 @@ func execute_scripts(
 # to avoid crashing the alterant engine.
 # But I handle artifact alterants through the extended sceng _check_for_effect_alterants()
 # Which uses another approach. So these two are not used here.
-func retrieve_scripts(trigger: String) -> Dictionary:
+func retrieve_scripts(_trigger: String) -> Dictionary:
 	return({})
 func get_state_exec() -> String:
 	return("NONE")
@@ -127,11 +130,16 @@ func _set_current_description() -> void:
 	format["triple_amount"] = str(3*amount)
 	# warning-ignore:integer_division
 	format["half_amount"] = str(amount/2)
+	_add_extra_description_format(format)
 	decription_label.bbcode_text = artifact_description.\
 			format(format).\
 			format(Terms.get_bbcode_formats(18)).\
 			format(artifact_object.definition.get("amounts", {}))
 
+
+# Function to overwrite from extended classes to add extra description format keys
+func _add_extra_description_format(_format_dict: Dictionary) -> void:
+	pass
 
 # Overwritable function
 func _on_artifact_added() -> void:

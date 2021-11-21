@@ -435,6 +435,43 @@ const ImproveFortify := {
 	"rarity": "Uncommon",
 }
 
+const PorcelainDoll := {
+	"canonical_name": "PorcelainDoll",
+	"name": "Porcelain Doll",
+	"description": "{colour} {artifact_name} ({progress}): The next 10 {card_type} cards you gain, are used to finish colouring the doll.",
+	"icon": preload("res://assets/icons/artifacts/person.png"),
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Encounter",
+}
+
+# TODO
+const RedWave := {
+	"canonical_name": "RedWave",
+	"name": "RedWave",
+	"description": "{artifact_name}: Whenever your whole hand is full of {attack_card}, gain 2 {defence} per such card.",
+	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"context": EffectContext.BATTLE,
+	"rarity": "Encounter",
+}
+const BlueWave := {
+	"canonical_name": "BlueWave",
+	"name": "BlueWave",
+	"description": "{artifact_name}: Whenever your whole hand is full of {skill_card}, deal 2 {damage} per such card to all Torments.",
+	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"context": EffectContext.BATTLE,
+	"rarity": "Encounter",
+}
+const PurpleWave := {
+	"canonical_name": "PurpleWave",
+	"name": "PurpleWave",
+	"description": "{artifact_name}: Whenever your whole hand is full of {understanding_card}, {relax} for 1 per such card.",
+	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"context": EffectContext.BATTLE,
+	"rarity": "Encounter",
+}
+
+
+
 # Generic artifacts which have a chance to appear in any playthrough
 const GENERIC := [
 	StartingHeal,
@@ -476,6 +513,11 @@ const ARCHETYPE := [
 	ImproveImpervious,
 	ImproveFortify,
 	StartingThorns,
+]
+
+# These artifacts are only found in non-combat encounters
+const ENCOUNTER := [
+	PorcelainDoll
 ]
 
 # Takes as arguments the purpose of artifacts to return. Generic, Shop or Boss

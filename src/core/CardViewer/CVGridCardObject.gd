@@ -10,7 +10,7 @@ onready var preview_popup := $PreviewPopup
 
 
 func _ready() -> void:
-	get_viewport().connect("size_changed", self, '_on_viewport_resized')	
+	get_viewport().connect("size_changed", self, '_on_viewport_resized')
 
 func setup(card) -> Card:
 	if typeof(card) == TYPE_STRING:
