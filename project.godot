@@ -324,6 +324,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/core/GameStats.gd"
 }, {
+"base": "Reference",
+"class": "HConst",
+"language": "GDScript",
+"path": "res://src/dreamscape/HConst.gd"
+}, {
 "base": "CardContainer",
 "class": "Hand",
 "language": "GDScript",
@@ -618,6 +623,7 @@ _global_script_class_icons={
 "EnemyEntity": "",
 "EnemyIntents": "",
 "GameStats": "",
+"HConst": "",
 "Hand": "",
 "Highlight": "",
 "HypnagoniaCardBack": "",

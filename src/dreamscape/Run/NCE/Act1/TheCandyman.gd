@@ -6,13 +6,6 @@
 
 extends NonCombatEncounter
 
-const COLOUR_MAP := {
-	'Black': 'Perturbation',
-	'Red': 'Action',
-	'Green': 'Concentration',
-	'Blue': 'Control',
-	'Purple': 'Understanding',
-}
 const SPECIAL_REWARD_ARTIFACT = "PerturbationHeal"
 
 var secondary_choices := {}
@@ -29,9 +22,9 @@ func begin() -> void:
 	var candies := []
 	var candies_bbc := []
 	# Player gets 3 candy choices
-	var colours = COLOUR_MAP.keys()
+	var colours = HConst.COLOUR_MAP.keys()
 	for colour in colours.duplicate():
-		if globals.player.deck.filter_cards("Type", COLOUR_MAP[colour]).size() < 1:
+		if globals.player.deck.filter_cards("Type", HConst.COLOUR_MAP[colour]).size() < 1:
 			colours.erase(colour)
 	while candies.size() < 3:
 		# Each candy has 2 colours
@@ -89,12 +82,12 @@ func continue_encounter(key) -> void:
 		CFUtils.shuffle_array(key)
 		var selection_deck : SelectionDeck = globals.journal.spawn_selection_deck()
 		selection_deck.connect("operation_performed", self, "_on_card_removed", [key])
-		selection_deck.card_type = COLOUR_MAP[key[0]]
+		selection_deck.card_type = HConst.COLOUR_MAP[key[0]]
 		selection_deck.auto_close = true
 		selection_deck.initiate_card_removal(0)
 		var transmute_format = {
-			"select": COLOUR_MAP[key[0]], 
-			"transmute": COLOUR_MAP[key[1]]
+			"select": HConst.COLOUR_MAP[key[0]], 
+			"transmute": HConst.COLOUR_MAP[key[1]]
 		}
 		selection_deck.update_header("(Choose {select} to transform into {transmute})".format(transmute_format))
 		selection_deck.update_color(Color(0,1,0))
@@ -109,7 +102,7 @@ func _on_card_removed(operation_details: Dictionary, candy: Array) -> void:
 	elif removed_rarity in ["Received"]:
 		rarities = ["Common", "Uncommon", "Rare"]
 	var transmute_cards = globals.player.compile_card_type(
-			COLOUR_MAP[candy[1]], 
+			HConst.COLOUR_MAP[candy[1]], 
 			rarities, 
 			operation_details["upgraded"])
 	CFUtils.shuffle_array(transmute_cards)
@@ -121,7 +114,7 @@ func _on_card_removed(operation_details: Dictionary, candy: Array) -> void:
 			if not missing_rarity in rarities:
 				rarities.append(missing_rarity)
 				transmute_cards = globals.player.compile_card_type(
-						COLOUR_MAP[candy[1]], 
+						HConst.COLOUR_MAP[candy[1]], 
 						rarities, 
 						operation_details["upgraded"])
 				CFUtils.shuffle_array(transmute_cards)
@@ -140,7 +133,7 @@ func _on_card_removed(operation_details: Dictionary, candy: Array) -> void:
 	CFUtils.shuffle_array(tastes)
 	var tag_format := {"taste": tastes[0]}
 	var reward_desc := "The taste is {taste} and I realized [url={url}]it altered my perception[/url] within the dream."
-	if COLOUR_MAP[candy[1]] == "Perturbation"\
+	if HConst.COLOUR_MAP[candy[1]] == "Perturbation"\
 			and not SPECIAL_REWARD_ARTIFACT in globals.player.get_all_artifact_names():
 		globals.player.add_artifact(SPECIAL_REWARD_ARTIFACT)
 		reward_desc += "\nThe weird taste made me crave for more!"

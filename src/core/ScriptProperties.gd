@@ -109,7 +109,7 @@ const KEY_SUBJECT_COUNT_V_ALL := "all"
 # If any tasks marked as costs will not be able to fulfil, then the whole
 # script is not executed.
 #
-# Likewise, if the script has a [KEY_SUBJECT](#KEY_SUBJECT), 
+# Likewise, if the script has a [KEY_SUBJECT](#KEY_SUBJECT),
 # and less than [KEY_SUBJECT_COUNT](#KEY_SUBJECT_COUNT)
 # are found, then the whole script is not executed.
 #
@@ -135,7 +135,7 @@ const KEY_IS_COST := "is_cost"
 # but unlike is_cost, these tasks do not care if the script called will perform any modifications.
 # However, if any tasks marked as needing subjects cannot find enough subject to fulfil their
 # [KEY_SUBJECT_COUNT](#KEY_SUBJECT_COUNT), then the whole script will abort, just like a failed cost.
-# 
+#
 # is_cost superceeded this effect, as it covers both eventualities (lacking subjects, lacking change)
 # so it's superfluous to use them together
 const KEY_NEEDS_SUBJECT := "needs_subject"
@@ -180,7 +180,7 @@ const KEY_SET_FACEUP := "set_faceup"
 # Used when a script is using the modify_properties task.
 # The value is supposed to be a dictionary of `"property name": value` entries
 const KEY_MODIFY_PROPERTIES := "set_properties"
-# Value Type: [Pile].
+# Value Type: String.
 #
 # Used when a script is using one of the following tasks
 # * [move_card_to_board](ScriptingEngine#move_card_to_board)
@@ -192,7 +192,7 @@ const KEY_MODIFY_PROPERTIES := "set_properties"
 #
 # Specifies the source container to pick the card from
 const KEY_SRC_CONTAINER := "src_container"
-# Value Type: [Pile].
+# Value Type: String.
 #
 # Used when a script is using one of the following tasks
 # * [move_card_to_container](ScriptingEngine#move_card_to_container)
@@ -444,8 +444,8 @@ const KEY_ALTERATION := "alteration"
 #		{"name": "move_card_to_container",
 #		"subject": "index",
 #		"subject_count": "per_boardseek",
-#		"src_container": deck,
-#		"dest_container": hand,
+#		"src_container": "deck",
+#		"dest_container": "hand",
 #		"subject_index": "top",
 #		"per_boardseek": {
 #			"subject": "boardseek",
