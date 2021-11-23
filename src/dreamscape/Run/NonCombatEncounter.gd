@@ -13,5 +13,11 @@ const NCE_POPUP_DICT := {
 
 var reward_description: String
 
+
+func begin() -> void:
+	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.nce)
+	.begin()
+
+
 func get_meta_hover_description(_meta_tag: String) -> String:
 	return('')

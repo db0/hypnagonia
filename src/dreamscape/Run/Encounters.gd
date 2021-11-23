@@ -15,6 +15,7 @@ var current_encounter
 var deep_sleeps := 0
 var shop_deck_removals := 0
 var encounter_number := 0
+var run_changes : RunChanges
 
 func setup() -> void:
 	CFUtils.shuffle_array(remaining_enemies)
@@ -23,6 +24,7 @@ func setup() -> void:
 	var boss_choices := Act1.BOSSES.keys()
 	CFUtils.shuffle_array(boss_choices)
 	boss_name = boss_choices[0]
+	run_changes = RunChanges.new(self)
 
 
 func generate_journal_choices() -> Array:
@@ -34,9 +36,6 @@ func generate_journal_choices() -> Array:
 	if remaining_elites.empty():
 		remaining_elites = Act1.ELITES.duplicate(true)
 		CFUtils.shuffle_array(remaining_elites)
-	if remaining_nce.empty():
-		remaining_nce = Act1.NCE.duplicate(true)
-		CFUtils.shuffle_array(remaining_nce)
 	var journal_options := []
 	if globals.encounters.encounter_number != 1:
 		globals.player.pathos.repress()
@@ -72,8 +71,7 @@ func generate_journal_choices() -> Array:
 			Terms.RUN_ACCUMULATION_NAMES.artifact:
 				journal_options.append(preload("res://src/dreamscape/Run/NCE/Artifact.gd").new())
 			Terms.RUN_ACCUMULATION_NAMES.nce:
-				var next_nce = remaining_nce.pop_back()
-				journal_options.append(next_nce.new())
+				journal_options.append(_get_next_nce())
 			Terms.RUN_ACCUMULATION_NAMES.elite:
 				var next_enemy = remaining_elites.pop_back()
 				var difficulty : String
@@ -122,3 +120,17 @@ func _get_journal_options(requested_options := 3) -> Array:
 	if selected_options.empty():
 		selected_options.append(fallback_encounter)
 	return(selected_options)
+
+
+func _get_next_nce() -> NonCombatEncounter:
+	if remaining_nce.empty():
+		remaining_nce = Act1.NCE.duplicate(true)
+		remaining_nce += run_changes.get_unlocked_nces("Act1")
+		CFUtils.shuffle_array(remaining_nce)
+	# TODO: Adjust the Act dynamically
+	var next_nce = remaining_nce.pop_back()
+	# Even though we do a pop, we also erase any other copies of the same NCE in the list
+	# as we might have multiple NCEs of the same name, to increase their chances of appearing
+	remaining_nce.erase(next_nce)
+	return(next_nce.new())
+

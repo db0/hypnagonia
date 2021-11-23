@@ -1,19 +1,14 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=1]
 [ext_resource path="res://src/dreamscape/CardLibrary/CardLibrary.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/dreamscape/MainMenu/MainMenu.gd" type="Script" id=3]
 [ext_resource path="res://themes/darktheme/fonts/Bangers/Bangers-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://src/dreamscape/MainMenu/NewGame.tscn" type="PackedScene" id=5]
-[ext_resource path="res://fonts/Butler/Butler_Bold.otf" type="DynamicFontData" id=6]
+[ext_resource path="res://fonts/MainMenuTitle.tres" type="DynamicFont" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.145098, 0.145098, 0.145098, 1 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 80
-use_filter = true
-font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 50
@@ -73,7 +68,7 @@ margin_bottom = 900.0
 
 [node name="Margin" type="MarginContainer" parent="MainMenu/VBox"]
 margin_right = 1455.0
-margin_bottom = 435.0
+margin_bottom = 436.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_top = 90
@@ -81,71 +76,71 @@ custom_constants/margin_top = 90
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/VBox/Margin"]
 margin_top = 90.0
 margin_right = 1455.0
-margin_bottom = 435.0
+margin_bottom = 436.0
 
 [node name="Title" type="Label" parent="MainMenu/VBox/Margin/VBoxContainer"]
 margin_right = 1455.0
-margin_bottom = 81.0
-custom_fonts/font = SubResource( 2 )
+margin_bottom = 101.0
+custom_fonts/font = ExtResource( 6 )
 text = "Hypnagonia"
 align = 1
 
 [node name="Subtitle" type="Label" parent="MainMenu/VBox/Margin/VBoxContainer"]
-margin_top = 84.0
+margin_top = 104.0
 margin_right = 1455.0
-margin_bottom = 139.0
+margin_bottom = 159.0
 custom_fonts/font = SubResource( 3 )
 text = "Therapy through Nightmares"
 align = 1
 
 [node name="Center" type="CenterContainer" parent="MainMenu/VBox"]
-margin_top = 438.0
+margin_top = 439.0
 margin_right = 1455.0
-margin_bottom = 873.0
+margin_bottom = 876.0
 size_flags_vertical = 3
 
 [node name="VButtons" type="VBoxContainer" parent="MainMenu/VBox/Center"]
 margin_left = 631.0
-margin_top = 127.0
+margin_top = 136.0
 margin_right = 823.0
-margin_bottom = 307.0
+margin_bottom = 301.0
 rect_min_size = Vector2( 192, 0 )
 custom_constants/separation = 10
 
 [node name="NewGame" type="Button" parent="MainMenu/VBox/Center/VButtons"]
 margin_right = 192.0
-margin_bottom = 28.0
+margin_bottom = 25.0
 text = "New Game"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="QuickStart" type="Button" parent="MainMenu/VBox/Center/VButtons"]
-margin_top = 38.0
+margin_top = 35.0
 margin_right = 192.0
-margin_bottom = 66.0
+margin_bottom = 60.0
 text = "Quick Start"
 
 [node name="CardLibrary" type="Button" parent="MainMenu/VBox/Center/VButtons"]
-margin_top = 76.0
+margin_top = 70.0
 margin_right = 192.0
-margin_bottom = 104.0
+margin_bottom = 95.0
 text = "Card Library"
 
 [node name="Readme" type="Button" parent="MainMenu/VBox/Center/VButtons"]
-margin_top = 114.0
+margin_top = 105.0
 margin_right = 192.0
-margin_bottom = 142.0
+margin_bottom = 130.0
 text = "Read Me"
 
 [node name="Exit" type="Button" parent="MainMenu/VBox/Center/VButtons"]
-margin_top = 152.0
+margin_top = 140.0
 margin_right = 192.0
-margin_bottom = 180.0
+margin_bottom = 165.0
 text = "Exit"
 
 [node name="Version" type="Label" parent="MainMenu/VBox"]
-margin_top = 876.0
+margin_top = 879.0
 margin_right = 1455.0
 margin_bottom = 900.0
 text = "v0.14.0"
