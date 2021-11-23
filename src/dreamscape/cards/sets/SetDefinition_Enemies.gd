@@ -223,7 +223,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {effect_stacks} {untouchable}. {forget}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "DioBal",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER

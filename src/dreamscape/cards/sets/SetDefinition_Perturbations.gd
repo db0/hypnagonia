@@ -18,7 +18,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{release}",
 		"Cost": 3,
-		"_illustration": "Nobody",
+		"_illustration": "DioBal",
 		"_avoid_normal_discard": true,
 		"_rarity": "Perturbation",
 		"_keywords": ["release"]
@@ -43,7 +43,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "If this card is in your hand at the end of the turn, gain {effect_stacks} {disempower}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "DioBal",
 		"_rarity": "Perturbation",
 		"_amounts": {
 			"effect_stacks": 1
