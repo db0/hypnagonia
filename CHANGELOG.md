@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.18.3](https://github.com/db0/hypnagonia/tree/v0.18.3) (2021-11-23)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.18.2...v0.18.3)
+
+**Merged pull requests:**
+
+- content\(art\) Added 3 new illustrations by DioBal + friend [\#77](https://github.com/db0/hypnagonia/pull/77) ([db0](https://github.com/db0))
+
 ## [v0.18.2](https://github.com/db0/hypnagonia/tree/v0.18.2) (2021-11-23)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.18.1...v0.18.2)
