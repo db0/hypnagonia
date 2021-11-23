@@ -18,7 +18,7 @@ func _init(rare_percent: int, uncommon_percent: int, amount := 1, artifact_type 
 	var common = {"rarity": "Common", "chance": common_chance}
 	# We gather all artifacts valid for each rarity
 	var all_valid_artifacts = ArtifactDefinitions.get_organized_artifacts(
-			artifact_type, 
+			artifact_type,
 			globals.player.get_archetype_artifacts(),
 			globals.player.get_all_artifact_names())
 	# Debug
@@ -31,18 +31,28 @@ func _init(rare_percent: int, uncommon_percent: int, amount := 1, artifact_type 
 	for _iter in range(amount):
 		var randomized_artifacts := []
 		for r in [rare, uncommon, common]:
-			var rcount = all_valid_artifacts[r.rarity].size()
-			# We populate a massive list with one artifact of each type per chance. 
+			# We populate a massive list with one artifact of each type per chance.
 			# For example, if we have 3% to get a rare artifact and a 6% chance to get an uncommon artifact
 			# Then we add 3 random rare artifacts in the list, 6 uncommon artifacts in the list
 			# and 91 common artifacts. The same artifact might be more than once in the list
+			# But it will we will not get the same artifact more than 1 time more than any other artifact.
+			# Eventually, as I populate the artifact lists, duplicates will be impossible
+			var randomized_artifacts_of_rarity := []
 			for _index in range(r.chance):
-				randomized_artifacts.append(all_valid_artifacts[r.rarity][CFUtils.randi_range(0,rcount - 1)])
+				if randomized_artifacts_of_rarity.size() == 0:
+					randomized_artifacts_of_rarity = all_valid_artifacts[r.rarity].duplicate(true)
+					CFUtils.shuffle_array(randomized_artifacts_of_rarity)
+				randomized_artifacts.append(randomized_artifacts_of_rarity.pop_back())
 		# Finally we shuffle the list of all artifacts of all rarities and store it in a variable
 		# Grabbing the last artifact in that list ensures we have the correct percentage chance to get
 		# an artifact of any rarity.
 		CFUtils.shuffle_array(randomized_artifacts)
 		var current_artifact = randomized_artifacts.pop_back()
+		var selected_artifact_name = current_artifact["name"]
+		# We keep iterating until we find unique artifacts.
+		while selected_artifact_name in _get_names():
+			current_artifact = randomized_artifacts.pop_back()
+			selected_artifact_name = current_artifact["name"]
 		var bbcode_formats = Terms.get_bbcode_formats(18)
 		bbcode_formats["artifact_name"] = current_artifact["name"]
 		var amounts_formats = current_artifact.get("amounts")
@@ -59,3 +69,10 @@ func _init(rare_percent: int, uncommon_percent: int, amount := 1, artifact_type 
 		# We remove the selected artifact from the future choices during this run
 		# To avoid selecting it again
 		all_valid_artifacts[current_artifact["rarity"]].erase(current_artifact["name"])
+
+# Returns only the names of the current selected artifacts
+func _get_names() -> Array:
+	var anames := []
+	for a in selected_artifacts:
+		anames.append(a.name)
+	return(anames)
