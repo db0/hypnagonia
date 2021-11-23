@@ -22,27 +22,31 @@ func begin() -> void:
 # warning-ignore:return_value_discarded
 	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.artifact)
 	# The rarity of artifact found is based on the accumulated pathos
+	# warning-ignore:integer_division
 	artifact_prep = ArtifactPrep.new(accumulated/2, accumulated, 2)
 	.begin()
 #	globals.journal.display_nce_rewards('')
 	var bbformat = artifact_prep.selected_artifacts[0]["bbformat"]
-	secondary_choices['grab'] = "[img=18x18]{icon}[/img] {description}.\n".format(bbformat)\
-			+"[i](Making this choice will also put a random perturbation in your deck)[/i]"
+	secondary_choices['grab'] = "[img=18x18]{icon}[/img] {description}.".format(bbformat)
+#	secondary_choices['grab'] = "[img=18x18]{icon}[/img] {description}.\n".format(bbformat)\
+#			+"[i](Making this choice will also put a random perturbation in your deck)[/i]"
 	globals.journal.add_nested_choices(secondary_choices)
 	
 func continue_encounter(key) -> void:
 	match key:
 		"grab": 
 			globals.player.add_artifact(artifact_prep.selected_artifacts[0].canonical_name)
-			globals.player.deck.add_new_card(Perturbations.get_random_perturbation(
-					globals.player.get_archetype_perturbations()))
+			# Decided to have 0/1 perturbations on basic difficulty. 
+			# When we add difficulty levels, it will be 1/2
+#			globals.player.deck.add_new_card(Perturbations.get_random_perturbation(
+#					globals.player.get_archetype_perturbations()))
 			globals.journal.display_nce_rewards('')
 		"grab_second": 
 			globals.player.add_artifact(artifact_prep.selected_artifacts[1].canonical_name)
 			globals.player.deck.add_new_card(Perturbations.get_random_perturbation(
 					globals.player.get_archetype_perturbations()))
-			globals.player.deck.add_new_card(Perturbations.get_random_perturbation(
-					globals.player.get_archetype_perturbations()))
+#			globals.player.deck.add_new_card(Perturbations.get_random_perturbation(
+#					globals.player.get_archetype_perturbations()))
 			globals.journal.display_nce_rewards('')
 		"avoid": 
 			globals.journal.display_nce_rewards('')
@@ -50,7 +54,7 @@ func continue_encounter(key) -> void:
 			var bbformat = artifact_prep.selected_artifacts[1]["bbformat"]
 			var alternate_artifact_choices = {
 				"grab_second": "[img=18x18]{icon}[/img] {description}.\n".format(bbformat)\
-						+"[i](Making this choice will also put 2 random perturbations in your deck)[/i]",
+						+"[i](Making this choice will also put 1 random perturbation in your deck)[/i]",
 				"avoid": "...but the emotional load was too much."
 			}
 			globals.journal.add_nested_choices(alternate_artifact_choices)
