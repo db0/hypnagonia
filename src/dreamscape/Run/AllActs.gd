@@ -11,7 +11,7 @@ const NCE := [
 # more than 1, and its increasing its chances to be encountered.
 const LOCKED_NCE := {
 	"DollPickup": {
-		"nce": preload("res://src/dreamscape/Run/NCE/Act1/DollPickup.gd"),
+		"nce": preload("res://src/dreamscape/Run/NCE/AllActs/DollPickup.gd"),
 		"chance_multiplier": 2,
 	},
 }
