@@ -4,7 +4,7 @@ extends Reference
 var repressed := {
 	Terms.RUN_ACCUMULATION_NAMES.enemy: 25,
 	Terms.RUN_ACCUMULATION_NAMES.rest: 5,
-	Terms.RUN_ACCUMULATION_NAMES.nce: 1220,
+	Terms.RUN_ACCUMULATION_NAMES.nce: 10,
 	Terms.RUN_ACCUMULATION_NAMES.shop: 5,
 	Terms.RUN_ACCUMULATION_NAMES.elite: 0,
 	Terms.RUN_ACCUMULATION_NAMES.artifact: 0,
