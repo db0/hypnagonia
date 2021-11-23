@@ -1,5 +1,18 @@
 # Changelog
 
+## [v0.18.2](https://github.com/db0/hypnagonia/tree/v0.18.2) (2021-11-23)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.18.1...v0.18.2)
+
+**Fixed bugs:**
+
+- Card library grid does not adjust when resoluion changes [\#61](https://github.com/db0/hypnagonia/issues/61)
+
+**Merged pull requests:**
+
+- Merge [\#76](https://github.com/db0/hypnagonia/pull/76) ([db0](https://github.com/db0))
+- Nces [\#75](https://github.com/db0/hypnagonia/pull/75) ([db0](https://github.com/db0))
+
 ## [v0.18.1](https://github.com/db0/hypnagonia/tree/v0.18.1) (2021-11-23)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.18.0...v0.18.1)
