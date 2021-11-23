@@ -34,7 +34,7 @@ func begin() -> void:
 	var scformat := Terms.RUN_ACCUMULATION_NAMES.duplicate()
 	scformat["destroy_amount"] = amounts["destroy_amount"]
 	scformat["leave_amount"] = amounts["leave_amount"]
-	secondary_choices['slay'] = secondary_choices['slay'].format(scformat)
+	secondary_choices['destroy'] = secondary_choices['destroy'].format(scformat)
 	secondary_choices['leave'] = secondary_choices['leave'].format(scformat)
 	globals.journal.add_nested_choices(secondary_choices)
 
@@ -48,4 +48,5 @@ func continue_encounter(key) -> void:
 			globals.player.pathos.repress_pathos(
 					Terms.RUN_ACCUMULATION_NAMES.elite, 
 					amounts["leave_amount"])
+			globals.encounters.run_changes.unlock_nce("DollPickup")
 	globals.journal.display_nce_rewards(nce_result_fluff[key])

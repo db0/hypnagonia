@@ -24,6 +24,7 @@ func setup() -> void:
 	var boss_choices := Act1.BOSSES.keys()
 	CFUtils.shuffle_array(boss_choices)
 	boss_name = boss_choices[0]
+	run_changes = RunChanges.new(self)
 
 
 func generate_journal_choices() -> Array:
@@ -124,7 +125,12 @@ func _get_journal_options(requested_options := 3) -> Array:
 func _get_next_nce() -> NonCombatEncounter:
 	if remaining_nce.empty():
 		remaining_nce = Act1.NCE.duplicate(true)
+		remaining_nce += run_changes.get_unlocked_nces("Act1")
 		CFUtils.shuffle_array(remaining_nce)
-	var next_nce = remaining_nce.pop_back().new()
-	return(next_nce)
+	# TODO: Adjust the Act dynamically
+	var next_nce = remaining_nce.pop_back()
+	# Even though we do a pop, we also erase any other copies of the same NCE in the list
+	# as we might have multiple NCEs of the same name, to increase their chances of appearing
+	remaining_nce.erase(next_nce)
+	return(next_nce.new())
 

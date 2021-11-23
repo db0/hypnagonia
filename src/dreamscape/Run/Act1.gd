@@ -1,5 +1,5 @@
 class_name Act1
-extends Reference
+extends Act
 
 """
 The enemies list, is a list of dictionaries, which define which enemy to spawn
@@ -413,5 +413,8 @@ const NCE := [
 	preload("res://src/dreamscape/Run/NCE/Act1/MultipleOptions.gd"),
 	preload("res://src/dreamscape/Run/NCE/Act1/PathosForAnxiety.gd"),
 	preload("res://src/dreamscape/Run/NCE/Act1/TheCandyman.gd"),
-	preload("res://src/dreamscape/Run/NCE/Act1/DollPickup.gd"),
+	preload("res://src/dreamscape/Run/NCE/Act1/Dollmaker.gd"),
 ]
+
+static func get_act_name() -> String:
+	return("Act1")
