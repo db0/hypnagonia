@@ -7,7 +7,7 @@ var repressed := {
 	Terms.RUN_ACCUMULATION_NAMES.nce: 10,
 	Terms.RUN_ACCUMULATION_NAMES.shop: 5,
 	Terms.RUN_ACCUMULATION_NAMES.elite: 0,
-	Terms.RUN_ACCUMULATION_NAMES.artifact: 110,
+	Terms.RUN_ACCUMULATION_NAMES.artifact: 0,
 	Terms.RUN_ACCUMULATION_NAMES.boss: 0,
 }
 
