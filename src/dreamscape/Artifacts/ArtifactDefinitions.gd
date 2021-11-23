@@ -44,7 +44,7 @@ const StartingHeal := {
 const FirstPowerAttack := {
 	"canonical_name": "FirstPowerAttack",
 	"name": "FirstPowerAttack",
-	"description": "{artifact_name}: Your first {attack} each encounter is increased by {effect_amount}",
+	"description": "{artifact_name}: Your first {damage} each encounter is increased by {effect_amount}",
 	"icon": preload("res://assets/icons/artifacts/binoculars.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Common",

@@ -1,10 +1,11 @@
 [gd_resource type="DynamicFont" load_steps=2 format=2]
 
-[ext_resource path="res://fonts/Butler/Butler_Medium.otf" type="DynamicFontData" id=1]
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://fonts/Amarante-Regular.ttf"
 
 [resource]
 size = 19
 outline_size = 1
 outline_color = Color( 0.682353, 0.682353, 0.682353, 0.780392 )
 use_filter = true
-font_data = ExtResource( 1 )
+font_data = SubResource( 5 )
