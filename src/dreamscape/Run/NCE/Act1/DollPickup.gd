@@ -11,7 +11,6 @@ func _init():
 
 func begin() -> void:
 	.begin()
-
 	# Candy Colour BBCode
 	var ccbbc = "[color={ccode}]{ccolour}[/color]"
 	var dolls := []

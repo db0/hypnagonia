@@ -24,7 +24,7 @@ func _init():
 
 
 func begin() -> void:
-# warning-ignore:return_value_discarded
+	# warning-ignore:return_value_discarded
 	.begin()
 	var scformat := Terms.RUN_ACCUMULATION_NAMES.duplicate()
 	scformat["follow_amount"] = globals.player.pathos.get_progression_average(

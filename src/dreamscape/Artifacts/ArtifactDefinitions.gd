@@ -438,7 +438,7 @@ const ImproveFortify := {
 const PorcelainDoll := {
 	"canonical_name": "PorcelainDoll",
 	"name": "Porcelain Doll",
-	"description": "{colour} {artifact_name} ({progress}): The next 10 {card_type} cards you gain, are used to finish colouring the doll.",
+	"description": "{colour} {artifact_name} ({progress}): The next {threshold} {card_type} cards you gain, are used to finish colouring the doll.",
 	"icon": preload("res://assets/icons/artifacts/person.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Encounter",

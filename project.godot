@@ -449,6 +449,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/GUI/ghost_rtl_effect.gd"
 }, {
+"base": "Reference",
+"class": "RunChanges",
+"language": "GDScript",
+"path": "res://src/dreamscape/Run/RunChanges.gd"
+}, {
 "base": "ScriptProperties",
 "class": "SP",
 "language": "GDScript",
@@ -648,6 +653,7 @@ _global_script_class_icons={
 "PlayerInfo": "",
 "QuantityNumberButton": "",
 "RichTextGhost": "",
+"RunChanges": "",
 "SP": "",
 "ScriptAlter": "",
 "ScriptObject": "",
