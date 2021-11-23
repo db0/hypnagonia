@@ -25,4 +25,7 @@ const CARD_IMAGES := {
 	"Misunderstood": preload("res://assets/cards/Misunderstood.jpg"),
 	"Mania": preload("res://assets/cards/Mania.jpg"),
 	"The Whippy-Flippy": preload("res://assets/cards/The Whippy-Flippy.jpg"),
+	"Terror": preload("res://assets/cards/beta_eyeball.jpg"),
+	"Discombobulation": preload("res://assets/cards/beta_hands.jpg"),
+	"The Laughing One": preload("res://assets/cards/beta_smiler.jpg"),
 }
