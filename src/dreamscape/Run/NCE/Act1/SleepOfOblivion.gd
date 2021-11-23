@@ -16,7 +16,6 @@ func _init():
 	description = "I dreamed of a large endless abyss. I could not see the bottom but I felt its pull. What did I do..?"
 
 func begin() -> void:
-	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.nce)
 	.begin()
 	globals.journal.add_nested_choices(secondary_choices)
 

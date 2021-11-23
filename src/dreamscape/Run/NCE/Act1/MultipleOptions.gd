@@ -14,7 +14,6 @@ func _init():
 	description = "<Multiple Options - Story Fluff to be Done>. Select one Option...."
 
 func begin() -> void:
-	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.nce)
 	.begin()
 	var pathos_org = globals.player.pathos.get_pathos_org()
 #	print_debug(pathos_org)

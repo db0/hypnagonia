@@ -14,9 +14,7 @@ func _init():
 	description = "I somehow found myself in front of [color=#FFC0CB]The Candyman[/color]. They offered me, a choice of a multicoloured candy. I love candy!"
 
 func begin() -> void:
-	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.nce)
 	.begin()
-
 	# Candy Colour BBCode
 	var ccbbc = "[color={ccolour}]{cstring}[/color]"
 	var candies := []

@@ -20,7 +20,6 @@ func _init():
 	description = "<Pathos For Anxiety - Story Fluff to be Done>. Select one Option...."
 
 func begin() -> void:
-	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.nce)
 	.begin()
 	var calm_choice = globals.player.pathos.grab_random_pathos()
 	var stress_choice = globals.player.pathos.grab_random_pathos()

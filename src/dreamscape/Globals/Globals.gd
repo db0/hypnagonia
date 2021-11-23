@@ -11,6 +11,7 @@ var journal: Journal
 var unused_journal_texts := {}
 #var utils := DeckbuilderUtils.new()
 var card_back_texture_selection := 0
+var run_unlocks := {}
 
 # Test setup. This should happen at game start
 func _ready() -> void:

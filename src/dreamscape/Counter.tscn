@@ -1,19 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://fonts/CounterFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/card_front/cost_container.png" type="Texture" id=2]
-[ext_resource path="res://fonts/Butler/Butler_Medium.otf" type="DynamicFontData" id=3]
 
-[sub_resource type="DynamicFont" id=1]
-outline_size = 2
-outline_color = Color( 0, 0, 0, 1 )
-use_filter = true
-font_data = ExtResource( 1 )
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://fonts/Amarante-Regular.ttf"
 
 [sub_resource type="DynamicFont" id=2]
 size = 35
 use_filter = true
-font_data = ExtResource( 3 )
+font_data = SubResource( 5 )
 
 [node name="Counter" type="CenterContainer"]
 margin_right = 139.0
@@ -38,7 +34,7 @@ margin_left = 13.0
 margin_top = 30.0
 margin_right = 125.0
 margin_bottom = 50.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = ExtResource( 1 )
 text = "Counter Title:"
 
 [node name="Value" type="Label" parent="."]
