@@ -33,10 +33,7 @@ func _on_card_added(card_entry: CardEntry)  -> void:
 func _add_extra_description_format(format_dict) -> void:
 	format_dict["card_type"] = "{%s}" % [HConst.COLOUR_MAP2[artifact_object.modifiers.colour].to_lower()]
 	format_dict["colour"] = artifact_object.modifiers.colour
-<<<<<<< HEAD
 	format_dict["threshold"] = str(_get_threshold())
-=======
->>>>>>> main
 	var progress = artifact_object.modifiers.get("progress", 0)
 	if progress == 10:
 		format_dict["progress"] = "Completed"
