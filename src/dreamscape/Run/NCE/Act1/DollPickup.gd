@@ -10,7 +10,6 @@ func _init():
 			+ "Let me recall, which one did choose..?"
 
 func begin() -> void:
-	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.nce)
 	.begin()
 
 	# Candy Colour BBCode

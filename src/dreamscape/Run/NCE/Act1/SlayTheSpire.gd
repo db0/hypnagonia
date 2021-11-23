@@ -19,7 +19,6 @@ func _init():
 
 
 func begin() -> void:
-	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.nce)
 	.begin()
 	var scformat := Terms.RUN_ACCUMULATION_NAMES.duplicate()
 	scformat["slay_amount"] = globals.player.pathos.get_progression_average(
