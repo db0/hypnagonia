@@ -365,11 +365,14 @@ func _input(event):
 		torment2.health = 1000
 		torment3.health = 1000
 		dreamer.health = 1000
-		globals.player.add_artifact(ArtifactDefinitions.ImproveFortify.canonical_name)
+#		globals.player.add_artifact(ArtifactDefinitions.BlueWave.canonical_name)
+#		globals.player.add_artifact(ArtifactDefinitions.PurpleWave.canonical_name)
+#		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
-			"Near-ground Flight",
-			"= Near-ground Flight =",
+			"Gaslighter",
+			"Gaslighter",
+
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.hand.add_child(card)
