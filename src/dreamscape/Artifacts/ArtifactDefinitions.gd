@@ -451,7 +451,7 @@ const RedWave := {
 	"description": "{artifact_name}: At the start of your turn, if your hand has {threshold}+ {attack_card} cards, gain {defence_amount} {defence}",
 	"icon": preload("res://assets/icons/artifacts/waves_red.png"),
 	"context": EffectContext.BATTLE,
-	"rarity": "Encounter",
+	"rarity": "Common",
 	"amounts": {
 		"threshold": 4,
 		"defence_amount": 8
@@ -463,7 +463,7 @@ const BlueWave := {
 	"description": "{artifact_name}: At the start of your turn, if your hand has {threshold}+ {skill_card} cards, deal {damage_amount} {damage} to all Torments.",
 	"icon": preload("res://assets/icons/artifacts/waves_blue.png"),
 	"context": EffectContext.BATTLE,
-	"rarity": "Encounter",
+	"rarity": "Common",
 	"amounts": {
 		"threshold": 4,
 		"damage_amount": 5
@@ -475,7 +475,7 @@ const PurpleWave := {
 	"description": "{artifact_name}: At the start of your turn, if your hand has {threshold}+ {understanding_card} cards, {relax} for {heal_amount}.",
 	"icon": preload("res://assets/icons/artifacts/waves_purple.png"),
 	"context": EffectContext.BATTLE,
-	"rarity": "Encounter",
+	"rarity": "Common",
 	"amounts": {
 		"threshold": 3,
 		"heal_amount": 4,
