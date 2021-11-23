@@ -447,27 +447,39 @@ const PorcelainDoll := {
 # TODO
 const RedWave := {
 	"canonical_name": "RedWave",
-	"name": "RedWave",
-	"description": "{artifact_name}: Whenever your whole hand is full of {attack_card}, gain 2 {defence} per such card.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"name": "Inquisite Vibes",
+	"description": "{artifact_name}: At the start of your turn, if your hand has {threshold}+ {attack_card} cards, gain {defence_amount} {defence}",
+	"icon": preload("res://assets/icons/artifacts/waves_red.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Encounter",
+	"amounts": {
+		"threshold": 4,
+		"defence_amount": 8
+	},	
 }
 const BlueWave := {
 	"canonical_name": "BlueWave",
-	"name": "BlueWave",
-	"description": "{artifact_name}: Whenever your whole hand is full of {skill_card}, deal 2 {damage} per such card to all Torments.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"name": "Cool Vibes",
+	"description": "{artifact_name}: At the start of your turn, if your hand has {threshold}+ {skill_card} cards, deal {damage_amount} {damage} to all Torments.",
+	"icon": preload("res://assets/icons/artifacts/waves_blue.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Encounter",
+	"amounts": {
+		"threshold": 4,
+		"damage_amount": 5
+	},	
 }
 const PurpleWave := {
 	"canonical_name": "PurpleWave",
-	"name": "PurpleWave",
-	"description": "{artifact_name}: Whenever your whole hand is full of {understanding_card}, {relax} for 1 per such card.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"name": "Chill Vibes",
+	"description": "{artifact_name}: At the start of your turn, if your hand has {threshold}+ {understanding_card} cards, {relax} for {heal_amount}.",
+	"icon": preload("res://assets/icons/artifacts/waves_purple.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Encounter",
+	"amounts": {
+		"threshold": 3,
+		"heal_amount": 4,
+	},	
 }
 
 
@@ -502,6 +514,9 @@ const GENERIC := [
 	ResistDisempower,
 	ResistVulnerable,
 	PowerHeal,
+	RedWave,
+	BlueWave,
+	PurpleWave,
 ]
 
 # Archetype-specific artifacts which only appear in runs in which 
