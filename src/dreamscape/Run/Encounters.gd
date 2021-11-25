@@ -89,6 +89,7 @@ func generate_journal_choices() -> Array:
 		### Debug ###
 #		journal_options.append(preload("res://src/dreamscape/Run/NCE/Shop.gd").new())
 #		journal_options.append(preload("res://src/dreamscape/Run/NCE/Act1/PopPsychologist1.gd").new())
+#		journal_options.append(preload("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist3.gd").new())
 		### End Debug ##
 	return(journal_options)
 

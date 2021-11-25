@@ -5,32 +5,31 @@ extends NonCombatEncounter
 const SHADER := preload("res://shaders/Roscharch.shader")
 
 var secondary_choices := {
-		'tiger': '[A Tiger]: Release some {nce}.',
-		'snake': '[A Snake]:  Release some {enemy}.',
-		'owl': '[An Owl]: Release some {shop}.',
+		'passion fruit': '[An Apple]: Release some {artifact}.',
+		'orange': '[An Orange]:  Release some {elite}.',
+		'banana': '[A Banana]: Release some {shop}.',
 	}
 
-var nce_resul_fluff := "[i]I see. You're {adjective} your {noun}.[/i]"
+var nce_resul_fluff := "[i]I understand. You're {adjective} your {noun}.[/i]"
 
 var mad_lib_adjectives = [
-	"deeply afraid of",
-	"in love with",
-	"utterly disgusted with",
+	"deeply worried about",
+	"very excited about",
+	"secretly shameful of",
 ]
 var mad_lib_nouns = [
-	"mother",
-	"father",
-	"great uncle",
-	"grandmother",
-	"sibling",
+	"dieting habits",
+	"phobias",
+	"night activities",
+	"romance novels",
 ]
 
 func _init():
-	description = "I was rushing to my first appointment with the Pop Psychologist.\n"\
-			+ "I took a seat in an overly [color=red]red fainting couch[/color].\n\n"\
-			+ "[i]So, today we are going to learn about you. We are going to do a Rorschach test. "\
+	description = "I was rushing to my second appointment with the Pop Psychologist.\n"\
+			+ "I took a seat in an overly [color=#FF0038]carmine fainting couch[/color].\n\n"\
+			+ "[i]How have you been doing since your last visit? We should to revisit the Rorschach test.\n"\
 			+ "What do you see in this picture?[/i]\n\n"\
-			+ "Was the inkblot moving..?"
+			+ "My eyes were getting tired from straining..."
 
 func begin() -> void:
 	.begin()
@@ -46,22 +45,22 @@ func begin() -> void:
 
 func continue_encounter(key) -> void:
 	match key:
-		"tiger":
+		"passion fruit":
 			var released_reward = round(
-					globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.nce)
+					globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.artifact)
+					* 5 * CFUtils.randf_range(0.8,1.2)
+				)
+			globals.player.pathos.release_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, released_reward)
+		"orange":
+			var released_reward = round(
+					globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.elite)
 					* 3 * CFUtils.randf_range(0.8,1.2)
 				)
-			globals.player.pathos.release_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, released_reward)
-		"snake":
-			var released_reward = round(
-					globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.enemy)
-					* 3 * CFUtils.randf_range(0.8,1.2)
-				)
-			globals.player.pathos.release_pathos(Terms.RUN_ACCUMULATION_NAMES.enemy, released_reward)
-		"owl":
+			globals.player.pathos.release_pathos(Terms.RUN_ACCUMULATION_NAMES.elite, released_reward)
+		"banana":
 			var released_reward = round(
 					globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.shop)
-					* 3 * CFUtils.randf_range(0.8,1.2)
+					* 5 * CFUtils.randf_range(0.8,1.2)
 				)
 			globals.player.pathos.release_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, released_reward)
 	CFUtils.shuffle_array(mad_lib_adjectives)
@@ -70,6 +69,5 @@ func continue_encounter(key) -> void:
 		"adjective": mad_lib_adjectives[0],
 		"noun": mad_lib_nouns[0],
 	}
-	globals.encounters.run_changes.unlock_nce("PopPsychologist2")
+	globals.encounters.run_changes.unlock_nce("PopPsychologist3")
 	globals.journal.display_nce_rewards(nce_resul_fluff.format(adlib_format))
-	

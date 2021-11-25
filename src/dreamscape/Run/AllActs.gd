@@ -14,6 +14,14 @@ const LOCKED_NCE := {
 		"nce": preload("res://src/dreamscape/Run/NCE/AllActs/DollPickup.gd"),
 		"chance_multiplier": 2,
 	},
+	"PopPsychologist2": {
+		"nce": preload("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist2.gd"),
+		"chance_multiplier": 2,
+	},
+	"PopPsychologist3": {
+		"nce": preload("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist3.gd"),
+		"chance_multiplier": 3,
+	},
 }
 
 static func get_act_name() -> String:
