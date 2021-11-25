@@ -5,7 +5,8 @@ const NESTED_CHOICES_SCENE = preload("res://src/dreamscape/Overworld/SecondaryCh
 const SELECTION_DECK_SCENE = preload("res://src/dreamscape/SelectionDeck.tscn")
 const CARD_PREVIEW_SCENE = preload("res://src/dreamscape/MainMenu/StartingCardPreviewObject.tscn")
 
-onready var page_illustration := $HBC/JournalPageIllustration
+onready var page_illustration := $HBC/MC/JournalPageIllustration
+onready var page_shader := $HBC/MC/JournalPageShader
 onready var journal_intro := $HBC/JournalEntry/VBC/DayIntro
 onready var journal_choices := $HBC/JournalEntry/VBC/JournalChoices
 onready var card_storage := $EnemyCardStorage
@@ -114,6 +115,17 @@ func set_illustration(image: ImageTexture) -> void:
 
 func unset_illustration() -> void:
 	page_illustration.texture = null
+
+
+func set_shader(shader, shader_params) -> void:
+	page_shader.visible = true
+	page_shader.material.shader = shader
+	for param in shader_params:
+		page_shader.material.set_shader_param(param, shader_params[param])
+
+
+func unset_shader() -> void:
+	page_shader.visible = false
 
 
 # Adds more choices to the journal. 

@@ -88,7 +88,7 @@ func generate_journal_choices() -> Array:
 				journal_options.append(BossEncounter.new(Act1.BOSSES[boss_name], boss_name))
 		### Debug ###
 #		journal_options.append(preload("res://src/dreamscape/Run/NCE/Shop.gd").new())
-#		journal_options.append(preload("res://src/dreamscape/Run/NCE/Act1/Greed.gd").new())
+#		journal_options.append(preload("res://src/dreamscape/Run/NCE/Act1/PopPsychologist1.gd").new())
 		### End Debug ##
 	return(journal_options)
 

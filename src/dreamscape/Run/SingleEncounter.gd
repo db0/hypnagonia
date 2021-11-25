@@ -2,7 +2,8 @@ class_name SingleEncounter
 extends Reference
 
 var description: String
-var journal_art: ImageTexture
+var journal_art
+var shader_params: Dictionary
 
 func begin() -> void:
 	globals.current_encounter = self
@@ -17,3 +18,8 @@ func prepare_journal_art(encounter: Dictionary) -> void:
 		journal_art = ImageTexture.new();
 		var image = tex.get_data()
 		journal_art.create_from_image(image)
+
+
+func prepare_shader_art(shader: Shader, _shader_params: Dictionary) -> void:
+	shader_params = _shader_params
+	journal_art = shader
