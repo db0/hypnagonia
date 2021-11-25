@@ -1,5 +1,21 @@
 # Changelog
 
+## [Unreleased](https://github.com/db0/hypnagonia/tree/HEAD)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.18.4...HEAD)
+
+**Closed issues:**
+
+- Encounters: Pop-Psychologist [\#70](https://github.com/db0/hypnagonia/issues/70)
+
+## [v0.18.4](https://github.com/db0/hypnagonia/tree/v0.18.4) (2021-11-25)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.18.3...v0.18.4)
+
+**Merged pull requests:**
+
+- More Stuff [\#78](https://github.com/db0/hypnagonia/pull/78) ([db0](https://github.com/db0))
+
 ## [v0.18.3](https://github.com/db0/hypnagonia/tree/v0.18.3) (2021-11-23)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.18.2...v0.18.3)
