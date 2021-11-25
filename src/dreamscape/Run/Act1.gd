@@ -414,6 +414,7 @@ const NCE := [
 	preload("res://src/dreamscape/Run/NCE/Act1/PathosForAnxiety.gd"),
 	preload("res://src/dreamscape/Run/NCE/Act1/TheCandyman.gd"),
 	preload("res://src/dreamscape/Run/NCE/Act1/Dollmaker.gd"),
+	preload("res://src/dreamscape/Run/NCE/Act1/Greed.gd"),
 ]
 
 static func get_act_name() -> String:

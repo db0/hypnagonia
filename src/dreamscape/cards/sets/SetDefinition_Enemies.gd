@@ -78,7 +78,7 @@ const CARDS := {
 		"Abilities": "Apply {effect_stacks} {burn} to a Torment.\n"\
 				+ "Remove all {envy} from the dreamer.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Ierenisrt#0318",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.burn.name: Terms.ENEMY

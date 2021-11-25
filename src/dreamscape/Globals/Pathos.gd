@@ -127,10 +127,13 @@ func grab_random_pathos() -> String:
 	CFUtils.shuffle_array(all_pathos)
 	return(all_pathos[0])
 
+
 # Returns a dictionary with the highest pathos, the lowest pathos
-# and the middle pathos. It excludes those which are at 0, unless there's not
-# enough non-0 options to fill all these.
-func get_pathos_org(type := "released") -> Dictionary:
+# and the middle pathos. 
+# If include_zeroes == false, It excludes those pathos which are at 0, unless there's not
+# enough non-0 options to fill all three options (high, mid, low).
+# If include_zeroes is true, then zero-pathos will not be excluded from being lowest.
+func get_pathos_org(type := "released", include_zeroes := false) -> Dictionary:
 	var results_dict := {
 		"highest_pathos": {
 			"found":[],
@@ -152,8 +155,9 @@ func get_pathos_org(type := "released") -> Dictionary:
 	for pathos in pathos_dict:
 		if pathos_dict[pathos] == 0:
 			zero_pathos.append(pathos)
-			continue
-		# This sort of elif, ensure the same pathos cannot be at the same
+			if not include_zeroes:
+				continue
+		# This sort of conditionals, ensure the same pathos cannot be at the same
 		# time the highest and lowest
 		if pathos_dict[pathos] == results_dict["lowest_pathos"]["value"]:
 			results_dict["lowest_pathos"]["found"].append(pathos)
@@ -175,8 +179,9 @@ func get_pathos_org(type := "released") -> Dictionary:
 			if results_dict[pathos_org_type]["found"].size() > 1:
 				CFUtils.shuffle_array(results_dict[pathos_org_type]["found"])
 			results_dict[pathos_org_type]["selected"] = results_dict[pathos_org_type]["found"][0]
-	if pathos_dict[results_dict["lowest_pathos"]["selected"]] == 0:
+	if pathos_dict[results_dict["lowest_pathos"]["selected"]] == 0 and not include_zeroes:
 		results_dict["middle_pathos"]["selected"] = zero_pathos.pop_back()
+		results_dict["middle_pathos"]["value"] = pathos_dict[results_dict["middle_pathos"]["selected"]]
 	else:
 		for pathos in pathos_dict:
 			if pathos_dict[pathos] == 0\
@@ -185,8 +190,12 @@ func get_pathos_org(type := "released") -> Dictionary:
 #				print_debug('aaa ', pathos, pathos_dict[pathos])
 				continue
 			results_dict["middle_pathos"]["selected"] = pathos
+			results_dict["middle_pathos"]["value"] = pathos_dict[pathos]
 			break
 	if results_dict["middle_pathos"]["selected"] == '':
 		results_dict["middle_pathos"]["selected"] = results_dict["lowest_pathos"]["selected"]
+		results_dict["middle_pathos"]["value"] = results_dict["lowest_pathos"]["value"]
 		results_dict["lowest_pathos"]["selected"] = zero_pathos.pop_back()
+		results_dict["lowest_pathos"]["value"] = pathos_dict[results_dict["lowest_pathos"]["selected"]]
+#	print_debug(type, results_dict)
 	return(results_dict)

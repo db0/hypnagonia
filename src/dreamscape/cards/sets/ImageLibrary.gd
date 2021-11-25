@@ -28,4 +28,5 @@ const CARD_IMAGES := {
 	"Terror": preload("res://assets/cards/beta_eyeball.jpg"),
 	"Discombobulation": preload("res://assets/cards/beta_hands.jpg"),
 	"The Laughing One": preload("res://assets/cards/beta_smiler.jpg"),
+	"Broken Mirror": preload("res://assets/cards/broken_mirror.jpg"),
 }
