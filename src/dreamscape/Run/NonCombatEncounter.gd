@@ -21,3 +21,11 @@ func begin() -> void:
 
 func get_meta_hover_description(_meta_tag: String) -> String:
 	return('')
+
+
+func _prepare_card_popup_bbcode(card_name: String, url_text: String) -> String:
+	var popup_tag = NCE_POPUP_DICT.duplicate(true)
+	popup_tag["name"] = card_name
+	var url_bbcode := "[url=%s]%s[/url]" % [JSON.print(popup_tag), url_text]
+	globals.journal.prepare_popup_card(card_name)
+	return(url_bbcode)

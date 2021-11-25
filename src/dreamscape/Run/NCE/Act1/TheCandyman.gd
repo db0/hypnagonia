@@ -79,6 +79,7 @@ func continue_encounter(key) -> void:
 		# We shuffle the array so that the colour choices are random.
 		CFUtils.shuffle_array(key)
 		var selection_deck : SelectionDeck = globals.journal.spawn_selection_deck()
+		# warning-ignore:return_value_discarded
 		selection_deck.connect("operation_performed", self, "_on_card_removed", [key])
 		selection_deck.card_type = HConst.COLOUR_MAP[key[0]]
 		selection_deck.auto_close = true
