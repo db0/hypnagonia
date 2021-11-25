@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/dreamscape/Overworld/Journal.gd" type="Script" id=1]
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://src/dreamscape/Overworld/CardUpgrade.gd" type="Script" id=5]
 [ext_resource path="res://src/dreamscape/FadeToBlack.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/dreamscape/Overworld/ArtifactChoices.gd" type="Script" id=7]
+
+[sub_resource type="ShaderMaterial" id=1]
 
 [node name="JournalScene" type="MarginContainer"]
 anchor_right = 1.0
@@ -40,12 +42,24 @@ margin_top = 2.0
 margin_right = 1453.0
 margin_bottom = 845.0
 
-[node name="JournalPageIllustration" type="TextureRect" parent="VBC/Journal/HBC"]
+[node name="MC" type="MarginContainer" parent="VBC/Journal/HBC"]
+margin_right = 724.0
+margin_bottom = 843.0
+size_flags_horizontal = 3
+
+[node name="JournalPageIllustration" type="TextureRect" parent="VBC/Journal/HBC/MC"]
 margin_right = 724.0
 margin_bottom = 843.0
 size_flags_horizontal = 3
 expand = true
 stretch_mode = 5
+
+[node name="JournalPageShader" type="ColorRect" parent="VBC/Journal/HBC/MC"]
+visible = false
+material = SubResource( 1 )
+margin_right = 724.0
+margin_bottom = 843.0
+color = Color( 0.0862745, 0.0862745, 0.0862745, 1 )
 
 [node name="JournalEntry" type="ScrollContainer" parent="VBC/Journal/HBC"]
 margin_left = 727.0
@@ -176,7 +190,7 @@ margin_bottom = 4.0
 margin_left = 2.0
 margin_top = 2.0
 margin_right = 8.0
-margin_bottom = 26.0
+margin_bottom = 23.0
 
 [node name="FadeToBlack" parent="." instance=ExtResource( 6 )]
 visible = false

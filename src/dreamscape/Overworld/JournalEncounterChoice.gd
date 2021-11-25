@@ -29,13 +29,30 @@ func _init(_journal: Node, _encounter: SingleEncounter).(_journal) -> void:
 
 func _on_mouse_entered() -> void:
 	._on_mouse_entered()
-	var journal_illustration := encounter.journal_art
-	if journal_illustration:
+	_display_journal_art()
+
+func _display_journal_art() -> void:
+	var journal_illustration = encounter.journal_art
+	if journal_illustration as ImageTexture:
 		journal.set_illustration(journal_illustration)
+	elif journal_illustration as Shader:
+		journal.set_shader(journal_illustration, encounter.shader_params)
 
 
 func _on_mouse_exited() -> void:
 	._on_mouse_exited()
-	var journal_illustration := encounter.journal_art
-	if journal.page_illustration.texture == journal_illustration:
+	_hide_journal_art()
+
+func _hide_journal_art() -> void:
+	var journal_illustration = encounter.journal_art
+	if journal_illustration as ImageTexture\
+			and journal.page_illustration.texture == journal_illustration:
 		journal.unset_illustration()
+	elif journal_illustration as Shader:
+		journal.unset_shader()
+
+
+func _on_gui_input(event) -> void:
+	._on_gui_input(event)
+	if event.is_pressed() and event.get_button_index() == 1:
+		_display_journal_art()
