@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.18.6](https://github.com/db0/hypnagonia/tree/v0.18.6) (2021-11-27)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.18.5...v0.18.6)
+
+**Merged pull requests:**
+
+- content\(art\) Added journal art for Butterly and Mirror [\#80](https://github.com/db0/hypnagonia/pull/80) ([db0](https://github.com/db0))
+
 ## [v0.18.5](https://github.com/db0/hypnagonia/tree/v0.18.5) (2021-11-27)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.18.4...v0.18.5)
