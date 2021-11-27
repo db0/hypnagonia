@@ -245,7 +245,7 @@ func generate_discard_tasks(only_from_hand := true) -> Array:
 			"dest_container": cfc.NMAP.discard.name,
 		}
 	if only_from_hand:
-		discard_script_template["filter_state_subject"] = [{"filter_parent": cfc.NMAP.hand}]
+		discard_script_template["filter_state_subject"] = [{"filter_parent": "hand"}]
 	var discard_tasks = [discard_script_template]
 	return(discard_tasks)
 
