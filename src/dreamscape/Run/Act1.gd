@@ -281,7 +281,7 @@ const Butterfly = {
 			},
 		],
 	},
-#		"journal_art": preload("res://assets/journal/clown.jpeg"),
+	"journal_art": preload("res://assets/journal/butterfly.jpeg"),
 }
 
 
@@ -326,7 +326,7 @@ const BrokenMirrors = {
 			},
 		],
 	},
-#		"journal_art": preload("res://assets/journal/clown.jpeg"),
+	"journal_art": preload("res://assets/journal/broken_mirror.jpg"),
 }
 #	{
 #		"journal_description":\
@@ -366,7 +366,6 @@ const ENEMIES = [
 	TheCritic,
 	Fearmonger,
 	UnnamedEnemy1,
-	TheCritic,
 	Clown,
 	Butterfly,
 	BrokenMirrors,
