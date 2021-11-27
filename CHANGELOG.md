@@ -1,12 +1,16 @@
 # Changelog
 
-## [Unreleased](https://github.com/db0/hypnagonia/tree/HEAD)
+## [v0.18.5](https://github.com/db0/hypnagonia/tree/v0.18.5) (2021-11-27)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.18.4...HEAD)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.18.4...v0.18.5)
 
 **Closed issues:**
 
 - Encounters: Pop-Psychologist [\#70](https://github.com/db0/hypnagonia/issues/70)
+
+**Merged pull requests:**
+
+- fix: Fix breaking when playing card [\#79](https://github.com/db0/hypnagonia/pull/79) ([db0](https://github.com/db0))
 
 ## [v0.18.4](https://github.com/db0/hypnagonia/tree/v0.18.4) (2021-11-25)
 
