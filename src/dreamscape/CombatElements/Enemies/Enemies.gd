@@ -205,6 +205,26 @@ const BROKEN_MIRROR:= {
 	"_texture": preload("res://assets/enemies/cracked-glass.png"),
 	"_character_art": "Lorc"
 }
+const PIALEPHANT:= {
+	"Name": "Pialephant",
+	"Type": "Absurdity",
+	"Health": 80,
+	"Intents": [
+		{
+			"intent_scripts": ["Stress:22"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Perplex:20"],
+			"reshuffle": true,
+		},
+	],
+	"_health_variability": 10,
+	"_texture_size_x": "120",
+	"_texture_size_y": "120",
+	"_texture": preload("res://assets/enemies/elephant.png"),
+	"_character_art": "Delapouite"
+}
 #	"Spider": {
 #		"Type": "Phobia",
 #		"Health": 1,

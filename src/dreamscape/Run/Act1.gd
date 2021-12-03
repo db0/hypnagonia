@@ -287,7 +287,7 @@ const Butterfly = {
 
 const BrokenMirrors = {
 	"journal_description":\
-		'Am I cursed[url={torment_tag1}] or is it just bad luck[/url]?',
+		'Am I cursed [url={torment_tag1}]or is it just bad luck[/url]?',
 	"journal_reward":\
 		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
 	"enemies": {
@@ -327,6 +327,34 @@ const BrokenMirrors = {
 		],
 	},
 	"journal_art": preload("res://assets/journal/broken_mirror.jpg"),
+}
+
+const Pialephant = {
+	"journal_description":\
+		'I heard piano music but its source [url={torment_tag1}]made no sense[/url]!',
+	"journal_reward":\
+		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+	"enemies": {
+		"easy": [
+			{
+				"definition": EnemyDefinitions.PIALEPHANT,
+				"health_modifier": -20,
+			},
+		],
+		"medium": [
+			{
+				"definition": EnemyDefinitions.PIALEPHANT,
+				"health_modifier": 0,
+			},
+		],
+		"hard": [
+			{
+				"definition": EnemyDefinitions.PIALEPHANT,
+				"starting_defence": +20,
+			},
+		],
+	},
+	"journal_art": preload("res://assets/journal/pialephant.jpg"),
 }
 #	{
 #		"journal_description":\
@@ -369,6 +397,7 @@ const ENEMIES = [
 	Clown,
 	Butterfly,
 	BrokenMirrors,
+	Pialephant,
 ]
 
 const RushElite = {
