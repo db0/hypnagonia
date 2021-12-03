@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.18.8](https://github.com/db0/hypnagonia/tree/v0.18.8) (2021-12-03)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.18.7...v0.18.8)
+
+**Merged pull requests:**
+
+- fix: Forgot debug squirrel [\#82](https://github.com/db0/hypnagonia/pull/82) ([db0](https://github.com/db0))
+
 ## [v0.18.7](https://github.com/db0/hypnagonia/tree/v0.18.7) (2021-12-03)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.18.6...v0.18.7)
