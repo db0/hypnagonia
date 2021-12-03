@@ -90,7 +90,7 @@ func generate_journal_choices() -> Array:
 #		journal_options.append(preload("res://src/dreamscape/Run/NCE/Shop.gd").new())
 #		journal_options.append(preload("res://src/dreamscape/Run/NCE/Act1/PopPsychologist1.gd").new())
 #		journal_options.append(preload("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist3.gd").new())
-		journal_options.append(EnemyEncounter.new(Act1.Squirrel, "hard"))
+#		journal_options.append(EnemyEncounter.new(Act1.Squirrel, "hard"))
 		### End Debug ##
 	return(journal_options)
 
