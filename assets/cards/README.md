@@ -11,4 +11,6 @@ Links to Artists (where one provided)
 # Other Licenses
 
 * [David Revoy](https://www.davidrevoy.com)
-   * [pialephant](https://www.davidrevoy.com/article203/elephant-dreams) - BY-CC-ND 4.0
+   * [Pialephant](https://www.davidrevoy.com/article203/elephant-dreams) - BY-CC-ND 4.0
+   * [The Light Calling](https://www.davidrevoy.com/article42/nde-tunnel) - BY-CC-ND 4.0
+   * [A Squirrel](https://www.davidrevoy.com/article100/crazy-psychotic-squirrel-mandala) - BY 4.0

@@ -468,9 +468,83 @@ const scripts := {
 						"filter_group": "EnemyEntities",
 					},],
 				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": "forgotten",
+				},
 			],
 		},
-	}
+	},
+	"The Light Calling": {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.drain.name,
+					"subject": "dreamer",
+					"modification":  {
+						"lookup_property": "_amounts",
+						"value_key": "effect_stacks",
+					},
+				},
+				{
+					"name": "assign_defence",
+					"subject": "dreamer",
+					"amount": {
+						"lookup_property": "_amounts",
+						"value_key": "defence_amount"
+					},
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": "forgotten",
+				},
+			],
+		},
+	},
+	"A Squirrel": {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"needs_subject": true,
+					"amount": {
+						"lookup_property": "_amounts",
+						"value_key": "damage_amount"
+					},
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					},],
+				},
+				{
+					"name": "modify_damage",
+					"subject": "dreamer",
+					"amount": {
+						"lookup_property": "_amounts",
+						"value_key": "exert_amount"
+					},
+					"tags": ["Exert"],
+				},
+				{
+					"name": "assign_defence",
+					"subject": "dreamer",
+					"amount": {
+						"lookup_property": "_amounts",
+						"value_key": "defence_amount"
+					},
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": "forgotten",
+				},
+			],
+		},
+	},
 }
 
 # This fuction returns all the scripts of the specified card name.

@@ -16,10 +16,11 @@ const EFFECTS := {
 	Terms.ACTIVE_EFFECTS.outrage.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Outrage.tscn"),
 	Terms.ACTIVE_EFFECTS.enraged.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Enraged.tscn"),
 	Terms.ACTIVE_EFFECTS.strengthen.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Strengthen.tscn"),
+	Terms.ACTIVE_EFFECTS.quicken.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Quicken.tscn"),
 	Terms.ACTIVE_EFFECTS.thorns.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Thorns.tscn"),
 	Terms.ACTIVE_EFFECTS.armor.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Armor.tscn"),
 	Terms.ACTIVE_EFFECTS.creative_block.name: preload("res://src/dreamscape/CombatElements/CombatEffects/CreativeBlock.tscn"),
-	
+	# Concentation Effects
 	Terms.ACTIVE_EFFECTS.laugh_at_danger.name: preload("res://src/dreamscape/CombatElements/CombatEffects/LaughAtDanger.tscn"),
 	Terms.ACTIVE_EFFECTS.nothing_to_fear.name: preload("res://src/dreamscape/CombatElements/CombatEffects/NothingToFear.tscn"),
 	Terms.ACTIVE_EFFECTS.rubber_eggs.name: preload("res://src/dreamscape/CombatElements/CombatEffects/RubberEggs.tscn"),
@@ -130,11 +131,18 @@ func get_ordered_effects(ordered_effects: Dictionary) -> Dictionary:
 	for effect in get_children():
 		match effect.priority:
 			CombatEffect.PRIORITY.ADD:
-				ordered_effects.adders.append(effect)
+				# We do not want the same exact instance of an effect
+				# to be calculated twice coming from the subject AND source.
+				# For example quicken has always the same subject
+				# and source. 
+				if not effect in ordered_effects.adders:
+					ordered_effects.adders.append(effect)
 			CombatEffect.PRIORITY.MULTIPLY:
-				ordered_effects.multipliers.append(effect)
+				if not effect in ordered_effects.multipliers:
+					ordered_effects.multipliers.append(effect)
 			CombatEffect.PRIORITY.SET:
-				ordered_effects.setters.append(effect)
+				if not effect in ordered_effects.setters:
+					ordered_effects.setters.append(effect)
 	return(ordered_effects)
 
 
