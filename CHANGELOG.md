@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.18.7](https://github.com/db0/hypnagonia/tree/v0.18.7) (2021-12-03)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.18.6...v0.18.7)
+
+**Merged pull requests:**
+
+- 3 New Added more Torments [\#81](https://github.com/db0/hypnagonia/pull/81) ([db0](https://github.com/db0))
+
 ## [v0.18.6](https://github.com/db0/hypnagonia/tree/v0.18.6) (2021-11-27)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.18.5...v0.18.6)
