@@ -452,6 +452,25 @@ const scripts := {
 			],
 		},
 	},
+	"Pialephant": {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"needs_subject": true,
+					"amount": {
+						"lookup_property": "_amounts",
+						"value_key": "damage_amount"
+					},
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					},],
+				},
+			],
+		},
+	}
 }
 
 # This fuction returns all the scripts of the specified card name.

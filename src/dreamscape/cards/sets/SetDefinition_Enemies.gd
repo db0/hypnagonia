@@ -514,4 +514,47 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"Pialephant": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "{damage} for {damage_amount}. {forget}",
+		"Cost": 3,
+		"_illustration": "David Revoy",
+		"_rarity": "Received",
+		"_keywords": ["forget"],
+		"_amounts": {
+			"damage_amount": 35,
+		},
+		"_upgrade_threshold": 12,
+		"_upgrades": [
+			"+ Pialephant +",
+			"@ Pialephant @",
+		],
+	},
+	"+ Pialephant +": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "{damage} for {damage_amount}. {forget}",
+		"Cost": 3,
+		"_illustration": "David Revoy",
+		"_rarity": "Received",
+		"_keywords": ["forget"],
+		"_amounts": {
+			"damage_amount": 50,
+		},
+		"_is_upgrade": true,
+	},
+	"@ Pialephant @": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "{damage} for {damage_amount}. {forget}",
+		"Cost": 2,
+		"_illustration": "David Revoy",
+		"_rarity": "Received",
+		"_keywords": ["forget"],
+		"_amounts": {
+			"damage_amount": 30,
+		},
+		"_is_upgrade": true,
+	},
 }
