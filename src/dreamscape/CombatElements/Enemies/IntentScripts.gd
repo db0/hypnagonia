@@ -61,5 +61,15 @@ func get_scripts(intent_name: String) -> Dictionary:
 				"description": "Stare: It's not blinking..."
 			}
 		],
+		"Evident": [
+			{
+				"name": "modify_damage",
+				"tags": ["Unblockable", "Intent"],
+				"subject": "self",
+				"amount": null,
+				"icon": preload("res://assets/icons/spectacle-lenses.png"),
+				"description": "Evident: This will cause this Torment the specified amount of {damage}."
+			}
+		],
 	}
 	return(scripts.get(intent_name,{}))

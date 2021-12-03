@@ -147,6 +147,13 @@ const ACTIVE_EFFECTS := {
 			"thick": "{effect_name} ({effect_icon}): {attack} {damage_verb} by this {entity} is increased by {amount} (1 per stack). Remove all stacks when you reshuffle your deck\n",
 		},
 	},
+	"quicken": {
+		"name": "Solid",
+		"icon": preload("res://assets/icons/white-tower.png"),
+		"generic_description": "{effect_name}: Increases confidence gained by exact amount.",
+		"rich_text_icon": "res://fonts/rich_text_icons/white-tower.png",
+		"description": "{effect_name} ({effect_icon}): {defence} gained by this {entity} is increased by {amount} (1 per stack).\n",
+	},
 	"fortify": {
 		"name": "Courage",
 		"icon": preload("res://assets/icons/beams-aura.png"),

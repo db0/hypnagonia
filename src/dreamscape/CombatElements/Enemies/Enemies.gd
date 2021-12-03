@@ -225,6 +225,59 @@ const PIALEPHANT:= {
 	"_texture": preload("res://assets/enemies/elephant.png"),
 	"_character_art": "Delapouite"
 }
+const THE_LIGHT_CALLING := {
+	"Name": "The Light Calling",
+	"Type": "Ennui",
+	"Health": 50,
+	"Intents": [
+		{
+			"intent_scripts": ["Debuff:2:drain","Stress:3"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Debuff:1:drain","Stress:8"],
+			"reshuffle": true,
+		},
+		{
+			"intent_scripts": ["Perplex:11"],
+			"reshuffle": false,
+		},
+	],
+	"_health_variability": 8,
+	"_texture_size_x": "120",
+	"_texture_size_y": "120",
+	"_texture": preload("res://assets/enemies/sunbeams.png"),
+	"_character_art": "Lorc"
+}
+const SQUIRREL := {
+	"Name": "A Squirrel",
+	"Type": "Phobia",
+	"Health": 30,
+	"_is_ordered": true,
+	"Intents": [
+		{
+			"intent_scripts": ["Stress:40", "Evident:50"],
+			"reshuffle": true,
+		},
+		{
+			"intent_scripts": ["Perplex:5"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Perplex:5"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Perplex:5"],
+			"reshuffle": false,
+		},
+	],
+	"_health_variability": 3,
+	"_texture_size_x": "120",
+	"_texture_size_y": "120",
+	"_texture": preload("res://assets/enemies/squirrel.png"),
+	"_character_art": "Delapouite"
+}
 #	"Spider": {
 #		"Type": "Phobia",
 #		"Health": 1,

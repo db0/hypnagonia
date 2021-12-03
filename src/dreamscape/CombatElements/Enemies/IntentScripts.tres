@@ -10,5 +10,5 @@
 script = ExtResource( 1 )
 ICON_ATTACK = ExtResource( 3 )
 ICON_DEFEND = ExtResource( 2 )
-ICON_BUFF = ExtResource( 4 )
 ICON_DEBUFF = ExtResource( 5 )
+ICON_BUFF = ExtResource( 4 )

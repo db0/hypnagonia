@@ -70,7 +70,7 @@ const Confidence = {
 					"lookup_property": "_amounts",
 					"value_key": "defence_amount"
 				},
-			}
+			},
 		],
 	},
 }

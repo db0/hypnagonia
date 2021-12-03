@@ -521,7 +521,7 @@ const CARDS := {
 		"Cost": 3,
 		"_illustration": "David Revoy",
 		"_rarity": "Received",
-		"_keywords": ["forget"],
+		"_keywords": ["forget", "interpretation"],
 		"_amounts": {
 			"damage_amount": 35,
 		},
@@ -538,7 +538,7 @@ const CARDS := {
 		"Cost": 3,
 		"_illustration": "David Revoy",
 		"_rarity": "Received",
-		"_keywords": ["forget"],
+		"_keywords": ["forget", "interpretation"],
 		"_amounts": {
 			"damage_amount": 50,
 		},
@@ -551,9 +551,119 @@ const CARDS := {
 		"Cost": 2,
 		"_illustration": "David Revoy",
 		"_rarity": "Received",
-		"_keywords": ["forget"],
+		"_keywords": ["forget", "interpretation"],
 		"_amounts": {
 			"damage_amount": 30,
+		},
+		"_is_upgrade": true,
+	},
+	"The Light Calling": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.ACTIVE_EFFECTS.drain.name],
+		"Abilities": "Gain {defence_amount} {defence}\nGain {effect_stacks} {drain}\n{forget}",
+		"Cost": 0,
+		"_illustration": "David Revoy",
+		"_rarity": "Received",
+		"_keywords": ["forget", "confidence"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.drain.name: Terms.PLAYER
+		},
+		"_amounts": {
+			"defence_amount": 10,
+			"effect_stacks": 1
+		},
+		"_upgrade_threshold": 12,
+		"_upgrades": [
+			"+ The Light Calling +",
+			"* The Light Calling *",
+		],
+	},
+	"+ The Light Calling +": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.ACTIVE_EFFECTS.drain.name],
+		"Abilities": "Gain {defence_amount} {defence}\nGain {effect_stacks} {drain}\n{forget}",
+		"Cost": 0,
+		"_illustration": "David Revoy",
+		"_rarity": "Received",
+		"_keywords": ["forget", "confidence"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.drain.name: Terms.PLAYER
+		},
+		"_amounts": {
+			"defence_amount": 14,
+			"effect_stacks": 1
+		},
+		"_is_upgrade": true,
+	},
+	"* The Light Calling *": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.ACTIVE_EFFECTS.drain.name],
+		"Abilities": "Gain {defence_amount} {defence}\nGain {effect_stacks} {drain}\n{forget}",
+		"Cost": 0,
+		"_illustration": "David Revoy",
+		"_rarity": "Received",
+		"_keywords": ["forget", "confidence"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.drain.name: Terms.PLAYER
+		},
+		"_amounts": {
+			"defence_amount": 20,
+			"effect_stacks": 2
+		},
+		"_is_upgrade": true,
+	},
+	"A Squirrel": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.exert.name],
+		"Abilities": "Take {exert_amount} {anxiety}.\n"\
+				+ "Gain {defence_amount} {defence}\n"\
+				+ "{damage} for {damage_amount}\n{forget}",
+		"Cost": 0,
+		"_illustration": "David Revoy",
+		"_rarity": "Received",
+		"_keywords": ["forget", "confidence", "interpretation"],
+		"_amounts": {
+			"defence_amount": 7,
+			"damage_amount": 7,
+			"exert_amount": 7
+		},
+		"_upgrade_threshold": 12,
+		"_upgrades": [
+			"+ A Squirrel +",
+			"% A Squirrel %",
+		],
+	},
+	"+ A Squirrel +": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.exert.name],
+		"Abilities": "Take {exert_amount} {anxiety}.\n"\
+				+ "Gain {defence_amount} {defence}\n"\
+				+ "{damage} for {damage_amount}\n{forget}",
+		"Cost": 0,
+		"_illustration": "David Revoy",
+		"_rarity": "Received",
+		"_keywords": ["forget", "confidence", "interpretation"],
+		"_amounts": {
+			"defence_amount": 10,
+			"damage_amount": 10,
+			"exert_amount": 7
+		},
+		"_is_upgrade": true,
+	},
+	"% A Squirrel %": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.exert.name],
+		"Abilities": "Take {exert_amount} {anxiety}.\n"\
+				+ "Gain {defence_amount} {defence}\n"\
+				+ "{damage} for {damage_amount}\n{forget}",
+		"Cost": 0,
+		"_illustration": "David Revoy",
+		"_rarity": "Received",
+		"_keywords": ["forget", "confidence", "interpretation"],
+		"_amounts": {
+			"defence_amount": 7,
+			"damage_amount": 7,
+			"exert_amount": 3
 		},
 		"_is_upgrade": true,
 	},

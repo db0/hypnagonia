@@ -356,6 +356,70 @@ const Pialephant = {
 	},
 	"journal_art": preload("res://assets/journal/pialephant.jpg"),
 }
+const TheLightCalling = {
+	"journal_description":\
+		'At one point, I felt like I was having [url={torment_tag1}]a near death experience[/url].',
+	"journal_reward":\
+		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+	"enemies": {
+		"easy": [
+			{
+				"definition": EnemyDefinitions.THE_LIGHT_CALLING,
+				"health_modifier": -10,
+			},
+		],
+		"medium": [
+			{
+				"definition": EnemyDefinitions.THE_LIGHT_CALLING,
+				"health_modifier": 0,
+			},
+		],
+		"hard": [
+			{
+				"definition": EnemyDefinitions.THE_LIGHT_CALLING,
+				"starting_defence": +12,
+			},
+		],
+	},
+	"journal_art": preload("res://assets/journal/the_light_calling.jpeg"),
+}
+const Squirrel = {
+	"journal_description":\
+		'I found myself facing off [url={torment_tag1}]with a squirrel giving me the stink-eye[/url].',
+	"journal_reward":\
+		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+	"enemies": {
+		"easy": [
+			{
+				"definition": EnemyDefinitions.SQUIRREL,
+			},
+		],
+		"medium": [
+			{
+				"definition": EnemyDefinitions.SQUIRREL,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.quicken.name,
+						"stacks": 1
+					}
+				]
+			},
+		],
+		"hard": [
+			{
+				"definition": EnemyDefinitions.SQUIRREL,
+				"starting_defence": +7,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.quicken.name,
+						"stacks": 2
+					}
+				],
+			},
+		],
+	},
+	"journal_art": preload("res://assets/journal/squirrel.jpg"),
+}
 #	{
 #		"journal_description":\
 #			'I found myself cowering before [url={torment_tag1}]a three-eyed owl[/url]'\
@@ -398,6 +462,7 @@ const ENEMIES = [
 	Butterfly,
 	BrokenMirrors,
 	Pialephant,
+	TheLightCalling,
 ]
 
 const RushElite = {

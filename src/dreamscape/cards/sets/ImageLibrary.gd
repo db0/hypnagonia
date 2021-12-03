@@ -30,4 +30,6 @@ const CARD_IMAGES := {
 	"The Laughing One": preload("res://assets/cards/beta_smiler.jpg"),
 	"Broken Mirror": preload("res://assets/cards/broken_mirror.jpg"),
 	"Pialephant": preload("res://assets/cards/pialephant.jpg"),
+	"The Light Calling": preload("res://assets/cards/The Light Calling.jpg"),
+	"A Squirrel": preload("res://assets/cards/Squirrel.jpg"),
 }
