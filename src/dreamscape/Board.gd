@@ -349,7 +349,7 @@ func _input(event):
 		# warning-ignore:unused_variable
 #		var torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
 		# warning-ignore:unused_variable
-		var torment2 = spawn_enemy(EnemyDefinitions.SQUIRREL)
+		var torment2 = spawn_enemy(EnemyDefinitions.BABY)
 		# warning-ignore:unused_variable
 		var torment3 = spawn_enemy(EnemyDefinitions.GASLIGHTER)
 #		var torment2 = spawn_enemy("Gaslighter")
@@ -370,8 +370,8 @@ func _input(event):
 #		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
-			"% A Squirrel %",
-			"A Squirrel",
+			"Baby",
+			"Ω Baby Ω",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.hand.add_child(card)
@@ -400,7 +400,7 @@ func _debug_advanced_enemy() -> void:
 func _on_Debug_pressed() -> void:
 	# warning-ignore:return_value_discarded
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 3)
-	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.fortify.name, 1)
+	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.delighted.name, 1)
 	counters.mod_counter("immersion",3)
 	for _iter in range(3):
 		cfc.NMAP.hand.draw_card(cfc.NMAP.deck)

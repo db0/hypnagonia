@@ -667,4 +667,68 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"Baby": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.advantage.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "Gain {effect_stacks} delayed {delighted}.\n"\
+				+ "Gain {effect_stacks2} {advantage}\n"\
+				+ "{forget}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["forget", "delayed"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.advantage.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.delighted.name: Terms.PLAYER
+		},
+		"_amounts": {
+			"effect_stacks": 1,
+			"effect_stacks2": 1,
+		},
+		"_upgrade_threshold": 12,
+		"_upgrades": [
+			"* Baby *",
+			"Ω Baby Ω",
+		],
+	},
+	"* Baby *": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.advantage.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "Gain {effect_stacks} delayed {delighted}.\n"\
+				+ "Gain {effect_stacks2} {advantage}\n"\
+				+ "{forget}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["forget", "delayed"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.advantage.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.delighted.name: Terms.PLAYER
+		},
+		"_amounts": {
+			"effect_stacks": 1,
+			"effect_stacks2": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"Ω Baby Ω": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.advantage.name, Terms.GENERIC_TAGS.omega.name],
+		"Abilities": "Gain {effect_stacks} delayed {delighted}.\n"\
+				+ "Gain {effect_stacks2} {advantage}\n"\
+				+ "{forget}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["forget", "delayed"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.advantage.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.delighted.name: Terms.PLAYER
+		},
+		"_amounts": {
+			"effect_stacks": 1,
+			"effect_stacks2": 2,
+		},
+		"_is_upgrade": true,
+	},
 }

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/dreamscape/CombatElements/CombatEffects/_NoScript.gd" type="Script" id=1]
+[ext_resource path="res://src/dreamscape/CombatElements/CombatEffects/CombatEffectTemplate.tscn" type="PackedScene" id=2]
+
+[node name="Delighted" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+self_decreasing = 1
+decrease_type = 2
+
+[node name="Label" parent="Signifier" index="0"]
+visible = false
+text = "D"

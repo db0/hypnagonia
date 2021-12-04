@@ -186,7 +186,7 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"Powerful Dive-in",
+			"* Dive-in *",
 			"Enhanced Dive-in",
 		],
 	},
@@ -5391,8 +5391,8 @@ const CARDS := {
 		},
 		"_upgrade_threshold": 7,
 		"_upgrades": [
-			"+ Bring it! +",
-			"Ω Bring it! Ω",
+			"+ Bring It! +",
+			"Ω Bring It! Ω",
 		],
 	},
 	"+ Bring It! +": {

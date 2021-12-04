@@ -19,7 +19,7 @@ const GASLIGHTER:= {
 			"reshuffle": false,
 		},
 		{
-			"intent_scripts": ["Perplex:10"],
+			"intent_scripts": ["Perplex:10", "Stress:1"],
 			"reshuffle": true,
 		},
 	],
@@ -227,7 +227,7 @@ const PIALEPHANT:= {
 }
 const THE_LIGHT_CALLING := {
 	"Name": "The Light Calling",
-	"Type": "Ennui",
+	"Type": "Existential",
 	"Health": 50,
 	"Intents": [
 		{
@@ -276,6 +276,39 @@ const SQUIRREL := {
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
 	"_texture": preload("res://assets/enemies/squirrel.png"),
+	"_character_art": "Delapouite"
+}
+const BABY := {
+	"Name": "Baby",
+	"Type": "Phobia",
+	"Health": 48,
+	"Intents": [
+		{
+			"intent_scripts": ["Stress:12"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Stress:8", "Debuff:1:marked"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Stress:12"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Stress:8", "Debuff:1:marked"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Delight"],
+			"reshuffle": false,
+			"max_uses": 1,
+		},
+	],
+	"_health_variability": 2,
+	"_texture_size_x": "120",
+	"_texture_size_y": "120",
+	"_texture": preload("res://assets/enemies/baby-face.png"),
 	"_character_art": "Delapouite"
 }
 #	"Spider": {

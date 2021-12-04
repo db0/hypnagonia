@@ -20,6 +20,7 @@ const EFFECTS := {
 	Terms.ACTIVE_EFFECTS.thorns.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Thorns.tscn"),
 	Terms.ACTIVE_EFFECTS.armor.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Armor.tscn"),
 	Terms.ACTIVE_EFFECTS.creative_block.name: preload("res://src/dreamscape/CombatElements/CombatEffects/CreativeBlock.tscn"),
+	Terms.ACTIVE_EFFECTS.delighted.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Delighted.tscn"),
 	# Concentation Effects
 	Terms.ACTIVE_EFFECTS.laugh_at_danger.name: preload("res://src/dreamscape/CombatElements/CombatEffects/LaughAtDanger.tscn"),
 	Terms.ACTIVE_EFFECTS.nothing_to_fear.name: preload("res://src/dreamscape/CombatElements/CombatEffects/NothingToFear.tscn"),

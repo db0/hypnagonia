@@ -545,6 +545,36 @@ const scripts := {
 			],
 		},
 	},
+	"Baby": {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.delighted.name,
+					"subject": "dreamer",
+					"tags": ["Delayed"],
+					"modification":  {
+						"lookup_property": "_amounts",
+						"value_key": "effect_stacks",
+					},
+				},
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.advantage.name,
+					"subject": "dreamer",
+					"modification":  {
+						"lookup_property": "_amounts",
+						"value_key": "effect_stacks2",
+					},
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": "forgotten",
+				},
+			],
+		},
+	},
 }
 
 # This fuction returns all the scripts of the specified card name.

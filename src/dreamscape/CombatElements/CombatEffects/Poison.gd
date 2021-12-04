@@ -9,7 +9,10 @@ func _on_enemy_turn_started(_turn: Turn) -> void:
 
 func _on_player_turn_started(_turn: Turn) -> void:
 	if entity_type == Terms.PLAYER:
-		poison_courses()
+		if is_delayed:
+			is_delayed = false
+		else:
+			poison_courses()
 
 func poison_courses() -> void:
 	var script = [{

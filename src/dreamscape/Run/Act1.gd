@@ -420,6 +420,35 @@ const Squirrel = {
 	},
 	"journal_art": preload("res://assets/journal/squirrel.jpg"),
 }
+const Baby = {
+	"journal_description":\
+		'I had to take care of [url={torment_tag1}]a fussy baby[/url]. I am responsible enough?',
+	"journal_reward":\
+		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+	"enemies": {
+		"easy": [
+			{
+				"definition": EnemyDefinitions.BABY,
+				"health_modifier": -10,
+				"starting_intent": 0
+			},
+		],
+		"medium": [
+			{
+				"definition": EnemyDefinitions.BABY,
+				"starting_intent": 0,
+			},
+		],
+		"hard": [
+			{
+				"definition": EnemyDefinitions.BABY,
+				"starting_intent": 0,
+				"health_modifier": +15,
+			},
+		],
+	},
+	"journal_art": preload("res://assets/journal/baby.jpeg"),
+}
 #	{
 #		"journal_description":\
 #			'I found myself cowering before [url={torment_tag1}]a three-eyed owl[/url]'\
@@ -463,6 +492,7 @@ const ENEMIES = [
 	BrokenMirrors,
 	Pialephant,
 	TheLightCalling,
+	Baby,
 ]
 
 const RushElite = {
