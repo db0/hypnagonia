@@ -11,7 +11,7 @@ func get_effect_alteration(
 		_dry_run := true,
 		_subject: Node = null) -> int:
 	if not script.script_name == 'assign_defence'\
-			or not is_source:
+			or not is_source or is_delayed:
 		return(0)
 	var new_value = value + stacks
 	var alteration = new_value - value

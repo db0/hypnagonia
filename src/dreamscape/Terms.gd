@@ -224,6 +224,14 @@ const ACTIVE_EFFECTS := {
 				+ "(This reduction happens before {defence})\n"\
 				+ "Reduce these stacks by 1 at the start of the turn.",
 	},
+	"delighted": {
+		"name": "Delighted",
+		"icon": preload("res://assets/icons/smitten.png"),
+		"generic_description": "{effect_name}: Prevents interpretation.",
+		"rich_text_icon": "res://assets/icons/smitten.png",
+		"description": "{effect_name} ({effect_icon}): Dreamer cannot play {action} cards.\n"\
+				+ "Remove these stacks at the start of the turn.",
+	},
 	"outrage": {
 		"name": "Outrage",
 		"description": "{effect_name}: This {entity} has become more powerful in some fashion.",

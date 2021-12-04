@@ -10,6 +10,9 @@ var unused_intents: Array
 # The enemy entity owning these intents
 var combat_entity
 var intent_name: String
+# Keeps track of how many times a specific intent has been used in this battle
+# when it only had limited uses
+var intent_uses: Dictionary
 
 var all_intent_scripts = IntentScripts.new()
 
@@ -19,19 +22,28 @@ func prepare_intents(specific_index = null) -> void:
 	if not unused_intents.size():
 		reshuffle_intents()
 	var new_intents : Dictionary
+	var selected_intent: Dictionary
 	if specific_index != null:
-		unused_intents = all_intents.duplicate(true)
-		new_intents = unused_intents[specific_index].duplicate(true)
+		unused_intents = all_intents.duplicate()
+		selected_intent = unused_intents[specific_index]
 		unused_intents.remove(specific_index)
 		CFUtils.shuffle_array(unused_intents)
 	else:
-		new_intents = unused_intents.pop_back().duplicate(true)
+		selected_intent = unused_intents.pop_back()
+	# This allows us to select some intents which can only be used a specified
+	# amount per encounter by this Torment. Every time they are used
+	# we remove them from the "master" array of intents.
+	if selected_intent.get("max_uses"):
+		intent_uses[selected_intent] = selected_intent.get(selected_intent,0) + 1
+		if selected_intent.max_uses >= intent_uses[selected_intent]:
+			all_intents.erase(selected_intent)
+	new_intents = selected_intent.duplicate(true)
 	if new_intents.reshuffle:
 		reshuffle_intents()
 	_display_intents(new_intents)
 
 func reshuffle_intents() -> void:
-	unused_intents = all_intents.duplicate(true)
+	unused_intents = all_intents.duplicate()
 	if not combat_entity.get_property("_is_ordered"):
 		CFUtils.shuffle_array(unused_intents)
 #	print_debug(unused_intents)

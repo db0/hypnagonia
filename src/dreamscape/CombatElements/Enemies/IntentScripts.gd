@@ -32,7 +32,7 @@ func get_scripts(intent_name: String) -> Dictionary:
 			{
 				"name": "apply_effect",
 				"effect_name": null,
-				"tags": ["Intent"],
+				"tags": ["Intent", "Delayed"],
 				"subject": "dreamer",
 				"modification": null,
 				"icon": ICON_DEBUFF,
@@ -59,6 +59,17 @@ func get_scripts(intent_name: String) -> Dictionary:
 				"tags": ["Intent"],
 				"icon": preload("res://assets/icons/alien-stare.png"),
 				"description": "Stare: It's not blinking..."
+			}
+		],
+		"Delight": [
+			{
+				"name": "apply_effect",
+				"effect_name": Terms.ACTIVE_EFFECTS.delighted.name,
+				"subject": "dreamer",
+				"modification": 1,
+				"tags": ["Intent", "Delayed"],
+				"icon": preload("res://assets/icons/smitten.png"),
+				"description": "Delightful: Aww, it's adorable!"
 			}
 		],
 		"Evident": [

@@ -317,7 +317,13 @@ func _show_description_popup(description_text: String) -> void:
 
 func _input(event):
 	if event.is_action_pressed("init_debug_game"):
-		globals.player.add_artifact("MaxHealth")
-		globals.player.add_artifact("AccumulateEnemy")
-		globals.player.add_artifact("AccumulateShop")
-		globals.player.damage += 20
+		print_debug("test")
+#		globals.player.add_artifact("MaxHealth")
+#		globals.player.add_artifact("AccumulateEnemy")
+#		globals.player.add_artifact("AccumulateShop")
+#		globals.player.damage += 20
+		var encounter = EnemyEncounter.new(Act1.Baby, "hard")
+		var journal_choice = JournalEncounterChoice.new(self, encounter)
+		journal_choices.add_child(journal_choice)
+		journal_choice.connect("pressed", self, "_on_choice_pressed", [encounter, journal_choice])
+		_reveal_entry(journal_choice)

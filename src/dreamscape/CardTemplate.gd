@@ -372,6 +372,9 @@ func check_play_costs() -> Color:
 		ret = CFConst.CostsState.IMPOSSIBLE
 	if properties.get("_is_unplayable", false):
 		ret = CFConst.CostsState.IMPOSSIBLE
+	if cfc.NMAP.board.dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.delighted.name) > 0\
+			and get_property("Type") == "Action":
+		ret = CFConst.CostsState.IMPOSSIBLE
 	return(ret)
 
 

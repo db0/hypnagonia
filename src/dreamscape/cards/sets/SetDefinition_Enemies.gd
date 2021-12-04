@@ -667,4 +667,25 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"Baby": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.delighted.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "Take {exert_amount} {anxiety}.\n"\
+				+ "Gain {defence_amount} {defence}\n"\
+				+ "{damage} for {damage_amount}\n{forget}",
+		"Cost": 0,
+		"_illustration": "David Revoy",
+		"_rarity": "Received",
+		"_keywords": ["forget", "confidence", "interpretation"],
+		"_amounts": {
+			"defence_amount": 7,
+			"damage_amount": 7,
+			"exert_amount": 7
+		},
+		"_upgrade_threshold": 12,
+		"_upgrades": [
+			"+ A Squirrel +",
+			"% A Squirrel %",
+		],
+	},
 }

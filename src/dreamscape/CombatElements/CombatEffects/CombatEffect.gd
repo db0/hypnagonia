@@ -31,6 +31,11 @@ var snapshot_stacks: Dictionary
 # The string signifies the upgrade used, and should be handled
 # By the script code directly.
 var upgrade: String
+# A delayed effect has no impact until the player starts their turn,
+# after which it becomes active.
+# This allows the enemy to assign intents to the player which will not disappear/reduce
+# before the player has a chance to see them.
+var is_delayed := false
 
 
 func setup(signifier_details: Dictionary, signifier_name: String) -> void:
@@ -58,6 +63,12 @@ func set_stacks(value: int, tags := ["Manual"]) -> void:
 			SP.TRIGGER_NEW_COUNT: value,
 			"tags": tags})
 	if value > 0:
+		# if the script had a delayed tag, it will not become active
+		# until the next time the player's turn starts (so that they see it and take it into account)
+		# Unless the player already had some stacks, in which case it is effective
+		# immediately.
+		if "Delayed" in tags and stacks == 0:
+			is_delayed = true
 		signifier_amount.text = str(value)
 		stacks = value
 	else:
@@ -163,7 +174,9 @@ func _on_player_turn_ended(_turn: Turn) -> void:
 		_decrease_stacks()
 
 func _on_player_turn_started(_turn: Turn) -> void:
-	if entity_type == Terms.PLAYER and self_decreasing == SELF_DECREASE.TURN_START:
+	if is_delayed:
+		is_delayed = false
+	elif entity_type == Terms.PLAYER and self_decreasing == SELF_DECREASE.TURN_START:
 		_decrease_stacks()
 
 func _on_enemy_turn_ended(_turn: Turn) -> void:
