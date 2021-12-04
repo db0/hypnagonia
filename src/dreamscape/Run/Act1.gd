@@ -422,7 +422,7 @@ const Squirrel = {
 }
 const Baby = {
 	"journal_description":\
-		'I had to take care of a [url={torment_tag1}]a fussy baby[/url]. I am responsible enough?',
+		'I had to take care of [url={torment_tag1}]a fussy baby[/url]. I am responsible enough?',
 	"journal_reward":\
 		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
 	"enemies": {

@@ -669,23 +669,66 @@ const CARDS := {
 	},
 	"Baby": {
 		"Type": "Understanding",
-		"Tags": [Terms.ACTIVE_EFFECTS.delighted.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Take {exert_amount} {anxiety}.\n"\
-				+ "Gain {defence_amount} {defence}\n"\
-				+ "{damage} for {damage_amount}\n{forget}",
+		"Tags": [Terms.ACTIVE_EFFECTS.advantage.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "Gain {effect_stacks} delayed {delighted}.\n"\
+				+ "Gain {effect_stacks2} {advantage}\n"\
+				+ "{forget}",
 		"Cost": 0,
-		"_illustration": "David Revoy",
+		"_illustration": "Nobody",
 		"_rarity": "Received",
-		"_keywords": ["forget", "confidence", "interpretation"],
+		"_keywords": ["forget", "delayed"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.advantage.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.delighted.name: Terms.PLAYER
+		},
 		"_amounts": {
-			"defence_amount": 7,
-			"damage_amount": 7,
-			"exert_amount": 7
+			"effect_stacks": 1,
+			"effect_stacks2": 1,
 		},
 		"_upgrade_threshold": 12,
 		"_upgrades": [
-			"+ A Squirrel +",
-			"% A Squirrel %",
+			"* Baby *",
+			"Ω Baby Ω",
 		],
+	},
+	"* Baby *": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.advantage.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "Gain {effect_stacks} delayed {delighted}.\n"\
+				+ "Gain {effect_stacks2} {advantage}\n"\
+				+ "{forget}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["forget", "delayed"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.advantage.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.delighted.name: Terms.PLAYER
+		},
+		"_amounts": {
+			"effect_stacks": 1,
+			"effect_stacks2": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"Ω Baby Ω": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.advantage.name, Terms.GENERIC_TAGS.omega.name],
+		"Abilities": "Gain {effect_stacks} delayed {delighted}.\n"\
+				+ "Gain {effect_stacks2} {advantage}\n"\
+				+ "{forget}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["forget", "delayed"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.advantage.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.delighted.name: Terms.PLAYER
+		},
+		"_amounts": {
+			"effect_stacks": 1,
+			"effect_stacks2": 2,
+		},
+		"_is_upgrade": true,
 	},
 }
