@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.18.9](https://github.com/db0/hypnagonia/tree/v0.18.9) (2021-12-04)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.18.8...v0.18.9)
+
+**Merged pull requests:**
+
+- Added baby [\#83](https://github.com/db0/hypnagonia/pull/83) ([db0](https://github.com/db0))
+
 ## [v0.18.8](https://github.com/db0/hypnagonia/tree/v0.18.8) (2021-12-03)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.18.7...v0.18.8)
