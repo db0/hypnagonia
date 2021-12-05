@@ -86,12 +86,6 @@ func generate_journal_choices() -> Array:
 				journal_options.append(EliteEncounter.new(next_enemy, difficulty))
 			Terms.RUN_ACCUMULATION_NAMES.boss:
 				journal_options.append(BossEncounter.new(Act1.BOSSES[boss_name], boss_name))
-		### Debug ###
-#		journal_options.append(preload("res://src/dreamscape/Run/NCE/Shop.gd").new())
-#		journal_options.append(preload("res://src/dreamscape/Run/NCE/Act1/PopPsychologist1.gd").new())
-#		journal_options.append(preload("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist3.gd").new())
-#		journal_options.append(EnemyEncounter.new(Act1.Squirrel, "hard"))
-		### End Debug ##
 	return(journal_options)
 
 

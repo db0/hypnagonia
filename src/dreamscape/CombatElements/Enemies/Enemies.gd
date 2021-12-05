@@ -211,11 +211,11 @@ const PIALEPHANT:= {
 	"Health": 80,
 	"Intents": [
 		{
-			"intent_scripts": ["Stress:22"],
+			"intent_scripts": ["Stress:20"],
 			"reshuffle": false,
 		},
 		{
-			"intent_scripts": ["Perplex:20"],
+			"intent_scripts": ["Perplex:12"],
 			"reshuffle": true,
 		},
 	],

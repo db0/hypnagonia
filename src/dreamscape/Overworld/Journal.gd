@@ -316,14 +316,19 @@ func _show_description_popup(description_text: String) -> void:
 
 
 func _input(event):
+	### Debug ###
 	if event.is_action_pressed("init_debug_game"):
-		print_debug("test")
 #		globals.player.add_artifact("MaxHealth")
 #		globals.player.add_artifact("AccumulateEnemy")
 #		globals.player.add_artifact("AccumulateShop")
 #		globals.player.damage += 20
-		var encounter = EnemyEncounter.new(Act1.Baby, "hard")
-		var journal_choice = JournalEncounterChoice.new(self, encounter)
-		journal_choices.add_child(journal_choice)
-		journal_choice.connect("pressed", self, "_on_choice_pressed", [encounter, journal_choice])
-		_reveal_entry(journal_choice)
+		var debug_encounters = [
+			EnemyEncounter.new(Act1.Baby, "hard"),
+			preload("res://src/dreamscape/Run/NCE/Act1/TheCandyman.gd").new(),
+#			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
+		]
+		for encounter in debug_encounters:
+			var journal_choice = JournalEncounterChoice.new(self, encounter)
+			journal_choices.add_child(journal_choice)
+			journal_choice.connect("pressed", self, "_on_choice_pressed", [encounter, journal_choice])
+			_reveal_entry(journal_choice)
