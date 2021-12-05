@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Twisted Happiness.ogg-d0e587dd4e68bec727b8dada5999da65.oggstr"
+
+[deps]
+
+source_file="res://assets/music/ordeal/myuu - Twisted Happiness.ogg"
+dest_files=[ "res://.import/myuu - Twisted Happiness.ogg-d0e587dd4e68bec727b8dada5999da65.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

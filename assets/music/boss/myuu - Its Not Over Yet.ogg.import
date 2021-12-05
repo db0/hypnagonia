@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Its Not Over Yet.ogg-03b3e86d90f2cb41a109e6b8d41c1f30.oggstr"
+
+[deps]
+
+source_file="res://assets/music/boss/myuu - Its Not Over Yet.ogg"
+dest_files=[ "res://.import/myuu - Its Not Over Yet.ogg-03b3e86d90f2cb41a109e6b8d41c1f30.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

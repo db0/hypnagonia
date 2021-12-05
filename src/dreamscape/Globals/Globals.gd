@@ -15,6 +15,10 @@ var run_unlocks := {}
 
 # Test setup. This should happen at game start
 func _ready() -> void:
+	cfc.game_settings['main_volume'] = cfc.game_settings.get('main_volume', 0)
+	cfc.game_settings['music_volume'] = cfc.game_settings.get('music_volume', 0)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), cfc.game_settings.main_volume)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("bgm"), cfc.game_settings.music_volume)
 	player = Player.new()
 	encounters = SingleRun.new()
 

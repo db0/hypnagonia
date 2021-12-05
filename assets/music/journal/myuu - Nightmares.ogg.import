@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Nightmares.ogg-4861e4f242089330e1af3746545ca5d3.oggstr"
+
+[deps]
+
+source_file="res://assets/music/journal/myuu - Nightmares.ogg"
+dest_files=[ "res://.import/myuu - Nightmares.ogg-4861e4f242089330e1af3746545ca5d3.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

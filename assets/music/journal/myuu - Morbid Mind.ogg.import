@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Morbid Mind.ogg-f1a84774d7ae2509c9b39e802218ed50.oggstr"
+
+[deps]
+
+source_file="res://assets/music/journal/myuu - Morbid Mind.ogg"
+dest_files=[ "res://.import/myuu - Morbid Mind.ogg-f1a84774d7ae2509c9b39e802218ed50.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

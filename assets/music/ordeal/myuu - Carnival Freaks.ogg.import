@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Carnival Freaks.ogg-7523094f2b3fa53deeb2041b2bc5bd84.oggstr"
+
+[deps]
+
+source_file="res://assets/music/ordeal/myuu - Carnival Freaks.ogg"
+dest_files=[ "res://.import/myuu - Carnival Freaks.ogg-7523094f2b3fa53deeb2041b2bc5bd84.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

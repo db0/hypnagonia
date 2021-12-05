@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Look Out.ogg-43437f6a97f0c8d46a04eafeef7371c5.oggstr"
+
+[deps]
+
+source_file="res://assets/music/ordeal/myuu - Look Out.ogg"
+dest_files=[ "res://.import/myuu - Look Out.ogg-43437f6a97f0c8d46a04eafeef7371c5.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Youre Next.ogg-4d749e5782fe4e7664be6ef3aa0e0259.oggstr"
+
+[deps]
+
+source_file="res://assets/music/boss/myuu - Youre Next.ogg"
+dest_files=[ "res://.import/myuu - Youre Next.ogg-4d749e5782fe4e7664be6ef3aa0e0259.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

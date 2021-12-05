@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Myuu-Metamorphosis.ogg-3e94d6c2508b62b5a2e0dbdae2b7342d.oggstr"
+
+[deps]
+
+source_file="res://assets/music/ordeal/Myuu-Metamorphosis.ogg"
+dest_files=[ "res://.import/Myuu-Metamorphosis.ogg-3e94d6c2508b62b5a2e0dbdae2b7342d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

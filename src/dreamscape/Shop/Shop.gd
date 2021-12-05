@@ -72,13 +72,13 @@ func _ready() -> void:
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.elite] = 40
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.enemy] = 400
 	## END DEBUG ##
+	Music.prepare_background_music('shop')
 	_deck_preview_popup.connect("operation_performed", self, "_on_deck_operation_performed")
 	populate_shop_cards()
 	populate_shop_artifacts()
 	if not cfc.game_settings.get('first_shop_tutorial_done'):
 		player_info._on_Help_pressed()
 		cfc.set_setting('first_shop_tutorial_done', true)
-
 
 func populate_shop_cards() -> void:
 	_update_progress_cost()

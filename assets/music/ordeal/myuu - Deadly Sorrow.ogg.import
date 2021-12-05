@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Deadly Sorrow.ogg-72198855aa83f118cc23206ef521999f.oggstr"
+
+[deps]
+
+source_file="res://assets/music/ordeal/myuu - Deadly Sorrow.ogg"
+dest_files=[ "res://.import/myuu - Deadly Sorrow.ogg-72198855aa83f118cc23206ef521999f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

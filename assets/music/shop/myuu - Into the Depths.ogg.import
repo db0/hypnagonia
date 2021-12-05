@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Into the Depths.ogg-8fbc82298e58061b8c3664165be87c1a.oggstr"
+
+[deps]
+
+source_file="res://assets/music/shop/myuu - Into the Depths.ogg"
+dest_files=[ "res://.import/myuu - Into the Depths.ogg-8fbc82298e58061b8c3664165be87c1a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

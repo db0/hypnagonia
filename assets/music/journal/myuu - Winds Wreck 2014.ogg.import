@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Winds Wreck 2014.ogg-dba437cddad949a638d7ae659a0f27bf.oggstr"
+
+[deps]
+
+source_file="res://assets/music/journal/myuu - Winds Wreck 2014.ogg"
+dest_files=[ "res://.import/myuu - Winds Wreck 2014.ogg-dba437cddad949a638d7ae659a0f27bf.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

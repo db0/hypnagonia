@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Countdown.ogg-d29a8aed60b65de430745c796f964ee6.oggstr"
+
+[deps]
+
+source_file="res://assets/music/boss/myuu - Countdown.ogg"
+dest_files=[ "res://.import/myuu - Countdown.ogg-d29a8aed60b65de430745c796f964ee6.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

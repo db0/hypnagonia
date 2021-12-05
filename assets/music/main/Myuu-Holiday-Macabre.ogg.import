@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Myuu-Holiday-Macabre.ogg-f984a7e265340d9bd147d367d9224540.oggstr"
+
+[deps]
+
+source_file="res://assets/music/main/Myuu-Holiday-Macabre.ogg"
+dest_files=[ "res://.import/Myuu-Holiday-Macabre.ogg-f984a7e265340d9bd147d367d9224540.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

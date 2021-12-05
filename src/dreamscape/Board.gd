@@ -9,6 +9,7 @@ var turn := Turn.new()
 var dreamer: PlayerEntity
 var activated_enemies: Array
 var boss_battle := false
+var bgm_tracks : Array
 
 onready var bottom_gui := $VBC/HBC
 onready var _player_area := $VBC/CombatArena/PlayerArea
@@ -78,6 +79,7 @@ func begin_encounter() -> void:
 	if not cfc.game_settings.get('first_ordeal_tutorial_done'):
 		player_info._on_Help_pressed()
 		cfc.set_setting('first_ordeal_tutorial_done', true)
+	Music.prepare_background_music('ordeal')
 
 func _retrieve_alpha() -> int:
 	var alpha_count := 0
@@ -404,4 +406,3 @@ func _on_Debug_pressed() -> void:
 	counters.mod_counter("immersion",3)
 	for _iter in range(3):
 		cfc.NMAP.hand.draw_card(cfc.NMAP.deck)
-

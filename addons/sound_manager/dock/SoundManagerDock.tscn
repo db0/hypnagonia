@@ -1,0 +1,699 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://addons/sound_manager/dock/SoundManagerDock.gd" type="Script" id=1]
+[ext_resource path="res://addons/sound_manager/dock/assets/slider_grabber_highlighted.svg" type="Texture" id=2]
+[ext_resource path="res://addons/sound_manager/dock/assets/slider_grabber.svg" type="Texture" id=3]
+[ext_resource path="res://addons/sound_manager/dock/assets/restore.svg" type="Texture" id=4]
+
+[sub_resource type="Theme" id=1]
+HSlider/icons/grabber = ExtResource( 3 )
+HSlider/icons/grabber_disabled = null
+HSlider/icons/grabber_highlight = ExtResource( 2 )
+HSlider/icons/tick = null
+HSlider/styles/grabber_area = null
+HSlider/styles/grabber_area_highlight = null
+HSlider/styles/slider = null
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.34902, 0.372549, 0.431373, 1 )
+
+[node name="SoundManager" type="ScrollContainer"]
+anchor_bottom = 1.0
+margin_right = 401.0
+scroll_horizontal_enabled = false
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 376.0
+margin_bottom = 688.0
+rect_min_size = Vector2( 316, 140 )
+
+[node name="BGMPropertiesPanel" type="VBoxContainer" parent="VBoxContainer"]
+margin_right = 376.0
+margin_bottom = 24.0
+hint_tooltip = "Default sound properties (volume and pitch) for BGMs"
+alignment = 1
+
+[node name="BGMPropertiesCheck" type="HBoxContainer" parent="VBoxContainer/BGMPropertiesPanel"]
+margin_right = 376.0
+margin_bottom = 24.0
+custom_constants/separation = 150
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/BGMPropertiesPanel/BGMPropertiesCheck"]
+margin_left = 50.0
+margin_top = 5.0
+margin_right = 151.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 100, 14 )
+text = "BGM Properties"
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/BGMPropertiesPanel/BGMPropertiesCheck"]
+margin_left = 301.0
+margin_right = 325.0
+margin_bottom = 24.0
+
+[node name="BGMVolume" type="HBoxContainer" parent="VBoxContainer/BGMPropertiesPanel"]
+visible = false
+margin_top = 28.0
+margin_right = 405.0
+margin_bottom = 60.0
+custom_constants/separation = 20
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/BGMPropertiesPanel/BGMVolume"]
+margin_top = 9.0
+margin_right = 71.0
+margin_bottom = 23.0
+text = "Volume Db"
+
+[node name="Value" type="HSlider" parent="VBoxContainer/BGMPropertiesPanel/BGMVolume"]
+margin_left = 91.0
+margin_right = 271.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 180, 0 )
+theme = SubResource( 1 )
+min_value = -80.0
+max_value = 24.0
+step = 1.072
+ticks_on_borders = true
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/BGMPropertiesPanel/BGMVolume"]
+margin_left = 291.0
+margin_right = 349.0
+margin_bottom = 32.0
+text = "0"
+
+[node name="ToolButton" type="ToolButton" parent="VBoxContainer/BGMPropertiesPanel/BGMVolume"]
+margin_left = 369.0
+margin_right = 405.0
+margin_bottom = 32.0
+icon = ExtResource( 4 )
+
+[node name="BGMPitch" type="HBoxContainer" parent="VBoxContainer/BGMPropertiesPanel"]
+visible = false
+margin_top = 28.0
+margin_right = 364.0
+margin_bottom = 52.0
+custom_constants/separation = 20
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/BGMPropertiesPanel/BGMPitch"]
+margin_left = 17.0
+margin_top = 5.0
+margin_right = 86.0
+margin_bottom = 19.0
+text = "Pitch Scale"
+
+[node name="Value" type="HSlider" parent="VBoxContainer/BGMPropertiesPanel/BGMPitch"]
+margin_left = 106.0
+margin_right = 286.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 180, 0 )
+theme = SubResource( 1 )
+min_value = 0.01
+max_value = 4.0
+step = 0.04
+value = 1.0
+ticks_on_borders = true
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/BGMPropertiesPanel/BGMPitch"]
+margin_left = 306.0
+margin_right = 364.0
+margin_bottom = 24.0
+text = "1"
+
+[node name="ToolButton" type="ToolButton" parent="VBoxContainer/BGMPropertiesPanel/BGMPitch"]
+margin_left = 425.0
+margin_right = 461.0
+margin_bottom = 32.0
+icon = ExtResource( 4 )
+
+[node name="BGSPropertiesPanel" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 28.0
+margin_right = 376.0
+margin_bottom = 52.0
+hint_tooltip = "Default sound properties (volume and pitch) for BGSs"
+alignment = 1
+
+[node name="BGSPropertiesCheck" type="HBoxContainer" parent="VBoxContainer/BGSPropertiesPanel"]
+margin_right = 376.0
+margin_bottom = 24.0
+custom_constants/separation = 155
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/BGSPropertiesPanel/BGSPropertiesCheck"]
+margin_left = 48.0
+margin_top = 5.0
+margin_right = 148.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 100, 14 )
+text = "BGS Properties"
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/BGSPropertiesPanel/BGSPropertiesCheck"]
+margin_left = 303.0
+margin_right = 327.0
+margin_bottom = 24.0
+
+[node name="BGSVolume" type="HBoxContainer" parent="VBoxContainer/BGSPropertiesPanel"]
+visible = false
+margin_top = 28.0
+margin_right = 405.0
+margin_bottom = 60.0
+custom_constants/separation = 20
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/BGSPropertiesPanel/BGSVolume"]
+margin_top = 9.0
+margin_right = 71.0
+margin_bottom = 23.0
+text = "Volume Db"
+
+[node name="Value" type="HSlider" parent="VBoxContainer/BGSPropertiesPanel/BGSVolume"]
+margin_left = 91.0
+margin_right = 271.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 180, 0 )
+theme = SubResource( 1 )
+min_value = -80.0
+max_value = 24.0
+step = 1.072
+ticks_on_borders = true
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/BGSPropertiesPanel/BGSVolume"]
+margin_left = 291.0
+margin_right = 349.0
+margin_bottom = 32.0
+text = "0"
+
+[node name="ToolButton" type="ToolButton" parent="VBoxContainer/BGSPropertiesPanel/BGSVolume"]
+margin_left = 369.0
+margin_right = 405.0
+margin_bottom = 32.0
+icon = ExtResource( 4 )
+
+[node name="BGSPitch" type="HBoxContainer" parent="VBoxContainer/BGSPropertiesPanel"]
+visible = false
+margin_top = 28.0
+margin_right = 364.0
+margin_bottom = 52.0
+custom_constants/separation = 20
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/BGSPropertiesPanel/BGSPitch"]
+margin_left = 17.0
+margin_top = 5.0
+margin_right = 86.0
+margin_bottom = 19.0
+text = "Pitch Scale"
+
+[node name="Value" type="HSlider" parent="VBoxContainer/BGSPropertiesPanel/BGSPitch"]
+margin_left = 106.0
+margin_right = 286.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 180, 0 )
+theme = SubResource( 1 )
+min_value = 0.01
+max_value = 4.0
+step = 0.04
+value = 1.0
+ticks_on_borders = true
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/BGSPropertiesPanel/BGSPitch"]
+margin_left = 306.0
+margin_right = 364.0
+margin_bottom = 24.0
+text = "1"
+
+[node name="ToolButton" type="ToolButton" parent="VBoxContainer/BGSPropertiesPanel/BGSPitch"]
+margin_left = 369.0
+margin_right = 405.0
+margin_bottom = 32.0
+icon = ExtResource( 4 )
+
+[node name="SEPropertiesPanel" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 56.0
+margin_right = 376.0
+margin_bottom = 80.0
+hint_tooltip = "Default sound properties (volume and pitch) for SFXs"
+alignment = 1
+
+[node name="SEPropertiesCheck" type="HBoxContainer" parent="VBoxContainer/SEPropertiesPanel"]
+margin_right = 376.0
+margin_bottom = 24.0
+custom_constants/separation = 159
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/SEPropertiesPanel/SEPropertiesCheck"]
+margin_left = 46.0
+margin_top = 5.0
+margin_right = 146.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 100, 14 )
+text = "SE Properties"
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/SEPropertiesPanel/SEPropertiesCheck"]
+margin_left = 305.0
+margin_right = 329.0
+margin_bottom = 24.0
+
+[node name="SEVolume" type="HBoxContainer" parent="VBoxContainer/SEPropertiesPanel"]
+visible = false
+margin_top = 28.0
+margin_right = 364.0
+margin_bottom = 52.0
+custom_constants/separation = 20
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/SEPropertiesPanel/SEVolume"]
+margin_left = 15.0
+margin_top = 5.0
+margin_right = 86.0
+margin_bottom = 19.0
+text = "Volume Db"
+
+[node name="Value" type="HSlider" parent="VBoxContainer/SEPropertiesPanel/SEVolume"]
+margin_left = 106.0
+margin_right = 286.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 180, 0 )
+theme = SubResource( 1 )
+min_value = -80.0
+max_value = 24.0
+step = 1.072
+ticks_on_borders = true
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/SEPropertiesPanel/SEVolume"]
+margin_left = 306.0
+margin_right = 364.0
+margin_bottom = 24.0
+text = "0"
+
+[node name="ToolButton" type="ToolButton" parent="VBoxContainer/SEPropertiesPanel/SEVolume"]
+margin_left = 369.0
+margin_top = -28.0
+margin_right = 405.0
+margin_bottom = 4.0
+icon = ExtResource( 4 )
+
+[node name="SEPitch" type="HBoxContainer" parent="VBoxContainer/SEPropertiesPanel"]
+visible = false
+margin_top = 56.0
+margin_right = 332.0
+margin_bottom = 80.0
+custom_constants/separation = 20
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/SEPropertiesPanel/SEPitch"]
+margin_left = 63.0
+margin_top = 5.0
+margin_right = 132.0
+margin_bottom = 19.0
+text = "Pitch Scale"
+
+[node name="Value" type="HSlider" parent="VBoxContainer/SEPropertiesPanel/SEPitch"]
+margin_left = 152.0
+margin_right = 332.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 180, 0 )
+theme = SubResource( 1 )
+min_value = 0.01
+max_value = 4.0
+step = 0.04
+value = 1.0
+ticks_on_borders = true
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/SEPropertiesPanel/SEPitch"]
+margin_left = 367.0
+margin_top = -84.0
+margin_right = 425.0
+margin_bottom = -60.0
+text = "1"
+
+[node name="ToolButton" type="ToolButton" parent="VBoxContainer/SEPropertiesPanel/SEPitch"]
+margin_left = 369.0
+margin_top = -56.0
+margin_right = 405.0
+margin_bottom = -24.0
+icon = ExtResource( 4 )
+
+[node name="MEPropertiesPanel" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 84.0
+margin_right = 376.0
+margin_bottom = 108.0
+hint_tooltip = "Default sound properties (volume and pitch) for SFXs"
+alignment = 1
+
+[node name="MEPropertiesCheck" type="HBoxContainer" parent="VBoxContainer/MEPropertiesPanel"]
+margin_right = 376.0
+margin_bottom = 24.0
+custom_constants/separation = 153
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/MEPropertiesPanel/MEPropertiesCheck"]
+margin_left = 49.0
+margin_top = 5.0
+margin_right = 149.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 100, 14 )
+text = "ME Properties"
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/MEPropertiesPanel/MEPropertiesCheck"]
+margin_left = 302.0
+margin_right = 326.0
+margin_bottom = 24.0
+
+[node name="MEVolume" type="HBoxContainer" parent="VBoxContainer/MEPropertiesPanel"]
+visible = false
+margin_top = 28.0
+margin_right = 364.0
+margin_bottom = 52.0
+custom_constants/separation = 20
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MEPropertiesPanel/MEVolume"]
+margin_left = 15.0
+margin_top = 5.0
+margin_right = 86.0
+margin_bottom = 19.0
+text = "Volume Db"
+
+[node name="Value" type="HSlider" parent="VBoxContainer/MEPropertiesPanel/MEVolume"]
+margin_left = 106.0
+margin_right = 286.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 180, 0 )
+theme = SubResource( 1 )
+min_value = -80.0
+max_value = 24.0
+step = 1.072
+ticks_on_borders = true
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/MEPropertiesPanel/MEVolume"]
+margin_left = 306.0
+margin_right = 364.0
+margin_bottom = 24.0
+text = "0"
+
+[node name="ToolButton" type="ToolButton" parent="VBoxContainer/MEPropertiesPanel/MEVolume"]
+margin_left = 369.0
+margin_top = -56.0
+margin_right = 405.0
+margin_bottom = -24.0
+icon = ExtResource( 4 )
+
+[node name="MEPitch" type="HBoxContainer" parent="VBoxContainer/MEPropertiesPanel"]
+visible = false
+margin_top = 28.0
+margin_right = 364.0
+margin_bottom = 52.0
+custom_constants/separation = 20
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MEPropertiesPanel/MEPitch"]
+margin_left = 17.0
+margin_top = 5.0
+margin_right = 86.0
+margin_bottom = 19.0
+text = "Pitch Scale"
+
+[node name="Value" type="HSlider" parent="VBoxContainer/MEPropertiesPanel/MEPitch"]
+margin_left = 106.0
+margin_right = 286.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 180, 0 )
+theme = SubResource( 1 )
+min_value = 0.01
+max_value = 4.0
+step = 0.04
+value = 1.0
+ticks_on_borders = true
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/MEPropertiesPanel/MEPitch"]
+margin_left = 306.0
+margin_right = 364.0
+margin_bottom = 24.0
+text = "1"
+
+[node name="ToolButton" type="ToolButton" parent="VBoxContainer/MEPropertiesPanel/MEPitch"]
+margin_left = 369.0
+margin_top = -56.0
+margin_right = 405.0
+margin_bottom = -24.0
+icon = ExtResource( 4 )
+
+[node name="BGMBusPanel" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 112.0
+margin_right = 376.0
+margin_bottom = 136.0
+hint_tooltip = "Audio bus for background musics"
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/BGMBusPanel"]
+margin_left = 46.0
+margin_top = 5.0
+margin_right = 146.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 100, 14 )
+text = "BGM BUS"
+
+[node name="NameField" type="LineEdit" parent="VBoxContainer/BGMBusPanel"]
+margin_left = 150.0
+margin_right = 330.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 180, 0 )
+text = "bgm"
+max_length = 280
+placeholder_text = "Bus Name"
+
+[node name="BGSBusPanel" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 140.0
+margin_right = 376.0
+margin_bottom = 164.0
+hint_tooltip = "Audio bus for background sounds"
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/BGSBusPanel"]
+margin_left = 46.0
+margin_top = 5.0
+margin_right = 146.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 100, 14 )
+text = "BGS BUS"
+
+[node name="NameField" type="LineEdit" parent="VBoxContainer/BGSBusPanel"]
+margin_left = 150.0
+margin_right = 330.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 180, 0 )
+hint_tooltip = "Set the audio bus for background sounds"
+max_length = 280
+placeholder_text = "Bus Name"
+
+[node name="SEBusPanel" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 168.0
+margin_right = 376.0
+margin_bottom = 192.0
+hint_tooltip = "Audio bus for sound effects"
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/SEBusPanel"]
+margin_left = 46.0
+margin_top = 5.0
+margin_right = 146.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 100, 14 )
+text = "SE BUS"
+
+[node name="NameField" type="LineEdit" parent="VBoxContainer/SEBusPanel"]
+margin_left = 150.0
+margin_right = 330.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 180, 0 )
+hint_tooltip = "Set the audio bus for sound effects"
+max_length = 280
+placeholder_text = "Bus Name"
+
+[node name="MEBusPanel" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 196.0
+margin_right = 376.0
+margin_bottom = 220.0
+hint_tooltip = "Audio bus for music effects"
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/MEBusPanel"]
+margin_left = 46.0
+margin_top = 5.0
+margin_right = 146.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 100, 14 )
+text = "ME BUS"
+
+[node name="NameField" type="LineEdit" parent="VBoxContainer/MEBusPanel"]
+margin_left = 150.0
+margin_right = 330.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 180, 0 )
+hint_tooltip = "Set the audio bus for music effects"
+max_length = 280
+placeholder_text = "Bus Name"
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+margin_top = 224.0
+margin_right = 376.0
+margin_bottom = 228.0
+
+[node name="AudioFilesLabel" type="Label" parent="VBoxContainer"]
+margin_top = 232.0
+margin_right = 376.0
+margin_bottom = 246.0
+text = "Audio Files"
+align = 1
+
+[node name="ToggleFilesPanelButton" type="Button" parent="VBoxContainer"]
+margin_top = 250.0
+margin_right = 376.0
+margin_bottom = 270.0
+toggle_mode = true
+text = "Manage Audio Files"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioFilesPanel" type="PanelContainer" parent="VBoxContainer"]
+margin_top = 274.0
+margin_right = 376.0
+margin_bottom = 388.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/AudioFilesPanel"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 369.0
+margin_bottom = 107.0
+rect_min_size = Vector2( 320, 100 )
+custom_styles/bg = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Files" type="VBoxContainer" parent="VBoxContainer/AudioFilesPanel/ScrollContainer"]
+margin_right = 320.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 320, 50 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+margin_top = 392.0
+margin_right = 376.0
+margin_bottom = 396.0
+
+[node name="DictionaryLabel" type="Label" parent="VBoxContainer"]
+margin_top = 400.0
+margin_right = 376.0
+margin_bottom = 414.0
+hint_tooltip = "Audio Files Dictionary Configuration"
+mouse_filter = 0
+text = "Audio Files Dictionary"
+align = 1
+
+[node name="DictionaryContainer" type="ScrollContainer" parent="VBoxContainer"]
+margin_top = 418.0
+margin_right = 376.0
+margin_bottom = 568.0
+rect_min_size = Vector2( 320, 150 )
+size_flags_stretch_ratio = 1.5
+scroll_horizontal_enabled = false
+
+[node name="DictionaryPanel" type="VBoxContainer" parent="VBoxContainer/DictionaryContainer"]
+margin_right = 364.0
+margin_bottom = 164.0
+rect_min_size = Vector2( 320, 50 )
+custom_constants/separation = 1
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+margin_top = 572.0
+margin_right = 376.0
+margin_bottom = 576.0
+
+[node name="AdvancedOptions" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 580.0
+margin_right = 376.0
+margin_bottom = 688.0
+
+[node name="AdvancedPanel" type="HBoxContainer" parent="VBoxContainer/AdvancedOptions"]
+margin_right = 376.0
+margin_bottom = 24.0
+custom_constants/separation = 50
+
+[node name="AdvancedLabel" type="Label" parent="VBoxContainer/AdvancedOptions/AdvancedPanel"]
+margin_top = 5.0
+margin_right = 117.0
+margin_bottom = 19.0
+text = "Advanced Options"
+
+[node name="AdvancedButton" type="CheckBox" parent="VBoxContainer/AdvancedOptions/AdvancedPanel"]
+margin_left = 167.0
+margin_right = 191.0
+margin_bottom = 24.0
+custom_constants/hseparation = 0
+pressed = true
+
+[node name="PreloadPanel" type="HBoxContainer" parent="VBoxContainer/AdvancedOptions"]
+margin_top = 28.0
+margin_right = 376.0
+margin_bottom = 52.0
+custom_constants/separation = 52
+
+[node name="PreloadLabel" type="Label" parent="VBoxContainer/AdvancedOptions/PreloadPanel"]
+margin_top = 5.0
+margin_right = 115.0
+margin_bottom = 19.0
+text = "Preload resources"
+
+[node name="PreloadButton" type="CheckBox" parent="VBoxContainer/AdvancedOptions/PreloadPanel"]
+margin_left = 167.0
+margin_right = 191.0
+margin_bottom = 24.0
+custom_constants/hseparation = 0
+pressed = true
+
+[node name="PreinstantiatePanel" type="HBoxContainer" parent="VBoxContainer/AdvancedOptions"]
+margin_top = 56.0
+margin_right = 376.0
+margin_bottom = 80.0
+custom_constants/separation = 32
+
+[node name="PreinstantiateLabel" type="Label" parent="VBoxContainer/AdvancedOptions/PreinstantiatePanel"]
+margin_top = 5.0
+margin_right = 134.0
+margin_bottom = 19.0
+text = "Preinstantiate Nodes"
+
+[node name="PreinstantiateButton" type="CheckBox" parent="VBoxContainer/AdvancedOptions/PreinstantiatePanel"]
+margin_left = 166.0
+margin_right = 190.0
+margin_bottom = 24.0
+
+[node name="DebugPanel" type="HBoxContainer" parent="VBoxContainer/AdvancedOptions"]
+margin_top = 84.0
+margin_right = 376.0
+margin_bottom = 108.0
+custom_constants/separation = 86
+
+[node name="DebugLabel" type="Label" parent="VBoxContainer/AdvancedOptions/DebugPanel"]
+margin_top = 5.0
+margin_right = 81.0
+margin_bottom = 19.0
+text = "Debug Mode"
+
+[node name="DebugButton" type="CheckBox" parent="VBoxContainer/AdvancedOptions/DebugPanel"]
+margin_left = 167.0
+margin_right = 191.0
+margin_bottom = 24.0
+pressed = true

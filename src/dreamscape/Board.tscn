@@ -292,11 +292,8 @@ mouse_filter = 2
 scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 1 )
 placement = 9
-overlap_shift_direction = 0
 index_shift_priority = 1
-card_size = Vector2( 200, 280 )
 pile_name = "Forgotten"
-shuffle_style = 0
 faceup_cards = true
 
 [node name="Control" parent="VBC/HandArea/HBC/DiscardsControl/VBC/ForgottenControl/Forgotten" index="0"]
@@ -372,11 +369,8 @@ mouse_filter = 2
 scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 1 )
 placement = 9
-overlap_shift_direction = 0
 index_shift_priority = 1
-card_size = Vector2( 200, 280 )
 pile_name = "Discard"
-shuffle_style = 0
 faceup_cards = true
 
 [node name="Control" parent="VBC/HandArea/HBC/DiscardsControl/VBC/DiscardControl/Discard" index="0"]

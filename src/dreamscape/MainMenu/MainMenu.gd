@@ -48,7 +48,7 @@ func _ready() -> void:
 	SUBTITLES.shuffle()
 	_subtitle.text = SUBTITLES[0]
 	_version.text = CFConst.GAME_VERSION
-	
+	Music.prepare_background_music('main')
 
 
 func on_button_pressed(_button_name : String) -> void:
@@ -155,3 +155,4 @@ func _process_card_export(card_name: String) -> Dictionary:
 						if not archetype in card_entry['archetypes']:
 							card_entry['archetypes'].append(archetype)
 	return(card_entry)
+

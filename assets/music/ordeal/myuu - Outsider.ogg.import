@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Outsider.ogg-e6e62a3d88e5a0eb02f21d37897cd5fe.oggstr"
+
+[deps]
+
+source_file="res://assets/music/ordeal/myuu - Outsider.ogg"
+dest_files=[ "res://.import/myuu - Outsider.ogg-e6e62a3d88e5a0eb02f21d37897cd5fe.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

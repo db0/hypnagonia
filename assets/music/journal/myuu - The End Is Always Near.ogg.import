@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - The End Is Always Near.ogg-3db9b0dc9c3d99b34858c61b30fc2c07.oggstr"
+
+[deps]
+
+source_file="res://assets/music/journal/myuu - The End Is Always Near.ogg"
+dest_files=[ "res://.import/myuu - The End Is Always Near.ogg-3db9b0dc9c3d99b34858c61b30fc2c07.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Bravery.ogg-c548b718175154071aa012cd2b078bbd.oggstr"
+
+[deps]
+
+source_file="res://assets/music/ordeal/myuu - Bravery.ogg"
+dest_files=[ "res://.import/myuu - Bravery.ogg-c548b718175154071aa012cd2b078bbd.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

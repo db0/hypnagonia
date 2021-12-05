@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Dont Die On Me.ogg-1c0b7138b3de857988cec79109ddb6de.oggstr"
+
+[deps]
+
+source_file="res://assets/music/ordeal/myuu - Dont Die On Me.ogg"
+dest_files=[ "res://.import/myuu - Dont Die On Me.ogg-1c0b7138b3de857988cec79109ddb6de.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

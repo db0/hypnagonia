@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Restless Dreams.ogg-1bf5be0ccdb8125bd36ab881e75e46c1.oggstr"
+
+[deps]
+
+source_file="res://assets/music/ordeal/myuu - Restless Dreams.ogg"
+dest_files=[ "res://.import/myuu - Restless Dreams.ogg-1bf5be0ccdb8125bd36ab881e75e46c1.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

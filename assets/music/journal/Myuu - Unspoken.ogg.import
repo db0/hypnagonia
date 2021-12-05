@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Myuu - Unspoken.ogg-a1dac47cd85b645d50dfe9f5bbe668a8.oggstr"
+
+[deps]
+
+source_file="res://assets/music/journal/Myuu - Unspoken.ogg"
+dest_files=[ "res://.import/Myuu - Unspoken.ogg-a1dac47cd85b645d50dfe9f5bbe668a8.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

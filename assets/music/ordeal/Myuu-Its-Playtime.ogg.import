@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Myuu-Its-Playtime.ogg-d57ccb6d0ff4ce62e4d29fc860eccc3e.oggstr"
+
+[deps]
+
+source_file="res://assets/music/ordeal/Myuu-Its-Playtime.ogg"
+dest_files=[ "res://.import/Myuu-Its-Playtime.ogg-d57ccb6d0ff4ce62e4d29fc860eccc3e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

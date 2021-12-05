@@ -46,6 +46,7 @@ func _ready() -> void:
 	if not cfc.game_settings.get('first_journal_tutorial_done'):
 		player_info._on_Help_pressed()
 		cfc.set_setting('first_journal_tutorial_done', true)
+	Music.prepare_background_music('journal')
 
 
 func display_nce_rewards(reward_text: String) -> void:
@@ -92,6 +93,7 @@ func display_boss_rewards(reward_text: String) -> void:
 		+ "If you're a character artist, graphics designer, storyteller, card game designer, illustrator, or just someone who wants to give feedback, "\
 		+ "do hit us up on our discord server: [url=discord]https://discord.gg/MqTMVDCbR3[/url] or Matrix [url=matrix]https://matrix.to/#/#hypnagonia:matrix.org[/url].\n\n"\
 		+ "[url=main_menu]Back to Main Menu[/url]."
+	# warning-ignore:return_value_discarded
 	proceed.connect("meta_clicked", self, "_on_proceed_clicked")
 	_reveal_entry(proceed, false)
 

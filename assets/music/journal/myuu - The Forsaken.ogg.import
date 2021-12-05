@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - The Forsaken.ogg-f2afba3442340e6d56bf513244b27e80.oggstr"
+
+[deps]
+
+source_file="res://assets/music/journal/myuu - The Forsaken.ogg"
+dest_files=[ "res://.import/myuu - The Forsaken.ogg-f2afba3442340e6d56bf513244b27e80.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

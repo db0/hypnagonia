@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Prey.ogg-0aed8715c6a696131d397e2b64b0a525.oggstr"
+
+[deps]
+
+source_file="res://assets/music/ordeal/myuu - Prey.ogg"
+dest_files=[ "res://.import/myuu - Prey.ogg-0aed8715c6a696131d397e2b64b0a525.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

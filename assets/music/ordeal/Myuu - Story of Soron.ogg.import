@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Myuu - Story of Soron.ogg-d18376a7465cffb580a9dadf67daa08d.oggstr"
+
+[deps]
+
+source_file="res://assets/music/ordeal/Myuu - Story of Soron.ogg"
+dest_files=[ "res://.import/Myuu - Story of Soron.ogg-d18376a7465cffb580a9dadf67daa08d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

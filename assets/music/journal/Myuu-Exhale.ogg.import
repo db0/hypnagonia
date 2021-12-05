@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Myuu-Exhale.ogg-cd502ba6d4be4dfd5d64f0842d63e343.oggstr"
+
+[deps]
+
+source_file="res://assets/music/journal/Myuu-Exhale.ogg"
+dest_files=[ "res://.import/Myuu-Exhale.ogg-cd502ba6d4be4dfd5d64f0842d63e343.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

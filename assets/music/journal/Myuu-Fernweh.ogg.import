@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Myuu-Fernweh.ogg-d483e6e1e969730446aa37e14f58897a.oggstr"
+
+[deps]
+
+source_file="res://assets/music/journal/Myuu-Fernweh.ogg"
+dest_files=[ "res://.import/Myuu-Fernweh.ogg-d483e6e1e969730446aa37e14f58897a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

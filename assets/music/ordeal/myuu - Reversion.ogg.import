@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Reversion.ogg-dff80f0c4d0a50dc3a4e9824704aeaeb.oggstr"
+
+[deps]
+
+source_file="res://assets/music/ordeal/myuu - Reversion.ogg"
+dest_files=[ "res://.import/myuu - Reversion.ogg-dff80f0c4d0a50dc3a4e9824704aeaeb.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

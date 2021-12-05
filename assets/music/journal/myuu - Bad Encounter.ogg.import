@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Bad Encounter.ogg-9191a26059eee19c6d4854dfd0d6a9ee.oggstr"
+
+[deps]
+
+source_file="res://assets/music/journal/myuu - Bad Encounter.ogg"
+dest_files=[ "res://.import/myuu - Bad Encounter.ogg-9191a26059eee19c6d4854dfd0d6a9ee.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
