@@ -109,6 +109,7 @@ func queue_bgs(bgs : String, volume_db : float = -81, pitch_scale : float = -1) 
 func queue_directory(
 		path: String,
 		is_looping := false,
+		crossfade := false,
 		type:= 'BGM',
 		randomize_files := false,
 		volume_db : float = -81,
@@ -124,7 +125,9 @@ func queue_directory(
 	if is_looping:
 		repeating_queues[type] = true
 	for filename in filelist:
-		queue_deferred(type, filename, volume_db, pitch_scale)
+		queue_deferred(type, filename, volume_db, pitch_scale, !crossfade)
+	if crossfade:
+		call_deferred("crossfade_queue")
 
 
 # Queues all files in the specified Array to be played as type
@@ -134,6 +137,7 @@ func queue_directory(
 func queue_filelist(
 		filelist: Array,
 		is_looping := false,
+		crossfade := false,
 		type:= 'BGM',
 		volume_db : float = -81,
 		pitch_scale : float = -1) -> void:
@@ -141,7 +145,10 @@ func queue_filelist(
 	if is_looping:
 		repeating_queues[type] = true
 	for filename in filelist:
-		queue_deferred(type, filename, volume_db, pitch_scale)
+		# We do not want songs to start playing when we are going to crossfade
+		queue_deferred(type, filename, volume_db, pitch_scale, !crossfade)
+	if crossfade:
+		call_deferred("crossfade_queue")
 
 
 # Plays selected Sound Effect
@@ -176,14 +183,12 @@ func stop(sound : String) -> void:
 
 # Stops all playing sounds of a specified type (BGM, BGS etc)
 func stop_all(sound_type: String) -> void:
-	var found_streams := []
-	for audiostream in get_all_playing_streams():
-		if audiostream.sound_type == sound_type:
-			found_streams.append(audiostream.sound_name)
-			audiostream.stop()
-#			print_debug(audiostream.playing)
-			if not preinstantiate_nodes:
-				erase_sound(audiostream.sound_path)
+	var found_streams := _get_all_playing_type_steams(sound_type)
+	for audiostream in found_streams:
+		audiostream.stop()
+#		print_debug(audiostream.playing)
+		if not preinstantiate_nodes:
+			erase_sound(audiostream.sound_path)
 	if debug:
 		print_debug("Found %s playing audiostreams of type %s: %s"
 				% [found_streams.size(), sound_type, found_streams])
@@ -672,8 +677,8 @@ func play_deferred(sound_type : String, sound : String, from_position : float = 
 	call_deferred("play", sound_type, sound, from_position, volume_db, pitch_scale, sound_to_override)
 
 # Calls the queue method as deferred
-func queue_deferred(sound_type : String, sound : String, volume_db : float = -81, pitch_scale : float = -1) -> void:
-	call_deferred("queue_sound", sound_type, sound, volume_db, pitch_scale)
+func queue_deferred(sound_type : String, sound : String, volume_db : float = -81, pitch_scale : float = -1, autoplay:= true) -> void:
+	call_deferred("queue_sound", sound_type, sound, volume_db, pitch_scale, autoplay)
 
 
 # Plays the selected sound
@@ -738,22 +743,27 @@ func play(sound_type : String, sound : String, from_position : float = 1.0, volu
 	if not audiostream:
 		return
 	audiostream.play(from_position)
+	if debug:
+		print_debug("playing: " + audiostream.sound_path)
 
 
-func queue_sound(sound_type : String, sound : String, volume_db : float = -81, pitch_scale : float = -1) -> void:
+func queue_sound(sound_type : String, sound : String, volume_db : float = -81, pitch_scale : float = -1, autoplay:= true) -> void:
 	var audiostream := prepare_sound(sound_type, sound, volume_db, pitch_scale)
 	if not audiostream:
 		return
 	queues[sound_type].append(audiostream)
-	if not sound_type in _get_all_playing_types():
+	if not sound_type in _get_all_playing_types() and autoplay:
 		play_next_in_queue(sound_type)
 
 
-func play_next_in_queue(sound_type: String) -> void:
+func play_next_in_queue(sound_type: String) -> SoundManagerAudioStreamPlayer:
 	var audiostream: SoundManagerAudioStreamPlayer = queues[sound_type].pop_front()
 	if repeating_queues.get(sound_type):
 		queues[sound_type].append(audiostream)
 	audiostream.play()
+	if debug:
+		print_debug("playing next in queue: " + audiostream.sound_path)
+	return(audiostream)
 
 
 # Adds a new AudioStreamPlayer
@@ -799,7 +809,8 @@ func _on_sound_finished(sound_path : String) -> void:
 	if not preinstantiate_nodes:
 		erase_sound(sound_path)
 	var audiostream := find_audiostream(sound_path)
-	if queues[audiostream.sound_type].size() > 0:
+	if queues[audiostream.sound_type].size() > 0\
+			and not audiostream.sound_type in _get_all_playing_types():
 		play_next_in_queue(audiostream.sound_type)
 
 
@@ -864,6 +875,17 @@ func get_all_playing_streams() -> Array:
 	return(playing_streams)
 
 
+func find_playing_audiostream(identifier: String) -> SoundManagerAudioStreamPlayer:
+	var audiostream : SoundManagerAudioStreamPlayer
+	for s in get_all_playing_streams():
+		audiostream = s
+		if identifier in [audiostream.sound_name, audiostream.sound_path]:
+			break
+	if not audiostream and debug:
+		print_debug("Playing sound not found: " + identifier)
+	return(audiostream)
+
+
 # Looks in Audio_Files_Dictionary and finds the key which matches the specified type
 # If key is not found, returns ''
 func get_sound_name_from_path(sound_path: String) -> String:
@@ -880,16 +902,65 @@ func toggle_queue_repeat(type: String) -> void:
 
 
 # Empties the specified sound_type queue
-func clear_queue(sound_type: String) -> void:
+func clear_queue(sound_type:= 'BGM') -> void:
 	queues[sound_type].clear()
 
 
+func fade_in_bgm(sound: String) -> void:
+	call_deferred("fade_in", sound)
+
+
+func fade_in(sound: String) -> void:
+	# To allow time for the audiostream to spawn, if just added
+	yield(get_tree(), "idle_frame")
+	var audiostream := find_playing_audiostream(sound)
+#	print_debug(audiostream)
+	if audiostream:
+		audiostream.fade_in()
+
+
+func fade_out_bgm(sound: String) -> void:
+	call_deferred("fade_out", sound)
+
+
+func fade_out(sound: String) -> void:
+	# To allow time for the audiostream to spawn, if just added
+	yield(get_tree(), "idle_frame")
+	var audiostream := find_playing_audiostream(sound)
+#	print_debug(audiostream)
+	if audiostream:
+		audiostream.fade_out()
+
+
+func crossfade_queue(type:= 'BGM') -> void:
+	yield(get_tree(), "idle_frame")
+#	print_debug(get_all_playing_streams())
+	for s in _get_all_playing_type_steams(type):
+		var audiostream : SoundManagerAudioStreamPlayer = s
+		audiostream.fade_out()
+	var new_stream := play_next_in_queue(type)
+	if new_stream:
+		new_stream.fade_in()
+	
+
+# Returns an array with all the currently playing types of streams
+# (e.g. ['BMG', 'SE']
 func _get_all_playing_types() -> Array:
 	var types := []
 	for audiosteam in get_all_playing_streams():
 		if not audiosteam.sound_type in types:
 			types.append(audiosteam.sound_type)
 	return(types)
+
+
+# Returns an array with all playing streams of a specific type
+func _get_all_playing_type_steams(sound_type: String) -> Array:
+	var found_streams := []
+	for audiostream in get_all_playing_streams():
+		if audiostream.sound_type == sound_type:
+			found_streams.append(audiostream)
+	return(found_streams)
+	
 
 
 static func is_audio_file(file_name : String) -> bool:
@@ -919,5 +990,3 @@ static func get_sound_files_in_dir(path: String) -> Array:
 	else:
 		print_debug("Error: Cannot read dir at " + path)
 	return(found_files)
-
-

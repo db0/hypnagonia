@@ -48,7 +48,7 @@ func _ready() -> void:
 	SUBTITLES.shuffle()
 	_subtitle.text = SUBTITLES[0]
 	_version.text = CFConst.GAME_VERSION
-	Music.prepare_background_music('main')
+	globals.music.switch_scene_music('main')
 
 
 func on_button_pressed(_button_name : String) -> void:

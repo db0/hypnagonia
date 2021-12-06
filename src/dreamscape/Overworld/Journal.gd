@@ -46,7 +46,7 @@ func _ready() -> void:
 	if not cfc.game_settings.get('first_journal_tutorial_done'):
 		player_info._on_Help_pressed()
 		cfc.set_setting('first_journal_tutorial_done', true)
-	Music.prepare_background_music('journal')
+	globals.music.switch_scene_music('journal')
 
 
 func display_nce_rewards(reward_text: String) -> void:

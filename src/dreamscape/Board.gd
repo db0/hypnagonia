@@ -341,6 +341,10 @@ func _recalculate_predictions() -> void:
 func _input(event):
 	if event.is_action_pressed("init_debug_game"):
 		Music.prepare_background_music('ordeal')
+#		var bgm_tracks = SoundManagerClass.get_sound_files_in_dir("res://assets/music/ordeal/")
+#		CFUtils.shuffle_array(bgm_tracks)
+#		SoundManager.play_bgm(bgm_tracks[0])
+#		SoundManager.fade_in(bgm_tracks[0])
 # warning-ignore:unused_variable
 		_debug_advanced_enemy()
 		# warning-ignore:unused_variable
