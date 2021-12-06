@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Run!.ogg-39250f9daf0a70752f9af4c1cdccddfd.oggstr"
+
+[deps]
+
+source_file="res://assets/music/boss/myuu - Run!.ogg"
+dest_files=[ "res://.import/myuu - Run!.ogg-39250f9daf0a70752f9af4c1cdccddfd.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

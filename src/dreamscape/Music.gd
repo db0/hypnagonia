@@ -1,7 +1,7 @@
 class_name Music
 extends Reference
 
-# scene should be 'board', 'journal', 'main', or 'shop'
+# scene should be 'ordeal', "boss", 'journal', 'main', or 'shop'
 # basically the name of a directory in "res://assets/music/"
 static func prepare_background_music(scene: String) -> void:
 	var dir = "res://assets/music/" + scene + '/'

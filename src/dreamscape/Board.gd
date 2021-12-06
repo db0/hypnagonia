@@ -79,7 +79,6 @@ func begin_encounter() -> void:
 	if not cfc.game_settings.get('first_ordeal_tutorial_done'):
 		player_info._on_Help_pressed()
 		cfc.set_setting('first_ordeal_tutorial_done', true)
-	Music.prepare_background_music('ordeal')
 
 func _retrieve_alpha() -> int:
 	var alpha_count := 0
@@ -159,7 +158,6 @@ func spawn_advanced_enemy(encounter: CombatEncounter) -> EnemyEntity:
 	# warning-ignore:return_value_discarded
 	advanced_entity.connect("entity_killed", self, "_enemy_died")
 	return(advanced_entity)
-
 
 # Reshuffles all Card objects created back into the deck
 func _on_ReshuffleAllDeck_pressed() -> void:
@@ -342,6 +340,7 @@ func _recalculate_predictions() -> void:
 
 func _input(event):
 	if event.is_action_pressed("init_debug_game"):
+		Music.prepare_background_music('ordeal')
 # warning-ignore:unused_variable
 		_debug_advanced_enemy()
 		# warning-ignore:unused_variable

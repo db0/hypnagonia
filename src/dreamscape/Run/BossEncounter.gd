@@ -23,6 +23,7 @@ func begin() -> void:
 	globals.journal.journal_cover.visible = false
 	cfc.NMAP.board.spawn_advanced_enemy(self)
 	cfc.NMAP.board.begin_encounter()
+	Music.prepare_background_music('boss')
 
 func end() -> void:
 	current_combat.queue_free()

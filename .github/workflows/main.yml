@@ -47,7 +47,7 @@ jobs:
           SCENE=journal; KEEP=4; cd ../../../assets/music/${SCENE} && ls *.ogg | tail -n+${KEEP} | shuf > oggs && cat oggs | xargs -I {} mv "{}.import" "html_ignore_{}.import" && cat oggs | xargs -I {} mv "{}" "html_ignore_{}" && rm oggs && ls -larth
           SCENE=main; KEEP=2; cd ../../../assets/music/${SCENE} && ls *.ogg | tail -n+${KEEP} | shuf > oggs && cat oggs | xargs -I {} mv "{}.import" "html_ignore_{}.import" && cat oggs | xargs -I {} mv "{}" "html_ignore_{}" && rm oggs && ls -larth
           SCENE=shop; KEEP=2; cd ../../../assets/music/${SCENE} && ls *.ogg | tail -n+${KEEP} | shuf > oggs && cat oggs | xargs -I {} mv "{}.import" "html_ignore_{}.import" && cat oggs | xargs -I {} mv "{}" "html_ignore_{}" && rm oggs && ls -larth
-          SCENE=boss; KEEP=2; cd ../../../assets/music/${SCENE} && ls *.ogg | tail -n+${KEEP} | shuf > oggs && cat oggs | xargs -I {} mv "{}.import" "html_ignore_{}.import" && cat oggs | xargs -I {} mv "{}" "html_ignore_{}" && rm oggs && ls -larth
+          SCENE=boss; KEEP=4; cd ../../../assets/music/${SCENE} && ls *.ogg | tail -n+${KEEP} | shuf > oggs && cat oggs | xargs -I {} mv "{}.import" "html_ignore_{}.import" && cat oggs | xargs -I {} mv "{}" "html_ignore_{}" && rm oggs && ls -larth
     - name: "🤖 Export game"
       if: ${{ steps.release.outputs.version != '' }}
       uses: firebelley/godot-export@v3.0.0
