@@ -18,6 +18,7 @@ var run_unlocks := {}
 func _ready() -> void:
 	cfc.game_settings['main_volume'] = cfc.game_settings.get('main_volume', 0)
 	cfc.game_settings['music_volume'] = cfc.game_settings.get('music_volume', 0)
+	cfc.game_settings['interrupt_music'] = cfc.game_settings.get('interrupt_music', true)
 	music = Music.new()
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), cfc.game_settings.main_volume)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("bgm"), cfc.game_settings.music_volume)

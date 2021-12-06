@@ -4,6 +4,7 @@ onready var back_button = $PC/VBC/HBoxContainer/Back
 onready var animate_in_hand = $PC/VBC/AnimateHand
 onready var focus_style = $PC/VBC/FocusStyle
 onready var fancy_movement = $PC/VBC/FancyAnimations
+onready var interrupt_music = $PC/VBC/InterruptMusic
 onready var recover_prebuilts = $PC/VBC/PreBuilts
 onready var main_vol_slider = $PC/VBC/MainVolSlider
 onready var music_vol_slider = $PC/VBC/MusicVolSlider
@@ -16,6 +17,7 @@ func _ready() -> void:
 #	animate_in_hand.pressed = cfc.game_settings.animate_in_hand
 	focus_style.selected = focus_style.get_item_index(cfc.game_settings.focus_style)
 	fancy_movement.pressed = cfc.game_settings.fancy_movement
+	interrupt_music.pressed = cfc.game_settings.interrupt_music
 	main_vol_slider.value = cfc.game_settings.main_volume
 	music_vol_slider.value = cfc.game_settings.music_volume
 #	SoundManager.set_default_sound_properties("BGM", "Volume", cfc.game_settings.music_volume)
@@ -46,3 +48,7 @@ func _on_MusicVolSlider_value_changed(value: float) -> void:
 func _on_MainVolSlider_value_changed(value: float) -> void:
 	cfc.set_setting('main_volume', value)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
+
+
+func _on_InterruptMusic_toggled(button_pressed: bool) -> void:
+	cfc.set_setting('interrupt_music',button_pressed)

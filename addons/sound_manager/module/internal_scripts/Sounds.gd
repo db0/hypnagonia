@@ -78,7 +78,7 @@ func fade_in(time := 10) -> void:
 		add_child(tween)
 		tween.connect("tween_all_completed", self, "_on_tween_completed")
 	else:
-		tween.stop_all()
+		tween.remove_all()
 	tween.interpolate_property(
 			self,'volume_db', -80, volume_db,
 			time, Tween.TRANS_EXPO, Tween.EASE_OUT)
@@ -92,7 +92,7 @@ func fade_out(time := 4) -> void:
 		add_child(tween)
 		tween.connect("tween_all_completed", self, "_on_tween_completed")
 	else:
-		tween.stop_all()
+		tween.remove_all()
 	tween.interpolate_property(
 			self,'volume_db', null, -80,
 			time, Tween.TRANS_EXPO, Tween.EASE_IN)

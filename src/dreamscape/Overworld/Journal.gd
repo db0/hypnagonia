@@ -334,3 +334,4 @@ func _input(event):
 			journal_choices.add_child(journal_choice)
 			journal_choice.connect("pressed", self, "_on_choice_pressed", [encounter, journal_choice])
 			_reveal_entry(journal_choice)
+#		print_debug(SoundManager._get_all_playing_type_steams('BGM'))

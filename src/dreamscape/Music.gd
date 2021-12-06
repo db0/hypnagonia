@@ -15,4 +15,4 @@ static func prepare_background_music(scene: String) -> void:
 	SoundManager.clear_queue('BGM')
 	var bgm_tracks = SoundManagerClass.get_sound_files_in_dir(dir)
 	CFUtils.shuffle_array(bgm_tracks)
-	SoundManager.queue_filelist(bgm_tracks, true, true)
+	SoundManager.queue_filelist(bgm_tracks, true, cfc.game_settings.interrupt_music)
