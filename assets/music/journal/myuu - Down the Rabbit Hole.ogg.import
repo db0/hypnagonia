@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Down the Rabbit Hole.ogg-1e7c2145d3ab0c823d5ba16e4ba13503.oggstr"
+
+[deps]
+
+source_file="res://assets/music/journal/myuu - Down the Rabbit Hole.ogg"
+dest_files=[ "res://.import/myuu - Down the Rabbit Hole.ogg-1e7c2145d3ab0c823d5ba16e4ba13503.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

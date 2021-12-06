@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Creepy Clown Symphony.ogg-08f972c148b5000b7fce4c0e42be6094.oggstr"
+
+[deps]
+
+source_file="res://assets/music/ordeal/myuu - Creepy Clown Symphony.ogg"
+dest_files=[ "res://.import/myuu - Creepy Clown Symphony.ogg-08f972c148b5000b7fce4c0e42be6094.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

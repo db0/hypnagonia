@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Keep Going.ogg-3b1b40f8b289988876658479ee139598.oggstr"
+
+[deps]
+
+source_file="res://assets/music/journal/myuu - Keep Going.ogg"
+dest_files=[ "res://.import/myuu - Keep Going.ogg-3b1b40f8b289988876658479ee139598.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

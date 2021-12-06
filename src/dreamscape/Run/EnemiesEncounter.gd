@@ -59,6 +59,8 @@ func begin() -> void:
 	globals.journal.journal_cover.visible = false
 	cfc.NMAP.board.spawn_enemy_encounter(self)
 	cfc.NMAP.board.begin_encounter()
+	globals.music.switch_scene_music('ordeal')
+
 
 
 func end() -> void:

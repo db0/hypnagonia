@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Myuu-Among-Us.ogg-353282b507b7573624b598de09c08dac.oggstr"
+
+[deps]
+
+source_file="res://assets/music/ordeal/Myuu-Among-Us.ogg"
+dest_files=[ "res://.import/Myuu-Among-Us.ogg-353282b507b7573624b598de09c08dac.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

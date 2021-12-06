@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Round That Corner.ogg-85aa5fb469073504c9f28ea3316298ac.oggstr"
+
+[deps]
+
+source_file="res://assets/music/ordeal/myuu - Round That Corner.ogg"
+dest_files=[ "res://.import/myuu - Round That Corner.ogg-85aa5fb469073504c9f28ea3316298ac.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

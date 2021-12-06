@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Stronger Together.ogg-1111bd6a8d3f80f55abf9743f3381f29.oggstr"
+
+[deps]
+
+source_file="res://assets/music/ordeal/myuu - Stronger Together.ogg"
+dest_files=[ "res://.import/myuu - Stronger Together.ogg-1111bd6a8d3f80f55abf9743f3381f29.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -43,9 +43,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="InfoPanel"]
 margin_left = 2.0
-margin_top = 2.0
+margin_top = 3.0
 margin_right = 119.0
-margin_bottom = 26.0
+margin_bottom = 24.0
 text = "1.Card Name"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -71,9 +71,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="InfoPanel2"]
 margin_left = 2.0
-margin_top = 2.0
+margin_top = 3.0
 margin_right = 109.0
-margin_bottom = 26.0
+margin_bottom = 24.0
 text = "2.Card type"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -99,9 +99,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="InfoPanel3"]
 margin_left = 2.0
-margin_top = 2.0
+margin_top = 5.0
 margin_right = 114.0
-margin_bottom = 52.0
+margin_bottom = 49.0
 text = "3.Immersion
    cost"
 __meta__ = {
@@ -128,9 +128,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="InfoPanel4"]
 margin_left = 2.0
-margin_top = 2.0
-margin_right = 76.0
-margin_bottom = 26.0
+margin_top = 3.0
+margin_right = 63.0
+margin_bottom = 24.0
 text = "5.Rarity"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -156,9 +156,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="InfoPanel7"]
 margin_left = 2.0
-margin_top = 2.0
+margin_top = 3.0
 margin_right = 76.0
-margin_bottom = 26.0
+margin_bottom = 24.0
 text = "5.Rarity"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -192,9 +192,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="InfoPanel5"]
 margin_left = 2.0
-margin_top = 2.0
+margin_top = 3.0
 margin_right = 65.0
-margin_bottom = 26.0
+margin_bottom = 24.0
 text = "4.Tags"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -220,9 +220,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="InfoPanel8"]
 margin_left = 2.0
-margin_top = 2.0
-margin_right = 65.0
-margin_bottom = 26.0
+margin_top = 3.0
+margin_right = 65.0004
+margin_bottom = 24.0
 text = "4.Tags"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -248,9 +248,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="InfoPanel6"]
 margin_left = 2.0
-margin_top = 2.0
-margin_right = 138.0
-margin_bottom = 26.0
+margin_top = 3.0
+margin_right = 121.0
+margin_bottom = 24.0
 text = "6.Card abilities"
 __meta__ = {
 "_edit_use_anchors_": false

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Home.ogg-e414a981fe9168b8f4e0912d5a264bdd.oggstr"
+
+[deps]
+
+source_file="res://assets/music/journal/myuu - Home.ogg"
+dest_files=[ "res://.import/myuu - Home.ogg-e414a981fe9168b8f4e0912d5a264bdd.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

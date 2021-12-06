@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Collapse.ogg-8c651720e9fc998bd781a4144659ed5b.oggstr"
+
+[deps]
+
+source_file="res://assets/music/journal/myuu - Collapse.ogg"
+dest_files=[ "res://.import/myuu - Collapse.ogg-8c651720e9fc998bd781a4144659ed5b.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

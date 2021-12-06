@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - On the Chain.ogg-a39eba50330b9399fcd2a6d8175576bf.oggstr"
+
+[deps]
+
+source_file="res://assets/music/ordeal/myuu - On the Chain.ogg"
+dest_files=[ "res://.import/myuu - On the Chain.ogg-a39eba50330b9399fcd2a6d8175576bf.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Myuu-Fading.ogg-4311efc8980573b862b2cc5b17ded6a4.oggstr"
+
+[deps]
+
+source_file="res://assets/music/ordeal/Myuu-Fading.ogg"
+dest_files=[ "res://.import/Myuu-Fading.ogg-4311efc8980573b862b2cc5b17ded6a4.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

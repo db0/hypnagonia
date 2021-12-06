@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Beths Theme.ogg-a774b5a86c10fd1bd9c82041da75ab49.oggstr"
+
+[deps]
+
+source_file="res://assets/music/journal/myuu - Beths Theme.ogg"
+dest_files=[ "res://.import/myuu - Beths Theme.ogg-a774b5a86c10fd1bd9c82041da75ab49.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

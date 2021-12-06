@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Flowered Rust.ogg-d7b31fff52d60b546cb32611251adf52.oggstr"
+
+[deps]
+
+source_file="res://assets/music/journal/myuu - Flowered Rust.ogg"
+dest_files=[ "res://.import/myuu - Flowered Rust.ogg-d7b31fff52d60b546cb32611251adf52.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

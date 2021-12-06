@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Myuu-Another-Day.ogg-1c5b496c27d52d40839742bb15fda63b.oggstr"
+
+[deps]
+
+source_file="res://assets/music/shop/Myuu-Another-Day.ogg"
+dest_files=[ "res://.import/Myuu-Another-Day.ogg-1c5b496c27d52d40839742bb15fda63b.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

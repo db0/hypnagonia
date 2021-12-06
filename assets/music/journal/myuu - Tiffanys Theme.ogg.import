@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Tiffanys Theme.ogg-7116d4003c2aa0ed3a4a8cc37fc8d60f.oggstr"
+
+[deps]
+
+source_file="res://assets/music/journal/myuu - Tiffanys Theme.ogg"
+dest_files=[ "res://.import/myuu - Tiffanys Theme.ogg-7116d4003c2aa0ed3a4a8cc37fc8d60f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

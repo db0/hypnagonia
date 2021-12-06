@@ -4,6 +4,6 @@
 font_path = "res://fonts/comfortaa/Comfortaa-Bold.ttf"
 
 [resource]
-size = 20
+size = 17
 use_filter = true
 font_data = SubResource( 1 )

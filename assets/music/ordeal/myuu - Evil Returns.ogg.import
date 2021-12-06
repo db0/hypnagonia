@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Evil Returns.ogg-20e8fc882bf174484edcc393d671f510.oggstr"
+
+[deps]
+
+source_file="res://assets/music/ordeal/myuu - Evil Returns.ogg"
+dest_files=[ "res://.import/myuu - Evil Returns.ogg-20e8fc882bf174484edcc393d671f510.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

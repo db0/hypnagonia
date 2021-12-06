@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Hopeless.ogg-a49ba5c55dc4729813938d1cbae0fb69.oggstr"
+
+[deps]
+
+source_file="res://assets/music/journal/myuu - Hopeless.ogg"
+dest_files=[ "res://.import/myuu - Hopeless.ogg-a49ba5c55dc4729813938d1cbae0fb69.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

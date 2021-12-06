@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Wasted Wonderland.ogg-9542aca6342bd5a2bb097698fce79661.oggstr"
+
+[deps]
+
+source_file="res://assets/music/journal/myuu - Wasted Wonderland.ogg"
+dest_files=[ "res://.import/myuu - Wasted Wonderland.ogg-9542aca6342bd5a2bb097698fce79661.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

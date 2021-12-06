@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Lost World.ogg-71c253214f1715c6e09ab050a1c1fcfb.oggstr"
+
+[deps]
+
+source_file="res://assets/music/journal/myuu - Lost World.ogg"
+dest_files=[ "res://.import/myuu - Lost World.ogg-71c253214f1715c6e09ab050a1c1fcfb.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

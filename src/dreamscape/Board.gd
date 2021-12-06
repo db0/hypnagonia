@@ -9,6 +9,7 @@ var turn := Turn.new()
 var dreamer: PlayerEntity
 var activated_enemies: Array
 var boss_battle := false
+var bgm_tracks : Array
 
 onready var bottom_gui := $VBC/HBC
 onready var _player_area := $VBC/CombatArena/PlayerArea
@@ -157,7 +158,6 @@ func spawn_advanced_enemy(encounter: CombatEncounter) -> EnemyEntity:
 	# warning-ignore:return_value_discarded
 	advanced_entity.connect("entity_killed", self, "_enemy_died")
 	return(advanced_entity)
-
 
 # Reshuffles all Card objects created back into the deck
 func _on_ReshuffleAllDeck_pressed() -> void:
@@ -340,6 +340,11 @@ func _recalculate_predictions() -> void:
 
 func _input(event):
 	if event.is_action_pressed("init_debug_game"):
+		Music.prepare_background_music('ordeal')
+#		var bgm_tracks = SoundManagerClass.get_sound_files_in_dir("res://assets/music/ordeal/")
+#		CFUtils.shuffle_array(bgm_tracks)
+#		SoundManager.play_bgm(bgm_tracks[0])
+#		SoundManager.fade_in(bgm_tracks[0])
 # warning-ignore:unused_variable
 		_debug_advanced_enemy()
 		# warning-ignore:unused_variable
@@ -370,7 +375,7 @@ func _input(event):
 #		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
-			"Baby",
+			"Prejudice",
 			"Ω Baby Ω",
 		]:
 			var card = cfc.instance_card(c)
@@ -404,4 +409,3 @@ func _on_Debug_pressed() -> void:
 	counters.mod_counter("immersion",3)
 	for _iter in range(3):
 		cfc.NMAP.hand.draw_card(cfc.NMAP.deck)
-

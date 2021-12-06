@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Misconception.ogg-74c98c210cb4beb8d38cf4fd1f77ee99.oggstr"
+
+[deps]
+
+source_file="res://assets/music/journal/myuu - Misconception.ogg"
+dest_files=[ "res://.import/myuu - Misconception.ogg-74c98c210cb4beb8d38cf4fd1f77ee99.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

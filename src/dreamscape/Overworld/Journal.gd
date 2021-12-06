@@ -46,6 +46,7 @@ func _ready() -> void:
 	if not cfc.game_settings.get('first_journal_tutorial_done'):
 		player_info._on_Help_pressed()
 		cfc.set_setting('first_journal_tutorial_done', true)
+	globals.music.switch_scene_music('journal')
 
 
 func display_nce_rewards(reward_text: String) -> void:
@@ -92,6 +93,7 @@ func display_boss_rewards(reward_text: String) -> void:
 		+ "If you're a character artist, graphics designer, storyteller, card game designer, illustrator, or just someone who wants to give feedback, "\
 		+ "do hit us up on our discord server: [url=discord]https://discord.gg/MqTMVDCbR3[/url] or Matrix [url=matrix]https://matrix.to/#/#hypnagonia:matrix.org[/url].\n\n"\
 		+ "[url=main_menu]Back to Main Menu[/url]."
+	# warning-ignore:return_value_discarded
 	proceed.connect("meta_clicked", self, "_on_proceed_clicked")
 	_reveal_entry(proceed, false)
 
@@ -316,14 +318,20 @@ func _show_description_popup(description_text: String) -> void:
 
 
 func _input(event):
+	### Debug ###
 	if event.is_action_pressed("init_debug_game"):
-		print_debug("test")
 #		globals.player.add_artifact("MaxHealth")
 #		globals.player.add_artifact("AccumulateEnemy")
 #		globals.player.add_artifact("AccumulateShop")
 #		globals.player.damage += 20
-		var encounter = EnemyEncounter.new(Act1.Baby, "hard")
-		var journal_choice = JournalEncounterChoice.new(self, encounter)
-		journal_choices.add_child(journal_choice)
-		journal_choice.connect("pressed", self, "_on_choice_pressed", [encounter, journal_choice])
-		_reveal_entry(journal_choice)
+		var debug_encounters = [
+			EnemyEncounter.new(Act1.Baby, "hard"),
+			preload("res://src/dreamscape/Run/NCE/Act1/TheCandyman.gd").new(),
+#			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
+		]
+		for encounter in debug_encounters:
+			var journal_choice = JournalEncounterChoice.new(self, encounter)
+			journal_choices.add_child(journal_choice)
+			journal_choice.connect("pressed", self, "_on_choice_pressed", [encounter, journal_choice])
+			_reveal_entry(journal_choice)
+#		print_debug(SoundManager._get_all_playing_type_steams('BGM'))

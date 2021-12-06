@@ -6,6 +6,7 @@ var player: Player
 var encounters: SingleRun
 var current_encounter: SingleEncounter
 var journal: Journal
+var music: Music
 # I use this to keep track of which journal texts I haven't used yet in this run
 # to avoid writing always the same thing
 var unused_journal_texts := {}
@@ -15,6 +16,12 @@ var run_unlocks := {}
 
 # Test setup. This should happen at game start
 func _ready() -> void:
+	cfc.game_settings['main_volume'] = cfc.game_settings.get('main_volume', 0)
+	cfc.game_settings['music_volume'] = cfc.game_settings.get('music_volume', 0)
+	cfc.game_settings['interrupt_music'] = cfc.game_settings.get('interrupt_music', true)
+	music = Music.new()
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), cfc.game_settings.main_volume)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("bgm"), cfc.game_settings.music_volume)
 	player = Player.new()
 	encounters = SingleRun.new()
 

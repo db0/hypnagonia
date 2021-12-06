@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Memento (Visual Novel Music).ogg-1e611ea9ff17819aeea8360ad2efe1b9.oggstr"
+
+[deps]
+
+source_file="res://assets/music/journal/myuu - Memento (Visual Novel Music).ogg"
+dest_files=[ "res://.import/myuu - Memento (Visual Novel Music).ogg-1e611ea9ff17819aeea8360ad2efe1b9.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

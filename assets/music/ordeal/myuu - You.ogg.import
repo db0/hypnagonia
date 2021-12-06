@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - You.ogg-1efafd6f5cfa0f64627e09829933fb24.oggstr"
+
+[deps]
+
+source_file="res://assets/music/ordeal/myuu - You.ogg"
+dest_files=[ "res://.import/myuu - You.ogg-1efafd6f5cfa0f64627e09829933fb24.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

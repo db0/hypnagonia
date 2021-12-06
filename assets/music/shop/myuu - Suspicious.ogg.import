@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Suspicious.ogg-f914ba319829af89e01c13dca69ac068.oggstr"
+
+[deps]
+
+source_file="res://assets/music/shop/myuu - Suspicious.ogg"
+dest_files=[ "res://.import/myuu - Suspicious.ogg-f914ba319829af89e01c13dca69ac068.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

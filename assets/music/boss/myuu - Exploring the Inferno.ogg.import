@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - Exploring the Inferno.ogg-52e6d5c700161af7987aa860a0dd43cb.oggstr"
+
+[deps]
+
+source_file="res://assets/music/boss/myuu - Exploring the Inferno.ogg"
+dest_files=[ "res://.import/myuu - Exploring the Inferno.ogg-52e6d5c700161af7987aa860a0dd43cb.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

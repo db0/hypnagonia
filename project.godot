@@ -409,6 +409,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/core/MousePointer.gd"
 }, {
+"base": "Reference",
+"class": "Music",
+"language": "GDScript",
+"path": "res://src/dreamscape/Music.gd"
+}, {
 "base": "PanelContainer",
 "class": "NewGameMenu",
 "language": "GDScript",
@@ -528,6 +533,21 @@ _global_script_classes=[ {
 "class": "SingleRun",
 "language": "GDScript",
 "path": "res://src/dreamscape/Run/Encounters.gd"
+}, {
+"base": "AudioStreamPlayer",
+"class": "SoundManagerAudioStreamPlayer",
+"language": "GDScript",
+"path": "res://addons/sound_manager/module/internal_scripts/Sounds.gd"
+}, {
+"base": "SoundManagerModule",
+"class": "SoundManagerClass",
+"language": "GDScript",
+"path": "res://addons/sound_manager/module/internal_scripts/SoundManager.gd"
+}, {
+"base": "Node",
+"class": "SoundManagerModule",
+"language": "GDScript",
+"path": "res://addons/sound_manager/module/internal_scripts/SoundManager_config.gd"
 }, {
 "base": "CenterContainer",
 "class": "TagRepresentation",
@@ -660,6 +680,7 @@ _global_script_class_icons={
 "JournalTexts": "",
 "ManipulationButtons": "",
 "MousePointer": "",
+"Music": "",
 "NewGameMenu": "",
 "NonCombatEncounter": "",
 "OVUtils": "",
@@ -684,6 +705,9 @@ _global_script_class_icons={
 "SelectionWindow": "",
 "SingleEncounter": "",
 "SingleRun": "",
+"SoundManagerAudioStreamPlayer": "",
+"SoundManagerClass": "",
+"SoundManagerModule": "",
 "TagRepresentation": "",
 "TagsList": "",
 "TargetingArrow": "",
@@ -707,11 +731,16 @@ config/icon="res://icon.png"
 
 cfc="*res://src/core/CFControl.gd"
 globals="*res://src/dreamscape/Globals/Globals.gd"
+SoundManager="*res://addons/sound_manager/module/SoundManager.tscn"
 
 [display]
 
 window/size/width=1455
 window/size/height=900
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/sound_manager/plugin.cfg" )
 
 [global]
 
@@ -721,6 +750,14 @@ import=false
 
 texture={
 "compress/mode": 1
+}
+mp3={
+"loop": false,
+"loop_offset": 0
+}
+ogg_vorbis={
+"loop": false,
+"loop_offset": 0
 }
 
 [input]

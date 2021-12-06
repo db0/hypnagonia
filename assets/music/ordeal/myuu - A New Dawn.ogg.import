@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myuu - A New Dawn.ogg-88dfbd8fe6c10e8d6a66bc0993a774ef.oggstr"
+
+[deps]
+
+source_file="res://assets/music/ordeal/myuu - A New Dawn.ogg"
+dest_files=[ "res://.import/myuu - A New Dawn.ogg-88dfbd8fe6c10e8d6a66bc0993a774ef.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

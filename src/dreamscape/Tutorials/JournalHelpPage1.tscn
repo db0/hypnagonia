@@ -43,9 +43,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="InfoPanel"]
 margin_left = 2.0
-margin_top = 2.0
+margin_top = 3.0
 margin_right = 72.0
-margin_bottom = 26.0
+margin_bottom = 24.0
 text = "Anxiety"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -71,9 +71,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="InfoPanel2"]
 margin_left = 2.0
-margin_top = 2.0
+margin_top = 3.0
 margin_right = 72.0
-margin_bottom = 26.0
+margin_bottom = 24.0
 text = "Curios"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -107,9 +107,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="InfoPanel3"]
 margin_left = 2.0
-margin_top = 2.0
+margin_top = 3.0
 margin_right = 150.0
-margin_bottom = 26.0
+margin_bottom = 24.0
 text = "Encounter Name"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -135,9 +135,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="InfoPanel4"]
 margin_left = 2.0
-margin_top = 2.0
+margin_top = 3.0
 margin_right = 67.0
-margin_bottom = 26.0
+margin_bottom = 24.0
 text = "Pathos"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -163,9 +163,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="InfoPanel5"]
 margin_left = 2.0
-margin_top = 2.0
+margin_top = 3.0
 margin_right = 50.0
-margin_bottom = 26.0
+margin_bottom = 24.0
 text = "Deck"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -191,9 +191,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="InfoPanel6"]
 margin_left = 2.0
-margin_top = 2.0
+margin_top = 3.0
 margin_right = 50.0
-margin_bottom = 26.0
+margin_bottom = 24.0
 text = "Help"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -219,9 +219,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="InfoPanel7"]
 margin_left = 2.0
-margin_top = 2.0
+margin_top = 3.0
 margin_right = 79.0
-margin_bottom = 26.0
+margin_bottom = 24.0
 text = "Settings"
 __meta__ = {
 "_edit_use_anchors_": false

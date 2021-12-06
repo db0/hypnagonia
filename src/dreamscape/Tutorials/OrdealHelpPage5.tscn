@@ -44,9 +44,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="InfoPanel3"]
 margin_left = 2.0
-margin_top = 2.0
+margin_top = 3.0
 margin_right = 103.0
-margin_bottom = 26.0
+margin_bottom = 24.0
 text = "1. Dreamer"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -82,9 +82,9 @@ antialiased = true
 
 [node name="Label" type="Label" parent="InfoPanel5"]
 margin_left = 2.0
-margin_top = 2.0
+margin_top = 3.0
 margin_right = 95.0
-margin_bottom = 26.0
+margin_bottom = 24.0
 text = "2. Anxiety"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -104,9 +104,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="InfoPanel6"]
 margin_left = 2.0
-margin_top = 2.0
+margin_top = 3.0
 margin_right = 127.0
-margin_bottom = 26.0
+margin_bottom = 24.0
 text = "6. Confidence"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -134,9 +134,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="InfoPanel7"]
 margin_left = 2.0
-margin_top = 2.0
+margin_top = 3.0
 margin_right = 147.0
-margin_bottom = 26.0
+margin_bottom = 24.0
 text = "7. Active Effects"
 __meta__ = {
 "_edit_use_anchors_": false

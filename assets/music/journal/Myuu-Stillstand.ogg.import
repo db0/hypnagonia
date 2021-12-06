@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Myuu-Stillstand.ogg-8e7b0e01565d3869160a0bf19134ce59.oggstr"
+
+[deps]
+
+source_file="res://assets/music/journal/Myuu-Stillstand.ogg"
+dest_files=[ "res://.import/Myuu-Stillstand.ogg-8e7b0e01565d3869160a0bf19134ce59.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
