@@ -912,8 +912,8 @@ static func get_sound_files_in_dir(path: String) -> Array:
 	if dir:
 		var file_name: String = dir.get_next()
 		while file_name != "":
-			if is_audio_file(file_name):
-				var file_path = dir.get_current_dir() + '/' + file_name
+			if file_name.ends_with(".import") and is_audio_file(file_name.rstrip(".import")):
+				var file_path = dir.get_current_dir() + '/' + file_name.rstrip(".import")
 				found_files.append(file_path)
 			file_name = dir.get_next()
 	else:
