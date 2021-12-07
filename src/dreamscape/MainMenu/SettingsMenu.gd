@@ -9,6 +9,8 @@ onready var recover_prebuilts = $PC/VBC/PreBuilts
 onready var main_vol_slider = $PC/VBC/MainVolSlider
 onready var music_vol_slider = $PC/VBC/MusicVolSlider
 
+var slider_effect_enabled = false
+
 func _ready() -> void:
 #	cfc.game_settings['animate_in_hand'] = cfc.game_settings.get('animate_in_hand', false)
 	cfc.game_settings['focus_style'] = cfc.game_settings.get('focus_style', 2)
@@ -20,7 +22,8 @@ func _ready() -> void:
 	interrupt_music.pressed = cfc.game_settings.interrupt_music
 	main_vol_slider.value = cfc.game_settings.main_volume
 	music_vol_slider.value = cfc.game_settings.music_volume
-#	SoundManager.set_default_sound_properties("BGM", "Volume", cfc.game_settings.music_volume)
+	# To avoid the slider adjust sound sounding from the initial setting
+	slider_effect_enabled = true
 
 
 func _on_FancAnimations_toggled(button_pressed: bool) -> void:
@@ -32,6 +35,7 @@ func _on_FancAnimations_toggled(button_pressed: bool) -> void:
 		get_tree().call_group("piles", "disable_shuffle")
 	SoundManager.play_se('setting_toggle')
 
+
 func _on_FocusStyle_item_selected(index: int) -> void:
 	cfc.set_setting('focus_style', focus_style.get_item_id(index))
 	SoundManager.play_se('setting_toggle')
@@ -39,25 +43,28 @@ func _on_FocusStyle_item_selected(index: int) -> void:
 
 func _on_ExitToMain_pressed() -> void:
 	globals.quit_to_main()
-	SoundManager.play_se('setting_toggle')
+	SoundManager.play_se('back')
 
 
 func _on_MusicVolSlider_value_changed(value: float) -> void:
 	cfc.set_setting('music_volume', value)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("bgm"), value)
-	SoundManager.play_se('volume_adjust')
+	if slider_effect_enabled:
+		SoundManager.play_se('volume_adjust')
 
 
 func _on_MainVolSlider_value_changed(value: float) -> void:
 	cfc.set_setting('main_volume', value)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
-	SoundManager.play_se('volume_adjust')
+	if slider_effect_enabled:
+		SoundManager.play_se('volume_adjust')
 
 
 func _on_SoundVolSlider_value_changed(value: float) -> void:
 	cfc.set_setting('sounds_volume', value)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("se"), value)
-	SoundManager.play_se('volume_adjust')
+	if slider_effect_enabled:
+		SoundManager.play_se('volume_adjust')
 
 
 func _on_InterruptMusic_toggled(button_pressed: bool) -> void:

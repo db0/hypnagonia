@@ -140,6 +140,8 @@ func retrieve_scripts(trigger: String) -> Dictionary:
 # which will trigger the game to execute its scripts
 # warning-ignore:unused_argument
 func common_pre_move_scripts(new_container: Node, old_container: Node, tags: Array) -> Node:
+	if "Played" in tags:
+		SoundManager.play_se(Sounds.get_card_play_sound())
 	var target_container := new_container
 	if new_container == cfc.NMAP.board \
 			and old_container == cfc.NMAP.hand:
@@ -162,6 +164,7 @@ func common_post_move_scripts(new_container: String, old_container: String, tags
 	# Cards are considered "played" if they were moved to their final
 	# CardContainer with a script using the "Played" tag
 	if "Played" in tags:
+		SoundManager.play_se(Sounds.get_card_play_sound())
 		var firsts = cfc.NMAP.board.turn.firsts
 		if firsts.empty() or not firsts.get(properties.Type):
 			firsts[properties.Type] = self
@@ -255,7 +258,7 @@ func generate_discard_tasks(only_from_hand := true) -> Array:
 # with each tag we've played, to hook onto with other effects.
 #
 # The reason to go via sceng, is because we  don't want to increment if costs
-# cannot be paid. 
+# cannot be paid.
 func generate_play_confirm_scripts() -> Array:
 	if not deck_card_entry:
 		return([])

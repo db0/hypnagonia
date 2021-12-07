@@ -46,9 +46,9 @@ stretch_mode = 5
 
 [node name="Health" type="Label" parent="HBC"]
 margin_left = 39.0
-margin_top = 5.0
+margin_top = 3.0
 margin_right = 92.0
-margin_bottom = 30.0
+margin_bottom = 31.0
 custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "0/90"
@@ -61,20 +61,20 @@ custom_constants/separation = 5
 
 [node name="Push" type="Control" parent="HBC"]
 margin_left = 100.0
-margin_right = 609.0
+margin_right = 596.0
 margin_bottom = 35.0
 size_flags_horizontal = 3
 
 [node name="Encounter" type="Label" parent="HBC"]
-margin_left = 613.0
-margin_top = 5.0
-margin_right = 733.0
-margin_bottom = 30.0
+margin_left = 600.0
+margin_top = 3.0
+margin_right = 746.0
+margin_bottom = 31.0
 custom_fonts/font = ExtResource( 3 )
 text = "Encounter 1"
 
 [node name="Push2" type="Control" parent="HBC"]
-margin_left = 737.0
+margin_left = 750.0
 margin_right = 1246.0
 margin_bottom = 35.0
 size_flags_horizontal = 3

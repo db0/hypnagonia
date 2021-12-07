@@ -47,7 +47,8 @@ func _ready() -> void:
 	_version.text = CFConst.GAME_VERSION
 # warning-ignore:return_value_discarded
 	get_viewport().connect("size_changed",self,"_on_Viewport_size_changed")
-		
+
+
 func _process(_delta: float) -> void:
 	_update_health_label()
 	_update_encounter_label()
@@ -55,6 +56,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_Settings_pressed() -> void:
+	SoundManager.play_se('click')
 	if context == ArtifactDefinitions.EffectContext.BATTLE:
 		cfc.game_paused = true
 	popup_settings = PopupPanel.new()
@@ -70,12 +72,14 @@ func _on_Settings_pressed() -> void:
 
 
 func _on_Settings_hide() -> void:
+	SoundManager.play_se('back')
 	popup_settings.queue_free()
 	if context == ArtifactDefinitions.EffectContext.BATTLE:
 		cfc.game_paused = false
 
 
 func _on_Deck_pressed() -> void:
+	SoundManager.play_se('click')
 	var popup_size_x = (CFConst.CARD_SIZE.x * CFConst.THUMBNAIL_SCALE * _deck_preview_grid.columns * cfc.curr_scale)\
 			+ _deck_preview_grid.get("custom_constants/vseparation") * _deck_preview_grid.columns
 	_deck_preview_popup.rect_size = Vector2(popup_size_x,600)
@@ -133,6 +137,7 @@ func _update_deck_count() -> void:
 
 
 func _on_Pathos_pressed() -> void:
+	SoundManager.play_se('click')
 	_pathos_details.popup_centered_minsize()
 	for entry in pathos_infos:
 		pathos_infos[entry].update()
@@ -141,11 +146,13 @@ func _on_Pathos_pressed() -> void:
 
 
 func _on_Help_pressed() -> void:
+	SoundManager.play_se('click')
 	if context == ArtifactDefinitions.EffectContext.BATTLE:
 		cfc.game_paused = true
 	_tutorial.setup(context, _help)
 	_tutorial.rect_size = get_viewport().size
 	_help.popup_centered_minsize()
+
 
 func _on_artifact_added(artifact_object: ArtifactObject) -> void:
 	_instance_artifact(artifact_object, true)
@@ -167,8 +174,6 @@ func _instance_artifact(artifact_object: ArtifactObject, new_addition := false) 
 
 
 func _input(event):
-	# We use this to allow the developer to take card screenshots
-	# for any number of purposes
 	if event.is_action_pressed("help"):
 		_on_Help_pressed()
 
@@ -176,4 +181,4 @@ func _input(event):
 # Wipes the deck cache so that the cards can be recreated in the right size
 func _on_Viewport_size_changed() -> void:
 	current_decklist_cache = []
-	
+

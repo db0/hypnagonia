@@ -55,6 +55,7 @@ func _ready() -> void:
 
 
 func on_button_pressed(_button_name : String) -> void:
+	SoundManager.play_se('click')
 	match _button_name:
 		"NewGame":
 			switch_to_tab(new_game)
@@ -90,6 +91,7 @@ func switch_to_tab(tab: Control) -> void:
 
 
 func switch_to_main_menu(tab: Control) -> void:
+	SoundManager.play_se('back')
 	var tab_position_x : float
 	match tab:
 		new_game:

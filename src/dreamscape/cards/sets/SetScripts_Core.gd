@@ -38,6 +38,7 @@ const SAME_SCRIPT_SYMBOLS := [
 const EPHEMERAL_TASK := {
 	"name": "remove_card_from_deck",
 	"subject": "self",
+	"tags": ["Played"],
 }
 
 
@@ -141,6 +142,7 @@ const SafetyofAir = {
 				"name": "move_card_to_container",
 				"subject": "self",
 				"dest_container": "forgotten",
+				"tags": ["Played"],
 			},
 		],
 	},
@@ -428,6 +430,7 @@ const CockyRetort = {
 				"name": "move_card_to_container",
 				"dest_container": "discard",
 				"subject": "self",
+				"tags": ["Played"],
 			},
 			{
 				"name": "assign_defence",
@@ -674,6 +677,7 @@ const Boast = {
 				"name": "move_card_to_container",
 				"subject": "self",
 				"dest_container": "forgotten",
+				"tags": ["Played"],
 			},
 		],
 	},
@@ -708,6 +712,7 @@ const MassiveBoast = {
 				"name": "move_card_to_container",
 				"subject": "self",
 				"dest_container": "forgotten",
+				"tags": ["Played"],
 			},
 		],
 	},
@@ -782,6 +787,7 @@ const HighMorale = {
 				"name": "move_card_to_container",
 				"dest_container": "discard",
 				"subject": "self",
+				"tags": ["Played"],
 			},
 			{
 				"name": "modify_damage",
@@ -903,6 +909,7 @@ const RunningStart = {
 				"name": "move_card_to_container",
 				"dest_container": "discard",
 				"subject": "self",
+				"tags": ["Played"],
 			},
 			{
 				"name": "modify_damage",
@@ -1064,6 +1071,7 @@ const Ventriloquism = {
 				"name": "move_card_to_container",
 				"dest_container": "discard",
 				"subject": "self",
+				"tags": ["Played"],
 			},
 			{
 				"name": "modify_damage",
@@ -1127,6 +1135,7 @@ const BlindTrial = {
 				"name": "move_card_to_container",
 				"subject": "self",
 				"dest_container": "forgotten",
+				"tags": ["Played"],
 			},
 		],
 	},
@@ -1229,6 +1238,7 @@ const unnamed_card_4 = {
 				"name": "move_card_to_container",
 				"subject": "self",
 				"dest_container": "forgotten",
+				"tags": ["Played"],
 			},
 		],
 	},
@@ -1354,6 +1364,7 @@ const RapidTheorizing = {
 				"name": "move_card_to_container",
 				"dest_container": "discard",
 				"subject": "self",
+				"tags": ["Played"],
 			},
 			{
 				"name": "assign_defence",
@@ -1398,6 +1409,7 @@ const WildInspiration = {
 				"name": "move_card_to_container",
 				"dest_container": "discard",
 				"subject": "self",
+				"tags": ["Played"],
 			},
 			{
 				"name": "move_card_to_container",
@@ -1568,6 +1580,7 @@ const Flashbacks = {
 				"name": "move_card_to_container",
 				"subject": "self",
 				"dest_container": "forgotten",
+				"tags": ["Played"],
 			},
 		],
 	},
@@ -1619,6 +1632,7 @@ const Perseverance = {
 				"name": "move_card_to_container",
 				"subject": "self",
 				"dest_container": "forgotten",
+				"tags": ["Played"],
 			},
 		],
 	},
@@ -1654,6 +1668,7 @@ const ImprovedPerseverance = {
 				"name": "move_card_to_container",
 				"subject": "self",
 				"dest_container": "forgotten",
+				"tags": ["Played"],
 			},
 		],
 	},
@@ -1851,6 +1866,7 @@ const SelfDeception = {
 				"name": "move_card_to_container",
 				"dest_container": "discard",
 				"subject": "self",
+				"tags": ["Played"],
 			},
 			{
 				"name": "modify_damage",
@@ -1912,6 +1928,7 @@ const ThatTooShallPass = {
 				"name": "move_card_to_container",
 				"subject": "self",
 				"dest_container": "forgotten",
+				"tags": ["Played"],
 			},
 		],
 	},
@@ -1940,6 +1957,7 @@ const ThatTooMustPass = {
 				"name": "move_card_to_container",
 				"subject": "self",
 				"dest_container": "forgotten",
+				"tags": ["Played"],
 			},
 			{
 				"name": "draw_cards",
@@ -2325,6 +2343,7 @@ const Catatonia = {
 				"name": "move_card_to_container",
 				"subject": "self",
 				"dest_container": "forgotten",
+				"tags": ["Played"],
 			},
 		],
 	},
@@ -2508,6 +2527,7 @@ const Misunderstood = {
 					"name": "move_card_to_container",
 					"subject": "self",
 					"dest_container": "discard",
+					"tags": ["Played"],
 				},
 			],
 		}
@@ -2654,6 +2674,7 @@ const IllShowThemAll = {
 				"name": "move_card_to_container",
 				"dest_container": "discard",
 				"subject": "self",
+				"tags": ["Played"],
 			},
 			{
 				"name": "apply_effect",
@@ -2921,6 +2942,7 @@ const AStrangeGaida = {
 				"name": "move_card_to_container",
 				"subject": "self",
 				"dest_container": "forgotten",
+				"tags": ["Played"],
 			},
 		],
 	},
@@ -3099,6 +3121,7 @@ const Unshakeable = {
 				"name": "move_card_to_container",
 				"subject": "self",
 				"dest_container": "forgotten",
+				"tags": ["Played"],
 			},
 		],
 	},
@@ -3552,6 +3575,7 @@ func _prepare_scripts(all_scripts: Dictionary, card_name: String) -> Dictionary:
 		"name": "move_card_to_container",
 		"subject": "self",
 		"dest_container": "forgotten",
+		"tags": ["Played"],
 	}
 	var script_name := card_name
 	var break_loop := false
