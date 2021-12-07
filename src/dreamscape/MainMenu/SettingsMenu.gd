@@ -36,18 +36,28 @@ func _on_FocusStyle_item_selected(index: int) -> void:
 	cfc.set_setting('focus_style', focus_style.get_item_id(index))
 	SoundManager.play_se('setting_toggle')
 
+
 func _on_ExitToMain_pressed() -> void:
 	globals.quit_to_main()
 	SoundManager.play_se('setting_toggle')
 
+
 func _on_MusicVolSlider_value_changed(value: float) -> void:
 	cfc.set_setting('music_volume', value)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("bgm"), value)
+	SoundManager.play_se('volume_adjust')
 
 
 func _on_MainVolSlider_value_changed(value: float) -> void:
 	cfc.set_setting('main_volume', value)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
+	SoundManager.play_se('volume_adjust')
+
+
+func _on_SoundVolSlider_value_changed(value: float) -> void:
+	cfc.set_setting('sounds_volume', value)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("se"), value)
+	SoundManager.play_se('volume_adjust')
 
 
 func _on_InterruptMusic_toggled(button_pressed: bool) -> void:

@@ -29,15 +29,15 @@ __meta__ = {
 [node name="PC" type="PanelContainer" parent="."]
 self_modulate = Color( 1, 1, 1, 0.690196 )
 margin_left = 580.0
-margin_top = 213.0
+margin_top = 172.0
 margin_right = 874.0
-margin_bottom = 686.0
+margin_bottom = 728.0
 
 [node name="VBC" type="VBoxContainer" parent="PC"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 287.0
-margin_bottom = 466.0
+margin_bottom = 549.0
 size_flags_horizontal = 3
 custom_constants/separation = 20
 
@@ -95,24 +95,42 @@ margin_right = 280.0
 margin_bottom = 319.0
 size_flags_horizontal = 3
 min_value = -80.0
-max_value = 23.0
+max_value = 10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SoundVol" type="Label" parent="PC/VBC"]
+margin_top = 339.0
+margin_right = 280.0
+margin_bottom = 366.0
+custom_fonts/font = ExtResource( 3 )
+text = "Effects Volume"
+
+[node name="SoundVolSlider" type="HSlider" parent="PC/VBC"]
+margin_top = 386.0
+margin_right = 280.0
+margin_bottom = 402.0
+size_flags_horizontal = 3
+min_value = -80.0
+max_value = 10.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ExitToMain" type="Button" parent="PC/VBC"]
-margin_top = 339.0
+margin_top = 422.0
 margin_right = 280.0
-margin_bottom = 389.0
+margin_bottom = 472.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 2 )
 text = "Exit To Main Menu"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PC/VBC"]
-margin_top = 409.0
+margin_top = 492.0
 margin_right = 280.0
-margin_bottom = 459.0
+margin_bottom = 542.0
 
 [node name="Back" type="Button" parent="PC/VBC/HBoxContainer"]
 margin_right = 280.0
@@ -127,4 +145,5 @@ text = "BACK"
 [connection signal="toggled" from="PC/VBC/InterruptMusic" to="." method="_on_InterruptMusic_toggled"]
 [connection signal="value_changed" from="PC/VBC/MainVolSlider" to="." method="_on_MainVolSlider_value_changed"]
 [connection signal="value_changed" from="PC/VBC/MusicVolSlider" to="." method="_on_MusicVolSlider_value_changed"]
+[connection signal="value_changed" from="PC/VBC/SoundVolSlider" to="." method="_on_SoundVolSlider_value_changed"]
 [connection signal="pressed" from="PC/VBC/ExitToMain" to="." method="_on_ExitToMain_pressed"]
