@@ -24,6 +24,7 @@ func _ready() -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("bgm"), cfc.game_settings.music_volume)
 	player = Player.new()
 	encounters = SingleRun.new()
+	SoundManager.Audio_Files_Dictionary = Sounds.SOUNDS
 
 func reset() -> void:
 	player = Player.new()

@@ -23,6 +23,7 @@ onready var v_buttons := $MainMenu/VBox/Center/VButtons
 onready var main_menu := $MainMenu
 #onready var settings_menu := $SettingsMenu
 onready var card_library := $CardLibrary
+onready var settings := $Settings
 onready var new_game := $NewGame
 onready var _readme_label := $ReadMe/Label
 onready var _readme_popup := $ReadMe
@@ -37,9 +38,11 @@ func _ready() -> void:
 			option_button.connect('pressed', self, 'on_button_pressed', [option_button.name])
 	new_game.rect_position.x = get_viewport().size.x
 	card_library.rect_position.x = -get_viewport().size.x
+	settings.rect_position.x = -get_viewport().size.x
 	new_game.back_button.connect("pressed", self, "switch_to_main_menu", [new_game])
 #	new_game.recover_prebuilts.connect("pressed", self, "_on_PreBuilts_pressed")
 	card_library.back_button.connect("pressed", self, "switch_to_main_menu", [card_library])
+	settings.get_node("SettingsMenu").back_button.connect("pressed", self, "switch_to_main_menu", [settings])
 	# warning-ignore:return_value_discarded
 	get_viewport().connect("size_changed", self, '_on_Menu_resized')
 	_readme_label.text = README
@@ -64,6 +67,8 @@ func on_button_pressed(_button_name : String) -> void:
 			_readme_popup.popup_centered_minsize()
 		"CardLibrary":
 			switch_to_tab(card_library)
+		"Settings":
+			switch_to_tab(settings)
 		"Exit":
 			get_tree().quit()
 
@@ -73,7 +78,7 @@ func switch_to_tab(tab: Control) -> void:
 	match tab:
 		new_game:
 			main_position_x = -get_viewport().size.x
-		card_library:
+		card_library, settings:
 			main_position_x = get_viewport().size.x
 	menu_tween.interpolate_property(main_menu,'rect_position:x',
 			main_menu.rect_position.x, main_position_x, menu_switch_time,
@@ -89,7 +94,7 @@ func switch_to_main_menu(tab: Control) -> void:
 	match tab:
 		new_game:
 			tab_position_x = get_viewport().size.x
-		card_library:
+		card_library, settings:
 			tab_position_x = -get_viewport().size.x
 	menu_tween.interpolate_property(tab,'rect_position:x',
 			tab.rect_position.x, tab_position_x, menu_switch_time,

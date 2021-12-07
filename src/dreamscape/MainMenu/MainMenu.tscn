@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=1]
 [ext_resource path="res://src/dreamscape/CardLibrary/CardLibrary.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://themes/darktheme/fonts/Bangers/Bangers-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://src/dreamscape/MainMenu/NewGame.tscn" type="PackedScene" id=5]
 [ext_resource path="res://fonts/MainMenuTitle.tres" type="DynamicFont" id=6]
+[ext_resource path="res://src/dreamscape/MainMenu/SettingsContainer.tscn" type="PackedScene" id=7]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.145098, 0.145098, 0.145098, 1 )
@@ -37,6 +38,8 @@ property_width_exceptions = {
 }
 
 [node name="NewGame" parent="." instance=ExtResource( 5 )]
+
+[node name="Settings" parent="." instance=ExtResource( 7 )]
 
 [node name="ReadMe" type="PopupPanel" parent="."]
 margin_right = 4.0
@@ -103,9 +106,9 @@ size_flags_vertical = 3
 
 [node name="VButtons" type="VBoxContainer" parent="MainMenu/VBox/Center"]
 margin_left = 631.0
-margin_top = 136.0
+margin_top = 118.0
 margin_right = 823.0
-margin_bottom = 301.0
+margin_bottom = 318.0
 rect_min_size = Vector2( 192, 0 )
 custom_constants/separation = 10
 
@@ -129,16 +132,22 @@ margin_right = 192.0
 margin_bottom = 95.0
 text = "Card Library"
 
-[node name="Readme" type="Button" parent="MainMenu/VBox/Center/VButtons"]
+[node name="Settings" type="Button" parent="MainMenu/VBox/Center/VButtons"]
 margin_top = 105.0
 margin_right = 192.0
 margin_bottom = 130.0
-text = "Read Me"
+text = "Settings"
 
-[node name="Exit" type="Button" parent="MainMenu/VBox/Center/VButtons"]
+[node name="Readme" type="Button" parent="MainMenu/VBox/Center/VButtons"]
 margin_top = 140.0
 margin_right = 192.0
 margin_bottom = 165.0
+text = "Read Me"
+
+[node name="Exit" type="Button" parent="MainMenu/VBox/Center/VButtons"]
+margin_top = 175.0
+margin_right = 192.0
+margin_bottom = 200.0
 text = "Exit"
 
 [node name="Version" type="Label" parent="MainMenu/VBox"]

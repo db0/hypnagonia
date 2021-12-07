@@ -49,14 +49,6 @@ text = "Large Card Preview"
 items = [ "Large Card Preview", null, false, 2, null, "Info Panels Only", null, false, 3, null, "Hand Card Zoom", null, false, 0, null ]
 selected = 0
 
-[node name="Back" type="CheckButton" parent="PC/VBC"]
-visible = false
-margin_top = 60.0
-margin_right = 328.0
-margin_bottom = 100.0
-custom_fonts/font = ExtResource( 3 )
-text = "Show only info panels"
-
 [node name="FancyAnimations" type="CheckButton" parent="PC/VBC"]
 margin_top = 53.0
 margin_right = 280.0
