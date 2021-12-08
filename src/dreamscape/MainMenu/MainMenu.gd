@@ -23,6 +23,7 @@ onready var v_buttons := $MainMenu/VBox/Center/VButtons
 onready var main_menu := $MainMenu
 #onready var settings_menu := $SettingsMenu
 onready var card_library := $CardLibrary
+onready var settings := $Settings
 onready var new_game := $NewGame
 onready var _readme_label := $ReadMe/Label
 onready var _readme_popup := $ReadMe
@@ -37,9 +38,11 @@ func _ready() -> void:
 			option_button.connect('pressed', self, 'on_button_pressed', [option_button.name])
 	new_game.rect_position.x = get_viewport().size.x
 	card_library.rect_position.x = -get_viewport().size.x
+	settings.rect_position.x = -get_viewport().size.x
 	new_game.back_button.connect("pressed", self, "switch_to_main_menu", [new_game])
 #	new_game.recover_prebuilts.connect("pressed", self, "_on_PreBuilts_pressed")
 	card_library.back_button.connect("pressed", self, "switch_to_main_menu", [card_library])
+	settings.get_node("SettingsMenu").back_button.connect("pressed", self, "switch_to_main_menu", [settings])
 	# warning-ignore:return_value_discarded
 	get_viewport().connect("size_changed", self, '_on_Menu_resized')
 	_readme_label.text = README
@@ -54,17 +57,25 @@ func _ready() -> void:
 func on_button_pressed(_button_name : String) -> void:
 	match _button_name:
 		"NewGame":
+			SoundManager.play_se('click')
 			switch_to_tab(new_game)
 #			get_tree().change_scene(CFConst.PATH_CUSTOM + 'Main.tscn')
 		"QuickStart":
+			SoundManager.play_se(Sounds.get_randomize_sound())
 			new_game.randomize_aspect_choices()
 			new_game.start_new_game()
 		"Readme":
+			SoundManager.play_se('click')
 			_readme_popup.rect_size = _readme_label.rect_size
 			_readme_popup.popup_centered_minsize()
 		"CardLibrary":
+			SoundManager.play_se(Sounds.get_shove_sound())
 			switch_to_tab(card_library)
+		"Settings":
+			SoundManager.play_se(Sounds.get_shove_sound())
+			switch_to_tab(settings)
 		"Exit":
+			SoundManager.play_se('click')
 			get_tree().quit()
 
 
@@ -73,7 +84,7 @@ func switch_to_tab(tab: Control) -> void:
 	match tab:
 		new_game:
 			main_position_x = -get_viewport().size.x
-		card_library:
+		card_library, settings:
 			main_position_x = get_viewport().size.x
 	menu_tween.interpolate_property(main_menu,'rect_position:x',
 			main_menu.rect_position.x, main_position_x, menu_switch_time,
@@ -85,11 +96,12 @@ func switch_to_tab(tab: Control) -> void:
 
 
 func switch_to_main_menu(tab: Control) -> void:
+	SoundManager.play_se(Sounds.get_shove_sound())
 	var tab_position_x : float
 	match tab:
 		new_game:
 			tab_position_x = get_viewport().size.x
-		card_library:
+		card_library, settings:
 			tab_position_x = -get_viewport().size.x
 	menu_tween.interpolate_property(tab,'rect_position:x',
 			tab.rect_position.x, tab_position_x, menu_switch_time,

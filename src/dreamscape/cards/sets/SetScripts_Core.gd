@@ -38,6 +38,7 @@ const SAME_SCRIPT_SYMBOLS := [
 const EPHEMERAL_TASK := {
 	"name": "remove_card_from_deck",
 	"subject": "self",
+	"tags": ["Played"],
 }
 
 
@@ -141,6 +142,7 @@ const SafetyofAir = {
 				"name": "move_card_to_container",
 				"subject": "self",
 				"dest_container": "forgotten",
+				"tags": ["Played"],
 			},
 		],
 	},
@@ -428,6 +430,7 @@ const CockyRetort = {
 				"name": "move_card_to_container",
 				"dest_container": "discard",
 				"subject": "self",
+				"tags": ["Played"],
 			},
 			{
 				"name": "assign_defence",
@@ -674,6 +677,7 @@ const Boast = {
 				"name": "move_card_to_container",
 				"subject": "self",
 				"dest_container": "forgotten",
+				"tags": ["Played"],
 			},
 		],
 	},
@@ -708,6 +712,7 @@ const MassiveBoast = {
 				"name": "move_card_to_container",
 				"subject": "self",
 				"dest_container": "forgotten",
+				"tags": ["Played"],
 			},
 		],
 	},
@@ -782,6 +787,7 @@ const HighMorale = {
 				"name": "move_card_to_container",
 				"dest_container": "discard",
 				"subject": "self",
+				"tags": ["Played"],
 			},
 			{
 				"name": "modify_damage",
@@ -903,6 +909,7 @@ const RunningStart = {
 				"name": "move_card_to_container",
 				"dest_container": "discard",
 				"subject": "self",
+				"tags": ["Played"],
 			},
 			{
 				"name": "modify_damage",
@@ -1064,6 +1071,7 @@ const Ventriloquism = {
 				"name": "move_card_to_container",
 				"dest_container": "discard",
 				"subject": "self",
+				"tags": ["Played"],
 			},
 			{
 				"name": "modify_damage",
@@ -1127,6 +1135,7 @@ const BlindTrial = {
 				"name": "move_card_to_container",
 				"subject": "self",
 				"dest_container": "forgotten",
+				"tags": ["Played"],
 			},
 		],
 	},
@@ -1229,6 +1238,7 @@ const unnamed_card_4 = {
 				"name": "move_card_to_container",
 				"subject": "self",
 				"dest_container": "forgotten",
+				"tags": ["Played"],
 			},
 		],
 	},
@@ -1262,6 +1272,7 @@ const ChangeofMind = {
 				"name": "move_card_to_container",
 				"subject": "self",
 				"dest_container": "deck",
+				"tags": ["Played"],
 			},
 			{
 				"name": "shuffle_container",
@@ -1354,6 +1365,7 @@ const RapidTheorizing = {
 				"name": "move_card_to_container",
 				"dest_container": "discard",
 				"subject": "self",
+				"tags": ["Played"],
 			},
 			{
 				"name": "assign_defence",
@@ -1398,6 +1410,7 @@ const WildInspiration = {
 				"name": "move_card_to_container",
 				"dest_container": "discard",
 				"subject": "self",
+				"tags": ["Played"],
 			},
 			{
 				"name": "move_card_to_container",
@@ -1469,6 +1482,7 @@ const VexingConcept = {
 						"name": "move_card_to_container",
 						"subject": "self",
 						"dest_container": "deck",
+						"tags": ["Played"],
 					},
 					{
 						"name": "shuffle_container",
@@ -1568,6 +1582,7 @@ const Flashbacks = {
 				"name": "move_card_to_container",
 				"subject": "self",
 				"dest_container": "forgotten",
+				"tags": ["Played"],
 			},
 		],
 	},
@@ -1619,6 +1634,7 @@ const Perseverance = {
 				"name": "move_card_to_container",
 				"subject": "self",
 				"dest_container": "forgotten",
+				"tags": ["Played"],
 			},
 		],
 	},
@@ -1654,6 +1670,7 @@ const ImprovedPerseverance = {
 				"name": "move_card_to_container",
 				"subject": "self",
 				"dest_container": "forgotten",
+				"tags": ["Played"],
 			},
 		],
 	},
@@ -1851,6 +1868,7 @@ const SelfDeception = {
 				"name": "move_card_to_container",
 				"dest_container": "discard",
 				"subject": "self",
+				"tags": ["Played"],
 			},
 			{
 				"name": "modify_damage",
@@ -1912,6 +1930,7 @@ const ThatTooShallPass = {
 				"name": "move_card_to_container",
 				"subject": "self",
 				"dest_container": "forgotten",
+				"tags": ["Played"],
 			},
 		],
 	},
@@ -1940,6 +1959,7 @@ const ThatTooMustPass = {
 				"name": "move_card_to_container",
 				"subject": "self",
 				"dest_container": "forgotten",
+				"tags": ["Played"],
 			},
 			{
 				"name": "draw_cards",
@@ -2325,6 +2345,7 @@ const Catatonia = {
 				"name": "move_card_to_container",
 				"subject": "self",
 				"dest_container": "forgotten",
+				"tags": ["Played"],
 			},
 		],
 	},
@@ -2488,6 +2509,7 @@ const Misunderstood = {
 					"name": "move_card_to_container",
 					"subject": "self",
 					"dest_container": "deck",
+					"tags": ["Played"],
 				},
 				{
 					"name": "shuffle_container",
@@ -2508,6 +2530,7 @@ const Misunderstood = {
 					"name": "move_card_to_container",
 					"subject": "self",
 					"dest_container": "discard",
+					"tags": ["Played"],
 				},
 			],
 		}
@@ -2597,6 +2620,7 @@ const EndlessPosibilities = {
 				"name": "move_card_to_container",
 				"subject": "self",
 				"dest_container": "deck",
+				"tags": ["Played"],
 				"filter_per_tutor_count": {
 					"src_container": "deck",
 					"subject": "tutor",
@@ -2654,6 +2678,7 @@ const IllShowThemAll = {
 				"name": "move_card_to_container",
 				"dest_container": "discard",
 				"subject": "self",
+				"tags": ["Played"],
 			},
 			{
 				"name": "apply_effect",
@@ -2921,6 +2946,7 @@ const AStrangeGaida = {
 				"name": "move_card_to_container",
 				"subject": "self",
 				"dest_container": "forgotten",
+				"tags": ["Played"],
 			},
 		],
 	},
@@ -3099,6 +3125,7 @@ const Unshakeable = {
 				"name": "move_card_to_container",
 				"subject": "self",
 				"dest_container": "forgotten",
+				"tags": ["Played"],
 			},
 		],
 	},
@@ -3552,6 +3579,7 @@ func _prepare_scripts(all_scripts: Dictionary, card_name: String) -> Dictionary:
 		"name": "move_card_to_container",
 		"subject": "self",
 		"dest_container": "forgotten",
+		"tags": ["Played"],
 	}
 	var script_name := card_name
 	var break_loop := false
@@ -3597,7 +3625,7 @@ func _prepare_scripts(all_scripts: Dictionary, card_name: String) -> Dictionary:
 # and look for dictionaries with a key lookup_property
 # This signifies a value that needs to be looked up from the card itself
 # So we do that and replace the value in that dictionary with the looked up value.
-# This allows us to tweak the values of scripts from the card definitions 
+# This allows us to tweak the values of scripts from the card definitions
 # and thus have only one adjustment point
 func lookup_script_property(script: Dictionary, card_name: String) -> void:
 	for key in script:

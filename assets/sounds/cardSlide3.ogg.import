@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/cardSlide3.ogg-72a1675318ee41a45b5baf87c82b4348.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/cardSlide3.ogg"
+dest_files=[ "res://.import/cardSlide3.ogg-72a1675318ee41a45b5baf87c82b4348.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
