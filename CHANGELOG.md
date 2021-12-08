@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.20.0](https://github.com/db0/hypnagonia/tree/v0.20.0) (2021-12-08)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.19.0...v0.20.0)
+
+**Merged pull requests:**
+
+- feat\(sound\): Added sounds [\#87](https://github.com/db0/hypnagonia/pull/87) ([db0](https://github.com/db0))
+
 ## [v0.19.0](https://github.com/db0/hypnagonia/tree/v0.19.0) (2021-12-06)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.18.9...v0.19.0)
