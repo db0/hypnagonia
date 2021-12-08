@@ -55,22 +55,27 @@ func _ready() -> void:
 
 
 func on_button_pressed(_button_name : String) -> void:
-	SoundManager.play_se('click')
 	match _button_name:
 		"NewGame":
+			SoundManager.play_se('click')
 			switch_to_tab(new_game)
 #			get_tree().change_scene(CFConst.PATH_CUSTOM + 'Main.tscn')
 		"QuickStart":
+			SoundManager.play_se(Sounds.get_randomize_sound())
 			new_game.randomize_aspect_choices()
 			new_game.start_new_game()
 		"Readme":
+			SoundManager.play_se('click')
 			_readme_popup.rect_size = _readme_label.rect_size
 			_readme_popup.popup_centered_minsize()
 		"CardLibrary":
+			SoundManager.play_se(Sounds.get_shove_sound())
 			switch_to_tab(card_library)
 		"Settings":
+			SoundManager.play_se(Sounds.get_shove_sound())
 			switch_to_tab(settings)
 		"Exit":
+			SoundManager.play_se('click')
 			get_tree().quit()
 
 
@@ -91,7 +96,7 @@ func switch_to_tab(tab: Control) -> void:
 
 
 func switch_to_main_menu(tab: Control) -> void:
-	SoundManager.play_se('back')
+	SoundManager.play_se(Sounds.get_shove_sound())
 	var tab_position_x : float
 	match tab:
 		new_game:

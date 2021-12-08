@@ -271,9 +271,11 @@ func _on_rte_gui_input(event, rt_label: RichTextLabel, type = 'card_draft') -> v
 				artifact_journal.bbcode_text = "[color=grey]" + pre_highlight_bbcode_texts[rt_label] + "[/color]"
 			"Proceed":
 				if globals.current_encounter as BossEncounter:
+					SoundManager.play_se('book_close')
 					# warning-ignore:return_value_discarded
 					globals.quit_to_main()
 				else:
+					SoundManager.play_se(Sounds.get_next_journal_page_sound())
 					# warning-ignore:return_value_discarded
 					get_tree().change_scene(CFConst.PATH_CUSTOM + 'Overworld/Journal.tscn')
 

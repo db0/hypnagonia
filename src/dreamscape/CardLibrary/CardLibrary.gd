@@ -5,12 +5,14 @@ var filtered_archetype_cards: Array
 
 onready var back_button := $VBC/HBC/MC/AvailableCards/Settings/Back
 onready var _archetype_filter_button := $VBC/HBC/MC/AvailableCards/CC/ButtonFilters/ArchetypeFilter
+var sound_effect_enabled = false
 
 func _ready() -> void:
 	# warning-ignore:return_value_discarded
 	get_viewport().connect("size_changed",self,"_on_viewport_resized")
 	# warning-ignore:return_value_discarded
 	_archetype_filter_button.connect("archetype_chosen", self,"_on_archetype_chosen")
+	sound_effect_enabled = true
 
 
 # Populates the list of available cards, with all defined cards in the game
@@ -54,5 +56,6 @@ func _on_ClearFilters_pressed() -> void:
 # When the grid view is switched, we instance all cards available in the game
 # and put them in the grid.
 func _on_GridViewStyle_toggled(button_pressed: bool) -> void:
-	SoundManager.play_se('setting_toggle')
+	if sound_effect_enabled:
+		SoundManager.play_se('setting_toggle')
 	._on_GridViewStyle_toggled(button_pressed)

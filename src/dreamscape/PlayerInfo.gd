@@ -79,7 +79,7 @@ func _on_Settings_hide() -> void:
 
 
 func _on_Deck_pressed() -> void:
-	SoundManager.play_se('click')
+	SoundManager.play_se('book_open')
 	var popup_size_x = (CFConst.CARD_SIZE.x * CFConst.THUMBNAIL_SCALE * _deck_preview_grid.columns * cfc.curr_scale)\
 			+ _deck_preview_grid.get("custom_constants/vseparation") * _deck_preview_grid.columns
 	_deck_preview_popup.rect_size = Vector2(popup_size_x,600)

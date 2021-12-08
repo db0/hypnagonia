@@ -63,6 +63,7 @@ func start_player_turn() -> void:
 	emit_signal("player_turn_started", self)
 	
 func end_player_turn() -> void:
+	SoundManager.play_se('click2')
 	emit_signal("player_turn_ended", self)
 		
 func start_enemy_turn() -> void:

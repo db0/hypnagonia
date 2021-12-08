@@ -1272,6 +1272,7 @@ const ChangeofMind = {
 				"name": "move_card_to_container",
 				"subject": "self",
 				"dest_container": "deck",
+				"tags": ["Played"],
 			},
 			{
 				"name": "shuffle_container",
@@ -1481,6 +1482,7 @@ const VexingConcept = {
 						"name": "move_card_to_container",
 						"subject": "self",
 						"dest_container": "deck",
+						"tags": ["Played"],
 					},
 					{
 						"name": "shuffle_container",
@@ -2507,6 +2509,7 @@ const Misunderstood = {
 					"name": "move_card_to_container",
 					"subject": "self",
 					"dest_container": "deck",
+					"tags": ["Played"],
 				},
 				{
 					"name": "shuffle_container",
@@ -2617,6 +2620,7 @@ const EndlessPosibilities = {
 				"name": "move_card_to_container",
 				"subject": "self",
 				"dest_container": "deck",
+				"tags": ["Played"],
 				"filter_per_tutor_count": {
 					"src_container": "deck",
 					"subject": "tutor",
@@ -3621,7 +3625,7 @@ func _prepare_scripts(all_scripts: Dictionary, card_name: String) -> Dictionary:
 # and look for dictionaries with a key lookup_property
 # This signifies a value that needs to be looked up from the card itself
 # So we do that and replace the value in that dictionary with the looked up value.
-# This allows us to tweak the values of scripts from the card definitions 
+# This allows us to tweak the values of scripts from the card definitions
 # and thus have only one adjustment point
 func lookup_script_property(script: Dictionary, card_name: String) -> void:
 	for key in script:
