@@ -859,8 +859,8 @@ func preinstatiate_nodes_r(directory : Directory):
 func find_audiostream(identifier: String) -> SoundManagerAudioStreamPlayer:
 	var audiostream : SoundManagerAudioStreamPlayer
 	for c in get_children():
-		audiostream = c
-		if identifier in [audiostream.sound_name, audiostream.sound_path]:
+		if identifier in [c.sound_name, c.sound_path]:
+			audiostream = c
 			break
 	return(audiostream)
 
