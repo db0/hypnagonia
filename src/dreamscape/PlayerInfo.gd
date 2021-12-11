@@ -49,14 +49,18 @@ func _ready() -> void:
 	get_viewport().connect("size_changed",self,"_on_Viewport_size_changed")
 	# warning-ignore:return_value_discarded
 	globals.player.connect("health_changed", self, "_update_health_label")
-	# warning-ignore:return_value_discarded
-	globals.player.deck.connect("card_added", self, "_update_deck_count")
-	# warning-ignore:return_value_discarded
-	globals.player.deck.connect("card_removed", self, "_update_deck_count")
-	# warning-ignore:return_value_discarded
-	globals.encounters.connect("encounter_changed", self, "_update_encounter_label")
-	_update_deck_count()
-	_update_encounter_label(globals.encounters.current_act.get_act_name(), globals.encounters.encounter_number)
+	# Using a conditional for debugging purposes
+	if globals.player.deck:
+		# warning-ignore:return_value_discarded
+		globals.player.deck.connect("card_added", self, "_update_deck_count")
+		# warning-ignore:return_value_discarded
+		globals.player.deck.connect("card_removed", self, "_update_deck_count")
+		_update_deck_count()
+	if globals.encounters:
+		# warning-ignore:return_value_discarded
+		globals.encounters.connect("encounter_changed", self, "_update_encounter_label")
+		if globals.encounters.current_act:
+			_update_encounter_label(globals.encounters.current_act.get_act_name(), globals.encounters.encounter_number)
 	_update_health_label()
 
 
@@ -143,6 +147,7 @@ func _update_encounter_label(act_name, encounter_number) -> void:
 
 
 func _update_deck_count(_card = null) -> void:
+
 	_deck_button.text = str(globals.player.deck.count_cards())
 
 

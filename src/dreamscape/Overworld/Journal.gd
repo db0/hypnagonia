@@ -85,6 +85,7 @@ func display_elite_rewards(reward_text: String) -> void:
 func display_boss_rewards(reward_text: String) -> void:
 	reward_journal.bbcode_text = "[Card Draft] " + reward_text
 	_reveal_entry(reward_journal, true, "boss_card_draft")
+	_reveal_entry(artifact_journal, true, "boss_artifact")
 	if globals.player.deck.get_upgradeable_cards().size():
 		_reveal_entry(upgrade_journal, true)
 	globals.encounters.prepare_next_act(self)
@@ -327,7 +328,11 @@ func _show_description_popup(description_text: String) -> void:
 func _input(event):
 	### Debug ###
 	if event.is_action_pressed("init_debug_game"):
-		globals.player.add_artifact("EndingHeal")
+		# Upgrade cards debug
+#		for c in  globals.player.deck.get_progressing_cards():
+#			c.upgrade_progress = 100
+#		_reveal_entry(upgrade_journal, true)
+		globals.player.add_artifact(ArtifactDefinitions.RandomUpgrades.canonical_name)
 #		globals.player.add_artifact("AccumulateEnemy")
 #		globals.player.add_artifact("AccumulateShop")
 #		globals.player.damage += 20

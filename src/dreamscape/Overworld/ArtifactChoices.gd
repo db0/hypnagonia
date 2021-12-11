@@ -17,16 +17,19 @@ func populate_artifacts(reward_type = "elite_artifact") -> void:
 	var rare_pct: int
 	var uncommon_pct: int
 	var quantity: int
+	var artifact_type: String
 	match reward_type:
 		"elite_artifact":
 			rare_pct = 5
 			uncommon_pct = 30
 			quantity = 1
+			artifact_type = 'generic'
 		"boss_artifact":
 			rare_pct = 100
 			uncommon_pct = 0
 			quantity = 3
-	artifact_prep = ArtifactPrep.new(rare_pct, uncommon_pct, quantity)
+			artifact_type = 'boss'
+	artifact_prep = ArtifactPrep.new(rare_pct, uncommon_pct, quantity, artifact_type)
 	for index in range(quantity):
 		var artifact: Dictionary = artifact_prep.selected_artifacts[index]
 		var artifact_object = ARTIFACT_CHOICE_SCENE.instance()

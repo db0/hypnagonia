@@ -493,6 +493,41 @@ const PurpleWave := {
 		"heal_amount": 4,
 	},
 }
+const ProgressiveImmersion := {
+	"canonical_name": "ProgressiveImmersion",
+	"name": "Progressive Immersion",
+	"description": "{artifact_name}: You have {immersion_amount} extra {immersion} per turn.\n"\
+			+ "You can only progress half the amount of cards per combat.",
+	"icon": preload("res://assets/icons/artifacts/boss-key.png"),
+	"context": EffectContext.BATTLE,
+	"rarity": "Boss",
+	"amounts": {
+		"immersion_amount": 1,
+	},
+}
+const BossCardDraw := {
+	"canonical_name": "BossCardDraw",
+	"name": "Squishy Brain Toy",
+	"description": "{artifact_name}: Draw {draw_amount} card at the start of each turn",
+	"icon": preload("res://assets/icons/artifacts/boss-key.png"),
+	"context": EffectContext.BATTLE,
+	"rarity": "Boss",
+	"amounts": {
+		"draw_amount": 1,
+	},
+}
+const RandomUpgrades := {
+	"canonical_name": "RandomUpgrades",
+	"name": "Random Upgrades",
+	"description": "{artifact_name}: You have {immersion_amount} extra {immersion} per turn.\n"\
+			+ "Your card upgrades are chosen randomly.",
+	"icon": preload("res://assets/icons/artifacts/boss-key.png"),
+	"context": EffectContext.BATTLE,
+	"rarity": "Boss",
+	"amounts": {
+		"immersion_amount": 1,
+	},
+}
 
 
 
@@ -545,7 +580,13 @@ const ARCHETYPE := [
 
 # These artifacts are only found in non-combat encounters
 const ENCOUNTER := [
-	PorcelainDoll
+	PorcelainDoll,
+]
+
+const BOSS := [
+	ProgressiveImmersion,
+	RandomUpgrades,
+	BossCardDraw,
 ]
 
 # Takes as arguments the purpose of artifacts to return. Generic, Shop or Boss
@@ -567,6 +608,12 @@ static func get_organized_artifacts(
 					if artifact.rarity == rarity\
 							and not artifact.name in excluded_artifacts:
 						ret_dict[rarity].append(artifact)
+		"boss":
+			ret_dict["Boss"] = []
+			for artifact in BOSS:
+				if artifact.rarity == "Boss"\
+						and not artifact.name in excluded_artifacts:
+					ret_dict["Boss"].append(artifact)
 	return(ret_dict)
 
 static func get_artifact_bbcode_format(artifact_definition: Dictionary) -> Dictionary:
