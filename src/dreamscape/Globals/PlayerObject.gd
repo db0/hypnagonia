@@ -124,10 +124,10 @@ func get_all_artifact_names() -> Array:
 # Goes through all archetypes and gathers all artifacts specified
 # Returns a list with all artifacts tied to all archetypes of the player.
 func get_archetype_artifacts() -> Array:
-	var artifacts := []
+	var artifact_list := []
 	for arch in get_current_archetypes():
-		artifacts += Aspects.get_archetype_value(arch, "Artifacts")
-	return(artifacts)
+		artifact_list += Aspects.get_archetype_value(arch, "Artifacts")
+	return(artifact_list)
 
 
 # Goes through all archetypes and gathers all parturbations specified

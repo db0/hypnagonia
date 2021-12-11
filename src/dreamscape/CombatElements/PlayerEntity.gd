@@ -5,6 +5,7 @@ var upgrades_increased := 0 setget set_upgrades_increased
 
 func _ready() -> void:
 	entity_type = "dreamer"
+# warning-ignore:return_value_discarded
 	connect("entity_damaged", self, "_on_player_damaged")
 
 func set_upgrades_increased(value) -> void:
@@ -31,9 +32,6 @@ func _on_player_damaged(_pl, amount, _trigger, _tags) -> void:
 		turn_event_count["player_total_damage"] = damage_total + amount
 		var encounter_event_count = cfc.NMAP.board.turn.encounter_event_count
 		var encounter_damage_count = encounter_event_count.get("player_damaged_own_turn",0)
-		encounter_event_count["player_damaged_own_turn"] = damage_count + 1
+		encounter_event_count["player_damaged_own_turn"] = encounter_damage_count + 1
 		var encounter_damage_total = encounter_event_count.get("player_total_damage_own_turn",0)
-		encounter_event_count["player_total_damage_own_turn"] = damage_total + amount
-		
-	
-	
+		encounter_event_count["player_total_damage_own_turn"] = encounter_damage_total + amount

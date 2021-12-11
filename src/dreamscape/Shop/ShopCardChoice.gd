@@ -6,7 +6,7 @@ var cost_type: String = Terms.RUN_ACCUMULATION_NAMES.nce
 onready var shop_card_display := $ChoiceCardObject
 onready var shop_card_cost := $Cost
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if cost > globals.player.pathos.released[cost_type]:
 		shop_card_cost.add_color_override("font_color", Color(1,0,0))
 	else:

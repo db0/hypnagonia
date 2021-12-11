@@ -73,6 +73,7 @@ func _ready() -> void:
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.enemy] = 400
 	## END DEBUG ##
 	globals.music.switch_scene_music('shop')
+	# warning-ignore:return_value_discarded
 	_deck_preview_popup.connect("operation_performed", self, "_on_deck_operation_performed")
 	populate_shop_cards()
 	populate_shop_artifacts()

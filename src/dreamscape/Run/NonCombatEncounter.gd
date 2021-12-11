@@ -15,6 +15,7 @@ var reward_description: String
 
 
 func begin() -> void:
+	# warning-ignore:return_value_discarded
 	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.nce)
 	.begin()
 

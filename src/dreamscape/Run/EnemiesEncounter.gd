@@ -40,6 +40,7 @@ func get_unique_enemies() -> Array:
 
 
 func begin() -> void:
+	# warning-ignore:return_value_discarded
 	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.enemy)
 	.begin()
 	# Even though the next two lines should be in all combat encounters

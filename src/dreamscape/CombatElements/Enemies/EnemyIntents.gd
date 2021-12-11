@@ -9,7 +9,9 @@ var all_intents: Array
 var unused_intents: Array
 # The enemy entity owning these intents
 var combat_entity
-var intent_name: String
+# This stores a single name for the whole action planned by the enemy.
+# This is typically used for playing animations
+var animation_name: String
 # Keeps track of how many times a specific intent has been used in this battle
 # when it only had limited uses
 var intent_uses: Dictionary
@@ -106,9 +108,10 @@ func predict_intents(snapshot_id: int) -> void:
 		intent.recalculate_amount(snapshot_id)
 	emit_signal("intents_predicted")
 
+
 # We have this externally to allow to override it if needed (e.g. for boss intents)
-func _get_intent_scripts(intent_name: String) -> Dictionary:
-	return(all_intent_scripts.get_scripts(intent_name))
+func _get_intent_scripts(_intent_name: String) -> Dictionary:
+	return(all_intent_scripts.get_scripts(_intent_name))
 
 
 # Goes through the specified intents and shows their combat signifiers
@@ -123,7 +126,8 @@ func _display_intents(new_intents: Dictionary) -> void:
 		var intent_array = intent.split(':')
 		# We store the name of the last script in the list of intents as the 
 		# intent name. Then we can use it for special animations and so on.
-		intent_name = intent_array[0]
+		var intent_name = intent_array[0]
+		animation_name = intent_name
 		var intent_scripts = _get_intent_scripts(intent_name)
 		if not intent_scripts:
 			print_debug("WARNING: Intent with name '" + intent_name + "' not found!")

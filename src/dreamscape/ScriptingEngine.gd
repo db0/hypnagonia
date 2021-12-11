@@ -230,7 +230,7 @@ func assign_defence(script: ScriptTask) -> int:
 
 
 # For now just returns the unmodified modification as it's only used by the Lethargy intent
-func calculate_apply_effect(subject: CombatEntity, script: ScriptTask) -> int:
+func calculate_apply_effect(_subject: CombatEntity, script: ScriptTask) -> int:
 	return(script.get_property(SP.KEY_MODIFICATION))
 
 
@@ -317,7 +317,6 @@ func autoplay_card(script: ScriptTask) -> int:
 	for card in script.subjects:
 		if not costs_dry_run():
 			# We store this to send it later with a signal
-			var previous_parent = card.get_parent()
 			var prev_pos = card.global_position
 			card.get_parent().remove_child(card)
 			cfc.NMAP.board.add_child(card)

@@ -40,8 +40,8 @@ func continue_encounter(key) -> void:
 			globals.player.pathos.release_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, released_reward)
 			globals.player.pathos.repress_pathos(
 					Terms.RUN_ACCUMULATION_NAMES.enemy, 
-					globals.player.pathos.get_progression_average(
-						Terms.RUN_ACCUMULATION_NAMES.enemy) * 2)
+					int(globals.player.pathos.get_progression_average(
+						Terms.RUN_ACCUMULATION_NAMES.enemy) * 2))
 		"leave":
 			var released_penaly = round(
 					globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.enemy)
@@ -50,6 +50,6 @@ func continue_encounter(key) -> void:
 			globals.player.pathos.release_pathos(Terms.RUN_ACCUMULATION_NAMES.enemy, -released_penaly)
 			globals.player.pathos.repress_pathos(
 					Terms.RUN_ACCUMULATION_NAMES.nce, 
-					globals.player.pathos.get_progression_average(
-						Terms.RUN_ACCUMULATION_NAMES.nce) * 2)
+					int(globals.player.pathos.get_progression_average(
+						Terms.RUN_ACCUMULATION_NAMES.nce) * 2))
 	globals.journal.display_nce_rewards(nce_result_fluff[key])

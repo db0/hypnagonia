@@ -32,9 +32,9 @@ func _ready() -> void:
 			# warning-ignore:return_value_discarded
 			turn.connect(turn_signal, self, "_on_" + turn_signal)
 	setup(artifact_object.definition, artifact_object.canonical_name)
-# warning-ignore:return_value_discarded
+	# warning-ignore:return_value_discarded
 	artifact_object.connect("removed", self, "_on_artifact_removed")
-# warning-ignore:return_value_discarded
+	# warning-ignore:return_value_discarded
 	artifact_object.connect("counter_modified", self, "_on_artifact_counter_modified")
 
 

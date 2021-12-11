@@ -41,15 +41,19 @@ func _ready() -> void:
 			_pathos_details_list.add_child(pinfo)
 			pathos_infos[entry] = pinfo
 			pinfo.setup(entry)
-# warning-ignore:return_value_discarded
+	# warning-ignore:return_value_discarded
 	globals.player.connect("artifact_added", self, "_on_artifact_added")
 	_init_artifacts()
 	_version.text = CFConst.GAME_VERSION
-# warning-ignore:return_value_discarded
+	# warning-ignore:return_value_discarded
 	get_viewport().connect("size_changed",self,"_on_Viewport_size_changed")
+	# warning-ignore:return_value_discarded
 	globals.player.connect("health_changed", self, "_update_health_label")
+	# warning-ignore:return_value_discarded
 	globals.player.deck.connect("card_added", self, "_update_deck_count")
+	# warning-ignore:return_value_discarded
 	globals.player.deck.connect("card_removed", self, "_update_deck_count")
+	# warning-ignore:return_value_discarded
 	globals.encounters.connect("encounter_changed", self, "_update_encounter_label")
 	_update_deck_count()
 	_update_encounter_label(globals.encounters.current_act.get_act_name(), globals.encounters.encounter_number)
@@ -137,7 +141,7 @@ func _update_encounter_label(act_name, encounter_number) -> void:
 	_encounter_label.text = '%s, Encounter %s' % [act_name, encounter_number]
 
 
-func _update_deck_count() -> void:
+func _update_deck_count(_card = null) -> void:
 	_deck_button.text = str(globals.player.deck.count_cards())
 
 
