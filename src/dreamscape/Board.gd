@@ -202,7 +202,7 @@ func load_deck() -> void:
 		NewGameMenu.randomize_aspect_choices()
 		cfc.game_rng_seed = CFUtils.generate_random_seed()
 		globals.player.setup()
-		globals.encounters.setup()
+		globals.encounters.prepare_next_act()
 	for card in globals.player.deck.instance_cards():
 		cfc.NMAP.deck.add_child(card)
 		#card.set_is_faceup(false,true)

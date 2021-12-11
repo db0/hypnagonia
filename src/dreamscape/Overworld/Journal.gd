@@ -87,6 +87,10 @@ func display_boss_rewards(reward_text: String) -> void:
 	_reveal_entry(reward_journal, true, "boss_card_draft")
 	if globals.player.deck.get_upgradeable_cards().size():
 		_reveal_entry(upgrade_journal, true)
+	globals.encounters.prepare_next_act(self)
+
+
+func end_dev_version() -> void:
 	proceed.bbcode_text = "And I woke up from the most restful sleep I had in months!\n\n"\
 		+ "[b]Note from Developer:[/b]\nThanks for playing this early version of Hypnagonia. This is all we have at the moment. "\
 		+ "Please check back regularly for new updates! And remember, we're actively looking for collaborators.\n"\
@@ -96,6 +100,11 @@ func display_boss_rewards(reward_text: String) -> void:
 	# warning-ignore:return_value_discarded
 	proceed.connect("meta_clicked", self, "_on_proceed_clicked")
 	_reveal_entry(proceed, false)
+
+
+func proceed_to_next_act() -> void:
+	proceed.bbcode_text = _get_entry_texts('ACT_CHANGE_TEXTS')
+	_reveal_entry(proceed, true)
 
 
 func display_loss() -> void:
@@ -130,7 +139,7 @@ func unset_shader() -> void:
 	page_shader.visible = false
 
 
-# Adds more choices to the journal. 
+# Adds more choices to the journal.
 # Choices keys passed in the disabled_choices will not be clickable using gui_input
 func add_nested_choices(nested_choices: Dictionary, disabled_choices := []) -> void:
 	var nested_choices_scene := NESTED_CHOICES_SCENE.instance()
@@ -201,8 +210,8 @@ func _on_choice_pressed(encounter: SingleEncounter, rich_text_choice: JournalCho
 
 
 func _reveal_entry(
-		rich_text_node: RichTextLabel, 
-		connect_rte_signals := false, 
+		rich_text_node: RichTextLabel,
+		connect_rte_signals := false,
 		extra_gui_input_args = null) -> void:
 	pre_highlight_bbcode_texts[rich_text_node] = rich_text_node.bbcode_text
 	rich_text_node.show()
@@ -270,14 +279,9 @@ func _on_rte_gui_input(event, rt_label: RichTextLabel, type = 'card_draft') -> v
 				artifact_choice.display(type)
 				artifact_journal.bbcode_text = "[color=grey]" + pre_highlight_bbcode_texts[rt_label] + "[/color]"
 			"Proceed":
-				if globals.current_encounter as BossEncounter:
-					SoundManager.play_se('book_close')
-					# warning-ignore:return_value_discarded
-					globals.quit_to_main()
-				else:
-					SoundManager.play_se(Sounds.get_next_journal_page_sound())
-					# warning-ignore:return_value_discarded
-					get_tree().change_scene(CFConst.PATH_CUSTOM + 'Overworld/Journal.tscn')
+				SoundManager.play_se(Sounds.get_next_journal_page_sound())
+				# warning-ignore:return_value_discarded
+				get_tree().change_scene(CFConst.PATH_CUSTOM + 'Overworld/Journal.tscn')
 
 
 func _get_intro() -> String:
@@ -306,6 +310,7 @@ func _on_proceed_clicked(_meta: String) -> void:
 			# warning-ignore:return_value_discarded
 			OS.shell_open("https://matrix.to/#/#hypnagonia:matrix.org")
 		"main_menu":
+			SoundManager.play_se('book_close')
 			# warning-ignore:return_value_discarded
 			globals.quit_to_main()
 
@@ -329,6 +334,7 @@ func _input(event):
 		var debug_encounters = [
 			EnemyEncounter.new(Act1.Baby, "hard"),
 			preload("res://src/dreamscape/Run/NCE/Act1/TheCandyman.gd").new(),
+			BossEncounter.new(globals.encounters.current_act.BOSSES[globals.encounters.boss_name], globals.encounters.boss_name)
 #			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
 		]
 		for encounter in debug_encounters:
@@ -337,3 +343,4 @@ func _input(event):
 			journal_choice.connect("pressed", self, "_on_choice_pressed", [encounter, journal_choice])
 			_reveal_entry(journal_choice)
 #		print_debug(SoundManager._get_all_playing_type_steams('BGM'))
+

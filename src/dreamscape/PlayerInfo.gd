@@ -129,7 +129,10 @@ func _update_health_label() -> void:
 
 
 func _update_encounter_label() -> void:
-	_encounter_label.text = 'Encounter ' + str(globals.encounters.encounter_number)
+	_encounter_label.text = '%s, Encounter %s' % [
+			globals.encounters.current_act.get_act_name(),
+			str(globals.encounters.encounter_number)
+	]
 
 
 func _update_deck_count() -> void:

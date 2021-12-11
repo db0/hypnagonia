@@ -77,7 +77,7 @@ func start_new_game() -> void:
 	SoundManager.play_se('click')
 	cfc.game_rng_seed = CFUtils.generate_random_seed()
 	globals.player.setup()
-	globals.encounters.setup()
+	globals.encounters.prepare_next_act()
 	get_parent().menu_tween.interpolate_property(get_parent().get_node("FadeToBlack"),
 			'modulate:a', 0, 1, 1,
 			Tween.TRANS_SINE, Tween.EASE_IN)

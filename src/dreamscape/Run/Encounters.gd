@@ -7,10 +7,11 @@ const choices_chances = [3,2,2,2,2,2,1,1,1,1,1]
 # fallback to this one only.
 const fallback_encounter = Terms.RUN_ACCUMULATION_NAMES.enemy
 
-var current_act = Act1
-var remaining_enemies = current_act.ENEMIES.duplicate(true)
-var remaining_elites = current_act.ELITES.duplicate(true)
-var remaining_nce = current_act.NCE.duplicate(true)
+var available_acts := [Act1, Act2]
+var current_act
+var remaining_enemies : Array
+var remaining_elites : Array
+var remaining_nce : Array
 var boss_name : String
 var current_encounter
 var deep_sleeps := 0
@@ -18,7 +19,16 @@ var shop_deck_removals := 0
 var encounter_number := 0
 var run_changes : RunChanges
 
-func setup() -> void:
+
+# Loads the next act from the list and prepares the encounters for it
+func prepare_next_act(current_journal = null) -> void:
+	if not available_acts.size():
+		globals.journal.end_dev_version()
+		return
+	current_act = available_acts.pop_front()
+	remaining_enemies = current_act.ENEMIES.duplicate(true)
+	remaining_elites = current_act.ELITES.duplicate(true)
+	remaining_nce = current_act.NCE.duplicate(true)
 	CFUtils.shuffle_array(remaining_enemies)
 	CFUtils.shuffle_array(remaining_elites)
 	CFUtils.shuffle_array(remaining_nce)
@@ -26,6 +36,8 @@ func setup() -> void:
 	CFUtils.shuffle_array(boss_choices)
 	boss_name = boss_choices[0]
 	run_changes = RunChanges.new(self)
+	if current_journal:
+		current_journal.proceed_to_next_act()
 
 
 func generate_journal_choices() -> Array:
@@ -130,4 +142,3 @@ func _get_next_nce() -> NonCombatEncounter:
 	# as we might have multiple NCEs of the same name, to increase their chances of appearing
 	remaining_nce.erase(next_nce)
 	return(next_nce.new())
-

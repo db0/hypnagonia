@@ -548,4 +548,4 @@ const NCE := [
 ]
 
 static func get_act_name() -> String:
-	return("Act1")
+	return("Early Night")
