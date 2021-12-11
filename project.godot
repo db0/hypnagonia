@@ -79,6 +79,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/ArtifactPrep.gd"
 }, {
+"base": "CenterContainer",
+"class": "ArtifactRepresentation",
+"language": "GDScript",
+"path": "res://src/dreamscape/MainMenu/ArtifactRepresentation.gd"
+}, {
+"base": "ObjectInfoList",
+"class": "ArtifactsList",
+"language": "GDScript",
+"path": "res://src/dreamscape/MainMenu/ArtifactsList.gd"
+}, {
 "base": "Reference",
 "class": "Aspects",
 "language": "GDScript",
@@ -434,6 +444,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/core/OverridableUtils.gd"
 }, {
+"base": "HBoxContainer",
+"class": "ObjectInfoList",
+"language": "GDScript",
+"path": "res://src/dreamscape/MainMenu/PopupList.gd"
+}, {
 "base": "Reference",
 "class": "Pathos",
 "language": "GDScript",
@@ -564,7 +579,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/MainMenu/TagRepresentation.gd"
 }, {
-"base": "HBoxContainer",
+"base": "ObjectInfoList",
 "class": "TagsList",
 "language": "GDScript",
 "path": "res://src/dreamscape/MainMenu/TagsList.gd"
@@ -624,6 +639,8 @@ _global_script_class_icons={
 "ArtifactDefinitions": "",
 "ArtifactObject": "",
 "ArtifactPrep": "",
+"ArtifactRepresentation": "",
+"ArtifactsList": "",
 "Aspects": "",
 "Board": "",
 "BoardPlacementGrid": "",
@@ -695,6 +712,7 @@ _global_script_class_icons={
 "NewGameMenu": "",
 "NonCombatEncounter": "",
 "OVUtils": "",
+"ObjectInfoList": "",
 "Pathos": "",
 "Perturbations": "",
 "Pile": "",

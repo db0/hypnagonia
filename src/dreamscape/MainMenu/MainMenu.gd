@@ -112,19 +112,19 @@ func switch_to_main_menu(tab: Control) -> void:
 	menu_tween.start()
 
 
-
 func _on_DeckBuilder_Back_pressed() -> void:
 	switch_to_main_menu(card_library)
 
 
 func _on_Menu_resized() -> void:
-	for tab in [main_menu, card_library, new_game]:
+	for tab in [main_menu, card_library, new_game, settings]:
 		if is_instance_valid(tab):
 			tab.rect_size = get_viewport().size
 			if tab.rect_position.x < 0.0:
 					tab.rect_position.x = -get_viewport().size.x
 			elif tab.rect_position.x > 0.0:
 					tab.rect_position.x = get_viewport().size.x
+
 
 func _input(event):
 	if event.is_action_pressed("init_debug_game"):

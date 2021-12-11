@@ -45,10 +45,10 @@ const ARCHETYPES:= {
 	},
 }
 
-static func get_archetype_value(archetype: String, key: String):
+static func get_archetype_value(archetype: String, key: String, default = null):
 	for type in ARCHETYPES:
 		if ARCHETYPES[type]["Dictionary"].has(archetype):
-			return(ARCHETYPES[type]["Dictionary"][archetype].get(key))
+			return(ARCHETYPES[type]["Dictionary"][archetype].get(key, default))
 
 
 static func get_all_archetypes_list(type: String) -> Array:

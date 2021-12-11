@@ -32,6 +32,7 @@ func setup() -> void:
 	for group in deck_groups:
 		# Each deck group can modify the player's max health
 		health += Aspects[group.to_upper()][deck_groups[group]].get(Terms.PLAYER_TERMS.health,0)
+		# Each deck group might provide one or more starting artifacts
 		for artifact_name in Aspects[group.to_upper()][deck_groups[group]].get("Starting Artifacts", []):
 			add_artifact(artifact_name.canonical_name)
 	deck.assemble_starting_deck()

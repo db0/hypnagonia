@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/dreamscape/MainMenu/NewGame.gd" type="Script" id=1]
 [ext_resource path="res://src/dreamscape/MainMenu/Archetype.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/dreamscape/MainMenu/StartingCards.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/dreamscape/MainMenu/TagsList.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/dreamscape/MainMenu/ArtifactsList.tscn" type="PackedScene" id=5]
 
 [node name="NewGame" type="PanelContainer"]
 anchor_right = 1.0
@@ -224,7 +225,6 @@ rect_min_size = Vector2( 400, 50 )
 text = "Back"
 
 [node name="ChoicePopup" type="PopupPanel" parent="."]
-visible = true
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1448.0
@@ -243,9 +243,8 @@ __meta__ = {
 
 [node name="VBC" type="VBoxContainer" parent="ChoicePopup/CC"]
 margin_left = 316.0
-margin_top = 42.0
 margin_right = 1116.0
-margin_bottom = 836.0
+margin_bottom = 878.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -256,10 +255,17 @@ margin_bottom = 14.0
 text = "Choose Type"
 align = 1
 
-[node name="CC" type="CenterContainer" parent="ChoicePopup/CC/VBC"]
+[node name="Tags" parent="ChoicePopup/CC/VBC" instance=ExtResource( 4 )]
 margin_top = 18.0
 margin_right = 800.0
-margin_bottom = 408.0
+margin_bottom = 98.0
+
+[node name="Curios" parent="ChoicePopup/CC/VBC" instance=ExtResource( 5 )]
+
+[node name="CC" type="CenterContainer" parent="ChoicePopup/CC/VBC"]
+margin_top = 102.0
+margin_right = 800.0
+margin_bottom = 492.0
 
 [node name="ChoiceContainer" type="GridContainer" parent="ChoicePopup/CC/VBC/CC"]
 margin_left = 265.0
@@ -270,11 +276,6 @@ custom_constants/hseparation = 20
 columns = 5
 
 [node name="Archetype" parent="ChoicePopup/CC/VBC/CC/ChoiceContainer" instance=ExtResource( 2 )]
-
-[node name="Tags" parent="ChoicePopup/CC/VBC" instance=ExtResource( 4 )]
-margin_top = 412.0
-margin_right = 800.0
-margin_bottom = 492.0
 
 [node name="StartingCardsLabel" type="Label" parent="ChoicePopup/CC/VBC"]
 margin_top = 496.0
@@ -305,8 +306,9 @@ __meta__ = {
 }
 
 [node name="Tags" parent="StartingCardsPopup/VBC" instance=ExtResource( 4 )]
-margin_right = 1433.0
-margin_bottom = 80.0
+
+[node name="Curios" parent="StartingCardsPopup/VBC" instance=ExtResource( 5 )]
+visible = false
 
 [node name="StartingCards" parent="StartingCardsPopup/VBC" instance=ExtResource( 3 )]
 margin_top = 84.0
@@ -317,5 +319,5 @@ rect_min_size = Vector2( 0, 280 )
 [connection signal="pressed" from="VBC/ControlButtons/VBC/StartingCards" to="." method="_on_StartingCards_pressed"]
 [connection signal="pressed" from="VBC/ControlButtons/VBC/Randomize" to="." method="_on_Randomize_pressed"]
 [connection signal="pressed" from="VBC/ControlButtons/VBC/Start" to="." method="_on_Start_pressed"]
-[connection signal="popup_hide" from="ChoicePopup" to="." method="_on_ChoicePopup_popup_hide"]
+[connection signal="popup_hide" from="ChoicePopup" to="." method="_on_popup_hide"]
 [connection signal="popup_hide" from="StartingCardsPopup" to="." method="_on_popup_hide"]
