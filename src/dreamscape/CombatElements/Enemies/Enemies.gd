@@ -47,7 +47,7 @@ const FEARMONGER:= {
 			"reshuffle": false,
 		},
 		{
-			"intent_scripts": ["Stare","Perplex:4"],
+			"intent_scripts": ["Perplex:4","Stare"],
 			"reshuffle": true,
 		},
 	],

@@ -58,7 +58,7 @@ func get_scripts(intent_name: String) -> Dictionary:
 				"object_count": 1,
 				"tags": ["Intent"],
 				"icon": preload("res://assets/icons/alien-stare.png"),
-				"description": "Stare: It's not blinking..."
+				"description": "Stare: [i]It's not blinking...[/i]"
 			}
 		],
 		"Delight": [
@@ -69,7 +69,7 @@ func get_scripts(intent_name: String) -> Dictionary:
 				"modification": 1,
 				"tags": ["Intent", "Delayed"],
 				"icon": preload("res://assets/icons/smitten.png"),
-				"description": "Delightful: Aww, it's adorable!"
+				"description": "Delightful: [i]Aww, it's adorable![/i]"
 			}
 		],
 		"Lethargy": [
@@ -81,7 +81,8 @@ func get_scripts(intent_name: String) -> Dictionary:
 				"show_modification_in_intent": true,
 				"tags": ["Intent"],
 				"icon": preload("res://assets/icons/shrug.png"),
-				"description": "Lethargy: Next turn you will have this amount less {immersion}"
+				"description": "Lethargy: Next turn you will have this amount less {immersion}\n"\
+						+ "[i]I need to see behind it...[/i]"
 			}
 		],
 		"Evident": [

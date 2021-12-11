@@ -360,7 +360,7 @@ func _input(event):
 		# warning-ignore:unused_variable
 		var torment2 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 		# warning-ignore:unused_variable
-		var torment3 = spawn_enemy(EnemyDefinitions.GASLIGHTER)
+		var torment3 = spawn_enemy(EnemyDefinitions.FEARMONGER)
 #		var torment2 = spawn_enemy("Gaslighter")
 #		torment2.rect_position = Vector2(800,100)
 #		torment3.rect_position = Vector2(200,300)
