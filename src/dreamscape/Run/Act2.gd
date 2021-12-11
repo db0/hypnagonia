@@ -541,7 +541,6 @@ const NCE := [
 	preload("res://src/dreamscape/Run/NCE/Act1/SleepOfOblivion.gd"),
 	preload("res://src/dreamscape/Run/NCE/Act1/MultipleOptions.gd"),
 	preload("res://src/dreamscape/Run/NCE/Act1/PathosForAnxiety.gd"),
-	preload("res://src/dreamscape/Run/NCE/Act1/TheCandyman.gd"),
 	preload("res://src/dreamscape/Run/NCE/Act1/Dollmaker.gd"),
 	preload("res://src/dreamscape/Run/NCE/Act1/Greed.gd"),
 	preload("res://src/dreamscape/Run/NCE/Act1/PopPsychologist1.gd"),

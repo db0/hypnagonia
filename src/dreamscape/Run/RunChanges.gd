@@ -6,6 +6,9 @@ extends Reference
 # NCEs which have been unlocked to appear during this run
 var unlocked_nce := {}
 var encounters
+# Stores which NCEs the player has already seen, to avoid replaying them
+# technically only relevant for AllActs NCEs
+var used_nce := []
 
 func _init(_encounters) -> void:
 	encounters = _encounters
@@ -38,3 +41,14 @@ func get_unlocked_nces(act: String) -> Array:
 			for _iter in range(unl_nce.chance_multiplier):
 				ret_nces.append(unl_nce.nce)
 	return(ret_nces)
+
+
+func is_nce_used(nce: GDScript) -> bool:
+	if nce in used_nce:
+		return(true)
+	return(false)
+	
+
+func record_nce_used(nce: GDScript) -> void:
+	if not nce in used_nce:
+		used_nce.append(nce)

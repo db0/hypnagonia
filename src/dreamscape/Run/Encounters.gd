@@ -19,7 +19,7 @@ var current_encounter
 var deep_sleeps := 0
 var shop_deck_removals := 0
 var encounter_number := 0 setget set_encounter_number
-var run_changes : RunChanges
+var run_changes := RunChanges.new(self)
 
 
 # Loads the next act from the list and prepares the encounters for it
@@ -31,13 +31,17 @@ func prepare_next_act(current_journal = null) -> void:
 	remaining_enemies = current_act.ENEMIES.duplicate(true)
 	remaining_elites = current_act.ELITES.duplicate(true)
 	remaining_nce = current_act.NCE.duplicate(true)
+	for nce in AllActs.NCE:
+		if not run_changes.is_nce_used(nce):
+			remaining_nce.append(nce)
+#	for nce in remaining_nce:
+#		print(nce.get_path())
 	CFUtils.shuffle_array(remaining_enemies)
 	CFUtils.shuffle_array(remaining_elites)
 	CFUtils.shuffle_array(remaining_nce)
 	var boss_choices = current_act.BOSSES.keys()
 	CFUtils.shuffle_array(boss_choices)
 	boss_name = boss_choices[0]
-	run_changes = RunChanges.new(self)
 	if current_journal:
 		current_journal.proceed_to_next_act()
 
@@ -136,13 +140,14 @@ func _get_journal_options(requested_options := 3) -> Array:
 func _get_next_nce() -> NonCombatEncounter:
 	if remaining_nce.empty():
 		remaining_nce = current_act.NCE.duplicate(true)
-		remaining_nce += run_changes.get_unlocked_nces("Act1")
+		remaining_nce += run_changes.get_unlocked_nces(current_act.get_act_name())
 		CFUtils.shuffle_array(remaining_nce)
 	# TODO: Adjust the Act dynamically
 	var next_nce = remaining_nce.pop_back()
 	# Even though we do a pop, we also erase any other copies of the same NCE in the list
 	# as we might have multiple NCEs of the same name, to increase their chances of appearing
 	remaining_nce.erase(next_nce)
+	run_changes.record_nce_used(next_nce)
 	return(next_nce.new())
 
 

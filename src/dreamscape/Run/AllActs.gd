@@ -2,6 +2,7 @@ class_name AllActs
 extends Act
 
 const NCE := [
+	preload("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd"),
 ]
 
 # These NCE need special triggers to be put into general rotation
