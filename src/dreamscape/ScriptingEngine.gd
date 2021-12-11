@@ -228,6 +228,12 @@ func assign_defence(script: ScriptTask) -> int:
 				script.owner)
 	return(retcode)
 
+
+# For now just returns the unmodified modification as it's only used by the Lethargy intent
+func calculate_apply_effect(subject: CombatEntity, script: ScriptTask) -> int:
+	return(script.get_property(SP.KEY_MODIFICATION))
+
+
 func apply_effect(script: ScriptTask) -> int:
 	var retcode: int
 	var modification: int

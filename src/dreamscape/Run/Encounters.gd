@@ -7,9 +7,10 @@ const choices_chances = [3,2,2,2,2,2,1,1,1,1,1]
 # fallback to this one only.
 const fallback_encounter = Terms.RUN_ACCUMULATION_NAMES.enemy
 
-var remaining_enemies := Act1.ENEMIES.duplicate(true)
-var remaining_elites := Act1.ELITES.duplicate(true)
-var remaining_nce := Act1.NCE.duplicate(true)
+var current_act = Act1
+var remaining_enemies = current_act.ENEMIES.duplicate(true)
+var remaining_elites = current_act.ELITES.duplicate(true)
+var remaining_nce = current_act.NCE.duplicate(true)
 var boss_name : String
 var current_encounter
 var deep_sleeps := 0
@@ -21,7 +22,7 @@ func setup() -> void:
 	CFUtils.shuffle_array(remaining_enemies)
 	CFUtils.shuffle_array(remaining_elites)
 	CFUtils.shuffle_array(remaining_nce)
-	var boss_choices := Act1.BOSSES.keys()
+	var boss_choices = current_act.BOSSES.keys()
 	CFUtils.shuffle_array(boss_choices)
 	boss_name = boss_choices[0]
 	run_changes = RunChanges.new(self)
@@ -31,10 +32,10 @@ func generate_journal_choices() -> Array:
 	# Until we have enough enemies to be able to provide enough different encounters
 	# for each torment encounter, we add this code to reshuffle the pile if we run out
 	if remaining_enemies.empty():
-		remaining_enemies = Act1.ENEMIES.duplicate(true)
+		remaining_enemies = current_act.ENEMIES.duplicate(true)
 		CFUtils.shuffle_array(remaining_enemies)
 	if remaining_elites.empty():
-		remaining_elites = Act1.ELITES.duplicate(true)
+		remaining_elites = current_act.ELITES.duplicate(true)
 		CFUtils.shuffle_array(remaining_elites)
 	var journal_options := []
 	if globals.encounters.encounter_number != 1:
@@ -85,7 +86,7 @@ func generate_journal_choices() -> Array:
 					difficulty = "hard"
 				journal_options.append(EliteEncounter.new(next_enemy, difficulty))
 			Terms.RUN_ACCUMULATION_NAMES.boss:
-				journal_options.append(BossEncounter.new(Act1.BOSSES[boss_name], boss_name))
+				journal_options.append(BossEncounter.new(current_act.BOSSES[boss_name], boss_name))
 	return(journal_options)
 
 
@@ -120,7 +121,7 @@ func _get_journal_options(requested_options := 3) -> Array:
 
 func _get_next_nce() -> NonCombatEncounter:
 	if remaining_nce.empty():
-		remaining_nce = Act1.NCE.duplicate(true)
+		remaining_nce = current_act.NCE.duplicate(true)
 		remaining_nce += run_changes.get_unlocked_nces("Act1")
 		CFUtils.shuffle_array(remaining_nce)
 	# TODO: Adjust the Act dynamically

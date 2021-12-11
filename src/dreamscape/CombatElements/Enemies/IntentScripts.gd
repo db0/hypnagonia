@@ -72,6 +72,18 @@ func get_scripts(intent_name: String) -> Dictionary:
 				"description": "Delightful: Aww, it's adorable!"
 			}
 		],
+		"Lethargy": [
+			{
+				"name": "apply_effect",
+				"effect_name": Terms.ACTIVE_EFFECTS.drain.name,
+				"subject": "dreamer",
+				"modification": null,
+				"show_modification_in_intent": true,
+				"tags": ["Intent"],
+				"icon": preload("res://assets/icons/shrug.png"),
+				"description": "Lethargy: Next turn you will have this amount less {immersion}"
+			}
+		],
 		"Evident": [
 			{
 				"name": "modify_damage",

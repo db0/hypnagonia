@@ -12,8 +12,8 @@ func _init(_encounters) -> void:
 
 # Unlocks an NCE to be found in later encounters
 func unlock_nce(nce_name: String) -> void:
-	# We go througheach act class we know, and look for the NCE name
-	for act in [Act1, AllActs]:
+	# We go through each act class we know, and look for the NCE name
+	for act in [Act1, Act2, AllActs]:
 		var act_name = act.get_act_name()
 		if "LOCKED_NCE" in act:
 			if act["LOCKED_NCE"].has(nce_name):

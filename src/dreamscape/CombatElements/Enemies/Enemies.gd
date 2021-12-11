@@ -231,11 +231,11 @@ const THE_LIGHT_CALLING := {
 	"Health": 50,
 	"Intents": [
 		{
-			"intent_scripts": ["Debuff:2:drain","Stress:3"],
+			"intent_scripts": ["Lethargy:2","Stress:3"],
 			"reshuffle": false,
 		},
 		{
-			"intent_scripts": ["Debuff:1:drain","Stress:8"],
+			"intent_scripts": ["Lethargy:1","Stress:8"],
 			"reshuffle": true,
 		},
 		{

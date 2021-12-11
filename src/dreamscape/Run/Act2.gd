@@ -1,4 +1,4 @@
-class_name Act1
+class_name Act2
 extends Act
 
 """
@@ -548,4 +548,4 @@ const NCE := [
 ]
 
 static func get_act_name() -> String:
-	return("Act1")
+	return("Act2")

@@ -326,6 +326,10 @@ func _fade_to_transparent() -> void:
 
 
 func _recalculate_predictions() -> void:
+	# We do not want to recalculate for every card discard and refill
+	# rather we'll recalculate once, once the player's turn starts again
+	if end_turn.disabled:
+		return
 	yield(get_tree(), "idle_frame")
 	var snapshot_id = CFUtils.randi_range(1,100000)
 	get_tree().call_group_flags(get_tree().GROUP_CALL_REALTIME, "combat_effects", "take_snapshot", snapshot_id)
@@ -354,7 +358,7 @@ func _input(event):
 		# warning-ignore:unused_variable
 #		var torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
 		# warning-ignore:unused_variable
-		var torment2 = spawn_enemy(EnemyDefinitions.BABY)
+		var torment2 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 		# warning-ignore:unused_variable
 		var torment3 = spawn_enemy(EnemyDefinitions.GASLIGHTER)
 #		var torment2 = spawn_enemy("Gaslighter")

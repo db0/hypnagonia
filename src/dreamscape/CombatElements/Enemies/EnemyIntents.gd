@@ -138,6 +138,9 @@ func _display_intents(new_intents: Dictionary) -> void:
 				else:
 					intent_scripts[0].modification = int(intent_array[1])
 #				print_debug("Set Intent Value: " + intent_array[1])
+			# If there is a third value in the intent_array, it means this is
+			# an add/remove effect intent. The name of the effect is the
+			# third field in the name
 			if intent_array.size() > 2:
 				if intent_scripts[0].has("effect_name"):
 					intent_scripts[0].effect_name = Terms.ACTIVE_EFFECTS[intent_array[2]].name
