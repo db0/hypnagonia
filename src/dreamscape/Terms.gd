@@ -414,6 +414,11 @@ const GENERIC_TAGS := {
 		"icon": preload("res://assets/icons/skills.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/skills.png",
 		"generic_description": "{effect_name} ({effect_icon}): Increases {anxiety} when played."},
+	"pathos": {
+		"name": "Pathos",
+		"icon": preload("res://assets/icons/drama-masks.png"),
+		"rich_text_icon": "res://fonts/rich_text_icons/drama-masks.png",
+		"generic_description": "{effect_name} ({effect_icon}): Modifies Pathos when played."},
 }
 
 

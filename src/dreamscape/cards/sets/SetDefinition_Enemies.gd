@@ -731,4 +731,63 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"Traffic Jam": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.pathos.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "Gain {repressed_amount} repressed Frustration.\n"\
+				+ "Gain {released_amount} released Frustration\n"\
+				+ "{forget}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["forget", "interpretation"],
+		"_amounts": {
+			"damage_amount": 10,
+			"repressed_amount": 10,
+			"released_amount": 10,
+		},
+		"_upgrade_threshold": 12,
+		"_upgrades": [
+			"% Traffic Jam %",
+			"+ Traffic Jam +",
+		],
+	},
+	"% Traffic Jam %": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.pathos.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "Gain {repressed_amount} repressed Frustration.\n"\
+				+ "Gain {released_amount} released Frustration\n"\
+				+ "{forget}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["forget", "interpretation"],
+		"_amounts": {
+			"damage_amount": 11,
+			"repressed_amount": 5,
+			"released_amount": 15,
+		},
+		"_is_upgrade": true,
+	},
+	"+ Traffic Jam +": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.pathos.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "Gain {repressed_amount} repressed Frustration.\n"\
+				+ "Gain {released_amount} released Frustration\n"\
+				+ "{forget}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["forget", "interpretation"],
+		"_amounts": {
+			"damage_amount": 15,
+			"repressed_amount": 10,
+			"released_amount": 10,
+		},
+		"_is_upgrade": true,
+	},
+
 }

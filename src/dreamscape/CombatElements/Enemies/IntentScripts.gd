@@ -95,5 +95,29 @@ func get_scripts(intent_name: String) -> Dictionary:
 				"description": "Evident: This will cause this Torment the specified amount of {damage}."
 			}
 		],
+		"Frustrate": [
+			{
+				"name": "modify_pathos",
+				"tags": ["Intent"],
+				"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
+				"pathos_type": "repressed",
+				"amount": null,
+				"icon": preload("res://assets/icons/traffic-cone.png"),
+				"description": "Frustrate: This will increase the dreamer's repressed frustration by the shown amount.\n"\
+						+ "[i]Every day the same deal...[/i]"
+			}
+		],
+		"Dishearten": [
+			{
+				"name": "modify_pathos",
+				"tags": ["Intent"],
+				"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
+				"pathos_type": "released",
+				"amount": null,
+				"icon": preload("res://assets/icons/traffic-cone.png"),
+				"description": "Dishearten: This will decrease the dreamer's released frustration by the shown amount.\n"\
+						+ "[i]I'll never make it in time...[/i]"
+			}
+		],
 	}
 	return(scripts.get(intent_name,{}))

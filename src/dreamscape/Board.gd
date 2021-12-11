@@ -361,7 +361,7 @@ func _input(event):
 		# warning-ignore:unused_variable
 #		var torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
 		# warning-ignore:unused_variable
-		var torment2 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
+		var torment2 = spawn_enemy(EnemyDefinitions.TRAFFICJAM)
 		# warning-ignore:unused_variable
 		var torment3 = spawn_enemy(EnemyDefinitions.FEARMONGER)
 #		var torment2 = spawn_enemy("Gaslighter")

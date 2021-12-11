@@ -587,6 +587,49 @@ const scripts := {
 			],
 		},
 	},
+	"Traffic Jam": {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"needs_subject": true,
+					"amount": {
+						"lookup_property": "_amounts",
+						"value_key": "damage_amount"
+					},
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					},],
+				},
+				{
+					"name": "modify_pathos",
+					"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
+					"pathos_type": "released",
+					"modification":  {
+						"lookup_property": "_amounts",
+						"value_key": "released_amount",
+					},
+				},
+				{
+					"name": "modify_pathos",
+					"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
+					"pathos_type": "repressed",
+					"modification":  {
+						"lookup_property": "_amounts",
+						"value_key": "repressed_amount",
+					},
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": "forgotten",
+					"tags": ["Played"],
+				},
+			],
+		},
+	},
 }
 
 # This fuction returns all the scripts of the specified card name.

@@ -1,6 +1,8 @@
 class_name EnemyDefinitions
 extends Reference
 
+
+## ACT 1
 const GASLIGHTER:= {
 	"Name": "Gaslighter",
 	"Type": "Abuse",
@@ -309,6 +311,32 @@ const BABY := {
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
 	"_texture": preload("res://assets/enemies/baby-face.png"),
+	"_character_art": "Delapouite"
+}
+
+## ACT 2
+const TRAFFICJAM := {
+	"Name": "Traffic Jam",
+	"Type": "Undefined",
+	"Health": 70,
+	"Intents": [
+		{
+			"intent_scripts": ["Stress:10", "Frustrate:10"],
+			"reshuffle": true,
+		},
+		{
+			"intent_scripts": ["Stress:8", "Dishearten:-5"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Perplex:12", "Dishearten:-3", "Frustrate:3"],
+			"reshuffle": false,
+		},
+	],
+	"_health_variability": 8,
+	"_texture_size_x": "120",
+	"_texture_size_y": "120",
+	"_texture": preload("res://assets/enemies/traffic-lights-red.png"),
 	"_character_art": "Delapouite"
 }
 #	"Spider": {
