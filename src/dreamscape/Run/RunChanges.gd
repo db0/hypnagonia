@@ -5,8 +5,9 @@ extends Reference
 
 # NCEs which have been unlocked to appear during this run
 var unlocked_nce := {}
+# The parent script which owns this reference
 var encounters
-# Stores which NCEs the player has already seen, to avoid replaying them
+# Stores which NCEs (Reference the player has already seen, to avoid replaying them
 # technically only relevant for AllActs NCEs
 var used_nce := []
 
@@ -43,12 +44,15 @@ func get_unlocked_nces(act: String) -> Array:
 	return(ret_nces)
 
 
+# Returns true is a NCE has been used during this run
+# Else returns false
 func is_nce_used(nce: GDScript) -> bool:
 	if nce in used_nce:
 		return(true)
 	return(false)
-	
 
+
+# Marks an NCE as used during this run
 func record_nce_used(nce: GDScript) -> void:
 	if not nce in used_nce:
 		used_nce.append(nce)

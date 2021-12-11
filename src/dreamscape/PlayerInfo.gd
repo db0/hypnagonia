@@ -57,6 +57,7 @@ func _ready() -> void:
 	globals.encounters.connect("encounter_changed", self, "_update_encounter_label")
 	_update_deck_count()
 	_update_encounter_label(globals.encounters.current_act.get_act_name(), globals.encounters.encounter_number)
+	_update_health_label()
 
 
 func _on_Settings_pressed() -> void:

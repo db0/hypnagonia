@@ -1,6 +1,7 @@
 extends Board
 
 signal battle_begun
+signal battle_ended
 
 const ENEMY_ENTITY_SCENE = preload("res://src/dreamscape/CombatElements/Enemies/EnemyEntity.tscn")
 
@@ -266,6 +267,7 @@ func complete_battle() -> void:
 	_fade_to_transparent()
 	yield(_tween, "tween_all_completed")
 	globals.current_encounter.end()
+	emit_signal("battle_ended")
 #	cfc.game_paused = true
 #	mouse_pointer.forget_focus()
 #	end_turn.disabled = true

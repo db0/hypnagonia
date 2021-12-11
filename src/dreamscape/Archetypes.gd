@@ -257,6 +257,9 @@ const ABUSIVE_RELATIONSHIP := {
 	"Artifacts": [
 		
 	],
+	"Starting Artifacts": [
+		ArtifactDefinitions.EndingHeal
+	],
 	"Perturbations": [
 		
 	],

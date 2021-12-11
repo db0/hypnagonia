@@ -41,6 +41,18 @@ const StartingHeal := {
 	},
 }
 
+const EndingHeal := {
+	"canonical_name": "EndingHeal",
+	"name": "EndingHeal",
+	"description": "{artifact_name}: At the end of each Ordeal, {relax} for {heal_amount}.",
+	"icon": preload("res://assets/icons/artifacts/glass-heart.png"),
+	"context": EffectContext.BATTLE,
+	"rarity": "Starting",
+	"amounts": {
+		"heal_amount": 6
+	},
+}
+
 const FirstPowerAttack := {
 	"canonical_name": "FirstPowerAttack",
 	"name": "FirstPowerAttack",
@@ -455,7 +467,7 @@ const RedWave := {
 	"amounts": {
 		"threshold": 4,
 		"defence_amount": 8
-	},	
+	},
 }
 const BlueWave := {
 	"canonical_name": "BlueWave",
@@ -467,7 +479,7 @@ const BlueWave := {
 	"amounts": {
 		"threshold": 4,
 		"damage_amount": 5
-	},	
+	},
 }
 const PurpleWave := {
 	"canonical_name": "PurpleWave",
@@ -479,7 +491,7 @@ const PurpleWave := {
 	"amounts": {
 		"threshold": 3,
 		"heal_amount": 4,
-	},	
+	},
 }
 
 
@@ -519,7 +531,7 @@ const GENERIC := [
 	PurpleWave,
 ]
 
-# Archetype-specific artifacts which only appear in runs in which 
+# Archetype-specific artifacts which only appear in runs in which
 # Their tied archetype is selected.
 const ARCHETYPE := [
 	ImproveThorns,
@@ -528,6 +540,7 @@ const ARCHETYPE := [
 	ImproveImpervious,
 	ImproveFortify,
 	StartingThorns,
+	EndingHeal,
 ]
 
 # These artifacts are only found in non-combat encounters
@@ -542,7 +555,7 @@ const ENCOUNTER := [
 # Finally a list of artifacts to exclude can be passes
 # Those would typically be artifacts already owned, or seen
 static func get_organized_artifacts(
-	purpose := "generic", 
+	purpose := "generic",
 	archetype_artifacts := [],
 	excluded_artifacts := []) -> Dictionary:
 	var ret_dict := {}
