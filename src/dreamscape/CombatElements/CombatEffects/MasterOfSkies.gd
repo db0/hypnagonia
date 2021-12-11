@@ -7,7 +7,6 @@ func _ready() -> void:
 func on_dreamer_effect_added(entity: CombatEntity, _trigger: String, details: Dictionary) -> void:
 	if details["effect_name"] == Terms.ACTIVE_EFFECTS.impervious.name\
 		and details[SP.TRIGGER_PREV_COUNT] < details[SP.TRIGGER_NEW_COUNT]:
-			var amount = stacks
 			var mastery = [
 				{
 					"name": "apply_effect",

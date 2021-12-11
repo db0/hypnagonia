@@ -1,11 +1,9 @@
 extends CenterContainer
 
 onready var back_button = $PC/VBC/HBoxContainer/Back
-onready var animate_in_hand = $PC/VBC/AnimateHand
 onready var focus_style = $PC/VBC/FocusStyle
 onready var fancy_movement = $PC/VBC/FancyAnimations
 onready var interrupt_music = $PC/VBC/InterruptMusic
-onready var recover_prebuilts = $PC/VBC/PreBuilts
 onready var main_vol_slider = $PC/VBC/MainVolSlider
 onready var music_vol_slider = $PC/VBC/MusicVolSlider
 

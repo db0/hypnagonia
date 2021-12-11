@@ -7,7 +7,7 @@ func get_effect_alteration(
 		script: ScriptTask, 
 		value: int, 
 		sceng, 
-		is_source := false, 
+		_is_source := false, 
 		_dry_run := true,
 		_subject: Node = null) -> int:
 	var stacks_amount = stacks

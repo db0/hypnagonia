@@ -114,6 +114,7 @@ func _get_intent_scripts(intent_name: String) -> Dictionary:
 
 
 func _get_elite_scripts(intent_name: String) -> Dictionary:
+# warning-ignore:unused_variable
 	var enraged_stacks: int
 	var vulnerable_stacks := 1
 	match combat_entity.get_property("_difficulty"):

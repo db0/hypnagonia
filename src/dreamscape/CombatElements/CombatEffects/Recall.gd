@@ -13,7 +13,7 @@ func _on_player_turn_ended(_turn: Turn) -> void:
 	yield(get_tree().create_timer(wait_time), "timeout")
 	while not cfc.NMAP.hand.is_hand_refilled:
 		yield(cfc.NMAP.hand, "hand_refilled")
-	for iter in range(stacks):
+	for _iter in range(stacks):
 		# If we don't have any more cards in the discard, we stop trying 
 		# to reshuffle them (to avoid retriggering reshuffle effects)
 		if not cfc.NMAP.discard.get_card_count():

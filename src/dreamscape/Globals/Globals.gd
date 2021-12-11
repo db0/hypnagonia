@@ -28,6 +28,7 @@ func reset() -> void:
 
 
 func quit_to_main() -> void:
+# warning-ignore:return_value_discarded
 	get_tree().change_scene(CFConst.PATH_CUSTOM + 'MainMenu/MainMenu.tscn')
 	cfc.quit_game()
 	reset()

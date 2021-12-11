@@ -2,6 +2,7 @@ class_name Player
 extends Reference
 
 signal artifact_added(artifact_name)
+signal health_changed(damage, health)
 
 var health: int = 90 setget set_health
 var damage: int = 0 setget set_damage
@@ -52,6 +53,7 @@ func set_damage(value) -> void:
 		damage = health
 	elif damage < 0:
 		damage = 0
+	emit_signal("health_changed", damage, health)
 
 
 func set_health(value) -> void:
@@ -60,6 +62,7 @@ func set_health(value) -> void:
 		health = 0
 	if damage > health:
 		damage = health
+	emit_signal("health_changed", damage, health)
 
 
 # Returns all card names of the chosen rarity among all the archetypes

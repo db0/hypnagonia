@@ -1,9 +1,10 @@
 extends CombatEffect
 
 func _ready():
+# warning-ignore:return_value_discarded
 	owning_entity.connect("entity_damaged", self, "_on_entity_damaged")
 
-func _on_entity_damaged(entity, _amount, trigger: Node, _tags: Array) -> void:
+func _on_entity_damaged(entity, _amount, _trigger: Node, _tags: Array) -> void:
 	if cfc.NMAP.board.turn.current_turn != cfc.NMAP.board.turn.Turns.PLAYER_TURN:
 		return
 	if entity_type != Terms.PLAYER:

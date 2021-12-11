@@ -1,9 +1,10 @@
 extends CombatEffect
 
 func _ready():
+# warning-ignore:return_value_discarded
 	owning_entity.connect("entity_damaged", self, "_on_entity_damaged")
 
-func _on_entity_damaged(_entity, amount, trigger: Node, _tags: Array) -> void:
+func _on_entity_damaged(_entity, amount, _trigger: Node, _tags: Array) -> void:
 	if entity_type != Terms.PLAYER:
 		return
 	if owning_entity.damage >= owning_entity.health:

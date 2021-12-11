@@ -56,6 +56,7 @@ func _ready() -> void:
 	_on_viewport_resized()
 # warning-ignore:return_value_discarded
 	cfc.connect("cache_cleared", self, '_recalculate_predictions')
+	player_info.connect_dreamer_signals(dreamer)
 #	begin_encounter()
 #
 func _process(_delta: float) -> void:

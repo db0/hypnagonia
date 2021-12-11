@@ -1,6 +1,8 @@
 class_name SingleRun
 extends Reference
 
+signal encounter_changed(act_name, encounter_number)
+
 # The chance to get this many choices for the next encounter
 const choices_chances = [3,2,2,2,2,2,1,1,1,1,1]
 # If none of the pathos have reached the threshold to select them as an encounter
@@ -16,7 +18,7 @@ var boss_name : String
 var current_encounter
 var deep_sleeps := 0
 var shop_deck_removals := 0
-var encounter_number := 0
+var encounter_number := 0 setget set_encounter_number
 var run_changes : RunChanges
 
 
@@ -50,7 +52,7 @@ func generate_journal_choices() -> Array:
 		remaining_elites = current_act.ELITES.duplicate(true)
 		CFUtils.shuffle_array(remaining_elites)
 	var journal_options := []
-	if globals.encounters.encounter_number != 1:
+	if encounter_number != 1:
 		globals.player.pathos.repress()
 	# Every journal page should have 1-3 options
 	# The change to get 3 or 2 options is less than getting only 1 option
@@ -142,3 +144,8 @@ func _get_next_nce() -> NonCombatEncounter:
 	# as we might have multiple NCEs of the same name, to increase their chances of appearing
 	remaining_nce.erase(next_nce)
 	return(next_nce.new())
+
+
+func set_encounter_number(value) -> void:
+	encounter_number = value
+	emit_signal("encounter_changed", current_act.get_act_name(), encounter_number)

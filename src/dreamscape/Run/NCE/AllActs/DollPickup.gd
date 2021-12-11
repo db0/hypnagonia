@@ -13,9 +13,6 @@ func begin() -> void:
 	.begin()
 	# Candy Colour BBCode
 	var ccbbc = "[color={ccode}]{ccolour}[/color]"
-	var dolls := []
-	var dolls_bbc := []
-	# Player gets 3 candy choices
 	var colours : Array = HConst.COLOUR_MAP2.keys()
 	var coloured_parts : = [
 		"eyes",

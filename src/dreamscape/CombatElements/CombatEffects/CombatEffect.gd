@@ -52,7 +52,7 @@ func _ready() -> void:
 
 func set_stacks(value: int, tags := ["Manual"]) -> void:
 	if value < 0:
-		value == 0
+		value = 0
 	owning_entity.emit_signal(
 			"effect_modified",
 			owning_entity,
