@@ -1,48 +1,7 @@
 class_name ActiveEffects
 extends GridContainer
 
-const EFFECTS := {
-	Terms.ACTIVE_EFFECTS.disempower.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Disempower.tscn"),
-	Terms.ACTIVE_EFFECTS.empower.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Empower.tscn"),
-	Terms.ACTIVE_EFFECTS.poison.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Poison.tscn"),
-	Terms.ACTIVE_EFFECTS.burn.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Burn.tscn"),
-	Terms.ACTIVE_EFFECTS.vulnerable.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Vulnerable.tscn"),
-	Terms.ACTIVE_EFFECTS.marked.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Marked.tscn"),
-	Terms.ACTIVE_EFFECTS.advantage.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Advantage.tscn"),
-	Terms.ACTIVE_EFFECTS.impervious.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Impervious.tscn"),
-	Terms.ACTIVE_EFFECTS.fortify.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Fortify.tscn"),
-	Terms.ACTIVE_EFFECTS.buffer.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Buffer.tscn"),
-	Terms.ACTIVE_EFFECTS.drain.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Drain.tscn"),
-	Terms.ACTIVE_EFFECTS.outrage.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Outrage.tscn"),
-	Terms.ACTIVE_EFFECTS.enraged.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Enraged.tscn"),
-	Terms.ACTIVE_EFFECTS.strengthen.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Strengthen.tscn"),
-	Terms.ACTIVE_EFFECTS.quicken.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Quicken.tscn"),
-	Terms.ACTIVE_EFFECTS.thorns.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Thorns.tscn"),
-	Terms.ACTIVE_EFFECTS.armor.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Armor.tscn"),
-	Terms.ACTIVE_EFFECTS.creative_block.name: preload("res://src/dreamscape/CombatElements/CombatEffects/CreativeBlock.tscn"),
-	Terms.ACTIVE_EFFECTS.delighted.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Delighted.tscn"),
-	# Concentation Effects
-	Terms.ACTIVE_EFFECTS.laugh_at_danger.name: preload("res://src/dreamscape/CombatElements/CombatEffects/LaughAtDanger.tscn"),
-	Terms.ACTIVE_EFFECTS.nothing_to_fear.name: preload("res://src/dreamscape/CombatElements/CombatEffects/NothingToFear.tscn"),
-	Terms.ACTIVE_EFFECTS.rubber_eggs.name: preload("res://src/dreamscape/CombatElements/CombatEffects/RubberEggs.tscn"),
-	Terms.ACTIVE_EFFECTS.nunclucks.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Nunclucks.tscn"),
-	Terms.ACTIVE_EFFECTS.unassailable.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Unassailable.tscn"),
-	Terms.ACTIVE_EFFECTS.master_of_skies.name: preload("res://src/dreamscape/CombatElements/CombatEffects/MasterOfSkies.tscn"),
-	Terms.ACTIVE_EFFECTS.zen_of_flight.name: preload("res://src/dreamscape/CombatElements/CombatEffects/ZenOfFlight.tscn"),
-	Terms.ACTIVE_EFFECTS.absurdity_unleashed.name: preload("res://src/dreamscape/CombatElements/CombatEffects/AbsurdityUnleashed.tscn"),
-	Terms.ACTIVE_EFFECTS.brilliance.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Brilliance.tscn"),
-	Terms.ACTIVE_EFFECTS.recall.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Recall.tscn"),
-	Terms.ACTIVE_EFFECTS.eureka.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Eureka.tscn"),
-	Terms.ACTIVE_EFFECTS.introspection.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Introspection.tscn"),
-	Terms.ACTIVE_EFFECTS.the_happy_place.name: preload("res://src/dreamscape/CombatElements/CombatEffects/TheHappyPlace.tscn"),
-	Terms.ACTIVE_EFFECTS.lash_out.name: preload("res://src/dreamscape/CombatElements/CombatEffects/LashOut.tscn"),
-	Terms.ACTIVE_EFFECTS.excuses.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Excuses.tscn"),
-	Terms.ACTIVE_EFFECTS.tolerance.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Tolerance.tscn"),
-	Terms.ACTIVE_EFFECTS.unconventional.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Unconventional.tscn"),
-	Terms.ACTIVE_EFFECTS.sneaky_beaky.name: preload("res://src/dreamscape/CombatElements/CombatEffects/SneakyBeaky.tscn"),
-	Terms.ACTIVE_EFFECTS.tenacity.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Tenacity.tscn"),
-	Terms.ACTIVE_EFFECTS.panicked_takeoff.name: preload("res://src/dreamscape/CombatElements/CombatEffects/PanickedTakeoff.tscn"),
-}
+const EFFECT_TEMPLATE := preload("res://src/dreamscape/CombatElements/CombatEffects/CombatEffectTemplate.tscn")
 
 # When a stack of an effect is added and its opposite exists, before adding a stack
 # we remove the same amount of its opposite from the amount.
@@ -72,7 +31,9 @@ func mod_effect(
 			tags := ["Manual"],
 			upgrade_string := '') -> int:
 	var retcode : int
-	if not EFFECTS.get(effect_name, null):
+	var effect_script = load("res://src/dreamscape/CombatElements/CombatEffects/%s.gd" % [Terms.get_effect_key(effect_name)])
+	if not effect_script and not Terms.get_effect_entry(effect_name).has("noscript"):
+#	if not EFFECTS.get(effect_name, null):
 		retcode = CFConst.ReturnCode.FAILED
 	else:
 		retcode = CFConst.ReturnCode.CHANGED
@@ -103,7 +64,12 @@ func mod_effect(
 						else:
 							opposite.set_stacks(0, tags)
 							mod -= opposite.stacks
-				effect = EFFECTS[effect_name].instance()
+				effect = EFFECT_TEMPLATE.instance()
+				var ict = effect.icon_container_texture
+				var iect = effect.icon_extra_container_texture
+				effect.set_script(effect_script)
+				effect.icon_container_texture = ict
+				effect.icon_extra_container_texture = iect
 				effect.name = combined_effect_name
 				effect.owning_entity = combat_entity
 				effect.upgrade = upgrade_string

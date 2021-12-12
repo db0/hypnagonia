@@ -630,6 +630,18 @@ const scripts := {
 			],
 		},
 	},
+	"Stuffed Toy": {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.stuffed_toy.name,
+					"subject": "dreamer",
+					"modification": 1,
+				},
+			],
+		},
+	}
 }
 
 # This fuction returns all the scripts of the specified card name.

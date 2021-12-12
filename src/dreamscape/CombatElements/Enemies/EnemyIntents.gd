@@ -15,6 +15,9 @@ var animation_name: String
 # Keeps track of how many times a specific intent has been used in this battle
 # when it only had limited uses
 var intent_uses: Dictionary
+# The hash of the last used intent dictionary (for comparisons)
+var last_used_intent: int
+var times_last_intent_repeated: int
 
 var all_intent_scripts = IntentScripts.new()
 
@@ -31,7 +34,21 @@ func prepare_intents(specific_index = null) -> void:
 		unused_intents.remove(specific_index)
 		CFUtils.shuffle_array(unused_intents)
 	else:
-		selected_intent = unused_intents.pop_back()
+		var cinte : Dictionary = unused_intents.back()
+		# If an intent can only be used a specific amunt of times in a row
+		# And it has reached that amount, then we take the front intent instead
+		if cinte.has("max_in_a_row")\
+				and last_used_intent == cinte.hash():
+			if times_last_intent_repeated >= cinte["max_in_a_row"]:
+				times_last_intent_repeated = 0
+				selected_intent = unused_intents.pop_front()
+			else: 
+				selected_intent = unused_intents.pop_back()
+		else:
+			times_last_intent_repeated = 0
+			selected_intent = unused_intents.pop_back()
+	last_used_intent = selected_intent.hash()
+	times_last_intent_repeated += 1
 	# This allows us to select some intents which can only be used a specified
 	# amount per encounter by this Torment. Every time they are used
 	# we remove them from the "master" array of intents.

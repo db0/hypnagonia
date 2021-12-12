@@ -217,7 +217,7 @@ const ACTIVE_EFFECTS := {
 	"armor": {
 		"name": "Contentment",
 		"icon": preload("res://assets/icons/heart-shield.png"),
-		"generic_description": "{effect_name}: Prevents damage and degrades per-hit only.",
+		"generic_description": "{effect_name}: Prevents damage and degrades per-hit.",
 		"rich_text_icon": "res://fonts/rich_text_icons/heart-shield.png",
 		"description": "{effect_name} ({effect_icon}): Reduce {opponent_attack} on this {entity}, "\
 				+ "by {amount}, then reduce these stacks by 1.\n"\
@@ -226,6 +226,7 @@ const ACTIVE_EFFECTS := {
 	},
 	"delighted": {
 		"name": "Delighted",
+		"noscript": true,
 		"icon": preload("res://assets/icons/smitten.png"),
 		"generic_description": "{effect_name}: Prevents interpretation.",
 		"rich_text_icon": "res://assets/icons/smitten.png",
@@ -348,6 +349,18 @@ const ACTIVE_EFFECTS := {
 		"icon": preload("res://assets/icons/flying-trout.png"),
 		"is_card_reference": true
 	},
+	# These effects are usually starting on top of special enemies
+	# but might also be given to the player as Understanding concentrations
+	"stuffed_toy": {
+		"name": "Plushyness",
+		"icon": preload("res://assets/icons/growth.png"),
+		"generic_description": "",
+		"rich_text_icon": "res://assets/icons/growth.png",
+		"description": "{effect_name} ({effect_icon}): After every {opponent_attack} on this {entity}, "\
+				+ "It gains 1 {defence}. The amount gained increases by 1 after each {opponent_attack}.\n"\
+				+ "This resets to 0 at the start of the turn\n",
+	},
+
 }
 
 
@@ -497,12 +510,15 @@ const GENERIC_CARD_BBCODE := {
 	},
 }
 
-
-static func get_effect_entry(thematic_effect_name: String) -> Dictionary:
+static func get_effect_key(thematic_effect_name: String) -> String:
 	for effect in ACTIVE_EFFECTS:
 		if ACTIVE_EFFECTS[effect].name == thematic_effect_name:
-			return(ACTIVE_EFFECTS[effect])
-	return({})
+			return(effect)
+	return('')
+
+
+static func get_effect_entry(thematic_effect_name: String) -> Dictionary:
+	return(ACTIVE_EFFECTS.get(get_effect_key(thematic_effect_name), {}))
 
 
 static func get_tag_entry(thematic_tag_name: String) -> Dictionary:
@@ -510,6 +526,7 @@ static func get_tag_entry(thematic_tag_name: String) -> Dictionary:
 		if GENERIC_TAGS[tag].name == thematic_tag_name:
 			return(GENERIC_TAGS[tag])
 	return({})
+
 
 
 static func get_term_entry(thematic_tag_name: String, key: String, no_icon := false) -> Dictionary:

@@ -361,7 +361,7 @@ func _input(event):
 		# warning-ignore:unused_variable
 #		var torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
 		# warning-ignore:unused_variable
-		var torment2 = spawn_enemy(EnemyDefinitions.TRAFFICJAM)
+		var torment2 = spawn_enemy(EnemyDefinitions.STUFFEDTOY)
 		# warning-ignore:unused_variable
 		var torment3 = spawn_enemy(EnemyDefinitions.FEARMONGER)
 #		var torment2 = spawn_enemy("Gaslighter")
@@ -372,18 +372,18 @@ func _input(event):
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.unconventional.name, 1, false, false, ['Debug'], 'weirdly')
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.nothing_to_fear.name, 1)
 #		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
-		torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.quicken.name, 1)
+		torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.stuffed_toy.name, 1)
 		torment2.defence = 10
 		torment2.health = 1000
 		torment3.health = 1000
 		dreamer.health = 1000
-		globals.player.add_artifact(ArtifactDefinitions.BossCardDraw.canonical_name)
+#		globals.player.add_artifact(ArtifactDefinitions.BossCardDraw.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.PurpleWave.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
-			"Prejudice",
-			"Ω Baby Ω",
+			"Stuffed Toy",
+			"Stuffed Toy",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.hand.add_child(card)

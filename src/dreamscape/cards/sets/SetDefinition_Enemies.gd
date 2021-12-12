@@ -789,5 +789,57 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"Stuffed Toy": {
+		"Type": "Understanding",
+		"Tags": [],
+		"Abilities": "After any {stress} on the dreamer,"\
+				+ "gain 1 {defence}. "\
+				+ "The amount gained increases by 1 after each {stress}.\n"\
+				+ "This resets to 0 at the start of the turn.",
+		"Cost": 2,
+		"_is_concentration": true,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["confidence"],
+		"_amounts": {
+		},
+		"_upgrade_threshold": 12,
+		"_upgrades": [
+			"@ Stuffed Toy @",
+			"^ Stuffed Toy ^",
+		],
+	},
+	"@ Stuffed Toy @": {
+		"Type": "Understanding",
+		"Tags": [],
+		"Abilities": "After any {stress} on the dreamer,"\
+				+ "gain 1 {defence}. "\
+				+ "The amount gained increases by 1 after each {stress}.\n"\
+				+ "This resets to 0 at the start of the turn.",
+		"Cost": 1,
+		"_is_concentration": true,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["confidence"],
+		"_amounts": {
+		},
+		"_is_upgrade": true,
+	},
+	"^ Stuffed Toy ^": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.alpha.name],
+		"Abilities": "After any {stress} on the dreamer,"\
+				+ "gain 1 {defence}. "\
+				+ "The amount gained increases by 1 after each {stress}.\n"\
+				+ "This resets to 0 at the start of the turn.",
+		"Cost": 2,
+		"_is_concentration": true,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["confidence"],
+		"_amounts": {
+		},
+		"_is_upgrade": true,
+	},
 
 }

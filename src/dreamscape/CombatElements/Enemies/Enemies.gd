@@ -339,6 +339,27 @@ const TRAFFICJAM := {
 	"_texture": preload("res://assets/enemies/traffic-lights-red.png"),
 	"_character_art": "Delapouite"
 }
+const STUFFEDTOY := {
+	"Name": "Stuffed Toy",
+	"Type": "Phobia",
+	"Health": 77,
+	"Intents": [
+		{
+			"intent_scripts": ["Stress:7", "Stress:7", "Stress:7"],
+			"reshuffle": true,
+			"max_in_a_row": 2,
+		},
+		{
+			"intent_scripts": ["Debuff:2:disempower", "Debuff:2:vulnerable"],
+			"reshuffle": false,
+		},
+	],
+	"_health_variability": 3,
+	"_texture_size_x": "120",
+	"_texture_size_y": "120",
+	"_texture": preload("res://assets/enemies/polar-bear.png"),
+	"_character_art": "Cathelineau"
+}
 #	"Spider": {
 #		"Type": "Phobia",
 #		"Health": 1,
