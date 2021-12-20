@@ -372,9 +372,16 @@ const ACTIVE_EFFECTS := {
 		"name": "Mouse Debate Skills",
 		"icon": preload("res://assets/icons/seated-mouse.png"),
 		"generic_description": "",
-		"rich_text_icon": "res://assets/icons/growth.png",
+		"rich_text_icon": "res://assets/icons/seated-mouse.png",
 		"description": "{effect_name} ({effect_icon}): Gain 1 {immersion} per turn. "\
 				+ "Lose 2 {focus} every time you shuffle your deck",
+	},
+	"the_exam": {
+		"name": "Exam Time",
+		"icon": preload("res://assets/icons/pencil.png"),
+		"generic_description": "",
+		"rich_text_icon": "res://assets/icons/pencil.png",
+		"description": "{effect_name} ({effect_icon}): Every time you {forget} a card, take {amount} {anxiety}.",
 	},
 
 }

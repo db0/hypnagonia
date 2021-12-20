@@ -664,7 +664,34 @@ const scripts := {
 				},
 			],
 		},
-	}
+	},
+	"The Exam": {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.the_exam.name,
+					"subject": "dreamer",
+					"modification": 1,
+				},
+				{
+					"name": "move_card_to_container",
+					"src_container": "forgotten",
+					"dest_container": "deck",
+					"subject_count": {
+						"lookup_property": "_amounts",
+						"value_key": "card_amount"
+					},
+					"subject": "index",
+					"subject_index": "random",
+				},
+				{
+					"name": "shuffle_container",
+					"dest_container": "deck",
+				},
+			],
+		},
+	},
 }
 
 # This fuction returns all the scripts of the specified card name.

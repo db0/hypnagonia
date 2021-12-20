@@ -132,8 +132,35 @@ func get_scripts(intent_name: String) -> Dictionary:
 				},
 				"tags": ["Intent"],
 				"icon": preload("res://assets/icons/uncertainty.png"),
-				"description": "Unfocus: It seems less scary than first appeared..."
+				"description": "Unfocus: [i]Somehow this doesn't feel as important as it first appeared...[/i]"
 			}
+		],
+		"Pencils Ready": [
+			{
+				"name": "apply_effect",
+				"effect_name": Terms.ACTIVE_EFFECTS.the_exam.name,
+				"subject": "dreamer",
+				"modification": "per_effect_stacks",
+				"per_effect_stacks": {
+					"subject": "self",
+					"effect_name": Terms.ACTIVE_EFFECTS.rebalance.name,
+				},
+				"tags": ["Intent"],
+				"icon": preload("res://assets/icons/pencil.png"),
+				"description": "Pencils Ready: [i]I could feel the teacher's eyes hovering over me.[/i]"
+			}
+		],
+		"Memory Failing": [
+			{
+				"name": "move_card_to_container",
+				"subject": "index",
+				"subject_index": "random",
+				"src_container": "hand",
+				"dest_container": "forgotten",
+				"tags": ["Intent"],
+				"icon": preload("res://assets/icons/uncertainty.png"),
+				"description": "Memory Failing: [i]I know I had studied this. What was it...[/i]"
+			},
 		],
 	}
 	return(scripts.get(intent_name,{}))

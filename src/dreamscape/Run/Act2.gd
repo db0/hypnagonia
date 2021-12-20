@@ -55,7 +55,7 @@ const TrafficJam = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/the_laughing_one.jpeg"),
+#	"journal_art": preload("res://assets/journal/the_laughing_one.jpeg"),
 }
 
 const Mouse = {
@@ -103,12 +103,63 @@ const Mouse = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/the_laughing_one.jpeg"),
+#	"journal_art": preload("res://assets/journal/the_laughing_one.jpeg"),
+}
+
+const TheExam = {
+	"journal_description":\
+		"The bell rang and I had to get back into class."\
+			+ "[url={torment_tag1}]It was time for the test.[/url]",
+	"journal_reward":\
+		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+	"enemies": {
+		"easy": [
+			{
+				"definition": EnemyDefinitions.THE_EXAM,
+				"health_modifier": -20,
+				"starting_intent": 0,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.rebalance.name,
+						"stacks": 1
+					}
+				]
+			},
+		],
+		"medium": [
+			{
+				"definition": EnemyDefinitions.THE_EXAM,
+				"starting_intent": 0,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.rebalance.name,
+						"stacks": 2
+					}
+				]
+			},
+		],
+		"hard": [
+			{
+				"definition": EnemyDefinitions.THE_EXAM,
+				"starting_intent": 0,
+				"health_modifier": 20,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.rebalance.name,
+						"stacks": 3
+					}
+				]
+			},
+		],
+	},
+#	"journal_art": preload("res://assets/journal/the_laughing_one.jpeg"),
 }
 
 
 const ENEMIES = [
 	TrafficJam,
+	Mouse,
+	TheExam,
 ]
 
 const RushElite = {

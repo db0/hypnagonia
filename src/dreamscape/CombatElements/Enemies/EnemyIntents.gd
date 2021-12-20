@@ -53,9 +53,10 @@ func prepare_intents(specific_index = null) -> void:
 	# amount per encounter by this Torment. Every time they are used
 	# we remove them from the "master" array of intents.
 	if selected_intent.get("max_uses"):
-		intent_uses[selected_intent] = selected_intent.get(selected_intent,0) + 1
-		if selected_intent.max_uses >= intent_uses[selected_intent]:
+		intent_uses[selected_intent] = intent_uses.get(selected_intent,0) + 1
+		if intent_uses[selected_intent] >= selected_intent.max_uses:
 			all_intents.erase(selected_intent)
+#			print_debug("Removed ", selected_intent, intent_uses)
 	new_intents = selected_intent.duplicate(true)
 	if new_intents.reshuffle:
 		reshuffle_intents()

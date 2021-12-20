@@ -850,7 +850,7 @@ const CARDS := {
 		"_is_concentration": true,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
-		"_keywords": ["confidence"],
+		"_keywords": ["immersion"],
 		"_amounts": {
 			"immersion_amount": 1,
 			"effect_stacks": 1,
@@ -871,13 +871,12 @@ const CARDS := {
 		"_is_concentration": true,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
-		"_keywords": ["confidence"],
+		"_keywords": ["immersion"],
 		"_amounts": {
 			"immersion_amount": 1,
 			"effect_stacks": 2,
 			"effect_stacks2": 1,
 		},
-
 		"_is_upgrade": true,
 	},
 	"^ Mouse ^": {
@@ -889,13 +888,61 @@ const CARDS := {
 		"_is_concentration": true,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
-		"_keywords": ["confidence"],
+		"_keywords": ["immersion"],
 		"_amounts": {
 			"immersion_amount": 1,
 			"effect_stacks": 2,
 			"effect_stacks2": 1,
 		},
-
+		"_is_upgrade": true,
+	},
+	"The Exam": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.spark.name],
+		"Abilities": "Shuffle {card_amount} random forgotten cards into your deck.\n"\
+				+ "Every time you play a forgotten card, take {exert_amount} {anxiety}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["forget"],
+		"_amounts": {
+			"card_amount": 2,
+			"exert_amount": 1,
+		},
+		"_upgrade_threshold": 12,
+		"_upgrades": [
+			"! The Exam !",
+			"Ω The Exam Ω",
+		],
+	},
+	"! The Exam !": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.spark.name],
+		"Abilities": "Shuffle {card_amount} random forgotten cards into your deck.\n"\
+				+ "Every time you play a forgotten card, take {exert_amount} {anxiety}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["forget"],
+		"_amounts": {
+			"card_amount": 3,
+			"exert_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"Ω The Exam Ω": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.omega.name],
+		"Abilities": "Shuffle {card_amount} random forgotten cards into your deck.\n"\
+				+ "Every time you play a forgotten card, take {exert_amount} {anxiety}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["forget"],
+		"_amounts": {
+			"card_amount": 2,
+			"exert_amount": 1,
+		},
 		"_is_upgrade": true,
 	},
 

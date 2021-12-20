@@ -387,6 +387,44 @@ const MOUSE := {
 	"_texture": preload("res://assets/enemies/seated-mouse.png"),
 	"_character_art": "Lorc"
 }
+const THE_EXAM := {
+	"Name": "The Exam",
+	"Type": "Fear",
+	"Health": 100,
+	"Intents": [
+		{
+			"intent_scripts": ["Pencils Ready"],
+			"reshuffle": false,
+			"max_uses": 1,
+		},
+		{
+			"intent_scripts": ["Memory Failing"],
+			"reshuffle": false,
+			"max_uses": 3,
+			"max_in_a_row": 1,
+		},
+		{
+			"intent_scripts": ["Perplex:12", "Stress:12"],
+			"reshuffle": true,
+			"max_in_a_row": 1,
+		},
+		{
+			"intent_scripts": ["Perplex:5", "Stress:15"],
+			"reshuffle": false,
+			"max_in_a_row": 2,
+		},
+		{
+			"intent_scripts": ["Perplex:15", "Stress:5"],
+			"reshuffle": false,
+			"max_in_a_row": 2,
+		},
+	],
+	"_health_variability": 6,
+	"_texture_size_x": "120",
+	"_texture_size_y": "120",
+	"_texture": preload("res://assets/enemies/notebook.png"),
+	"_character_art": "Delapouite"
+}
 #	"Mouse": {
 #		"Type": "Phobia",
 #		"Health": 1,
