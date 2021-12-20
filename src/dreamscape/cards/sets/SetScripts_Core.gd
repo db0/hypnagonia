@@ -3638,7 +3638,7 @@ func lookup_script_property(script: Dictionary, card_name: String) -> void:
 				var value = cfc.card_definitions[card_name]\
 						.get(lookup_property, {}).get(value_key, default_value)
 				if lookup.get("is_inverted"):
-					value *= 1
+					value *= -1
 				script[key] = value
 			else:
 				lookup_script_property(script[key], card_name)

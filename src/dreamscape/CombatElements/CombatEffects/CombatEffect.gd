@@ -50,8 +50,8 @@ func _ready() -> void:
 		turn.connect(turn_signal, self, "_on_" + turn_signal)
 
 
-func set_stacks(value: int, tags := ["Manual"]) -> void:
-	if value < 0:
+func set_stacks(value: int, tags := ["Manual"], can_go_negative := false) -> void:
+	if value < 0 and not can_go_negative:
 		value = 0
 	owning_entity.emit_signal(
 			"effect_modified",
@@ -62,7 +62,9 @@ func set_stacks(value: int, tags := ["Manual"]) -> void:
 			SP.TRIGGER_PREV_COUNT: stacks,
 			SP.TRIGGER_NEW_COUNT: value,
 			"tags": tags})
-	if value > 0:
+	if value == 0:
+		queue_free()
+	else:
 		# if the script had a delayed tag, it will not become active
 		# until the next time the player's turn starts (so that they see it and take it into account)
 		# Unless the player already had some stacks, in which case it is effective
@@ -71,8 +73,15 @@ func set_stacks(value: int, tags := ["Manual"]) -> void:
 			is_delayed = true
 		signifier_amount.text = str(value)
 		stacks = value
-	else:
-		queue_free()
+		# If it's an effect that can go to negative values, then we make the icon red
+		# when it is negative
+		if stacks < 0:
+			signifier_icon.modulate = Color(1,0,0)
+		# Otherwise we ensure the icon stays at it's normal colour
+		elif can_go_negative:
+			signifier_icon.modulate = Color(1,1,1)
+			
+			
 
 # To override. This is called by the scripting engine
 # Is source is telling this script whether we're checking for alterants affecting the 
@@ -102,6 +111,10 @@ func _set_current_description() -> void:
 	format["triple_amount"] = str(3*stacks)
 	# warning-ignore:integer_division
 	format["half_amount"] = str(stacks/2)
+	format["increased"] = "increased"
+	if stacks < 0:
+		format["increased"] = "decreased"
+		format["amount"] = str(abs(stacks))
 	
 	decription_label.bbcode_text = _get_effect_description().\
 			format(format).format(Terms.get_bbcode_formats(18))

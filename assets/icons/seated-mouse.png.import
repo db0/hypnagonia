@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/uncertainty.png-bfb5ab53f3059807c72c7d24aa3ad0ff.stex"
+path="res://.import/seated-mouse.png-e2aa71d77a6f86b7a9450fc3cf53f6d5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/uncertainty.png"
-dest_files=[ "res://.import/uncertainty.png-bfb5ab53f3059807c72c7d24aa3ad0ff.stex" ]
+source_file="res://assets/icons/seated-mouse.png"
+dest_files=[ "res://.import/seated-mouse.png-e2aa71d77a6f86b7a9450fc3cf53f6d5.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

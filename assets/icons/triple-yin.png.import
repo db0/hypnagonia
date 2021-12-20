@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/uncertainty.png-bfb5ab53f3059807c72c7d24aa3ad0ff.stex"
+path="res://.import/triple-yin.png-29ec1a0e90732d271438ae36371f6f16.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/uncertainty.png"
-dest_files=[ "res://.import/uncertainty.png-bfb5ab53f3059807c72c7d24aa3ad0ff.stex" ]
+source_file="res://assets/icons/triple-yin.png"
+dest_files=[ "res://.import/triple-yin.png-29ec1a0e90732d271438ae36371f6f16.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

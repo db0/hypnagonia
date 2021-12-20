@@ -841,5 +841,62 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"Mouse": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.purpose.name],
+		"Abilities": "Gain {immersion_amount} {immersion} per turn.\nLose {effect_stacks2} {focus}\n"\
+				+ "Every time you shuffle your deck, lose {effect_stacks} {focus}.",
+		"Cost": 3,
+		"_is_concentration": true,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"immersion_amount": 1,
+			"effect_stacks": 1,
+			"effect_stacks2": 1,
+		},
+		"_upgrade_threshold": 12,
+		"_upgrades": [
+			"@ Mouse @",
+			"^ Mouse ^",
+		],
+	},
+	"@ Mouse @": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.purpose.name],
+		"Abilities": "Gain {immersion_amount} {immersion} per turn.\nLose {effect_stacks2} {focus}\n"\
+				+ "Every time you shuffle your deck, lose {effect_stacks} {focus}.",
+		"Cost": 2,
+		"_is_concentration": true,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"immersion_amount": 1,
+			"effect_stacks": 2,
+			"effect_stacks2": 1,
+		},
+
+		"_is_upgrade": true,
+	},
+	"^ Mouse ^": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.alpha.name, Terms.GENERIC_TAGS.purpose.name],
+		"Abilities": "Gain {immersion_amount} {immersion} per turn.\nLose {effect_stacks2} {focus}\n"\
+				+ "Every time you shuffle your deck, lose {effect_stacks} {focus}.",
+		"Cost": 3,
+		"_is_concentration": true,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"immersion_amount": 1,
+			"effect_stacks": 2,
+			"effect_stacks2": 1,
+		},
+
+		"_is_upgrade": true,
+	},
 
 }

@@ -360,7 +360,34 @@ const STUFFEDTOY := {
 	"_texture": preload("res://assets/enemies/polar-bear.png"),
 	"_character_art": "Cathelineau"
 }
-#	"Spider": {
+const MOUSE := {
+	"Name": "Mouse",
+	"Type": "Phobia",
+	"Health": 80,
+	"Intents": [
+		{
+			"intent_scripts": ["Perplex:10"],
+			"reshuffle": false,
+			"max_uses": 1,
+		},
+		{
+			"intent_scripts": ["Stress:20"],
+			"reshuffle": false,
+			"max_in_a_row": 1,
+		},
+		{
+			"intent_scripts": ["Unfocus", "Perplex:10"],
+			"reshuffle": true,
+			"max_in_a_row": 1,
+		},
+	],
+	"_health_variability": 4,
+	"_texture_size_x": "120",
+	"_texture_size_y": "120",
+	"_texture": preload("res://assets/enemies/seated-mouse.png"),
+	"_character_art": "Lorc"
+}
+#	"Mouse": {
 #		"Type": "Phobia",
 #		"Health": 1,
 #		"Intents": [
@@ -370,7 +397,7 @@ const STUFFEDTOY := {
 #		"_texture_size_y": "120",
 #		"_character_art": "nobody",
 #	},
-#	"Mouse": {
+#	"Spider": {
 #		"Type": "Phobia",
 #		"Health": 1,
 #		"Intents": [

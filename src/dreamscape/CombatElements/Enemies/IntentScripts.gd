@@ -119,5 +119,21 @@ func get_scripts(intent_name: String) -> Dictionary:
 						+ "[i]I'll never make it in time...[/i]"
 			}
 		],
+		"Unfocus": [
+			{
+				"name": "apply_effect",
+				"effect_name": Terms.ACTIVE_EFFECTS.strengthen.name,
+				"subject": "self",
+				"modification": "per_effect_stacks",
+				"per_effect_stacks": {
+					"subject": "self",
+					"effect_name": Terms.ACTIVE_EFFECTS.rebalance.name,
+					"is_inverted": true,
+				},
+				"tags": ["Intent"],
+				"icon": preload("res://assets/icons/uncertainty.png"),
+				"description": "Unfocus: It seems less scary than first appeared..."
+			}
+		],
 	}
 	return(scripts.get(intent_name,{}))

@@ -6,10 +6,10 @@ const EFFECT_TEMPLATE := preload("res://src/dreamscape/CombatElements/CombatEffe
 # When a stack of an effect is added and its opposite exists, before adding a stack
 # we remove the same amount of its opposite from the amount.
 const OPPOSITES := {
-	Terms.ACTIVE_EFFECTS.empower: Terms.ACTIVE_EFFECTS.disempower,
-	Terms.ACTIVE_EFFECTS.disempower: Terms.ACTIVE_EFFECTS.empower,
-	Terms.ACTIVE_EFFECTS.buffer: Terms.ACTIVE_EFFECTS.drain,
-	Terms.ACTIVE_EFFECTS.drain: Terms.ACTIVE_EFFECTS.buffer,
+	Terms.ACTIVE_EFFECTS.empower.name: Terms.ACTIVE_EFFECTS.disempower.name,
+	Terms.ACTIVE_EFFECTS.disempower.name: Terms.ACTIVE_EFFECTS.empower.name,
+	Terms.ACTIVE_EFFECTS.buffer.name: Terms.ACTIVE_EFFECTS.drain.name,
+	Terms.ACTIVE_EFFECTS.drain.name: Terms.ACTIVE_EFFECTS.buffer.name,
 }
 
 var all_effects: Dictionary
@@ -43,7 +43,9 @@ func mod_effect(
 		if upgrade_string != '':
 			combined_effect_name = upgrade_string.capitalize() + ' ' + effect_name
 		var effect : CombatEffect = get_all_effects().get(combined_effect_name, null)
-		if not effect and mod <= 0:
+		if mod < 0:
+			pass
+		if not effect and mod <= 0 and not Terms.get_effect_entry(effect_name).get("can_go_negative"):
 			retcode = CFConst.ReturnCode.OK
 		elif effect and set_to_mod and effect.stacks == mod:
 			retcode = CFConst.ReturnCode.OK
@@ -65,11 +67,12 @@ func mod_effect(
 							opposite.set_stacks(0, tags)
 							mod -= opposite.stacks
 				effect = EFFECT_TEMPLATE.instance()
-				var ict = effect.icon_container_texture
-				var iect = effect.icon_extra_container_texture
-				effect.set_script(effect_script)
-				effect.icon_container_texture = ict
-				effect.icon_extra_container_texture = iect
+				if not Terms.get_effect_entry(effect_name).has("noscript"):
+					var ict = effect.icon_container_texture
+					var iect = effect.icon_extra_container_texture
+					effect.set_script(effect_script)
+					effect.icon_container_texture = ict
+					effect.icon_extra_container_texture = iect
 				effect.name = combined_effect_name
 				effect.owning_entity = combat_entity
 				effect.upgrade = upgrade_string
@@ -83,9 +86,9 @@ func mod_effect(
 				effect.setup(setup_dict, effect_name)
 			cfc.flush_cache()
 			if set_to_mod:
-				effect.set_stacks(mod, tags)
+				effect.set_stacks(mod, tags, Terms.get_effect_entry(effect_name).get("can_go_negative", false))
 			else:
-				effect.set_stacks(effect.stacks + mod, tags)
+				effect.set_stacks(effect.stacks + mod, tags, Terms.get_effect_entry(effect_name).get("can_go_negative", false))
 	return(retcode)
 
 func get_all_effects() -> Dictionary:

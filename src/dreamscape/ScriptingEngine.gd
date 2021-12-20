@@ -236,19 +236,10 @@ func assign_defence(script: ScriptTask) -> int:
 	return(retcode)
 
 
-# For now just returns the unmodified modification as it's only used by the Lethargy intent
-func calculate_apply_effect(_subject: CombatEntity, script: ScriptTask) -> int:
-	return(script.get_property(SP.KEY_MODIFICATION))
-
-
-func apply_effect(script: ScriptTask) -> int:
-	var retcode: int
+func calculate_apply_effect(subject: CombatEntity, script: ScriptTask) -> int:
 	var modification: int
 	var alteration = 0
-	var effect_name: String = script.get_property(SP.KEY_EFFECT)
-	var upgrade_name: String = script.get_property(SP.KEY_UPGRADE_NAME, '')
-	# We inject the tags from the script into the tags sent by the signal
-	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
+	var set_to_mod: bool = script.get_property(SP.KEY_SET_TO_MOD)
 	if str(script.get_property(SP.KEY_MODIFICATION)) == SP.VALUE_RETRIEVE_INTEGER:
 		modification = stored_integer
 		if script.get_property(SP.KEY_IS_INVERTED):
@@ -266,17 +257,27 @@ func apply_effect(script: ScriptTask) -> int:
 #		print_debug(per_msg.found_things, modification)
 	else:
 		modification = script.get_property(SP.KEY_MODIFICATION)
+	if not set_to_mod:
+		alteration = _check_for_effect_alterants(script, modification, subject, self)
+		if alteration is GDScriptFunctionState:
+			alteration = yield(alteration, "completed")
+	var final_amount = _check_for_x(script, modification + alteration)		
+	return(final_amount)
+
+
+func apply_effect(script: ScriptTask) -> int:
+	var retcode: int
+	var effect_name: String = script.get_property(SP.KEY_EFFECT)
+	var upgrade_name: String = script.get_property(SP.KEY_UPGRADE_NAME, '')
+	# We inject the tags from the script into the tags sent by the signal
+	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
 	var set_to_mod: bool = script.get_property(SP.KEY_SET_TO_MOD)
 	var stacks_diff := 0
 	for e in script.subjects:
 		var entity: CombatEntity = e
 		if entity.is_dead:
 			continue
-		if not set_to_mod:
-			alteration = _check_for_effect_alterants(script, modification, entity, self)
-			if alteration is GDScriptFunctionState:
-				alteration = yield(alteration, "completed")
-		var final_amount = _check_for_x(script, modification + alteration)
+		var final_amount = calculate_apply_effect(entity, script)
 		var current_stacks: int
 		# If we're storing the integer, we want to store the difference
 		# cumulative difference between the current and modified effect stacks

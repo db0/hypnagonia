@@ -361,7 +361,7 @@ func _input(event):
 		# warning-ignore:unused_variable
 #		var torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
 		# warning-ignore:unused_variable
-		var torment2 = spawn_enemy(EnemyDefinitions.STUFFEDTOY)
+		var torment2 = spawn_enemy(EnemyDefinitions.MOUSE)
 		# warning-ignore:unused_variable
 		var torment3 = spawn_enemy(EnemyDefinitions.FEARMONGER)
 #		var torment2 = spawn_enemy("Gaslighter")
@@ -370,9 +370,9 @@ func _input(event):
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 20)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 3)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.unconventional.name, 1, false, false, ['Debug'], 'weirdly')
-#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.nothing_to_fear.name, 1)
-#		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
-		torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.stuffed_toy.name, 1)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 4)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.mouse.name, 3)
+		torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.rebalance.name, 4)
 		torment2.defence = 10
 		torment2.health = 1000
 		torment3.health = 1000
@@ -382,8 +382,8 @@ func _input(event):
 #		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
-			"Stuffed Toy",
-			"Stuffed Toy",
+			"Mouse",
+			"Mouse",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.hand.add_child(card)
@@ -412,7 +412,7 @@ func _debug_advanced_enemy() -> void:
 func _on_Debug_pressed() -> void:
 	# warning-ignore:return_value_discarded
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 3)
-	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.delighted.name, 1)
+	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 4)
 	counters.mod_counter("immersion",3)
 	for _iter in range(3):
 		cfc.NMAP.hand.draw_card(cfc.NMAP.deck)

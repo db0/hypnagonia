@@ -58,6 +58,54 @@ const TrafficJam = {
 	"journal_art": preload("res://assets/journal/the_laughing_one.jpeg"),
 }
 
+const Mouse = {
+	"journal_description":\
+		'I was having tea with [url={torment_tag1}]a rodent[/url]. It was explaining the pitfalls of overpopulation.',
+	"journal_reward":\
+		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+	"enemies": {
+		"easy": [
+			{
+				"definition": EnemyDefinitions.MOUSE,
+				"health_modifier": -10,
+				"starting_intent": 0,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.rebalance.name,
+						"stacks": 3
+					}
+				]
+			},
+		],
+		"medium": [
+			{
+				"definition": EnemyDefinitions.MOUSE,
+				"starting_intent": 1,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.rebalance.name,
+						"stacks": 2
+					}
+				]
+			},
+		],
+		"hard": [
+			{
+				"definition": EnemyDefinitions.MOUSE,
+				"starting_intent": 1,
+				"starting_defence": +12,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.rebalance.name,
+						"stacks": 1
+					}
+				]
+			},
+		],
+	},
+	"journal_art": preload("res://assets/journal/the_laughing_one.jpeg"),
+}
+
 
 const ENEMIES = [
 	TrafficJam,

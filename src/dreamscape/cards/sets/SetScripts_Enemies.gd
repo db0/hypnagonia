@@ -641,6 +641,29 @@ const scripts := {
 				},
 			],
 		},
+	},
+	"Mouse": {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.mouse.name,
+					"subject": "dreamer",
+					"modification": 1,
+				},
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.strengthen.name,
+					"subject": "dreamer",
+					"modification": {
+						"lookup_property": "_amounts",
+						"value_key": "effect_stacks2",
+						"default": 1,
+						"is_inverted": true,
+					},
+				},
+			],
+		},
 	}
 }
 

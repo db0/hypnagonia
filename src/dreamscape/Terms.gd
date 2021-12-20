@@ -142,17 +142,19 @@ const ACTIVE_EFFECTS := {
 		"icon": preload("res://assets/icons/templar-eye.png"),
 		"generic_description": "{effect_name}: Increases interpretation dealt by exact amount.",
 		"rich_text_icon": "res://fonts/rich_text_icons/templar-eye.png",
-		"description": "{effect_name} ({effect_icon}): {attack} {damage_verb} by this {entity} is increased by {amount} (1 per stack).\n",
+		"description": "{effect_name} ({effect_icon}): {attack} {damage_verb} by this {entity} is {increased} by {amount} (1 per stack).\n",
 		"upgraded_descriptions": {
 			"thick": "{effect_name} ({effect_icon}): {attack} {damage_verb} by this {entity} is increased by {amount} (1 per stack). Remove all stacks when you reshuffle your deck\n",
 		},
+		"can_go_negative": true,
 	},
 	"quicken": {
 		"name": "Solid",
 		"icon": preload("res://assets/icons/white-tower.png"),
 		"generic_description": "{effect_name}: Increases confidence gained by exact amount.",
 		"rich_text_icon": "res://fonts/rich_text_icons/white-tower.png",
-		"description": "{effect_name} ({effect_icon}): {defence} gained by this {entity} is increased by {amount} (1 per stack).\n",
+		"description": "{effect_name} ({effect_icon}): {defence} gained by this {entity} is {increased} by {amount} (1 per stack).\n",
+		"can_go_negative": true,
 	},
 	"fortify": {
 		"name": "Courage",
@@ -237,6 +239,12 @@ const ACTIVE_EFFECTS := {
 		"name": "Outrage",
 		"description": "{effect_name}: This {entity} has become more powerful in some fashion.",
 		"icon": preload("res://assets/icons/enrage.png"),
+	},
+	"rebalance": {
+		"name": "Rebalance",
+		"description": "{effect_name}: This {entity} has been rebalanced.",
+		"noscript": true,
+		"icon": preload("res://assets/icons/triple-yin.png"),
 	},
 	"enraged": {
 		"name": "Meandering Disquietude",
@@ -359,6 +367,14 @@ const ACTIVE_EFFECTS := {
 		"description": "{effect_name} ({effect_icon}): After every {opponent_attack} on this {entity}, "\
 				+ "It gains 1 {defence}. The amount gained increases by 1 after each {opponent_attack}.\n"\
 				+ "This resets to 0 at the start of the turn\n",
+	},
+	"mouse": {
+		"name": "Mouse Debate Skills",
+		"icon": preload("res://assets/icons/seated-mouse.png"),
+		"generic_description": "",
+		"rich_text_icon": "res://assets/icons/growth.png",
+		"description": "{effect_name} ({effect_icon}): Gain 1 {immersion} per turn. "\
+				+ "Lose 2 {focus} every time you shuffle your deck",
 	},
 
 }
