@@ -453,7 +453,7 @@ func preload_resource_from_string(file : String) -> void:
 			return
 
 	res = load(file_name)
-	
+
 	if res:
 		Preloaded_Resources[file_name] = res
 	elif debug:
@@ -540,7 +540,6 @@ func preinstantiate_nodes_from_list(files_list : Array, type_list : Array, all_s
 func preinstantiate_node_from_string(file : String, sound_type : String = "") -> void:
 	var Stream = null
 	var file_name = file
-	var sound_index = 0
 
 	if is_import_file(file):
 		file_name = file_name.get_basename()
@@ -564,7 +563,7 @@ func preinstantiate_node(stream : Resource, sound_type : String = "") -> bool:
 	if stream != null:
 		var file_name = stream.get_path()
 		if not Instantiated_Nodes.has(file_name):
-			var audiostream := add_sound(file_name, sound_type, true)
+			var audiostream := add_sound(file_name, sound_type)
 			audiostream.set_stream(stream)
 		elif debug:
 			print_debug("Node already instantiated")
@@ -585,8 +584,7 @@ func uninstantiate_all_nodes(force_uninstantiation : bool = false) -> void:
 
 
 func uninstantiate_nodes_from_list(files_list : Dictionary) -> void:
-	var index = 0
-	for file in files_list.values():
+	for file in files_list.keys():
 		if (typeof(file) == TYPE_STRING):
 			uninstantiate_node_from_string(file)
 
@@ -700,6 +698,7 @@ func prepare_sound(sound_type : String, sound : String, volume_db : float = -81,
 		return(audiostream)
 	if Instantiated_Nodes.has(sound_path):
 		audiostream = Instantiated_Nodes[sound_path]
+		audiostream.sound_type = sound_type
 		if audiostream.get_bus() != Audio_Busses[sound_type]:
 			audiostream.set_bus(Audio_Busses[sound_type])
 		if debug:
@@ -767,7 +766,7 @@ func play_next_in_queue(sound_type: String) -> SoundManagerAudioStreamPlayer:
 
 
 # Adds a new AudioStreamPlayer
-func add_sound(sound_path : String, sound_type : String, preinstance : bool = false) -> SoundManagerAudioStreamPlayer:
+func add_sound(sound_path : String, sound_type : String) -> SoundManagerAudioStreamPlayer:
 	var new_audiostream = SoundManagerAudioStreamPlayer.new()
 	var bus : String
 
@@ -777,11 +776,10 @@ func add_sound(sound_path : String, sound_type : String, preinstance : bool = fa
 		bus = Audio_Busses[sound_type]
 
 	add_child(new_audiostream)
-	if not preinstance:
-		new_audiostream.sound_path = sound_path
-		new_audiostream.sound_type = sound_type
-		new_audiostream.sound_name = get_sound_name_from_path(sound_path)
-		new_audiostream.connect_signals(self)
+	new_audiostream.sound_path = sound_path
+	new_audiostream.sound_type = sound_type
+	new_audiostream.sound_name = get_sound_name_from_path(sound_path)
+	new_audiostream.connect_signals(self)
 	new_audiostream.set_bus(bus)
 	if not Instantiated_Nodes.has(sound_path):
 		Instantiated_Nodes[sound_path] = new_audiostream
@@ -793,13 +791,13 @@ func add_sound(sound_path : String, sound_type : String, preinstance : bool = fa
 
 func erase_sound(sound : String) -> void:
 	var audiostream := find_audiostream(sound)
-	if queues[audiostream.sound_type].has(audiostream)\
-			or repeating_queues.get(audiostream.sound_type):
-		if debug:
-			print_debug("Sound ended but not deleted as it's queued again: " + sound)
-		return
-	if audiostream:
-		Instantiated_Nodes.erase(sound)
+	if is_instance_valid(audiostream):
+		if queues.get(audiostream.sound_type, {}).has(audiostream)\
+				or repeating_queues.get(audiostream.sound_type):
+			if debug:
+				print_debug("Sound ended but not deleted as it's queued again: " + sound)
+			return
+		Instantiated_Nodes.erase(audiostream.sound_path)
 		audiostream.queue_free()
 	elif debug:
 		print_debug("Sound not found: " + sound)
@@ -941,7 +939,7 @@ func crossfade_queue(type:= 'BGM') -> void:
 	var new_stream := play_next_in_queue(type)
 	if new_stream:
 		new_stream.fade_in()
-	
+
 
 # Returns an array with all the currently playing types of streams
 # (e.g. ['BMG', 'SE']
@@ -960,7 +958,7 @@ func _get_all_playing_type_steams(sound_type: String) -> Array:
 		if audiostream.sound_type == sound_type:
 			found_streams.append(audiostream)
 	return(found_streams)
-	
+
 
 
 static func is_audio_file(file_name : String) -> bool:
