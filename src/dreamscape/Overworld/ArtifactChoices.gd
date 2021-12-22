@@ -30,7 +30,7 @@ func populate_artifacts(reward_type = "elite_artifact") -> void:
 			quantity = 3
 			artifact_type = 'boss'
 	artifact_prep = ArtifactPrep.new(rare_pct, uncommon_pct, quantity, artifact_type)
-	for index in range(quantity):
+	for index in range(artifact_prep.selected_artifacts.size()):
 		var artifact: Dictionary = artifact_prep.selected_artifacts[index]
 		var artifact_object = ARTIFACT_CHOICE_SCENE.instance()
 		add_child(artifact_object)

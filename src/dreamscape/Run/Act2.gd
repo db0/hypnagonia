@@ -202,12 +202,56 @@ const TheVictim = {
 #	"journal_art": preload("res://assets/journal/the_laughing_one.jpeg"),
 }
 
+const ClownShow = {
+	"journal_description":\
+		'[url={torment_tag1}]The Clowns were back[/url], and this time [url={torment_tag2}]they brought the circus[/url]!',
+	"journal_reward":\
+		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+	"enemies": {
+		"easy": [
+			{
+				"definition": EnemyDefinitions.CLOWN,
+				"health_modifier": -10,
+			},
+			{
+				"definition": EnemyDefinitions.PIALEPHANT,
+				"health_modifier": -10,
+			},
+		],
+		"medium": [
+			{
+				"definition": EnemyDefinitions.CLOWN,
+			},
+			{
+				"definition": EnemyDefinitions.PIALEPHANT,
+			},
+		],
+		"hard": [
+			{
+				"definition": EnemyDefinitions.CLOWN,
+				"starting_defence": +20,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.fortify.name,
+						"stacks": 3
+					}
+				]
+			},
+			{
+				"definition": EnemyDefinitions.PIALEPHANT,
+				"starting_defence": +20,
+			},
+		],
+	},
+	"journal_art": preload("res://assets/journal/pialephant.jpg"),
+}
 
 const ENEMIES = [
 	TrafficJam,
 	Mouse,
 	TheExam,
 	TheVictim,
+	ClownShow,
 ]
 
 const IndescribableAbsurdity = {
@@ -227,7 +271,6 @@ const Bully = {
 
 const ELITES = [
 	IndescribableAbsurdity,
-	Bully
 ]
 
 const SurrealBoss = {
@@ -245,13 +288,6 @@ const BOSSES := {
 
 const NCE := [
 	preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd"),
-	preload("res://src/dreamscape/Run/NCE/Act1/SlayTheSpire.gd"),
-	preload("res://src/dreamscape/Run/NCE/Act1/SleepOfOblivion.gd"),
-	preload("res://src/dreamscape/Run/NCE/Act1/MultipleOptions.gd"),
-	preload("res://src/dreamscape/Run/NCE/Act1/PathosForAnxiety.gd"),
-	preload("res://src/dreamscape/Run/NCE/Act1/Dollmaker.gd"),
-	preload("res://src/dreamscape/Run/NCE/Act1/Greed.gd"),
-	preload("res://src/dreamscape/Run/NCE/Act1/PopPsychologist1.gd"),
 ]
 
 static func get_act_name() -> String:

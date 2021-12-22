@@ -337,10 +337,10 @@ func _input(event):
 #		globals.player.add_artifact("AccumulateShop")
 #		globals.player.damage += 20
 		var debug_encounters = [
-			EnemyEncounter.new(Act2.TheVictim, "hard"),
+			EnemyEncounter.new(Act2.ClownShow, "hard"),
 			preload("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd").new(),
-#			BossEncounter.new(Act2.BOSSES["Surreality"], "Surreality")
-			EliteEncounter.new(Act2.IndescribableAbsurdity, "medium")
+			BossEncounter.new(Act1.BOSSES["Narcissus"], "Narcissus"),
+			EliteEncounter.new(Act2.IndescribableAbsurdity, "medium"),
 #			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
 		]
 		for encounter in debug_encounters:
