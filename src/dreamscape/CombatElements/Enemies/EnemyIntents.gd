@@ -63,10 +63,12 @@ func prepare_intents(specific_index = null, is_second_try := false) -> void:
 				else:
 					selected_intent = eval_intent
 					unused_intents.erase(eval_intent)
+					break
 			else:
 				times_last_intent_repeated = 0
 				selected_intent = eval_intent
 				unused_intents.erase(eval_intent)
+				break
 	# There is a chance that is the stars align (or if the developer messed up)
 	# no intent will be selected. In this case, we reset the intents list and try again fresh.
 	# Assuming the developer did not mess up, this should return at least one intent, but 
