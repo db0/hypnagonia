@@ -1,10 +1,5 @@
 extends CombatEffect
 
-func _ready():
-	self_decreasing = SELF_DECREASE.TURN_END
-	decrease_type = DECREASE_TYPE.REDUCE
-	priority = PRIORITY.MULTIPLY
-
 func get_effect_alteration(
 		script: ScriptTask, 
 		value: int, 

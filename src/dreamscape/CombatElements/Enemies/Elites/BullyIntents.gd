@@ -109,11 +109,11 @@ func calculate_special(sceng, subject: CombatEntity, script: ScriptTask) -> int:
 	return(calculation)
 
 
-func _get_intent_scripts(intent_name: String) -> Dictionary:
+func _get_intent_scripts(intent_name: String) -> Array:
 	return(_get_elite_scripts(intent_name))
 
 
-func _get_elite_scripts(intent_name: String) -> Dictionary:
+func _get_elite_scripts(intent_name: String) -> Array:
 # warning-ignore:unused_variable
 	var enraged_stacks: int
 	var vulnerable_stacks := 1

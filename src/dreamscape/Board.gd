@@ -402,11 +402,13 @@ func _input(event):
 
 func _debug_advanced_enemy() -> void:
 	pass
+#	var advanced_entity: EnemyEntity =\
+#			preload("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn").instance()
 	var advanced_entity: EnemyEntity =\
-			preload("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn").instance()
-	advanced_entity.setup_advanced("medium")
+			preload("res://src/dreamscape/CombatElements/Enemies/Elites/IndescribableAbsurdity.tscn").instance()
+	advanced_entity.setup_advanced("hard")
 	_enemy_area.add_child(advanced_entity)
-	advanced_entity.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 6)
+#	advanced_entity.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.self_cleaning.name, 1)
 	# warning-ignore:return_value_discarded
 	advanced_entity.connect("finished_activation", self, "_on_finished_enemy_activation")
 

@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://shaders/outline.shader" type="Shader" id=1]
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/EnemyIntents.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/dreamscape/CombatElements/CombatEntity.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/Elites/IndescribableAbsurdityIntents.gd" type="Script" id=4]
-[ext_resource path="res://src/dreamscape/CombatElements/Enemies/Elites/RushElite.gd" type="Script" id=5]
-[ext_resource path="res://assets/enemies/maze.png" type="Texture" id=6]
+[ext_resource path="res://src/dreamscape/CombatElements/Enemies/Elites/IndescribableAbsurdity.gd" type="Script" id=5]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -16,9 +15,8 @@ shader_param/pattern = 2
 shader_param/inside = false
 shader_param/add_margins = false
 
-[node name="RushElite" groups=["BossEntities", "EnemyEntities"] instance=ExtResource( 3 )]
+[node name="UnnamedAbsurdity" groups=["BossEntities", "EnemyEntities"] instance=ExtResource( 3 )]
 script = ExtResource( 5 )
-character_art_texture = ExtResource( 6 )
 
 [node name="CenterContainer" parent="." index="0"]
 rect_min_size = Vector2( 0, 36 )

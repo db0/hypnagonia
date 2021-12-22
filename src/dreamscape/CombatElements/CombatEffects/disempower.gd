@@ -1,10 +1,5 @@
 extends CombatEffect
 
-func _ready():
-	self_decreasing = SELF_DECREASE.TURN_END
-	decrease_type = DECREASE_TYPE.REDUCE
-	priority = PRIORITY.MULTIPLY
-
 # To override. This is called by the scripting engine
 # Is source is telling this script that the owning combat_entity is the one owning
 # this alteration

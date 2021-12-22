@@ -1,10 +1,5 @@
 extends CombatEffect
 
-func _ready():
-	self_decreasing = SELF_DECREASE.TURN_START
-	decrease_type = DECREASE_TYPE.REDUCE
-	priority = PRIORITY.ADD
-
 func get_effect_alteration(
 		script: ScriptTask, 
 		value: int, 
@@ -28,7 +23,7 @@ func get_effect_alteration(
 		if not snapshot_stacks.has(sceng.snapshot_id):
 			snapshot_stacks[sceng.snapshot_id] = stacks
 		snapshot_stacks[sceng.snapshot_id] -= 1
-	else:
+	elif value > 0:
 		set_stacks(stacks - 1, ["Triggered"])
 	var alteration = new_value - value
 	return(alteration)

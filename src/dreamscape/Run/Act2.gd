@@ -210,12 +210,12 @@ const ENEMIES = [
 	TheVictim,
 ]
 
-const RushElite = {
-	"scene": preload("res://src/dreamscape/CombatElements/Enemies/Elites/RushElite.tscn"),
+const IndescribableAbsurdity = {
+	"scene": preload("res://src/dreamscape/CombatElements/Enemies/Elites/IndescribableAbsurdity.tscn"),
 	"journal_description":\
-		'I remember walls enclosing me and no obvious way out...',
+		'I remember dreaming something indescribable.',
 	"journal_reward":\
-		'I finally understood what these infinite twists and turns represented.',
+		'In the end, I simply dreamed of something more sane.',
 }
 const Bully = {
 	"scene": preload("res://src/dreamscape/CombatElements/Enemies/Elites/Bully.tscn"),
@@ -226,14 +226,14 @@ const Bully = {
 }
 
 const ELITES = [
-	RushElite,
+	IndescribableAbsurdity,
 	Bully
 ]
 
 const SurrealBoss = {
 	"scene": preload("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn"),
 	"journal_description":\
-		"The next dream I had was so incomprehensible, just trying to remember it makes my head hurt",
+		"The next dream was so incomprehensible, just trying to remember it makes my head hurt",
 	"journal_reward":\
 		"I don't claim to understand what I was seeing, [url=boss_card_draft]but eventually that vision faded.[/url]"\
 		+ "but my mind was open to [url=boss_artifact]many new possibilities[/url].",

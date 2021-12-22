@@ -16,7 +16,8 @@ func _init(state_scripts: Array,
 
 
 # Predicts the effects of the action cards on the table.
-func predict() -> void:
+func predict(_snapshot_id: int) -> void:
+	snapshot_id = _snapshot_id
 	run_type = CFInt.RunType.COST_CHECK
 	var prev_subjects := []
 	for task in scripts_queue:
@@ -53,7 +54,11 @@ func predict() -> void:
 				var amount = call(prediction_method, entity, script)
 				if amount is GDScriptFunctionState:
 					amount = yield(amount, "completed")
-				entity.show_predictions(amount)
+				var prediction_icon = null
+				if script.script_name == "apply_effect":
+					prediction_icon = Terms.get_term_value(script.get_property("effect_name"), "icon")
+				entity.show_predictions(amount, prediction_icon)
+	snapshot_id = 0
 
 
 # Will return the adjusted amount of whatever the intent scripts are doing

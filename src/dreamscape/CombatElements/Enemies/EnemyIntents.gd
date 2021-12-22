@@ -171,7 +171,7 @@ func predict_intents(snapshot_id: int) -> void:
 
 
 # We have this externally to allow to override it if needed (e.g. for boss intents)
-func _get_intent_scripts(_intent_name: String) -> Dictionary:
+func _get_intent_scripts(_intent_name: String) -> Array:
 	return(all_intent_scripts.get_scripts(_intent_name))
 
 

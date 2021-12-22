@@ -327,7 +327,8 @@ func common_pre_run(sceng) -> void:
 	# We need to store the immersion before it's used by the scripts
 	# so that the X effects remember what it was
 	sceng.x_usage = cfc.NMAP.board.counters.get_counter("immersion")
-	sceng.predict()
+	var snapshot_id = CFUtils.randi_range(1,100000)
+	sceng.predict(snapshot_id)
 
 
 # Removes this card from the game completely.

@@ -40,11 +40,11 @@ func prepare_intents(_starting_index = null, is_second_try := false) -> Dictiona
 	return(new_intents)
 
 
-func _get_intent_scripts(intent_name: String) -> Dictionary:
+func _get_intent_scripts(intent_name: String) -> Array:
 	return(_get_boss_scripts(intent_name))
 
 
-func _get_boss_scripts(intent_name: String) -> Dictionary:
+func _get_boss_scripts(intent_name: String) -> Array:
 	var scripts := {
 		"Denial": [
 			{

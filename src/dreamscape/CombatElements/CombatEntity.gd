@@ -190,8 +190,10 @@ func get_class() -> String:
 	return("CombatEntity")
 
 
-func show_predictions(value: int) -> void:
+func show_predictions(value: int, image = null) -> void:
 	var incoming_node = INCOMING_SIGNIFIER_SCENE.instance()
+	if image:
+		incoming_node.icon_texture = image
 	incoming.add_child(incoming_node)
 	incoming_node.get_node("Label").text = str(value)
 

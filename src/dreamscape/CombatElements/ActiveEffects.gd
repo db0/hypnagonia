@@ -83,6 +83,7 @@ func mod_effect(
 					"icon": effect_details.icon,
 					"amount": 0,
 				}
+				effect.effect_definition = effect_details
 				effect.setup(setup_dict, effect_name)
 			cfc.flush_cache()
 			if set_to_mod:
@@ -100,17 +101,17 @@ func get_all_effects() -> Dictionary:
 func get_ordered_effects(ordered_effects: Dictionary) -> Dictionary:
 	for effect in get_children():
 		match effect.priority:
-			CombatEffect.PRIORITY.ADD:
+			Terms.ALTERANT_PRIORITY.ADD:
 				# We do not want the same exact instance of an effect
 				# to be calculated twice coming from the subject AND source.
 				# For example quicken has always the same subject
 				# and source. 
 				if not effect in ordered_effects.adders:
 					ordered_effects.adders.append(effect)
-			CombatEffect.PRIORITY.MULTIPLY:
+			Terms.ALTERANT_PRIORITY.MULTIPLY:
 				if not effect in ordered_effects.multipliers:
 					ordered_effects.multipliers.append(effect)
-			CombatEffect.PRIORITY.SET:
+			Terms.ALTERANT_PRIORITY.SET:
 				if not effect in ordered_effects.setters:
 					ordered_effects.setters.append(effect)
 	return(ordered_effects)
@@ -129,3 +130,31 @@ func get_effect_stacks(effect_name: String) -> int:
 		return(0)
 	else:
 		return(effect.stacks)
+
+
+# Returns the effect with the most stacks (tiebreaker is node index)
+# Returns null if no effect is found
+func get_effect_with_most_stacks(effect_type := ''):
+	var highest_effect = null
+	var highest_stacks := 0
+	for effect in get_children():
+		if effect.stacks > highest_stacks:
+			if effect_type and not effect.get_effect_name() in Terms.get_all_effect_types(effect_type):
+				continue
+			highest_effect = effect.get_effect_name()
+			highest_stacks = effect.stacks
+	return(highest_effect)
+
+
+# Returns the effect with the least stacks (tiebreaker is node index)
+# Returns null if no effect is found
+func get_effect_with_least_stacks(effect_type := ''):
+	var lowest_effect = null
+	var lowest_stacks := -1
+	for effect in get_children():
+		if lowest_stacks < 0 or effect.stacks > lowest_stacks:
+			if effect_type and not effect.get_effect_name() in Terms.get_all_effect_types(effect_type):
+				continue
+			lowest_effect = effect.get_effect_name()
+			lowest_stacks = effect.stacks
+	return(lowest_effect)

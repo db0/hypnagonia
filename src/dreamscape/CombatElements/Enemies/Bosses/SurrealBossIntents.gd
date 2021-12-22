@@ -56,11 +56,11 @@ func _post_execute_scripts() -> void:
 		combat_entity.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1, false, false, ["Scripted"]) 
 	must_check_for_dreamer_anxiety_taken = false
 
-func _get_intent_scripts(intent_name: String) -> Dictionary:
+func _get_intent_scripts(intent_name: String) -> Array:
 	return(_get_boss_scripts(intent_name))
 
 
-func _get_boss_scripts(intent_name: String) -> Dictionary:
+func _get_boss_scripts(intent_name: String) -> Array:
 	var scripts := {
 		"Illusionary": [
 			{

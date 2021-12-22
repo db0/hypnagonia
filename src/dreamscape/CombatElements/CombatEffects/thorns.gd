@@ -1,8 +1,6 @@
 extends CombatEffect
 
 func _ready():
-	self_decreasing = SELF_DECREASE.TURN_START
-	decrease_type = DECREASE_TYPE.REDUCE
 	# warning-ignore:return_value_discarded
 	owning_entity.connect("entity_attacked", self, "_on_entity_attacked")
 

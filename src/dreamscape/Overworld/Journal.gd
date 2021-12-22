@@ -339,7 +339,8 @@ func _input(event):
 		var debug_encounters = [
 			EnemyEncounter.new(Act2.TheVictim, "hard"),
 			preload("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd").new(),
-			BossEncounter.new(Act2.BOSSES["Surreality"], "Surreality")
+#			BossEncounter.new(Act2.BOSSES["Surreality"], "Surreality")
+			EliteEncounter.new(Act2.IndescribableAbsurdity, "medium")
 #			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
 		]
 		for encounter in debug_encounters:

@@ -5,6 +5,7 @@ export(StreamTexture) var ICON_ATTACK := preload("res://assets/icons/terror.png"
 export(StreamTexture) var ICON_DEFEND := preload("res://assets/icons/shield.png")
 export(StreamTexture) var ICON_DEBUFF := preload("res://assets/icons/cursed-star.png")
 export(StreamTexture) var ICON_BUFF := preload("res://assets/icons/growth.png")
+export(StreamTexture) var ICON_SPECIAL := preload("res://assets/icons/uncertainty.png")
 
 func get_scripts(intent_name: String) -> Dictionary:
 	var scripts := {
