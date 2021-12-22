@@ -230,18 +230,17 @@ const ELITES = [
 	Bully
 ]
 
-const Narcissus = {
-	"scene": preload("res://src/dreamscape/CombatElements/Enemies/Bosses/Narcissus.tscn"),
+const SurrealBoss = {
+	"scene": preload("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn"),
 	"journal_description":\
-		'I found someone I am sure I know, but I can\'t quite remember who.'\
-		+ 'I found them gazing in a mirror, or was it a lake? They turned their attention to me...',
+		"The next dream I had was so incomprehensible, just trying to remember it makes my head hurt",
 	"journal_reward":\
-		'Through the many lies and denials, [url=boss_card_draft]I cornered the truth out of them.[/url]'\
-		+ 'and for once felt like [url=boss_artifact]I was getting somewhere[/url].',
+		"I don't claim to understand what I was seeing, [url=boss_card_draft]but eventually that vision faded.[/url]"\
+		+ "but my mind was open to [url=boss_artifact]many new possibilities[/url].",
 }
 
 const BOSSES := {
-	"Narcissus": Narcissus
+	"Surreality": SurrealBoss
 }
 
 const NCE := [

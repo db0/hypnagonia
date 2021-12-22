@@ -24,7 +24,7 @@ var _add_starting_intent:= true
 func _ready() -> void:
 	all_intents = INTENTS.duplicate(true)
 
-func prepare_intents(_starting_index = null, is_second_try := false) -> void:
+func prepare_intents(_starting_index = null, is_second_try := false) -> Dictionary:
 	if not unused_intents.size():
 		reshuffle_intents()
 	if _add_starting_intent:
@@ -38,6 +38,7 @@ func prepare_intents(_starting_index = null, is_second_try := false) -> void:
 	if new_intents.reshuffle:
 		reshuffle_intents()
 	_display_intents(new_intents)
+	return(new_intents)
 
 
 func _get_intent_scripts(intent_name: String) -> Dictionary:

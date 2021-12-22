@@ -26,7 +26,7 @@ const INTENTS := [
 func _ready() -> void:
 	all_intents = INTENTS.duplicate(true)
 
-func prepare_intents(specific_index = null, is_second_try := false) -> void:
+func prepare_intents(specific_index = null, is_second_try := false) -> Dictionary:
 	if not unused_intents.size():
 		reshuffle_intents()
 	var new_intents : Dictionary
@@ -40,7 +40,7 @@ func prepare_intents(specific_index = null, is_second_try := false) -> void:
 	if new_intents.reshuffle:
 		reshuffle_intents()
 	_display_intents(new_intents)
-
+	return(new_intents)
 
 func execute_special(script: ScriptTask, costs_dry_run := false) -> int:
 	var retcode: int = CFConst.ReturnCode.CHANGED

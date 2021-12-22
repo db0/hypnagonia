@@ -22,7 +22,7 @@ var next_intent_index := ''
 
 var all_intent_scripts = IntentScripts.new()
 
-func prepare_intents(specific_index = null, is_second_try := false) -> void:
+func prepare_intents(specific_index = null, is_second_try := false) -> Dictionary:
 	# This will reshuffle all intents and make sure the specified intent is the
 	# one selected for this enemy. This is useful for setting up enemies.
 	if not unused_intents.size():
@@ -81,7 +81,7 @@ func prepare_intents(specific_index = null, is_second_try := false) -> void:
 					+ "Please check intents of Torment: " + combat_entity.canonical_name)
 			reshuffle_intents()
 			prepare_intents(null, true)
-			return
+			return({})
 		else:
 			print_debug("ERROR: Could not discover valid intent. Please check intents list for this enemy. Aborting. ")
 	last_used_intent = selected_intent.hash()
@@ -101,6 +101,7 @@ func prepare_intents(specific_index = null, is_second_try := false) -> void:
 	if new_intents.reshuffle:
 		reshuffle_intents()
 	_display_intents(new_intents)
+	return(new_intents)
 
 func reshuffle_intents() -> void:
 	unused_intents = all_intents.duplicate()
@@ -124,6 +125,7 @@ func execute_scripts(
 		_trigger: String = "manual",
 		trigger_details: Dictionary = {},
 		only_cost_check := false):
+	_pre_execute_scripts()
 	var sceng = null
 	var current_intents = []
 	for intent in get_children():
@@ -157,6 +159,7 @@ func execute_scripts(
 	elif not sceng.can_all_costs_be_paid and not only_cost_check:
 		#print("DEBUG:" + str(state_scripts))
 		sceng.execute(CFInt.RunType.ELSE)
+	_post_execute_scripts()
 	return(sceng)
 
 
@@ -210,3 +213,11 @@ func _display_intents(new_intents: Dictionary) -> void:
 				var new_intent : CombatSignifier = SINGLE_INTENT_SCENE.instance()
 				add_child(new_intent)
 				new_intent.setup(single_intent, intent_name)
+
+# Overridable function
+func _pre_execute_scripts() -> void:
+	pass
+
+# Overridable function
+func _post_execute_scripts() -> void:
+	pass

@@ -391,6 +391,16 @@ const ACTIVE_EFFECTS := {
 		"description": "{effect_name} ({effect_icon}): The first time each turn this {entity} takes "\
 				+ "9 or more {damage} from one source, reduce its {focus} by {amount} for this turn.",
 	},
+	"surreal_boss": {
+		"name": "Incomprehensibility",
+		"icon": preload("res://assets/icons/abstract-053.png"),
+		"noscript": true,
+		"generic_description": "",
+		"rich_text_icon": "res://assets/icons/abstract-053.png",
+		"description": "{effect_name} ({effect_icon}): Whenever this {entity}'s {stress} does not increase anxiety it gains 1 {focus}.\n"\
+				+ "The first time each turn this {entity}'s is {opponent_attack} for 12+ from one source, it gains 1 {focus}.\n"\
+				+ "When this {entity} has 7+ focus, it performs a powerful {stress}, then resets its {focus} to 0.",
+	},
 
 }
 
