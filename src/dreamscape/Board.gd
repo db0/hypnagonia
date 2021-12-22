@@ -363,7 +363,7 @@ func _input(event):
 		# warning-ignore:unused_variable
 		var torment2 = spawn_enemy(EnemyDefinitions.THE_EXAM)
 		# warning-ignore:unused_variable
-		var torment3 = spawn_enemy(EnemyDefinitions.FEARMONGER)
+		var torment3 = spawn_enemy(EnemyDefinitions.THE_VICTIM)
 #		var torment2 = spawn_enemy("Gaslighter")
 #		torment2.rect_position = Vector2(800,100)
 #		torment3.rect_position = Vector2(200,300)
@@ -371,8 +371,8 @@ func _input(event):
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 3)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.unconventional.name, 1, false, false, ['Debug'], 'weirdly')
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 4)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.the_exam.name, 1)
-		torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.rebalance.name, 4)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.the_exam.name, 1)
+		torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.the_victim.name, 4)
 		torment2.defence = 10
 		torment2.health = 1000
 		torment3.health = 1000
@@ -382,11 +382,9 @@ func _input(event):
 #		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
-			"Safety of Air",
-			"Safety of Air",
-			"The Laughing One",
-			"The Laughing One",
-			"The Exam",
+			"It's alive!",
+			"The Victim",
+			"* The Victim *",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.hand.add_child(card)

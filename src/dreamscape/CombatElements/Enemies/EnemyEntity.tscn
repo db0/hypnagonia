@@ -15,9 +15,7 @@ shader_param/pattern = 2
 shader_param/inside = false
 shader_param/add_margins = false
 
-[node name="EnemyEntity" groups=[
-"EnemyEntities",
-] instance=ExtResource( 2 )]
+[node name="EnemyEntity" groups=["EnemyEntities"] instance=ExtResource( 2 )]
 script = ExtResource( 3 )
 
 [node name="CenterContainer" parent="." index="0"]
@@ -28,7 +26,6 @@ margin_top = 40.0
 margin_right = 69.0
 margin_bottom = 83.0
 rect_min_size = Vector2( 0, 43 )
-custom_constants/separation = 15
 
 [node name="Art" parent="." index="2"]
 margin_top = 87.0

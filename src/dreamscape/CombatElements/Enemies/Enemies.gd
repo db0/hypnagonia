@@ -366,7 +366,7 @@ const MOUSE := {
 	"Health": 80,
 	"Intents": [
 		{
-			"intent_scripts": ["Perplex:10"],
+			"intent_scripts": ["Perplex:13"],
 			"reshuffle": false,
 			"max_uses": 1,
 		},
@@ -401,7 +401,6 @@ const THE_EXAM := {
 			"intent_scripts": ["Memory Failing"],
 			"reshuffle": false,
 			"max_uses": 3,
-			"max_in_a_row": 1,
 		},
 		{
 			"intent_scripts": ["Perplex:12", "Stress:12"],
@@ -411,12 +410,10 @@ const THE_EXAM := {
 		{
 			"intent_scripts": ["Perplex:5", "Stress:15"],
 			"reshuffle": false,
-			"max_in_a_row": 2,
 		},
 		{
 			"intent_scripts": ["Perplex:15", "Stress:5"],
 			"reshuffle": false,
-			"max_in_a_row": 2,
 		},
 	],
 	"_health_variability": 6,
@@ -425,16 +422,40 @@ const THE_EXAM := {
 	"_texture": preload("res://assets/enemies/notebook.png"),
 	"_character_art": "Delapouite"
 }
-#	"Mouse": {
-#		"Type": "Phobia",
-#		"Health": 1,
-#		"Intents": [
-#		],
-#		"_health_variability": 2,
-#		"_texture_size_x": "120",
-#		"_texture_size_y": "120",
-#		"_character_art": "nobody",
-#	},
+const THE_VICTIM := {
+	"Name": "The Victim",
+	"Type": "Abuse",
+	"Health": 93,
+	"Intents": [
+		{
+			"intent_scripts": ["Stress:8", "Stress:7", "Stress:6"],
+			"reshuffle": true,
+			"max_in_a_row": 2,
+		},
+		{
+			"intent_scripts": ["Stress:16", "Buff:2:thorns", "Debuff:1:disempower"],
+			"reshuffle": true,
+			"max_in_a_row": 2,
+		},
+		{
+			"intent_scripts": ["Perplex:10"],
+			"reshuffle": false,
+			"max_uses": 1,
+			"sets_up_intent": "5stress",
+		},
+		{
+			"id": "5stress",
+			"intent_scripts": ["Stress:5", "Stress:5", "Stress:5", "Stress:5", "Stress:5", "Stress:5"],
+			"reshuffle": false,
+			"not_in_rotation": true,
+		},
+	],
+	"_health_variability": 2,
+	"_texture_size_x": "120",
+	"_texture_size_y": "120",
+	"_texture": preload("res://assets/enemies/slavery-whip.png"),
+	"_character_art": "Lorc"
+}
 #	"Spider": {
 #		"Type": "Phobia",
 #		"Health": 1,

@@ -692,6 +692,26 @@ const scripts := {
 			],
 		},
 	},
+	"The Victim": {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.the_victim.name,
+					"subject": "target",
+					"is_cost": true,
+					"modification":  {
+						"lookup_property": "_amounts",
+						"value_key": "effect_stacks",
+					},
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+			],
+		},
+	},
+
 }
 
 # This fuction returns all the scripts of the specified card name.

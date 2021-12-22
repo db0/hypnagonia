@@ -945,5 +945,54 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"The Victim": {
+		"Type": "Understanding",
+		"Tags": [],
+		"Abilities": "The first time each turn target torment gets {effect_threshold} {damage} or more "\
+				+ "from one source, reduce its {focus} by {effect_stacks} for this turn.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": [],
+		"_amounts": {
+			"effect_threshold": 9,
+			"effect_stacks": 1,
+		},
+		"_upgrade_threshold": 12,
+		"_upgrades": [
+			"^ The Victim ^",
+			"* The Victim *",
+		],
+	},
+	"^ The Victim ^": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.alpha.name],
+		"Abilities": "The first time each turn target torment gets {effect_threshold} {damage} or more "\
+				+ "from one source, reduce its {focus} by {effect_stacks} for this turn.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": [],
+		"_amounts": {
+			"effect_threshold": 9,
+			"effect_stacks": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"* The Victim *": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.alpha.name],
+		"Abilities": "The first time each turn target torment gets {effect_threshold} {damage} or more "\
+				+ "from one source, reduce its {focus} by {effect_stacks} for this turn.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": [],
+		"_amounts": {
+			"effect_threshold": 9,
+			"effect_stacks": 2,
+		},
+		"_is_upgrade": true,
+	},
 
 }

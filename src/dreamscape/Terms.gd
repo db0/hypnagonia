@@ -383,6 +383,14 @@ const ACTIVE_EFFECTS := {
 		"rich_text_icon": "res://assets/icons/pencil.png",
 		"description": "{effect_name} ({effect_icon}): Every time you {forget} a card, take {amount} {anxiety}.",
 	},
+	"the_victim": {
+		"name": "Discern",
+		"icon": preload("res://assets/icons/think.png"),
+		"generic_description": "",
+		"rich_text_icon": "res://assets/icons/think.png",
+		"description": "{effect_name} ({effect_icon}): The first time each turn this {entity} takes "\
+				+ "9 or more {damage} from one source, reduce its {focus} by {amount} for this turn.",
+	},
 
 }
 

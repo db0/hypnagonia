@@ -26,7 +26,7 @@ const INTENTS := [
 func _ready() -> void:
 	all_intents = INTENTS.duplicate(true)
 
-func prepare_intents(specific_index = null) -> void:
+func prepare_intents(specific_index = null, is_second_try := false) -> void:
 	if not unused_intents.size():
 		reshuffle_intents()
 	var new_intents : Dictionary

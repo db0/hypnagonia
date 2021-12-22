@@ -2,10 +2,12 @@
 
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/EnemyIntents.gd" type="Script" id=2]
 
-[node name="EnemyIntents" type="HBoxContainer"]
+[node name="EnemyIntents" type="GridContainer"]
 margin_right = 14.0
 margin_bottom = 14.0
-custom_constants/separation = 5
+custom_constants/vseparation = 10
+custom_constants/hseparation = 10
+columns = 4
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false

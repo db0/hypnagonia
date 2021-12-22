@@ -154,12 +154,60 @@ const TheExam = {
 	},
 #	"journal_art": preload("res://assets/journal/the_laughing_one.jpeg"),
 }
+const TheVictim = {
+	"journal_description":\
+		"[url={torment_tag1}]They claimed I always hurt their feelings.[/url] "\
+			+ "Was I in the wrong? I don't know anymore...",
+	"journal_reward":\
+		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+	"enemies": {
+		"easy": [
+			{
+				"definition": EnemyDefinitions.THE_VICTIM,
+				"health_modifier": -10,
+				"starting_intent": 0,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.the_victim.name,
+						"stacks": 4
+					}
+				]
+			},
+		],
+		"medium": [
+			{
+				"definition": EnemyDefinitions.THE_VICTIM,
+				"starting_intent": 0,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.the_victim.name,
+						"stacks": 3
+					}
+				]
+			},
+		],
+		"hard": [
+			{
+				"definition": EnemyDefinitions.THE_VICTIM,
+				"health_modifier": +15,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.the_victim.name,
+						"stacks": 2
+					}
+				]
+			},
+		],
+	},
+#	"journal_art": preload("res://assets/journal/the_laughing_one.jpeg"),
+}
 
 
 const ENEMIES = [
 	TrafficJam,
 	Mouse,
 	TheExam,
+	TheVictim,
 ]
 
 const RushElite = {

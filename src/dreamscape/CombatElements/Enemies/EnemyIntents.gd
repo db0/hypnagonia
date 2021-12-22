@@ -1,5 +1,5 @@
 class_name EnemyIntents
-extends HBoxContainer
+extends GridContainer
 
 signal intents_predicted
 
@@ -18,11 +18,12 @@ var intent_uses: Dictionary
 # The hash of the last used intent dictionary (for comparisons)
 var last_used_intent: int
 var times_last_intent_repeated: int
+var next_intent_index := ''
 
 var all_intent_scripts = IntentScripts.new()
 
-func prepare_intents(specific_index = null) -> void:
-	# This will reshuffle all intents and make sure the specified intent is the 
+func prepare_intents(specific_index = null, is_second_try := false) -> void:
+	# This will reshuffle all intents and make sure the specified intent is the
 	# one selected for this enemy. This is useful for setting up enemies.
 	if not unused_intents.size():
 		reshuffle_intents()
@@ -33,20 +34,54 @@ func prepare_intents(specific_index = null) -> void:
 		selected_intent = unused_intents[specific_index]
 		unused_intents.remove(specific_index)
 		CFUtils.shuffle_array(unused_intents)
+	# If we're setting up the next intent specifically
+	# Then we grab it from the index position of the non-shuffled list
+	# Then remove it from the unused intents, if it's still in there.
+	elif next_intent_index != '':
+		for intent_seek in all_intents:
+			if intent_seek.get("id", '') == next_intent_index:
+				selected_intent = intent_seek
+		for intent in unused_intents:
+			if intent.hash() == selected_intent.hash():
+				unused_intents.erase(intent)
 	else:
-		var cinte : Dictionary = unused_intents.back()
-		# If an intent can only be used a specific amunt of times in a row
-		# And it has reached that amount, then we take the front intent instead
-		if cinte.has("max_in_a_row")\
-				and last_used_intent == cinte.hash():
-			if times_last_intent_repeated >= cinte["max_in_a_row"]:
+		for cinte in unused_intents:
+			var eval_intent : Dictionary = cinte
+			# If the intent is not in standard intent rotation, then it can
+			# only be selected through the sets_up_intent_index key.
+			if eval_intent.get("not_in_rotation", false):
+				continue
+			# If an intent can only be used a specific amount of times in a row
+			# And it has reached that amount, then we keep looking
+			# This assumes that the exact same intent does not exist multiple times
+			# in the list
+			elif eval_intent.has("max_in_a_row")\
+					and last_used_intent == eval_intent.hash():
+				if times_last_intent_repeated >= eval_intent["max_in_a_row"]:
+					times_last_intent_repeated = 0
+					continue
+				else:
+					selected_intent = eval_intent
+					unused_intents.erase(eval_intent)
+			else:
 				times_last_intent_repeated = 0
-				selected_intent = unused_intents.pop_front()
-			else: 
-				selected_intent = unused_intents.pop_back()
+				selected_intent = eval_intent
+				unused_intents.erase(eval_intent)
+	# There is a chance that is the stars align (or if the developer messed up)
+	# no intent will be selected. In this case, we reset the intents list and try again fresh.
+	# Assuming the developer did not mess up, this should return at least one intent, but 
+	# There is a chance
+	if selected_intent.empty():
+		# if we restart this process, we set a flag. if we end up twice without
+		# a valid intent, we abort to avoid looping infinitely.
+		if not is_second_try:
+			print_debug("WARNING: no valid Intent selected. Reseting and Retrying. "
+					+ "Please check intents of Torment: " + combat_entity.canonical_name)
+			reshuffle_intents()
+			prepare_intents(null, true)
+			return
 		else:
-			times_last_intent_repeated = 0
-			selected_intent = unused_intents.pop_back()
+			print_debug("ERROR: Could not discover valid intent. Please check intents list for this enemy. Aborting. ")
 	last_used_intent = selected_intent.hash()
 	times_last_intent_repeated += 1
 	# This allows us to select some intents which can only be used a specified
@@ -58,6 +93,9 @@ func prepare_intents(specific_index = null) -> void:
 			all_intents.erase(selected_intent)
 #			print_debug("Removed ", selected_intent, intent_uses)
 	new_intents = selected_intent.duplicate(true)
+	# If this intent sets up the next intent, then we store the next intent index to use here.
+	# If this is not defined, then the value will be -1 which is ignored.
+	next_intent_index = new_intents.get("sets_up_intent", '')
 	if new_intents.reshuffle:
 		reshuffle_intents()
 	_display_intents(new_intents)
@@ -142,7 +180,7 @@ func _display_intents(new_intents: Dictionary) -> void:
 		# Therefore we always split the intent name (i.e. the key) on a colon, and the name
 		# is always the first part.
 		var intent_array = intent.split(':')
-		# We store the name of the last script in the list of intents as the 
+		# We store the name of the last script in the list of intents as the
 		# intent name. Then we can use it for special animations and so on.
 		var intent_name = intent_array[0]
 		animation_name = intent_name

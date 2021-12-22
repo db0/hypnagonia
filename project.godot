@@ -339,7 +339,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/CombatElements/Enemies/EnemyEntity.gd"
 }, {
-"base": "HBoxContainer",
+"base": "GridContainer",
 "class": "EnemyIntents",
 "language": "GDScript",
 "path": "res://src/dreamscape/CombatElements/Enemies/EnemyIntents.gd"
