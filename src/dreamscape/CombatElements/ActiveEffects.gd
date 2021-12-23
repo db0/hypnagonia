@@ -143,6 +143,20 @@ func get_effect_with_most_stacks(effect_type := ''):
 				continue
 			highest_effect = effect.get_effect_name()
 			highest_stacks = effect.stacks
+	# Effects of type "Versatile" can be considered buffs or debuffs, depending on if they're positive
+	# or negative
+	if effect_type == 'Buff' or effect_type == 'Debuff':
+		for effect in get_children():
+			if effect_type == 'Buff' and effect.stacks > 0 and effect.stacks > highest_stacks:
+				if not effect.get_effect_name() in Terms.get_all_effect_types('Versatile'):
+					continue
+				highest_effect = effect.get_effect_name()
+				highest_stacks = effect.stacks
+			if effect_type == 'Debuff' and effect.stacks < 0 and abs(effect.stacks) > highest_stacks:
+				if not effect.get_effect_name() in Terms.get_all_effect_types('Versatile'):
+					continue
+				highest_effect = effect.get_effect_name()
+				highest_stacks = abs(effect.stacks)
 	return(highest_effect)
 
 
@@ -152,9 +166,21 @@ func get_effect_with_least_stacks(effect_type := ''):
 	var lowest_effect = null
 	var lowest_stacks := -1
 	for effect in get_children():
-		if lowest_stacks < 0 or effect.stacks > lowest_stacks:
+		if lowest_stacks < 0 or effect.stacks < lowest_stacks:
 			if effect_type and not effect.get_effect_name() in Terms.get_all_effect_types(effect_type):
 				continue
 			lowest_effect = effect.get_effect_name()
 			lowest_stacks = effect.stacks
+	if effect_type == 'Buff' or effect_type == 'Debuff':
+		for effect in get_children():
+			if effect_type == 'Buff' and effect.stacks > 0 and (effect.stacks < lowest_stacks or lowest_stacks < 0):
+				if not effect.get_effect_name() in Terms.get_all_effect_types('Versatile'):
+					continue
+				lowest_effect = effect.get_effect_name()
+				lowest_stacks = effect.stacks
+			if effect_type == 'Debuff' and effect.stacks < 0 and (abs(effect.stacks) < lowest_stacks or lowest_stacks < 0):
+				if not effect.get_effect_name() in Terms.get_all_effect_types('Versatile'):
+					continue
+				lowest_effect = effect.get_effect_name()
+				lowest_stacks = abs(effect.stacks)
 	return(lowest_effect)

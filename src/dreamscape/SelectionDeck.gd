@@ -115,5 +115,5 @@ func _on_deck_card_selected(card_entry: CardEntry, deck_card_object) -> void:
 	signal_payload["operation"] = operation
 	emit_signal("operation_performed", signal_payload)
 	if auto_close:
-		cfc.hide_all_previews()
+		globals.hide_all_previews()
 		queue_free()

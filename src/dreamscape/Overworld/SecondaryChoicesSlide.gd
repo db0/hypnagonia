@@ -43,5 +43,5 @@ func _on_choice_pressed(
 					'rect_min_size:y', scroll_container.rect_min_size.y, choice.rect_size.y, 1.0,
 					Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 			_tween.start()
-	cfc.hide_all_previews()
+	globals.hide_all_previews()
 	globals.current_encounter.call_deferred("continue_encounter", choice_key)

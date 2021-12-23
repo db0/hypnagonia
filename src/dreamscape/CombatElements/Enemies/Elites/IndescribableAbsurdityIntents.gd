@@ -114,13 +114,13 @@ func _get_elite_scripts(intent_name: String) -> Array:
 			intent_scripts.append(second_script)
 		"Dispell":
 			var all_concentrations = Terms.get_all_effect_types("Concentration")
-			all_concentrations += Terms.get_all_effect_types("Both")
+			all_concentrations += Terms.get_all_effect_types("Versatile")
 			CFUtils.shuffle_array(all_concentrations)
 			var found_concentration := ''
 			var damage = 20
 			for concentration in all_concentrations:
 				# We do not want to remove the player's negative focus/quicken, if they have any
-				if concentration in Terms.get_all_effect_types("Both")\
+				if concentration in Terms.get_all_effect_types("Versatile")\
 						and cfc.NMAP.board.dreamer.active_effects.get_effect_stacks(concentration) < 0:
 					continue
 				if cfc.NMAP.board.dreamer.active_effects.get_effect_stacks(concentration) > 0:

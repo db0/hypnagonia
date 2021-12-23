@@ -4,6 +4,7 @@ extends PanelContainer
 const NESTED_CHOICES_SCENE = preload("res://src/dreamscape/Overworld/SecondaryChoicesSlide.tscn")
 const SELECTION_DECK_SCENE = preload("res://src/dreamscape/SelectionDeck.tscn")
 const CARD_PREVIEW_SCENE = preload("res://src/dreamscape/MainMenu/StartingCardPreviewObject.tscn")
+const ARTIFACT_PREVIEW_SCENE = preload("res://src/dreamscape/MainMenu/ArtifactPreviewPopup.tscn")
 
 onready var page_illustration := $HBC/MC/JournalPageIllustration
 onready var page_shader := $HBC/MC/JournalPageShader
@@ -162,6 +163,14 @@ func prepare_popup_card(card_name: String) -> void:
 		popup_cards[card_name] = popup_card
 
 
+func prepare_popup_artifact(artifact_name: String) -> void:
+	if not popup_cards.has(artifact_name):
+		var popup_artifact = ARTIFACT_PREVIEW_SCENE.instance()
+		card_storage.add_child(popup_artifact)
+		popup_artifact.setup(artifact_name)
+		popup_cards[artifact_name] = popup_artifact
+
+
 func _on_meta_clicked(meta_text: String) -> void:
 # warning-ignore:unused_variable
 	var meta_tag := _parse_meta_tag(meta_text)
@@ -175,6 +184,9 @@ func _on_meta_hover_started(meta_text: String) -> void:
 		"popup_card":
 			var card_name : String = meta_tag["name"]
 			popup_cards[card_name]._on_GridCardObject_mouse_entered()
+		"popup_artifact":
+			var artifact_name : String = meta_tag["name"]
+			popup_cards[artifact_name].show_preview_artifact()
 		"nce":
 			_show_description_popup(
 					globals.current_encounter.get_meta_hover_description(
@@ -187,6 +199,9 @@ func _on_meta_hover_ended(meta_text: String) -> void:
 		"popup_card":
 			var card_name : String = meta_tag["name"]
 			popup_cards[card_name]._on_GridCardObject_mouse_exited()
+		"popup_artifact":
+			var artifact_name : String = meta_tag["name"]
+			popup_cards[artifact_name].hide_preview_artifact()
 		"nce":
 			_description_popup.visible = false
 
@@ -205,8 +220,11 @@ func _on_choice_pressed(encounter: SingleEncounter, rich_text_choice: JournalCho
 			choice.visible = false
 	# To ensure card previews are hidden in case the player is too fast.
 	_description_popup.visible = false
-	for torment_name in popup_cards:
-		popup_cards[torment_name]._on_GridCardObject_mouse_exited()
+	for popup in popup_cards:
+		if popup_cards[popup].has_method("_on_GridCardObject_mouse_exited"):
+			popup_cards[popup]._on_GridCardObject_mouse_exited()
+		if popup_cards[popup].has_method("hide_preview_artifact"):
+			popup_cards[popup].hide_preview_artifact()
 	encounter.begin()
 
 
@@ -332,14 +350,14 @@ func _input(event):
 #		for c in  globals.player.deck.get_progressing_cards():
 #			c.upgrade_progress = 100
 #		_reveal_entry(upgrade_journal, true)
-		globals.player.add_artifact(ArtifactDefinitions.RandomUpgrades.canonical_name)
+		globals.player.add_artifact(ArtifactDefinitions.BetterRareChance.canonical_name)
 #		globals.player.add_artifact("AccumulateEnemy")
 #		globals.player.add_artifact("AccumulateShop")
 #		globals.player.damage += 20
-		globals.player.pathos.repress_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 200)
+#		globals.player.pathos.repress_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 200)
 		var debug_encounters = [
 			EnemyEncounter.new(Act2.ClownShow, "hard"),
-			preload("res://src/dreamscape/Run/NCE/Act2/Griftlands.gd").new(),
+			preload("res://src/dreamscape/Run/NCE/Act2/BannersOfRuin.gd").new(),
 			BossEncounter.new(Act1.BOSSES["Narcissus"], "Narcissus"),
 			EliteEncounter.new(Act2.IndescribableAbsurdity, "medium"),
 #			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()

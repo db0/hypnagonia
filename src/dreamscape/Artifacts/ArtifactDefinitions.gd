@@ -528,6 +528,17 @@ const RandomUpgrades := {
 		"immersion_amount": 1,
 	},
 }
+const BetterRareChance := {
+	"canonical_name": "BetterRareChance",
+	"name": "The Gruyere of Insight",
+	"description": "{artifact_name}: Your chance of finding Rare cards is doubled.",
+	"icon": preload("res://assets/icons/artifacts/cheese-wedge.png"),
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Encounter",
+	"amounts": {
+		"rare_multiplier": 2,
+	},
+}
 
 
 
@@ -581,6 +592,7 @@ const ARCHETYPE := [
 # These artifacts are only found in non-combat encounters
 const ENCOUNTER := [
 	PorcelainDoll,
+	BetterRareChance,
 ]
 
 const BOSS := [

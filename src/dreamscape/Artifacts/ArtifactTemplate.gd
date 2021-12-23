@@ -112,8 +112,16 @@ func execute_scripts(
 # Which uses another approach. So these two are not used here.
 func retrieve_scripts(_trigger: String) -> Dictionary:
 	return({})
+
+
 func get_state_exec() -> String:
 	return("NONE")
+
+# Overridable function to add to artifacts so that they can alter global values
+# such as card draft chance etc
+func get_global_alterant(_value, _alterant_type: int):
+	return
+
 
 func _on_CombatSingifier_mouse_entered() -> void:
 	_set_current_description()

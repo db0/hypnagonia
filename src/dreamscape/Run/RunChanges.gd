@@ -16,7 +16,6 @@ func _init(_encounters) -> void:
 
 # Unlocks an NCE to be found in later encounters
 func unlock_nce(nce_name: String) -> void:
-	print_debug(unlocked_nce)
 	# We go through each act class we know, and look for the NCE name
 	for act in [Act1, Act2, AllActs]:
 		var act_name = act.get_act_name()
@@ -34,7 +33,6 @@ func unlock_nce(nce_name: String) -> void:
 						encounters.remaining_nce.append(unl_nce.nce)
 						CFUtils.shuffle_array(encounters.remaining_nce)
 					break
-	print_debug(unlocked_nce)
 
 
 # This is typically called when NCEs are being refreshed because their list is empty.

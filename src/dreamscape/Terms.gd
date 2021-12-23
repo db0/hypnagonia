@@ -166,7 +166,7 @@ const ACTIVE_EFFECTS := {
 	},
 	"strengthen": {
 		"name": "Focus",
-		"type": "Both",
+		"type": "Versatile",
 		"self_decreasing": SELF_DECREASE.FALSE,
 		"icon": preload("res://assets/icons/templar-eye.png"),
 		"generic_description": "{effect_name}: Increases interpretation dealt by exact amount.",
@@ -179,7 +179,7 @@ const ACTIVE_EFFECTS := {
 	},
 	"quicken": {
 		"name": "Solid",
-		"type": "Both",
+		"type": "Versatile",
 		"self_decreasing": SELF_DECREASE.FALSE,
 		"icon": preload("res://assets/icons/white-tower.png"),
 		"generic_description": "{effect_name}: Increases confidence gained by exact amount.",

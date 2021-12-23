@@ -194,7 +194,7 @@ func _on_Menu_resized() -> void:
 
 
 func _on_popup_hide() -> void:
-	cfc.hide_all_previews()
+	globals.hide_all_previews()
 	_archetype_starting_cards_tags.clear(true)
 	_archetype_starting_curios.clear(true)
 

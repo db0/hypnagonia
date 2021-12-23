@@ -283,7 +283,7 @@ func _on_deck_operation_performed(operation_details: Dictionary) -> void:
 		if remove_uses >= remove_max_usage:
 			_deck_preview_popup.hide()
 			_remove_button.disabled = true
-			cfc.hide_all_previews()
+			globals.hide_all_previews()
 	elif operation_details["operation"] == "progress":
 		progress_uses += 1
 		_update_progress_cost()
@@ -291,5 +291,4 @@ func _on_deck_operation_performed(operation_details: Dictionary) -> void:
 		if progress_uses >= progress_max_usage:
 			_deck_preview_popup.hide()
 			_progress_button.disabled = true
-			cfc.hide_all_previews()
-
+			globals.hide_all_previews()

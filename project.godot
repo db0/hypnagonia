@@ -79,6 +79,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/ArtifactPrep.gd"
 }, {
+"base": "PopupPanel",
+"class": "ArtifactPreviewPopup",
+"language": "GDScript",
+"path": "res://src/dreamscape/MainMenu/ArtifactPreviewPopup.gd"
+}, {
 "base": "CenterContainer",
 "class": "ArtifactRepresentation",
 "language": "GDScript",
@@ -208,6 +213,11 @@ _global_script_classes=[ {
 "class": "CardContainer",
 "language": "GDScript",
 "path": "res://src/core/CardContainer.gd"
+}, {
+"base": "HBoxContainer",
+"class": "CardDraft",
+"language": "GDScript",
+"path": "res://src/dreamscape/Overworld/CardDraft.gd"
 }, {
 "base": "Reference",
 "class": "CardEntry",
@@ -639,6 +649,7 @@ _global_script_class_icons={
 "ArtifactDefinitions": "",
 "ArtifactObject": "",
 "ArtifactPrep": "",
+"ArtifactPreviewPopup": "",
 "ArtifactRepresentation": "",
 "ArtifactsList": "",
 "Aspects": "",
@@ -665,6 +676,7 @@ _global_script_class_icons={
 "CardBackTexture": "",
 "CardConfig": "",
 "CardContainer": "",
+"CardDraft": "",
 "CardEntry": "",
 "CardFront": "",
 "CardLabel": "",

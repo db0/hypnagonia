@@ -288,6 +288,7 @@ const BOSSES := {
 
 const NCE := [
 	preload("res://src/dreamscape/Run/NCE/Act2/Griftlands.gd"),
+	preload("res://src/dreamscape/Run/NCE/Act2/BannersOfRuin.gd"),
 ]
 
 const LOCKED_NCE := {
