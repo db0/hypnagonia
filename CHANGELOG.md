@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.21.0](https://github.com/db0/hypnagonia/tree/v0.21.0) (2021-12-23)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.20.0...v0.21.0)
+
+**Merged pull requests:**
+
+- Added Second Act as Work-in-Progress [\#91](https://github.com/db0/hypnagonia/pull/91) ([db0](https://github.com/db0))
+
 ## [v0.20.0](https://github.com/db0/hypnagonia/tree/v0.20.0) (2021-12-08)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.19.0...v0.20.0)
