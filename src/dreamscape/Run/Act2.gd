@@ -287,7 +287,7 @@ const BOSSES := {
 }
 
 const NCE := [
-	preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd"),
+	preload("res://src/dreamscape/Run/NCE/Act2/Griftlands.gd"),
 ]
 
 static func get_act_name() -> String:

@@ -338,7 +338,7 @@ func _input(event):
 #		globals.player.damage += 20
 		var debug_encounters = [
 			EnemyEncounter.new(Act2.ClownShow, "hard"),
-			preload("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd").new(),
+			preload("res://src/dreamscape/Run/NCE/Act2/Griftlands.gd").new(),
 			BossEncounter.new(Act1.BOSSES["Narcissus"], "Narcissus"),
 			EliteEncounter.new(Act2.IndescribableAbsurdity, "medium"),
 #			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
