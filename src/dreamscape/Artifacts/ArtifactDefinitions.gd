@@ -41,6 +41,18 @@ const StartingHeal := {
 	},
 }
 
+const EndingHeal := {
+	"canonical_name": "EndingHeal",
+	"name": "EndingHeal",
+	"description": "{artifact_name}: At the end of each Ordeal, {relax} for {heal_amount}.",
+	"icon": preload("res://assets/icons/artifacts/glass-heart.png"),
+	"context": EffectContext.BATTLE,
+	"rarity": "Starting",
+	"amounts": {
+		"heal_amount": 6
+	},
+}
+
 const FirstPowerAttack := {
 	"canonical_name": "FirstPowerAttack",
 	"name": "FirstPowerAttack",
@@ -455,7 +467,7 @@ const RedWave := {
 	"amounts": {
 		"threshold": 4,
 		"defence_amount": 8
-	},	
+	},
 }
 const BlueWave := {
 	"canonical_name": "BlueWave",
@@ -467,7 +479,7 @@ const BlueWave := {
 	"amounts": {
 		"threshold": 4,
 		"damage_amount": 5
-	},	
+	},
 }
 const PurpleWave := {
 	"canonical_name": "PurpleWave",
@@ -479,7 +491,53 @@ const PurpleWave := {
 	"amounts": {
 		"threshold": 3,
 		"heal_amount": 4,
-	},	
+	},
+}
+const ProgressiveImmersion := {
+	"canonical_name": "ProgressiveImmersion",
+	"name": "Progressive Immersion",
+	"description": "{artifact_name}: You have {immersion_amount} extra {immersion} per turn.\n"\
+			+ "You can only progress half the amount of cards per combat.",
+	"icon": preload("res://assets/icons/artifacts/boss-key.png"),
+	"context": EffectContext.BATTLE,
+	"rarity": "Boss",
+	"amounts": {
+		"immersion_amount": 1,
+	},
+}
+const BossCardDraw := {
+	"canonical_name": "BossCardDraw",
+	"name": "Squishy Brain Toy",
+	"description": "{artifact_name}: Draw {draw_amount} card at the start of each turn",
+	"icon": preload("res://assets/icons/artifacts/boss-key.png"),
+	"context": EffectContext.BATTLE,
+	"rarity": "Boss",
+	"amounts": {
+		"draw_amount": 1,
+	},
+}
+const RandomUpgrades := {
+	"canonical_name": "RandomUpgrades",
+	"name": "Random Upgrades",
+	"description": "{artifact_name}: You have {immersion_amount} extra {immersion} per turn.\n"\
+			+ "Your card upgrades are chosen randomly.",
+	"icon": preload("res://assets/icons/artifacts/boss-key.png"),
+	"context": EffectContext.BATTLE,
+	"rarity": "Boss",
+	"amounts": {
+		"immersion_amount": 1,
+	},
+}
+const BetterRareChance := {
+	"canonical_name": "BetterRareChance",
+	"name": "The Gruyere of Insight",
+	"description": "{artifact_name}: Your chance of finding Rare cards is doubled.",
+	"icon": preload("res://assets/icons/artifacts/cheese-wedge.png"),
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Encounter",
+	"amounts": {
+		"rare_multiplier": 2,
+	},
 }
 
 
@@ -519,7 +577,7 @@ const GENERIC := [
 	PurpleWave,
 ]
 
-# Archetype-specific artifacts which only appear in runs in which 
+# Archetype-specific artifacts which only appear in runs in which
 # Their tied archetype is selected.
 const ARCHETYPE := [
 	ImproveThorns,
@@ -528,11 +586,19 @@ const ARCHETYPE := [
 	ImproveImpervious,
 	ImproveFortify,
 	StartingThorns,
+	EndingHeal,
 ]
 
 # These artifacts are only found in non-combat encounters
 const ENCOUNTER := [
-	PorcelainDoll
+	PorcelainDoll,
+	BetterRareChance,
+]
+
+const BOSS := [
+	ProgressiveImmersion,
+	RandomUpgrades,
+	BossCardDraw,
 ]
 
 # Takes as arguments the purpose of artifacts to return. Generic, Shop or Boss
@@ -542,7 +608,7 @@ const ENCOUNTER := [
 # Finally a list of artifacts to exclude can be passes
 # Those would typically be artifacts already owned, or seen
 static func get_organized_artifacts(
-	purpose := "generic", 
+	purpose := "generic",
 	archetype_artifacts := [],
 	excluded_artifacts := []) -> Dictionary:
 	var ret_dict := {}
@@ -554,4 +620,17 @@ static func get_organized_artifacts(
 					if artifact.rarity == rarity\
 							and not artifact.name in excluded_artifacts:
 						ret_dict[rarity].append(artifact)
+		"boss":
+			ret_dict["Boss"] = []
+			for artifact in BOSS:
+				if artifact.rarity == "Boss"\
+						and not artifact.name in excluded_artifacts:
+					ret_dict["Boss"].append(artifact)
 	return(ret_dict)
+
+static func get_artifact_bbcode_format(artifact_definition: Dictionary) -> Dictionary:
+	var format := {}
+	for key in artifact_definition.get('amounts', {}):
+		format[key] = artifact_definition.amounts[key]
+		format['artifact_name'] = artifact_definition.name
+	return(format)

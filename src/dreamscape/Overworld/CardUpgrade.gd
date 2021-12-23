@@ -32,12 +32,17 @@ func populate_upgrade_cards() -> void:
 
 func _on_card_upgrade_selected(option: int, draft_card_object) -> void:
 	var upgrade_options : Array = upgradable_cards[option].upgrade_options
-	var select_return = cfc.ov_utils.select_card(
-			upgrade_options, 1, "equal", true, globals.journal)
-	if select_return is GDScriptFunctionState: # Still working.
-		select_return = yield(select_return, "completed")
-		if typeof(select_return) == TYPE_ARRAY:
-			draft_card_object.disconnect("card_selected", self, "_on_card_upgrade_selected")
-			draft_card_object.display_card.card_front.apply_shader("res://shaders/grayscale.shader")
-			globals.player.deck.remove_card(upgradable_cards[option])
-			globals.player.deck.add_new_card(select_return[0])
+	var select_return
+	if ArtifactDefinitions.RandomUpgrades.name in globals.player.get_all_artifact_names():
+		CFUtils.shuffle_array(upgrade_options)
+		select_return = upgrade_options
+	else:
+		select_return = cfc.ov_utils.select_card(
+				upgrade_options, 1, "equal", true, globals.journal)
+		if select_return is GDScriptFunctionState: # Still working.
+			select_return = yield(select_return, "completed")
+	if typeof(select_return) == TYPE_ARRAY:
+		draft_card_object.disconnect("card_selected", self, "_on_card_upgrade_selected")
+		draft_card_object.display_card.card_front.apply_shader("res://shaders/grayscale.shader")
+		globals.player.deck.remove_card(upgradable_cards[option])
+		globals.player.deck.add_new_card(select_return[0])

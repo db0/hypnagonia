@@ -1,5 +1,6 @@
 extends Node
 
+
 const PLAYER_COMBAT_ENTITY_SIZE = Vector2(120,120)
 
 var player: Player
@@ -13,6 +14,7 @@ var unused_journal_texts := {}
 #var utils := DeckbuilderUtils.new()
 var card_back_texture_selection := 0
 var run_unlocks := {}
+
 
 # Test setup. This should happen at game start
 func _ready() -> void:
@@ -28,6 +30,12 @@ func reset() -> void:
 
 
 func quit_to_main() -> void:
+# warning-ignore:return_value_discarded
 	get_tree().change_scene(CFConst.PATH_CUSTOM + 'MainMenu/MainMenu.tscn')
 	cfc.quit_game()
 	reset()
+
+func hide_all_previews() -> void:
+	cfc.hide_all_previews()
+	for artifact_preview_node in cfc.get_tree().get_nodes_in_group("artifact_preview"):
+		artifact_preview_node.hide_preview_artifact()

@@ -1,6 +1,7 @@
 extends Board
 
 signal battle_begun
+signal battle_ended
 
 const ENEMY_ENTITY_SCENE = preload("res://src/dreamscape/CombatElements/Enemies/EnemyEntity.tscn")
 
@@ -56,6 +57,7 @@ func _ready() -> void:
 	_on_viewport_resized()
 # warning-ignore:return_value_discarded
 	cfc.connect("cache_cleared", self, '_recalculate_predictions')
+	player_info.connect_dreamer_signals(dreamer)
 #	begin_encounter()
 #
 func _process(_delta: float) -> void:
@@ -202,7 +204,7 @@ func load_deck() -> void:
 		NewGameMenu.randomize_aspect_choices()
 		cfc.game_rng_seed = CFUtils.generate_random_seed()
 		globals.player.setup()
-		globals.encounters.setup()
+		globals.encounters.prepare_next_act()
 	for card in globals.player.deck.instance_cards():
 		cfc.NMAP.deck.add_child(card)
 		#card.set_is_faceup(false,true)
@@ -265,6 +267,7 @@ func complete_battle() -> void:
 	_fade_to_transparent()
 	yield(_tween, "tween_all_completed")
 	globals.current_encounter.end()
+	emit_signal("battle_ended")
 #	cfc.game_paused = true
 #	mouse_pointer.forget_focus()
 #	end_turn.disabled = true
@@ -326,6 +329,10 @@ func _fade_to_transparent() -> void:
 
 
 func _recalculate_predictions() -> void:
+	# We do not want to recalculate for every card discard and refill
+	# rather we'll recalculate once, once the player's turn starts again
+	if end_turn.disabled:
+		return
 	yield(get_tree(), "idle_frame")
 	var snapshot_id = CFUtils.randi_range(1,100000)
 	get_tree().call_group_flags(get_tree().GROUP_CALL_REALTIME, "combat_effects", "take_snapshot", snapshot_id)
@@ -354,29 +361,31 @@ func _input(event):
 		# warning-ignore:unused_variable
 #		var torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
 		# warning-ignore:unused_variable
-		var torment2 = spawn_enemy(EnemyDefinitions.BABY)
+		var torment2 = spawn_enemy(EnemyDefinitions.THE_EXAM)
 		# warning-ignore:unused_variable
-		var torment3 = spawn_enemy(EnemyDefinitions.GASLIGHTER)
+		var torment3 = spawn_enemy(EnemyDefinitions.THE_VICTIM)
 #		var torment2 = spawn_enemy("Gaslighter")
 #		torment2.rect_position = Vector2(800,100)
 #		torment3.rect_position = Vector2(200,300)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 20)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 3)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.unconventional.name, 1, false, false, ['Debug'], 'weirdly')
-#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.nothing_to_fear.name, 1)
-#		dreamer.active_effects.mod_effect(ActiveEffects.NAMES.empower, 2)
-		torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.quicken.name, 1)
-		torment2.defence = 10
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 4)
+		torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 5)
+		torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.quicken.name, -4)
+		torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.empower.name, 4)
+#		torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.the_victim.name, 4)
+#		torment2.defence = 10
 		torment2.health = 1000
 		torment3.health = 1000
 		dreamer.health = 1000
-#		globals.player.add_artifact(ArtifactDefinitions.BlueWave.canonical_name)
+#		globals.player.add_artifact(ArtifactDefinitions.BossCardDraw.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.PurpleWave.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
-			"Prejudice",
-			"Ω Baby Ω",
+			"Hyena",
+			"* Hyena *",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.hand.add_child(card)
@@ -395,17 +404,20 @@ func _input(event):
 func _debug_advanced_enemy() -> void:
 	pass
 #	var advanced_entity: EnemyEntity =\
-#			preload("res://src/dreamscape/CombatElements/Enemies/Elites/RushElite.tscn").instance()
-#	advanced_entity.setup_advanced("medium")
+#			preload("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn").instance()
+#	var advanced_entity: EnemyEntity =\
+#			preload("res://src/dreamscape/CombatElements/Enemies/Elites/IndescribableAbsurdity.tscn").instance()
+#	advanced_entity.setup_advanced("hard")
 #	_enemy_area.add_child(advanced_entity)
-## warning-ignore:return_value_discarded
+##	advanced_entity.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.self_cleaning.name, 1)
+#	# warning-ignore:return_value_discarded
 #	advanced_entity.connect("finished_activation", self, "_on_finished_enemy_activation")
 
 
 func _on_Debug_pressed() -> void:
 	# warning-ignore:return_value_discarded
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 3)
-	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.delighted.name, 1)
+	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 4)
 	counters.mod_counter("immersion",3)
 	for _iter in range(3):
 		cfc.NMAP.hand.draw_card(cfc.NMAP.deck)

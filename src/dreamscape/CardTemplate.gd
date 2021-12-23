@@ -121,14 +121,14 @@ func retrieve_scripts(trigger: String) -> Dictionary:
 	if trigger == "manual" and get_state_exec() == "hand":
 		found_scripts = insert_payment_costs(found_scripts)
 		if typeof(found_scripts["hand"]) == TYPE_ARRAY:
-			if get_property("Type") == "Concentration":
+			if get_property("Type") == "Concentration" or get_property("_is_concentration"):
 				found_scripts["hand"] += generate_remove_from_deck_tasks()
 			else:
 				found_scripts["hand"] += generate_discard_tasks()
 			found_scripts["hand"] += generate_play_confirm_scripts()
 		else:
 			for key in found_scripts["hand"]:
-				if get_property("Type") == "Concentration":
+				if get_property("Type") == "Concentration" or get_property("_is_concentration"):
 					found_scripts["hand"][key] += generate_remove_from_deck_tasks()
 				else:
 					found_scripts["hand"][key] += generate_discard_tasks()
@@ -327,7 +327,8 @@ func common_pre_run(sceng) -> void:
 	# We need to store the immersion before it's used by the scripts
 	# so that the X effects remember what it was
 	sceng.x_usage = cfc.NMAP.board.counters.get_counter("immersion")
-	sceng.predict()
+	var snapshot_id = CFUtils.randi_range(1,100000)
+	sceng.predict(snapshot_id)
 
 
 # Removes this card from the game completely.

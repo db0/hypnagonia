@@ -61,20 +61,20 @@ custom_constants/separation = 5
 
 [node name="Push" type="Control" parent="HBC"]
 margin_left = 100.0
-margin_right = 596.0
+margin_right = 521.0
 margin_bottom = 35.0
 size_flags_horizontal = 3
 
 [node name="Encounter" type="Label" parent="HBC"]
-margin_left = 600.0
+margin_left = 525.0
 margin_top = 3.0
-margin_right = 746.0
+margin_right = 821.0
 margin_bottom = 31.0
 custom_fonts/font = ExtResource( 3 )
-text = "Encounter 1"
+text = "Early Night, Encounter 1"
 
 [node name="Push2" type="Control" parent="HBC"]
-margin_left = 750.0
+margin_left = 825.0
 margin_right = 1246.0
 margin_bottom = 35.0
 size_flags_horizontal = 3

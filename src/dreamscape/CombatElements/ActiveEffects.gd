@@ -1,56 +1,15 @@
 class_name ActiveEffects
 extends GridContainer
 
-const EFFECTS := {
-	Terms.ACTIVE_EFFECTS.disempower.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Disempower.tscn"),
-	Terms.ACTIVE_EFFECTS.empower.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Empower.tscn"),
-	Terms.ACTIVE_EFFECTS.poison.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Poison.tscn"),
-	Terms.ACTIVE_EFFECTS.burn.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Burn.tscn"),
-	Terms.ACTIVE_EFFECTS.vulnerable.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Vulnerable.tscn"),
-	Terms.ACTIVE_EFFECTS.marked.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Marked.tscn"),
-	Terms.ACTIVE_EFFECTS.advantage.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Advantage.tscn"),
-	Terms.ACTIVE_EFFECTS.impervious.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Impervious.tscn"),
-	Terms.ACTIVE_EFFECTS.fortify.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Fortify.tscn"),
-	Terms.ACTIVE_EFFECTS.buffer.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Buffer.tscn"),
-	Terms.ACTIVE_EFFECTS.drain.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Drain.tscn"),
-	Terms.ACTIVE_EFFECTS.outrage.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Outrage.tscn"),
-	Terms.ACTIVE_EFFECTS.enraged.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Enraged.tscn"),
-	Terms.ACTIVE_EFFECTS.strengthen.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Strengthen.tscn"),
-	Terms.ACTIVE_EFFECTS.quicken.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Quicken.tscn"),
-	Terms.ACTIVE_EFFECTS.thorns.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Thorns.tscn"),
-	Terms.ACTIVE_EFFECTS.armor.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Armor.tscn"),
-	Terms.ACTIVE_EFFECTS.creative_block.name: preload("res://src/dreamscape/CombatElements/CombatEffects/CreativeBlock.tscn"),
-	Terms.ACTIVE_EFFECTS.delighted.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Delighted.tscn"),
-	# Concentation Effects
-	Terms.ACTIVE_EFFECTS.laugh_at_danger.name: preload("res://src/dreamscape/CombatElements/CombatEffects/LaughAtDanger.tscn"),
-	Terms.ACTIVE_EFFECTS.nothing_to_fear.name: preload("res://src/dreamscape/CombatElements/CombatEffects/NothingToFear.tscn"),
-	Terms.ACTIVE_EFFECTS.rubber_eggs.name: preload("res://src/dreamscape/CombatElements/CombatEffects/RubberEggs.tscn"),
-	Terms.ACTIVE_EFFECTS.nunclucks.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Nunclucks.tscn"),
-	Terms.ACTIVE_EFFECTS.unassailable.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Unassailable.tscn"),
-	Terms.ACTIVE_EFFECTS.master_of_skies.name: preload("res://src/dreamscape/CombatElements/CombatEffects/MasterOfSkies.tscn"),
-	Terms.ACTIVE_EFFECTS.zen_of_flight.name: preload("res://src/dreamscape/CombatElements/CombatEffects/ZenOfFlight.tscn"),
-	Terms.ACTIVE_EFFECTS.absurdity_unleashed.name: preload("res://src/dreamscape/CombatElements/CombatEffects/AbsurdityUnleashed.tscn"),
-	Terms.ACTIVE_EFFECTS.brilliance.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Brilliance.tscn"),
-	Terms.ACTIVE_EFFECTS.recall.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Recall.tscn"),
-	Terms.ACTIVE_EFFECTS.eureka.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Eureka.tscn"),
-	Terms.ACTIVE_EFFECTS.introspection.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Introspection.tscn"),
-	Terms.ACTIVE_EFFECTS.the_happy_place.name: preload("res://src/dreamscape/CombatElements/CombatEffects/TheHappyPlace.tscn"),
-	Terms.ACTIVE_EFFECTS.lash_out.name: preload("res://src/dreamscape/CombatElements/CombatEffects/LashOut.tscn"),
-	Terms.ACTIVE_EFFECTS.excuses.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Excuses.tscn"),
-	Terms.ACTIVE_EFFECTS.tolerance.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Tolerance.tscn"),
-	Terms.ACTIVE_EFFECTS.unconventional.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Unconventional.tscn"),
-	Terms.ACTIVE_EFFECTS.sneaky_beaky.name: preload("res://src/dreamscape/CombatElements/CombatEffects/SneakyBeaky.tscn"),
-	Terms.ACTIVE_EFFECTS.tenacity.name: preload("res://src/dreamscape/CombatElements/CombatEffects/Tenacity.tscn"),
-	Terms.ACTIVE_EFFECTS.panicked_takeoff.name: preload("res://src/dreamscape/CombatElements/CombatEffects/PanickedTakeoff.tscn"),
-}
+const EFFECT_TEMPLATE := preload("res://src/dreamscape/CombatElements/CombatEffects/CombatEffectTemplate.tscn")
 
 # When a stack of an effect is added and its opposite exists, before adding a stack
 # we remove the same amount of its opposite from the amount.
 const OPPOSITES := {
-	Terms.ACTIVE_EFFECTS.empower: Terms.ACTIVE_EFFECTS.disempower,
-	Terms.ACTIVE_EFFECTS.disempower: Terms.ACTIVE_EFFECTS.empower,
-	Terms.ACTIVE_EFFECTS.buffer: Terms.ACTIVE_EFFECTS.drain,
-	Terms.ACTIVE_EFFECTS.drain: Terms.ACTIVE_EFFECTS.buffer,
+	Terms.ACTIVE_EFFECTS.empower.name: Terms.ACTIVE_EFFECTS.disempower.name,
+	Terms.ACTIVE_EFFECTS.disempower.name: Terms.ACTIVE_EFFECTS.empower.name,
+	Terms.ACTIVE_EFFECTS.buffer.name: Terms.ACTIVE_EFFECTS.drain.name,
+	Terms.ACTIVE_EFFECTS.drain.name: Terms.ACTIVE_EFFECTS.buffer.name,
 }
 
 var all_effects: Dictionary
@@ -72,7 +31,9 @@ func mod_effect(
 			tags := ["Manual"],
 			upgrade_string := '') -> int:
 	var retcode : int
-	if not EFFECTS.get(effect_name, null):
+	var effect_script = load("res://src/dreamscape/CombatElements/CombatEffects/%s.gd" % [Terms.get_effect_key(effect_name)])
+	if not effect_script and not Terms.get_effect_entry(effect_name).has("noscript"):
+#	if not EFFECTS.get(effect_name, null):
 		retcode = CFConst.ReturnCode.FAILED
 	else:
 		retcode = CFConst.ReturnCode.CHANGED
@@ -82,7 +43,9 @@ func mod_effect(
 		if upgrade_string != '':
 			combined_effect_name = upgrade_string.capitalize() + ' ' + effect_name
 		var effect : CombatEffect = get_all_effects().get(combined_effect_name, null)
-		if not effect and mod <= 0:
+		if mod < 0:
+			pass
+		if not effect and mod <= 0 and not Terms.get_effect_entry(effect_name).get("can_go_negative"):
 			retcode = CFConst.ReturnCode.OK
 		elif effect and set_to_mod and effect.stacks == mod:
 			retcode = CFConst.ReturnCode.OK
@@ -103,7 +66,13 @@ func mod_effect(
 						else:
 							opposite.set_stacks(0, tags)
 							mod -= opposite.stacks
-				effect = EFFECTS[effect_name].instance()
+				effect = EFFECT_TEMPLATE.instance()
+				if not Terms.get_effect_entry(effect_name).has("noscript"):
+					var ict = effect.icon_container_texture
+					var iect = effect.icon_extra_container_texture
+					effect.set_script(effect_script)
+					effect.icon_container_texture = ict
+					effect.icon_extra_container_texture = iect
 				effect.name = combined_effect_name
 				effect.owning_entity = combat_entity
 				effect.upgrade = upgrade_string
@@ -114,12 +83,13 @@ func mod_effect(
 					"icon": effect_details.icon,
 					"amount": 0,
 				}
+				effect.effect_definition = effect_details
 				effect.setup(setup_dict, effect_name)
 			cfc.flush_cache()
 			if set_to_mod:
-				effect.set_stacks(mod, tags)
+				effect.set_stacks(mod, tags, Terms.get_effect_entry(effect_name).get("can_go_negative", false))
 			else:
-				effect.set_stacks(effect.stacks + mod, tags)
+				effect.set_stacks(effect.stacks + mod, tags, Terms.get_effect_entry(effect_name).get("can_go_negative", false))
 	return(retcode)
 
 func get_all_effects() -> Dictionary:
@@ -131,17 +101,17 @@ func get_all_effects() -> Dictionary:
 func get_ordered_effects(ordered_effects: Dictionary) -> Dictionary:
 	for effect in get_children():
 		match effect.priority:
-			CombatEffect.PRIORITY.ADD:
+			Terms.ALTERANT_PRIORITY.ADD:
 				# We do not want the same exact instance of an effect
 				# to be calculated twice coming from the subject AND source.
 				# For example quicken has always the same subject
 				# and source. 
 				if not effect in ordered_effects.adders:
 					ordered_effects.adders.append(effect)
-			CombatEffect.PRIORITY.MULTIPLY:
+			Terms.ALTERANT_PRIORITY.MULTIPLY:
 				if not effect in ordered_effects.multipliers:
 					ordered_effects.multipliers.append(effect)
-			CombatEffect.PRIORITY.SET:
+			Terms.ALTERANT_PRIORITY.SET:
 				if not effect in ordered_effects.setters:
 					ordered_effects.setters.append(effect)
 	return(ordered_effects)
@@ -160,3 +130,57 @@ func get_effect_stacks(effect_name: String) -> int:
 		return(0)
 	else:
 		return(effect.stacks)
+
+
+# Returns the effect with the most stacks (tiebreaker is node index)
+# Returns null if no effect is found
+func get_effect_with_most_stacks(effect_type := ''):
+	var highest_effect = null
+	var highest_stacks := 0
+	for effect in get_children():
+		if effect.stacks > highest_stacks:
+			if effect_type and not effect.get_effect_name() in Terms.get_all_effect_types(effect_type):
+				continue
+			highest_effect = effect.get_effect_name()
+			highest_stacks = effect.stacks
+	# Effects of type "Versatile" can be considered buffs or debuffs, depending on if they're positive
+	# or negative
+	if effect_type == 'Buff' or effect_type == 'Debuff':
+		for effect in get_children():
+			if effect_type == 'Buff' and effect.stacks > 0 and effect.stacks > highest_stacks:
+				if not effect.get_effect_name() in Terms.get_all_effect_types('Versatile'):
+					continue
+				highest_effect = effect.get_effect_name()
+				highest_stacks = effect.stacks
+			if effect_type == 'Debuff' and effect.stacks < 0 and abs(effect.stacks) > highest_stacks:
+				if not effect.get_effect_name() in Terms.get_all_effect_types('Versatile'):
+					continue
+				highest_effect = effect.get_effect_name()
+				highest_stacks = abs(effect.stacks)
+	return(highest_effect)
+
+
+# Returns the effect with the least stacks (tiebreaker is node index)
+# Returns null if no effect is found
+func get_effect_with_least_stacks(effect_type := ''):
+	var lowest_effect = null
+	var lowest_stacks := -1
+	for effect in get_children():
+		if lowest_stacks < 0 or effect.stacks < lowest_stacks:
+			if effect_type and not effect.get_effect_name() in Terms.get_all_effect_types(effect_type):
+				continue
+			lowest_effect = effect.get_effect_name()
+			lowest_stacks = effect.stacks
+	if effect_type == 'Buff' or effect_type == 'Debuff':
+		for effect in get_children():
+			if effect_type == 'Buff' and effect.stacks > 0 and (effect.stacks < lowest_stacks or lowest_stacks < 0):
+				if not effect.get_effect_name() in Terms.get_all_effect_types('Versatile'):
+					continue
+				lowest_effect = effect.get_effect_name()
+				lowest_stacks = effect.stacks
+			if effect_type == 'Debuff' and effect.stacks < 0 and (abs(effect.stacks) < lowest_stacks or lowest_stacks < 0):
+				if not effect.get_effect_name() in Terms.get_all_effect_types('Versatile'):
+					continue
+				lowest_effect = effect.get_effect_name()
+				lowest_stacks = abs(effect.stacks)
+	return(lowest_effect)

@@ -1,43 +1,66 @@
 class_name SingleRun
 extends Reference
 
+signal encounter_changed(act_name, encounter_number)
+
 # The chance to get this many choices for the next encounter
 const choices_chances = [3,2,2,2,2,2,1,1,1,1,1]
 # If none of the pathos have reached the threshold to select them as an encounter
 # fallback to this one only.
 const fallback_encounter = Terms.RUN_ACCUMULATION_NAMES.enemy
 
-var remaining_enemies := Act1.ENEMIES.duplicate(true)
-var remaining_elites := Act1.ELITES.duplicate(true)
-var remaining_nce := Act1.NCE.duplicate(true)
+var available_acts := [Act1, Act2]
+var current_act
+var remaining_enemies : Array
+var remaining_elites : Array
+var remaining_nce : Array
 var boss_name : String
 var current_encounter
 var deep_sleeps := 0
 var shop_deck_removals := 0
-var encounter_number := 0
-var run_changes : RunChanges
+var encounter_number := 0 setget set_encounter_number
+var run_changes := RunChanges.new(self)
 
-func setup() -> void:
+
+# Loads the next act from the list and prepares the encounters for it
+func prepare_next_act(current_journal = null) -> void:
+	# Changing acts, heals the player a bit
+	var healing_done = globals.player.health * 0.75
+	if healing_done > globals.player.damage:
+		healing_done = globals.player.damage
+	if not available_acts.size():
+		globals.journal.end_dev_version()
+		return
+	current_act = available_acts.pop_front()
+	remaining_enemies = current_act.ENEMIES.duplicate(true)
+	remaining_elites = current_act.ELITES.duplicate(true)
+	remaining_nce = current_act.NCE.duplicate(true)
+	for nce in AllActs.NCE:
+		if not run_changes.is_nce_used(nce):
+			remaining_nce.append(nce)
+#	for nce in remaining_nce:
+#		print(nce.get_path())
 	CFUtils.shuffle_array(remaining_enemies)
 	CFUtils.shuffle_array(remaining_elites)
 	CFUtils.shuffle_array(remaining_nce)
-	var boss_choices := Act1.BOSSES.keys()
+	var boss_choices = current_act.BOSSES.keys()
 	CFUtils.shuffle_array(boss_choices)
 	boss_name = boss_choices[0]
-	run_changes = RunChanges.new(self)
+	if current_journal:
+		current_journal.proceed_to_next_act()
 
 
 func generate_journal_choices() -> Array:
 	# Until we have enough enemies to be able to provide enough different encounters
 	# for each torment encounter, we add this code to reshuffle the pile if we run out
 	if remaining_enemies.empty():
-		remaining_enemies = Act1.ENEMIES.duplicate(true)
+		remaining_enemies = current_act.ENEMIES.duplicate(true)
 		CFUtils.shuffle_array(remaining_enemies)
 	if remaining_elites.empty():
-		remaining_elites = Act1.ELITES.duplicate(true)
+		remaining_elites = current_act.ELITES.duplicate(true)
 		CFUtils.shuffle_array(remaining_elites)
 	var journal_options := []
-	if globals.encounters.encounter_number != 1:
+	if encounter_number != 1:
 		globals.player.pathos.repress()
 	# Every journal page should have 1-3 options
 	# The change to get 3 or 2 options is less than getting only 1 option
@@ -85,7 +108,7 @@ func generate_journal_choices() -> Array:
 					difficulty = "hard"
 				journal_options.append(EliteEncounter.new(next_enemy, difficulty))
 			Terms.RUN_ACCUMULATION_NAMES.boss:
-				journal_options.append(BossEncounter.new(Act1.BOSSES[boss_name], boss_name))
+				journal_options.append(BossEncounter.new(current_act.BOSSES[boss_name], boss_name))
 	return(journal_options)
 
 
@@ -120,13 +143,17 @@ func _get_journal_options(requested_options := 3) -> Array:
 
 func _get_next_nce() -> NonCombatEncounter:
 	if remaining_nce.empty():
-		remaining_nce = Act1.NCE.duplicate(true)
-		remaining_nce += run_changes.get_unlocked_nces("Act1")
+		remaining_nce = current_act.NCE.duplicate(true)
+		remaining_nce += run_changes.get_unlocked_nces(current_act.get_act_name())
 		CFUtils.shuffle_array(remaining_nce)
-	# TODO: Adjust the Act dynamically
 	var next_nce = remaining_nce.pop_back()
 	# Even though we do a pop, we also erase any other copies of the same NCE in the list
 	# as we might have multiple NCEs of the same name, to increase their chances of appearing
 	remaining_nce.erase(next_nce)
+	run_changes.record_nce_used(next_nce)
 	return(next_nce.new())
 
+
+func set_encounter_number(value) -> void:
+	encounter_number = value
+	emit_signal("encounter_changed", current_act.get_act_name(), encounter_number)

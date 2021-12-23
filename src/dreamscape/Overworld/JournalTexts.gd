@@ -22,3 +22,8 @@ const PROCEED_TEXTS := [
 	"Would you like to know more?",
 	"And the weirder act was yet to come...",
 ]
+
+const ACT_CHANGE_TEXTS := [
+	"This felt like a conclusion, at which point I had a period of deep sleep"\
+			+ "but my dreams were not over yet. The worst was yet to come..."
+]

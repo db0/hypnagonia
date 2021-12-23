@@ -4,6 +4,7 @@ extends PanelContainer
 const NESTED_CHOICES_SCENE = preload("res://src/dreamscape/Overworld/SecondaryChoicesSlide.tscn")
 const SELECTION_DECK_SCENE = preload("res://src/dreamscape/SelectionDeck.tscn")
 const CARD_PREVIEW_SCENE = preload("res://src/dreamscape/MainMenu/StartingCardPreviewObject.tscn")
+const ARTIFACT_PREVIEW_SCENE = preload("res://src/dreamscape/MainMenu/ArtifactPreviewPopup.tscn")
 
 onready var page_illustration := $HBC/MC/JournalPageIllustration
 onready var page_shader := $HBC/MC/JournalPageShader
@@ -85,8 +86,13 @@ func display_elite_rewards(reward_text: String) -> void:
 func display_boss_rewards(reward_text: String) -> void:
 	reward_journal.bbcode_text = "[Card Draft] " + reward_text
 	_reveal_entry(reward_journal, true, "boss_card_draft")
+	_reveal_entry(artifact_journal, true, "boss_artifact")
 	if globals.player.deck.get_upgradeable_cards().size():
 		_reveal_entry(upgrade_journal, true)
+	globals.encounters.prepare_next_act(self)
+
+
+func end_dev_version() -> void:
 	proceed.bbcode_text = "And I woke up from the most restful sleep I had in months!\n\n"\
 		+ "[b]Note from Developer:[/b]\nThanks for playing this early version of Hypnagonia. This is all we have at the moment. "\
 		+ "Please check back regularly for new updates! And remember, we're actively looking for collaborators.\n"\
@@ -96,6 +102,11 @@ func display_boss_rewards(reward_text: String) -> void:
 	# warning-ignore:return_value_discarded
 	proceed.connect("meta_clicked", self, "_on_proceed_clicked")
 	_reveal_entry(proceed, false)
+
+
+func proceed_to_next_act() -> void:
+	proceed.bbcode_text = _get_entry_texts('ACT_CHANGE_TEXTS')
+	_reveal_entry(proceed, true)
 
 
 func display_loss() -> void:
@@ -130,7 +141,7 @@ func unset_shader() -> void:
 	page_shader.visible = false
 
 
-# Adds more choices to the journal. 
+# Adds more choices to the journal.
 # Choices keys passed in the disabled_choices will not be clickable using gui_input
 func add_nested_choices(nested_choices: Dictionary, disabled_choices := []) -> void:
 	var nested_choices_scene := NESTED_CHOICES_SCENE.instance()
@@ -152,6 +163,14 @@ func prepare_popup_card(card_name: String) -> void:
 		popup_cards[card_name] = popup_card
 
 
+func prepare_popup_artifact(artifact_name: String) -> void:
+	if not popup_cards.has(artifact_name):
+		var popup_artifact = ARTIFACT_PREVIEW_SCENE.instance()
+		card_storage.add_child(popup_artifact)
+		popup_artifact.setup(artifact_name)
+		popup_cards[artifact_name] = popup_artifact
+
+
 func _on_meta_clicked(meta_text: String) -> void:
 # warning-ignore:unused_variable
 	var meta_tag := _parse_meta_tag(meta_text)
@@ -165,6 +184,9 @@ func _on_meta_hover_started(meta_text: String) -> void:
 		"popup_card":
 			var card_name : String = meta_tag["name"]
 			popup_cards[card_name]._on_GridCardObject_mouse_entered()
+		"popup_artifact":
+			var artifact_name : String = meta_tag["name"]
+			popup_cards[artifact_name].show_preview_artifact()
 		"nce":
 			_show_description_popup(
 					globals.current_encounter.get_meta_hover_description(
@@ -177,6 +199,9 @@ func _on_meta_hover_ended(meta_text: String) -> void:
 		"popup_card":
 			var card_name : String = meta_tag["name"]
 			popup_cards[card_name]._on_GridCardObject_mouse_exited()
+		"popup_artifact":
+			var artifact_name : String = meta_tag["name"]
+			popup_cards[artifact_name].hide_preview_artifact()
 		"nce":
 			_description_popup.visible = false
 
@@ -195,14 +220,17 @@ func _on_choice_pressed(encounter: SingleEncounter, rich_text_choice: JournalCho
 			choice.visible = false
 	# To ensure card previews are hidden in case the player is too fast.
 	_description_popup.visible = false
-	for torment_name in popup_cards:
-		popup_cards[torment_name]._on_GridCardObject_mouse_exited()
+	for popup in popup_cards:
+		if popup_cards[popup].has_method("_on_GridCardObject_mouse_exited"):
+			popup_cards[popup]._on_GridCardObject_mouse_exited()
+		if popup_cards[popup].has_method("hide_preview_artifact"):
+			popup_cards[popup].hide_preview_artifact()
 	encounter.begin()
 
 
 func _reveal_entry(
-		rich_text_node: RichTextLabel, 
-		connect_rte_signals := false, 
+		rich_text_node: RichTextLabel,
+		connect_rte_signals := false,
 		extra_gui_input_args = null) -> void:
 	pre_highlight_bbcode_texts[rich_text_node] = rich_text_node.bbcode_text
 	rich_text_node.show()
@@ -270,14 +298,9 @@ func _on_rte_gui_input(event, rt_label: RichTextLabel, type = 'card_draft') -> v
 				artifact_choice.display(type)
 				artifact_journal.bbcode_text = "[color=grey]" + pre_highlight_bbcode_texts[rt_label] + "[/color]"
 			"Proceed":
-				if globals.current_encounter as BossEncounter:
-					SoundManager.play_se('book_close')
-					# warning-ignore:return_value_discarded
-					globals.quit_to_main()
-				else:
-					SoundManager.play_se(Sounds.get_next_journal_page_sound())
-					# warning-ignore:return_value_discarded
-					get_tree().change_scene(CFConst.PATH_CUSTOM + 'Overworld/Journal.tscn')
+				SoundManager.play_se(Sounds.get_next_journal_page_sound())
+				# warning-ignore:return_value_discarded
+				get_tree().change_scene(CFConst.PATH_CUSTOM + 'Overworld/Journal.tscn')
 
 
 func _get_intro() -> String:
@@ -306,6 +329,7 @@ func _on_proceed_clicked(_meta: String) -> void:
 			# warning-ignore:return_value_discarded
 			OS.shell_open("https://matrix.to/#/#hypnagonia:matrix.org")
 		"main_menu":
+			SoundManager.play_se('book_close')
 			# warning-ignore:return_value_discarded
 			globals.quit_to_main()
 
@@ -322,13 +346,20 @@ func _show_description_popup(description_text: String) -> void:
 func _input(event):
 	### Debug ###
 	if event.is_action_pressed("init_debug_game"):
-#		globals.player.add_artifact("MaxHealth")
+		# Upgrade cards debug
+#		for c in  globals.player.deck.get_progressing_cards():
+#			c.upgrade_progress = 100
+#		_reveal_entry(upgrade_journal, true)
+		globals.player.add_artifact(ArtifactDefinitions.BetterRareChance.canonical_name)
 #		globals.player.add_artifact("AccumulateEnemy")
 #		globals.player.add_artifact("AccumulateShop")
 #		globals.player.damage += 20
+#		globals.player.pathos.repress_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 200)
 		var debug_encounters = [
-			EnemyEncounter.new(Act1.Baby, "hard"),
-			preload("res://src/dreamscape/Run/NCE/Act1/TheCandyman.gd").new(),
+			EnemyEncounter.new(Act2.ClownShow, "hard"),
+			preload("res://src/dreamscape/Run/NCE/Act2/BannersOfRuin.gd").new(),
+			BossEncounter.new(Act1.BOSSES["Narcissus"], "Narcissus"),
+			EliteEncounter.new(Act2.IndescribableAbsurdity, "medium"),
 #			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
 		]
 		for encounter in debug_encounters:
@@ -337,3 +368,4 @@ func _input(event):
 			journal_choice.connect("pressed", self, "_on_choice_pressed", [encounter, journal_choice])
 			_reveal_entry(journal_choice)
 #		print_debug(SoundManager._get_all_playing_type_steams('BGM'))
+

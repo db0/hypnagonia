@@ -587,6 +587,154 @@ const scripts := {
 			],
 		},
 	},
+	"Traffic Jam": {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"needs_subject": true,
+					"amount": {
+						"lookup_property": "_amounts",
+						"value_key": "damage_amount"
+					},
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					},],
+				},
+				{
+					"name": "modify_pathos",
+					"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
+					"pathos_type": "released",
+					"modification":  {
+						"lookup_property": "_amounts",
+						"value_key": "released_amount",
+					},
+				},
+				{
+					"name": "modify_pathos",
+					"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
+					"pathos_type": "repressed",
+					"modification":  {
+						"lookup_property": "_amounts",
+						"value_key": "repressed_amount",
+					},
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": "forgotten",
+					"tags": ["Played"],
+				},
+			],
+		},
+	},
+	"Stuffed Toy": {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.stuffed_toy.name,
+					"subject": "dreamer",
+					"modification": 1,
+				},
+			],
+		},
+	},
+	"Mouse": {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.mouse.name,
+					"subject": "dreamer",
+					"modification": 1,
+				},
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.strengthen.name,
+					"subject": "dreamer",
+					"modification": {
+						"lookup_property": "_amounts",
+						"value_key": "effect_stacks2",
+						"default": 1,
+						"is_inverted": true,
+					},
+				},
+			],
+		},
+	},
+	"The Exam": {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.the_exam.name,
+					"subject": "dreamer",
+					"modification": 1,
+				},
+				{
+					"name": "move_card_to_container",
+					"src_container": "forgotten",
+					"dest_container": "deck",
+					"subject_count": {
+						"lookup_property": "_amounts",
+						"value_key": "card_amount"
+					},
+					"subject": "index",
+					"subject_index": "random",
+				},
+				{
+					"name": "shuffle_container",
+					"dest_container": "deck",
+				},
+			],
+		},
+	},
+	"The Victim": {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.the_victim.name,
+					"subject": "target",
+					"is_cost": true,
+					"modification":  {
+						"lookup_property": "_amounts",
+						"value_key": "effect_stacks",
+					},
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+				},
+			],
+		},
+	},
+	"Hyena": {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"needs_subject": true,
+					"amount": {
+						"lookup_property": "_amounts",
+						"value_key": "damage_amount"
+					},
+					"tags": ["Attack"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					},],
+				},
+				{
+					"name": "custom_script",
+					"subject": "previous",
+				},
+			],
+		},
+	},
+
 }
 
 # This fuction returns all the scripts of the specified card name.

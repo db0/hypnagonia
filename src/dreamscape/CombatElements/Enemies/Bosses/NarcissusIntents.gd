@@ -30,20 +30,21 @@ const INTENTS := [
 func _ready() -> void:
 	all_intents = INTENTS.duplicate(true)
 
-func prepare_intents(_starting_index = null) -> void:
+func prepare_intents(_starting_index = null, is_second_try := false) -> Dictionary:
 	if not unused_intents.size():
 		reshuffle_intents()
 	var new_intents : Dictionary = unused_intents.pop_front().duplicate(true)
 	if new_intents.reshuffle:
 		reshuffle_intents()
 	_display_intents(new_intents)
+	return(new_intents)
 
 
-func _get_intent_scripts(intent_name: String) -> Dictionary:
+func _get_intent_scripts(intent_name: String) -> Array:
 	return(_get_boss_scripts(intent_name))
 
 
-func _get_boss_scripts(intent_name: String) -> Dictionary:
+func _get_boss_scripts(intent_name: String) -> Array:
 	var scripts := {
 		"Denial": [
 			{
@@ -53,7 +54,7 @@ func _get_boss_scripts(intent_name: String) -> Dictionary:
 				"subject": "dreamer",
 				"modification": 4,
 				"icon": all_intent_scripts.ICON_DEBUFF,
-				"description": "That didn't happen."
+				"description": "[i]That didn't happen.[/i]"
 			}
 		],
 		"Minimisation": [
@@ -63,7 +64,7 @@ func _get_boss_scripts(intent_name: String) -> Dictionary:
 				"subject": "dreamer",
 				"amount": 10 + get_outrage(),
 				"icon": all_intent_scripts.ICON_ATTACK,
-				"description": "And if it did..."
+				"description": "[i]And if it did...[/i]"
 			},
 			{
 				"name": "assign_defence",
@@ -71,7 +72,7 @@ func _get_boss_scripts(intent_name: String) -> Dictionary:
 				"subject": "self",
 				"amount": 15,
 				"icon": all_intent_scripts.ICON_DEFEND,
-				"description": "...it wasn't that bad."
+				"description": "[i]...it wasn't that bad.[/i]"
 			}			
 		],
 		"Gaslighting": [
@@ -82,7 +83,7 @@ func _get_boss_scripts(intent_name: String) -> Dictionary:
 				"subject": "dreamer",
 				"modification": 1 + get_outrage(),
 				"icon": all_intent_scripts.ICON_DEBUFF,
-				"description": "And if it was..."
+				"description": "[i]And if it was...[/i]"
 			},
 			{
 				"name": "spawn_enemy",
@@ -91,7 +92,7 @@ func _get_boss_scripts(intent_name: String) -> Dictionary:
 				"modify_spawn_health": -25 + (get_outrage() * 2),
 				"set_spawn_as_minion": true,
 				"icon": preload("res://assets/icons/alien-egg.png"),
-				"description": "...that's not a big deal."
+				"description": "[i]...that's not a big deal.[/i]"
 			}
 		],
 		"Blameshifting": [
@@ -102,7 +103,7 @@ func _get_boss_scripts(intent_name: String) -> Dictionary:
 				"subject": "dreamer",
 				"modification": 4,
 				"icon": all_intent_scripts.ICON_DEBUFF,
-				"description": "And if it is..."
+				"description": "[i]And if it is...[/i]"
 			},
 			{
 				"name": "modify_damage",
@@ -110,7 +111,7 @@ func _get_boss_scripts(intent_name: String) -> Dictionary:
 				"subject": "dreamer",
 				"amount": 5 + get_outrage(),
 				"icon": all_intent_scripts.ICON_ATTACK,
-				"description": "... that's not my fault."
+				"description": "[i]...that's not my fault.[/i]"
 			},
 		],
 		"Irresponsibility": [
@@ -121,7 +122,7 @@ func _get_boss_scripts(intent_name: String) -> Dictionary:
 				"subject": "dreamer",
 				"modification": 2,
 				"icon": all_intent_scripts.ICON_DEBUFF,
-				"description": "And if it was..."
+				"description": "[i]And if it was...[/i]"
 			},
 			{
 				"name": "assign_defence",
@@ -129,7 +130,7 @@ func _get_boss_scripts(intent_name: String) -> Dictionary:
 				"subject": "self",
 				"amount": 10,
 				"icon": all_intent_scripts.ICON_DEFEND,
-				"description":  "...I didn't mean it."
+				"description":  "[i]...I didn't mean it.[/i]"
 			}
 		],
 		"Projection": [
@@ -140,7 +141,7 @@ func _get_boss_scripts(intent_name: String) -> Dictionary:
 				"subject": "self",
 				"modification": 1,
 				"icon": all_intent_scripts.ICON_BUFF,
-				"description": "And if I did..."
+				"description": "[i]And if I did...[/i]"
 			},
 			{
 				"name": "modify_damage",
@@ -148,7 +149,7 @@ func _get_boss_scripts(intent_name: String) -> Dictionary:
 				"subject": "dreamer",
 				"amount": 23 + (get_outrage() * 2),
 				"icon": all_intent_scripts.ICON_ATTACK,
-				"description": "...you deserved it."
+				"description": "[i]...you deserved it.[/i]"
 			},
 		],
 	}

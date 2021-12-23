@@ -30,19 +30,22 @@ func _init(rare_percent: int, uncommon_percent: int, amount := 1, artifact_type 
 #	print_debug(aa)
 	for _iter in range(amount):
 		var randomized_artifacts := []
-		for r in [rare, uncommon, common]:
-			# We populate a massive list with one artifact of each type per chance.
-			# For example, if we have 3% to get a rare artifact and a 6% chance to get an uncommon artifact
-			# Then we add 3 random rare artifacts in the list, 6 uncommon artifacts in the list
-			# and 91 common artifacts. The same artifact might be more than once in the list
-			# But it will we will not get the same artifact more than 1 time more than any other artifact.
-			# Eventually, as I populate the artifact lists, duplicates will be impossible
-			var randomized_artifacts_of_rarity := []
-			for _index in range(r.chance):
-				if randomized_artifacts_of_rarity.size() == 0:
-					randomized_artifacts_of_rarity = all_valid_artifacts[r.rarity].duplicate(true)
-					CFUtils.shuffle_array(randomized_artifacts_of_rarity)
-				randomized_artifacts.append(randomized_artifacts_of_rarity.pop_back())
+		if artifact_type == "boss":
+			randomized_artifacts = all_valid_artifacts['Boss'].duplicate(true)
+		else:
+			for r in [rare, uncommon, common]:
+				# We populate a massive list with one artifact of each type per chance.
+				# For example, if we have 3% to get a rare artifact and a 6% chance to get an uncommon artifact
+				# Then we add 3 random rare artifacts in the list, 6 uncommon artifacts in the list
+				# and 91 common artifacts. The same artifact might be more than once in the list
+				# But it will we will not get the same artifact more than 1 time more than any other artifact.
+				# Eventually, as I populate the artifact lists, duplicates will be impossible
+				var randomized_artifacts_of_rarity := []
+				for _index in range(r.chance):
+					if randomized_artifacts_of_rarity.size() == 0:
+						randomized_artifacts_of_rarity = all_valid_artifacts[r.rarity].duplicate(true)
+						CFUtils.shuffle_array(randomized_artifacts_of_rarity)
+					randomized_artifacts.append(randomized_artifacts_of_rarity.pop_back())
 		# Finally we shuffle the list of all artifacts of all rarities and store it in a variable
 		# Grabbing the last artifact in that list ensures we have the correct percentage chance to get
 		# an artifact of any rarity.
@@ -51,19 +54,24 @@ func _init(rare_percent: int, uncommon_percent: int, amount := 1, artifact_type 
 		var selected_artifact_name = current_artifact["name"]
 		# We keep iterating until we find unique artifacts.
 		while selected_artifact_name in _get_names():
+			# Extra check to avoid crashing due to not having enough designed artifacts
+			if randomized_artifacts.size() == 0:
+				return
 			current_artifact = randomized_artifacts.pop_back()
 			selected_artifact_name = current_artifact["name"]
 		var bbcode_formats = Terms.get_bbcode_formats(18)
-		bbcode_formats["artifact_name"] = current_artifact["name"]
-		var amounts_formats = current_artifact.get("amounts")
+		var artifact_format = ArtifactDefinitions.get_artifact_bbcode_format(current_artifact)
 		# This key is used when the description is displayed in the Journal as an
 		# artifact reward after an elite or boss
-		current_artifact["bbdescription"] = current_artifact.description.format(bbcode_formats).format(amounts_formats)
+		current_artifact["bbdescription"] =\
+				current_artifact.description.\
+				format(bbcode_formats).\
+				format(artifact_format)
 		# This key is used when the artifact is being displayed in-line in the
 		# artifact NCE
 		current_artifact["bbformat"] = {
 			"icon": current_artifact.icon.resource_path,
-			"description": current_artifact.description.format(bbcode_formats).format(amounts_formats)
+			"description": current_artifact.description.format(bbcode_formats).format(artifact_format)
 		}
 		selected_artifacts.append(current_artifact)
 		# We remove the selected artifact from the future choices during this run

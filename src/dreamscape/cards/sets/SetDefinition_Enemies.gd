@@ -623,8 +623,8 @@ const CARDS := {
 		"_rarity": "Received",
 		"_keywords": ["forget", "confidence", "interpretation"],
 		"_amounts": {
-			"defence_amount": 7,
-			"damage_amount": 7,
+			"defence_amount": 11,
+			"damage_amount": 11,
 			"exert_amount": 7
 		},
 		"_upgrade_threshold": 12,
@@ -644,8 +644,8 @@ const CARDS := {
 		"_rarity": "Received",
 		"_keywords": ["forget", "confidence", "interpretation"],
 		"_amounts": {
-			"defence_amount": 10,
-			"damage_amount": 10,
+			"defence_amount": 14,
+			"damage_amount": 14,
 			"exert_amount": 7
 		},
 		"_is_upgrade": true,
@@ -661,8 +661,8 @@ const CARDS := {
 		"_rarity": "Received",
 		"_keywords": ["forget", "confidence", "interpretation"],
 		"_amounts": {
-			"defence_amount": 7,
-			"damage_amount": 7,
+			"defence_amount": 11,
+			"damage_amount": 11,
 			"exert_amount": 3
 		},
 		"_is_upgrade": true,
@@ -731,4 +731,329 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"Traffic Jam": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.pathos.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "Gain {repressed_amount} repressed Frustration.\n"\
+				+ "Gain {released_amount} released Frustration\n"\
+				+ "{forget}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["forget", "interpretation"],
+		"_amounts": {
+			"damage_amount": 10,
+			"repressed_amount": 10,
+			"released_amount": 10,
+		},
+		"_upgrade_threshold": 12,
+		"_upgrades": [
+			"% Traffic Jam %",
+			"+ Traffic Jam +",
+		],
+	},
+	"% Traffic Jam %": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.pathos.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "Gain {repressed_amount} repressed Frustration.\n"\
+				+ "Gain {released_amount} released Frustration\n"\
+				+ "{forget}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["forget", "interpretation"],
+		"_amounts": {
+			"damage_amount": 11,
+			"repressed_amount": 5,
+			"released_amount": 15,
+		},
+		"_is_upgrade": true,
+	},
+	"+ Traffic Jam +": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.pathos.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "Gain {repressed_amount} repressed Frustration.\n"\
+				+ "Gain {released_amount} released Frustration\n"\
+				+ "{forget}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["forget", "interpretation"],
+		"_amounts": {
+			"damage_amount": 15,
+			"repressed_amount": 10,
+			"released_amount": 10,
+		},
+		"_is_upgrade": true,
+	},
+	"Stuffed Toy": {
+		"Type": "Understanding",
+		"Tags": [],
+		"Abilities": "After any {stress} on the dreamer,"\
+				+ "gain 1 {defence}. "\
+				+ "The amount gained increases by 1 after each {stress}.\n"\
+				+ "This resets to 0 at the start of the turn.",
+		"Cost": 2,
+		"_is_concentration": true,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["confidence"],
+		"_amounts": {
+		},
+		"_upgrade_threshold": 12,
+		"_upgrades": [
+			"@ Stuffed Toy @",
+			"^ Stuffed Toy ^",
+		],
+	},
+	"@ Stuffed Toy @": {
+		"Type": "Understanding",
+		"Tags": [],
+		"Abilities": "After any {stress} on the dreamer,"\
+				+ "gain 1 {defence}. "\
+				+ "The amount gained increases by 1 after each {stress}.\n"\
+				+ "This resets to 0 at the start of the turn.",
+		"Cost": 1,
+		"_is_concentration": true,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["confidence"],
+		"_amounts": {
+		},
+		"_is_upgrade": true,
+	},
+	"^ Stuffed Toy ^": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.alpha.name],
+		"Abilities": "After any {stress} on the dreamer,"\
+				+ "gain 1 {defence}. "\
+				+ "The amount gained increases by 1 after each {stress}.\n"\
+				+ "This resets to 0 at the start of the turn.",
+		"Cost": 2,
+		"_is_concentration": true,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["confidence"],
+		"_amounts": {
+		},
+		"_is_upgrade": true,
+	},
+	"Mouse": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.purpose.name],
+		"Abilities": "Gain {immersion_amount} {immersion} per turn.\nLose {effect_stacks2} {focus}\n"\
+				+ "Every time you shuffle your deck, lose {effect_stacks} {focus}.",
+		"Cost": 3,
+		"_is_concentration": true,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["immersion"],
+		"_amounts": {
+			"immersion_amount": 1,
+			"effect_stacks": 1,
+			"effect_stacks2": 1,
+		},
+		"_upgrade_threshold": 12,
+		"_upgrades": [
+			"@ Mouse @",
+			"^ Mouse ^",
+		],
+	},
+	"@ Mouse @": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.purpose.name],
+		"Abilities": "Gain {immersion_amount} {immersion} per turn.\nLose {effect_stacks2} {focus}\n"\
+				+ "Every time you shuffle your deck, lose {effect_stacks} {focus}.",
+		"Cost": 2,
+		"_is_concentration": true,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["immersion"],
+		"_amounts": {
+			"immersion_amount": 1,
+			"effect_stacks": 2,
+			"effect_stacks2": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"^ Mouse ^": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.alpha.name, Terms.GENERIC_TAGS.purpose.name],
+		"Abilities": "Gain {immersion_amount} {immersion} per turn.\nLose {effect_stacks2} {focus}\n"\
+				+ "Every time you shuffle your deck, lose {effect_stacks} {focus}.",
+		"Cost": 3,
+		"_is_concentration": true,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["immersion"],
+		"_amounts": {
+			"immersion_amount": 1,
+			"effect_stacks": 2,
+			"effect_stacks2": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"The Exam": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.spark.name],
+		"Abilities": "Shuffle {card_amount} random forgotten cards into your deck.\n"\
+				+ "Every time you play a forgotten card, take {exert_amount} {anxiety}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["forget"],
+		"_amounts": {
+			"card_amount": 2,
+			"exert_amount": 1,
+		},
+		"_upgrade_threshold": 12,
+		"_upgrades": [
+			"! The Exam !",
+			"Ω The Exam Ω",
+		],
+	},
+	"! The Exam !": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.spark.name],
+		"Abilities": "Shuffle {card_amount} random forgotten cards into your deck.\n"\
+				+ "Every time you play a forgotten card, take {exert_amount} {anxiety}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["forget"],
+		"_amounts": {
+			"card_amount": 3,
+			"exert_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"Ω The Exam Ω": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.omega.name],
+		"Abilities": "Shuffle {card_amount} random forgotten cards into your deck.\n"\
+				+ "Every time you play a forgotten card, take {exert_amount} {anxiety}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["forget"],
+		"_amounts": {
+			"card_amount": 2,
+			"exert_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"The Victim": {
+		"Type": "Understanding",
+		"Tags": [],
+		"Abilities": "The first time each turn target torment gets {effect_threshold} {damage} or more "\
+				+ "from one source, reduce its {focus} by {effect_stacks} for this turn.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": [],
+		"_amounts": {
+			"effect_threshold": 9,
+			"effect_stacks": 1,
+		},
+		"_upgrade_threshold": 12,
+		"_upgrades": [
+			"^ The Victim ^",
+			"* The Victim *",
+		],
+	},
+	"^ The Victim ^": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.alpha.name],
+		"Abilities": "The first time each turn target torment gets {effect_threshold} {damage} or more "\
+				+ "from one source, reduce its {focus} by {effect_stacks} for this turn.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": [],
+		"_amounts": {
+			"effect_threshold": 9,
+			"effect_stacks": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"* The Victim *": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.alpha.name],
+		"Abilities": "The first time each turn target torment gets {effect_threshold} {damage} or more "\
+				+ "from one source, reduce its {focus} by {effect_stacks} for this turn.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": [],
+		"_amounts": {
+			"effect_threshold": 9,
+			"effect_stacks": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"Hyena": {
+		"Type": "Understanding",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}. If they have any buffs, steal {steal_amount} stacks from the most stacks.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["intepretation"],
+		"_amounts": {
+			"damage_amount": 9,
+			"steal_amount": 2,
+		},
+		"_upgrade_threshold": 12,
+		"_upgrades": [
+			"Ω Wolf Ω",
+			"+ Wolf +",
+			"* Wolf *",
+		],
+	},
+	"+ Hyena +": {
+		"Type": "Understanding",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}. If they have any buffs, steal {steal_amount} stacks from the most stacks.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["intepretation"],
+		"_amounts": {
+			"damage_amount": 12,
+			"steal_amount": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"Ω Hyena Ω": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.omega.name],
+		"Abilities": "{damage} for {damage_amount}. If they have any buffs, steal {steal_amount} stacks from the most stacks.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["intepretation"],
+		"_amounts": {
+			"damage_amount": 10,
+			"steal_amount": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"* Hyena *": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.omega.name],
+		"Abilities": "{damage} for {damage_amount}. If they have any buffs, steal {steal_amount} stacks from the most stacks.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["intepretation"],
+		"_amounts": {
+			"damage_amount": 10,
+			"steal_amount": 3,
+		},
+		"_is_upgrade": true,
+	},
+
 }

@@ -2,6 +2,7 @@ class_name Player
 extends Reference
 
 signal artifact_added(artifact_name)
+signal health_changed(damage, health)
 
 var health: int = 90 setget set_health
 var damage: int = 0 setget set_damage
@@ -31,6 +32,9 @@ func setup() -> void:
 	for group in deck_groups:
 		# Each deck group can modify the player's max health
 		health += Aspects[group.to_upper()][deck_groups[group]].get(Terms.PLAYER_TERMS.health,0)
+		# Each deck group might provide one or more starting artifacts
+		for artifact_name in Aspects[group.to_upper()][deck_groups[group]].get("Starting Artifacts", []):
+			add_artifact(artifact_name.canonical_name)
 	deck.assemble_starting_deck()
 	# Debug #
 #	add_artifact("StartingImmersion")
@@ -52,6 +56,7 @@ func set_damage(value) -> void:
 		damage = health
 	elif damage < 0:
 		damage = 0
+	emit_signal("health_changed", damage, health)
 
 
 func set_health(value) -> void:
@@ -60,6 +65,7 @@ func set_health(value) -> void:
 		health = 0
 	if damage > health:
 		damage = health
+	emit_signal("health_changed", damage, health)
 
 
 # Returns all card names of the chosen rarity among all the archetypes
@@ -121,10 +127,10 @@ func get_all_artifact_names() -> Array:
 # Goes through all archetypes and gathers all artifacts specified
 # Returns a list with all artifacts tied to all archetypes of the player.
 func get_archetype_artifacts() -> Array:
-	var artifacts := []
+	var artifact_list := []
 	for arch in get_current_archetypes():
-		artifacts += Aspects.get_archetype_value(arch, "Artifacts")
-	return(artifacts)
+		artifact_list += Aspects.get_archetype_value(arch, "Artifacts")
+	return(artifact_list)
 
 
 # Goes through all archetypes and gathers all parturbations specified

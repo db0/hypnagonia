@@ -26,7 +26,7 @@ const INTENTS := [
 func _ready() -> void:
 	all_intents = INTENTS.duplicate(true)
 
-func prepare_intents(specific_index = null) -> void:
+func prepare_intents(specific_index = null, is_second_try := false) -> Dictionary:
 	if not unused_intents.size():
 		reshuffle_intents()
 	var new_intents : Dictionary
@@ -40,7 +40,7 @@ func prepare_intents(specific_index = null) -> void:
 	if new_intents.reshuffle:
 		reshuffle_intents()
 	_display_intents(new_intents)
-
+	return(new_intents)
 
 func execute_special(script: ScriptTask, costs_dry_run := false) -> int:
 	var retcode: int = CFConst.ReturnCode.CHANGED
@@ -109,11 +109,12 @@ func calculate_special(sceng, subject: CombatEntity, script: ScriptTask) -> int:
 	return(calculation)
 
 
-func _get_intent_scripts(intent_name: String) -> Dictionary:
+func _get_intent_scripts(intent_name: String) -> Array:
 	return(_get_elite_scripts(intent_name))
 
 
-func _get_elite_scripts(intent_name: String) -> Dictionary:
+func _get_elite_scripts(intent_name: String) -> Array:
+# warning-ignore:unused_variable
 	var enraged_stacks: int
 	var vulnerable_stacks := 1
 	match combat_entity.get_property("_difficulty"):

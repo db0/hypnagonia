@@ -35,4 +35,5 @@ func _on_ListCardObject_gui_input(event: InputEvent) -> void:
 
 func setup_grid_card_object() -> void:
 	.setup_grid_card_object()
+# warning-ignore:return_value_discarded
 	grid_card_object.connect("gui_input", self, "_on_ListCardObject_gui_input")

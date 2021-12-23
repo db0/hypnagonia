@@ -3,7 +3,7 @@
 [ext_resource path="res://shaders/outline.shader" type="Shader" id=1]
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/EnemyIntents.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/dreamscape/CombatElements/CombatEntity.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/dreamscape/CombatElements/Enemies/Elites/RushEliteIntents.gd" type="Script" id=4]
+[ext_resource path="res://src/dreamscape/CombatElements/Enemies/Elites/IndescribableAbsurdityIntents.gd" type="Script" id=4]
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/Elites/RushElite.gd" type="Script" id=5]
 [ext_resource path="res://assets/enemies/maze.png" type="Texture" id=6]
 
@@ -16,10 +16,7 @@ shader_param/pattern = 2
 shader_param/inside = false
 shader_param/add_margins = false
 
-[node name="RushElite" groups=[
-"BossEntities",
-"EnemyEntities",
-] instance=ExtResource( 3 )]
+[node name="RushElite" groups=["BossEntities", "EnemyEntities"] instance=ExtResource( 3 )]
 script = ExtResource( 5 )
 character_art_texture = ExtResource( 6 )
 
@@ -31,7 +28,6 @@ margin_top = 40.0
 margin_right = 69.0
 margin_bottom = 83.0
 rect_min_size = Vector2( 0, 43 )
-custom_constants/separation = 10
 script = ExtResource( 4 )
 
 [node name="Art" parent="." index="2"]

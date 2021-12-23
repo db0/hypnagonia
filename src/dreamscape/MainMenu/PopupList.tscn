@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/dreamscape/MainMenu/PopupList.gd" type="Script" id=1]
+
+[node name="PopupList" type="HBoxContainer"]
+margin_right = 500.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 80 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_top = 43.0
+margin_bottom = 57.0
+
+[node name="DescriptionPopup" type="PopupPanel" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="TagDescription" type="RichTextLabel" parent="DescriptionPopup"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 304.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 300, 0 )
+bbcode_enabled = true
+fit_content_height = true
+scroll_active = false

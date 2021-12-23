@@ -32,9 +32,9 @@ func _ready() -> void:
 			# warning-ignore:return_value_discarded
 			turn.connect(turn_signal, self, "_on_" + turn_signal)
 	setup(artifact_object.definition, artifact_object.canonical_name)
-# warning-ignore:return_value_discarded
+	# warning-ignore:return_value_discarded
 	artifact_object.connect("removed", self, "_on_artifact_removed")
-# warning-ignore:return_value_discarded
+	# warning-ignore:return_value_discarded
 	artifact_object.connect("counter_modified", self, "_on_artifact_counter_modified")
 
 
@@ -112,8 +112,16 @@ func execute_scripts(
 # Which uses another approach. So these two are not used here.
 func retrieve_scripts(_trigger: String) -> Dictionary:
 	return({})
+
+
 func get_state_exec() -> String:
 	return("NONE")
+
+# Overridable function to add to artifacts so that they can alter global values
+# such as card draft chance etc
+func get_global_alterant(_value, _alterant_type: int):
+	return
+
 
 func _on_CombatSingifier_mouse_entered() -> void:
 	_set_current_description()

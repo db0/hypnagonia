@@ -5,7 +5,7 @@ signal removed
 signal counter_modified(counter_value)
 
 # Some artifact might need to track something. In which case we use this var.
-var counter := 0
+var counter := 0 setget set_counter
 var artifact_scene: PackedScene
 var canonical_name: String
 var definition: Dictionary
@@ -27,3 +27,7 @@ func _init(artifact_name: String, _mods := {}) -> void:
 
 func remove_self() -> void:
 	emit_signal("removed")
+
+func set_counter(value: int) -> void:
+	counter = value
+	emit_signal("counter_modified", counter)

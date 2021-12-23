@@ -11,6 +11,7 @@ func _init(encounter: Dictionary, _difficulty: String):
 	prepare_journal_art(encounter)
 
 func begin() -> void:
+	# warning-ignore:return_value_discarded
 	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.elite)
 	.begin()
 	globals.journal.journal_cover.fade_to_black()

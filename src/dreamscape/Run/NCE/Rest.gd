@@ -10,6 +10,7 @@ func _init():
 	description = "I felt myself falling into a deep, dreamless torpor..."
 
 func begin() -> void:
+	# warning-ignore:return_value_discarded
 	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.rest)
 	.begin()
 	globals.journal.add_nested_choices(secondary_choices)
@@ -17,7 +18,7 @@ func begin() -> void:
 func continue_encounter(key) -> void:
 	match key:
 		"rest": 
-			globals.player.damage -= globals.player.health * 0.25
+			globals.player.damage -= int(globals.player.health * 0.25)
 			globals.journal.display_nce_rewards('')
 		"resist": 
 			globals.journal.display_nce_rewards('')

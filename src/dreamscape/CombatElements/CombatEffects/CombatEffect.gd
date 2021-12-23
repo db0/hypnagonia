@@ -1,27 +1,10 @@
 class_name CombatEffect
 extends CombatSignifier
 
-enum SELF_DECREASE {
-	FALSE
-	TURN_START
-	TURN_END
-}
 
-enum DECREASE_TYPE {
-	REDUCE
-	HALVE
-	ZERO
-}
-
-enum PRIORITY {
-	ADD
-	MULTIPLY
-	SET
-}
-
-export(SELF_DECREASE) var self_decreasing
-export(DECREASE_TYPE) var decrease_type
-export(PRIORITY) var priority
+var self_decreasing : int = Terms.SELF_DECREASE.FALSE
+var decrease_type : int = Terms.DECREASE_TYPE.REDUCE
+var priority : int = Terms.ALTERANT_PRIORITY.ADD
 
 var entity_type: String
 var owning_entity: CombatEntity
@@ -36,11 +19,15 @@ var upgrade: String
 # This allows the enemy to assign intents to the player which will not disappear/reduce
 # before the player has a chance to see them.
 var is_delayed := false
+var effect_definition : Dictionary
 
 
 func setup(signifier_details: Dictionary, signifier_name: String) -> void:
 	.setup(signifier_details, signifier_name)
 	entity_type = signifier_details["entity_type"]
+	self_decreasing = effect_definition.get("self_decreasing", Terms.SELF_DECREASE.FALSE)
+	decrease_type = effect_definition.get("decrease_type", Terms.DECREASE_TYPE.REDUCE)
+	priority = effect_definition.get("alterant_priority", Terms.ALTERANT_PRIORITY.ADD)
 
 
 func _ready() -> void:
@@ -50,9 +37,9 @@ func _ready() -> void:
 		turn.connect(turn_signal, self, "_on_" + turn_signal)
 
 
-func set_stacks(value: int, tags := ["Manual"]) -> void:
-	if value < 0:
-		value == 0
+func set_stacks(value: int, tags := ["Manual"], can_go_negative := false) -> void:
+	if value < 0 and not can_go_negative:
+		value = 0
 	owning_entity.emit_signal(
 			"effect_modified",
 			owning_entity,
@@ -62,7 +49,9 @@ func set_stacks(value: int, tags := ["Manual"]) -> void:
 			SP.TRIGGER_PREV_COUNT: stacks,
 			SP.TRIGGER_NEW_COUNT: value,
 			"tags": tags})
-	if value > 0:
+	if value == 0:
+		queue_free()
+	else:
 		# if the script had a delayed tag, it will not become active
 		# until the next time the player's turn starts (so that they see it and take it into account)
 		# Unless the player already had some stacks, in which case it is effective
@@ -71,8 +60,15 @@ func set_stacks(value: int, tags := ["Manual"]) -> void:
 			is_delayed = true
 		signifier_amount.text = str(value)
 		stacks = value
-	else:
-		queue_free()
+		# If it's an effect that can go to negative values, then we make the icon red
+		# when it is negative
+		if stacks < 0:
+			signifier_icon.modulate = Color(1,0,0)
+		# Otherwise we ensure the icon stays at it's normal colour
+		elif can_go_negative:
+			signifier_icon.modulate = Color(1,1,1)
+			
+			
 
 # To override. This is called by the scripting engine
 # Is source is telling this script whether we're checking for alterants affecting the 
@@ -102,6 +98,10 @@ func _set_current_description() -> void:
 	format["triple_amount"] = str(3*stacks)
 	# warning-ignore:integer_division
 	format["half_amount"] = str(stacks/2)
+	format["increased"] = "increased"
+	if stacks < 0:
+		format["increased"] = "decreased"
+		format["amount"] = str(abs(stacks))
 	
 	decription_label.bbcode_text = _get_effect_description().\
 			format(format).format(Terms.get_bbcode_formats(18))
@@ -170,29 +170,29 @@ func clear_snapshot(id: int) -> void:
 	snapshot_stacks.erase(id)
 
 func _on_player_turn_ended(_turn: Turn) -> void:
-	if entity_type == Terms.PLAYER and self_decreasing == SELF_DECREASE.TURN_END:
+	if entity_type == Terms.PLAYER and self_decreasing == Terms.SELF_DECREASE.TURN_END:
 		_decrease_stacks()
 
 func _on_player_turn_started(_turn: Turn) -> void:
 	if is_delayed:
 		is_delayed = false
-	elif entity_type == Terms.PLAYER and self_decreasing == SELF_DECREASE.TURN_START:
+	elif entity_type == Terms.PLAYER and self_decreasing == Terms.SELF_DECREASE.TURN_START:
 		_decrease_stacks()
 
 func _on_enemy_turn_ended(_turn: Turn) -> void:
-	if entity_type == Terms.ENEMY and self_decreasing == SELF_DECREASE.TURN_END:
+	if entity_type == Terms.ENEMY and self_decreasing == Terms.SELF_DECREASE.TURN_END:
 		_decrease_stacks()
 
 func _on_enemy_turn_started(_turn: Turn) -> void:
-	if entity_type == Terms.ENEMY and self_decreasing == SELF_DECREASE.TURN_START:
+	if entity_type == Terms.ENEMY and self_decreasing == Terms.SELF_DECREASE.TURN_START:
 		_decrease_stacks()
 
 func _decrease_stacks() -> void:
 	match decrease_type:
-		DECREASE_TYPE.REDUCE:
+		Terms.DECREASE_TYPE.REDUCE:
 			set_stacks(stacks - 1, ["Turn Decrease"])
-		DECREASE_TYPE.HALVE:
+		Terms.DECREASE_TYPE.HALVE:
 			# warning-ignore:integer_division
 			set_stacks(stacks / 2, ["Turn Decrease"])
-		DECREASE_TYPE.ZERO:
+		Terms.DECREASE_TYPE.ZERO:
 			set_stacks(0, ["Turn Decrease"])

@@ -16,7 +16,8 @@ func _init(state_scripts: Array,
 
 
 # Predicts the effects of the action cards on the table.
-func predict() -> void:
+func predict(_snapshot_id: int) -> void:
+	snapshot_id = _snapshot_id
 	run_type = CFInt.RunType.COST_CHECK
 	var prev_subjects := []
 	for task in scripts_queue:
@@ -53,7 +54,11 @@ func predict() -> void:
 				var amount = call(prediction_method, entity, script)
 				if amount is GDScriptFunctionState:
 					amount = yield(amount, "completed")
-				entity.show_predictions(amount)
+				var prediction_icon = null
+				if script.script_name == "apply_effect":
+					prediction_icon = Terms.get_term_value(script.get_property("effect_name"), "icon")
+				entity.show_predictions(amount, prediction_icon)
+	snapshot_id = 0
 
 
 # Will return the adjusted amount of whatever the intent scripts are doing
@@ -87,29 +92,36 @@ func predict_intent_amount(_snapshot_id: int) -> int:
 			var custom := CustomScripts.new(costs_dry_run())
 			custom.custom_script(script)
 		var prediction_method = "calculate_" + script.script_name
-		for entity in script.subjects:
-#				entity.temp_properties_modifiers[self] = {
-#					"requesting_object": script.owner,
-#					"modifier": _retrieve_temp_modifiers(script, "properties")
-#				}
-			# This checks if the script pretends to be a different type of
-			# script, for showing, in the intents
-			if not script.is_skipped\
-					and script.get_property("predict_as")\
-					and script.owner.intents.has_method("calculate_special"):
-				var amount = script.owner.intents.calculate_special(self, entity, script)
+		if script.get_property(SP.KEY_SUBJECT):
+			for entity in script.subjects:
+	#				entity.temp_properties_modifiers[self] = {
+	#					"requesting_object": script.owner,
+	#					"modifier": _retrieve_temp_modifiers(script, "properties")
+	#				}
+				# This checks if the script pretends to be a different type of
+				# script, for showing, in the intents
+				if not script.is_skipped\
+						and script.get_property("predict_as")\
+						and script.owner.intents.has_method("calculate_special"):
+					var amount = script.owner.intents.calculate_special(self, entity, script)
+					if amount is GDScriptFunctionState:
+						amount = yield(amount, "completed")
+					total_amount += amount
+				# This calculates what the numerical results of the intent will be
+				# to put in the intent icon.
+				elif not script.is_skipped and has_method(prediction_method):
+					var amount = call(prediction_method, entity, script)
+					if amount is GDScriptFunctionState:
+						amount = yield(amount, "completed")
+					total_amount += amount
+				# If there's multiple targets, we calculate the amount only for a single of them
+				break
+		else:
+			if not script.is_skipped and has_method(prediction_method):
+				var amount = call(prediction_method, script)
 				if amount is GDScriptFunctionState:
 					amount = yield(amount, "completed")
 				total_amount += amount
-			# This calculates what the numerical results of the intent will be 
-			# to put in the intent icon.
-			elif not script.is_skipped and has_method(prediction_method):
-				var amount = call(prediction_method, entity, script)
-				if amount is GDScriptFunctionState:
-					amount = yield(amount, "completed")
-				total_amount += amount
-			# If there's multiple targets, we calculate the amount only for a single of them
-			break
 	return(total_amount)
 
 
@@ -228,14 +240,11 @@ func assign_defence(script: ScriptTask) -> int:
 				script.owner)
 	return(retcode)
 
-func apply_effect(script: ScriptTask) -> int:
-	var retcode: int
+
+func calculate_apply_effect(subject: CombatEntity, script: ScriptTask) -> int:
 	var modification: int
 	var alteration = 0
-	var effect_name: String = script.get_property(SP.KEY_EFFECT)
-	var upgrade_name: String = script.get_property(SP.KEY_UPGRADE_NAME, '')
-	# We inject the tags from the script into the tags sent by the signal
-	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
+	var set_to_mod: bool = script.get_property(SP.KEY_SET_TO_MOD)
 	if str(script.get_property(SP.KEY_MODIFICATION)) == SP.VALUE_RETRIEVE_INTEGER:
 		modification = stored_integer
 		if script.get_property(SP.KEY_IS_INVERTED):
@@ -253,17 +262,27 @@ func apply_effect(script: ScriptTask) -> int:
 #		print_debug(per_msg.found_things, modification)
 	else:
 		modification = script.get_property(SP.KEY_MODIFICATION)
+	if not set_to_mod:
+		alteration = _check_for_effect_alterants(script, modification, subject, self)
+		if alteration is GDScriptFunctionState:
+			alteration = yield(alteration, "completed")
+	var final_amount = _check_for_x(script, modification + alteration)		
+	return(final_amount)
+
+
+func apply_effect(script: ScriptTask) -> int:
+	var retcode: int
+	var effect_name: String = script.get_property(SP.KEY_EFFECT)
+	var upgrade_name: String = script.get_property(SP.KEY_UPGRADE_NAME, '')
+	# We inject the tags from the script into the tags sent by the signal
+	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
 	var set_to_mod: bool = script.get_property(SP.KEY_SET_TO_MOD)
 	var stacks_diff := 0
 	for e in script.subjects:
 		var entity: CombatEntity = e
 		if entity.is_dead:
 			continue
-		if not set_to_mod:
-			alteration = _check_for_effect_alterants(script, modification, entity, self)
-			if alteration is GDScriptFunctionState:
-				alteration = yield(alteration, "completed")
-		var final_amount = _check_for_x(script, modification + alteration)
+		var final_amount = calculate_apply_effect(entity, script)
 		var current_stacks: int
 		# If we're storing the integer, we want to store the difference
 		# cumulative difference between the current and modified effect stacks
@@ -311,7 +330,6 @@ func autoplay_card(script: ScriptTask) -> int:
 	for card in script.subjects:
 		if not costs_dry_run():
 			# We store this to send it later with a signal
-			var previous_parent = card.get_parent()
 			var prev_pos = card.global_position
 			card.get_parent().remove_child(card)
 			cfc.NMAP.board.add_child(card)
@@ -495,6 +513,53 @@ func torment_special(script: ScriptTask) -> int:
 		retcode = yield(retcode, "completed")
 	return(retcode)
 
+func calculate_modify_pathos(script: ScriptTask) -> int:
+	var modification: int
+	var alteration = 0
+	if str(script.get_property(SP.KEY_AMOUNT)) == SP.VALUE_RETRIEVE_INTEGER:
+		# If the modification is requested, is only applies to stored integers
+		# so we flip the stored_integer's value.
+		modification = stored_integer
+		if script.get_property(SP.KEY_IS_INVERTED):
+			modification *= -1
+		modification += script.get_property(SP.KEY_ADJUST_RETRIEVED_INTEGER)
+	elif SP.VALUE_PER in str(script.get_property(SP.KEY_AMOUNT)):
+		var per_msg = perMessage.new(
+				script.get_property(SP.KEY_AMOUNT),
+				script.owner,
+				script.get_property(script.get_property(SP.KEY_AMOUNT)),
+				null,
+				script.subjects,
+				script.prev_subjects)
+		modification = per_msg.found_things
+	else:
+		modification = script.get_property(SP.KEY_AMOUNT)
+	alteration = _check_for_effect_alterants(script, modification, cfc.NMAP.board.dreamer, self)
+	if alteration is GDScriptFunctionState:
+		alteration = yield(alteration, "completed")
+	var final_result = _check_for_x(script, modification + alteration)
+	return(final_result)
+
+func modify_pathos(script: ScriptTask) -> int:
+	var retcode: int = CFConst.ReturnCode.CHANGED
+	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
+	var type = script.get_property("pathos_type", "released")
+	var is_convertion = script.get_property("is_convertion", false)
+	var pathos = script.get_property("pathos", Terms.RUN_ACCUMULATION_NAMES.enemy)
+	var modification = calculate_modify_pathos(script)
+	if type == "released":
+		if is_convertion:
+			if globals.player.pathos.repressed[pathos] < modification:
+				modification = globals.player.pathos.repressed[pathos]
+			globals.player.pathos.repress_pathos(pathos, -modification)
+		globals.player.pathos.release_pathos(pathos, modification)
+	else:
+		if is_convertion:
+			if globals.player.pathos.released.get(pathos, 0) < modification:
+				modification = globals.player.pathos.released.get(pathos, 0)
+			globals.player.pathos.release_pathos(pathos, -modification)
+		globals.player.pathos.repress_pathos(pathos, modification)
+	return(retcode)
 
 # Used to perform some post-play activities, once all the script costs
 # have been paid.

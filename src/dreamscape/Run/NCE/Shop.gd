@@ -9,6 +9,7 @@ func _init():
 
 
 func begin() -> void:
+	# warning-ignore:return_value_discarded
 	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.shop)
 	.begin()
 	current_shop = SHOP_SCENE.instance()

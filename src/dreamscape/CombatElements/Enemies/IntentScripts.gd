@@ -5,6 +5,7 @@ export(StreamTexture) var ICON_ATTACK := preload("res://assets/icons/terror.png"
 export(StreamTexture) var ICON_DEFEND := preload("res://assets/icons/shield.png")
 export(StreamTexture) var ICON_DEBUFF := preload("res://assets/icons/cursed-star.png")
 export(StreamTexture) var ICON_BUFF := preload("res://assets/icons/growth.png")
+export(StreamTexture) var ICON_SPECIAL := preload("res://assets/icons/uncertainty.png")
 
 func get_scripts(intent_name: String) -> Dictionary:
 	var scripts := {
@@ -58,7 +59,7 @@ func get_scripts(intent_name: String) -> Dictionary:
 				"object_count": 1,
 				"tags": ["Intent"],
 				"icon": preload("res://assets/icons/alien-stare.png"),
-				"description": "Stare: It's not blinking..."
+				"description": "Stare: [i]It's not blinking...[/i]"
 			}
 		],
 		"Delight": [
@@ -69,7 +70,20 @@ func get_scripts(intent_name: String) -> Dictionary:
 				"modification": 1,
 				"tags": ["Intent", "Delayed"],
 				"icon": preload("res://assets/icons/smitten.png"),
-				"description": "Delightful: Aww, it's adorable!"
+				"description": "Delightful: [i]Aww, it's adorable![/i]"
+			}
+		],
+		"Lethargy": [
+			{
+				"name": "apply_effect",
+				"effect_name": Terms.ACTIVE_EFFECTS.drain.name,
+				"subject": "dreamer",
+				"modification": null,
+				"show_modification_in_intent": true,
+				"tags": ["Intent"],
+				"icon": preload("res://assets/icons/shrug.png"),
+				"description": "Lethargy: Next turn you will have this amount less {immersion}\n"\
+						+ "[i]I need to see behind it...[/i]"
 			}
 		],
 		"Evident": [
@@ -81,6 +95,73 @@ func get_scripts(intent_name: String) -> Dictionary:
 				"icon": preload("res://assets/icons/spectacle-lenses.png"),
 				"description": "Evident: This will cause this Torment the specified amount of {damage}."
 			}
+		],
+		"Frustrate": [
+			{
+				"name": "modify_pathos",
+				"tags": ["Intent"],
+				"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
+				"pathos_type": "repressed",
+				"amount": null,
+				"icon": preload("res://assets/icons/traffic-cone.png"),
+				"description": "Frustrate: This will increase the dreamer's repressed frustration by the shown amount.\n"\
+						+ "[i]Every day the same deal...[/i]"
+			}
+		],
+		"Dishearten": [
+			{
+				"name": "modify_pathos",
+				"tags": ["Intent"],
+				"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
+				"pathos_type": "released",
+				"amount": null,
+				"icon": preload("res://assets/icons/traffic-cone.png"),
+				"description": "Dishearten: This will decrease the dreamer's released frustration by the shown amount.\n"\
+						+ "[i]I'll never make it in time...[/i]"
+			}
+		],
+		"Unfocus": [
+			{
+				"name": "apply_effect",
+				"effect_name": Terms.ACTIVE_EFFECTS.strengthen.name,
+				"subject": "self",
+				"modification": "per_effect_stacks",
+				"per_effect_stacks": {
+					"subject": "self",
+					"effect_name": Terms.ACTIVE_EFFECTS.rebalance.name,
+					"is_inverted": true,
+				},
+				"tags": ["Intent"],
+				"icon": preload("res://assets/icons/uncertainty.png"),
+				"description": "Unfocus: [i]Somehow this doesn't feel as important as it first appeared...[/i]"
+			}
+		],
+		"Pencils Ready": [
+			{
+				"name": "apply_effect",
+				"effect_name": Terms.ACTIVE_EFFECTS.the_exam.name,
+				"subject": "dreamer",
+				"modification": "per_effect_stacks",
+				"per_effect_stacks": {
+					"subject": "self",
+					"effect_name": Terms.ACTIVE_EFFECTS.rebalance.name,
+				},
+				"tags": ["Intent"],
+				"icon": preload("res://assets/icons/pencil.png"),
+				"description": "Pencils Ready: [i]I could feel the teacher's eyes hovering over me.[/i]"
+			}
+		],
+		"Memory Failing": [
+			{
+				"name": "move_card_to_container",
+				"subject": "index",
+				"subject_index": "random",
+				"src_container": "hand",
+				"dest_container": "forgotten",
+				"tags": ["Intent"],
+				"icon": preload("res://assets/icons/uncertainty.png"),
+				"description": "Memory Failing: [i]I know I had studied this. What was it...[/i]"
+			},
 		],
 	}
 	return(scripts.get(intent_name,{}))

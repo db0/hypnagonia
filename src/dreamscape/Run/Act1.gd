@@ -9,7 +9,7 @@ Should be a valid index within the intents available for that enemy
 
 As an example:
 
-		"enemies": { 
+		"enemies": {
 			"hard": [
 				{
 					"definition": EnemyDefinitions.THE_LAUGHING_ONE,
@@ -339,6 +339,12 @@ const Pialephant = {
 			{
 				"definition": EnemyDefinitions.PIALEPHANT,
 				"health_modifier": -20,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.disempower.name,
+						"stacks": 5
+					}
+				]
 			},
 		],
 		"medium": [
@@ -535,11 +541,10 @@ const NCE := [
 	preload("res://src/dreamscape/Run/NCE/Act1/SleepOfOblivion.gd"),
 	preload("res://src/dreamscape/Run/NCE/Act1/MultipleOptions.gd"),
 	preload("res://src/dreamscape/Run/NCE/Act1/PathosForAnxiety.gd"),
-	preload("res://src/dreamscape/Run/NCE/Act1/TheCandyman.gd"),
 	preload("res://src/dreamscape/Run/NCE/Act1/Dollmaker.gd"),
 	preload("res://src/dreamscape/Run/NCE/Act1/Greed.gd"),
 	preload("res://src/dreamscape/Run/NCE/Act1/PopPsychologist1.gd"),
 ]
 
 static func get_act_name() -> String:
-	return("Act1")
+	return("Early Night")

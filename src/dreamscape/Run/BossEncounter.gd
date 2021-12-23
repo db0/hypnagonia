@@ -11,6 +11,7 @@ func _init(encounter: Dictionary, _boss_name: String):
 	enemy_scene = encounter['scene']
 
 func begin() -> void:
+	# warning-ignore:return_value_discarded
 	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.boss)
 	.begin()
 	globals.journal.journal_cover.fade_to_black()

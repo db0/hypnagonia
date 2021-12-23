@@ -32,8 +32,10 @@ func setup(signifier_details: Dictionary, signifier_name: String) -> void:
 	else:		
 		signifier_icon.visible = false
 		signifier_label.text = signifier_name[0]
-	if signifier_details.get("amount") != null:
+	if signifier_details.has("amount"):
 		signifier_amount.text = str(signifier_details.amount)
+	elif signifier_details.has("modification") and signifier_details.get("show_modification_in_intent"):
+		signifier_amount.text = str(signifier_details.modification)
 	else:
 		signifier_amount.visible = false
 	if signifier_details.has("description"):

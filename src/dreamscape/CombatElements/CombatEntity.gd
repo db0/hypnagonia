@@ -6,6 +6,7 @@ const INCOMING_SIGNIFIER_SCENE = preload("res://src/dreamscape/CombatElements/In
 export(StreamTexture) var defence_texture: StreamTexture
 export(StreamTexture) var character_art_texture: StreamTexture
 
+# warning-ignore:unused_signal
 signal effect_modified(entity,trigger,details)
 signal entity_attacked(entity, amount, trigger, tags)
 signal entity_damaged(entity, amount, trigger, tags)
@@ -162,6 +163,7 @@ func modify_defence(
 			dry_run := false, 
 			tags := ["Manual"], 
 			trigger: CombatEntity = null) -> int:
+	# warning-ignore:unused_variable
 	var retcode: int = CFConst.ReturnCode.CHANGED
 	if set_to_mod and defence == amount:
 		retcode = CFConst.ReturnCode.OK
@@ -188,8 +190,10 @@ func get_class() -> String:
 	return("CombatEntity")
 
 
-func show_predictions(value: int) -> void:
+func show_predictions(value: int, image = null) -> void:
 	var incoming_node = INCOMING_SIGNIFIER_SCENE.instance()
+	if image:
+		incoming_node.icon_texture = image
 	incoming.add_child(incoming_node)
 	incoming_node.get_node("Label").text = str(value)
 

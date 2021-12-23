@@ -117,6 +117,32 @@ func custom_script(script: ScriptObject) -> void:
 		"Apathy":
 			if not costs_dry_run and card.get_parent() == cfc.NMAP.deck:
 				cfc.NMAP.deck.move_card_to_top(card)
+		"Hyena", "+ Hyena +", "Ω Hyena Ω", "* Hyena *":
+			if not costs_dry_run:
+				if subjects.size() and subjects[0] as EnemyEntity:
+					var enemy_entity: EnemyEntity = subjects[0]
+					var buff = enemy_entity.active_effects.get_effect_with_most_stacks("Buff")
+					if buff:
+						var current_stacks = enemy_entity.active_effects.get_effect_stacks(buff)
+						var modification = cfc.card_definitions[card.canonical_name]\
+								.get("_amounts",{}).get("steal_amount", 2)
+						if modification > current_stacks:
+							modification = current_stacks
+						var card_script := [
+							{
+								"name": "apply_effect",
+								"effect_name": buff,
+								"subject": "trigger",
+								"modification": -modification,
+							},
+							{
+								"name": "apply_effect",
+								"effect_name": buff,
+								"subject": "dreamer",
+								"modification": modification,
+							}
+						]
+						execute_script(card_script, script.owner, enemy_entity)
 			
 # warning-ignore:unused_argument
 func custom_alterants(script: ScriptObject) -> int:
