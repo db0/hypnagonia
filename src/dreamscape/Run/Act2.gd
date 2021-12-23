@@ -58,6 +58,7 @@ const TrafficJam = {
 #	"journal_art": preload("res://assets/journal/the_laughing_one.jpeg"),
 }
 
+# Inspiration taken from StS mods developed by https://github.com/modargo
 const Mouse = {
 	"journal_description":\
 		'I was having tea with [url={torment_tag1}]a rodent[/url]. It was explaining the pitfalls of overpopulation.',
@@ -106,6 +107,7 @@ const Mouse = {
 #	"journal_art": preload("res://assets/journal/the_laughing_one.jpeg"),
 }
 
+# Inspiration taken from StS mods developed by https://github.com/modargo
 const TheExam = {
 	"journal_description":\
 		"The bell rang and I had to get back into class."\
@@ -154,6 +156,8 @@ const TheExam = {
 	},
 #	"journal_art": preload("res://assets/journal/the_laughing_one.jpeg"),
 }
+
+# Inspiration taken from StS mods developed by https://github.com/modargo
 const TheVictim = {
 	"journal_description":\
 		"[url={torment_tag1}]They claimed I always hurt their feelings.[/url] "\
