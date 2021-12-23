@@ -290,5 +290,16 @@ const NCE := [
 	preload("res://src/dreamscape/Run/NCE/Act2/Griftlands.gd"),
 ]
 
+const LOCKED_NCE := {
+	"Griftlands2": {
+		"nce": preload("res://src/dreamscape/Run/NCE/Act2/Griftlands2.gd"),
+		"chance_multiplier": 1,
+	},
+	"Griftlands3": {
+		"nce": preload("res://src/dreamscape/Run/NCE/Act2/Griftlands3.gd"),
+		"chance_multiplier": 1,
+	},
+}
+
 static func get_act_name() -> String:
 	return("Deep Sleep")

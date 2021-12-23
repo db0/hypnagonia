@@ -336,6 +336,7 @@ func _input(event):
 #		globals.player.add_artifact("AccumulateEnemy")
 #		globals.player.add_artifact("AccumulateShop")
 #		globals.player.damage += 20
+		globals.player.pathos.repress_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 200)
 		var debug_encounters = [
 			EnemyEncounter.new(Act2.ClownShow, "hard"),
 			preload("res://src/dreamscape/Run/NCE/Act2/Griftlands.gd").new(),

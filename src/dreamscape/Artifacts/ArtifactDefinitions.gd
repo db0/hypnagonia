@@ -618,7 +618,7 @@ static func get_organized_artifacts(
 
 static func get_artifact_bbcode_format(artifact_definition: Dictionary) -> Dictionary:
 	var format := {}
-	for key in artifact_definition.get('amounts'):
+	for key in artifact_definition.get('amounts', {}):
 		format[key] = artifact_definition.amounts[key]
 		format['artifact_name'] = artifact_definition.name
 	return(format)

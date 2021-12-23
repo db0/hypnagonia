@@ -146,7 +146,6 @@ func _get_next_nce() -> NonCombatEncounter:
 		remaining_nce = current_act.NCE.duplicate(true)
 		remaining_nce += run_changes.get_unlocked_nces(current_act.get_act_name())
 		CFUtils.shuffle_array(remaining_nce)
-	# TODO: Adjust the Act dynamically
 	var next_nce = remaining_nce.pop_back()
 	# Even though we do a pop, we also erase any other copies of the same NCE in the list
 	# as we might have multiple NCEs of the same name, to increase their chances of appearing
