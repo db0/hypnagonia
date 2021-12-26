@@ -132,6 +132,9 @@ func populate_shop_cards() -> void:
 
 func populate_shop_artifacts() -> void:
 	artifact_prep = ArtifactPrep.new(rare_chance, uncommon_chance, 4)
+	## DEBUG
+#	artifact_prep.append_artifact("ImproveImpervious")
+	## END DEBUG
 	for artifact in artifact_prep.selected_artifacts:
 		var rarity = artifact.rarity
 		# By separating the cost_type like this, I can theoretically
@@ -150,7 +153,7 @@ func populate_shop_artifacts() -> void:
 			"cost_type": cost_type,
 		}
 		all_artifact_choices.append(shop_choice_dict)
-	for index in range(4):
+	for index in range(all_artifact_choices.size()):
 		var artifact: Dictionary = artifact_prep.selected_artifacts[index]
 		var shop_artifact_object = ARTIFACT_SHOP_SCENE.instance()
 		artifact_shop.add_child(shop_artifact_object)

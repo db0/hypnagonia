@@ -352,7 +352,7 @@ func _input(event):
 #		CFUtils.shuffle_array(bgm_tracks)
 #		SoundManager.play_bgm(bgm_tracks[0])
 #		SoundManager.fade_in(bgm_tracks[0])
-# warning-ignore:unused_variable
+		# warning-ignore:unused_variable
 		_debug_advanced_enemy()
 		# warning-ignore:unused_variable
 #		var torment = spawn_enemy(EnemyDefinitions.BUTTERFLY)
@@ -379,7 +379,7 @@ func _input(event):
 		torment2.health = 1000
 		torment3.health = 1000
 		dreamer.health = 1000
-#		globals.player.add_artifact(ArtifactDefinitions.BossCardDraw.canonical_name)
+#		globals.player.add_artifact(ArtifactDefinitions.ThickExplosion.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.PurpleWave.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)

@@ -20,7 +20,7 @@ enum EffectContext {
 const MaxHealth := {
 	"canonical_name": "MaxHealth",
 	"name": "MaxHealth",
-	"description": "{artifact_name}: max {health} inreased by {health_amount}",
+	"description": "{artifact_name}: max {anxiety} inreased by {health_amount}",
 	"icon": preload("res://assets/icons/artifacts/centaur-heart.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
@@ -630,7 +630,20 @@ static func get_organized_artifacts(
 
 static func get_artifact_bbcode_format(artifact_definition: Dictionary) -> Dictionary:
 	var format := {}
+	format['artifact_name'] = artifact_definition.name
 	for key in artifact_definition.get('amounts', {}):
 		format[key] = artifact_definition.amounts[key]
-		format['artifact_name'] = artifact_definition.name
 	return(format)
+
+static func get_complete_artifacts_array() -> Array:
+	return(GENERIC + ARCHETYPE + ENCOUNTER + BOSS)
+
+static func find_artifact_from_canonical_name(artifact_canonical_name: String):
+	for artifact_def in get_complete_artifacts_array():
+		if artifact_def.canonical_name == artifact_canonical_name:
+			return(artifact_def)
+
+static func find_artifact_from_name(artifact_name: String):
+	for artifact_def in get_complete_artifacts_array():
+		if artifact_def.name == artifact_name:
+			return(artifact_def)

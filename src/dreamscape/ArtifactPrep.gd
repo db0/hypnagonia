@@ -51,36 +51,46 @@ func _init(rare_percent: int, uncommon_percent: int, amount := 1, artifact_type 
 		# an artifact of any rarity.
 		CFUtils.shuffle_array(randomized_artifacts)
 		var current_artifact = randomized_artifacts.pop_back()
-		var selected_artifact_name = current_artifact["name"]
 		# We keep iterating until we find unique artifacts.
-		while selected_artifact_name in _get_names():
+		while current_artifact["canonical_name"] in _get_names():
 			# Extra check to avoid crashing due to not having enough designed artifacts
 			if randomized_artifacts.size() == 0:
 				return
 			current_artifact = randomized_artifacts.pop_back()
-			selected_artifact_name = current_artifact["name"]
-		var bbcode_formats = Terms.get_bbcode_formats(18)
-		var artifact_format = ArtifactDefinitions.get_artifact_bbcode_format(current_artifact)
-		# This key is used when the description is displayed in the Journal as an
-		# artifact reward after an elite or boss
-		current_artifact["bbdescription"] =\
-				current_artifact.description.\
-				format(bbcode_formats).\
-				format(artifact_format)
-		# This key is used when the artifact is being displayed in-line in the
-		# artifact NCE
-		current_artifact["bbformat"] = {
-			"icon": current_artifact.icon.resource_path,
-			"description": current_artifact.description.format(bbcode_formats).format(artifact_format)
-		}
-		selected_artifacts.append(current_artifact)
+		_add_artifact(current_artifact)
 		# We remove the selected artifact from the future choices during this run
 		# To avoid selecting it again
-		all_valid_artifacts[current_artifact["rarity"]].erase(current_artifact["name"])
+		all_valid_artifacts[current_artifact["rarity"]].erase(current_artifact)
+
+
+# This allows the designer to inject specific artifacts into the randomized choices
+# as well when needed
+func append_artifact(artifact_canonical_name: String) -> void:
+	var artifact_definition = ArtifactDefinitions.find_artifact_from_canonical_name(artifact_canonical_name)
+	_add_artifact(artifact_definition)
+
+
+func _add_artifact(current_artifact: Dictionary) -> void:
+	var bbcode_formats = Terms.get_bbcode_formats(18)
+	var artifact_format = ArtifactDefinitions.get_artifact_bbcode_format(current_artifact)
+	# This key is used when the description is displayed in the Journal as an
+	# artifact reward after an elite or boss
+	current_artifact["bbdescription"] =\
+			current_artifact.description.\
+			format(bbcode_formats).\
+			format(artifact_format)
+	# This key is used when the artifact is being displayed in-line in the
+	# artifact NCE
+	current_artifact["bbformat"] = {
+		"icon": current_artifact.icon.resource_path,
+		"description": current_artifact.description.format(bbcode_formats).format(artifact_format)
+	}
+	selected_artifacts.append(current_artifact)
 
 # Returns only the names of the current selected artifacts
 func _get_names() -> Array:
 	var anames := []
 	for a in selected_artifacts:
-		anames.append(a.name)
+		anames.append(a.canonical_name)
 	return(anames)
+
