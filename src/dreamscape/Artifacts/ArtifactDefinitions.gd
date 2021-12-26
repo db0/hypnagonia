@@ -539,7 +539,17 @@ const BetterRareChance := {
 		"rare_multiplier": 2,
 	},
 }
-
+const BossDraft := {
+	"canonical_name": "BossDraft",
+	"name": "Cool Draft Beer",
+	"description": "{artifact_name}: Choose one of your archetypes. Get {draft_amount} card draft choices from it.",
+	"icon": preload("res://assets/icons/artifacts/beer-stein.png"),
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Boss",
+	"amounts": {
+		"draft_amount": 5,
+	},
+}
 
 
 # Generic artifacts which have a chance to appear in any playthrough
@@ -599,6 +609,7 @@ const BOSS := [
 	ProgressiveImmersion,
 	RandomUpgrades,
 	BossCardDraw,
+	BossDraft,
 ]
 
 # Takes as arguments the purpose of artifacts to return. Generic, Shop or Boss

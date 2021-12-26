@@ -18,7 +18,7 @@ export(ArtifactDefinitions.EffectContext) var effect_context
 # we don't want them to be always active, but only in the correct context
 var is_active := false
 # The global entry of the artifact which is tracked between encounters
-var artifact_object : ArtifactObject
+var artifact_object
 # Some artifacts can only trigger once per battle. 
 # This variable tracks that.
 var _is_activated = false
@@ -38,7 +38,7 @@ func _ready() -> void:
 	artifact_object.connect("counter_modified", self, "_on_artifact_counter_modified")
 
 
-func setup_artifact(_artifact_object: ArtifactObject, _is_active: bool, new_addition: bool) -> void:
+func setup_artifact(_artifact_object, _is_active: bool, new_addition: bool) -> void:
 	is_active = _is_active
 	artifact_object = _artifact_object
 	effect_context = artifact_object.context

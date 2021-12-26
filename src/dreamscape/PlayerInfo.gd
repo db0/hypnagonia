@@ -180,7 +180,7 @@ func _init_artifacts() -> void:
 
 
 func _instance_artifact(artifact_object: ArtifactObject, new_addition := false) -> void:
-	var new_artifact = artifact_object.artifact_scene.instance()
+	var new_artifact = artifact_object.instance_artifact()
 	var artifact_active := false
 	if context == artifact_object.context:
 		artifact_active = true
