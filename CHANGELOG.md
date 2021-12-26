@@ -1,5 +1,21 @@
 # Changelog
 
+## [v0.21.1](https://github.com/db0/hypnagonia/tree/v0.21.1) (2021-12-26)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.21.0...v0.21.1)
+
+**Fixed bugs:**
+
+- Crash selecting curio [\#92](https://github.com/db0/hypnagonia/issues/92)
+
+**Closed issues:**
+
+- Charging Boss [\#89](https://github.com/db0/hypnagonia/issues/89)
+
+**Merged pull requests:**
+
+- Broken artifacts [\#93](https://github.com/db0/hypnagonia/pull/93) ([db0](https://github.com/db0))
+
 ## [v0.21.0](https://github.com/db0/hypnagonia/tree/v0.21.0) (2021-12-23)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.20.0...v0.21.0)
