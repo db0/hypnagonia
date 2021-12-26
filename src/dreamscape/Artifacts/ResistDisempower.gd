@@ -7,7 +7,6 @@ func get_effect_alteration(
 		is_source := false, 
 		_dry_run := true,
 		_subject: Node = null) -> int:
-	print(script.script_name, script.get_property("effect_name"))
 	if script.script_name != 'apply_effect'\
 			or script.get_property("effect_name") != Terms.ACTIVE_EFFECTS.disempower.name\
 			or is_source\
