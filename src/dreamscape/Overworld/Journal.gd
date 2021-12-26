@@ -350,7 +350,7 @@ func _input(event):
 #		for c in  globals.player.deck.get_progressing_cards():
 #			c.upgrade_progress = 100
 #		_reveal_entry(upgrade_journal, true)
-		globals.player.add_artifact(ArtifactDefinitions.BetterRareChance.canonical_name)
+#		globals.player.add_artifact(ArtifactDefinitions.ThickExplosion.canonical_name)
 #		globals.player.add_artifact("AccumulateEnemy")
 #		globals.player.add_artifact("AccumulateShop")
 #		globals.player.damage += 20
