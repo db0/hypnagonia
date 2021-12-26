@@ -31,11 +31,17 @@ func mod_effect(
 			tags := ["Manual"],
 			upgrade_string := '') -> int:
 	var retcode : int
-	var effect_script = load("res://src/dreamscape/CombatElements/CombatEffects/%s.gd" % [Terms.get_effect_key(effect_name)])
-	if not effect_script and not Terms.get_effect_entry(effect_name).has("noscript"):
+	# This way avoids unnecessary errors in console compared to trying to load directly and checking
+	# if the load variable has anything
+	var script_path := "res://src/dreamscape/CombatElements/CombatEffects/%s.gd" % [Terms.get_effect_key(effect_name)]
+	var script_exists = Directory.new()
+	if not script_exists.file_exists(script_path) and not Terms.get_effect_entry(effect_name).has("noscript"):
 #	if not EFFECTS.get(effect_name, null):
 		retcode = CFConst.ReturnCode.FAILED
 	else:
+		var effect_script: GDScript
+		if script_exists.file_exists(script_path):
+			effect_script = load(script_path)
 		retcode = CFConst.ReturnCode.CHANGED
 		# We use this to name the node, in order not to conflict
 		# With upgraded effects of the same type.
@@ -68,6 +74,9 @@ func mod_effect(
 							mod -= opposite.stacks
 				effect = EFFECT_TEMPLATE.instance()
 				if not Terms.get_effect_entry(effect_name).has("noscript"):
+					# We need to store the existing default variables set in the parent class
+					# because replacing the script, sets them to null
+					# then we need to reset them, after changing the script.
 					var ict = effect.icon_container_texture
 					var iect = effect.icon_extra_container_texture
 					effect.set_script(effect_script)
