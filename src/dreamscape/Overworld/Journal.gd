@@ -372,7 +372,7 @@ func _input(event):
 #			c.upgrade_progress = 100
 #		_reveal_entry(upgrade_journal, true)
 		globals.player.add_artifact(ArtifactDefinitions.BossDraft.canonical_name)
-#		globals.player.add_artifact("AccumulateEnemy")
+		globals.player.add_memory("SpikeEnemy")
 #		globals.player.add_artifact("AccumulateShop")
 #		globals.player.damage += 20
 #		globals.player.pathos.repress_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 200)

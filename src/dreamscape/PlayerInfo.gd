@@ -2,7 +2,6 @@ class_name PlayerInfo
 extends PanelContainer
 
 
-
 const CARD_PREVIEW_SCENE = preload("res://src/dreamscape/MainMenu/StartingCardPreviewObject.tscn")
 const PATHOS_INFO_SCENE = preload("res://src/dreamscape/PathosEntryInfo.tscn")
 const SETTINGS_SCENE = preload("res://src/dreamscape/MainMenu/SettingsMenu.tscn")
@@ -26,12 +25,15 @@ onready var _deck_preview_grid := $DeckPreview/ScrollContainer/GridContainer
 onready var _player_health_label := $HBC/Health
 onready var _encounter_label := $HBC/Encounter
 onready var _deck_button := $HBC/Deck
+onready var _artifact_popup := $ArtifactsPopup
+onready var _artifact_button := $HBC/ArtifactsShowButton
 onready var _pathos_details := $PathosDetails
 onready var _pathos_details_list := $PathosDetails/VBC
 onready var _pathos_button := $HBC/Pathos
 onready var _help := $Help
 onready var _tutorial := $Help/Tutorial
-onready var _artifacts := $HBC/Artifacts
+onready var _artifacts := $ArtifactsPopup/Artifacts
+onready var _memories := $HBC/Memories
 onready var _version := $HBC/Version
 
 func _ready() -> void:
@@ -43,7 +45,9 @@ func _ready() -> void:
 			pinfo.setup(entry)
 	# warning-ignore:return_value_discarded
 	globals.player.connect("artifact_added", self, "_on_artifact_added")
+	globals.player.connect("memory_added", self, "_on_memory_added")
 	_init_artifacts()
+	_init_memories()
 	_version.text = CFConst.GAME_VERSION
 	# warning-ignore:return_value_discarded
 	get_viewport().connect("size_changed",self,"_on_Viewport_size_changed")
@@ -62,6 +66,9 @@ func _ready() -> void:
 		if globals.encounters.current_act:
 			_update_encounter_label(globals.encounters.current_act.get_act_name(), globals.encounters.encounter_number)
 	_update_health_label()
+#	cfc.game_settings['show_artifacts'] = cfc.game_settings.get('show_artifacts', false)
+#	_artifact_button.pressed = cfc.game_settings.show_artifacts
+#	_on_ArtifactsShowButton_toggled(_artifact_button.pressed, false)
 
 
 func _on_Settings_pressed() -> void:
@@ -147,7 +154,6 @@ func _update_encounter_label(act_name, encounter_number) -> void:
 
 
 func _update_deck_count(_card = null) -> void:
-	print_debug('aaa')
 	_deck_button.text = str(globals.player.deck.count_cards())
 
 
@@ -178,6 +184,14 @@ func _init_artifacts() -> void:
 	for artifact_object in globals.player.artifacts:
 		_instance_artifact(artifact_object)
 
+func _on_memory_added(memory_object: MemoryObject) -> void:
+	_instance_memory(memory_object, true)
+
+# Instances and adds the artifact objects to this node
+func _init_memories() -> void:
+	for memory_object in globals.player.memories:
+		_instance_memory(memory_object)
+
 
 func _instance_artifact(artifact_object: ArtifactObject, new_addition := false) -> void:
 	var new_artifact = artifact_object.instance_artifact()
@@ -186,6 +200,15 @@ func _instance_artifact(artifact_object: ArtifactObject, new_addition := false) 
 		artifact_active = true
 	new_artifact.setup_artifact(artifact_object, artifact_active, new_addition)
 	_artifacts.add_child(new_artifact)
+
+
+func _instance_memory(memory_object: MemoryObject, new_addition := false) -> void:
+	var new_memory = memory_object.instance_memory()
+	var memory_active := false
+	if context == memory_object.context:
+		memory_active = true
+	new_memory.setup_artifact(memory_object, memory_active, new_addition)
+	_memories.add_child(new_memory)
 
 
 func _input(event):
@@ -197,3 +220,11 @@ func _input(event):
 func _on_Viewport_size_changed() -> void:
 	current_decklist_cache = []
 
+func _on_ArtifactsShowButton_pressed() -> void:
+	if _artifact_popup.visible:
+		_artifact_popup.hide()
+	else:
+		_artifact_popup.popup_centered_minsize()
+	SoundManager.play_se('click')
+	_artifact_popup.rect_global_position =\
+		_artifact_button.rect_global_position + Vector2(-50,50)

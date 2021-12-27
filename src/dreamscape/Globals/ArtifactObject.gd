@@ -36,8 +36,7 @@ func instance_artifact() -> Artifact:
 	var artifact: Artifact = artifact_scene.instance()
 	artifact.name = canonical_name
 	var script_path := "res://src/dreamscape/Artifacts/%s.gd" % [canonical_name]
-	var script_exists = Directory.new()
-	if script_exists.file_exists(script_path):
+	if ResourceLoader.exists(script_path):
 		var artifact_script = load(script_path)
 		artifact.set_script(artifact_script)
 	return(artifact)

@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/dreamscape/ArtifactChoiceObject.tscn" type="PackedScene" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends VBoxContainer
+
+var cost: int setget set_cost
+var cost_type: String = Terms.RUN_ACCUMULATION_NAMES.shop
+
+onready var shop_memory_display := $MemoryChoiceObject
+onready var shop_memory_cost := $Cost
+
+func _process(_delta: float) -> void:
+	if cost > globals.player.pathos.released[cost_type]:
+		shop_memory_cost.add_color_override(\"font_color\", Color(1,0,0))
+	else:
+		shop_memory_cost.add_color_override(\"font_color\", Color(1,1,0))
+	
+
+func set_cost(value) -> void:
+	cost = value
+	shop_memory_cost.text = str(value) + ' ' + cost_type.capitalize()
+"
+
+[node name="ShopMemoryChoice" type="VBoxContainer"]
+margin_bottom = 14.0
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MemoryChoiceObject" parent="." instance=ExtResource( 2 )]
+
+[node name="Cost" type="Label" parent="."]
+margin_top = 124.0
+margin_right = 120.0
+margin_bottom = 138.0
+align = 1

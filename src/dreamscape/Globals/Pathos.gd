@@ -1,6 +1,9 @@
 class_name Pathos
 extends Reference
 
+signal pathos_repressed(pathos, amount)
+signal pathos_released(pathos, amount)
+
 var repressed := {
 	Terms.RUN_ACCUMULATION_NAMES.enemy: 25,
 	Terms.RUN_ACCUMULATION_NAMES.rest: 5,
@@ -43,7 +46,7 @@ var thresholds := {
 # then selecting it will keep decreasing more than it's increasing.
 # Default is 1 for pathos not listed below, which means every time they are
 # selected, they will transfer as much from represed to released equal to 
-# their accumulation averag * threshold
+# their accumulation average * threshold
 var release_adjustments := {
 	Terms.RUN_ACCUMULATION_NAMES.enemy: 3,
 	Terms.RUN_ACCUMULATION_NAMES.rest: 2,
@@ -67,7 +70,9 @@ func _init() -> void:
 func repress(pathos_to_ignore := []) -> void:
 	for entry in repressed:
 		if not entry in pathos_to_ignore:
-			repressed[entry] += get_progression(entry)
+			var amount = get_progression(entry)
+			repressed[entry] += amount
+			emit_signal("pathos_repressed", entry, amount)
 
 
 # modifies the specified repressed pathos by a given amount
@@ -75,6 +80,8 @@ func repress_pathos(pathos: String, amount: int) -> void:
 	repressed[pathos] += amount
 	if repressed[pathos] < 0:
 		repressed[pathos] = 0
+	if amount > 0:
+		emit_signal("pathos_repressed", pathos, amount)
 
 
 func release(entry: String) -> int:
@@ -87,8 +94,9 @@ func release(entry: String) -> int:
 	if release_amount > repressed[entry]:
 		release_amount = repressed[entry]
 #	print_debug(entry, release_amount)
-	released[entry] += int(release_amount)
-	repressed[entry] -= int(release_amount)
+	released[entry] += release_amount
+	repressed[entry] -= release_amount
+	emit_signal("pathos_released", entry, release_amount)
 	return(retcode)
 
 
@@ -97,7 +105,8 @@ func release_pathos(entry: String, amount: int) -> void:
 	released[entry] += amount
 	if released[entry] < 0:
 		released[entry] = 0
-
+	if amount > 0:
+		emit_signal("pathos_released", entry, amount)
 
 # Returns one random possible progression from the range
 # Grabbing the number via a fuction, rather than directly from the var

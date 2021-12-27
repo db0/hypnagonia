@@ -46,7 +46,7 @@ func clear(force := false) -> void:
 
 
 # This should be overriden
-func _show_description_popup(description_text, popup_anchor: Node) -> void:
+func _show_description_popup(_description_text, popup_anchor: Node) -> void:
 	_display_popup(popup_anchor, '')
 
 

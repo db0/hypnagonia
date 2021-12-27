@@ -17,6 +17,9 @@ const FLYER:= {
 	"Artifacts": [
 		ArtifactDefinitions.ImproveImpervious
 	],
+	"Memories": [
+		
+	],
 	"Perturbations": [
 		
 	],
@@ -61,6 +64,9 @@ const MAD_SCIENTIST := {
 	"Artifacts": [
 		
 	],
+	"Memories": [
+		
+	],
 	"Perturbations": [
 		"Apathy",
 	],
@@ -103,6 +109,9 @@ const WARRIOR:= {
 	"Artifacts": [
 		
 	],
+	"Memories": [
+		
+	],
 	"Perturbations": [
 		
 	],
@@ -123,6 +132,9 @@ const RUNNER := {
 	"Icon": preload("res://icon.png"),
 	"Tags": [],
 	"Artifacts": [
+		
+	],
+	"Memories": [
 		
 	],
 	"Perturbations": [
@@ -151,6 +163,9 @@ const FEARLESS:= {
 	"Artifacts": [
 		ArtifactDefinitions.ImprovePoison,
 		ArtifactDefinitions.ImproveFortify
+	],
+	"Memories": [
+		
 	],
 	"Perturbations": [
 		
@@ -195,6 +210,9 @@ const COWARD := {
 	"Artifacts": [
 		
 	],
+	"Memories": [
+		
+	],
 	"Perturbations": [
 		
 	],
@@ -209,6 +227,9 @@ const RUBBER_CHICKEN := {
 		Terms.ACTIVE_EFFECTS.buffer.name,
 	],
 	"Artifacts": [
+		
+	],
+	"Memories": [
 		
 	],
 	"Perturbations": [
@@ -255,6 +276,9 @@ const ABUSIVE_RELATIONSHIP := {
 		Terms.GENERIC_TAGS.exert.name,
 	],
 	"Artifacts": [
+		
+	],
+	"Memories": [
 		
 	],
 	"Starting Artifacts": [

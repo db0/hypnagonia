@@ -3,7 +3,7 @@
 [ext_resource path="res://src/dreamscape/Shop/ShopArtifactChoice.gd" type="Script" id=1]
 [ext_resource path="res://src/dreamscape/ArtifactChoiceObject.tscn" type="PackedScene" id=2]
 
-[node name="ShopCardChoice" type="VBoxContainer"]
+[node name="ShopArtifactChoice" type="VBoxContainer"]
 margin_bottom = 14.0
 script = ExtResource( 1 )
 __meta__ = {

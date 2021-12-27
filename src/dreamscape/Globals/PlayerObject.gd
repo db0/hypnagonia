@@ -2,6 +2,7 @@ class_name Player
 extends Reference
 
 signal artifact_added(artifact_name)
+signal memory_added(memory_name)
 signal health_changed(damage, health)
 
 var health: int = 90 setget set_health
@@ -9,6 +10,7 @@ var damage: int = 0 setget set_damage
 var deck: Deck
 var pathos: Pathos
 var artifacts := []
+var memories := []
 
 var deck_groups : Dictionary = {
 	Terms.CARD_GROUP_TERMS.class: null,
@@ -126,6 +128,40 @@ func get_all_artifact_names() -> Array:
 	return(anames_list)
 
 
+func add_memory(memory_name: String, modifiers := {}) -> void:
+	# The dreamer can only hold 1 memory for each type of pathos.
+	# If they already have a memory for that pathos, nothing happens.
+	if does_memory_type_exist(memory_name):
+		return
+	var new_memory = MemoryObject.new(memory_name, modifiers)
+	memories.append(new_memory)
+	emit_signal("memory_added", new_memory)
+
+
+# If the player already has another memory using the same pathos, returns true
+# else, returns false
+func does_memory_type_exist(memory_name) -> bool:
+	var definition = MemoryDefinitions.find_memory_from_canonical_name(memory_name)
+	for memory in memories:
+		if definition.pathos == memory.pathos_used:
+			return(true)
+	return(false)
+
+
+func remove_memory(memory_name: String) -> void:
+	for memory in memories:
+		if memory_name == memory.canonical_name:
+			memory.remove_self()
+			memories.erase(memory)
+
+
+func get_all_memory_names() -> Array:
+	var mnames_list = []
+	for memory in memories:
+		mnames_list.append(memory.canonical_name)
+	return(mnames_list)
+
+
 # Goes through all archetypes and gathers all artifacts specified
 # Returns a list with all artifacts tied to all archetypes of the player.
 func get_archetype_artifacts() -> Array:
@@ -133,6 +169,14 @@ func get_archetype_artifacts() -> Array:
 	for arch in get_current_archetypes():
 		artifact_list += Aspects.get_archetype_value(arch, "Artifacts")
 	return(artifact_list)
+
+# Goes through all archetypes and gathers all artifacts specified
+# Returns a list with all artifacts tied to all archetypes of the player.
+func get_archetype_memories() -> Array:
+	var memories_list := []
+	for arch in get_current_archetypes():
+		memories_list += Aspects.get_archetype_value(arch, "Memories")
+	return(memories_list)
 
 
 # Goes through all archetypes and gathers all parturbations specified
