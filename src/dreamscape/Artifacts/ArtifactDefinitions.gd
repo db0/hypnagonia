@@ -542,12 +542,14 @@ const BetterRareChance := {
 const BossDraft := {
 	"canonical_name": "BossDraft",
 	"name": "Cool Draft Beer",
-	"description": "{artifact_name}: Choose one of your archetypes. Get {draft_amount} card draft choices from it.",
+	"description": "{artifact_name}: Choose one of your archetypes. "\
+			+ "Get {draft_amount} card draft choices from it. They all start with {progress_amount} progress.",
 	"icon": preload("res://assets/icons/artifacts/beer-stein.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Boss",
 	"amounts": {
 		"draft_amount": 5,
+		"progress_amount": 4,
 	},
 }
 

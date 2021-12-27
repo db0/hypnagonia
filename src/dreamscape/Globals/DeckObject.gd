@@ -31,11 +31,12 @@ func instance_cards() -> Array:
 
 # Adds a new card to the deck, 
 # and optionally starts it with some ugprade progress
-func add_new_card(card_name, progress := 0) -> void:
+func add_new_card(card_name, progress := 0) -> CardEntry:
 	var new_card := CardEntry.new(card_name)
 	new_card.upgrade_progress = progress
 	cards.append(new_card)
 	emit_signal("card_added", new_card)
+	return(new_card)
 
 
 func remove_card(card_entry: CardEntry) -> void:

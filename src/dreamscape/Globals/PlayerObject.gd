@@ -70,9 +70,11 @@ func set_health(value) -> void:
 
 # Returns all card names of the chosen rarity among all the archetypes
 # assigned to the player
-func compile_rarity_cards(rarity: String) -> Array:
+func compile_rarity_cards(rarity: String, aspect_limit = null) -> Array:
 	var rarity_cards := []
 	for key in deck_groups:
+		if aspect_limit and key != aspect_limit:
+			continue
 		rarity_cards += Aspects[key.to_upper()][deck_groups[key]][rarity]
 	return(rarity_cards)
 

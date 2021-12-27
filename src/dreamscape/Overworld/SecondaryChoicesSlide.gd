@@ -5,7 +5,10 @@ extends MarginContainer
 onready var scroll_container := $SC
 onready var secondary_choices_container := $SC/SecondaryChoices
 onready var _tween := $SC/Tween
-
+# The current encounter is the default, but any other node might be connected to the result of
+# the choices instead.
+# To do so, it has to have a "continue_encounter" method defined
+onready var calling_node = globals.current_encounter
 
 func display() -> void:
 	visible = true
@@ -44,4 +47,4 @@ func _on_choice_pressed(
 					Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 			_tween.start()
 	globals.hide_all_previews()
-	globals.current_encounter.call_deferred("continue_encounter", choice_key)
+	calling_node.call_deferred("continue_encounter", choice_key)

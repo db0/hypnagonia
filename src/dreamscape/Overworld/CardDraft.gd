@@ -1,6 +1,8 @@
 class_name CardDraft
 extends HBoxContainer
 
+signal card_drafted(card_entity)
+
 enum AlterantTypes {
 	UNCOMMON_CHANCE
 	RARE_CHANCE
@@ -17,6 +19,8 @@ var uncommon_chance : float = 25.0/100 setget ,get_uncommon_chance
 var rare_chance : float = 5.0/100 setget ,get_rare_chance
 var draft_amount := 3 setget ,get_draft_amount
 var draft_card_choices : Array
+# This will store the final card chosen by the player to draft.
+var selected_draft: CardEntry
 
 func _process(_delta: float) -> void:
 	# Stupid thing doesn't update automatically after resizing the children inside it
@@ -46,6 +50,8 @@ func populate_draft_cards(card_draft_type := 'card_draft') -> void:
 			retrieve_elite_draft()
 		'card_draft':
 			retrieve_draft_cards()
+		_:
+			retrieve_custom_draft(card_draft_type)
 	for index in range(draft_card_choices.size()):
 		var card_name: String = draft_card_choices[index]
 		var draft_card_object = CARD_DRAFT_SCENE.instance()
@@ -71,7 +77,8 @@ func _on_card_draft_selected(option: int, draft_card_object) -> void:
 	for child in get_children():
 		if child != draft_card_object:
 			child.queue_free()
-	globals.player.deck.add_new_card(draft_card_choices[option])
+	selected_draft = globals.player.deck.add_new_card(draft_card_choices[option])
+	emit_signal("card_drafted", selected_draft)
 
 
 func retrieve_draft_cards() -> void:
@@ -130,6 +137,34 @@ func retrieve_boss_draft() -> void:
 			for card_name in card_names:
 				if not card_name in draft_card_choices:
 					draft_card_choices.append(card_name)
+					break
+
+# For now the only custom draft we have is an aspect-only draft for the BossDraft
+# so if we enter this method, we only look for the requirements of that Artifact
+# If I add more custom draft options, then I'll need to refactor this logic
+# with a regex. But it will do for now.
+func retrieve_custom_draft(aspect: String) -> void:
+	draft_card_choices.clear()
+	for _iter in range(get_draft_amount()):
+		var card_names: Array
+		var chance := CFUtils.randf_range(0.0, 1.0)
+#		print_debug(str(rare_chance) + ' : ' + str(rare_chance + uncommon_chance))
+		if chance <= get_rare_chance():
+#			print_debug('Rare: ' + str(chance))
+			card_names = globals.player.compile_rarity_cards('Rare', aspect)
+		elif chance <= get_rare_chance() + get_uncommon_chance():
+#			print_debug('Uncommon: ' + str(chance))
+			card_names = globals.player.compile_rarity_cards('Uncommon', aspect)
+		else:
+#			print_debug('common: ' + str(chance))
+			card_names = globals.player.compile_rarity_cards('Common', aspect)
+		CFUtils.shuffle_array(card_names)
+		if card_names.size():
+			for card_name in card_names:
+				if not card_name in draft_card_choices:
+					draft_card_choices.append(card_name)
+					# This break ensures we only add one card from the pool
+					# of availabkle cards of that rarity
 					break
 
 
