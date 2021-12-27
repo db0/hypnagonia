@@ -631,13 +631,13 @@ static func get_organized_artifacts(
 				ret_dict[rarity] = []
 				for artifact in GENERIC + archetype_artifacts:
 					if artifact.rarity == rarity\
-							and not artifact.name in excluded_artifacts:
+							and not artifact.canonical_name in excluded_artifacts:
 						ret_dict[rarity].append(artifact)
 		"boss":
 			ret_dict["Boss"] = []
 			for artifact in BOSS:
 				if artifact.rarity == "Boss"\
-						and not artifact.name in excluded_artifacts:
+						and not artifact.canonical_name in excluded_artifacts:
 					ret_dict["Boss"].append(artifact)
 	return(ret_dict)
 
