@@ -29,7 +29,8 @@ onready var _deck_operation_name := $VBC/OperationName/
 onready var _deck_operation_cost := $VBC/OperationCost/
 onready var _deck_preview_scroll := $VBC/ScrollContainer/
 onready var _deck_preview_grid := $VBC/ScrollContainer/GridContainer
-onready var _progress_cost := $VBC/HBC/Buttons/ProgressCost
+onready var _progress_cost := $"../VBC/VBC/HBC/Buttons/ProgressCost"
+
 
 # Initiates an operation for card removal
 func initiate_card_removal(cost: int = 0, cost_type: String = Terms.RUN_ACCUMULATION_NAMES.enemy) -> void:

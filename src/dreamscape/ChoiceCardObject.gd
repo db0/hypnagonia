@@ -23,7 +23,7 @@ func setup(card_name) -> Card:
 
 
 func _on_DraftCardObject_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.is_pressed():
+	if not is_disabled and event is InputEventMouseButton and event.is_pressed():
 		if event.get_button_index() == 1:
 			emit_signal("card_selected", index)
 

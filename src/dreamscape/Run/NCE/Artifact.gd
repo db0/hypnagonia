@@ -43,6 +43,7 @@ func continue_encounter(key) -> void:
 			globals.journal.display_nce_rewards('')
 		"grab_second": 
 			globals.player.add_artifact(artifact_prep.selected_artifacts[1].canonical_name)
+			# warning-ignore:return_value_discarded
 			globals.player.deck.add_new_card(Perturbations.get_random_perturbation(
 					globals.player.get_archetype_perturbations()))
 #			globals.player.deck.add_new_card(Perturbations.get_random_perturbation(

@@ -29,6 +29,7 @@ func _ready() -> void:
 		art_scene.enemy_polygon.position =+ art.rect_size + art_scene.enemy_polygon.position
 		entity_texture.visible = false
 		highlight.entity_art = art_scene
+	# warning-ignore:return_value_discarded
 	intents.prepare_intents()
 
 
@@ -42,7 +43,7 @@ func activate() -> void:
 	if is_dead: 
 		emit_signal("finished_activation", self)
 		return
-#	print_debug(damage, is_dead, health)
+	# print_debug(damage, is_dead, health)
 	if animated_art:
 		animated_art.act(intents.animation_name)
 	var sceng = intents.execute_scripts()
@@ -57,8 +58,9 @@ func activate() -> void:
 		if wait_for_anim > 2: 
 			break
 	yield(get_tree().create_timer(0.1), "timeout")
-#	print_debug("Activated: " + canonical_name)
+	# print_debug("Activated: " + canonical_name)
 	emit_signal("finished_activation", self)
+	# warning-ignore:return_value_discarded
 	intents.prepare_intents()
 
 func die() -> void:

@@ -147,7 +147,7 @@ func _update_encounter_label(act_name, encounter_number) -> void:
 
 
 func _update_deck_count(_card = null) -> void:
-
+	print_debug('aaa')
 	_deck_button.text = str(globals.player.deck.count_cards())
 
 

@@ -462,6 +462,7 @@ func spawn_enemy(script: ScriptTask) -> void:
 				# This delay is needed to allow the starting intent to be added
 				# so that it can be seen to be queued_free
 				yield(cfc.get_tree().create_timer(0.01), "timeout")
+				# warning-ignore:return_value_discarded
 				enemy_entity.intents.prepare_intents(stating_intent)
 			var stating_effects = script.get_property('starting_effects', null)
 			if stating_effects:
@@ -540,9 +541,10 @@ func calculate_modify_pathos(script: ScriptTask) -> int:
 	var final_result = _check_for_x(script, modification + alteration)
 	return(final_result)
 
+
 func modify_pathos(script: ScriptTask) -> int:
 	var retcode: int = CFConst.ReturnCode.CHANGED
-	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
+	var _tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
 	var type = script.get_property("pathos_type", "released")
 	var is_convertion = script.get_property("is_convertion", false)
 	var pathos = script.get_property("pathos", Terms.RUN_ACCUMULATION_NAMES.enemy)

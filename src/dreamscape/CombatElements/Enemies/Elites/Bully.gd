@@ -15,4 +15,5 @@ const PROPERTIES := {
 func _ready() -> void:
 	._ready()
 	yield(get_tree().create_timer(0.1), "timeout")
+	# warning-ignore:return_value_discarded
 	intents.prepare_intents(0)
