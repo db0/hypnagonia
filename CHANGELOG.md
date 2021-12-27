@@ -1,5 +1,21 @@
 # Changelog
 
+## [v0.21.2](https://github.com/db0/hypnagonia/tree/v0.21.2) (2021-12-27)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.21.1...v0.21.2)
+
+**Fixed bugs:**
+
+- Card "Careful Observation" doesn't seem to work [\#94](https://github.com/db0/hypnagonia/issues/94)
+
+**Closed issues:**
+
+- Boss Relics [\#86](https://github.com/db0/hypnagonia/issues/86)
+
+**Merged pull requests:**
+
+- Added new Boss Curio [\#95](https://github.com/db0/hypnagonia/pull/95) ([db0](https://github.com/db0))
+
 ## [v0.21.1](https://github.com/db0/hypnagonia/tree/v0.21.1) (2021-12-26)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.21.0...v0.21.1)
