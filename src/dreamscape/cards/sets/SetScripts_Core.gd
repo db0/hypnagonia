@@ -3472,7 +3472,7 @@ func get_scripts(card_name: String) -> Dictionary:
 		"No Second Thoughts": NoSecondThoughts,
 		"High Morale": HighMorale,
 		"Confident Slap": ConfidentSlap,
-		"CarefulObservation": CarefulObservation,
+		"Careful Observation": CarefulObservation,
 		"Drag and Drop": DragandDrop,
 		"Running Start": RunningStart,
 		"Master of Skies": MasterofSkies,

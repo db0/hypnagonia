@@ -384,7 +384,7 @@ func _input(event):
 #		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
-			"Hyena",
+			"Careful Observation",
 			"* Hyena *",
 		]:
 			var card = cfc.instance_card(c)
