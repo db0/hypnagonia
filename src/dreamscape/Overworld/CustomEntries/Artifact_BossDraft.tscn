@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/dreamscape/Overworld/CustomEntries/Artifact_BossDraft.gd" type="Script" id=2]
+
+[node name="Artifact_BossDraft" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Description" type="RichTextLabel" parent="."]
+margin_right = 1455.0
+margin_bottom = 15.0
+bbcode_enabled = true
+bbcode_text = "It was time to drink that curious beer that I discovered. [Draft 5 cards from one of your aspects]"
+text = "It was time to drink that curious beer that I discovered. [Draft 5 cards from one of your aspects]"
+fit_content_height = true
+
+[node name="SecondaryChoices" type="VBoxContainer" parent="."]
+margin_top = 19.0
+margin_right = 1455.0
+margin_bottom = 19.0

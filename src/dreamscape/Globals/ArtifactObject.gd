@@ -34,6 +34,7 @@ func set_counter(value: int) -> void:
 
 func instance_artifact() -> Artifact:
 	var artifact: Artifact = artifact_scene.instance()
+	artifact.name = canonical_name
 	var script_path := "res://src/dreamscape/Artifacts/%s.gd" % [canonical_name]
 	var script_exists = Directory.new()
 	if script_exists.file_exists(script_path):

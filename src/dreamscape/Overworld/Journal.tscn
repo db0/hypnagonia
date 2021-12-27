@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/dreamscape/Overworld/Journal.gd" type="Script" id=1]
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=2]
-[ext_resource path="res://src/dreamscape/Overworld/CardDraft.gd" type="Script" id=3]
+[ext_resource path="res://src/dreamscape/Overworld/CardDraftSlide.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/dreamscape/PlayerInfo.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/dreamscape/Overworld/CardUpgrade.gd" type="Script" id=5]
 [ext_resource path="res://src/dreamscape/FadeToBlack.tscn" type="PackedScene" id=6]
@@ -99,16 +99,7 @@ bbcode_text = "Reward Description"
 text = "Reward Description"
 fit_content_height = true
 
-[node name="CardDraftSlide" type="ScrollContainer" parent="VBC/Journal/HBC/JournalEntry/VBC"]
-margin_top = 56.0
-margin_right = 724.0
-margin_bottom = 56.0
-
-[node name="CardDraft" type="HBoxContainer" parent="VBC/Journal/HBC/JournalEntry/VBC/CardDraftSlide"]
-custom_constants/separation = 0
-script = ExtResource( 3 )
-
-[node name="Tween" type="Tween" parent="VBC/Journal/HBC/JournalEntry/VBC/CardDraftSlide/CardDraft"]
+[node name="CardDraftSlide" parent="VBC/Journal/HBC/JournalEntry/VBC" instance=ExtResource( 3 )]
 
 [node name="UpgradeJournal" type="RichTextLabel" parent="VBC/Journal/HBC/JournalEntry/VBC"]
 visible = false
@@ -154,6 +145,11 @@ margin_bottom = 62.0
 script = ExtResource( 7 )
 
 [node name="Tween" type="Tween" parent="VBC/Journal/HBC/JournalEntry/VBC/ArtifactSlide/ArtifactChoice"]
+
+[node name="CustomEntriesPointer" type="Control" parent="VBC/Journal/HBC/JournalEntry/VBC"]
+margin_top = 65.0
+margin_right = 724.0
+margin_bottom = 65.0
 
 [node name="Push" type="Control" parent="VBC/Journal/HBC/JournalEntry/VBC"]
 visible = false

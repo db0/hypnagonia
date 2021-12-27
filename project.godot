@@ -409,6 +409,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/Overworld/JournalChoice.gd"
 }, {
+"base": "VBoxContainer",
+"class": "JournalCustomEntry",
+"language": "GDScript",
+"path": "res://src/dreamscape/Overworld/CustomEntries/JournalCustomEntry.gd"
+}, {
 "base": "JournalChoice",
 "class": "JournalEncounterChoice",
 "language": "GDScript",
@@ -715,6 +720,7 @@ _global_script_class_icons={
 "IntentScripts": "",
 "Journal": "",
 "JournalChoice": "",
+"JournalCustomEntry": "",
 "JournalEncounterChoice": "",
 "JournalNestedChoice": "",
 "JournalTexts": "",

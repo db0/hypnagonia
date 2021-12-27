@@ -18,6 +18,8 @@ onready var card_draft := $HBC/JournalEntry/VBC/CardDraftSlide/CardDraft
 onready var card_upgrade := $HBC/JournalEntry/VBC/UgradeSlide/CardUpgrade
 onready var artifact_choice := $HBC/JournalEntry/VBC/ArtifactSlide/ArtifactChoice
 onready var proceed := $HBC/JournalEntry/VBC/Proceed
+onready var entries_list := $HBC/JournalEntry/VBC
+onready var custom_entries_pointer := $HBC/JournalEntry/VBC/CustomEntriesPointer
 onready var _tween := $Tween
 onready var _description_label := $MetaDescription/Label
 onready var _description_popup := $MetaDescription
@@ -143,9 +145,21 @@ func unset_shader() -> void:
 
 # Adds more choices to the journal.
 # Choices keys passed in the disabled_choices will not be clickable using gui_input
-func add_nested_choices(nested_choices: Dictionary, disabled_choices := []) -> void:
+func add_nested_choices(nested_choices: Dictionary, disabled_choices := [], follow_up_node = null) -> void:
 	var nested_choices_scene := NESTED_CHOICES_SCENE.instance()
-	journal_choices.add_child(nested_choices_scene)
+	# If we're using a follow-up node, then we try to place the nested choices below it
+	if follow_up_node as Node:
+		var choices_selection_vbc : VBoxContainer
+		if 'secondary_choices' in follow_up_node:
+			choices_selection_vbc = follow_up_node.secondary_choices
+		else: 
+			choices_selection_vbc = VBoxContainer.new()
+			entries_list.add_child_below_node(follow_up_node, choices_selection_vbc)
+		choices_selection_vbc.rect_size = journal_choices.rect_size
+		choices_selection_vbc.add_child(nested_choices_scene)
+		nested_choices_scene.calling_node = follow_up_node
+	else:
+		journal_choices.add_child(nested_choices_scene)
 	nested_choices_scene.call_deferred("populate_choices", nested_choices, self, disabled_choices)
 
 
@@ -169,6 +183,13 @@ func prepare_popup_artifact(artifact_name: String) -> void:
 		card_storage.add_child(popup_artifact)
 		popup_artifact.setup(artifact_name)
 		popup_cards[artifact_name] = popup_artifact
+
+
+func grey_out_label(rt_label: RichTextLabel) -> void:
+	rt_label.bbcode_text = "[color=grey]" + pre_highlight_bbcode_texts[rt_label] + "[/color]"
+
+func add_custom_entry(entry_scene: Control) -> void:
+	entries_list.add_child_below_node(custom_entries_pointer, entry_scene, true)
 
 
 func _on_meta_clicked(meta_text: String) -> void:
@@ -288,15 +309,15 @@ func _on_rte_gui_input(event, rt_label: RichTextLabel, type = 'card_draft') -> v
 			"RewardJournal":
 				_disconnect_gui_inputs(rt_label)
 				card_draft.display(type)
-				reward_journal.bbcode_text = "[color=grey]" + pre_highlight_bbcode_texts[rt_label] + "[/color]"
+				grey_out_label(rt_label)
 			"UpgradeJournal":
 				_disconnect_gui_inputs(rt_label)
 				card_upgrade.display()
-				upgrade_journal.bbcode_text = "[color=grey]" + pre_highlight_bbcode_texts[rt_label] + "[/color]"
+				grey_out_label(rt_label)
 			"ArtifactJournal":
 				_disconnect_gui_inputs(rt_label)
 				artifact_choice.display(type)
-				artifact_journal.bbcode_text = "[color=grey]" + pre_highlight_bbcode_texts[rt_label] + "[/color]"
+				grey_out_label(rt_label)
 			"Proceed":
 				SoundManager.play_se(Sounds.get_next_journal_page_sound())
 				# warning-ignore:return_value_discarded
@@ -350,16 +371,16 @@ func _input(event):
 #		for c in  globals.player.deck.get_progressing_cards():
 #			c.upgrade_progress = 100
 #		_reveal_entry(upgrade_journal, true)
-#		globals.player.add_artifact(ArtifactDefinitions.ThickExplosion.canonical_name)
+		globals.player.add_artifact(ArtifactDefinitions.BossDraft.canonical_name)
 #		globals.player.add_artifact("AccumulateEnemy")
 #		globals.player.add_artifact("AccumulateShop")
 #		globals.player.damage += 20
 #		globals.player.pathos.repress_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 200)
 		var debug_encounters = [
-			EnemyEncounter.new(Act2.ClownShow, "hard"),
+#			EnemyEncounter.new(Act2.ClownShow, "hard"),
 			preload("res://src/dreamscape/Run/NCE/Act2/BannersOfRuin.gd").new(),
 			BossEncounter.new(Act1.BOSSES["Narcissus"], "Narcissus"),
-			EliteEncounter.new(Act2.IndescribableAbsurdity, "medium"),
+#			EliteEncounter.new(Act2.IndescribableAbsurdity, "medium"),
 #			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
 		]
 		for encounter in debug_encounters:
