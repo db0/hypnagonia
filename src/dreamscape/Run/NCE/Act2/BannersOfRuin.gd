@@ -33,10 +33,13 @@ func begin() -> void:
 func continue_encounter(key) -> void:
 	match key:
 		"mouse":
+			# warning-ignore:narrowing_conversion
 			globals.player.health *= 0.9
 			globals.player.add_artifact("BetterRareChance")
 		"bear":
+			# warning-ignore:narrowing_conversion
 			globals.player.health *= 1.1
 		"hyena":
+			# warning-ignore:return_value_discarded
 			globals.player.deck.add_new_card("Hyena")
 	globals.journal.display_nce_rewards(nce_result_fluff[key])

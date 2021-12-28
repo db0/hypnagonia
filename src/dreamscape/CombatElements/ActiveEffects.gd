@@ -34,13 +34,12 @@ func mod_effect(
 	# This way avoids unnecessary errors in console compared to trying to load directly and checking
 	# if the load variable has anything
 	var script_path := "res://src/dreamscape/CombatElements/CombatEffects/%s.gd" % [Terms.get_effect_key(effect_name)]
-	var script_exists = Directory.new()
-	if not script_exists.file_exists(script_path) and not Terms.get_effect_entry(effect_name).has("noscript"):
+	if not ResourceLoader.exists(script_path) and not Terms.get_effect_entry(effect_name).has("noscript"):
 #	if not EFFECTS.get(effect_name, null):
 		retcode = CFConst.ReturnCode.FAILED
 	else:
 		var effect_script: GDScript
-		if script_exists.file_exists(script_path):
+		if ResourceLoader.exists(script_path):
 			effect_script = load(script_path)
 		retcode = CFConst.ReturnCode.CHANGED
 		# We use this to name the node, in order not to conflict
@@ -165,6 +164,7 @@ func get_effect_with_most_stacks(effect_type := ''):
 				if not effect.get_effect_name() in Terms.get_all_effect_types('Versatile'):
 					continue
 				highest_effect = effect.get_effect_name()
+				# warning-ignore:narrowing_conversion
 				highest_stacks = abs(effect.stacks)
 	return(highest_effect)
 
@@ -191,5 +191,6 @@ func get_effect_with_least_stacks(effect_type := ''):
 				if not effect.get_effect_name() in Terms.get_all_effect_types('Versatile'):
 					continue
 				lowest_effect = effect.get_effect_name()
+				# warning-ignore:narrowing_conversion
 				lowest_stacks = abs(effect.stacks)
 	return(lowest_effect)

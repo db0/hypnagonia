@@ -52,6 +52,7 @@ func _get_elite_scripts(intent_name: String) -> Array:
 		"hard":
 			difficulty = 4
 	var different_effects := CFUtils.randi_range(1,difficulty)
+	# warning-ignore:integer_division
 	var min_stacks := int(difficulty/different_effects)
 	var leftover_stracks := int(difficulty % different_effects)
 #	print_debug('amount: %s -  min: %s - left: %s' % [different_effects, min_stacks, leftover_stracks])

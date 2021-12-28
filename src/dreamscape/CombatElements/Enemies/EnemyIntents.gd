@@ -80,6 +80,7 @@ func prepare_intents(specific_index = null, is_second_try := false) -> Dictionar
 			print_debug("WARNING: no valid Intent selected. Reseting and Retrying. "
 					+ "Please check intents of Torment: " + combat_entity.canonical_name)
 			reshuffle_intents()
+			# warning-ignore:return_value_discarded
 			prepare_intents(null, true)
 			return({})
 		else:

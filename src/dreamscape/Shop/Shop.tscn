@@ -88,11 +88,28 @@ margin_right = 1239.0
 margin_bottom = 771.0
 size_flags_horizontal = 3
 
-[node name="ShopUniqueCards" type="GridContainer" parent="VBC/VBC/HBC/MainArea"]
+[node name="VBC" type="VBoxContainer" parent="VBC/VBC/HBC/MainArea"]
+margin_right = 591.0
+margin_bottom = 771.0
+size_flags_horizontal = 3
+
+[node name="SpecialCards" type="GridContainer" parent="VBC/VBC/HBC/MainArea/VBC"]
+margin_right = 591.0
+margin_bottom = 384.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/hseparation = 75
+columns = 3
+
+[node name="Memories" type="GridContainer" parent="VBC/VBC/HBC/MainArea/VBC"]
+margin_top = 387.0
 margin_right = 591.0
 margin_bottom = 771.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_constants/vseparation = 30
+custom_constants/hseparation = 30
+columns = 3
 
 [node name="ArtifactCC" type="CenterContainer" parent="VBC/VBC/HBC/MainArea"]
 margin_left = 594.0

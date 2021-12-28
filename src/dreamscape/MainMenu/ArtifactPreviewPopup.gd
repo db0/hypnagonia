@@ -11,8 +11,8 @@ func _process(_delta: float) -> void:
 	if visible:
 		rect_position = get_preview_placement()
 
-func setup(artifact_name: String) -> void:
-	artifact_definition = ArtifactDefinitions[artifact_name].duplicate(true)
+func setup(_artifact_name: String) -> void:
+	artifact_definition = ArtifactDefinitions[_artifact_name].duplicate(true)
 	artifact_name = artifact_definition["name"]
 	_icon.texture = CFUtils.convert_texture_to_image(artifact_definition["icon"])
 	var artifact_description = artifact_definition["description"]
@@ -23,7 +23,7 @@ func setup(artifact_name: String) -> void:
 
 
 func get_preview_placement() -> Vector2:
-	var ret : Vector2
+	var ret := Vector2(0,0)
 	var popup_size = _hbc.rect_size
 	if get_global_mouse_position().x\
 			+ popup_size.x\

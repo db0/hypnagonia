@@ -39,6 +39,7 @@ func continue_encounter(key) -> void:
 			rarity = "Rare"
 	var cards = Aspects.get_all_cards_in_archetype(ego, [rarity])
 	CFUtils.shuffle_array(cards)
+	# warning-ignore:return_value_discarded
 	globals.player.deck.add_new_card(cards[0])
 	globals.encounters.run_changes.unlock_nce("Griftlands2")
 	globals.encounters.run_changes.unlock_nce("Griftlands3")

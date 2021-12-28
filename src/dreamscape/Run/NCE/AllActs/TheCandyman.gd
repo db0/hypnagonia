@@ -126,6 +126,7 @@ func _on_card_removed(operation_details: Dictionary, candy: Array) -> void:
 		globals.journal.display_nce_rewards("The candy turns to ashes in your mouth and the Candyman is nowhere to be seen anymore.")
 		return
 	var card_name = transmute_cards[0]
+	# warning-ignore:return_value_discarded
 	globals.player.deck.add_new_card(card_name, operation_details["progress"])
 	globals.journal.prepare_popup_card(card_name)
 	var tastes = ["strange", "concerning", "bitter", "sweet", "sour", "tarty", "rugose"]

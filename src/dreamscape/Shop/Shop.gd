@@ -7,10 +7,12 @@ var rarity_price_multipliers := {
 	"Common": 3,
 	"Uncommon": 5,
 	"Rare": 10,
+	"Understanding": 10,
 }
 # Artifacts tend to be more expensive based on their pathos average
 # So we multiply their cost a bit further
 var artifact_cost_multiplier := 1.5
+var memory_cost_multiplier := 3
 
 var uncommon_chance := 25
 var rare_chance := 5
@@ -18,10 +20,14 @@ var shop_card_choices := {
 	"Common": [],
 	"Uncommon": [],
 	"Rare": [],
+	"Understanding": [],
 }
 var all_card_pool_choices := []
+var all_special_card_choices := []
 var artifact_prep: ArtifactPrep
+var memory_prep: MemoryPrep
 var all_artifact_choices := []
+var all_memory_choices := []
 
 var progress_cost: int
 var progress_uses: int = 0
@@ -35,15 +41,16 @@ var remove_cost_increase_per_use := 25
 # them easily later, or change them via an artifact
 var card_removal_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.enemy
 var card_progress_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.rest
-# Normally it will be based on NCE pathos, but switched to enemy while we
-# have no NCEs to accumulate
-#var card_pool_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.nce
 var card_pool_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.nce
+var special_cards_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.artifact
 # We want one of the card choices to use a different currency
 var card_pool_secondary_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.enemy
 var artifact_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.elite
+var memory_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.shop
 
 onready var card_pool_shop := $VBC/VBC/CC/CardPoolShop
+onready var special_cards_shop := $VBC/VBC/HBC/MainArea/VBC/SpecialCards
+onready var memories_shop := $VBC/VBC/HBC/MainArea/VBC/Memories
 onready var artifact_shop := $VBC/VBC/HBC/MainArea/ArtifactCC/Artifacts
 onready var _deck_button := $VBC/VBC/HBC/Buttons/Remove
 onready var _deck_preview_popup := $Deck
@@ -63,20 +70,35 @@ func _ready() -> void:
 		# warning-ignore:return_value_discarded
 		NewGameMenu.randomize_aspect_choices()
 		globals.player.setup()
+		# warning-ignore:return_value_discarded
 		globals.player.deck.add_new_card("+ Confidence +")
+		# warning-ignore:return_value_discarded
 		globals.player.deck.add_new_card("+ Confidence +")
+		# warning-ignore:return_value_discarded
 		globals.player.deck.add_new_card("+ Confidence +")
+		# warning-ignore:return_value_discarded
 		globals.player.deck.add_new_card("+ Confidence +")
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.nce] = 160
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.rest] = 20
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.elite] = 40
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.enemy] = 400
+		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.artifact] = 100
+		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.shop] = 100
+		globals.player.add_memory("FortifySelf")
+		globals.player.add_memory("DamageAll")
+		# We're doing a connect here, because the globals.deck will not exist during its ready
+		# warning-ignore:return_value_discarded
+		globals.player.deck.connect("card_added", player_info, "_update_deck_count")
+		# warning-ignore:return_value_discarded
+		globals.player.deck.connect("card_removed", player_info, "_update_deck_count")
 	## END DEBUG ##
 	globals.music.switch_scene_music('shop')
 	# warning-ignore:return_value_discarded
 	_deck_preview_popup.connect("operation_performed", self, "_on_deck_operation_performed")
 	populate_shop_cards()
+	populate_special_cards()
 	populate_shop_artifacts()
+	populate_shop_memories()
 	if not cfc.game_settings.get('first_shop_tutorial_done'):
 		player_info._on_Help_pressed()
 		cfc.set_setting('first_shop_tutorial_done', true)
@@ -163,6 +185,78 @@ func populate_shop_artifacts() -> void:
 		shop_artifact_object.shop_artifact_display.index = index
 		shop_artifact_object.shop_artifact_display.connect("artifact_selected", self, "_on_shop_artifact_selected", [shop_artifact_object])
 
+func populate_shop_memories() -> void:
+	memory_prep = MemoryPrep.new(3)
+	## DEBUG
+#	artifact_prep.append_artifact("ImproveImpervious")
+	## END DEBUG
+	for memory in memory_prep.selected_memories:
+		# By separating the cost_type like this, I can theoretically
+		# randomize the cost_type per card.
+		var cost_type : String = memory_cost_type
+		var prog_avg : float = globals.player.pathos.get_progression_average(
+					cost_type)
+		var memory_cost =\
+				(round(prog_avg * memory_cost_multiplier)) + (CFUtils.randi_range(-3, 3))
+		var shop_choice_dict = {
+			"memory_name": memory.name,
+			"cost": memory_cost,
+			"cost_type": cost_type,
+		}
+		if memory.canonical_name in globals.player.get_all_memory_names():
+			var existing_memory = globals.player.find_memory(memory.canonical_name)
+			memory["upgrades"] = existing_memory.upgrades_amount
+		all_memory_choices.append(shop_choice_dict)
+	for index in range(all_memory_choices.size()):
+		var memory: Dictionary = memory_prep.selected_memories[index]
+		var shop_memory_object = ARTIFACT_SHOP_SCENE.instance()
+		memories_shop.add_child(shop_memory_object)
+		shop_memory_object.cost_type = all_memory_choices[index].cost_type
+		if memory.canonical_name in globals.player.get_all_memory_names():
+			shop_memory_object.set_cost(all_memory_choices[index].cost, true)
+		else:
+			shop_memory_object.cost = all_memory_choices[index].cost
+		shop_memory_object.shop_artifact_display.setup(memory, memory.canonical_name)
+		shop_memory_object.shop_artifact_display.index = index
+		shop_memory_object.shop_artifact_display.connect("artifact_selected", self, "_on_shop_memory_selected", [shop_memory_object])
+
+
+func populate_special_cards() -> void:
+	var rarity = "Understanding"
+	for _iter in range(3):
+		shop_card_choices[rarity].append(_get_shop_choice(
+					globals.player.compile_card_type(rarity)))
+	for card_name in shop_card_choices[rarity]:
+		# By separating the cost_type like this, I can theoretically
+		# randomize the cost_type per card.
+		var cost_type : String = special_cards_cost_type
+		var prog_avg : float = globals.player.pathos.get_progression_average(
+					cost_type)
+		var card_cost =\
+				(prog_avg * rarity_price_multipliers[rarity])\
+				+ (CFUtils.randi_range(
+					prog_avg / -5 * rarity_price_multipliers[rarity],
+					prog_avg / 5 * rarity_price_multipliers[rarity]))
+		var shop_choice_dict = {
+			"card_name": card_name,
+			"cost": card_cost,
+			"cost_type": cost_type,
+		}
+		all_special_card_choices.append(shop_choice_dict)
+	for index in range(all_special_card_choices.size()):
+		var card_name: String = all_special_card_choices[index].card_name
+		var shop_card_object = CARD_SHOP_SCENE.instance()
+		special_cards_shop.add_child(shop_card_object)
+		shop_card_object.cost_type = all_special_card_choices[index].cost_type
+		shop_card_object.cost = all_special_card_choices[index].cost
+		shop_card_object.shop_card_display.setup(card_name)
+		shop_card_object.shop_card_display.index = index
+		shop_card_object.shop_card_display.connect(
+			"card_selected",
+			self,
+			"_on_shop_card_selected",
+			[shop_card_object, all_special_card_choices])
+
 
 func _get_shop_choice(choices_list: Array) -> String:
 	CFUtils.shuffle_array(choices_list)
@@ -178,29 +272,39 @@ func _get_shop_choice(choices_list: Array) -> String:
 	return('')
 
 
-func _on_shop_card_selected(index: int, shop_card_object) -> void:
-	if globals.player.pathos.released[all_card_pool_choices[index].cost_type] <\
-			all_card_pool_choices[index].cost:
+func _on_shop_card_selected(index: int, shop_card_object, containing_array := all_card_pool_choices) -> void:
+	var pathos : String = containing_array[index].cost_type
+	if globals.player.pathos.released[pathos] < containing_array[index].cost:
 		return
-	globals.player.pathos.released[all_card_pool_choices[index].cost_type] -=\
-			all_card_pool_choices[index].cost
-	globals.player.pathos.release_pathos(
-			all_card_pool_choices[index].cost_type, 
-			-all_card_pool_choices[index].cost)
-	globals.player.deck.add_new_card(all_card_pool_choices[index].card_name)
+	globals.player.pathos.spend_pathos(pathos, containing_array[index].cost)
+	# warning-ignore:return_value_discarded
+	globals.player.deck.add_new_card(containing_array[index].card_name)
 	shop_card_object.disable()
 	_update_progress_cost()
 	_update_remove_cost()
 
 
 func _on_shop_artifact_selected(index: int, shop_artifact_object) -> void:
-	if globals.player.pathos.released[all_artifact_choices[index].cost_type] <\
-			all_artifact_choices[index].cost:
+	var pathos : String = all_artifact_choices[index].cost_type
+	if globals.player.pathos.released[pathos] < all_artifact_choices[index].cost:
 		return
-	globals.player.pathos.released[all_artifact_choices[index].cost_type] -=\
-			all_artifact_choices[index].cost
+	globals.player.pathos.spend_pathos(pathos, all_artifact_choices[index].cost)
 	globals.player.add_artifact(shop_artifact_object.shop_artifact_display.canonical_name)
 	shop_artifact_object.modulate.a = 0
+
+
+func _on_shop_memory_selected(index: int, shop_memory_object) -> void:
+	var pathos : String = all_memory_choices[index].cost_type
+	if globals.player.pathos.released[pathos] < all_memory_choices[index].cost:
+		return
+	globals.player.pathos.spend_pathos(pathos, all_memory_choices[index].cost)
+	print_debug(shop_memory_object, shop_memory_object.is_upgrade)
+	if shop_memory_object.is_upgrade:
+		var existing_memory = globals.player.find_memory(shop_memory_object.shop_artifact_display.canonical_name)
+		existing_memory.upgrade()
+	else:
+		globals.player.add_memory(shop_memory_object.shop_artifact_display.canonical_name)
+	shop_memory_object.modulate.a = 0
 
 
 func _on_Remove_pressed() -> void:

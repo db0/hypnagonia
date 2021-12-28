@@ -51,19 +51,19 @@ func continue_encounter(key) -> void:
 					globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.nce)
 					* 3 * CFUtils.randf_range(0.8,1.2)
 				)
-			globals.player.pathos.release_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, released_reward)
+			globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, released_reward)
 		"snake":
 			var released_reward = round(
 					globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.enemy)
 					* 3 * CFUtils.randf_range(0.8,1.2)
 				)
-			globals.player.pathos.release_pathos(Terms.RUN_ACCUMULATION_NAMES.enemy, released_reward)
+			globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.enemy, released_reward)
 		"owl":
 			var released_reward = round(
 					globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.shop)
 					* 3 * CFUtils.randf_range(0.8,1.2)
 				)
-			globals.player.pathos.release_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, released_reward)
+			globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, released_reward)
 	CFUtils.shuffle_array(mad_lib_adjectives)
 	CFUtils.shuffle_array(mad_lib_nouns)
 	var adlib_format = {

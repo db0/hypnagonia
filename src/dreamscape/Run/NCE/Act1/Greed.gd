@@ -35,6 +35,7 @@ func continue_encounter(key) -> void:
 	if key == "accept":
 		globals.player.pathos.released[pathos_choice_payments[key]["pathos"]]\
 				+= pathos_choice_payments[key]["amount"]
+		# warning-ignore:return_value_discarded
 		globals.player.deck.add_new_card("Discombobulation")
 
 	globals.journal.display_nce_rewards('')

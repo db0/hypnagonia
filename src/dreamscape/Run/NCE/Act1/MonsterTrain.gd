@@ -50,7 +50,7 @@ func continue_encounter(key) -> void:
 						+ "The forces of Order soon overwhelmed your band."
 		"follow":
 			# warning-ignore:narrowing_conversion
-			globals.player.pathos.release_pathos(
+			globals.player.pathos.modify_released_pathos(
 				Terms.RUN_ACCUMULATION_NAMES.shop, 
 				globals.player.pathos.get_progression_average(
 					Terms.RUN_ACCUMULATION_NAMES.shop) * 3)

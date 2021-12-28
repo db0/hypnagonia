@@ -3,6 +3,9 @@ extends CombatEntity
 
 var upgrades_increased := 0 setget set_upgrades_increased
 
+# This variable will point to the scene which controls the targeting arrow
+onready var targeting_arrow = $TargetLine
+
 func _ready() -> void:
 	entity_type = "dreamer"
 # warning-ignore:return_value_discarded
@@ -39,3 +42,9 @@ func _on_player_damaged(_pl, amount, _trigger, _tags) -> void:
 		encounter_event_count["player_damaged_own_turn"] = encounter_damage_count + 1
 		var encounter_damage_total = encounter_event_count.get("player_total_damage_own_turn",0)
 		encounter_event_count["player_total_damage_own_turn"] = encounter_damage_total + amount
+
+
+func _input(event) -> void:
+	if event is InputEventMouseButton and not event.is_pressed():
+		if targeting_arrow.is_targeting:
+			targeting_arrow.complete_targeting()
