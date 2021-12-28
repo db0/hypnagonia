@@ -131,4 +131,7 @@ func _calculate_threshold() -> void:
 	# Threshold can never be below 1
 	if pathos_threshold <= 1:
 		pathos_threshold = 1
+	# To avoid showing the player that a memory is 120% ready etc.
+	if pathos_accumulated > pathos_threshold:
+		pathos_accumulated = pathos_threshold
 
