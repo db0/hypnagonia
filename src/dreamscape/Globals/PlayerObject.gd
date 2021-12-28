@@ -143,6 +143,7 @@ func find_memory(memory_name: String):
 		if memory.canonical_name == memory_name:
 			return(memory)
 
+
 # If the player already has another memory using the same pathos, returns true
 # else, returns false
 func does_memory_type_exist(memory_name) -> bool:
@@ -166,6 +167,28 @@ func get_all_memory_names() -> Array:
 		mnames_list.append(memory.canonical_name)
 	return(mnames_list)
 
+
+# Returns a list of all the pathos in use at the moment by memories.
+func get_all_memory_pathos() -> Array:
+	var mpathos_list = []
+	for memory in memories:
+		mpathos_list.append(memory.pathos_used)
+	return(mpathos_list)
+	
+
+# Returns an array of memory names that the player is not allowed to acquire.
+# The invalid memories are the ones which the player has already one with the same pathos
+# but it's not one they already own.
+# The reason why we return the memories the player currently owns, if because
+# when they are chosen, they serve as an upgrade opportunity.
+func get_all_invalid_memory_names() -> Array:
+	var used_pathos := get_all_memory_pathos()
+	var used_memory_names := get_all_memory_names()
+	var all_invalid_memories := []
+	for memory in MemoryDefinitions.get_complete_memories_array():
+		if memory.pathos in used_pathos and not memory.canonical_name in used_memory_names:
+			all_invalid_memories.append(memory.canonical_name)
+	return(all_invalid_memories)
 
 # Goes through all archetypes and gathers all artifacts specified
 # Returns a list with all artifacts tied to all archetypes of the player.
