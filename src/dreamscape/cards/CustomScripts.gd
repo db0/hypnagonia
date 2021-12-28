@@ -86,7 +86,7 @@ func custom_script(script: ScriptObject) -> void:
 						"modification": effect_stacks,
 					}]
 					execute_script(fly_away, script.owner, script.trigger_object)
-		"unnamed_card_2","@ unnamed_card_2 @","* unnamed_card_2 *","% unnamed_card_2 %":
+		"Fowl Language","@ Fowl Language @","* Fowl Language *","% Fowl Language %":
 			if not costs_dry_run:
 				for subject in subjects:
 					var dstacks = subject.active_effects.get_effect_stacks(

@@ -23,7 +23,7 @@ func _set_current_description() -> void:
 	var bbcolor = 'red'
 	if artifact_object.is_ready:
 		bbcolor = 'green'
-	artifact_description += '\n[color=%s]This memory is %%%s ready to recall[/color]' % [bbcolor,
+	artifact_description += '\n[color=%s]This memory is %s%% ready to recall[/color]' % [bbcolor,
 			round(float(artifact_object.pathos_accumulated)/float(artifact_object.pathos_threshold) * 100)]
 	artifact_description += "\n\n[i]This memory costs {fill_cost} released {pathos} to recall{delay_pct_explanation}[/i]"\
 			.format(artifact_object.get_cost_format(canonical_name, artifact_object.upgrades_amount))
