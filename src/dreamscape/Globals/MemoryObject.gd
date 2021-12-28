@@ -64,8 +64,7 @@ func instance_memory() -> Memory:
 	var memory: Memory = memory_scene.instance()
 	memory.name = canonical_name
 	var script_path := "res://src/dreamscape/Memories/%s.gd" % [canonical_name]
-	var script_exists = Directory.new()
-	if script_exists.file_exists(script_path):
+	if ResourceLoader.exists(script_path):
 		var memory_script = load(script_path)
 		memory.set_script(memory_script)
 	return(memory)
@@ -115,9 +114,9 @@ static func get_cost_format(memory_name: String, upgrades := 0) -> Dictionary:
 		"delay_pct_explanation": '',
 	}
 	if cost_format["delay_pct"] > 100:
-		cost_format["delay_pct_explanation"] = " and activates %%%s faster" % [cost_format["delay_pct"] - 100]
+		cost_format["delay_pct_explanation"] = " and activates %s%% faster" % [cost_format["delay_pct"] - 100]
 	elif cost_format["delay_pct"] < 100:
-		cost_format["delay_pct_explanation"] = " and activates %%%s slower" % [abs(cost_format["delay_pct"] - 100)]
+		cost_format["delay_pct_explanation"] = " and activates %s%% slower" % [abs(cost_format["delay_pct"] - 100)]
 	return(cost_format)
 
 
