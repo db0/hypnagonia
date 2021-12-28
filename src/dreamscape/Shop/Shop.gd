@@ -213,7 +213,8 @@ func populate_shop_memories() -> void:
 		memories_shop.add_child(shop_memory_object)
 		shop_memory_object.cost_type = all_memory_choices[index].cost_type
 		if memory.canonical_name in globals.player.get_all_memory_names():
-			shop_memory_object.set_cost(all_memory_choices[index].cost, true)
+			# Upgrading is cheaper than buying new ones
+			shop_memory_object.set_cost(round(all_memory_choices[index].cost / 2.5), true)
 		else:
 			shop_memory_object.cost = all_memory_choices[index].cost
 		shop_memory_object.shop_artifact_display.setup(memory, memory.canonical_name)

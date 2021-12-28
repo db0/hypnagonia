@@ -81,10 +81,10 @@ func compile_rarity_cards(rarity: String, aspect_limit = null) -> Array:
 	return(rarity_cards)
 
 
-# Returns all cards from the player's archetypes which match a specific card type 
+# Returns all cards from the player's archetypes which match a specific card type
 # and are of any of the given rarities
 func compile_card_type(
-		type: String, 
+		type: String,
 		rarities := ["Common","Uncommon", "Rare"],
 		upgraded := false) -> Array:
 	if type == "Perturbation":
@@ -174,7 +174,7 @@ func get_all_memory_pathos() -> Array:
 	for memory in memories:
 		mpathos_list.append(memory.pathos_used)
 	return(mpathos_list)
-	
+
 
 # Returns an array of memory names that the player is not allowed to acquire.
 # The invalid memories are the ones which the player has already one with the same pathos
@@ -190,6 +190,7 @@ func get_all_invalid_memory_names() -> Array:
 			all_invalid_memories.append(memory.canonical_name)
 	return(all_invalid_memories)
 
+
 # Goes through all archetypes and gathers all artifacts specified
 # Returns a list with all artifacts tied to all archetypes of the player.
 func get_archetype_artifacts() -> Array:
@@ -197,6 +198,7 @@ func get_archetype_artifacts() -> Array:
 	for arch in get_current_archetypes():
 		artifact_list += Aspects.get_archetype_value(arch, "Artifacts")
 	return(artifact_list)
+
 
 # Goes through all archetypes and gathers all artifacts specified
 # Returns a list with all artifacts tied to all archetypes of the player.
