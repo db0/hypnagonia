@@ -1,6 +1,7 @@
 extends Memory
 
 func execute_memory_effect() -> void:
+	var upgrades = artifact_object.upgrades_amount * MemoryDefinitions.SpikeEnemy.amounts.upgrade_amount
 	var script = [
 		{
 				"name": "modify_damage",

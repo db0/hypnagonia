@@ -84,6 +84,8 @@ func _ready() -> void:
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.enemy] = 400
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.artifact] = 100
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.shop] = 100
+		globals.player.add_memory("FortifySelf")
+		globals.player.add_memory("DamageAll")
 		# We're doing a connect here, because the globals.deck will not exist during its ready
 		# warning-ignore:return_value_discarded
 		globals.player.deck.connect("card_added", player_info, "_update_deck_count")
@@ -201,13 +203,19 @@ func populate_shop_memories() -> void:
 			"cost": memory_cost,
 			"cost_type": cost_type,
 		}
+		if memory.canonical_name in globals.player.get_all_memory_names():
+			var existing_memory = globals.player.find_memory(memory.canonical_name)
+			memory["upgrades"] = existing_memory.upgrades_amount
 		all_memory_choices.append(shop_choice_dict)
 	for index in range(all_memory_choices.size()):
 		var memory: Dictionary = memory_prep.selected_memories[index]
 		var shop_memory_object = ARTIFACT_SHOP_SCENE.instance()
 		memories_shop.add_child(shop_memory_object)
 		shop_memory_object.cost_type = all_memory_choices[index].cost_type
-		shop_memory_object.cost = all_memory_choices[index].cost
+		if memory.canonical_name in globals.player.get_all_memory_names():
+			shop_memory_object.set_cost(all_memory_choices[index].cost, true)
+		else:
+			shop_memory_object.cost = all_memory_choices[index].cost
 		shop_memory_object.shop_artifact_display.setup(memory, memory.canonical_name)
 		shop_memory_object.shop_artifact_display.index = index
 		shop_memory_object.shop_artifact_display.connect("artifact_selected", self, "_on_shop_memory_selected", [shop_memory_object])
@@ -290,7 +298,12 @@ func _on_shop_memory_selected(index: int, shop_memory_object) -> void:
 	if globals.player.pathos.released[pathos] < all_memory_choices[index].cost:
 		return
 	globals.player.pathos.spend_pathos(pathos, all_memory_choices[index].cost)
-	globals.player.add_memory(shop_memory_object.shop_artifact_display.canonical_name)
+	print_debug(shop_memory_object, shop_memory_object.is_upgrade)
+	if shop_memory_object.is_upgrade:
+		var existing_memory = globals.player.find_memory(shop_memory_object.shop_artifact_display.canonical_name)
+		existing_memory.upgrade()
+	else:
+		globals.player.add_memory(shop_memory_object.shop_artifact_display.canonical_name)
 	shop_memory_object.modulate.a = 0
 
 

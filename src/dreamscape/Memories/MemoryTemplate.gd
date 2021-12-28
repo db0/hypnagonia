@@ -26,7 +26,7 @@ func _set_current_description() -> void:
 	artifact_description += '\n[color=%s]This memory is %%%s ready to recall[/color]' % [bbcolor,
 			round(float(artifact_object.pathos_accumulated)/float(artifact_object.pathos_threshold) * 100)]
 	artifact_description += "\n\n[i]This memory costs {fill_cost} released {pathos} to recall{delay_pct_explanation}[/i]"\
-			.format(artifact_object.get_cost_format(canonical_name))
+			.format(artifact_object.get_cost_format(canonical_name, artifact_object.upgrades_amount))
 	format["amount"] = str(amount)
 	format["double_amount"] = str(2*amount)
 	format["triple_amount"] = str(3*amount)
@@ -36,7 +36,7 @@ func _set_current_description() -> void:
 	decription_label.bbcode_text = artifact_description.\
 			format(format).\
 			format(Terms.get_bbcode_formats(18)).\
-			format(MemoryDefinitions.get_memory_bbcode_format(artifact_object.definition))
+			format(MemoryDefinitions.get_memory_bbcode_format(artifact_object.definition, artifact_object.upgrades_amount))
 
 
 func _use() -> void:
@@ -59,7 +59,9 @@ func _on_MemoryTemplate_gui_input(event: InputEvent) -> void:
 	## DEBUG
 	elif event.is_pressed() and event.get_button_index() == 2:
 		globals.player.pathos.repress_pathos(artifact_object.pathos_used, 30)
+		# warning-ignore:return_value_discarded
 		globals.player.pathos.release(artifact_object.pathos_used)
+		artifact_object.upgrade()
 	## END DEBUG
 	_set_current_description()
 
@@ -70,12 +72,12 @@ func _on_pathos_accumulated(memory, _amount) -> void:
 				float(artifact_object.pathos_accumulated)/float(artifact_object.pathos_threshold))
 
 
-func _on_memory_ready(memory) -> void:
+func _on_memory_ready(_memory) -> void:
 	highlight.visible = true
 	shader_node.material.set_shader_param('percentage', 1.0)
 
 
-func _on_memory_used(memory) -> void:
+func _on_memory_used(_memory) -> void:
 	highlight.visible = false
 	shader_node.material.set_shader_param('percentage', 0.0)
 

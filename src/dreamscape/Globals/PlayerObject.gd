@@ -138,6 +138,11 @@ func add_memory(memory_name: String, modifiers := {}) -> void:
 	emit_signal("memory_added", new_memory)
 
 
+func find_memory(memory_name: String):
+	for memory in memories:
+		if memory.canonical_name == memory_name:
+			return(memory)
+
 # If the player already has another memory using the same pathos, returns true
 # else, returns false
 func does_memory_type_exist(memory_name) -> bool:

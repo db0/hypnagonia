@@ -2,6 +2,7 @@ extends CombatSignifier
 
 signal artifact_selected(option)
 var index: int
+
 onready var shader_effect := $ShaderEffect
 onready var bbc := $BackBufferCopy
 
@@ -15,7 +16,11 @@ func setup(signifier_details: Dictionary, signifier_name: String) -> void:
 	# The existence of a pathos key, signifies that this artifact is a memory
 	if signifier_details.has('pathos'):
 		memory_cost_info = "\n\n[i]This memory will cost {fill_cost} released {pathos} to recall{delay_pct_explanation}[/i]"\
-				.format(MemoryObject.get_cost_format(updated_detail.canonical_name))
+				.format(MemoryObject.get_cost_format(updated_detail.canonical_name, signifier_details.get("upgrades",0) + 1))
+		updated_detail["bbdescription"] =\
+			updated_detail.description.\
+			format(Terms.get_bbcode_formats(18)).\
+			format(MemoryDefinitions.get_memory_bbcode_format(signifier_details, signifier_details.get("upgrades",0) + 1))
 	updated_detail["description"] = updated_detail.bbdescription + memory_cost_info
 	.setup(updated_detail, signifier_name)
 

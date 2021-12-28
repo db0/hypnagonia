@@ -39,73 +39,92 @@ In general, you want to aim for a memory to refill every 4-6 encounters
 const DamageAll := {
 	"canonical_name": "DamageAll",
 	"name": "The Big Fight",
-	"description": "{memory_name}: Recall this memory during an Ordeal to {damage} all torments for {damage_amount}",
+	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal to {damage} all torments for {damage_amount}",
+	"upgrade_description": "Each upgrade on this memory increases its {damage} by {upgrade_multiplier}",
 	"icon": preload("res://assets/icons/memories/portrait.png"),
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
 	"pathos_threshold_multiplier": 2,
 	"pathos_accumulation_divider": 1.8,
+	"keys_modified_by_upgrade": ["damage_amount"],
 	"amounts": {
-		"damage_amount": 10
+		"damage_amount": 10,
+		"upgrade_multiplier": 1
 	},
 }
 const HealSelf := {
 	"canonical_name": "HealSelf",
 	"name": "Mother's Comfort",
-	"description": "{memory_name}: Recall this memory during an Ordeal to reduce your {anxiety} by {heal_amount}",
+	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal to reduce your {anxiety} by {heal_amount}",
+	"upgrade_description": "Each upgrade on this memory increases its reduced {anxiety} by {upgrade_multiplier}",
 	"icon": preload("res://assets/icons/memories/portrait.png"),
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.rest,
 	"pathos_threshold_multiplier": 2,
 	"pathos_accumulation_divider": 2.5,
+	"keys_modified_by_upgrade": ["heal_amount"],
 	"amounts": {
-		"heal_amount": 5
+		"heal_amount": 5,
+		"upgrade_multiplier": 1
 	},
 }
 const BossFaster := {
 	"canonical_name": "BossFaster",
 	"name": "A Sense of Closure",
-	"description": "{memory_name}: Recall this memory during the Dream Journal "\
+	"description": "{memory_name} ({upgrades}): Recall this memory during the Dream Journal "\
 			+ "to increased your repressed %s by {pathos_amount}" % [Terms.RUN_ACCUMULATION_NAMES.boss],
+	"upgrade_description": "Each upgrade on this memory increases the repressed %s gained by {upgrade_multiplier}" % [Terms.RUN_ACCUMULATION_NAMES.boss],
 	"icon": preload("res://assets/icons/memories/portrait.png"),
 	"context": EffectContext.OVERWORLD,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
+	"keys_modified_by_upgrade": ["pathos_amount"],
 	"amounts": {
-		"pathos_amount": 5
+		"pathos_amount": 5,
+		"upgrade_multiplier": 2
 	},
 }
 const ProgressRandom := {
 	"canonical_name": "ProgressRandom",
 	"name": "ProgressRandom",
-	"description": "{memory_name}: Recall this memory during the Dream Journal to progress a random card by {progress_amount}",
+	"description": "{memory_name} ({upgrades}): Recall this memory during the Dream Journal to progress a random card by {progress_amount}",
+	"upgrade_description": "Each upgrade on this memory increases its progress by {upgrade_multiplier}",
 	"icon": preload("res://assets/icons/memories/portrait.png"),
 	"context": EffectContext.OVERWORLD,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.shop,
+	"keys_modified_by_upgrade": ["progress_amount"],
 	"amounts": {
-		"progress_amount": 2
+		"progress_amount": 2,
+		"upgrade_multiplier": 1
 	},
 }
 const SpikeEnemy := {
 	"canonical_name": "SpikeEnemy",
 	"name": "Childhood Curiosity",
-	"description": "{memory_name}: Recall this memory during an Ordeal to {damage} one torment for {damage_amount}",
+	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal to {damage} one torment for {damage_amount}",
+	"upgrade_description": "Each upgrade on this memory increases its {damage} by {upgrade_multiplier}",
 	"icon": preload("res://assets/icons/memories/portrait.png"),
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.nce,
 	"pathos_threshold_multiplier": 2.5,
+	"keys_modified_by_upgrade": ["damage_amount"],
 	"amounts": {
-		"damage_amount": 20
+		"damage_amount": 20,
+		"upgrade_multiplier": 1
 	},
 }
 const FortifySelf := {
 	"canonical_name": "FortifySelf",
 	"name": "Stand Against a Bully",
-	"description": "{memory_name}: Recall this memory during an Ordeal to gain {effect_stacks} {fortify}",
+	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal to gain {effect_stacks} {fortify}",
+	"upgrade_description": "Each upgrade on this memory decreases the cost to fill up this memory. It can only be upgraded up to {max_upgrades} times.",
 	"icon": preload("res://assets/icons/memories/portrait.png"),
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
+	"keys_modified_by_upgrade": ["pathos_threshold_multiplier"],
 	"amounts": {
-		"effect_stacks": 1
+		"effect_stacks": 1,
+		"upgrade_multiplier": 0.1,
+		"max_upgrades": 5,
 	},
 }
 
@@ -139,11 +158,16 @@ static func get_memories(
 	return(ret_array)
 
 
-static func get_memory_bbcode_format(memory_definition: Dictionary) -> Dictionary:
+static func get_memory_bbcode_format(memory_definition: Dictionary, upgrades := 0) -> Dictionary:
 	var format := {}
 	format['memory_name'] = memory_definition.name
+	format['upgrades'] = upgrades + 1
 	for key in memory_definition.get('amounts', {}):
-		format[key] = memory_definition.amounts[key]
+		var upgrade_modifier := 0
+		if key in memory_definition.get("keys_modified_by_upgrade",[]) and upgrades > 0:
+			upgrade_modifier = upgrades * memory_definition.amounts["upgrade_multiplier"]
+		var amount = memory_definition.amounts[key] + upgrade_modifier
+		format[key] = amount
 	return(format)
 
 

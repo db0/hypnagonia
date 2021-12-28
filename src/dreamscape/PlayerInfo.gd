@@ -45,6 +45,7 @@ func _ready() -> void:
 			pinfo.setup(entry)
 	# warning-ignore:return_value_discarded
 	globals.player.connect("artifact_added", self, "_on_artifact_added")
+	# warning-ignore:return_value_discarded
 	globals.player.connect("memory_added", self, "_on_memory_added")
 	_init_artifacts()
 	_init_memories()

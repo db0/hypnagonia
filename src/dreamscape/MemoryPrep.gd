@@ -9,8 +9,7 @@ var selected_memories := []
 # Stores the options in selected_memories list
 func _init(amount := 1) -> void:
 	var all_valid_memories := MemoryDefinitions.get_memories(
-			globals.player.get_archetype_memories(),
-			globals.player.get_all_memory_names())
+			globals.player.get_archetype_memories())
 	# Debug
 #	var aa = {}
 #	for r in all_valid_artifacts:
