@@ -18,12 +18,22 @@ enum EffectContext {
 }
 
 """
-Frustration pathos memories have a big pathos release_adjustment. This means they release a large
-amount of pathos everytime they do so. As such, low values of pathos_threshold_average_multiplier
-mean that the memory will be filled up really easily. 
-A value of 4 on pathos_threshold_average_multiplier will fill up in 3-4 Torment encounters.
-As such you need to adjust the pathos_threshold_average_multiplier accordingly to how often you want it
-to be refilling.
+Keys:
+
+* pathos: Which pathos is used to fill up this memory
+* pathos_threshold_multiplier (default: 1): Normally the amount of pathos needed to fill up a memory is equal to
+   the average progression for that pathos. This multiplier multiplies the amount of pathos needed to
+   fill up that memory by this much. So e.g. with a multiplier of 2, frustration will go from needing 15 to fill up
+   to needing 30.
+* pathos_accumulation_divider (default: 2): If you want to increase the time taken to fill up a memory without increasing
+   how much pathos will be used to do so, use this value. If used, the amount "sucked"
+   from the memory any time pathos is released (typically the accumulation average), will be divided by this amount.
+   Careful: A value of 1, means no released pathos will be accumulated while this memory is empty!
+
+With a pathos_threshold_multiplier and a pathos_accumulation_divider of 2 each, on average
+A memory will fill up every 4 encounters of that type. Typically you want these numbers to be higher
+for common encounters like Enemies, and lower for rare encounters like elites.
+In general, you want to aim for a memory to refill every 4-6 encounters
 """
 
 const DamageAll := {
@@ -33,7 +43,8 @@ const DamageAll := {
 	"icon": preload("res://assets/icons/memories/portrait.png"),
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
-	"pathos_threshold_average_multiplier": 5,
+	"pathos_threshold_multiplier": 2,
+	"pathos_accumulation_divider": 1.8,
 	"amounts": {
 		"damage_amount": 10
 	},
@@ -45,7 +56,8 @@ const HealSelf := {
 	"icon": preload("res://assets/icons/memories/portrait.png"),
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.rest,
-	"pathos_threshold_average_multiplier": 4,
+	"pathos_threshold_multiplier": 2,
+	"pathos_accumulation_divider": 2.5,
 	"amounts": {
 		"heal_amount": 5
 	},
@@ -58,7 +70,6 @@ const BossFaster := {
 	"icon": preload("res://assets/icons/memories/portrait.png"),
 	"context": EffectContext.OVERWORLD,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
-	"pathos_threshold_average_multiplier": 1,
 	"amounts": {
 		"pathos_amount": 5
 	},
@@ -70,7 +81,6 @@ const ProgressRandom := {
 	"icon": preload("res://assets/icons/memories/portrait.png"),
 	"context": EffectContext.OVERWORLD,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.shop,
-	"pathos_threshold_average_multiplier": 1,
 	"amounts": {
 		"progress_amount": 2
 	},
@@ -82,7 +92,7 @@ const SpikeEnemy := {
 	"icon": preload("res://assets/icons/memories/portrait.png"),
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.nce,
-	"pathos_threshold_average_multiplier": 2,
+	"pathos_threshold_multiplier": 2.5,
 	"amounts": {
 		"damage_amount": 20
 	},
@@ -94,7 +104,6 @@ const FortifySelf := {
 	"icon": preload("res://assets/icons/memories/portrait.png"),
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
-	"pathos_threshold_average_multiplier": 1,
 	"amounts": {
 		"effect_stacks": 1
 	},

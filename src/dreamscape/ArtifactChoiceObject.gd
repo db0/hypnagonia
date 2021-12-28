@@ -11,7 +11,12 @@ onready var bbc := $BackBufferCopy
 # already have the proper dictionary fields
 func setup(signifier_details: Dictionary, signifier_name: String) -> void:
 	var updated_detail = signifier_details.duplicate(true)
-	updated_detail["description"] = updated_detail.bbdescription
+	var memory_cost_info := ''
+	# The existence of a pathos key, signifies that this artifact is a memory
+	if signifier_details.has('pathos'):
+		memory_cost_info = "\n\n[i]This memory will cost {fill_cost} released {pathos} to recall{delay_pct_explanation}[/i]"\
+				.format(MemoryObject.get_cost_format(updated_detail.canonical_name))
+	updated_detail["description"] = updated_detail.bbdescription + memory_cost_info
 	.setup(updated_detail, signifier_name)
 
 

@@ -375,7 +375,7 @@ func _input(event):
 		globals.player.add_memory("SpikeEnemy")
 #		globals.player.add_artifact("AccumulateShop")
 #		globals.player.damage += 20
-#		globals.player.pathos.repress_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 200)
+#		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 200)
 		var debug_encounters = [
 #			EnemyEncounter.new(Act2.ClownShow, "hard"),
 			preload("res://src/dreamscape/Run/NCE/Act2/BannersOfRuin.gd").new(),

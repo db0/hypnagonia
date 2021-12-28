@@ -37,7 +37,7 @@ func continue_encounter(key) -> void:
 					globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.nce)
 					* 3 * CFUtils.randf_range(0.8,1.2)
 				)
-			globals.player.pathos.release_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, released_reward)
+			globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, released_reward)
 			globals.player.pathos.repress_pathos(
 					Terms.RUN_ACCUMULATION_NAMES.enemy, 
 					int(globals.player.pathos.get_progression_average(
@@ -47,7 +47,7 @@ func continue_encounter(key) -> void:
 					globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.enemy)
 					* 3 * CFUtils.randf_range(0.5,1.5)
 				)
-			globals.player.pathos.release_pathos(Terms.RUN_ACCUMULATION_NAMES.enemy, -released_penaly)
+			globals.player.pathos.lose_released_pathos(Terms.RUN_ACCUMULATION_NAMES.enemy, released_penaly)
 			globals.player.pathos.repress_pathos(
 					Terms.RUN_ACCUMULATION_NAMES.nce, 
 					int(globals.player.pathos.get_progression_average(

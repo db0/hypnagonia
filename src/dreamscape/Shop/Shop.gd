@@ -265,14 +265,10 @@ func _get_shop_choice(choices_list: Array) -> String:
 
 
 func _on_shop_card_selected(index: int, shop_card_object, containing_array := all_card_pool_choices) -> void:
-	if globals.player.pathos.released[containing_array[index].cost_type] <\
-			containing_array[index].cost:
+	var pathos : String = containing_array[index].cost_type
+	if globals.player.pathos.released[pathos] < containing_array[index].cost:
 		return
-	globals.player.pathos.released[containing_array[index].cost_type] -=\
-			containing_array[index].cost
-	globals.player.pathos.release_pathos(
-			containing_array[index].cost_type,
-			-containing_array[index].cost)
+	globals.player.pathos.spend_pathos(pathos, containing_array[index].cost)
 	# warning-ignore:return_value_discarded
 	globals.player.deck.add_new_card(containing_array[index].card_name)
 	shop_card_object.disable()
@@ -281,20 +277,19 @@ func _on_shop_card_selected(index: int, shop_card_object, containing_array := al
 
 
 func _on_shop_artifact_selected(index: int, shop_artifact_object) -> void:
-	if globals.player.pathos.released[all_artifact_choices[index].cost_type] <\
-			all_artifact_choices[index].cost:
+	var pathos : String = all_artifact_choices[index].cost_type
+	if globals.player.pathos.released[pathos] < all_artifact_choices[index].cost:
 		return
-	globals.player.pathos.released[all_artifact_choices[index].cost_type] -=\
-			all_artifact_choices[index].cost
+	globals.player.pathos.spend_pathos(pathos, all_artifact_choices[index].cost)
 	globals.player.add_artifact(shop_artifact_object.shop_artifact_display.canonical_name)
 	shop_artifact_object.modulate.a = 0
 
+
 func _on_shop_memory_selected(index: int, shop_memory_object) -> void:
-	if globals.player.pathos.released[all_memory_choices[index].cost_type] <\
-			all_memory_choices[index].cost:
+	var pathos : String = all_memory_choices[index].cost_type
+	if globals.player.pathos.released[pathos] < all_memory_choices[index].cost:
 		return
-	globals.player.pathos.released[all_memory_choices[index].cost_type] -=\
-			all_memory_choices[index].cost
+	globals.player.pathos.spend_pathos(pathos, all_memory_choices[index].cost)
 	globals.player.add_memory(shop_memory_object.shop_artifact_display.canonical_name)
 	shop_memory_object.modulate.a = 0
 

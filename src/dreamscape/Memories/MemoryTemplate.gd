@@ -9,7 +9,7 @@ func _ready() -> void:
 		_on_pathos_accumulated(artifact_object, 0)
 	else:
 		_on_memory_ready(artifact_object)
-	
+
 
 func setup_artifact(memory_object, _is_active: bool, new_addition: bool) -> void:
 	.setup_artifact(memory_object, _is_active, new_addition)
@@ -24,7 +24,9 @@ func _set_current_description() -> void:
 	if artifact_object.is_ready:
 		bbcolor = 'green'
 	artifact_description += '\n[color=%s]This memory is %%%s ready to recall[/color]' % [bbcolor,
-			stepify(float(artifact_object.pathos_accumulated)/float(artifact_object.pathos_threshold), 0.01) * 100]
+			round(float(artifact_object.pathos_accumulated)/float(artifact_object.pathos_threshold) * 100)]
+	artifact_description += "\n\n[i]This memory costs {fill_cost} released {pathos} to recall{delay_pct_explanation}[/i]"\
+			.format(artifact_object.get_cost_format(canonical_name))
 	format["amount"] = str(amount)
 	format["double_amount"] = str(2*amount)
 	format["triple_amount"] = str(3*amount)
@@ -76,4 +78,4 @@ func _on_memory_ready(memory) -> void:
 func _on_memory_used(memory) -> void:
 	highlight.visible = false
 	shader_node.material.set_shader_param('percentage', 0.0)
-	
+

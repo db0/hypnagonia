@@ -551,16 +551,17 @@ func modify_pathos(script: ScriptTask) -> int:
 	var modification = calculate_modify_pathos(script)
 	if type == "released":
 		if is_convertion:
+			#We do not use .release_pathos() as we need to keep track of the final modification
 			if globals.player.pathos.repressed[pathos] < modification:
 				modification = globals.player.pathos.repressed[pathos]
-			globals.player.pathos.repress_pathos(pathos, -modification)
-		globals.player.pathos.release_pathos(pathos, modification)
+			globals.player.pathos.modify_repressed_pathos(pathos, -modification)
+		globals.player.pathos.modify_released_pathos(pathos, modification)
 	else:
 		if is_convertion:
 			if globals.player.pathos.released.get(pathos, 0) < modification:
 				modification = globals.player.pathos.released.get(pathos, 0)
-			globals.player.pathos.release_pathos(pathos, -modification)
-		globals.player.pathos.repress_pathos(pathos, modification)
+			globals.player.pathos.modify_released_pathos(pathos, -modification)
+		globals.player.pathos.modify_repressed_pathos(pathos, modification)
 	return(retcode)
 
 # Used to perform some post-play activities, once all the script costs

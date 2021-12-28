@@ -1,8 +1,18 @@
 class_name Pathos
 extends Reference
 
+# Sent when repressed pathos is increased
 signal pathos_repressed(pathos, amount)
+# Sent then repressed pathos is decreased and released is increased
 signal pathos_released(pathos, amount)
+# Sent when released pathos is decreased without a special flag
+signal pathos_spent(pathos, amount)
+# Sent when repressed pathos is decreased with a special flag
+signal repressed_pathos_lost(pathos, amount)
+# Sent when released pathos is decreased with a special flag
+signal released_pathos_lost(pathos, amount)
+# Sent when released pathos is increased
+signal released_pathos_gained(pathos, amount)
 
 var repressed := {
 	Terms.RUN_ACCUMULATION_NAMES.enemy: 25,
@@ -67,6 +77,7 @@ func _init() -> void:
 #			round(get_progression_average(grab_random_pathos())* CFUtils.randf_range(3,5))
 
 
+# Increases the specified repressed pathos by the standard amount
 func repress(pathos_to_ignore := []) -> void:
 	for entry in repressed:
 		if not entry in pathos_to_ignore:
@@ -76,37 +87,83 @@ func repress(pathos_to_ignore := []) -> void:
 
 
 # modifies the specified repressed pathos by a given amount
-func repress_pathos(pathos: String, amount: int) -> void:
-	repressed[pathos] += amount
-	if repressed[pathos] < 0:
-		repressed[pathos] = 0
+func modify_repressed_pathos(entry: String, amount: int, is_lost := false) -> void:
+	repressed[entry] += amount
+	if repressed[entry] < 0:
+		repressed[entry] = 0
 	if amount > 0:
-		emit_signal("pathos_repressed", pathos, amount)
+		emit_signal("pathos_repressed", entry, amount)
+	elif is_lost:
+		emit_signal("repressed_pathos_lost", entry, -amount)
 
 
+# Increases the specified repressed pathos by the given amount
+func repress_pathos(entry: String, amount: int) -> void:
+	if amount <= 0:
+		print_debug("ERROR: This function only takes a positive integer")
+		return
+	modify_repressed_pathos(entry, amount)
+
+
+# reduces the specified repressed pathos by a given amount
+# and increases the released pathos by the same amount
+func release_pathos(entry: String, amount: int) -> void:
+	if amount <= 0:
+		print_debug("ERROR: This function only takes a positive integer")
+		return
+	# if we try to repress more than we have, we repress only as much as we have
+	if amount > repressed[entry]:
+		amount = repressed[entry]
+	modify_repressed_pathos(entry, -amount)
+	modify_released_pathos(entry, amount)
+	emit_signal("pathos_released", entry, amount)
+
+
+# Releases the standard amount for the given pathos
 func release(entry: String) -> int:
 	var retcode : int = CFConst.ReturnCode.CHANGED
 	if repressed[entry] == 0:
 		retcode = CFConst.ReturnCode.OK
 	var release_amount = get_threshold(entry)
 	release_amount *= release_adjustments.get(entry,1)
-	release_amount = int(release_amount)
-	if release_amount > repressed[entry]:
-		release_amount = repressed[entry]
-#	print_debug(entry, release_amount)
-	released[entry] += release_amount
-	repressed[entry] -= release_amount
-	emit_signal("pathos_released", entry, release_amount)
+	release_pathos(entry, int(release_amount))
 	return(retcode)
 
 
 # modifies the specified released pathos by a given amount
-func release_pathos(entry: String, amount: int) -> void:
+func modify_released_pathos(entry: String, amount: int, is_lost := false) -> void:
 	released[entry] += amount
 	if released[entry] < 0:
 		released[entry] = 0
 	if amount > 0:
-		emit_signal("pathos_released", entry, amount)
+		emit_signal("released_pathos_gained", entry, amount)
+	elif is_lost:
+		emit_signal("released_pathos_lost", entry, -amount)
+	else: 
+		emit_signal("pathos_spent", entry, -amount)
+
+
+# reduces the specified released pathos by a given amount
+func spend_pathos(entry: String, amount: int) -> void:
+	if amount <= 0:
+		print_debug("ERROR: This function only takes a positive integer")
+		return
+	modify_released_pathos(entry, -amount)
+
+# reduces the specified released pathos by a given amount
+func lose_repressed_pathos(entry: String, amount: int) -> void:
+	if amount <= 0:
+		print_debug("ERROR: This function only takes a positive integer")
+		return
+	modify_repressed_pathos(entry, -amount, true)
+
+# reduces the specified released pathos by a given amount
+func lose_released_pathos(entry: String, amount: int) -> void:
+	if amount <= 0:
+		print_debug("ERROR: This function only takes a positive integer")
+		return
+	modify_released_pathos(entry, -amount, true)
+
 
 # Returns one random possible progression from the range
 # Grabbing the number via a fuction, rather than directly from the var

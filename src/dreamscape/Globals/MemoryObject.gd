@@ -29,8 +29,8 @@ func _init(memory_name: String, _mods := {}) -> void:
 	canonical_name = definition["canonical_name"]
 	context = definition["context"]
 	pathos_used = definition["pathos"]
-	pathos_threshold = globals.player.pathos.get_progression_average(pathos_used)\
-			* definition["pathos_threshold_average_multiplier"]
+	pathos_threshold = int(round(globals.player.pathos.get_progression_average(pathos_used)
+			* float(definition.get("pathos_threshold_multiplier", 1))))
 	modifiers = _mods
 	# warning-ignore:return_value_discarded
 	globals.player.pathos.connect("pathos_released", self, "_on_pathos_released")
@@ -39,18 +39,26 @@ func _init(memory_name: String, _mods := {}) -> void:
 func remove_self() -> void:
 	emit_signal("removed")
 
-func accumulate_pathos(value: int) -> void:
+
+func accumulate_pathos(pathos: String, value: int) -> void:
+	if pathos_accumulated + value > pathos_threshold:
+		value = pathos_threshold - pathos_accumulated
 	pathos_accumulated += value
+	print_debug(value)
+	# Pathos send to a memory is considered spent
+	globals.player.pathos.spend_pathos(pathos, value)
 	emit_signal("pathos_accumulated", self, value)
 	if pathos_accumulated >= pathos_threshold:
 		pathos_accumulated = pathos_threshold
 		is_ready = true
 		emit_signal("memory_ready", self)
 
+
 func use() -> void:
 	is_ready = false
 	pathos_accumulated = 0
 	emit_signal("memory_used", self)
+
 
 func instance_memory() -> Artifact:
 	var memory: Artifact = memory_scene.instance()
@@ -62,8 +70,37 @@ func instance_memory() -> Artifact:
 		memory.set_script(memory_script)
 	return(memory)
 
+
 func _on_pathos_released(pathos: String, amount: int) -> void:
 	if pathos == pathos_used:
+		# The pathos.release_adjustments dictionary allows a pathos that is exceeding
+		# its threshold for getting an encounter, to release more than just that amount
+		# every time it's used. To avoid a memory thus filling too quickly due to this
+		# multiplier (i.e. every 1-2 encounters of that type), we divide the amount of
+		# released pathos we use to fill up the memoty by the same amount.
+		var adjustment_div = globals.player.pathos.release_adjustments.get(pathos,1)
+		var accumulation_div = definition.get("pathos_accumulation_divider", 2)
 		# warning-ignore:integer_division
-		var acc := int(round(amount/2))
-		accumulate_pathos(acc)
+		var acc := int(round(amount / accumulation_div / adjustment_div))
+#		print_debug("%s : %s : %s : %s" % [amount, acc, adjustment_div, accumulation_div])
+		accumulate_pathos(pathos, acc)
+
+
+static func get_cost_format(memory_name: String) -> Dictionary:
+	var memory_definition = MemoryDefinitions.find_memory_from_canonical_name(memory_name)
+	if not memory_definition:
+		print_debug("WARNING: Memory Definition '%s; could not be found!" % [memory_name])
+		return({})
+	var cost_format := {
+		"pathos": memory_definition.pathos,
+		"fill_cost": globals.player.pathos.get_progression_average(memory_definition.pathos)\
+				* memory_definition.get("pathos_threshold_multiplier", 1),
+		"delay_pct": stepify(2.0 / float(memory_definition.get("pathos_accumulation_divider", 2)), 0.01) * 100,
+		"delay_multiplier": memory_definition.get("pathos_accumulation_divider", 2),
+		"delay_pct_explanation": '',
+	}
+	if cost_format["delay_pct"] > 100:
+		cost_format["delay_pct_explanation"] = " and activates %%%s faster" % [cost_format["delay_pct"] - 100]
+	elif cost_format["delay_pct"] < 100:
+		cost_format["delay_pct_explanation"] = " and activates %%%s slower" % [abs(cost_format["delay_pct"] - 100)]
+	return(cost_format)

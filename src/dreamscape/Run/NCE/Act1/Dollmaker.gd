@@ -41,7 +41,7 @@ func begin() -> void:
 func continue_encounter(key) -> void:
 	match key:
 		"destroy":
-			globals.player.pathos.release_pathos(
+			globals.player.pathos.modify_released_pathos(
 					Terms.RUN_ACCUMULATION_NAMES.boss, 
 					amounts["destroy_amount"])
 		"leave":
