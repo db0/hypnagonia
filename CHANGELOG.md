@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.22.0](https://github.com/db0/hypnagonia/tree/v0.22.0) (2021-12-28)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.21.3...v0.22.0)
+
+**Merged pull requests:**
+
+- Added Memories [\#97](https://github.com/db0/hypnagonia/pull/97) ([db0](https://github.com/db0))
+
 ## [v0.21.3](https://github.com/db0/hypnagonia/tree/v0.21.3) (2021-12-27)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.21.2...v0.21.3)
