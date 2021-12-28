@@ -1095,7 +1095,7 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"defence_amount": 11,
+			"defence_amount": 10,
 			"effect_stacks": 3,
 		},
 		"_upgrade_threshold": 7,
@@ -1117,7 +1117,7 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"defence_amount": 14,
+			"defence_amount": 12,
 			"effect_stacks": 4,
 		},
 		"_is_upgrade": true,
@@ -1151,7 +1151,7 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"defence_amount": 8,
+			"defence_amount": 7,
 			"effect_stacks": 6,
 		},
 		"_is_upgrade": true,
