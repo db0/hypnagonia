@@ -6,8 +6,6 @@ func execute_scripts(
 		trigger: String = "manual",
 		trigger_details: Dictionary = {},
 		only_cost_check := false):
-	if trigger == "card_played":
-		print(trigger_card.get_property("Type"))
 	if is_active\
 			and effect_context == ArtifactDefinitions.EffectContext.BATTLE\
 			and trigger == "card_played"\
