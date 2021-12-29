@@ -1652,6 +1652,14 @@ const Flashbacks = {
 				"tags": ["Card"],
 				"set_properties": {"Cost": "0"},
 				"subject": "previous",
+				"filter_state_subject": [
+					{
+						"filter_properties": {
+							"comparison": "ne",
+							"Cost": 'X'
+						},
+					},
+				]
 			},
 			{
 				"name": "enable_rider",

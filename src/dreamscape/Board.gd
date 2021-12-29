@@ -354,32 +354,26 @@ func _input(event):
 #		SoundManager.fade_in(bgm_tracks[0])
 		# warning-ignore:unused_variable
 		_debug_advanced_enemy()
-		# warning-ignore:unused_variable
-#		var torment = spawn_enemy(EnemyDefinitions.BUTTERFLY)
-		# warning-ignore:unused_variable
-#		var torment2 = spawn_enemy(EnemyDefinitions.CLOWN)
-		# warning-ignore:unused_variable
-#		var torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
-		# warning-ignore:unused_variable
-		var torment2 = spawn_enemy(EnemyDefinitions.THE_EXAM)
-		# warning-ignore:unused_variable
-		var torment3 = spawn_enemy(EnemyDefinitions.THE_VICTIM)
-		spawn_enemy(EnemyDefinitions.THE_VICTIM)
-		spawn_enemy(EnemyDefinitions.THE_VICTIM)
-#		var torment2 = spawn_enemy("Gaslighter")
-#		torment2.rect_position = Vector2(800,100)
-#		torment3.rect_position = Vector2(200,300)
+		var _torment1
+		var _torment2
+		var _torment3
+		_torment2 = spawn_enemy(EnemyDefinitions.THE_EXAM)
+#		_torment3 = spawn_enemy(EnemyDefinitions.THE_VICTIM)
+#		spawn_enemy(EnemyDefinitions.THE_VICTIM)
+#		spawn_enemy(EnemyDefinitions.THE_VICTIM)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 20)
-#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 3)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.fortify.name, 7)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.unconventional.name, 1, false, false, ['Debug'], 'weirdly')
 		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.fortify.name, 4)
-#		torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.fortify.name, 5)
-#		torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.quicken.name, -4)
-#		torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.empower.name, 4)
-#		torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.the_victim.name, 4)
-#		torment2.defence = 10
-		torment2.health = 1000
-		torment3.health = 1000
+		if _torment2:
+			_torment2.health = 1000
+#			_torment2.defence = 10
+		if _torment3:
+			_torment3.health = 1000
+#			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.fortify.name, 5)
+#			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.quicken.name, -4)
+#			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.empower.name, 4)
+#			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.the_victim.name, 4)
 		dreamer.health = 1000
 #		globals.player.add_artifact(ArtifactDefinitions.ThickExplosion.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.PurpleWave.canonical_name)
@@ -388,8 +382,11 @@ func _input(event):
 		for c in [
 			"Fowl Language",
 			"A Thousand Squeaks",
-			"Sneaky-Beaky",
-			"Absurdity Unleashed",
+			"Flashbacks",
+			"Flashbacks",
+			"Flashbacks",
+			"Confrontation",
+			"Confrontation",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.hand.add_child(card)
@@ -397,6 +394,9 @@ func _input(event):
 			card._determine_idle_state()
 		cfc.NMAP.deck.shuffle_cards(false)
 		begin_encounter()
+		player_info._on_Settings_pressed()
+		yield(get_tree().create_timer(0.1), "timeout")
+		player_info._on_Settings_hide()
 	if event.is_action_pressed("debug"):
 		_on_Debug_pressed()
 	if event.is_action_pressed("complete_battle"):
@@ -421,7 +421,8 @@ func _debug_advanced_enemy() -> void:
 func _on_Debug_pressed() -> void:
 	# warning-ignore:return_value_discarded
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 3)
-	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 4)
+	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.fortify.name, 1)
+	dreamer.defence += 30
 	counters.mod_counter("immersion",3)
 	for _iter in range(3):
 		cfc.NMAP.hand.draw_card(cfc.NMAP.deck)
