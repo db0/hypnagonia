@@ -1,5 +1,19 @@
 # Changelog
 
+## [v0.22.3](https://github.com/db0/hypnagonia/tree/v0.22.3) (2021-12-29)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.22.2...v0.22.3)
+
+**Closed issues:**
+
+- Flashback card breaks cards using variable \(X\) Immersion [\#103](https://github.com/db0/hypnagonia/issues/103)
+- Impugn upgrade path has irrelevant choice [\#101](https://github.com/db0/hypnagonia/issues/101)
+- Infinite loop with Absurdity Unleashed and Sneaky-Beaky [\#100](https://github.com/db0/hypnagonia/issues/100)
+
+**Merged pull requests:**
+
+- Big fixin' [\#104](https://github.com/db0/hypnagonia/pull/104) ([db0](https://github.com/db0))
+
 ## [v0.22.2](https://github.com/db0/hypnagonia/tree/v0.22.2) (2021-12-28)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.22.1...v0.22.2)
