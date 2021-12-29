@@ -5196,7 +5196,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}. "\
-				+ "If the target has {confusion}, {pierce}",
+				+ "If the target has {poison}, {pierce}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -5211,9 +5211,9 @@ const CARDS := {
 	},
 	"Ω Impugn Ω": {
 		"Type": "Action",
-		"Tags": [],
+		"Tags": [Terms.GENERIC_TAGS.omega.name],
 		"Abilities": "{damage} for {damage_amount}. "\
-				+ "If the target has {confusion}, {pierce}",
+				+ "If the target has {poison}, {pierce}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
