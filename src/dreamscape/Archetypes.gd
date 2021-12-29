@@ -18,7 +18,7 @@ const FLYER:= {
 		ArtifactDefinitions.ImproveImpervious
 	],
 	"Memories": [
-		
+		"ImperviousSelf",
 	],
 	"Perturbations": [
 		
@@ -65,7 +65,7 @@ const MAD_SCIENTIST := {
 		
 	],
 	"Memories": [
-		
+		"ReshuffleHand",
 	],
 	"Perturbations": [
 		"Apathy",
@@ -165,7 +165,8 @@ const FEARLESS:= {
 		ArtifactDefinitions.ImproveFortify
 	],
 	"Memories": [
-		
+		"PoisonEnemy",
+		"FortifySelf"
 	],
 	"Perturbations": [
 		
@@ -230,7 +231,7 @@ const RUBBER_CHICKEN := {
 		
 	],
 	"Memories": [
-		
+		"DisempowerEnemy",
 	],
 	"Perturbations": [
 		
