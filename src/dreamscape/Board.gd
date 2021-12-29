@@ -383,11 +383,7 @@ func _input(event):
 		for c in [
 			"Fowl Language",
 			"A Thousand Squeaks",
-			"Flashbacks",
-			"Flashbacks",
-			"Flashbacks",
-			"Confrontation",
-			"Confrontation",
+			"Introspection",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.hand.add_child(card)
@@ -422,7 +418,7 @@ func _debug_advanced_enemy() -> void:
 func _on_Debug_pressed() -> void:
 	# warning-ignore:return_value_discarded
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 3)
-	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.fortify.name, 1)
+	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.introspection.name, 6)
 	dreamer.defence += 30
 	counters.mod_counter("immersion",3)
 	for _iter in range(3):
