@@ -302,6 +302,7 @@ const ACTIVE_EFFECTS := {
 		"name": "Outrage",
 		"type": "Special",
 		"description": "{effect_name}: This {entity} has become more powerful in some fashion.",
+		"noscript": true,
 		"icon": preload("res://assets/icons/enrage.png"),
 	},
 	"rebalance": {
@@ -321,6 +322,7 @@ const ACTIVE_EFFECTS := {
 		"name": "Creative Block",
 		"type": "Special",
 		"description": "{effect_name}: {entity} cannot upgrade any more cards this encounter.",
+		"noscript": true,
 		"icon": preload("res://assets/icons/brain-freeze.png"),
 	},
 	# Below are unique effects. Typically from concentrations

@@ -17,7 +17,7 @@ func execute_scripts(
 				"name": "modify_damage",
 				"subject": "dreamer",
 				"amount": -ArtifactDefinitions.PowerHeal.amounts.healing_amount,
-				"tags": ["Healing"],
+				"tags": ["Healing", "Curio"],
 			},
 		]
 		execute_script(script)

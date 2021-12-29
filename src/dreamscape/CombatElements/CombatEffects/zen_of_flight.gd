@@ -10,6 +10,6 @@ func _on_player_turn_ended(_turn: Turn) -> void:
 		"name": "modify_damage",
 		"subject": "self",
 		"amount": -heal_amount,
-		"tags": ["Heal"],
+		"tags": ["Heal", "Combat Effect", "Concentration"],
 	}]
 	execute_script(script)

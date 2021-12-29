@@ -16,6 +16,7 @@ func _on_battle_start():
 			"effect_name": Terms.ACTIVE_EFFECTS.strengthen.name,
 			"subject": "dreamer",
 			"modification": ArtifactDefinitions.StartingStrength.amounts.effect_stacks,
+			"tags": ["Curio"],
 		},
 	]
 	execute_script(script)

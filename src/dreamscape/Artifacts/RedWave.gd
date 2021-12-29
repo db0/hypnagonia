@@ -12,6 +12,7 @@ func _on_player_turn_started(_turn: Turn) -> void:
 				"name": "assign_defence",
 				"subject": "dreamer",
 				"amount": ArtifactDefinitions.RedWave.amounts.defence_amount,
+				"tags": ["Curio"],
 			}
 		]
 		execute_script(script)

@@ -7,5 +7,6 @@ func _on_player_turn_ended(turn: Turn) -> void:
 		"subject": "dreamer",
 		"amount": cfc.card_definitions[name]\
 				.get("_amounts",{}).get("effect_defence"),
+		"tags": ["Combat Effect", "Concentration"],
 	}]
 	execute_script(tenacity, cfc.NMAP.board.dreamer)

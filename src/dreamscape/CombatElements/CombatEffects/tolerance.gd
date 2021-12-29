@@ -15,6 +15,7 @@ func _on_entity_damaged(_entity, amount, _trigger: Node, _tags: Array) -> void:
 				"name": "draw_cards",
 				"card_count": cfc.card_definitions[name]\
 						.get("_amounts",{}).get("effect_amount"),
+				"tags": ["Combat Effect", "Concentration"],
 			},
 		]
 		var immersion_script: Dictionary
@@ -24,6 +25,7 @@ func _on_entity_damaged(_entity, amount, _trigger: Node, _tags: Array) -> void:
 				"counter_name": "immersion",
 				"modification": cfc.card_definitions[name]\
 						.get("_amounts",{}).get("effect_amount"),
+				"tags": ["Combat Effect", "Concentration"],
 			}
 		else:
 			immersion_script = {
@@ -32,7 +34,7 @@ func _on_entity_damaged(_entity, amount, _trigger: Node, _tags: Array) -> void:
 				"subject": "dreamer",
 				"modification": cfc.card_definitions[name]\
 						.get("_amounts",{}).get("effect_amount"),
+				"tags": ["Combat Effect", "Concentration"],
 			}
 		tolerance.append(immersion_script)
-		print_debug(tolerance)
 		execute_script(tolerance, owning_entity)

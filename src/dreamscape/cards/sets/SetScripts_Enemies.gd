@@ -8,6 +8,7 @@ const scripts := {
 			"hand": [
 				{
 					"name": "apply_effect",
+					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.poison.name,
 					"subject": "target",
 					"is_cost": true,
@@ -34,6 +35,7 @@ const scripts := {
 			"hand": [
 				{
 					"name": "apply_effect",
+					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.poison.name,
 					"subject": "target",
 					"is_cost": true,
@@ -47,6 +49,7 @@ const scripts := {
 				},
 				{
 					"name": "apply_effect",
+					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.poison.name,
 					"subject": "previous",
 					"modification": "per_effect_stacks",
@@ -57,6 +60,7 @@ const scripts := {
 				},
 				{
 					"name": "apply_effect",
+					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.poison.name,
 					"subject": "dreamer",
 					"modification": 0,
@@ -70,6 +74,7 @@ const scripts := {
 			"hand": [
 				{
 					"name": "apply_effect",
+					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.burn.name,
 					"subject": "target",
 					"is_cost": true,
@@ -83,6 +88,7 @@ const scripts := {
 				},
 				{
 					"name": "apply_effect",
+					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.burn.name,
 					"subject": "dreamer",
 					"modification": 0,
@@ -96,6 +102,7 @@ const scripts := {
 			"hand": [
 				{
 					"name": "apply_effect",
+					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.burn.name,
 					"subject": "target",
 					"is_cost": true,
@@ -109,6 +116,7 @@ const scripts := {
 				},
 				{
 					"name": "apply_effect",
+					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.burn.name,
 					"subject": "previous",
 					"modification": "per_effect_stacks",
@@ -119,6 +127,7 @@ const scripts := {
 				},
 				{
 					"name": "apply_effect",
+					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.burn.name,
 					"subject": "dreamer",
 					"modification": 0,
@@ -132,6 +141,7 @@ const scripts := {
 			"hand": [
 				{
 					"name": "assign_defence",
+					"tags": ["Card"],
 					"subject": "dreamer",
 					"amount":  {
 						"lookup_property": "_amounts",
@@ -143,6 +153,7 @@ const scripts := {
 					"nested_tasks": [
 						{
 							"name": "move_card_to_container",
+							"tags": ["Card"],
 							"subject": "tutor",
 							"is_cost": true,
 							"src_container":  "deck",
@@ -157,6 +168,7 @@ const scripts := {
 						},
 						{
 							"name": "move_card_to_container",
+							"tags": ["Card"],
 							"subject": "tutor",
 							"is_else": true,
 							"src_container":  "discard",
@@ -179,6 +191,7 @@ const scripts := {
 			"hand": [
 				{
 					"name": "assign_defence",
+					"tags": ["Card"],
 					"subject": "dreamer",
 					"amount":  {
 						"lookup_property": "_amounts",
@@ -192,13 +205,14 @@ const scripts := {
 					"name": "move_card_to_container",
 					"dest_container": "discard",
 					"subject": "self",
-					"tags": ["Played"],
+					"tags": ["Played", "Card"],
 				},
 				{
 					"name": "nested_script",
 					"nested_tasks": [
 						{
 							"name": "move_card_to_container",
+							"tags": ["Card"],
 							"is_cost": true,
 							"subject": "tutor",
 							"subject_count": 1,
@@ -224,6 +238,7 @@ const scripts := {
 					"nested_tasks": [
 						{
 							"name": "move_card_to_container",
+							"tags": ["Card"],
 							"subject": "tutor",
 							"is_cost": true,
 							"src_container":  "deck",
@@ -238,6 +253,7 @@ const scripts := {
 						},
 						{
 							"name": "move_card_to_container",
+							"tags": ["Card"],
 							"subject": "tutor",
 							"is_else": true,
 							"src_container":  "discard",
@@ -260,6 +276,7 @@ const scripts := {
 			"hand": [
 				{
 					"name": "apply_effect",
+					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.impervious.name,
 					"subject": "dreamer",
 					"modification":  {
@@ -271,7 +288,7 @@ const scripts := {
 					"name": "move_card_to_container",
 					"subject": "self",
 					"dest_container": "forgotten",
-					"tags": ["Played"],
+					"tags": ["Played", "Card"],
 				},
 			],
 		},
@@ -292,13 +309,13 @@ const scripts := {
 					"name": "move_card_to_container",
 					"subject": "self",
 					"dest_container": "forgotten",
-					"tags": ["Played"],
+					"tags": ["Played", "Card"],
 				},
 				{
 					"name": "modify_damage",
 					"subject": "dreamer",
 					"is_cost": true,
-					"tags": ["Healing"],
+					"tags": ["Healing", "Card"],
 					"amount": "per_defence",
 					"per_defence": {
 						"subject": "dreamer",
@@ -307,6 +324,7 @@ const scripts := {
 				},
 				{
 					"name": "assign_defence",
+					"tags": ["Card"],
 					"subject": "dreamer",
 					"amount": 0,
 					"set_to_mod": true,
@@ -319,6 +337,7 @@ const scripts := {
 			"hand": [
 				{
 					"name": "apply_effect",
+					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.vulnerable.name,
 					"subject": "target",
 					"modification":  {
@@ -333,7 +352,7 @@ const scripts := {
 					"name": "move_card_to_container",
 					"subject": "self",
 					"dest_container": "forgotten",
-					"tags": ["Played"],
+					"tags": ["Played", "Card"],
 				},
 			],
 		},
@@ -343,6 +362,7 @@ const scripts := {
 			"hand": [
 				{
 					"name": "apply_effect",
+					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.vulnerable.name,
 					"subject": "boardseek",
 					"subject_count": "all",
@@ -358,7 +378,7 @@ const scripts := {
 					"name": "move_card_to_container",
 					"subject": "self",
 					"dest_container": "forgotten",
-					"tags": ["Played"],
+					"tags": ["Played", "Card"],
 				},
 			],
 		},
@@ -368,6 +388,7 @@ const scripts := {
 			"hand": [
 				{
 					"name": "apply_effect",
+					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.disempower.name,
 					"subject": "boardseek",
 					"subject_count": "all",
@@ -383,7 +404,7 @@ const scripts := {
 					"name": "move_card_to_container",
 					"subject": "self",
 					"dest_container": "forgotten",
-					"tags": ["Played"],
+					"tags": ["Played", "Card"],
 				},
 			],
 		},
@@ -393,6 +414,7 @@ const scripts := {
 			"hand": [
 				{
 					"name": "apply_effect",
+					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.thorns.name,
 					"subject": "dreamer",
 					"modification":  {
@@ -404,7 +426,7 @@ const scripts := {
 					"name": "move_card_to_container",
 					"subject": "self",
 					"dest_container": "forgotten",
-					"tags": ["Played"],
+					"tags": ["Played", "Card"],
 				},
 			],
 		},
@@ -414,6 +436,7 @@ const scripts := {
 			"hand": [
 				{
 					"name": "apply_effect",
+					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.thorns.name,
 					"subject": "dreamer",
 					"modification":  {
@@ -429,6 +452,7 @@ const scripts := {
 			"hand": [
 				{
 					"name": "apply_effect",
+					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.strengthen.name,
 					"subject": "dreamer",
 					"modification":  {
@@ -440,7 +464,7 @@ const scripts := {
 					"name": "move_card_to_container",
 					"subject": "self",
 					"dest_container": "forgotten",
-					"tags": ["Played"],
+					"tags": ["Played", "Card"],
 				},
 			],
 		},
@@ -450,6 +474,7 @@ const scripts := {
 			"hand": [
 				{
 					"name": "apply_effect",
+					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.strengthen.name,
 					"subject": "dreamer",
 					"modification":  {
@@ -471,7 +496,7 @@ const scripts := {
 						"lookup_property": "_amounts",
 						"value_key": "damage_amount"
 					},
-					"tags": ["Attack"],
+					"tags": ["Attack", "Card"],
 					"filter_state_subject": [{
 						"filter_group": "EnemyEntities",
 					},],
@@ -480,7 +505,7 @@ const scripts := {
 					"name": "move_card_to_container",
 					"subject": "self",
 					"dest_container": "forgotten",
-					"tags": ["Played"],
+					"tags": ["Played", "Card"],
 				},
 			],
 		},
@@ -490,6 +515,7 @@ const scripts := {
 			"hand": [
 				{
 					"name": "apply_effect",
+					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.drain.name,
 					"subject": "dreamer",
 					"modification":  {
@@ -499,6 +525,7 @@ const scripts := {
 				},
 				{
 					"name": "assign_defence",
+					"tags": ["Card"],
 					"subject": "dreamer",
 					"amount": {
 						"lookup_property": "_amounts",
@@ -509,7 +536,7 @@ const scripts := {
 					"name": "move_card_to_container",
 					"subject": "self",
 					"dest_container": "forgotten",
-					"tags": ["Played"],
+					"tags": ["Played", "Card"],
 				},
 			],
 		},
@@ -525,7 +552,7 @@ const scripts := {
 						"lookup_property": "_amounts",
 						"value_key": "damage_amount"
 					},
-					"tags": ["Attack"],
+					"tags": ["Attack", "Card"],
 					"filter_state_subject": [{
 						"filter_group": "EnemyEntities",
 					},],
@@ -537,10 +564,11 @@ const scripts := {
 						"lookup_property": "_amounts",
 						"value_key": "exert_amount"
 					},
-					"tags": ["Exert"],
+					"tags": ["Exert", "Card"],
 				},
 				{
 					"name": "assign_defence",
+					"tags": ["Card"],
 					"subject": "dreamer",
 					"amount": {
 						"lookup_property": "_amounts",
@@ -551,7 +579,7 @@ const scripts := {
 					"name": "move_card_to_container",
 					"subject": "self",
 					"dest_container": "forgotten",
-					"tags": ["Played"],
+					"tags": ["Played", "Card"],
 				},
 			],
 		},
@@ -563,7 +591,7 @@ const scripts := {
 					"name": "apply_effect",
 					"effect_name": Terms.ACTIVE_EFFECTS.delighted.name,
 					"subject": "dreamer",
-					"tags": ["Delayed"],
+					"tags": ["Delayed", "Card"],
 					"modification":  {
 						"lookup_property": "_amounts",
 						"value_key": "effect_stacks",
@@ -571,6 +599,7 @@ const scripts := {
 				},
 				{
 					"name": "apply_effect",
+					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.advantage.name,
 					"subject": "dreamer",
 					"modification":  {
@@ -582,7 +611,7 @@ const scripts := {
 					"name": "move_card_to_container",
 					"subject": "self",
 					"dest_container": "forgotten",
-					"tags": ["Played"],
+					"tags": ["Played", "Card"],
 				},
 			],
 		},
@@ -598,13 +627,14 @@ const scripts := {
 						"lookup_property": "_amounts",
 						"value_key": "damage_amount"
 					},
-					"tags": ["Attack"],
+					"tags": ["Attack", "Card"],
 					"filter_state_subject": [{
 						"filter_group": "EnemyEntities",
 					},],
 				},
 				{
 					"name": "modify_pathos",
+					"tags": ["Card"],
 					"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
 					"pathos_type": "released",
 					"modification":  {
@@ -614,6 +644,7 @@ const scripts := {
 				},
 				{
 					"name": "modify_pathos",
+					"tags": ["Card"],
 					"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
 					"pathos_type": "repressed",
 					"modification":  {
@@ -625,7 +656,7 @@ const scripts := {
 					"name": "move_card_to_container",
 					"subject": "self",
 					"dest_container": "forgotten",
-					"tags": ["Played"],
+					"tags": ["Played", "Card"],
 				},
 			],
 		},
@@ -635,6 +666,7 @@ const scripts := {
 			"hand": [
 				{
 					"name": "apply_effect",
+					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.stuffed_toy.name,
 					"subject": "dreamer",
 					"modification": 1,
@@ -647,12 +679,14 @@ const scripts := {
 			"hand": [
 				{
 					"name": "apply_effect",
+					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.mouse.name,
 					"subject": "dreamer",
 					"modification": 1,
 				},
 				{
 					"name": "apply_effect",
+					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.strengthen.name,
 					"subject": "dreamer",
 					"modification": {
@@ -670,12 +704,14 @@ const scripts := {
 			"hand": [
 				{
 					"name": "apply_effect",
+					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.the_exam.name,
 					"subject": "dreamer",
 					"modification": 1,
 				},
 				{
 					"name": "move_card_to_container",
+					"tags": ["Card"],
 					"src_container": "forgotten",
 					"dest_container": "deck",
 					"subject_count": {
@@ -687,6 +723,7 @@ const scripts := {
 				},
 				{
 					"name": "shuffle_container",
+					"tags": ["Card"],
 					"dest_container": "deck",
 				},
 			],
@@ -697,6 +734,7 @@ const scripts := {
 			"hand": [
 				{
 					"name": "apply_effect",
+					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.the_victim.name,
 					"subject": "target",
 					"is_cost": true,
@@ -722,13 +760,14 @@ const scripts := {
 						"lookup_property": "_amounts",
 						"value_key": "damage_amount"
 					},
-					"tags": ["Attack"],
+					"tags": ["Attack", "Card"],
 					"filter_state_subject": [{
 						"filter_group": "EnemyEntities",
 					},],
 				},
 				{
 					"name": "custom_script",
+					"tags": ["Card"],
 					"subject": "previous",
 				},
 			],

@@ -12,5 +12,6 @@ func _on_player_turn_started(_turn: Turn) -> void:
 					"name": "assign_defence",
 					"subject": "dreamer",
 					"amount": stacks * defence,
+					"tags": ["Combat Effect", "Concentration"],
 				}]
 		execute_script(unconventional)

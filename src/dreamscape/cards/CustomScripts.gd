@@ -36,12 +36,13 @@ func custom_script(script: ScriptObject) -> void:
 							"name": "modify_damage",
 							"subject": "trigger",
 							"amount": damage_amount,
-							"tags": ["Attack"],
+							"tags": ["Attack", "Card"],
 						}]
 						execute_script(the_joke, script.owner, enemy_entity)
 					else:
 						var the_joke = [{
 							"name": "apply_effect",
+							"tags": ["Card"],
 							"effect_name": Terms.ACTIVE_EFFECTS.disempower.name,
 							"subject": "trigger",
 							"modification": effect_stacks,
@@ -57,7 +58,7 @@ func custom_script(script: ScriptObject) -> void:
 						var barrel_through = [{
 								"name": "modify_damage",
 								"amount": damage_amount,
-								"tags": ["Attack"],
+								"tags": ["Attack", "Card"],
 								"subject": "boardseek",
 								SP.KEY_SUBJECT_COUNT: "all",
 								"sort_by": "random",
@@ -81,6 +82,7 @@ func custom_script(script: ScriptObject) -> void:
 								.get("_amounts",{}).get("effect_stacks")
 					var fly_away = [{
 						"name": "apply_effect",
+						"tags": ["Card"],
 						"effect_name": Terms.ACTIVE_EFFECTS.impervious.name,
 						"subject": "dreamer",
 						"modification": effect_stacks,
@@ -97,6 +99,7 @@ func custom_script(script: ScriptObject) -> void:
 								.get("_amounts",{}).get("multiplier_amount")
 					var card_script := [{
 							"name": "apply_effect",
+							"tags": ["Card"],
 							"effect_name": Terms.ACTIVE_EFFECTS.poison.name,
 							"subject": "trigger",
 							"modification": dstacks * multiplier,
@@ -110,6 +113,7 @@ func custom_script(script: ScriptObject) -> void:
 						.get("_amounts",{}).get("immersion_amount")
 				var card_script := [{
 					"name": "mod_counter",
+					"tags": ["Card"],
 					"counter_name": "immersion",
 					"modification": decrease,
 				}]
@@ -131,12 +135,14 @@ func custom_script(script: ScriptObject) -> void:
 						var card_script := [
 							{
 								"name": "apply_effect",
+								"tags": ["Card"],
 								"effect_name": buff,
 								"subject": "trigger",
 								"modification": -modification,
 							},
 							{
 								"name": "apply_effect",
+								"tags": ["Card"],
 								"effect_name": buff,
 								"subject": "dreamer",
 								"modification": modification,

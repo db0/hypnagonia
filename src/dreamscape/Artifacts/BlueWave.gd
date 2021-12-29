@@ -14,7 +14,7 @@ func _on_player_turn_started(_turn: Turn) -> void:
 				"subject": "boardseek",
 				"amount": ArtifactDefinitions.BlueWave.amounts.damage_amount,
 				"subject_count": "all",
-				"tags": ["Attack"],
+				"tags": ["Attack", "Curio"],
 				"filter_state_seek": [{
 					"filter_group": "EnemyEntities",
 				},],

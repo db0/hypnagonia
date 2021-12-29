@@ -7,6 +7,7 @@ const scripts := {
 			"hand": [
 				{
 					"name": "remove_card_from_deck",
+					"tags": ["Card"],
 					"subject": "self",
 				},
 			],
@@ -17,6 +18,7 @@ const scripts := {
 			"hand": [
 				{
 					"name": "remove_card_from_deck",
+					"tags": ["Card"],
 					"subject": "self",
 				},
 			],
@@ -27,6 +29,7 @@ const scripts := {
 			"hand": [
 				{
 					"name": "apply_effect",
+					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.poison.name,
 					"subject": "dreamer",
 					"modification":  {
@@ -42,6 +45,7 @@ const scripts := {
 			"hand": [
 				{
 					"name": "apply_effect",
+					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.disempower.name,
 					"subject": "dreamer",
 					"modification":  {
@@ -57,6 +61,7 @@ const scripts := {
 			"hand": [
 				{
 					"name": "apply_effect",
+					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.burn.name,
 					"subject": "dreamer",
 					"modification":  {
@@ -72,6 +77,7 @@ const scripts := {
 			"hand": [
 				{
 					"name": "mod_counter",
+					"tags": ["Card"],
 					"trigger": "self",
 					"counter_name": "immersion",
 					"modification":  {
@@ -91,6 +97,7 @@ const scripts := {
 					# so I need to wait for the immersion to be increased
 					# first
 					"name": "custom_script",
+					"tags": ["Card"],
 				},
 			],
 		},
@@ -98,6 +105,7 @@ const scripts := {
 			"hand": [
 				{
 					"name": "move_card_to_container",
+					"tags": ["Card"],
 					"subject": "self",
 					"dest_container": "forgotten",
 				},
@@ -109,6 +117,7 @@ const scripts := {
 			"pile": [
 				{
 					"name": "custom_script",
+					"tags": ["Card"],
 				}
 			],
 			"filter_source": "deck",

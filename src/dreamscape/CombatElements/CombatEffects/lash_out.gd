@@ -18,7 +18,7 @@ func _on_entity_damaged(_entity, amount, _trigger: Node, _tags: Array) -> void:
 	"name": "modify_damage",
 	"subject": "trigger",
 	"amount": amount * multiplier,
-	"tags": ["Attack"],
+	"tags": ["Attack", "Combat Effect", "Concentration"],
 	}]
 	# Just in case all enemies died during execution...
 	if all_enemies.size():

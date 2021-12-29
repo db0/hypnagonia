@@ -5,6 +5,7 @@ func _on_player_turn_started(_turn: Turn = null) -> void:
 		{
 			"name": "mod_counter",
 			"counter_name": "immersion",
+			"tags": ["Curio"],
 			"modification": ArtifactDefinitions.ProgressiveImmersion.amounts.immersion_amount,
 		},
 	]

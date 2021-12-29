@@ -15,5 +15,6 @@ func on_enemy_effect_added(_entity: CombatEntity, _trigger: String, details: Dic
 						"name": "assign_defence",
 						"subject": "dreamer",
 						"amount": stacks * multiplier,
+						"tags": ["Combat Effect", "Concentration"],
 					}]
 			execute_script(unassailable)

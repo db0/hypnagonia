@@ -5006,7 +5006,7 @@ const CARDS := {
 	"Sneaky-Beaky": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
-		"Abilities": "Whenever you succesfully {damage} a Torment, "\
+		"Abilities": "Whenever you succesfully {damage} a Torment with a card or memory effect, "\
 				+ "it gains it {effect_stacks} {confusion}.",
 		"Cost": 2,
 		"_illustration": "Nobody",
@@ -5027,7 +5027,7 @@ const CARDS := {
 	"@ Sneaky-Beaky @": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
-		"Abilities": "Whenever you succesfully {damage} a Torment, "\
+		"Abilities": "Whenever you succesfully {damage} a Torment with a card or memory effect, "\
 				+ "it gains it {effect_stacks} {confusion}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -5044,7 +5044,7 @@ const CARDS := {
 	"^ Sneaky-Beaky ^": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.GENERIC_TAGS.alpha.name],
-		"Abilities": "Whenever you succesfully {damage} a Torment, "\
+		"Abilities": "Whenever you succesfully {damage} a Torment with a card or memory effect, "\
 				+ "it gains it {effect_stacks} {confusion}.",
 		"Cost": 2,
 		"_illustration": "Nobody",
@@ -5196,7 +5196,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}. "\
-				+ "If the target has {confusion}, {pierce}",
+				+ "If the target has {poison}, {pierce}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -5211,9 +5211,9 @@ const CARDS := {
 	},
 	"Ω Impugn Ω": {
 		"Type": "Action",
-		"Tags": [],
+		"Tags": [Terms.GENERIC_TAGS.omega.name],
 		"Abilities": "{damage} for {damage_amount}. "\
-				+ "If the target has {confusion}, {pierce}",
+				+ "If the target has {poison}, {pierce}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",

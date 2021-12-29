@@ -13,6 +13,6 @@ func _on_signal_received(trigger_card, trigger, details) -> void:
 			"name": "modify_damage",
 			"subject": "dreamer",
 			"amount": stacks * multiplier,
-			"tags": ["Exert"],
+			"tags": ["Exert", "Combat Effect", "Concentration"],
 		}]
 		execute_script(script)

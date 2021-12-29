@@ -15,6 +15,7 @@ func _on_player_turn_started(_turn: Turn = null) -> void:
 			"name": "mod_counter",
 			"counter_name": "immersion",
 			"modification": ArtifactDefinitions.ThickImmersion.amounts.immersion_amount,
+			"tags": ["Curio"],
 		},
 	]
 	execute_script(script)
@@ -33,6 +34,7 @@ func _on_first_reshuffle(pile: Pile) -> void:
 			"effect_name": Terms.ACTIVE_EFFECTS.vulnerable.name,
 			"subject": "dreamer",
 			"modification": ArtifactDefinitions.ThickImmersion.amounts.effect_stacks,
+			"tags": ["Curio"],
 		},
 	]
 	execute_script(script)

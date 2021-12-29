@@ -15,4 +15,4 @@ func _on_entity_attacked(_entity, _amount, trigger: Node, _tags: Array) -> void:
 	or (entity_type == Terms.ENEMY 
 			and trigger 
 			and trigger.is_in_group("PlayerEntities")):
-		trigger.modify_damage(stacks, false, ["Effect", "Blockable", "Thorns"], owning_entity)
+		trigger.modify_damage(stacks, false, ["Combat Effect", "Blockable", "Thorns"], owning_entity)

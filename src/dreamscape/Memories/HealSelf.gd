@@ -6,7 +6,7 @@ func execute_memory_effect() -> void:
 				"name": "modify_damage",
 				"subject": "dreamer",
 				"amount": MemoryDefinitions.HealSelf.amounts.heal_amount,
-				"tags": ["Healing"],
+				"tags": ["Healing", "Memory"],
 		},
 	]
 	execute_script(script)

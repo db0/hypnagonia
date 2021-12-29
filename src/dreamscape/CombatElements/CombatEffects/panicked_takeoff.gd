@@ -17,6 +17,7 @@ func _on_entity_damaged(entity, _amount, _trigger: Node, _tags: Array) -> void:
 			"subject": "dreamer",
 			"modification": stacks * cfc.card_definitions[name]\
 			.get("_amounts",{}).get("effect_stacks", 1),
+			"tags": ["Combat Effect", "Concentration"],
 		},
 	]
 	if upgrade == "wildly":
@@ -24,6 +25,7 @@ func _on_entity_damaged(entity, _amount, _trigger: Node, _tags: Array) -> void:
 			"name": "draw_cards",
 			"card_count": stacks * cfc.card_definitions[name]\
 					.get("_amounts",{}).get("draw_amount", 1),
+			"tags": ["Combat Effect", "Concentration"],
 		}
 		takeoff.append(wild)
 	execute_script(takeoff, entity)
