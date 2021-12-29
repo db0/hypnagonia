@@ -28,6 +28,7 @@ func _ready() -> void:
 #		art_scene.scale = Vector2(0.24,0.24)
 		art_scene.enemy_polygon.position =+ art.rect_size + art_scene.enemy_polygon.position
 		entity_texture.visible = false
+		entity_texture.material = null
 		highlight.entity_art = art_scene
 	# warning-ignore:return_value_discarded
 	intents.prepare_intents()
@@ -53,17 +54,23 @@ func activate() -> void:
 	# I don't want to be waiting too long for the animation to finish
 	# so I give it at most 1.5 seconds to run before I proceed to the next enemy
 	while animated_art and animated_art.animation_player.is_playing():
+		# If we wait while the torment is dead, the instance mit disappear by the time we return
+		if is_dead:
+			break
 		yield(get_tree().create_timer(0.5), "timeout")
 		wait_for_anim += 1
 		if wait_for_anim > 2: 
 			break
-	yield(get_tree().create_timer(0.1), "timeout")
+	if not is_dead:
+		yield(get_tree().create_timer(0.1), "timeout")
 	# print_debug("Activated: " + canonical_name)
 	emit_signal("finished_activation", self)
 	# warning-ignore:return_value_discarded
 	intents.prepare_intents()
 
 func die() -> void:
+	if is_dead:
+		return
 	is_dead = true
 	emit_signal("entity_killed", damage)
 	if animated_art:
@@ -75,4 +82,5 @@ func die() -> void:
 	else:
 		entity_texture.material = ShaderMaterial.new()
 		entity_texture.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
-		is_dead = true
+
+		

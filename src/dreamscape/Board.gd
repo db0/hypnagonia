@@ -12,6 +12,11 @@ var activated_enemies: Array
 var boss_battle := false
 var bgm_tracks : Array
 
+var enemies_at_start_of_turn
+
+var _debug_enemies_at_end_of_turn
+var _debug_enemies_started_activation := []
+
 onready var bottom_gui := $VBC/HBC
 onready var _player_area := $VBC/CombatArena/PlayerArea
 onready var _enemy_area := $VBC/CombatArena/EnemyArea/Enemies
@@ -21,6 +26,8 @@ onready var _bg_tint := $BackgroundTint
 onready var _board_cover := $FadeToBlack
 onready var _tween := $Tween
 onready var player_info := $VBC/PlayerInfo
+onready var _debug_timer := $EnemyTurnStuckTimer
+onready var _debug_warning := $VBC/DebugWarning
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -63,6 +70,11 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if cfc.game_paused and cfc.NMAP.has("main") and cfc.NMAP.main._current_focus_source:
 		cfc.NMAP.main.unfocus_all()
+	if _debug_warning.visible:
+		if _debug_timer.time_left > 0:
+			_debug_warning.text = "The enemy turn appears to be stuck. Force unsticking in: " + str(round(_debug_timer.time_left))
+		else:
+			_debug_warning.text = "Game force-unstuck. Please check the debug console and consider opening a bug report"
 
 func begin_encounter() -> void:
 	cfc.game_paused = false
@@ -213,11 +225,15 @@ func load_deck() -> void:
 
 
 func _on_player_turn_started(_turn: Turn) -> void:
+	_debug_timer.stop()
 	if is_instance_valid(dreamer) and not dreamer.is_dead:
 		end_turn.disabled = false
 
 
 func _on_player_turn_ended(_turn: Turn) -> void:
+	_debug_warning.visible = false
+	_debug_enemies_at_end_of_turn = get_tree().get_nodes_in_group("EnemyEntities").size()
+	_debug_timer.start(10)
 	end_turn.disabled = true
 	yield(get_tree().create_timer(0.3), "timeout")
 	while not cfc.NMAP.hand.is_hand_refilled:
@@ -229,7 +245,10 @@ func _on_enemy_turn_started(_turn: Turn) -> void:
 	# We delay, to allow effects like poison to activate first
 	yield(get_tree().create_timer(1), "timeout")
 	# I want the enemies to activate serially
+	enemies_at_start_of_turn = get_tree().get_nodes_in_group("EnemyEntities").size()
+	_debug_enemies_started_activation.clear()
 	for enemy in get_tree().get_nodes_in_group("EnemyEntities"):
+		_debug_enemies_started_activation.append(enemy)
 		# It might have died of poison in the meantime
 		if is_instance_valid(enemy):
 #		print_debug("Activating Intents: " + enemy.canonical_name)
@@ -244,7 +263,7 @@ func _on_enemy_turn_ended(_turn: Turn) -> void:
 func _on_finished_enemy_activation(enemy: EnemyEntity) -> void:
 	if not enemy in activated_enemies:
 		activated_enemies.append(enemy)
-	if activated_enemies.size() == get_tree().get_nodes_in_group("EnemyEntities").size():
+	if activated_enemies.size() == enemies_at_start_of_turn:
 		turn.end_enemy_turn()
 		turn.start_player_turn()
 
@@ -357,19 +376,43 @@ func _input(event):
 		var _torment1
 		var _torment2
 		var _torment3
-		_torment2 = spawn_enemy(EnemyDefinitions.THE_EXAM)
+		_torment1 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_VICTIM)
 #		spawn_enemy(EnemyDefinitions.THE_VICTIM)
 #		spawn_enemy(EnemyDefinitions.THE_VICTIM)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 20)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.fortify.name, 7)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 3)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.laugh_at_danger.name, 1)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.recall.name, 1)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.unconventional.name, 1, false, false, ['Debug'], 'weirdly')
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.fortify.name, 4)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.fortify.name, 4)
+		if _torment1:
+#			_torment1.health = 1000
+			_torment1.health = 23
+			_torment1.damage = 17
+			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
+			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.marked.name, 1)
+			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 2)
+			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 5)
 		if _torment2:
-			_torment2.health = 1000
+			_torment2.health = 25
+			_torment2.damage = 17
+#			_torment2.health = 1000
+			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
+			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.marked.name, 1)
+			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
+			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 5)
 #			_torment2.defence = 10
 		if _torment3:
-			_torment3.health = 1000
+			_torment3.health = 18
+			_torment3.damage = 15
+#			_torment3.health = 1000
+			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
+			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.marked.name, 1)
+			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 5)
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.fortify.name, 5)
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.quicken.name, -4)
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.empower.name, 4)
@@ -423,3 +466,43 @@ func _on_Debug_pressed() -> void:
 	counters.mod_counter("immersion",3)
 	for _iter in range(3):
 		cfc.NMAP.hand.draw_card(cfc.NMAP.deck)
+
+
+func _on_EnemyTurnStuckTimer_timeout() -> void:
+	if not _debug_warning.visible:
+		_debug_warning.visible = true
+		_debug_timer.start(10)
+		return
+	print("Oops, it seems the enemy turn is stuck! Who coded this thing? Unleashing the trained monkeys after the developers. Please wait...")
+	print(":::Activated Torments: ", activated_enemies)
+	print(":::Available Torments: ", get_tree().get_nodes_in_group("EnemyEntities").size())
+	print(":::Torments available at start of Torment turn: ", _debug_enemies_at_end_of_turn)
+	print(":::Torments who started activating but never finished: ", _debug_enemies_started_activation)
+	var undead_enemies = 0
+	for t in get_tree().get_nodes_in_group("EnemyEntities"):
+		if t.is_dead:
+			undead_enemies += 1
+	print(":::Torments who think they're dead: ", undead_enemies)
+	for t in get_tree().get_nodes_in_group("EnemyEntities"):
+		var effects := ""
+		for e in t.active_effects.get_all_effects_nodes():
+			effects += "\t\t%s: %s\n" % [e.canonical_name, e.stacks]
+		print(":::%s state:\n\t:::Interpretation max: %s\n\t:::Interpretation taken: %s\n\t:::Combat Effects:\n%s" % [
+			t,
+			t.health,
+			t.damage,
+			effects
+		])
+	var effects := ""
+	for e in dreamer.active_effects.get_all_effects_nodes():
+		effects += "\t\t%s: %s\n" % [e.canonical_name, e.stacks]
+	print(":::Dreamer state:\n\t:::Interpretation Max: %s\n\t:::Interpretation taken: %s\n\t:::Combat Effects:\n %s\n\t:::Curios: %s\n\t:::Memories: %s" % [
+		dreamer.health,
+		dreamer.damage,
+		effects,
+		globals.player.get_all_artifact_names(),
+		globals.player.get_all_memory_names()
+	])
+	print("Whipping the developers with the rubber chicken to unstick the game forcefully. Sorry for the inconvenience and please open a bug report!")
+	turn.end_enemy_turn()
+	turn.start_player_turn()
