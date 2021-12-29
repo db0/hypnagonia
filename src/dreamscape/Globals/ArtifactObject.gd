@@ -40,3 +40,6 @@ func instance_artifact() -> Artifact:
 		var artifact_script = load(script_path)
 		artifact.set_script(artifact_script)
 	return(artifact)
+
+func get_class() -> String:
+	return("ArtifactObject")

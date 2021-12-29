@@ -34,8 +34,9 @@ func _ready() -> void:
 	setup(artifact_object.definition, artifact_object.canonical_name)
 	# warning-ignore:return_value_discarded
 	artifact_object.connect("removed", self, "_on_artifact_removed")
-	# warning-ignore:return_value_discarded
-	artifact_object.connect("counter_modified", self, "_on_artifact_counter_modified")
+	if artifact_object.get_class() == "ArtifactObject":
+		# warning-ignore:return_value_discarded
+		artifact_object.connect("counter_modified", self, "_on_artifact_counter_modified")
 
 
 func setup_artifact(_artifact_object, _is_active: bool, new_addition: bool) -> void:

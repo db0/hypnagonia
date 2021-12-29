@@ -44,12 +44,14 @@ func activate() -> void:
 	if is_dead: 
 		emit_signal("finished_activation", self)
 		return
-	# print_debug(damage, is_dead, health)
+#	print_debug(damage, is_dead, health)
 	if animated_art:
 		animated_art.act(intents.animation_name)
 	var sceng = intents.execute_scripts()
 	if sceng is GDScriptFunctionState:
-		sceng = yield(sceng, "completed")
+		# Yielding for anything when the entity is about to deinstance is not a good idea
+		if not is_dead:
+			sceng = yield(sceng, "completed")
 	var wait_for_anim := 0
 	# I don't want to be waiting too long for the animation to finish
 	# so I give it at most 1.5 seconds to run before I proceed to the next enemy

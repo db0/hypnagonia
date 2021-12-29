@@ -139,3 +139,6 @@ func _calculate_threshold() -> void:
 	if pathos_accumulated > pathos_threshold:
 		pathos_accumulated = pathos_threshold
 
+
+func get_class() -> String:
+	return("MemoryObject")

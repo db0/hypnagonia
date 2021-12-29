@@ -264,6 +264,8 @@ func _on_finished_enemy_activation(enemy: EnemyEntity) -> void:
 	if not enemy in activated_enemies:
 		activated_enemies.append(enemy)
 	if activated_enemies.size() == enemies_at_start_of_turn:
+		# Small wait to allow dying enemies to deinstance
+		yield(get_tree().create_timer(1), "timeout")
 		turn.end_enemy_turn()
 		turn.start_player_turn()
 
@@ -383,7 +385,7 @@ func _input(event):
 #		spawn_enemy(EnemyDefinitions.THE_VICTIM)
 #		spawn_enemy(EnemyDefinitions.THE_VICTIM)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 20)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 3)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 30)
 		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.laugh_at_danger.name, 1)
 		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
 		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.recall.name, 1)
@@ -396,15 +398,15 @@ func _input(event):
 			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
 			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.marked.name, 1)
 			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 2)
-			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 5)
+#			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 5)
 		if _torment2:
-			_torment2.health = 25
+			_torment2.health = 775
 			_torment2.damage = 17
 #			_torment2.health = 1000
 			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
 			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.marked.name, 1)
 			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
-			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 5)
+#			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 5)
 #			_torment2.defence = 10
 		if _torment3:
 			_torment3.health = 18
@@ -412,7 +414,7 @@ func _input(event):
 #			_torment3.health = 1000
 			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
 			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.marked.name, 1)
-			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 5)
+#			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 5)
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.fortify.name, 5)
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.quicken.name, -4)
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.empower.name, 4)
@@ -477,7 +479,11 @@ func _on_EnemyTurnStuckTimer_timeout() -> void:
 	print(":::Activated Torments: ", activated_enemies)
 	print(":::Available Torments: ", get_tree().get_nodes_in_group("EnemyEntities").size())
 	print(":::Torments available at start of Torment turn: ", _debug_enemies_at_end_of_turn)
-	print(":::Torments who started activating but never finished: ", _debug_enemies_started_activation)
+	var unfinished_enemies := []
+	for e in _debug_enemies_started_activation:
+		if e != activated_enemies:
+			unfinished_enemies.append(e)
+	print(":::Torments who started activating but never finished: ", unfinished_enemies)
 	var undead_enemies = 0
 	for t in get_tree().get_nodes_in_group("EnemyEntities"):
 		if t.is_dead:
