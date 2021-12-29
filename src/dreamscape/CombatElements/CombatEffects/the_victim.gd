@@ -14,7 +14,8 @@ func _on_entity_damaged(entity, amount, _trigger: Node, _tags: Array) -> void:
 				"name": "apply_effect",
 				"effect_name": Terms.ACTIVE_EFFECTS.strengthen.name,
 				"subject": "self",
-				"modification": -stacks
+				"modification": -stacks,
+				"tags": ["Combat Effect", "Concentration"],
 			},
 		]
 		execute_script(discern, entity)

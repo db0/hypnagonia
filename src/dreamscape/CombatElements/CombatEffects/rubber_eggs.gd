@@ -13,7 +13,7 @@ func _on_player_turn_ended(turn: Turn) -> void:
 					"name": "modify_damage",
 					"subject": "trigger",
 					"amount": damage_amount,
-					"tags": ["Attack"],
+					"tags": ["Attack", "Combat Effect", "Concentration"],
 				}]
 				execute_script(egg, rng_enemy)
 				if upgrade != "bouncy":

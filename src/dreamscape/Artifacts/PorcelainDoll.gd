@@ -64,7 +64,8 @@ func _on_player_turn_started(_turn: Turn) -> void:
 			{
 				"name": "mod_counter",
 				"counter_name": "immersion",
-				"modification": 1
+				"modification": 1,
+				"tags": ["Curio"],
 			},
 			{
 				"name": "draw_cards",

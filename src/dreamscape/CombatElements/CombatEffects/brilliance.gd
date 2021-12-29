@@ -10,5 +10,6 @@ func _on_deck_shuffled(_deck) -> void:
 				"name": "assign_defence",
 				"subject": "dreamer",
 				"amount": core_amount * stacks,
+				"tags": ["Combat Effect", "Concentration"],
 			}]
 	execute_script(brilliance)

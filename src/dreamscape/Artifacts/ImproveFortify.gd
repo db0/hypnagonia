@@ -14,6 +14,7 @@ func _on_effect_modified(
 				"effect_name": Terms.ACTIVE_EFFECTS.armor.name,
 				"subject": "dreamer",
 				"modification": lost_fortify,
+				"tags": ["Curio"],
 			},
 		]
 		execute_script(script)

@@ -17,6 +17,7 @@ func _on_player_turn_started(_turn: Turn = null) -> void:
 			"subject": "dreamer",
 			"modification": ArtifactDefinitions.ThickStrength.amounts.effect_stacks,
 			"upgrade_name": "thick",
+			"tags": ["Curio"],
 		},
 	]
 	execute_script(script)
@@ -39,6 +40,7 @@ func _on_first_reshuffle(_pile: Pile) -> void:
 			"modification": 0,
 			"set_to_mod": true,
 			"upgrade_name": "thick",
+			"tags": ["Curio"],
 		},
 	]
 	execute_script(script)

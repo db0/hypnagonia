@@ -13,6 +13,7 @@ func _on_reshuffle(_pile: Pile):
 		"effect_name": Terms.ACTIVE_EFFECTS.strengthen.name,
 		"subject": "dreamer",
 		"modification": -stacks * multiplier,
+		"tags": ["Combat Effect", "Concentration"],
 	}]
 	execute_script(unfocus)
 	

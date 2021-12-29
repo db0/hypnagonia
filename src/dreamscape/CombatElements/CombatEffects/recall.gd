@@ -26,10 +26,12 @@ func _on_player_turn_ended(_turn: Turn) -> void:
 				"subject_index": "top",
 				"subject_count": cards,
 				"is_cost": true,
+				"tags": ["Combat Effect", "Concentration"],
 			},
 			{
 				"name": "shuffle_container",
 				"dest_container": "deck",
+				"tags": ["Combat Effect", "Concentration"],
 			},
 		]
 		# I am waiting a bit to avoid conflicting with the normal hand reshuffle.

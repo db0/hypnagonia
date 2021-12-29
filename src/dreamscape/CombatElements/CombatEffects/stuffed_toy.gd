@@ -12,7 +12,8 @@ func _on_entity_attacked(entity, _amount, _trigger: Node, _tags: Array) -> void:
 		{
 			"name": "assign_defence",
 			"subject": "trigger",
-			"amount": stacks * trigger_count
+			"amount": stacks * trigger_count,
+			"tags": ["Combat Effect", "Concentration"],
 		},
 	]
 	execute_script(plushiness, entity)

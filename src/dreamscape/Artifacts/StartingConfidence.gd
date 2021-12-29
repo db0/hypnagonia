@@ -15,6 +15,7 @@ func _on_battle_start():
 			"name": "assign_defence",
 			"subject": "dreamer",
 			"amount": ArtifactDefinitions.StartingConfidence.amounts.defence_amount,
+			"tags": ["Curio"],
 		}
 	]
 	execute_script(script)

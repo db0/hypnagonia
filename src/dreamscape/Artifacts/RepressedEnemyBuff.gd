@@ -18,6 +18,7 @@ func _on_battle_start():
 			"effect_name": Terms.ACTIVE_EFFECTS.buffer.name,
 			"subject": "dreamer",
 			"modification": ArtifactDefinitions.RepressedEnemyBuff.amounts.effect_stacks * multiplier,
+			"tags": ["Curio"],
 		},
 	]
 	execute_script(script)

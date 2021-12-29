@@ -28,6 +28,7 @@ func _on_reshuffle(_pile: Pile):
 	var script = [{
 		"name": "draw_cards",
 		"card_count": ArtifactDefinitions.ThinCardDraw.amounts.draw_amount,
+		"tags": ["Curio"],
 	}]
 	execute_script(script)
 

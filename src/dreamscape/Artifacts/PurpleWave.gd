@@ -12,7 +12,7 @@ func _on_player_turn_started(_turn: Turn) -> void:
 				"name": "modify_damage",
 				"subject": "dreamer",
 				"amount": -ArtifactDefinitions.PurpleWave.amounts.heal_amount,
-				"tags": ["Healing"],
+				"tags": ["Healing", "Curio"],
 			},
 		]
 		execute_script(script)

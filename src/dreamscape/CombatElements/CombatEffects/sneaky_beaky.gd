@@ -16,5 +16,6 @@ func _on_entity_damaged(entity, _amount, _trigger: Node, tags: Array) -> void:
 		"subject": "trigger",
 		"modification": cfc.card_definitions[name]\
 			.get("_amounts",{}).get("effect_stacks") * stacks,
+		"tags": ["Combat Effect", "Concentration"],
 	}]
 	execute_script(beak, entity)

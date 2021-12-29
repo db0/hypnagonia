@@ -13,5 +13,6 @@ func _on_first_refill():
 	var script = [{
 		"name": "draw_cards",
 		"card_count": ArtifactDefinitions.StartingCards.amounts.draw_amount,
+		"tags": ["Curio"],
 	}]
 	execute_script(script)

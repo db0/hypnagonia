@@ -14,5 +14,6 @@ func _on_deck_shuffled(_deck) -> void:
 					"effect_name": Terms.ACTIVE_EFFECTS.buffer.name,
 					"subject": "dreamer",
 					"modification": stacks * multiplier,
+					"tags": ["Combat Effect", "Concentration"],
 				}]
 		execute_script(eureka)

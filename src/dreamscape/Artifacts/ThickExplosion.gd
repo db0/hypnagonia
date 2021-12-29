@@ -21,7 +21,7 @@ func _on_first_reshuffle(pile: Pile) -> void:
 			"subject": "boardseek",
 			"amount": cfc.NMAP.discard.last_amount_pre_reshuffle,
 			"subject_count": "all",
-			"tags": ["Artifact", "Blockable"],
+			"tags": ["Artifact", "Blockable", "Curio"],
 			"filter_state_seek": [{
 				"filter_group": "EnemyEntities",
 			}],

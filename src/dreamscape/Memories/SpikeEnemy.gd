@@ -8,7 +8,7 @@ func execute_memory_effect() -> void:
 				"subject": "target",
 				"needs_subject": true,
 				"amount": MemoryDefinitions.SpikeEnemy.amounts.damage_amount,
-				"tags": ["Attack"],
+				"tags": ["Attack", "Memory"],
 				"filter_state_subject": [{
 					"filter_group": "EnemyEntities",
 				},],
