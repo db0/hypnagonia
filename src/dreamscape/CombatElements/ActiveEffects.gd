@@ -106,6 +106,9 @@ func get_all_effects() -> Dictionary:
 		found_effects[effect.get_effect_name()] = effect
 	return(found_effects)
 
+func get_all_effects_nodes() -> Array:
+	return(get_children())
+
 func get_ordered_effects(ordered_effects: Dictionary) -> Dictionary:
 	for effect in get_children():
 		match effect.priority:

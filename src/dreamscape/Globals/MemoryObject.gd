@@ -31,6 +31,10 @@ func _init(memory_name: String, _mods := {}) -> void:
 	context = definition["context"]
 	pathos_used = definition["pathos"]
 	_calculate_threshold()
+	# First use is free
+	pathos_accumulated = pathos_threshold
+	is_ready = true
+#	emit_signal("pathos_accumulated", self, 0)
 	modifiers = _mods
 	# warning-ignore:return_value_discarded
 	globals.player.pathos.connect("pathos_released", self, "_on_pathos_released")
@@ -135,3 +139,6 @@ func _calculate_threshold() -> void:
 	if pathos_accumulated > pathos_threshold:
 		pathos_accumulated = pathos_threshold
 
+
+func get_class() -> String:
+	return("MemoryObject")

@@ -267,7 +267,7 @@ const ResistPoison := {
 const ResistBurn := {
 	"canonical_name": "ResistBurn",
 	"name": "ResistEnvy",
-	"description": "{artifact_name}: Any time you would receive {poison} reduce it by {alteration_amount}.",
+	"description": "{artifact_name}: Any time you would receive {burn} reduce it by {alteration_amount}.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",

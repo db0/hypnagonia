@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/dreamscape/Discard.gd" type="Script" id=1]
 [ext_resource path="res://src/core/Pile.tscn" type="PackedScene" id=2]
@@ -11,6 +11,13 @@
 [ext_resource path="res://assets/backgrounds/tint.png" type="Texture" id=9]
 [ext_resource path="res://assets/icons/GUI/clockwise-rotation.png" type="Texture" id=10]
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=12]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.45098, 0, 0, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 8 )
@@ -74,6 +81,16 @@ __meta__ = {
 
 [node name="PlayerInfo" parent="VBC" instance=ExtResource( 7 )]
 context = 1
+
+[node name="DebugWarning" type="Label" parent="VBC"]
+visible = false
+margin_top = 53.0
+margin_right = 1455.0
+margin_bottom = 73.0
+custom_styles/normal = SubResource( 4 )
+text = "The enemy turn appears to be stuck. Force unsticking in: "
+align = 1
+valign = 1
 
 [node name="CombatArena" type="HBoxContainer" parent="VBC"]
 margin_top = 53.0
@@ -438,6 +455,11 @@ __meta__ = {
 }
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="EnemyTurnStuckTimer" type="Timer" parent="."]
+wait_time = 20.0
+
+[connection signal="timeout" from="EnemyTurnStuckTimer" to="." method="_on_EnemyTurnStuckTimer_timeout"]
 
 [editable path="VBC/HandArea/HBC/DeckControl/VBC/Control/Deck"]
 [editable path="VBC/HandArea/HBC/DiscardsControl/VBC/ForgottenControl/Forgotten"]

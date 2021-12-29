@@ -3198,12 +3198,13 @@ const CARDS := {
 	"Introspection": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
-		"Abilities": "At the end of each turn, {relax} for {effect_amount} if you have not played any {attack_card} cards this turn.",
+		"Abilities": "At the end of the next {turns_amount} turns where you have not played any {attack_card} cards, {relax} for {effect_amount}.",
 		"Cost": 1,
 		"_illustration": "Maria Thoukydidou",
 		"_keywords": ["interpretation"],
 		"_rarity": "Uncommon",
 		"_amounts": {
+			"turns_amount": 4,
 			"effect_amount": 2,
 		},
 		"_upgrade_threshold": 8,
@@ -3215,7 +3216,7 @@ const CARDS := {
 	"Deep Introspection": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
-		"Abilities": "At the end of each turn, {relax} for {effect_amount} if you have not played any {attack_card} cards this turn.",
+		"Abilities": "At the end of the next {turns_amount} turns where you have not played any {attack_card} cards, {relax} for {effect_amount}.",
 		"Cost": 1,
 		"_illustration": "Maria Thoukydidou",
 		"_effects_info": {
@@ -3223,6 +3224,7 @@ const CARDS := {
 		},
 		"_rarity": "Uncommon",
 		"_amounts": {
+			"turns_amount": 3,
 			"effect_amount": 3,
 		},
 		"_is_upgrade": true,
@@ -3230,14 +3232,15 @@ const CARDS := {
 	"Light Introspection": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
-		"Abilities": "At the end of each turn, {relax} for {effect_amount} if you have not played more than 1 {attack_card} card this turn.",
-		"Cost": 2,
+		"Abilities": "At the end of the next {turns_amount} turns where you have not played more than 1 {attack_card} card, {relax} for {effect_amount}",
+		"Cost": 1,
 		"_illustration": "Maria Thoukydidou",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
 		"_rarity": "Uncommon",
 		"_amounts": {
+			"turns_amount": 4,
 			"effect_amount": 2,
 		},
 		"_is_upgrade": true,
