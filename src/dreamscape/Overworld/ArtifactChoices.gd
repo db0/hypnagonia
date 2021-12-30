@@ -39,6 +39,7 @@ func populate_artifacts(reward_type = "elite_artifact") -> void:
 		artifact_object.connect("artifact_selected", self, "_on_artifact_selected", [artifact_object])
 #	yield(get_tree().create_timer(0.15), "timeout")
 #	call_deferred('set_size',Vector2(0,0))
+	globals.journal.emit_signal("artifact_selection_started", self)
 
 
 func _on_artifact_selected(_option: int, artifact_object) -> void:

@@ -126,24 +126,38 @@ static func get_cost_format(memory_name: String, upgrades := 0) -> Dictionary:
 	if not memory_definition:
 		print_debug("WARNING: Memory Definition '%s; could not be found!" % [memory_name])
 		return({})
-	var pathos_threshold_multiplier : float = memory_definition.get("pathos_threshold_multiplier", 1)
+	var pathos_threshold_multiplier : float = memory_definition.get("pathos_threshold_multiplier", 2)
 	var pathos_accumulation_divider : float = memory_definition.get("pathos_accumulation_divider", 2)
+	var progression_avg : float = globals.player.pathos.get_progression_average(memory_definition.pathos)
+	var is_threshold_upgrade := false
+	var is_divider_upgrade := false
 	if upgrades > 0:
 		if "pathos_threshold_multiplier" in memory_definition.get("keys_modified_by_upgrade", []):
-			pathos_threshold_multiplier -= upgrades * memory_definition.amounts["upgrade_multiplier"]
+			pathos_threshold_multiplier -= float(upgrades) * float(memory_definition.amounts["upgrade_multiplier"]) * 0.1
+			is_threshold_upgrade = true
 		if "pathos_accumulation_divider" in memory_definition.get("keys_modified_by_upgrade", []):
 			pathos_accumulation_divider -= upgrades * memory_definition.amounts["upgrade_multiplier"]
+			is_divider_upgrade = true
+	var fill_cost = round(progression_avg * pathos_threshold_multiplier)
+	var turns_needed = round(fill_cost / (progression_avg / pathos_accumulation_divider))
+	var threshold_description = str(fill_cost)
+	if is_threshold_upgrade:
+		threshold_description = "[color=yellow]%s[/color]" % [threshold_description]
 	var cost_format := {
 		"pathos": memory_definition.pathos,
-		"fill_cost": round(globals.player.pathos.get_progression_average(memory_definition.pathos)\
-				* pathos_threshold_multiplier),
+		"fill_cost": threshold_description,
 		"delay_pct": round(2.0 / pathos_accumulation_divider * 100),
-		"delay_pct_explanation": '',
+		"turns_needed": turns_needed,
+		"delay_pct_explanation": '\nIt takes approx %s Journal encounters to be ready' % [turns_needed],
 	}
+	var divider_description := ''
 	if cost_format["delay_pct"] > 100:
-		cost_format["delay_pct_explanation"] = " and activates %s%% faster" % [cost_format["delay_pct"] - 100]
+		divider_description = " (%s%% faster)" % [cost_format["delay_pct"] - 100]
 	elif cost_format["delay_pct"] < 100:
-		cost_format["delay_pct_explanation"] = " and activates %s%% slower" % [abs(cost_format["delay_pct"] - 100)]
+		divider_description = " (%s%% slower)" % [abs(cost_format["delay_pct"] - 100)]
+	if is_divider_upgrade:
+		divider_description = "[color=yellow]%s[/color]" % [divider_description]
+	cost_format["delay_pct_explanation"] += divider_description
 	return(cost_format)
 
 
@@ -152,7 +166,7 @@ static func get_cost_format(memory_name: String, upgrades := 0) -> Dictionary:
 func _calculate_threshold() -> void:
 	var threshold_multiplier := float(definition.get("pathos_threshold_multiplier", 2))
 	if upgrades_amount and "pathos_threshold_multiplier" in definition.get("keys_modified_by_upgrade", []):
-		threshold_multiplier -= float(upgrades_amount) * float(definition.amounts["upgrade_multiplier"])
+		threshold_multiplier -= float(upgrades_amount) * float(definition.amounts["upgrade_multiplier"] * 0.1)
 	pathos_threshold = int(round(globals.player.pathos.get_progression_average(pathos_used)
 			* threshold_multiplier))
 	# Threshold can never be below 1

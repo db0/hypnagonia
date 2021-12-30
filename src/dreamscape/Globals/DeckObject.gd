@@ -115,10 +115,10 @@ func get_upgradable_card_type(type:= "least_progress") -> CardEntry:
 	for ce in upg_cards:
 		if results_dict[type]["value"] == ce.upgrade_progress:
 			results_dict[type]["cards"].append(ce)
-		elif results_dict[type]["value"] > ce.upgrade_progress:
+		elif results_dict[type]["value"] < ce.upgrade_progress:
 			results_dict["most_progress"]["cards"] = [ce]
 			results_dict["most_progress"]["value"] = ce.upgrade_progress
-		elif results_dict[type]["value"] < ce.upgrade_progress:
+		elif results_dict[type]["value"] > ce.upgrade_progress:
 			results_dict["least_progress"]["cards"] = [ce]
 			results_dict["least_progress"]["value"] = ce.upgrade_progress
 	if results_dict[type]["cards"].size() > 1:

@@ -287,7 +287,7 @@ const CardDraw := {
 	"canonical_name": "CardDraw",
 	"name": "CardDraw",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal "\
-			+ "to draw {draw_amount} {cards}",
+			+ "to draw {draw_amount} cards",
 	"icon": preload("res://assets/icons/memories/portrait.png"),
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.artifact,
@@ -369,6 +369,22 @@ const BufferSelf := {
 		"max_upgrades": 15,
 	},
 }
+const RerollDraft := {
+	"canonical_name": "RerollDraft",
+	"name": "Jumbled Fragments",
+	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory when a Card Draft is active "\
+			+ "to reroll the card draft.",
+	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"context": EffectContext.OVERWORLD,
+	"pathos": Terms.RUN_ACCUMULATION_NAMES.nce,
+	"pathos_threshold_multiplier": 3.5,
+	"pathos_accumulation_divider": 1.3,
+	"keys_modified_by_upgrade": ["pathos_threshold_multiplier"],
+	"amounts": {
+		"upgrade_multiplier": 2,
+		"max_upgrades": 15,
+	},
+}
 # Generic memories which have a chance to appear in any playthrough
 const GENERIC := [
 	DamageAll,
@@ -382,6 +398,7 @@ const GENERIC := [
 	RandomChaos,
 	ImmerseSelf,
 	CardDraw,
+	RerollDraft,
 ]
 
 # Archetype-specific memories which only appear in runs in which
@@ -422,7 +439,10 @@ static func get_memory_bbcode_format(memory_definition: Dictionary, upgrades := 
 		if key in memory_definition.get("keys_modified_by_upgrade",[]) and upgrades > 0:
 			upgrade_modifier = upgrades * memory_definition.amounts["upgrade_multiplier"]
 		var amount = memory_definition.amounts[key] + upgrade_modifier
-		format[key] = amount
+		if key in memory_definition.get("keys_modified_by_upgrade",[]):
+			format[key] = "[color=yellow]%s[/color]" % [amount]
+		else:
+			format[key] = amount
 	return(format)
 
 

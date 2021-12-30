@@ -93,6 +93,9 @@ func _ready() -> void:
 		globals.player.deck.connect("card_added", player_info, "_update_deck_count")
 		# warning-ignore:return_value_discarded
 		globals.player.deck.connect("card_removed", player_info, "_update_deck_count")
+		player_info._on_Settings_pressed()
+		yield(get_tree().create_timer(0.1), "timeout")
+		player_info._on_Settings_hide()		
 	## END DEBUG ##
 	globals.music.switch_scene_music('shop')
 	# warning-ignore:return_value_discarded
