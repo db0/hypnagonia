@@ -3126,7 +3126,6 @@ const CARDS := {
 			"damage_amount": 6,
 			"x_modifer": "+1"
 		},
-		"_upgrade_threshold": 7,
 		"_is_upgrade": true,
 	},
 	"+ Confrontation +": {
@@ -3140,7 +3139,6 @@ const CARDS := {
 		"_amounts": {
 			"damage_amount": 9,
 		},
-		"_upgrade_threshold": 7,
 		"_is_upgrade": true,
 	},
 	"Dodge": {
@@ -4661,7 +4659,6 @@ const CARDS := {
 			"defence_amount": 11,
 			"card_amount": 2,
 		},
-		"_upgrade_threshold": 8,
 		"_is_upgrade": true,
 	},
 	"Ω Excogitate Ω": {
@@ -4677,7 +4674,6 @@ const CARDS := {
 			"defence_amount": 15,
 			"card_amount": 1,
 		},
-		"_upgrade_threshold": 8,
 		"_is_upgrade": true,
 	},
 	"The Whippy-Flippy": {

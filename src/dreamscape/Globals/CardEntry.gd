@@ -22,6 +22,9 @@ func _init(_card_name: String) -> void:
 	# If the key is not set, it means the card is not upgradable
 	upgrade_threshold = cfc.card_definitions[card_name].get("_upgrade_threshold", -1)
 	set_upgrade_options()
+	## DEBUG
+#	set_upgrade_progress(upgrade_threshold)
+	## END DEBUG
 
 func instance_self() -> Card:
 	card_object = cfc.instance_card(card_name)
