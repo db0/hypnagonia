@@ -20,7 +20,7 @@ func _reveal_entry(
 	globals.journal._tween.start()
 
 
-func _on_rte_gui_input(event, rt_label: RichTextLabel, type = 'card_draft') -> void:
+func _on_rte_gui_input(event, rt_label: RichTextLabel, _type = 'card_draft') -> void:
 	if event.is_pressed() and event.get_button_index() == 1:
 		_disconnect_gui_inputs(rt_label)
 		globals.journal.grey_out_label(rt_label)

@@ -21,7 +21,7 @@ enum EffectContext {
 Keys:
 
 * pathos: Which pathos is used to fill up this memory
-* pathos_threshold_multiplier (default: 1): Normally the amount of pathos needed to fill up a memory is equal to
+* pathos_threshold_multiplier (default: 2): Normally the amount of pathos needed to fill up a memory is equal to
 	the average progression for that pathos. This multiplier multiplies the amount of pathos needed to
 	fill up that memory by this much. So e.g. with a multiplier of 2, frustration will go from needing 15 to fill up
 	to needing 30.
@@ -33,9 +33,9 @@ Keys:
 	to modify with the upgrades, before showing them to the player.
 
 With a pathos_threshold_multiplier and a pathos_accumulation_divider of 2 each, on average
-A memory will fill up every 4 encounters of that type. Typically you want these numbers to be higher
-for common encounters like Enemies, and lower for rare encounters like elites.
-In general, you want to aim for a memory to refill every 4-6 encounters
+A memory will fill up every 4 encounters, assuming the player had enough released pathos.
+Typically you want these numbers to be higher for powerful memories lower for weaker ones.
+In general, you want to aim for a memory to refill every 3-6 encounters
 """
 
 const DamageAll := {
@@ -63,7 +63,7 @@ const HealSelf := {
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.rest,
 	"pathos_threshold_multiplier": 2,
-	"pathos_accumulation_divider": 2.5,
+	"pathos_accumulation_divider": 2.7,
 	"keys_modified_by_upgrade": ["heal_amount"],
 	"amounts": {
 		"heal_amount": 5,
@@ -78,6 +78,8 @@ const BossFaster := {
 	"icon": preload("res://assets/icons/memories/portrait.png"),
 	"context": EffectContext.OVERWORLD,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
+	"pathos_threshold_multiplier": 1,
+	"pathos_accumulation_divider": 2,
 	"keys_modified_by_upgrade": ["pathos_amount"],
 	"amounts": {
 		"pathos_amount": 5,
@@ -92,6 +94,8 @@ const ProgressRandom := {
 	"icon": preload("res://assets/icons/memories/portrait.png"),
 	"context": EffectContext.OVERWORLD,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.shop,
+	"pathos_threshold_multiplier": 1.5,
+	"pathos_accumulation_divider": 1.5,
 	"keys_modified_by_upgrade": ["progress_amount"],
 	"amounts": {
 		"progress_amount": 2,
@@ -106,7 +110,8 @@ const SpikeEnemy := {
 	"icon": preload("res://assets/icons/memories/portrait.png"),
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.nce,
-	"pathos_threshold_multiplier": 2.5,
+	"pathos_threshold_multiplier": 3,
+	"pathos_accumulation_divider": 2,
 	"keys_modified_by_upgrade": ["damage_amount"],
 	"amounts": {
 		"damage_amount": 20,
@@ -121,6 +126,8 @@ const FortifySelf := {
 	"icon": preload("res://assets/icons/memories/portrait.png"),
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
+	"pathos_threshold_multiplier": 2,
+	"pathos_accumulation_divider": 2,
 	"keys_modified_by_upgrade": ["pathos_threshold_multiplier"],
 	"amounts": {
 		"effect_stacks": 1,
@@ -147,17 +154,18 @@ const DefendSelf := {
 const QuickenSelf := {
 	"canonical_name": "QuickenSelf",
 	"name": "Philosophy Lessons",
-	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
+	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal "\
 			+ "to gain {effect_stacks} {quicken}",
 	"icon": preload("res://assets/icons/memories/portrait.png"),
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.nce,
 	"pathos_threshold_multiplier": 1,
-	"pathos_accumulation_divider": 3,
+	"pathos_accumulation_divider": 4,
 	"keys_modified_by_upgrade": ["pathos_accumulation_divider"],
 	"amounts": {
 		"effect_stacks": 2,
-		"upgrade_multiplier": 1
+		"upgrade_multiplier": 1,
+		"max_upgrades": 20,
 	},
 }
 const StrengthenSelf := {
@@ -169,12 +177,12 @@ const StrengthenSelf := {
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.rest,
 	"pathos_threshold_multiplier": 1,
-	"pathos_accumulation_divider": 3,
+	"pathos_accumulation_divider": 4,
 	"keys_modified_by_upgrade": ["pathos_accumulation_divider"],
 	"amounts": {
 		"effect_stacks": 2,
 		"upgrade_multiplier": 1,
-		"max_upgrades": 10,
+		"max_upgrades": 20,
 	},
 }
 const RandomChaos := {
@@ -185,13 +193,13 @@ const RandomChaos := {
 	"icon": preload("res://assets/icons/memories/portrait.png"),
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.shop,
-	"pathos_threshold_multiplier": 3,
-	"pathos_accumulation_divider": 1,
+	"pathos_threshold_multiplier": 3.5,
+	"pathos_accumulation_divider": 1.5,
 	"keys_modified_by_upgrade": ["pathos_threshold_multiplier"],
 	"amounts": {
 		"draw_amount": 2,
 		"upgrade_multiplier": 1,
-		"max_upgrades": 5,
+		"max_upgrades": 10,
 	},
 }
 const ReshuffleHand := {
@@ -202,8 +210,8 @@ const ReshuffleHand := {
 	"icon": preload("res://assets/icons/memories/portrait.png"),
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
-	"pathos_threshold_multiplier": 2,
-	"pathos_accumulation_divider": 1,
+	"pathos_threshold_multiplier": 1.7,
+	"pathos_accumulation_divider": 1.7,
 	"keys_modified_by_upgrade": ["pathos_threshold_multiplier"],
 	"amounts": {
 		"upgrade_multiplier": 1,
@@ -267,6 +275,7 @@ const ImmerseSelf := {
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.artifact,
 	"pathos_threshold_multiplier": 2,
+	"pathos_accumulation_divider": 1.8,
 	"keys_modified_by_upgrade": ["pathos_threshold_multiplier"],
 	"amounts": {
 		"immersion_amount": 2,
@@ -283,6 +292,7 @@ const CardDraw := {
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.artifact,
 	"pathos_threshold_multiplier": 2,
+	"pathos_accumulation_divider": 1.8,
 	"keys_modified_by_upgrade": ["pathos_threshold_multiplier"],
 	"amounts": {
 		"draw_amount": 3,
@@ -298,8 +308,8 @@ const ExertRecovery := {
 	"icon": preload("res://assets/icons/memories/portrait.png"),
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
-	"pathos_threshold_multiplier": 2,
-	"pathos_accumulation_divider": 3,
+	"pathos_threshold_multiplier": 3,
+	"pathos_accumulation_divider": 2,
 	"keys_modified_by_upgrade": ["pathos_accumulation_divider"],
 	"amounts": {
 		"upgrade_multiplier": 1

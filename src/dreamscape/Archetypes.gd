@@ -18,7 +18,7 @@ const FLYER:= {
 		ArtifactDefinitions.ImproveImpervious
 	],
 	"Memories": [
-		"ImperviousSelf",
+		MemoryDefinitions.ImperviousSelf,
 	],
 	"Perturbations": [
 		
@@ -65,7 +65,7 @@ const MAD_SCIENTIST := {
 		
 	],
 	"Memories": [
-		"ReshuffleHand",
+		MemoryDefinitions.ReshuffleHand,
 	],
 	"Perturbations": [
 		"Apathy",
@@ -165,8 +165,8 @@ const FEARLESS:= {
 		ArtifactDefinitions.ImproveFortify
 	],
 	"Memories": [
-		"PoisonEnemy",
-		"FortifySelf"
+		MemoryDefinitions.PoisonEnemy,
+		MemoryDefinitions.FortifySelf,
 	],
 	"Perturbations": [
 		
@@ -231,7 +231,7 @@ const RUBBER_CHICKEN := {
 		
 	],
 	"Memories": [
-		"DisempowerEnemy",
+		MemoryDefinitions.DisempowerEnemy,
 	],
 	"Perturbations": [
 		
@@ -280,7 +280,8 @@ const ABUSIVE_RELATIONSHIP := {
 		
 	],
 	"Memories": [
-		"ExertRecovery",
+		MemoryDefinitions.ExertRecovery,
+		MemoryDefinitions.ExertSelf,
 	],
 	"Starting Artifacts": [
 		ArtifactDefinitions.EndingHeal

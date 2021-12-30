@@ -37,20 +37,27 @@ func _init(memory_name: String, _mods := {}) -> void:
 #	emit_signal("pathos_accumulated", self, 0)
 	modifiers = _mods
 	# warning-ignore:return_value_discarded
-	globals.player.pathos.connect("pathos_released", self, "_on_pathos_released")
+#	globals.player.pathos.connect("pathos_released", self, "_on_pathos_released")
+	if globals.encounters:
+		# warning-ignore:return_value_discarded
+		globals.encounters.connect("encounter_changed", self, "_on_encounter_changed")
 
 
 func remove_self() -> void:
 	emit_signal("removed")
 
 
-func accumulate_pathos(pathos: String, value: int) -> void:
+func accumulate_pathos(value: int) -> void:
+	# The memory cannot withdraw more pathos than the player currently has
+	if value > globals.player.pathos.released.get(pathos_used,0):
+		value = globals.player.pathos.released.get(pathos_used,0)
+	# The memory cannot withdraw more pathos then needed to reach its threshold
 	if pathos_accumulated + value > pathos_threshold:
 		value = pathos_threshold - pathos_accumulated
 	# Pathos send to a memory is considered spent
 	if value > 0:
 		pathos_accumulated += value
-		globals.player.pathos.spend_pathos(pathos, value)
+		globals.player.pathos.spend_pathos(pathos_used, value)
 		emit_signal("pathos_accumulated", self, value)
 	if pathos_accumulated >= pathos_threshold:
 		pathos_accumulated = pathos_threshold
@@ -81,21 +88,32 @@ func upgrade() -> void:
 		_calculate_threshold()
 
 
-func _on_pathos_released(pathos: String, amount: int) -> void:
-	if pathos == pathos_used:
-		# The pathos.release_adjustments dictionary allows a pathos that is exceeding
-		# its threshold for getting an encounter, to release more than just that amount
-		# every time it's used. To avoid a memory thus filling too quickly due to this
-		# multiplier (i.e. every 1-2 encounters of that type), we divide the amount of
-		# released pathos we use to fill up the memoty by the same amount.
-		var adjustment_div = globals.player.pathos.release_adjustments.get(pathos,1)
-		var accumulation_div = definition.get("pathos_accumulation_divider", 2)
-		if upgrades_amount and "pathos_accumulation_divider" in definition.get("keys_modified_by_upgrade", []):
-			accumulation_div -= upgrades_amount * definition.amounts["upgrade_multiplier"]
-		# warning-ignore:integer_division
-		var acc := int(round(amount / accumulation_div / adjustment_div))
+#func _on_pathos_released(pathos: String, amount: int) -> void:
+#	if pathos == pathos_used:
+#		# The pathos.release_adjustments dictionary allows a pathos that is exceeding
+#		# its threshold for getting an encounter, to release more than just that amount
+#		# every time it's used. To avoid a memory thus filling too quickly due to this
+#		# multiplier (i.e. every 1-2 encounters of that type), we divide the amount of
+#		# released pathos we use to fill up the memoty by the same amount.
+#		var adjustment_div = globals.player.pathos.release_adjustments.get(pathos,1)
+#		var accumulation_div = definition.get("pathos_accumulation_divider", 2)
+#		if upgrades_amount and "pathos_accumulation_divider" in definition.get("keys_modified_by_upgrade", []):
+#			accumulation_div -= upgrades_amount * definition.amounts["upgrade_multiplier"]
+#		# warning-ignore:integer_division
+#		var acc := int(round(amount / accumulation_div / adjustment_div))
+##		print_debug("%s : %s : %s : %s" % [amount, acc, adjustment_div, accumulation_div])
+#		accumulate_pathos(acc)
+
+
+func _on_encounter_changed(_act_name, _encounter_number) -> void:
+	var accumulation_div = definition.get("pathos_accumulation_divider", 2)
+	if upgrades_amount and "pathos_accumulation_divider" in definition.get("keys_modified_by_upgrade", []):
+		accumulation_div -= upgrades_amount * definition.amounts["upgrade_multiplier"]
+	# warning-ignore:integer_division
+	var amount : float = globals.player.pathos.get_progression_average(pathos_used)
+	var acc := int(round(amount / accumulation_div))
 #		print_debug("%s : %s : %s : %s" % [amount, acc, adjustment_div, accumulation_div])
-		accumulate_pathos(pathos, acc)
+	accumulate_pathos(acc)
 
 
 static func get_cost_format(memory_name: String, upgrades := 0) -> Dictionary:
@@ -127,7 +145,7 @@ static func get_cost_format(memory_name: String, upgrades := 0) -> Dictionary:
 # Calculates how much pathos is needed to recall this memory, taking into account upgrades which
 # might reduce this cost
 func _calculate_threshold() -> void:
-	var threshold_multiplier := float(definition.get("pathos_threshold_multiplier", 1))
+	var threshold_multiplier := float(definition.get("pathos_threshold_multiplier", 2))
 	if upgrades_amount and "pathos_threshold_multiplier" in definition.get("keys_modified_by_upgrade", []):
 		threshold_multiplier -= float(upgrades_amount) * float(definition.amounts["upgrade_multiplier"])
 	pathos_threshold = int(round(globals.player.pathos.get_progression_average(pathos_used)

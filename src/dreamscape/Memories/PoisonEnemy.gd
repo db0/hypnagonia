@@ -1,7 +1,7 @@
 extends Memory
 
 func execute_memory_effect() -> void:
-	var upgrades = artifact_object.upgrades_amount * MemoryDefinitions.PoisonEnemy.amounts.effect_stacks
+	var upgrades = artifact_object.upgrades_amount * MemoryDefinitions.PoisonEnemy.amounts.upgrade_multiplier
 	var script = [
 		{
 				"name": "apply_effect",
