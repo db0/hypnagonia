@@ -84,8 +84,10 @@ func _ready() -> void:
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.enemy] = 400
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.artifact] = 100
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.shop] = 100
-		globals.player.add_memory("FortifySelf")
-		globals.player.add_memory("DamageAll")
+		globals.player.add_memory(MemoryDefinitions.FortifySelf.canonical_name)
+		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
+		globals.player.find_memory(MemoryDefinitions.DamageAll.canonical_name).upgrades_amount += 5
+		globals.player.find_memory(MemoryDefinitions.FortifySelf.canonical_name).upgrades_amount += 5
 		# We're doing a connect here, because the globals.deck will not exist during its ready
 		# warning-ignore:return_value_discarded
 		globals.player.deck.connect("card_added", player_info, "_update_deck_count")
@@ -213,8 +215,12 @@ func populate_shop_memories() -> void:
 		memories_shop.add_child(shop_memory_object)
 		shop_memory_object.cost_type = all_memory_choices[index].cost_type
 		if memory.canonical_name in globals.player.get_all_memory_names():
-			# Upgrading is cheaper than buying new ones
-			shop_memory_object.set_cost(round(all_memory_choices[index].cost / 2.5), true)
+			var upgrades : float = globals.player.find_memory(memory.canonical_name).upgrades_amount
+			# Upgrading is cheaper than buying new ones, but each upgrade makes it more expensive
+			var final_cost : float = float(all_memory_choices[index].cost) / 2.5
+			# Each upgrade increases the total cost by 20%
+			final_cost = round(final_cost + (final_cost * upgrades * 0.15))
+			shop_memory_object.set_cost(final_cost, true)
 		else:
 			shop_memory_object.cost = all_memory_choices[index].cost
 		shop_memory_object.shop_artifact_display.setup(memory, memory.canonical_name)

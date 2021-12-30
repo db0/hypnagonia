@@ -12,7 +12,7 @@ var is_ready := false
 var pathos_used : String
 var pathos_threshold : int
 var pathos_accumulated := 0
-var upgrades_amount := 0
+var upgrades_amount := 0 setget set_upgrades_amount
 
 var memory_scene: PackedScene
 var canonical_name: String
@@ -87,6 +87,11 @@ func upgrade() -> void:
 		upgrades_amount += 1
 		_calculate_threshold()
 
+func set_upgrades_amount(value) -> void:
+	upgrades_amount = value
+	if upgrades_amount > definition.amounts.get("max_upgrades", 100) - 1:
+		upgrades_amount = definition.amounts.get("max_upgrades", 100) - 1
+	
 
 #func _on_pathos_released(pathos: String, amount: int) -> void:
 #	if pathos == pathos_used:
