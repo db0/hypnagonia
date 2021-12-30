@@ -204,7 +204,7 @@ const RandomChaos := {
 }
 const ReshuffleHand := {
 	"canonical_name": "ReshuffleHand",
-	"name": "First Place at Science Fair",
+	"name": "The Absolute Cringe",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal "\
 			+ "to reshuffle your hand into your deck and draw the same amount of cards",
 	"icon": preload("res://assets/icons/memories/portrait.png"),
@@ -336,7 +336,8 @@ const ExertSelf := {
 const RegenerateSelf := {
 	"canonical_name": "RegenerateSelf",
 	"name": "Handgliding Expedition",
-	"description": "{memory_name} ({upgrades}/{max_upgrades}): At the end of the next {turns_amount} turns, "\
+	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal.\n"\
+			+ "At the end of the next {turns_amount} turns, "\
 			+ "{relax} for {heal_amount}.\n"\
 			+ "If you have {untouchable}, {relax} {heal_amount} extra.",
 	"icon": preload("res://assets/icons/memories/portrait.png"),
@@ -385,6 +386,22 @@ const RerollDraft := {
 		"max_upgrades": 15,
 	},
 }
+const RemovePerturbation := {
+	"canonical_name": "RemovePerturbation",
+	"name": "That Lazy Afternoon",
+	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during the Dream Journal "\
+			+ "to {release} a random {perturbation} from your deck.",
+	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"context": EffectContext.OVERWORLD,
+	"pathos": Terms.RUN_ACCUMULATION_NAMES.rest,
+	"pathos_threshold_multiplier": 5.3,
+	"pathos_accumulation_divider": 2,
+	"keys_modified_by_upgrade": ["pathos_threshold_multiplier"],
+	"amounts": {
+		"upgrade_multiplier": 2,
+		"max_upgrades": 10,
+	},
+}
 # Generic memories which have a chance to appear in any playthrough
 const GENERIC := [
 	DamageAll,
@@ -399,6 +416,7 @@ const GENERIC := [
 	ImmerseSelf,
 	CardDraw,
 	RerollDraft,
+	RemovePerturbation,
 ]
 
 # Archetype-specific memories which only appear in runs in which

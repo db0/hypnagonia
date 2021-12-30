@@ -40,8 +40,8 @@ func add_new_card(card_name, progress := 0) -> CardEntry:
 
 
 func remove_card(card_entry: CardEntry) -> void:
-	emit_signal("card_removed", card_entry)
 	cards.erase(card_entry)
+	emit_signal("card_removed", card_entry)
 
 
 func list_all_cards(sorted:= false) -> Array:
