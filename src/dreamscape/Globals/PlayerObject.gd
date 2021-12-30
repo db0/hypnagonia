@@ -186,10 +186,19 @@ func get_all_invalid_memory_names() -> Array:
 	var used_memory_names := get_all_memory_names()
 	var all_invalid_memories := []
 	for memory in MemoryDefinitions.get_complete_memories_array():
-		if memory.pathos in used_pathos and not memory.canonical_name in used_memory_names:
+		if not _is_memory_valid(memory):
 			all_invalid_memories.append(memory.canonical_name)
 	return(all_invalid_memories)
 
+
+func _is_memory_valid(memory_def: Dictionary) -> bool:
+	if memory_def.pathos in get_all_memory_pathos():
+		var owned_memory: MemoryObject = find_memory(memory_def.canonical_name)
+		if owned_memory:
+			if owned_memory.upgrades_amount < owned_memory.definition.amounts.get("max_upgrades", 100) - 1:
+				return(true)
+		return(false)
+	return(true)
 
 # Goes through all archetypes and gathers all artifacts specified
 # Returns a list with all artifacts tied to all archetypes of the player.

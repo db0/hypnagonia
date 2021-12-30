@@ -15,12 +15,17 @@ func setup(signifier_details: Dictionary, signifier_name: String) -> void:
 	var memory_cost_info := ''
 	# The existence of a pathos key, signifies that this artifact is a memory
 	if signifier_details.has('pathos'):
+		var upgrades = signifier_details.get("upgrades",0)
+		# If a card has upgrades, we want the card displayed in the shop to have the statiastics
+		# of its upgraded version
+		if upgrades > 0:
+			upgrades += 1
 		memory_cost_info = "\n\n[i]This memory will cost {fill_cost} released {pathos} to recall{delay_pct_explanation}[/i]"\
-				.format(MemoryObject.get_cost_format(updated_detail.canonical_name, signifier_details.get("upgrades",0) + 1))
+				.format(MemoryObject.get_cost_format(updated_detail.canonical_name, upgrades))
 		updated_detail["bbdescription"] =\
 			updated_detail.description.\
 			format(Terms.get_bbcode_formats(18)).\
-			format(MemoryDefinitions.get_memory_bbcode_format(signifier_details, signifier_details.get("upgrades",0) + 1))
+			format(MemoryDefinitions.get_memory_bbcode_format(signifier_details, upgrades))
 	updated_detail["description"] = updated_detail.bbdescription + memory_cost_info
 	.setup(updated_detail, signifier_name)
 
