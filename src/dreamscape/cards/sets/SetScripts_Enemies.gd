@@ -11,7 +11,7 @@ const scripts := {
 					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.poison.name,
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"modification":  {
 						"lookup_property": "_amounts",
 						"value_key": "effect_stacks",
@@ -38,7 +38,7 @@ const scripts := {
 					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.poison.name,
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"modification":  {
 						"lookup_property": "_amounts",
 						"value_key": "effect_stacks",
@@ -77,7 +77,7 @@ const scripts := {
 					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.burn.name,
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"modification":  {
 						"lookup_property": "_amounts",
 						"value_key": "effect_stacks",
@@ -105,7 +105,7 @@ const scripts := {
 					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.burn.name,
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"modification":  {
 						"lookup_property": "_amounts",
 						"value_key": "effect_stacks",
@@ -340,6 +340,7 @@ const scripts := {
 					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.vulnerable.name,
 					"subject": "target",
+					"needs_subject": true,
 					"modification":  {
 						"lookup_property": "_amounts",
 						"value_key": "effect_stacks",
@@ -737,7 +738,7 @@ const scripts := {
 					"tags": ["Card"],
 					"effect_name": Terms.ACTIVE_EFFECTS.the_victim.name,
 					"subject": "target",
-					"is_cost": true,
+					"needs_subject": true,
 					"modification":  {
 						"lookup_property": "_amounts",
 						"value_key": "effect_stacks",
