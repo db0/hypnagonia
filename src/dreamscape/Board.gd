@@ -378,15 +378,15 @@ func _input(event):
 		var _torment1
 		var _torment2
 		var _torment3
-		_torment1 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
-		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
-		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+		_torment1 = spawn_enemy(EnemyDefinitions.BUTTERFLY)
+#		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+#		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_VICTIM)
 #		spawn_enemy(EnemyDefinitions.THE_VICTIM)
 #		spawn_enemy(EnemyDefinitions.THE_VICTIM)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 6)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 3)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.drain.name, 2)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.zen_of_flight.name, 6)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.impervious.name, 13)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.drain.name, 2)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 30)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.laugh_at_danger.name, 1)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)

@@ -1023,7 +1023,10 @@ const ZenofFlight = {
 				"tags": ["Card"],
 				"effect_name": Terms.ACTIVE_EFFECTS.zen_of_flight.name,
 				"subject": "dreamer",
-				"modification": 1,
+				"modification": {
+					"lookup_property": "_amounts",
+					"value_key": "turns_amount"
+				},
 			},
 		],
 	},
@@ -1036,7 +1039,10 @@ const MasterfulZenofFlight = {
 				"tags": ["Card"],
 				"effect_name": Terms.ACTIVE_EFFECTS.zen_of_flight.name,
 				"subject": "dreamer",
-				"modification": 1,
+				"modification": {
+					"lookup_property": "_amounts",
+					"value_key": "turns_amount"
+				},
 				"upgrade_name": "masterful",
 			},
 		],

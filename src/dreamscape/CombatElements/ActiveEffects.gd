@@ -210,5 +210,6 @@ func get_random_effect(effect_type := ''):
 		if effect_type and effect.canonical_name in Terms.get_all_effect_types(effect_type):
 			random_effect = effect
 			break
-	return(random_effect.get_effect_name())
+	if random_effect:
+		return(random_effect.get_effect_name())
 
