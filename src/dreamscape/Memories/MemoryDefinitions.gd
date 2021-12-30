@@ -287,7 +287,7 @@ const CardDraw := {
 	"canonical_name": "CardDraw",
 	"name": "CardDraw",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal "\
-			+ "to draw {draw_amount} {cards}",
+			+ "to draw {draw_amount} cards",
 	"icon": preload("res://assets/icons/memories/portrait.png"),
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.artifact,
