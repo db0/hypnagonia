@@ -188,7 +188,7 @@ func populate_shop_artifacts() -> void:
 		shop_artifact_object.shop_artifact_display.connect("artifact_selected", self, "_on_shop_artifact_selected", [shop_artifact_object])
 
 func populate_shop_memories() -> void:
-	memory_prep = MemoryPrep.new(3)
+	memory_prep = MemoryPrep.new(3, true)
 	## DEBUG
 #	artifact_prep.append_artifact("ImproveImpervious")
 	## END DEBUG
