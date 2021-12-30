@@ -15,13 +15,13 @@ signal released_pathos_lost(pathos, amount)
 signal released_pathos_gained(pathos, amount)
 
 var repressed := {
-	Terms.RUN_ACCUMULATION_NAMES.enemy: 25,
-	Terms.RUN_ACCUMULATION_NAMES.rest: 5,
-	Terms.RUN_ACCUMULATION_NAMES.nce: 10,
-	Terms.RUN_ACCUMULATION_NAMES.shop: 5,
-	Terms.RUN_ACCUMULATION_NAMES.elite: 0,
-	Terms.RUN_ACCUMULATION_NAMES.artifact: 0,
-	Terms.RUN_ACCUMULATION_NAMES.boss: 0,
+	Terms.RUN_ACCUMULATION_NAMES.enemy: 25.0,
+	Terms.RUN_ACCUMULATION_NAMES.rest: 5.0,
+	Terms.RUN_ACCUMULATION_NAMES.nce: 10.0,
+	Terms.RUN_ACCUMULATION_NAMES.shop: 5.0,
+	Terms.RUN_ACCUMULATION_NAMES.elite: 0.0,
+	Terms.RUN_ACCUMULATION_NAMES.artifact: 0.0,
+	Terms.RUN_ACCUMULATION_NAMES.boss: 0.0,
 }
 
 var progressions := {
@@ -42,12 +42,12 @@ var progressions := {
 # that encounter is selected (see release_adjustments below).
 var thresholds := {
 	Terms.RUN_ACCUMULATION_NAMES.enemy: 1.3,
-	Terms.RUN_ACCUMULATION_NAMES.rest: 5,
-	Terms.RUN_ACCUMULATION_NAMES.nce: 3,
-	Terms.RUN_ACCUMULATION_NAMES.shop: 4,
+	Terms.RUN_ACCUMULATION_NAMES.rest: 5.0,
+	Terms.RUN_ACCUMULATION_NAMES.nce: 3.0,
+	Terms.RUN_ACCUMULATION_NAMES.shop: 4.0,
 	Terms.RUN_ACCUMULATION_NAMES.elite: 5.3,
-	Terms.RUN_ACCUMULATION_NAMES.artifact: 6,
-	Terms.RUN_ACCUMULATION_NAMES.boss: 16,
+	Terms.RUN_ACCUMULATION_NAMES.artifact: 6.0,
+	Terms.RUN_ACCUMULATION_NAMES.boss: 16.0,
 }
 
 
@@ -58,8 +58,8 @@ var thresholds := {
 # selected, they will transfer as much from represed to released equal to 
 # their accumulation average * threshold
 var release_adjustments := {
-	Terms.RUN_ACCUMULATION_NAMES.enemy: 3,
-	Terms.RUN_ACCUMULATION_NAMES.rest: 2,
+	Terms.RUN_ACCUMULATION_NAMES.enemy: 3.0,
+	Terms.RUN_ACCUMULATION_NAMES.rest: 2.0,
 }
 
 var released := {}
@@ -87,7 +87,7 @@ func repress(pathos_to_ignore := []) -> void:
 
 
 # modifies the specified repressed pathos by a given amount
-func modify_repressed_pathos(entry: String, amount: int, is_lost := false) -> void:
+func modify_repressed_pathos(entry: String, amount: float, is_lost := false) -> void:
 	repressed[entry] += amount
 	if repressed[entry] < 0:
 		repressed[entry] = 0
@@ -98,7 +98,7 @@ func modify_repressed_pathos(entry: String, amount: int, is_lost := false) -> vo
 
 
 # Increases the specified repressed pathos by the given amount
-func repress_pathos(entry: String, amount: int) -> void:
+func repress_pathos(entry: String, amount: float) -> void:
 	if amount <= 0:
 		print_debug("ERROR: This function only takes a positive integer")
 		return
@@ -107,7 +107,7 @@ func repress_pathos(entry: String, amount: int) -> void:
 
 # reduces the specified repressed pathos by a given amount
 # and increases the released pathos by the same amount
-func release_pathos(entry: String, amount: int) -> void:
+func release_pathos(entry: String, amount: float) -> void:
 	if amount <= 0:
 		print_debug("ERROR: This function only takes a positive integer")
 		return
@@ -124,17 +124,17 @@ func release(entry: String) -> int:
 	var retcode : int = CFConst.ReturnCode.CHANGED
 	if repressed[entry] == 0:
 		retcode = CFConst.ReturnCode.OK
-	var release_amount = get_threshold(entry)
-	release_amount *= release_adjustments.get(entry,1)
-	release_pathos(entry, int(release_amount))
+	var release_amount := get_threshold(entry)
+	release_amount *= release_adjustments.get(entry,1.0)
+	release_pathos(entry, release_amount)
 	return(retcode)
 
 
 # modifies the specified released pathos by a given amount
-func modify_released_pathos(entry: String, amount: int, is_lost := false) -> void:
+func modify_released_pathos(entry: String, amount: float, is_lost := false) -> void:
 	released[entry] += amount
 	if released[entry] < 0:
-		released[entry] = 0
+		released[entry] = 0.0
 	if amount > 0:
 		emit_signal("released_pathos_gained", entry, amount)
 	elif is_lost:
@@ -144,21 +144,21 @@ func modify_released_pathos(entry: String, amount: int, is_lost := false) -> voi
 
 
 # reduces the specified released pathos by a given amount
-func spend_pathos(entry: String, amount: int) -> void:
+func spend_pathos(entry: String, amount: float) -> void:
 	if amount <= 0:
 		print_debug("ERROR: This function only takes a positive integer")
 		return
 	modify_released_pathos(entry, -amount)
 
 # reduces the specified released pathos by a given amount
-func lose_repressed_pathos(entry: String, amount: int) -> void:
+func lose_repressed_pathos(entry: String, amount: float) -> void:
 	if amount <= 0:
 		print_debug("ERROR: This function only takes a positive integer")
 		return
 	modify_repressed_pathos(entry, -amount, true)
 
 # reduces the specified released pathos by a given amount
-func lose_released_pathos(entry: String, amount: int) -> void:
+func lose_released_pathos(entry: String, amount: float) -> void:
 	if amount <= 0:
 		print_debug("ERROR: This function only takes a positive integer")
 		return
@@ -168,15 +168,15 @@ func lose_released_pathos(entry: String, amount: int) -> void:
 # Returns one random possible progression from the range
 # Grabbing the number via a fuction, rather than directly from the var
 # allows us to modify this via artifacts during runtime
-func get_progression(entry: String) -> int:
+func get_progression(entry: String) -> float:
 	var rand_array : Array = progressions[entry].duplicate()
 	CFUtils.shuffle_array(rand_array)
-	return(rand_array[0])
+	return(float(rand_array[0]))
 
 
 # Returns the average value of the progression specified
 func get_progression_average(entry: String) -> float:
-	var total: int = 0
+	var total: float = 0
 	for p in progressions[entry]:
 		total += p
 	return(total / progressions[entry].size())
