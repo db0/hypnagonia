@@ -280,7 +280,7 @@ const ABUSIVE_RELATIONSHIP := {
 		
 	],
 	"Memories": [
-		
+		"ExertRecovery",
 	],
 	"Starting Artifacts": [
 		ArtifactDefinitions.EndingHeal

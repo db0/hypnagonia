@@ -290,6 +290,39 @@ const CardDraw := {
 		"max_upgrades": 5,
 	},
 }
+const ExertRecovery := {
+	"canonical_name": "ExertRecovery",
+	"name": "The Courting Days",
+	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
+			+ "to recover all {anxiety} you took during your own turn, this turn.",
+	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"context": EffectContext.BATTLE,
+	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
+	"pathos_threshold_multiplier": 2,
+	"pathos_accumulation_divider": 3,
+	"keys_modified_by_upgrade": ["pathos_accumulation_divider"],
+	"amounts": {
+		"upgrade_multiplier": 1
+	},
+}
+const ExertSelf := {
+	"canonical_name": "ExertSelf",
+	"name": "The Bad Days",
+	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
+			+ "to gain {exert_amount} {anxiety}, {repeat_amount} times.\n"\
+			+ "For every 2 points of anxiety taken, remove one random debuff stack applied to you.",
+	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"context": EffectContext.BATTLE,
+	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
+	"pathos_threshold_multiplier": 1,
+	"pathos_accumulation_divider": 3,
+	"keys_modified_by_upgrade": ["exert_times"],
+	"amounts": {
+		"exert_amount": 1,
+		"repeat_amount": 5,
+		"upgrade_multiplier": 1,
+	},
+}
 
 # Generic memories which have a chance to appear in any playthrough
 const GENERIC := [
@@ -314,6 +347,8 @@ const ARCHETYPE := [
 	DisempowerEnemy,
 	ImperviousSelf,
 	FortifySelf,
+	ExertRecovery,
+	ExertSelf,
 ]
 
 # These memories are only found in non-combat encounters
