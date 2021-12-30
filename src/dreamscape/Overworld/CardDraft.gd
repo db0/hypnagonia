@@ -21,13 +21,14 @@ var draft_amount := 3 setget ,get_draft_amount
 var draft_card_choices : Array
 # This will store the final card chosen by the player to draft.
 var selected_draft: CardEntry
+var card_draft_type: String
 
 func _process(_delta: float) -> void:
 	# Stupid thing doesn't update automatically after resizing the children inside it
 	rect_size = Vector2(0,0)
 	pass
 
-func display(card_draft_type := 'card_draft') -> void:
+func display(_card_draft_type := 'card_draft') -> void:
 	visible = true
 	if not draft_card_choices.empty():
 		return
@@ -35,13 +36,14 @@ func display(card_draft_type := 'card_draft') -> void:
 #			if not c as Tween:
 #				c.queue_free()
 #		yield(get_tree().create_timer(0.1), "timeout")
-	populate_draft_cards(card_draft_type)
+	card_draft_type = _card_draft_type
+	populate_draft_cards()
 	$Tween.interpolate_property(get_parent(),
 			'rect_min_size:y', 0, CFConst.CARD_SIZE.y * CFConst.THUMBNAIL_SCALE, 1.0,
 			Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 	$Tween.start()
 
-func populate_draft_cards(card_draft_type := 'card_draft') -> void:
+func populate_draft_cards() -> void:
 #	print_debug(card_draft_type)
 	match card_draft_type:
 		'boss_card_draft':
@@ -59,8 +61,17 @@ func populate_draft_cards(card_draft_type := 'card_draft') -> void:
 		draft_card_object.setup(card_name)
 		draft_card_object.index = index
 		draft_card_object.connect("card_selected", self, "_on_card_draft_selected", [draft_card_object])
+	globals.journal.emit_signal("card_draft_started", self)
+
 #	yield(get_tree().create_timer(0.15), "timeout")
 #	call_deferred('set_size',Vector2(0,0))
+
+
+func reroll_card_draft() -> void:
+	for child in get_children():
+		if not child as Tween:
+			child.queue_free()
+	populate_draft_cards()
 
 
 func _on_card_draft_selected(option: int, draft_card_object) -> void:

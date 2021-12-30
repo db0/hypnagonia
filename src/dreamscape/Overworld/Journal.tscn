@@ -118,7 +118,7 @@ margin_top = 59.0
 margin_right = 724.0
 margin_bottom = 59.0
 
-[node name="CardUpgrade" type="HBoxContainer" parent="VBC/Journal/HBC/JournalEntry/VBC/UgradeSlide"]
+[node name="CardUpgrade" type="HBoxContainer" parent="VBC/Journal/HBC/JournalEntry/VBC/UgradeSlide" groups=["card_upgrade"]]
 custom_constants/separation = 0
 script = ExtResource( 5 )
 
@@ -141,7 +141,7 @@ margin_top = 62.0
 margin_right = 724.0
 margin_bottom = 62.0
 
-[node name="ArtifactChoice" type="HBoxContainer" parent="VBC/Journal/HBC/JournalEntry/VBC/ArtifactSlide"]
+[node name="ArtifactChoice" type="HBoxContainer" parent="VBC/Journal/HBC/JournalEntry/VBC/ArtifactSlide" groups=["artifact_selection"]]
 script = ExtResource( 7 )
 
 [node name="Tween" type="Tween" parent="VBC/Journal/HBC/JournalEntry/VBC/ArtifactSlide/ArtifactChoice"]

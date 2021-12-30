@@ -1,6 +1,10 @@
 class_name Journal
 extends PanelContainer
 
+signal card_draft_started(card_draft_node)
+signal card_upgrade_started(card_upgrade_node)
+signal artifact_selection_started(artifact_selection_node)
+
 const NESTED_CHOICES_SCENE = preload("res://src/dreamscape/Overworld/SecondaryChoicesSlide.tscn")
 const SELECTION_DECK_SCENE = preload("res://src/dreamscape/SelectionDeck.tscn")
 const CARD_PREVIEW_SCENE = preload("res://src/dreamscape/MainMenu/StartingCardPreviewObject.tscn")
@@ -372,7 +376,7 @@ func _input(event):
 #			c.upgrade_progress = 100
 #		_reveal_entry(upgrade_journal, true)
 		globals.player.add_artifact(ArtifactDefinitions.BossDraft.canonical_name)
-		globals.player.add_memory(MemoryDefinitions.ProgressRandom.canonical_name)
+		globals.player.add_memory(MemoryDefinitions.RerollDraft.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
 #		globals.player.add_artifact("AccumulateShop")
 #		globals.player.damage += 20

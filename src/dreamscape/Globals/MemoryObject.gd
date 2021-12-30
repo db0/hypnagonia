@@ -130,7 +130,7 @@ static func get_cost_format(memory_name: String, upgrades := 0) -> Dictionary:
 	var pathos_accumulation_divider : float = memory_definition.get("pathos_accumulation_divider", 2)
 	if upgrades > 0:
 		if "pathos_threshold_multiplier" in memory_definition.get("keys_modified_by_upgrade", []):
-			pathos_threshold_multiplier -= upgrades * memory_definition.amounts["upgrade_multiplier"]
+			pathos_threshold_multiplier -= float(upgrades) * float(memory_definition.amounts["upgrade_multiplier"]) * 0.1
 		if "pathos_accumulation_divider" in memory_definition.get("keys_modified_by_upgrade", []):
 			pathos_accumulation_divider -= upgrades * memory_definition.amounts["upgrade_multiplier"]
 	var cost_format := {
@@ -152,7 +152,7 @@ static func get_cost_format(memory_name: String, upgrades := 0) -> Dictionary:
 func _calculate_threshold() -> void:
 	var threshold_multiplier := float(definition.get("pathos_threshold_multiplier", 2))
 	if upgrades_amount and "pathos_threshold_multiplier" in definition.get("keys_modified_by_upgrade", []):
-		threshold_multiplier -= float(upgrades_amount) * float(definition.amounts["upgrade_multiplier"])
+		threshold_multiplier -= float(upgrades_amount) * float(definition.amounts["upgrade_multiplier"] * 0.1)
 	pathos_threshold = int(round(globals.player.pathos.get_progression_average(pathos_used)
 			* threshold_multiplier))
 	# Threshold can never be below 1

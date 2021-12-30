@@ -1,8 +1,12 @@
 class_name Memory
 extends Artifact
 
+
 onready var shader_node := $Signifier/Shader
-onready var highlight := $Signifier/Highlight
+# Used when the memory is active and ready
+onready var active_highlight := $Signifier/ActiveHighlight
+# Used when the memory is inactive and ready
+onready var inactive_highlight := $Signifier/InactiveHighlight
 
 func _ready() -> void:
 	if not artifact_object.is_ready:
@@ -10,7 +14,7 @@ func _ready() -> void:
 	else:
 		_on_memory_ready(artifact_object)
 	if not is_active:
-		highlight.material = null
+		active_highlight.material = null
 
 
 func setup_artifact(memory_object, _is_active: bool, new_addition: bool) -> void:
@@ -18,6 +22,7 @@ func setup_artifact(memory_object, _is_active: bool, new_addition: bool) -> void
 	memory_object.connect("pathos_accumulated", self, "_on_pathos_accumulated")
 	memory_object.connect("memory_ready", self, "_on_memory_ready")
 	memory_object.connect("memory_used", self, "_on_memory_used")
+
 
 func _set_current_description() -> void:
 	var format = Terms.COMMON_FORMATS[Terms.PLAYER].duplicate()
@@ -65,22 +70,52 @@ func _on_MemoryTemplate_gui_input(event: InputEvent) -> void:
 		globals.player.pathos.release(artifact_object.pathos_used)
 		artifact_object._on_encounter_changed('', 1)
 		artifact_object.upgrade()
+		_set_current_description()
 	## END DEBUG
-	_set_current_description()
 
-
-func _on_pathos_accumulated(memory, _amount) -> void:
+func _on_pathos_accumulated(memory: Reference, _amount) -> void:
 	if not memory.is_ready:
 		shader_node.material.set_shader_param('percentage',
 				float(artifact_object.pathos_accumulated)/float(artifact_object.pathos_threshold))
 
 
-func _on_memory_ready(_memory) -> void:
-	highlight.visible = true
+func _on_memory_ready(_memory: Reference) -> void:
+	_activate_highlight()
+	_set_current_description()
 	shader_node.material.set_shader_param('percentage', 1.0)
 
 
-func _on_memory_used(_memory) -> void:
-	highlight.visible = false
+func _on_memory_used(_memory: Reference) -> void:
+	_deactive_highlight()
+	_set_current_description()
 	shader_node.material.set_shader_param('percentage', 0.0)
 
+
+# Changes highlight from active, to inactive
+func _flip_highlights() -> void:
+	if artifact_object.is_ready:
+		active_highlight.visible = !active_highlight.visible
+		inactive_highlight.visible = !inactive_highlight.visible
+
+
+func _activate_highlight() -> void:
+	if artifact_object.is_ready:
+		active_highlight.visible = true
+		inactive_highlight.visible = false
+	else:
+		inactive_highlight.visible = true
+		active_highlight.visible = false
+
+
+func _deactive_highlight() -> void:
+	active_highlight.visible = false
+	inactive_highlight.visible = false
+			
+
+func _switch_highlight_to(highlight_node: Panel) -> void:
+	if artifact_object.is_ready:
+		for hl in [active_highlight, inactive_highlight]:
+			if hl == highlight_node:
+				hl.visible = true
+			else:
+				hl.visible = false

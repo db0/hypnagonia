@@ -65,9 +65,19 @@ margin_bottom = 37.0
 rect_min_size = Vector2( 30, 30 )
 mouse_filter = 2
 
-[node name="Highlight" type="Panel" parent="Signifier" index="5"]
+[node name="ActiveHighlight" type="Panel" parent="Signifier" index="5"]
 visible = false
 material = SubResource( 3 )
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 35, 35 )
+mouse_filter = 2
+custom_styles/panel = SubResource( 2 )
+
+[node name="InactiveHighlight" type="Panel" parent="Signifier" index="6"]
+visible = false
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 40.0
