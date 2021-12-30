@@ -372,10 +372,12 @@ func _input(event):
 #			c.upgrade_progress = 100
 #		_reveal_entry(upgrade_journal, true)
 		globals.player.add_artifact(ArtifactDefinitions.BossDraft.canonical_name)
-		globals.player.add_memory("FortifySelf")
+		globals.player.add_memory(MemoryDefinitions.ProgressRandom.canonical_name)
+		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
 #		globals.player.add_artifact("AccumulateShop")
 #		globals.player.damage += 20
-#		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 200)
+		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, 200)
+		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.enemy, 200)
 		var debug_encounters = [
 #			EnemyEncounter.new(Act2.ClownShow, "hard"),
 			preload("res://src/dreamscape/Run/NCE/Act2/BannersOfRuin.gd").new(),

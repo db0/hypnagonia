@@ -111,7 +111,18 @@ func _get_effect_description() -> String:
 	var default_desc : String = effect_entry.get('description', '')
 	if effect_entry.get("is_card_reference"):
 		var card_reference = cfc.card_definitions.get(name)
-		default_desc = card_reference["Abilities"].format(card_reference.get("_amounts", {}))
+		if default_desc == '':
+			# The format_key_to_replace_with_amount key, when set, allows us to specify an effect that
+			# while it's using the card text as its string, it nevertheless, replaces one format key of the
+			# card description with the {amount} key, which will be replaced with the amount of stacks
+			# on this condition. This is typically used on conditions which apply multiple stacks
+			var repl_key = effect_entry.get('format_key_to_replace_with_amount')
+			if repl_key:
+				default_desc = card_reference["Abilities"].format({repl_key: "{amount}"}).format(card_reference.get("_amounts", {}))
+			else:
+				default_desc = card_reference["Abilities"].format(card_reference.get("_amounts", {}))
+		else:
+				default_desc = default_desc.format(card_reference.get("_amounts", {}))
 	return(default_desc)
 
 # Returns the lowercase name of the token

@@ -366,12 +366,14 @@ const ACTIVE_EFFECTS := {
 		"name": "Zen of Flight",
 		"type": "Concentration",
 		"is_card_reference": true,
+		"format_key_to_replace_with_amount": "turns_amount",
 		"icon": preload("res://assets/icons/windy-stripes.png"),
 	},
 	"introspection":  {
 		"name": "Introspection",
 		"type": "Concentration",
 		"is_card_reference": true,
+		"format_key_to_replace_with_amount": "turns_amount",
 		"icon": preload("res://assets/icons/inner-self.png"),
 	},
 	"absurdity_unleashed":  {

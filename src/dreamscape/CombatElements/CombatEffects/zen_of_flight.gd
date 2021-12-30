@@ -1,11 +1,11 @@
 extends CombatEffect
 
 func _on_player_turn_ended(_turn: Turn) -> void:
-	var multiplier = cfc.card_definitions[name]\
+	var amount = cfc.card_definitions[name]\
 			.get("_amounts",{}).get("effect_amount")
-	var heal_amount : int = stacks * multiplier
+	var heal_amount : int = amount
 	if cfc.NMAP.board.dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.impervious.name):
-		 heal_amount += stacks * multiplier
+		 heal_amount += amount
 	var script = [{
 		"name": "modify_damage",
 		"subject": "self",
@@ -13,3 +13,4 @@ func _on_player_turn_ended(_turn: Turn) -> void:
 		"tags": ["Heal", "Combat Effect", "Concentration"],
 	}]
 	execute_script(script)
+	set_stacks(stacks - 1)

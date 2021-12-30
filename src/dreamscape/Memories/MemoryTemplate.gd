@@ -9,6 +9,8 @@ func _ready() -> void:
 		_on_pathos_accumulated(artifact_object, 0)
 	else:
 		_on_memory_ready(artifact_object)
+	if not is_active:
+		highlight.material = null
 
 
 func setup_artifact(memory_object, _is_active: bool, new_addition: bool) -> void:
@@ -61,6 +63,7 @@ func _on_MemoryTemplate_gui_input(event: InputEvent) -> void:
 		globals.player.pathos.repress_pathos(artifact_object.pathos_used, 30)
 		# warning-ignore:return_value_discarded
 		globals.player.pathos.release(artifact_object.pathos_used)
+		artifact_object._on_encounter_changed('', 1)
 		artifact_object.upgrade()
 	## END DEBUG
 	_set_current_description()

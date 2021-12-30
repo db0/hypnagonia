@@ -7,7 +7,7 @@ var selected_memories := []
 
 # Prepares the right amount of memories as requested
 # Stores the options in selected_memories list
-func _init(amount := 1) -> void:
+func _init(amount := 1, limit_to_one_per_pathos := false) -> void:
 	var all_valid_memories := MemoryDefinitions.get_memories(
 			globals.player.get_archetype_memories(),
 			globals.player.get_all_invalid_memory_names())
@@ -23,7 +23,8 @@ func _init(amount := 1) -> void:
 		CFUtils.shuffle_array(randomized_memories)
 		var current_memory = randomized_memories.pop_back()
 		# We keep iterating until we find unique memories.
-		while current_memory["canonical_name"] in _get_names():
+		while current_memory["canonical_name"] in _get_names()\
+				or (limit_to_one_per_pathos and current_memory.pathos in _get_pathos()):
 			# Extra check to avoid crashing due to not having enough designed memories
 			if randomized_memories.size() == 0:
 				return
@@ -64,4 +65,11 @@ func _get_names() -> Array:
 	for m in selected_memories:
 		mnames.append(m.canonical_name)
 	return(mnames)
+
+
+func _get_pathos() -> Array:
+	var pathos := []
+	for m in selected_memories:
+		pathos.append(m.pathos)
+	return(pathos)
 

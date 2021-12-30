@@ -1,21 +1,29 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/dreamscape/Artifacts/ArtifactTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/dreamscape/Memories/MemoryTemplate.gd" type="Script" id=2]
 [ext_resource path="res://assets/icons/artifacts/boss-key.png" type="Texture" id=3]
 [ext_resource path="res://shaders/grayscale.shader" type="Shader" id=4]
+[ext_resource path="res://shaders/MovingGradient.shader" type="Shader" id=5]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 4 )
 shader_param/percentage = 1.0
 
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 5 )
+shader_param/strength = 0.5
+shader_param/speed = 0.5
+shader_param/angle = 0.0
+
 [sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 1 )
 draw_center = false
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color( 1.5, 1.4, 0, 1 )
+border_color = Color( 0.247059, 0.396078, 0.192157, 1 )
 
 [node name="MemoryTemplate" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -59,6 +67,7 @@ mouse_filter = 2
 
 [node name="Highlight" type="Panel" parent="Signifier" index="5"]
 visible = false
+material = SubResource( 3 )
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 40.0

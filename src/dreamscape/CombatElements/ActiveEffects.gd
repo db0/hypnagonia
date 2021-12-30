@@ -100,14 +100,17 @@ func mod_effect(
 				effect.set_stacks(effect.stacks + mod, tags, Terms.get_effect_entry(effect_name).get("can_go_negative", false))
 	return(retcode)
 
+
 func get_all_effects() -> Dictionary:
 	var found_effects := {}
 	for effect in get_children():
 		found_effects[effect.get_effect_name()] = effect
 	return(found_effects)
 
+
 func get_all_effects_nodes() -> Array:
 	return(get_children())
+
 
 func get_ordered_effects(ordered_effects: Dictionary) -> Dictionary:
 	for effect in get_children():
@@ -116,7 +119,7 @@ func get_ordered_effects(ordered_effects: Dictionary) -> Dictionary:
 				# We do not want the same exact instance of an effect
 				# to be calculated twice coming from the subject AND source.
 				# For example quicken has always the same subject
-				# and source. 
+				# and source.
 				if not effect in ordered_effects.adders:
 					ordered_effects.adders.append(effect)
 			Terms.ALTERANT_PRIORITY.MULTIPLY:
@@ -150,21 +153,21 @@ func get_effect_with_most_stacks(effect_type := ''):
 	var highest_stacks := 0
 	for effect in get_children():
 		if effect.stacks > highest_stacks:
-			if effect_type and not effect.get_effect_name() in Terms.get_all_effect_types(effect_type):
+			if effect_type and not effect.canonical_name in Terms.get_all_effect_types(effect_type):
 				continue
-			highest_effect = effect.get_effect_name()
+			highest_effect = effect.canonical_name
 			highest_stacks = effect.stacks
 	# Effects of type "Versatile" can be considered buffs or debuffs, depending on if they're positive
 	# or negative
 	if effect_type == 'Buff' or effect_type == 'Debuff':
 		for effect in get_children():
 			if effect_type == 'Buff' and effect.stacks > 0 and effect.stacks > highest_stacks:
-				if not effect.get_effect_name() in Terms.get_all_effect_types('Versatile'):
+				if not effect.canonical_name in Terms.get_all_effect_types('Versatile'):
 					continue
-				highest_effect = effect.get_effect_name()
+				highest_effect = effect.canonical_name
 				highest_stacks = effect.stacks
 			if effect_type == 'Debuff' and effect.stacks < 0 and abs(effect.stacks) > highest_stacks:
-				if not effect.get_effect_name() in Terms.get_all_effect_types('Versatile'):
+				if not effect.canonical_name in Terms.get_all_effect_types('Versatile'):
 					continue
 				highest_effect = effect.get_effect_name()
 				# warning-ignore:narrowing_conversion
@@ -179,21 +182,34 @@ func get_effect_with_least_stacks(effect_type := ''):
 	var lowest_stacks := -1
 	for effect in get_children():
 		if lowest_stacks < 0 or effect.stacks < lowest_stacks:
-			if effect_type and not effect.get_effect_name() in Terms.get_all_effect_types(effect_type):
+			if effect_type and not effect.canonical_name in Terms.get_all_effect_types(effect_type):
 				continue
-			lowest_effect = effect.get_effect_name()
+			lowest_effect = effect.canonical_name
 			lowest_stacks = effect.stacks
 	if effect_type == 'Buff' or effect_type == 'Debuff':
 		for effect in get_children():
 			if effect_type == 'Buff' and effect.stacks > 0 and (effect.stacks < lowest_stacks or lowest_stacks < 0):
-				if not effect.get_effect_name() in Terms.get_all_effect_types('Versatile'):
+				if not effect.canonical_name in Terms.get_all_effect_types('Versatile'):
 					continue
-				lowest_effect = effect.get_effect_name()
+				lowest_effect = effect.canonical_name
 				lowest_stacks = effect.stacks
 			if effect_type == 'Debuff' and effect.stacks < 0 and (abs(effect.stacks) < lowest_stacks or lowest_stacks < 0):
-				if not effect.get_effect_name() in Terms.get_all_effect_types('Versatile'):
+				if not effect.canonical_name in Terms.get_all_effect_types('Versatile'):
 					continue
 				lowest_effect = effect.get_effect_name()
 				# warning-ignore:narrowing_conversion
 				lowest_stacks = abs(effect.stacks)
 	return(lowest_effect)
+
+
+func get_random_effect(effect_type := ''):
+	var rng_effects := get_children()
+	var random_effect = null
+	CFUtils.shuffle_array(rng_effects)
+	for effect in rng_effects:
+		if effect_type and effect.canonical_name in Terms.get_all_effect_types(effect_type):
+			random_effect = effect
+			break
+	if random_effect:
+		return(random_effect.get_effect_name())
+

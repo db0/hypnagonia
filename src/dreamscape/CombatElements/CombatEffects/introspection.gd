@@ -12,7 +12,7 @@ func _on_player_turn_ended(_turn: Turn) -> void:
 		return
 	var script = [{
 		"name": "modify_damage",
-		"subject": "dreamer",
+		"subject": "self",
 		"amount": -heal_amount,
 		"tags": ["Heal", "Combat Effect", "Concentration"],
 	}]

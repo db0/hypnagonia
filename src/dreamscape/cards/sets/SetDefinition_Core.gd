@@ -1873,7 +1873,7 @@ const CARDS := {
 	"Zen of Flight": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
-		"Abilities": "At the end of each turn, {relax} for {effect_amount}.\n"\
+		"Abilities": "At the end of the next {turns_amount} turns, {relax} for {effect_amount}.\n"\
 				+ "If you have {untouchable}, {relax} {effect_amount} extra.",
 		"Cost": 2,
 		"_illustration": "Nobody",
@@ -1882,6 +1882,7 @@ const CARDS := {
 		},
 		"_rarity": "Rare",
 		"_amounts": {
+			"turns_amount": 6,
 			"effect_amount": 1,
 		},
 		"_upgrade_threshold": 7,
@@ -1893,7 +1894,7 @@ const CARDS := {
 	"@ Zen of Flight @": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
-		"Abilities": "At the end of each turn, {relax} for {effect_amount}.\n"\
+		"Abilities": "At the end of the next {turns_amount} turns, {relax} for {effect_amount}.\n"\
 				+ "If you have {untouchable}, {relax} {effect_amount} extra.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -1902,6 +1903,7 @@ const CARDS := {
 		},
 		"_rarity": "Rare",
 		"_amounts": {
+			"turns_amount": 6,
 			"effect_amount": 1,
 		},
 		"_is_upgrade": true,
@@ -1909,7 +1911,7 @@ const CARDS := {
 	"Masterful Zen of Flight": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
-		"Abilities": "At the end of each turn, {relax} for {effect_amount}.\n"\
+		"Abilities": "At the end of the next {turns_amount} turns, {relax} for {effect_amount}.\n"\
 				+ "If you have {untouchable}, {relax} {effect_amount} extra.",
 		"Cost": 2,
 		"_illustration": "Nobody",
@@ -1918,6 +1920,7 @@ const CARDS := {
 		},
 		"_rarity": "Rare",
 		"_amounts": {
+			"turns_amount": 6,
 			"effect_amount": 2,
 		},
 		"_is_upgrade": true,
@@ -3126,7 +3129,6 @@ const CARDS := {
 			"damage_amount": 6,
 			"x_modifer": "+1"
 		},
-		"_upgrade_threshold": 7,
 		"_is_upgrade": true,
 	},
 	"+ Confrontation +": {
@@ -3140,7 +3142,6 @@ const CARDS := {
 		"_amounts": {
 			"damage_amount": 9,
 		},
-		"_upgrade_threshold": 7,
 		"_is_upgrade": true,
 	},
 	"Dodge": {
@@ -4661,7 +4662,6 @@ const CARDS := {
 			"defence_amount": 11,
 			"card_amount": 2,
 		},
-		"_upgrade_threshold": 8,
 		"_is_upgrade": true,
 	},
 	"Ω Excogitate Ω": {
@@ -4677,7 +4677,6 @@ const CARDS := {
 			"defence_amount": 15,
 			"card_amount": 1,
 		},
-		"_upgrade_threshold": 8,
 		"_is_upgrade": true,
 	},
 	"The Whippy-Flippy": {
