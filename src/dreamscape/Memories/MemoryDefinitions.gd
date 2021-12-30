@@ -439,7 +439,10 @@ static func get_memory_bbcode_format(memory_definition: Dictionary, upgrades := 
 		if key in memory_definition.get("keys_modified_by_upgrade",[]) and upgrades > 0:
 			upgrade_modifier = upgrades * memory_definition.amounts["upgrade_multiplier"]
 		var amount = memory_definition.amounts[key] + upgrade_modifier
-		format[key] = amount
+		if key in memory_definition.get("keys_modified_by_upgrade",[]):
+			format[key] = "[color=yellow]%s[/color]" % [amount]
+		else:
+			format[key] = amount
 	return(format)
 
 
