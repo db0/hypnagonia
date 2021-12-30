@@ -204,7 +204,7 @@ const RandomChaos := {
 }
 const ReshuffleHand := {
 	"canonical_name": "ReshuffleHand",
-	"name": "The Science Fair",
+	"name": "First Place at Science Fair",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal "\
 			+ "to reshuffle your hand into your deck and draw the same amount of cards",
 	"icon": preload("res://assets/icons/memories/portrait.png"),
@@ -352,6 +352,23 @@ const RegenerateSelf := {
 		"max_upgrades": 5,
 	},
 }
+const BufferSelf := {
+	"canonical_name": "BufferSelf",
+	"name": "Frog Dissection Day",
+	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal "\
+			+ "to gain {effect_stacks} {buffer}",
+	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"context": EffectContext.BATTLE,
+	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
+	"pathos_threshold_multiplier": 2,
+	"pathos_accumulation_divider": 3,
+	"keys_modified_by_upgrade": ["pathos_accumulation_divider"],
+	"amounts": {
+		"effect_stacks": 3,
+		"upgrade_multiplier": 1,
+		"max_upgrades": 15,
+	},
+}
 # Generic memories which have a chance to appear in any playthrough
 const GENERIC := [
 	DamageAll,
@@ -378,6 +395,7 @@ const ARCHETYPE := [
 	ExertRecovery,
 	ExertSelf,
 	RegenerateSelf,
+	BufferSelf
 ]
 
 # These memories are only found in non-combat encounters

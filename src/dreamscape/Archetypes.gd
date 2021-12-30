@@ -67,6 +67,7 @@ const MAD_SCIENTIST := {
 	],
 	"Memories": [
 		MemoryDefinitions.ReshuffleHand,
+		MemoryDefinitions.BufferSelf,
 	],
 	"Perturbations": [
 		"Apathy",
