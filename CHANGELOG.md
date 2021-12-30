@@ -1,5 +1,21 @@
 # Changelog
 
+## [v0.22.5](https://github.com/db0/hypnagonia/tree/v0.22.5) (2021-12-30)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.22.4...v0.22.5)
+
+**Fixed bugs:**
+
+- Some cards are eligible for upgrades twice [\#106](https://github.com/db0/hypnagonia/issues/106)
+
+**Closed issues:**
+
+- It's The Small Things card not triggering on increased Immersion [\#105](https://github.com/db0/hypnagonia/issues/105)
+
+**Merged pull requests:**
+
+- Even more memories [\#109](https://github.com/db0/hypnagonia/pull/109) ([db0](https://github.com/db0))
+
 ## [v0.22.4](https://github.com/db0/hypnagonia/tree/v0.22.4) (2021-12-29)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.22.3...v0.22.4)
