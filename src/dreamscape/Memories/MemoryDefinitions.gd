@@ -333,7 +333,25 @@ const ExertSelf := {
 		"upgrade_multiplier": 1,
 	},
 }
-
+const RegenerateSelf := {
+	"canonical_name": "RegenerateSelf",
+	"name": "Handgliding Expedition",
+	"description": "{memory_name} ({upgrades}/{max_upgrades}): At the end of the next {turns_amount} turns, "\
+			+ "{relax} for {heal_amount}.\n"\
+			+ "If you have {untouchable}, {relax} {heal_amount} extra.",
+	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"context": EffectContext.BATTLE,
+	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
+	"pathos_threshold_multiplier": 4,
+	"pathos_accumulation_divider": 1.7,
+	"keys_modified_by_upgrade": ["turns_amount"],
+	"amounts": {
+		"heal_amount": 1,
+		"turns_amount": 8,
+		"upgrade_multiplier": 1,
+		"max_upgrades": 5,
+	},
+}
 # Generic memories which have a chance to appear in any playthrough
 const GENERIC := [
 	DamageAll,
@@ -359,6 +377,7 @@ const ARCHETYPE := [
 	FortifySelf,
 	ExertRecovery,
 	ExertSelf,
+	RegenerateSelf,
 ]
 
 # These memories are only found in non-combat encounters

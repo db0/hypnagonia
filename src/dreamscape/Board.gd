@@ -384,7 +384,7 @@ func _input(event):
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_VICTIM)
 #		spawn_enemy(EnemyDefinitions.THE_VICTIM)
 #		spawn_enemy(EnemyDefinitions.THE_VICTIM)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.zen_of_flight.name, 6)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.zen_of_flight.name, 6)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.impervious.name, 13)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.drain.name, 2)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 30)
@@ -421,7 +421,7 @@ func _input(event):
 #		globals.player.add_artifact(ArtifactDefinitions.PurpleWave.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.ExertSelf.canonical_name)
-		globals.player.add_memory(MemoryDefinitions.ExertRecovery.canonical_name)
+		globals.player.add_memory(MemoryDefinitions.RegenerateSelf.canonical_name)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
 			# Need to look into these two later

@@ -19,6 +19,7 @@ const FLYER:= {
 	],
 	"Memories": [
 		MemoryDefinitions.ImperviousSelf,
+		MemoryDefinitions.RegenerateSelf,
 	],
 	"Perturbations": [
 		
