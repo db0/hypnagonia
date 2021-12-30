@@ -9,6 +9,8 @@ func _ready() -> void:
 		_on_pathos_accumulated(artifact_object, 0)
 	else:
 		_on_memory_ready(artifact_object)
+	if not is_active:
+		highlight.material = null
 
 
 func setup_artifact(memory_object, _is_active: bool, new_addition: bool) -> void:

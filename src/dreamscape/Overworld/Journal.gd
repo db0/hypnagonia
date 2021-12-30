@@ -373,6 +373,7 @@ func _input(event):
 #		_reveal_entry(upgrade_journal, true)
 		globals.player.add_artifact(ArtifactDefinitions.BossDraft.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.ProgressRandom.canonical_name)
+		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
 #		globals.player.add_artifact("AccumulateShop")
 #		globals.player.damage += 20
 #		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 200)
