@@ -85,12 +85,13 @@ func continue_encounter(key) -> void:
 		selection_deck.auto_close = true
 		selection_deck.initiate_card_removal(0)
 		var transmute_format = {
-			"select": HConst.COLOUR_MAP[key[0]], 
+			"select": HConst.COLOUR_MAP[key[0]],
 			"transmute": HConst.COLOUR_MAP[key[1]]
 		}
 		selection_deck.update_header("(Choose {select} to transform into {transmute})".format(transmute_format))
 		selection_deck.update_color(Color(0,1,0))
 	else:
+		end()
 		globals.journal.display_nce_rewards('')
 
 func _on_card_removed(operation_details: Dictionary, candy: Array) -> void:
@@ -101,8 +102,8 @@ func _on_card_removed(operation_details: Dictionary, candy: Array) -> void:
 	elif removed_rarity in ["Received"]:
 		rarities = ["Common", "Uncommon", "Rare"]
 	var transmute_cards = globals.player.compile_card_type(
-			HConst.COLOUR_MAP[candy[1]], 
-			rarities, 
+			HConst.COLOUR_MAP[candy[1]],
+			rarities,
 			operation_details["upgraded"])
 	CFUtils.shuffle_array(transmute_cards)
 	if transmute_cards.size() == 0:
@@ -113,8 +114,8 @@ func _on_card_removed(operation_details: Dictionary, candy: Array) -> void:
 			if not missing_rarity in rarities:
 				rarities.append(missing_rarity)
 				transmute_cards = globals.player.compile_card_type(
-						HConst.COLOUR_MAP[candy[1]], 
-						rarities, 
+						HConst.COLOUR_MAP[candy[1]],
+						rarities,
 						operation_details["upgraded"])
 				CFUtils.shuffle_array(transmute_cards)
 				if transmute_cards.size() > 0:
@@ -123,6 +124,7 @@ func _on_card_removed(operation_details: Dictionary, candy: Array) -> void:
 	# doesn't have a card Type at any rarity, we just give this message
 	# Possible spot for an EASTER EGG artifact compensation?
 	if transmute_cards.size() == 0:
+		end()
 		globals.journal.display_nce_rewards("The candy turns to ashes in your mouth and the Candyman is nowhere to be seen anymore.")
 		return
 	var card_name = transmute_cards[0]
@@ -140,4 +142,5 @@ func _on_card_removed(operation_details: Dictionary, candy: Array) -> void:
 	var popup_tag = NCE_POPUP_DICT.duplicate(true)
 	popup_tag["name"] = card_name
 	tag_format["url"] = JSON.print(popup_tag)
+	end()
 	globals.journal.display_nce_rewards(reward_desc.format(tag_format))

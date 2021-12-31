@@ -1,3 +1,4 @@
+class_name ShopEncounter
 extends NonCombatEncounter
 
 const SHOP_SCENE := preload("res://src/dreamscape/Shop/Shop.tscn")
@@ -19,5 +20,6 @@ func begin() -> void:
 
 
 func on_shop_back_pressed() -> void:
+	end()
 	globals.journal.display_nce_rewards('')
 	current_shop.queue_free()

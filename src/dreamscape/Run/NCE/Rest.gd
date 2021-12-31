@@ -1,3 +1,4 @@
+class_name RestEncounter
 extends NonCombatEncounter
 
 var secondary_choices := {
@@ -19,8 +20,10 @@ func continue_encounter(key) -> void:
 	match key:
 		"rest": 
 			globals.player.damage -= int(globals.player.health * 0.25)
+			end()
 			globals.journal.display_nce_rewards('')
 		"resist": 
+			end()
 			globals.journal.display_nce_rewards('')
 #		"rest": globals.journal.add_nested_choices({3: "Test1", 4: "Test2"})
 #		"resist": globals.journal.add_nested_choices({5: "Test3", 6: "Test4"})

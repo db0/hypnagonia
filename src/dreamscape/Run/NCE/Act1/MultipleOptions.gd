@@ -72,4 +72,5 @@ func continue_encounter(key) -> void:
 	if key != "leave":
 		globals.player.pathos.released[pathos_choice_payments[key]["pathos"]]\
 				-= pathos_choice_payments[key]["cost"]
+	end()
 	globals.journal.display_nce_rewards('')

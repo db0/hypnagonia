@@ -22,6 +22,8 @@ var artifact_object
 # Some artifacts can only trigger once per battle. 
 # This variable tracks that.
 var _is_activated = false
+# Helps us track our parents
+var player_info_node: Control
 
 func _ready() -> void:
 	if is_active and effect_context == ArtifactDefinitions.EffectContext.BATTLE:
@@ -133,7 +135,7 @@ func _on_CombatSingifier_mouse_entered() -> void:
 func _set_current_description() -> void:
 	var format = Terms.COMMON_FORMATS[Terms.PLAYER].duplicate()
 	var artifact_description = artifact_object.definition["description"]
-	format["artifact_name"] = canonical_name
+	format["artifact_name"] = artifact_object.definition["name"]
 	format["amount"] = str(amount)
 	format["double_amount"] = str(2*amount)
 	format["triple_amount"] = str(3*amount)

@@ -4,6 +4,7 @@ extends PanelContainer
 signal card_draft_started(card_draft_node)
 signal card_upgrade_started(card_upgrade_node)
 signal artifact_selection_started(artifact_selection_node)
+signal encounter_start(encounter)
 
 const NESTED_CHOICES_SCENE = preload("res://src/dreamscape/Overworld/SecondaryChoicesSlide.tscn")
 const SELECTION_DECK_SCENE = preload("res://src/dreamscape/SelectionDeck.tscn")
@@ -38,6 +39,7 @@ func _ready() -> void:
 #	cfc.game_rng_seed = CFUtils.generate_random_seed() # Debug
 #	globals.encounters.setup() # Debug
 	globals.journal = self
+	player_info.owner_node = self
 	journal_intro.bbcode_text = _get_intro()
 	_reveal_entry(journal_intro)
 	yield(_tween, "tween_all_completed")
@@ -68,6 +70,7 @@ func display_nce_rewards(reward_text: String) -> void:
 		_reveal_entry(upgrade_journal, true)
 	proceed.bbcode_text = _get_entry_texts('PROCEED_TEXTS')
 	_reveal_entry(proceed, true)
+
 
 func display_enemy_rewards(reward_text: String) -> void:
 	if reward_text != '':
@@ -169,7 +172,10 @@ func add_nested_choices(nested_choices: Dictionary, disabled_choices := [], foll
 
 func spawn_selection_deck() -> SelectionDeck:
 	var selection_deck = SELECTION_DECK_SCENE.instance()
-	add_child(selection_deck)
+	if globals.current_encounter and globals.current_encounter as ShopEncounter and globals.current_encounter.current_shop:
+		globals.current_encounter.current_shop.add_child(selection_deck)
+	else:	
+		add_child(selection_deck)
 	return(selection_deck)
 
 
@@ -191,6 +197,7 @@ func prepare_popup_artifact(artifact_name: String) -> void:
 
 func grey_out_label(rt_label: RichTextLabel) -> void:
 	rt_label.bbcode_text = "[color=grey]" + pre_highlight_bbcode_texts[rt_label] + "[/color]"
+
 
 func add_custom_entry(entry_scene: Control) -> void:
 	entries_list.add_child_below_node(custom_entries_pointer, entry_scene, true)
@@ -251,6 +258,7 @@ func _on_choice_pressed(encounter: SingleEncounter, rich_text_choice: JournalCho
 		if popup_cards[popup].has_method("hide_preview_artifact"):
 			popup_cards[popup].hide_preview_artifact()
 	encounter.begin()
+	emit_signal("encounter_start", encounter)
 
 
 func _reveal_entry(
@@ -375,19 +383,25 @@ func _input(event):
 #		for c in  globals.player.deck.get_progressing_cards():
 #			c.upgrade_progress = 100
 #		_reveal_entry(upgrade_journal, true)
-		globals.player.add_artifact(ArtifactDefinitions.BossDraft.canonical_name)
-		globals.player.add_memory(MemoryDefinitions.RerollDraft.canonical_name)
+		globals.player.add_artifact(ArtifactDefinitions.AddOmegaTag.canonical_name)
+#		globals.player.add_artifact(ArtifactDefinitions.AddAlphaTag.canonical_name)
+		globals.player.add_memory(MemoryDefinitions.RerollShop.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
 #		globals.player.add_artifact("AccumulateShop")
+#		globals.player.deck.add_new_card("Lacuna")
+#		globals.player.deck.add_new_card("Terror")
+#		globals.player.deck.add_new_card("Prejudice")
+#		globals.player.deck.add_new_card("Prejudice")
 #		globals.player.damage += 20
-		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, 200)
-		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.enemy, 200)
+#		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, 200)
+#		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.enemy, 200)
+		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.elite, 200)
 		var debug_encounters = [
 #			EnemyEncounter.new(Act2.ClownShow, "hard"),
 			preload("res://src/dreamscape/Run/NCE/Act1/MultipleOptions.gd").new(),
 			BossEncounter.new(Act1.BOSSES["Narcissus"], "Narcissus"),
 #			EliteEncounter.new(Act2.IndescribableAbsurdity, "medium"),
-#			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
+			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
 		]
 		for encounter in debug_encounters:
 			var journal_choice = JournalEncounterChoice.new(self, encounter)

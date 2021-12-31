@@ -10,8 +10,8 @@ signal memory_used(memory)
 
 var is_ready := false
 var pathos_used : String
-var pathos_threshold : int
-var pathos_accumulated := 0
+var pathos_threshold : float
+var pathos_accumulated : float = 0
 var upgrades_amount := 0 setget set_upgrades_amount
 
 var memory_scene: PackedScene
@@ -36,8 +36,6 @@ func _init(memory_name: String, _mods := {}) -> void:
 	is_ready = true
 #	emit_signal("pathos_accumulated", self, 0)
 	modifiers = _mods
-	# warning-ignore:return_value_discarded
-#	globals.player.pathos.connect("pathos_released", self, "_on_pathos_released")
 	if globals.encounters:
 		# warning-ignore:return_value_discarded
 		globals.encounters.connect("encounter_changed", self, "_on_encounter_changed")
@@ -47,7 +45,7 @@ func remove_self() -> void:
 	emit_signal("removed")
 
 
-func accumulate_pathos(value: int) -> void:
+func accumulate_pathos(value: float) -> void:
 	# The memory cannot withdraw more pathos than the player currently has
 	if value > globals.player.pathos.released.get(pathos_used,0):
 		value = globals.player.pathos.released.get(pathos_used,0)
@@ -93,31 +91,15 @@ func set_upgrades_amount(value) -> void:
 		upgrades_amount = definition.amounts.get("max_upgrades", 100) - 1
 	
 
-#func _on_pathos_released(pathos: String, amount: int) -> void:
-#	if pathos == pathos_used:
-#		# The pathos.release_adjustments dictionary allows a pathos that is exceeding
-#		# its threshold for getting an encounter, to release more than just that amount
-#		# every time it's used. To avoid a memory thus filling too quickly due to this
-#		# multiplier (i.e. every 1-2 encounters of that type), we divide the amount of
-#		# released pathos we use to fill up the memoty by the same amount.
-#		var adjustment_div = globals.player.pathos.release_adjustments.get(pathos,1)
-#		var accumulation_div = definition.get("pathos_accumulation_divider", 2)
-#		if upgrades_amount and "pathos_accumulation_divider" in definition.get("keys_modified_by_upgrade", []):
-#			accumulation_div -= upgrades_amount * definition.amounts["upgrade_multiplier"]
-#		# warning-ignore:integer_division
-#		var acc := int(round(amount / accumulation_div / adjustment_div))
-##		print_debug("%s : %s : %s : %s" % [amount, acc, adjustment_div, accumulation_div])
-#		accumulate_pathos(acc)
-
 
 func _on_encounter_changed(_act_name, _encounter_number) -> void:
-	var accumulation_div = definition.get("pathos_accumulation_divider", 2)
+	var accumulation_div : float = definition.get("pathos_accumulation_divider", 2)
 	if upgrades_amount and "pathos_accumulation_divider" in definition.get("keys_modified_by_upgrade", []):
-		accumulation_div -= upgrades_amount * definition.amounts["upgrade_multiplier"]
+		accumulation_div -= float(upgrades_amount) * float(definition.amounts["upgrade_multiplier"] * 0.1)
 	# warning-ignore:integer_division
 	var amount : float = globals.player.pathos.get_progression_average(pathos_used)
-	var acc := int(round(amount / accumulation_div))
-#		print_debug("%s : %s : %s : %s" % [amount, acc, adjustment_div, accumulation_div])
+	var acc := amount / accumulation_div
+#	print_debug("%s : %s : %s" % [amount, acc, accumulation_div])
 	accumulate_pathos(acc)
 
 
@@ -131,16 +113,16 @@ static func get_cost_format(memory_name: String, upgrades := 0) -> Dictionary:
 	var progression_avg : float = globals.player.pathos.get_progression_average(memory_definition.pathos)
 	var is_threshold_upgrade := false
 	var is_divider_upgrade := false
-	if upgrades > 0:
-		if "pathos_threshold_multiplier" in memory_definition.get("keys_modified_by_upgrade", []):
-			pathos_threshold_multiplier -= float(upgrades) * float(memory_definition.amounts["upgrade_multiplier"]) * 0.1
-			is_threshold_upgrade = true
-		if "pathos_accumulation_divider" in memory_definition.get("keys_modified_by_upgrade", []):
-			pathos_accumulation_divider -= upgrades * memory_definition.amounts["upgrade_multiplier"]
-			is_divider_upgrade = true
-	var fill_cost = round(progression_avg * pathos_threshold_multiplier)
-	var turns_needed = round(fill_cost / (progression_avg / pathos_accumulation_divider))
-	var threshold_description = str(fill_cost)
+	if "pathos_threshold_multiplier" in memory_definition.get("keys_modified_by_upgrade", []):
+		pathos_threshold_multiplier -= float(upgrades) * float(memory_definition.amounts["upgrade_multiplier"]) * 0.1
+		is_threshold_upgrade = true
+	if "pathos_accumulation_divider" in memory_definition.get("keys_modified_by_upgrade", []):
+		pathos_accumulation_divider -= upgrades * memory_definition.amounts["upgrade_multiplier"] * 0.1
+		is_divider_upgrade = true
+	var fill_cost = progression_avg * pathos_threshold_multiplier
+	var turns_needed = ceil(fill_cost / (progression_avg / pathos_accumulation_divider))
+#	print_debug((progression_avg / pathos_accumulation_divider))
+	var threshold_description = str(ceil(fill_cost))
 	if is_threshold_upgrade:
 		threshold_description = "[color=yellow]%s[/color]" % [threshold_description]
 	var cost_format := {
@@ -166,9 +148,8 @@ static func get_cost_format(memory_name: String, upgrades := 0) -> Dictionary:
 func _calculate_threshold() -> void:
 	var threshold_multiplier := float(definition.get("pathos_threshold_multiplier", 2))
 	if upgrades_amount and "pathos_threshold_multiplier" in definition.get("keys_modified_by_upgrade", []):
-		threshold_multiplier -= float(upgrades_amount) * float(definition.amounts["upgrade_multiplier"] * 0.1)
-	pathos_threshold = int(round(globals.player.pathos.get_progression_average(pathos_used)
-			* threshold_multiplier))
+		threshold_multiplier -= float(upgrades_amount) * float(definition.amounts["upgrade_multiplier"]) * 0.1
+	pathos_threshold = globals.player.pathos.get_progression_average(pathos_used) * threshold_multiplier
 	# Threshold can never be below 1
 	if pathos_threshold <= 1:
 		pathos_threshold = 1

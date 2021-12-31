@@ -80,14 +80,12 @@ func _ready() -> void:
 		globals.player.deck.add_new_card("+ Confidence +")
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.nce] = 160
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.rest] = 20
-		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.elite] = 40
+		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.elite] = 400
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.enemy] = 400
-		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.artifact] = 100
+		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.artifact] = 400
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.shop] = 100
-		globals.player.add_memory(MemoryDefinitions.FortifySelf.canonical_name)
-		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
-		globals.player.find_memory(MemoryDefinitions.DamageAll.canonical_name).upgrades_amount += 5
-		globals.player.find_memory(MemoryDefinitions.FortifySelf.canonical_name).upgrades_amount += 5
+		globals.player.add_memory(MemoryDefinitions.RerollShop.canonical_name)
+#		globals.player.find_memory(MemoryDefinitions.RerollShop.canonical_name).upgrades_amount += 5
 		# We're doing a connect here, because the globals.deck will not exist during its ready
 		# warning-ignore:return_value_discarded
 		globals.player.deck.connect("card_added", player_info, "_update_deck_count")
@@ -97,20 +95,18 @@ func _ready() -> void:
 		yield(get_tree().create_timer(0.1), "timeout")
 		player_info._on_Settings_hide()		
 	## END DEBUG ##
+	player_info.owner_node = self
 	globals.music.switch_scene_music('shop')
 	# warning-ignore:return_value_discarded
 	_deck_preview_popup.connect("operation_performed", self, "_on_deck_operation_performed")
-	populate_shop_cards()
-	populate_special_cards()
-	populate_shop_artifacts()
-	populate_shop_memories()
+	_update_progress_cost()
+	_update_remove_cost()
+	reroll_shop()
 	if not cfc.game_settings.get('first_shop_tutorial_done'):
 		player_info._on_Help_pressed()
 		cfc.set_setting('first_shop_tutorial_done', true)
 
 func populate_shop_cards() -> void:
-	_update_progress_cost()
-	_update_remove_cost()
 	for _iter in range(5):
 		var chance := CFUtils.randi_range(1, 100)
 #		print_debug(str(rare_chance) + ' : ' + str(rare_chance + uncommon_chance))
@@ -136,7 +132,7 @@ func populate_shop_cards() -> void:
 			var prog_avg : float = globals.player.pathos.get_progression_average(
 						cost_type)
 			var card_cost =\
-					(prog_avg * rarity_price_multipliers[rarity])\
+					round(prog_avg * rarity_price_multipliers[rarity])\
 					+ (CFUtils.randi_range(
 						prog_avg / -5 * rarity_price_multipliers[rarity],
 						prog_avg / 5 * rarity_price_multipliers[rarity]))
@@ -211,6 +207,7 @@ func populate_shop_memories() -> void:
 		if memory.canonical_name in globals.player.get_all_memory_names():
 			var existing_memory = globals.player.find_memory(memory.canonical_name)
 			memory["upgrades"] = existing_memory.upgrades_amount
+			memory["is_upgrade"] = true
 		all_memory_choices.append(shop_choice_dict)
 	for index in range(all_memory_choices.size()):
 		var memory: Dictionary = memory_prep.selected_memories[index]
@@ -268,6 +265,24 @@ func populate_special_cards() -> void:
 			[shop_card_object, all_special_card_choices])
 
 
+# Rerolls artifact and card pool choices
+func reroll_shop() -> void:
+	for container in [card_pool_shop, artifact_shop, memories_shop, special_cards_shop]:
+		for node in container.get_children():
+			node.visible = false
+			node.call_deferred("queue_free")
+	all_card_pool_choices.clear()
+	all_artifact_choices.clear()
+	all_special_card_choices.clear()
+	all_memory_choices.clear()
+	for array in shop_card_choices.values():
+		array.clear()
+	populate_shop_cards()
+	populate_shop_artifacts()
+	populate_shop_memories()
+	populate_special_cards()
+
+
 func _get_shop_choice(choices_list: Array) -> String:
 	CFUtils.shuffle_array(choices_list)
 	if choices_list.size():
@@ -308,7 +323,6 @@ func _on_shop_memory_selected(index: int, shop_memory_object) -> void:
 	if globals.player.pathos.released[pathos] < all_memory_choices[index].cost:
 		return
 	globals.player.pathos.spend_pathos(pathos, all_memory_choices[index].cost)
-	print_debug(shop_memory_object, shop_memory_object.is_upgrade)
 	if shop_memory_object.is_upgrade:
 		var existing_memory = globals.player.find_memory(shop_memory_object.shop_artifact_display.canonical_name)
 		existing_memory.upgrade()

@@ -32,7 +32,7 @@ func _set_current_description() -> void:
 		bbcolor = 'green'
 	artifact_description += '\n[color=%s]This memory is %s%% ready to recall[/color]' % [bbcolor,
 			round(float(artifact_object.pathos_accumulated)/float(artifact_object.pathos_threshold) * 100)]
-	artifact_description += "\n\n[i]This memory costs {fill_cost} released {pathos} to recall{delay_pct_explanation}[/i]"\
+	artifact_description += "\n\n[i]This memory needs to accumulate {fill_cost} released [color=#FF7E00]{pathos}[/color] to recall.{delay_pct_explanation}[/i]."\
 			.format(artifact_object.get_cost_format(canonical_name, artifact_object.upgrades_amount))
 	format["amount"] = str(amount)
 	format["double_amount"] = str(2*amount)
@@ -40,6 +40,7 @@ func _set_current_description() -> void:
 	# warning-ignore:integer_division
 	format["half_amount"] = str(amount/2)
 	_add_extra_description_format(format)
+#	print_debug(MemoryDefinitions.get_memory_bbcode_format(artifact_object.definition, artifact_object.upgrades_amount))
 	decription_label.bbcode_text = artifact_description.\
 			format(format).\
 			format(Terms.get_bbcode_formats(18)).\
@@ -65,11 +66,11 @@ func _on_MemoryTemplate_gui_input(event: InputEvent) -> void:
 			_use()
 	## DEBUG
 	elif event.is_pressed() and event.get_button_index() == 2:
-		globals.player.pathos.repress_pathos(artifact_object.pathos_used, 30)
-		# warning-ignore:return_value_discarded
-		globals.player.pathos.release(artifact_object.pathos_used)
-		artifact_object._on_encounter_changed('', 1)
-		artifact_object.upgrade()
+#		globals.player.pathos.repress_pathos(artifact_object.pathos_used, 30)
+#		# warning-ignore:return_value_discarded
+#		globals.player.pathos.release(artifact_object.pathos_used)
+#		artifact_object._on_encounter_changed('', 1)
+#		artifact_object.upgrade()
 		_set_current_description()
 	## END DEBUG
 

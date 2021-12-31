@@ -62,8 +62,8 @@ const HealSelf := {
 	"icon": preload("res://assets/icons/memories/portrait.png"),
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.rest,
-	"pathos_threshold_multiplier": 2,
-	"pathos_accumulation_divider": 2.7,
+	"pathos_threshold_multiplier": 3,
+	"pathos_accumulation_divider": 2,
 	"keys_modified_by_upgrade": ["heal_amount"],
 	"amounts": {
 		"heal_amount": 5,
@@ -88,7 +88,7 @@ const BossFaster := {
 }
 const ProgressRandom := {
 	"canonical_name": "ProgressRandom",
-	"name": "ProgressRandom",
+	"name": "University Life",
 	"description": "{memory_name} ({upgrades}): Recall this memory during the Dream Journal "\
 			+ "to progress a random card by {progress_amount}",
 	"icon": preload("res://assets/icons/memories/portrait.png"),
@@ -145,7 +145,7 @@ const DefendSelf := {
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
 	"pathos_threshold_multiplier": 2,
 	"pathos_accumulation_divider": 1.5,
-	"keys_modified_by_upgrade": ["confidence_amount"],
+	"keys_modified_by_upgrade": ["defence_amount"],
 	"amounts": {
 		"defence_amount": 12,
 		"upgrade_multiplier": 2
@@ -204,7 +204,7 @@ const RandomChaos := {
 }
 const ReshuffleHand := {
 	"canonical_name": "ReshuffleHand",
-	"name": "First Place at Science Fair",
+	"name": "The Absolute Cringe",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal "\
 			+ "to reshuffle your hand into your deck and draw the same amount of cards",
 	"icon": preload("res://assets/icons/memories/portrait.png"),
@@ -220,7 +220,7 @@ const ReshuffleHand := {
 }
 const PoisonEnemy := {
 	"canonical_name": "PoisonEnemy",
-	"name": "Debating Compatition",
+	"name": "Debating Competition",
 	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
 			+ "to apply {effect_stacks} {poison} to one Torment",
 	"icon": preload("res://assets/icons/memories/portrait.png"),
@@ -228,7 +228,7 @@ const PoisonEnemy := {
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
 	"pathos_threshold_multiplier": 2,
 	"pathos_accumulation_divider": 3,
-	"keys_modified_by_upgrade": ["effect_stacks"],
+	"keys_modified_by_upgrade": ["pathos_accumulation_divider"],
 	"amounts": {
 		"effect_stacks": 5,
 		"upgrade_multiplier": 1
@@ -326,7 +326,7 @@ const ExertSelf := {
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
 	"pathos_threshold_multiplier": 1,
 	"pathos_accumulation_divider": 3,
-	"keys_modified_by_upgrade": ["exert_times"],
+	"keys_modified_by_upgrade": ["repeat_amount"],
 	"amounts": {
 		"exert_amount": 1,
 		"repeat_amount": 5,
@@ -336,7 +336,8 @@ const ExertSelf := {
 const RegenerateSelf := {
 	"canonical_name": "RegenerateSelf",
 	"name": "Handgliding Expedition",
-	"description": "{memory_name} ({upgrades}/{max_upgrades}): At the end of the next {turns_amount} turns, "\
+	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal.\n"\
+			+ "At the end of the next {turns_amount} turns, "\
 			+ "{relax} for {heal_amount}.\n"\
 			+ "If you have {untouchable}, {relax} {heal_amount} extra.",
 	"icon": preload("res://assets/icons/memories/portrait.png"),
@@ -382,7 +383,56 @@ const RerollDraft := {
 	"keys_modified_by_upgrade": ["pathos_threshold_multiplier"],
 	"amounts": {
 		"upgrade_multiplier": 2,
-		"max_upgrades": 15,
+		"max_upgrades": 10,
+	},
+}
+const RemovePerturbation := {
+	"canonical_name": "RemovePerturbation",
+	"name": "That Lazy Afternoon",
+	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during the Dream Journal "\
+			+ "to {release} a random {perturbation} from your deck.",
+	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"context": EffectContext.OVERWORLD,
+	"pathos": Terms.RUN_ACCUMULATION_NAMES.rest,
+	"pathos_threshold_multiplier": 5.3,
+	"pathos_accumulation_divider": 2,
+	"keys_modified_by_upgrade": ["pathos_threshold_multiplier"],
+	"amounts": {
+		"upgrade_multiplier": 2,
+		"max_upgrades": 10,
+	},
+}
+const RerollShop := {
+	"canonical_name": "RerollShop",
+	"name": "Rapid Flashes",
+	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory inside the Shop "\
+			+ "to reroll all the options.",
+	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"context": EffectContext.SHOP,
+	"pathos": Terms.RUN_ACCUMULATION_NAMES.artifact,
+	"pathos_threshold_multiplier": 4.5,
+	"pathos_accumulation_divider": 1.3,
+	"keys_modified_by_upgrade": ["pathos_threshold_multiplier"],
+	"amounts": {
+		"upgrade_multiplier": 3,
+		"max_upgrades": 10,
+	},
+}
+const GainMaxHealth := {
+	"canonical_name": "GainMaxHealth",
+	"name": "Birthday Party",
+	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during the Dream Journal "\
+			+ "to permanently increase your {anxiety} threshold by {anxiety_amount}.",
+	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"context": EffectContext.OVERWORLD,
+	"pathos": Terms.RUN_ACCUMULATION_NAMES.shop,
+	"pathos_threshold_multiplier": 4,
+	"pathos_accumulation_divider": 2.2,
+	"keys_modified_by_upgrade": ["pathos_accumulation_divider"],
+	"amounts": {
+		"anxiety_amount": 5,
+		"upgrade_multiplier": 1,
+		"max_upgrades": 10,
 	},
 }
 # Generic memories which have a chance to appear in any playthrough
@@ -399,6 +449,9 @@ const GENERIC := [
 	ImmerseSelf,
 	CardDraw,
 	RerollDraft,
+	RemovePerturbation,
+	RerollShop,
+	GainMaxHealth,
 ]
 
 # Archetype-specific memories which only appear in runs in which

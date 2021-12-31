@@ -182,8 +182,6 @@ func get_all_memory_pathos() -> Array:
 # The reason why we return the memories the player currently owns, if because
 # when they are chosen, they serve as an upgrade opportunity.
 func get_all_invalid_memory_names() -> Array:
-	var used_pathos := get_all_memory_pathos()
-	var used_memory_names := get_all_memory_names()
 	var all_invalid_memories := []
 	for memory in MemoryDefinitions.get_complete_memories_array():
 		if not _is_memory_valid(memory):
@@ -199,6 +197,7 @@ func _is_memory_valid(memory_def: Dictionary) -> bool:
 				return(true)
 		return(false)
 	return(true)
+
 
 # Goes through all archetypes and gathers all artifacts specified
 # Returns a list with all artifacts tied to all archetypes of the player.

@@ -37,5 +37,5 @@ func continue_encounter(key) -> void:
 				+= pathos_choice_payments[key]["amount"]
 		# warning-ignore:return_value_discarded
 		globals.player.deck.add_new_card("Discombobulation")
-
+	end()
 	globals.journal.display_nce_rewards('')

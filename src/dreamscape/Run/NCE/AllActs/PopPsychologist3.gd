@@ -55,4 +55,5 @@ func continue_encounter(key) -> void:
 	var adlib_format = {
 		"noun": mad_lib_nouns[0],
 	}
+	end()
 	globals.journal.display_nce_rewards(nce_resul_fluff.format(adlib_format))

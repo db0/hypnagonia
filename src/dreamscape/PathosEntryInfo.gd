@@ -11,5 +11,5 @@ func setup(_name: String) -> void:
 	update()
 	
 func update() -> void:
-	repressed_label.text = str(globals.player.pathos.repressed[name])
-	released_label.text = str(globals.player.pathos.released[name])
+	repressed_label.text = str(floor(globals.player.pathos.repressed[name]))
+	released_label.text = str(floor(globals.player.pathos.released[name]))

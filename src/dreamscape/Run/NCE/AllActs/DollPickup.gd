@@ -55,4 +55,5 @@ func begin() -> void:
 func continue_encounter(key: String) -> void:
 	var mod := {"colour": key}
 	globals.player.add_artifact("PorcelainDoll", mod)
+	end()
 	globals.journal.display_nce_rewards('')

@@ -552,7 +552,30 @@ const BossDraft := {
 		"progress_amount": 4,
 	},
 }
-
+const FreeCard := {
+	"canonical_name": "FreeCard",
+	"name": "A Nice Warm Meal",
+	"description": "{artifact_name}: A random card in your deck, costing 1 or more immersion, becomes free.",
+	"icon": preload("res://assets/icons/artifacts/camp-cooking-pot.png"),
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Common",
+}
+const AddAlphaTag := {
+	"canonical_name": "AddAlphaTag",
+	"name": "Crystal Ball",
+	"description": "{artifact_name}: Choose a card in your deck. It gains the {alpha} tag.",
+	"icon": preload("res://assets/icons/artifacts/crystal-ball.png"),
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Uncommon",
+}
+const AddOmegaTag := {
+	"canonical_name": "AddOmegaTag",
+	"name": "Jigsaw Piece",
+	"description": "{artifact_name}: Choose a card in your deck. It gains the {alpha} tag.",
+	"icon": preload("res://assets/icons/artifacts/jigsaw-piece.png"),
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Uncommon",
+}
 
 # Generic artifacts which have a chance to appear in any playthrough
 const GENERIC := [
@@ -587,6 +610,9 @@ const GENERIC := [
 	RedWave,
 	BlueWave,
 	PurpleWave,
+	FreeCard,
+	AddAlphaTag,
+	AddOmegaTag,
 ]
 
 # Archetype-specific artifacts which only appear in runs in which

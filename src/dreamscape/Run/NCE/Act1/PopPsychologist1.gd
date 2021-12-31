@@ -71,5 +71,6 @@ func continue_encounter(key) -> void:
 		"noun": mad_lib_nouns[0],
 	}
 	globals.encounters.run_changes.unlock_nce("PopPsychologist2")
+	end()
 	globals.journal.display_nce_rewards(nce_resul_fluff.format(adlib_format))
 	

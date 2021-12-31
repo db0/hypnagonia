@@ -1,3 +1,4 @@
+class_name ArtifactEncounter
 extends NonCombatEncounter
 
 # This variable is set equal to the player's artifact pathos,
@@ -40,6 +41,7 @@ func continue_encounter(key) -> void:
 			# When we add difficulty levels, it will be 1/2
 #			globals.player.deck.add_new_card(Perturbations.get_random_perturbation(
 #					globals.player.get_archetype_perturbations()))
+			end()
 			globals.journal.display_nce_rewards('')
 		"grab_second": 
 			globals.player.add_artifact(artifact_prep.selected_artifacts[1].canonical_name)
@@ -48,8 +50,10 @@ func continue_encounter(key) -> void:
 					globals.player.get_archetype_perturbations()))
 #			globals.player.deck.add_new_card(Perturbations.get_random_perturbation(
 #					globals.player.get_archetype_perturbations()))
+			end()
 			globals.journal.display_nce_rewards('')
-		"avoid": 
+		"avoid":
+			end()
 			globals.journal.display_nce_rewards('')
 		"recall":
 			var bbformat = artifact_prep.selected_artifacts[1]["bbformat"]
