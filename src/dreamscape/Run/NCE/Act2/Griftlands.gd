@@ -43,4 +43,5 @@ func continue_encounter(key) -> void:
 	globals.player.deck.add_new_card(cards[0])
 	globals.encounters.run_changes.unlock_nce("Griftlands2")
 	globals.encounters.run_changes.unlock_nce("Griftlands3")
+	end()
 	globals.journal.display_nce_rewards(nce_result_fluff[key])

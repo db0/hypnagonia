@@ -69,6 +69,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/Artifacts/ArtifactDefinitions.gd"
 }, {
+"base": "NonCombatEncounter",
+"class": "ArtifactEncounter",
+"language": "GDScript",
+"path": "res://src/dreamscape/Run/NCE/Artifact.gd"
+}, {
 "base": "Reference",
 "class": "ArtifactObject",
 "language": "GDScript",
@@ -519,6 +524,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/core/CardViewer/DeckBuilder/QuantityNumberButton.gd"
 }, {
+"base": "NonCombatEncounter",
+"class": "RestEncounter",
+"language": "GDScript",
+"path": "res://src/dreamscape/Run/NCE/Rest.gd"
+}, {
 "base": "RichTextEffect",
 "class": "RichTextGhost",
 "language": "GDScript",
@@ -578,6 +588,11 @@ _global_script_classes=[ {
 "class": "SelectionWindow",
 "language": "GDScript",
 "path": "res://src/core/SelectionWindow.gd"
+}, {
+"base": "NonCombatEncounter",
+"class": "ShopEncounter",
+"language": "GDScript",
+"path": "res://src/dreamscape/Run/NCE/Shop.gd"
 }, {
 "base": "Reference",
 "class": "SingleEncounter",
@@ -672,6 +687,7 @@ _global_script_class_icons={
 "Archetypes": "",
 "Artifact": "",
 "ArtifactDefinitions": "",
+"ArtifactEncounter": "",
 "ArtifactObject": "",
 "ArtifactPrep": "",
 "ArtifactPreviewPopup": "",
@@ -762,6 +778,7 @@ _global_script_class_icons={
 "PlayerEntity": "",
 "PlayerInfo": "",
 "QuantityNumberButton": "",
+"RestEncounter": "",
 "RichTextGhost": "",
 "RunChanges": "",
 "SP": "",
@@ -774,6 +791,7 @@ _global_script_class_icons={
 "SecondaryChoiceSlide": "",
 "SelectionDeck": "",
 "SelectionWindow": "",
+"ShopEncounter": "",
 "SingleEncounter": "",
 "SingleRun": "",
 "SoundManagerAudioStreamPlayer": "",

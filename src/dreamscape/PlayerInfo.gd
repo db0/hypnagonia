@@ -18,6 +18,7 @@ export(ArtifactDefinitions.EffectContext) var context
 var current_decklist_cache: Array
 var pathos_infos := {}
 var popup_settings : PopupPanel
+var owner_node: Control
 
 onready var _deck_preview_popup := $DeckPreview
 onready var _deck_preview_scroll := $DeckPreview/ScrollContainer/
@@ -201,6 +202,7 @@ func _instance_artifact(artifact_object: ArtifactObject, new_addition := false) 
 		artifact_active = true
 	new_artifact.setup_artifact(artifact_object, artifact_active, new_addition)
 	_artifacts.add_child(new_artifact)
+	new_artifact.player_info_node = self
 
 
 func _instance_memory(memory_object: MemoryObject, new_addition := false) -> void:
@@ -210,6 +212,7 @@ func _instance_memory(memory_object: MemoryObject, new_addition := false) -> voi
 		memory_active = true
 	new_memory.setup_artifact(memory_object, memory_active, new_addition)
 	_memories.add_child(new_memory)
+	new_memory.player_info_node = self
 
 
 func _input(event):
@@ -220,6 +223,7 @@ func _input(event):
 # Wipes the deck cache so that the cards can be recreated in the right size
 func _on_Viewport_size_changed() -> void:
 	current_decklist_cache = []
+
 
 func _on_ArtifactsShowButton_pressed() -> void:
 	if _artifact_popup.visible:

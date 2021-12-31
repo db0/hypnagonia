@@ -32,6 +32,7 @@ onready var _debug_warning := $VBC/DebugWarning
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 #	print_debug("Board Enter Ready:" + str(OS.get_ticks_msec() - load_start_time) + 'ms')
+	player_info.owner_node = self
 	_board_cover.visible = true
 	counters = $VBC/HBC/Counters
 	end_turn = $VBC/HBC/EndTurn

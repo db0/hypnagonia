@@ -383,7 +383,7 @@ const RerollDraft := {
 	"keys_modified_by_upgrade": ["pathos_threshold_multiplier"],
 	"amounts": {
 		"upgrade_multiplier": 2,
-		"max_upgrades": 15,
+		"max_upgrades": 10,
 	},
 }
 const RemovePerturbation := {
@@ -402,6 +402,22 @@ const RemovePerturbation := {
 		"max_upgrades": 10,
 	},
 }
+const RerollShop := {
+	"canonical_name": "RerollShop",
+	"name": "Rapid Flashes",
+	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory inside the Shop "\
+			+ "to reroll all the options.",
+	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"context": EffectContext.SHOP,
+	"pathos": Terms.RUN_ACCUMULATION_NAMES.artifact,
+	"pathos_threshold_multiplier": 4.5,
+	"pathos_accumulation_divider": 1.3,
+	"keys_modified_by_upgrade": ["pathos_threshold_multiplier"],
+	"amounts": {
+		"upgrade_multiplier": 3,
+		"max_upgrades": 10,
+	},
+}
 # Generic memories which have a chance to appear in any playthrough
 const GENERIC := [
 	DamageAll,
@@ -417,6 +433,7 @@ const GENERIC := [
 	CardDraw,
 	RerollDraft,
 	RemovePerturbation,
+	RerollShop,
 ]
 
 # Archetype-specific memories which only appear in runs in which

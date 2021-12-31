@@ -1,16 +1,26 @@
 class_name SingleEncounter
 extends Reference
 
+signal encounter_begin(encounter)
+signal encounter_end(encounter)
+
 var description: String
 var journal_art
 var shader_params: Dictionary
 
 func begin() -> void:
 	globals.current_encounter = self
+	emit_signal("encounter_begin", self)
+
+
+func end() -> void:
+	emit_signal("encounter_end", self)
+
 
 func game_over() -> void:
 	cfc.NMAP.clear()
 	globals.journal.display_loss()
+
 
 func prepare_journal_art(encounter: Dictionary) -> void:
 	var tex = encounter.get("journal_art")

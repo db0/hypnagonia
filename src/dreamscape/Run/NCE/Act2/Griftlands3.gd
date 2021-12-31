@@ -40,4 +40,5 @@ func continue_encounter(key) -> void:
 	CFUtils.shuffle_array(cards)
 	# warning-ignore:return_value_discarded
 	globals.player.deck.add_new_card(cards[0])
+	end()
 	globals.journal.display_nce_rewards(nce_result_fluff[key])

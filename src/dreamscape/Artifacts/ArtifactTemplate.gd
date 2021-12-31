@@ -22,6 +22,8 @@ var artifact_object
 # Some artifacts can only trigger once per battle. 
 # This variable tracks that.
 var _is_activated = false
+# Helps us track our parents
+var player_info_node: Control
 
 func _ready() -> void:
 	if is_active and effect_context == ArtifactDefinitions.EffectContext.BATTLE:

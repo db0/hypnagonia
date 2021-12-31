@@ -84,10 +84,10 @@ func _ready() -> void:
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.enemy] = 400
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.artifact] = 100
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.shop] = 100
-		globals.player.add_memory(MemoryDefinitions.FortifySelf.canonical_name)
+		globals.player.add_memory(MemoryDefinitions.RerollShop.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
 		globals.player.find_memory(MemoryDefinitions.DamageAll.canonical_name).upgrades_amount += 5
-		globals.player.find_memory(MemoryDefinitions.FortifySelf.canonical_name).upgrades_amount += 5
+#		globals.player.find_memory(MemoryDefinitions.RerollShop.canonical_name).upgrades_amount += 5
 		# We're doing a connect here, because the globals.deck will not exist during its ready
 		# warning-ignore:return_value_discarded
 		globals.player.deck.connect("card_added", player_info, "_update_deck_count")
@@ -97,20 +97,18 @@ func _ready() -> void:
 		yield(get_tree().create_timer(0.1), "timeout")
 		player_info._on_Settings_hide()		
 	## END DEBUG ##
+	player_info.owner_node = self
 	globals.music.switch_scene_music('shop')
 	# warning-ignore:return_value_discarded
 	_deck_preview_popup.connect("operation_performed", self, "_on_deck_operation_performed")
-	populate_shop_cards()
-	populate_special_cards()
-	populate_shop_artifacts()
-	populate_shop_memories()
+	_update_progress_cost()
+	_update_remove_cost()
+	reroll_shop()
 	if not cfc.game_settings.get('first_shop_tutorial_done'):
 		player_info._on_Help_pressed()
 		cfc.set_setting('first_shop_tutorial_done', true)
 
 func populate_shop_cards() -> void:
-	_update_progress_cost()
-	_update_remove_cost()
 	for _iter in range(5):
 		var chance := CFUtils.randi_range(1, 100)
 #		print_debug(str(rare_chance) + ' : ' + str(rare_chance + uncommon_chance))
@@ -266,6 +264,24 @@ func populate_special_cards() -> void:
 			self,
 			"_on_shop_card_selected",
 			[shop_card_object, all_special_card_choices])
+
+
+# Rerolls artifact and card pool choices
+func reroll_shop() -> void:
+	for container in [card_pool_shop, artifact_shop, memories_shop, special_cards_shop]:
+		for node in container.get_children():
+			node.visible = false
+			node.call_deferred("queue_free")
+	all_card_pool_choices.clear()
+	all_artifact_choices.clear()
+	all_special_card_choices.clear()
+	all_memory_choices.clear()
+	for array in shop_card_choices.values():
+		array.clear()
+	populate_shop_cards()
+	populate_shop_artifacts()
+	populate_shop_memories()
+	populate_special_cards()
 
 
 func _get_shop_choice(choices_list: Array) -> String:

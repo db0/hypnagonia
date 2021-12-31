@@ -27,6 +27,7 @@ func begin() -> void:
 	globals.music.switch_scene_music('boss')
 
 func end() -> void:
+	.end()
 	current_combat.queue_free()
 	yield(cfc.get_tree().create_timer(0.1), "timeout")
 	cfc.NMAP.clear()

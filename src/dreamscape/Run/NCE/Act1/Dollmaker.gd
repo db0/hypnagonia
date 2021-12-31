@@ -49,4 +49,5 @@ func continue_encounter(key) -> void:
 					Terms.RUN_ACCUMULATION_NAMES.elite, 
 					amounts["leave_amount"])
 			globals.encounters.run_changes.unlock_nce("DollPickup")
+	end()
 	globals.journal.display_nce_rewards(nce_result_fluff[key])

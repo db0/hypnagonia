@@ -27,4 +27,5 @@ func continue_encounter(key) -> void:
 			for card_entry in globals.player.deck.cards:
 				if card_entry.get_property("Type") == "Perturbation":
 					globals.player.deck.remove_card(card_entry)
+	end()
 	globals.journal.display_nce_rewards(nce_resul_fluff[key])

@@ -60,4 +60,5 @@ func continue_encounter(key) -> void:
 					Terms.RUN_ACCUMULATION_NAMES.elite, 
 					globals.player.pathos.get_progression_average(
 						Terms.RUN_ACCUMULATION_NAMES.elite) * 2)
+	end()
 	globals.journal.display_nce_rewards(nce_result_fluff[key])

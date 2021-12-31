@@ -74,4 +74,5 @@ func begin() -> void:
 func continue_encounter(key) -> void:
 	globals.player.pathos.repress_pathos(choices[key]["pathos"], choices[key]["reward"])
 	globals.player.damage += choices[key]["anxiety"]
+	end()
 	globals.journal.display_nce_rewards(nce_resul_fluff[key])

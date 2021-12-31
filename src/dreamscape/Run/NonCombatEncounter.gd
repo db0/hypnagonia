@@ -35,6 +35,7 @@ func _prepare_card_popup_bbcode(card_name: String, url_text: String) -> String:
 	globals.journal.prepare_popup_card(card_name)
 	return(url_bbcode)
 
+
 func _prepare_artifact_popup_bbcode(artifact_name: String, url_text: String) -> String:
 	var popup_tag = ARTIFACT_POPUP_DICT.duplicate(true)
 	popup_tag["name"] = artifact_name
