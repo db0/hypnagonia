@@ -9,6 +9,7 @@ const TORMENT_META_DICT := {
 var enemies: Array
 
 
+
 func _init(encounter: Dictionary, _difficulty: String):
 	description = encounter["journal_description"]
 	difficulty = _difficulty
@@ -40,6 +41,11 @@ func get_unique_enemies() -> Array:
 
 
 func begin() -> void:
+	if OS.has_feature("debug"):
+		var _debug_enemies := []
+		for t in enemies:
+			_debug_enemies.append(t.definition.Name)
+		print_debug("DEBUG INFO: Torments Present: ", _debug_enemies)
 	# warning-ignore:return_value_discarded
 	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.enemy)
 	.begin()

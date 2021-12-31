@@ -1933,7 +1933,8 @@ func _start_dragging(drag_offset: Vector2) -> void:
 	# due to godotengine/godot#30215
 	# This is caused because we're using a viewport node and scaling the game
 	# in full-creen.
-	if not cfc.ut:
+	# This is not supported in browsers.
+	if not cfc.ut and not OS.has_feature("web"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 #		if ProjectSettings.get("display/window/stretch/mode") != 'disabled':
 #			get_tree().current_scene.get_viewport().warp_mouse(global_position + Vector2(5,5))

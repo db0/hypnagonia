@@ -37,7 +37,7 @@ var pre_highlight_bbcode_texts := {}
 
 func _ready() -> void:
 	if OS.has_feature("debug"):
-		print_debug("DEBUG INFO: Entering Journal")
+		print("DEBUG INFO: Entering Journal")
 #	cfc.game_rng_seed = CFUtils.generate_random_seed() # Debug
 #	globals.encounters.setup() # Debug
 	globals.journal = self
@@ -58,6 +58,8 @@ func _ready() -> void:
 		player_info._on_Help_pressed()
 		cfc.set_setting('first_journal_tutorial_done', true)
 	globals.music.switch_scene_music('journal')
+	if OS.has_feature("debug"):
+		print("DEBUG INFO: Journal Loaded")
 
 
 func display_nce_rewards(reward_text: String) -> void:
@@ -387,9 +389,9 @@ func _input(event):
 #		for c in  globals.player.deck.get_progressing_cards():
 #			c.upgrade_progress = 100
 #		_reveal_entry(upgrade_journal, true)
-		globals.player.add_artifact(ArtifactDefinitions.AddOmegaTag.canonical_name)
+#		globals.player.add_artifact(ArtifactDefinitions.AddOmegaTag.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.AddAlphaTag.canonical_name)
-		globals.player.add_memory(MemoryDefinitions.RerollShop.canonical_name)
+		globals.player.add_memory(MemoryDefinitions.GainMaxHealth.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
 #		globals.player.add_artifact("AccumulateShop")
 #		globals.player.deck.add_new_card("Lacuna")
@@ -397,7 +399,7 @@ func _input(event):
 #		globals.player.deck.add_new_card("Prejudice")
 #		globals.player.deck.add_new_card("Prejudice")
 #		globals.player.damage += 20
-#		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, 200)
+		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.boss, 100)
 #		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.enemy, 200)
 		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.elite, 200)
 		var debug_encounters = [
@@ -417,4 +419,4 @@ func _input(event):
 
 func _exit_tree():
 	if OS.has_feature("debug"):
-		print_debug("DEBUG INFO: Exiting/Changing Journal")
+		print("DEBUG INFO: Exiting/Changing Journal")

@@ -97,6 +97,9 @@ func begin_encounter() -> void:
 	if not cfc.game_settings.get('first_ordeal_tutorial_done'):
 		player_info._on_Help_pressed()
 		cfc.set_setting('first_ordeal_tutorial_done', true)
+	if OS.has_feature("debug"):
+			print("DEBUG INFO: Ordeal Encounter Loaded")
+	
 
 func _retrieve_alpha() -> int:
 	var alpha_count := 0
@@ -521,7 +524,7 @@ func _on_EnemyTurnStuckTimer_timeout() -> void:
 
 func _exit_tree():
 	if OS.has_feature("debug"):
-		print_debug("DEBUG INFO: Exiting Ordeal")
+		print("DEBUG INFO: Exiting Ordeal")
 
 func _store_debug_enemy_states() -> void:
 	_debug_enemy_states.clear()
