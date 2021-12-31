@@ -40,6 +40,7 @@ func _set_current_description() -> void:
 	# warning-ignore:integer_division
 	format["half_amount"] = str(amount/2)
 	_add_extra_description_format(format)
+#	print_debug(MemoryDefinitions.get_memory_bbcode_format(artifact_object.definition, artifact_object.upgrades_amount))
 	decription_label.bbcode_text = artifact_description.\
 			format(format).\
 			format(Terms.get_bbcode_formats(18)).\

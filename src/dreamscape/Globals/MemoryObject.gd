@@ -113,13 +113,12 @@ static func get_cost_format(memory_name: String, upgrades := 0) -> Dictionary:
 	var progression_avg : float = globals.player.pathos.get_progression_average(memory_definition.pathos)
 	var is_threshold_upgrade := false
 	var is_divider_upgrade := false
-	if upgrades > 0:
-		if "pathos_threshold_multiplier" in memory_definition.get("keys_modified_by_upgrade", []):
-			pathos_threshold_multiplier -= float(upgrades) * float(memory_definition.amounts["upgrade_multiplier"]) * 0.1
-			is_threshold_upgrade = true
-		if "pathos_accumulation_divider" in memory_definition.get("keys_modified_by_upgrade", []):
-			pathos_accumulation_divider -= upgrades * memory_definition.amounts["upgrade_multiplier"] * 0.1
-			is_divider_upgrade = true
+	if "pathos_threshold_multiplier" in memory_definition.get("keys_modified_by_upgrade", []):
+		pathos_threshold_multiplier -= float(upgrades) * float(memory_definition.amounts["upgrade_multiplier"]) * 0.1
+		is_threshold_upgrade = true
+	if "pathos_accumulation_divider" in memory_definition.get("keys_modified_by_upgrade", []):
+		pathos_accumulation_divider -= upgrades * memory_definition.amounts["upgrade_multiplier"] * 0.1
+		is_divider_upgrade = true
 	var fill_cost = progression_avg * pathos_threshold_multiplier
 	var turns_needed = ceil(fill_cost / (progression_avg / pathos_accumulation_divider))
 #	print_debug((progression_avg / pathos_accumulation_divider))

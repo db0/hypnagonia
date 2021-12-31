@@ -18,7 +18,7 @@ func setup(signifier_details: Dictionary, signifier_name: String) -> void:
 		var upgrades = signifier_details.get("upgrades",0)
 		# If a card has upgrades, we want the card displayed in the shop to have the statiastics
 		# of its upgraded version
-		if upgrades > 0:
+		if signifier_details.get("is_upgrade"):
 			upgrades += 1
 		memory_cost_info = "\n\n[i]This memory will cost {fill_cost} released {pathos} to recall{delay_pct_explanation}[/i]"\
 				.format(MemoryObject.get_cost_format(updated_detail.canonical_name, upgrades))

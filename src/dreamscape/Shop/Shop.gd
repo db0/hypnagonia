@@ -207,6 +207,7 @@ func populate_shop_memories() -> void:
 		if memory.canonical_name in globals.player.get_all_memory_names():
 			var existing_memory = globals.player.find_memory(memory.canonical_name)
 			memory["upgrades"] = existing_memory.upgrades_amount
+			memory["is_upgrade"] = true
 		all_memory_choices.append(shop_choice_dict)
 	for index in range(all_memory_choices.size()):
 		var memory: Dictionary = memory_prep.selected_memories[index]

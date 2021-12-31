@@ -145,7 +145,7 @@ const DefendSelf := {
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
 	"pathos_threshold_multiplier": 2,
 	"pathos_accumulation_divider": 1.5,
-	"keys_modified_by_upgrade": ["confidence_amount"],
+	"keys_modified_by_upgrade": ["defence_amount"],
 	"amounts": {
 		"defence_amount": 12,
 		"upgrade_multiplier": 2
@@ -220,7 +220,7 @@ const ReshuffleHand := {
 }
 const PoisonEnemy := {
 	"canonical_name": "PoisonEnemy",
-	"name": "Debating Compatition",
+	"name": "Debating Competition",
 	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
 			+ "to apply {effect_stacks} {poison} to one Torment",
 	"icon": preload("res://assets/icons/memories/portrait.png"),
@@ -326,7 +326,7 @@ const ExertSelf := {
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
 	"pathos_threshold_multiplier": 1,
 	"pathos_accumulation_divider": 3,
-	"keys_modified_by_upgrade": ["exert_times"],
+	"keys_modified_by_upgrade": ["repeat_amount"],
 	"amounts": {
 		"exert_amount": 1,
 		"repeat_amount": 5,
