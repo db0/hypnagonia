@@ -16,6 +16,7 @@ var enemies_at_start_of_turn
 
 var _debug_enemies_at_end_of_turn
 var _debug_enemies_started_activation := []
+var _debug_enemy_states := {}
 
 onready var bottom_gui := $VBC/HBC
 onready var _player_area := $VBC/CombatArena/PlayerArea
@@ -236,6 +237,7 @@ func _on_player_turn_started(_turn: Turn) -> void:
 func _on_player_turn_ended(_turn: Turn) -> void:
 	_debug_warning.visible = false
 	_debug_enemies_at_end_of_turn = get_tree().get_nodes_in_group("EnemyEntities").size()
+	_store_debug_enemy_states()
 	_debug_timer.start(10)
 	end_turn.disabled = true
 	yield(get_tree().create_timer(0.3), "timeout")
@@ -492,14 +494,14 @@ func _on_EnemyTurnStuckTimer_timeout() -> void:
 		if t.is_dead:
 			undead_enemies += 1
 	print(":::Torments who think they're dead: ", undead_enemies)
-	for t in get_tree().get_nodes_in_group("EnemyEntities"):
-		var effects := ""
-		for e in t.active_effects.get_all_effects_nodes():
-			effects += "\t\t%s: %s\n" % [e.canonical_name, e.stacks]
+	for t in _debug_enemy_states:
+		var effects := ''
+		for e in _debug_enemy_states[t]["effects"]:
+			effects += "\t\t%s: %s\n" % [e, _debug_enemy_states[t]["effects"][e]]
 		print(":::%s state:\n\t:::Interpretation max: %s\n\t:::Interpretation taken: %s\n\t:::Combat Effects:\n%s" % [
 			t,
-			t.health,
-			t.damage,
+			_debug_enemy_states[t].health,
+			_debug_enemy_states[t].damage,
 			effects
 		])
 	var effects := ""
@@ -520,3 +522,14 @@ func _on_EnemyTurnStuckTimer_timeout() -> void:
 func _exit_tree():
 	if OS.has_feature("debug"):
 		print_debug("DEBUG INFO: Exiting Ordeal")
+
+func _store_debug_enemy_states() -> void:
+	_debug_enemy_states.clear()
+	for t in get_tree().get_nodes_in_group("EnemyEntities"):
+		_debug_enemy_states[t] = {}
+		var effects := {}
+		for e in t.active_effects.get_all_effects_nodes():
+			effects[e.canonical_name] = e.stacks
+		_debug_enemy_states[t]["health"] = t.health
+		_debug_enemy_states[t]["damage"] = t.damage
+		_debug_enemy_states[t]["effects"] = effects
