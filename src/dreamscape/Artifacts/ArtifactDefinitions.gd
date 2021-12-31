@@ -552,7 +552,14 @@ const BossDraft := {
 		"progress_amount": 4,
 	},
 }
-
+const FreeCard := {
+	"canonical_name": "FreeCard",
+	"name": "A Nice Warm Meal",
+	"description": "{artifact_name}: A random card in your deck, costing 1 or more immersion, becomes free.",
+	"icon": preload("res://assets/icons/artifacts/camp-cooking-pot.png"),
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Common",
+}
 
 # Generic artifacts which have a chance to appear in any playthrough
 const GENERIC := [
@@ -587,6 +594,7 @@ const GENERIC := [
 	RedWave,
 	BlueWave,
 	PurpleWave,
+	FreeCard,
 ]
 
 # Archetype-specific artifacts which only appear in runs in which

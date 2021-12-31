@@ -127,7 +127,7 @@ func get_upgradable_card_type(type:= "least_progress") -> CardEntry:
 
 
 # Returns a list of all card entries with a specific property match
-func filter_cards(property: String, filter) -> Array:
+func filter_cards(property: String, filter, comparison := "eq") -> Array:
 	var card_list := []
 	for card_entry in cards:
 		var card_prop = card_entry.get_property(property)
@@ -136,10 +136,26 @@ func filter_cards(property: String, filter) -> Array:
 		if typeof(card_prop) == TYPE_ARRAY:
 			if filter in card_prop:
 				card_list.append(card_entry)
-		elif typeof(card_prop) == typeof(filter):
-			if card_entry.get_property(property) == filter:
-				card_list.append(card_entry)
-		else:
-			if str(card_entry.get_property(property)) == str(filter):
-				card_list.append(card_entry)
+		elif typeof(card_prop) == typeof(filter)\
+				and typeof(card_prop) == TYPE_INT\
+				and CFUtils.compare_numbers(
+					card_prop,
+					filter,
+					comparison):
+			card_list.append(card_entry)
+		elif property in CardConfig.PROPERTIES_NUMBERS:
+				if str(card_prop) == 'X':
+					card_prop = 0
+				if str(filter) == 'X':
+					filter = 0
+				if CFUtils.compare_numbers(
+						card_prop,
+						filter,
+						comparison):
+					card_list.append(card_entry)
+		elif CFUtils.compare_strings(
+				str(card_prop),
+				str(filter),
+				comparison):
+			card_list.append(card_entry)
 	return(card_list)

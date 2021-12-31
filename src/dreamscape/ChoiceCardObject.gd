@@ -21,7 +21,6 @@ func setup(card_name) -> Card:
 		display_card = yield(display_card, "completed")
 	return(display_card)
 
-
 func _on_DraftCardObject_gui_input(event: InputEvent) -> void:
 	if not is_disabled and event is InputEventMouseButton and event.is_pressed():
 		if event.get_button_index() == 1:

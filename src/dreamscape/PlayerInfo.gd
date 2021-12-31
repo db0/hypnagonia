@@ -113,8 +113,7 @@ func populate_preview_cards() -> void:
 		for preview_card_entry in globals.player.deck.cards:
 			var card_preview_container = CARD_PREVIEW_SCENE.instance()
 			_deck_preview_grid.add_child(card_preview_container)
-			card_preview_container.setup(preview_card_entry.card_name)
-			card_preview_container.display_card.deck_card_entry = preview_card_entry
+			card_preview_container.setup(preview_card_entry.instance_self())
 
 
 func get_all_artifacts() -> Dictionary:

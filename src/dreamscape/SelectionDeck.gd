@@ -84,8 +84,7 @@ func _populate_preview_cards() -> void:
 			var card_preview_container = CARD_CHOICE_SCENE.instance()
 			_deck_preview_grid.add_child(card_preview_container)
 			card_preview_container.index = globals.player.deck.cards[index]
-			card_preview_container.setup(globals.player.deck.cards[index].card_name)
-			card_preview_container.display_card.deck_card_entry = globals.player.deck.cards[index]
+			card_preview_container.setup(globals.player.deck.cards[index].instance_self())
 			card_preview_container.connect(
 					"card_selected", 
 					self, 
