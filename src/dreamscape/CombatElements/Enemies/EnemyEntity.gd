@@ -6,6 +6,7 @@ signal finished_activation(enemy)
 onready var intents: EnemyIntents = $Intents
 
 var animated_art
+var is_activating
 
 func _process(_delta: float) -> void:
 	if is_dead:
@@ -44,6 +45,7 @@ func activate() -> void:
 	if is_dead: 
 		emit_signal("finished_activation", self)
 		return
+	is_activating = true
 #	print_debug(damage, is_dead, health)
 	if animated_art:
 		animated_art.act(intents.animation_name)
@@ -67,6 +69,7 @@ func activate() -> void:
 		yield(get_tree().create_timer(0.1), "timeout")
 	# print_debug("Activated: " + canonical_name)
 	emit_signal("finished_activation", self)
+	is_activating = false
 	# warning-ignore:return_value_discarded
 	intents.prepare_intents()
 
