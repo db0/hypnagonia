@@ -80,9 +80,9 @@ func _ready() -> void:
 		globals.player.deck.add_new_card("+ Confidence +")
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.nce] = 160
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.rest] = 20
-		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.elite] = 40
+		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.elite] = 400
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.enemy] = 400
-		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.artifact] = 100
+		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.artifact] = 400
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.shop] = 100
 		globals.player.add_memory(MemoryDefinitions.RerollShop.canonical_name)
 #		globals.player.find_memory(MemoryDefinitions.RerollShop.canonical_name).upgrades_amount += 5

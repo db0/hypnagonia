@@ -113,7 +113,7 @@ func populate_preview_cards() -> void:
 		for preview_card_entry in globals.player.deck.cards:
 			var card_preview_container = CARD_PREVIEW_SCENE.instance()
 			_deck_preview_grid.add_child(card_preview_container)
-			card_preview_container.setup(preview_card_entry.instance_self())
+			card_preview_container.setup(preview_card_entry.instance_self(true))
 
 
 func get_all_artifacts() -> Dictionary:
@@ -177,7 +177,12 @@ func _on_Help_pressed() -> void:
 
 
 func _on_artifact_added(artifact_object: ArtifactObject) -> void:
-	_instance_artifact(artifact_object, true)
+	var trigger_artifact := false
+	# We only trigger artifacts that are added to the journal player info
+	# to avoid them triggering twice
+	if context == ArtifactDefinitions.EffectContext.OVERWORLD:
+		trigger_artifact = true
+	_instance_artifact(artifact_object, trigger_artifact)
 
 
 # Instances and adds the artifact objects to this node

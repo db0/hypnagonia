@@ -560,6 +560,22 @@ const FreeCard := {
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 }
+const AddAlphaTag := {
+	"canonical_name": "AddAlphaTag",
+	"name": "Crystal Ball",
+	"description": "{artifact_name}: Choose a card in your deck. It gains the {alpha} tag.",
+	"icon": preload("res://assets/icons/artifacts/crystal-ball.png"),
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Uncommon",
+}
+const AddOmegaTag := {
+	"canonical_name": "AddOmegaTag",
+	"name": "Jigsaw Piece",
+	"description": "{artifact_name}: Choose a card in your deck. It gains the {alpha} tag.",
+	"icon": preload("res://assets/icons/artifacts/jigsaw-piece.png"),
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Uncommon",
+}
 
 # Generic artifacts which have a chance to appear in any playthrough
 const GENERIC := [
@@ -595,6 +611,8 @@ const GENERIC := [
 	BlueWave,
 	PurpleWave,
 	FreeCard,
+	AddAlphaTag,
+	AddOmegaTag,
 ]
 
 # Archetype-specific artifacts which only appear in runs in which

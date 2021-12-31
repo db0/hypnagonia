@@ -18,6 +18,7 @@ var upgrades: Dictionary
 var upgrade_options : Array
 var properties := {}
 
+
 func _init(_card_name: String) -> void:
 	card_name = _card_name
 	properties = cfc.card_definitions.get(card_name, {}).duplicate(true)
@@ -28,11 +29,15 @@ func _init(_card_name: String) -> void:
 #	set_upgrade_progress(upgrade_threshold)
 	## END DEBUG
 
-func instance_self() -> Card:
-	card_object = cfc.instance_card(card_name)
-	card_object.properties = properties
-	card_object.deck_card_entry = self
-	return(card_object)
+
+func instance_self(is_display_card:= false) -> Card:
+	var new_card_object =  cfc.instance_card(card_name)
+	if not is_display_card:
+		card_object = new_card_object
+	new_card_object.properties = properties
+	new_card_object.deck_card_entry = self
+	return(new_card_object)
+
 
 # Returns true is progrss towards an upgrade happened
 # Else returns false
@@ -41,6 +46,7 @@ func record_use() -> bool:
 		upgrade_progress += 1
 		return(true)
 	return(false)
+
 
 func set_upgrade_progress(amount) -> void:
 	# If the card upgrade progress is -1 it means it's not upgradable
@@ -53,10 +59,12 @@ func set_upgrade_progress(amount) -> void:
 		upgrade_progress = 0
 		
 
+
 func can_be_upgraded() -> bool:
 	if upgrade_progress == upgrade_threshold:
 		return(true)
 	return(false)
+
 
 # Retrieves all possible upgrades for this card and sets two of them to be
 # the options when it's upgraded
@@ -65,6 +73,7 @@ func set_upgrade_options() -> void:
 	if upgrade_options.size() > 2:
 		CFUtils.shuffle_array(upgrade_options)
 		upgrade_options.resize(2)
+
 
 func is_upgraded() -> bool:
 	if upgrade_threshold < 0:
@@ -80,7 +89,11 @@ func get_property(property: String):
 # This permanently modifies a property for that one card in your deck.
 func modify_property(property: String, value) -> void:
 	if typeof(properties.get(property)) == typeof(value):
-		properties[property] = value
+		if typeof(value) == TYPE_DICTIONARY:
+			for key in value:
+				properties[property][key] = value
+		else:
+			properties[property] = value
 	elif property in CardConfig.PROPERTIES_NUMBERS:
 		# If the property is numerical but the value is a string
 		# and that value has a +/- operator
@@ -93,3 +106,5 @@ func modify_property(property: String, value) -> void:
 			# but if they're not modifiers to the current value
 			else:
 				properties[property] = value
+	elif property in CardConfig.PROPERTIES_ARRAYS:
+		properties[property].append(value)

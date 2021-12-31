@@ -17,7 +17,7 @@ func add_child(node, _legible_unique_name=false) -> void:
 
 func _on_GridCardObject_mouse_entered() -> void:
 	if "deck_card_entry" in display_card and display_card.deck_card_entry:
-		preview_popup.show_preview_card(display_card.deck_card_entry.instance_self())
+		preview_popup.show_preview_card(display_card.deck_card_entry.instance_self(true))
 	else:
 		preview_popup.show_preview_card(display_card.canonical_name)
 	preview_popup.preview_card.deck_card_entry = display_card.deck_card_entry

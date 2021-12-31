@@ -50,6 +50,14 @@ func initiate_card_progress(cost: int = 0, cost_type: String = Terms.RUN_ACCUMUL
 	_deck_operation_name.text = "Progress Card Upgrade"
 	_display()
 
+# Initiates an operation for card selection
+func initiate_card_selection(cost: int = 0, cost_type: String = Terms.RUN_ACCUMULATION_NAMES.enemy) -> void:
+	operation_cost = cost
+	operation_cost_type = cost_type
+	operation = "selection"
+	_deck_operation_name.text = "Select Card"
+	_display()
+
 
 # Updates the label of the deck to show information to the player
 # Such as the cost to perform the operation
@@ -84,7 +92,7 @@ func _populate_preview_cards() -> void:
 			var card_preview_container = CARD_CHOICE_SCENE.instance()
 			_deck_preview_grid.add_child(card_preview_container)
 			card_preview_container.index = globals.player.deck.cards[index]
-			card_preview_container.setup(globals.player.deck.cards[index].instance_self())
+			card_preview_container.setup(globals.player.deck.cards[index].instance_self(true))
 			card_preview_container.connect(
 					"card_selected", 
 					self, 
@@ -99,6 +107,7 @@ func _on_deck_card_selected(card_entry: CardEntry, deck_card_object) -> void:
 		return
 	# We store that to send with the signal
 	var signal_payload := {
+		"card_entry": card_entry,
 		"card_name": card_entry.card_name,
 		"upgraded": card_entry.is_upgraded(),
 		"progress": card_entry.upgrade_progress,
