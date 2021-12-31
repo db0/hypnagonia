@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/icons/GUI/cog.png" type="Texture" id=1]
 [ext_resource path="res://src/dreamscape/PlayerInfo.gd" type="Script" id=2]
@@ -20,6 +20,11 @@ use_filter = true
 font_data = SubResource( 5 )
 
 [sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.0117647, 0.427451, 0.45098, 1 )
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxEmpty" id=6]
 
@@ -152,45 +157,61 @@ columns = 5
 [node name="PathosDetails" type="PopupPanel" parent="."]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 300.0
-margin_bottom = 62.0
+margin_right = 310.0
+margin_bottom = 56.0
 theme = ExtResource( 10 )
 
 [node name="VBC" type="VBoxContainer" parent="PathosDetails"]
 margin_left = 2.0
 margin_top = 2.0
 margin_right = 301.0
-margin_bottom = 53.0
+margin_bottom = 47.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="PathosDetails/VBC"]
-margin_right = 65.0
-margin_bottom = 24.0
+margin_right = 1437.0
+margin_bottom = 21.0
 text = "Pathos"
 align = 1
 
 [node name="Header" parent="PathosDetails/VBC" instance=ExtResource( 9 )]
-margin_top = 27.0
-margin_right = 289.0
-margin_bottom = 51.0
+margin_top = 24.0
+margin_right = 1437.0
+margin_bottom = 45.0
 
-[node name="Name" parent="PathosDetails/VBC/Header" index="0"]
-margin_bottom = 24.0
+[node name="HBC" parent="PathosDetails/VBC/Header" index="0"]
+margin_right = 1437.0
+margin_bottom = 21.0
+
+[node name="Name" parent="PathosDetails/VBC/Header/HBC" index="0"]
+margin_bottom = 21.0
 text = "Name"
 
-[node name="Represed" parent="PathosDetails/VBC/Header" index="1"]
-margin_left = 103.0
-margin_right = 203.0
-margin_bottom = 24.0
+[node name="Represed" parent="PathosDetails/VBC/Header/HBC" index="1"]
+margin_left = 133.0
+margin_right = 233.0
+margin_bottom = 21.0
 text = "Repressed"
 
-[node name="Released" parent="PathosDetails/VBC/Header" index="2"]
-margin_left = 206.0
-margin_right = 289.0
-margin_bottom = 24.0
+[node name="Released" parent="PathosDetails/VBC/Header/HBC" index="2"]
+margin_left = 236.0
+margin_right = 299.0
+margin_bottom = 21.0
 text = "Released"
+
+[node name="Popup" parent="PathosDetails/VBC/Header" index="1"]
+margin_right = 1437.0
+margin_bottom = 21.0
+
+[node name="Description" type="Label" parent="PathosDetails/VBC"]
+visible = false
+margin_right = 6.0
+margin_bottom = 21.0
+custom_styles/normal = SubResource( 7 )
+text = "asdasdasdasdasdasdasd"
+autowrap = true
 
 [node name="Help" type="Popup" parent="."]
 margin_left = 7.0

@@ -55,7 +55,7 @@ var thresholds := {
 # This ensures that when that type of encounter is skipped one or more times,
 # then selecting it will keep decreasing more than it's increasing.
 # Default is 1 for pathos not listed below, which means every time they are
-# selected, they will transfer as much from represed to released equal to 
+# selected, they will transfer as much from represed to released equal to
 # their accumulation average * threshold
 var release_adjustments := {
 	Terms.RUN_ACCUMULATION_NAMES.enemy: 3.0,
@@ -139,7 +139,7 @@ func modify_released_pathos(entry: String, amount: float, is_lost := false) -> v
 		emit_signal("released_pathos_gained", entry, amount)
 	elif is_lost:
 		emit_signal("released_pathos_lost", entry, -amount)
-	else: 
+	else:
 		emit_signal("pathos_spent", entry, -amount)
 
 
@@ -195,7 +195,7 @@ func grab_random_pathos() -> String:
 
 
 # Returns a dictionary with the highest pathos, the lowest pathos
-# and the middle pathos. 
+# and the middle pathos.
 # If include_zeroes == false, It excludes those pathos which are at 0, unless there's not
 # enough non-0 options to fill all three options (high, mid, low).
 # If include_zeroes is true, then zero-pathos will not be excluded from being lowest.
@@ -265,3 +265,31 @@ func get_pathos_org(type := "released", include_zeroes := false) -> Dictionary:
 		results_dict["lowest_pathos"]["value"] = pathos_dict[results_dict["lowest_pathos"]["selected"]]
 #	print_debug(type, results_dict)
 	return(results_dict)
+
+func calculate_chance_for_encounter(entry: String, include_next_progression := true) -> int:
+	if not entry in repressed:
+		return(-1)
+	if entry != Terms.RUN_ACCUMULATION_NAMES.boss \
+			and repressed[Terms.RUN_ACCUMULATION_NAMES.boss]\
+			+ progressions[Terms.RUN_ACCUMULATION_NAMES.boss].front() >= 100:
+		return(0)
+	var total: float = 0
+	var progression : float = 0
+	for pathos_entry in repressed:
+		if pathos_entry == Terms.RUN_ACCUMULATION_NAMES.boss:
+			continue
+		if include_next_progression:
+			progression = progressions[pathos_entry].back()
+		var pathos_entry_total : float = repressed[pathos_entry] + progression
+		if pathos_entry_total >= get_threshold(pathos_entry):
+			total += repressed[pathos_entry] + progression
+	progression = 0
+	if include_next_progression:
+		progression = progressions[entry].back()
+	var entry_total : float = repressed[entry] + progression
+	var chance: int
+	if entry_total >= get_threshold(entry):
+		chance = int(round(entry_total / total * 100))
+	else:
+		chance = 0
+	return(chance)

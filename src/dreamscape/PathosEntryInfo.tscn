@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/dreamscape/PathosEntryInfo.gd" type="Script" id=1]
 
-[node name="PathosEntryInfo" type="HBoxContainer"]
+[node name="PathosEntryInfo" type="MarginContainer"]
 margin_top = 18.0
 margin_right = 216.0
 margin_bottom = 32.0
@@ -11,21 +11,41 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Name" type="Label" parent="."]
+[node name="HBC" type="HBoxContainer" parent="."]
+margin_right = 246.0
+margin_bottom = 14.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="HBC"]
 margin_right = 130.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 130, 0 )
 text = "Frustration"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Represed" type="Label" parent="."]
+[node name="Represed" type="Label" parent="HBC"]
 margin_left = 134.0
 margin_right = 234.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 100, 0 )
 text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Released" type="Label" parent="."]
+[node name="Released" type="Label" parent="HBC"]
 margin_left = 238.0
 margin_right = 246.0
 margin_bottom = 14.0
 text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="mouse_entered" from="." to="." method="_on_PathosEntryInfo_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_PathosEntryInfo_mouse_exited"]

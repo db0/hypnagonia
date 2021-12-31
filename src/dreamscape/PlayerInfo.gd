@@ -30,6 +30,7 @@ onready var _artifact_popup := $ArtifactsPopup
 onready var _artifact_button := $HBC/ArtifactsShowButton
 onready var _pathos_details := $PathosDetails
 onready var _pathos_details_list := $PathosDetails/VBC
+onready var _pathos_description := $PathosDetails/VBC/Description
 onready var _pathos_button := $HBC/Pathos
 onready var _help := $Help
 onready var _tutorial := $Help/Tutorial
@@ -38,12 +39,14 @@ onready var _memories := $HBC/Memories
 onready var _version := $HBC/Version
 
 func _ready() -> void:
+	$PathosDetails/VBC/Header.description = _pathos_description
 	if globals.player.pathos:
 		for entry in globals.player.pathos.repressed:
 			var pinfo = PATHOS_INFO_SCENE.instance()
-			_pathos_details_list.add_child(pinfo)
+#			_pathos_details_list.add_child(pinfo)
+			_pathos_details_list.add_child_below_node($PathosDetails/VBC/Header, pinfo)
 			pathos_infos[entry] = pinfo
-			pinfo.setup(entry)
+			pinfo.setup(entry, _pathos_description)
 	# warning-ignore:return_value_discarded
 	globals.player.connect("artifact_added", self, "_on_artifact_added")
 	# warning-ignore:return_value_discarded
