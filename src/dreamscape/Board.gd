@@ -32,6 +32,8 @@ onready var _debug_warning := $VBC/DebugWarning
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 #	print_debug("Board Enter Ready:" + str(OS.get_ticks_msec() - load_start_time) + 'ms')
+	if OS.has_feature("debug"):
+		print_debug("DEBUG INFO: Entering Ordeal")
 	player_info.owner_node = self
 	_board_cover.visible = true
 	counters = $VBC/HBC/Counters
@@ -513,3 +515,8 @@ func _on_EnemyTurnStuckTimer_timeout() -> void:
 	print("Whipping the developers with the rubber chicken to unstick the game forcefully. Sorry for the inconvenience and please open a bug report!")
 	turn.end_enemy_turn()
 	turn.start_player_turn()
+
+
+func _exit_tree():
+	if OS.has_feature("debug"):
+		print_debug("DEBUG INFO: Exiting Ordeal")

@@ -9,6 +9,8 @@ var journal_art
 var shader_params: Dictionary
 
 func begin() -> void:
+	if OS.has_feature("debug"):
+		print_debug("DEBUG INFO: Entering Encounter: " + get_script().get_path())
 	globals.current_encounter = self
 	emit_signal("encounter_begin", self)
 

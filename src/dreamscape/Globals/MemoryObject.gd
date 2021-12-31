@@ -106,7 +106,7 @@ func _on_encounter_changed(_act_name, _encounter_number) -> void:
 static func get_cost_format(memory_name: String, upgrades := 0) -> Dictionary:
 	var memory_definition = MemoryDefinitions.find_memory_from_canonical_name(memory_name)
 	if not memory_definition:
-		print_debug("WARNING: Memory Definition '%s; could not be found!" % [memory_name])
+		print_debug("WARNING: Memory Definition '%s' could not be found!" % [memory_name])
 		return({})
 	var pathos_threshold_multiplier : float = memory_definition.get("pathos_threshold_multiplier", 2)
 	var pathos_accumulation_divider : float = memory_definition.get("pathos_accumulation_divider", 2)

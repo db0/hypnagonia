@@ -100,7 +100,7 @@ func modify_repressed_pathos(entry: String, amount: float, is_lost := false) -> 
 # Increases the specified repressed pathos by the given amount
 func repress_pathos(entry: String, amount: float) -> void:
 	if amount <= 0:
-		print_debug("ERROR: This function only takes a positive integer")
+		printerr("ERROR: repress_pathos() only takes a positive integer")
 		return
 	modify_repressed_pathos(entry, amount)
 
@@ -109,7 +109,7 @@ func repress_pathos(entry: String, amount: float) -> void:
 # and increases the released pathos by the same amount
 func release_pathos(entry: String, amount: float) -> void:
 	if amount <= 0:
-		print_debug("ERROR: This function only takes a positive integer")
+		printerr("ERROR: release_pathos() only takes a positive integer")
 		return
 	# if we try to repress more than we have, we repress only as much as we have
 	if amount > repressed[entry]:
@@ -146,21 +146,21 @@ func modify_released_pathos(entry: String, amount: float, is_lost := false) -> v
 # reduces the specified released pathos by a given amount
 func spend_pathos(entry: String, amount: float) -> void:
 	if amount <= 0:
-		print_debug("ERROR: This function only takes a positive integer")
+		printerr("ERROR: spend_pathos() only takes a positive integer")
 		return
 	modify_released_pathos(entry, -amount)
 
 # reduces the specified released pathos by a given amount
 func lose_repressed_pathos(entry: String, amount: float) -> void:
 	if amount <= 0:
-		print_debug("ERROR: This function only takes a positive integer")
+		printerr("ERROR: lose_repressed_pathos() only takes a positive integer")
 		return
 	modify_repressed_pathos(entry, -amount, true)
 
 # reduces the specified released pathos by a given amount
 func lose_released_pathos(entry: String, amount: float) -> void:
 	if amount <= 0:
-		print_debug("ERROR: This function only takes a positive integer")
+		printerr("ERROR: lose_released_pathos() only takes a positive integer")
 		return
 	modify_released_pathos(entry, -amount, true)
 
