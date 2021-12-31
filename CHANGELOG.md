@@ -1,5 +1,17 @@
 # Changelog
 
+## [v0.22.9](https://github.com/db0/hypnagonia/tree/v0.22.9) (2021-12-31)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.22.8...v0.22.9)
+
+**Fixed bugs:**
+
+- Memory "Playground" causes crash when playing "Safety of Air" [\#118](https://github.com/db0/hypnagonia/issues/118)
+
+**Merged pull requests:**
+
+- fix\(debug\): Fixed debugging in browser [\#124](https://github.com/db0/hypnagonia/pull/124) ([db0](https://github.com/db0))
+
 ## [v0.22.8](https://github.com/db0/hypnagonia/tree/v0.22.8) (2021-12-31)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.22.7...v0.22.8)
