@@ -453,9 +453,10 @@ func spawn_enemy(script: ScriptTask) -> void:
 		# end-turn button
 		if enemy_entity:
 			var health_modify: int = script.get_property(SP.KEY_MODIFY_SPAWN_HEALTH, 0)
-			enemy_entity.health += health_modify
-			if enemy_entity.health <= 0:
+			if enemy_entity.health + health_modify <= 0:
 				enemy_entity.health = 1
+			else:
+				enemy_entity.health += health_modify
 			var spawn_as_minion :bool = script.get_property(SP.KEY_SET_SPAWN_AS_MINION, false)
 			if spawn_as_minion:
 				enemy_entity.add_to_group("Minions")
