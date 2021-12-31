@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.22.7](https://github.com/db0/hypnagonia/tree/v0.22.7) (2021-12-31)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.22.6...v0.22.7)
+
+**Merged pull requests:**
+
+- More Curios and Memories [\#115](https://github.com/db0/hypnagonia/pull/115) ([db0](https://github.com/db0))
+
 ## [v0.22.6](https://github.com/db0/hypnagonia/tree/v0.22.6) (2021-12-30)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.22.5...v0.22.6)
