@@ -88,7 +88,7 @@ const BossFaster := {
 }
 const ProgressRandom := {
 	"canonical_name": "ProgressRandom",
-	"name": "ProgressRandom",
+	"name": "University Life",
 	"description": "{memory_name} ({upgrades}): Recall this memory during the Dream Journal "\
 			+ "to progress a random card by {progress_amount}",
 	"icon": preload("res://assets/icons/memories/portrait.png"),
@@ -228,7 +228,7 @@ const PoisonEnemy := {
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
 	"pathos_threshold_multiplier": 2,
 	"pathos_accumulation_divider": 3,
-	"keys_modified_by_upgrade": ["effect_stacks"],
+	"keys_modified_by_upgrade": ["pathos_accumulation_divider"],
 	"amounts": {
 		"effect_stacks": 5,
 		"upgrade_multiplier": 1
@@ -422,7 +422,7 @@ const GainMaxHealth := {
 	"canonical_name": "GainMaxHealth",
 	"name": "Birthday Party",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during the Dream Journal "\
-			+ "to increase your maximum {anxiety} by {anxiety_amount}.",
+			+ "to permanently increase your {anxiety} threshold by {anxiety_amount}.",
 	"icon": preload("res://assets/icons/memories/portrait.png"),
 	"context": EffectContext.OVERWORLD,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.shop,
