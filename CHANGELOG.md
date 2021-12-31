@@ -1,5 +1,25 @@
 # Changelog
 
+## [v0.22.8](https://github.com/db0/hypnagonia/tree/v0.22.8) (2021-12-31)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.22.7...v0.22.8)
+
+**Fixed bugs:**
+
+- Crash when selecting Curio ImproveImpervious [\#114](https://github.com/db0/hypnagonia/issues/114)
+- Crash when recalling the Playground Memory [\#113](https://github.com/db0/hypnagonia/issues/113)
+- Game force unstuck during Ordeal with The Laughing Ones [\#111](https://github.com/db0/hypnagonia/issues/111)
+
+**Closed issues:**
+
+- Should autoplaying X-cost cards use immersion? [\#117](https://github.com/db0/hypnagonia/issues/117)
+- Buff from Concentration card Lash-out does not work [\#116](https://github.com/db0/hypnagonia/issues/116)
+- Intrepretation from Envy debuff doesn't trigger retaliatory Stress from Grudge buff [\#112](https://github.com/db0/hypnagonia/issues/112)
+
+**Merged pull requests:**
+
+- Various Fixes [\#121](https://github.com/db0/hypnagonia/pull/121) ([db0](https://github.com/db0))
+
 ## [v0.22.7](https://github.com/db0/hypnagonia/tree/v0.22.7) (2021-12-31)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.22.6...v0.22.7)
