@@ -132,7 +132,7 @@ func populate_shop_cards() -> void:
 			var prog_avg : float = globals.player.pathos.get_progression_average(
 						cost_type)
 			var card_cost =\
-					(prog_avg * rarity_price_multipliers[rarity])\
+					round(prog_avg * rarity_price_multipliers[rarity])\
 					+ (CFUtils.randi_range(
 						prog_avg / -5 * rarity_price_multipliers[rarity],
 						prog_avg / 5 * rarity_price_multipliers[rarity]))
