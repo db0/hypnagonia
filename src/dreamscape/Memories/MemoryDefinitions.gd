@@ -62,8 +62,8 @@ const HealSelf := {
 	"icon": preload("res://assets/icons/memories/portrait.png"),
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.rest,
-	"pathos_threshold_multiplier": 2,
-	"pathos_accumulation_divider": 2.7,
+	"pathos_threshold_multiplier": 3,
+	"pathos_accumulation_divider": 2,
 	"keys_modified_by_upgrade": ["heal_amount"],
 	"amounts": {
 		"heal_amount": 5,
@@ -418,6 +418,23 @@ const RerollShop := {
 		"max_upgrades": 10,
 	},
 }
+const GainMaxHealth := {
+	"canonical_name": "GainMaxHealth",
+	"name": "Birthday Party",
+	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during the Dream Journal "\
+			+ "to increase your maximum {anxiety} by {anxiety_amount}.",
+	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"context": EffectContext.OVERWORLD,
+	"pathos": Terms.RUN_ACCUMULATION_NAMES.shop,
+	"pathos_threshold_multiplier": 4,
+	"pathos_accumulation_divider": 2.2,
+	"keys_modified_by_upgrade": ["pathos_accumulation_divider"],
+	"amounts": {
+		"anxiety_amount": 5,
+		"upgrade_multiplier": 1,
+		"max_upgrades": 10,
+	},
+}
 # Generic memories which have a chance to appear in any playthrough
 const GENERIC := [
 	DamageAll,
@@ -434,6 +451,7 @@ const GENERIC := [
 	RerollDraft,
 	RemovePerturbation,
 	RerollShop,
+	GainMaxHealth,
 ]
 
 # Archetype-specific memories which only appear in runs in which

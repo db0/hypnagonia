@@ -381,7 +381,7 @@ func _input(event):
 #			c.upgrade_progress = 100
 #		_reveal_entry(upgrade_journal, true)
 		globals.player.add_artifact(ArtifactDefinitions.BossDraft.canonical_name)
-		globals.player.add_memory(MemoryDefinitions.RerollShop.canonical_name)
+		globals.player.add_memory(MemoryDefinitions.GainMaxHealth.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
 #		globals.player.add_artifact("AccumulateShop")
 		globals.player.deck.add_new_card("Lacuna")

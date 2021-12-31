@@ -95,7 +95,7 @@ func set_upgrades_amount(value) -> void:
 func _on_encounter_changed(_act_name, _encounter_number) -> void:
 	var accumulation_div : float = definition.get("pathos_accumulation_divider", 2)
 	if upgrades_amount and "pathos_accumulation_divider" in definition.get("keys_modified_by_upgrade", []):
-		accumulation_div -= float(upgrades_amount) * float(definition.amounts["upgrade_multiplier"])
+		accumulation_div -= float(upgrades_amount) * float(definition.amounts["upgrade_multiplier"] * 0.1)
 	# warning-ignore:integer_division
 	var amount : float = globals.player.pathos.get_progression_average(pathos_used)
 	var acc := amount / accumulation_div
@@ -118,7 +118,7 @@ static func get_cost_format(memory_name: String, upgrades := 0) -> Dictionary:
 			pathos_threshold_multiplier -= float(upgrades) * float(memory_definition.amounts["upgrade_multiplier"]) * 0.1
 			is_threshold_upgrade = true
 		if "pathos_accumulation_divider" in memory_definition.get("keys_modified_by_upgrade", []):
-			pathos_accumulation_divider -= upgrades * memory_definition.amounts["upgrade_multiplier"]
+			pathos_accumulation_divider -= upgrades * memory_definition.amounts["upgrade_multiplier"] * 0.1
 			is_divider_upgrade = true
 	var fill_cost = progression_avg * pathos_threshold_multiplier
 	var turns_needed = ceil(fill_cost / (progression_avg / pathos_accumulation_divider))
