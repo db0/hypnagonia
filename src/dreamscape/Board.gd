@@ -423,15 +423,17 @@ func _input(event):
 #		globals.player.add_artifact(ArtifactDefinitions.ThickExplosion.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.PurpleWave.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
-		globals.player.add_memory(MemoryDefinitions.ExertSelf.canonical_name)
+		globals.player.add_memory(MemoryDefinitions.RandomChaos.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"It's not about me",
-			"Enough is enough!",
+			"- Confidence -",
+			"- Confidence -",
+			"- Confidence -",
+			"- Confidence -",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.hand.add_child(card)

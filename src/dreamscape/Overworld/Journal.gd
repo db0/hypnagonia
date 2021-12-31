@@ -174,7 +174,9 @@ func add_nested_choices(nested_choices: Dictionary, disabled_choices := [], foll
 
 func spawn_selection_deck() -> SelectionDeck:
 	var selection_deck = SELECTION_DECK_SCENE.instance()
-	if globals.current_encounter and globals.current_encounter as ShopEncounter and globals.current_encounter.current_shop:
+	if globals.current_encounter\
+			and globals.current_encounter as ShopEncounter\
+			and globals.current_encounter.current_shop:
 		globals.current_encounter.current_shop.add_child(selection_deck)
 	else:
 		add_child(selection_deck)
