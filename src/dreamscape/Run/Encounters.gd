@@ -109,6 +109,19 @@ func generate_journal_choices() -> Array:
 				journal_options.append(EliteEncounter.new(next_enemy, difficulty))
 			Terms.RUN_ACCUMULATION_NAMES.boss:
 				journal_options.append(BossEncounter.new(current_act.BOSSES[boss_name], boss_name))
+	if OS.has_feature("debug"):
+		var _debug_encounter_paths := []
+		var _debug_enemies := []
+		for e in journal_options:
+			_debug_encounter_paths.append(e.get_script().get_path())
+			if e as EnemyEncounter:
+				for t in e.enemies:
+					_debug_enemies.append(t.definition.Name)
+			if e as EliteEncounter or e as BossEncounter:
+				_debug_enemies.append(e.enemy_scene.get_path())
+		print("DEBUG INFO: Encounter choices selected: ", _debug_encounter_paths)
+		if _debug_enemies.size() > 0:
+			print("DEBUG INFO: Enemies choices available: ", _debug_enemies)
 	return(journal_options)
 
 
