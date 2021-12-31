@@ -320,6 +320,8 @@ func remove_card_from_deck(script: ScriptTask) -> int:
 		var is_permanent: bool = script.get_property(SP.KEY_PERMANENT, true)
 		for card in script.subjects:
 			card.remove_from_deck(is_permanent, tags)
+			# We do not want to have a removed instance in previous subjects
+			script.subjects.erase(card)
 	return(retcode)
 
 
@@ -368,6 +370,7 @@ func autoplay_card(script: ScriptTask) -> int:
 					if script_task.get("filter_state_subject"):
 						script_task["filter_state_seek"] = script_task.get("filter_state_subject")
 				script_task["is_cost"] = false
+				script_task["needs_subject"] = false
 			card.scripts["autoplay"] = card_scripts
 			var sceng = card.execute_scripts(
 					script.owner,
@@ -450,9 +453,10 @@ func spawn_enemy(script: ScriptTask) -> void:
 		# end-turn button
 		if enemy_entity:
 			var health_modify: int = script.get_property(SP.KEY_MODIFY_SPAWN_HEALTH, 0)
-			enemy_entity.health += health_modify
-			if enemy_entity.health <= 0:
+			if enemy_entity.health + health_modify <= 0:
 				enemy_entity.health = 1
+			else:
+				enemy_entity.health += health_modify
 			var spawn_as_minion :bool = script.get_property(SP.KEY_SET_SPAWN_AS_MINION, false)
 			if spawn_as_minion:
 				enemy_entity.add_to_group("Minions")

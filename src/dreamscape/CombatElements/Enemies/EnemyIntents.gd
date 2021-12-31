@@ -84,7 +84,7 @@ func prepare_intents(specific_index = null, is_second_try := false) -> Dictionar
 			prepare_intents(null, true)
 			return({})
 		else:
-			print_debug("ERROR: Could not discover valid intent. Please check intents list for this enemy. Aborting. ")
+			printerr("ERROR: Could not discover valid intent. Please check intents list for this enemy. Aborting. ")
 	last_used_intent = selected_intent.hash()
 	times_last_intent_repeated += 1
 	# This allows us to select some intents which can only be used a specified

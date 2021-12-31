@@ -36,6 +36,8 @@ var popup_cards := {}
 var pre_highlight_bbcode_texts := {}
 
 func _ready() -> void:
+	if OS.has_feature("debug"):
+		print_debug("DEBUG INFO: Entering Journal")
 #	cfc.game_rng_seed = CFUtils.generate_random_seed() # Debug
 #	globals.encounters.setup() # Debug
 	globals.journal = self
@@ -159,7 +161,7 @@ func add_nested_choices(nested_choices: Dictionary, disabled_choices := [], foll
 		var choices_selection_vbc : VBoxContainer
 		if 'secondary_choices' in follow_up_node:
 			choices_selection_vbc = follow_up_node.secondary_choices
-		else: 
+		else:
 			choices_selection_vbc = VBoxContainer.new()
 			entries_list.add_child_below_node(follow_up_node, choices_selection_vbc)
 		choices_selection_vbc.rect_size = journal_choices.rect_size
@@ -172,9 +174,11 @@ func add_nested_choices(nested_choices: Dictionary, disabled_choices := [], foll
 
 func spawn_selection_deck() -> SelectionDeck:
 	var selection_deck = SELECTION_DECK_SCENE.instance()
-	if globals.current_encounter and globals.current_encounter as ShopEncounter and globals.current_encounter.current_shop:
+	if globals.current_encounter\
+			and globals.current_encounter as ShopEncounter\
+			and globals.current_encounter.current_shop:
 		globals.current_encounter.current_shop.add_child(selection_deck)
-	else:	
+	else:
 		add_child(selection_deck)
 	return(selection_deck)
 
@@ -410,3 +414,7 @@ func _input(event):
 			_reveal_entry(journal_choice)
 #		print_debug(SoundManager._get_all_playing_type_steams('BGM'))
 
+
+func _exit_tree():
+	if OS.has_feature("debug"):
+		print_debug("DEBUG INFO: Exiting/Changing Journal")

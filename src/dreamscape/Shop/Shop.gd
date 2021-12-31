@@ -65,6 +65,8 @@ onready var player_info := $VBC/PlayerInfo
 
 func _ready() -> void:
 	## DEBUG - Allows to run scene by itself ##
+	if OS.has_feature("debug"):
+		print_debug("DEBUG INFO: Entering Shop")
 	if not globals.journal:
 		cfc.game_rng_seed = CFUtils.generate_random_seed()
 		# warning-ignore:return_value_discarded
@@ -423,3 +425,7 @@ func _on_deck_operation_performed(operation_details: Dictionary) -> void:
 			_deck_preview_popup.hide()
 			_progress_button.disabled = true
 			globals.hide_all_previews()
+
+func _exit_tree():
+	if OS.has_feature("debug"):
+		print_debug("DEBUG INFO: Exiting Shop")

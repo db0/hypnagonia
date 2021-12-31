@@ -6,7 +6,6 @@ func _on_player_turn_started(_turn: Turn) -> void:
 	for c in cfc.NMAP.hand.get_all_cards():
 		if c.get_property("Type") == "Control":
 			counter += 1
-	print_debug(counter)
 	if counter >= ArtifactDefinitions.PurpleWave.amounts.threshold:
 		var script = [
 			{

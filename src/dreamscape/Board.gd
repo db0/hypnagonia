@@ -16,6 +16,7 @@ var enemies_at_start_of_turn
 
 var _debug_enemies_at_end_of_turn
 var _debug_enemies_started_activation := []
+var _debug_enemy_states := {}
 
 onready var bottom_gui := $VBC/HBC
 onready var _player_area := $VBC/CombatArena/PlayerArea
@@ -32,6 +33,8 @@ onready var _debug_warning := $VBC/DebugWarning
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 #	print_debug("Board Enter Ready:" + str(OS.get_ticks_msec() - load_start_time) + 'ms')
+	if OS.has_feature("debug"):
+		print_debug("DEBUG INFO: Entering Ordeal")
 	player_info.owner_node = self
 	_board_cover.visible = true
 	counters = $VBC/HBC/Counters
@@ -234,6 +237,7 @@ func _on_player_turn_started(_turn: Turn) -> void:
 func _on_player_turn_ended(_turn: Turn) -> void:
 	_debug_warning.visible = false
 	_debug_enemies_at_end_of_turn = get_tree().get_nodes_in_group("EnemyEntities").size()
+	_store_debug_enemy_states()
 	_debug_timer.start(10)
 	end_turn.disabled = true
 	yield(get_tree().create_timer(0.3), "timeout")
@@ -254,7 +258,8 @@ func _on_enemy_turn_started(_turn: Turn) -> void:
 		if is_instance_valid(enemy):
 #		print_debug("Activating Intents: " + enemy.canonical_name)
 			enemy.activate()
-			yield(enemy, "finished_activation")
+			if enemy.is_activating:
+				yield(enemy, "finished_activation")
 
 
 func _on_enemy_turn_ended(_turn: Turn) -> void:
@@ -379,9 +384,9 @@ func _input(event):
 		var _torment1
 		var _torment2
 		var _torment3
-		_torment1 = spawn_enemy(EnemyDefinitions.BUTTERFLY)
-#		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
-#		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+		_torment1 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_VICTIM)
 #		spawn_enemy(EnemyDefinitions.THE_VICTIM)
 #		spawn_enemy(EnemyDefinitions.THE_VICTIM)
@@ -395,11 +400,11 @@ func _input(event):
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.unconventional.name, 1, false, false, ['Debug'], 'weirdly')
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.fortify.name, 4)
 		if _torment1:
-			_torment1.health = 1000
-#			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
-#			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.marked.name, 1)
-#			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 2)
-#			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 5)
+			_torment1.health = 20
+			_torment1.damage = 19
+			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 2)
+			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 1)
+			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
 		if _torment2:
 			_torment2.health = 1000
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
@@ -408,28 +413,27 @@ func _input(event):
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 5)
 #			_torment2.defence = 10
 		if _torment3:
-			_torment3.health = 1000
-#			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
-#			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.marked.name, 1)
-#			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 5)
-#			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.fortify.name, 5)
-#			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.quicken.name, -4)
-#			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.empower.name, 4)
-#			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.the_victim.name, 4)
+			_torment3.health = 20
+			_torment3.damage = 18
+			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 1)
+			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 3)
+			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
 		dreamer.health = 1000
 		dreamer.damage = 100
 #		globals.player.add_artifact(ArtifactDefinitions.ThickExplosion.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.PurpleWave.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
-		globals.player.add_memory(MemoryDefinitions.ExertSelf.canonical_name)
+		globals.player.add_memory(MemoryDefinitions.RandomChaos.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"It's not about me",
-			"Enough is enough!",
+			"- Confidence -",
+			"- Confidence -",
+			"- Confidence -",
+			"- Confidence -",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.hand.add_child(card)
@@ -482,7 +486,7 @@ func _on_EnemyTurnStuckTimer_timeout() -> void:
 	print(":::Torments available at start of Torment turn: ", _debug_enemies_at_end_of_turn)
 	var unfinished_enemies := []
 	for e in _debug_enemies_started_activation:
-		if e != activated_enemies:
+		if not e in activated_enemies:
 			unfinished_enemies.append(e)
 	print(":::Torments who started activating but never finished: ", unfinished_enemies)
 	var undead_enemies = 0
@@ -490,14 +494,14 @@ func _on_EnemyTurnStuckTimer_timeout() -> void:
 		if t.is_dead:
 			undead_enemies += 1
 	print(":::Torments who think they're dead: ", undead_enemies)
-	for t in get_tree().get_nodes_in_group("EnemyEntities"):
-		var effects := ""
-		for e in t.active_effects.get_all_effects_nodes():
-			effects += "\t\t%s: %s\n" % [e.canonical_name, e.stacks]
+	for t in _debug_enemy_states:
+		var effects := ''
+		for e in _debug_enemy_states[t]["effects"]:
+			effects += "\t\t%s: %s\n" % [e, _debug_enemy_states[t]["effects"][e]]
 		print(":::%s state:\n\t:::Interpretation max: %s\n\t:::Interpretation taken: %s\n\t:::Combat Effects:\n%s" % [
 			t,
-			t.health,
-			t.damage,
+			_debug_enemy_states[t].health,
+			_debug_enemy_states[t].damage,
 			effects
 		])
 	var effects := ""
@@ -513,3 +517,19 @@ func _on_EnemyTurnStuckTimer_timeout() -> void:
 	print("Whipping the developers with the rubber chicken to unstick the game forcefully. Sorry for the inconvenience and please open a bug report!")
 	turn.end_enemy_turn()
 	turn.start_player_turn()
+
+
+func _exit_tree():
+	if OS.has_feature("debug"):
+		print_debug("DEBUG INFO: Exiting Ordeal")
+
+func _store_debug_enemy_states() -> void:
+	_debug_enemy_states.clear()
+	for t in get_tree().get_nodes_in_group("EnemyEntities"):
+		_debug_enemy_states[t] = {}
+		var effects := {}
+		for e in t.active_effects.get_all_effects_nodes():
+			effects[e.canonical_name] = e.stacks
+		_debug_enemy_states[t]["health"] = t.health
+		_debug_enemy_states[t]["damage"] = t.damage
+		_debug_enemy_states[t]["effects"] = effects
