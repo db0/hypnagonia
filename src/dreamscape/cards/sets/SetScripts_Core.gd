@@ -3707,7 +3707,7 @@ func get_scripts(card_name: String) -> Dictionary:
 		"Lash-out": LastOut,
 		"Frustrated Lash-out": FrustratedLastOut,
 		"Is it my fault?": IsItMyFault,
-		"Enough if enough!": EnoughIsEnough,
+		"Enough is enough!": EnoughIsEnough,
 		"Grit": Grit,
 		"Excuses": Excuses,
 		"Endless Excuses": EndlessExcuses,
