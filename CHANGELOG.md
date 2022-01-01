@@ -1,5 +1,23 @@
 # Changelog
 
+## [v0.23.0](https://github.com/db0/hypnagonia/tree/v0.23.0) (2022-01-01)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.22.9...v0.23.0)
+
+**Implemented enhancements:**
+
+- Mousing over a pathos type, should explain what it does [\#123](https://github.com/db0/hypnagonia/issues/123)
+- Inform the player of the amount of pathos to be released by each encounter choice [\#122](https://github.com/db0/hypnagonia/issues/122)
+- Memories with targeted effects should abort without a valid target [\#120](https://github.com/db0/hypnagonia/issues/120)
+
+**Closed issues:**
+
+- Action card "The Finger" applies Courage when dreamer has Confidence [\#125](https://github.com/db0/hypnagonia/issues/125)
+
+**Merged pull requests:**
+
+- Improvement for Pathos  [\#126](https://github.com/db0/hypnagonia/pull/126) ([db0](https://github.com/db0))
+
 ## [v0.22.9](https://github.com/db0/hypnagonia/tree/v0.22.9) (2021-12-31)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.22.8...v0.22.9)
