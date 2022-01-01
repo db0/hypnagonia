@@ -5,8 +5,9 @@ const SHOP_SCENE := preload("res://src/dreamscape/Shop/Shop.tscn")
 var current_shop
 
 
+
 func _init():
-	description = "<Shop Story Blurb goes here>"
+	description = "I decided to pause for a bit to understand the feelings this dream was causing me."
 	pathos_released = Terms.RUN_ACCUMULATION_NAMES.shop
 
 func begin() -> void:

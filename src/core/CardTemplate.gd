@@ -659,10 +659,12 @@ func modify_property(
 										+ ": " + value_for_label)
 							else:
 								card_front.set_label_text(label_node,value_for_label)
-						# We allow setting number properties as strings. 
+						# We allow setting number properties as strings.
 						# We assume the designer knows what they're doing
 							properties[property] = value
 							card_front.set_label_text(label_node,value)
+						else:
+							card_front.set_label_text(label_node,str(properties[property]))
 					elif value == 0 and property in CardConfig.NUMBERS_HIDDEN_ON_0:
 						card_front.set_label_text(label_node,"")
 					elif property in CardConfig.NUMBER_WITH_LABEL:

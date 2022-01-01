@@ -34,7 +34,7 @@ func prepare_next_act(current_journal = null) -> void:
 	current_act = available_acts.pop_front()
 	remaining_enemies = current_act.ENEMIES.duplicate(true)
 	remaining_elites = current_act.ELITES.duplicate(true)
-	remaining_nce = current_act.NCE.duplicate(true)
+	remaining_nce = current_act.GOOD_NCE.duplicate(true)
 	for nce in AllActs.NCE:
 		if not run_changes.is_nce_used(nce):
 			remaining_nce.append(nce)
@@ -156,7 +156,7 @@ func _get_journal_options(requested_options := 3) -> Array:
 
 func _get_next_nce() -> NonCombatEncounter:
 	if remaining_nce.empty():
-		remaining_nce = current_act.NCE.duplicate(true)
+		remaining_nce = current_act.GOOD_NCE.duplicate(true)
 		remaining_nce += run_changes.get_unlocked_nces(current_act.get_act_name())
 		CFUtils.shuffle_array(remaining_nce)
 	var next_nce = remaining_nce.pop_back()

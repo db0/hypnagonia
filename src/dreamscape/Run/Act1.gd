@@ -535,7 +535,7 @@ const BOSSES := {
 	"Narcissus": Narcissus
 }
 
-const NCE := [
+const GOOD_NCE := [
 	preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd"),
 	preload("res://src/dreamscape/Run/NCE/Act1/SlayTheSpire.gd"),
 	preload("res://src/dreamscape/Run/NCE/Act1/SleepOfOblivion.gd"),
@@ -544,6 +544,9 @@ const NCE := [
 	preload("res://src/dreamscape/Run/NCE/Act1/Dollmaker.gd"),
 	preload("res://src/dreamscape/Run/NCE/Act1/Greed.gd"),
 	preload("res://src/dreamscape/Run/NCE/Act1/PopPsychologist1.gd"),
+]
+
+const BAD_NCE := [
 ]
 
 static func get_act_name() -> String:
