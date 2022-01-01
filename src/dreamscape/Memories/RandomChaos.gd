@@ -1,6 +1,6 @@
 extends Memory
 
-func execute_memory_effect() -> void:
+func execute_memory_effect():
 	var script = [
 			{
 				"name": "autoplay_card",
@@ -10,4 +10,7 @@ func execute_memory_effect() -> void:
 				"subject_index": "random",
 			},
 	]
-	execute_script(script)
+	var sceng = execute_script(script)
+	if sceng is GDScriptFunctionState:
+		sceng = yield(sceng, "completed")
+	return(sceng)
