@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.24.1](https://github.com/db0/hypnagonia/tree/v0.24.1) (2022-01-01)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.24.0...v0.24.1)
+
+**Merged pull requests:**
+
+- fix\(effect\): Wrong value for disempower [\#129](https://github.com/db0/hypnagonia/pull/129) ([db0](https://github.com/db0))
+
 ## [v0.24.0](https://github.com/db0/hypnagonia/tree/v0.24.0) (2022-01-01)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.23.1...v0.24.0)
