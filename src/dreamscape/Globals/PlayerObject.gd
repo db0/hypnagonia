@@ -45,6 +45,7 @@ func setup() -> void:
 #	deck.add_new_card("@ Inner Justice @")
 #	deck.add_new_card("Dread")
 
+
 func get_current_archetypes() -> Array:
 	var all_archetypes := []
 	for aspect in deck_groups:
@@ -64,8 +65,8 @@ func set_damage(value) -> void:
 
 func set_health(value) -> void:
 	health = int(round(value))
-	if health < 0:
-		health = 0
+	if health < 6:
+		health = 6
 	if damage > health:
 		damage = health
 	emit_signal("health_changed", damage, health)
