@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/icons/GUI/cog.png" type="Texture" id=1]
 [ext_resource path="res://src/dreamscape/PlayerInfo.gd" type="Script" id=2]
@@ -27,6 +27,9 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.211765, 0.211765, 0.211765, 1 )
 
 [node name="PlayerInfo" type="PanelContainer" groups=["player_info"]]
 margin_right = 1455.0
@@ -61,7 +64,7 @@ custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "0/90"
 
-[node name="ArtifactsShowButton" type="Button" parent="HBC"]
+[node name="Curios" type="Button" parent="HBC"]
 margin_left = 96.0
 margin_right = 131.0
 margin_bottom = 35.0
@@ -201,10 +204,6 @@ margin_right = 299.0
 margin_bottom = 21.0
 text = "Released"
 
-[node name="Popup" parent="PathosDetails/VBC/Header" index="1"]
-margin_right = 1437.0
-margin_bottom = 21.0
-
 [node name="Description" type="Label" parent="PathosDetails/VBC"]
 visible = false
 margin_right = 6.0
@@ -239,8 +238,17 @@ custom_constants/vseparation = 10
 custom_constants/hseparation = 10
 columns = 20
 
-[connection signal="pressed" from="HBC/ArtifactsShowButton" to="." method="_on_ArtifactsShowButton_pressed"]
-[connection signal="toggled" from="HBC/ArtifactsShowButton" to="." method="_on_ArtifactsShowButton_toggled"]
+[node name="ButtonDescriptionPopup" type="Popup" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 2
+
+[node name="ButtonDescription" type="Label" parent="ButtonDescriptionPopup"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_styles/normal = SubResource( 8 )
+
+[connection signal="pressed" from="HBC/Curios" to="." method="_on_ArtifactsShowButton_pressed"]
 [connection signal="pressed" from="HBC/Pathos" to="." method="_on_Pathos_pressed"]
 [connection signal="pressed" from="HBC/Deck" to="." method="_on_Deck_pressed"]
 [connection signal="pressed" from="HBC/Help" to="." method="_on_Help_pressed"]
