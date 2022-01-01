@@ -549,6 +549,7 @@ const NCE := {
 	],
 	"risky": [
 		preload("res://src/dreamscape/Run/NCE/Act1/RiskyEvent1.gd"),
+		preload("res://src/dreamscape/Run/NCE/Act1/RiskyEvent2.gd"),
 	]
 }
 
