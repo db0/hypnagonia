@@ -38,7 +38,7 @@ var pre_highlight_bbcode_texts := {}
 
 func _ready() -> void:
 	if OS.has_feature("debug"):
-		print("DEBUG INFO: Entering Journal")
+		print("DEBUG INFO:Journal: Entering Journal")
 #	cfc.game_rng_seed = CFUtils.generate_random_seed() # Debug
 #	globals.encounters.setup() # Debug
 	globals.journal = self
@@ -65,7 +65,7 @@ func _ready() -> void:
 		cfc.set_setting('first_journal_tutorial_done', true)
 	globals.music.switch_scene_music('journal')
 	if OS.has_feature("debug"):
-		print("DEBUG INFO: Journal Loaded")
+		print("DEBUG INFO:Journal: Journal Loaded")
 
 
 func display_nce_rewards(reward_text: String) -> void:
@@ -430,4 +430,4 @@ func _input(event):
 
 func _exit_tree():
 	if OS.has_feature("debug"):
-		print("DEBUG INFO: Exiting/Changing Journal")
+		print("DEBUG INFO:Journal: Exiting/Changing Journal")

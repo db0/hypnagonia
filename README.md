@@ -41,7 +41,6 @@ Most other terms you'll encounter will be explained when mousing over cards or i
 * More Archetype Groups
 * More Enemies
 * More Encounters
-* Different Acts
 * Encounters based on the player's selected injustice
 * More Bosses
 * Waking-world sections between runs
@@ -49,6 +48,7 @@ Most other terms you'll encounter will be explained when mousing over cards or i
 * Increased difficulties
 * Balancing
 * More Curios
+* Third Act
 
 See the issue tracker for progress and more ideas and feel free to suggest more.
 
@@ -57,6 +57,9 @@ See the issue tracker for progress and more ideas and feel free to suggest more.
 * 5 initial card groups
 * Some enemies, encounter and a boss.
 * Curios
+* Memories
+* Shop
+* First and Second Act (in progress)
 * More things to do as encounters instead of overoming torments
 
 ## Credits
@@ -72,6 +75,21 @@ Major influences from [Slay the Spire](https://www.megacrit.com/) and other deck
 Everything except Assets and Shaders is licensed under the AGPL3. However [an addendum](ADDENDUM1) has been added to allow distribution via Steam and integration with Steamworks SDK.
 
 Assets and Shaders will list their individual licenses in their respective folders or code.
+
+## Help
+
+If you encounter a bug, please use the [issue tracker](https://github.com/db0/hypnagonia/issues) to open a bug report.
+
+* If it is a minor issue, such as a specific element not working (e.g. a card) not working as intended, a memory not doing anything etc, it is enough to write the element that failed and how. You do not need to attach the console output for these, unless the game also broke.
+* If the game itself stopped working (Black screen, Frozen, or you saw the force-unstuck report), please also attach the console output (see instructions below)
+
+### Console on Windows/Linux/MacOS
+
+Running the game will automatically open a console window. Simply copy-paste all the contents in a file and upload with your issue report.
+
+### Console in Browser
+
+You can typically open the browser's console with F12 but you might need to click outside the game first. Copy-paste all the contents in a file and upload with your issue report.
 
 ## Support
 

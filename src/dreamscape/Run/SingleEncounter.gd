@@ -11,7 +11,7 @@ var pathos_released: String
 
 func begin() -> void:
 	if OS.has_feature("debug"):
-		print_debug("DEBUG INFO: Entering Encounter: " + get_script().get_path())
+		print("DEBUG INFO:Encounter: Entering Encounter: " + get_script().get_path())
 	globals.current_encounter = self
 	# warning-ignore:return_value_discarded
 	globals.player.pathos.release(pathos_released)

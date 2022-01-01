@@ -45,7 +45,7 @@ func begin() -> void:
 		var _debug_enemies := []
 		for t in enemies:
 			_debug_enemies.append(t.definition.Name)
-		print_debug("DEBUG INFO: Torments Present: ", _debug_enemies)
+		print("DEBUG INFO:Encounter: Torments Present: ", _debug_enemies)
 	.begin()
 	# Even though the next two lines should be in all combat encounters
 	# I do not put them into the CombatEncounter begin() function
