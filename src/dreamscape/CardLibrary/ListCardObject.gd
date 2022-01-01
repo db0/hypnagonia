@@ -26,7 +26,7 @@ func _get_bbcode_format() -> Dictionary:
 
 
 func _on_ListCardObject_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.is_pressed() and event.get_button_index() == 1:
+	if event is InputEventMouseButton and event.is_pressed() and event.get_button_index() == 2:
 		var upgrade_options = cfc.card_definitions[card_name].get("_upgrades", [])
 		var select_return = cfc.ov_utils.select_card(
 				upgrade_options, 0, "display", false, card_viewer)

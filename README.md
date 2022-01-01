@@ -80,7 +80,7 @@ Assets and Shaders will list their individual licenses in their respective folde
 
 If you encounter a bug, please use the [issue tracker](https://github.com/db0/hypnagonia/issues) to open a bug report.
 
-* If it is a minor issue, such as a specific element not working (e.g. a card) not working as intended, a memory not doing anything etc, it is enough to write the element that failed and how. You do not need to attach the console output for these, unless the game also broke.
+* If it is a minor issue, such as a specific element (e.g. a card) not working as intended, a memory not doing anything etc, it is enough to write the element that failed and how. You do not need to attach the console output for these, unless the game also broke.
 * If the game itself stopped working (Black screen, Frozen, or you saw the force-unstuck report), please also attach the console output (see instructions below)
 
 ### Console on Windows/Linux/MacOS

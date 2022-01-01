@@ -499,6 +499,14 @@ func _on_Card_gui_input(event) -> void:
 						potential_container.highlight.set_highlight(false)
 					move_to(destination)
 					_focus_completed = false
+		else:
+			_process_more_card_inputs(event)
+
+
+# Overridable function to allow games to extend the _on_Card_gui_input() functionality
+# We use this so that we know we caught the correct card based on its index
+func _process_more_card_inputs(_event) -> void:
+	pass
 
 
 # Triggers the focus-out effect on the card
