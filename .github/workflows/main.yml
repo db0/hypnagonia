@@ -58,6 +58,7 @@ jobs:
         base_version: "${{ steps.release.outputs.version }}"
         create_release: false
         archive_export_output: true
+        export_debug: true
     - name: "🛠 Prepare files for upload to itch.io"
       if: ${{ steps.release.outputs.version != '' }}
       shell: bash
