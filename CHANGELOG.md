@@ -1,5 +1,17 @@
 # Changelog
 
+## [v0.24.0](https://github.com/db0/hypnagonia/tree/v0.24.0) (2022-01-01)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.23.1...v0.24.0)
+
+**Implemented enhancements:**
+
+- View possible card upgrades inside a run from the deck screen [\#107](https://github.com/db0/hypnagonia/issues/107)
+
+**Merged pull requests:**
+
+- More NCEs and Increased Difficulty [\#128](https://github.com/db0/hypnagonia/pull/128) ([db0](https://github.com/db0))
+
 ## [v0.23.1](https://github.com/db0/hypnagonia/tree/v0.23.1) (2022-01-01)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.23.0...v0.23.1)
