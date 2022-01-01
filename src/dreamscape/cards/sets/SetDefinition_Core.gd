@@ -292,7 +292,7 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Basic",
 		"_keywords": ["stress"],
-		"_upgrade_threshold_modifier": 0,
+		"_upgrade_threshold_modifier": +3,
 		"_upgrades": [
 			"@ Nothing to Fear @",
 			"Absolutely Nothing to Fear",
@@ -476,7 +476,7 @@ const CARDS := {
 		"_amounts": {
 			"immersion_amount": 4,
 		},
-		"_upgrade_threshold_modifier": 1,
+		"_upgrade_threshold_modifier": +5,
 		"_upgrades": [
 			"@ Inner Justice @",
 			"+ Inner Justice +",
