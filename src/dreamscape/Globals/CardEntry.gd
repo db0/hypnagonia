@@ -47,8 +47,8 @@ func _init(_card_name: String) -> void:
 	if upgrade_threshold >= 0:
 		upgrade_threshold =\
 				UPGRADE_THRESHOLD_BASELINE\
-				+ UPGRADE_THRESHOLDS_RARITY_MODIFIERS[properties.get("_rarity", 0)]\
-				+ UPGRADE_THRESHOLDS_TYPE_MODIFIERS[properties.get("Type", 0)]\
+				+ UPGRADE_THRESHOLDS_RARITY_MODIFIERS[properties["_rarity"]]\
+				+ UPGRADE_THRESHOLDS_TYPE_MODIFIERS[properties["Type"]]\
 				+ upgrade_threshold
 	set_upgrade_options()
 	## DEBUG

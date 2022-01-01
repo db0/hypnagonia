@@ -66,7 +66,7 @@ onready var player_info := $VBC/PlayerInfo
 func _ready() -> void:
 	## DEBUG - Allows to run scene by itself ##
 	if OS.has_feature("debug"):
-		print_debug("DEBUG INFO: Entering Shop")
+		print("DEBUG INFO:Shop: Entering Shop")
 	if not globals.journal:
 		cfc.game_rng_seed = CFUtils.generate_random_seed()
 		# warning-ignore:return_value_discarded
@@ -108,7 +108,7 @@ func _ready() -> void:
 		player_info._on_Help_pressed()
 		cfc.set_setting('first_shop_tutorial_done', true)
 	if OS.has_feature("debug"):
-			print("DEBUG INFO: Shop Loaded")
+			print("DEBUG INFO:Shop: Shop Loaded")
 
 func populate_shop_cards() -> void:
 	for _iter in range(5):
@@ -430,4 +430,4 @@ func _on_deck_operation_performed(operation_details: Dictionary) -> void:
 
 func _exit_tree():
 	if OS.has_feature("debug"):
-		print("DEBUG INFO: Exiting Shop")
+		print("DEBUG INFO:Shop: Exiting Shop")

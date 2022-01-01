@@ -33,6 +33,7 @@ onready var _version := $MainMenu/VBox/Version
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("Hypnagonia Version: " + CFConst.GAME_VERSION)
 	for option_button in v_buttons.get_children():
 		if option_button.has_signal('pressed'):
 			option_button.connect('pressed', self, 'on_button_pressed', [option_button.name])

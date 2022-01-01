@@ -119,9 +119,9 @@ func generate_journal_choices() -> Array:
 					_debug_enemies.append(t.definition.Name)
 			if e as EliteEncounter or e as BossEncounter:
 				_debug_enemies.append(e.enemy_scene.get_path())
-		print("DEBUG INFO: Encounter choices selected: ", _debug_encounter_paths)
+		print("DEBUG INFO:Encounters: Encounter choices selected: ", _debug_encounter_paths)
 		if _debug_enemies.size() > 0:
-			print("DEBUG INFO: Enemies choices available: ", _debug_enemies)
+			print("DEBUG INFO:Encounters: Enemies choices available: ", _debug_enemies)
 	return(journal_options)
 
 

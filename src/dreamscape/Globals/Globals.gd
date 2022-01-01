@@ -22,6 +22,7 @@ func _ready() -> void:
 	player = Player.new()
 	encounters = SingleRun.new()
 
+
 func reset() -> void:
 	player = Player.new()
 	encounters = SingleRun.new()
@@ -35,7 +36,11 @@ func quit_to_main() -> void:
 	cfc.quit_game()
 	reset()
 
+
 func hide_all_previews() -> void:
 	cfc.hide_all_previews()
 	for artifact_preview_node in cfc.get_tree().get_nodes_in_group("artifact_preview"):
 		artifact_preview_node.hide_preview_artifact()
+
+func _exit_tree():
+	print("Hypnagonia Exited Gracefully.")
