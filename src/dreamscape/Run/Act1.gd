@@ -499,6 +499,7 @@ const ENEMIES = [
 	Pialephant,
 	TheLightCalling,
 	Baby,
+	Squirrel,
 ]
 
 const RushElite = {
