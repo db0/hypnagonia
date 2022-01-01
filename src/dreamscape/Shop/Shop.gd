@@ -35,7 +35,6 @@ var progress_max_usage: int = 3
 var remove_cost: int
 var remove_uses: int = 0
 var remove_max_usage: int = 1
-var remove_cost_increase_per_use := 25
 # These variables are the type of pathos that we use to purchase the various
 # Things in the shop. By specifying the variables here, I can tweak
 # them easily later, or change them via an artifact
@@ -386,8 +385,7 @@ func _update_remove_cost() -> void:
 	remove_cost = round(
 			globals.player.pathos.get_progression_average(
 				card_removal_cost_type)
-			* 3)\
-			+ (remove_cost_increase_per_use * globals.encounters.shop_deck_removals)
+			* globals.encounters.shop_deck_removals)
 	var remove_text_format = {
 		"cost": str(remove_cost),
 		"pathos": card_removal_cost_type.capitalize(),

@@ -51,7 +51,7 @@ func begin() -> void:
 		secondary_choices[type] = secondary_choices[type].format(scformat)
 		if globals.player.pathos.released[pathos_choice_payments[type]["pathos"]]\
 				< pathos_choice_payments[type]["cost"]:
-			secondary_choices[type] = "[color=red]" + secondary_choices['progress'] + "[/color]"
+			secondary_choices[type] = "[color=red]" + secondary_choices[type] + "[/color]"
 			disabled_choices.append(type)
 	globals.journal.add_nested_choices(secondary_choices, disabled_choices)
 

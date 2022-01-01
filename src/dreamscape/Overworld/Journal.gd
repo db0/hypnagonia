@@ -411,10 +411,12 @@ func _input(event):
 #		globals.player.damage += 20
 #		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.boss, 100)
 		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 200)
-		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.elite, 200)
+		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 200)
+		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, 200)
+		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, 200)
 		var debug_encounters = [
 #			EnemyEncounter.new(Act2.ClownShow, "hard"),
-			preload("res://src/dreamscape/Run/NCE/Act2/RiskyEvent3.gd").new(),
+			preload("res://src/dreamscape/Run/NCE/Act2/RiskyEvent4.gd").new(),
 			BossEncounter.new(Act1.BOSSES["Narcissus"], "Narcissus"),
 #			EliteEncounter.new(Act2.IndescribableAbsurdity, "medium"),
 			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()

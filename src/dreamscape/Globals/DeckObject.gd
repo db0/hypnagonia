@@ -40,8 +40,10 @@ func add_new_card(card_name, progress := 0) -> CardEntry:
 
 
 func remove_card(card_entry: CardEntry) -> void:
-	cards.erase(card_entry)
-	emit_signal("card_removed", card_entry)
+	# As a failsafe, we do not allow to remove the last card
+	if cards.size() > 1:
+		cards.erase(card_entry)
+		emit_signal("card_removed", card_entry)
 
 
 func list_all_cards(sorted:= false) -> Array:
@@ -73,7 +75,7 @@ func count_upgradeable_cards() -> int:
 func get_progressing_cards() -> Array:
 	var progressing_cards := []
 	for card_entry in cards:
-		if not card_entry.can_be_upgraded():
+		if card_entry.is_progressing():
 			progressing_cards.append(card_entry)
 	return(progressing_cards)
 

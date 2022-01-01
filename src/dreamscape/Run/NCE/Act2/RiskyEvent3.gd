@@ -37,6 +37,7 @@ func repeat_choices() -> void:
 	var disabled_choices = []
 	if globals.player.memories.size() == 0: 
 		disabled_choices.append('memories')
+		secondary_choices['memories'] = "[color=red]" + secondary_choices['memories'] + "[/color]"
 	globals.journal.add_nested_choices(secondary_choices_dupe, disabled_choices)
 	
 func continue_encounter(key) -> void:
