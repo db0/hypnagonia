@@ -6,9 +6,9 @@ const ENEMY_CARD_PREVIEW_SCENE = preload("res://src/dreamscape/MainMenu/Starting
 
 var encounter: SingleEncounter
 
-
 func _init(_journal: Node, _encounter: SingleEncounter).(_journal) -> void:
 	modulate.a = 0
+	size_flags_horizontal = SIZE_EXPAND_FILL
 	encounter = _encounter
 	if encounter as EnemyEncounter:
 		var enemy_encounter: EnemyEncounter = encounter
@@ -30,6 +30,7 @@ func _init(_journal: Node, _encounter: SingleEncounter).(_journal) -> void:
 func _on_mouse_entered() -> void:
 	._on_mouse_entered()
 	_display_journal_art()
+
 
 func _display_journal_art() -> void:
 	var journal_illustration = encounter.journal_art

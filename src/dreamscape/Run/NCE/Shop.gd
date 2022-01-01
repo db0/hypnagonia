@@ -7,11 +7,9 @@ var current_shop
 
 func _init():
 	description = "<Shop Story Blurb goes here>"
-
+	pathos_released = Terms.RUN_ACCUMULATION_NAMES.shop
 
 func begin() -> void:
-	# warning-ignore:return_value_discarded
-	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.shop)
 	.begin()
 	current_shop = SHOP_SCENE.instance()
 	cfc.get_tree().get_root().call_deferred("add_child", current_shop)

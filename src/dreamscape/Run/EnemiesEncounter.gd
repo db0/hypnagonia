@@ -9,8 +9,8 @@ const TORMENT_META_DICT := {
 var enemies: Array
 
 
-
 func _init(encounter: Dictionary, _difficulty: String):
+	pathos_released = Terms.RUN_ACCUMULATION_NAMES.enemy
 	description = encounter["journal_description"]
 	difficulty = _difficulty
 	enemies = encounter["enemies"][difficulty]
@@ -46,8 +46,6 @@ func begin() -> void:
 		for t in enemies:
 			_debug_enemies.append(t.definition.Name)
 		print_debug("DEBUG INFO: Torments Present: ", _debug_enemies)
-	# warning-ignore:return_value_discarded
-	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.enemy)
 	.begin()
 	# Even though the next two lines should be in all combat encounters
 	# I do not put them into the CombatEncounter begin() function

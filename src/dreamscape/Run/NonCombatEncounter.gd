@@ -18,10 +18,8 @@ const ARTIFACT_POPUP_DICT := {
 var reward_description: String
 
 
-func begin() -> void:
-	# warning-ignore:return_value_discarded
-	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.nce)
-	.begin()
+func _init() -> void:
+	pathos_released = Terms.RUN_ACCUMULATION_NAMES.nce
 
 
 func get_meta_hover_description(_meta_tag: String) -> String:

@@ -17,11 +17,10 @@ var secondary_choices := {
 
 func _init():
 	description = "I recall I had specific curio with me, but I struggle to remember what. This recollection is painful..."
+	pathos_released = Terms.RUN_ACCUMULATION_NAMES.artifact
 
 func begin() -> void:
 	accumulated = globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.artifact]
-# warning-ignore:return_value_discarded
-	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.artifact)
 	# The rarity of artifact found is based on the accumulated pathos
 	# warning-ignore:integer_division
 	artifact_prep = ArtifactPrep.new(accumulated/2, accumulated, 2)

@@ -24,6 +24,8 @@ var repressed := {
 	Terms.RUN_ACCUMULATION_NAMES.boss: 0.0,
 }
 
+
+# How much each repressed pathos can increase per journal page
 var progressions := {
 	Terms.RUN_ACCUMULATION_NAMES.enemy: range(11,20),
 	Terms.RUN_ACCUMULATION_NAMES.rest: range(3,5),
@@ -124,10 +126,22 @@ func release(entry: String) -> int:
 	var retcode : int = CFConst.ReturnCode.CHANGED
 	if repressed[entry] == 0:
 		retcode = CFConst.ReturnCode.OK
-	var release_amount := get_threshold(entry)
-	release_amount *= release_adjustments.get(entry,1.0)
+	var release_amount = get_release_amount(entry)
 	release_pathos(entry, release_amount)
 	return(retcode)
+
+
+func get_release_amount(entry: String) -> float:
+	var release_amount := get_threshold(entry)
+	release_amount *= release_adjustments.get(entry,1.0)
+	return(release_amount)
+
+
+func get_final_release_amount(entry: String) -> int:
+	var release_amount = get_release_amount(entry)
+	if release_amount > repressed[entry]:
+		release_amount = repressed[entry]
+	return(int(round(release_amount)))
 
 
 # modifies the specified released pathos by a given amount
@@ -150,12 +164,14 @@ func spend_pathos(entry: String, amount: float) -> void:
 		return
 	modify_released_pathos(entry, -amount)
 
+
 # reduces the specified released pathos by a given amount
 func lose_repressed_pathos(entry: String, amount: float) -> void:
 	if amount <= 0:
 		printerr("ERROR: lose_repressed_pathos() only takes a positive integer")
 		return
 	modify_repressed_pathos(entry, -amount, true)
+
 
 # reduces the specified released pathos by a given amount
 func lose_released_pathos(entry: String, amount: float) -> void:
@@ -266,9 +282,14 @@ func get_pathos_org(type := "released", include_zeroes := false) -> Dictionary:
 #	print_debug(type, results_dict)
 	return(results_dict)
 
+
+# Checks what the chance is for the specified pathos to provide an encounter
+# based on all the other repressed pathos in comparison to itself
+# Takes into account thresholds and the progression of between encounters
 func calculate_chance_for_encounter(entry: String, include_next_progression := true) -> int:
 	if not entry in repressed:
 		return(-1)
+	# If the boss is going to appear, all other encounters have 0 chance.
 	if entry != Terms.RUN_ACCUMULATION_NAMES.boss \
 			and repressed[Terms.RUN_ACCUMULATION_NAMES.boss]\
 			+ progressions[Terms.RUN_ACCUMULATION_NAMES.boss].front() >= 100:
@@ -276,6 +297,7 @@ func calculate_chance_for_encounter(entry: String, include_next_progression := t
 	var total: float = 0
 	var progression : float = 0
 	for pathos_entry in repressed:
+		# The boss has no chance. It either appears or not when it has 100 repressed pathos
 		if pathos_entry == Terms.RUN_ACCUMULATION_NAMES.boss:
 			continue
 		if include_next_progression:

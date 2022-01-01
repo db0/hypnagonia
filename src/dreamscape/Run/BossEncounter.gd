@@ -5,14 +5,13 @@ var enemy_name: String
 var enemy_scene: PackedScene
 
 func _init(encounter: Dictionary, _boss_name: String):
+	pathos_released = Terms.RUN_ACCUMULATION_NAMES.boss
 	description = encounter["journal_description"]
 	reward_description = encounter["journal_reward"]
 	enemy_name = _boss_name
 	enemy_scene = encounter['scene']
 
 func begin() -> void:
-	# warning-ignore:return_value_discarded
-	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.boss)
 	.begin()
 	globals.journal.journal_cover.fade_to_black()
 	yield(globals.journal.journal_cover, "fade_finished")

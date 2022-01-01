@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/dreamscape/Overworld/JournalEncounterChoiceScene.gd" type="Script" id=2]
+
+[node name="JournalEncounterChoiceScene" type="HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_constants/separation = 10
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PathosIcon" type="TextureRect" parent="."]
+margin_right = 30.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 30, 30 )
+mouse_filter = 0
+expand = true
+stretch_mode = 6
+
+[connection signal="mouse_entered" from="PathosIcon" to="." method="_on_PathosIcon_mouse_entered"]
+[connection signal="mouse_exited" from="PathosIcon" to="." method="_on_PathosIcon_mouse_exited"]

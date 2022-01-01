@@ -9,28 +9,30 @@ var secondary_choices := {
 
 func _init():
 	description = "I felt myself falling into a deep, dreamless torpor..."
+	pathos_released = Terms.RUN_ACCUMULATION_NAMES.rest
+
 
 func begin() -> void:
-	# warning-ignore:return_value_discarded
-	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.rest)
 	.begin()
 	globals.journal.add_nested_choices(secondary_choices)
-	
+
+
 func continue_encounter(key) -> void:
 	match key:
-		"rest": 
+		"rest":
 			globals.player.damage -= int(globals.player.health * 0.25)
 			end()
 			globals.journal.display_nce_rewards('')
-		"resist": 
+		"resist":
 			end()
 			globals.journal.display_nce_rewards('')
 #		"rest": globals.journal.add_nested_choices({3: "Test1", 4: "Test2"})
 #		"resist": globals.journal.add_nested_choices({5: "Test3", 6: "Test4"})
-	
+
+
 func get_meta_hover_description(meta_tag: String) -> String:
 	match meta_tag:
-		"rest": 
+		"rest":
 			globals.encounters.deep_sleeps += 1
 			var healing_done = globals.player.health * 0.25
 			if healing_done > globals.player.damage:

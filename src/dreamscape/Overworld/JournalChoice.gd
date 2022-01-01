@@ -10,6 +10,7 @@ var formated_description : String
 func _ready() -> void:
 	bbcode_enabled = true
 
+
 func _init(_journal: Node) -> void:
 	journal = _journal
 	fit_content_height = true
