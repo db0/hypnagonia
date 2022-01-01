@@ -60,7 +60,7 @@ var thresholds := {
 # selected, they will transfer as much from represed to released equal to
 # their accumulation average * threshold
 var release_adjustments := {
-	Terms.RUN_ACCUMULATION_NAMES.enemy: 3.0,
+	Terms.RUN_ACCUMULATION_NAMES.enemy: 2.0,
 	Terms.RUN_ACCUMULATION_NAMES.rest: 2.0,
 }
 
@@ -133,6 +133,7 @@ func release(entry: String) -> int:
 
 func get_release_amount(entry: String) -> float:
 	var release_amount := get_threshold(entry)
+#	print_debug([release_amount, release_adjustments.get(entry,1.0), release_amount * release_adjustments.get(entry,1.0)])
 	release_amount *= release_adjustments.get(entry,1.0)
 	return(release_amount)
 

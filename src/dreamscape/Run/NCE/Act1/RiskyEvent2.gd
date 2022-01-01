@@ -2,8 +2,6 @@
 
 extends NonCombatEncounter
 
-var artifact_prep: ArtifactPrep
-
 var secondary_choices := {
 		'option1': '[Option1]: Recover 10 {anxiety}. Gain {boss_amount} repressed {boss_pathos}',
 		'option2': '[Option2]: Gain 10 {anxiety} threshold. Gain {boss_amount} repressed {boss_pathos}. Gain {elite_amount} represed {elite_pathos}',
