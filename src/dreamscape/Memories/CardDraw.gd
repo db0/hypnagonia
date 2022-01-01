@@ -1,6 +1,6 @@
 extends Memory
 
-func execute_memory_effect() -> void:
+func execute_memory_effect():
 	var script = [
 			{
 				"name": "draw_cards",
@@ -8,4 +8,7 @@ func execute_memory_effect() -> void:
 				"card_count": MemoryDefinitions.CardDraw.amounts.draw_amount
 			},
 	]
-	execute_script(script)
+	var sceng = execute_script(script)
+	if sceng is GDScriptFunctionState:
+		sceng = yield(sceng, "completed")
+	return(sceng)

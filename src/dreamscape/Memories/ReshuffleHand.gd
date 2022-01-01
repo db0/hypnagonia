@@ -1,6 +1,6 @@
 extends Memory
 
-func execute_memory_effect() -> void:
+func execute_memory_effect():
 	var hand_count : int = cfc.NMAP.hand.get_card_count()
 	var script = [
 			{
@@ -23,4 +23,7 @@ func execute_memory_effect() -> void:
 				"card_count": hand_count
 			},
 	]
-	execute_script(script)
+	var sceng = execute_script(script)
+	if sceng is GDScriptFunctionState:
+		sceng = yield(sceng, "completed")
+	return(sceng)

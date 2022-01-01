@@ -17,7 +17,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_stacks": 3,
 		},
-		"_upgrade_threshold": 12,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"* Gaslighter *",
 			"Ω Gaslighter Ω",
@@ -86,7 +86,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_stacks": 4,
 		},
-		"_upgrade_threshold": 14,
+		"_upgrade_threshold_modifier": 14,
 		"_upgrades": [
 			"* Broken Mirror *",
 			"Ω Broken Mirror Ω",
@@ -153,7 +153,7 @@ const CARDS := {
 		"_amounts": {
 			"defence_amount": 4,
 		},
-		"_upgrade_threshold": 12,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Fearmonger +",
 			"~ Fearmonger ~",
@@ -232,7 +232,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_stacks": 3,
 		},
-		"_upgrade_threshold": 12,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ The Laughing One @",
 			"ROFLMAO",
@@ -286,7 +286,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_stacks": 10,
 		},
-		"_upgrade_threshold": 12,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"The Critic Unleashed",
 			"^ The Critic ^",
@@ -338,7 +338,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_stacks": 3,
 		},
-		"_upgrade_threshold": 12,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"* Clown *",
 			"^ Clown ^",
@@ -390,7 +390,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_stacks": 1,
 		},
-		"_upgrade_threshold": 12,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"* Butterfly *",
 			"^ Butterfly ^",
@@ -459,7 +459,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_stacks": 3,
 		},
-		"_upgrade_threshold": 12,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"* Unnamed Enemy 1 *",
 			"^ Unnamed Enemy 1 ^",
@@ -525,7 +525,7 @@ const CARDS := {
 		"_amounts": {
 			"damage_amount": 35,
 		},
-		"_upgrade_threshold": 12,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Pialephant +",
 			"@ Pialephant @",
@@ -572,7 +572,7 @@ const CARDS := {
 			"defence_amount": 10,
 			"effect_stacks": 1
 		},
-		"_upgrade_threshold": 12,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ The Light Calling +",
 			"* The Light Calling *",
@@ -627,7 +627,7 @@ const CARDS := {
 			"damage_amount": 11,
 			"exert_amount": 7
 		},
-		"_upgrade_threshold": 12,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ A Squirrel +",
 			"% A Squirrel %",
@@ -685,7 +685,7 @@ const CARDS := {
 			"effect_stacks": 1,
 			"effect_stacks2": 1,
 		},
-		"_upgrade_threshold": 12,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"* Baby *",
 			"Ω Baby Ω",
@@ -747,7 +747,7 @@ const CARDS := {
 			"repressed_amount": 10,
 			"released_amount": 10,
 		},
-		"_upgrade_threshold": 12,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"% Traffic Jam %",
 			"+ Traffic Jam +",
@@ -803,7 +803,7 @@ const CARDS := {
 		"_keywords": ["confidence"],
 		"_amounts": {
 		},
-		"_upgrade_threshold": 12,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ Stuffed Toy @",
 			"^ Stuffed Toy ^",
@@ -856,7 +856,7 @@ const CARDS := {
 			"effect_stacks": 1,
 			"effect_stacks2": 1,
 		},
-		"_upgrade_threshold": 12,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ Mouse @",
 			"^ Mouse ^",
@@ -909,7 +909,7 @@ const CARDS := {
 			"card_amount": 2,
 			"exert_amount": 1,
 		},
-		"_upgrade_threshold": 12,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"! The Exam !",
 			"Ω The Exam Ω",
@@ -958,7 +958,7 @@ const CARDS := {
 			"effect_threshold": 9,
 			"effect_stacks": 1,
 		},
-		"_upgrade_threshold": 12,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"^ The Victim ^",
 			"* The Victim *",
@@ -1006,7 +1006,7 @@ const CARDS := {
 			"damage_amount": 9,
 			"steal_amount": 2,
 		},
-		"_upgrade_threshold": 12,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"Ω Wolf Ω",
 			"+ Wolf +",

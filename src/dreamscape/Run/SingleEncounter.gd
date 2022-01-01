@@ -7,11 +7,14 @@ signal encounter_end(encounter)
 var description: String
 var journal_art
 var shader_params: Dictionary
+var pathos_released: String
 
 func begin() -> void:
 	if OS.has_feature("debug"):
 		print_debug("DEBUG INFO: Entering Encounter: " + get_script().get_path())
 	globals.current_encounter = self
+	# warning-ignore:return_value_discarded
+	globals.player.pathos.release(pathos_released)
 	emit_signal("encounter_begin", self)
 
 

@@ -4,6 +4,7 @@ extends CombatEncounter
 var enemy_scene: PackedScene
 
 func _init(encounter: Dictionary, _difficulty: String):
+	pathos_released = Terms.RUN_ACCUMULATION_NAMES.elite
 	description = encounter["journal_description"]
 	reward_description = encounter["journal_reward"]
 	enemy_scene = encounter['scene']
@@ -11,8 +12,6 @@ func _init(encounter: Dictionary, _difficulty: String):
 	prepare_journal_art(encounter)
 
 func begin() -> void:
-	# warning-ignore:return_value_discarded
-	globals.player.pathos.release(Terms.RUN_ACCUMULATION_NAMES.elite)
 	.begin()
 	globals.journal.journal_cover.fade_to_black()
 	yield(globals.journal.journal_cover, "fade_finished")

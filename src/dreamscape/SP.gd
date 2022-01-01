@@ -85,7 +85,7 @@ static func filter_trigger(
 				requested_stacks,
 				comparison):
 			is_valid = false
-	if is_valid and card_scripts.get("filter_dreamer_defence"):
+	if is_valid and card_scripts.get("filter_dreamer_defence") != null:
 		var requested_defence : int = card_scripts.get(FILTER_DREAMER_DEFENCE, 1)
 #		print_debug(cfc.NMAP.board.dreamer.defence, comparison,requested_defence)
 		if not CFUtils.compare_numbers(

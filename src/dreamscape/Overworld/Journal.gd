@@ -10,6 +10,7 @@ const NESTED_CHOICES_SCENE = preload("res://src/dreamscape/Overworld/SecondaryCh
 const SELECTION_DECK_SCENE = preload("res://src/dreamscape/SelectionDeck.tscn")
 const CARD_PREVIEW_SCENE = preload("res://src/dreamscape/MainMenu/StartingCardPreviewObject.tscn")
 const ARTIFACT_PREVIEW_SCENE = preload("res://src/dreamscape/MainMenu/ArtifactPreviewPopup.tscn")
+const JOURNAL_ENCOUNTER_CHOICE_SCENE = preload("res://src/dreamscape/Overworld/JournalEncounterChoiceScene.tscn")
 
 onready var page_illustration := $HBC/MC/JournalPageIllustration
 onready var page_shader := $HBC/MC/JournalPageShader
@@ -49,10 +50,15 @@ func _ready() -> void:
 	globals.encounters.encounter_number += 1
 	encounter_choices = globals.encounters.generate_journal_choices()
 	for encounter in encounter_choices:
-		var journal_choice = JournalEncounterChoice.new(self, encounter)
-		journal_choices.add_child(journal_choice)
-		journal_choice.connect("pressed", self, "_on_choice_pressed", [encounter, journal_choice])
-		_reveal_entry(journal_choice)
+		var journal_choice_scene = JOURNAL_ENCOUNTER_CHOICE_SCENE.instance()
+		journal_choices.add_child(journal_choice_scene)
+		journal_choice_scene.setup(self, encounter)
+		journal_choice_scene.journal_choice.connect(
+				"pressed",
+				self,
+				"_on_choice_pressed",
+				[encounter, journal_choice_scene])
+		_reveal_entry(journal_choice_scene.journal_choice)
 		yield(_tween, "tween_all_completed")
 	if not cfc.game_settings.get('first_journal_tutorial_done'):
 		player_info._on_Help_pressed()
@@ -226,7 +232,7 @@ func _on_meta_hover_started(meta_text: String) -> void:
 			var artifact_name : String = meta_tag["name"]
 			popup_cards[artifact_name].show_preview_artifact()
 		"nce":
-			_show_description_popup(
+			show_description_popup(
 					globals.current_encounter.get_meta_hover_description(
 						meta_tag["name"]))
 
@@ -252,10 +258,14 @@ func _parse_meta_tag(meta_text: String) -> Dictionary:
 	return(json_parse.result)
 
 
-func _on_choice_pressed(encounter: SingleEncounter, rich_text_choice: JournalChoice) -> void:
+func _on_choice_pressed(encounter: SingleEncounter, rich_text_choice) -> void:
+	if _tween.is_active():
+		yield(_tween, "tween_all_completed")
 	for choice in journal_choices.get_children():
 		if choice != rich_text_choice:
 			choice.visible = false
+		elif choice.has_method("disable_mouse_inputs"):
+			choice.disable_mouse_inputs()
 	# To ensure card previews are hidden in case the player is too fast.
 	_description_popup.visible = false
 	for popup in popup_cards:
@@ -373,11 +383,11 @@ func _on_proceed_clicked(_meta: String) -> void:
 			globals.quit_to_main()
 
 
-func _show_description_popup(description_text: String) -> void:
+func show_description_popup(description_text: String) -> void:
 	_description_label.text = description_text
 	_description_popup.visible = true
 	_description_popup.rect_size = Vector2(0,0)
-	_description_popup.rect_global_position = get_local_mouse_position() + Vector2(20,-50)
+	_description_popup.rect_global_position = get_local_mouse_position() + Vector2(20,-5)
 	if _description_popup.rect_global_position.x + _description_popup.rect_size.x > get_viewport().size.x:
 		_description_popup.rect_global_position.x = get_viewport().size.x - _description_popup.rect_size.x
 
@@ -399,7 +409,7 @@ func _input(event):
 #		globals.player.deck.add_new_card("Prejudice")
 #		globals.player.deck.add_new_card("Prejudice")
 #		globals.player.damage += 20
-		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.boss, 100)
+#		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.boss, 100)
 #		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.enemy, 200)
 		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.elite, 200)
 		var debug_encounters = [
@@ -410,10 +420,11 @@ func _input(event):
 			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
 		]
 		for encounter in debug_encounters:
-			var journal_choice = JournalEncounterChoice.new(self, encounter)
-			journal_choices.add_child(journal_choice)
-			journal_choice.connect("pressed", self, "_on_choice_pressed", [encounter, journal_choice])
-			_reveal_entry(journal_choice)
+			var journal_choice_scene = JOURNAL_ENCOUNTER_CHOICE_SCENE.instance()
+			journal_choices.add_child(journal_choice_scene)
+			journal_choice_scene.setup(self, encounter)
+			journal_choice_scene.journal_choice.connect("pressed", self, "_on_choice_pressed", [encounter, journal_choice_scene])
+			_reveal_entry(journal_choice_scene.journal_choice)
 #		print_debug(SoundManager._get_all_playing_type_steams('BGM'))
 
 

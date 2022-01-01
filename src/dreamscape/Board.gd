@@ -403,11 +403,11 @@ func _input(event):
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.unconventional.name, 1, false, false, ['Debug'], 'weirdly')
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.fortify.name, 4)
 		if _torment1:
-			_torment1.health = 20
+			_torment1.health = 2000
 			_torment1.damage = 19
-			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 2)
-			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 1)
-			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
+#			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 2)
+#			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 1)
+#			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
 		if _torment2:
 			_torment2.health = 1000
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
@@ -416,27 +416,27 @@ func _input(event):
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 5)
 #			_torment2.defence = 10
 		if _torment3:
-			_torment3.health = 20
+			_torment3.health = 100
 			_torment3.damage = 18
-			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 1)
-			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 3)
-			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
+#			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 1)
+#			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 3)
+#			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
 		dreamer.health = 1000
 		dreamer.damage = 100
 #		globals.player.add_artifact(ArtifactDefinitions.ThickExplosion.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.PurpleWave.canonical_name)
-#		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
-		globals.player.add_memory(MemoryDefinitions.RandomChaos.canonical_name)
+		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
+		globals.player.add_memory(MemoryDefinitions.SpikeEnemy.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
 #		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
 		for c in [
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"- Confidence -",
-			"- Confidence -",
-			"- Confidence -",
-			"- Confidence -",
+			"Grit",
+			"Grit",
+			"Grit",
+			"Grit",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.hand.add_child(card)

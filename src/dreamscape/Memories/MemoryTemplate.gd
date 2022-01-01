@@ -48,8 +48,12 @@ func _set_current_description() -> void:
 
 
 func _use() -> void:
+	var sceng = execute_memory_effect()
+	if sceng is GDScriptFunctionState:
+		sceng = yield(sceng, "completed")
+	if sceng and not sceng.can_all_costs_be_paid:
+		return
 	artifact_object.use()
-	execute_memory_effect()
 
 
 # Overridable function

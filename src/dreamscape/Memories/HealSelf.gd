@@ -1,6 +1,6 @@
 extends Memory
 
-func execute_memory_effect() -> void:
+func execute_memory_effect():
 	var upgrades = artifact_object.upgrades_amount * MemoryDefinitions.HealSelf.amounts.upgrade_multiplier
 	var script = [
 		{
@@ -10,4 +10,7 @@ func execute_memory_effect() -> void:
 				"tags": ["Healing", "Memory"],
 		},
 	]
-	execute_script(script)
+	var sceng = execute_script(script)
+	if sceng is GDScriptFunctionState:
+		sceng = yield(sceng, "completed")
+	return(sceng)

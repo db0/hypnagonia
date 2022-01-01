@@ -27,9 +27,14 @@ onready var _player_health_label := $HBC/Health
 onready var _encounter_label := $HBC/Encounter
 onready var _deck_button := $HBC/Deck
 onready var _artifact_popup := $ArtifactsPopup
-onready var _artifact_button := $HBC/ArtifactsShowButton
+onready var _artifact_button := $HBC/Curios
+onready var _tutorial_button := $HBC/Help
+onready var _settings_button := $HBC/Settings
+onready var _button_desc_popup := $ButtonDescriptionPopup
+onready var _button_description := $ButtonDescriptionPopup/ButtonDescription
 onready var _pathos_details := $PathosDetails
 onready var _pathos_details_list := $PathosDetails/VBC
+onready var _pathos_description := $PathosDetails/VBC/Description
 onready var _pathos_button := $HBC/Pathos
 onready var _help := $Help
 onready var _tutorial := $Help/Tutorial
@@ -38,12 +43,17 @@ onready var _memories := $HBC/Memories
 onready var _version := $HBC/Version
 
 func _ready() -> void:
+	$PathosDetails/VBC/Header.description = _pathos_description
 	if globals.player.pathos:
 		for entry in globals.player.pathos.repressed:
 			var pinfo = PATHOS_INFO_SCENE.instance()
-			_pathos_details_list.add_child(pinfo)
+#			_pathos_details_list.add_child(pinfo)
+			_pathos_details_list.add_child_below_node($PathosDetails/VBC/Header, pinfo)
 			pathos_infos[entry] = pinfo
-			pinfo.setup(entry)
+			pinfo.setup(entry, _pathos_description)
+	for button in [_artifact_button,_pathos_button,_deck_button, _tutorial_button, _settings_button]:
+		button.connect("mouse_entered", self, "_on_button_mouse_entered", [button])
+		button.connect("mouse_exited", self, "_on_button_mouse_exited", [button])
 	# warning-ignore:return_value_discarded
 	globals.player.connect("artifact_added", self, "_on_artifact_added")
 	# warning-ignore:return_value_discarded
@@ -190,8 +200,10 @@ func _init_artifacts() -> void:
 	for artifact_object in globals.player.artifacts:
 		_instance_artifact(artifact_object)
 
+
 func _on_memory_added(memory_object: MemoryObject) -> void:
 	_instance_memory(memory_object, true)
+
 
 # Instances and adds the artifact objects to this node
 func _init_memories() -> void:
@@ -237,3 +249,14 @@ func _on_ArtifactsShowButton_pressed() -> void:
 	SoundManager.play_se('click')
 	_artifact_popup.rect_global_position =\
 		_artifact_button.rect_global_position + Vector2(-50,50)
+
+
+func _on_button_mouse_entered(button: Button) -> void:
+	_button_description.text = button.name.capitalize()
+	_button_desc_popup.visible = true
+	_button_desc_popup.rect_global_position =\
+		button.rect_global_position + Vector2(-_button_description.rect_size.x,0)
+
+
+func _on_button_mouse_exited(_button: Button) -> void:
+	_button_desc_popup.visible = false

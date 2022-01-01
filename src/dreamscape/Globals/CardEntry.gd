@@ -2,6 +2,25 @@
 class_name CardEntry
 extends Reference
 
+# The baseline threshold which all cards needs to upgrade
+const UPGRADE_THRESHOLD_BASELINE = 6
+# The modifier on the baseline threshold based on the card's rarity.
+const UPGRADE_THRESHOLDS_RARITY_MODIFIERS := {
+	"Basic": 0,
+	"Common": +2,
+	"Uncommon": +3,
+	"Rare": +4,
+	"Received": +8,
+	"Perturbation": 0,
+}
+const UPGRADE_THRESHOLDS_TYPE_MODIFIERS := {
+	"Action": 0,
+	"Control": 0,
+	"Concentration": -2,
+	"Understanding": 0,
+	"Perturbation": 0,
+}
+
 var card_name: String
 # The actual card on the board linked to this card entry. The card on the board
 # is reset each new encounter
@@ -9,7 +28,7 @@ var card_object: Card
 var upgrade_progress := 0 setget set_upgrade_progress
 # How many times the card can be played before its eligible for an upgrade
 # If the value is -1, it's not upgradable
-var upgrade_threshold := 6
+var upgrade_threshold := UPGRADE_THRESHOLD_BASELINE
 var upgrades: Dictionary
 # Initiated along with this card entry. If this card is upgradable
 # We store which potential upgrades it can have, so that they always stay
@@ -23,7 +42,14 @@ func _init(_card_name: String) -> void:
 	card_name = _card_name
 	properties = cfc.card_definitions.get(card_name, {}).duplicate(true)
 	# If the key is not set, it means the card is not upgradable
-	upgrade_threshold = properties.get("_upgrade_threshold", -1)
+	upgrade_threshold = properties.get("_upgrade_threshold_modifier", -1)
+	# if it is set, then it is modifying the card's standard upgrade threshold based on its rarity
+	if upgrade_threshold >= 0:
+		upgrade_threshold =\
+				UPGRADE_THRESHOLD_BASELINE\
+				+ UPGRADE_THRESHOLDS_RARITY_MODIFIERS[properties.get("_rarity", 0)]\
+				+ UPGRADE_THRESHOLDS_TYPE_MODIFIERS[properties.get("Type", 0)]\
+				+ upgrade_threshold
 	set_upgrade_options()
 	## DEBUG
 #	set_upgrade_progress(upgrade_threshold)

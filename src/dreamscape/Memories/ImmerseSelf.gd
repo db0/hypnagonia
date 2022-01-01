@@ -1,6 +1,6 @@
 extends Memory
 
-func execute_memory_effect() -> void:
+func execute_memory_effect():
 	var script = [
 			{
 				"name": "mod_counter",
@@ -9,4 +9,7 @@ func execute_memory_effect() -> void:
 				"modification": MemoryDefinitions.ImmerseSelf.amounts.immersion_amount
 			},
 	]
-	execute_script(script)
+	var sceng = execute_script(script)
+	if sceng is GDScriptFunctionState:
+		sceng = yield(sceng, "completed")
+	return(sceng)

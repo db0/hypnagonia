@@ -2352,9 +2352,6 @@ const Grit = {
 					"lookup_property": "_amounts",
 						"value_key": "effect_stacks"
 					},
-					"filter_state_subject": [{
-						"filter_group": "EnemyEntities",
-					},],
 				},
 			],
 			"Gain Confidence": [

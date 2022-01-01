@@ -14,7 +14,7 @@ const CARDS := {
 		"_amounts": {
 			"defence_amount": 5
 		},
-		"_upgrade_threshold": 5,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Confidence +",
 			"@ Confidence @",
@@ -72,7 +72,7 @@ const CARDS := {
 		"_amounts": {
 			"damage_amount": 6
 		},
-		"_upgrade_threshold": 5,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Interpretation +",
 			"@ Interpretation @",
@@ -132,7 +132,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_stacks": 3
 		},
-		"_upgrade_threshold": 6,
+		"_upgrade_threshold_modifier": 1,
 		"_upgrades": [
 			"@ Out of Reach @",
 			"* Out of Reach *",
@@ -184,7 +184,7 @@ const CARDS := {
 			"effect_stacks": 2,
 			"effect_stacks2": 1
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"* Dive-in *",
 			"Enhanced Dive-in",
@@ -237,7 +237,7 @@ const CARDS := {
 		"_amounts": {
 			"healing_amount": 4
 		},
-		"_upgrade_threshold": 8,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Safety of Air +",
 			"Sustained Safety of Air",
@@ -290,9 +290,9 @@ const CARDS := {
 			+ " Increase all {stress} taken from Torment intents by 2.",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Common",
+		"_rarity": "Basic",
 		"_keywords": ["stress"],
-		"_upgrade_threshold": 5,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ Nothing to Fear @",
 			"Absolutely Nothing to Fear",
@@ -305,7 +305,7 @@ const CARDS := {
 			+ " Increase all {stress} taken from Torment intents by 2.",
 		"Cost": 0,
 		"_illustration": "Nobody",
-		"_rarity": "Common",
+		"_rarity": "Basic",
 		"_keywords": ["stress"],
 		"_is_upgrade": true,
 	},
@@ -316,7 +316,7 @@ const CARDS := {
 			+ " Increase all {stress} taken from Torment intents by 1.",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Common",
+		"_rarity": "Basic",
 		"_keywords": ["stress"],
 		"_is_upgrade": true,
 	},
@@ -335,7 +335,7 @@ const CARDS := {
 			"defence_amount": 8,
 			"effect_stacks": 1,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Confounding Movements +",
 			"* Confounding Movements *",
@@ -390,7 +390,7 @@ const CARDS := {
 			"damage_amount": 5,
 			"effect_stacks": 1,
 		},
-		"_upgrade_threshold": 5,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Noisy Whip +",
 			"@ Noisy Whip @",
@@ -476,7 +476,7 @@ const CARDS := {
 		"_amounts": {
 			"immersion_amount": 4,
 		},
-		"_upgrade_threshold": 6,
+		"_upgrade_threshold_modifier": 1,
 		"_upgrades": [
 			"@ Inner Justice @",
 			"+ Inner Justice +",
@@ -531,7 +531,7 @@ const CARDS := {
 			"damage_amount": 3,
 			"chain_amount": 3,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Whirlwind +",
 			"= Whirlwind =",
@@ -573,7 +573,7 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": ["perplexity"],
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"Ω Overview Ω",
 			"Piercing Overview",
@@ -628,7 +628,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_damage": 6,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ Rubber Eggs @",
 			"Bouncy Rubber Eggs",
@@ -699,7 +699,7 @@ const CARDS := {
 			"damage_amount": 15,
 			"effect_stacks": 4,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"* The Joke *",
 			"+ The Joke +",
@@ -778,7 +778,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_damage": 1,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ Nunclucks @",
 			"Massive Nunclucks",
@@ -829,7 +829,7 @@ const CARDS := {
 			"damage_amount": 15,
 			"stress_amount": 0,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ Find Weakness @",
 			"+ Find Weakness +",
@@ -893,7 +893,7 @@ const CARDS := {
 			"defence_amount": 8,
 			"draw_amount": 1,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Cocky Retort +",
 			"! Cocky Retort !",
@@ -940,7 +940,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_stacks": 2,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"* Rapid Encirclement *",
 			"~ Rapid Encirclement ~",
@@ -992,7 +992,7 @@ const CARDS := {
 			"damage_amount": 8,
 			"damage_amount2": 12,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Barrel Through +",
 			"= Barrel Through =",
@@ -1047,7 +1047,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_stacks": 2,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ Intimidate @",
 			"* Intimidate *",
@@ -1098,7 +1098,7 @@ const CARDS := {
 			"defence_amount": 10,
 			"effect_stacks": 3,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"= Cheeky Approach =",
 			"+ Cheeky Approach +",
@@ -1170,7 +1170,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_stacks": 1,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ Laugh at Danger @",
 			"Roaring Laugh at Danger",
@@ -1216,7 +1216,7 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": ["confidence", "interpretation"],
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ Towering Presence @",
 			"Overwhelming Presence",
@@ -1256,7 +1256,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_defence": 2,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ Unassailable @",
 			"Completely Unassailable",
@@ -1303,7 +1303,7 @@ const CARDS := {
 			"defence_amount": 8,
 			"effect_stacks": 1,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Audacity +",
 			"* Audacity *",
@@ -1354,7 +1354,7 @@ const CARDS := {
 		},
 		"_rarity": "Rare",
 		"_keywords": ["confidence", "forget"],
-		"_upgrade_threshold": 8,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"Massive Boast",
 			"@ Boast @",
@@ -1415,7 +1415,7 @@ const CARDS := {
 			"defence_amount": 5,
 			"damage_amount": 5,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Solid Understanding +",
 			"= Solid Understanding =",
@@ -1477,7 +1477,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_stacks": 3,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ No Second Thoughts @",
 			"~ No Second Thoughts ~",
@@ -1528,7 +1528,7 @@ const CARDS := {
 			"damage_amount": 6,
 			"draw_amount": 1,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ High Morale +",
 			"! High Morale !",
@@ -1599,7 +1599,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_stacks": 5,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"* Confident Slap *",
 			"@ Confident Slap @",
@@ -1650,7 +1650,7 @@ const CARDS := {
 			"damage_amount": 8,
 			"damage_amount2": 12,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Careful Observation +",
 			"% Careful Observation %",
@@ -1705,7 +1705,7 @@ const CARDS := {
 			"damage_amount": 12,
 			"effect_stacks": 2,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Drag and Drop +",
 			"@ Drag and Drop @",
@@ -1760,7 +1760,7 @@ const CARDS := {
 			"damage_amount": 6,
 			"draw_amount": 1,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Running Start +",
 			"! Running Start !",
@@ -1832,7 +1832,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_stacks": 1,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"Glorious Master of Skies",
 			"@ Master of Skies @",
@@ -1885,7 +1885,7 @@ const CARDS := {
 			"turns_amount": 6,
 			"effect_amount": 1,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"Masterful Zen of Flight",
 			"@ Zen of Flight @",
@@ -1940,7 +1940,7 @@ const CARDS := {
 			"effect_stacks": 1,
 			"defence_amount": 7,
 		},
-		"_upgrade_threshold": 9,
+		"_upgrade_threshold_modifier": 3,
 		"_upgrades": [
 			"+ Loop de loop +",
 			"* Loop de loop *",
@@ -1993,7 +1993,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_stacks": 4,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ Mania @",
 			"* Mania *",
@@ -2058,7 +2058,7 @@ const CARDS := {
 			"damage_amount": 20,
 			"filter_amount": 6,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ Utterly Ridiculous @",
 			"+ Utterly Ridiculous +",
@@ -2141,7 +2141,7 @@ const CARDS := {
 			"damage_amount": 8,
 			"draw_amount": 1,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ Ventriloquism @",
 			"+ Ventriloquism +",
@@ -2210,7 +2210,7 @@ const CARDS := {
 		"_amounts": {
 			"draw_amount": 1
 		},
-		"_upgrade_threshold": 9,
+		"_upgrade_threshold_modifier": 3,
 		"_upgrades": [
 			"@ Blind Trial @",
 			"! Blind Trial !",
@@ -2270,7 +2270,7 @@ const CARDS := {
 		"_amounts": {
 			"multiplier_amount": 2
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ Fowl Language @",
 			"* Fowl Language *",
@@ -2336,7 +2336,7 @@ const CARDS := {
 		"_amounts": {
 			"damage_amount": 8
 		},
-		"_upgrade_threshold": 8,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Cockfighting +",
 			"~ Cockfighting ~",
@@ -2382,7 +2382,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_damage": 4
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ Absurdity Unleashed @",
 			"Total Absurdity Unleashed",
@@ -2435,7 +2435,7 @@ const CARDS := {
 		"_amounts": {
 			"defence_amount": 11
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ unnamed_card_4 +",
 			"^ unnamed_card_4 ^",
@@ -2487,7 +2487,7 @@ const CARDS := {
 		"_amounts": {
 			"damage_amount": 7,
 		},
-		"_upgrade_threshold": 5,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Change of Mind +",
 			"@ Change of Mind @",
@@ -2532,7 +2532,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_amount": 4,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"Blinding Brilliance",
 			"@ Brilliance @",
@@ -2593,7 +2593,7 @@ const CARDS := {
 			"defence_amount2": 3,
 			"draw_amount": 1,
 		},
-		"_upgrade_threshold": 8,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Rapid Theorizing +",
 			"! Rapid Theorizing !",
@@ -2664,7 +2664,7 @@ const CARDS := {
 			"draw_amount": 2,
 			"forget_amount": 1,
 		},
-		"_upgrade_threshold": 8,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Wild Inspiration +",
 			"! Wild Inspiration !",
@@ -2711,7 +2711,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_amount": 1,
 		},
-		"_upgrade_threshold": 6,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"Total Recall",
 			"^ Recall ^",
@@ -2769,7 +2769,7 @@ const CARDS := {
 			"damage_amount": 9,
 			"discard_amount": 2,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Vexing Concept +",
 			"! Vexing Concept !",
@@ -2816,7 +2816,7 @@ const CARDS := {
 			"damage_amount": 12,
 			"damage_amount2": 2,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ It's alive! +",
 			"= It's alive! =",
@@ -2865,7 +2865,7 @@ const CARDS := {
 			"damage_amount": 9,
 			"effect_stacks": 2,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Detect Weaknesses +",
 			"* Detect Weaknesses *",
@@ -2911,7 +2911,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_amount": 1,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ Eureka! @",
 			"Inspired Eureka!",
@@ -2965,7 +2965,7 @@ const CARDS := {
 		"_amounts": {
 			"draw_amount": 1,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"! Flashbacks !",
 			"Sustained Flashbacks",
@@ -3011,7 +3011,7 @@ const CARDS := {
 			"immersion_amount": 2,
 			"effect_stacks": 1,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"Improved Perseverance",
 			"+ Perseverance +",
@@ -3065,7 +3065,7 @@ const CARDS := {
 			"damage_amount": 7,
 			"damage_amount2": 5,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"% It's The Small Things %",
 			"+ It's The Small Things +",
@@ -3111,7 +3111,7 @@ const CARDS := {
 		"_amounts": {
 			"damage_amount": 8,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ Confrontation @",
 			"+ Confrontation +",
@@ -3158,7 +3158,7 @@ const CARDS := {
 			"effect_stacks": 1,
 			"requirements_amount": 3
 		},
-		"_upgrade_threshold": 6,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ Dodge @",
 			"* Dodge *",
@@ -3208,7 +3208,7 @@ const CARDS := {
 			"turns_amount": 4,
 			"effect_amount": 2,
 		},
-		"_upgrade_threshold": 8,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"Deep Introspection",
 			"Light Introspection",
@@ -3258,7 +3258,7 @@ const CARDS := {
 			"exert_amount": 2,
 			"defence_amount": 12
 		},
-		"_upgrade_threshold": 6,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Dismissal +",
 			"% Dismissal %",
@@ -3304,7 +3304,7 @@ const CARDS := {
 			"exert_amount": 3,
 			"damage_amount": 12,
 		},
-		"_upgrade_threshold": 6,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Could Be Worse +",
 			"% Could Be Worse %",
@@ -3352,7 +3352,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_amount": 1,
 		},
-		"_upgrade_threshold": 8,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ The Happy Place @",
 			"^ The Happy Place ^",
@@ -3404,7 +3404,7 @@ const CARDS := {
 			"draw_amount": 1,
 			"draw_amount2": 1,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"! Self-Deception !",
 			"% Self-Deception %",
@@ -3453,7 +3453,7 @@ const CARDS := {
 			"exert_amount": 4,
 			"immersion_amount": 3,
 		},
-		"_upgrade_threshold": 8,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"% That too, shall pass %",
 			"+ That too, shall pass +",
@@ -3515,7 +3515,7 @@ const CARDS := {
 		"_amounts": {
 			"damage_amount": 6,
 		},
-		"_upgrade_threshold": 6,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Rancor +",
 			"Justified Rancor",
@@ -3553,7 +3553,7 @@ const CARDS := {
 		"_illustration": "Cabbage",
 		"_keywords": ["interpretation", "anxiety"],
 		"_rarity": "Uncommon",
-		"_upgrade_threshold": 8,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ Lash-out @",
 			"^ Lash-out ^",
@@ -3603,7 +3603,7 @@ const CARDS := {
 			"damage_amount": 8,
 			"exert_amount": 3,
 		},
-		"_upgrade_threshold": 6,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ It's not about me +",
 			"% It's not about me %",
@@ -3652,7 +3652,7 @@ const CARDS := {
 			"damage_amount": 9,
 			"exert_amount": 3,
 		},
-		"_upgrade_threshold": 6,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Is it my fault? +",
 			"% Is it my fault? %",
@@ -3705,7 +3705,7 @@ const CARDS := {
 			"exert_amount": 2,
 			"effect_stacks": 2,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Enough is enough! +",
 			"* Enough is enough! *",
@@ -3766,7 +3766,7 @@ const CARDS := {
 			"defence_amount": 8,
 			"effect_stacks": 1,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Grit +",
 			"% Grit %",
@@ -3821,7 +3821,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_amount": 1,
 		},
-		"_upgrade_threshold": 8,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ Excuses @",
 			"Endless Excuses",
@@ -3866,7 +3866,7 @@ const CARDS := {
 			"effect_stacks": 1,
 			"effect_amount": 1,
 		},
-		"_upgrade_threshold": 8,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"* Tolerance *",
 			"Extreme Tolerance",
@@ -3917,7 +3917,7 @@ const CARDS := {
 			"health_percent": 70,
 			"anxiety_taken": 10,
 		},
-		"_upgrade_threshold": 8,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Catatonia +",
 			"% Catatonia %",
@@ -3969,7 +3969,7 @@ const CARDS := {
 			"damage_amount": 25,
 			"defence_amount": 25,
 		},
-		"_upgrade_threshold": 6,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Disengage +",
 			"@ Disengage @",
@@ -4032,7 +4032,7 @@ const CARDS := {
 			"defence_amount": 12,
 			"health_percent": 70,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Survival Mode +",
 			"= Survival Mode =",
@@ -4102,7 +4102,7 @@ const CARDS := {
 		"_amounts": {
 			"damage_amount": 4,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ A Thousand Squeaks +",
 			"@ A Thousand Squeaks @",
@@ -4159,7 +4159,7 @@ const CARDS := {
 			"defence_amount": 3,
 			"effect_stacks": 2,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Hyperfocus +",
 			"* Hyperfocus *",
@@ -4216,7 +4216,7 @@ const CARDS := {
 			"defence_amount": 8,
 			"exert_amount": 2,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Misunderstood +",
 			"% Misunderstood %",
@@ -4271,7 +4271,7 @@ const CARDS := {
 			"damage_amount2": 15,
 			"deck_size": 10,
 		},
-		"_upgrade_threshold": 8,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Death Ray +",
 			"% Death Ray %",
@@ -4344,7 +4344,7 @@ const CARDS := {
 			"effect_defence": 3,
 			"discard_size": 5,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"Weirdly Unconventional",
 			"@ Unconventional @",
@@ -4402,7 +4402,7 @@ const CARDS := {
 			"effect_stacks2": 2,
 			"deck_size": 9,
 		},
-		"_upgrade_threshold": 8,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Endless Posibilities +",
 			"* Endless Posibilities *",
@@ -4487,7 +4487,7 @@ const CARDS := {
 		"_amounts": {
 			"draw_amount": 1,
 		},
-		"_upgrade_threshold": 9,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"! I'll Show Them All !",
 			"@ I'll Show Them All @",
@@ -4543,7 +4543,7 @@ const CARDS := {
 			"chain_amount": 1,
 			"per_division": 5,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ A Fine Specimen +",
 			"% A Fine Specimen %",
@@ -4594,7 +4594,7 @@ const CARDS := {
 			"damage_amount": 9,
 			"card_amount": 1,
 		},
-		"_upgrade_threshold": 6,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Misplaced Research +",
 			"! Misplaced Research !",
@@ -4643,7 +4643,7 @@ const CARDS := {
 			"defence_amount": 13,
 			"card_amount": 1,
 		},
-		"_upgrade_threshold": 8,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"! Excogitate !",
 			"Ω Excogitate Ω",
@@ -4703,7 +4703,7 @@ const CARDS := {
 			"effect_stacks3": 1,
 			"stress_threshold3": 0,
 		},
-		"_upgrade_threshold": 8,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"* The Whippy-Flippy *",
 			"% The Whippy-Flippy %",
@@ -4805,7 +4805,7 @@ const CARDS := {
 			"defence_amount": 4,
 			"effect_stacks": 1,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ The Plot Chickens... +",
 			"* The Plot Chickens... *",
@@ -4884,7 +4884,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_stacks": 3,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"* A Strange Gaida *",
 			"@ A Strange Gaida @",
@@ -4941,7 +4941,7 @@ const CARDS := {
 			"defence_amount": 8,
 			"effect_stacks": 2,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"* One With The Poultry *",
 			"+ One With The Poultry +",
@@ -5020,7 +5020,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_stacks": 1,
 		},
-		"_upgrade_threshold": 8,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ Sneaky-Beaky @",
 			"^ Sneaky-Beaky ^",
@@ -5076,7 +5076,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_stacks": 2,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"* Sensuous *",
 			"Ω Sensuous Ω",
@@ -5133,7 +5133,7 @@ const CARDS := {
 			"damage_amount": 19,
 			"effect_stacks": 2,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Massive Eggression +",
 			"% Massive Eggression %",
@@ -5188,7 +5188,7 @@ const CARDS := {
 		"_amounts": {
 			"damage_amount": 9,
 		},
-		"_upgrade_threshold": 8,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Impugn +",
 			"Ω Impugn Ω",
@@ -5239,7 +5239,7 @@ const CARDS := {
 		"_amounts": {
 			"defence_amount": 30,
 		},
-		"_upgrade_threshold": 9,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Unshakeable +",
 			"Confidently Unshakeable",
@@ -5282,7 +5282,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_defence": 3,
 		},
-		"_upgrade_threshold": 8,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"Dogged Tenacity",
 			"@ Tenacity @",
@@ -5331,7 +5331,7 @@ const CARDS := {
 			"requirements_amount": 0,
 			"effect_stacks": 1,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ The Finger +",
 			"% The Finger %",
@@ -5391,7 +5391,7 @@ const CARDS := {
 			"damage_amount": 8,
 			"effect_stacks": 1,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Bring It! +",
 			"Ω Bring It! Ω",
@@ -5444,7 +5444,7 @@ const CARDS := {
 		"_amounts": {
 			"defence_amount": 7,
 		},
-		"_upgrade_threshold": 8,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ Sanguine @",
 			"+ Sanguine +",
@@ -5495,7 +5495,7 @@ const CARDS := {
 			"effect_stacks2": 2,
 			"x_requirement": 1,
 		},
-		"_upgrade_threshold": 8,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ Launch @",
 			"* Launch *",
@@ -5578,7 +5578,7 @@ const CARDS := {
 			"damage_amount": 9,
 			"per_modifier": 1,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Swoop +",
 			"% Swoop %",
@@ -5634,7 +5634,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_stacks": 1,
 		},
-		"_upgrade_threshold": 8,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ Panicked Takeoff @",
 			"Wildly Panicked Takeoff",
@@ -5692,7 +5692,7 @@ const CARDS := {
 			"stress_amount": 5,
 			"effect_stacks": 1
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ A Chick of the Light +",
 			"% A Chick of the Light %",
@@ -5755,7 +5755,7 @@ const CARDS := {
 			"defence_amount": 12,
 			"health_percent": 25,
 		},
-		"_upgrade_threshold": 7,
+		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Near-ground Flight +",
 			"= Near-ground Flight =",
