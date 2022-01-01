@@ -15,7 +15,7 @@ func get_effect_alteration(
 			or not is_source\
 			or is_delayed:
 		return(0)
-	var new_value = round(value * 0.7)
+	var new_value = round(value * 0.65)
 	var alteration = new_value - value
 #	print_debug("Disempower ({value} * 0.7) = {new_value} (alteration = {alteration})".format({"value": value, "new_value": new_value, "alteration": alteration }))
 	return(alteration)

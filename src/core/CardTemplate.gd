@@ -544,6 +544,7 @@ func setup() -> void:
 	var read_properties := properties.duplicate(true)
 	# The name property will almost always exist, due to being set by _init_name()
 	# Therefore we remove this property, to ensure the next check works properly
+	# warning-ignore:return_value_discarded
 	read_properties.erase('Name')
 	# canonical_name needs to be setup before we call this function
 	set_card_name(canonical_name)

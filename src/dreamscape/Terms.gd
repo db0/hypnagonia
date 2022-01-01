@@ -149,7 +149,7 @@ const ACTIVE_EFFECTS := {
 		"icon": preload("res://assets/icons/misdirection.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/misdirection.png",
 		"generic_description": "{effect_name}: Reduces {stress} dealt by Torments by percentage.",
-		"description": "{effect_name} ({effect_icon}): {attack} {damage_verb} by this {entity} is reduced by 30%.\n"\
+		"description": "{effect_name} ({effect_icon}): {attack} {damage_verb} by this {entity} is reduced by 25%.\n"\
 				+ "Reduce these stacks by 1 at the end of the turn.",
 	},
 	"empower": {
@@ -161,7 +161,7 @@ const ACTIVE_EFFECTS := {
 		"icon": preload("res://assets/icons/extra-lucid.png"),
 		"generic_description": "{effect_name}: Increases interpretation dealt by percentage.",
 		"rich_text_icon": "res://fonts/rich_text_icons/extra-lucid.png",
-		"description": "{effect_name} ({effect_icon}): {attack} {damage_verb} by this {entity} is increased by 30%.\n"\
+		"description": "{effect_name} ({effect_icon}): {attack} {damage_verb} by this {entity} is increased by 25%.\n"\
 				+ "Reduce these stacks by 1 at the end of the turn."
 	},
 	"strengthen": {
