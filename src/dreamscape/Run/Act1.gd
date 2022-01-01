@@ -499,6 +499,7 @@ const ENEMIES = [
 	Pialephant,
 	TheLightCalling,
 	Baby,
+	Squirrel,
 ]
 
 const RushElite = {
@@ -535,16 +536,22 @@ const BOSSES := {
 	"Narcissus": Narcissus
 }
 
-const NCE := [
-	preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd"),
-	preload("res://src/dreamscape/Run/NCE/Act1/SlayTheSpire.gd"),
-	preload("res://src/dreamscape/Run/NCE/Act1/SleepOfOblivion.gd"),
-	preload("res://src/dreamscape/Run/NCE/Act1/MultipleOptions.gd"),
-	preload("res://src/dreamscape/Run/NCE/Act1/PathosForAnxiety.gd"),
-	preload("res://src/dreamscape/Run/NCE/Act1/Dollmaker.gd"),
-	preload("res://src/dreamscape/Run/NCE/Act1/Greed.gd"),
-	preload("res://src/dreamscape/Run/NCE/Act1/PopPsychologist1.gd"),
-]
+const NCE := {
+	"easy": [
+		preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd"),
+		preload("res://src/dreamscape/Run/NCE/Act1/SlayTheSpire.gd"),
+		preload("res://src/dreamscape/Run/NCE/Act1/SleepOfOblivion.gd"),
+		preload("res://src/dreamscape/Run/NCE/Act1/MultipleOptions.gd"),
+		preload("res://src/dreamscape/Run/NCE/Act1/PathosForAnxiety.gd"),
+		preload("res://src/dreamscape/Run/NCE/Act1/Dollmaker.gd"),
+		preload("res://src/dreamscape/Run/NCE/Act1/Greed.gd"),
+		preload("res://src/dreamscape/Run/NCE/Act1/PopPsychologist1.gd"),
+	],
+	"risky": [
+		preload("res://src/dreamscape/Run/NCE/Act1/RiskyEvent1.gd"),
+		preload("res://src/dreamscape/Run/NCE/Act1/RiskyEvent2.gd"),
+	]
+}
 
 static func get_act_name() -> String:
 	return("Early Night")

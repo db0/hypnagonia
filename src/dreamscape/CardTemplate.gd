@@ -438,3 +438,18 @@ func _find_upgrade_parent():
 		if upgrades and canonical_name in upgrades:
 			return(card_name)
 	return(false)
+
+
+# Overridable function to allow games to extend the _on_Card_gui_input() functionality
+func _process_more_card_inputs(event) -> void:
+	if event.is_pressed() and event.get_button_index() == 2:
+		if state == CardState.FOCUSED_IN_HAND:
+			for c in get_parent().get_all_cards():
+				c.reorganize_self()
+		else:
+			set_to_idle()
+		var upgrade_options = properties.get("_upgrades", [])
+		var select_return = cfc.ov_utils.select_card(
+				upgrade_options, 0, "display", false, cfc.NMAP.board)
+		if select_return is GDScriptFunctionState: # Still working.
+			select_return = yield(select_return, "completed")

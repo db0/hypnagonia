@@ -92,6 +92,11 @@ func can_be_upgraded() -> bool:
 	return(false)
 
 
+func is_progressing() -> bool:
+	if upgrade_progress < upgrade_threshold:
+		return(true)
+	return(false)
+
 # Retrieves all possible upgrades for this card and sets two of them to be
 # the options when it's upgraded
 func set_upgrade_options() -> void:

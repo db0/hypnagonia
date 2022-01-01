@@ -13,7 +13,10 @@ var available_acts := [Act1, Act2]
 var current_act
 var remaining_enemies : Array
 var remaining_elites : Array
-var remaining_nce : Array
+var remaining_nce := {
+	"easy": [],
+	"risky": [],
+}
 var boss_name : String
 var current_encounter
 var deep_sleeps := 0
@@ -34,15 +37,16 @@ func prepare_next_act(current_journal = null) -> void:
 	current_act = available_acts.pop_front()
 	remaining_enemies = current_act.ENEMIES.duplicate(true)
 	remaining_elites = current_act.ELITES.duplicate(true)
-	remaining_nce = current_act.NCE.duplicate(true)
-	for nce in AllActs.NCE:
-		if not run_changes.is_nce_used(nce):
-			remaining_nce.append(nce)
-#	for nce in remaining_nce:
+	for nce_type in remaining_nce:
+		remaining_nce[nce_type] = current_act.NCE[nce_type].duplicate(true)
+		for nce in AllActs.NCE[nce_type]:
+			if not run_changes.is_nce_used(nce):
+				remaining_nce[nce_type].append(nce)
+		CFUtils.shuffle_array(remaining_nce[nce_type])
+#	for nce in remaining_nce["easy"]:
 #		print(nce.get_path())
 	CFUtils.shuffle_array(remaining_enemies)
 	CFUtils.shuffle_array(remaining_elites)
-	CFUtils.shuffle_array(remaining_nce)
 	var boss_choices = current_act.BOSSES.keys()
 	CFUtils.shuffle_array(boss_choices)
 	boss_name = boss_choices[0]
@@ -155,14 +159,24 @@ func _get_journal_options(requested_options := 3) -> Array:
 
 
 func _get_next_nce() -> NonCombatEncounter:
-	if remaining_nce.empty():
-		remaining_nce = current_act.NCE.duplicate(true)
-		remaining_nce += run_changes.get_unlocked_nces(current_act.get_act_name())
-		CFUtils.shuffle_array(remaining_nce)
-	var next_nce = remaining_nce.pop_back()
+	var nce_type = "easy"
+	var nce_pathos_avg = globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.nce)
+	var current_nce_level = globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.nce]
+	var nce_pathos_threshold = globals.player.pathos.get_threshold(Terms.RUN_ACCUMULATION_NAMES.nce)
+	if current_nce_level > nce_pathos_threshold + nce_pathos_avg * 2:
+		nce_type = "risky"
+	print_debug("Current NCE Level: %s. Bad Threshold %s. Chosen: %s" % [current_nce_level, nce_pathos_threshold + nce_pathos_avg * 2, nce_type])
+	# In full release, I should not need to do this, as I should have enough NCE to never run out
+	if remaining_nce[nce_type].empty():
+		if OS.has_feature("debug"):
+			print("DEBUG INFO:Encounters: Reshuffling %s NCE" % [nce_type])
+		remaining_nce[nce_type] = current_act.NCE[nce_type].duplicate(true)
+		remaining_nce[nce_type] += run_changes.get_unlocked_nces(current_act.get_act_name(), nce_type)
+		CFUtils.shuffle_array(remaining_nce[nce_type])
+	var next_nce = remaining_nce[nce_type].pop_back()
 	# Even though we do a pop, we also erase any other copies of the same NCE in the list
 	# as we might have multiple NCEs of the same name, to increase their chances of appearing
-	remaining_nce.erase(next_nce)
+	remaining_nce[nce_type].erase(next_nce)
 	run_changes.record_nce_used(next_nce)
 	return(next_nce.new())
 

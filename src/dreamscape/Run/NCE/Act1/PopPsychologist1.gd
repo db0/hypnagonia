@@ -70,7 +70,7 @@ func continue_encounter(key) -> void:
 		"adjective": mad_lib_adjectives[0],
 		"noun": mad_lib_nouns[0],
 	}
-	globals.encounters.run_changes.unlock_nce("PopPsychologist2")
+	globals.encounters.run_changes.unlock_nce("PopPsychologist2", "easy")
 	end()
 	globals.journal.display_nce_rewards(nce_resul_fluff.format(adlib_format))
 	

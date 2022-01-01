@@ -49,7 +49,7 @@ const FEARMONGER:= {
 			"reshuffle": false,
 		},
 		{
-			"intent_scripts": ["Perplex:4","Stare"],
+			"intent_scripts": ["Perplex:6","Stare"],
 			"reshuffle": true,
 		},
 	],
@@ -62,19 +62,20 @@ const FEARMONGER:= {
 const THE_LAUGHING_ONE:= {
 	"Name": "The Laughing One",
 	"Type": "Fear",
-	"Health": 20,
+	"Health": 22,
 	"Intents": [
 		{
-			"intent_scripts": ["Stress:1","Stress:1","Stress:1"],
+			"intent_scripts": ["Stress:2","Stress:2","Stress:2"],
 			"reshuffle": false,
 		},
 		{
-			"intent_scripts": ["Stress:6"],
+			"intent_scripts": ["Stress:1","Stress:2","Stress:3"],
 			"reshuffle": false,
 		},
 		{
 			"intent_scripts": ["Stress:3","Buff:1:strengthen"],
 			"reshuffle": true,
+			"max_in_a_row": 1,
 		},
 	],
 	"_health_variability": 5,
@@ -125,7 +126,7 @@ const CLOWN:= {
 			"reshuffle": false,
 		},
 		{
-			"intent_scripts": ["Perplex:8","Buff:1:fortify"],
+			"intent_scripts": ["Perplex:12","Buff:1:fortify"],
 			"reshuffle": false,
 		},
 	],
@@ -145,12 +146,12 @@ const BUTTERFLY:= {
 			"reshuffle": false,
 		},
 		{
-			"intent_scripts": ["Stress:1","Stress:1"],
-			"reshuffle": false,
+			"intent_scripts": ["Stress:1","Stress:1", "Buff:2:armor"],
+			"reshuffle": true,
 		},
 		{
 			"intent_scripts": ["Stress:7"],
-			"reshuffle": true,
+			"reshuffle": false,
 		}
 	],
 	"_health_variability": 8,
@@ -162,7 +163,7 @@ const BUTTERFLY:= {
 const UNNAMED_ENEMY_1 := {
 	"Name": "Unnamed Enemy 1",
 	"Type": "Undefined",
-	"Health": 52,
+	"Health": 72,
 	"Intents": [
 		{
 			"intent_scripts": ["Debuff:2:disempower"],
@@ -193,7 +194,7 @@ const BROKEN_MIRROR:= {
 			"reshuffle": false,
 		},
 		{
-			"intent_scripts": ["Debuff:2:burn","Perplex:5"],
+			"intent_scripts": ["Debuff:2:burn","Perplex:7"],
 			"reshuffle": false,
 		},
 		{
@@ -217,8 +218,9 @@ const PIALEPHANT:= {
 			"reshuffle": false,
 		},
 		{
-			"intent_scripts": ["Perplex:12"],
+			"intent_scripts": ["Perplex:15"],
 			"reshuffle": true,
+			"max_in_a_row": 2,
 		},
 	],
 	"_health_variability": 10,
@@ -287,7 +289,7 @@ const BABY := {
 	"Intents": [
 		{
 			"intent_scripts": ["Stress:12"],
-			"reshuffle": false,
+			"reshuffle": true,
 		},
 		{
 			"intent_scripts": ["Stress:8", "Debuff:1:marked"],

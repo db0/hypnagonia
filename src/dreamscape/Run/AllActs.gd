@@ -1,9 +1,14 @@
 class_name AllActs
 extends Act
 
-const NCE := [
-	preload("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd"),
-]
+const NCE := {
+	"easy": [
+		preload("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd"),
+	],
+	"risky": [
+		
+	]
+}
 
 # These NCE need special triggers to be put into general rotation
 # Each NCE is a dictionary with a key which points to the script to load from disk

@@ -45,6 +45,7 @@ func setup() -> void:
 #	deck.add_new_card("@ Inner Justice @")
 #	deck.add_new_card("Dread")
 
+
 func get_current_archetypes() -> Array:
 	var all_archetypes := []
 	for aspect in deck_groups:
@@ -64,8 +65,8 @@ func set_damage(value) -> void:
 
 func set_health(value) -> void:
 	health = int(round(value))
-	if health < 0:
-		health = 0
+	if health < 1:
+		health = 1
 	if damage > health:
 		damage = health
 	emit_signal("health_changed", damage, health)
@@ -139,10 +140,20 @@ func add_memory(memory_name: String, modifiers := {}) -> void:
 	emit_signal("memory_added", new_memory)
 
 
+# Returns the MemoryObject with that name,
+# else returns null if it doesn't exist.
 func find_memory(memory_name: String):
 	for memory in memories:
 		if memory.canonical_name == memory_name:
 			return(memory)
+
+
+# Returns a random memory, or null if none exist.
+func get_random_memory():
+	if memories.size() > 0:
+		var rnd_array = memories.duplicate()
+		CFUtils.shuffle_array(rnd_array)
+		return(rnd_array[0])
 
 
 # If the player already has another memory using the same pathos, returns true
