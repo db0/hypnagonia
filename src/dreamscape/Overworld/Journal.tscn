@@ -182,11 +182,15 @@ margin_bottom = 893.0
 margin_right = 4.0
 margin_bottom = 4.0
 
-[node name="Label" type="Label" parent="VBC/Journal/MetaDescription"]
+[node name="Label" type="RichTextLabel" parent="VBC/Journal/MetaDescription"]
 margin_left = 2.0
 margin_top = 2.0
 margin_right = 8.0
 margin_bottom = 23.0
+rect_min_size = Vector2( 300, 0 )
+bbcode_enabled = true
+fit_content_height = true
+scroll_active = false
 
 [node name="FadeToBlack" parent="." instance=ExtResource( 6 )]
 visible = false

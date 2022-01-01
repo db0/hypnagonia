@@ -290,13 +290,16 @@ const BOSSES := {
 	"Surreality": SurrealBoss
 }
 
-const GOOD_NCE := [
-	preload("res://src/dreamscape/Run/NCE/Act2/Griftlands.gd"),
-	preload("res://src/dreamscape/Run/NCE/Act2/BannersOfRuin.gd"),
-]
 
-const BAD_NCE := [
-]
+const NCE := {
+	"easy": [
+		preload("res://src/dreamscape/Run/NCE/Act2/Griftlands.gd"),
+		preload("res://src/dreamscape/Run/NCE/Act2/BannersOfRuin.gd"),
+	],
+	"risky": [
+		
+	]
+}
 
 const LOCKED_NCE := {
 	"Griftlands2": {

@@ -384,7 +384,7 @@ func _on_proceed_clicked(_meta: String) -> void:
 
 
 func show_description_popup(description_text: String) -> void:
-	_description_label.text = description_text
+	_description_label.bbcode_text = description_text
 	_description_popup.visible = true
 	_description_popup.rect_size = Vector2(0,0)
 	_description_popup.rect_global_position = get_local_mouse_position() + Vector2(20,-5)
@@ -410,11 +410,11 @@ func _input(event):
 #		globals.player.deck.add_new_card("Prejudice")
 #		globals.player.damage += 20
 #		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.boss, 100)
-#		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.enemy, 200)
+		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 200)
 		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.elite, 200)
 		var debug_encounters = [
 #			EnemyEncounter.new(Act2.ClownShow, "hard"),
-			preload("res://src/dreamscape/Run/NCE/Act1/MultipleOptions.gd").new(),
+			preload("res://src/dreamscape/Run/NCE/Act1/RiskyEvent1.gd").new(),
 			BossEncounter.new(Act1.BOSSES["Narcissus"], "Narcissus"),
 #			EliteEncounter.new(Act2.IndescribableAbsurdity, "medium"),
 			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()

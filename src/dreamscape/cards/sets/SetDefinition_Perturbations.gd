@@ -17,7 +17,7 @@ const CARDS := {
 		"Type": "Perturbation",
 		"Tags": [],
 		"Abilities": "{release}",
-		"Cost": 3,
+		"Cost": 4,
 		"_illustration": "DioBal",
 		"_avoid_normal_discard": true,
 		"_rarity": "Perturbation",

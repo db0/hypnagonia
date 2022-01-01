@@ -4,7 +4,10 @@ class_name RunChanges
 extends Reference
 
 # NCEs which have been unlocked to appear during this run
-var unlocked_nce := {}
+var unlocked_nce := {
+	"easy": {},
+	"risky": {},
+}
 # The parent script which owns this reference
 var encounters
 # Stores which NCEs (Reference the player has already seen, to avoid replaying them
@@ -15,31 +18,31 @@ func _init(_encounters) -> void:
 	encounters = _encounters
 
 # Unlocks an NCE to be found in later encounters
-func unlock_nce(nce_name: String) -> void:
+func unlock_nce(nce_name: String, nce_type: String) -> void:
 	# We go through each act class we know, and look for the NCE name
 	for act in [Act1, Act2, AllActs]:
 		var act_name = act.get_act_name()
 		if "LOCKED_NCE" in act:
 			if act["LOCKED_NCE"].has(nce_name):
-				if not unlocked_nce.has(act_name):
-					unlocked_nce[act_name] = []
+				if not unlocked_nce[nce_type].has(act_name):
+					unlocked_nce[nce_type][act_name] = []
 				var unl_nce = act["LOCKED_NCE"][nce_name]
 				if not _is_nce_unlocked(unl_nce.nce):
-					unlocked_nce[act_name].append(unl_nce)
+					unlocked_nce[nce_type][act_name].append(unl_nce)
 					# After unlocking an NCE, we automatically inject it into
 					# The still available NCEs
 					# TODO: Later this will also coordinate the multiple acts
 					for _iter in range(unl_nce.chance_multiplier):
-						encounters.remaining_nce.append(unl_nce.nce)
-						CFUtils.shuffle_array(encounters.remaining_nce)
+						encounters.remaining_nce[nce_type].append(unl_nce.nce)
+						CFUtils.shuffle_array(encounters.remaining_good_nce)
 					break
 
 
 # This is typically called when NCEs are being refreshed because their list is empty.
-func get_unlocked_nces(act: String) -> Array:
+func get_unlocked_nces(act: String, nce_type: String) -> Array:
 	var ret_nces := []
 	for act_key in ["AllActs", act]:
-		for unl_nce in unlocked_nce.get(act_key, []):
+		for unl_nce in unlocked_nce[nce_type].get(act_key, []):
 			for _iter in range(unl_nce.chance_multiplier):
 				ret_nces.append(unl_nce.nce)
 	return(ret_nces)
@@ -60,8 +63,9 @@ func record_nce_used(nce: GDScript) -> void:
 
 
 func _is_nce_unlocked(nce: GDScript) -> bool:
-	for unlnce_list in unlocked_nce.values():
-		for unl_nce in unlnce_list:
-			if unl_nce.nce == nce:
-				return(true)
+	for nce_type in unlocked_nce.values():
+		for unlnce_list in nce_type.values():
+			for unl_nce in unlnce_list:
+				if unl_nce.nce == nce:
+					return(true)
 	return(false)
