@@ -12,6 +12,7 @@ var pathos: Pathos
 var artifacts := []
 var memories := []
 
+
 var deck_groups : Dictionary = {
 	Terms.CARD_GROUP_TERMS.class: null,
 	Terms.CARD_GROUP_TERMS.race: null,

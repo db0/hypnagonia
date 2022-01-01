@@ -75,6 +75,7 @@ static func randomize_aspect_choices() -> Dictionary:
 		randomized_archetypes[aspect] = archetypes[0]
 	return(randomized_archetypes)
 
+
 func start_new_game() -> void:
 	SoundManager.play_se('click')
 	cfc.game_rng_seed = CFUtils.generate_random_seed()
@@ -85,6 +86,8 @@ func start_new_game() -> void:
 			Tween.TRANS_SINE, Tween.EASE_IN)
 	get_parent().menu_tween.start()
 	yield(get_parent().menu_tween, "tween_all_completed")
+	if OS.has_feature("debug"):
+		print("DEBUG INFO: Starting game.\n:::Aspects: ", globals.player.deck_groups)
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene(CFConst.PATH_CUSTOM + 'Overworld/Journal.tscn')
 	globals.card_back_texture_selection = CFUtils.randi_range(0, HypnagoniaCardBack.TEXTURES_AMOUNT - 1)

@@ -22,6 +22,7 @@ func _ready() -> void:
 	player = Player.new()
 	encounters = SingleRun.new()
 
+
 func reset() -> void:
 	player = Player.new()
 	encounters = SingleRun.new()
@@ -34,6 +35,7 @@ func quit_to_main() -> void:
 	get_tree().change_scene(CFConst.PATH_CUSTOM + 'MainMenu/MainMenu.tscn')
 	cfc.quit_game()
 	reset()
+
 
 func hide_all_previews() -> void:
 	cfc.hide_all_previews()
