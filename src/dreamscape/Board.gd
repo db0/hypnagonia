@@ -433,10 +433,10 @@ func _input(event):
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"The Finger",
-			"The Finger",
-			"The Finger",
-			"The Finger",
+			"Grit",
+			"Grit",
+			"Grit",
+			"Grit",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.hand.add_child(card)
