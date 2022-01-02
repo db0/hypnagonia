@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.24.2](https://github.com/db0/hypnagonia/tree/v0.24.2) (2022-01-02)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.24.1...v0.24.2)
+
+**Merged pull requests:**
+
+- fix\(nce\): Fix unlock nce code [\#130](https://github.com/db0/hypnagonia/pull/130) ([db0](https://github.com/db0))
+
 ## [v0.24.1](https://github.com/db0/hypnagonia/tree/v0.24.1) (2022-01-01)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.24.0...v0.24.1)
