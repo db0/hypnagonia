@@ -25,6 +25,7 @@ func end() -> void:
 func game_over() -> void:
 	cfc.NMAP.clear()
 	globals.journal.display_loss()
+	emit_signal("encounter_end", self)
 
 
 func prepare_journal_art(encounter: Dictionary) -> void:

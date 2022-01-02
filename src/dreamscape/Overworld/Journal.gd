@@ -136,7 +136,7 @@ func display_loss() -> void:
 		+ "If you're a character artist, graphics designer, storyteller, card game designer, illustrator, or just someone who wants to give feedback, "\
 		+ "do hit us up on our discord server: [url=discord]https://discord.gg/MqTMVDCbR3[/url] or Matrix [url=matrix]https://matrix.to/#/#hypnagonia:matrix.org[/url].\n\n"\
 		+ "[url=main_menu]Back to Main Menu[/url]."
-# warning-ignore:return_value_discarded
+	# warning-ignore:return_value_discarded
 	proceed.connect("meta_clicked", self, "_on_proceed_clicked")
 	_reveal_entry(proceed, false)
 
@@ -414,6 +414,7 @@ func _input(event):
 		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 200)
 		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, 200)
 		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, 200)
+#		globals.player.damage = 85
 		var debug_encounters = [
 #			EnemyEncounter.new(Act2.ClownShow, "hard"),
 			preload("res://src/dreamscape/Run/NCE/Act2/RiskyEvent3.gd").new(),
