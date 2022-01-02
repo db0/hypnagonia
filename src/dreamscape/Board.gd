@@ -11,6 +11,9 @@ var dreamer: PlayerEntity
 var activated_enemies: Array
 var boss_battle := false
 var bgm_tracks : Array
+# This tracks if the ordeal is over. We use it to avoid crashing when the dreamer kills themselves
+# at the same time as ending the last Torment
+var battle_ended: bool
 
 var enemies_at_start_of_turn
 
@@ -293,17 +296,20 @@ func _enemy_died(_final_damage) -> void:
 
 
 func _dreamer_died(final_damage) -> void:
+	battle_ended = true
 	globals.player.damage = final_damage
 	yield(get_tree().create_timer(1), "timeout")
 	game_over()
 
 
 func complete_battle() -> void:
-	globals.player.damage = dreamer.damage
-	_fade_to_transparent()
-	yield(_tween, "tween_all_completed")
-	globals.current_encounter.end()
-	emit_signal("battle_ended")
+	if not battle_ended: 
+		battle_ended = true
+		globals.player.damage = dreamer.damage
+		_fade_to_transparent()
+		yield(_tween, "tween_all_completed")
+		globals.current_encounter.end()
+		emit_signal("battle_ended")
 #	cfc.game_paused = true
 #	mouse_pointer.forget_focus()
 #	end_turn.disabled = true
