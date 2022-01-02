@@ -260,20 +260,21 @@ const SQUIRREL := {
 	"_is_ordered": true,
 	"Intents": [
 		{
+			"intent_scripts": ["Perplex:5"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Perplex:5"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Perplex:5"],
+			"reshuffle": false,
+		},
+		{
+			"id": "explode",
 			"intent_scripts": ["Stress:40", "Evident:50"],
 			"reshuffle": true,
-		},
-		{
-			"intent_scripts": ["Perplex:5"],
-			"reshuffle": false,
-		},
-		{
-			"intent_scripts": ["Perplex:5"],
-			"reshuffle": false,
-		},
-		{
-			"intent_scripts": ["Perplex:5"],
-			"reshuffle": false,
 		},
 	],
 	"_health_variability": 3,
