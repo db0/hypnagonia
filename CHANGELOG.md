@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.24.3](https://github.com/db0/hypnagonia/tree/v0.24.3) (2022-01-02)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.24.2...v0.24.3)
+
+**Merged pull requests:**
+
+- Squirrel fixes [\#131](https://github.com/db0/hypnagonia/pull/131) ([db0](https://github.com/db0))
+
 ## [v0.24.2](https://github.com/db0/hypnagonia/tree/v0.24.2) (2022-01-02)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.24.1...v0.24.2)
