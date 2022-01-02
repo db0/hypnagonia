@@ -132,21 +132,21 @@ const Gaslighter = {
 }
 
 
-const UnnamedEnemy1 = {
+const Murmurs = {
 	"journal_description":\
-		'[url={torment_tag1}]<Description to be added>[/url].',
+		'I thought I heard [url={torment_tag1}]murmurs on the wind[/url]. Were they talking about that time..?',
 	"journal_reward":\
 		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
 	"enemies": {
 		"easy": [
 			{
-				"definition": EnemyDefinitions.UNNAMED_ENEMY_1,
-				"health_modifier": -10,
+				"definition": EnemyDefinitions.MURMURS,
+				"health_modifier": -15,
 			},
 		],
 		"medium": [
 			{
-				"definition": EnemyDefinitions.UNNAMED_ENEMY_1,
+				"definition": EnemyDefinitions.MURMURS,
 				"starting_effects": [
 					{
 						"name": Terms.ACTIVE_EFFECTS.thorns.name,
@@ -157,12 +157,12 @@ const UnnamedEnemy1 = {
 		],
 		"hard": [
 			{
-				"definition": EnemyDefinitions.UNNAMED_ENEMY_1,
+				"definition": EnemyDefinitions.MURMURS,
 				"health_modifier": +30,
 				"starting_effects": [
 					{
 						"name": Terms.ACTIVE_EFFECTS.thorns.name,
-						"stacks": 3
+						"stacks": 4
 					}
 				]
 			},
@@ -492,7 +492,7 @@ const ENEMIES = [
 	TheLaughingOnes,
 	TheCritic,
 	Fearmonger,
-	UnnamedEnemy1,
+	Murmurs,
 	Clown,
 	Butterfly,
 	BrokenMirrors,

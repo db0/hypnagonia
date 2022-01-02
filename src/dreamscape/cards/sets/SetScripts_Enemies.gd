@@ -410,7 +410,7 @@ const scripts := {
 			],
 		},
 	},
-	"Unnamed Enemy 1": {
+	"Murmurs": {
 		"manual": {
 			"hand": [
 				{
@@ -432,7 +432,7 @@ const scripts := {
 			],
 		},
 	},
-	"Sustained Unnamed Enemy": {
+	"Sustained Murmurs": {
 		"manual": {
 			"hand": [
 				{

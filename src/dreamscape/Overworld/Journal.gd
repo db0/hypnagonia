@@ -416,7 +416,7 @@ func _input(event):
 		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, 200)
 #		globals.player.damage = 85
 		var debug_encounters = [
-#			EnemyEncounter.new(Act2.ClownShow, "hard"),
+			EnemyEncounter.new(Act1.Murmurs, "easy"),
 			preload("res://src/dreamscape/Run/NCE/Act2/RiskyEvent3.gd").new(),
 			BossEncounter.new(Act1.BOSSES["Narcissus"], "Narcissus"),
 #			EliteEncounter.new(Act2.IndescribableAbsurdity, "medium"),
