@@ -399,9 +399,9 @@ func _input(event):
 		var _torment1
 		var _torment2
 		var _torment3
-		_torment1 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
-		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
-		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+		_torment1 = spawn_enemy(EnemyDefinitions.SQUIRREL)
+#		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+#		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_VICTIM)
 #		spawn_enemy(EnemyDefinitions.THE_VICTIM)
 #		spawn_enemy(EnemyDefinitions.THE_VICTIM)
