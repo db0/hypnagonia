@@ -32,6 +32,8 @@ func instance_cards() -> Array:
 # Adds a new card to the deck, 
 # and optionally starts it with some ugprade progress
 func add_new_card(card_name, progress := 0) -> CardEntry:
+	if OS.has_feature("debug"):
+		print("DEBUG INFO:Deck: Adding new card:" + card_name)
 	var new_card := CardEntry.new(card_name)
 	new_card.upgrade_progress = progress
 	cards.append(new_card)
@@ -40,10 +42,14 @@ func add_new_card(card_name, progress := 0) -> CardEntry:
 
 
 func remove_card(card_entry: CardEntry) -> void:
+	if OS.has_feature("debug"):
+		print("DEBUG INFO:Deck: Removing card:" + card_entry.card_name)
 	# As a failsafe, we do not allow to remove the last card
 	if cards.size() > 1:
 		cards.erase(card_entry)
 		emit_signal("card_removed", card_entry)
+	elif OS.has_feature("debug"):
+		print("DEBUG INFO:Deck: Card Removal Block because: Last card in deck")
 
 
 func list_all_cards(sorted:= false) -> Array:
