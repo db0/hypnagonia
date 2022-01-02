@@ -160,17 +160,17 @@ const BUTTERFLY:= {
 	"_texture": preload("res://assets/enemies/butterfly.png"),
 	"_character_art": "Lorc",
 		}
-const UNNAMED_ENEMY_1 := {
-	"Name": "Unnamed Enemy 1",
-	"Type": "Undefined",
-	"Health": 72,
+const MURMURS := {
+	"Name": "Murmurs",
+	"Type": "Fear",
+	"Health": 83,
 	"Intents": [
 		{
-			"intent_scripts": ["Debuff:2:disempower"],
+			"intent_scripts": ["Debuff:2:disempower", "Stress:4"],
 			"reshuffle": false,
 		},
 		{
-			"intent_scripts": ["Buff:3:thorns"],
+			"intent_scripts": ["Buff:4:thorns"],
 			"reshuffle": false,
 		},
 		{
@@ -178,11 +178,11 @@ const UNNAMED_ENEMY_1 := {
 			"reshuffle": true,
 		},
 	],
-	"_health_variability": 3,
+	"_health_variability": 4,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/enemies/lantern-flame.png"),
-	"_character_art": "Lorc"
+	"_texture": preload("res://assets/enemies/sound-waves.png"),
+	"_character_art": "Skoll"
 }
 const BROKEN_MIRROR:= {
 	"Name": "Broken Mirror",
@@ -469,3 +469,4 @@ const THE_VICTIM := {
 #		"_texture_size_y": "120",
 #		"_character_art": "nobody",
 #	},
+# 

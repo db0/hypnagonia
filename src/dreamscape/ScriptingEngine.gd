@@ -18,8 +18,11 @@ func _init(state_scripts: Array,
 # Predicts the effects of the action cards on the table.
 func predict(_snapshot_id: int) -> void:
 	snapshot_id = _snapshot_id
+	_predict_script_amount()
+
+func _predict_script_amount(hardcoded_previous_subjects := []) -> void:
 	run_type = CFInt.RunType.COST_CHECK
-	var prev_subjects := []
+	var prev_subjects := hardcoded_previous_subjects
 	for task in scripts_queue:
 		# We put it into another variable to allow Static Typing benefits
 		var script: ScriptTask = task
@@ -36,8 +39,10 @@ func predict(_snapshot_id: int) -> void:
 			"modifier": _retrieve_temp_modifiers(script, "properties")
 		}
 		script.subjects = predict_subjects(script, prev_subjects)
-		if not script.get_property(SP.KEY_PROTECT_PREVIOUS):
-			prev_subjects = script.subjects
+		if not script.get_property(SP.KEY_PREDICT_REQUIRES_TARGET)\
+				or (script.get_property(SP.KEY_PREDICT_REQUIRES_TARGET)
+					and hardcoded_previous_subjects.size() > 0):
+			script.prev_subjects = prev_subjects
 		#print("Scripting Subjects: " + str(script.subjects)) # Debug
 		if script.script_name == "custom_script": # TODO
 			# This class contains the customly defined scripts for each
@@ -57,8 +62,27 @@ func predict(_snapshot_id: int) -> void:
 				var prediction_icon = null
 				if script.script_name == "apply_effect":
 					prediction_icon = Terms.get_term_value(script.get_property("effect_name"), "icon")
+					print_debug([amount, script.get_property("effect_name"), prev_subjects])
 				entity.show_predictions(amount, prediction_icon)
+				var snapshot_method = "snapshot_" + script.script_name
+				print_debug(snapshot_method)
+				if has_method(snapshot_method):
+					call(snapshot_method, script, amount, entity)
+
+		if not script.get_property(SP.KEY_PROTECT_PREVIOUS) and hardcoded_previous_subjects.size() == 0:
+			prev_subjects = script.subjects
+		if script.get_property(SP.KEY_PREDICT_REQUIRES_TARGET) and hardcoded_previous_subjects.size() == 0:
+			script.owner.targeting_arrow.connect("potential_target_found", self, "_on_potential_target_found")
 	snapshot_id = 0
+
+
+func _on_potential_target_found(target) -> void:
+#	print_debug(target.get_combat_entity())
+	for script in scripts_queue:
+		for entity in script.subjects:
+			if entity.has_method("clear_predictions"):
+				entity.clear_predictions()
+	_predict_script_amount([target.get_combat_entity()])
 
 
 # Will return the adjusted amount of whatever the intent scripts are doing
@@ -122,6 +146,7 @@ func predict_intent_amount(_snapshot_id: int) -> int:
 				if amount is GDScriptFunctionState:
 					amount = yield(amount, "completed")
 				total_amount += amount
+				
 	return(total_amount)
 
 
@@ -266,7 +291,7 @@ func calculate_apply_effect(subject: CombatEntity, script: ScriptTask) -> int:
 		alteration = _check_for_effect_alterants(script, modification, subject, self)
 		if alteration is GDScriptFunctionState:
 			alteration = yield(alteration, "completed")
-	var final_amount = _check_for_x(script, modification + alteration)		
+	var final_amount = _check_for_x(script, modification + alteration)
 	return(final_amount)
 
 
@@ -310,6 +335,21 @@ func apply_effect(script: ScriptTask) -> int:
 	if script.get_property(SP.KEY_STORE_INTEGER):
 		stored_integer = stacks_diff
 	return(retcode)
+
+func snapshot_apply_effect(script: ScriptTask, final_amount: int, entity: CombatEntity):
+	var effect_name: String = script.get_property(SP.KEY_EFFECT)
+	var upgrade_name: String = script.get_property(SP.KEY_UPGRADE_NAME, '')
+	# We inject the tags from the script into the tags sent by the signal
+	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
+	var set_to_mod: bool = script.get_property(SP.KEY_SET_TO_MOD)
+	var stacks_diff := 0
+	var current_stacks: int
+	entity.active_effects.snapshot_effect(
+			effect_name,
+			final_amount,
+			set_to_mod,
+			tags,
+			upgrade_name)
 
 
 func remove_card_from_deck(script: ScriptTask) -> int:

@@ -52,6 +52,9 @@ const KEY_CARD_COUNT := "card_count"
 const KEY_PER_DEFENCE := "per_defence"
 const KEY_PER_TURN_EVENT_COUNT := "per_turn_event_count"
 const KEY_PER_ENCOUNTER_EVENT_COUNT := "per_encounter_event_count"
+# If this is set, the predict() will be rerun every time a new target is hovered and the currect
+# hovered target will be sent as a hardcoded previous_subjects.
+const KEY_PREDICT_REQUIRES_TARGET := "predict_requires_target"
 const RIDER := "rider"
 const FILTER_INTENT_STRESS = "filter_intent_stress"
 

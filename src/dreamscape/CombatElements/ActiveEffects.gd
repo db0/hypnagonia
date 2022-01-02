@@ -15,7 +15,7 @@ const OPPOSITES := {
 var all_effects: Dictionary
 # The enemy entity owning these effects
 var combat_entity
-
+var sceng_snapshot_modifiers := {}
 
 # Adds a combat effect to the entity
 #
@@ -140,7 +140,9 @@ func get_effect(effect_name: String) -> CombatEffect:
 # Else it returns 0
 func get_effect_stacks(effect_name: String) -> int:
 	var effect: CombatEffect = get_effect(effect_name)
-	if not effect:
+	if effect_name in sceng_snapshot_modifiers:
+		return(sceng_snapshot_modifiers[effect_name])
+	elif not effect:
 		return(0)
 	else:
 		return(effect.stacks)
@@ -213,3 +215,36 @@ func get_random_effect(effect_type := ''):
 	if random_effect:
 		return(random_effect.get_effect_name())
 
+func snapshot_effect(
+			effect_name : String,
+			mod := 1,
+			set_to_mod := false,
+			tags := ["Manual"],
+			upgrade_string := ''):
+	var combined_effect_name :=  effect_name
+	if upgrade_string != '':
+		combined_effect_name = upgrade_string.capitalize() + ' ' + effect_name
+	var effect : CombatEffect = get_all_effects().get(combined_effect_name, null)
+	if not effect:
+		var opposite_name = OPPOSITES.get(effect_name)
+		if opposite_name:
+			var opposite : CombatEffect = get_all_effects().get(OPPOSITES[effect_name], null)
+			if opposite:
+				if set_to_mod:
+					sceng_snapshot_modifiers[opposite_name] = 0
+				elif opposite.stacks - mod > 0:
+					sceng_snapshot_modifiers[opposite_name] = opposite.stacks - mod
+					mod = 0
+				elif opposite.stacks - mod == 0:
+					sceng_snapshot_modifiers[opposite_name] = 0
+					mod = 0
+				else:
+					sceng_snapshot_modifiers[opposite_name] = 0
+					mod -= opposite.stacks
+	if set_to_mod:
+		sceng_snapshot_modifiers[combined_effect_name] = mod
+	else:
+		if not effect:
+			sceng_snapshot_modifiers[combined_effect_name] = mod
+		else:
+			sceng_snapshot_modifiers[combined_effect_name] = effect.stacks + mod

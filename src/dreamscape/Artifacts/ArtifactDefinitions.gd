@@ -31,9 +31,9 @@ const MaxHealth := {
 
 const StartingHeal := {
 	"canonical_name": "StartingHeal",
-	"name": "StartingHeal",
+	"name": "Hot Water Bottle",
 	"description": "{artifact_name}: At the start of each Ordeal, {relax} for {heal_amount}.",
-	"icon": preload("res://assets/icons/artifacts/glass-heart.png"),
+	"icon": preload("res://assets/icons/artifacts/water-flask.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Common",
 	"amounts": {
@@ -43,9 +43,9 @@ const StartingHeal := {
 
 const EndingHeal := {
 	"canonical_name": "EndingHeal",
-	"name": "EndingHeal",
+	"name": "Coffee Beans",
 	"description": "{artifact_name}: At the end of each Ordeal, {relax} for {heal_amount}.",
-	"icon": preload("res://assets/icons/artifacts/glass-heart.png"),
+	"icon": preload("res://assets/icons/artifacts/coffee-beans.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Starting",
 	"amounts": {
@@ -55,9 +55,9 @@ const EndingHeal := {
 
 const FirstPowerAttack := {
 	"canonical_name": "FirstPowerAttack",
-	"name": "FirstPowerAttack",
+	"name": "Rosetta Stone",
 	"description": "{artifact_name}: Your first {damage} each encounter is increased by {effect_amount}",
-	"icon": preload("res://assets/icons/artifacts/binoculars.png"),
+	"icon": preload("res://assets/icons/artifacts/stone-tablet.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Common",
 	"amounts": {
@@ -203,9 +203,9 @@ const UpgradedControl := {
 
 const UpgradedUnderstanding := {
 	"canonical_name": "UpgradedUnderstanding",
-	"name": "UpgradedUnderstanding",
+	"name": "Laser Pointer",
 	"description": "{artifact_name}: Interpretation cards added to your deck receive {progress_amount} progress.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"icon": preload("res://assets/icons/artifacts/target-laser.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -253,9 +253,9 @@ const ResistDisempower := {
 
 const ResistPoison := {
 	"canonical_name": "ResistPoison",
-	"name": "ResistDoubt",
+	"name": "Encyclopedia",
 	"description": "{artifact_name}: Any time you would receive {poison} reduce it by {alteration_amount}.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"icon": preload("res://assets/icons/artifacts/book-pile.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -316,9 +316,9 @@ const ImprovePoison := {
 
 const ImproveBurn := {
 	"canonical_name": "ImproveBurn",
-	"name": "ImproveEnvy",
+	"name": "Fancy Lipstick",
 	"description": "{artifact_name}: Any time you would inflict {burn}, inflict {alteration_amount} more.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"icon": preload("res://assets/icons/artifacts/lipstick.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -431,9 +431,9 @@ const PerturbationHeal := {
 
 const ImproveImpervious := {
 	"canonical_name": "ImproveImpervious",
-	"name": "ImproveImpervious",
+	"name": "Pet Eel",
 	"description": "{artifact_name}: At the start of the dreamer's turn, {impervious} is halved instead of removed.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"icon": preload("res://assets/icons/artifacts/eel.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
 }
@@ -518,10 +518,10 @@ const BossCardDraw := {
 }
 const RandomUpgrades := {
 	"canonical_name": "RandomUpgrades",
-	"name": "Random Upgrades",
+	"name": "20-sided die",
 	"description": "{artifact_name}: You have {immersion_amount} extra {immersion} per turn.\n"\
 			+ "Your card upgrades are chosen randomly.",
-	"icon": preload("res://assets/icons/artifacts/boss-key.png"),
+	"icon": preload("res://assets/icons/artifacts/dice-twenty-faces-twenty.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Boss",
 	"amounts": {

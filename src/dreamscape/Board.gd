@@ -400,29 +400,18 @@ func _input(event):
 		var _torment2
 		var _torment3
 		_torment1 = spawn_enemy(EnemyDefinitions.SQUIRREL)
-#		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_VICTIM)
-#		spawn_enemy(EnemyDefinitions.THE_VICTIM)
-#		spawn_enemy(EnemyDefinitions.THE_VICTIM)
-#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.zen_of_flight.name, 6)
-#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.impervious.name, 13)
-#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.drain.name, 2)
-#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 30)
-#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.laugh_at_danger.name, 1)
-#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
-#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.recall.name, 1)
-#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.unconventional.name, 1, false, false, ['Debug'], 'weirdly')
-#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.fortify.name, 4)
 		if _torment1:
 			_torment1.health = 2000
 			_torment1.damage = 19
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 2)
-#			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 1)
+			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
 		if _torment2:
 			_torment2.health = 1000
-#			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
+			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.marked.name, 1)
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 5)
@@ -440,12 +429,14 @@ func _input(event):
 		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.SpikeEnemy.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
-#		torment.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 1)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 6)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.impervious.name, 13)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.unconventional.name, 1, false, false, ['Debug'], 'weirdly')
 		for c in [
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"Confrontation",
+			"Sensuous",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.hand.add_child(card)

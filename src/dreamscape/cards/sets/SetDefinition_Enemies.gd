@@ -445,7 +445,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Unnamed Enemy 1": {
+	"Murmurs": {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {effect_stacks} {thorns}. {forget}",
@@ -461,12 +461,12 @@ const CARDS := {
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
-			"* Unnamed Enemy 1 *",
-			"^ Unnamed Enemy 1 ^",
-			"Sustained Unnamed Enemy 1",
+			"* Murmurs *",
+			"^ Murmurs ^",
+			"Sustained Murmurs",
 		],
 	},
-	"* Unnamed Enemy 1 *": {
+	"* Murmurs *": {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {effect_stacks} {thorns}. {forget}",
@@ -482,7 +482,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"^ Unnamed Enemy 1 ^": {
+	"^ Murmurs ^": {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.alpha.name],
 		"Abilities": "Gain {effect_stacks} {thorns}. {forget}",
@@ -498,7 +498,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Sustained Unnamed Enemy 1": {
+	"Sustained Murmurs": {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
 		"Abilities": "Gain {effect_stacks} {thorns}",

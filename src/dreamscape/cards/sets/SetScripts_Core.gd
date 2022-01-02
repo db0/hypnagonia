@@ -3183,6 +3183,7 @@ const Sensuous = {
 				"tags": ["Card"],
 				"effect_name": Terms.ACTIVE_EFFECTS.thorns.name,
 				"subject": "dreamer",
+				"predict_requires_target": true,
 				"modification": "per_effect_stacks",
 				"per_effect_stacks": {
 					"effect_name": "Confusion",
