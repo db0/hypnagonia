@@ -201,6 +201,7 @@ func show_predictions(value: int, image = null) -> void:
 func clear_predictions() -> void:
 	for node in incoming.get_children():
 		node.queue_free()
+	active_effects.sceng_snapshot_modifiers.clear()
 
 
 # The entities do not have starting health which decreases as they take damage
