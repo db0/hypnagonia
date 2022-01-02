@@ -1,5 +1,19 @@
 # Changelog
 
+## [v0.24.4](https://github.com/db0/hypnagonia/tree/v0.24.4) (2022-01-02)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.24.3...v0.24.4)
+
+**Fixed bugs:**
+
+- Cannot upgrade Memory [\#136](https://github.com/db0/hypnagonia/issues/136)
+- Dreamer's hover-over number for Sensuous card effect incorrectly shows 0 [\#134](https://github.com/db0/hypnagonia/issues/134)
+- Game continues after losing [\#133](https://github.com/db0/hypnagonia/issues/133)
+
+**Merged pull requests:**
+
+- Some fluff content and bugfixes [\#137](https://github.com/db0/hypnagonia/pull/137) ([db0](https://github.com/db0))
+
 ## [v0.24.3](https://github.com/db0/hypnagonia/tree/v0.24.3) (2022-01-02)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.24.2...v0.24.3)
