@@ -84,8 +84,9 @@ func _ready() -> void:
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.elite] = 400
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.enemy] = 400
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.artifact] = 400
-		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.shop] = 100
+		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.shop] = 11
 		globals.player.add_memory(MemoryDefinitions.RerollShop.canonical_name)
+		globals.player.add_memory(MemoryDefinitions.DefendSelf.canonical_name)
 #		globals.player.find_memory(MemoryDefinitions.RerollShop.canonical_name).upgrades_amount += 5
 		# We're doing a connect here, because the globals.deck will not exist during its ready
 		# warning-ignore:return_value_discarded
@@ -223,6 +224,7 @@ func populate_shop_memories() -> void:
 			var final_cost : float = float(all_memory_choices[index].cost) / 2.5
 			# Each upgrade increases the total cost by 20%
 			final_cost = round(final_cost + (final_cost * upgrades * 0.15))
+			all_memory_choices[index]["cost"] = final_cost
 			shop_memory_object.set_cost(final_cost, true)
 		else:
 			shop_memory_object.cost = all_memory_choices[index].cost

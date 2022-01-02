@@ -58,10 +58,13 @@ func accumulate_pathos(value: float) -> void:
 		globals.player.pathos.spend_pathos(pathos_used, value)
 		emit_signal("pathos_accumulated", self, value)
 	if pathos_accumulated >= pathos_threshold:
-		pathos_accumulated = pathos_threshold
-		is_ready = true
-		emit_signal("memory_ready", self)
+		ready()
 
+
+func ready() -> void:
+	pathos_accumulated = pathos_threshold
+	is_ready = true
+	emit_signal("memory_ready", self)
 
 func use() -> void:
 	is_ready = false
