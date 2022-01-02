@@ -5,9 +5,9 @@ extends NonCombatEncounter
 const SHADER := preload("res://shaders/Roscharch.shader")
 
 var secondary_choices := {
-		'tiger': '[A Tiger]: Release some {nce}.',
-		'snake': '[A Snake]:  Release some {enemy}.',
-		'owl': '[An Owl]: Release some {shop}.',
+		'tiger': '[A Tiger]: Gain some released {nce}.',
+		'snake': '[A Snake]:  Gain some released{enemy}.',
+		'owl': '[An Owl]: Gain some released {shop}.',
 	}
 
 var nce_resul_fluff := "[i]I see. You're {adjective} your {noun}.[/i]"

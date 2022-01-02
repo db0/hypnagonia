@@ -5,9 +5,9 @@ extends NonCombatEncounter
 const SHADER := preload("res://shaders/Roscharch.shader")
 
 var secondary_choices := {
-		'passion fruit': '[An Apple]: Release some {artifact}.',
-		'orange': '[An Orange]:  Release some {elite}.',
-		'banana': '[A Banana]: Release some {shop}.',
+		'passion fruit': '[An Apple]: Gain some released {artifact}.',
+		'orange': '[An Orange]:  Gain some released {elite}.',
+		'banana': '[A Banana]: Gain some released {shop}.',
 	}
 
 var nce_resul_fluff := "[i]I understand. You're {adjective} your {noun}.[/i]"
