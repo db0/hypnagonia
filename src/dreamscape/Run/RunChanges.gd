@@ -34,7 +34,7 @@ func unlock_nce(nce_name: String, nce_type: String) -> void:
 					# TODO: Later this will also coordinate the multiple acts
 					for _iter in range(unl_nce.chance_multiplier):
 						encounters.remaining_nce[nce_type].append(unl_nce.nce)
-						CFUtils.shuffle_array(encounters.remaining_good_nce)
+						CFUtils.shuffle_array(encounters.remaining_nce[nce_type])
 					break
 
 
