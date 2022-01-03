@@ -403,6 +403,8 @@ func _input(event):
 #		globals.player.add_artifact(ArtifactDefinitions.AddAlphaTag.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.GainMaxHealth.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
+		globals.player.add_memory(MemoryDefinitions.HealSelf.canonical_name)
+		globals.player.add_memory(MemoryDefinitions.BossFaster.canonical_name)
 #		globals.player.add_artifact("AccumulateShop")
 #		globals.player.deck.add_new_card("Lacuna")
 #		globals.player.deck.add_new_card("Terror")
@@ -417,8 +419,8 @@ func _input(event):
 #		globals.player.damage = 85
 		var debug_encounters = [
 			EnemyEncounter.new(Act1.Murmurs, "easy"),
-			preload("res://src/dreamscape/Run/NCE/Act2/RiskyEvent3.gd").new(),
-			BossEncounter.new(Act1.BOSSES["Narcissus"], "Narcissus"),
+			preload("res://src/dreamscape/Run/NCE/Act1/Recurrence.gd").new(),
+			BossEncounter.new(Act1.BOSSES["Narcissus"]),
 #			EliteEncounter.new(Act2.IndescribableAbsurdity, "medium"),
 			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
 		]

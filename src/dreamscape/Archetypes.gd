@@ -188,7 +188,6 @@ const FEARLESS:= {
 		"The Finger",
 	],
 	"Uncommon": [
-		"Nothing to Fear",
 		"Barrel Through",
 		"Cheeky Approach",
 		"No Second Thoughts",

@@ -70,10 +70,6 @@ func begin() -> void:
 
 func end() -> void:
 	.end()
-	current_combat.queue_free()
-	yield(cfc.get_tree().create_timer(0.1), "timeout")
-	cfc.NMAP.clear()
-	cfc.are_all_nodes_mapped = false
 	globals.journal.display_enemy_rewards(reward_description)
 
 
