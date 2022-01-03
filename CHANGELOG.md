@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.24.5](https://github.com/db0/hypnagonia/tree/v0.24.5) (2022-01-03)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.24.4...v0.24.5)
+
+**Merged pull requests:**
+
+- feat\(NCE\): Added Act1 Recurrence [\#141](https://github.com/db0/hypnagonia/pull/141) ([db0](https://github.com/db0))
+
 ## [v0.24.4](https://github.com/db0/hypnagonia/tree/v0.24.4) (2022-01-02)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.24.3...v0.24.4)
