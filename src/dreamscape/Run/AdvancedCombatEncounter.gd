@@ -4,7 +4,6 @@ extends CombatEncounter
 var enemy_scene: PackedScene
 
 func _init(encounter: Dictionary, _difficulty := "medium"):
-	pathos_released = Terms.RUN_ACCUMULATION_NAMES.boss
 	description = encounter.get("journal_description", '')
 	reward_description = encounter.get("journal_reward", '')
 	enemy_scene = encounter['scene']

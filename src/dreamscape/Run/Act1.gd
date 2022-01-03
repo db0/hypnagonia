@@ -168,7 +168,7 @@ const Murmurs = {
 			},
 		],
 	},
-#		"journal_art": preload("res://assets/journal/the_critic.jpeg"),
+	"journal_art": preload("res://assets/journal/murmurs.jpeg"),
 }
 
 
