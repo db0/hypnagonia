@@ -7,10 +7,6 @@ const INTENTS := [
 		"max_in_a_row": 2,
 	},
 	{
-		"intent_scripts": ["Defend"],
-		"reshuffle": false,
-	},
-	{
 		"intent_scripts": ["Learn"],
 		"reshuffle": false,
 		"sets_up_intent": "mimic",
@@ -50,16 +46,6 @@ func _get_elite_scripts(intent_name: String) -> Array:
 					"description": "Stress: Will cause the dreamer to take the specified amount of {anxiety}."
 				}
 				intent_scripts.append(script)
-		"Defend":
-			var script = {
-				"name": "assign_defence",
-				"tags": ["Intent"],
-				"subject": "self",
-				"amount": 10,
-				"icon": all_intent_scripts.ICON_DEFEND,
-				"description": "Perplex: Will give this Torment the specified amount of {perplexity}."
-			}
-			intent_scripts.append(script)
 		"Learn":
 #			print_debug("learning")
 			combat_entity.is_learning = true
@@ -69,6 +55,15 @@ func _get_elite_scripts(intent_name: String) -> Array:
 				"icon": preload("res://assets/icons/read.png"),
 				"description": "It is learning",
 				"torment_special": "Learn",
+			}
+			intent_scripts.append(script)
+			script = {
+				"name": "assign_defence",
+				"tags": ["Intent"],
+				"subject": "self",
+				"amount": 10,
+				"icon": all_intent_scripts.ICON_DEFEND,
+				"description": "Perplex: Will give this Torment the specified amount of {perplexity}."
 			}
 			intent_scripts.append(script)
 		"Mimic":
