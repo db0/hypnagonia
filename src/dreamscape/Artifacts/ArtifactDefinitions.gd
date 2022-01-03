@@ -563,7 +563,7 @@ const FreeCard := {
 const AddAlphaTag := {
 	"canonical_name": "AddAlphaTag",
 	"name": "Crystal Ball",
-	"description": "{artifact_name}: Choose a card in your deck. It gains the {alpha} tag.",
+	"description": "{artifact_name}: Choose a card in your deck. It gains the {alpha} tag, so always starts at the top of the deck.",
 	"icon": preload("res://assets/icons/artifacts/crystal-ball.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
@@ -571,7 +571,7 @@ const AddAlphaTag := {
 const AddOmegaTag := {
 	"canonical_name": "AddOmegaTag",
 	"name": "Jigsaw Piece",
-	"description": "{artifact_name}: Choose a card in your deck. It gains the {alpha} tag.",
+	"description": "{artifact_name}: Choose a card in your deck. It gains the {omega} tag, so always starts at the bottom of the deck.",
 	"icon": preload("res://assets/icons/artifacts/jigsaw-piece.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
