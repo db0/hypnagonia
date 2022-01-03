@@ -1,5 +1,14 @@
 # Changelog
 
+## [v0.24.7](https://github.com/db0/hypnagonia/tree/v0.24.7) (2022-01-03)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.24.6...v0.24.7)
+
+**Merged pull requests:**
+
+- fix: forgot art files [\#144](https://github.com/db0/hypnagonia/pull/144) ([db0](https://github.com/db0))
+- fix: Wrong pathos for elites [\#143](https://github.com/db0/hypnagonia/pull/143) ([db0](https://github.com/db0))
+
 ## [v0.24.6](https://github.com/db0/hypnagonia/tree/v0.24.6) (2022-01-03)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.24.5...v0.24.6)
