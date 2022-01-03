@@ -1,5 +1,3 @@
-# Gives three choices, paid with released pathos to get some rewards
-
 extends SurpriseEncounter
 
 
@@ -8,20 +6,24 @@ const RECURRENCE_ELITE = {
 }
 
 var difficulties := {
-	"Early Night": "easy",
+	Act1.get_act_name(): "easy",
 	Act2.get_act_name(): "medium",
 }
 
+var descriptions := {
+	Act1.get_act_name(): "I recognised the sound. Cracking bark but somehow wet. It made me feel ill hearing it and each snap left a lingering, ghastly anticipation. Not bark...bones. Cracking bones. No...not again...",
+	Act2.get_act_name(): "The cracking sound was doubly shocking as it ricoched around the quiet, restful moment I had been enjoying. It was twice as loud as before and curdled my thoughts, just as I had begun to collect them. I should have known it would return. It always returns. Crack crack, crunch crunch.",
+}
 var memory_prep: MemoryPrep
 
 
 func _init():
-	description = "I recognised the sound. Cracking bark but somehow wet. It made me feel ill hearing it and each snap left a lingering, ghastly anticipation. Not bark...bones. Cracking bones. No...not again..."
+	description = descriptions[globals.encounters.current_act.get_act_name()]
 
 
 func begin() -> void:
 	.begin()
-	surprise_combat_encounter = SurpriseCombatEncounter.new(
+	surprise_combat_encounter = RecurrenceCombatEncounter.new(
 			RECURRENCE_ELITE, 
 			difficulties[globals.encounters.current_act.get_act_name()], 
 			self)
@@ -29,7 +31,6 @@ func begin() -> void:
 
 
 func end() -> void:
-	surprise_combat_encounter.finish_surpise_ordeal()
 	.end()
 	memory_prep = MemoryPrep.new(2, true)
 	for memory in memory_prep.selected_memories:

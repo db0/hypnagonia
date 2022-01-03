@@ -6,7 +6,7 @@ const NCE := {
 		preload("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd"),
 	],
 	"risky": [
-		
+		preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd"),
 	]
 }
 
@@ -32,3 +32,9 @@ const LOCKED_NCE := {
 
 static func get_act_name() -> String:
 	return("AllActs")
+
+# These NCEs never go to the Used NCEs
+# As such, they can reapper once per act
+const REPEATING_NCE := [
+	preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd"),
+]

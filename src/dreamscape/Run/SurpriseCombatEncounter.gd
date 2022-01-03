@@ -6,6 +6,7 @@ extends AdvancedCombatEncounter
 
 var owner_nce
 
+
 func _init(encounter: Dictionary, difficulty: String, nce).(encounter, difficulty):
 	owner_nce = nce
 

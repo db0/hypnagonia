@@ -102,7 +102,7 @@ func begin_encounter() -> void:
 		cfc.set_setting('first_ordeal_tutorial_done', true)
 	if OS.has_feature("debug"):
 			print("DEBUG INFO:Board: Ordeal Encounter Loaded")
-	
+
 
 func _retrieve_alpha() -> int:
 	var alpha_count := 0
@@ -303,7 +303,7 @@ func _dreamer_died(final_damage) -> void:
 
 
 func complete_battle() -> void:
-	if not battle_ended: 
+	if not battle_ended:
 		battle_ended = true
 		globals.player.damage = dreamer.damage
 		_fade_to_transparent()
@@ -399,7 +399,7 @@ func _input(event):
 		var _torment1
 		var _torment2
 		var _torment3
-#		_torment1 = spawn_enemy(EnemyDefinitions.SQUIRREL)
+#		_torment1 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_VICTIM)
@@ -408,6 +408,7 @@ func _input(event):
 			_torment1.damage = 19
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 2)
 			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
+#			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.effect_resistance.name, 1, false, false, ["Init"], Terms.ACTIVE_EFFECTS.poison.name)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
 		if _torment2:
 			_torment2.health = 1000
@@ -429,14 +430,13 @@ func _input(event):
 		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.SpikeEnemy.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 6)
-#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.impervious.name, 13)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.impervious.name, 13)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.unconventional.name, 1, false, false, ['Debug'], 'weirdly')
 		for c in [
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"Dismissal",
+			"Confident Slap",
 
 		]:
 			var card = cfc.instance_card(c)
@@ -462,7 +462,7 @@ func _debug_advanced_enemy() -> void:
 #			preload("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn").instance()
 	var advanced_entity: EnemyEntity =\
 			preload("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn").instance()
-	advanced_entity.setup_advanced("easy")
+	advanced_entity.setup_advanced("medium")
 	_enemy_area.add_child(advanced_entity)
 #	advanced_entity.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.self_cleaning.name, 1)
 	# warning-ignore:return_value_discarded
@@ -471,11 +471,19 @@ func _debug_advanced_enemy() -> void:
 
 func _on_Debug_pressed() -> void:
 	# warning-ignore:return_value_discarded
-	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 6)
-	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.drain.name, 5)
-	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.introspection.name, 6)
-	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.nunclucks.name, 1)
+	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.empower.name, 3)
+	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 2)
+#	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.drain.name, 5)
+#	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.introspection.name, 6)
+#	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.nunclucks.name, 1)
 	dreamer.defence += 30
+	for c in [
+		"Confident Slap",
+	]:
+		var card = cfc.instance_card(c)
+		cfc.NMAP.hand.add_child(card)
+		#card.set_is_faceup(false,true)
+		card._determine_idle_state()
 	counters.mod_counter("immersion",3)
 	for _iter in range(3):
 		cfc.NMAP.hand.draw_card(cfc.NMAP.deck)

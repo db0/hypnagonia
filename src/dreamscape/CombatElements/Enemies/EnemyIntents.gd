@@ -2,6 +2,7 @@ class_name EnemyIntents
 extends GridContainer
 
 signal intents_predicted
+signal intents_displayed
 
 const SINGLE_INTENT_SCENE = preload("res://src/dreamscape/CombatElements/Enemies/SingleIntent.tscn")
 
@@ -18,7 +19,9 @@ var intent_uses: Dictionary
 # The hash of the last used intent dictionary (for comparisons)
 var last_used_intent: int
 var times_last_intent_repeated: int
-var next_intent_index := ''
+var next_intent_id := ''
+# Tracks wether we finished adding the intent children nodes.
+var intents_displayed := false
 
 var all_intent_scripts = IntentScripts.new()
 
@@ -37,9 +40,9 @@ func prepare_intents(specific_index = null, is_second_try := false) -> Dictionar
 	# If we're setting up the next intent specifically
 	# Then we grab it from the index position of the non-shuffled list
 	# Then remove it from the unused intents, if it's still in there.
-	elif next_intent_index != '':
+	elif next_intent_id != '':
 		for intent_seek in all_intents:
-			if intent_seek.get("id", '') == next_intent_index:
+			if intent_seek.get("id", '') == next_intent_id:
 				selected_intent = intent_seek
 		for intent in unused_intents:
 			if intent.hash() == selected_intent.hash():
@@ -98,7 +101,7 @@ func prepare_intents(specific_index = null, is_second_try := false) -> Dictionar
 	new_intents = selected_intent.duplicate(true)
 	# If this intent sets up the next intent, then we store the next intent index to use here.
 	# If this is not defined, then the value will be -1 which is ignored.
-	next_intent_index = new_intents.get("sets_up_intent", '')
+	next_intent_id = new_intents.get("sets_up_intent", '')
 	if new_intents.reshuffle:
 		reshuffle_intents()
 	_display_intents(new_intents)
@@ -171,6 +174,42 @@ func predict_intents(snapshot_id: int) -> void:
 	emit_signal("intents_predicted")
 
 
+# Returns a pointer to the dictionary in all_intents which has the specified
+# "id" key.
+# If not found, returns null
+func find_intent_id(intent_id: String):
+	for intent in all_intents:
+		if intent.has("id") and intent_id == intent["id"]:
+			return(intent)
+
+
+# Discovers the intent with the chosen id in all_intents, and erases it
+func erase_intent_id(intent_id: String):
+	var intent = find_intent_id(intent_id)
+	if intent:
+		all_intents.erase(intent)
+	
+
+#	Injects the specified intent dictionary into all_intents
+func insert_intent(intent: Dictionary, index = null):
+	if index:
+		all_intents.insert(index, intent)
+	else:
+		all_intents.append(intent)
+
+
+# Clears existing intents, and replaces them with a new one from unused_intents
+# As if the entity was first created
+func refresh_intents(specific_index = null) -> void:
+	if not intents_displayed:
+		yield(self, "intents_displayed")
+	next_intent_id = ''
+	times_last_intent_repeated = 0
+	reshuffle_intents()
+	for intent in get_children():
+		intent.queue_free()
+	prepare_intents(specific_index)
+
 # We have this externally to allow to override it if needed (e.g. for boss intents)
 func _get_intent_scripts(_intent_name: String) -> Array:
 	return(all_intent_scripts.get_scripts(_intent_name))
@@ -180,6 +219,7 @@ func _get_intent_scripts(_intent_name: String) -> Array:
 func _display_intents(new_intents: Dictionary) -> void:
 	for intent in get_children():
 		intent.queue_free()
+	intents_displayed = false
 	yield(get_tree().create_timer(0.01), "timeout")
 	for intent in new_intents.intent_scripts:
 		# Some intents can use a generic format of "Intent Name: Value"
@@ -214,6 +254,8 @@ func _display_intents(new_intents: Dictionary) -> void:
 				var new_intent : CombatSignifier = SINGLE_INTENT_SCENE.instance()
 				add_child(new_intent)
 				new_intent.setup(single_intent, intent_name)
+	intents_displayed = true
+	emit_signal("intents_displayed")
 
 # Overridable function
 func _pre_execute_scripts() -> void:

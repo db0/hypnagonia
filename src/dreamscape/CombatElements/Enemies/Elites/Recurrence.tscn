@@ -4,7 +4,7 @@
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/EnemyIntents.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/dreamscape/CombatElements/CombatEntity.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.gd" type="Script" id=4]
-[ext_resource path="res://src/dreamscape/CombatElements/Enemies/Elites/RecurenceIntents.gd" type="Script" id=5]
+[ext_resource path="res://src/dreamscape/CombatElements/Enemies/Elites/RecurrenceIntents.gd" type="Script" id=5]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true

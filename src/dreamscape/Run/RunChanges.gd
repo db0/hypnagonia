@@ -13,6 +13,9 @@ var encounters
 # Stores which NCEs (Reference the player has already seen, to avoid replaying them
 # technically only relevant for AllActs NCEs
 var used_nce := []
+# Generic place to store vars, so that events can store and retrieve info
+# might change this into a class later if it becomes too convoluted.
+var store := {}
 
 func _init(_encounters) -> void:
 	encounters = _encounters
@@ -58,7 +61,7 @@ func is_nce_used(nce: GDScript) -> bool:
 
 # Marks an NCE as used during this run
 func record_nce_used(nce: GDScript) -> void:
-	if not nce in used_nce:
+	if not nce in used_nce and not nce in AllActs.REPEATING_NCE:
 		used_nce.append(nce)
 
 

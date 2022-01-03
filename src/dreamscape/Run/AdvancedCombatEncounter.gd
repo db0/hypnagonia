@@ -2,6 +2,7 @@ class_name AdvancedCombatEncounter
 extends CombatEncounter
 
 var enemy_scene: PackedScene
+var enemy_entity: EnemyEntity
 
 func _init(encounter: Dictionary, _difficulty := "medium"):
 	description = encounter.get("journal_description", '')
@@ -24,6 +25,6 @@ func start_ordeal() -> void:
 	# We hide the journal black cover, so that when the board fades out
 	# The journal appears behind it
 	globals.journal.journal_cover.visible = false
-	cfc.NMAP.board.spawn_advanced_enemy(self)
+	enemy_entity = cfc.NMAP.board.spawn_advanced_enemy(self)
 	cfc.NMAP.board.begin_encounter()
 	globals.music.switch_scene_music('boss')
