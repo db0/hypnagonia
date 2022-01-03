@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.24.6](https://github.com/db0/hypnagonia/tree/v0.24.6) (2022-01-03)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.24.5...v0.24.6)
+
+**Merged pull requests:**
+
+- balance\(Torment\): Slight recurrence buff [\#142](https://github.com/db0/hypnagonia/pull/142) ([db0](https://github.com/db0))
+
 ## [v0.24.5](https://github.com/db0/hypnagonia/tree/v0.24.5) (2022-01-03)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.24.4...v0.24.5)
