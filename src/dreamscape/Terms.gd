@@ -121,6 +121,8 @@ const ACTIVE_EFFECTS := {
 	"buffer":  {
 		"name": "Fascination",
 		"type": "Buff",
+		# This effect only works when assigned to the Dreamer
+		"is_dreamer_only": true,
 		# This is handled in the code to avoid reducing before the effect fires
 		"self_decreasing": SELF_DECREASE.FALSE,
 		"icon": preload("res://assets/icons/star-struck.png"),
@@ -132,6 +134,8 @@ const ACTIVE_EFFECTS := {
 	"drain":  {
 		"name": "Apathy",
 		"type": "Debuff",
+		# This effect only works when assigned to the Dreamer
+		"is_dreamer_only": true,
 		# This is handled in the code to avoid reducing before the effect fires
 		"self_decreasing": SELF_DECREASE.FALSE,
 		"icon": preload("res://assets/icons/shrug.png"),
@@ -685,9 +689,11 @@ static func get_term_entry(thematic_tag_name: String, key: String, no_icon := fa
 
 # Returns an array of all effects thematic names, matching a specific type
 # such as 'Buff', 'Debuff', 'Condition' etc.
-static func get_all_effect_types(effect_type: String) -> Array:
+static func get_all_effect_types(effect_type: String, exclude_dreamer_only:= false) -> Array:
 	var discovered_effects := []
 	for effect in ACTIVE_EFFECTS:
+		if exclude_dreamer_only and ACTIVE_EFFECTS[effect].get("is_dreamer_only", false):
+			continue
 		if ACTIVE_EFFECTS[effect].type == effect_type:
 			discovered_effects.append(ACTIVE_EFFECTS[effect].name)
 	return(discovered_effects)

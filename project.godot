@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/CombatElements/ActiveEffects.gd"
 }, {
+"base": "CombatEncounter",
+"class": "AdvancedCombatEncounter",
+"language": "GDScript",
+"path": "res://src/dreamscape/Run/AdvancedCombatEncounter.gd"
+}, {
 "base": "EnemyEntity",
 "class": "AdvancedEnemyEntity",
 "language": "GDScript",
@@ -119,7 +124,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/core/BoardPlacementSlot.gd"
 }, {
-"base": "CombatEncounter",
+"base": "AdvancedCombatEncounter",
 "class": "BossEncounter",
 "language": "GDScript",
 "path": "res://src/dreamscape/Run/BossEncounter.gd"
@@ -334,7 +339,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/DreamPile.gd"
 }, {
-"base": "CombatEncounter",
+"base": "AdvancedCombatEncounter",
 "class": "EliteEncounter",
 "language": "GDScript",
 "path": "res://src/dreamscape/Run/EliteEncounter.gd"
@@ -624,6 +629,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/Sounds.gd"
 }, {
+"base": "AdvancedCombatEncounter",
+"class": "SurpriseCombatEncounter",
+"language": "GDScript",
+"path": "res://src/dreamscape/Run/SurpriseCombatEncounter.gd"
+}, {
+"base": "NonCombatEncounter",
+"class": "SurpriseEncounter",
+"language": "GDScript",
+"path": "res://src/dreamscape/Run/SurpriseEncounter.gd"
+}, {
 "base": "CenterContainer",
 "class": "TagRepresentation",
 "language": "GDScript",
@@ -679,6 +694,7 @@ _global_script_class_icons={
 "Act1": "",
 "Act2": "",
 "ActiveEffects": "",
+"AdvancedCombatEncounter": "",
 "AdvancedEnemyEntity": "",
 "AllActs": "",
 "AlterantEngine": "",
@@ -798,6 +814,8 @@ _global_script_class_icons={
 "SoundManagerClass": "",
 "SoundManagerModule": "",
 "Sounds": "",
+"SurpriseCombatEncounter": "",
+"SurpriseEncounter": "",
 "TagRepresentation": "",
 "TagsList": "",
 "TargetingArrow": "",

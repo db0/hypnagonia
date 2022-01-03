@@ -112,7 +112,7 @@ func generate_journal_choices() -> Array:
 					difficulty = "hard"
 				journal_options.append(EliteEncounter.new(next_enemy, difficulty))
 			Terms.RUN_ACCUMULATION_NAMES.boss:
-				journal_options.append(BossEncounter.new(current_act.BOSSES[boss_name], boss_name))
+				journal_options.append(BossEncounter.new(current_act.BOSSES[boss_name]))
 	if OS.has_feature("debug"):
 		var _debug_encounter_paths := []
 		var _debug_enemies := []

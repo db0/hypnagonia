@@ -62,10 +62,8 @@ func _predict_script_amount(hardcoded_previous_subjects := []) -> void:
 				var prediction_icon = null
 				if script.script_name == "apply_effect":
 					prediction_icon = Terms.get_term_value(script.get_property("effect_name"), "icon")
-					print_debug([amount, script.get_property("effect_name"), prev_subjects])
 				entity.show_predictions(amount, prediction_icon)
 				var snapshot_method = "snapshot_" + script.script_name
-				print_debug(snapshot_method)
 				if has_method(snapshot_method):
 					call(snapshot_method, script, amount, entity)
 

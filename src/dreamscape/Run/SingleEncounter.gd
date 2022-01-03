@@ -23,7 +23,7 @@ func end() -> void:
 
 
 func game_over() -> void:
-	cfc.NMAP.clear()
+	cfc.quit_game()
 	globals.journal.display_loss()
 	emit_signal("encounter_end", self)
 

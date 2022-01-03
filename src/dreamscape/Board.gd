@@ -399,8 +399,8 @@ func _input(event):
 		var _torment1
 		var _torment2
 		var _torment3
-		_torment1 = spawn_enemy(EnemyDefinitions.SQUIRREL)
-		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+#		_torment1 = spawn_enemy(EnemyDefinitions.SQUIRREL)
+#		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_VICTIM)
 		if _torment1:
@@ -436,7 +436,8 @@ func _input(event):
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"Sensuous",
+			"Dismissal",
+
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.hand.add_child(card)
@@ -459,19 +460,21 @@ func _debug_advanced_enemy() -> void:
 	pass
 #	var advanced_entity: EnemyEntity =\
 #			preload("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn").instance()
-#	var advanced_entity: EnemyEntity =\
-#			preload("res://src/dreamscape/CombatElements/Enemies/Elites/IndescribableAbsurdity.tscn").instance()
-#	advanced_entity.setup_advanced("hard")
-#	_enemy_area.add_child(advanced_entity)
-##	advanced_entity.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.self_cleaning.name, 1)
-#	# warning-ignore:return_value_discarded
-#	advanced_entity.connect("finished_activation", self, "_on_finished_enemy_activation")
+	var advanced_entity: EnemyEntity =\
+			preload("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn").instance()
+	advanced_entity.setup_advanced("easy")
+	_enemy_area.add_child(advanced_entity)
+#	advanced_entity.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.self_cleaning.name, 1)
+	# warning-ignore:return_value_discarded
+	advanced_entity.connect("finished_activation", self, "_on_finished_enemy_activation")
 
 
 func _on_Debug_pressed() -> void:
 	# warning-ignore:return_value_discarded
-#	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 3)
+	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 6)
+	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.drain.name, 5)
 	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.introspection.name, 6)
+	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.nunclucks.name, 1)
 	dreamer.defence += 30
 	counters.mod_counter("immersion",3)
 	for _iter in range(3):
