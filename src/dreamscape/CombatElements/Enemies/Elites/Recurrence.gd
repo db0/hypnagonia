@@ -136,7 +136,6 @@ func _prepare_countermeasures() -> void:
 		return
 	var immunities := []
 	var resistances := []
-	var first_cm_added := []
 	for cm in countermeasures:
 		match cm:
 			"high_attacks":

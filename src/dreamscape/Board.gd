@@ -471,14 +471,14 @@ func _debug_advanced_enemy() -> void:
 
 func _on_Debug_pressed() -> void:
 	# warning-ignore:return_value_discarded
-	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.empower.name, 3)
-	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 2)
+	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 3)
+	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.vulnerable.name, 2)
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.drain.name, 5)
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.introspection.name, 6)
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.nunclucks.name, 1)
 	dreamer.defence += 30
 	for c in [
-#		"Squirrel",
+		"Cheeky Approach",
 	]:
 		var card = cfc.instance_card(c)
 		cfc.NMAP.hand.add_child(card)
