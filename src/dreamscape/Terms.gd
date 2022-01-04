@@ -124,7 +124,8 @@ const ACTIVE_EFFECTS := {
 		# This effect only works when assigned to the Dreamer
 		"is_dreamer_only": true,
 		# This is handled in the code to avoid reducing before the effect fires
-		"self_decreasing": SELF_DECREASE.FALSE,
+		"self_decreasing": SELF_DECREASE.TURN_START,
+		"decrease_type": DECREASE_TYPE.ZERO,
 		"icon": preload("res://assets/icons/star-struck.png"),
 		"generic_description": "{effect_name}: Provides delayed Immersion.",
 		"rich_text_icon": "res://fonts/rich_text_icons/star-struck.png",
@@ -137,7 +138,8 @@ const ACTIVE_EFFECTS := {
 		# This effect only works when assigned to the Dreamer
 		"is_dreamer_only": true,
 		# This is handled in the code to avoid reducing before the effect fires
-		"self_decreasing": SELF_DECREASE.FALSE,
+		"self_decreasing": SELF_DECREASE.TURN_START,
+		"decrease_type": DECREASE_TYPE.ZERO,
 		"icon": preload("res://assets/icons/shrug.png"),
 		"generic_description": "{effect_name}: Delayed Immersion loss.",
 		"rich_text_icon": "res://fonts/rich_text_icons/shrug.png",
@@ -219,7 +221,8 @@ const ACTIVE_EFFECTS := {
 		"name": "Doubt",
 		"type": "Debuff",
 		# This is handled in the code to avoid reducing before the effect fires
-		"self_decreasing": SELF_DECREASE.FALSE,
+		"self_decreasing": SELF_DECREASE.TURN_START,
+		"decrease_type": DECREASE_TYPE.REDUCE,
 		"icon": preload("res://assets/icons/coma.png"),
 		"generic_description": "{effect_name}: Automatically adds unpreventable interpretation each turn.",
 		"rich_text_icon": "res://fonts/rich_text_icons/coma.png",
@@ -231,7 +234,8 @@ const ACTIVE_EFFECTS := {
 		"name": "Envy",
 		"type": "Debuff",
 		# This is handled in the code to avoid reducing before the effect fires
-		"self_decreasing": SELF_DECREASE.FALSE,
+		"self_decreasing": SELF_DECREASE.TURN_END,
+		"decrease_type": DECREASE_TYPE.REDUCE,
 		"icon": preload("res://assets/icons/wrapped-heart.png"),
 		"generic_description": "{effect_name}: Automatically adds preventable interpretation each turn.",
 		"rich_text_icon": "res://fonts/rich_text_icons/wrapped-heart.png",

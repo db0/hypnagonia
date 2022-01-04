@@ -26,6 +26,7 @@ var dreamer_damage := 0
 var dreamer_effects := {}
 var self_effects := {}
 var cards_played := 0
+var generic_
 
 func _ready() -> void:
 	if not cfc.NMAP.board.dreamer:
@@ -56,6 +57,12 @@ func _on_dreamer_effect_modified(
 		if is_learning and not "Turn Decrease" in details.tags and count > 0:
 			dreamer_effects[effect_name] = dreamer_effects.get(effect_name, 0) + count
 #			print_debug("Recorded: %s : %s" % [details.get("effect_name"),count])
+	# It knows to punish buffers as well
+	elif effect_name == Terms.ACTIVE_EFFECTS.buffer.name:
+		var count = details.get(SP.TRIGGER_NEW_COUNT) - details.get(SP.TRIGGER_PREV_COUNT)
+		if is_learning and not "Turn Decrease" in details.tags and count > 0:
+			self_effects[Terms.ACTIVE_EFFECTS.drain.name] = self_effects.get(Terms.ACTIVE_EFFECTS.drain.name,0) + count
+			print_debug("Recorded: %s : %s" % [details.get("effect_name"),count])
 
 
 func _on_self_effect_modified(
@@ -75,25 +82,30 @@ func _on_dreamer_defended(_entity, amount, _trigger, _tags) -> void:
 		dreamer_defences += amount
 #	print_debug("Defence learned: %s" % [amount])
 
+
 func _on_dreamer_healed(_entity, amount, _trigger, _tags) -> void:
 	if is_learning:
 		dreamer_heals += amount
 #		print_debug("Healing learned: %s" % [amount])
 
-func _on_dreamer_damaged(_entity, amount, _trigger, _tags) -> void:
-	if is_learning:
+
+func _on_dreamer_damaged(_entity, amount, _trigger, tags) -> void:
+	if is_learning and not "Burn" in tags and not "Poison" in tags:
 		dreamer_damage += amount
 #		print_debug("Exert learned: %s" % [amount])
+
 
 func _on_self_attacked(_entity, amount, _trigger, _tags) -> void:
 	if is_learning:
 		dreamer_attacks.append(amount)
 #		print_debug("Attack learned: %s" % [amount])
 
+
 func _on_card_signal_received(_trigger_card, trigger, _details) -> void:
 	if is_learning and trigger == "card_played":
 		cards_played += 1
 #		print_debug("Card played")
+
 
 func _on_enemy_turn_started(_turn: Turn) -> void:
 	# It is not learning from its own cards
@@ -129,16 +141,21 @@ func _digest_learning() -> void:
 func _exit_tree():
 	_digest_learning()
 
+
 func _prepare_countermeasures() -> void:
 	# Normally we wouldn't need to do these conditions, but until we have enough torments
 	# to never repeat encounters, we need to take care of this.
 	if get_property("_difficulty") == "easy":
 		return
 	for cm in countermeasures:
+		# We increment a flag for each countermeasure.
+		# 1 means the player used a lot of that thing in act1, and we need to counter it
+		# 2 means the player still managed to defeat this entity in act2 using that thing
+		# so we need to counter it even more.
 		cm_flags[cm] = cm_flags.get(cm,0) + 1
 		# Again, only need this while we have only a few risky NCEs and there's
 		# a chance this encounter will repeat in Act2
-		if get_property("_difficulty") != "medium":
+		if get_property("_difficulty") == "medium":
 			break
 	for cm in [
 		Terms.ACTIVE_EFFECTS.poison.name,

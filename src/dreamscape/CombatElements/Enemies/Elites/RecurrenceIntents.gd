@@ -40,36 +40,41 @@ func _get_elite_scripts(intent_name: String) -> Array:
 				amount = 5
 			elif combat_entity.get_property("_difficulty") == "hard":
 				amount = 6
+			var unmodified_amount = amount
 			var script : Dictionary
-			if combat_entity.cm_flags.get(Terms.ACTIVE_EFFECTS.thorns.name, 0) > 0:
+			if combat_entity.cm_flags.get(Terms.ACTIVE_EFFECTS.impervious.name, 0) > 0\
+					or combat_entity.cm_flags.get(Terms.ACTIVE_EFFECTS.armor.name, 0) > 0:
+				var burn = amount - 1
+				if combat_entity.cm_flags.get(Terms.ACTIVE_EFFECTS.impervious.name, 0) +\
+					combat_entity.cm_flags.get(Terms.ACTIVE_EFFECTS.armor.name, 0) > 1:
+					burn += 2
 				script = {
-					"name": "modify_damage",
-					"tags": ["Attack", "Intent"],
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.burn.name,
+					"tags": ["Intent", "Delayed"],
 					"subject": "dreamer",
-					"amount": amount * amount,
-					"icon": all_intent_scripts.ICON_ATTACK,
-					"description": "Stress: Will cause the dreamer to take the specified amount of {anxiety}."
+					"modification": burn,
+					"set_to_mod": true,
+					"icon": all_intent_scripts.ICON_DEBUFF,
+					"description": "This Torment is planning to apply a debuff to the Dreamer."
 				}
 				intent_scripts.append(script)
-			elif combat_entity.cm_flags.get("high_defences", 0) > 0:
+				amount -= 1
+			if combat_entity.cm_flags.get("high_defences", 0) > 0:
+				var poison = amount - 2
+				if combat_entity.cm_flags.get(Terms.ACTIVE_EFFECTS.impervious.name, 0) > 1:
+					poison += 2
 				script = {
 					"name": "apply_effect",
 					"effect_name": Terms.ACTIVE_EFFECTS.poison.name,
 					"tags": ["Intent", "Delayed"],
 					"subject": "dreamer",
-					"modification": 2,
+					"modification": poison,
+					"set_to_mod": true,
 					"icon": all_intent_scripts.ICON_DEBUFF,
 					"description": "This Torment is planning to apply a debuff to the Dreamer."
 				}
-				intent_scripts.append(script)
-				script = {
-					"name": "modify_damage",
-					"tags": ["Attack", "Intent"],
-					"subject": "dreamer",
-					"amount": amount * (amount - 2),
-					"icon": all_intent_scripts.ICON_ATTACK,
-					"description": "Stress: Will cause the dreamer to take the specified amount of {anxiety}."
-				}
+				amount -= 1
 				intent_scripts.append(script)
 				script = {
 					"name": "modify_damage",
@@ -80,25 +85,13 @@ func _get_elite_scripts(intent_name: String) -> Array:
 					"description": "Piercing Stress: Will cause the dreamer to take the specified amount of unblockable {anxiety}."
 				}
 				intent_scripts.append(script)
-			elif combat_entity.cm_flags.get("average_attacks", 0) > 0:
-				var thorns = 4
-				if combat_entity.cm_flags.get("average_attacks", 0) > 1:
-					thorns += 2
-				script = {
-					"name": "apply_effect",
-					"effect_name": Terms.ACTIVE_EFFECTS.thorns.name,
-					"tags": ["Intent", "Delayed"],
-					"subject": "self",
-					"modification": thorns,
-					"icon": all_intent_scripts.ICON_BUFF,
-					"description": "This Torment is planning to buff itself."
-				}
-				intent_scripts.append(script)
+				amount -= 1
+			if combat_entity.cm_flags.get(Terms.ACTIVE_EFFECTS.thorns.name, 0) > 0:
 				script = {
 					"name": "modify_damage",
 					"tags": ["Attack", "Intent"],
 					"subject": "dreamer",
-					"amount": amount * amount,
+					"amount": amount * unmodified_amount,
 					"icon": all_intent_scripts.ICON_ATTACK,
 					"description": "Stress: Will cause the dreamer to take the specified amount of {anxiety}."
 				}
@@ -109,7 +102,7 @@ func _get_elite_scripts(intent_name: String) -> Array:
 						"name": "modify_damage",
 						"tags": ["Attack", "Intent"],
 						"subject": "dreamer",
-						"amount": amount,
+						"amount": unmodified_amount,
 						"icon": all_intent_scripts.ICON_ATTACK,
 						"description": "Stress: Will cause the dreamer to take the specified amount of {anxiety}."
 					}
@@ -125,8 +118,56 @@ func _get_elite_scripts(intent_name: String) -> Array:
 					"description": "This Torment is planning to buff itself."
 				}
 				intent_scripts.append(impervious)
+			if combat_entity.cm_flags.get("average_attacks", 0) > 0:
+				var thorns = 4
+				if combat_entity.cm_flags.get("average_attacks", 0) > 1:
+					thorns += 2
+				script = {
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.thorns.name,
+					"tags": ["Intent", "Delayed"],
+					"subject": "self",
+					"modification": thorns,
+					"set_to_mod": true,
+					"icon": all_intent_scripts.ICON_BUFF,
+					"description": "This Torment is planning to buff itself."
+				}
+				intent_scripts.append(script)
+			if combat_entity.cm_flags.get(Terms.ACTIVE_EFFECTS.empower.name, 0) > 0:
+				var disempower = 2
+				if combat_entity.cm_flags.get("average_attacks", 0) > 1:
+					disempower += 4
+				script = {
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.disempower.name,
+					"tags": ["Intent", "Delayed"],
+					"subject": "dreamer",
+					"modification": disempower,
+					"icon": all_intent_scripts.ICON_DEBUFF,
+					"description": "This Torment is planning to apply a debuff to the Dreamer."
+				}
+				intent_scripts.append(script)
+			if combat_entity.cm_flags.get(Terms.ACTIVE_EFFECTS.buffer.name, 0) > 0:
+				var drain = 1
+				if combat_entity.cm_flags.get("average_attacks", 0) > 1:
+					drain += 1
+				script = {
+					"name": "apply_effect",
+					"effect_name": Terms.ACTIVE_EFFECTS.drain.name,
+					"tags": ["Intent", "Delayed"],
+					"subject": "dreamer",
+					"modification": drain,
+					"icon": all_intent_scripts.ICON_DEBUFF,
+					"description": "This Torment is planning to apply a debuff to the Dreamer."
+				}
+				intent_scripts.append(script)
 		"Learn":
 #			print_debug("learning")
+			var amount : int = 10
+			if combat_entity.get_property("_difficulty") == "medium":
+				amount = 15
+			elif combat_entity.get_property("_difficulty") == "hard":
+				amount = 20
 			var script = {
 				"name": "null_script",
 				"tags": ["Intent"],
@@ -138,7 +179,7 @@ func _get_elite_scripts(intent_name: String) -> Array:
 				"name": "assign_defence",
 				"tags": ["Intent"],
 				"subject": "self",
-				"amount": 10,
+				"amount": amount,
 				"icon": all_intent_scripts.ICON_DEFEND,
 				"description": "Perplex: Will give this Torment the specified amount of {perplexity}."
 			}
@@ -178,7 +219,7 @@ func _get_elite_scripts(intent_name: String) -> Array:
 						"icon": all_intent_scripts.ICON_PIERCE,
 						"description": "Piercing Stress: Will cause the dreamer to take the specified amount of unblockable {anxiety}."
 					}
-					intent_scripts.append(mimic_attack)				
+					intent_scripts.append(mimic_attack)
 			else:
 				for attack in combat_entity.dreamer_attacks:
 					var mimic_attack = {
