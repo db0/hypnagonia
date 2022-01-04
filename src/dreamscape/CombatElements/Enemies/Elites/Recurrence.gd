@@ -134,32 +134,18 @@ func _prepare_countermeasures() -> void:
 	# to never repeat encounters, we need to take care of this.
 	if get_property("_difficulty") == "easy":
 		return
-	var immunities := []
-	var resistances := []
 	for cm in countermeasures:
-		match cm:
-			"high_attacks":
-				cm_flags["high_attacks"] = cm_flags.get("high_attacks",0) + 1
-			"high_defences":
-				cm_flags["high_defences"] = cm_flags.get("high_defences",0) + 1
-			"average_attacks":
-				cm_flags["average_attacks"] = cm_flags.get("average_attacks",0) + 1
-			Terms.ACTIVE_EFFECTS.thorns.name:
-				cm_flags[Terms.ACTIVE_EFFECTS.thorns.name] = cm_flags.get(Terms.ACTIVE_EFFECTS.thorns.name,0) + 1
-			Terms.ACTIVE_EFFECTS.poison.name,\
-			Terms.ACTIVE_EFFECTS.burn.name,\
-			Terms.ACTIVE_EFFECTS.disempower.name,\
-			Terms.ACTIVE_EFFECTS.marked.name:
-				if cm in resistances:
-					immunities.append(cm)
-					resistances.erase(cm)
-				else:
-					resistances.append(cm)
+		cm_flags[cm] = cm_flags.get(cm,0) + 1
 		# Again, only need this while we have only a few risky NCEs and there's
 		# a chance this encounter will repeat in Act2
 		if get_property("_difficulty") != "medium":
 			break
-	for cm in immunities:
-		active_effects.mod_effect(Terms.ACTIVE_EFFECTS.effect_immunity.name, 1, false, false, ["Init"], cm)
-	for cm in resistances:
-		active_effects.mod_effect(Terms.ACTIVE_EFFECTS.effect_resistance.name, 1, false, false, ["Init"], cm)
+	for cm in [
+		Terms.ACTIVE_EFFECTS.poison.name,
+		Terms.ACTIVE_EFFECTS.burn.name,
+		Terms.ACTIVE_EFFECTS.disempower.name,
+		Terms.ACTIVE_EFFECTS.marked.name]:
+		if cm_flags.get(cm,0) > 1:
+			active_effects.mod_effect(Terms.ACTIVE_EFFECTS.effect_immunity.name, 1, false, false, ["Init"], cm)
+		elif cm_flags.get(cm,0) > 0:
+			active_effects.mod_effect(Terms.ACTIVE_EFFECTS.effect_resistance.name, 1, false, false, ["Init"], cm)
