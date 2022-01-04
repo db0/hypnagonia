@@ -515,6 +515,7 @@ const Bully = {
 		'My mind took me back to uncomfortable memories of schoolyard bullying.',
 	"journal_reward":\
 		'This time, I fortunately knew how to respond.',
+	'journal_art': preload("res://assets/journal/bully.jpeg"),
 }
 
 const ELITES = [
@@ -530,6 +531,7 @@ const Narcissus = {
 	"journal_reward":\
 		'Through the many lies and denials, [url=boss_card_draft]I cornered the truth out of them.[/url]'\
 		+ 'and for once felt like [url=boss_artifact]I was getting somewhere[/url].',
+	'journal_art': preload("res://assets/journal/narcissus.jpeg"),
 }
 
 const BOSSES := {
@@ -550,7 +552,6 @@ const NCE := {
 	"risky": [
 		preload("res://src/dreamscape/Run/NCE/Act1/RiskyEvent1.gd"),
 		preload("res://src/dreamscape/Run/NCE/Act1/RiskyEvent2.gd"),
-		preload("res://src/dreamscape/Run/NCE/Act1/Recurrence.gd"),
 	]
 }
 

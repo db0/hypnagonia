@@ -20,10 +20,10 @@ func display() -> void:
 func populate_upgrade_cards() -> void:
 	upgradable_cards = globals.player.deck.get_upgradeable_cards()
 	for index in range(upgradable_cards.size()):
-		var card_name: String = upgradable_cards[index].card_name
+#		var card_name: String = upgradable_cards[index].card_name
 		var upgrade_card_object = CARD_UPGRADE_SCENE.instance()
 		add_child(upgrade_card_object)
-		upgrade_card_object.setup(card_name)
+		upgrade_card_object.setup(upgradable_cards[index].instance_self(true))
 		upgrade_card_object.index = index
 		upgrade_card_object.connect("card_selected", self, "_on_card_upgrade_selected", [upgrade_card_object])
 #	yield(get_tree().create_timer(0.15), "timeout")
@@ -44,6 +44,4 @@ func _on_card_upgrade_selected(option: int, draft_card_object) -> void:
 	if typeof(select_return) == TYPE_ARRAY:
 		draft_card_object.disconnect("card_selected", self, "_on_card_upgrade_selected")
 		draft_card_object.display_card.card_front.apply_shader("res://shaders/grayscale.shader")
-		globals.player.deck.remove_card(upgradable_cards[option])
-		# warning-ignore:return_value_discarded
-		globals.player.deck.add_new_card(select_return[0])
+		globals.player.deck.upgrade_card(upgradable_cards[option], select_return[0])

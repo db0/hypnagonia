@@ -36,11 +36,13 @@ var upgrades: Dictionary
 # the same card
 var upgrade_options : Array
 var properties := {}
+var printed_properties := {}
 
 
 func _init(_card_name: String) -> void:
 	card_name = _card_name
 	properties = cfc.card_definitions.get(card_name, {}).duplicate(true)
+	printed_properties = cfc.card_definitions.get(card_name, {}).duplicate(true)
 	# If the key is not set, it means the card is not upgradable
 	upgrade_threshold = properties.get("_upgrade_threshold_modifier", -1)
 	# if it is set, then it is modifying the card's standard upgrade threshold based on its rarity
@@ -61,6 +63,7 @@ func instance_self(is_display_card:= false) -> Card:
 	if not is_display_card:
 		card_object = new_card_object
 	new_card_object.properties = properties
+	new_card_object.printed_properties = printed_properties
 	new_card_object.deck_card_entry = self
 	return(new_card_object)
 

@@ -3,6 +3,7 @@ extends Reference
 
 signal card_added(card)
 signal card_removed(card)
+signal card_upgrade_ended(old_card, new_card)
 
 var cards: Array
 var deck_groups : Dictionary
@@ -51,6 +52,11 @@ func remove_card(card_entry: CardEntry) -> void:
 	elif OS.has_feature("debug"):
 		print("DEBUG INFO:Deck: Card Removal Block because: Last card in deck")
 
+
+func upgrade_card(card_entry: CardEntry, card_name) -> void:
+	remove_card(card_entry)
+	var new_card_entry := add_new_card(card_name)
+	emit_signal("card_upgrade_ended", card_entry, new_card_entry)
 
 func list_all_cards(sorted:= false) -> Array:
 	var card_list := []

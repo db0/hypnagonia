@@ -2,6 +2,7 @@ class_name IntentScripts
 extends Resource
 
 export(StreamTexture) var ICON_ATTACK := preload("res://assets/icons/terror.png")
+export(StreamTexture) var ICON_PIERCE := preload("res://assets/icons/pierced-heart.png")
 export(StreamTexture) var ICON_DEFEND := preload("res://assets/icons/shield.png")
 export(StreamTexture) var ICON_DEBUFF := preload("res://assets/icons/cursed-star.png")
 export(StreamTexture) var ICON_BUFF := preload("res://assets/icons/growth.png")

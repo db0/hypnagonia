@@ -329,6 +329,24 @@ const ACTIVE_EFFECTS := {
 		"noscript": true,
 		"icon": preload("res://assets/icons/brain-freeze.png"),
 	},
+	"effect_immunity": {
+		"name": "Immunity",
+		"type": "Special",
+		"description": "{effect_name}: {entity} is not affected by {upgrade}.",
+		"icon": preload("res://assets/icons/antibody.png"),
+	},
+	"effect_resistance": {
+		"name": "Resistance",
+		"type": "Special",
+		"description": "{effect_name}: {entity} receives only half the amount of {upgrade}.",
+		"icon": preload("res://assets/icons/armor-upgrade.png"),
+	},
+	"effect_vulnerability": {
+		"name": "Vulnerability",
+		"type": "Special",
+		"description": "{effect_name}: {entity} receives double the amount of {upgrade}.",
+		"icon": preload("res://assets/icons/armor-downgrade.png"),
+	},
 	# Below are unique effects. Typically from concentrations
 	"laugh_at_danger":  {
 		"name": "Laugh at Danger",

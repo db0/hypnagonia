@@ -40,15 +40,16 @@ func _ready() -> void:
 func set_stacks(value: int, tags := ["Manual"], can_go_negative := false) -> void:
 	if value < 0 and not can_go_negative:
 		value = 0
-	owning_entity.emit_signal(
-			"effect_modified",
-			owning_entity,
-			"effect_modified",
-			{"effect_name": name,
-			"effect_node": self,
-			SP.TRIGGER_PREV_COUNT: stacks,
-			SP.TRIGGER_NEW_COUNT: value,
-			"tags": tags})
+	if not "Init" in tags:
+		owning_entity.emit_signal(
+				"effect_modified",
+				owning_entity,
+				"effect_modified",
+				{"effect_name": name,
+				"effect_node": self,
+				SP.TRIGGER_PREV_COUNT: stacks,
+				SP.TRIGGER_NEW_COUNT: value,
+				"tags": tags})
 	if value == 0:
 		queue_free()
 	else:
@@ -99,6 +100,7 @@ func _set_current_description() -> void:
 	# warning-ignore:integer_division
 	format["half_amount"] = str(stacks/2)
 	format["increased"] = "increased"
+	format["upgrade"] = upgrade
 	if stacks < 0:
 		format["increased"] = "decreased"
 		format["amount"] = str(abs(stacks))
@@ -125,7 +127,7 @@ func _get_effect_description() -> String:
 				default_desc = default_desc.format(card_reference.get("_amounts", {}))
 	return(default_desc)
 
-# Returns the lowercase name of the token
+# Returns the lowercase name of the token, including its upgrade modifier
 func get_effect_name() -> String:
 	return(name)
 
@@ -191,7 +193,9 @@ func _on_player_turn_started(_turn: Turn) -> void:
 		_decrease_stacks()
 
 func _on_enemy_turn_ended(_turn: Turn) -> void:
-	if entity_type == Terms.ENEMY and self_decreasing == Terms.SELF_DECREASE.TURN_END:
+	if is_delayed:
+		is_delayed = false
+	elif entity_type == Terms.ENEMY and self_decreasing == Terms.SELF_DECREASE.TURN_END:
 		_decrease_stacks()
 
 func _on_enemy_turn_started(_turn: Turn) -> void:

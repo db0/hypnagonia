@@ -56,12 +56,13 @@ var thresholds := {
 # Adjusts the amount of pathos released when the encounter is selected.
 # This ensures that when that type of encounter is skipped one or more times,
 # then selecting it will keep decreasing more than it's increasing.
-# Default is 1 for pathos not listed below, which means every time they are
+# Default is 1.3 for pathos not listed below, which means every time they are
 # selected, they will transfer as much from represed to released equal to
 # their accumulation average * threshold
 var release_adjustments := {
-	Terms.RUN_ACCUMULATION_NAMES.enemy: 2.0,
+	Terms.RUN_ACCUMULATION_NAMES.enemy: 3.0,
 	Terms.RUN_ACCUMULATION_NAMES.rest: 2.0,
+	Terms.RUN_ACCUMULATION_NAMES.nce: 1.75,
 }
 
 var released := {}
@@ -134,7 +135,7 @@ func release(entry: String) -> int:
 func get_release_amount(entry: String) -> float:
 	var release_amount := get_threshold(entry)
 #	print_debug([release_amount, release_adjustments.get(entry,1.0), release_amount * release_adjustments.get(entry,1.0)])
-	release_amount *= release_adjustments.get(entry,1.0)
+	release_amount *= release_adjustments.get(entry,1.3)
 	return(release_amount)
 
 

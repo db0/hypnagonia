@@ -400,7 +400,7 @@ func _input(event):
 #			c.upgrade_progress = 100
 #		_reveal_entry(upgrade_journal, true)
 #		globals.player.add_artifact(ArtifactDefinitions.AddOmegaTag.canonical_name)
-#		globals.player.add_artifact(ArtifactDefinitions.AddAlphaTag.canonical_name)
+		globals.player.add_artifact(ArtifactDefinitions.FreeCard.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.GainMaxHealth.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.HealSelf.canonical_name)
@@ -412,17 +412,22 @@ func _input(event):
 #		globals.player.deck.add_new_card("Prejudice")
 #		globals.player.damage += 20
 #		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.boss, 100)
-		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 200)
+		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 100)
+		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.enemy, 100)
+		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, 70)
+		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.elite, 70)
+		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, 50)
+		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.rest, 80)
 		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 200)
 		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, 200)
 		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, 200)
 #		globals.player.damage = 85
 		var debug_encounters = [
-			EnemyEncounter.new(Act1.Murmurs, "easy"),
-			preload("res://src/dreamscape/Run/NCE/Act1/Dollmaker.gd").new(),
-			BossEncounter.new(Act1.BOSSES["Narcissus"]),
-#			EliteEncounter.new(Act2.IndescribableAbsurdity, "medium"),
-			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
+#			EnemyEncounter.new(Act1.Murmurs, "easy"),
+			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
+#			BossEncounter.new(Act1.BOSSES["Narcissus"]),
+			EliteEncounter.new(Act1.Bully, "medium"),
+#			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
 		]
 		for encounter in debug_encounters:
 			var journal_choice_scene = JOURNAL_ENCOUNTER_CHOICE_SCENE.instance()
