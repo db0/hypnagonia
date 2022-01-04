@@ -430,8 +430,8 @@ func _input(event):
 		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.SpikeEnemy.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.impervious.name, 13)
-#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.unconventional.name, 1, false, false, ['Debug'], 'weirdly')
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.impervious.name, 13)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1, false, false, ['Debug'], 'thick')
 		for c in [
 			# Need to look into these two later
 #			"Fowl Language",
