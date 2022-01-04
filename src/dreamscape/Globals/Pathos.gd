@@ -289,7 +289,7 @@ func get_pathos_org(type := "released", include_zeroes := false) -> Dictionary:
 # Checks what the chance is for the specified pathos to provide an encounter
 # based on all the other repressed pathos in comparison to itself
 # Takes into account thresholds and the progression of between encounters
-func calculate_chance_for_encounter(entry: String, include_next_progression := true) -> int:
+func calculate_chance_for_encounter(entry: String, include_next_progression := true, modification: float = 0) -> int:
 	if not entry in repressed:
 		return(-1)
 	# If the boss is going to appear, all other encounters have 0 chance.
@@ -304,13 +304,13 @@ func calculate_chance_for_encounter(entry: String, include_next_progression := t
 		if pathos_entry == Terms.RUN_ACCUMULATION_NAMES.boss:
 			continue
 		if include_next_progression:
-			progression = progressions[pathos_entry].back()
+			progression += progressions[pathos_entry].back()
 		var pathos_entry_total : float = repressed[pathos_entry] + progression
 		if pathos_entry_total >= get_threshold(pathos_entry):
 			total += repressed[pathos_entry] + progression
-	progression = 0
+	progression = modification
 	if include_next_progression:
-		progression = progressions[entry].back()
+		progression += progressions[entry].back()
 	var entry_total : float = repressed[entry] + progression
 	var chance: int
 	if entry_total >= get_threshold(entry):

@@ -11,6 +11,9 @@ const SELECTION_DECK_SCENE = preload("res://src/dreamscape/SelectionDeck.tscn")
 const CARD_PREVIEW_SCENE = preload("res://src/dreamscape/MainMenu/StartingCardPreviewObject.tscn")
 const ARTIFACT_PREVIEW_SCENE = preload("res://src/dreamscape/MainMenu/ArtifactPreviewPopup.tscn")
 const JOURNAL_ENCOUNTER_CHOICE_SCENE = preload("res://src/dreamscape/Overworld/JournalEncounterChoiceScene.tscn")
+const PATHOS_INFO_SCENE = preload("res://src/dreamscape/PathosChangeInfo.tscn")
+
+var pathos_infos := {}
 
 onready var page_illustration := $HBC/MC/JournalPageIllustration
 onready var page_shader := $HBC/MC/JournalPageShader
@@ -29,6 +32,9 @@ onready var custom_entries_pointer := $HBC/JournalEntry/VBC/CustomEntriesPointer
 onready var _tween := $Tween
 onready var _description_label := $MetaDescription/Label
 onready var _description_popup := $MetaDescription
+onready var pathos_details_popup := $PathosDetails
+onready var _pathos_details_list := $PathosDetails/VBC
+onready var _pathos_description := $PathosDetails/VBC/Description
 onready var player_info := $"../PlayerInfo"
 onready var journal_cover := $"../../FadeToBlack"
 
@@ -63,7 +69,15 @@ func _ready() -> void:
 	if not cfc.game_settings.get('first_journal_tutorial_done'):
 		player_info._on_Help_pressed()
 		cfc.set_setting('first_journal_tutorial_done', true)
+	if globals.player.pathos:
+		for entry in globals.player.pathos.repressed:
+			var pinfo = PATHOS_INFO_SCENE.instance()
+#			_pathos_details_list.add_child(pinfo)
+			_pathos_details_list.add_child_below_node($PathosDetails/VBC/Header, pinfo)
+			pathos_infos[entry] = pinfo
+			pinfo.setup(entry)
 	globals.music.switch_scene_music('journal')
+	
 	if OS.has_feature("debug"):
 		print("DEBUG INFO:Journal: Journal Loaded")
 
@@ -390,6 +404,15 @@ func show_description_popup(description_text: String) -> void:
 	_description_popup.rect_global_position = get_local_mouse_position() + Vector2(20,-5)
 	if _description_popup.rect_global_position.x + _description_popup.rect_size.x > get_viewport().size.x:
 		_description_popup.rect_global_position.x = get_viewport().size.x - _description_popup.rect_size.x
+
+
+func show_pathos_popup(description_text: String, pathos_dict: Dictionary) -> void:
+	_pathos_description.bbcode_text = description_text
+	for entry in pathos_infos:
+		pathos_infos[entry].update_labels(pathos_dict[entry]["repress_mod"],pathos_dict[entry]["release_mod"])
+	pathos_details_popup.visible = true
+	pathos_details_popup.rect_size = Vector2(0,0)
+	pathos_details_popup.rect_global_position = get_local_mouse_position() + Vector2(-pathos_details_popup.rect_size.x - 10,-5)
 
 
 func _input(event):

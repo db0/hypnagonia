@@ -40,6 +40,16 @@ const RUN_ACCUMULATION_NAMES := {
 	"artifact": "desire",
 	"boss": "closure",
 }
+
+const RUN_ACCUMULATION_TYPES := {
+	RUN_ACCUMULATION_NAMES.enemy: "Normal Torment",
+	RUN_ACCUMULATION_NAMES.rest: "Rest",
+	RUN_ACCUMULATION_NAMES.nce: "Non-Ordeal Encounter",
+	RUN_ACCUMULATION_NAMES.shop: "Shop",
+	RUN_ACCUMULATION_NAMES.elite: "Elite Torment",
+	RUN_ACCUMULATION_NAMES.artifact: "Curio",
+	RUN_ACCUMULATION_NAMES.boss: "Boss",
+}
 # The strings in brackets, are automatically replaced with icons
 # in rich text labels
 const PLAYER_HEALTH := "{anxiety}"
