@@ -67,7 +67,7 @@ const TheLaughingOnes = {
 			}
 		],
 	},
-	"journal_art": preload("res://assets/journal/the_laughing_one.jpeg"),
+	"journal_art": preload("res://assets/journal/torments/the_laughing_one.jpeg"),
 }
 
 
@@ -76,7 +76,7 @@ const Fearmonger = {
 		'Was that [url={torment_tag1}]a curious owl with three eyes[/url] staring at me?',
 	"journal_reward":\
 		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
-	"journal_art": preload("res://assets/journal/fearmonger.jpeg"),
+	"journal_art": preload("res://assets/journal/torments/fearmonger.jpeg"),
 	"enemies": {
 		"easy": [
 			{
@@ -128,7 +128,7 @@ const Gaslighter = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/gaslighter.jpeg"),
+	"journal_art": preload("res://assets/journal/torments/gaslighter.jpeg"),
 }
 
 
@@ -168,7 +168,7 @@ const Murmurs = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/murmurs.jpeg"),
+	"journal_art": preload("res://assets/journal/torments/murmurs.jpeg"),
 }
 
 
@@ -213,7 +213,7 @@ const TheCritic = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/the_critic.jpeg"),
+	"journal_art": preload("res://assets/journal/torments/the_critic.jpeg"),
 }
 
 
@@ -247,7 +247,7 @@ const Clown = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/clown.jpeg"),
+	"journal_art": preload("res://assets/journal/torments/clown.jpeg"),
 }
 
 
@@ -281,7 +281,7 @@ const Butterfly = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/butterfly.jpeg"),
+	"journal_art": preload("res://assets/journal/torments/butterfly.jpeg"),
 }
 
 
@@ -326,7 +326,7 @@ const BrokenMirrors = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/broken_mirror.jpg"),
+	"journal_art": preload("res://assets/journal/torments/broken_mirror.jpg"),
 }
 
 const Pialephant = {
@@ -360,7 +360,7 @@ const Pialephant = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/pialephant.jpg"),
+	"journal_art": preload("res://assets/journal/torments/pialephant.jpg"),
 }
 const TheLightCalling = {
 	"journal_description":\
@@ -387,7 +387,7 @@ const TheLightCalling = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/the_light_calling.jpeg"),
+	"journal_art": preload("res://assets/journal/torments/the_light_calling.jpeg"),
 }
 const Squirrel = {
 	"journal_description":\
@@ -424,7 +424,7 @@ const Squirrel = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/squirrel.jpg"),
+	"journal_art": preload("res://assets/journal/torments/squirrel.jpg"),
 }
 const Baby = {
 	"journal_description":\
@@ -453,7 +453,7 @@ const Baby = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/baby.jpeg"),
+	"journal_art": preload("res://assets/journal/torments/baby.jpeg"),
 }
 #	{
 #		"journal_description":\
@@ -508,6 +508,7 @@ const RushElite = {
 		'I remember walls enclosing me and no obvious way out...',
 	"journal_reward":\
 		'I finally understood what these infinite twists and turns represented.',
+	'journal_art': preload("res://assets/journal/advanced/labyrinth.jpeg"),
 }
 const Bully = {
 	"scene": preload("res://src/dreamscape/CombatElements/Enemies/Elites/Bully.tscn"),
@@ -515,7 +516,7 @@ const Bully = {
 		'My mind took me back to uncomfortable memories of schoolyard bullying.',
 	"journal_reward":\
 		'This time, I fortunately knew how to respond.',
-	'journal_art': preload("res://assets/journal/bully.jpeg"),
+	'journal_art': preload("res://assets/journal/advanced/bully.jpeg"),
 }
 
 const ELITES = [
@@ -531,7 +532,7 @@ const Narcissus = {
 	"journal_reward":\
 		'Through the many lies and denials, [url=boss_card_draft]I cornered the truth out of them.[/url]'\
 		+ 'and for once felt like [url=boss_artifact]I was getting somewhere[/url].',
-	'journal_art': preload("res://assets/journal/narcissus.jpeg"),
+	'journal_art': preload("res://assets/journal/advanced/narcissus.jpeg"),
 }
 
 const BOSSES := {
@@ -551,7 +552,7 @@ const NCE := {
 	],
 	"risky": [
 		preload("res://src/dreamscape/Run/NCE/Act1/RiskyEvent1.gd"),
-		preload("res://src/dreamscape/Run/NCE/Act1/RiskyEvent2.gd"),
+		preload("res://src/dreamscape/Run/NCE/Act1/Spider.gd"),
 	]
 }
 

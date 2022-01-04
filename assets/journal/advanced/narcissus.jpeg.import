@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/baby.jpeg-0ca002e7bec43ec38801f9678582d043.stex"
+path="res://.import/narcissus.jpeg-886dffbd39d6e15382e90480b90ab1d8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/baby.jpeg"
-dest_files=[ "res://.import/baby.jpeg-0ca002e7bec43ec38801f9678582d043.stex" ]
+source_file="res://assets/journal/advanced/narcissus.jpeg"
+dest_files=[ "res://.import/narcissus.jpeg-886dffbd39d6e15382e90480b90ab1d8.stex" ]
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

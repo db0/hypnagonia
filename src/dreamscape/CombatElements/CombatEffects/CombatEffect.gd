@@ -187,16 +187,20 @@ func _on_player_turn_ended(_turn: Turn) -> void:
 		_decrease_stacks()
 
 func _on_player_turn_started(_turn: Turn) -> void:
-	if is_delayed:
+	if entity_type == Terms.PLAYER and self_decreasing == Terms.SELF_DECREASE.TURN_START:
+		if is_delayed:
+			is_delayed = false
+		else:
+			_decrease_stacks()
+	elif entity_type == Terms.ENEMY and is_delayed:
 		is_delayed = false
-	elif entity_type == Terms.PLAYER and self_decreasing == Terms.SELF_DECREASE.TURN_START:
-		_decrease_stacks()
 
 func _on_enemy_turn_ended(_turn: Turn) -> void:
-	if is_delayed:
-		is_delayed = false
-	elif entity_type == Terms.ENEMY and self_decreasing == Terms.SELF_DECREASE.TURN_END:
-		_decrease_stacks()
+	if entity_type == Terms.ENEMY and self_decreasing == Terms.SELF_DECREASE.TURN_END:
+		if is_delayed:
+			is_delayed = false
+		else:
+			_decrease_stacks()
 
 func _on_enemy_turn_started(_turn: Turn) -> void:
 	if entity_type == Terms.ENEMY and self_decreasing == Terms.SELF_DECREASE.TURN_START:

@@ -1,6 +1,10 @@
 extends SurpriseEncounter
 
-
+const JOURNAL_ART := {
+	"Act1": preload("res://assets/journal/nce/recurrence.jpeg"),
+	"Act2": preload("res://assets/journal/nce/recurrence.jpeg"),
+	"Act3": preload("res://assets/journal/nce/recurrence.jpeg"),
+}
 const RECURRENCE_ELITE = {
 	"scene": preload("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")
 }
@@ -14,11 +18,18 @@ var descriptions := {
 	Act1.get_act_name(): "I recognised the sound. Cracking bark but somehow wet. It made me feel ill hearing it and each snap left a lingering, ghastly anticipation. Not bark...bones. Cracking bones. No...not again...",
 	Act2.get_act_name(): "The cracking sound was doubly shocking as it ricoched around the quiet, restful moment I had been enjoying. It was twice as loud as before and curdled my thoughts, just as I had begun to collect them. I should have known it would return. It always returns. Crack crack, crunch crunch.",
 }
+
+var journal_arts := {
+	Act1.get_act_name(): JOURNAL_ART.Act1,
+	Act2.get_act_name(): JOURNAL_ART.Act2,
+}
+
 var memory_prep: MemoryPrep
 
 
 func _init():
 	description = descriptions[globals.encounters.current_act.get_act_name()]
+	prepare_journal_art(journal_arts[globals.encounters.current_act.get_act_name()])
 
 
 func begin() -> void:

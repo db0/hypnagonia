@@ -20,6 +20,9 @@ func predict(_snapshot_id: int) -> void:
 	snapshot_id = _snapshot_id
 	_predict_script_amount()
 
+
+# Handles the predictions requested from predict() or _on_potential_target_found()
+# Adds prediction icons on all relevant entities.
 func _predict_script_amount(hardcoded_previous_subjects := []) -> void:
 	run_type = CFInt.RunType.COST_CHECK
 	var prev_subjects := hardcoded_previous_subjects
@@ -62,6 +65,8 @@ func _predict_script_amount(hardcoded_previous_subjects := []) -> void:
 				var prediction_icon = null
 				if script.script_name == "apply_effect":
 					prediction_icon = Terms.get_term_value(script.get_property("effect_name"), "icon")
+				elif script.script_name == "assign_defence":
+					prediction_icon = Terms.get_term_value("Confidence", "icon")
 				entity.show_predictions(amount, prediction_icon)
 				var snapshot_method = "snapshot_" + script.script_name
 				if has_method(snapshot_method):

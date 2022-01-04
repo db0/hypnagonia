@@ -37,9 +37,9 @@ func setup(_name: String, pathos_description: Label) -> void:
 	name_label.text = _name.capitalize()
 	name = _name
 	description = pathos_description
-	update()
+	update_labels()
 	
-func update() -> void:
+func update_labels() -> void:
 	repressed_label.text = str(floor(globals.player.pathos.repressed[name]))
 	released_label.text = str(floor(globals.player.pathos.released[name]))
 

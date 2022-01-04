@@ -40,6 +40,16 @@ const RUN_ACCUMULATION_NAMES := {
 	"artifact": "desire",
 	"boss": "closure",
 }
+
+const RUN_ACCUMULATION_TYPES := {
+	RUN_ACCUMULATION_NAMES.enemy: "Normal Torment",
+	RUN_ACCUMULATION_NAMES.rest: "Rest",
+	RUN_ACCUMULATION_NAMES.nce: "Non-Ordeal Encounter",
+	RUN_ACCUMULATION_NAMES.shop: "Shop",
+	RUN_ACCUMULATION_NAMES.elite: "Elite Torment",
+	RUN_ACCUMULATION_NAMES.artifact: "Curio",
+	RUN_ACCUMULATION_NAMES.boss: "Boss",
+}
 # The strings in brackets, are automatically replaced with icons
 # in rich text labels
 const PLAYER_HEALTH := "{anxiety}"
@@ -124,7 +134,8 @@ const ACTIVE_EFFECTS := {
 		# This effect only works when assigned to the Dreamer
 		"is_dreamer_only": true,
 		# This is handled in the code to avoid reducing before the effect fires
-		"self_decreasing": SELF_DECREASE.FALSE,
+		"self_decreasing": SELF_DECREASE.TURN_START,
+		"decrease_type": DECREASE_TYPE.ZERO,
 		"icon": preload("res://assets/icons/star-struck.png"),
 		"generic_description": "{effect_name}: Provides delayed Immersion.",
 		"rich_text_icon": "res://fonts/rich_text_icons/star-struck.png",
@@ -137,7 +148,8 @@ const ACTIVE_EFFECTS := {
 		# This effect only works when assigned to the Dreamer
 		"is_dreamer_only": true,
 		# This is handled in the code to avoid reducing before the effect fires
-		"self_decreasing": SELF_DECREASE.FALSE,
+		"self_decreasing": SELF_DECREASE.TURN_START,
+		"decrease_type": DECREASE_TYPE.ZERO,
 		"icon": preload("res://assets/icons/shrug.png"),
 		"generic_description": "{effect_name}: Delayed Immersion loss.",
 		"rich_text_icon": "res://fonts/rich_text_icons/shrug.png",
@@ -219,7 +231,8 @@ const ACTIVE_EFFECTS := {
 		"name": "Doubt",
 		"type": "Debuff",
 		# This is handled in the code to avoid reducing before the effect fires
-		"self_decreasing": SELF_DECREASE.FALSE,
+		"self_decreasing": SELF_DECREASE.TURN_START,
+		"decrease_type": DECREASE_TYPE.REDUCE,
 		"icon": preload("res://assets/icons/coma.png"),
 		"generic_description": "{effect_name}: Automatically adds unpreventable interpretation each turn.",
 		"rich_text_icon": "res://fonts/rich_text_icons/coma.png",
@@ -231,7 +244,8 @@ const ACTIVE_EFFECTS := {
 		"name": "Envy",
 		"type": "Debuff",
 		# This is handled in the code to avoid reducing before the effect fires
-		"self_decreasing": SELF_DECREASE.FALSE,
+		"self_decreasing": SELF_DECREASE.TURN_END,
+		"decrease_type": DECREASE_TYPE.REDUCE,
 		"icon": preload("res://assets/icons/wrapped-heart.png"),
 		"generic_description": "{effect_name}: Automatically adds preventable interpretation each turn.",
 		"rich_text_icon": "res://fonts/rich_text_icons/wrapped-heart.png",
@@ -522,6 +536,16 @@ const ACTIVE_EFFECTS := {
 # A way to map generic names to thematic names, so that I can perform
 # a rename later if needed
 const GENERIC_TAGS := {
+	"defence": {
+		"name": "Confidence",
+		"icon": preload("res://assets/icons/shield.png"),
+		"rich_text_icon": "res://fonts/rich_text_icons/shield.png",
+		"generic_description": "{effect_name} ({effect_icon}): Prevents Dreamer from taking {anxiety} from {stress}."},
+	"attack": {
+		"name": "Interpretation",
+		"icon": preload("res://assets/icons/magnifying-glass.png"),
+		"rich_text_icon": "res://fonts/rich_text_icons/magnifying-glass.png",
+		"generic_description": "{effect_name} ({effect_icon}): Increases {damage} on Torments"},
 	"risky": {
 		"name": "Risky",
 		"icon": preload("res://assets/icons/tightrope.png"),

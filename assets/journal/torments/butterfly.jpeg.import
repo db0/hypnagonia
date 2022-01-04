@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pialephant.jpg-a0972be22549b4f38c796a06ee8800aa.stex"
+path="res://.import/butterfly.jpeg-589fb8bd319c5d84b6448160a2cad343.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/pialephant.jpg"
-dest_files=[ "res://.import/pialephant.jpg-a0972be22549b4f38c796a06ee8800aa.stex" ]
+source_file="res://assets/journal/torments/butterfly.jpeg"
+dest_files=[ "res://.import/butterfly.jpeg-589fb8bd319c5d84b6448160a2cad343.stex" ]
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

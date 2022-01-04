@@ -172,7 +172,7 @@ func _on_Pathos_pressed() -> void:
 	SoundManager.play_se('click')
 	_pathos_details.popup_centered_minsize()
 	for entry in pathos_infos:
-		pathos_infos[entry].update()
+		pathos_infos[entry].update_labels()
 	_pathos_details.rect_global_position =\
 		_pathos_button.rect_global_position + Vector2(-_pathos_details.rect_size.x,50)
 

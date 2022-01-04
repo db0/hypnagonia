@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/the_critic.jpeg-ed3c4abe4c608f6ddb1e4d1632707d22.stex"
+path="res://.import/the_laughing_one.jpeg-fe5327ccf25e0bac89d76ccfeded19d6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/the_critic.jpeg"
-dest_files=[ "res://.import/the_critic.jpeg-ed3c4abe4c608f6ddb1e4d1632707d22.stex" ]
+source_file="res://assets/journal/torments/the_laughing_one.jpeg"
+dest_files=[ "res://.import/the_laughing_one.jpeg-fe5327ccf25e0bac89d76ccfeded19d6.stex" ]
 
 [params]
 

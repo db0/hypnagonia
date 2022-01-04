@@ -29,6 +29,7 @@ var printed_properties := {}
 func _ready() -> void:
 	# warning-ignore:return_value_discarded
 	connect("card_played", cfc.signal_propagator, "_on_signal_received")
+	connect("state_changed", self, "_on_state_changed")
 
 
 func _process(delta: float) -> void:
@@ -316,6 +317,17 @@ func execute_scripts(
 	for entity in cfc.get_tree().get_nodes_in_group("CombatEntities"):
 		entity.clear_predictions()
 
+
+func get_state_exec() -> String:
+	var state_exec = .get_state_exec()
+	# We don't check according to the parent name
+	# as that can change.
+	# Might consier checking on the parent class if this gets too complicated.
+	if state == CardState.DRAGGED:
+		state_exec = "hand"
+	return(state_exec)
+
+
 func common_pre_execution_scripts(_trigger: String, trigger_details: Dictionary) -> void:
 	# We inject the amount of immersion we have into the trigger details
 	# So that it may be used for filter_x_amount if it exists
@@ -453,3 +465,17 @@ func _process_more_card_inputs(event) -> void:
 				upgrade_options, 0, "display", false, cfc.NMAP.board)
 		if select_return is GDScriptFunctionState: # Still working.
 			select_return = yield(select_return, "completed")
+
+
+func _start_dragging(drag_offset: Vector2) -> void:
+	._start_dragging(drag_offset)
+	if is_executing_scripts:
+		return
+	var sceng = .execute_scripts(self, "manual", {}, true)
+
+
+func _on_state_changed(_card: Card, old_state: int, _new_state: int) -> void:
+	if old_state == CardState.DRAGGED:
+		for entity in cfc.get_tree().get_nodes_in_group("CombatEntities"):
+			entity.clear_predictions()
+	

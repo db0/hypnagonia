@@ -247,7 +247,7 @@ const ClownShow = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/pialephant.jpg"),
+	"journal_art": preload("res://assets/journal/torments/pialephant.jpg"),
 }
 
 const ENEMIES = [

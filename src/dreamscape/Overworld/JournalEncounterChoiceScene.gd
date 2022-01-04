@@ -13,16 +13,26 @@ func setup(_journal, encounter: SingleEncounter) -> void:
 	pathos_icon.texture = CFUtils.convert_texture_to_image("res://assets/icons/GUI/drama-masks.png")
 
 func _on_PathosIcon_mouse_entered() -> void:
-	var pathos_desc := "Choosing this encounter, will release {pathos_amount} {pathos_name}"
-	var desc_format := {
-		"pathos_amount": globals.player.pathos.get_final_release_amount(pathos_released),
-		"pathos_name": pathos_released,
+	var pathos_desc := "Choosing this encounter, will release %s %s.\n\n"\
+			% [globals.player.pathos.get_final_release_amount(pathos_released), pathos_released]\
+			+ "Next journal entry's encounter will be adjusted as follows:"
+	var pathos_dict := { 
+		pathos_released: {
+			"release_mod": globals.player.pathos.get_final_release_amount(pathos_released),
+			"repress_mod": -globals.player.pathos.get_final_release_amount(pathos_released),
+		}
 	}
-	journal_choice.journal.show_description_popup(pathos_desc.format(desc_format))
+	for pathos in Terms.RUN_ACCUMULATION_NAMES.values():
+		if pathos != pathos_released:
+			pathos_dict[pathos] = {
+					"release_mod": 0,
+					"repress_mod": 0,
+				}
+	journal_choice.journal.show_pathos_popup(pathos_desc, pathos_dict)
 
 
 func _on_PathosIcon_mouse_exited() -> void:
-	journal_choice.journal._description_popup.visible = false
+	journal_choice.journal.pathos_details_popup.visible = false
 
 
 func disable_mouse_inputs() -> void:

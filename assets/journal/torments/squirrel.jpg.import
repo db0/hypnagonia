@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/clown.jpeg-bae1e04be6524feec3672a703697f63c.stex"
+path="res://.import/squirrel.jpg-956e62d8326ee4fd8784880fcaaba0ef.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/clown.jpeg"
-dest_files=[ "res://.import/clown.jpeg-bae1e04be6524feec3672a703697f63c.stex" ]
+source_file="res://assets/journal/torments/squirrel.jpg"
+dest_files=[ "res://.import/squirrel.jpg-956e62d8326ee4fd8784880fcaaba0ef.stex" ]
 
 [params]
 

@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bully.jpeg-dd872a86bd7c31d489d7346a6ca556a1.stex"
+path="res://.import/murmurs.jpeg-99940aaa7f030405605e326122296c25.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/bully.jpeg"
-dest_files=[ "res://.import/bully.jpeg-dd872a86bd7c31d489d7346a6ca556a1.stex" ]
+source_file="res://assets/journal/torments/murmurs.jpeg"
+dest_files=[ "res://.import/murmurs.jpeg-99940aaa7f030405605e326122296c25.stex" ]
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

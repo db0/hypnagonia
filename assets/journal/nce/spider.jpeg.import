@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gaslighter.jpeg-3d406bab4c4e1ccdd06f04e45c653d36.stex"
+path="res://.import/spider.jpeg-a27ea450cc89a36941263e14398f37f1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/gaslighter.jpeg"
-dest_files=[ "res://.import/gaslighter.jpeg-3d406bab4c4e1ccdd06f04e45c653d36.stex" ]
+source_file="res://assets/journal/nce/spider.jpeg"
+dest_files=[ "res://.import/spider.jpeg-a27ea450cc89a36941263e14398f37f1.stex" ]
 
 [params]
 

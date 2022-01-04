@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/the_laughing_one.jpeg-04743ab06fc192ca4f06a1aa4f3a3908.stex"
+path="res://.import/bully.jpeg-b7d5be3981885afc41242789e0025b70.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/the_laughing_one.jpeg"
-dest_files=[ "res://.import/the_laughing_one.jpeg-04743ab06fc192ca4f06a1aa4f3a3908.stex" ]
+source_file="res://assets/journal/advanced/bully.jpeg"
+dest_files=[ "res://.import/bully.jpeg-b7d5be3981885afc41242789e0025b70.stex" ]
 
 [params]
 
