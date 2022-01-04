@@ -3,20 +3,19 @@
 extends NonCombatEncounter
 
 var secondary_choices := {
-		'option1': '[Option1]: Recover 10 {anxiety}. Gain {boss_amount} repressed {boss_pathos}',
-		'option2': '[Option2]: Gain 10 {anxiety} threshold. Gain {boss_amount} repressed {boss_pathos}. Gain {elite_amount} represed {elite_pathos}',
-		'option3': '[Option3]: Take 10 {anxiety}.',
+		'option1': '[Eat the spider]: Recover 10 {anxiety}. Gain {boss_amount} repressed {boss_pathos}',
+		'option2': '[Wave at the spider]: Gain 10 {anxiety} threshold. Gain {boss_amount} repressed {boss_pathos}. Gain {elite_amount} represed {elite_pathos}',
+		'option3': '[Offer yourself to the spider]: Take 10 {anxiety}.',
 	}
 
 var nce_result_fluff := {
-		'option1': 'I felt I was close to whoever was behind this dream...',
-		'option2': 'A sense of dread was surrounding me.',
-		'option3': 'This was getting way too stressful.',
+		'option1': 'The meal calms me, but I feel as if I am going nowhere.',
+		'option2': 'The spider waved back at me hesitantly. I feel more prepared to deal with whatever lies ahead... But will you ever meet the spider again? And will it be as friendly?',
+		'option3': 'As soon as I bow to the spider, my hand sprouts a million eyes and scuttles away. I can still feel my heart thundering.',
 	}
 
 func _init():
-	# TODO: Add story
-	description = "<Risky Dream 2 - Story Fluff to be Done>. Select one Option...."
+	description = "A spider was looking at me with a thousand eyes. Its intentions are unfathomable."
 
 func begin() -> void:
 	.begin()
