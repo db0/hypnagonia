@@ -1,5 +1,19 @@
 # Changelog
 
+## [v0.25.0](https://github.com/db0/hypnagonia/tree/v0.25.0) (2022-01-04)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.24.7...v0.25.0)
+
+**Closed issues:**
+
+- Notes on winning and losing, for balancing [\#149](https://github.com/db0/hypnagonia/issues/149)
+- Nice Warm Meal Curio didn't proc [\#148](https://github.com/db0/hypnagonia/issues/148)
+
+**Merged pull requests:**
+
+- More Recurrence! [\#150](https://github.com/db0/hypnagonia/pull/150) ([db0](https://github.com/db0))
+- ArtifactDefinitions.gd: Fix AddOmega artifact description, explain [\#147](https://github.com/db0/hypnagonia/pull/147) ([simply-peachy](https://github.com/simply-peachy))
+
 ## [v0.24.7](https://github.com/db0/hypnagonia/tree/v0.24.7) (2022-01-03)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.24.6...v0.24.7)
