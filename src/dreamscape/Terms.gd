@@ -522,6 +522,16 @@ const ACTIVE_EFFECTS := {
 # A way to map generic names to thematic names, so that I can perform
 # a rename later if needed
 const GENERIC_TAGS := {
+	"defence": {
+		"name": "Confidence",
+		"icon": preload("res://assets/icons/shield.png"),
+		"rich_text_icon": "res://fonts/rich_text_icons/shield.png",
+		"generic_description": "{effect_name} ({effect_icon}): Prevents Dreamer from taking {anxiety} from {stress}."},
+	"attack": {
+		"name": "Interpretation",
+		"icon": preload("res://assets/icons/magnifying-glass.png"),
+		"rich_text_icon": "res://fonts/rich_text_icons/magnifying-glass.png",
+		"generic_description": "{effect_name} ({effect_icon}): Increases {damage} on Torments"},
 	"risky": {
 		"name": "Risky",
 		"icon": preload("res://assets/icons/tightrope.png"),
