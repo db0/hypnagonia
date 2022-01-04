@@ -22,7 +22,7 @@ func _init():
 	description = "I was standing on top of a dollmaker cowering on the floor.\n\n" \
 			+ "I was upset. I don't know why, but I was very angry.\n"\
 			+ "What did I do..?"
-	prepare_journal_art({"journal_art": preload("res://assets/journal/dollmaker.jpeg")})
+	prepare_journal_art(preload("res://assets/journal/dollmaker.jpeg"))
 
 func begin() -> void:
 	.begin()

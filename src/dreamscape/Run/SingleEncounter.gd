@@ -28,8 +28,13 @@ func game_over() -> void:
 	emit_signal("encounter_end", self)
 
 
-func prepare_journal_art(encounter: Dictionary) -> void:
-	var tex = encounter.get("journal_art")
+func prepare_journal_art(value) -> void:
+	var tex: StreamTexture
+	match typeof(value):
+		TYPE_DICTIONARY:
+			tex = value.get("journal_art")
+		_:
+			tex = value
 	if tex:
 		journal_art = ImageTexture.new();
 		var image = tex.get_data()

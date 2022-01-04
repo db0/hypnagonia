@@ -17,7 +17,6 @@ const ARTIFACT_POPUP_DICT := {
 
 var reward_description: String
 
-
 func _init() -> void:
 	pathos_released = Terms.RUN_ACCUMULATION_NAMES.nce
 

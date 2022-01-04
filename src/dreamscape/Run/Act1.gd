@@ -508,6 +508,7 @@ const RushElite = {
 		'I remember walls enclosing me and no obvious way out...',
 	"journal_reward":\
 		'I finally understood what these infinite twists and turns represented.',
+	'journal_art': preload("res://assets/journal/labyrinth.jpeg"),
 }
 const Bully = {
 	"scene": preload("res://src/dreamscape/CombatElements/Enemies/Elites/Bully.tscn"),
