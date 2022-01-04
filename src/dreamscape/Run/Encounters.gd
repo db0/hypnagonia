@@ -77,11 +77,11 @@ func generate_journal_choices() -> Array:
 	var enemy_pathos_avg = globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.enemy)
 	var elite_pathos_avg = globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.elite)
 	var boss_pathos_avg = globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.boss)
+	var difficulty : String
 	for option in new_options:
 		match option:
 			Terms.RUN_ACCUMULATION_NAMES.enemy:
 				var next_enemy = remaining_enemies.pop_back()
-				var difficulty : String
 				if globals.player.pathos.repressed[option] < enemy_pathos_avg * 2\
 						and globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.boss] < boss_pathos_avg * 8:
 					difficulty = "easy"
@@ -101,7 +101,6 @@ func generate_journal_choices() -> Array:
 				journal_options.append(_get_next_nce())
 			Terms.RUN_ACCUMULATION_NAMES.elite:
 				var next_enemy = remaining_elites.pop_back()
-				var difficulty : String
 				if globals.player.pathos.repressed[option] < elite_pathos_avg * 4\
 						and globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.boss] < boss_pathos_avg * 8:
 					difficulty = "easy"
@@ -125,7 +124,7 @@ func generate_journal_choices() -> Array:
 				_debug_enemies.append(e.enemy_scene.get_path())
 		print("DEBUG INFO:Encounters: Encounter choices selected: ", _debug_encounter_paths)
 		if _debug_enemies.size() > 0:
-			print("DEBUG INFO:Encounters: Enemies choices available: ", _debug_enemies)
+			print("DEBUG INFO:Encounters: %s enemies choices available: %s" % [difficulty.capitalize(), _debug_enemies])
 	return(journal_options)
 
 
