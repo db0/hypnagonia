@@ -1,5 +1,23 @@
 # Changelog
 
+## [v0.26.0](https://github.com/db0/hypnagonia/tree/v0.26.0) (2022-01-04)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.25.0...v0.26.0)
+
+**Implemented enhancements:**
+
+- In the journal, when hovering over the pathos icon, it should show current totals and the adjusted encounter chances [\#145](https://github.com/db0/hypnagonia/issues/145)
+
+**Fixed bugs:**
+
+- Cannot steal Clarity buff, but Hyena card still reduces stacks [\#146](https://github.com/db0/hypnagonia/issues/146)
+- Squirrel causes incorrect hover icon on Dreamer [\#138](https://github.com/db0/hypnagonia/issues/138)
+
+**Merged pull requests:**
+
+- Various Improvements and art [\#153](https://github.com/db0/hypnagonia/pull/153) ([db0](https://github.com/db0))
+- Set RiskyEvent3 to spider-fluff [\#151](https://github.com/db0/hypnagonia/pull/151) ([Silberfarben](https://github.com/Silberfarben))
+
 ## [v0.25.0](https://github.com/db0/hypnagonia/tree/v0.25.0) (2022-01-04)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.24.7...v0.25.0)
