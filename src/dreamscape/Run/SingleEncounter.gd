@@ -33,6 +33,8 @@ func prepare_journal_art(value) -> void:
 	match typeof(value):
 		TYPE_DICTIONARY:
 			tex = value.get("journal_art")
+		TYPE_STRING:
+			tex = load(value)
 		_:
 			tex = value
 	if tex:

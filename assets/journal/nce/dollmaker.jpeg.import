@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dollmaker.jpeg-d8075d51cf9702681f77cc824f841d1f.stex"
+path="res://.import/dollmaker.jpeg-842240558e3f67246097e0e0c368c324.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/dollmaker.jpeg"
-dest_files=[ "res://.import/dollmaker.jpeg-d8075d51cf9702681f77cc824f841d1f.stex" ]
+source_file="res://assets/journal/nce/dollmaker.jpeg"
+dest_files=[ "res://.import/dollmaker.jpeg-842240558e3f67246097e0e0c368c324.stex" ]
 
 [params]
 
