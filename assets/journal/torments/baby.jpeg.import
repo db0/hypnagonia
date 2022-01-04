@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/recurrence.jpeg-154f6ae308c42a4e6c7ef2bee323e9c2.stex"
+path="res://.import/baby.jpeg-95e0d640a506ef512b7d44ae2a96fa79.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/recurrence.jpeg"
-dest_files=[ "res://.import/recurrence.jpeg-154f6ae308c42a4e6c7ef2bee323e9c2.stex" ]
+source_file="res://assets/journal/torments/baby.jpeg"
+dest_files=[ "res://.import/baby.jpeg-95e0d640a506ef512b7d44ae2a96fa79.stex" ]
 
 [params]
 

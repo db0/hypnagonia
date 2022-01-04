@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/labyrinth.jpeg-48922ad433b749a177937830acb470f8.stex"
+path="res://.import/fearmonger.jpeg-154944928eecf6e93316eb6c838d96f2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/labyrinth.jpeg"
-dest_files=[ "res://.import/labyrinth.jpeg-48922ad433b749a177937830acb470f8.stex" ]
+source_file="res://assets/journal/torments/fearmonger.jpeg"
+dest_files=[ "res://.import/fearmonger.jpeg-154944928eecf6e93316eb6c838d96f2.stex" ]
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

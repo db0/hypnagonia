@@ -14,7 +14,7 @@ dest_files=[ "res://.import/spider.jpeg-a27ea450cc89a36941263e14398f37f1.stex" ]
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/butterfly.jpeg-899c6384f7d32384416748092f334663.stex"
+path="res://.import/narcissus.jpeg-886dffbd39d6e15382e90480b90ab1d8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/butterfly.jpeg"
-dest_files=[ "res://.import/butterfly.jpeg-899c6384f7d32384416748092f334663.stex" ]
+source_file="res://assets/journal/advanced/narcissus.jpeg"
+dest_files=[ "res://.import/narcissus.jpeg-886dffbd39d6e15382e90480b90ab1d8.stex" ]
 
 [params]
 

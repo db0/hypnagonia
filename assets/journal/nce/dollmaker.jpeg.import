@@ -14,7 +14,7 @@ dest_files=[ "res://.import/dollmaker.jpeg-842240558e3f67246097e0e0c368c324.stex
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

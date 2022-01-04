@@ -63,6 +63,7 @@ var release_adjustments := {
 	Terms.RUN_ACCUMULATION_NAMES.enemy: 3.0,
 	Terms.RUN_ACCUMULATION_NAMES.rest: 2.0,
 	Terms.RUN_ACCUMULATION_NAMES.nce: 1.75,
+	Terms.RUN_ACCUMULATION_NAMES.shop: 1.6,
 }
 
 var released := {}
