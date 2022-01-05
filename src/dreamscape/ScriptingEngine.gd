@@ -561,8 +561,8 @@ func torment_special(script: ScriptTask) -> int:
 		retcode = yield(retcode, "completed")
 	return(retcode)
 
-func calculate_modify_pathos(script: ScriptTask) -> int:
-	var modification: int
+func calculate_modify_pathos(script: ScriptTask) -> float:
+	var modification: float
 	var alteration = 0
 	if str(script.get_property(SP.KEY_AMOUNT)) == SP.VALUE_RETRIEVE_INTEGER:
 		# If the modification is requested, is only applies to stored integers

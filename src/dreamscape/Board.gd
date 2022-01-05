@@ -59,11 +59,11 @@ func _ready() -> void:
 	var dreamer_properties := {
 		"Health": globals.player.health,
 		"Damage": globals.player.damage,
-		"Type": "Dreamer",
+		"Type": Terms.PLAYER,
 		"_texture_size_x": globals.PLAYER_COMBAT_ENTITY_SIZE.x,
 		"_texture_size_y": globals.PLAYER_COMBAT_ENTITY_SIZE.y,
 	}
-	dreamer.setup("Dreamer", dreamer_properties)
+	dreamer.setup(Terms.PLAYER, dreamer_properties)
 	# warning-ignore:return_value_discarded
 	dreamer.connect("entity_killed", self, "_dreamer_died")
 	_player_area.add_child(dreamer)
@@ -397,23 +397,23 @@ func _input(event):
 #		SoundManager.play_bgm(bgm_tracks[0])
 #		SoundManager.fade_in(bgm_tracks[0])
 		# warning-ignore:unused_variable
-		_debug_advanced_enemy()
+#		_debug_advanced_enemy()
 		var _torment1
 		var _torment2
 		var _torment3
-		_torment1 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
-		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+		_torment1 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
+#		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
-#		_torment3 = spawn_enemy(EnemyDefinitions.THE_VICTIM)
+		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 		if _torment1:
-			_torment1.health = 18
+			_torment1.health = 180
 			_torment1.damage = 19
 			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 2)
 			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.effect_resistance.name, 1, false, false, ["Init"], Terms.ACTIVE_EFFECTS.poison.name)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
 		if _torment2:
-			_torment2.health = 11
+			_torment2.health = 110
 			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.marked.name, 1)
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
@@ -426,19 +426,22 @@ func _input(event):
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 3)
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
 		dreamer.health = 1000
-		dreamer.damage = 100
+		dreamer.damage = 990
 #		globals.player.add_artifact(ArtifactDefinitions.ThickExplosion.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.PurpleWave.canonical_name)
 		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.SpikeEnemy.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
-#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.impervious.name, 13)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 12)
 		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1, false, false, ['Debug'], 'thick')
+		for pathos in Terms.RUN_ACCUMULATION_NAMES.values():
+			if pathos != Terms.RUN_ACCUMULATION_NAMES.boss:
+				globals.player.pathos.modify_released_pathos(pathos, globals.player.pathos.get_threshold(pathos))
 		for c in [
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"A Squirrel",
+			"Enough is enough!",
 
 		]:
 			var card = cfc.instance_card(c)
@@ -463,7 +466,7 @@ func _debug_advanced_enemy() -> void:
 #	var advanced_entity: EnemyEntity =\
 #			preload("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn").instance()
 	var advanced_entity: EnemyEntity =\
-			preload("res://src/dreamscape/CombatElements/Enemies/Elites/RushElite.tscn").instance()
+			preload("res://src/dreamscape/CombatElements/Enemies/Bosses/Narcissus.tscn").instance()
 	advanced_entity.setup_advanced("medium")
 	_enemy_area.add_child(advanced_entity)
 #	advanced_entity.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.self_cleaning.name, 1)
