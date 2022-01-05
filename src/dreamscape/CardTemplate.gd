@@ -29,6 +29,7 @@ var printed_properties := {}
 func _ready() -> void:
 	# warning-ignore:return_value_discarded
 	connect("card_played", cfc.signal_propagator, "_on_signal_received")
+# warning-ignore:return_value_discarded
 	connect("state_changed", self, "_on_state_changed")
 
 
@@ -471,11 +472,13 @@ func _start_dragging(drag_offset: Vector2) -> void:
 	._start_dragging(drag_offset)
 	if is_executing_scripts:
 		return
-	var sceng = .execute_scripts(self, "manual", {}, true)
+	var card_scripts = retrieve_scripts("manual")
+	if typeof(card_scripts[get_state_exec()]) != TYPE_DICTIONARY:
+		var _sceng = .execute_scripts(self, "manual", {}, true)
 
 
 func _on_state_changed(_card: Card, old_state: int, _new_state: int) -> void:
 	if old_state == CardState.DRAGGED:
 		for entity in cfc.get_tree().get_nodes_in_group("CombatEntities"):
 			entity.clear_predictions()
-	
+

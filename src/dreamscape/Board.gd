@@ -438,7 +438,7 @@ func _input(event):
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"A Squirrel",
+			"Enough is enough!",
 
 		]:
 			var card = cfc.instance_card(c)
