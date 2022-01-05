@@ -243,7 +243,7 @@ const THE_LIGHT_CALLING := {
 			"reshuffle": true,
 		},
 		{
-			"intent_scripts": ["Perplex:11"],
+			"intent_scripts": ["Stress:11"],
 			"reshuffle": false,
 		},
 	],
