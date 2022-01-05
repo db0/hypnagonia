@@ -9,9 +9,9 @@ var secondary_choices := {
 	}
 
 var nce_result_fluff := {
-		'eat': 'The meal calms me, but I feel as if I am going nowhere.',
-		'wave': 'The spider waved back at me hesitantly. I feel more prepared to deal with whatever lies ahead... But will you ever meet the spider again? And will it be as friendly?',
-		'offer': 'As soon as I bow to the spider, my hand sprouts a million eyes and scuttles away. I can still feel my heart thundering.',
+		'eat': 'The meal calmed me, but I felt as if I was going nowhere.',
+		'wave': 'The spider waved back at me hesitantly. I felt more prepared to deal with whatever lay ahead... But would I ever meet the spider again? And Would it be as friendly?',
+		'offer': 'As soon as I bowed to the spider, my hand sprouted a million eyes and scuttled away. I can still feel my heart thundering.',
 	}
 
 func _init():
