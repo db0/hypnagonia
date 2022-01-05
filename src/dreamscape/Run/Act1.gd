@@ -378,6 +378,9 @@ const TheLightCalling = {
 			{
 				"definition": EnemyDefinitions.THE_LIGHT_CALLING,
 				"health_modifier": -10,
+				"rebalancing": {
+					"Stress": -1,
+				}
 			},
 		],
 		"medium": [
@@ -390,6 +393,9 @@ const TheLightCalling = {
 			{
 				"definition": EnemyDefinitions.THE_LIGHT_CALLING,
 				"starting_defence": +12,
+				"rebalancing": {
+					"Stress": +1,
+				}
 			},
 		],
 	},
@@ -409,6 +415,7 @@ const Squirrel = {
 		"medium": [
 			{
 				"definition": EnemyDefinitions.SQUIRREL,
+				"starting_defence": +3,
 				"starting_effects": [
 					{
 						"name": Terms.ACTIVE_EFFECTS.quicken.name,

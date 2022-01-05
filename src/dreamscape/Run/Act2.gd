@@ -215,7 +215,10 @@ const ClownShow = {
 		"easy": [
 			{
 				"definition": EnemyDefinitions.CLOWN,
-				"health_modifier": -10,
+				"starting_defence": +10,
+				"rebalancing": {
+					"Stress": -2
+				},
 			},
 			{
 				"definition": EnemyDefinitions.PIALEPHANT,
@@ -225,6 +228,7 @@ const ClownShow = {
 		"medium": [
 			{
 				"definition": EnemyDefinitions.CLOWN,
+				"starting_defence": +10,
 			},
 			{
 				"definition": EnemyDefinitions.PIALEPHANT,
@@ -234,6 +238,9 @@ const ClownShow = {
 			{
 				"definition": EnemyDefinitions.CLOWN,
 				"starting_defence": +20,
+				"rebalancing": {
+					"Perplex": +2
+				},
 				"starting_effects": [
 					{
 						"name": Terms.ACTIVE_EFFECTS.fortify.name,
@@ -244,6 +251,10 @@ const ClownShow = {
 			{
 				"definition": EnemyDefinitions.PIALEPHANT,
 				"starting_defence": +20,
+				"rebalancing": {
+					"Stress": +2,
+					"Perplex": +2
+				}
 			},
 		],
 	},
