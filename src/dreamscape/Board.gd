@@ -157,6 +157,8 @@ func spawn_enemy_encounter(encounter: EnemyEncounter) -> void:
 		if enemy_entry.has('starting_effects'):
 			for effect in enemy_entry['starting_effects']:
 				new_enemy.active_effects.mod_effect(effect["name"],effect["stacks"])
+		if enemy_entry.has('rebalancing'):
+			new_enemy.intents.rebalancing = enemy_entry['rebalancing']
 		if enemy_entry.has('health_modifier'):
 				new_enemy.health += enemy_entry['health_modifier']
 		if enemy_entry.has('starting_defence'):

@@ -515,7 +515,8 @@ func spawn_enemy(script: ScriptTask) -> void:
 			if stating_effects:
 				for effect in stating_effects:
 					enemy_entity.active_effects.mod_effect(effect["name"],effect["stacks"])
-
+			if script.get_property('rebalancing', null):
+				enemy_entity.intents.rebalancing = script.get_property('rebalancing', {})
 
 func draw_cards(script: ScriptTask) -> int:
 	var retcode: int = CFConst.ReturnCode.CHANGED

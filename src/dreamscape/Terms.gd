@@ -330,6 +330,7 @@ const ACTIVE_EFFECTS := {
 		"type": "Special",
 		"description": "{effect_name}: This {entity} has been rebalanced.",
 		"noscript": true,
+		"is_invisible": true,
 		"icon": preload("res://assets/icons/triple-yin.png"),
 	},
 	"enraged": {

@@ -22,7 +22,17 @@ var times_last_intent_repeated: int
 var next_intent_id := ''
 # Tracks wether we finished adding the intent children nodes.
 var intents_displayed := false
-
+# This dictionary is filled with values taken from the encounter specification
+# It allows us to rebalance the enemy based on its difficulty (easy/medium/hard)
+# Its keys should be the name of the intent being rebalanced. The values should
+# how much to rebalance -/+
+# The keys below, are the ones supported until now
+var rebalancing := {
+	"Stress": 0,
+	"Perplex": 0,
+	"Debuff": 0,
+	"Buff": 0,
+}
 var all_intent_scripts = IntentScripts.new()
 
 func prepare_intents(specific_index = null, is_second_try := false) -> Dictionary:
@@ -250,6 +260,12 @@ func _display_intents(new_intents: Dictionary) -> void:
 			if intent_array.size() > 2:
 				if intent_scripts[0].has("effect_name"):
 					intent_scripts[0].effect_name = Terms.ACTIVE_EFFECTS[intent_array[2]].name
+			var rebalance : int = rebalancing.get(intent_name,0)
+			if rebalance != 0:
+				if intent_scripts[0].has("amount"):
+					intent_scripts[0].amount += rebalance
+				if intent_scripts[0].has("modification"):
+					intent_scripts[0].modification += rebalance
 			for single_intent in intent_scripts:
 				var new_intent : CombatSignifier = SINGLE_INTENT_SCENE.instance()
 				add_child(new_intent)

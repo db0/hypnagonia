@@ -338,25 +338,31 @@ const Pialephant = {
 		"easy": [
 			{
 				"definition": EnemyDefinitions.PIALEPHANT,
-				"health_modifier": -20,
-				"starting_effects": [
-					{
-						"name": Terms.ACTIVE_EFFECTS.disempower.name,
-						"stacks": 5
-					}
-				]
+				"health_modifier": -30,
+				"rebalancing": {
+					"Stress": -2,
+					"Perplex": -2
+				}
 			},
 		],
 		"medium": [
 			{
 				"definition": EnemyDefinitions.PIALEPHANT,
 				"health_modifier": 0,
+				"rebalancing": {
+					"Stress": 0,
+					"Perplex": 0
+				}
 			},
 		],
 		"hard": [
 			{
 				"definition": EnemyDefinitions.PIALEPHANT,
 				"starting_defence": +20,
+				"rebalancing": {
+					"Stress": +2,
+					"Perplex": +2
+				}
 			},
 		],
 	},

@@ -98,6 +98,8 @@ func mod_effect(
 				effect.set_stacks(mod, tags, Terms.get_effect_entry(effect_name).get("can_go_negative", false))
 			else:
 				effect.set_stacks(effect.stacks + mod, tags, Terms.get_effect_entry(effect_name).get("can_go_negative", false))
+			if Terms.get_effect_entry(effect_name).get("is_invisible"):
+				effect.visible = false
 	return(retcode)
 
 
