@@ -1,5 +1,24 @@
 # Changelog
 
+## [v0.26.1](https://github.com/db0/hypnagonia/tree/v0.26.1) (2022-01-05)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.26.0...v0.26.1)
+
+**Implemented enhancements:**
+
+- Improve "Progress Card" UX [\#158](https://github.com/db0/hypnagonia/issues/158)
+- Right click on cards in card draft should show possible upgrades [\#55](https://github.com/db0/hypnagonia/issues/55)
+
+**Fixed bugs:**
+
+- labyrinth intents seem wonky [\#156](https://github.com/db0/hypnagonia/issues/156)
+- thick focus info panel malformed [\#155](https://github.com/db0/hypnagonia/issues/155)
+
+**Merged pull requests:**
+
+- Various bugfixes [\#160](https://github.com/db0/hypnagonia/pull/160) ([db0](https://github.com/db0))
+- fix: forgot file [\#154](https://github.com/db0/hypnagonia/pull/154) ([db0](https://github.com/db0))
+
 ## [v0.26.0](https://github.com/db0/hypnagonia/tree/v0.26.0) (2022-01-04)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.25.0...v0.26.0)
