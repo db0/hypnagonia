@@ -1,9 +1,9 @@
 extends SurpriseEncounter
 
 const JOURNAL_ART := {
-	"Act1": preload("res://assets/journal/nce/recurrence.jpeg"),
-	"Act2": preload("res://assets/journal/nce/recurrence.jpeg"),
-	"Act3": preload("res://assets/journal/nce/recurrence.jpeg"),
+	"Act1": preload("res://assets/journal/nce/recurrence1.jpeg"),
+	"Act2": preload("res://assets/journal/nce/recurrence2.jpeg"),
+	"Act3": preload("res://assets/journal/nce/recurrence3.jpeg"),
 }
 const RECURRENCE_ELITE = {
 	"scene": preload("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")

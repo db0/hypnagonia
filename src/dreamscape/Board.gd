@@ -401,19 +401,19 @@ func _input(event):
 		var _torment1
 		var _torment2
 		var _torment3
-#		_torment1 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+		_torment1 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 #		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 		if _torment1:
-			_torment1.health = 18
+			_torment1.health = 180
 			_torment1.damage = 19
 			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 2)
 			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.effect_resistance.name, 1, false, false, ["Init"], Terms.ACTIVE_EFFECTS.poison.name)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
 		if _torment2:
-			_torment2.health = 11
+			_torment2.health = 110
 			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.marked.name, 1)
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)

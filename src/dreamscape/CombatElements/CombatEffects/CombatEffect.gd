@@ -111,6 +111,8 @@ func _set_current_description() -> void:
 func _get_effect_description() -> String:
 	var effect_entry : Dictionary = Terms.ACTIVE_EFFECTS[_get_template_name()]
 	var default_desc : String = effect_entry.get('description', '')
+	if owning_entity.type == Terms.PLAYER:
+		default_desc += effect_entry.get('extra_dreamer_description', '')
 	if effect_entry.get("is_card_reference"):
 		var card_reference = cfc.card_definitions.get(name)
 		if default_desc == '':

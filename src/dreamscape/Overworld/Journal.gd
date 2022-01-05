@@ -454,9 +454,9 @@ func _input(event):
 #		globals.player.damage = 85
 		var debug_encounters = [
 #			EnemyEncounter.new(Act1.Murmurs, "easy"),
-#			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
+			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
 			preload("res://src/dreamscape/Run/NCE/Act1/Spider.gd").new(),
-#			BossEncounter.new(Act1.BOSSES["Narcissus"]),
+			BossEncounter.new(Act1.BOSSES["Narcissus"]),
 #			EliteEncounter.new(Act1.Bully, "medium"),
 #			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
 		]
