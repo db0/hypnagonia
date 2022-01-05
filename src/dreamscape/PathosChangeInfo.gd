@@ -11,28 +11,39 @@ onready var released_label := $HBC/Released
 func setup(_name: String) -> void:
 	name = _name
 	
-func update_labels(repressed_mod: float, released_mod: float) -> void:
-	var chance : int = globals.player.pathos.calculate_chance_for_encounter(name, true, repressed_mod)
-	var chance_before : int = globals.player.pathos.calculate_chance_for_encounter(name, true, 0)
+func update_labels(pathos_dict: Dictionary) -> int:
+	var repress_mod_dict := {}
+	var repress_mod = pathos_dict[name].repress_mod
+	var release_mod = pathos_dict[name].release_mod
+	for entry in pathos_dict:
+		repress_mod_dict[entry] = pathos_dict[entry]["repress_mod"]
+	var chance : int = globals.player.pathos.calculate_chance_for_encounter(name, true, repress_mod_dict)
+	var chance_before : int = globals.player.pathos.calculate_chance_for_encounter(name, true, {})
 	name_label.text = "%s (%s)" % [name.capitalize(), Terms.RUN_ACCUMULATION_TYPES[name]]
 	chance_label.text = "%s%%" % [chance]
-	repressed_label.text = str(floor(globals.player.pathos.repressed[name] + repressed_mod))
-	released_label.text = str(floor(globals.player.pathos.released[name] + released_mod ))
-	if chance != chance_before:
+	repressed_label.text = str(floor(globals.player.pathos.repressed[name] + repress_mod))
+	released_label.text = str(floor(globals.player.pathos.released[name] + release_mod ))
+	if chance > chance_before:
 		chance_label.add_color_override("font_color", Color(0,1,0))
-	elif chance > chance_before:
+	elif chance < chance_before:
 		chance_label.add_color_override("font_color", Color(1,0,0))
 	else:
 		chance_label.add_color_override("font_color", Color(1,1,1))
-	if repressed_mod < 0:
+	if repress_mod > 0:
 		repressed_label.add_color_override("font_color", Color(0,1,0))
-	elif repressed_mod > 0:
+	elif repress_mod < 0:
 		repressed_label.add_color_override("font_color", Color(1,0,0))
 	else:
 		repressed_label.add_color_override("font_color", Color(1,1,1))
-	if released_mod < 0:
+	if release_mod < 0:
 		released_label.add_color_override("font_color", Color(1,0,0))
-	elif released_mod > 0:
+	elif release_mod > 0:
 		released_label.add_color_override("font_color", Color(0,1,0))
 	else:
 		released_label.add_color_override("font_color", Color(1,1,1))
+	return(chance)
+
+func set_max_chance() -> void:
+	if name == Terms.RUN_ACCUMULATION_NAMES.enemy:
+			chance_label.text = "100%"
+			chance_label.add_color_override("font_color", Color(0,1,0))
