@@ -45,6 +45,12 @@ var pre_highlight_bbcode_texts := {}
 func _ready() -> void:
 	if OS.has_feature("debug"):
 		print("DEBUG INFO:Journal: Entering Journal")
+	if globals.player.pathos:
+		for entry in globals.player.pathos.repressed:
+			var pinfo = PATHOS_INFO_SCENE.instance()
+			_pathos_details_list.add_child_below_node($PathosDetails/VBC/Header, pinfo)
+			pathos_infos[entry] = pinfo
+			pinfo.setup(entry)
 #	cfc.game_rng_seed = CFUtils.generate_random_seed() # Debug
 #	globals.encounters.setup() # Debug
 	globals.journal = self
@@ -69,13 +75,6 @@ func _ready() -> void:
 	if not cfc.game_settings.get('first_journal_tutorial_done'):
 		player_info._on_Help_pressed()
 		cfc.set_setting('first_journal_tutorial_done', true)
-	if globals.player.pathos:
-		for entry in globals.player.pathos.repressed:
-			var pinfo = PATHOS_INFO_SCENE.instance()
-#			_pathos_details_list.add_child(pinfo)
-			_pathos_details_list.add_child_below_node($PathosDetails/VBC/Header, pinfo)
-			pathos_infos[entry] = pinfo
-			pinfo.setup(entry)
 	globals.music.switch_scene_music('journal')
 	
 	if OS.has_feature("debug"):
@@ -408,8 +407,16 @@ func show_description_popup(description_text: String) -> void:
 
 func show_pathos_popup(description_text: String, pathos_dict: Dictionary) -> void:
 	_pathos_description.bbcode_text = description_text
+	var highest_chance: int
+	var total_chance := 0
 	for entry in pathos_infos:
-		pathos_infos[entry].update_labels(pathos_dict[entry]["repress_mod"],pathos_dict[entry]["release_mod"])
+		var chance = pathos_infos[entry].update_labels(pathos_dict)
+		total_chance += chance
+		if chance > highest_chance:
+			highest_chance = chance
+#	print_debug(total_chance)
+	if highest_chance == 0:
+		pathos_infos[Terms.RUN_ACCUMULATION_NAMES.enemy].set_max_chance()
 	pathos_details_popup.visible = true
 	pathos_details_popup.rect_size = Vector2(0,0)
 	pathos_details_popup.rect_global_position = get_local_mouse_position() + Vector2(-pathos_details_popup.rect_size.x - 10,-5)
@@ -435,12 +442,12 @@ func _input(event):
 #		globals.player.deck.add_new_card("Prejudice")
 #		globals.player.damage += 20
 #		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.boss, 100)
-		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 100)
-		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.enemy, 100)
-		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, 70)
-		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.elite, 70)
-		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, 50)
-		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.rest, 80)
+		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 50)
+		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.enemy, 50)
+		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, 20)
+		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.elite, 30)
+		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, 15)
+		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.rest, 20)
 		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 200)
 		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, 200)
 		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, 200)

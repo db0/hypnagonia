@@ -262,16 +262,18 @@ func _on_enemy_turn_started(_turn: Turn) -> void:
 	# We delay, to allow effects like poison to activate first
 	yield(get_tree().create_timer(1), "timeout")
 	# I want the enemies to activate serially
-	enemies_at_start_of_turn = get_tree().get_nodes_in_group("EnemyEntities").size()
+	enemies_at_start_of_turn = get_tree().get_nodes_in_group("EnemyEntities")
 	_debug_enemies_started_activation.clear()
-	for enemy in get_tree().get_nodes_in_group("EnemyEntities"):
-		_debug_enemies_started_activation.append(enemy)
+	for enemy in enemies_at_start_of_turn:
 		# It might have died of poison in the meantime
 		if is_instance_valid(enemy):
 #		print_debug("Activating Intents: " + enemy.canonical_name)
+			_debug_enemies_started_activation.append(enemy)
 			enemy.activate()
 			if enemy.is_activating:
 				yield(enemy, "finished_activation")
+		else:
+			_on_finished_enemy_activation(enemy)
 
 
 func _on_enemy_turn_ended(_turn: Turn) -> void:
@@ -281,7 +283,7 @@ func _on_enemy_turn_ended(_turn: Turn) -> void:
 func _on_finished_enemy_activation(enemy: EnemyEntity) -> void:
 	if not enemy in activated_enemies:
 		activated_enemies.append(enemy)
-	if activated_enemies.size() == enemies_at_start_of_turn:
+	if activated_enemies.size() == enemies_at_start_of_turn.size():
 		# Small wait to allow dying enemies to deinstance
 		yield(get_tree().create_timer(1), "timeout")
 		turn.end_enemy_turn()
@@ -399,23 +401,23 @@ func _input(event):
 		var _torment1
 		var _torment2
 		var _torment3
-#		_torment1 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
-#		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+		_torment1 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_VICTIM)
 		if _torment1:
-			_torment1.health = 2000
+			_torment1.health = 18
 			_torment1.damage = 19
-#			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 2)
+			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 2)
 			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.effect_resistance.name, 1, false, false, ["Init"], Terms.ACTIVE_EFFECTS.poison.name)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
 		if _torment2:
-			_torment2.health = 1000
+			_torment2.health = 11
 			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.marked.name, 1)
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
-#			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 5)
+			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 15)
 #			_torment2.defence = 10
 		if _torment3:
 			_torment3.health = 100
@@ -430,8 +432,8 @@ func _input(event):
 		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.SpikeEnemy.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.impervious.name, 13)
-#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.unconventional.name, 1, false, false, ['Debug'], 'weirdly')
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.impervious.name, 13)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1, false, false, ['Debug'], 'thick')
 		for c in [
 			# Need to look into these two later
 #			"Fowl Language",
@@ -461,7 +463,7 @@ func _debug_advanced_enemy() -> void:
 #	var advanced_entity: EnemyEntity =\
 #			preload("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn").instance()
 	var advanced_entity: EnemyEntity =\
-			preload("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn").instance()
+			preload("res://src/dreamscape/CombatElements/Enemies/Elites/RushElite.tscn").instance()
 	advanced_entity.setup_advanced("medium")
 	_enemy_area.add_child(advanced_entity)
 #	advanced_entity.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.self_cleaning.name, 1)

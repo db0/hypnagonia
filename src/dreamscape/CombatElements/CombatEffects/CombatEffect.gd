@@ -90,7 +90,7 @@ func _on_CombatSingifier_mouse_entered() -> void:
 
 func _set_current_description() -> void:
 	var format = Terms.COMMON_FORMATS[entity_type].duplicate()
-	var effect_entry = Terms.get_term_entry(name, 'description')
+	var effect_entry = Terms.get_term_entry(canonical_name, 'description')
 	format["effect_name"] = name
 	if effect_entry.has("rich_text_icon"):
 		format["effect_icon"] = "[img=18x18]" + effect_entry.rich_text_icon + "[/img]"

@@ -18,7 +18,7 @@ var repressed := {
 	Terms.RUN_ACCUMULATION_NAMES.enemy: 25.0,
 	Terms.RUN_ACCUMULATION_NAMES.rest: 5.0,
 	Terms.RUN_ACCUMULATION_NAMES.nce: 10.0,
-	Terms.RUN_ACCUMULATION_NAMES.shop: 5.0,
+	Terms.RUN_ACCUMULATION_NAMES.shop: 10.0,
 	Terms.RUN_ACCUMULATION_NAMES.elite: 0.0,
 	Terms.RUN_ACCUMULATION_NAMES.artifact: 0.0,
 	Terms.RUN_ACCUMULATION_NAMES.boss: 0.0,
@@ -62,8 +62,8 @@ var thresholds := {
 var release_adjustments := {
 	Terms.RUN_ACCUMULATION_NAMES.enemy: 3.0,
 	Terms.RUN_ACCUMULATION_NAMES.rest: 2.0,
-	Terms.RUN_ACCUMULATION_NAMES.nce: 1.75,
-	Terms.RUN_ACCUMULATION_NAMES.shop: 1.6,
+	Terms.RUN_ACCUMULATION_NAMES.nce: 1.5,
+	Terms.RUN_ACCUMULATION_NAMES.shop: 1.5,
 }
 
 var released := {}
@@ -289,9 +289,16 @@ func get_pathos_org(type := "released", include_zeroes := false) -> Dictionary:
 # Checks what the chance is for the specified pathos to provide an encounter
 # based on all the other repressed pathos in comparison to itself
 # Takes into account thresholds and the progression of between encounters
-func calculate_chance_for_encounter(entry: String, include_next_progression := true, modification: float = 0) -> int:
+func calculate_chance_for_encounter(entry: String, include_next_progression := true, mod_pathos_dict := {}) -> int:
 	if not entry in repressed:
 		return(-1)
+	if repressed[Terms.RUN_ACCUMULATION_NAMES.boss] >= 100:
+		if entry == Terms.RUN_ACCUMULATION_NAMES.boss:
+			return(100)
+		else:
+			return(0)
+	elif entry == Terms.RUN_ACCUMULATION_NAMES.boss:
+		return(0)
 	# If the boss is going to appear, all other encounters have 0 chance.
 	if entry != Terms.RUN_ACCUMULATION_NAMES.boss \
 			and repressed[Terms.RUN_ACCUMULATION_NAMES.boss]\
@@ -300,21 +307,29 @@ func calculate_chance_for_encounter(entry: String, include_next_progression := t
 	var total: float = 0
 	var progression : float = 0
 	for pathos_entry in repressed:
+		progression = 0
 		# The boss has no chance. It either appears or not when it has 100 repressed pathos
 		if pathos_entry == Terms.RUN_ACCUMULATION_NAMES.boss:
 			continue
 		if include_next_progression:
 			progression += progressions[pathos_entry].back()
 		var pathos_entry_total : float = repressed[pathos_entry] + progression
+		pathos_entry_total += mod_pathos_dict.get(pathos_entry,0)
+		if pathos_entry_total < 0:
+			pathos_entry_total = 0
 		if pathos_entry_total >= get_threshold(pathos_entry):
-			total += repressed[pathos_entry] + progression
-	progression = modification
+#			print_debug(pathos_entry, repressed[pathos_entry] + progression)
+			total += pathos_entry_total
+	progression = mod_pathos_dict.get(entry,0)
 	if include_next_progression:
 		progression += progressions[entry].back()
 	var entry_total : float = repressed[entry] + progression
+	if entry_total < 0:
+		entry_total = 0
 	var chance: int
 	if entry_total >= get_threshold(entry):
 		chance = int(round(entry_total / total * 100))
 	else:
 		chance = 0
+#	print_debug([entry, mod_pathos_dict.get(entry,0), entry_total, total,chance])
 	return(chance)
