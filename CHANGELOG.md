@@ -1,12 +1,27 @@
 # Changelog
 
+## [v0.26.2](https://github.com/db0/hypnagonia/tree/v0.26.2) (2022-01-05)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.26.1...v0.26.2)
+
+**Fixed bugs:**
+
+- pathos chances in journal hover don't add up to 100% [\#157](https://github.com/db0/hypnagonia/issues/157)
+
+**Closed issues:**
+
+- Dragging Action card to target with "Enough is Enough" is bugged [\#161](https://github.com/db0/hypnagonia/issues/161)
+
+**Merged pull requests:**
+
+- Changed how Doubt works [\#163](https://github.com/db0/hypnagonia/pull/163) ([db0](https://github.com/db0))
+
 ## [v0.26.1](https://github.com/db0/hypnagonia/tree/v0.26.1) (2022-01-05)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.26.0...v0.26.1)
 
 **Implemented enhancements:**
 
-- Improve "Progress Card" UX [\#158](https://github.com/db0/hypnagonia/issues/158)
 - Right click on cards in card draft should show possible upgrades [\#55](https://github.com/db0/hypnagonia/issues/55)
 
 **Fixed bugs:**
