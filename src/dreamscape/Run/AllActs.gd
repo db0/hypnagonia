@@ -2,12 +2,11 @@ class_name AllActs
 extends Act
 
 const NCE := {
-	"easy": [
-		preload("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd"),
-	],
-	"risky": [
-		preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd"),
-	]
+	"easy": {
+		"TheCandyman": preload("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd"),
+	},
+	"risky": {
+	}
 }
 
 # These NCE need special triggers to be put into general rotation
@@ -31,7 +30,7 @@ const LOCKED_NCE := {
 }
 
 static func get_act_name() -> String:
-	return("AllActs")
+	return(Act.ACT_NAMES.All)
 
 # These NCEs never go to the Used NCEs
 # As such, they can reapper once per act

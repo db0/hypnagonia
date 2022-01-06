@@ -10,18 +10,19 @@ const RECURRENCE_ELITE = {
 }
 
 var difficulties := {
-	Act1.get_act_name(): "easy",
-	Act2.get_act_name(): "medium",
+	# Otherwise we get a cyclic reference
+	"Early Night": "easy",
+	"Deep Sleep": "medium",
 }
 
 var descriptions := {
-	Act1.get_act_name(): "I recognised the sound. Cracking bark but somehow wet. It made me feel ill hearing it and each snap left a lingering, ghastly anticipation. Not bark...bones. Cracking bones. No...not again...",
-	Act2.get_act_name(): "The cracking sound was doubly shocking as it ricoched around the quiet, restful moment I had been enjoying. It was twice as loud as before and curdled my thoughts, just as I had begun to collect them. I should have known it would return. It always returns. Crack crack, crunch crunch.",
+	"Early Night": "I recognised the sound. Cracking bark but somehow wet. It made me feel ill hearing it and each snap left a lingering, ghastly anticipation. Not bark...bones. Cracking bones. No...not again...",
+	"Deep Sleep": "The cracking sound was doubly shocking as it ricoched around the quiet, restful moment I had been enjoying. It was twice as loud as before and curdled my thoughts, just as I had begun to collect them. I should have known it would return. It always returns. Crack crack, crunch crunch.",
 }
 
 var journal_arts := {
-	Act1.get_act_name(): JOURNAL_ART.Act1,
-	Act2.get_act_name(): JOURNAL_ART.Act2,
+	"Early Night": JOURNAL_ART.Act1,
+	"Deep Sleep": JOURNAL_ART.Act2,
 }
 
 var memory_prep: MemoryPrep
@@ -53,6 +54,10 @@ func end() -> void:
 			globals.player.add_memory(memory.canonical_name)
 	var reward_text = '[url={"name": "memory1","meta_type": "nce"}]I have seen this[/url] before. I know this. Overcoming this recurrence [url={"name": "memory2","meta_type": "nce"}]jolted my memories[/url].'
 	globals.journal.display_nce_rewards(reward_text)
+	if globals.encounters.current_act.get_act_name() == Act.ACT_NAMES.Act1:
+		globals.encounters.run_changes.unlock_nce("Recurrence2", "risky", false)
+	elif globals.encounters.current_act.get_act_name() == Act.ACT_NAMES.Act2:
+		globals.encounters.run_changes.unlock_nce("Recurrence3", "risky", false)
 
 
 func get_meta_hover_description(meta_tag: String) -> String:

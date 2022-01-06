@@ -442,7 +442,7 @@ func _input(event):
 #		globals.player.deck.add_new_card("Prejudice")
 #		globals.player.damage += 20
 #		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.boss, 100)
-		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 50)
+		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 500)
 		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.enemy, 50)
 		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, 20)
 		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.elite, 30)
@@ -455,9 +455,9 @@ func _input(event):
 		var debug_encounters = [
 			EnemyEncounter.new(Act1.Pialephant, "easy"),
 #			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
-#			preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd").new(),
-#			BossEncounter.new(Act1.BOSSES["Narcissus"]),
-			EliteEncounter.new(Act2.Dentist, "medium"),
+#			preload("res://src/dreamscape/Run/NCE/Act1/DollMaker.gd").new(),
+			BossEncounter.new(Act1.BOSSES["Narcissus"]),
+#			EliteEncounter.new(Act2.Dentist, "medium"),
 #			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
 		]
 		for encounter in debug_encounters:

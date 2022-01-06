@@ -21,7 +21,7 @@ func _init(_encounters) -> void:
 	encounters = _encounters
 
 # Unlocks an NCE to be found in later encounters
-func unlock_nce(nce_name: String, nce_type: String) -> void:
+func unlock_nce(nce_name: String, nce_type: String, is_immediate := true) -> void:
 	# We go through each act class we know, and look for the NCE name
 	for act in [Act1, Act2, AllActs]:
 		var act_name = act.get_act_name()
@@ -35,9 +35,11 @@ func unlock_nce(nce_name: String, nce_type: String) -> void:
 					# After unlocking an NCE, we automatically inject it into
 					# The still available NCEs
 					# TODO: Later this will also coordinate the multiple acts
-					for _iter in range(unl_nce.chance_multiplier):
-						encounters.remaining_nce[nce_type].append(unl_nce.nce)
-						CFUtils.shuffle_array(encounters.remaining_nce[nce_type])
+					if  is_immediate:
+						for _iter in range(unl_nce.chance_multiplier):
+							encounters.remaining_nce[nce_type].append(unl_nce.nce)
+							CFUtils.shuffle_array(encounters.remaining_nce[nce_type])
+					# We should not have a locked NCE with the same key in multiple acts.
 					break
 
 

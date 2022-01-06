@@ -18,7 +18,7 @@ var remaining_nce := {
 	"risky": [],
 }
 var boss_name : String
-var current_encounter
+var current_encounter_script: GDScript
 var deep_sleeps := 0
 var shop_deck_removals := 0
 var encounter_number := 0 setget set_encounter_number
@@ -38,11 +38,7 @@ func prepare_next_act(current_journal = null) -> void:
 	remaining_enemies = current_act.ENEMIES.duplicate(true)
 	remaining_elites = current_act.ELITES.duplicate(true)
 	for nce_type in remaining_nce:
-		remaining_nce[nce_type] = current_act.NCE[nce_type].duplicate(true)
-		for nce in AllActs.NCE[nce_type]:
-			if not run_changes.is_nce_used(nce):
-				remaining_nce[nce_type].append(nce)
-		CFUtils.shuffle_array(remaining_nce[nce_type])
+		_prepare_remaining_nce(nce_type)
 #	for nce in remaining_nce["easy"]:
 #		print(nce.get_path())
 	CFUtils.shuffle_array(remaining_enemies)
@@ -162,20 +158,20 @@ func _get_next_nce() -> NonCombatEncounter:
 	var nce_pathos_avg = globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.nce)
 	var current_nce_level = globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.nce]
 	var nce_pathos_threshold = globals.player.pathos.get_threshold(Terms.RUN_ACCUMULATION_NAMES.nce)
-	if current_nce_level > nce_pathos_threshold + nce_pathos_avg * 2:
+	if  not remaining_nce["risky"].empty() and current_nce_level > nce_pathos_threshold + (nce_pathos_avg * 2):
 		nce_type = "risky"
-	print_debug("Current NCE Level: %s. Bad Threshold %s. Chosen: %s" % [current_nce_level, nce_pathos_threshold + nce_pathos_avg * 2, nce_type])
+	if OS.has_feature("debug"):
+		print_debug("Current NCE Level: %s. Risky Threshold %s. Chosen: %s" % [current_nce_level, nce_pathos_threshold + nce_pathos_avg * 2, nce_type])
 	# In full release, I should not need to do this, as I should have enough NCE to never run out
+	# In development version, we only reshuffle the easy NCE to avoid having the player eat
+	# the fewer risky ones all the time.
 	if remaining_nce[nce_type].empty():
-		if OS.has_feature("debug"):
-			print("DEBUG INFO:Encounters: Reshuffling %s NCE" % [nce_type])
-		remaining_nce[nce_type] = current_act.NCE[nce_type].duplicate(true)
-		remaining_nce[nce_type] += run_changes.get_unlocked_nces(current_act.get_act_name(), nce_type)
-		CFUtils.shuffle_array(remaining_nce[nce_type])
+		_prepare_remaining_nce(nce_type)
 	var next_nce = remaining_nce[nce_type].pop_back()
 	# Even though we do a pop, we also erase any other copies of the same NCE in the list
 	# as we might have multiple NCEs of the same name, to increase their chances of appearing
-	remaining_nce[nce_type].erase(next_nce)
+	while next_nce in remaining_nce[nce_type]:
+		remaining_nce[nce_type].erase(next_nce)
 	run_changes.record_nce_used(next_nce)
 	return(next_nce.new())
 
@@ -183,3 +179,19 @@ func _get_next_nce() -> NonCombatEncounter:
 func set_encounter_number(value) -> void:
 	encounter_number = value
 	emit_signal("encounter_changed", current_act.get_act_name(), encounter_number)
+
+
+func _prepare_remaining_nce(nce_type: String) -> void:
+	if OS.has_feature("debug"):
+		print("DEBUG INFO:Encounters: Reshuffling %s NCE" % [nce_type])
+	remaining_nce[nce_type].clear()
+	for nce_script in current_act.NCE[nce_type].values():
+		remaining_nce[nce_type].append(nce_script)
+	for nce_script in run_changes.get_unlocked_nces(current_act.get_act_name(), nce_type):
+		remaining_nce[nce_type].append(nce_script)
+	# For now, AlAct NCEs are the only ones we don't allow to recycle
+	for nce_script in AllActs.NCE[nce_type].values():
+		if run_changes.is_nce_used(nce_script):
+			continue
+		remaining_nce[nce_type].append(nce_script)
+	CFUtils.shuffle_array(remaining_nce[nce_type])

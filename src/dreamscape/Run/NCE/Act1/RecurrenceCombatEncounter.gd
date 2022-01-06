@@ -68,7 +68,7 @@ func finish_surpise_ordeal() -> void:
 			if attack > 14:
 				total_high_attack_turns += 1
 		total_attacks += turn.size()
-	print_debug([total_high_attack_turns, total_high_attack_turns >= AVERAGE_THRESHOLDS["high_attacks"]])
+#	print_debug([total_high_attack_turns, total_high_attack_turns >= AVERAGE_THRESHOLDS["high_attacks"]])
 	var average_attacks : float = total_attacks / total_turns
 	# If the player averages more than 8 defence per turn, we try to counteract it
 	if average_attacks >= AVERAGE_THRESHOLDS["average_attacks"]:
@@ -88,7 +88,7 @@ func finish_surpise_ordeal() -> void:
 	# If the player averages more than 8 defence per turn, we try to counteract it
 	if average_cards >= AVERAGE_THRESHOLDS["average_cards"]:
 		countermeasures_considered["average_cards"] = average_attacks / AVERAGE_THRESHOLDS["average_cards"]
-	print_debug(countermeasures_considered)
+#	print_debug(countermeasures_considered)
 	var chosen_countermeasure := ''
 	var countermeasure_rating : float = 0
 	for cm in countermeasures_considered:
