@@ -428,7 +428,7 @@ func _input(event):
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 3)
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
 		dreamer.health = 1000
-		dreamer.damage = 990
+		dreamer.damage = 100
 #		globals.player.add_artifact(ArtifactDefinitions.ThickExplosion.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.PurpleWave.canonical_name)
 		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
@@ -439,11 +439,14 @@ func _input(event):
 		for pathos in Terms.RUN_ACCUMULATION_NAMES.values():
 			if pathos != Terms.RUN_ACCUMULATION_NAMES.boss:
 				globals.player.pathos.modify_released_pathos(pathos, globals.player.pathos.get_threshold(pathos))
+		# Hand Cards
 		for c in [
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"Enough is enough!",
+			"Butterfly",
+			"Pialephant",
+			"Blind Trial",
 
 		]:
 			var card = cfc.instance_card(c)
@@ -451,6 +454,7 @@ func _input(event):
 			#card.set_is_faceup(false,true)
 			card._determine_idle_state()
 		cfc.NMAP.deck.shuffle_cards(false)
+		# Deck Cards
 		begin_encounter()
 		player_info._on_Settings_pressed()
 		yield(get_tree().create_timer(0.1), "timeout")
@@ -485,15 +489,28 @@ func _on_Debug_pressed() -> void:
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.nunclucks.name, 1)
 	dreamer.defence += 30
 	for c in [
-		"* Loop de loop *",
+		"Blind Trial",
 	]:
 		var card = cfc.instance_card(c)
 		cfc.NMAP.hand.add_child(card)
 		#card.set_is_faceup(false,true)
 		card._determine_idle_state()
 	counters.mod_counter("immersion",3)
-	for _iter in range(3):
-		cfc.NMAP.hand.draw_card(cfc.NMAP.deck)
+#	for _iter in range(3):
+#		cfc.NMAP.hand.draw_card(cfc.NMAP.deck)
+	# Deck cards
+	for c in [
+		"Butterfly",
+		"Butterfly",
+		"Butterfly",
+		"Butterfly",
+		"Butterfly",
+	]:
+		var card = cfc.instance_card(c)
+		cfc.NMAP.deck.add_child(card)
+		#card.set_is_faceup(false,true)
+		card._determine_idle_state()
+		
 
 
 func _on_EnemyTurnStuckTimer_timeout() -> void:

@@ -125,17 +125,25 @@ func retrieve_scripts(trigger: String) -> Dictionary:
 		if typeof(found_scripts["hand"]) == TYPE_ARRAY:
 			if get_property("Type") == "Concentration" or get_property("_is_concentration"):
 				found_scripts["hand"] += generate_remove_from_deck_tasks()
-			else:
+			elif not has_move_script(found_scripts["hand"]):
 				found_scripts["hand"] += generate_discard_tasks()
 			found_scripts["hand"] += generate_play_confirm_scripts()
+		# This injects into multiple-option dictionaries
 		else:
 			for key in found_scripts["hand"]:
 				if get_property("Type") == "Concentration" or get_property("_is_concentration"):
 					found_scripts["hand"][key] += generate_remove_from_deck_tasks()
-				else:
+				elif not has_move_script(found_scripts["hand"][key]):
 					found_scripts["hand"][key] += generate_discard_tasks()
 				found_scripts["hand"][key] += generate_play_confirm_scripts()
 	return(found_scripts)
+
+
+func has_move_script(script: Array) -> bool:
+	for script_task in script:
+		if script_task.name == "move_card_to_container":
+			return(true)
+	return(false)
 
 
 # Sets a flag when an action card is dragged to the board manually
