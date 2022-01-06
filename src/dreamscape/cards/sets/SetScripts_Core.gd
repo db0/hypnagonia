@@ -602,6 +602,9 @@ const ToweringPresence = {
 				"per_defence": {
 					"subject": "dreamer",
 				},
+				"filter_state_subject": [{
+					"filter_group": "EnemyEntities",
+				},],
 			},
 		],
 	},
