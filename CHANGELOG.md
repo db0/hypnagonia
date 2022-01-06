@@ -1,14 +1,29 @@
 # Changelog
 
+## [v0.27.1](https://github.com/db0/hypnagonia/tree/v0.27.1) (2022-01-06)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.27.0...v0.27.1)
+
+**Implemented enhancements:**
+
+- Idea for an anxiety manipulation ordeal. [\#164](https://github.com/db0/hypnagonia/issues/164)
+- Make NCEs which give artifacts, also show the artifact they give in their results [\#159](https://github.com/db0/hypnagonia/issues/159)
+
+**Merged pull requests:**
+
+- fix\(cards\): Wrong tag on Dubious Painkillers [\#171](https://github.com/db0/hypnagonia/pull/171) ([db0](https://github.com/db0))
+
 ## [v0.27.0](https://github.com/db0/hypnagonia/tree/v0.27.0) (2022-01-06)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.26.2...v0.27.0)
 
-**Closed issues:**
+**Implemented enhancements:**
+
+- Should not be able to chain hyperfocus [\#167](https://github.com/db0/hypnagonia/issues/167)
+
+**Fixed bugs:**
 
 - Card Towering Presence not procing [\#169](https://github.com/db0/hypnagonia/issues/169)
-- Recurrence art In wrong folder. [\#168](https://github.com/db0/hypnagonia/issues/168)
-- Should not be able to chain hyperfocus [\#167](https://github.com/db0/hypnagonia/issues/167)
 - Cards with Forget tag, played by Blind Trial card, are not Forgotten [\#165](https://github.com/db0/hypnagonia/issues/165)
 
 **Merged pull requests:**
