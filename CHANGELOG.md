@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.27.3](https://github.com/db0/hypnagonia/tree/v0.27.3) (2022-01-06)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.27.2...v0.27.3)
+
+**Merged pull requests:**
+
+- fix: Wrong case broke loading in 'nix [\#173](https://github.com/db0/hypnagonia/pull/173) ([db0](https://github.com/db0))
+
 ## [v0.27.2](https://github.com/db0/hypnagonia/tree/v0.27.2) (2022-01-06)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.27.1...v0.27.2)
