@@ -1055,5 +1055,56 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-
+	"Subsconscious": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "{damage} for {interpret_amount}.\n"\
+				+ "if the torment is {overcome}, permanently increase the {damage} "\
+				+ "of this card by {increase_amount}\n{forget}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["interpretation", "overcome", "forget"],
+		"_amounts": {
+			"interpret_amount": 15,
+			"increase_amount": 3,
+		},
+		"_upgrade_threshold_modifier": +2,
+		"_upgrades": [
+			"= Subsconscious =",
+			"% Subsconscious %",
+		],
+	},
+	"= Subsconscious =": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "{damage} for {interpret_amount}.\n"\
+				+ "if the torment is {overcome}, permanently increase the {damage} "\
+				+ "of this card by {increase_amount}\n{forget}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["interpretation", "overcome", "forget"],
+		"_amounts": {
+			"interpret_amount": 15,
+			"increase_amount": 5,
+		},
+		"_is_upgrade": true,
+	},
+	"% Subsconscious %": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.frozen.name],
+		"Abilities": "{damage} for {interpret_amount}.\n"\
+				+ "if the torment is {overcome}, permanently increase the {damage} "\
+				+ "of this card by {increase_amount}\n{forget}",
+		"Cost": 3,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["interpretation", "overcome", "forget"],
+		"_amounts": {
+			"interpret_amount": 15,
+			"increase_amount": 3,
+		},
+		"_is_upgrade": true,
+	},
 }

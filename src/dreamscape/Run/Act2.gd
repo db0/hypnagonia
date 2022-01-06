@@ -327,7 +327,7 @@ const LOCKED_NCE := {
 	},
 	"Recurrence2": {
 		"nce": preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd"),
-		"chance_multiplier": 3,
+		"chance_multiplier": 4,
 	},
 }
 

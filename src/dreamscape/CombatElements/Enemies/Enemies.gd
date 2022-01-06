@@ -256,7 +256,7 @@ const THE_LIGHT_CALLING := {
 const SQUIRREL := {
 	"Name": "A Squirrel",
 	"Type": "Phobia",
-	"Health": 30,
+	"Health": 40,
 	"_is_ordered": true,
 	"Intents": [
 		{
