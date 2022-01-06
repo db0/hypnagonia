@@ -6,7 +6,8 @@ extends Reference
 # Typically those are perturbations given by enemies that should last
 # only the combat and are not meant to be permanent in the deck
 const EXCLUDED_PERTURBATIONS := [
-	"Dread"
+	"Dread",
+	"Dubious Painkillers",
 ]
 
 # Gathers all perturbations that can be given to the player
