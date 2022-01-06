@@ -1,16 +1,29 @@
 # Changelog
 
+## [v0.27.0](https://github.com/db0/hypnagonia/tree/v0.27.0) (2022-01-06)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.26.2...v0.27.0)
+
+**Closed issues:**
+
+- Card Towering Presence not procing [\#169](https://github.com/db0/hypnagonia/issues/169)
+- Recurrence art In wrong folder. [\#168](https://github.com/db0/hypnagonia/issues/168)
+- Should not be able to chain hyperfocus [\#167](https://github.com/db0/hypnagonia/issues/167)
+- Cards with Forget tag, played by Blind Trial card, are not Forgotten [\#165](https://github.com/db0/hypnagonia/issues/165)
+
+**Merged pull requests:**
+
+- Added Dentist [\#170](https://github.com/db0/hypnagonia/pull/170) ([db0](https://github.com/db0))
+- content \(nce\): Spider fluff switched to past tense [\#162](https://github.com/db0/hypnagonia/pull/162) ([Silberfarben](https://github.com/Silberfarben))
+
 ## [v0.26.2](https://github.com/db0/hypnagonia/tree/v0.26.2) (2022-01-05)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.26.1...v0.26.2)
 
 **Fixed bugs:**
 
-- pathos chances in journal hover don't add up to 100% [\#157](https://github.com/db0/hypnagonia/issues/157)
-
-**Closed issues:**
-
 - Dragging Action card to target with "Enough is Enough" is bugged [\#161](https://github.com/db0/hypnagonia/issues/161)
+- pathos chances in journal hover don't add up to 100% [\#157](https://github.com/db0/hypnagonia/issues/157)
 
 **Merged pull requests:**
 
