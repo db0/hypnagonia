@@ -455,7 +455,7 @@ func _input(event):
 		var debug_encounters = [
 			EnemyEncounter.new(Act1.Pialephant, "easy"),
 #			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
-			preload("res://src/dreamscape/Run/NCE/AllActs/DollPickup.gd").new(),
+			preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd").new(),
 #			BossEncounter.new(Act1.BOSSES["Narcissus"]),
 #			EliteEncounter.new(Act2.Dentist, "medium"),
 #			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()

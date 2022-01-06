@@ -1,5 +1,7 @@
 extends NonCombatEncounter
 
+var artifact_prep : ArtifactPrep
+
 var secondary_choices := {
 		'lead': '[Lead]: Take 15 anxiety. 60% chance to gain a random curio.',
 		'follow': '[Follow]: Take 7 anxiety. Gain {follow_amount} released {shop}.',
@@ -41,9 +43,11 @@ func continue_encounter(key) -> void:
 			globals.player.damage += 15
 			var artifact_roll = CFUtils.randi_range(1,100)
 			if artifact_roll <= 60:
+				artifact_prep = ArtifactPrep.new(5, 20, 1)
 				nce_result_fluff['lead'] += "\nThrough your leadership, this train of monsters succeeds "\
-						+ "in reaching the heart of hell, and you take it as your own reward."
-				var artifact_prep = ArtifactPrep.new(5, 20, 1)
+						+ "in reaching the heart of hell, and you take it as your own reward: "\
+						+ '[url={"name": "curio","meta_type": "nce"}]{curio_name}[/url]'\
+						.format({'curio_name': artifact_prep.selected_artifacts[0].name})
 				globals.player.add_artifact(artifact_prep.selected_artifacts[0].canonical_name)
 			else:
 				nce_result_fluff['lead'] += "\nYou try to lead this train, but you quickly realize you're out of your depth. "\
@@ -62,3 +66,12 @@ func continue_encounter(key) -> void:
 						Terms.RUN_ACCUMULATION_NAMES.elite) * 2)
 	end()
 	globals.journal.display_nce_rewards(nce_result_fluff[key])
+
+
+func get_meta_hover_description(meta_tag: String) -> String:
+	match meta_tag:
+		"curio":
+			var bbformat = artifact_prep.selected_artifacts[0]["bbformat"]
+			return("[img=18x18]{icon}[/img] {description}.".format(bbformat))
+		_:
+			return('')
