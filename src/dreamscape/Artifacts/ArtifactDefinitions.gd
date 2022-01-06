@@ -234,7 +234,7 @@ const ThinCardDraw := {
 			+ "This effect stops for the turn you draw the same card three times.",
 	"icon": preload("res://assets/icons/artifacts/light-backpack.png"),
 	"context": EffectContext.BATTLE,
-	"rarity": "Common",
+	"rarity": "Uncommon",
 	"amounts": {
 		"draw_amount": 1
 	},
