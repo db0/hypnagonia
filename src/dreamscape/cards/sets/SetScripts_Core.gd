@@ -602,6 +602,9 @@ const ToweringPresence = {
 				"per_defence": {
 					"subject": "dreamer",
 				},
+				"filter_state_subject": [{
+					"filter_group": "EnemyEntities",
+				},],
 			},
 		],
 	},
@@ -2615,7 +2618,18 @@ const Hyperfocus = {
 					"default": '0',
 				},
 				"x_operation": "multiply",
-			}
+			},
+			{
+				"name": "move_card_to_container",
+				"subject": "self",
+				"dest_container": "forgotten",
+				"tags": ["Played", "Card"],
+				"filter_turn_event_count": {
+					"event": "buffer_immersion_gained",
+					"filter_count": 1,
+					"comparison": "ge",
+				},
+			},
 		],
 	},
 }

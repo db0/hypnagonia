@@ -123,6 +123,36 @@ const scripts := {
 			"filter_source": "deck",
 		},
 	},
+	"Dubious Painkillers": {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "dreamer",
+					"amount": {
+						"lookup_property": "_amounts",
+						"value_key": "exert_amount"
+					},
+					"tags": ["Exert", "Card"],
+				},
+				{
+					"name": "modify_health",
+					"subject": "dreamer",
+					"amount": {
+						"lookup_property": "_amounts",
+						"value_key": "health_amount",
+					},
+					"tags": ["Card"],
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": "forgotten",
+					"tags": ["Played", "Card"],
+				},
+			],
+		},
+	},
 }
 
 

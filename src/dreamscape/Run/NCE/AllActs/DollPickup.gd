@@ -56,4 +56,23 @@ func continue_encounter(key: String) -> void:
 	var mod := {"colour": key}
 	globals.player.add_artifact("PorcelainDoll", mod)
 	end()
-	globals.journal.display_nce_rewards('')
+	var result = 'The engineering on this [url={"name": "curio","meta_type": "nce"}]Porcelain Doll[/url] was masterful!'
+	globals.journal.display_nce_rewards(result)
+
+
+func get_meta_hover_description(meta_tag: String) -> String:
+	match meta_tag:
+		"curio":
+			var artifact_def = ArtifactDefinitions.find_artifact_from_canonical_name("PorcelainDoll")
+			var artifact = globals.journal.player_info.find_artifact("PorcelainDoll")
+			var pd_format : Dictionary = artifact.get_extra_description_format()
+			var bbformat = {
+				"icon": artifact_def.icon.resource_path,
+				"description": artifact_def.description\
+						.format(pd_format)\
+						.format(Terms.get_bbcode_formats(18))\
+						.format(ArtifactDefinitions.get_artifact_bbcode_format(artifact_def))
+			}
+			return("[img=18x18]{icon}[/img] {description}.".format(bbformat))
+		_:
+			return('')

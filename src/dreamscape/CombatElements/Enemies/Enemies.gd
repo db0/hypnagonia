@@ -218,7 +218,7 @@ const PIALEPHANT:= {
 			"reshuffle": false,
 		},
 		{
-			"intent_scripts": ["Perplex:15"],
+			"intent_scripts": ["Perplex:14"],
 			"reshuffle": true,
 			"max_in_a_row": 2,
 		},
@@ -243,7 +243,7 @@ const THE_LIGHT_CALLING := {
 			"reshuffle": true,
 		},
 		{
-			"intent_scripts": ["Perplex:11"],
+			"intent_scripts": ["Stress:11"],
 			"reshuffle": false,
 		},
 	],

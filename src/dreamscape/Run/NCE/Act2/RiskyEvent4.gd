@@ -44,7 +44,6 @@ func begin() -> void:
 	globals.journal.add_nested_choices(secondary_choices, disabled_choices)
 
 func continue_encounter(key) -> void:
-	var result: String
 	if key == "help":
 		var amount = globals.player.pathos.released[highest_pathos]
 		# Encounters Needed To Accumulate Amount
@@ -62,9 +61,10 @@ func continue_encounter(key) -> void:
 				ignore_pathos,
 				globals.player.pathos.get_progression_average(ignore_pathos) * 2,
 				true)
+		# warning-ignore:return_value_discarded
 		globals.player.deck.add_new_card("Apathy")
 	end()
-	nce_result_fluff[key] = nce_result_fluff[key].format({'curio_name': artifact_prep.selected_artifacts[0].canonical_name})
+	nce_result_fluff[key] = nce_result_fluff[key].format({'curio_name': artifact_prep.selected_artifacts[0].name})
 	globals.journal.display_nce_rewards(nce_result_fluff[key])
 
 func get_meta_hover_description(meta_tag: String) -> String:

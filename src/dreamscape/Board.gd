@@ -157,6 +157,8 @@ func spawn_enemy_encounter(encounter: EnemyEncounter) -> void:
 		if enemy_entry.has('starting_effects'):
 			for effect in enemy_entry['starting_effects']:
 				new_enemy.active_effects.mod_effect(effect["name"],effect["stacks"])
+		if enemy_entry.has('rebalancing'):
+			new_enemy.intents.rebalancing = enemy_entry['rebalancing']
 		if enemy_entry.has('health_modifier'):
 				new_enemy.health += enemy_entry['health_modifier']
 		if enemy_entry.has('starting_defence'):
@@ -397,14 +399,14 @@ func _input(event):
 #		SoundManager.play_bgm(bgm_tracks[0])
 #		SoundManager.fade_in(bgm_tracks[0])
 		# warning-ignore:unused_variable
-#		_debug_advanced_enemy()
+		_debug_advanced_enemy()
 		var _torment1
 		var _torment2
 		var _torment3
-		_torment1 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
+#		_torment1 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 #		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
-		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
+#		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 		if _torment1:
 			_torment1.health = 180
 			_torment1.damage = 19
@@ -426,7 +428,7 @@ func _input(event):
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 3)
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
 		dreamer.health = 1000
-		dreamer.damage = 990
+		dreamer.damage = 100
 #		globals.player.add_artifact(ArtifactDefinitions.ThickExplosion.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.PurpleWave.canonical_name)
 		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
@@ -437,18 +439,19 @@ func _input(event):
 		for pathos in Terms.RUN_ACCUMULATION_NAMES.values():
 			if pathos != Terms.RUN_ACCUMULATION_NAMES.boss:
 				globals.player.pathos.modify_released_pathos(pathos, globals.player.pathos.get_threshold(pathos))
+		# Hand Cards
 		for c in [
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"Enough is enough!",
-
+			"Towering Presence",
 		]:
 			var card = cfc.instance_card(c)
 			cfc.NMAP.hand.add_child(card)
 			#card.set_is_faceup(false,true)
 			card._determine_idle_state()
 		cfc.NMAP.deck.shuffle_cards(false)
+		# Deck Cards
 		begin_encounter()
 		player_info._on_Settings_pressed()
 		yield(get_tree().create_timer(0.1), "timeout")
@@ -466,8 +469,8 @@ func _debug_advanced_enemy() -> void:
 #	var advanced_entity: EnemyEntity =\
 #			preload("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn").instance()
 	var advanced_entity: EnemyEntity =\
-			preload("res://src/dreamscape/CombatElements/Enemies/Bosses/Narcissus.tscn").instance()
-	advanced_entity.setup_advanced("medium")
+			preload("res://src/dreamscape/CombatElements/Enemies/Elites/Dentist.tscn").instance()
+	advanced_entity.setup_advanced("hard")
 	_enemy_area.add_child(advanced_entity)
 #	advanced_entity.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.self_cleaning.name, 1)
 	# warning-ignore:return_value_discarded
@@ -483,15 +486,25 @@ func _on_Debug_pressed() -> void:
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.nunclucks.name, 1)
 	dreamer.defence += 30
 	for c in [
-		"* Loop de loop *",
+		"Dubious Painkillers",
 	]:
 		var card = cfc.instance_card(c)
 		cfc.NMAP.hand.add_child(card)
 		#card.set_is_faceup(false,true)
 		card._determine_idle_state()
 	counters.mod_counter("immersion",3)
-	for _iter in range(3):
-		cfc.NMAP.hand.draw_card(cfc.NMAP.deck)
+#	for _iter in range(3):
+#		cfc.NMAP.hand.draw_card(cfc.NMAP.deck)
+	# Deck cards
+	for c in [
+		"Hyperfocus",
+		"Hyperfocus",
+	]:
+		var card = cfc.instance_card(c)
+		cfc.NMAP.deck.add_child(card)
+		#card.set_is_faceup(false,true)
+		card._determine_idle_state()
+		
 
 
 func _on_EnemyTurnStuckTimer_timeout() -> void:

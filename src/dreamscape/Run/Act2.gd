@@ -215,7 +215,10 @@ const ClownShow = {
 		"easy": [
 			{
 				"definition": EnemyDefinitions.CLOWN,
-				"health_modifier": -10,
+				"starting_defence": +10,
+				"rebalancing": {
+					"Stress": -2
+				},
 			},
 			{
 				"definition": EnemyDefinitions.PIALEPHANT,
@@ -225,6 +228,7 @@ const ClownShow = {
 		"medium": [
 			{
 				"definition": EnemyDefinitions.CLOWN,
+				"starting_defence": +10,
 			},
 			{
 				"definition": EnemyDefinitions.PIALEPHANT,
@@ -234,6 +238,9 @@ const ClownShow = {
 			{
 				"definition": EnemyDefinitions.CLOWN,
 				"starting_defence": +20,
+				"rebalancing": {
+					"Perplex": +2
+				},
 				"starting_effects": [
 					{
 						"name": Terms.ACTIVE_EFFECTS.fortify.name,
@@ -244,6 +251,10 @@ const ClownShow = {
 			{
 				"definition": EnemyDefinitions.PIALEPHANT,
 				"starting_defence": +20,
+				"rebalancing": {
+					"Stress": +2,
+					"Perplex": +2
+				}
 			},
 		],
 	},
@@ -265,16 +276,18 @@ const IndescribableAbsurdity = {
 	"journal_reward":\
 		'In the end, I simply dreamed of something more sane.',
 }
-const Bully = {
-	"scene": preload("res://src/dreamscape/CombatElements/Enemies/Elites/Bully.tscn"),
+const Dentist = {
+	"scene": preload("res://src/dreamscape/CombatElements/Enemies/Elites/Dentist.tscn"),
 	"journal_description":\
-		'My mind took me back to uncomfortable memories of schoolyard bullying.',
+		'I was strapped-in, in a strangely familiar place. White. Sterile. The sound of a rapidly spinning machine started echoing behind me...',
 	"journal_reward":\
-		'This time, I fortunately knew how to respond.',
+		'I swear, I will never forget flossing again!',
+	'journal_art': preload("res://assets/journal/advanced/dentist.jpeg"),
 }
 
 const ELITES = [
 	IndescribableAbsurdity,
+	Dentist,
 ]
 
 const SurrealBoss = {

@@ -26,7 +26,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Gain {defence_amount} {confidence}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Sebastian Piszczatowski",
 		"_rarity": "Basic",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -39,7 +39,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Gain {defence_amount} {confidence}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Sebastian Piszczatowski",
 		"_rarity": "Basic",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -52,7 +52,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Gain {defence_amount} {confidence}. {release}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Sebastian Piszczatowski",
 		"_rarity": "Basic",
 		"_keywords": ["confidence","release"],
 		"_avoid_normal_discard": true,
@@ -4147,7 +4147,8 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "Gain X * {defence_amount} {confidence}\n"\
-				+ "Gain X * {effect_stacks} {buffer}",
+				+ "Gain X * {effect_stacks} {buffer}\n"\
+				+ "If you gained immersion through {buffer} this turn. {forget}.",
 		"Cost": 'X',
 		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Common",
@@ -4169,7 +4170,8 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "Gain X * {defence_amount} {confidence}\n"\
-				+ "Gain X * {effect_stacks} {buffer}",
+				+ "Gain X * {effect_stacks} {buffer}\n"\
+				+ "If you gained immersion through {buffer} this turn. {forget}.",
 		"Cost": 'X',
 		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Common",
@@ -4187,7 +4189,8 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "Gain X * {defence_amount} {confidence}\n"\
-				+ "Gain X * {effect_stacks} {buffer}",
+				+ "Gain X * {effect_stacks} {buffer}\n"\
+				+ "If you gained immersion through {buffer} this turn. {forget}.",
 		"Cost": 'X',
 		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Common",
@@ -4779,10 +4782,10 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER,
 		},
 		"_amounts": {
-			"effect_stacks1": 3,
-			"stress_threshold1": 12,
-			"effect_stacks2": 3,
-			"stress_threshold2": 7,
+			"effect_stacks1": 2,
+			"stress_threshold1": 13,
+			"effect_stacks2": 2,
+			"stress_threshold2": 8,
 			"effect_stacks3": 1,
 			"stress_threshold3": 2,
 		},

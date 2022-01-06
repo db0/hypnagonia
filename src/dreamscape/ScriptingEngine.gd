@@ -149,7 +149,7 @@ func predict_intent_amount(_snapshot_id: int) -> int:
 				if amount is GDScriptFunctionState:
 					amount = yield(amount, "completed")
 				total_amount += amount
-				
+
 	return(total_amount)
 
 
@@ -345,8 +345,6 @@ func snapshot_apply_effect(script: ScriptTask, final_amount: int, entity: Combat
 	# We inject the tags from the script into the tags sent by the signal
 	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
 	var set_to_mod: bool = script.get_property(SP.KEY_SET_TO_MOD)
-	var stacks_diff := 0
-	var current_stacks: int
 	entity.active_effects.snapshot_effect(
 			effect_name,
 			final_amount,
@@ -398,12 +396,13 @@ func autoplay_card(script: ScriptTask) -> int:
 				if card.get_property("Type") == "Concentration":
 					card_scripts[autoplay_exec] = card.generate_remove_from_deck_tasks()
 				else:
-					card_scripts[autoplay_exec] = card.generate_discard_tasks(false)
+					card_scripts[autoplay_exec] = card.generate_discard_tasks("board")
 			else:
+				card_scripts[autoplay_exec] = card_scripts["hand"]
 				if card.get_property("Type") == "Concentration":
-					card_scripts[autoplay_exec] = card_scripts["hand"] + card.generate_remove_from_deck_tasks()
+					card_scripts[autoplay_exec] += card.generate_remove_from_deck_tasks()
 				else:
-					card_scripts[autoplay_exec] = card_scripts["hand"] + card.generate_discard_tasks(false)
+					card_scripts[autoplay_exec] += card.generate_discard_tasks("board")
 			card_scripts[autoplay_exec] += card.generate_play_confirm_scripts()
 			for script_task in card_scripts[autoplay_exec]:
 				if script_task.get("subject") and script_task["subject"] == 'target':
@@ -463,6 +462,8 @@ func perturb(script: ScriptTask) -> void:
 				iter * CFConst.CARD_SIZE.x * 0.2
 		card.pertub_destination = dest_container
 		card.state = DreamCard.ExtendedCardState.SPAWNED_PERTURBATION
+		if script.get_property(SP.KEY_IS_PERMANENT):
+			globals.player.deck.add_new_card(canonical_name)
 		yield(cfc.get_tree().create_timer(0.2), "timeout")
 
 
@@ -515,7 +516,8 @@ func spawn_enemy(script: ScriptTask) -> void:
 			if stating_effects:
 				for effect in stating_effects:
 					enemy_entity.active_effects.mod_effect(effect["name"],effect["stacks"])
-
+			if script.get_property('rebalancing', null):
+				enemy_entity.intents.rebalancing = script.get_property('rebalancing', {})
 
 func draw_cards(script: ScriptTask) -> int:
 	var retcode: int = CFConst.ReturnCode.CHANGED
@@ -582,6 +584,7 @@ func calculate_modify_pathos(script: ScriptTask) -> float:
 		modification = per_msg.found_things
 	else:
 		modification = script.get_property(SP.KEY_AMOUNT)
+	# warning-ignore:narrowing_conversion
 	alteration = _check_for_effect_alterants(script, modification, cfc.NMAP.board.dreamer, self)
 	if alteration is GDScriptFunctionState:
 		alteration = yield(alteration, "completed")
@@ -609,6 +612,49 @@ func modify_pathos(script: ScriptTask) -> int:
 				modification = globals.player.pathos.released.get(pathos, 0)
 			globals.player.pathos.modify_released_pathos(pathos, -modification)
 		globals.player.pathos.modify_repressed_pathos(pathos, modification)
+	return(retcode)
+
+
+func calculate_modify_health(subject: CombatEntity, script: ScriptTask) -> int:
+	var modification: int
+	var alteration = 0
+	if str(script.get_property(SP.KEY_AMOUNT)) == SP.VALUE_RETRIEVE_INTEGER:
+		# If the damage is requested, is only applies to stored integers
+		# so we flip the stored_integer's value.
+		modification = stored_integer
+		if script.get_property(SP.KEY_IS_INVERTED):
+			modification *= -1
+		modification += script.get_property(SP.KEY_ADJUST_RETRIEVED_INTEGER)
+	elif SP.VALUE_PER in str(script.get_property(SP.KEY_AMOUNT)):
+		var per_msg = perMessage.new(
+				script.get_property(SP.KEY_AMOUNT),
+				script.owner,
+				script.get_property(script.get_property(SP.KEY_AMOUNT)),
+				null,
+				script.subjects,
+				script.prev_subjects)
+		modification = per_msg.found_things
+	else:
+		modification = script.get_property(SP.KEY_AMOUNT)
+	alteration = _check_for_effect_alterants(script, modification, subject, self)
+	if alteration is GDScriptFunctionState:
+		alteration = yield(alteration, "completed")
+	var final_result = _check_for_x(script, modification + alteration)
+	return(final_result)
+
+
+func modify_health(script: ScriptTask) -> int:
+	var retcode: int
+	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
+	for combat_entity in script.subjects:
+		if combat_entity.is_dead:
+			continue
+		var modification = calculate_modify_health(combat_entity, script)
+		retcode = combat_entity.modify_health(
+				modification,
+				costs_dry_run(),
+				tags,
+				script.owner)
 	return(retcode)
 
 # Used to perform some post-play activities, once all the script costs

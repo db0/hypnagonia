@@ -52,22 +52,28 @@ func mod_counter(counter_name: String,
 	if not check and retcode == CFConst.ReturnCode.CHANGED:
 		# We store each immersion increase as an event, but not those happening
 		# automatically at turn start
-		if counter_name == "immersion" and value > 0 and not "New Turn" in tags:
-			var total_immersion_gain := value
-			if set_to_mod:
-				total_immersion_gain = value - counters[counter_name]
-			if total_immersion_gain > 1:
-				var event_name = "immersion_increased"
+		if counter_name == "immersion" and value > 0:
+			if not "New Turn" in tags:
+				var total_immersion_gain := value
+				if set_to_mod:
+					total_immersion_gain = value - counters[counter_name]
+				if total_immersion_gain > 1:
+					var event_name = "immersion_increased"
+					var turn_event_count = cfc.NMAP.board.turn.turn_event_count
+					var existing_turn_count = turn_event_count.get(event_name,0)
+					turn_event_count[event_name] = existing_turn_count + 1
+					var encounter_event_count = cfc.NMAP.board.turn.encounter_event_count
+					var existing_encounter_count = encounter_event_count.get(event_name,0)
+					encounter_event_count[event_name] = existing_encounter_count + 1
+					# We also accumulate all immersion gained throughout the game for 
+					# filters
+					var immersion_total_gained = encounter_event_count.get("total_immersion_gained",0)
+					encounter_event_count["total_immersion_gained"] = immersion_total_gained + total_immersion_gain
+			elif "Buffer" in tags:
+				var event_name = "buffer_immersion_gained"
 				var turn_event_count = cfc.NMAP.board.turn.turn_event_count
 				var existing_turn_count = turn_event_count.get(event_name,0)
 				turn_event_count[event_name] = existing_turn_count + 1
-				var encounter_event_count = cfc.NMAP.board.turn.encounter_event_count
-				var existing_encounter_count = encounter_event_count.get(event_name,0)
-				encounter_event_count[event_name] = existing_encounter_count + 1
-				# We also accumulate all immersion gained throughout the game for 
-				# filters
-				var immersion_total_gained = encounter_event_count.get("total_immersion_gained",0)
-				encounter_event_count["total_immersion_gained"] = immersion_total_gained + total_immersion_gain
 	return(retcode)
 
 func _on_player_turn_ended(turn: Turn) -> void:

@@ -36,6 +36,8 @@ const KEY_UPGRADE_NAME = "upgrade_name"
 const KEY_EVENT_NAME = "event_name"
 const KEY_ENEMY_NAME = "enemy_name"
 const KEY_ENEMY = "enemy"
+# If this value is set to true, the card spawned is permanently added to the player's deck
+const KEY_IS_PERMANENT = "is_permanent"
 # Type: int
 # Adjusts the spawned enemy health by this amount
 const KEY_MODIFY_SPAWN_HEALTH = "modify_spawn_health"

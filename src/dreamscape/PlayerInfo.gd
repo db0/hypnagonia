@@ -132,6 +132,10 @@ func get_all_artifacts() -> Dictionary:
 		found_artifacts[artifact.canonical_name] = artifact
 	return(found_artifacts)
 
+func find_artifact(artifact_name):
+	var artifact = get_all_artifacts().get(artifact_name)
+	if artifact:
+		return(artifact)
 
 func get_ordered_artifacts(ordered_effects: Dictionary) -> Dictionary:
 	for artifact in _artifacts.get_children():
@@ -150,6 +154,8 @@ func connect_dreamer_signals(dreamer: PlayerEntity) -> void:
 	dreamer.connect("entity_damaged", self, "_on_player_health_changed")
 	# warning-ignore:return_value_discarded
 	dreamer.connect("entity_healed", self, "_on_player_health_changed")
+	# warning-ignore:return_value_discarded
+	dreamer.connect("entity_health_modified", self, "_on_player_health_changed")
 
 
 func _on_player_health_changed(entity, _amount, _trigger, _tags) -> void:

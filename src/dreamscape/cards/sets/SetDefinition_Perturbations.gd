@@ -103,4 +103,18 @@ const CARDS := {
 		"_rarity": "Perturbation",
 		"_keywords": [],
 	},
+	"Dubious Painkillers": {
+		"Type": "Perturbation",
+		"Tags": ["Exert"],
+		"Abilities": "Take {exert_amount} {anxiety}\nGain {health_amount} max {anxiety} threshold.\n{forget}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Perturbation",
+		"_keywords": [],
+		"_amounts": {
+			"exert_amount": 12,
+			"health_amount": 3
+		},
+
+	},
 }
