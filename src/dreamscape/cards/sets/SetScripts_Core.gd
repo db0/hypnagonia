@@ -2615,7 +2615,18 @@ const Hyperfocus = {
 					"default": '0',
 				},
 				"x_operation": "multiply",
-			}
+			},
+			{
+				"name": "move_card_to_container",
+				"subject": "self",
+				"dest_container": "forgotten",
+				"tags": ["Played", "Card"],
+				"filter_turn_event_count": {
+					"event": "buffer_immersion_gained",
+					"filter_count": 1,
+					"comparison": "ge",
+				},
+			},
 		],
 	},
 }

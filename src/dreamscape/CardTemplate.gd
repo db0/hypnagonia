@@ -125,7 +125,7 @@ func retrieve_scripts(trigger: String) -> Dictionary:
 		if typeof(found_scripts["hand"]) == TYPE_ARRAY:
 			if get_property("Type") == "Concentration" or get_property("_is_concentration"):
 				found_scripts["hand"] += generate_remove_from_deck_tasks()
-			elif not has_move_script(found_scripts["hand"]):
+			else:
 				found_scripts["hand"] += generate_discard_tasks()
 			found_scripts["hand"] += generate_play_confirm_scripts()
 		# This injects into multiple-option dictionaries
@@ -248,7 +248,7 @@ func generate_play_costs_tasks() -> Array:
 # Uses a template to create task definitions for discarding a card
 # then returns it to the calling function to execute or insert it into
 # the cards existing scripts for its state.
-func generate_discard_tasks(only_from_hand := true) -> Array:
+func generate_discard_tasks(specify_parent := "hand") -> Array:
 	if properties.get("_avoid_normal_discard"):
 		return([])
 	var discard_script_template := {
@@ -257,8 +257,8 @@ func generate_discard_tasks(only_from_hand := true) -> Array:
 			"tags": ["Played"],
 			"dest_container": cfc.NMAP.discard.name,
 		}
-	if only_from_hand:
-		discard_script_template["filter_state_subject"] = [{"filter_parent": "hand"}]
+	if specify_parent != '':
+		discard_script_template["filter_state_subject"] = [{"filter_parent": specify_parent}]
 	var discard_tasks = [discard_script_template]
 	return(discard_tasks)
 

@@ -4147,7 +4147,8 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "Gain X * {defence_amount} {confidence}\n"\
-				+ "Gain X * {effect_stacks} {buffer}",
+				+ "Gain X * {effect_stacks} {buffer}\n"\
+				+ "If you gained immersion through {buffer} this turn. {forget}.",
 		"Cost": 'X',
 		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Common",
@@ -4169,7 +4170,8 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "Gain X * {defence_amount} {confidence}\n"\
-				+ "Gain X * {effect_stacks} {buffer}",
+				+ "Gain X * {effect_stacks} {buffer}\n"\
+				+ "If you gained immersion through {buffer} this turn. {forget}.",
 		"Cost": 'X',
 		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Common",
@@ -4187,7 +4189,8 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "Gain X * {defence_amount} {confidence}\n"\
-				+ "Gain X * {effect_stacks} {buffer}",
+				+ "Gain X * {effect_stacks} {buffer}\n"\
+				+ "If you gained immersion through {buffer} this turn. {forget}.",
 		"Cost": 'X',
 		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Common",

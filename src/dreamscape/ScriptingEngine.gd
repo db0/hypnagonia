@@ -398,13 +398,13 @@ func autoplay_card(script: ScriptTask) -> int:
 				if card.get_property("Type") == "Concentration":
 					card_scripts[autoplay_exec] = card.generate_remove_from_deck_tasks()
 				else:
-					card_scripts[autoplay_exec] = card.generate_discard_tasks(false)
+					card_scripts[autoplay_exec] = card.generate_discard_tasks("board")
 			else:
 				card_scripts[autoplay_exec] = card_scripts["hand"]
 				if card.get_property("Type") == "Concentration":
 					card_scripts[autoplay_exec] += card.generate_remove_from_deck_tasks()
-				elif not card.has_move_script(card_scripts["hand"]):
-					card_scripts[autoplay_exec] += card.generate_discard_tasks(false)
+				else:
+					card_scripts[autoplay_exec] += card.generate_discard_tasks("board")
 			card_scripts[autoplay_exec] += card.generate_play_confirm_scripts()
 			for script_task in card_scripts[autoplay_exec]:
 				if script_task.get("subject") and script_task["subject"] == 'target':
