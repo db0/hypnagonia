@@ -101,10 +101,10 @@ func generate_journal_choices() -> Array:
 				journal_options.append(_get_next_nce())
 			Terms.RUN_ACCUMULATION_NAMES.elite:
 				var next_enemy = remaining_elites.pop_back()
-				if globals.player.pathos.repressed[option] < elite_pathos_avg * 4\
+				if globals.player.pathos.repressed[option] < globals.player.pathos.get_threshold(option) + elite_pathos_avg\
 						and globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.boss] < boss_pathos_avg * 8:
 					difficulty = "easy"
-				elif globals.player.pathos.repressed[option] < elite_pathos_avg * 4\
+				elif globals.player.pathos.repressed[option] < globals.player.pathos.get_threshold(option) + elite_pathos_avg\
 						or globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.boss] < boss_pathos_avg * 8:
 					difficulty = "medium"
 				else:

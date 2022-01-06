@@ -276,16 +276,17 @@ const IndescribableAbsurdity = {
 	"journal_reward":\
 		'In the end, I simply dreamed of something more sane.',
 }
-const Bully = {
-	"scene": preload("res://src/dreamscape/CombatElements/Enemies/Elites/Bully.tscn"),
+const Dentist = {
+	"scene": preload("res://src/dreamscape/CombatElements/Enemies/Elites/Dentist.tscn"),
 	"journal_description":\
-		'My mind took me back to uncomfortable memories of schoolyard bullying.',
+		'I was strapped-in, in a strangely familiar place. White. Sterile. The sound of a rapidly spinning machine started echoing behind me...',
 	"journal_reward":\
-		'This time, I fortunately knew how to respond.',
+		'I swear, I will never forget flossing again!',
 }
 
 const ELITES = [
 	IndescribableAbsurdity,
+	Dentist,
 ]
 
 const SurrealBoss = {

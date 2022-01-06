@@ -150,6 +150,8 @@ func connect_dreamer_signals(dreamer: PlayerEntity) -> void:
 	dreamer.connect("entity_damaged", self, "_on_player_health_changed")
 	# warning-ignore:return_value_discarded
 	dreamer.connect("entity_healed", self, "_on_player_health_changed")
+	# warning-ignore:return_value_discarded
+	dreamer.connect("entity_health_modified", self, "_on_player_health_changed")
 
 
 func _on_player_health_changed(entity, _amount, _trigger, _tags) -> void:

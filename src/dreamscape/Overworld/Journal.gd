@@ -457,7 +457,7 @@ func _input(event):
 #			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act1/Spider.gd").new(),
 #			BossEncounter.new(Act1.BOSSES["Narcissus"]),
-#			EliteEncounter.new(Act1.Bully, "medium"),
+			EliteEncounter.new(Act2.Dentist, "medium"),
 #			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
 		]
 		for encounter in debug_encounters:

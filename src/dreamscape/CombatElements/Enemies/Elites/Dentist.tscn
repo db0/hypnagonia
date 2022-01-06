@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://shaders/outline.shader" type="Shader" id=1]
+[ext_resource path="res://src/dreamscape/CombatElements/Enemies/EnemyIntents.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/dreamscape/CombatElements/CombatEntity.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/dreamscape/CombatElements/Enemies/Elites/DentistIntents.gd" type="Script" id=4]
+[ext_resource path="res://src/dreamscape/CombatElements/Enemies/Elites/Dentist.gd" type="Script" id=5]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/width = 0.0
+shader_param/pattern = 2
+shader_param/inside = false
+shader_param/add_margins = false
+
+[node name="Dentist" groups=["BossEntities", "EnemyEntities"] instance=ExtResource( 3 )]
+script = ExtResource( 5 )
+
+[node name="CenterContainer" parent="." index="0"]
+rect_min_size = Vector2( 0, 36 )
+
+[node name="Intents" parent="." index="1" instance=ExtResource( 2 )]
+margin_top = 40.0
+margin_right = 69.0
+margin_bottom = 83.0
+rect_min_size = Vector2( 0, 43 )
+script = ExtResource( 4 )
+
+[node name="Art" parent="." index="2"]
+margin_top = 87.0
+margin_bottom = 87.0
+
+[node name="Texture" parent="Art" index="0"]
+material = SubResource( 1 )
+
+[node name="Name" parent="." index="3"]
+margin_top = 91.0
+margin_bottom = 121.0
+rect_min_size = Vector2( 0, 30 )
+
+[node name="HealthBar" parent="." index="4"]
+margin_top = 125.0
+margin_bottom = 133.0
+
+[node name="HBC" parent="." index="5"]
+margin_top = 137.0
+margin_bottom = 173.0
+rect_min_size = Vector2( 0, 15 )
+
+[node name="ActiveEffects" parent="." index="6"]
+margin_top = 177.0
+margin_bottom = 213.0

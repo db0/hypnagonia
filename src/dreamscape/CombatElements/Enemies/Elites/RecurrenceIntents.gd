@@ -31,7 +31,6 @@ func _get_intent_scripts(intent_name: String) -> Array:
 
 
 func _get_elite_scripts(intent_name: String) -> Array:
-	var difficulty: int
 	var intent_scripts := []
 	match intent_name:
 		"Wild Attacks":

@@ -13,6 +13,7 @@ signal entity_damaged(entity, amount, trigger, tags)
 signal entity_healed(entity, amount, trigger, tags)
 signal entity_defended(entity, amount, trigger, tags)
 signal entity_killed(final_damage)
+signal entity_health_modified(entity, amount, trigger, tags)
 
 
 onready var art := $Art
@@ -132,6 +133,11 @@ func die() -> void:
 
 
 func modify_damage(amount: int, dry_run := false, tags := ["Manual"], trigger = null) -> int:
+	var ret : int = CFConst.ReturnCode.CHANGED
+	if damage + amount < 0 and dry_run:
+		ret = CFConst.ReturnCode.FAILED
+	elif amount == 0 and dry_run:
+		ret = CFConst.ReturnCode.OK
 	if not dry_run:
 		if amount > 0 and "Attack" in tags:
 			emit_signal("entity_attacked", self, amount, trigger, tags)
@@ -154,7 +160,7 @@ func modify_damage(amount: int, dry_run := false, tags := ["Manual"], trigger = 
 		if damage >= health:
 			die()
 		_update_health_label()
-	return(CFConst.ReturnCode.CHANGED)
+	return(ret)
 
 
 func modify_defence(
@@ -184,6 +190,18 @@ func modify_defence(
 	# If and when I add them, I may need to refactor a bit because I'm relying a lot
 	# on targeting being a cost, so that playing cards targeting nothing fails.
 	return(CFConst.ReturnCode.CHANGED)
+
+
+func modify_health(amount: int, dry_run := false, tags := ["Manual"], trigger = null) -> int:
+	var ret : int = CFConst.ReturnCode.CHANGED
+	if not dry_run:
+		health += amount
+		if amount != 0:
+			emit_signal("entity_health_modified", self, amount, trigger, tags)
+		if damage >= health:
+			die()
+		_update_health_label()
+	return(ret)
 
 
 func get_class() -> String:
