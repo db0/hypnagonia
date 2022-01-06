@@ -105,7 +105,7 @@ const CARDS := {
 	},
 	"Dubious Painkillers": {
 		"Type": "Perturbation",
-		"Tags": ["Exert"],
+		"Tags": [Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "Take {exert_amount} {anxiety}\nGain {health_amount} max {anxiety} threshold.\n{forget}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
