@@ -399,27 +399,29 @@ func _input(event):
 #		SoundManager.play_bgm(bgm_tracks[0])
 #		SoundManager.fade_in(bgm_tracks[0])
 		# warning-ignore:unused_variable
-		_debug_advanced_enemy()
+#		_debug_advanced_enemy()
 		var _torment1
 		var _torment2
 		var _torment3
-#		_torment1 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
-#		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+		_torment1 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
+		_torment2 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
+		_torment3 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 		if _torment1:
-			_torment1.health = 180
+			_torment1.health = 23
 			_torment1.damage = 19
-			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 2)
-			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
+#			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 2)
+#			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.effect_resistance.name, 1, false, false, ["Init"], Terms.ACTIVE_EFFECTS.poison.name)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
 		if _torment2:
-			_torment2.health = 110
-			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
+			_torment2.health = 20
+			_torment1.damage = 10
+#			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.marked.name, 1)
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
-			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 15)
+#			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 15)
 #			_torment2.defence = 10
 		if _torment3:
 			_torment3.health = 100
@@ -444,9 +446,10 @@ func _input(event):
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"Towering Presence",
+			"Subconscious",
 		]:
-			var card = cfc.instance_card(c)
+			var ce = CardEntry.new(c)
+			var card = ce.instance_self()
 			cfc.NMAP.hand.add_child(card)
 			#card.set_is_faceup(false,true)
 			card._determine_idle_state()
@@ -486,7 +489,7 @@ func _on_Debug_pressed() -> void:
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.nunclucks.name, 1)
 	dreamer.defence += 30
 	for c in [
-		"Confident Slap",
+#		"Excogitate",
 	]:
 		var card = cfc.instance_card(c)
 		cfc.NMAP.hand.add_child(card)
@@ -497,8 +500,8 @@ func _on_Debug_pressed() -> void:
 #		cfc.NMAP.hand.draw_card(cfc.NMAP.deck)
 	# Deck cards
 	for c in [
-		"Hyperfocus",
-		"Hyperfocus",
+#		"Hyperfocus",
+#		"Hyperfocus",
 	]:
 		var card = cfc.instance_card(c)
 		cfc.NMAP.deck.add_child(card)

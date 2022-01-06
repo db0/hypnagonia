@@ -119,7 +119,11 @@ func get_modified_credits_cost() -> int:
 func retrieve_scripts(trigger: String) -> Dictionary:
 	if tutorial_disabled:
 		return({})
-	var found_scripts = .retrieve_scripts(trigger).duplicate(true)
+	var found_scripts
+	if deck_card_entry:
+		found_scripts = deck_card_entry.retrieve_scripts(trigger)
+	else:
+		found_scripts= .retrieve_scripts(trigger).duplicate(true)
 	if trigger == "manual" and get_state_exec() == "hand":
 		found_scripts = insert_payment_costs(found_scripts)
 		if typeof(found_scripts["hand"]) == TYPE_ARRAY:

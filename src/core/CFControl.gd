@@ -4,8 +4,9 @@
 class_name CFControl
 extends Node
 
-signal all_nodes_mapped()
+signal all_nodes_mapped
 signal cache_cleared
+signal scripts_loaded
 
 #-----------------------------------------------------------------------------
 # BEGIN Unit Testing Variables
@@ -41,6 +42,8 @@ var game_rng_seed = "CFC Random Seed" setget set_seed
 var card_definitions := {}
 # This will store all card scripts
 var set_scripts := {}
+# This will store all card scripts, including their format placeholders
+var unmodified_set_scripts := {}
 # A class to propagate script triggers to all cards.
 var signal_propagator = SignalPropagator.new()
 # A dictionary of all our container nodes for easy access
@@ -90,6 +93,7 @@ var ov_utils  = load(CFConst.PATH_OVERRIDABLE_UTILS).new()
 var curr_scale: float
 
 var script_load_thread : Thread
+var scripts_loading := true
 
 onready var load_start_time := OS.get_ticks_msec()
 
@@ -222,7 +226,9 @@ func load_script_definitions() -> void:
 	var script_definitions := CFUtils.list_files_in_directory(
 				CFConst.PATH_SETS, CFConst.SCRIPT_SET_NAME_PREPEND)
 	var combined_scripts := {}
+	var iter = 0
 	for card_name in card_definitions.keys():
+		iter += 1
 		for script_file in script_definitions:
 			if combined_scripts.get(card_name):
 				break
@@ -231,10 +237,15 @@ func load_script_definitions() -> void:
 			# able to refer specific variables inside them
 			# such as cfc.deck etc. Instead they contain a
 			# method which returns the script for the requested card name
+			var unmodified_card_script = scripts_obj.get_scripts(card_name, false)
 			var card_script = scripts_obj.get_scripts(card_name)
+#			print(unmodified_card_script)
 			if not card_script.empty():
 				combined_scripts[card_name] = card_script
 				set_scripts[card_name] = card_script
+				unmodified_set_scripts[card_name] = unmodified_card_script
+	emit_signal("scripts_loaded")
+	scripts_loading = false
 
 
 # Setter for game_paused
