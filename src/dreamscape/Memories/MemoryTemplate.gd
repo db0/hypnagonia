@@ -19,6 +19,8 @@ func _ready() -> void:
 
 func setup_artifact(memory_object, _is_active: bool, new_addition: bool) -> void:
 	.setup_artifact(memory_object, _is_active, new_addition)
+	# We do that in _ready() as well, but to avoid errors in the console before that, we set it now as well
+	canonical_name = memory_object.canonical_name
 	memory_object.connect("pathos_accumulated", self, "_on_pathos_accumulated")
 	memory_object.connect("memory_ready", self, "_on_memory_ready")
 	memory_object.connect("memory_used", self, "_on_memory_used")
