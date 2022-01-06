@@ -530,7 +530,7 @@ const ACTIVE_EFFECTS := {
 		"name": "Self Cleaning",
 		"type": "Special",
 		"icon": preload("res://assets/icons/soap.png"),
-		"description": "{effect_name}: At the end of each turn, reduce the highest debuff on this {entity} by 2.",
+		"description": "{effect_name}: At the end of each turn, reduce the highest debuff on this {entity} by {amount}.",
 	},
 
 }

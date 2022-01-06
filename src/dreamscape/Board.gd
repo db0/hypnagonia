@@ -434,7 +434,7 @@ func _input(event):
 		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.SpikeEnemy.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 12)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 12)
 		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1, false, false, ['Debug'], 'thick')
 		for pathos in Terms.RUN_ACCUMULATION_NAMES.values():
 			if pathos != Terms.RUN_ACCUMULATION_NAMES.boss:
@@ -469,7 +469,7 @@ func _debug_advanced_enemy() -> void:
 #	var advanced_entity: EnemyEntity =\
 #			preload("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn").instance()
 	var advanced_entity: EnemyEntity =\
-			preload("res://src/dreamscape/CombatElements/Enemies/Elites/Dentist.tscn").instance()
+			preload("res://src/dreamscape/CombatElements/Enemies/Elites/IndescribableAbsurdity.tscn").instance()
 	advanced_entity.setup_advanced("hard")
 	_enemy_area.add_child(advanced_entity)
 #	advanced_entity.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.self_cleaning.name, 1)
@@ -486,7 +486,7 @@ func _on_Debug_pressed() -> void:
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.nunclucks.name, 1)
 	dreamer.defence += 30
 	for c in [
-		"Dubious Painkillers",
+		"Confident Slap",
 	]:
 		var card = cfc.instance_card(c)
 		cfc.NMAP.hand.add_child(card)

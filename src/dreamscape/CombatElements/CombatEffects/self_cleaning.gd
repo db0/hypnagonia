@@ -15,4 +15,4 @@ func _on_enemy_turn_ended(_turn: Turn) -> void:
 func _reduce_highest_stack():
 	var effect = owning_entity.active_effects.get_effect_with_most_stacks("Debuff")
 	if effect:
-		 owning_entity.active_effects.mod_effect(effect, -2 , false, false, ["Trigger"])
+		 owning_entity.active_effects.mod_effect(effect, -stacks , false, false, ["Trigger"])
