@@ -46,11 +46,11 @@ func _get_elite_scripts(intent_name: String) -> Array:
 	var difficulty: int
 	match combat_entity.get_property("_difficulty"):
 		"easy":
-			difficulty = 2
-		"medium":
 			difficulty = 3
-		"hard":
+		"medium":
 			difficulty = 4
+		"hard":
+			difficulty = 5
 	var different_effects := CFUtils.randi_range(1,difficulty)
 	# warning-ignore:integer_division
 	var min_stacks := int(difficulty/different_effects)
@@ -118,7 +118,7 @@ func _get_elite_scripts(intent_name: String) -> Array:
 			all_concentrations += Terms.get_all_effect_types("Versatile")
 			CFUtils.shuffle_array(all_concentrations)
 			var found_concentration := ''
-			var damage = 20
+			var damage = difficulty * 5
 			for concentration in all_concentrations:
 				# We do not want to remove the player's negative focus/quicken, if they have any
 				if concentration in Terms.get_all_effect_types("Versatile")\
@@ -126,7 +126,7 @@ func _get_elite_scripts(intent_name: String) -> Array:
 					continue
 				if cfc.NMAP.board.dreamer.active_effects.get_effect_stacks(concentration) > 0:
 					found_concentration = concentration
-					damage = 10
+					damage = difficulty * 2.5
 					var dispell_template := {
 						"name": "apply_effect",
 						"effect_name": found_concentration,

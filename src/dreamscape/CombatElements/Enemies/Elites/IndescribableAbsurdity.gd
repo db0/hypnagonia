@@ -2,7 +2,7 @@ extends AdvancedEnemyEntity
 
 const PROPERTIES := {
 	"name": "Indescribable Absurdity",
-	"Health": 150,
+	"Health": 180,
 	"Type": "Absurdity",
 	"Damage": 0,
 	"_texture_size_x": 160,

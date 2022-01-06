@@ -282,6 +282,7 @@ const Dentist = {
 		'I was strapped-in, in a strangely familiar place. White. Sterile. The sound of a rapidly spinning machine started echoing behind me...',
 	"journal_reward":\
 		'I swear, I will never forget flossing again!',
+	'journal_art': preload("res://assets/journal/advanced/dentist.jpeg"),
 }
 
 const ELITES = [
