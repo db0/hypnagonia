@@ -4,9 +4,10 @@ Credits to each illustrator are shown with the card and defined with the card's 
 
 Links to Artists (where one provided)
 
-* [marablack](https://www.deviantart.com/marablack3)
+* [Maria Thoukydidou](https://www.deviantart.com/marablack3)
 * [DioBal](https://www.deviantart.com/diobalt)
 * [Ierenisrt](https://www.artstation.com/iereniss2)
+* [Sebastian Piszczatowski](https://www.artstation.com/seppoday)
 
 # Other Licenses
 
