@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.27.2](https://github.com/db0/hypnagonia/tree/v0.27.2) (2022-01-06)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.27.1...v0.27.2)
+
+**Merged pull requests:**
+
+- fix\(cards\): Excluded Dubious Painkillers from random Perturbations [\#172](https://github.com/db0/hypnagonia/pull/172) ([db0](https://github.com/db0))
+
 ## [v0.27.1](https://github.com/db0/hypnagonia/tree/v0.27.1) (2022-01-06)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.27.0...v0.27.1)
