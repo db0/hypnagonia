@@ -32,5 +32,5 @@ const CARD_IMAGES := {
 	"Pialephant": preload("res://assets/cards/pialephant.jpg"),
 	"The Light Calling": preload("res://assets/cards/The Light Calling.jpg"),
 	"A Squirrel": preload("res://assets/cards/Squirrel.jpg"),
-	"Confidence": preload("res://assets/cards/Confidence.jpg"),
+	"Confidence": preload("res://assets/cards/confidence.jpg"),
 }
