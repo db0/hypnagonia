@@ -93,4 +93,3 @@ func _get_names() -> Array:
 	for a in selected_artifacts:
 		anames.append(a.canonical_name)
 	return(anames)
-

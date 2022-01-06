@@ -132,6 +132,10 @@ func get_all_artifacts() -> Dictionary:
 		found_artifacts[artifact.canonical_name] = artifact
 	return(found_artifacts)
 
+func find_artifact(artifact_name):
+	var artifact = get_all_artifacts().get(artifact_name)
+	if artifact:
+		return(artifact)
 
 func get_ordered_artifacts(ordered_effects: Dictionary) -> Dictionary:
 	for artifact in _artifacts.get_children():
