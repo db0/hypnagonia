@@ -108,3 +108,11 @@ jobs:
         ITCH_USER: dbzer0
         PACKAGE: Hypnagonia_MacOSX.zip
         VERSION: "${{ steps.release.outputs.version }}"
+    - name: 📨 Notify Matrix General Chat
+      uses: s3krit/matrix-message-action@v0.0.3
+      with:
+        room_id: ${{ secrets.MATRIX_ROOM_ID }}
+        access_token: ${{ secrets.MATRIX_TOKEN }}
+        message: "New Release Available: ${{ steps.release.outputs.version }}"
+        server: "matrix.org"
+      if: ${{ steps.release.outputs.version != '' }}
