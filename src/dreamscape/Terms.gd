@@ -755,6 +755,15 @@ static func get_term_value(thematic_tag_name: String, key: String, no_icon := fa
 	return(entry.get(key))
 
 
+# Returns an array containing all the names that can be set as tags
+static func get_all_tag_names() -> Array:
+	var tag_names := []
+	for effect in ACTIVE_EFFECTS:
+		tag_names.append(ACTIVE_EFFECTS[effect].name)
+	for tag in GENERIC_TAGS:
+		tag_names.append(GENERIC_TAGS[tag].name)
+	return(tag_names)
+
 # Returns a string format dictionary with all the known formatting for RichTextLabels
 static func get_bbcode_formats(preset_icon_size = null) -> Dictionary:
 	var complete_format_dict := {}

@@ -9,6 +9,7 @@ func _ready() -> void:
 func empty_hand() -> void:
 	is_hand_refilled = false
 	for card in get_all_cards():
+		print_debug(card.get_property("Tags"))
 		if Terms.GENERIC_TAGS.frozen.name in card.get_property("Tags"):
 			continue
 		yield(get_tree().create_timer(0.05), "timeout")

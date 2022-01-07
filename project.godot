@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/CombatElements/ActiveEffects.gd"
 }, {
+"base": "ModifyPropertyArtifact",
+"class": "AddTagArtifact",
+"language": "GDScript",
+"path": "res://src/dreamscape/Artifacts/ArtifactTemplate_AddTag.gd"
+}, {
 "base": "CombatEncounter",
 "class": "AdvancedCombatEncounter",
 "language": "GDScript",
@@ -233,6 +238,11 @@ _global_script_classes=[ {
 "class": "CardEntry",
 "language": "GDScript",
 "path": "res://src/dreamscape/Globals/CardEntry.gd"
+}, {
+"base": "Reference",
+"class": "CardFilter",
+"language": "GDScript",
+"path": "res://src/core/Utils/CardFilter.gd"
 }, {
 "base": "Panel",
 "class": "CardFront",
@@ -468,6 +478,11 @@ _global_script_classes=[ {
 "class": "MemoryPrep",
 "language": "GDScript",
 "path": "res://src/dreamscape/MemoryPrep.gd"
+}, {
+"base": "Artifact",
+"class": "ModifyPropertyArtifact",
+"language": "GDScript",
+"path": "res://src/dreamscape/Artifacts/ArtifactTemplate_ModifyProperty.gd"
 }, {
 "base": "Area2D",
 "class": "MousePointer",
@@ -709,6 +724,7 @@ _global_script_class_icons={
 "Act1": "",
 "Act2": "",
 "ActiveEffects": "",
+"AddTagArtifact": "",
 "AdvancedCombatEncounter": "",
 "AdvancedEnemyEntity": "",
 "AllActs": "",
@@ -750,6 +766,7 @@ _global_script_class_icons={
 "CardContainer": "",
 "CardDraft": "",
 "CardEntry": "",
+"CardFilter": "",
 "CardFront": "",
 "CardLabel": "",
 "CardLibrary": "",
@@ -797,6 +814,7 @@ _global_script_class_icons={
 "MemoryDefinitions": "",
 "MemoryObject": "",
 "MemoryPrep": "",
+"ModifyPropertyArtifact": "",
 "MousePointer": "",
 "Music": "",
 "NewGameMenu": "",

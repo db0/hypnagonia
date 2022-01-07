@@ -30,7 +30,7 @@ func instance_cards() -> Array:
 	return(card_nodes)
 
 
-# Adds a new card to the deck, 
+# Adds a new card to the deck,
 # and optionally starts it with some ugprade progress
 func add_new_card(card_name, progress := 0) -> CardEntry:
 	if OS.has_feature("debug"):
@@ -141,35 +141,18 @@ func get_upgradable_card_type(type:= "least_progress") -> CardEntry:
 
 
 # Returns a list of all card entries with a specific property match
-func filter_cards(property: String, filter, comparison := "eq") -> Array:
+# filters can be either a single CardFilter object, or an array of CardFilter objects
+func filter_cards(filters) -> Array:
 	var card_list := []
-	for card_entry in cards:
-		var card_prop = card_entry.get_property(property)
-		# If the property is an array, we assume the player is trying to 
-		# match an element in it
-		if typeof(card_prop) == TYPE_ARRAY:
-			if filter in card_prop:
-				card_list.append(card_entry)
-		elif typeof(card_prop) == typeof(filter)\
-				and typeof(card_prop) == TYPE_INT\
-				and CFUtils.compare_numbers(
-					card_prop,
-					filter,
-					comparison):
-			card_list.append(card_entry)
-		elif property in CardConfig.PROPERTIES_NUMBERS:
-				if str(card_prop) == 'X':
-					card_prop = 0
-				if str(filter) == 'X':
-					filter = 0
-				if CFUtils.compare_numbers(
-						card_prop,
-						filter,
-						comparison):
+	for c in cards:
+		var card_entry: CardEntry = c
+		if typeof(filters) == TYPE_ARRAY:
+			for f in filters:
+				var filter: CardFilter = f
+				if filter.check_card(card_entry.properties):
 					card_list.append(card_entry)
-		elif CFUtils.compare_strings(
-				str(card_prop),
-				str(filter),
-				comparison):
-			card_list.append(card_entry)
+		elif filters as CardFilter:
+			var filter: CardFilter = filters
+			if filter.check_card(card_entry.properties):
+				card_list.append(card_entry)
 	return(card_list)

@@ -146,7 +146,8 @@ func modify_property(property: String, value) -> void:
 			else:
 				properties[property] = value
 	elif property in CardConfig.PROPERTIES_ARRAYS:
-		properties[property].append(value)
+		if not value in properties[property]:
+			properties[property].append(value)
 
 
 func modify_amounts(amount_name: String, value) -> void:

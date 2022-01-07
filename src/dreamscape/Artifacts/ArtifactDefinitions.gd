@@ -576,6 +576,14 @@ const AddOmegaTag := {
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
 }
+const AddFrozenTag := {
+	"canonical_name": "AddFrozenTag",
+	"name": "Sponge",
+	"description": "{artifact_name}: Choose a card in your deck. It gains the {frozen} tag, so always starts at the bottom of the deck.",
+	"icon": preload("res://assets/icons/artifacts/dice-twenty-faces-twenty.png"),
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Rare",
+}
 
 # Generic artifacts which have a chance to appear in any playthrough
 const GENERIC := [
