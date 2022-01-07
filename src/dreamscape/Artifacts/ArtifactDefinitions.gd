@@ -578,9 +578,9 @@ const AddOmegaTag := {
 }
 const AddFrozenTag := {
 	"canonical_name": "AddFrozenTag",
-	"name": "Sponge",
+	"name": "Earworm",
 	"description": "{artifact_name}: Choose a card in your deck. It gains the {frozen} tag, so always starts at the bottom of the deck.",
-	"icon": preload("res://assets/icons/artifacts/dice-twenty-faces-twenty.png"),
+	"icon": preload("res://assets/icons/artifacts/leeching-worm.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Rare",
 }

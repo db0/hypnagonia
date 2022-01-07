@@ -554,11 +554,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/core/CardViewer/DeckBuilder/QuantityNumberButton.gd"
 }, {
-"base": "SurpriseCombatEncounter",
-"class": "RecurrenceCombatEncounter",
-"language": "GDScript",
-"path": "res://src/dreamscape/Run/NCE/Act1/RecurrenceCombatEncounter.gd"
-}, {
 "base": "NonCombatEncounter",
 "class": "RestEncounter",
 "language": "GDScript",
@@ -834,7 +829,6 @@ _global_script_class_icons={
 "PlayerEntity": "",
 "PlayerInfo": "",
 "QuantityNumberButton": "",
-"RecurrenceCombatEncounter": "",
 "RestEncounter": "",
 "RichTextGhost": "",
 "RunChanges": "",

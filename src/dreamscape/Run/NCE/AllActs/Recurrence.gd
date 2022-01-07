@@ -9,6 +9,8 @@ const RECURRENCE_ELITE = {
 	"scene": preload("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")
 }
 
+const RECURRENCE_SURPRISE = preload("res://src/dreamscape/Run/NCE/AllActs/RecurrenceCombatEncounter.gd")
+
 var difficulties := {
 	# Otherwise we get a cyclic reference
 	"Early Night": "easy",
@@ -35,7 +37,7 @@ func _init():
 
 func begin() -> void:
 	.begin()
-	surprise_combat_encounter = RecurrenceCombatEncounter.new(
+	surprise_combat_encounter = RECURRENCE_SURPRISE.new(
 			RECURRENCE_ELITE, 
 			difficulties[globals.encounters.current_act.get_act_name()], 
 			self)

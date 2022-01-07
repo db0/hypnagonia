@@ -36,6 +36,12 @@ func check_card(card_properties: Dictionary) -> bool:
 				card_matches = true
 		elif not filter in prop_value and comparison == 'ne':
 				card_matches = true
+	# A dictionary value is treated as an array, based on its keys
+	if typeof(prop_value) == TYPE_DICTIONARY:
+		if prop_value.has(filter) and comparison == 'eq':
+				card_matches = true
+		elif not prop_value.has(filter) and comparison == 'ne':
+				card_matches = true
 	elif typeof(prop_value) == typeof(filter)\
 			and typeof(prop_value) == TYPE_INT\
 			and not compare_int_as_str:

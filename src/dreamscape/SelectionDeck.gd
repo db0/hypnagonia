@@ -25,6 +25,10 @@ var auto_close := false
 # Specifies a filter for which cards to display from the deck
 # It needs to contain only objects of CardFilter class
 var card_filters : Array
+# If this list has entities, then instead of gathering deck cards from scratch,
+# we make the player select from this list directly
+# This allows for custom types of filtering
+var prespecified_card_list := []
 
 onready var _deck_operation_name := $VBC/OperationName/
 onready var _deck_operation_cost := $VBC/OperationCost/
@@ -89,12 +93,16 @@ func _populate_preview_cards() -> void:
 		current_decklist_cache = globals.player.deck.list_all_cards()
 		for index in range(globals.player.deck.cards.size()):
 			var card_matches:= true
-			for f in card_filters:
-				var filter: CardFilter = f
-				if not filter.check_card(globals.player.deck.cards[index].properties):
-					card_matches = false
-			if not card_matches:
-				continue
+			if prespecified_card_list.size() > 0:
+				if not globals.player.deck.cards[index] in prespecified_card_list:
+					continue
+			else:
+				for f in card_filters:
+					var filter: CardFilter = f
+					if not filter.check_card(globals.player.deck.cards[index].properties):
+						card_matches = false
+				if not card_matches:
+					continue
 			var card_preview_container = CARD_CHOICE_SCENE.instance()
 			_deck_preview_grid.add_child(card_preview_container)
 			card_preview_container.index = globals.player.deck.cards[index]
@@ -132,3 +140,6 @@ func _on_deck_card_selected(card_entry: CardEntry, deck_card_object) -> void:
 	if auto_close:
 		globals.hide_all_previews()
 		queue_free()
+	# We assume card selection modifies the decklist somewhat. 
+	# So we ensure the card list is refreshed
+	current_decklist_cache.clear()

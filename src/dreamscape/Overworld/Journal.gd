@@ -428,20 +428,21 @@ func _input(event):
 #			c.upgrade_progress = 100
 #		_reveal_entry(upgrade_journal, true)
 #		globals.player.add_artifact(ArtifactDefinitions.AddOmegaTag.canonical_name)
-		globals.player.add_artifact(ArtifactDefinitions.AddFrozenTag.canonical_name)
+#		globals.player.add_artifact(ArtifactDefinitions.AddFrozenTag.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.FreeCard.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.GainMaxHealth.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.HealSelf.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.BossFaster.canonical_name)
 #		globals.player.add_artifact("AccumulateShop")
-#		globals.player.deck.add_new_card("Lacuna")
+#		var card_entry = globals.player.deck.add_new_card("Subconscious")
+#		card_entry.upgrade_progress = card_entry.upgrade_threshold
 #		globals.player.deck.add_new_card("Terror")
 #		globals.player.deck.add_new_card("Prejudice")
 #		globals.player.deck.add_new_card("Prejudice")
 #		globals.player.damage += 20
 #		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.boss, 100)
-		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 500)
+		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 50)
 		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.enemy, 50)
 		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, 20)
 		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.elite, 30)
@@ -452,10 +453,10 @@ func _input(event):
 		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, 48)
 #		globals.player.damage = 85
 		var debug_encounters = [
-			EnemyEncounter.new(Act1.Pialephant, "easy"),
-#			preload("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd").new(),
-			preload("res://src/dreamscape/Run/NCE/Act2/MultipleTags.gd").new(),
-			BossEncounter.new(Act1.BOSSES["Narcissus"]),
+#			EnemyEncounter.new(Act1.Pialephant, "easy"),
+#			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
+			preload("res://src/dreamscape/Run/NCE/Act2/MultipleScriptMods.gd").new(),
+#			BossEncounter.new(Act1.BOSSES["Narcissus"]),
 #			EliteEncounter.new(Act2.Dentist, "medium"),
 #			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
 		]

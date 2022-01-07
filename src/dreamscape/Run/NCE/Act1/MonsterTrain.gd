@@ -33,8 +33,8 @@ func begin() -> void:
 			Terms.RUN_ACCUMULATION_NAMES.shop) * 3
 	scformat["abort_amount"] = globals.player.pathos.get_progression_average(
 			Terms.RUN_ACCUMULATION_NAMES.elite) * 2
-	secondary_choices['follow'] = secondary_choices['follow'].format(scformat)
-	secondary_choices['abort'] = secondary_choices['abort'].format(scformat)	
+	for key in secondary_choices:
+		secondary_choices[key] = secondary_choices[key].format(scformat).format(Terms.get_bbcode_formats(18))			
 	globals.journal.add_nested_choices(secondary_choices)
 
 func continue_encounter(key) -> void:

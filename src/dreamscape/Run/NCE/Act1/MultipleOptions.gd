@@ -43,9 +43,8 @@ func begin() -> void:
 		"pathos": highest_pathos,
 		"cost": highest_pathos_cost
 	}
-	secondary_choices['progress'] = secondary_choices['progress'].format(scformat)
-	secondary_choices['upgrade'] = secondary_choices['upgrade'].format(scformat)
-	secondary_choices['remove'] = secondary_choices['remove'].format(scformat)
+	for key in secondary_choices:
+		secondary_choices[key] = secondary_choices[key].format(scformat).format(Terms.get_bbcode_formats(18))	
 	var disabled_choices := []
 	for type in ['progress', 'upgrade', 'remove']:
 		secondary_choices[type] = secondary_choices[type].format(scformat)

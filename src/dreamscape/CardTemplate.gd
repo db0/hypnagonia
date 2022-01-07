@@ -423,18 +423,27 @@ func enable_rider(rider: String) -> void:
 			connect("card_played", self, "_on_self_played")
 
 
+func connect_card_entry(card_entry) -> void:
+	deck_card_entry = card_entry
+	deck_card_entry.connect("card_entry_modified", self, "on_card_entry_modified")
+
+
+func on_card_entry_modified(card_entry) -> void:
+	properties = card_entry.properties.duplicate(true)
+	refresh_card_front()
+
+
 func _on_self_played(_card,_trigger,_details) -> void:
 	if "reset_cost_after_play" in enabled_riders:
 		# warning-ignore:return_value_discarded
 		modify_property("Cost", printed_properties['Cost'])
-		highlight_modified_properties()
 		enabled_riders.erase("reset_cost_after_play")
 
 
 # Overridable function for formatting card text
 func _get_formatted_text(value) -> String:
 	var text = str(value)
-	var amounts_format = CardConfig.get_amounts_format(properties)
+	var amounts_format = CardConfig.get_amounts_format(properties, printed_properties)
 	if not amounts_format.size():
 		amounts_format = CardConfig.get_amounts_format(cfc.card_definitions[canonical_name])
 	return(text.format(amounts_format))
@@ -452,6 +461,7 @@ func highlight_modified_properties() -> void:
 				var value_text := str(current_property)
 				if current_property != printed_properties.get(property)\
 						and value_text != label_node.text:
+					print('set')
 					card_front.set_label_text(label_node,value_text)
 				if current_property < printed_properties.get(property):
 					label_node.modulate = Color(0,1,0)
@@ -459,6 +469,7 @@ func highlight_modified_properties() -> void:
 					label_node.modulate = Color(1,0,0)
 				else:
 					label_node.modulate = Color(1,1,1)
+
 
 func _find_upgrade_parent():
 	for card_name in cfc.card_definitions:

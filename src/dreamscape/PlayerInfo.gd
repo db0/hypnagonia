@@ -71,6 +71,10 @@ func _ready() -> void:
 		globals.player.deck.connect("card_added", self, "_update_deck_count")
 		# warning-ignore:return_value_discarded
 		globals.player.deck.connect("card_removed", self, "_update_deck_count")
+		# warning-ignore:return_value_discarded
+		globals.player.deck.connect("card_entry_upgraded", self, "_clear_decklist_cache")
+		# warning-ignore:return_value_discarded
+		globals.player.deck.connect("card_entry_modified", self, "_clear_decklist_cache")
 		_update_deck_count()
 	if globals.encounters:
 		# warning-ignore:return_value_discarded
@@ -266,3 +270,7 @@ func _on_button_mouse_entered(button: Button) -> void:
 
 func _on_button_mouse_exited(_button: Button) -> void:
 	_button_desc_popup.visible = false
+
+
+func _clear_decklist_cache() -> void:
+	current_decklist_cache.clear()

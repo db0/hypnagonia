@@ -3,6 +3,7 @@ class_name CardEntry
 extends Reference
 
 signal card_entry_upgraded(card_entry)
+signal card_entry_modified(card_entry)
 
 # The baseline threshold which all cards needs to upgrade
 const UPGRADE_THRESHOLD_BASELINE = 6
@@ -48,8 +49,8 @@ func _init(_card_name: String) -> void:
 	_setup_card_entry(_card_name)
 
 
-func _setup_card_entry(card_name: String) -> void:
-	self.card_name = card_name
+func _setup_card_entry(_card_name: String) -> void:
+	card_name = _card_name
 	properties = cfc.card_definitions.get(card_name, {}).duplicate(true)
 	printed_properties = cfc.card_definitions.get(card_name, {}).duplicate(true)
 	# If the key is not set, it means the card is not upgradable
@@ -76,7 +77,7 @@ func instance_self(is_display_card:= false) -> Card:
 		card_object = new_card_object
 	new_card_object.properties = properties
 	new_card_object.printed_properties = printed_properties
-	new_card_object.deck_card_entry = self
+	new_card_object.connect_card_entry(self)
 	return(new_card_object)
 
 
@@ -148,7 +149,10 @@ func modify_property(property: String, value, record := true) -> void:
 			"value": value,
 		}
 		property_modifications.append(record_entry)
-	if typeof(properties.get(property)) == typeof(value):
+	# When modifying _amounts, we expect a certain payload dictionary
+	if property == "_amounts":
+		_modify_amounts(value.amount_key, value.amount_value)
+	elif typeof(properties.get(property)) == typeof(value):
 		# This handles dictionary propertie, like _amounts
 		if typeof(value) == TYPE_DICTIONARY:
 			for key in value:
@@ -173,9 +177,20 @@ func modify_property(property: String, value, record := true) -> void:
 	elif property in CardConfig.PROPERTIES_ARRAYS:
 		if not value in properties[property]:
 			properties[property].append(value)
+	emit_signal("card_entry_modified", self)
+	globals.player.deck.signal_card_entry_modified(self)
 
 
-func modify_amounts(amount_name: String, value) -> void:
+func retrieve_scripts(trigger: String) -> Dictionary:
+	var found_scripts: Dictionary = unmodified_scripts.duplicate(true)
+	CoreScripts.lookup_script_property(found_scripts, card_name, self)
+#	print(found_scripts.get(trigger,{}))
+	return(found_scripts.get(trigger,{}))
+
+
+# This function should only be called from modify_property()
+# to ensure the changes survive card upgrades
+func _modify_amounts(amount_name: String, value) -> void:
 	if not properties.has("_amounts"):
 		properties["_amounts"] = {}
 	var current_value = properties["_amounts"].get(amount_name)
@@ -187,17 +202,3 @@ func modify_amounts(amount_name: String, value) -> void:
 	else:
 		new_value = value
 	properties["_amounts"][amount_name] = new_value
-
-
-func overwrite_properties() -> void:
-	if card_object:
-		card_object.properties = properties
-
-
-func retrieve_scripts(trigger: String) -> Dictionary:
-	if card_name == "Subconscious":
-		pass
-	var found_scripts: Dictionary = unmodified_scripts.duplicate(true)
-	CoreScripts.lookup_script_property(found_scripts, card_name, self)
-#	print(found_scripts.get(trigger,{}))
-	return(found_scripts.get(trigger,{}))

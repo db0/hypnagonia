@@ -447,7 +447,7 @@ func _input(event):
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"Blind Trial",
+			"Subconscious",
 		]:
 			var ce = CardEntry.new(c)
 			var card = ce.instance_self()
@@ -489,6 +489,8 @@ func _on_Debug_pressed() -> void:
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.introspection.name, 6)
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.nunclucks.name, 1)
 	dreamer.defence += 30
+	for entity in get_tree().get_nodes_in_group("EnemyEntities"):
+		entity.damage = entity.health - 1 
 	for c in [
 		"Blind Trial",
 	]:

@@ -311,6 +311,7 @@ const NCE := {
 		"MiniShop": preload("res://src/dreamscape/Run/NCE/Act2/MiniShop.gd"),
 		"Subconscious": preload("res://src/dreamscape/Run/NCE/Act2/Subconscious.gd"),
 		"MultipleTags": preload("res://src/dreamscape/Run/NCE/Act2/MultipleTags.gd"),
+		"MultipleScriptMods": preload("res://src/dreamscape/Run/NCE/Act2/MultipleScriptMods.gd"),
 	},
 	"risky": {
 		"RiskyEvent3": preload("res://src/dreamscape/Run/NCE/Act2/RiskyEvent3.gd"),

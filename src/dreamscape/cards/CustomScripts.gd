@@ -155,15 +155,16 @@ func custom_script(script: ScriptObject) -> void:
 				if subjects.size() and subjects[0].is_dead:
 					var increase_amount = cfc.card_definitions[card.canonical_name]\
 								.get("_amounts",{}).get("increase_amount", 3)
-					card.deck_card_entry.modify_amounts("damage_amount", '+' + str(increase_amount))
-					card.deck_card_entry.overwrite_properties()
-					card.refresh_card_front()
-			
+					var payload := {
+						"amount_key": "damage_amount",
+						"amount_value": '+' + str(increase_amount),
+					}
+					card.deck_card_entry.modify_property("_amounts", payload)
+
 # warning-ignore:unused_argument
 func custom_alterants(script: ScriptObject) -> int:
 	var alteration := 0
 	return(alteration)
-
 
 
 # Executes a custom script so that all modifiers are also handled.

@@ -1,4 +1,3 @@
-class_name RecurrenceCombatEncounter
 extends SurpriseCombatEncounter
 
 # This is the average stacks per turn required to be played by the player

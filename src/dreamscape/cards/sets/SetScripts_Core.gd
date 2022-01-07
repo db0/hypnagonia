@@ -83,7 +83,10 @@ const NoisyWhip = {
 				"name": "modify_damage",
 				"subject": "target",
 				"needs_subject": true,
-				"amount": 5,
+				"amount": {
+					"lookup_property": "_amounts",
+					"value_key": "damage_amount"
+				},
 				"tags": ["Attack", "Card"],
 				"filter_state_subject": [{
 					"filter_group": "EnemyEntities",

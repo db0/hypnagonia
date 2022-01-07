@@ -4,6 +4,7 @@ extends Reference
 signal card_added(card)
 signal card_removed(card)
 signal card_entry_upgraded(card_entry)
+signal card_entry_modified(card_entry)
 
 var cards: Array
 var deck_groups : Dictionary
@@ -55,6 +56,9 @@ func remove_card(card_entry: CardEntry) -> void:
 
 func signal_card_entry_upgraded(card_entry: CardEntry) -> void:
 	emit_signal("card_entry_upgraded", card_entry)
+
+func signal_card_entry_modified(card_entry: CardEntry) -> void:
+	emit_signal("card_entry_modified", card_entry)
 
 
 func list_all_cards(sorted:= false) -> Array:
@@ -155,3 +159,16 @@ func filter_cards(filters) -> Array:
 			if filter.check_card(card_entry.properties):
 				card_list.append(card_entry)
 	return(card_list)
+
+
+# Returns a list of all card entries with a specific amount type
+# in their _amounts dictionary
+func filter_card_on_amounts(amount_name: String) -> Array:
+	var card_list := []
+	for c in cards:
+		var card_entry: CardEntry = c
+		var card_amounts = card_entry.properties.get("_amounts", {})
+		if card_amounts.has(amount_name):
+			card_list.append(card_entry)
+	return(card_list)
+		
