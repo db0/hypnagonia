@@ -13,7 +13,7 @@ extends Reference
 
 # Properties which are placed as they are in appropriate labels
 const PROPERTIES_STRINGS := ["Type", "Abilities"]
-# Properties which expected to be provided as integers. 
+# Properties which expected to be provided as integers.
 # Note that you can still use strings as their values (e.g. 'X'), but those will be skipped
 # During numerical comparisons, so you will have to handle those situations
 # in your own code.
@@ -64,14 +64,14 @@ const EXPLANATIONS = {
 	"pierce": "[color=teal]Pierce[/color]: This effect bypasses [img=24x24]res://fonts/rich_text_icons/shield.png[/img]",
 	"perturbation": "[color=white]Perturbation[/color]: Cards that tend to clutter your deck, and may have extra negative effects.",
 	"delayed": "[color=yellow]Delayed[/color]: This effect will become active at the start of your next turn only.",
-	
+
 	'Sneaky-Beaky': "Note: This effect will not trigger from combat effects such as "\
 			+ "[img=24x24]res://fonts/rich_text_icons/coma.png[/img] or [img=24x24]res://fonts/rich_text_icons/wrapped-heart.png[/img]."
 }
 # Allows the Card object and Card Viewer to replace specific entries during display.
 # For example, you can mark that a cost of 'U' is displayed as an empty string ('').
-# This const is a series of nested constants. 
-# Each top key is a property name. 
+# This const is a series of nested constants.
+# Each top key is a property name.
 # Each second-level key is value to replace.
 # The value is the replacement.
 const REPLACEMENTS = {
@@ -82,7 +82,7 @@ const REPLACEMENTS = {
 
 # Creates the format dictionary to convert strings pointing to amounts
 # text in the card abilities, into rich text numbers.
-static func get_amounts_format(properties_dict: Dictionary) -> Dictionary: 
+static func get_amounts_format(properties_dict: Dictionary) -> Dictionary:
 	var amounts_format = properties_dict.get("_amounts", {}).duplicate(true)
 	for amount in amounts_format:
 		amounts_format[amount] = "[color=yellow]" + str(amounts_format[amount]) + "[/color]"

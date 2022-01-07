@@ -53,7 +53,7 @@ func finish_surpise_ordeal() -> void:
 	var defence_total : float = 0
 	for turn in lessons_learned.defences:
 		if turn > 12: 
-			total_high_defence_turns + 1
+			total_high_defence_turns += 1
 		defence_total += turn
 	var defence_average : float = defence_total / total_turns
 	# If the player averages more than 8 defence per turn, we try to counteract it
@@ -102,6 +102,7 @@ func start_ordeal() -> void:
 	var result = .start_ordeal()
 	if result is GDScriptFunctionState:
 		yield(result, "completed")
+	# warning-ignore:return_value_discarded
 	enemy_entity.connect("learning_finished", self, "on_learning_finished")
 
 

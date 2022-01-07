@@ -28,7 +28,7 @@ func populate_upgrade_cards() -> void:
 		upgrade_card_object.connect("card_selected", self, "_on_card_upgrade_selected", [upgrade_card_object])
 #	yield(get_tree().create_timer(0.15), "timeout")
 #	call_deferred('set_size',Vector2(0,0))
-	globals.journal.emit_signal("card_upgrade_started", self)
+	globals.journal.card_upgrade_started(self)
 
 func _on_card_upgrade_selected(option: int, draft_card_object) -> void:
 	var upgrade_options : Array = upgradable_cards[option].upgrade_options

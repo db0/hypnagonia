@@ -59,7 +59,7 @@ func _use() -> void:
 
 
 # Overridable function
-func execute_memory_effect() -> void:
+func execute_memory_effect():
 	pass
 
 

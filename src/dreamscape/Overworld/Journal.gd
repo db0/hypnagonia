@@ -408,10 +408,8 @@ func show_description_popup(description_text: String) -> void:
 func show_pathos_popup(description_text: String, pathos_dict: Dictionary) -> void:
 	_pathos_description.bbcode_text = description_text
 	var highest_chance: int
-	var total_chance := 0
 	for entry in pathos_infos:
 		var chance = pathos_infos[entry].update_labels(pathos_dict)
-		total_chance += chance
 		if chance > highest_chance:
 			highest_chance = chance
 #	print_debug(total_chance)
@@ -467,6 +465,17 @@ func _input(event):
 			journal_choice_scene.journal_choice.connect("pressed", self, "_on_choice_pressed", [encounter, journal_choice_scene])
 			_reveal_entry(journal_choice_scene.journal_choice)
 #		print_debug(SoundManager._get_all_playing_type_steams('BGM'))
+
+# These three functions,prevent warnings in the compiler
+# as opposed to calling the emit signal from the other node directly
+func card_draft_started(card_draft_node) -> void:
+	emit_signal("card_draft_started", card_draft_node)
+	
+func artifact_selection_started(artifact_selection_node) -> void:
+	emit_signal("artifact_selection_started", artifact_selection_node)
+	
+func card_upgrade_started(card_upgrade_node) -> void:
+	emit_signal("card_upgrade_started", card_upgrade_node)
 
 
 func _exit_tree():
