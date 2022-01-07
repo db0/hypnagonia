@@ -310,6 +310,7 @@ func complete_battle() -> void:
 	if not battle_ended:
 		battle_ended = true
 		globals.player.damage = dreamer.damage
+		globals.player.health = dreamer.health
 		_fade_to_transparent()
 		yield(_tween, "tween_all_completed")
 		globals.current_encounter.end()
