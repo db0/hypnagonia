@@ -61,7 +61,7 @@ func populate_draft_cards() -> void:
 		draft_card_object.setup(card_name)
 		draft_card_object.index = index
 		draft_card_object.connect("card_selected", self, "_on_card_draft_selected", [draft_card_object])
-	globals.journal.emit_signal("card_draft_started", self)
+	globals.journal.card_draft_started(self)
 
 #	yield(get_tree().create_timer(0.15), "timeout")
 #	call_deferred('set_size',Vector2(0,0))

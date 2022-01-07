@@ -552,22 +552,25 @@ const BOSSES := {
 	"Narcissus": Narcissus
 }
 
+
 const NCE := {
-	"easy": [
-		preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd"),
-		preload("res://src/dreamscape/Run/NCE/Act1/SlayTheSpire.gd"),
-		preload("res://src/dreamscape/Run/NCE/Act1/SleepOfOblivion.gd"),
-		preload("res://src/dreamscape/Run/NCE/Act1/MultipleOptions.gd"),
-		preload("res://src/dreamscape/Run/NCE/Act1/PathosForAnxiety.gd"),
-		preload("res://src/dreamscape/Run/NCE/Act1/Dollmaker.gd"),
-		preload("res://src/dreamscape/Run/NCE/Act1/Greed.gd"),
-		preload("res://src/dreamscape/Run/NCE/Act1/PopPsychologist1.gd"),
-	],
-	"risky": [
-		preload("res://src/dreamscape/Run/NCE/Act1/RiskyEvent1.gd"),
-		preload("res://src/dreamscape/Run/NCE/Act1/Spider.gd"),
-	]
+	"easy": {
+		"MonsterTrain": preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd"),
+		"SlayTheSpire": preload("res://src/dreamscape/Run/NCE/Act1/SlayTheSpire.gd"),
+		"SleepOfOblivion": preload("res://src/dreamscape/Run/NCE/Act1/SleepOfOblivion.gd"),
+		"MultipleOptions": preload("res://src/dreamscape/Run/NCE/Act1/MultipleOptions.gd"),
+		"PathosForAnxiety": preload("res://src/dreamscape/Run/NCE/Act1/PathosForAnxiety.gd"),
+		"Dollmaker": preload("res://src/dreamscape/Run/NCE/Act1/Dollmaker.gd"),
+		"Greed": preload("res://src/dreamscape/Run/NCE/Act1/Greed.gd"),
+		"PopPsychologist1": preload("res://src/dreamscape/Run/NCE/Act1/PopPsychologist1.gd"),
+	},
+	"risky": {
+		"RiskyEvent1": preload("res://src/dreamscape/Run/NCE/Act1/RiskyEvent1.gd"),
+		"Spider": preload("res://src/dreamscape/Run/NCE/Act1/Spider.gd"),
+		# Recurrence appears in Act1, but if it's not encountered, it stays locked
+		"Recurrence1": preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd"),
+	}
 }
 
 static func get_act_name() -> String:
-	return("Early Night")
+	return(Act.ACT_NAMES.Act1)

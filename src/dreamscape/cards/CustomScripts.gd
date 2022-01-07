@@ -149,6 +149,15 @@ func custom_script(script: ScriptObject) -> void:
 							}
 						]
 						execute_script(card_script, script.owner, enemy_entity)
+		"Subconscious", "= Subconscious =", "% Subconscious %":
+			if not costs_dry_run:
+#				print_debug(subjects[0].is_dead)
+				if subjects.size() and subjects[0].is_dead:
+					var increase_amount = cfc.card_definitions[card.canonical_name]\
+								.get("_amounts",{}).get("increase_amount", 3)
+					card.deck_card_entry.modify_amounts("damage_amount", '+' + str(increase_amount))
+					card.deck_card_entry.overwrite_properties()
+					card.refresh_card_front()
 			
 # warning-ignore:unused_argument
 func custom_alterants(script: ScriptObject) -> int:

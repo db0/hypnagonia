@@ -221,7 +221,7 @@ func snapshot_effect(
 			effect_name : String,
 			mod := 1,
 			set_to_mod := false,
-			tags := ["Manual"],
+			_tags := ["Manual"],
 			upgrade_string := ''):
 	var combined_effect_name :=  effect_name
 	if upgrade_string != '':

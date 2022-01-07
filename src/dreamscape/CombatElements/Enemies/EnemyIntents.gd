@@ -218,6 +218,7 @@ func refresh_intents(specific_index = null) -> void:
 	reshuffle_intents()
 	for intent in get_children():
 		intent.queue_free()
+	# warning-ignore:return_value_discarded
 	prepare_intents(specific_index)
 
 # We have this externally to allow to override it if needed (e.g. for boss intents)

@@ -530,7 +530,7 @@ const ACTIVE_EFFECTS := {
 		"name": "Self Cleaning",
 		"type": "Special",
 		"icon": preload("res://assets/icons/soap.png"),
-		"description": "{effect_name}: At the end of each turn, reduce the highest debuff on this {entity} by 2.",
+		"description": "{effect_name}: At the end of each turn, reduce the highest debuff on this {entity} by {amount}.",
 	},
 
 }
@@ -604,6 +604,11 @@ const GENERIC_TAGS := {
 		"icon": preload("res://assets/icons/omega.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/omega.png",
 		"generic_description": "[color=purple]{effect_name} ({effect_icon}): This card will always start at the bottom of the deck.[/color]"},
+	"frozen": {
+		"name": "Absorbed",
+		"icon": preload("res://assets/icons/wind-hole.png"),
+		"rich_text_icon": "res://fonts/rich_text_icons/wind-hole.png",
+		"generic_description": "[color=purple]{effect_name} ({effect_icon}): This card will not be discarded from hand at the end of the turn.[/color]"},
 	"exert": {
 		"name": "Rationalizations",
 		"icon": preload("res://assets/icons/skills.png"),
@@ -749,6 +754,15 @@ static func get_term_value(thematic_tag_name: String, key: String, no_icon := fa
 	var entry := get_term_entry(thematic_tag_name, key, no_icon)
 	return(entry.get(key))
 
+
+# Returns an array containing all the names that can be set as tags
+static func get_all_tag_names() -> Array:
+	var tag_names := []
+	for effect in ACTIVE_EFFECTS:
+		tag_names.append(ACTIVE_EFFECTS[effect].name)
+	for tag in GENERIC_TAGS:
+		tag_names.append(GENERIC_TAGS[tag].name)
+	return(tag_names)
 
 # Returns a string format dictionary with all the known formatting for RichTextLabels
 static func get_bbcode_formats(preset_icon_size = null) -> Dictionary:

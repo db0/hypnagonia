@@ -408,10 +408,8 @@ func show_description_popup(description_text: String) -> void:
 func show_pathos_popup(description_text: String, pathos_dict: Dictionary) -> void:
 	_pathos_description.bbcode_text = description_text
 	var highest_chance: int
-	var total_chance := 0
 	for entry in pathos_infos:
 		var chance = pathos_infos[entry].update_labels(pathos_dict)
-		total_chance += chance
 		if chance > highest_chance:
 			highest_chance = chance
 #	print_debug(total_chance)
@@ -430,7 +428,8 @@ func _input(event):
 #			c.upgrade_progress = 100
 #		_reveal_entry(upgrade_journal, true)
 #		globals.player.add_artifact(ArtifactDefinitions.AddOmegaTag.canonical_name)
-		globals.player.add_artifact(ArtifactDefinitions.FreeCard.canonical_name)
+		globals.player.add_artifact(ArtifactDefinitions.AddFrozenTag.canonical_name)
+#		globals.player.add_artifact(ArtifactDefinitions.FreeCard.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.GainMaxHealth.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.HealSelf.canonical_name)
@@ -442,7 +441,7 @@ func _input(event):
 #		globals.player.deck.add_new_card("Prejudice")
 #		globals.player.damage += 20
 #		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.boss, 100)
-		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 50)
+		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 500)
 		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.enemy, 50)
 		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, 20)
 		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.elite, 30)
@@ -454,10 +453,10 @@ func _input(event):
 #		globals.player.damage = 85
 		var debug_encounters = [
 			EnemyEncounter.new(Act1.Pialephant, "easy"),
-#			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
-#			preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd").new(),
-#			BossEncounter.new(Act1.BOSSES["Narcissus"]),
-			EliteEncounter.new(Act2.Dentist, "medium"),
+#			preload("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd").new(),
+			preload("res://src/dreamscape/Run/NCE/Act2/Subconscious.gd").new(),
+			BossEncounter.new(Act1.BOSSES["Narcissus"]),
+#			EliteEncounter.new(Act2.Dentist, "medium"),
 #			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
 		]
 		for encounter in debug_encounters:
@@ -467,6 +466,17 @@ func _input(event):
 			journal_choice_scene.journal_choice.connect("pressed", self, "_on_choice_pressed", [encounter, journal_choice_scene])
 			_reveal_entry(journal_choice_scene.journal_choice)
 #		print_debug(SoundManager._get_all_playing_type_steams('BGM'))
+
+# These three functions,prevent warnings in the compiler
+# as opposed to calling the emit signal from the other node directly
+func card_draft_started(card_draft_node) -> void:
+	emit_signal("card_draft_started", card_draft_node)
+	
+func artifact_selection_started(artifact_selection_node) -> void:
+	emit_signal("artifact_selection_started", artifact_selection_node)
+	
+func card_upgrade_started(card_upgrade_node) -> void:
+	emit_signal("card_upgrade_started", card_upgrade_node)
 
 
 func _exit_tree():

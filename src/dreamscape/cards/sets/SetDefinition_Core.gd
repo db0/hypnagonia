@@ -5822,6 +5822,5 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-
 }
 

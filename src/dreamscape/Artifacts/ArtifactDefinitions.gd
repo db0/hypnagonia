@@ -234,7 +234,7 @@ const ThinCardDraw := {
 			+ "This effect stops for the turn you draw the same card three times.",
 	"icon": preload("res://assets/icons/artifacts/light-backpack.png"),
 	"context": EffectContext.BATTLE,
-	"rarity": "Common",
+	"rarity": "Uncommon",
 	"amounts": {
 		"draw_amount": 1
 	},
@@ -575,6 +575,14 @@ const AddOmegaTag := {
 	"icon": preload("res://assets/icons/artifacts/jigsaw-piece.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
+}
+const AddFrozenTag := {
+	"canonical_name": "AddFrozenTag",
+	"name": "Sponge",
+	"description": "{artifact_name}: Choose a card in your deck. It gains the {frozen} tag, so always starts at the bottom of the deck.",
+	"icon": preload("res://assets/icons/artifacts/dice-twenty-faces-twenty.png"),
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Rare",
 }
 
 # Generic artifacts which have a chance to appear in any playthrough

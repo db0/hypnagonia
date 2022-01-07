@@ -305,15 +305,16 @@ const BOSSES := {
 
 
 const NCE := {
-	"easy": [
-		preload("res://src/dreamscape/Run/NCE/Act2/Griftlands.gd"),
-		preload("res://src/dreamscape/Run/NCE/Act2/BannersOfRuin.gd"),
-		preload("res://src/dreamscape/Run/NCE/Act2/MiniShop.gd"),
-	],
-	"risky": [
-		preload("res://src/dreamscape/Run/NCE/Act2/RiskyEvent3.gd"),
-		preload("res://src/dreamscape/Run/NCE/Act2/RiskyEvent4.gd"),
-	]
+	"easy": {
+		"Griftlands": preload("res://src/dreamscape/Run/NCE/Act2/Griftlands.gd"),
+		"BannersOfRuin": preload("res://src/dreamscape/Run/NCE/Act2/BannersOfRuin.gd"),
+		"MiniShop": preload("res://src/dreamscape/Run/NCE/Act2/MiniShop.gd"),
+		"Subconscious": preload("res://src/dreamscape/Run/NCE/Act2/Subconscious.gd"),
+	},
+	"risky": {
+		"RiskyEvent3": preload("res://src/dreamscape/Run/NCE/Act2/RiskyEvent3.gd"),
+		"RiskyEvent4": preload("res://src/dreamscape/Run/NCE/Act2/RiskyEvent4.gd"),
+	}
 }
 
 const LOCKED_NCE := {
@@ -325,7 +326,11 @@ const LOCKED_NCE := {
 		"nce": preload("res://src/dreamscape/Run/NCE/Act2/Griftlands3.gd"),
 		"chance_multiplier": 1,
 	},
+	"Recurrence2": {
+		"nce": preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd"),
+		"chance_multiplier": 4,
+	},
 }
 
 static func get_act_name() -> String:
-	return("Deep Sleep")
+	return(Act.ACT_NAMES.Act2)

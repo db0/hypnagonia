@@ -22,7 +22,8 @@ func begin() -> void:
 	# Player gets 3 candy choices
 	var colours = HConst.COLOUR_MAP.keys()
 	for colour in colours.duplicate():
-		if globals.player.deck.filter_cards("Type", HConst.COLOUR_MAP[colour]).size() < 1:
+		var card_filter := CardFilter.new("Type", HConst.COLOUR_MAP[colour])
+		if globals.player.deck.filter_cards(card_filter).size() < 1:
 			colours.erase(colour)
 	while candies.size() < 3:
 		# Each candy has 2 colours
@@ -81,7 +82,7 @@ func continue_encounter(key) -> void:
 		var selection_deck : SelectionDeck = globals.journal.spawn_selection_deck()
 		# warning-ignore:return_value_discarded
 		selection_deck.connect("operation_performed", self, "_on_card_removed", [key])
-		selection_deck.card_type = HConst.COLOUR_MAP[key[0]]
+		selection_deck.card_filters.append(CardFilter.new("Type", HConst.COLOUR_MAP[key[0]]))
 		selection_deck.auto_close = true
 		selection_deck.initiate_card_removal(0)
 		var transmute_format = {

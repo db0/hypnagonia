@@ -14,4 +14,12 @@ const PROPERTIES := {
 
 
 func _ready() -> void:
-	active_effects.mod_effect(Terms.ACTIVE_EFFECTS.self_cleaning.name, 1, false, false, ["Init"])
+	var stacks: int
+	match get_property("_difficulty"):
+		"easy":
+			stacks = 1
+		"medium":
+			stacks = 2
+		"hard":
+			stacks = 3
+	active_effects.mod_effect(Terms.ACTIVE_EFFECTS.self_cleaning.name, stacks, false, false, ["Init"])

@@ -1,5 +1,5 @@
 # Don't know why, but putting a class name here, breaks HTML exports
-#class_name CoreScripts
+class_name CoreScripts
 extends Reference
 
 # If the upgraded card name is prepending one of these words
@@ -3624,7 +3624,7 @@ const NearGroundFlight = {
 # This fuction returns all the scripts of the specified card name.
 #
 # if no scripts have been defined, an empty dictionary is returned instead.
-func get_scripts(card_name: String) -> Dictionary:
+func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 	# This format allows me to trace which script failed during load
 	var scripts := {
 		"Interpretation": Interpretation,
@@ -3761,10 +3761,10 @@ func get_scripts(card_name: String) -> Dictionary:
 		"A Chick of the Light": AChickOfTheLight,
 		"Near-ground Flight": NearGroundFlight,
 	}
-	return(_prepare_scripts(scripts, card_name))
+	return(_prepare_scripts(scripts, card_name, get_modified))
 
 # Takes care to return the correct script, even for card with standard upgrades
-func _prepare_scripts(all_scripts: Dictionary, card_name: String) -> Dictionary:
+func _prepare_scripts(all_scripts: Dictionary, card_name: String, get_modified := true) -> Dictionary:
 	# When a the "Fleeting" prepend has been added to a card upgrade
 	# It means the card is forgotten after using it.
 	# This is the ScEng task that does this, and it is automatically appended
@@ -3812,7 +3812,8 @@ func _prepare_scripts(all_scripts: Dictionary, card_name: String) -> Dictionary:
 			ret_script["manual"]["hand"].append(EPHEMERAL_TASK)
 		"Fleeting", '~':
 			ret_script["manual"]["hand"].append(FLEETING_TASK)
-	lookup_script_property(ret_script, card_name)
+	if get_modified:
+		lookup_script_property(ret_script, card_name)
 	return(ret_script)
 
 
@@ -3822,7 +3823,7 @@ func _prepare_scripts(all_scripts: Dictionary, card_name: String) -> Dictionary:
 # So we do that and replace the value in that dictionary with the looked up value.
 # This allows us to tweak the values of scripts from the card definitions
 # and thus have only one adjustment point
-func lookup_script_property(script: Dictionary, card_name: String) -> void:
+static func lookup_script_property(script: Dictionary, card_name: String, card_entry = null) -> void:
 	for key in script:
 		if typeof(script[key]) == TYPE_DICTIONARY:
 			if script[key].has("lookup_property"):
@@ -3830,15 +3831,20 @@ func lookup_script_property(script: Dictionary, card_name: String) -> void:
 				var lookup_property = lookup.get("lookup_property")
 				var value_key = lookup.get("value_key")
 				var default_value = lookup.get("default")
-				var value = cfc.card_definitions[card_name]\
+				var value
+				if card_entry:
+					value = card_entry.properties\
+						.get(lookup_property, {}).get(value_key, default_value)
+				else:
+					value = cfc.card_definitions[card_name]\
 						.get(lookup_property, {}).get(value_key, default_value)
 				if lookup.get("is_inverted"):
 					value *= -1
 				script[key] = value
 			else:
-				lookup_script_property(script[key], card_name)
+				lookup_script_property(script[key], card_name, card_entry)
 		elif typeof(script[key]) == TYPE_ARRAY:
 			for task in script[key]:
 				if typeof(task) == TYPE_DICTIONARY:
-					lookup_script_property(task, card_name)
+					lookup_script_property(task, card_name, card_entry)
 

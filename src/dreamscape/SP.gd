@@ -21,16 +21,6 @@ const KEY_X_MODIFIER = "x_modifier"
 # is being added to the total, or multiplying the total.
 const KEY_X_OPERATION = "x_operation"
 const KEY_EFFECT = "effect_name"
-
-const FILTER_EFFECTS = "filter_effects"
-const FILTER_IS_NOT_SPECIFIED_ENEMY = "filter_not_enemy"
-const FILTER_DREAMER_DEFENCE = "filter_dreamer_defence"
-const FILTER_STACKS = "filter_stacks"
-const FILTER_TURN_EVENT_COUNT = "filter_turn_event_count"
-const FILTER_ENCOUNTER_EVENT_COUNT = "filter_encounter_event_count"
-const FILTER_DAMAGE_PCT = "filter_damage_percent"
-# Filters based on how much immersion will be used by X
-const FILTER_X_USAGE = "filter_x_usage"
 const KEY_EFFECT_NAME = "effect_name"
 const KEY_UPGRADE_NAME = "upgrade_name"
 const KEY_EVENT_NAME = "event_name"
@@ -48,7 +38,6 @@ const KEY_SET_SPAWN_AS_MINION = "set_spawn_as_minion"
 # Used when removing a card from the deck. If set to true, removes the card
 # for the whole run
 const KEY_PERMANENT = "is_permanent"
-const FILTER_PER_EFFECT_STACKS = "filter_per_effect_stacks"
 const PER_EFFECT_STACKS = "per_effect_stacks"
 const KEY_CARD_COUNT := "card_count"
 const KEY_PER_DEFENCE := "per_defence"
@@ -57,8 +46,22 @@ const KEY_PER_ENCOUNTER_EVENT_COUNT := "per_encounter_event_count"
 # If this is set, the predict() will be rerun every time a new target is hovered and the currect
 # hovered target will be sent as a hardcoded previous_subjects.
 const KEY_PREDICT_REQUIRES_TARGET := "predict_requires_target"
+# Adds a special trigger on the card that we can execute with custom code
 const RIDER := "rider"
+
+# Filters based on how much immersion will be used by X
+const FILTER_X_USAGE = "filter_x_usage"
 const FILTER_INTENT_STRESS = "filter_intent_stress"
+const FILTER_PER_EFFECT_STACKS = "filter_per_effect_stacks"
+const FILTER_EFFECTS = "filter_effects"
+# Filters that the enemy object does not match a specific object. 
+# Can only be specified in CustomScripts as it needs an object value.
+const FILTER_IS_NOT_SPECIFIED_ENEMY = "filter_not_enemy"
+const FILTER_DREAMER_DEFENCE = "filter_dreamer_defence"
+const FILTER_STACKS = "filter_stacks"
+const FILTER_TURN_EVENT_COUNT = "filter_turn_event_count"
+const FILTER_ENCOUNTER_EVENT_COUNT = "filter_encounter_event_count"
+const FILTER_DAMAGE_PCT = "filter_damage_percent"
 
 # This call has been setup to call the original, and allow futher extension
 # simply create new filter

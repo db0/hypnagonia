@@ -22,8 +22,9 @@ var progress_amount := 1
 # If set to true, this deck will close and clear itself after the operation.
 # This prevents having to hook onto the SelectionDeck's signal, just to close it
 var auto_close := false
-# Specifies which types of cards to display from the deck
-var card_type := "any"
+# Specifies a filter for which cards to display from the deck
+# It needs to contain only objects of CardFilter class
+var card_filters : Array
 
 onready var _deck_operation_name := $VBC/OperationName/
 onready var _deck_operation_cost := $VBC/OperationCost/
@@ -87,7 +88,12 @@ func _populate_preview_cards() -> void:
 			card.queue_free()
 		current_decklist_cache = globals.player.deck.list_all_cards()
 		for index in range(globals.player.deck.cards.size()):
-			if card_type != 'any' and card_type != globals.player.deck.cards[index].get_property('Type'):
+			var card_matches:= true
+			for f in card_filters:
+				var filter: CardFilter = f
+				if not filter.check_card(globals.player.deck.cards[index].properties):
+					card_matches = false
+			if not card_matches:
 				continue
 			var card_preview_container = CARD_CHOICE_SCENE.instance()
 			_deck_preview_grid.add_child(card_preview_container)

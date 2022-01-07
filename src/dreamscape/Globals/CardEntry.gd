@@ -37,7 +37,7 @@ var upgrades: Dictionary
 var upgrade_options : Array
 var properties := {}
 var printed_properties := {}
-
+var unmodified_scripts : Dictionary
 
 func _init(_card_name: String) -> void:
 	card_name = _card_name
@@ -53,6 +53,11 @@ func _init(_card_name: String) -> void:
 				+ UPGRADE_THRESHOLDS_TYPE_MODIFIERS[properties["Type"]]\
 				+ upgrade_threshold
 	set_upgrade_options()
+	if cfc.scripts_loading:
+		yield(cfc, "scripts_loaded")
+	unmodified_scripts = cfc.unmodified_set_scripts.get(card_name, {})
+	if card_name == "Subconscious":
+		pass
 	## DEBUG
 #	set_upgrade_progress(upgrade_threshold)
 	## END DEBUG
@@ -86,7 +91,7 @@ func set_upgrade_progress(amount) -> void:
 		upgrade_progress = upgrade_threshold
 	elif upgrade_progress < 0:
 		upgrade_progress = 0
-		
+
 
 
 func can_be_upgraded() -> bool:
@@ -141,4 +146,33 @@ func modify_property(property: String, value) -> void:
 			else:
 				properties[property] = value
 	elif property in CardConfig.PROPERTIES_ARRAYS:
-		properties[property].append(value)
+		if not value in properties[property]:
+			properties[property].append(value)
+
+
+func modify_amounts(amount_name: String, value) -> void:
+	if not properties.has("_amounts"):
+		properties["_amounts"] = {}
+	var current_value = properties["_amounts"].get(amount_name)
+	var new_value
+	if typeof(value) == TYPE_STRING\
+			and value.is_valid_integer()\
+			and typeof(current_value) == TYPE_INT:
+		new_value = current_value + int(value)
+	else:
+		new_value = value
+	properties["_amounts"][amount_name] = new_value
+
+
+func overwrite_properties() -> void:
+	if card_object:
+		card_object.properties = properties
+
+
+func retrieve_scripts(trigger: String) -> Dictionary:
+	if card_name == "Subconscious":
+		pass
+	var found_scripts: Dictionary = unmodified_scripts.duplicate(true)
+	CoreScripts.lookup_script_property(found_scripts, card_name, self)
+#	print(found_scripts.get(trigger,{}))
+	return(found_scripts.get(trigger,{}))

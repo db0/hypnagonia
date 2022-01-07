@@ -310,6 +310,7 @@ func complete_battle() -> void:
 	if not battle_ended:
 		battle_ended = true
 		globals.player.damage = dreamer.damage
+		globals.player.health = dreamer.health
 		_fade_to_transparent()
 		yield(_tween, "tween_all_completed")
 		globals.current_encounter.end()
@@ -399,27 +400,29 @@ func _input(event):
 #		SoundManager.play_bgm(bgm_tracks[0])
 #		SoundManager.fade_in(bgm_tracks[0])
 		# warning-ignore:unused_variable
-		_debug_advanced_enemy()
+#		_debug_advanced_enemy()
 		var _torment1
 		var _torment2
 		var _torment3
-#		_torment1 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
-#		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+		_torment1 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
+		_torment2 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
+		_torment3 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 		if _torment1:
-			_torment1.health = 180
+			_torment1.health = 23
 			_torment1.damage = 19
-			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 2)
-			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
+#			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 2)
+#			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.effect_resistance.name, 1, false, false, ["Init"], Terms.ACTIVE_EFFECTS.poison.name)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
 		if _torment2:
-			_torment2.health = 110
-			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
+			_torment2.health = 20
+			_torment1.damage = 10
+#			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.marked.name, 1)
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
-			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 15)
+#			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 15)
 #			_torment2.defence = 10
 		if _torment3:
 			_torment3.health = 100
@@ -434,7 +437,7 @@ func _input(event):
 		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.SpikeEnemy.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 12)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 12)
 		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1, false, false, ['Debug'], 'thick')
 		for pathos in Terms.RUN_ACCUMULATION_NAMES.values():
 			if pathos != Terms.RUN_ACCUMULATION_NAMES.boss:
@@ -444,9 +447,10 @@ func _input(event):
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"Towering Presence",
+			"Blind Trial",
 		]:
-			var card = cfc.instance_card(c)
+			var ce = CardEntry.new(c)
+			var card = ce.instance_self()
 			cfc.NMAP.hand.add_child(card)
 			#card.set_is_faceup(false,true)
 			card._determine_idle_state()
@@ -469,7 +473,7 @@ func _debug_advanced_enemy() -> void:
 #	var advanced_entity: EnemyEntity =\
 #			preload("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn").instance()
 	var advanced_entity: EnemyEntity =\
-			preload("res://src/dreamscape/CombatElements/Enemies/Elites/Dentist.tscn").instance()
+			preload("res://src/dreamscape/CombatElements/Enemies/Elites/IndescribableAbsurdity.tscn").instance()
 	advanced_entity.setup_advanced("hard")
 	_enemy_area.add_child(advanced_entity)
 #	advanced_entity.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.self_cleaning.name, 1)
@@ -486,7 +490,7 @@ func _on_Debug_pressed() -> void:
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.nunclucks.name, 1)
 	dreamer.defence += 30
 	for c in [
-		"Dubious Painkillers",
+		"Blind Trial",
 	]:
 		var card = cfc.instance_card(c)
 		cfc.NMAP.hand.add_child(card)
@@ -497,8 +501,10 @@ func _on_Debug_pressed() -> void:
 #		cfc.NMAP.hand.draw_card(cfc.NMAP.deck)
 	# Deck cards
 	for c in [
-		"Hyperfocus",
-		"Hyperfocus",
+		"Survival Mode",
+		"Survival Mode",
+		"Survival Mode",
+#		"Hyperfocus",
 	]:
 		var card = cfc.instance_card(c)
 		cfc.NMAP.deck.add_child(card)

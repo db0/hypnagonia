@@ -1,11 +1,12 @@
 extends Node
 
-
 const PLAYER_COMBAT_ENTITY_SIZE = Vector2(120,120)
+
+signal encounter_selected(encounter)
 
 var player: Player
 var encounters: SingleRun
-var current_encounter: SingleEncounter
+var current_encounter: SingleEncounter setget set_current_encounter
 var journal: Journal
 var music: Music
 # I use this to keep track of which journal texts I haven't used yet in this run
@@ -41,6 +42,10 @@ func hide_all_previews() -> void:
 	cfc.hide_all_previews()
 	for artifact_preview_node in cfc.get_tree().get_nodes_in_group("artifact_preview"):
 		artifact_preview_node.hide_preview_artifact()
+
+func set_current_encounter(value) -> void:
+	current_encounter = value
+	emit_signal("encounter_selected", value)
 
 func _exit_tree():
 	print("Hypnagonia Exited Gracefully.")

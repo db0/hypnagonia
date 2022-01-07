@@ -463,6 +463,7 @@ func perturb(script: ScriptTask) -> void:
 		card.pertub_destination = dest_container
 		card.state = DreamCard.ExtendedCardState.SPAWNED_PERTURBATION
 		if script.get_property(SP.KEY_IS_PERMANENT):
+			# warning-ignore:return_value_discarded
 			globals.player.deck.add_new_card(canonical_name)
 		yield(cfc.get_tree().create_timer(0.2), "timeout")
 
