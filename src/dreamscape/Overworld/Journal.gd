@@ -428,8 +428,8 @@ func _input(event):
 #			c.upgrade_progress = 100
 #		_reveal_entry(upgrade_journal, true)
 #		globals.player.add_artifact(ArtifactDefinitions.AddOmegaTag.canonical_name)
-#		globals.player.add_artifact(ArtifactDefinitions.AddFrozenTag.canonical_name)
-		globals.player.add_artifact(ArtifactDefinitions.FreeCard.canonical_name)
+		globals.player.add_artifact(ArtifactDefinitions.AddFrozenTag.canonical_name)
+#		globals.player.add_artifact(ArtifactDefinitions.FreeCard.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.GainMaxHealth.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.HealSelf.canonical_name)
