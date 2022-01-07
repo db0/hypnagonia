@@ -1,5 +1,17 @@
 # Changelog
 
+## [v0.28.0](https://github.com/db0/hypnagonia/tree/v0.28.0) (2022-01-07)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.27.3...v0.28.0)
+
+**Implemented enhancements:**
+
+- Recurrence should only appear in act2/3 if it appeared in act1 [\#175](https://github.com/db0/hypnagonia/issues/175)
+
+**Merged pull requests:**
+
+- Can now modify card scripts permanently. [\#177](https://github.com/db0/hypnagonia/pull/177) ([db0](https://github.com/db0))
+
 ## [v0.27.3](https://github.com/db0/hypnagonia/tree/v0.27.3) (2022-01-06)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.27.2...v0.27.3)
@@ -231,7 +243,6 @@
 
 - Crash when selecting Curio ImproveImpervious [\#114](https://github.com/db0/hypnagonia/issues/114)
 - Crash when recalling the Playground Memory [\#113](https://github.com/db0/hypnagonia/issues/113)
-- Game force unstuck during Ordeal with The Laughing Ones [\#111](https://github.com/db0/hypnagonia/issues/111)
 
 **Closed issues:**
 
