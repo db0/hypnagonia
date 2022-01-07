@@ -309,6 +309,7 @@ const NCE := {
 		"Griftlands": preload("res://src/dreamscape/Run/NCE/Act2/Griftlands.gd"),
 		"BannersOfRuin": preload("res://src/dreamscape/Run/NCE/Act2/BannersOfRuin.gd"),
 		"MiniShop": preload("res://src/dreamscape/Run/NCE/Act2/MiniShop.gd"),
+		"Subconscious": preload("res://src/dreamscape/Run/NCE/Act2/Subconscious.gd"),
 	},
 	"risky": {
 		"RiskyEvent3": preload("res://src/dreamscape/Run/NCE/Act2/RiskyEvent3.gd"),

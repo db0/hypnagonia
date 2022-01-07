@@ -453,8 +453,8 @@ func _input(event):
 #		globals.player.damage = 85
 		var debug_encounters = [
 			EnemyEncounter.new(Act1.Pialephant, "easy"),
-			preload("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd").new(),
-#			preload("res://src/dreamscape/Run/NCE/Act1/DollMaker.gd").new(),
+#			preload("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd").new(),
+			preload("res://src/dreamscape/Run/NCE/Act2/Subconscious.gd").new(),
 			BossEncounter.new(Act1.BOSSES["Narcissus"]),
 #			EliteEncounter.new(Act2.Dentist, "medium"),
 #			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
