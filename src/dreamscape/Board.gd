@@ -447,7 +447,7 @@ func _input(event):
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"% Subconscious %",
+			"Blind Trial",
 		]:
 			var ce = CardEntry.new(c)
 			var card = ce.instance_self()
@@ -490,7 +490,7 @@ func _on_Debug_pressed() -> void:
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.nunclucks.name, 1)
 	dreamer.defence += 30
 	for c in [
-#		"Excogitate",
+		"Blind Trial",
 	]:
 		var card = cfc.instance_card(c)
 		cfc.NMAP.hand.add_child(card)
@@ -501,7 +501,9 @@ func _on_Debug_pressed() -> void:
 #		cfc.NMAP.hand.draw_card(cfc.NMAP.deck)
 	# Deck cards
 	for c in [
-#		"Hyperfocus",
+		"Survival Mode",
+		"Survival Mode",
+		"Survival Mode",
 #		"Hyperfocus",
 	]:
 		var card = cfc.instance_card(c)

@@ -120,11 +120,13 @@ func retrieve_scripts(trigger: String) -> Dictionary:
 	if tutorial_disabled:
 		return({})
 	var found_scripts
-	if deck_card_entry:
+	if not scripts.empty() and not scripts.get(trigger,{}).empty():
+		found_scripts = scripts.get(trigger,{}).duplicate(true)
+	elif deck_card_entry:
 		found_scripts = deck_card_entry.retrieve_scripts(trigger)
 	else:
 		found_scripts= .retrieve_scripts(trigger).duplicate(true)
-	if trigger == "manual" and get_state_exec() == "hand":
+	if trigger == "manual" and get_state_exec() == "hand" and state != ExtendedCardState.AUTOPLAY_DISPLAY:
 		found_scripts = insert_payment_costs(found_scripts)
 		if typeof(found_scripts["hand"]) == TYPE_ARRAY:
 			if get_property("Type") == "Concentration" or get_property("_is_concentration"):
@@ -336,8 +338,9 @@ func get_state_exec() -> String:
 	# We don't check according to the parent name
 	# as that can change.
 	# Might consier checking on the parent class if this gets too complicated.
-	if state == CardState.DRAGGED:
-		state_exec = "hand"
+	match state:
+		CardState.DRAGGED, ExtendedCardState.AUTOPLAY_DISPLAY:
+			state_exec = "hand"
 	return(state_exec)
 
 
