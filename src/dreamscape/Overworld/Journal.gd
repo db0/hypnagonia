@@ -447,14 +447,14 @@ func _input(event):
 		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.elite, 30)
 		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, 15)
 		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.rest, 20)
-		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 200)
-		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, 200)
-		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, 200)
+		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 50)
+		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, 49)
+		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, 48)
 #		globals.player.damage = 85
 		var debug_encounters = [
 			EnemyEncounter.new(Act1.Pialephant, "easy"),
 #			preload("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd").new(),
-			preload("res://src/dreamscape/Run/NCE/Act2/Subconscious.gd").new(),
+			preload("res://src/dreamscape/Run/NCE/Act2/MultipleTags.gd").new(),
 			BossEncounter.new(Act1.BOSSES["Narcissus"]),
 #			EliteEncounter.new(Act2.Dentist, "medium"),
 #			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()

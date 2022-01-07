@@ -2,6 +2,8 @@
 class_name CardEntry
 extends Reference
 
+signal card_entry_upgraded(card_entry)
+
 # The baseline threshold which all cards needs to upgrade
 const UPGRADE_THRESHOLD_BASELINE = 6
 # The modifier on the baseline threshold based on the card's rarity.
@@ -38,9 +40,16 @@ var upgrade_options : Array
 var properties := {}
 var printed_properties := {}
 var unmodified_scripts : Dictionary
+# Each entry is a dictionary. Each dictionary has a property and a value.
+# These changes are re-applied to the card, when it's upgraded
+var property_modifications := []
 
 func _init(_card_name: String) -> void:
-	card_name = _card_name
+	_setup_card_entry(_card_name)
+
+
+func _setup_card_entry(card_name: String) -> void:
+	self.card_name = card_name
 	properties = cfc.card_definitions.get(card_name, {}).duplicate(true)
 	printed_properties = cfc.card_definitions.get(card_name, {}).duplicate(true)
 	# If the key is not set, it means the card is not upgradable
@@ -56,8 +65,6 @@ func _init(_card_name: String) -> void:
 	if cfc.scripts_loading:
 		yield(cfc, "scripts_loaded")
 	unmodified_scripts = cfc.unmodified_set_scripts.get(card_name, {})
-	if card_name == "Subconscious":
-		pass
 	## DEBUG
 #	set_upgrade_progress(upgrade_threshold)
 	## END DEBUG
@@ -71,6 +78,13 @@ func instance_self(is_display_card:= false) -> Card:
 	new_card_object.printed_properties = printed_properties
 	new_card_object.deck_card_entry = self
 	return(new_card_object)
+
+
+func upgrade(upgrade_name: String) -> void:
+	_setup_card_entry(upgrade_name)
+	for mod in property_modifications:
+		modify_property(mod.property, mod.value, false)
+	emit_signal("card_entry_upgraded", self)
 
 
 # Returns true is progrss towards an upgrade happened
@@ -93,7 +107,6 @@ func set_upgrade_progress(amount) -> void:
 		upgrade_progress = 0
 
 
-
 func can_be_upgraded() -> bool:
 	if upgrade_progress == upgrade_threshold:
 		return(true)
@@ -104,6 +117,7 @@ func is_progressing() -> bool:
 	if upgrade_progress < upgrade_threshold:
 		return(true)
 	return(false)
+
 
 # Retrieves all possible upgrades for this card and sets two of them to be
 # the options when it's upgraded
@@ -126,11 +140,21 @@ func get_property(property: String):
 
 
 # This permanently modifies a property for that one card in your deck.
-func modify_property(property: String, value) -> void:
+func modify_property(property: String, value, record := true) -> void:
+	# We record the changes permanently, so that we can re-apply them after the card upgrades
+	if record:
+		var record_entry := {
+			"property": property,
+			"value": value,
+		}
+		property_modifications.append(record_entry)
 	if typeof(properties.get(property)) == typeof(value):
+		# This handles dictionary propertie, like _amounts
 		if typeof(value) == TYPE_DICTIONARY:
 			for key in value:
 				properties[property][key] = value
+		# This handles string properties (typical labels)
+		# And int-to-int property changes.
 		else:
 			properties[property] = value
 	elif property in CardConfig.PROPERTIES_NUMBERS:
@@ -139,12 +163,13 @@ func modify_property(property: String, value) -> void:
 		# The designer is attempting to modify the property
 		# from its current value
 		if typeof(value) == TYPE_STRING:
+			# This handles operations, like +3 or -2
 			if value.is_valid_integer():
 				properties[property] += int(value)
-			# We allow setting number properties as strings
-			# but if they're not modifiers to the current value
+			# This handles strings as numbers, such as 'X' and 'U'
 			else:
 				properties[property] = value
+	# This handles Array properties, like Tags
 	elif property in CardConfig.PROPERTIES_ARRAYS:
 		if not value in properties[property]:
 			properties[property].append(value)

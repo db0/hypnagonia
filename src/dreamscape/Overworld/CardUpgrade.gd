@@ -9,6 +9,7 @@ func _process(_delta: float) -> void:
 	rect_size = Vector2(0,0)
 	pass
 
+
 func display() -> void:
 	visible = true
 	populate_upgrade_cards()
@@ -16,6 +17,7 @@ func display() -> void:
 			'rect_min_size:y', 0, CFConst.CARD_SIZE.y * CFConst.THUMBNAIL_SCALE, 1.0,
 			Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 	$Tween.start()
+
 
 func populate_upgrade_cards() -> void:
 	upgradable_cards = globals.player.deck.get_upgradeable_cards()
@@ -29,6 +31,7 @@ func populate_upgrade_cards() -> void:
 #	yield(get_tree().create_timer(0.15), "timeout")
 #	call_deferred('set_size',Vector2(0,0))
 	globals.journal.card_upgrade_started(self)
+
 
 func _on_card_upgrade_selected(option: int, draft_card_object) -> void:
 	var upgrade_options : Array = upgradable_cards[option].upgrade_options
@@ -44,4 +47,4 @@ func _on_card_upgrade_selected(option: int, draft_card_object) -> void:
 	if typeof(select_return) == TYPE_ARRAY:
 		draft_card_object.disconnect("card_selected", self, "_on_card_upgrade_selected")
 		draft_card_object.display_card.card_front.apply_shader("res://shaders/grayscale.shader")
-		globals.player.deck.upgrade_card(upgradable_cards[option], select_return[0])
+		upgradable_cards[option].upgrade(select_return[0])

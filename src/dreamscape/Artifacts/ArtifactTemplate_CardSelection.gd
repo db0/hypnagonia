@@ -34,13 +34,6 @@ func _on_artifact_added() -> void:
 		if potential_cards.size() > 0:
 			CFUtils.shuffle_array(potential_cards)
 			set_modified_card(potential_cards.pop_back())
-	# warning-ignore:return_value_discarded
-	globals.player.deck.connect("card_upgrade_ended", self, "on_card_upgrade_ended")
-
-
-func on_card_upgrade_ended(old_card: CardEntry, new_card: CardEntry) -> void:
-	if old_card == modified_card:
-		modified_card = new_card
 
 
 func _on_card_selected(operation_details: Dictionary) -> void:
