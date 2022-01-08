@@ -55,7 +55,7 @@ const TrafficJam = {
 			},
 		],
 	},
-#	"journal_art": preload("res://assets/journal/the_laughing_one.jpeg"),
+	"journal_art": preload("res://assets/journal/torments/traffic_jam.jpeg"),
 }
 
 # Inspiration taken from StS mods developed by https://github.com/modargo
