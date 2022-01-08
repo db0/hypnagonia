@@ -99,6 +99,7 @@ func _process(delta: float) -> void:
 			if node.modulate.a > 0:
 				node.modulate.a = 0
 		if shader_progress > 0.9:
+			cfc.flush_cache()
 			queue_free()
 
 
@@ -130,6 +131,7 @@ func die() -> void:
 		emit_signal("entity_killed", damage)
 		entity_texture.material = ShaderMaterial.new()
 		entity_texture.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
+		cfc.flush_cache()
 
 
 func modify_damage(amount: int, dry_run := false, tags := ["Manual"], trigger = null) -> int:

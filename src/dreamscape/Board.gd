@@ -404,9 +404,9 @@ func _input(event):
 		var _torment1
 		var _torment2
 		var _torment3
-		_torment1 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
-		_torment2 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
-		_torment3 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
+		_torment1 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 		if _torment1:
@@ -483,7 +483,7 @@ func _debug_advanced_enemy() -> void:
 
 func _on_Debug_pressed() -> void:
 	# warning-ignore:return_value_discarded
-	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 3)
+	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.impervious.name, 3)
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.vulnerable.name, 2)
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.drain.name, 5)
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.introspection.name, 6)
