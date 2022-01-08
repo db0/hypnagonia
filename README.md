@@ -111,4 +111,6 @@ We have people doing the following, but we can always use more help:
 * Card game designer: Ideas for new archetypes and card mechanics are always useful. You will be part of the team that shapes the underlying gameplay.
 * Godot gdscript programmer
 
+If you want to contribute some individual pieces of content, please see our [Content Contribution Guide](CONTRIBUTING.md)
+
 If any of these interest you, please contact us on [discord](https://discord.gg/MqTMVDCbR3) or [itch.io](https://itch.io/t/1743902/looking-for-collaborators)
