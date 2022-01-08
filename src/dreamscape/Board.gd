@@ -406,15 +406,15 @@ func _input(event):
 		var _torment1
 		var _torment2
 		var _torment3
-		_torment1 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
-		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
-		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+		_torment1 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
+#		_torment2 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
+#		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 		if _torment1:
 			_torment1.health = 23
 			_torment1.damage = 19
-#			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 2)
+			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.stuffed_toy.name, 2)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.effect_resistance.name, 1, false, false, ["Init"], Terms.ACTIVE_EFFECTS.poison.name)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
@@ -439,8 +439,8 @@ func _input(event):
 		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.SpikeEnemy.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
-#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 12)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1, false, false, ['Debug'], 'thick')
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.stuffed_toy.name, 12)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1, false, false, ['Debug'], 'thick')
 		for pathos in Terms.RUN_ACCUMULATION_NAMES.values():
 			if pathos != Terms.RUN_ACCUMULATION_NAMES.boss:
 				globals.player.pathos.modify_released_pathos(pathos, globals.player.pathos.get_threshold(pathos))

@@ -154,7 +154,7 @@ const TheExam = {
 			},
 		],
 	},
-#	"journal_art": preload("res://assets/journal/the_laughing_one.jpeg"),
+	"journal_art": preload("res://assets/journal/torments/exam.jpeg"),
 }
 
 # Inspiration taken from StS mods developed by https://github.com/modargo
@@ -204,6 +204,54 @@ const TheVictim = {
 		],
 	},
 	"journal_art": preload("res://assets/journal/torments/the_victim.jpeg"),
+}
+# Inspiration taken from StS mods developed by https://github.com/modargo
+const StuffedToy = {
+	"journal_description":\
+		"[url={torment_tag1}]I was wrestling in bed with a stuffed toy.[/url] "\
+			+ "Why was this feeling so hard?",
+	"journal_reward":\
+		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+	"enemies": {
+		"easy": [
+			{
+				"definition": EnemyDefinitions.STUFFEDTOY,
+				"health_modifier": -10,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.stuffed_toy.name,
+						"stacks": 1
+					}
+				]
+			},
+		],
+		"medium": [
+			{
+				"definition": EnemyDefinitions.STUFFEDTOY,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.stuffed_toy.name,
+						"stacks": 2
+					}
+				]
+			},
+		],
+		"hard": [
+			{
+				"definition": EnemyDefinitions.STUFFEDTOY,
+				"rebalancing": {
+					"Stress": +1,
+				},
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.stuffed_toy.name,
+						"stacks": 3
+					}
+				]
+			},
+		],
+	},
+	"journal_art": preload("res://assets/journal/torments/stuffed_toy.jpeg"),
 }
 
 const ClownShow = {
@@ -275,6 +323,7 @@ const IndescribableAbsurdity = {
 		'I remember dreaming something indescribable.',
 	"journal_reward":\
 		'In the end, I simply dreamed of something more sane.',
+	'journal_art': preload("res://assets/journal/advanced/absurdity.jpeg"),
 }
 const Dentist = {
 	"scene": preload("res://src/dreamscape/CombatElements/Enemies/Elites/Dentist.tscn"),
@@ -297,6 +346,7 @@ const SurrealBoss = {
 	"journal_reward":\
 		"I don't claim to understand what I was seeing, [url=boss_card_draft]but eventually that vision faded.[/url]"\
 		+ "but my mind was open to [url=boss_artifact]many new possibilities[/url].",
+	'journal_art': preload("res://assets/journal/advanced/surreality.jpeg"),
 }
 
 const BOSSES := {

@@ -7,16 +7,16 @@ func _ready():
 	owning_entity.connect("entity_attacked", self, "_on_entity_attacked")
 
 func _on_entity_attacked(entity, _amount, _trigger: Node, _tags: Array) -> void:
-	trigger_count += 1
 	var plushiness = [
 		{
 			"name": "assign_defence",
 			"subject": "trigger",
-			"amount": stacks * trigger_count,
+			"amount": stacks + trigger_count,
 			"tags": ["Combat Effect", "Concentration"],
 		},
 	]
 	execute_script(plushiness, entity)
+	trigger_count += 1
 
 func _on_player_turn_started(_turn: Turn) -> void:
 	trigger_count = 0
