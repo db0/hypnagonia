@@ -36,4 +36,19 @@ const CARD_IMAGES := {
 	"Lacuna": preload("res://assets/cards/doodle2.jpg"),
 	"Unease": preload("res://assets/cards/doodle1.jpg"),
 	"Dread": preload("res://assets/cards/doodle3.jpg"),
+	
+	# Reusing Journal Art. SHould eventually get proper illustrations
+	"Stuffed Toy": preload("res://assets/journal/torments/stuffed_toy.jpeg"),
+	"Hyena": preload("res://assets/journal/torments/hyena.jpeg"),
+	"Baby": preload("res://assets/journal/torments/baby.jpeg"),
+	"Traffic Jam": preload("res://assets/journal/torments/traffic_jam.jpeg"),
+	"Gaslighter": preload("res://assets/journal/torments/gaslighter.jpeg"),
+	"Butterfly": preload("res://assets/journal/torments/butterfly.jpeg"),
+	"Clown": preload("res://assets/journal/torments/clown.jpeg"),
+	"Fearmonger": preload("res://assets/journal/torments/fearmonger.jpeg"),
+	"Mouse": preload("res://assets/journal/torments/mouse.jpeg"),
+	"Murmurs": preload("res://assets/journal/torments/murmurs.jpeg"),
+	"The Critic": preload("res://assets/journal/torments/the_critic.jpeg"),
+	"The Victim": preload("res://assets/journal/torments/the_victim.jpeg"),
+	"The Exam": preload("res://assets/journal/torments/exam.jpeg"),
 }

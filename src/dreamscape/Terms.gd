@@ -493,8 +493,8 @@ const ACTIVE_EFFECTS := {
 		"name": "Plushyness",
 		"type": "Concentration",
 		"icon": preload("res://assets/icons/growth.png"),
-		"description": "{effect_name}: After every {opponent_attack} on this {entity}, "\
-				+ "It gains 1 {defence}. The amount gained increases by 1 after each {opponent_attack}.\n"\
+		"description": "{effect_name}: After every {damage_taken} {damage_taken_verb} on this {entity} through {opponent_attack}, "\
+				+ "it gains {amount} {defence}. The amount gained increases by 1 after each {damage_taken}.\n"\
 				+ "This resets to 0 at the start of the turn\n",
 	},
 	"mouse": {

@@ -345,7 +345,7 @@ const TRAFFICJAM := {
 const STUFFEDTOY := {
 	"Name": "Stuffed Toy",
 	"Type": "Phobia",
-	"Health": 77,
+	"Health": 80,
 	"Intents": [
 		{
 			"intent_scripts": ["Stress:7", "Stress:7", "Stress:7"],
