@@ -113,6 +113,6 @@ jobs:
       with:
         room_id: ${{ secrets.MATRIX_ROOM_ID }}
         access_token: ${{ secrets.MATRIX_TOKEN }}
-        message: "New Release Available: ${{ steps.release.outputs.version }}"
+        message: "New Release Available: [https://github.com/db0/hypnagonia/blob/main/CHANGELOG.md](${{ steps.release.outputs.version }})"
         server: "matrix.org"
       if: ${{ steps.release.outputs.version != '' }}
