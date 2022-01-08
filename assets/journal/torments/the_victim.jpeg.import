@@ -2,11 +2,16 @@
 
 importer="texture"
 type="StreamTexture"
-valid=false
+path="res://.import/the_victim.jpeg-5843a6e738a3199f38295a16b963b40c.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://assets/cards/Change Of Mine.png"
+source_file="res://assets/journal/torments/the_victim.jpeg"
+dest_files=[ "res://.import/the_victim.jpeg-5843a6e738a3199f38295a16b963b40c.stex" ]
+
 [params]
 
 compress/mode=1

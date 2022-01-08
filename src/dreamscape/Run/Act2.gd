@@ -203,7 +203,7 @@ const TheVictim = {
 			},
 		],
 	},
-#	"journal_art": preload("res://assets/journal/the_laughing_one.jpeg"),
+	"journal_art": preload("res://assets/journal/torments/the_victim.jpeg"),
 }
 
 const ClownShow = {
