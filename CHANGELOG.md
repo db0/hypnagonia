@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.29.1](https://github.com/db0/hypnagonia/tree/v0.29.1) (2022-01-08)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.29.0...v0.29.1)
+
+**Merged pull requests:**
+
+- fix\(shop\): Fixed card removal costs starting at 0 [\#179](https://github.com/db0/hypnagonia/pull/179) ([db0](https://github.com/db0))
+
 ## [v0.29.0](https://github.com/db0/hypnagonia/tree/v0.29.0) (2022-01-08)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.28.0...v0.29.0)
