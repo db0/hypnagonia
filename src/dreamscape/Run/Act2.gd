@@ -315,6 +315,7 @@ const ENEMIES = [
 	TheExam,
 	TheVictim,
 	ClownShow,
+	StuffedToy,
 ]
 
 const IndescribableAbsurdity = {
