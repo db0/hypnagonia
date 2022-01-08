@@ -1,5 +1,17 @@
 # Changelog
 
+## [v0.29.0](https://github.com/db0/hypnagonia/tree/v0.29.0) (2022-01-08)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.28.0...v0.29.0)
+
+**Fixed bugs:**
+
+- Playing Untouchable then defeating a Torment shows incorrect Stress [\#176](https://github.com/db0/hypnagonia/issues/176)
+
+**Merged pull requests:**
+
+- New NCEs [\#178](https://github.com/db0/hypnagonia/pull/178) ([db0](https://github.com/db0))
+
 ## [v0.28.0](https://github.com/db0/hypnagonia/tree/v0.28.0) (2022-01-07)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.27.3...v0.28.0)
