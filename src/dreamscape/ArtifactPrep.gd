@@ -9,13 +9,17 @@ var selected_artifacts := []
 # Stores the options in selected_artifacts list
 func _init(rare_percent: int, uncommon_percent: int, amount := 1, artifact_type := "generic") -> void:
 # warning-ignore:integer_division
-	var rare = {"rarity": "Rare", "chance": rare_percent}
-	var uncommon = {"rarity": "Uncommon", "chance": uncommon_percent}
+	var rare = {"rarity": "Rare", "chance": _get_rare_chance(rare_percent)}
+	var uncommon = {"rarity": "Uncommon", "chance": _get_uncommon_chance(uncommon_percent)}
 	# The chance for a common artifact is equal to 100 - uncommon - rare
 	var common_chance = 100 - rare.chance - uncommon.chance
 	if common_chance < 0:
 		common_chance = 0
+		uncommon.chance = 100 - rare.chance
+		if uncommon.chance < 0:
+			uncommon.chance = 0
 	var common = {"rarity": "Common", "chance": common_chance}
+	print_debug([rare,uncommon,common])
 	# We gather all artifacts valid for each rarity
 	var all_valid_artifacts = ArtifactDefinitions.get_organized_artifacts(
 			artifact_type,
@@ -93,3 +97,17 @@ func _get_names() -> Array:
 	for a in selected_artifacts:
 		anames.append(a.canonical_name)
 	return(anames)
+
+func _get_rare_chance(rarity_pct: int) -> int:
+	for artifact in cfc.get_tree().get_nodes_in_group("artifacts"):
+		var multiplier = artifact.get_global_alterant(rarity_pct, HConst.AlterantTypes.ARTIFACT_RARE_CHANCE)
+		if multiplier:
+			rarity_pct = int(round(float(rarity_pct) * float(multiplier)))
+	return(rarity_pct)
+
+func _get_uncommon_chance(rarity_pct: int) -> int:
+	for artifact in cfc.get_tree().get_nodes_in_group("artifacts"):
+		var multiplier = artifact.get_global_alterant(rarity_pct, HConst.AlterantTypes.ARTIFACT_UNCOMMON_CHANCE)
+		if multiplier:
+			rarity_pct = int(round(float(rarity_pct) * float(multiplier)))
+	return(rarity_pct)

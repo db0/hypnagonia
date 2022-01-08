@@ -616,6 +616,18 @@ const IncreaseImmersionGain := {
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Rare",
 }
+const BetterArtifactChance := {
+	"canonical_name": "BetterArtifactChance",
+	"name": "Supportive Plushie",
+	"description": "{artifact_name}: The quality of the curios your find is increased.",
+	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Encounter",
+	"amounts": {
+		"uncommon_multiplier": 1.5,
+		"rare_multiplier": 3,
+	},
+}
 
 # Generic artifacts which have a chance to appear in any playthrough
 const GENERIC := [
@@ -677,6 +689,7 @@ const ARCHETYPE := [
 const ENCOUNTER := [
 	PorcelainDoll,
 	BetterRareChance,
+	BetterArtifactChance,
 ]
 
 const BOSS := [

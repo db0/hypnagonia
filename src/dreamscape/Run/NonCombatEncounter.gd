@@ -33,6 +33,7 @@ func _prepare_card_popup_bbcode(card_name: String, url_text: String) -> String:
 	return(url_bbcode)
 
 
+# This also handles memories
 func _prepare_artifact_popup_bbcode(artifact_name: String, url_text: String) -> String:
 	var popup_tag = ARTIFACT_POPUP_DICT.duplicate(true)
 	popup_tag["name"] = artifact_name

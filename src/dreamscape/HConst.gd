@@ -2,6 +2,14 @@
 class_name HConst
 extends Reference
 
+enum AlterantTypes {
+	CARD_UNCOMMON_CHANCE
+	CARD_RARE_CHANCE
+	CARD_DRAFT_AMOUNT
+	ARTIFACT_UNCOMMON_CHANCE
+	ARTIFACT_RARE_CHANCE
+}
+
 const COLOUR_MAP := {
 	'Black': 'Perturbation',
 	'Red': 'Action',
@@ -25,3 +33,4 @@ const COLOR2_CODES := {
 	'Indigo': '#00416A',
 	'Periwinkle': '#9457EB',
 }
+

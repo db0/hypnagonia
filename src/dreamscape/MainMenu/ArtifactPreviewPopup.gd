@@ -12,14 +12,24 @@ func _process(_delta: float) -> void:
 		rect_position = get_preview_placement()
 
 func setup(_artifact_name: String) -> void:
-	artifact_definition = ArtifactDefinitions[_artifact_name].duplicate(true)
+	var artifact_format
+	if _artifact_name in MemoryDefinitions:
+		artifact_definition = MemoryDefinitions[_artifact_name].duplicate(true)
+		var upgrades := 0
+		var existing_memory = globals.player.find_memory(_artifact_name)
+		if existing_memory:
+			upgrades = existing_memory.upgrades_amount
+		artifact_format = MemoryDefinitions.get_memory_bbcode_format(artifact_definition,upgrades)
+	else:
+		artifact_definition = ArtifactDefinitions[_artifact_name].duplicate(true)
+		artifact_format = ArtifactDefinitions.get_artifact_bbcode_format(artifact_definition)
 	artifact_name = artifact_definition["name"]
 	_icon.texture = CFUtils.convert_texture_to_image(artifact_definition["icon"])
 	var artifact_description = artifact_definition["description"]
 	_decription_label.bbcode_text = artifact_description.\
 			format(Terms.COMMON_FORMATS[Terms.PLAYER]).\
 			format(Terms.get_bbcode_formats(18)).\
-			format(ArtifactDefinitions.get_artifact_bbcode_format(artifact_definition))
+			format(artifact_format)
 
 
 func get_preview_placement() -> Vector2:

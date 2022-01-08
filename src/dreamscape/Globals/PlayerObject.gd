@@ -116,11 +116,15 @@ func add_artifact(artifact_name: String, modifiers := {}) -> void:
 		emit_signal("artifact_added", new_artifact)
 
 
-func remove_artifact(artifact_name: String) -> void:
-	for artifact in artifacts:
-		if artifact_name == artifact.canonical_name:
-			artifact.remove_self()
-			artifacts.erase(artifact)
+func remove_artifact(value) -> void:
+	if typeof(value) == TYPE_STRING:
+		for artifact in artifacts:
+			if value == artifact.canonical_name:
+				artifact.remove_self()
+				artifacts.erase(artifact)
+	else:
+		value.remove_self()
+		artifacts.erase(value)
 
 
 func get_all_artifact_names() -> Array:
@@ -128,6 +132,14 @@ func get_all_artifact_names() -> Array:
 	for artifact in artifacts:
 		anames_list.append(artifact.canonical_name)
 	return(anames_list)
+
+
+# Returns a random artifacts, or null if none exist.
+func get_random_artifact():
+	if artifacts.size() > 0:
+		var rnd_array = artifacts.duplicate()
+		CFUtils.shuffle_array(rnd_array)
+		return(rnd_array[0])
 
 
 func add_memory(memory_name: String, modifiers := {}) -> void:

@@ -54,21 +54,19 @@ func end() -> void:
 			existing_memory.upgrade()
 		else:
 			globals.player.add_memory(memory.canonical_name)
-	var reward_text = '[url={"name": "memory1","meta_type": "nce"}]I have seen this[/url] before. I know this. Overcoming this recurrence [url={"name": "memory2","meta_type": "nce"}]jolted my memories[/url].'
+	var reward_text = '{memory1} before. I know this. Overcoming this recurrence {memory2}.'
+	var fmt = {
+		"memory1": _prepare_artifact_popup_bbcode(
+				memory_prep.selected_memories[0].canonical_name, 
+				"I have seen this"),
+		"memory2": _prepare_artifact_popup_bbcode(
+				memory_prep.selected_memories[1].canonical_name, 
+				"jolted my memories"),
+	}
+	reward_text = reward_text.format(fmt)
 	globals.journal.display_nce_rewards(reward_text)
 	if globals.encounters.current_act.get_act_name() == Act.ACT_NAMES.Act1:
 		globals.encounters.run_changes.unlock_nce("Recurrence2", "risky", false)
 	elif globals.encounters.current_act.get_act_name() == Act.ACT_NAMES.Act2:
 		globals.encounters.run_changes.unlock_nce("Recurrence3", "risky", false)
 
-
-func get_meta_hover_description(meta_tag: String) -> String:
-	match meta_tag:
-		"memory1":
-			var bbformat1 = memory_prep.selected_memories[0]["bbformat"]
-			return("[img=18x18]{icon}[/img] {description}.".format(bbformat1))
-		"memory2":
-			var bbformat2 = memory_prep.selected_memories[1]["bbformat"]
-			return("[img=18x18]{icon}[/img] {description}.".format(bbformat2))
-		_:
-			return('')
