@@ -55,7 +55,7 @@ const TrafficJam = {
 			},
 		],
 	},
-#	"journal_art": preload("res://assets/journal/the_laughing_one.jpeg"),
+	"journal_art": preload("res://assets/journal/torments/traffic_jam.jpeg"),
 }
 
 # Inspiration taken from StS mods developed by https://github.com/modargo
@@ -104,7 +104,7 @@ const Mouse = {
 			},
 		],
 	},
-#	"journal_art": preload("res://assets/journal/the_laughing_one.jpeg"),
+	"journal_art": preload("res://assets/journal/torments/mouse.jpeg"),
 }
 
 # Inspiration taken from StS mods developed by https://github.com/modargo
@@ -312,6 +312,7 @@ const NCE := {
 		"Subconscious": preload("res://src/dreamscape/Run/NCE/Act2/Subconscious.gd"),
 		"MultipleTags": preload("res://src/dreamscape/Run/NCE/Act2/MultipleTags.gd"),
 		"MultipleScriptMods": preload("res://src/dreamscape/Run/NCE/Act2/MultipleScriptMods.gd"),
+		"LoseRandomCurio": preload("res://src/dreamscape/Run/NCE/Act2/LoseRandomCurio.gd"),
 	},
 	"risky": {
 		"RiskyEvent3": preload("res://src/dreamscape/Run/NCE/Act2/RiskyEvent3.gd"),

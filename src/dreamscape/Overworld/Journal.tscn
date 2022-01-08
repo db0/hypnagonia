@@ -200,7 +200,7 @@ margin_bottom = 4.0
 [node name="VBC" type="VBoxContainer" parent="VBC/Journal/PathosDetails"]
 margin_left = 2.0
 margin_top = 2.0
-margin_right = 671.0
+margin_right = 528.0
 margin_bottom = 46.0
 
 [node name="Description" type="RichTextLabel" parent="VBC/Journal/PathosDetails/VBC"]

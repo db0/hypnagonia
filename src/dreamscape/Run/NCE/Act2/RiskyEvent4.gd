@@ -13,8 +13,8 @@ var secondary_choices := {
 
 # TODO Result fluff
 var nce_result_fluff := {
-		'help': 'Helped: [url={"name": "curio","meta_type": "nce"}]{curio_name}[/url]',
-		'ignore': 'Ignored: [url={"name": "curio","meta_type": "nce"}]{curio_name}[/url]',
+		'help': 'Helped: {curio}',
+		'ignore': 'Ignored: {curio}',
 	}
 
 
@@ -64,13 +64,7 @@ func continue_encounter(key) -> void:
 		# warning-ignore:return_value_discarded
 		globals.player.deck.add_new_card("Apathy")
 	end()
-	nce_result_fluff[key] = nce_result_fluff[key].format({'curio_name': artifact_prep.selected_artifacts[0].name})
+	var fmt = {"curio": _prepare_artifact_popup_bbcode(artifact_prep.selected_artifacts[0].canonical_name, artifact_prep.selected_artifacts[0].name)}
+	nce_result_fluff[key] = nce_result_fluff[key].format(fmt)
 	globals.journal.display_nce_rewards(nce_result_fluff[key])
 
-func get_meta_hover_description(meta_tag: String) -> String:
-	match meta_tag:
-		"curio":
-			var bbformat = artifact_prep.selected_artifacts[0]["bbformat"]
-			return("[img=18x18]{icon}[/img] {description}.".format(bbformat))
-		_:
-			return('')

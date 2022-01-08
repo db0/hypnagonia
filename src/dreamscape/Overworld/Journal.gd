@@ -76,7 +76,7 @@ func _ready() -> void:
 		player_info._on_Help_pressed()
 		cfc.set_setting('first_journal_tutorial_done', true)
 	globals.music.switch_scene_music('journal')
-	
+
 	if OS.has_feature("debug"):
 		print("DEBUG INFO:Journal: Journal Loaded")
 
@@ -218,7 +218,6 @@ func prepare_popup_artifact(artifact_name: String) -> void:
 		card_storage.add_child(popup_artifact)
 		popup_artifact.setup(artifact_name)
 		popup_cards[artifact_name] = popup_artifact
-
 
 func grey_out_label(rt_label: RichTextLabel) -> void:
 	rt_label.bbcode_text = "[color=grey]" + pre_highlight_bbcode_texts[rt_label] + "[/color]"
@@ -427,10 +426,9 @@ func _input(event):
 #		for c in  globals.player.deck.get_progressing_cards():
 #			c.upgrade_progress = 100
 #		_reveal_entry(upgrade_journal, true)
-#		globals.player.add_artifact(ArtifactDefinitions.AddOmegaTag.canonical_name)
-#		globals.player.add_artifact(ArtifactDefinitions.AddFrozenTag.canonical_name)
+#		globals.player.add_artifact(ArtifactDefinitions.BetterArtifactChance.canonical_name)
+#		globals.player.add_artifact(ArtifactDefinitions.IncreaseRandomDamage.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.FreeCard.canonical_name)
-		globals.player.add_memory(MemoryDefinitions.GainMaxHealth.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.HealSelf.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.BossFaster.canonical_name)
@@ -453,9 +451,11 @@ func _input(event):
 		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, 48)
 #		globals.player.damage = 85
 		var debug_encounters = [
-#			EnemyEncounter.new(Act1.Pialephant, "easy"),
+			EnemyEncounter.new(Act2.Mouse, "easy"),
+			EnemyEncounter.new(Act2.TrafficJam, "easy"),
 #			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
-			preload("res://src/dreamscape/Run/NCE/Act2/MultipleScriptMods.gd").new(),
+#			preload("res://src/dreamscape/Run/NCE/Act2/LoseRandomCurio.gd").new(),
+#			preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd").new(),
 #			BossEncounter.new(Act1.BOSSES["Narcissus"]),
 #			EliteEncounter.new(Act2.Dentist, "medium"),
 #			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
@@ -472,10 +472,12 @@ func _input(event):
 # as opposed to calling the emit signal from the other node directly
 func card_draft_started(card_draft_node) -> void:
 	emit_signal("card_draft_started", card_draft_node)
-	
+
+
 func artifact_selection_started(artifact_selection_node) -> void:
 	emit_signal("artifact_selection_started", artifact_selection_node)
-	
+
+
 func card_upgrade_started(card_upgrade_node) -> void:
 	emit_signal("card_upgrade_started", card_upgrade_node)
 

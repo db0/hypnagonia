@@ -276,6 +276,8 @@ func _on_enemy_turn_started(_turn: Turn) -> void:
 				yield(enemy, "finished_activation")
 		else:
 			_on_finished_enemy_activation(enemy)
+		# To allow effects to despawn if needed.
+		yield(get_tree().create_timer(0.2), "timeout")
 
 
 func _on_enemy_turn_ended(_turn: Turn) -> void:
@@ -287,7 +289,7 @@ func _on_finished_enemy_activation(enemy: EnemyEntity) -> void:
 		activated_enemies.append(enemy)
 	if activated_enemies.size() == enemies_at_start_of_turn.size():
 		# Small wait to allow dying enemies to deinstance
-		yield(get_tree().create_timer(1), "timeout")
+		yield(get_tree().create_timer(0.4), "timeout")
 		turn.end_enemy_turn()
 		turn.start_player_turn()
 
@@ -404,9 +406,9 @@ func _input(event):
 		var _torment1
 		var _torment2
 		var _torment3
-		_torment1 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
-		_torment2 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
-		_torment3 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
+		_torment1 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 		if _torment1:
@@ -447,7 +449,7 @@ func _input(event):
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"Subconscious",
+			"Lacuna",
 		]:
 			var ce = CardEntry.new(c)
 			var card = ce.instance_self()
@@ -483,7 +485,7 @@ func _debug_advanced_enemy() -> void:
 
 func _on_Debug_pressed() -> void:
 	# warning-ignore:return_value_discarded
-	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 3)
+	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.impervious.name, 3)
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.vulnerable.name, 2)
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.drain.name, 5)
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.introspection.name, 6)
@@ -523,7 +525,8 @@ func _on_EnemyTurnStuckTimer_timeout() -> void:
 	print("Oops, it seems the enemy turn is stuck! Who coded this thing? Unleashing the trained monkeys after the developers. Please wait...")
 	print(":::Activated Torments: ", activated_enemies)
 	print(":::Available Torments: ", get_tree().get_nodes_in_group("EnemyEntities").size())
-	print(":::Torments available at start of Torment turn: ", _debug_enemies_at_end_of_turn)
+	print(":::Torments available at end of Player turn: ", _debug_enemies_at_end_of_turn)
+	print(":::Torments available at start of Torment turn: ", enemies_at_start_of_turn)
 	var unfinished_enemies := []
 	for e in _debug_enemies_started_activation:
 		if not e in activated_enemies:

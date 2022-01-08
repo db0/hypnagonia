@@ -3,12 +3,6 @@ extends HBoxContainer
 
 signal card_drafted(card_entity)
 
-enum AlterantTypes {
-	UNCOMMON_CHANCE
-	RARE_CHANCE
-	DRAFT_AMOUNT
-}
-
 const CARD_DRAFT_SCENE = preload("res://src/dreamscape/ChoiceCardObject.tscn")
 
 ## Run-modifiable variables
@@ -182,7 +176,7 @@ func retrieve_custom_draft(aspect: String) -> void:
 func get_uncommon_chance() -> float:
 	var value := uncommon_chance
 	for artifact in cfc.get_tree().get_nodes_in_group("artifacts"):
-		var multiplier = artifact.get_global_alterant(value, AlterantTypes.UNCOMMON_CHANCE)
+		var multiplier = artifact.get_global_alterant(value, HConst.AlterantTypes.CARD_UNCOMMON_CHANCE)
 		if multiplier:
 			value *= multiplier
 	return(value)
@@ -191,7 +185,7 @@ func get_uncommon_chance() -> float:
 func get_rare_chance() -> float:
 	var value := rare_chance
 	for artifact in cfc.get_tree().get_nodes_in_group("artifacts"):
-		var multiplier = artifact.get_global_alterant(value, AlterantTypes.RARE_CHANCE)
+		var multiplier = artifact.get_global_alterant(value, HConst.AlterantTypes.CARD_RARE_CHANCE)
 		if multiplier:
 			value *= multiplier
 	return(value)
@@ -200,7 +194,7 @@ func get_rare_chance() -> float:
 func get_draft_amount() -> int:
 	var value := draft_amount
 	for artifact in cfc.get_tree().get_nodes_in_group("artifacts"):
-		var addition = artifact.get_global_alterant(value, AlterantTypes.DRAFT_AMOUNT)
+		var addition = artifact.get_global_alterant(value, HConst.AlterantTypes.CARD_DRAFT_AMOUNT)
 		if addition:
 			value += addition
 	return(value)

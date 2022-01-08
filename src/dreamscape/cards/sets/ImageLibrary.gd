@@ -33,4 +33,7 @@ const CARD_IMAGES := {
 	"The Light Calling": preload("res://assets/cards/The Light Calling.jpg"),
 	"A Squirrel": preload("res://assets/cards/Squirrel.jpg"),
 	"Confidence": preload("res://assets/cards/confidence.jpg"),
+	"Lacuna": preload("res://assets/cards/doodle2.jpg"),
+	"Unease": preload("res://assets/cards/doodle1.jpg"),
+	"Dread": preload("res://assets/cards/doodle3.jpg"),
 }

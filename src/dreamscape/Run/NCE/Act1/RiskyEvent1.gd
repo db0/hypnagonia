@@ -10,7 +10,7 @@ var secondary_choices := {
 	}
 
 var nce_result_fluff := {
-		'accept_success': 'Success: [url={"name": "curio","meta_type": "nce"}]{curio_name}[/url]',
+		'accept_success': 'Success: {curio}',
 		'accept_fail': "Luck was not with me this time",
 		'decline': 'I decided not to risk it.',
 	}
@@ -38,7 +38,8 @@ func continue_encounter(key) -> void:
 			var accumulated = globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.nce] / 4
 			artifact_prep = ArtifactPrep.new(accumulated/2, accumulated, 1)
 			globals.player.add_artifact(artifact_prep.selected_artifacts[0].canonical_name)
-			result = nce_result_fluff['accept_success'].format({'curio_name': artifact_prep.selected_artifacts[0].canonical_name})
+			var fmt = {"curio": _prepare_artifact_popup_bbcode(artifact_prep.selected_artifacts[0].canonical_name, artifact_prep.selected_artifacts[0].name)}
+			result = nce_result_fluff['accept_success'].format(fmt)
 		# warning-ignore:return_value_discarded
 		globals.player.deck.add_new_card("Terror")
 	else:
@@ -47,14 +48,6 @@ func continue_encounter(key) -> void:
 		var amount_lost =\
 				globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.artifact)\
 				* CFUtils.randf_range(0.8,1.2)
-		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, -amount_lost, true) 
+		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, -amount_lost, true)
 	end()
 	globals.journal.display_nce_rewards(result)
-
-func get_meta_hover_description(meta_tag: String) -> String:
-	match meta_tag:
-		"curio":
-			var bbformat = artifact_prep.selected_artifacts[0]["bbformat"]
-			return("[img=18x18]{icon}[/img] {description}.".format(bbformat))
-		_:
-			return('')

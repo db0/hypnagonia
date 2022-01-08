@@ -7,7 +7,7 @@ var secondary_choices := {
 		'follow': '[Follow]: Take 7 anxiety. Gain {follow_amount} released {shop}.',
 		'abort': '[Abort]: Gain {abort_amount} repressed {elite}.',
 	}
-	
+
 var nce_result_fluff := {
 		'lead': "I am this train's leader. The monsters all look up to me. "\
 			+ "I want to see what lies at the center of hell!",
@@ -34,7 +34,7 @@ func begin() -> void:
 	scformat["abort_amount"] = globals.player.pathos.get_progression_average(
 			Terms.RUN_ACCUMULATION_NAMES.elite) * 2
 	for key in secondary_choices:
-		secondary_choices[key] = secondary_choices[key].format(scformat).format(Terms.get_bbcode_formats(18))			
+		secondary_choices[key] = secondary_choices[key].format(scformat).format(Terms.get_bbcode_formats(18))
 	globals.journal.add_nested_choices(secondary_choices)
 
 func continue_encounter(key) -> void:
@@ -45,9 +45,9 @@ func continue_encounter(key) -> void:
 			if artifact_roll <= 60:
 				artifact_prep = ArtifactPrep.new(5, 20, 1)
 				nce_result_fluff['lead'] += "\nThrough your leadership, this train of monsters succeeds "\
-						+ "in reaching the heart of hell, and you take it as your own reward: "\
-						+ '[url={"name": "curio","meta_type": "nce"}]{curio_name}[/url]'\
-						.format({'curio_name': artifact_prep.selected_artifacts[0].name})
+						+ "in reaching the heart of hell, {curio}:"
+				var fmt = {"curio": _prepare_artifact_popup_bbcode(artifact_prep.selected_artifacts[0].canonical_name, "and you take it as your own reward")}
+				nce_result_fluff['lead'] = nce_result_fluff['lead'].format(fmt)
 				globals.player.add_artifact(artifact_prep.selected_artifacts[0].canonical_name)
 			else:
 				nce_result_fluff['lead'] += "\nYou try to lead this train, but you quickly realize you're out of your depth. "\
@@ -55,23 +55,14 @@ func continue_encounter(key) -> void:
 		"follow":
 			# warning-ignore:narrowing_conversion
 			globals.player.pathos.modify_released_pathos(
-				Terms.RUN_ACCUMULATION_NAMES.shop, 
+				Terms.RUN_ACCUMULATION_NAMES.shop,
 				globals.player.pathos.get_progression_average(
 					Terms.RUN_ACCUMULATION_NAMES.shop) * 3)
 		"abort":
 			# warning-ignore:narrowing_conversion
 			globals.player.pathos.repress_pathos(
-					Terms.RUN_ACCUMULATION_NAMES.elite, 
+					Terms.RUN_ACCUMULATION_NAMES.elite,
 					globals.player.pathos.get_progression_average(
 						Terms.RUN_ACCUMULATION_NAMES.elite) * 2)
 	end()
 	globals.journal.display_nce_rewards(nce_result_fluff[key])
-
-
-func get_meta_hover_description(meta_tag: String) -> String:
-	match meta_tag:
-		"curio":
-			var bbformat = artifact_prep.selected_artifacts[0]["bbformat"]
-			return("[img=18x18]{icon}[/img] {description}.".format(bbformat))
-		_:
-			return('')
