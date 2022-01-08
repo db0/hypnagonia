@@ -19,7 +19,6 @@ func _init(rare_percent: int, uncommon_percent: int, amount := 1, artifact_type 
 		if uncommon.chance < 0:
 			uncommon.chance = 0
 	var common = {"rarity": "Common", "chance": common_chance}
-	print_debug([rare,uncommon,common])
 	# We gather all artifacts valid for each rarity
 	var all_valid_artifacts = ArtifactDefinitions.get_organized_artifacts(
 			artifact_type,

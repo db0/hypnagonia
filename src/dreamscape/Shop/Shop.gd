@@ -383,11 +383,11 @@ func _update_progress_cost() -> void:
 # The cost to upgrade is equals three times the average enemy progression
 # + 25 for every card already removed from the deck.
 func _update_remove_cost() -> void:
-# warning-ignore:narrowing_conversion
-	remove_cost = round(
-			globals.player.pathos.get_progression_average(
-				card_removal_cost_type)
-			* globals.encounters.shop_deck_removals)
+	# warning-ignore:narrowing_conversion
+	var prog_avg : float = round(globals.player.pathos.get_progression_average(
+			card_removal_cost_type))
+	remove_cost = (prog_avg * CFUtils.randf_range(2.5, 3.2))\
+			+ (prog_avg * globals.encounters.shop_deck_removals)
 	var remove_text_format = {
 		"cost": str(remove_cost),
 		"pathos": card_removal_cost_type.capitalize(),
