@@ -427,13 +427,12 @@ func _input(event):
 #		for c in  globals.player.deck.get_progressing_cards():
 #			c.upgrade_progress = 100
 #		_reveal_entry(upgrade_journal, true)
-#		globals.player.add_artifact(ArtifactDefinitions.AddOmegaTag.canonical_name)
-#		globals.player.add_artifact(ArtifactDefinitions.AddFrozenTag.canonical_name)
+		globals.player.add_artifact(ArtifactDefinitions.IncreaseImmersionGain.canonical_name)
+#		globals.player.add_artifact(ArtifactDefinitions.IncreaseRandomDamage.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.FreeCard.canonical_name)
-		globals.player.add_memory(MemoryDefinitions.GainMaxHealth.canonical_name)
-		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
-		globals.player.add_memory(MemoryDefinitions.HealSelf.canonical_name)
-		globals.player.add_memory(MemoryDefinitions.BossFaster.canonical_name)
+#		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
+#		globals.player.add_memory(MemoryDefinitions.HealSelf.canonical_name)
+#		globals.player.add_memory(MemoryDefinitions.BossFaster.canonical_name)
 #		globals.player.add_artifact("AccumulateShop")
 #		var card_entry = globals.player.deck.add_new_card("Subconscious")
 #		card_entry.upgrade_progress = card_entry.upgrade_threshold

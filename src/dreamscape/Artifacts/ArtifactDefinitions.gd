@@ -584,6 +584,38 @@ const AddFrozenTag := {
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Rare",
 }
+const IncreaseRandomDamage := {
+	"canonical_name": "IncreaseRandomDamage",
+	"name": "Masterwork Looking Glass",
+	"description": "{artifact_name}: A random card dealing {damage} in your deck, will increase its {damage} by 1.",
+	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Common",
+}
+const IncreaseRandomDefence := {
+	"canonical_name": "IncreaseRandomDefence",
+	"name": "Fancy Nail Coat",
+	"description": "{artifact_name}: A random card giving {defence} in your deck, will increase its {defence} by 1.",
+	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Common",
+}
+const IncreaseConfusionStacks := {
+	"canonical_name": "IncreaseConfusionStacks",
+	"name": "IncreaseConfusionStacks",
+	"description": "{artifact_name}: Choose a {disempower} card in your deck. Increase the amount of {disempower} stacks it is inflicting by 1.",
+	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Uncommon",
+}
+const IncreaseImmersionGain := {
+	"canonical_name": "IncreaseImmersionGain",
+	"name": "IncreaseImmersionGain",
+	"description": "{artifact_name}: Choose an {immersion} card in your deck. Increase the amount of {immersion} stacks it is providing by 1.",
+	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Rare",
+}
 
 # Generic artifacts which have a chance to appear in any playthrough
 const GENERIC := [
@@ -621,6 +653,10 @@ const GENERIC := [
 	FreeCard,
 	AddAlphaTag,
 	AddOmegaTag,
+	AddFrozenTag,
+	IncreaseRandomDamage,
+	IncreaseRandomDefence,
+	
 ]
 
 # Archetype-specific artifacts which only appear in runs in which
@@ -633,6 +669,8 @@ const ARCHETYPE := [
 	ImproveFortify,
 	StartingThorns,
 	EndingHeal,
+	IncreaseConfusionStacks,
+	IncreaseImmersionGain,
 ]
 
 # These artifacts are only found in non-combat encounters

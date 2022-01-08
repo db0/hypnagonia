@@ -484,6 +484,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/MemoryPrep.gd"
 }, {
+"base": "ModifyPropertyArtifact",
+"class": "ModAmountsArtifact",
+"language": "GDScript",
+"path": "res://src/dreamscape/Artifacts/ArtifactTemplate_ModAmounts.gd"
+}, {
 "base": "CardSelectArtifact",
 "class": "ModifyPropertyArtifact",
 "language": "GDScript",
@@ -815,6 +820,7 @@ _global_script_class_icons={
 "MemoryDefinitions": "",
 "MemoryObject": "",
 "MemoryPrep": "",
+"ModAmountsArtifact": "",
 "ModifyPropertyArtifact": "",
 "MousePointer": "",
 "Music": "",

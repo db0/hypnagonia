@@ -378,7 +378,7 @@ const CARDS := {
 	"Noisy Whip": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
-		"Abilities": "{damage} for {damage_amount}.\nApply {confusion}",
+		"Abilities": "{damage} for {damage_amount}.\nApply {effect_stacks} {confusion}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -401,7 +401,7 @@ const CARDS := {
 	"@ Noisy Whip @": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
-		"Abilities": "{damage} for {damage_amount}.\nApply {confusion}",
+		"Abilities": "{damage} for {damage_amount}.\nApply {effect_stacks} {confusion}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -418,7 +418,7 @@ const CARDS := {
 	"+ Noisy Whip +": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
-		"Abilities": "{damage} for {damage_amount}.\nApply {confusion}",
+		"Abilities": "{damage} for {damage_amount}.\nApply {effect_stacks} {confusion}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {

@@ -229,7 +229,7 @@ const RUBBER_CHICKEN := {
 		Terms.ACTIVE_EFFECTS.buffer.name,
 	],
 	"Artifacts": [
-		
+		ArtifactDefinitions.IncreaseConfusionStacks
 	],
 	"Memories": [
 		MemoryDefinitions.DisempowerEnemy,
@@ -278,7 +278,7 @@ const ABUSIVE_RELATIONSHIP := {
 		Terms.GENERIC_TAGS.exert.name,
 	],
 	"Artifacts": [
-		
+		ArtifactDefinitions.IncreaseImmersionGain
 	],
 	"Memories": [
 		MemoryDefinitions.ExertRecovery,

@@ -32,8 +32,7 @@ var hand_mutations := [
 func _init():
 	CFUtils.shuffle_array(hand_mutations)
 	var fmt = {"hand_mutation": hand_mutations[0]}
-	description = "I remember looking at my arms, and to my surprise finding {hand_mutation}.".format(fmt)\
-			+ "I remember I took some drastic measures."
+	description = "I remember looking at my arms, and to my surprise finding {hand_mutation}. ".format(fmt)
 
 
 func begin() -> void:
