@@ -104,7 +104,7 @@ const Mouse = {
 			},
 		],
 	},
-#	"journal_art": preload("res://assets/journal/the_laughing_one.jpeg"),
+	"journal_art": preload("res://assets/journal/torments/mouse.jpeg"),
 }
 
 # Inspiration taken from StS mods developed by https://github.com/modargo
