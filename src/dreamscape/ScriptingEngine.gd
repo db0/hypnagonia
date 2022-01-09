@@ -584,7 +584,7 @@ func calculate_modify_pathos(script: ScriptTask) -> float:
 				script.prev_subjects)
 		modification = per_msg.found_things
 	else:
-		modification = script.get_property(SP.KEY_AMOUNT)
+		modification = script.get_property(SP.KEY_AMOUNT, 0.0)
 	# warning-ignore:narrowing_conversion
 	alteration = _check_for_effect_alterants(script, modification, cfc.NMAP.board.dreamer, self)
 	if alteration is GDScriptFunctionState:

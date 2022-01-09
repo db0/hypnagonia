@@ -272,5 +272,5 @@ func _on_button_mouse_exited(_button: Button) -> void:
 	_button_desc_popup.visible = false
 
 
-func _clear_decklist_cache() -> void:
+func _clear_decklist_cache(_card_entry) -> void:
 	current_decklist_cache.clear()

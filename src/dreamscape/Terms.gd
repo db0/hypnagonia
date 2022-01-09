@@ -532,6 +532,12 @@ const ACTIVE_EFFECTS := {
 		"icon": preload("res://assets/icons/soap.png"),
 		"description": "{effect_name}: At the end of each turn, reduce the highest debuff on this {entity} by {amount}.",
 	},
+	"jumbletron": {
+		"name": "The Rumble-Jumble",
+		"type": "Special",
+		"icon": preload("res://assets/icons/abstract-024.png"),
+		"description": "{effect_name}: Any time an {understanding} card is played, it is permanently scarred.",
+	},
 
 }
 

@@ -402,11 +402,11 @@ func _input(event):
 #		SoundManager.play_bgm(bgm_tracks[0])
 #		SoundManager.fade_in(bgm_tracks[0])
 		# warning-ignore:unused_variable
-#		_debug_advanced_enemy()
+		_debug_advanced_enemy()
 		var _torment1
 		var _torment2
 		var _torment3
-		_torment1 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
+#		_torment1 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 #		_torment2 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
@@ -475,7 +475,7 @@ func _debug_advanced_enemy() -> void:
 #	var advanced_entity: EnemyEntity =\
 #			preload("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn").instance()
 	var advanced_entity: EnemyEntity =\
-			preload("res://src/dreamscape/CombatElements/Enemies/Elites/IndescribableAbsurdity.tscn").instance()
+			preload("res://src/dreamscape/CombatElements/Enemies/Elites/Jumbletron.tscn").instance()
 	advanced_entity.setup_advanced("hard")
 	_enemy_area.add_child(advanced_entity)
 #	advanced_entity.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.self_cleaning.name, 1)
@@ -492,7 +492,7 @@ func _on_Debug_pressed() -> void:
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.nunclucks.name, 1)
 	dreamer.defence += 30
 	for entity in get_tree().get_nodes_in_group("EnemyEntities"):
-		entity.damage = entity.health - 1 
+		entity.damage = 1
 	for c in [
 		"Blind Trial",
 	]:

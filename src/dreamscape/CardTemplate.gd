@@ -478,6 +478,9 @@ func _find_upgrade_parent():
 			return(card_name)
 	return(false)
 
+func refresh_card_front() -> void:
+	.refresh_card_front()
+	highlight_modified_properties()
 
 # Overridable function to allow games to extend the _on_Card_gui_input() functionality
 func _process_more_card_inputs(event) -> void:

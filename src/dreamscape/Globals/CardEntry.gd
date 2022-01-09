@@ -174,18 +174,35 @@ func modify_property(property: String, value, record := true) -> void:
 			else:
 				properties[property] = value
 	# This handles Array properties, like Tags
+	# A tag name, prepended with '-' means we're removing it
 	elif property in CardConfig.PROPERTIES_ARRAYS:
-		if not value in properties[property]:
-			properties[property].append(value)
+		var tag: String = value
+		if tag.begins_with('-'):
+			tag = tag.lstrip('-')
+			if tag in properties[property]:
+				properties[property].erase(tag)
+		else:
+			if not tag in properties[property]:
+				properties[property].append(tag)
 	emit_signal("card_entry_modified", self)
 	globals.player.deck.signal_card_entry_modified(self)
 
 
+# In Hypnagonia, cards with permanent CardEntries, retrieve their scripts from
+# them. This allows us to permanently modify the card scripts of a card in the deck.
 func retrieve_scripts(trigger: String) -> Dictionary:
 	var found_scripts: Dictionary = unmodified_scripts.duplicate(true)
 	CoreScripts.lookup_script_property(found_scripts, card_name, self)
 #	print(found_scripts.get(trigger,{}))
 	return(found_scripts.get(trigger,{}))
+
+
+func modify_scripts(task: Dictionary, script_state:= 'hand') -> void:
+	if unmodified_scripts['manual'].has(script_state):
+		unmodified_scripts['manual'][script_state].append(task)
+		properties["Abilities"] += "\n{forget}"
+	else:
+		printerr("ERROR:CardEntry: Cannot find script state '%s' in unmodified scripts of '%s" % [script_state,card_name])
 
 
 # This function should only be called from modify_property()
@@ -196,9 +213,12 @@ func _modify_amounts(amount_name: String, value) -> void:
 	var current_value = properties["_amounts"].get(amount_name)
 	var new_value
 	if typeof(value) == TYPE_STRING\
-			and value.is_valid_integer()\
+			and value.lstrip("*").is_valid_float()\
 			and typeof(current_value) == TYPE_INT:
-		new_value = current_value + int(value)
+		if value.begins_with("*"):
+			new_value = ceil(float(current_value) * float(value.lstrip("*")))
+		else:
+			new_value = current_value + int(value)
 	else:
 		new_value = value
 	properties["_amounts"][amount_name] = new_value

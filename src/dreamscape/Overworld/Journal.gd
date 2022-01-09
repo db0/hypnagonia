@@ -433,7 +433,14 @@ func _input(event):
 		globals.player.add_memory(MemoryDefinitions.HealSelf.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.BossFaster.canonical_name)
 #		globals.player.add_artifact("AccumulateShop")
-#		var card_entry = globals.player.deck.add_new_card("Subconscious")
+		var card_entry = globals.player.deck.add_new_card("% Subconscious %")
+		globals.player.deck.add_new_card("Gaslighter")
+		globals.player.deck.add_new_card("Broken Mirror")
+		globals.player.deck.add_new_card("Pialephant")
+		globals.player.deck.add_new_card("The Light Calling")
+		globals.player.deck.add_new_card("+ Traffic Jam +")
+		globals.player.deck.add_new_card("* Hyena *")
+		globals.player.deck.add_new_card("^ The Victim ^")
 #		card_entry.upgrade_progress = card_entry.upgrade_threshold
 #		globals.player.deck.add_new_card("Terror")
 #		globals.player.deck.add_new_card("Prejudice")
@@ -457,7 +464,7 @@ func _input(event):
 #			preload("res://src/dreamscape/Run/NCE/Act2/LoseRandomCurio.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd").new(),
 #			BossEncounter.new(Act1.BOSSES["Narcissus"]),
-#			EliteEncounter.new(Act2.Dentist, "medium"),
+			EliteEncounter.new(Act2.Jumbletron, "medium"),
 #			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
 		]
 		for encounter in debug_encounters:

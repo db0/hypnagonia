@@ -334,10 +334,20 @@ const Dentist = {
 		'I swear, I will never forget flossing again!',
 	'journal_art': preload("res://assets/journal/advanced/dentist.jpeg"),
 }
+const Jumbletron = {
+	"scene": preload("res://src/dreamscape/CombatElements/Enemies/Elites/Jumbletron.tscn"),
+	"journal_description":\
+		'I had enterred a room which seemed to be an amalgram of a lot of different encounters I had.\n'\
+		+ "I couldn't find the exit anymore.",
+	"journal_reward":\
+		'Somehow I figured out the correct organization to make it out.',
+#	'journal_art': preload("res://assets/journal/advanced/dentist.jpeg"),
+}
 
 const ELITES = [
 	IndescribableAbsurdity,
 	Dentist,
+	Jumbletron,
 ]
 
 const SurrealBoss = {
