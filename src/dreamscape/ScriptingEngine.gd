@@ -516,7 +516,13 @@ func spawn_enemy(script: ScriptTask) -> void:
 			var stating_effects = script.get_property('starting_effects', null)
 			if stating_effects:
 				for effect in stating_effects:
-					enemy_entity.active_effects.mod_effect(effect["name"],effect["stacks"])
+					enemy_entity.active_effects.mod_effect(
+							effect["name"],
+							effect["stacks"], 
+							false, 
+							false, 
+							['Init'], 
+							effect.get("upgrade", ''))
 			if script.get_property('rebalancing', null):
 				enemy_entity.intents.rebalancing = script.get_property('rebalancing', {})
 

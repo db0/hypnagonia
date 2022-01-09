@@ -156,7 +156,13 @@ func spawn_enemy_encounter(encounter: EnemyEncounter) -> void:
 			new_enemy.intents.prepare_intents(enemy_entry['starting_intent'])
 		if enemy_entry.has('starting_effects'):
 			for effect in enemy_entry['starting_effects']:
-				new_enemy.active_effects.mod_effect(effect["name"],effect["stacks"])
+				new_enemy.active_effects.mod_effect(
+						effect["name"],
+						effect["stacks"], 
+						false, 
+						false, 
+						['Init'], 
+						effect.get("upgrade", ''))
 		if enemy_entry.has('rebalancing'):
 			new_enemy.intents.rebalancing = enemy_entry['rebalancing']
 		if enemy_entry.has('health_modifier'):
@@ -403,11 +409,11 @@ func _input(event):
 #		SoundManager.play_bgm(bgm_tracks[0])
 #		SoundManager.fade_in(bgm_tracks[0])
 		# warning-ignore:unused_variable
-		_debug_advanced_enemy()
+#		_debug_advanced_enemy()
 		var _torment1
 		var _torment2
 		var _torment3
-		_torment1 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
+		_torment1 = spawn_enemy(EnemyDefinitions.IMPOSSIBLE_CONSTRUCTION)
 #		_torment2 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)

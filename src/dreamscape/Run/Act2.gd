@@ -254,6 +254,80 @@ const StuffedToy = {
 	"journal_art": preload("res://assets/journal/torments/stuffed_toy.jpeg"),
 }
 
+const ImpossibleConstruction = {
+	"journal_description":\
+		"I climbing the staircase somewhere, but somehow "\
+			+ "[url={torment_tag1}]I always ended up on the ground floor again.[/url]",
+	"journal_reward":\
+		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+	"enemies": {
+		"easy": [
+			{
+				"definition": EnemyDefinitions.IMPOSSIBLE_CONSTRUCTION,
+				"starting_defence": +30,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.protection.name,
+						"stacks": 2
+					},
+					{
+						"name": Terms.ACTIVE_EFFECTS.fortify.name,
+						"stacks": 1
+					},
+					{
+						"name": Terms.ACTIVE_EFFECTS.effect_resistance.name,
+						"stacks": 1,
+						"upgrade": Terms.ACTIVE_EFFECTS.poison.name,
+					}
+				]
+			},
+		],
+		"medium": [
+			{
+				"definition": EnemyDefinitions.IMPOSSIBLE_CONSTRUCTION,
+				"starting_defence": +40,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.fortify.name,
+						"stacks": 3
+					},
+					{
+						"name": Terms.ACTIVE_EFFECTS.impervious.name,
+						"stacks": 1
+					},
+					{
+						"name": Terms.ACTIVE_EFFECTS.effect_resistance.name,
+						"stacks": 1,
+						"upgrade": Terms.ACTIVE_EFFECTS.poison.name,
+					}
+				]
+			},
+		],
+		"hard": [
+			{
+				"definition": EnemyDefinitions.IMPOSSIBLE_CONSTRUCTION,
+				"starting_defence": +50,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.protection.name,
+						"stacks": 3
+					},
+					{
+						"name": Terms.ACTIVE_EFFECTS.fortify.name,
+						"stacks": 1
+					},
+					{
+						"name": Terms.ACTIVE_EFFECTS.effect_resistance.name,
+						"stacks": 1,
+						"upgrade": Terms.ACTIVE_EFFECTS.poison.name,
+					}
+				]
+			},
+		],
+	},
+#	"journal_art": preload("res://assets/journal/torments/stuffed_toy.jpeg"),
+}
+
 const ClownShow = {
 	"journal_description":\
 		'[url={torment_tag1}]The Clowns were back[/url], and this time [url={torment_tag2}]they brought the circus[/url]!',
@@ -316,6 +390,7 @@ const ENEMIES = [
 	TheVictim,
 	ClownShow,
 	StuffedToy,
+	ImpossibleConstruction,
 ]
 
 const IndescribableAbsurdity = {
