@@ -31,7 +31,7 @@ const TrafficJam = {
 	"journal_description":\
 		'I started dreaming about my [url={torment_tag1}]daily commute traffic jam[/url].',
 	"journal_reward":\
-		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+		'Through overcoming that weird experience, I felt wiser.',
 	"enemies": {
 		"easy": [
 			{
@@ -63,7 +63,7 @@ const Mouse = {
 	"journal_description":\
 		'I was having tea with [url={torment_tag1}]a rodent[/url]. It was explaining the pitfalls of overpopulation.',
 	"journal_reward":\
-		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+		'Through overcoming that weird experience, I felt wiser.',
 	"enemies": {
 		"easy": [
 			{
@@ -113,7 +113,7 @@ const TheExam = {
 		"The bell rang and I had to get back into class."\
 			+ "[url={torment_tag1}]It was time for the test.[/url]",
 	"journal_reward":\
-		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+		'Through overcoming that weird experience, I felt wiser.',
 	"enemies": {
 		"easy": [
 			{
@@ -163,7 +163,7 @@ const TheVictim = {
 		"[url={torment_tag1}]They claimed I always hurt their feelings.[/url] "\
 			+ "Was I in the wrong? I don't know anymore...",
 	"journal_reward":\
-		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+		'Through overcoming that weird experience, I felt wiser.',
 	"enemies": {
 		"easy": [
 			{
@@ -211,7 +211,7 @@ const StuffedToy = {
 		"[url={torment_tag1}]I was wrestling in bed with a stuffed toy.[/url] "\
 			+ "Why was this feeling so hard?",
 	"journal_reward":\
-		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+		'Through overcoming that weird experience, I felt wiser.',
 	"enemies": {
 		"easy": [
 			{
@@ -259,7 +259,7 @@ const ImpossibleConstruction = {
 		"I climbing the staircase somewhere, but somehow "\
 			+ "[url={torment_tag1}]I always ended up on the ground floor again.[/url]",
 	"journal_reward":\
-		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+		'Through overcoming that weird experience, I felt wiser.',
 	"enemies": {
 		"easy": [
 			{
@@ -332,7 +332,7 @@ const ClownShow = {
 	"journal_description":\
 		'[url={torment_tag1}]The Clowns were back[/url], and this time [url={torment_tag2}]they brought the circus[/url]!',
 	"journal_reward":\
-		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+		'Through overcoming that weird experience, I felt wiser.',
 	"enemies": {
 		"easy": [
 			{
@@ -386,7 +386,7 @@ const GuiltyTreatment = {
 	"journal_description":\
 		'I was talking to someone. But they were either [url={torment_tag1}]blaming me[/url], or [url={torment_tag2}]giving me the silent treatment[/url].',
 	"journal_reward":\
-		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+		'Through overcoming that weird experience, I felt wiser.',
 	"enemies": {
 		"easy": [
 			{

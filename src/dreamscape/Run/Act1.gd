@@ -31,7 +31,7 @@ const TheLaughingOnes = {
 	"journal_description":\
 		'I found myself between [url={torment_tag1}]a pair of featureless creeps laughing[/url] at me.',
 	"journal_reward":\
-		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+		'Through overcoming that weird experience, I felt wiser.',
 	"enemies": {
 		"easy": [
 			{
@@ -75,7 +75,7 @@ const Fearmonger = {
 	"journal_description":\
 		'Was that [url={torment_tag1}]a curious owl with three eyes[/url] staring at me?',
 	"journal_reward":\
-		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+		'Through overcoming that weird experience, I felt wiser.',
 	"journal_art": preload("res://assets/journal/torments/fearmonger.jpeg"),
 	"enemies": {
 		"easy": [
@@ -107,7 +107,7 @@ const Gaslighter = {
 	"journal_description":\
 		'I saw [url={torment_tag1}]a strange form with a head like a lamp[/url] moving towards me.',
 	"journal_reward":\
-		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+		'Through overcoming that weird experience, I felt wiser.',
 	"enemies": {
 		"easy": [
 			{
@@ -136,7 +136,7 @@ const Murmurs = {
 	"journal_description":\
 		'I thought I heard [url={torment_tag1}]murmurs on the wind[/url]. Were they talking about that time..?',
 	"journal_reward":\
-		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+		'Through overcoming that weird experience, I felt wiser.',
 	"enemies": {
 		"easy": [
 			{
@@ -176,7 +176,7 @@ const TheCritic = {
 	"journal_description":\
 		'Strange furry animals with massive noses (or were they trunks) [url={torment_tag1}]started sniffing at me, and pointing out my weaknesses[/url].',
 	"journal_reward":\
-		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+		'Through overcoming that weird experience, I felt wiser.',
 	"enemies": {
 		"easy": [
 			{
@@ -221,7 +221,7 @@ const Clown = {
 	"journal_description":\
 		'I somehow ended in a peculiar argument [url={torment_tag1}]with a clown[/url].',
 	"journal_reward":\
-		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+		'Through overcoming that weird experience, I felt wiser.',
 	"enemies": {
 		"easy": [
 			{
@@ -255,7 +255,7 @@ const Butterfly = {
 	"journal_description":\
 		'What a [url={torment_tag1}]depressive butterfly[/url].',
 	"journal_reward":\
-		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+		'Through overcoming that weird experience, I felt wiser.',
 	"enemies": {
 		"easy": [
 			{
@@ -289,7 +289,7 @@ const BrokenMirrors = {
 	"journal_description":\
 		'Am I cursed [url={torment_tag1}]or is it just bad luck[/url]?',
 	"journal_reward":\
-		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+		'Through overcoming that weird experience, I felt wiser.',
 	"enemies": {
 		"easy": [
 			{
@@ -333,7 +333,7 @@ const Pialephant = {
 	"journal_description":\
 		'I heard piano music but its source [url={torment_tag1}]made no sense[/url]!',
 	"journal_reward":\
-		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+		'Through overcoming that weird experience, I felt wiser.',
 	"enemies": {
 		"easy": [
 			{
@@ -372,7 +372,7 @@ const TheLightCalling = {
 	"journal_description":\
 		'At one point, I felt like I was having [url={torment_tag1}]a near death experience[/url].',
 	"journal_reward":\
-		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+		'Through overcoming that weird experience, I felt wiser.',
 	"enemies": {
 		"easy": [
 			{
@@ -405,7 +405,7 @@ const Squirrel = {
 	"journal_description":\
 		'I found myself facing off [url={torment_tag1}]with a squirrel giving me the stink-eye[/url].',
 	"journal_reward":\
-		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+		'Through overcoming that weird experience, I felt wiser.',
 	"enemies": {
 		"easy": [
 			{
@@ -443,7 +443,7 @@ const Baby = {
 	"journal_description":\
 		'I had to take care of [url={torment_tag1}]a fussy baby[/url]. I am responsible enough?',
 	"journal_reward":\
-		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+		'Through overcoming that weird experience, I felt wiser.',
 	"enemies": {
 		"easy": [
 			{
@@ -473,7 +473,7 @@ const Baby = {
 #			'I found myself cowering before [url={torment_tag1}]a three-eyed owl[/url]'\
 #			+ ' while someone in the distance was [url={torment_tag2}]laughing at my aprehension.[/url]',
 #		"journal_reward":\
-#			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+#			'Through overcoming that weird experience, I felt wiser.',
 #		"enemies": [
 #			{
 #				"definition": EnemyDefinitions.FEARMONGER,
@@ -487,7 +487,7 @@ const Baby = {
 #		"journal_description":\
 #			'I discovered that [url={torment_tag1}]the lamps that should not be[/url] were multiplying.',
 #		"journal_reward":\
-#			'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+#			'Through overcoming that weird experience, I felt wiser.',
 #		"enemies": [
 #			{
 #				"definition": EnemyDefinitions.GASLIGHTER,
