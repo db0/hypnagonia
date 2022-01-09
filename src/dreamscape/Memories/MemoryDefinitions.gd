@@ -243,10 +243,10 @@ const DisempowerEnemy := {
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
 	"pathos_threshold_multiplier": 2,
-	"pathos_accumulation_divider": 3,
+	"pathos_accumulation_divider": 1.5,
 	"keys_modified_by_upgrade": ["effect_stacks"],
 	"amounts": {
-		"effect_stacks": 5,
+		"effect_stacks": 2,
 		"upgrade_multiplier": 1
 	},
 }
@@ -435,6 +435,23 @@ const GainMaxHealth := {
 		"max_upgrades": 10,
 	},
 }
+const ProtectSelf := {
+	"canonical_name": "ProtectSelf",
+	"name": "ProtectSelf",
+	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal "\
+			+ "to gain {effect_stacks} {protection}",
+	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"context": EffectContext.OVERWORLD,
+	"pathos": Terms.RUN_ACCUMULATION_NAMES.shop,
+	"pathos_threshold_multiplier": 3,
+	"pathos_accumulation_divider": 3,
+	"keys_modified_by_upgrade": ["pathos_accumulation_divider"],
+	"amounts": {
+		"effect_stacks": 1,
+		"upgrade_multiplier": 1,
+		"max_upgrades": 10,
+	},
+}
 # Generic memories which have a chance to appear in any playthrough
 const GENERIC := [
 	DamageAll,
@@ -452,6 +469,7 @@ const GENERIC := [
 	RemovePerturbation,
 	RerollShop,
 	GainMaxHealth,
+	ProtectSelf,
 ]
 
 # Archetype-specific memories which only appear in runs in which
