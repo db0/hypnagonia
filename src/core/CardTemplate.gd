@@ -704,6 +704,7 @@ func refresh_card_front() -> void:
 		refresh_property_label(property)
 
 
+
 # Retrieves the value of a property. This should always be used instead of
 # properties.get() as it takes into account the temp_properties_modifiers var
 # and also checks for alterant scripts
