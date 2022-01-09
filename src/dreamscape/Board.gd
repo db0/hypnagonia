@@ -264,6 +264,7 @@ func _on_enemy_turn_started(_turn: Turn) -> void:
 	# We delay, to allow effects like poison to activate first
 	yield(get_tree().create_timer(1), "timeout")
 	# I want the enemies to activate serially
+	activated_enemies.clear()
 	enemies_at_start_of_turn = get_tree().get_nodes_in_group("EnemyEntities")
 	_debug_enemies_started_activation.clear()
 	for enemy in enemies_at_start_of_turn:
@@ -475,7 +476,7 @@ func _debug_advanced_enemy() -> void:
 #	var advanced_entity: EnemyEntity =\
 #			preload("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn").instance()
 	var advanced_entity: EnemyEntity =\
-			preload("res://src/dreamscape/CombatElements/Enemies/Elites/Jumbletron.tscn").instance()
+			preload("res://src/dreamscape/CombatElements/Enemies/Elites/Bully.tscn").instance()
 	advanced_entity.setup_advanced("hard")
 	_enemy_area.add_child(advanced_entity)
 #	advanced_entity.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.self_cleaning.name, 1)
@@ -485,7 +486,7 @@ func _debug_advanced_enemy() -> void:
 
 func _on_Debug_pressed() -> void:
 	# warning-ignore:return_value_discarded
-	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.impervious.name, 3)
+	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.rubber_eggs.name, 1)
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.vulnerable.name, 2)
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.drain.name, 5)
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.introspection.name, 6)
