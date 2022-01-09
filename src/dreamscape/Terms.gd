@@ -318,6 +318,17 @@ const ACTIVE_EFFECTS := {
 		"description": "{effect_name} ({effect_icon}): Dreamer cannot play {action} cards.\n"\
 				+ "Remove these stacks at the start of the turn.",
 	},
+	"protection": {
+		"name": "Inscrutable",
+		"type": "Buff",
+		"self_decreasing": SELF_DECREASE.FALSE,
+		"decrease_type": DECREASE_TYPE.REDUCE,
+		"alterant_priority": ALTERANT_PRIORITY.SET,
+		"icon": preload("res://assets/icons/abstract-025.png"),
+		"generic_description": "{effect_name}: Negates debuffs.",
+		"rich_text_icon": "res://fonts/rich_text_icons/abstract-025.png",
+		"description": "{effect_name} ({effect_icon}): Negates the next {amount} debuffs this {entity}.",
+	},
 	"outrage": {
 		"name": "Outrage",
 		"type": "Special",
