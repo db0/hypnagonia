@@ -446,7 +446,7 @@ func _input(event):
 #		globals.player.add_artifact(ArtifactDefinitions.ThickExplosion.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.PurpleWave.canonical_name)
 		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
-		globals.player.add_memory(MemoryDefinitions.SpikeEnemy.canonical_name)
+		globals.player.add_memory(MemoryDefinitions.DisempowerEnemy.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
 		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.stuffed_toy.name, 12)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1, false, false, ['Debug'], 'thick')
