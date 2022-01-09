@@ -1,5 +1,18 @@
 # Changelog
 
+## [v0.30.0](https://github.com/db0/hypnagonia/tree/v0.30.0) (2022-01-09)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.29.2...v0.30.0)
+
+**Fixed bugs:**
+
+- Force Unstuck log while fighting Surreality [\#166](https://github.com/db0/hypnagonia/issues/166)
+- Game force unstuck during Ordeal with The Laughing Ones [\#111](https://github.com/db0/hypnagonia/issues/111)
+
+**Merged pull requests:**
+
+- More Act2 Content [\#181](https://github.com/db0/hypnagonia/pull/181) ([db0](https://github.com/db0))
+
 ## [v0.29.2](https://github.com/db0/hypnagonia/tree/v0.29.2) (2022-01-08)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.29.1...v0.29.2)
