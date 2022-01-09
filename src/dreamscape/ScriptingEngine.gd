@@ -155,7 +155,7 @@ func predict_intent_amount(_snapshot_id: int) -> int:
 
 func predict_subjects(script: ScriptTask, prev_subjects: Array) -> Array:
 	match script.get_property(SP.KEY_SUBJECT):
-		SP.KEY_SUBJECT_V_TARGET:
+		SP.KEY_SUBJECT_V_TARGET, SP.KEY_SUBJECT_V_BOARDSEEK:
 			var potential_subjects := []
 			for entity in cfc.get_tree().get_nodes_in_group("EnemyEntities"):
 				if SP.check_validity(entity, script.script_definition, "subject"):

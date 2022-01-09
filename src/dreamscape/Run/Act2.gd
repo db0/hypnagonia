@@ -382,6 +382,47 @@ const ClownShow = {
 	},
 	"journal_art": preload("res://assets/journal/torments/pialephant.jpg"),
 }
+const GuiltyTreatment = {
+	"journal_description":\
+		'I was talking to someone. But they were either [url={torment_tag1}]blaming me[/url], or [url={torment_tag2}]giving me the silent treatment[/url].',
+	"journal_reward":\
+		'Through overcoming that weird experience, [url=card_draft]I felt wiser.[/url]',
+	"enemies": {
+		"easy": [
+			{
+				"definition": EnemyDefinitions.GUILT,
+				"rebalancing": {
+					"Stress": -1
+				},
+			},
+			{
+				"definition": EnemyDefinitions.SILENT_TREATMENT,
+				"health_modifier": -15,
+			},
+		],
+		"medium": [
+			{
+				"definition": EnemyDefinitions.GUILT,
+			},
+			{
+				"definition": EnemyDefinitions.SILENT_TREATMENT,
+			},
+		],
+		"hard": [
+			{
+				"definition": EnemyDefinitions.GUILT,
+				"rebalancing": {
+					"Stress": +1
+				},
+			},
+			{
+				"definition": EnemyDefinitions.SILENT_TREATMENT,
+				"health_modifier": +15,
+			},
+		],
+	},
+#	"journal_art": preload("res://assets/journal/torments/pialephant.jpg"),
+}
 
 const ENEMIES = [
 	TrafficJam,
@@ -391,6 +432,7 @@ const ENEMIES = [
 	ClownShow,
 	StuffedToy,
 	ImpossibleConstruction,
+	GuiltyTreatment,
 ]
 
 const IndescribableAbsurdity = {

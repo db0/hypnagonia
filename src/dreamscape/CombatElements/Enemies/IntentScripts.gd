@@ -30,6 +30,20 @@ func get_scripts(intent_name: String) -> Dictionary:
 				"description": "Perplex: Will give this Torment the specified amount of {perplexity}."
 			}
 		],
+		"PerplexGroup": [
+			{
+				"name": "assign_defence",
+				"tags": ["Intent"],
+				"subject": "boardseek",
+				"amount": null,
+				"subject_count": "all",
+				"filter_state_seek": [{
+					"filter_group": "EnemyEntities",
+				},],
+				"icon": ICON_DEFEND,
+				"description": "Perplex Group: Will give all Torments the specified amount of {perplexity}."
+			}
+		],
 		"Debuff": [
 			{
 				"name": "apply_effect",
@@ -50,6 +64,21 @@ func get_scripts(intent_name: String) -> Dictionary:
 				"modification": null,
 				"icon": ICON_BUFF,
 				"description": "This Torment is planning to buff itself."
+			}
+		],
+		"BuffGroup": [
+			{
+				"name": "apply_effect",
+				"effect_name": null,
+				"tags": ["Intent"],
+				"subject": "boardseek",
+				"modification": null,
+				"subject_count": "all",
+				"filter_state_seek": [{
+					"filter_group": "EnemyEntities",
+				},],
+				"icon": ICON_BUFF,
+				"description": "This Torment is planning to buff all Torments."
 			}
 		],
 		"Stare": [

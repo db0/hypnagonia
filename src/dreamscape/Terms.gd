@@ -327,7 +327,7 @@ const ACTIVE_EFFECTS := {
 		"icon": preload("res://assets/icons/abstract-025.png"),
 		"generic_description": "{effect_name}: Negates debuffs.",
 		"rich_text_icon": "res://fonts/rich_text_icons/abstract-025.png",
-		"description": "{effect_name} ({effect_icon}): Negates the next {amount} debuffs this {entity}.",
+		"description": "{effect_name} ({effect_icon}): Negates the next {amount} debuffs on this {entity}.",
 	},
 	"outrage": {
 		"name": "Outrage",

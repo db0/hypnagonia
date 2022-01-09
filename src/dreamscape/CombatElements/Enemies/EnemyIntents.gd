@@ -34,6 +34,10 @@ var rebalancing := {
 	"Buff": 0,
 }
 var all_intent_scripts = IntentScripts.new()
+# Signifies signals, than when received, will unlock specific intents
+var unlock_triggers : Dictionary
+# Signifies signals, than when received, will lock specific intents
+var lock_triggers : Dictionary
 
 func prepare_intents(specific_index = null, is_second_try := false) -> Dictionary:
 	# This will reshuffle all intents and make sure the specified intent is the
@@ -84,7 +88,7 @@ func prepare_intents(specific_index = null, is_second_try := false) -> Dictionar
 				break
 	# There is a chance that is the stars align (or if the developer messed up)
 	# no intent will be selected. In this case, we reset the intents list and try again fresh.
-	# Assuming the developer did not mess up, this should return at least one intent, but 
+	# Assuming the developer did not mess up, this should return at least one intent, but
 	# There is a chance
 	if selected_intent.empty():
 		# if we restart this process, we set a flag. if we end up twice without
@@ -198,7 +202,7 @@ func erase_intent_id(intent_id: String):
 	var intent = find_intent_id(intent_id)
 	if intent:
 		all_intents.erase(intent)
-	
+
 
 #	Injects the specified intent dictionary into all_intents
 func insert_intent(intent: Dictionary, index = null):
@@ -274,6 +278,24 @@ func _display_intents(new_intents: Dictionary) -> void:
 	intents_displayed = true
 	emit_signal("intents_displayed")
 
+
+func _connect_signals() -> void:
+	for enemy in get_tree().get_nodes_in_group("EnemyEntities"):
+		enemy.connect("entity_killed", self, "_on_enemy_killed", [enemy])
+
+
+func _on_enemy_killed(_damage: int, enemy) -> void:
+	if unlock_triggers.has("entity_killed"):
+		for intent_id in unlock_triggers["entity_killed"]:
+			var intent = find_intent_id(intent_id)
+			intent["not_in_rotation"] = false
+	if lock_triggers.has("entity_killed"):
+		for intent_id in lock_triggers["entity_killed"]:
+			var intent = find_intent_id(intent_id)
+			intent["not_in_rotation"] = true
+	refresh_intents()
+
+
 # Overridable function
 func _pre_execute_scripts() -> void:
 	pass
@@ -281,3 +303,4 @@ func _pre_execute_scripts() -> void:
 # Overridable function
 func _post_execute_scripts() -> void:
 	pass
+

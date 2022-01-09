@@ -22,6 +22,10 @@ func _ready() -> void:
 	intents.combat_entity = self
 	if _properties.has('Intents'):
 		intents.all_intents = _properties.Intents.duplicate(true)
+	if _properties.has('_unlock_triggers'):
+		intents.unlock_triggers = _properties._unlock_triggers.duplicate(true)
+	if _properties.has('_lock_triggers'):
+		intents.lock_triggers = _properties._lock_triggers.duplicate(true)
 	if _properties.has('_art_scene'):
 		var art_scene = load(_properties.get('_art_scene')).instance()
 		animated_art = art_scene
