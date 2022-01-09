@@ -1107,4 +1107,57 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"Impossible Construction": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "Gain {effect_stacks} {fortify}. {forget}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
+		},
+		"_keywords": ["forget"],
+		"_amounts": {
+			"effect_stacks": 1,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"Improved Impossible Construction",
+			"Sustained Impossible Construction",
+		],
+	},
+	"Improved Impossible Construction": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "Gain {defence_amount} {defence}\nGain {effect_stacks} {fortify}. {forget}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
+		},
+		"_keywords": ["forget", "confidence"],
+		"_amounts": {
+			"effect_stacks": 1,
+			"defence_amount": 10,
+		},
+		"_is_upgrade": true,
+	},
+	"Sustained Impossible Construction": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
+		"Abilities": "Gain {defence_amount} {defence}\nGain {effect_stacks} {fortify}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
+		},
+		"_keywords": [],
+		"_amounts": {
+			"effect_stacks": 1,
+		},
+		"_is_upgrade": true,
+	},
 }

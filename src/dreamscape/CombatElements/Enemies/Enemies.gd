@@ -459,6 +459,37 @@ const THE_VICTIM := {
 	"_texture": preload("res://assets/enemies/slavery-whip.png"),
 	"_character_art": "Lorc"
 }
+const IMPOSSIBLE_CONSTRUCTION := {
+	"Name": "Impossible Construction",
+	"Type": "Absurdity",
+	"Health": 20,
+	"Intents": [
+		{
+			"intent_scripts": ["Perplex:25", "Buff:1:fortify"],
+			"reshuffle": false,
+			"max_uses": 1,
+		},
+		{
+			"intent_scripts": ["Debuff:5:vulnerable", "Stress:10", "Buff:1:fortify"],
+			"reshuffle": false,
+			"max_uses": 1,
+		},
+		{
+			"intent_scripts": ["Stress:10", "Stress:10", "Buff:1:fortify"],
+			"reshuffle": true,
+			"max_in_a_row": 1,
+		},
+		{
+			"intent_scripts": ["Stress:10", "Perplex:10", "Buff:1:fortify"],
+			"reshuffle": false,
+		},
+	],
+	"_health_variability": 1,
+	"_texture_size_x": "120",
+	"_texture_size_y": "120",
+#	"_texture": preload("res://assets/enemies/slavery-whip.png"),
+	"_character_art": "Nobody"
+}
 #	"Spider": {
 #		"Type": "Phobia",
 #		"Health": 1,

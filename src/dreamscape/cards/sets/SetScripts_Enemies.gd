@@ -804,6 +804,69 @@ const scripts := {
 			],
 		},
 	},
+	"Impossible Construction": {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"tags": ["Card"],
+					"effect_name": Terms.ACTIVE_EFFECTS.fortify.name,
+					"subject": "dreamer",
+					"modification":  {
+						"lookup_property": "_amounts",
+						"value_key": "effect_stacks",
+					},
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": "forgotten",
+					"tags": ["Played", "Card"],
+				},
+			],
+		},
+	},
+	"Improved Impossible Construction": {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"tags": ["Card"],
+					"effect_name": Terms.ACTIVE_EFFECTS.fortify.name,
+					"subject": "dreamer",
+					"modification":  {
+						"lookup_property": "_amounts",
+						"value_key": "effect_stacks",
+					},
+				},
+				{
+					"name": "assign_defence",
+					"tags": ["Card"],
+					"subject": "dreamer",
+					"amount": {
+						"lookup_property": "_amounts",
+						"value_key": "defence_amount"
+					},
+				},
+			],
+		},
+	},
+	"Sustained Impossible Construction": {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"tags": ["Card"],
+					"effect_name": Terms.ACTIVE_EFFECTS.fortify.name,
+					"subject": "dreamer",
+					"modification":  {
+						"lookup_property": "_amounts",
+						"value_key": "effect_stacks",
+					},
+				},
+			],
+		},
+	},
 }
 
 # This fuction returns all the scripts of the specified card name.
