@@ -62,6 +62,9 @@ func _ready() -> void:
 
 
 func set_tag_icon(tags: Array) -> void:
+	# This allow this function to be reused during the game as well
+	tag_container1.visible = false
+	tag_container2.visible = false
 	for tag in tags:
 		var tex : StreamTexture = Terms.get_term_value(tag, 'icon')
 		# This means there's no dedicated texture for that tag specified.

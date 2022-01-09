@@ -638,7 +638,7 @@ const scripts := {
 					"tags": ["Card"],
 					"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
 					"pathos_type": "released",
-					"modification":  {
+					"amount":  {
 						"lookup_property": "_amounts",
 						"value_key": "released_amount",
 					},
@@ -648,7 +648,7 @@ const scripts := {
 					"tags": ["Card"],
 					"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
 					"pathos_type": "repressed",
-					"modification":  {
+					"amount":  {
 						"lookup_property": "_amounts",
 						"value_key": "repressed_amount",
 					},
@@ -794,6 +794,12 @@ const scripts := {
 					"name": "custom_script",
 					"tags": ["Card"],
 					"subject": "previous",
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": "forgotten",
+					"tags": ["Played", "Card"],
 				},
 			],
 		},
