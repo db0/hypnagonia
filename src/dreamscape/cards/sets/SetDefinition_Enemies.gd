@@ -230,7 +230,7 @@ const CARDS := {
 		},
 		"_keywords": ["forget"],
 		"_amounts": {
-			"effect_stacks": 3,
+			"effect_stacks": 2,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -250,7 +250,7 @@ const CARDS := {
 		},
 		"_keywords": ["forget"],
 		"_amounts": {
-			"effect_stacks": 3,
+			"effect_stacks": 2,
 		},
 		"_is_upgrade": true,
 	},
@@ -560,7 +560,7 @@ const CARDS := {
 	"The Light Calling": {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.ACTIVE_EFFECTS.drain.name],
-		"Abilities": "Gain {defence_amount} {defence}\nGain {effect_stacks} {drain}\n{forget}",
+		"Abilities": "Gain {defence_amount} {defence}\nGain {detriment_stacks} {drain}\n{forget}",
 		"Cost": 0,
 		"_illustration": "David Revoy",
 		"_rarity": "Received",
@@ -570,7 +570,7 @@ const CARDS := {
 		},
 		"_amounts": {
 			"defence_amount": 10,
-			"effect_stacks": 1
+			"detriment_stacks": 1
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -581,7 +581,7 @@ const CARDS := {
 	"+ The Light Calling +": {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.ACTIVE_EFFECTS.drain.name],
-		"Abilities": "Gain {defence_amount} {defence}\nGain {effect_stacks} {drain}\n{forget}",
+		"Abilities": "Gain {defence_amount} {defence}\nGain {detriment_stacks} {drain}\n{forget}",
 		"Cost": 0,
 		"_illustration": "David Revoy",
 		"_rarity": "Received",
@@ -591,14 +591,14 @@ const CARDS := {
 		},
 		"_amounts": {
 			"defence_amount": 14,
-			"effect_stacks": 1
+			"detriment_stacks": 1
 		},
 		"_is_upgrade": true,
 	},
 	"* The Light Calling *": {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.ACTIVE_EFFECTS.drain.name],
-		"Abilities": "Gain {defence_amount} {defence}\nGain {effect_stacks} {drain}\n{forget}",
+		"Abilities": "Gain {defence_amount} {defence}\nGain {detriment_stacks} {drain}\n{forget}",
 		"Cost": 0,
 		"_illustration": "David Revoy",
 		"_rarity": "Received",
@@ -608,7 +608,7 @@ const CARDS := {
 		},
 		"_amounts": {
 			"defence_amount": 20,
-			"effect_stacks": 2
+			"detriment_stacks": 2
 		},
 		"_is_upgrade": true,
 	},
@@ -670,8 +670,8 @@ const CARDS := {
 	"Baby": {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.advantage.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Gain {effect_stacks} delayed {delighted}.\n"\
-				+ "Gain {effect_stacks2} {advantage}\n"\
+		"Abilities": "Gain {detriment_stacks} delayed {delighted}.\n"\
+				+ "Gain {effect_stacks} {advantage}\n"\
 				+ "{forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
@@ -682,8 +682,8 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.delighted.name: Terms.PLAYER
 		},
 		"_amounts": {
+			"detriment_stacks": 1,
 			"effect_stacks": 1,
-			"effect_stacks2": 1,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -694,8 +694,8 @@ const CARDS := {
 	"* Baby *": {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.advantage.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Gain {effect_stacks} delayed {delighted}.\n"\
-				+ "Gain {effect_stacks2} {advantage}\n"\
+		"Abilities": "Gain {detriment_stacks} delayed {delighted}.\n"\
+				+ "Gain {effect_stacks} {advantage}\n"\
 				+ "{forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
@@ -706,16 +706,16 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.delighted.name: Terms.PLAYER
 		},
 		"_amounts": {
-			"effect_stacks": 1,
-			"effect_stacks2": 2,
+			"detriment_stacks": 1,
+			"effect_stacks": 2,
 		},
 		"_is_upgrade": true,
 	},
 	"Ω Baby Ω": {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.advantage.name, Terms.GENERIC_TAGS.omega.name],
-		"Abilities": "Gain {effect_stacks} delayed {delighted}.\n"\
-				+ "Gain {effect_stacks2} {advantage}\n"\
+		"Abilities": "Gain {detriment_stacks} delayed {delighted}.\n"\
+				+ "Gain {effect_stacks} {advantage}\n"\
 				+ "{forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
@@ -726,8 +726,8 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.delighted.name: Terms.PLAYER
 		},
 		"_amounts": {
-			"effect_stacks": 1,
-			"effect_stacks2": 2,
+			"detriment_stacks": 1,
+			"effect_stacks": 2,
 		},
 		"_is_upgrade": true,
 	},
@@ -844,8 +844,8 @@ const CARDS := {
 	"Mouse": {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.purpose.name],
-		"Abilities": "Gain {immersion_amount} {immersion} per turn.\nLose {effect_stacks2} {focus}\n"\
-				+ "Every time you shuffle your deck, lose {effect_stacks} {focus}.",
+		"Abilities": "Gain {immersion_amount} {immersion} per turn.\nLose {detriment_stacks} {focus}\n"\
+				+ "Every time you shuffle your deck, lose {concentration_amount} {focus}.",
 		"Cost": 3,
 		"_is_concentration": true,
 		"_illustration": "Nobody",
@@ -853,8 +853,8 @@ const CARDS := {
 		"_keywords": ["immersion"],
 		"_amounts": {
 			"immersion_amount": 1,
-			"effect_stacks": 1,
-			"effect_stacks2": 1,
+			"detriment_stacks": 1,
+			"concentration_amount": 1,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -865,8 +865,8 @@ const CARDS := {
 	"@ Mouse @": {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.purpose.name],
-		"Abilities": "Gain {immersion_amount} {immersion} per turn.\nLose {effect_stacks2} {focus}\n"\
-				+ "Every time you shuffle your deck, lose {effect_stacks} {focus}.",
+		"Abilities": "Gain {immersion_amount} {immersion} per turn.\nLose {detriment_stacks} {focus}\n"\
+				+ "Every time you shuffle your deck, lose {concentration_amount} {focus}.",
 		"Cost": 2,
 		"_is_concentration": true,
 		"_illustration": "Nobody",
@@ -874,16 +874,16 @@ const CARDS := {
 		"_keywords": ["immersion"],
 		"_amounts": {
 			"immersion_amount": 1,
-			"effect_stacks": 2,
-			"effect_stacks2": 1,
+			"concentration_amount": 2,
+			"detriment_stacks": 1,
 		},
 		"_is_upgrade": true,
 	},
 	"^ Mouse ^": {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.alpha.name, Terms.GENERIC_TAGS.purpose.name],
-		"Abilities": "Gain {immersion_amount} {immersion} per turn.\nLose {effect_stacks2} {focus}\n"\
-				+ "Every time you shuffle your deck, lose {effect_stacks} {focus}.",
+		"Abilities": "Gain {immersion_amount} {immersion} per turn.\nLose {detriment_stacks} {focus}\n"\
+				+ "Every time you shuffle your deck, lose {concentration_amount} {focus}.",
 		"Cost": 3,
 		"_is_concentration": true,
 		"_illustration": "Nobody",
@@ -891,8 +891,8 @@ const CARDS := {
 		"_keywords": ["immersion"],
 		"_amounts": {
 			"immersion_amount": 1,
-			"effect_stacks": 2,
-			"effect_stacks2": 1,
+			"concentration_amount": 2,
+			"detriment_stacks": 1,
 		},
 		"_is_upgrade": true,
 	},
@@ -900,14 +900,14 @@ const CARDS := {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
 		"Abilities": "Shuffle {card_amount} random forgotten cards into your deck.\n"\
-				+ "Every time you play a forgotten card, take {exert_amount} {anxiety}.",
+				+ "Every time you play a forgotten card, take {concentration_amount} {anxiety}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
 		"_keywords": ["forget"],
 		"_amounts": {
 			"card_amount": 2,
-			"exert_amount": 1,
+			"concentration_amount": 1,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -919,14 +919,14 @@ const CARDS := {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
 		"Abilities": "Shuffle {card_amount} random forgotten cards into your deck.\n"\
-				+ "Every time you play a forgotten card, take {exert_amount} {anxiety}.",
+				+ "Every time you play a forgotten card, take {concentration_amount} {anxiety}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
 		"_keywords": ["forget"],
 		"_amounts": {
 			"card_amount": 3,
-			"exert_amount": 1,
+			"concentration_amount": 1,
 		},
 		"_is_upgrade": true,
 	},
@@ -934,14 +934,14 @@ const CARDS := {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.omega.name],
 		"Abilities": "Shuffle {card_amount} random forgotten cards into your deck.\n"\
-				+ "Every time you play a forgotten card, take {exert_amount} {anxiety}.",
+				+ "Every time you play a forgotten card, take {concentration_amount} {anxiety}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
 		"_keywords": ["forget"],
 		"_amounts": {
 			"card_amount": 2,
-			"exert_amount": 1,
+			"concentration_amount": 1,
 		},
 		"_is_upgrade": true,
 	},

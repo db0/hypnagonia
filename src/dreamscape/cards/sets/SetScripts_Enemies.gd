@@ -521,7 +521,7 @@ const scripts := {
 					"subject": "dreamer",
 					"modification":  {
 						"lookup_property": "_amounts",
-						"value_key": "effect_stacks",
+						"value_key": "detriment_stacks",
 					},
 				},
 				{
@@ -595,7 +595,7 @@ const scripts := {
 					"tags": ["Delayed", "Card"],
 					"modification":  {
 						"lookup_property": "_amounts",
-						"value_key": "effect_stacks",
+						"value_key": "detriment_stacks",
 					},
 				},
 				{
@@ -605,7 +605,7 @@ const scripts := {
 					"subject": "dreamer",
 					"modification":  {
 						"lookup_property": "_amounts",
-						"value_key": "effect_stacks2",
+						"value_key": "effect_stacks",
 					},
 				},
 				{
@@ -692,7 +692,7 @@ const scripts := {
 					"subject": "dreamer",
 					"modification": {
 						"lookup_property": "_amounts",
-						"value_key": "effect_stacks2",
+						"value_key": "detriment_stacks",
 						"default": 1,
 						"is_inverted": true,
 					},

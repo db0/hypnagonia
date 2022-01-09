@@ -7,7 +7,7 @@ func _ready():
 
 func _on_reshuffle(_pile: Pile):
 	var multiplier = cfc.card_definitions['Mouse']\
-			.get("_amounts",{}).get("effect_stacks")
+			.get("_amounts",{}).get("concentration_effect")
 	var unfocus = [{
 		"name": "apply_effect",
 		"effect_name": Terms.ACTIVE_EFFECTS.strengthen.name,
