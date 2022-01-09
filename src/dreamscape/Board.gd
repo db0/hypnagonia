@@ -100,6 +100,7 @@ func begin_encounter() -> void:
 	if not cfc.game_settings.get('first_ordeal_tutorial_done'):
 		player_info._on_Help_pressed()
 		cfc.set_setting('first_ordeal_tutorial_done', true)
+	get_tree().call_group("enemy_intents", "_connect_signals")
 	if OS.has_feature("debug"):
 			print("DEBUG INFO:Board: Ordeal Encounter Loaded")
 
@@ -413,20 +414,21 @@ func _input(event):
 		var _torment1
 		var _torment2
 		var _torment3
-		_torment1 = spawn_enemy(EnemyDefinitions.IMPOSSIBLE_CONSTRUCTION)
+		_torment1 = spawn_enemy(EnemyDefinitions.GUILT)
+		_torment2 = spawn_enemy(EnemyDefinitions.SILENT_TREATMENT)
 #		_torment2 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 		if _torment1:
-			_torment1.health = 2322
+			_torment1.health = 22
 			_torment1.damage = 19
-			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.protection.name, 2)
+#			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.protection.name, 2)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.effect_resistance.name, 1, false, false, ["Init"], Terms.ACTIVE_EFFECTS.poison.name)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
 		if _torment2:
-			_torment2.health = 20
+			_torment2.health = 13
 			_torment1.damage = 10
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.marked.name, 1)

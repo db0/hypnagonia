@@ -1160,4 +1160,102 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"Silent Treatment": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.protection.name],
+		"Abilities": "Gain {effect_stacks} {protection}\n{forget}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.protection.name: Terms.PLAYER
+		},
+		"_keywords": ["forget"],
+		"_amounts": {
+			"effect_stacks": 1,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"* Silent Treatment *",
+			"^ Silent Treatment ^",
+		],
+	},
+	"* Silent Treatment *": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.protection.name],
+		"Abilities": "Gain {effect_stacks} {protection}\n{forget}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.protection.name: Terms.PLAYER
+		},
+		"_keywords": ["forget"],
+		"_amounts": {
+			"effect_stacks": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"^ Silent Treatment ^": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.protection.name,Terms.GENERIC_TAGS.alpha.name],
+		"Abilities": "Gain {effect_stacks} {protection}\n{forget}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.protection.name: Terms.PLAYER
+		},
+		"_keywords": ["forget"],
+		"_amounts": {
+			"effect_stacks": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"Guilt": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.swift.name],
+		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} card.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 4,
+			"draw_amount": 1,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"+ Guilt +",
+			"! Guilt !",
+		],
+	},
+	"+ Guilt +": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.swift.name],
+		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} card.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 7,
+			"draw_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"! Guilt !": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.swift.name],
+		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} card.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 4,
+			"draw_amount": 2,
+		},
+		"_is_upgrade": true,
+	},
 }

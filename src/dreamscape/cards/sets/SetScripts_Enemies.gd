@@ -867,6 +867,61 @@ const scripts := {
 			],
 		},
 	},
+	"Guilt": {
+		"manual": {
+			"hand": [
+				{
+					"name": "move_card_to_container",
+					"dest_container": "discard",
+					"subject": "self",
+					"tags": ["Played", "Card"],
+				},
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"needs_subject": true,
+					"amount": {
+						"lookup_property": "_amounts",
+						"value_key": "damage_amount"
+					},
+					"tags": ["Attack", "Card"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					},],
+				},
+				{
+					"name": "draw_cards",
+					"tags": ["Card"],
+					"card_count": {
+						"lookup_property": "_amounts",
+						"value_key": "draw_amount"
+					},
+				},
+			],
+		},
+	},
+	"Silent Treatment": {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"tags": ["Card"],
+					"effect_name": Terms.ACTIVE_EFFECTS.protection.name,
+					"subject": "dreamer",
+					"modification":  {
+						"lookup_property": "_amounts",
+						"value_key": "effect_stacks",
+					},
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": "forgotten",
+					"tags": ["Played", "Card"],
+				},
+			],
+		},
+	},
 }
 
 # This fuction returns all the scripts of the specified card name.

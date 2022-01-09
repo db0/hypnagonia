@@ -433,14 +433,8 @@ func _input(event):
 		globals.player.add_memory(MemoryDefinitions.HealSelf.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.BossFaster.canonical_name)
 #		globals.player.add_artifact("AccumulateShop")
-		var card_entry = globals.player.deck.add_new_card("% Subconscious %")
-		globals.player.deck.add_new_card("Gaslighter")
-		globals.player.deck.add_new_card("Broken Mirror")
-		globals.player.deck.add_new_card("Pialephant")
-		globals.player.deck.add_new_card("The Light Calling")
-		globals.player.deck.add_new_card("+ Traffic Jam +")
-		globals.player.deck.add_new_card("* Hyena *")
-		globals.player.deck.add_new_card("^ The Victim ^")
+#		var card_entry = globals.player.deck.add_new_card("% Subconscious %")
+#		globals.player.deck.add_new_card("Gaslighter")
 #		card_entry.upgrade_progress = card_entry.upgrade_threshold
 #		globals.player.deck.add_new_card("Terror")
 #		globals.player.deck.add_new_card("Prejudice")
@@ -458,7 +452,7 @@ func _input(event):
 		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, 48)
 #		globals.player.damage = 85
 		var debug_encounters = [
-			EnemyEncounter.new(Act2.ImpossibleConstruction, "hard"),
+			EnemyEncounter.new(Act2.GuiltyTreatment, "easy"),
 #			EnemyEncounter.new(Act2.TrafficJam, "easy"),
 #			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act2/LoseRandomCurio.gd").new(),

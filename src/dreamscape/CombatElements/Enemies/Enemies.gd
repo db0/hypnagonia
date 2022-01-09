@@ -490,6 +490,65 @@ const IMPOSSIBLE_CONSTRUCTION := {
 #	"_texture": preload("res://assets/enemies/slavery-whip.png"),
 	"_character_art": "Nobody"
 }
+const SILENT_TREATMENT := {
+	"Name": "Silent Treatment", 
+	"Type": "Abuse",
+	"Health": 83,
+	"Intents": [
+		{
+			"id": "perplex_group",
+			"intent_scripts": ["PerplexGroup:8"],
+			"reshuffle": true,
+			"max_in_a_row": 2,
+		},
+		{
+			"id": "buff_group",
+			"intent_scripts": ["PerplexGroup:4", "BuffGroup:1:protection"],
+			"reshuffle": false,
+		},
+		{
+			"id": "enrage",
+			"intent_scripts": ["Stress:7", "Stress:8", "Stress:9",],
+			"not_in_rotation": true,
+			"reshuffle": true,
+		},
+	],
+	"_unlock_triggers": {
+		"entity_killed": ["enrage"]
+	},
+	"_lock_triggers": {
+		"entity_killed": ["perplex_group", "buff_group"],
+	},
+	"_health_variability": 4,
+	"_texture_size_x": "120",
+	"_texture_size_y": "120",
+#	"_texture": preload("res://assets/enemies/slavery-whip.png"),
+	"_character_art": "Nobody"
+}
+const GUILT := {
+	"Name": "Guilt", 
+	"Type": "Abuse",
+	"Health": 10,
+	"Intents": [
+		{
+			"intent_scripts": ["Stress:15"],
+			"reshuffle": true,
+		},
+		{
+			"intent_scripts": ["Stress:8", "Stress:8"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Stress:10", "Buff:1:strengthen"],
+			"reshuffle": false,
+		},
+	],
+	"_health_variability": 1,
+	"_texture_size_x": "120",
+	"_texture_size_y": "120",
+#	"_texture": preload("res://assets/enemies/slavery-whip.png"),
+	"_character_art": "Nobody"
+}
 #	"Spider": {
 #		"Type": "Phobia",
 #		"Health": 1,
