@@ -14,7 +14,7 @@ func _on_entity_damaged(entity, _amount, _trigger: Node, _tags: Array) -> void:
 		"effect_name": Terms.ACTIVE_EFFECTS.armor.name,
 		"subject": "trigger",
 		"modification": cfc.card_definitions[name]\
-			.get("_amounts",{}).get("effect_amount") * stacks,
+			.get("_amounts",{}).get("concentration_stacks") * stacks,
 		"tags": ["Combat Effect", "Concentration"],
 	}]
 	execute_script(armor, entity)

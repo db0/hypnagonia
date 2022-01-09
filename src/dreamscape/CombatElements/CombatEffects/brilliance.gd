@@ -5,7 +5,7 @@ func _ready() -> void:
 	
 func _on_deck_shuffled(_deck) -> void:
 	var core_amount : int = cfc.card_definitions[name]\
-			.get("_amounts",{}).get("effect_amount")
+			.get("_amounts",{}).get("concentration_defence")
 	var brilliance = [{
 				"name": "assign_defence",
 				"subject": "dreamer",

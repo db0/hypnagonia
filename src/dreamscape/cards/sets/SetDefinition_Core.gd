@@ -617,7 +617,7 @@ const CARDS := {
 	"Rubber Eggs": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "At the start of your turn, {damage} a random Torment with {confusion} for {effect_damage}.",
+		"Abilities": "At the start of your turn, {damage} a random Torment with {confusion} for {concentration_damage}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -626,7 +626,7 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"effect_damage": 6,
+			"concentration_damage": 6,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -638,14 +638,14 @@ const CARDS := {
 	"@ Rubber Eggs @": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "At the start of your turn, {damage} a random Torment with {confusion} for {effect_damage}.",
+		"Abilities": "At the start of your turn, {damage} a random Torment with {confusion} for {concentration_damage}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
 		"_amounts": {
-			"effect_damage": 6,
+			"concentration_damage": 6,
 		},
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
@@ -654,14 +654,14 @@ const CARDS := {
 	"Hard Rubber Eggs": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "At the start of your turn, {damage} a random Torment with {confusion} for {effect_damage}.",
+		"Abilities": "At the start of your turn, {damage} a random Torment with {confusion} for {concentration_damage}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
 		"_amounts": {
-			"effect_damage": 9,
+			"concentration_damage": 9,
 		},
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
@@ -670,14 +670,14 @@ const CARDS := {
 	"Bouncy Rubber Eggs": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "At the start of your turn, {damage} all Torments with {confusion} for {effect_damage}.",
+		"Abilities": "At the start of your turn, {damage} all Torments with {confusion} for {concentration_damage}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
 		"_amounts": {
-			"effect_damage": 6,
+			"concentration_damage": 6,
 		},
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
@@ -767,7 +767,7 @@ const CARDS := {
 	"Nunclucks": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Increase your {damage} by {effect_damage} for each stack of {confusion} on the Torment.",
+		"Abilities": "Increase your {damage} by {concentration_damage} for each stack of {confusion} on the Torment.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -776,7 +776,7 @@ const CARDS := {
 		"_rarity": "Rare",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"effect_damage": 1,
+			"concentration_damage": 1,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -787,7 +787,7 @@ const CARDS := {
 	"@ Nunclucks @": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Increase your {damage} by {effect_damage} for each stack of {confusion} on the Torment.",
+		"Abilities": "Increase your {damage} by {concentration_damage} for each stack of {confusion} on the Torment.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -796,14 +796,14 @@ const CARDS := {
 		"_rarity": "Rare",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"effect_damage": 1,
+			"concentration_damage": 1,
 		},
 		"_is_upgrade": true,
 	},
 	"Massive Nunclucks": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Increase your {damage} by {effect_damage} for each stack of {confusion} on the Torment.",
+		"Abilities": "Increase your {damage} by {concentration_damage} for each stack of {confusion} on the Torment.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -812,7 +812,7 @@ const CARDS := {
 		"_rarity": "Rare",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"effect_damage": 2,
+			"concentration_damage": 2,
 		},
 		"_is_upgrade": true,
 	},
@@ -1159,7 +1159,7 @@ const CARDS := {
 	"Laugh at Danger": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
-		"Abilities": "After a Torment performs {stress}, it gains {effect_stacks} {doubt}",
+		"Abilities": "After a Torment performs {stress}, it gains {concentration_stacks} {doubt}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -1168,7 +1168,7 @@ const CARDS := {
 		"_rarity": "Rare",
 		"_keywords": ["stress"],
 		"_amounts": {
-			"effect_stacks": 1,
+			"concentration_stacks": 1,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -1179,7 +1179,7 @@ const CARDS := {
 	"@ Laugh at Danger @": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
-		"Abilities": "After a Torment performs {stress}, it gains {effect_stacks} {doubt}",
+		"Abilities": "After a Torment performs {stress}, it gains {concentration_stacks} {doubt}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -1188,14 +1188,14 @@ const CARDS := {
 		"_rarity": "Rare",
 		"_keywords": ["stress"],
 		"_amounts": {
-			"effect_stacks": 1,
+			"concentration_stacks": 1,
 		},
 		"_is_upgrade": true,
 	},
 	"Roaring Laugh at Danger": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
-		"Abilities": "After a Torment performs {stress}, it gains {effect_stacks} {doubt}",
+		"Abilities": "After a Torment performs {stress}, it gains {concentration_stacks} {doubt}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -1204,7 +1204,7 @@ const CARDS := {
 		"_rarity": "Rare",
 		"_keywords": ["stress"],
 		"_amounts": {
-			"effect_stacks": 2,
+			"concentration_stacks": 2,
 		},
 		"_is_upgrade": true,
 	},
@@ -1248,13 +1248,13 @@ const CARDS := {
 	"Unassailable": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you apply {doubt}, gain {effect_defence} {confidence}",
+		"Abilities": "Whenever you apply {doubt}, gain {concentration_defence} {confidence}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"effect_defence": 2,
+			"concentration_defence": 2,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -1265,26 +1265,26 @@ const CARDS := {
 	"@ Unassailable @": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you apply {doubt}, gain {effect_defence} {confidence}",
+		"Abilities": "Whenever you apply {doubt}, gain {concentration_defence} {confidence}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"effect_defence": 2,
+			"concentration_defence": 2,
 		},
 		"_is_upgrade": true,
 	},
 	"Completely Unassailable": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you apply {doubt}, gain {effect_defence} {confidence}",
+		"Abilities": "Whenever you apply {doubt}, gain {concentration_defence} {confidence}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"effect_defence": 4,
+			"concentration_defence": 4,
 		},
 		"_is_upgrade": true,
 	},
@@ -1821,7 +1821,7 @@ const CARDS := {
 	"Master of Skies": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
-		"Abilities": "Whenever you gain {untouchable}, Gain {effect_stacks} {buffer}",
+		"Abilities": "Whenever you gain {untouchable}, Gain {concentration_stacks} {buffer}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -1830,7 +1830,7 @@ const CARDS := {
 		},
 		"_rarity": "Rare",
 		"_amounts": {
-			"effect_stacks": 1,
+			"concentration_stacks": 1,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -1841,7 +1841,7 @@ const CARDS := {
 	"@ Master of Skies @": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
-		"Abilities": "Whenever you gain {untouchable}, Gain {effect_stacks} {buffer}",
+		"Abilities": "Whenever you gain {untouchable}, Gain {concentration_stacks} {buffer}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -1850,14 +1850,14 @@ const CARDS := {
 		},
 		"_rarity": "Rare",
 		"_amounts": {
-			"effect_stacks": 1,
+			"concentration_stacks": 1,
 		},
 		"_is_upgrade": true,
 	},
 	"Glorious Master of Skies": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
-		"Abilities": "Whenever you gain {untouchable}, Gain {effect_stacks} {buffer}",
+		"Abilities": "Whenever you gain {untouchable}, Gain {concentration_stacks} {buffer}",
 		"Cost": 3,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -1866,15 +1866,15 @@ const CARDS := {
 		},
 		"_rarity": "Rare",
 		"_amounts": {
-			"effect_stacks": 2,
+			"concentration_stacks": 2,
 		},
 		"_is_upgrade": true,
 	},
 	"Zen of Flight": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
-		"Abilities": "At the end of the next {turns_amount} turns, {relax} for {effect_amount}.\n"\
-				+ "If you have {untouchable}, {relax} {effect_amount} extra.",
+		"Abilities": "At the end of the next {turns_amount} turns, {relax} for {concentration_healing}.\n"\
+				+ "If you have {untouchable}, {relax} {concentration_healing} extra.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -1883,7 +1883,7 @@ const CARDS := {
 		"_rarity": "Rare",
 		"_amounts": {
 			"turns_amount": 6,
-			"effect_amount": 1,
+			"concentration_healing": 1,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -1894,8 +1894,8 @@ const CARDS := {
 	"@ Zen of Flight @": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
-		"Abilities": "At the end of the next {turns_amount} turns, {relax} for {effect_amount}.\n"\
-				+ "If you have {untouchable}, {relax} {effect_amount} extra.",
+		"Abilities": "At the end of the next {turns_amount} turns, {relax} for {concentration_healing}.\n"\
+				+ "If you have {untouchable}, {relax} {concentration_healing} extra.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -1904,15 +1904,15 @@ const CARDS := {
 		"_rarity": "Rare",
 		"_amounts": {
 			"turns_amount": 6,
-			"effect_amount": 1,
+			"concentration_healing": 1,
 		},
 		"_is_upgrade": true,
 	},
 	"Masterful Zen of Flight": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
-		"Abilities": "At the end of the next {turns_amount} turns, {relax} for {effect_amount}.\n"\
-				+ "If you have {untouchable}, {relax} {effect_amount} extra.",
+		"Abilities": "At the end of the next {turns_amount} turns, {relax} for {concentration_healing}.\n"\
+				+ "If you have {untouchable}, {relax} {concentration_healing} extra.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -1921,7 +1921,7 @@ const CARDS := {
 		"_rarity": "Rare",
 		"_amounts": {
 			"turns_amount": 6,
-			"effect_amount": 2,
+			"concentration_healing": 2,
 		},
 		"_is_upgrade": true,
 	},
@@ -2371,7 +2371,7 @@ const CARDS := {
 	"Absurdity Unleashed": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you apply {confusion} to a Torment, {damage} it for {effect_damage}",
+		"Abilities": "Whenever you apply {confusion} to a Torment, {damage} it for {concentration_damage}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -2380,7 +2380,7 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"effect_damage": 4
+			"concentration_damage": 4
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -2391,7 +2391,7 @@ const CARDS := {
 	"@ Absurdity Unleashed @": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you apply {confusion} to a Torment, {damage} it for {effect_damage}",
+		"Abilities": "Whenever you apply {confusion} to a Torment, {damage} it for {concentration_damage}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -2400,14 +2400,14 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"effect_damage": 4
+			"concentration_damage": 4
 		},
 		"_is_upgrade": true,
 	},
 	"Total Absurdity Unleashed": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you apply {confusion} to a Torment, {damage} it for {effect_damage}",
+		"Abilities": "Whenever you apply {confusion} to a Torment, {damage} it for {concentration_damage}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -2416,7 +2416,7 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"effect_damage": 6
+			"concentration_damage": 6
 		},
 		"_is_upgrade": true,
 	},
@@ -2524,13 +2524,13 @@ const CARDS := {
 	"Brilliance": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you {shuffle} your deck, gain {effect_amount} {confidence}.",
+		"Abilities": "Whenever you {shuffle} your deck, gain {concentration_defence} {confidence}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"effect_amount": 4,
+			"concentration_defence": 4,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -2542,39 +2542,39 @@ const CARDS := {
 	"@ Brilliance @": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you {shuffle} your deck, gain {effect_amount} {confidence}.",
+		"Abilities": "Whenever you {shuffle} your deck, gain {concentration_defence} {confidence}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"effect_amount": 4,
+			"concentration_defence": 4,
 		},
 		"_is_upgrade": true,
 	},
 	"^ Brilliance ^": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.alpha.name],
-		"Abilities": "Whenever you {shuffle} your deck, gain {effect_amount} {confidence}.",
+		"Abilities": "Whenever you {shuffle} your deck, gain {concentration_defence} {confidence}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"effect_amount": 4,
+			"concentration_defence": 4,
 		},
 		"_is_upgrade": true,
 	},
 	"Blinding Brilliance": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you {shuffle} your deck, gain {effect_amount} {confidence}.",
+		"Abilities": "Whenever you {shuffle} your deck, gain {concentration_defence} {confidence}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"effect_amount": 6,
+			"concentration_defence": 6,
 		},
 		"_is_upgrade": true,
 	},
@@ -2703,13 +2703,13 @@ const CARDS := {
 	"Recall": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
-		"Abilities": "At the end of your turn, {shuffle} the top {effect_amount} card "\
+		"Abilities": "At the end of your turn, {shuffle} the top {concentration_cards} card "\
 				+ "from the discard pile into the deck.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_amounts": {
-			"effect_amount": 1,
+			"concentration_cards": 1,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -2721,39 +2721,39 @@ const CARDS := {
 	"^ Recall ^": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.alpha.name],
-		"Abilities": "At the end of your turn, {shuffle} the top {effect_amount} card "\
+		"Abilities": "At the end of your turn, {shuffle} the top {concentration_cards} card "\
 				+ "from the discard pile into the deck.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_amounts": {
-			"effect_amount": 1,
+			"concentration_cards": 1,
 		},
 		"_is_upgrade": true,
 	},
 	"@ Recall @": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
-		"Abilities": "At the end of your turn, {shuffle} the top {effect_amount} card "\
+		"Abilities": "At the end of your turn, {shuffle} the top {concentration_cards} card "\
 				+ "from the discard pile into the deck.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_amounts": {
-			"effect_amount": 1,
+			"concentration_cards": 1,
 		},
 		"_is_upgrade": true,
 	},
 	"Total Recall": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
-		"Abilities": "At the end of your turn, {shuffle} the top {effect_amount} cards "\
+		"Abilities": "At the end of your turn, {shuffle} the top {concentration_cards} cards "\
 				+ "from the discard pile into the deck.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_amounts": {
-			"effect_amount": 2,
+			"concentration_cards": 2,
 		},
 		"_is_upgrade": true,
 	},
@@ -2904,12 +2904,12 @@ const CARDS := {
 	"Eureka!": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
-		"Abilities": "Gain {effect_amount} {buffer} every other time you shuffle your deck.",
+		"Abilities": "Gain {concentration_stacks} {buffer} every other time you shuffle your deck.",
 		"Cost": 2,
 		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Rare",
 		"_amounts": {
-			"effect_amount": 1,
+			"concentration_stacks": 1,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -2921,36 +2921,36 @@ const CARDS := {
 	"@ Eureka! @": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
-		"Abilities": "Gain {effect_amount} {buffer} every other time you shuffle your deck.",
+		"Abilities": "Gain {concentration_stacks} {buffer} every other time you shuffle your deck.",
 		"Cost": 1,
 		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Rare",
 		"_amounts": {
-			"effect_amount": 1,
+			"concentration_stacks": 1,
 		},
 		"_is_upgrade": true,
 	},
 	"^ Eureka! ^": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name, Terms.GENERIC_TAGS.alpha.name],
-		"Abilities": "Gain {effect_amount} {buffer} every other time you shuffle your deck.",
+		"Abilities": "Gain {concentration_stacks} {buffer} every other time you shuffle your deck.",
 		"Cost": 2,
 		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Rare",
 		"_amounts": {
-			"effect_amount": 1,
+			"concentration_stacks": 1,
 		},
 		"_is_upgrade": true,
 	},
 	"Inspired Eureka!": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
-		"Abilities": "Gain {effect_amount} {buffer} every other time you shuffle your deck.",
+		"Abilities": "Gain {concentration_stacks} {buffer} every other time you shuffle your deck.",
 		"Cost": 2,
 		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Rare",
 		"_amounts": {
-			"effect_amount": 2,
+			"concentration_stacks": 2,
 		},
 		"_is_upgrade": true,
 	},
@@ -3199,14 +3199,15 @@ const CARDS := {
 	"Introspection": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
-		"Abilities": "At the end of the next {turns_amount} turns where you have not played any {attack_card} cards, {relax} for {effect_amount}.",
+		"Abilities": "At the end of the next {turns_amount} turns where you have not played "\
+				+ "any {attack_card} cards, {relax} for {concentration_healing}.",
 		"Cost": 1,
 		"_illustration": "Maria Thoukydidou",
 		"_keywords": ["interpretation"],
 		"_rarity": "Uncommon",
 		"_amounts": {
 			"turns_amount": 4,
-			"effect_amount": 2,
+			"concentration_healing": 2,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -3217,7 +3218,7 @@ const CARDS := {
 	"Deep Introspection": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
-		"Abilities": "At the end of the next {turns_amount} turns where you have not played any {attack_card} cards, {relax} for {effect_amount}.",
+		"Abilities": "At the end of the next {turns_amount} turns where you have not played any {attack_card} cards, {relax} for {concentration_healing}.",
 		"Cost": 1,
 		"_illustration": "Maria Thoukydidou",
 		"_effects_info": {
@@ -3226,14 +3227,14 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_amounts": {
 			"turns_amount": 3,
-			"effect_amount": 3,
+			"concentration_healing": 3,
 		},
 		"_is_upgrade": true,
 	},
 	"Light Introspection": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
-		"Abilities": "At the end of the next {turns_amount} turns where you have not played more than 1 {attack_card} card, {relax} for {effect_amount}",
+		"Abilities": "At the end of the next {turns_amount} turns where you have not played more than 1 {attack_card} card, {relax} for {concentration_healing}",
 		"Cost": 1,
 		"_illustration": "Maria Thoukydidou",
 		"_effects_info": {
@@ -3242,7 +3243,7 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_amounts": {
 			"turns_amount": 4,
-			"effect_amount": 2,
+			"concentration_healing": 2,
 		},
 		"_is_upgrade": true,
 	},
@@ -3341,7 +3342,7 @@ const CARDS := {
 	"The Happy Place": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.armor.name],
-		"Abilities": "Whenever you take {anxiety} during your turn, gain {effect_amount} {armor}",
+		"Abilities": "Whenever you take {anxiety} during your turn, gain {concentration_stacks} {armor}",
 		"Cost": 1,
 		"_illustration": "Cabbage",
 		"_keywords": ["anxiety"],
@@ -3350,7 +3351,7 @@ const CARDS := {
 		},
 		"_rarity": "Rare",
 		"_amounts": {
-			"effect_amount": 1,
+			"concentration_stacks": 1,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -3361,7 +3362,7 @@ const CARDS := {
 	"@ The Happy Place @": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.armor.name],
-		"Abilities": "Whenever you take {anxiety} during your turn, gain {effect_amount} {armor}",
+		"Abilities": "Whenever you take {anxiety} during your turn, gain {concentration_stacks} {armor}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_keywords": ["anxiety"],
@@ -3370,14 +3371,14 @@ const CARDS := {
 		},
 		"_rarity": "Rare",
 		"_amounts": {
-			"effect_amount": 1,
+			"concentration_stacks": 1,
 		},
 		"_is_upgrade": true,
 	},
 	"^ The Happy Place ^": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.armor.name,Terms.GENERIC_TAGS.alpha.name],
-		"Abilities": "Whenever you take {anxiety} during your turn, gain {effect_amount} {armor}",
+		"Abilities": "Whenever you take {anxiety} during your turn, gain {concentration_stacks} {armor}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_keywords": ["anxiety"],
@@ -3386,7 +3387,7 @@ const CARDS := {
 		},
 		"_rarity": "Rare",
 		"_amounts": {
-			"effect_amount": 1,
+			"concentration_stacks": 1,
 		},
 		"_is_upgrade": true,
 	},
@@ -3813,13 +3814,13 @@ const CARDS := {
 	"Excuses": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "The first {effect_amount} time you take {anxiety} during your turn reduce it to 1.",
+		"Abilities": "The first {concentration_threshold} time you take {anxiety} during your turn reduce it to 1.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": ["anxiety"],
 		"_amounts": {
-			"effect_amount": 1,
+			"concentration_threshold": 1,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -3830,41 +3831,41 @@ const CARDS := {
 	"@ Excuses @": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "The first {effect_amount} time you take {anxiety} during your turn reduce it to 1.",
+		"Abilities": "The first {concentration_threshold} time you take {anxiety} during your turn reduce it to 1.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": ["anxiety"],
 		"_amounts": {
-			"effect_amount": 1,
+			"concentration_threshold": 1,
 		},
 		"_is_upgrade": true,
 	},
 	"Endless Excuses": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "The first {effect_amount} times you take {anxiety} during your turn reduce it to 1.",
+		"Abilities": "The first {concentration_threshold} times you take {anxiety} during your turn reduce it to 1.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": ["anxiety"],
 		"_amounts": {
-			"effect_amount": 2,
+			"concentration_threshold": 2,
 		},
 		"_is_upgrade": true,
 	},
 	"Tolerance": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.swift.name],
-		"Abilities": "The next {effect_stacks} time your {anxiety} would reach its maximum, "\
-				+ "you take no {anxiety}, gain {effect_amount} {immersion} and draw {effect_amount} card.",
+		"Abilities": "The next {concentration_threshold} time your {anxiety} would reach its maximum, "\
+				+ "you take no {anxiety}, gain {concentration_special} {immersion} and draw {concentration_special} card.",
 		"Cost": 1,
 		"_illustration": "Cabbage",
 		"_rarity": "Rare",
 		"_keywords": ["anxiety"],
 		"_amounts": {
-			"effect_stacks": 1,
-			"effect_amount": 1,
+			"concentration_threshold": 1,
+			"concentration_special": 1,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -3875,30 +3876,30 @@ const CARDS := {
 	"* Tolerance *": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.swift.name],
-		"Abilities": "The next {effect_stacks} times your {anxiety} would reach its maximum, "\
-				+ "you take no {anxiety}, gain {effect_amount} {immersion} and draw {effect_amount} card.",
+		"Abilities": "The next {concentration_threshold} times your {anxiety} would reach its maximum, "\
+				+ "you take no {anxiety}, gain {concentration_special} {immersion} and draw {concentration_special} card.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
 		"_keywords": ["anxiety"],
 		"_amounts": {
-			"effect_stacks": 2,
-			"effect_amount": 1,
+			"concentration_threshold": 2,
+			"concentration_special": 1,
 		},
 		"_is_upgrade": true,
 	},
 	"Extreme Tolerance": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.swift.name],
-		"Abilities": "The next {effect_stacks} time your {anxiety} would reach its maximum, "\
-				+ "you take no {anxiety}, gain {effect_amount} {immersion} and draw {effect_amount} cards.",
+		"Abilities": "The next {concentration_threshold} time your {anxiety} would reach its maximum, "\
+				+ "you take no {anxiety}, gain {concentration_special} {immersion} and draw {concentration_special} cards.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
 		"_keywords": ["anxiety"],
 		"_amounts": {
-			"effect_stacks": 1,
-			"effect_amount": 2,
+			"concentration_threshold": 1,
+			"concentration_special": 2,
 		},
 		"_is_upgrade": true,
 	},
@@ -4336,16 +4337,16 @@ const CARDS := {
 		"Type": "Concentration",
 		"Tags": [],
 		"Abilities": "At the start of your turn, "\
-				+ "if your discard pile has at most {discard_size} cards, "\
-				+ "gain {effect_defence} {confidence}.",
+				+ "if your discard pile has at most {concentration_threshold} cards, "\
+				+ "gain {concentration_defence} {confidence}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_avoid_normal_discard": true,
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"effect_defence": 3,
-			"discard_size": 5,
+			"concentration_defence": 3,
+			"concentration_threshold": 5,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -4357,16 +4358,16 @@ const CARDS := {
 		"Type": "Concentration",
 		"Tags": [],
 		"Abilities": "At the start of your turn, "\
-				+ "if your discard pile has at most {discard_size} cards, "\
-				+ "gain {effect_defence} {confidence}.",
+				+ "if your discard pile has at most {concentration_threshold} cards, "\
+				+ "gain {concentration_defence} {confidence}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_avoid_normal_discard": true,
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"effect_defence": 4,
-			"discard_size": 6,
+			"concentration_defence": 4,
+			"concentration_threshold": 6,
 		},
 		"_is_upgrade": true,
 	},
@@ -4374,16 +4375,16 @@ const CARDS := {
 		"Type": "Concentration",
 		"Tags": [],
 		"Abilities": "At the start of your turn, "\
-				+ "if your discard pile has at most {discard_size} cards, "\
-				+ "gain {effect_defence} {confidence}.",
+				+ "if your discard pile has at most {concentration_threshold} cards, "\
+				+ "gain {concentration_defence} {confidence}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_avoid_normal_discard": true,
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"effect_defence": 3,
-			"discard_size": 5,
+			"concentration_defence": 3,
+			"concentration_threshold": 5,
 		},
 		"_is_upgrade": true,
 	},
@@ -5012,7 +5013,7 @@ const CARDS := {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "Whenever you succesfully {damage} a Torment with a card or memory effect, "\
-				+ "it gains it {effect_stacks} {confusion}.",
+				+ "it gains it {concentration_stacks} {confusion}.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
@@ -5021,7 +5022,7 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY,
 		},
 		"_amounts": {
-			"effect_stacks": 1,
+			"concentration_stacks": 1,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -5033,7 +5034,7 @@ const CARDS := {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "Whenever you succesfully {damage} a Torment with a card or memory effect, "\
-				+ "it gains it {effect_stacks} {confusion}.",
+				+ "it gains it {concentration_stacks} {confusion}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
@@ -5042,7 +5043,7 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY,
 		},
 		"_amounts": {
-			"effect_stacks": 1,
+			"concentration_stacks": 1,
 		},
 		"_is_upgrade": true,
 	},
@@ -5050,7 +5051,7 @@ const CARDS := {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.GENERIC_TAGS.alpha.name],
 		"Abilities": "Whenever you succesfully {damage} a Torment with a card or memory effect, "\
-				+ "it gains it {effect_stacks} {confusion}.",
+				+ "it gains it {concentration_stacks} {confusion}.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
@@ -5059,7 +5060,7 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY,
 		},
 		"_amounts": {
-			"effect_stacks": 1,
+			"concentration_stacks": 1,
 		},
 		"_is_upgrade": true,
 	},
@@ -5277,13 +5278,13 @@ const CARDS := {
 	"Tenacity": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "At the end of each turn, gain {effect_defence} {defence}",
+		"Abilities": "At the end of each turn, gain {concentration_defence} {defence}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"effect_defence": 3,
+			"concentration_defence": 3,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -5294,26 +5295,26 @@ const CARDS := {
 	"Dogged Tenacity": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "At the end of each turn, gain {effect_defence} {defence}",
+		"Abilities": "At the end of each turn, gain {concentration_defence} {defence}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"effect_defence": 4,
+			"concentration_defence": 4,
 		},
 		"_is_upgrade": true,
 	},
 	"@ Tenacity @": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "At the end of each turn, gain {effect_defence} {defence}",
+		"Abilities": "At the end of each turn, gain {concentration_defence} {defence}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"effect_defence": 3,
+			"concentration_defence": 3,
 		},
 		"_is_upgrade": true,
 	},
@@ -5626,7 +5627,7 @@ const CARDS := {
 	"Panicked Takeoff": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
-		"Abilities": "After the first time taking {anxiety} during Torment's turn, gain {effect_stacks} {impervious}",
+		"Abilities": "After the first time taking {anxiety} during Torment's turn, gain {concentration_stacks} {impervious}",
 		"Cost": 3,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -5635,7 +5636,7 @@ const CARDS := {
 		"_keywords": [""],
 		"_rarity": "Rare",
 		"_amounts": {
-			"effect_stacks": 1,
+			"concentration_stacks": 1,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -5646,7 +5647,7 @@ const CARDS := {
 	"@ Panicked Takeoff @": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
-		"Abilities": "After the first time taking {anxiety} during Torment's turn, gain {effect_stacks} {impervious}",
+		"Abilities": "After the first time taking {anxiety} during Torment's turn, gain {concentration_stacks} {impervious}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -5655,7 +5656,7 @@ const CARDS := {
 		"_keywords": [""],
 		"_rarity": "Rare",
 		"_amounts": {
-			"effect_stacks": 1,
+			"concentration_stacks": 1,
 		},
 		"_is_upgrade": true,
 	},
@@ -5663,7 +5664,7 @@ const CARDS := {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name, Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "After the first time taking {anxiety} during Torment's turn,"\
-				+ "gain {effect_stacks} {impervious} and draw {draw_amount} card.",
+				+ "gain {concentration_stacks} {impervious} and draw {concentration_cards} card.",
 		"Cost": 3,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -5672,8 +5673,8 @@ const CARDS := {
 		"_keywords": [""],
 		"_rarity": "Rare",
 		"_amounts": {
-			"effect_stacks": 1,
-			"draw_amount": 1,
+			"concentration_stacks": 1,
+			"concentration_cards": 1,
 		},
 		"_is_upgrade": true,
 	},

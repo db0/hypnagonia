@@ -8,7 +8,7 @@ func on_enemy_effect_added(_entity: CombatEntity, _trigger: String, details: Dic
 	if details["effect_name"] == Terms.ACTIVE_EFFECTS.poison.name\
 		and details[SP.TRIGGER_PREV_COUNT] < details[SP.TRIGGER_NEW_COUNT]:
 			var multiplier : int = cfc.card_definitions[name]\
-					.get("_amounts",{}).get("effect_defence")
+					.get("_amounts",{}).get("concentration_defence")
 			var unassailable = [{
 						"name": "assign_defence",
 						"subject": "dreamer",

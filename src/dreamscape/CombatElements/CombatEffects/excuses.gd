@@ -17,9 +17,9 @@ func get_effect_alteration(
 			or cfc.NMAP.board.turn.current_turn != cfc.NMAP.board.turn.Turns.PLAYER_TURN:
 		return(0)
 	var new_value := value
-	var available_uses = stacks
-	if upgrade == "endless":
-		available_uses = stacks * 2
+	var multiplier = cfc.card_definitions[name]\
+			.get("_amounts",{}).get("concentration_threshold")
+	var available_uses = stacks * multiplier
 	if value > 1 and uses < available_uses:
 		new_value = 1
 		if not _dry_run:

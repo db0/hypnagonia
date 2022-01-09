@@ -8,7 +8,7 @@ func on_enemy_effect_added(entity: CombatEntity, _trigger: String, details: Dict
 	if details["effect_name"] == Terms.ACTIVE_EFFECTS.disempower.name\
 		and details[SP.TRIGGER_PREV_COUNT] < details[SP.TRIGGER_NEW_COUNT]:
 			var base_amount : int = cfc.card_definitions[name]\
-					.get("_amounts",{}).get("effect_damage")
+					.get("_amounts",{}).get("concentration_damage")
 			var absurdity = [{
 				"name": "modify_damage",
 				"subject": "trigger",

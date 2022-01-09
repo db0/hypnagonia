@@ -1,9 +1,8 @@
 extends CombatEffect
 
 func _on_player_turn_ended(_turn: Turn) -> void:
-	var multiplier = 2
-	if upgrade == "deep":
-		multiplier = 3
+	var multiplier = cfc.card_definitions[name]\
+			.get("_amounts",{}).get("concentration_healing")
 	var action_card_amount = 0
 	if upgrade == "light":
 		action_card_amount = 1

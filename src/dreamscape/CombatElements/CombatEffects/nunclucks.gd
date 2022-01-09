@@ -12,7 +12,7 @@ func get_effect_alteration(
 			or not is_source:
 		return(0)
 	var multiplier : int = cfc.card_definitions[name]\
-			.get("_amounts",{}).get("effect_damage")
+			.get("_amounts",{}).get("concentration_damage")
 	var disempower_stacks = subject.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.disempower.name)
 	var new_value = value + (disempower_stacks * multiplier)
 	var alteration = new_value - value

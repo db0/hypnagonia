@@ -14,7 +14,7 @@ func _on_entity_damaged(_entity, amount, _trigger: Node, _tags: Array) -> void:
 			{
 				"name": "draw_cards",
 				"card_count": cfc.card_definitions[name]\
-						.get("_amounts",{}).get("effect_amount"),
+						.get("_amounts",{}).get("concentration_special"),
 				"tags": ["Combat Effect", "Concentration"],
 			},
 		]
@@ -24,7 +24,7 @@ func _on_entity_damaged(_entity, amount, _trigger: Node, _tags: Array) -> void:
 				"name": "mod_counter",
 				"counter_name": "immersion",
 				"modification": cfc.card_definitions[name]\
-						.get("_amounts",{}).get("effect_amount"),
+						.get("_amounts",{}).get("concentration_special"),
 				"tags": ["Combat Effect", "Concentration"],
 			}
 		else:
@@ -33,7 +33,7 @@ func _on_entity_damaged(_entity, amount, _trigger: Node, _tags: Array) -> void:
 				"effect_name": Terms.ACTIVE_EFFECTS.buffer.name,
 				"subject": "dreamer",
 				"modification": cfc.card_definitions[name]\
-						.get("_amounts",{}).get("effect_amount"),
+						.get("_amounts",{}).get("concentration_special"),
 				"tags": ["Combat Effect", "Concentration"],
 			}
 		tolerance.append(immersion_script)
