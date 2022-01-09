@@ -22,6 +22,13 @@ var scars := {
 			"amount_value": "-1",
 		},
 	},
+	CardFilter.new('_amounts', "effect_stacks2", 'eq'): {
+		"property": "_amounts",
+		"value": {
+			"amount_key": "effect_stacks",
+			"amount_value": "-1",
+		},
+	},
 	CardFilter.new('_amounts', "detriment_stacks", 'eq'): {
 		"property": "_amounts",
 		"value": {

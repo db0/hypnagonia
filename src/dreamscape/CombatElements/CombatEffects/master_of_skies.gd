@@ -13,7 +13,7 @@ func on_dreamer_effect_added(entity: CombatEntity, _trigger: String, details: Di
 					"effect_name": Terms.ACTIVE_EFFECTS.buffer.name,
 					"subject": "dreamer",
 					"modification": stacks * cfc.card_definitions[name]\
-					.get("_amounts",{}).get("effect_stacks", 1),
+							.get("_amounts",{}).get("concentration_stacks", 1),
 					"tags": ["Combat Effect", "Concentration"],
 				},
 			]

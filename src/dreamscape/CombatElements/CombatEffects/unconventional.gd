@@ -4,9 +4,9 @@ func _on_player_turn_started(_turn: Turn) -> void:
 	print_debug(name)
 	print_debug(canonical_name)
 	var defence : int = cfc.card_definitions[name]\
-			.get("_amounts",{}).get("effect_defence")
+			.get("_amounts",{}).get("concentration_defence")
 	var discard_threshold : int = cfc.card_definitions[name]\
-			.get("_amounts",{}).get("discard_size")
+			.get("_amounts",{}).get("concentration_threshold")
 	if cfc.NMAP.discard.get_card_count() <= discard_threshold:
 		var unconventional = [{
 					"name": "assign_defence",
