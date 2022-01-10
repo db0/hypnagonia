@@ -83,7 +83,7 @@ func _process(_delta: float) -> void:
 		else:
 			_debug_warning.text = "Game force-unstuck. Please check the debug console and consider opening a bug report"
 
-func begin_encounter(test_flags := {}) -> void:
+func begin_encounter() -> void:
 	cfc.game_paused = false
 	if not get_tree().get_root().has_node('Gut'):
 		randomize_background()
@@ -94,7 +94,7 @@ func begin_encounter(test_flags := {}) -> void:
 	_prepare_omega()
 #	_on_player_turn_started(turn)
 #	turn._reset_turn()
-	if not test_flags.get("no_refill", false):
+	if not globals.test_flags.get("no_refill", false):
 		cfc.NMAP.hand.refill_hand(5 - _retrieve_alpha())
 		while not cfc.NMAP.hand.is_hand_refilled:
 			yield(cfc.NMAP.hand, "hand_refilled")
@@ -265,15 +265,18 @@ func _on_player_turn_ended(_turn: Turn) -> void:
 	_store_debug_enemy_states()
 	_debug_timer.start(10)
 	end_turn.disabled = true
-	yield(get_tree().create_timer(0.3), "timeout")
-	while not cfc.NMAP.hand.is_hand_refilled:
-		yield(cfc.NMAP.hand, "hand_refilled")
+	if not globals.test_flags.get("no_end_turn_delay", false):
+		yield(get_tree().create_timer(0.3), "timeout")
+	if not globals.test_flags.get("no_refill", false):
+		while not cfc.NMAP.hand.is_hand_refilled:
+			yield(cfc.NMAP.hand, "hand_refilled")
 	turn.start_enemy_turn()
 
 
 func _on_enemy_turn_started(_turn: Turn) -> void:
 	# We delay, to allow effects like poison to activate first
-	yield(get_tree().create_timer(1), "timeout")
+	if not globals.test_flags.get("no_end_turn_delay", false):
+		yield(get_tree().create_timer(1), "timeout")
 	# I want the enemies to activate serially
 	activated_enemies.clear()
 	enemies_at_start_of_turn = get_tree().get_nodes_in_group("EnemyEntities")
@@ -289,7 +292,8 @@ func _on_enemy_turn_started(_turn: Turn) -> void:
 		else:
 			_on_finished_enemy_activation(enemy)
 		# To allow effects to despawn if needed.
-		yield(get_tree().create_timer(0.2), "timeout")
+		if not globals.test_flags.get("no_end_turn_delay", false):
+			yield(get_tree().create_timer(0.2), "timeout")
 
 
 func _on_enemy_turn_ended(_turn: Turn) -> void:

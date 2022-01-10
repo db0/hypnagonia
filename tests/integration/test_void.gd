@@ -6,7 +6,6 @@ class TestVoid:
 	func _init() -> void:
 		torments_to_spawn.append(EnemyDefinitions.VOID)
 		test_card_names = [
-			"Interpretation",
 			"Void",
 		]
 

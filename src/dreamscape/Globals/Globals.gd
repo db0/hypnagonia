@@ -15,6 +15,8 @@ var unused_journal_texts := {}
 #var utils := DeckbuilderUtils.new()
 var card_back_texture_selection := 0
 var run_unlocks := {}
+# For Unit Testing
+var test_flags := {}
 
 
 # Test setup. This should happen at game start
@@ -29,6 +31,7 @@ func reset() -> void:
 	encounters = SingleRun.new()
 	current_encounter = null
 	journal = null
+	test_flags.clear()
 
 
 func quit_to_main() -> void:
