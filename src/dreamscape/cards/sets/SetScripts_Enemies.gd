@@ -922,6 +922,33 @@ const scripts := {
 			],
 		},
 	},
+	"Void": {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"needs_subject": true,
+					"amount": {
+						"lookup_property": "_amounts",
+						"value_key": "damage_amount"
+					},
+					"store_integer": true,
+					"tags": ["Attack", "Card"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					},],
+				},
+				{
+					"name": "modify_damage",
+					"tags": ["Healing", "Card"],
+					"subject": "dreamer",
+					"amount": "retrieve_integer",
+					"is_inverted": true,
+				},
+			],
+		},
+	},
 }
 
 # This fuction returns all the scripts of the specified card name.

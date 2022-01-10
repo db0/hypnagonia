@@ -549,6 +549,32 @@ const GUILT := {
 #	"_texture": preload("res://assets/enemies/slavery-whip.png"),
 	"_character_art": "Nobody"
 }
+const VOID := {
+	"Name": "Void", 
+	"Type": "Absurdity",
+	"Health": 132,
+	"Intents": [
+		{
+			"intent_scripts": ["Stress:6","Stress:6"],
+			"reshuffle": true,
+			"max_in_a_row": 1,
+		},
+		{
+			"intent_scripts": ["Increase Complexity"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Stress:18", "Debuff:2:vulnerable"],
+			"reshuffle": false,
+			"max_uses": 3,
+		},
+	],
+	"_health_variability": 8,
+	"_texture_size_x": "120",
+	"_texture_size_y": "120",
+#	"_texture": preload("res://assets/enemies/slavery-whip.png"),
+	"_character_art": "Nobody"
+}
 #	"Spider": {
 #		"Type": "Phobia",
 #		"Health": 1,

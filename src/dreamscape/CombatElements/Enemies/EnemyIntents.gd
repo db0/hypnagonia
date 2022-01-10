@@ -267,9 +267,9 @@ func _display_intents(new_intents: Dictionary) -> void:
 					intent_scripts[0].effect_name = Terms.ACTIVE_EFFECTS[intent_array[2]].name
 			var rebalance : int = rebalancing.get(intent_name,0)
 			if rebalance != 0:
-				if intent_scripts[0].has("amount"):
+				if typeof(intent_scripts[0].get("amount")) == TYPE_INT:
 					intent_scripts[0].amount += rebalance
-				if intent_scripts[0].has("modification"):
+				if typeof(intent_scripts[0].get("modification")) == TYPE_INT:
 					intent_scripts[0].modification += rebalance
 			for single_intent in intent_scripts:
 				var new_intent : CombatSignifier = SINGLE_INTENT_SCENE.instance()

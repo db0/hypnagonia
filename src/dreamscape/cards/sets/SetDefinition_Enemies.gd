@@ -1258,4 +1258,53 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"Void": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.relax.name],
+		"Abilities": "{damage} for {damage_amount}. "\
+				+ "{relax} for as much {interpretation} done.\n"\
+				+ "{forget}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 7,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"+ Void +",
+			"^ Void ^",
+		],
+	},
+	"+ Void +": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.relax.name],
+		"Abilities": "{damage} for {damage_amount}. "\
+				+ "{relax} for as much {interpretation} done.\n"\
+				+ "{forget}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 10,
+		},
+		"_is_upgrade": true,
+	},
+	"^ Void ^": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.relax.name,Terms.GENERIC_TAGS.alpha.name],
+		"Abilities": "{damage} for {damage_amount}. "\
+				+ "{relax} for as much {interpretation} done.\n"\
+				+ "{forget}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 7,
+		},
+		"_is_upgrade": true,
+	},
 }

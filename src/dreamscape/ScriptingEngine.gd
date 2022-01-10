@@ -215,11 +215,14 @@ func modify_damage(script: ScriptTask) -> int:
 		var modification = calculate_modify_damage(combat_entity, script)
 		# To allow effects like advantage to despawn
 		yield(cfc.get_tree().create_timer(0.01), "timeout")
+		var previous_damage = combat_entity.damage
 		retcode = combat_entity.modify_damage(
 				modification,
 				costs_dry_run(),
 				tags,
 				script.owner)
+		if script.get_property(SP.KEY_STORE_INTEGER):
+			stored_integer = combat_entity.damage - previous_damage
 	return(retcode)
 
 
@@ -260,12 +263,15 @@ func assign_defence(script: ScriptTask) -> int:
 		var defence = calculate_assign_defence(combat_entity, script)
 		# To allow effects like advantage to despawn
 		yield(cfc.get_tree().create_timer(0.01), "timeout")
+		var previous_defence = combat_entity.defence
 		retcode = combat_entity.modify_defence(
 				defence,
 				set_to_mod,
 				costs_dry_run(),
 				tags,
 				script.owner)
+		if script.get_property(SP.KEY_STORE_INTEGER):
+			stored_integer = combat_entity.defence - previous_defence
 	return(retcode)
 
 
@@ -518,10 +524,10 @@ func spawn_enemy(script: ScriptTask) -> void:
 				for effect in stating_effects:
 					enemy_entity.active_effects.mod_effect(
 							effect["name"],
-							effect["stacks"], 
-							false, 
-							false, 
-							['Init'], 
+							effect["stacks"],
+							false,
+							false,
+							['Init'],
 							effect.get("upgrade", ''))
 			if script.get_property('rebalancing', null):
 				enemy_entity.intents.rebalancing = script.get_property('rebalancing', {})
