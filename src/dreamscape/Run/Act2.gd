@@ -436,7 +436,7 @@ const Void = {
 				"starting_effects": [
 					{
 						"name": Terms.ACTIVE_EFFECTS["void"].name,
-						"stacks": 1
+						"stacks": 2
 					},
 				]
 			},
@@ -447,7 +447,7 @@ const Void = {
 				"starting_effects": [
 					{
 						"name": Terms.ACTIVE_EFFECTS["void"].name,
-						"stacks": 1
+						"stacks": 2
 					},
 				]
 			},
@@ -462,7 +462,7 @@ const Void = {
 				"starting_effects": [
 					{
 						"name": Terms.ACTIVE_EFFECTS["void"].name,
-						"stacks": 1
+						"stacks": 2
 					},
 				]
 			},

@@ -13,7 +13,7 @@ func _on_cfc_signal_received(trigger_card, trigger, _details) -> void:
 				"name": "perturb",
 				"card_name": "Lacuna",
 				"dest_container": "discard",
-				"object_count": 2,
+				"object_count": stacks,
 				"tags": ["Intent"],
 		}]
 		execute_script(perturb_task, trigger_card)

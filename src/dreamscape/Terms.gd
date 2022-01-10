@@ -554,7 +554,7 @@ const ACTIVE_EFFECTS := {
 		"name": "The edge of nothingness",
 		"type": "Special",
 		"icon": preload("res://assets/icons/circle.png"),
-		"description": "{effect_name}: Any time an {understanding} card is played, Two temporary Lacuna {perturbation}s are added to the deck.",
+		"description": "{effect_name}: Any time an {understanding} card is played, add {amount} temporary Lacuna {perturbation}s to the discard.",
 	},
 
 }
