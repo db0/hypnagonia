@@ -724,6 +724,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/Turn.gd"
 }, {
+"base": "Node",
+"class": "UTCommon",
+"language": "GDScript",
+"path": "res://tests/UTCommon.gd"
+}, {
 "base": "Reference",
 "class": "Understanding",
 "language": "GDScript",
@@ -883,6 +888,7 @@ _global_script_class_icons={
 "TokenDrawer": "",
 "TormentCombatEffectMemory": "",
 "Turn": "",
+"UTCommon": "",
 "Understanding": "",
 "ViewportCardFocus": "",
 "perMessage": ""
@@ -908,7 +914,7 @@ window/size/height=900
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/sound_manager/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/gut/plugin.cfg", "res://addons/sound_manager/plugin.cfg" )
 
 [global]
 

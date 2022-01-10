@@ -17,12 +17,15 @@ func empty_hand() -> void:
 func refill_hand(amount = 5) -> void:
 	for _iter in range(amount):
 		var retcode = draw_card(cfc.NMAP.deck)
-		if retcode is GDScriptFunctionState:
+		if retcode == null:
+			break
+		elif retcode is GDScriptFunctionState:
 			retcode = yield(retcode, "completed")
 		else:
 			yield(get_tree().create_timer(0.05), "timeout")
 	is_hand_refilled = true
 	emit_signal("hand_refilled")
+
 
 func are_cards_still_animating() -> bool:
 	for c in get_all_cards():

@@ -118,6 +118,13 @@ var _fail_pass_text = []
 const EDITOR_PROPERTY = PROPERTY_USAGE_SCRIPT_VARIABLE | PROPERTY_USAGE_DEFAULT
 const VARIABLE_PROPERTY = PROPERTY_USAGE_SCRIPT_VARIABLE
 
+# Used with assert_setget
+enum {
+	DEFAULT_SETTER_GETTER,
+	SETTER_ONLY,
+	GETTER_ONLY
+}
+
 # Summary counts for the test.
 var _summary = {
 	asserts = 0,
@@ -242,6 +249,26 @@ func _fail_if_parameters_not_array(parameters):
 		_lgr.error('The "parameters" parameter must be an array of expected parameter values.')
 		_fail('Cannot compare paramter values because an array was not passed.')
 	return invalid
+
+
+func _create_obj_from_type(type):
+	var obj = null
+	if type.is_class("PackedScene"):
+		obj = type.instance()
+		add_child(obj)
+	else:
+		obj = type.new()
+	return obj
+
+
+func _get_type_from_obj(obj):
+	var type = null
+	if obj.has_method(get_filename()):
+			type = load(obj.get_filename())
+	else:
+			type = obj.get_script()
+	return type
+
 # #######################
 # Virtual Methods
 # #######################
@@ -321,26 +348,13 @@ func assert_ne(got, not_expected, text=""):
 		else:
 			_pass(disp)
 
-
 # ------------------------------------------------------------------------------
 # Asserts that the expected value almost equals the value got.
 # ------------------------------------------------------------------------------
 func assert_almost_eq(got, expected, error_interval, text=''):
 	var disp = "[" + _str(got) + "] expected to equal [" + _str(expected) + "] +/- [" + str(error_interval) + "]:  " + text
-	var result = false
 	if(_do_datatypes_match__fail_if_not(got, expected, text) and _do_datatypes_match__fail_if_not(got, error_interval, text)):
-		if typeof(got) == TYPE_VECTOR2:
-			if got.x >= (expected.x - error_interval.x) and got.x <= (expected.x + error_interval.x):
-				if got.y >= (expected.y - error_interval.y) and got.y <= (expected.y + error_interval.y):
-					result = true
-		elif typeof(got) == TYPE_VECTOR3:
-			if got.x >= (expected.x - error_interval.x) and got.x <= (expected.x + error_interval.x):
-				if got.y >= (expected.y - error_interval.y) and got.y <= (expected.y + error_interval.y):
-					if got.z >= (expected.z - error_interval.z) and got.z <= (expected.z + error_interval.z):
-						result = true
-		elif(got >= (expected - error_interval) or got <= (expected + error_interval)):
-			result = true
-		if not result:
+		if not _is_almost_eq(got, expected, error_interval):
 			_fail(disp)
 		else:
 			_pass(disp)
@@ -350,25 +364,30 @@ func assert_almost_eq(got, expected, error_interval, text=''):
 # ------------------------------------------------------------------------------
 func assert_almost_ne(got, not_expected, error_interval, text=''):
 	var disp = "[" + _str(got) + "] expected to not equal [" + _str(not_expected) + "] +/- [" + str(error_interval) + "]:  " + text
-	var result = true
 	if(_do_datatypes_match__fail_if_not(got, not_expected, text) and _do_datatypes_match__fail_if_not(got, error_interval, text)):
-		if typeof(got) == TYPE_VECTOR2:
-			if got.x >= (not_expected.x - error_interval.x) and got.x <= (not_expected.x + error_interval.x):
-				if got.y >= (not_expected.y - error_interval.y) and got.y <= (not_expected.y + error_interval.y):
-					result = false
-		elif typeof(got) == TYPE_VECTOR3:
-			if got.x >= (not_expected.x - error_interval.x) and got.x <= (not_expected.x + error_interval.x):
-				if got.y >= (not_expected.y - error_interval.y) and got.y <= (not_expected.y + error_interval.y):
-					if got.z >= (not_expected.z - error_interval.z) and got.z <= (not_expected.z + error_interval.z):
-						result = false
-		elif(got < (not_expected - error_interval) or got > (not_expected + error_interval)):
-			result = true
-		else:
-			result = false
-		if not result:
+		if _is_almost_eq(got, not_expected, error_interval):
 			_fail(disp)
 		else:
 			_pass(disp)
+
+# ------------------------------------------------------------------------------
+# Helper function which correctly compares two variables,
+# while properly handling vector2/3 types
+# ------------------------------------------------------------------------------
+func _is_almost_eq(got, expected, error_interval) -> bool:
+	var result = false
+	if typeof(got) == TYPE_VECTOR2:
+		if got.x >= (expected.x - error_interval.x) and got.x <= (expected.x + error_interval.x):
+			if got.y >= (expected.y - error_interval.y) and got.y <= (expected.y + error_interval.y):
+				result = true
+	elif typeof(got) == TYPE_VECTOR3:
+		if got.x >= (expected.x - error_interval.x) and got.x <= (expected.x + error_interval.x):
+			if got.y >= (expected.y - error_interval.y) and got.y <= (expected.y + error_interval.y):
+				if got.z >= (expected.z - error_interval.z) and got.z <= (expected.z + error_interval.z):
+					result = true
+	elif(got >= (expected - error_interval) and got <= (expected + error_interval)):
+		result = true
+	return(result)
 
 # ------------------------------------------------------------------------------
 # Asserts got is greater than expected
@@ -551,7 +570,7 @@ func assert_accessors(obj, property, default, set_to):
 # If provided, property_usage constrains the type of property returned by
 # passing either:
 # EDITOR_PROPERTY for properties defined as: export(int) var some_value
-# VARIABLE_PROPERTY for properties defunded as: var another_value
+# VARIABLE_PROPERTY for properties defined as: var another_value
 # ---------------------------------------------------------------------------
 func _find_object_property(obj, property_name, property_usage=null):
 	var result = null
@@ -686,6 +705,11 @@ func assert_signal_not_emitted(object, signal_name, text=""):
 # the object does not have the specified signal
 # ------------------------------------------------------------------------------
 func assert_signal_emitted_with_parameters(object, signal_name, parameters, index=-1):
+	if(typeof(parameters) != TYPE_ARRAY):
+		_lgr.error("The expected parameters must be wrapped in an array, you passed:  " + _str(parameters))
+		_fail("Bad Parameters")
+		return
+
 	var disp = str('Expected object ', _str(object), ' to emit signal [', signal_name, '] with parameters ', parameters, ', got ')
 	if(_can_make_signal_assertions(object, signal_name)):
 		if(_signal_watcher.did_emit(object, signal_name)):
@@ -706,7 +730,6 @@ func assert_signal_emitted_with_parameters(object, signal_name, parameters, inde
 # the object does not have the specified signal
 # ------------------------------------------------------------------------------
 func assert_signal_emit_count(object, signal_name, times, text=""):
-
 	if(_can_make_signal_assertions(object, signal_name)):
 		var count = _signal_watcher.get_emit_count(object, signal_name)
 		var disp = str('Expected the signal [', signal_name, '] emit count of [', count, '] to equal [', times, ']: ', text)
@@ -759,6 +782,12 @@ func get_call_parameters(object, method_name, index=-1):
 		_lgr.error('You must pass a doulbed object to get_call_parameters.')
 
 	return to_return
+
+# ------------------------------------------------------------------------------
+# Returns the call count for a method with optional paramter matching.
+# ------------------------------------------------------------------------------
+func get_call_count(object, method_name, parameters=null):
+	return gut.get_spy().call_count(object, method_name, parameters)
 
 # ------------------------------------------------------------------------------
 # Assert that object is an instance of a_class
@@ -1011,10 +1040,52 @@ func assert_no_new_orphans(text=''):
 		_pass('No new orphans found.' + msg)
 
 # ------------------------------------------------------------------------------
+# Returns a dictionary that contains
+# - an is_valid flag whether validation was successful or not and
+# - a message that gives some information about the validation errors.
+# ------------------------------------------------------------------------------
+func _validate_assert_setget_called_input(type, name_property
+			, name_setter, name_getter):
+	var obj = null
+	var result = {"is_valid": true, "msg": ""}
+
+	if null == type or typeof(type) != TYPE_OBJECT or not type.is_class("Resource"):
+		result.is_valid = false
+		result.msg = str("The type parameter should be a ressource, input is ", _str(type))
+		return result
+
+	if null == double(type):
+		result.is_valid = false
+		result.msg = str("Attempt to double the type parameter failed. The type parameter should be a ressource that can be doubled.")
+		return result
+
+	obj = _create_obj_from_type(type)
+	var property = _find_object_property(obj, str(name_property))
+
+	if null == property:
+		result.is_valid = false
+		result.msg += str("The property %s does not exist." % _str(name_property))
+	if name_setter == "" and name_getter == "":
+		result.is_valid = false
+		result.msg += str("Either setter or getter method must be specified.")
+	if name_setter != "" and not obj.has_method(str(name_setter)):
+		result.is_valid = false
+		result.msg += str("Setter method %s does not exist.  " % _str(name_setter))
+	if name_getter != "" and not obj.has_method(str(name_getter)):
+		result.is_valid = false
+		result.msg += str("Getter method %s does not exist.  " %_str(name_getter))
+
+	obj.free()
+	return result
+
+# ------------------------------------------------------------------------------
 # Asserts the given setter and getter methods are called when the given property
 # is accessed.
 # ------------------------------------------------------------------------------
-func assert_setget_called(type, name_property, name_setter  = "", name_getter  = ""):
+func _assert_setget_called(type, name_property, setter = "", getter  = ""):
+	var name_setter = _utils.nvl(setter, "")
+	var name_getter = _utils.nvl(getter, "")
+
 	var validation = _validate_assert_setget_called_input(type, name_property, str(name_setter), str(name_getter))
 	if not validation.is_valid:
 		_fail(validation.msg)
@@ -1042,8 +1113,9 @@ func assert_setget_called(type, name_property, name_setter  = "", name_getter  =
 	obj.free()
 
 	# assert
+
 	if amount_calls_setter == expected_calls_setter and amount_calls_getter == expected_calls_getter:
-		_pass(str("For property %s the setget keyword is set up as expected." % _str(name_property)))
+		_pass(str("setget for %s is correctly configured." % _str(name_property)))
 	else:
 		if amount_calls_setter < expected_calls_setter:
 			message += " The setter was not called."
@@ -1055,83 +1127,36 @@ func assert_setget_called(type, name_property, name_setter  = "", name_getter  =
 			message += " The getter was called but should not have been."
 		_fail(str(message))
 
-
-# Returns a dictionary that contains
-# - an is_valid flag whether validation was successful or not and
-# - a message that gives some information about the validation errors.
-func _validate_assert_setget_called_input(type, name_property
-			, name_setter, name_getter):
-	var obj = null
-	var result = {"is_valid": true, "msg": ""}
-
-	if null == type or typeof(type) != TYPE_OBJECT or not type.is_class("Resource"):
-		result.is_valid = false
-		result.msg = str("The type parameter should be a ressource, input is ", _str(type))
-		return result
-
-	if null == double(type):
-		result.is_valid = false
-		result.msg = str("Attempt to double the type parameter failed. The type parameter should be a ressource that can be doubled.")
-		return result
-
-	obj = _create_obj_from_type(type)
-	var property = _find_object_property(obj, str(name_property))
-
-	if null == property:
-		result.is_valid = false
-		result.msg += str("The property %s doesn\'t exist." % _str(name_property))
-	if name_setter == "" and name_getter == "":
-		result.is_valid = false
-		result.msg += str("Either setter or getter method must be specified.")
-	if name_setter != "" and not obj.has_method(str(name_setter)):
-		result.is_valid = false
-		result.msg += str("Method %s doesn\'t exist." % _str(name_setter))
-	if name_getter != "" and not obj.has_method(str(name_getter)):
-		result.is_valid = false
-		result.msg += str("Method %s doesn\'t exist." %_str(name_getter))
-
-	obj.free()
-	return result
-
-
-func _create_obj_from_type(type):
-	var obj = null
-	if type.is_class("PackedScene"):
-		obj = type.instance()
-		add_child(obj)
-	else:
-		obj = type.new()
-	return obj
-
-
-func _get_type_from_obj(obj):
-	var type = null
-	if obj.has_method(get_filename()):
-			type = load(obj.get_filename())
-	else:
-			type = obj.get_script()
-	return type
-
 # ------------------------------------------------------------------------------
 # Wrapper: invokes assert_setget_called but provides a slightly more convenient
 # signature
 # ------------------------------------------------------------------------------
-func assert_setget(instance, name_property, has_setter = false, has_getter = false) -> void:
+func assert_setget(
+	instance, name_property,
+	const_or_setter = DEFAULT_SETTER_GETTER, getter="__not_set__"):
 
-	var name_setter = ""
-	var name_getter = ""
+	var getter_name = null
+	if(getter != "__not_set__"):
+		getter_name = getter
+
+	var setter_name = null
+	if(typeof(const_or_setter) == TYPE_INT):
+		if(const_or_setter in [SETTER_ONLY, DEFAULT_SETTER_GETTER]):
+			setter_name  = str("set_", name_property)
+
+		if(const_or_setter in [GETTER_ONLY, DEFAULT_SETTER_GETTER]):
+			getter_name = str("get_", name_property)
+	else:
+		setter_name = const_or_setter
+
 	var resource = null
 	if instance.is_class("Resource"):
 		resource = instance
 	else:
 		resource = _get_type_from_obj(instance)
 
-	if has_setter:
-		name_setter = "set_" + str(name_property)
-	if has_getter:
-		name_getter = "get_" + str(name_property)
+	_assert_setget_called(resource, str(name_property), setter_name, getter_name)
 
-	assert_setget_called(resource, str(name_property), name_setter, name_getter)
 
 # ------------------------------------------------------------------------------
 # Wrapper: asserts if the property exists, the accessor methods exist and the
@@ -1152,17 +1177,19 @@ func assert_property(instance, name_property, default_value, new_value) -> void:
 	var name_setter = "set_" + str(name_property)
 	var name_getter = "get_" + str(name_property)
 
+	var pre_fail_count = get_fail_count()
 	assert_accessors(obj, str(name_property), default_value, new_value)
-	assert_setget_called(resource, str(name_property), name_setter, name_getter)
+	_assert_setget_called(resource, str(name_property), name_setter, name_getter)
 
 	for entry in free_me:
 		entry.free()
 
 	# assert
-	if get_fail_count() == 0:
+	if get_fail_count() == pre_fail_count:
 		_pass(str("The property is set up as expected."))
 	else:
 		_fail(str("The property is not set up as expected. Examine subtests to see what failed."))
+
 
 # ------------------------------------------------------------------------------
 # Mark the current test as pending.
@@ -1173,10 +1200,6 @@ func pending(text=""):
 		_lgr.pending(text)
 		gut._pending(text)
 
-# ------------------------------------------------------------------------------
-# Returns the number of times a signal was emitted.  -1 returned if the object
-# is not being watched.
-# ------------------------------------------------------------------------------
 
 # ------------------------------------------------------------------------------
 # Yield for the time sent in.  The optional message will be printed when
@@ -1194,6 +1217,20 @@ func yield_to(obj, signal_name, max_wait, msg=''):
 	watch_signals(obj)
 	gut.set_yield_signal_or_time(obj, signal_name, max_wait, msg)
 
+	return gut
+
+# ------------------------------------------------------------------------------
+# Yield for a number of frames.  The optional message will be printed. when
+# Gut detects a yield.  When the number of frames have elapsed (counted in gut's
+# _process function) the YIELD signal will be emitted.
+# ------------------------------------------------------------------------------
+func yield_frames(frames, msg=''):
+	if(frames <= 0):
+		var text = str('yeild_frames:  frames must be > 0, you passed  ', frames, '.  0 frames waited.')
+		_lgr.error(text)
+		frames = 0
+
+	gut.set_yield_frames(frames, msg)
 	return gut
 
 # ------------------------------------------------------------------------------
@@ -1341,6 +1378,7 @@ func ignore_method_when_doubling(thing, method_name):
 			path = inst.get_script().get_path()
 
 	gut.get_doubler().add_ignored_method(path, method_name)
+
 
 # ------------------------------------------------------------------------------
 # Stub something.
@@ -1505,7 +1543,6 @@ func pass_test(text):
 # ------------------------------------------------------------------------------
 func fail_test(text):
 	_fail(text)
-
 
 # ------------------------------------------------------------------------------
 # Peforms a deep compare on both values, a CompareResult instnace is returned.
