@@ -17,29 +17,61 @@ const GUT_TORMENT:= {
 	"_character_art": "GUT",
 }
 
+const BASIC_HAND := [
+	"Interpretation",
+	"Interpretation",
+	"Confidence",
+	"Confidence",
+	"Nothing to Fear",
+]
+
 
 # For easy access
 var dreamer: PlayerEntity
 var turn: Turn
+var counters: Counters
 
 var test_card_names := []
 var cards : Array
-# used in spawn_test_torments()
+### used in spawn_test_torments()
 var torments_amount := 1
 # Holds the last torment spawned for easy access
 var test_torment : EnemyEntity
 # Holds all torments spawned
 var test_torments := []
+var test_torment_starting_effects := [
+#	{
+#		"name": ,
+#		"amount": ,
+#		"upgrade": ,
+#	}
+]
+### Pathos
+var set_repressed_pathos := {}
+var set_released_pathos := {}
 
 func before_each():
 	var confirm_return = setup_board()
 	if confirm_return is GDScriptFunctionState: # Still working.
 		confirm_return = yield(confirm_return, "completed")
 	yield(yield_for(0.1), YIELD)
-	globals.test_flags["no_refill"] = true
+	for pathos_name in Terms.RUN_ACCUMULATION_NAMES.values():
+		if set_repressed_pathos.has(pathos_name):
+			globals.player.pathos.repressed[pathos_name] = set_repressed_pathos[pathos_name]
+		else:
+			globals.player.pathos.repressed[pathos_name] = 0
+	for pathos_name in Terms.RUN_ACCUMULATION_NAMES.values():
+		if set_released_pathos.has(pathos_name):
+			globals.player.pathos.released[pathos_name] = set_released_pathos[pathos_name]
+		else:
+			globals.player.pathos.released[pathos_name] = 0
+	# We can override flags from test inner classer
+	if not globals.test_flags.has("no_refill"):
+		globals.test_flags["no_refill"] = true
 	board.begin_encounter()
 	dreamer = cfc.NMAP.board.dreamer
 	turn = cfc.NMAP.board.turn
+	counters = cfc.NMAP.board.counters
 	cards = setup_test_cards(test_card_names)
 	while board.counters.counters.immersion == 0:
 		yield(yield_to(board.turn, "player_turn_started", 1), YIELD)
@@ -55,12 +87,14 @@ func after_each():
 func spawn_test_torments() -> void:
 	for _iter in range(torments_amount):
 		test_torment = board.spawn_enemy(GUT_TORMENT)
+		test_torment.damage = 30
 		test_torments.append(test_torment)
+	for effect in test_torment_starting_effects:
+		spawn_effect(test_torment, effect.name, effect.amount, effect.get("upgrade", ''))
 
 
 func spawn_effect(target: CombatEntity, effect_name: String, amount: int, upgrade := '') -> void:
 	target.active_effects.mod_effect(effect_name, amount, false, false, ['GUT'], upgrade)
-
 
 func get_all_card_names() -> Array:
 	var all_card_names := []
@@ -68,9 +102,18 @@ func get_all_card_names() -> Array:
 		all_card_names.append(card.canonical_name)
 	return(all_card_names)
 
-func count_cards(card_name: String) -> int:
+func count_card_names(card_name: String) -> int:
 	var count := 0
 	for cname in get_all_card_names():
 		if cname == card_name:
 			count += 1
 	return(count)
+
+func get_filtered_cards(property: String, value, comparison := 'eq') -> Array:
+	var matching_cards := []
+	var cfilter = CardFilter.new(property, value, comparison)
+	for card in cfc.get_tree().get_nodes_in_group("cards"):
+		if cfilter.check_card(card.properties):
+			matching_cards.append(card)
+	return(matching_cards)
+	

@@ -324,11 +324,11 @@ const TRAFFICJAM := {
 	"Health": 70,
 	"Intents": [
 		{
-			"intent_scripts": ["Stress:10", "Frustrate:10"],
+			"intent_scripts": ["Stress:18", "Frustrate:10"],
 			"reshuffle": true,
 		},
 		{
-			"intent_scripts": ["Stress:8", "Dishearten:-5"],
+			"intent_scripts": ["Stress:10", "Dishearten:-5"],
 			"reshuffle": false,
 		},
 		{

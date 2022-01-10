@@ -15,8 +15,9 @@ const MOUSE_SPEED := {
 var main
 var board: Board
 var hand: Hand
-var deck: Pile
-var discard: Pile
+var deck: DreamPile
+var discard: DreamPile
+var forgotten: DreamPile
 
 func fake_click(pressed, position, flags=0) -> InputEvent:
 	var ev := InputEventMouseButton.new()
@@ -42,6 +43,7 @@ func setup_main() -> void:
 	hand = cfc.NMAP.hand
 	deck = cfc.NMAP.deck
 	discard = cfc.NMAP.discard
+	forgotten = cfc.NMAP.forgotten
 
 
 func setup_board() -> void:
@@ -55,6 +57,7 @@ func setup_board() -> void:
 	hand = cfc.NMAP.hand
 	deck = cfc.NMAP.deck
 	discard = cfc.NMAP.discard
+	forgotten = cfc.NMAP.forgotten
 
 func teardown_board() -> void:
 	cfc.quit_game()
