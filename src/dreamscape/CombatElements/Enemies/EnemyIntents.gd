@@ -212,6 +212,17 @@ func insert_intent(intent: Dictionary, index = null):
 		all_intents.append(intent)
 
 
+# Injects the specified intents array into all_intents
+func append_intents(intents: Array):
+	for intent in intents:
+		all_intents.append(intent)
+
+
+# Replaces the current intents with the specified intents array
+func replace_intents(intents: Array):
+	all_intents = intents
+
+
 # Clears existing intents, and replaces them with a new one from unused_intents
 # As if the entity was first created
 func refresh_intents(specific_index = null) -> void:

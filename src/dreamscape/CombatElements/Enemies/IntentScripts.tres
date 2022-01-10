@@ -1,14 +1,18 @@
-[gd_resource type="Resource" load_steps=6 format=2]
+[gd_resource type="Resource" load_steps=8 format=2]
 
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/IntentScripts.gd" type="Script" id=1]
 [ext_resource path="res://assets/icons/shield.png" type="Texture" id=2]
 [ext_resource path="res://assets/icons/terror.png" type="Texture" id=3]
 [ext_resource path="res://assets/icons/cursed-star.png" type="Texture" id=4]
 [ext_resource path="res://assets/icons/growth.png" type="Texture" id=5]
+[ext_resource path="res://assets/icons/pierced-heart.png" type="Texture" id=6]
+[ext_resource path="res://assets/icons/uncertainty.png" type="Texture" id=7]
 
 [resource]
 script = ExtResource( 1 )
-ICON_ATTACK = ExtResource( 3 )
-ICON_DEFEND = ExtResource( 2 )
-ICON_DEBUFF = ExtResource( 5 )
-ICON_BUFF = ExtResource( 4 )
+icon_attack = ExtResource( 3 )
+icon_pierce = ExtResource( 6 )
+icon_defend = ExtResource( 2 )
+icon_debuff = ExtResource( 4 )
+icon_buff = ExtResource( 5 )
+icon_special = ExtResource( 7 )
