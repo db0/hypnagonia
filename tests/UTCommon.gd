@@ -206,3 +206,17 @@ func target_entity(source: Card,
 	yield(yield_for(mouse_yield_wait), YIELD)
 	unclick_card_anywhere(source)
 
+
+# Execute against a target without targeting arrow wait.
+func snipexecute(card: Card, target: CombatEntity):
+	var sceng = card.execute_scripts()
+	while not card.targeting_arrow.is_targeting:
+		yield(yield_to(card.targeting_arrow, "initiated_targeting", 1), YIELD)
+	card.targeting_arrow.preselect_target(target)
+	if sceng is GDScriptFunctionState:
+		sceng = yield(sceng, "completed")
+	elif not sceng.all_tasks_completed:
+		yield(yield_to(sceng, "tasks_completed", 0.2), YIELD)
+	return(sceng)
+
+
