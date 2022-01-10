@@ -629,6 +629,16 @@ const BetterArtifactChance := {
 	},
 }
 
+## TODO. Scipt base doesn't exist yet
+#const DoubleMemory := {
+#	"canonical_name": "DoubleMemory",
+#	"name": "Memento",
+#	"description": "{artifact_name}: Double the effect of a random memory",
+#	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+#	"context": EffectContext.OVERWORLD,
+#	"rarity": "Rare",
+#}
+
 # Generic artifacts which have a chance to appear in any playthrough
 const GENERIC := [
 	StartingHeal,

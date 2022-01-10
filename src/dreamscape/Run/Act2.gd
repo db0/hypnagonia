@@ -423,7 +423,53 @@ const GuiltyTreatment = {
 	},
 #	"journal_art": preload("res://assets/journal/torments/pialephant.jpg"),
 }
-
+const Void = {
+	"journal_description":\
+		"Initially I felt it was dreamless sleep. But it occurred to me [url={torment_tag1}]it was far worse[/url]...",
+	"journal_reward":\
+		'Through overcoming that weird experience, I felt wiser.',
+	"enemies": {
+		"easy": [
+			{
+				"definition": EnemyDefinitions.VOID,
+				"health_modifier": -20,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS["void"].name,
+						"stacks": 1
+					},
+				]
+			},
+		],
+		"medium": [
+			{
+				"definition": EnemyDefinitions.VOID,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS["void"].name,
+						"stacks": 1
+					},
+				]
+			},
+		],
+		"hard": [
+			{
+				"definition": EnemyDefinitions.VOID,
+				"rebalancing": {
+					"Stress": +1,
+					"Increase Complexity": +1,
+				},
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS["void"].name,
+						"stacks": 1
+					},
+				]
+			},
+		],
+	},
+#	"journal_art": preload("res://assets/journal/torments/stuffed_toy.jpeg"),
+}
 const ENEMIES = [
 	TrafficJam,
 	Mouse,
@@ -433,6 +479,7 @@ const ENEMIES = [
 	StuffedToy,
 	ImpossibleConstruction,
 	GuiltyTreatment,
+	Void,
 ]
 
 const IndescribableAbsurdity = {

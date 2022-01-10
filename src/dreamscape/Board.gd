@@ -414,16 +414,16 @@ func _input(event):
 		var _torment1
 		var _torment2
 		var _torment3
-		_torment1 = spawn_enemy(EnemyDefinitions.GUILT)
-		_torment2 = spawn_enemy(EnemyDefinitions.SILENT_TREATMENT)
+		_torment1 = spawn_enemy(EnemyDefinitions.VOID)
+#		_torment2 = spawn_enemy(EnemyDefinitions.SILENT_TREATMENT)
 #		_torment2 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 		if _torment1:
-			_torment1.health = 22
-			_torment1.damage = 19
-#			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.protection.name, 2)
+			_torment1.health = 2200
+			_torment1.damage = 190
+			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS["void"].name, 1)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.effect_resistance.name, 1, false, false, ["Init"], Terms.ACTIVE_EFFECTS.poison.name)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
@@ -448,7 +448,7 @@ func _input(event):
 		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.DisempowerEnemy.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.stuffed_toy.name, 12)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.stuffed_toy.name, 12)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1, false, false, ['Debug'], 'thick')
 		for pathos in Terms.RUN_ACCUMULATION_NAMES.values():
 			if pathos != Terms.RUN_ACCUMULATION_NAMES.boss:
@@ -458,7 +458,10 @@ func _input(event):
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"Lacuna",
+			"Void",
+			"Guilt",
+			"Silent Treatment",
+			"Void",
 		]:
 			var ce = CardEntry.new(c)
 			var card = ce.instance_self()

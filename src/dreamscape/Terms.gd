@@ -549,6 +549,13 @@ const ACTIVE_EFFECTS := {
 		"icon": preload("res://assets/icons/abstract-024.png"),
 		"description": "{effect_name}: Any time an {understanding} card is played, it is permanently scarred.",
 	},
+	# If I put just 'void', it breaks Godot...
+	"void": {
+		"name": "The edge of nothingness",
+		"type": "Special",
+		"icon": preload("res://assets/icons/circle.png"),
+		"description": "{effect_name}: Any time an {understanding} card is played, Two temporary Lacuna {perturbation}s are added to the deck.",
+	},
 
 }
 

@@ -193,5 +193,26 @@ func get_scripts(intent_name: String) -> Dictionary:
 				"description": "Memory Failing: [i]I know I had studied this. What was it...[/i]"
 			},
 		],
+		"Increase Complexity": [
+			{
+				"name": "modify_damage",
+				"tags": ["Attack", "Intent"],
+				"subject": "dreamer",
+				"store_integer": true,
+				"amount": 10,
+				"icon": ICON_ATTACK,
+				"description": "Stress: Will cause the dreamer to take the specified amount of {anxiety}."
+			},
+			{
+				"name": "modify_damage",
+				"tags": ["Healing", "Intent"],
+				"subject": "self",
+				"amount": "retrieve_integer",
+				"is_inverted": true,
+				"hide_amount_in_intent": true,
+				"icon": ICON_SPECIAL,
+				"description": "Increase Complexity: [i]I felt I was losing understanding of the situation.[/i]"
+			},
+		],
 	}
 	return(scripts.get(intent_name,{}))
