@@ -83,18 +83,22 @@ func _process(_delta: float) -> void:
 		else:
 			_debug_warning.text = "Game force-unstuck. Please check the debug console and consider opening a bug report"
 
-func begin_encounter() -> void:
+func begin_encounter(test_flags := {}) -> void:
 	cfc.game_paused = false
-	randomize_background()
-	_fade_from_black()
-	yield(_tween, "tween_all_completed")
+	if not get_tree().get_root().has_node('Gut'):
+		randomize_background()
+		_fade_from_black()
+		yield(_tween, "tween_all_completed")
+	else:
+		_board_cover.visible = false
 	_prepare_omega()
-	cfc.NMAP.hand.refill_hand(5 - _retrieve_alpha())
 #	_on_player_turn_started(turn)
 #	turn._reset_turn()
+	if not test_flags.get("no_refill", false):
+		cfc.NMAP.hand.refill_hand(5 - _retrieve_alpha())
+		while not cfc.NMAP.hand.is_hand_refilled:
+			yield(cfc.NMAP.hand, "hand_refilled")
 	turn.encounter_event_count.clear()
-	while not cfc.NMAP.hand.is_hand_refilled:
-		yield(cfc.NMAP.hand, "hand_refilled")
 	emit_signal("battle_begun")
 	turn.start_player_turn()
 	if not cfc.game_settings.get('first_ordeal_tutorial_done'):

@@ -284,7 +284,7 @@ func _connect_signals() -> void:
 		enemy.connect("entity_killed", self, "_on_enemy_killed", [enemy])
 
 
-func _on_enemy_killed(_damage: int, enemy) -> void:
+func _on_enemy_killed(_damage: int, _enemy) -> void:
 	if unlock_triggers.has("entity_killed"):
 		for intent_id in unlock_triggers["entity_killed"]:
 			var intent = find_intent_id(intent_id)
