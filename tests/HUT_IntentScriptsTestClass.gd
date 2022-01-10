@@ -11,7 +11,8 @@ func before_each():
 	var confirm_return = .before_each()
 	if confirm_return is GDScriptFunctionState: # Still working.
 		confirm_return = yield(confirm_return, "completed")
-	globals.test_flags["no_end_turn_delay"] = true
+	if not globals.test_flags.has("no_end_turn_delay"):
+		globals.test_flags["no_end_turn_delay"] = true
 	spawn_test_torments()
 	test_torment.intents.replace_intents(intents_to_test)
 	test_torment.intents.refresh_intents()
