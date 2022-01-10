@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.31.0](https://github.com/db0/hypnagonia/tree/v0.31.0) (2022-01-10)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.30.0...v0.31.0)
+
+**Merged pull requests:**
+
+- One more Act2 Torment and Curio [\#182](https://github.com/db0/hypnagonia/pull/182) ([db0](https://github.com/db0))
+
 ## [v0.30.0](https://github.com/db0/hypnagonia/tree/v0.30.0) (2022-01-09)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.29.2...v0.30.0)
