@@ -1,5 +1,5 @@
 class_name Turn
-extends Node
+extends Reference
 
 enum Turns {
 	PLAYER_TURN

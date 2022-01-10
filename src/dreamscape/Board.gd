@@ -489,7 +489,6 @@ func _input(event):
 #	if event.is_action_pressed("lose_battle"):
 #		game_over()
 
-
 func _debug_advanced_enemy() -> void:
 	pass
 #	var advanced_entity: EnemyEntity =\
