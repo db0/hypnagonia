@@ -719,7 +719,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/Memories/MemoryTemplate_TormentCombatEffect.gd"
 }, {
-"base": "Node",
+"base": "Reference",
 "class": "Turn",
 "language": "GDScript",
 "path": "res://src/dreamscape/Turn.gd"
