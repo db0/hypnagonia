@@ -67,8 +67,8 @@ func mod_counter(counter_name: String,
 					encounter_event_count[event_name] = existing_encounter_count + 1
 					# We also accumulate all immersion gained throughout the game for 
 					# filters
-					var immersion_total_gained = encounter_event_count.get("total_immersion_gained",0)
-					encounter_event_count["total_immersion_gained"] = immersion_total_gained + total_immersion_gain
+					var immersion_total_gained = encounter_event_count.get(event_name,0)
+					encounter_event_count[event_name] = immersion_total_gained + total_immersion_gain
 			elif "Buffer" in tags:
 				var event_name = "buffer_immersion_gained"
 				var turn_event_count = cfc.NMAP.board.turn.turn_event_count

@@ -44,3 +44,14 @@ func _on_ArrowHead_area_exited(area: Area2D) -> void:
 				_potential_targets)
 
 
+# For testing
+func preselect_target(target) -> void:
+	target_object = target
+	emit_signal("target_selected",target_object)
+	is_targeting = false
+	clear_points()
+	$ArrowHead.visible = false
+	$ArrowHead/Area2D.monitoring = false
+	if target_object:
+		print_debug(target_object.canonical_name)
+

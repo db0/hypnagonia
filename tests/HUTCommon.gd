@@ -39,6 +39,7 @@ var torments_amount := 1
 var test_torment : EnemyEntity
 # Holds all torments spawned
 var test_torments := []
+var starting_torment_dgm = 30
 var test_torment_starting_effects := [
 #	{
 #		"name": ,
@@ -49,6 +50,8 @@ var test_torment_starting_effects := [
 ### Pathos
 var set_repressed_pathos := {}
 var set_released_pathos := {}
+var card: DreamCard
+var test_scripts := {}
 
 func before_each():
 	var confirm_return = setup_board()
@@ -73,6 +76,11 @@ func before_each():
 	turn = cfc.NMAP.board.turn
 	counters = cfc.NMAP.board.counters
 	cards = setup_test_cards(test_card_names)
+	if cards.size() > 0:
+		card = cards[0]
+		if not test_scripts.empty():
+			card.scripts = test_scripts
+			print_debug(card.scripts)
 	while board.counters.counters.immersion == 0:
 		yield(yield_to(board.turn, "player_turn_started", 1), YIELD)
 #	print_debug(board.counters.counters)
@@ -81,13 +89,15 @@ func before_each():
 
 func after_each():
 	teardown_hypnagonia_testing()
+	card = null
+	test_scripts.clear()
 	yield(yield_for(0.1), YIELD)
 
 
 func spawn_test_torments() -> void:
 	for _iter in range(torments_amount):
 		test_torment = board.spawn_enemy(GUT_TORMENT)
-		test_torment.damage = 30
+		test_torment.damage = starting_torment_dgm
 		test_torments.append(test_torment)
 	for effect in test_torment_starting_effects:
 		spawn_effect(test_torment, effect.name, effect.amount, effect.get("upgrade", ''))
@@ -95,6 +105,7 @@ func spawn_test_torments() -> void:
 
 func spawn_effect(target: CombatEntity, effect_name: String, amount: int, upgrade := '') -> void:
 	target.active_effects.mod_effect(effect_name, amount, false, false, ['GUT'], upgrade)
+
 
 func get_all_card_names() -> Array:
 	var all_card_names := []
