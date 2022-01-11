@@ -210,7 +210,7 @@ func target_entity(source: Card,
 # Execute against a target without targeting arrow wait.
 func snipexecute(card: Card, target: CombatEntity):
 	var sceng = card.execute_scripts()
-	while not card.targeting_arrow.is_targeting:
+	if not card.targeting_arrow.is_targeting:
 		yield(yield_to(card.targeting_arrow, "initiated_targeting", 1), YIELD)
 	card.targeting_arrow.preselect_target(target)
 	if sceng is GDScriptFunctionState:

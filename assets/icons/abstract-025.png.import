@@ -14,7 +14,7 @@ dest_files=[ "res://.import/abstract-025.png-6537658100a59ba3d7c9384163cea2d7.st
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

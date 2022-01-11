@@ -19,8 +19,16 @@ class TestAdvantage:
 			}
 		]
 
+	func test__aa_dummy_test():
+		var sceng = card.execute_scripts()
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_true(true)
+
 	func test_advantage_general():
 		var sceng = card.execute_scripts()
+		if not card.targeting_arrow.is_targeting:
+			yield(yield_to(card.targeting_arrow, "initiated_targeting", 1), YIELD)
 		assert_eq(test_torment.incoming.get_child_count(), 1,
 				"Torment should have 1 intents displayed")
 		for prediction in test_torment.incoming.get_children():
@@ -30,7 +38,7 @@ class TestAdvantage:
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
 		assert_eq(test_torment.damage, starting_torment_dgm + modified_dmg, "Torment should take damage")
-		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 1)
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 1, effect + " stacks should be reduced")
 
 	func test_multiple_advantage_from_card():
 		spawn_effect(dreamer, effect, 1, '')
