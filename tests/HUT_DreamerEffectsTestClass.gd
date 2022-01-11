@@ -16,4 +16,8 @@ func before_each():
 	for effect_payload in effects_to_play:
 		spawn_effect(dreamer,effect_payload.name, effect_payload.amount, effect_payload.get("upgrade", ''))
 	yield(yield_for(0.1), YIELD)
+	# Failsafe. Sometimes this happens
+	for torment in test_torments:
+		if not is_instance_valid(torment):
+			test_torments.erase(torment)
 

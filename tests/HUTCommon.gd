@@ -91,6 +91,7 @@ func after_each():
 	teardown_hypnagonia_testing()
 	card = null
 	test_scripts.clear()
+	test_torments.clear()
 	yield(yield_for(0.1), YIELD)
 
 
