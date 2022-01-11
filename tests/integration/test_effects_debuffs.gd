@@ -327,3 +327,26 @@ class TestMarked:
 		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.impervious.name, 2,  '')
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 1,
 				"%s counters %s" % [effect, Terms.ACTIVE_EFFECTS.impervious.name])
+
+class TestDelighted:
+	extends "res://tests/HUT_DreamerEffectsTestClass.gd"
+	var effect: String = Terms.ACTIVE_EFFECTS.delighted.name
+	var amount := 3
+	func _init() -> void:
+		torments_amount = 3
+		test_card_names = [
+			"Confidence",
+			"Nothing to Fear",
+			"Interpretation",
+		]
+		effects_to_play = [
+			{
+				"name": effect,
+				"amount": amount,
+			}
+		]
+
+	func test_delighted_general():
+		assert_eq(cards[2].check_play_costs(), CFConst.CostsState.IMPOSSIBLE)
+		assert_eq(cards[0].check_play_costs(), CFConst.CostsState.OK)
+		assert_eq(cards[1].check_play_costs(), CFConst.CostsState.OK)

@@ -1,8 +1,6 @@
 class_name UTCommon
 extends "res://addons/gut/test.gd"
 
-# TODO: I should make 2 scenes just for UT so I don't rely on these which
-# might get deleted
 const MAIN_SCENE = preload("res://src/dreamscape/Main.tscn")
 var BOARD_SCENE = load("res://src/dreamscape/Board.tscn")
 const MOUSE_SPEED := {
@@ -201,11 +199,29 @@ func target_entity(source: Card,
 	# We need to offset a bit towards the card rect, to ensure the arrow
 	# Area2D collides
 	var extra_offset = Vector2(10,10)
+	if target.card_rotation in [90,270]:
+		extra_offset = Vector2(10,100)	
 	board._UT_interpolate_mouse_move(target.area2d.global_position + extra_offset,
 			source.global_position,mouse_speed)
 	yield(yield_for(mouse_yield_wait), YIELD)
 	unclick_card_anywhere(source)
-
+	
+# Interpolates the virtual mouse so that it correctly targets a card
+func hover_on_card(target: DreamCard, interpolation_speed := "fast") -> void:
+	var mouse_speed = MOUSE_SPEED[interpolation_speed][0]
+	var mouse_yield_wait = MOUSE_SPEED[interpolation_speed][1]
+	# We need to offset a bit towards the card rect, to ensure the arrow
+	# Area2D collides
+	var extra_offset = Vector2(20,20)
+	board._UT_interpolate_mouse_move(target.global_position + extra_offset,
+			board._UT_mouse_position,mouse_speed)
+	yield(yield_for(mouse_yield_wait), YIELD)
+	var repeat := 0
+	while not target.highlight.visible and repeat <= 3:
+		board._UT_interpolate_mouse_move(target.global_position + extra_offset,
+				board._UT_mouse_position,mouse_speed)
+		yield(yield_for(mouse_yield_wait), YIELD)
+		repeat += 1
 
 # Execute against a target without targeting arrow wait.
 func snipexecute(card: Card, target: CombatEntity):
