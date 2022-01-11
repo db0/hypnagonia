@@ -10,6 +10,8 @@ const OPPOSITES := {
 	Terms.ACTIVE_EFFECTS.disempower.name: Terms.ACTIVE_EFFECTS.empower.name,
 	Terms.ACTIVE_EFFECTS.buffer.name: Terms.ACTIVE_EFFECTS.drain.name,
 	Terms.ACTIVE_EFFECTS.drain.name: Terms.ACTIVE_EFFECTS.buffer.name,
+	Terms.ACTIVE_EFFECTS.marked.name: Terms.ACTIVE_EFFECTS.impervious.name,
+	Terms.ACTIVE_EFFECTS.impervious.name: Terms.ACTIVE_EFFECTS.marked.name,
 }
 
 var all_effects: Dictionary
