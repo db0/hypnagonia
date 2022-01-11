@@ -36,6 +36,10 @@ class TestSelfCleaning:
 				"amount": amount,
 			},
 			{
+				"name": Terms.ACTIVE_EFFECTS.outrage.name,
+				"amount": 10,
+			},
+			{
 				"name": Terms.ACTIVE_EFFECTS.poison.name,
 				"amount": 6,
 			},
