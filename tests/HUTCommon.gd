@@ -25,6 +25,62 @@ const BASIC_HAND := [
 	"Nothing to Fear",
 ]
 
+# The standard interpretation damage
+const DMG := 6
+const X_ATTACK_SCRIPT := {
+	"manual": {
+		"hand": [
+			{
+				"name": "modify_damage",
+				"subject": "target",
+				"needs_subject": true,
+				"amount": DMG,
+				"x_modifier": '0',
+				"x_operation": "multiply",
+				"tags": ["Attack", "Card"],
+				"filter_state_subject": [{
+					"filter_group": "EnemyEntities",
+				},],
+			},
+		],
+	},
+}
+const REPEAT = 3
+const REPEAT_ATTACK_SCRIPT := {
+	"manual": {
+		"hand": [
+			{
+				"name": "modify_damage",
+				"subject": "target",
+				"needs_subject": true,
+				"amount": DMG,
+				"repeat": REPEAT,
+				"tags": ["Attack", "Card"],
+				"filter_state_subject": [{
+					"filter_group": "EnemyEntities",
+				},],
+			},
+		],
+	},
+}
+const MULTI_ATTACK_SCRIPT := {
+	"manual": {
+		"hand": [
+			{
+				"name": "modify_damage",
+				"subject": "boardseek",
+				"needs_subject": true,
+				"subject_count": "all",
+				"amount": DMG,
+				"tags": ["Attack", "Card"],
+				"filter_state_seek": [{
+					"filter_group": "EnemyEntities",
+				},],
+			},
+		],
+	},
+}
+
 
 # For easy access
 var dreamer: PlayerEntity
