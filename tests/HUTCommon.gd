@@ -81,7 +81,36 @@ const MULTI_ATTACK_SCRIPT := {
 		],
 	},
 }
-
+const BIG_ATTACK_SCRIPT := {
+	"manual": {
+		"hand": [
+			{
+				"name": "modify_damage",
+				"subject": "target",
+				"needs_subject": true,
+				"amount": DMG * 5,
+				"x_modifier": '0',
+				"x_operation": "multiply",
+				"tags": ["Attack", "Card"],
+				"filter_state_subject": [{
+					"filter_group": "EnemyEntities",
+				},],
+			},
+		],
+	},
+}
+const BIG_DEFENCE_SCRIPT := {
+	"manual": {
+		"hand": [
+			{
+				"name": "assign_defence",
+				"tags": ["Card"],
+				"subject": "dreamer",
+				"amount": DEF * 5,
+			},
+		],
+	},
+}
 # For easy access
 var dreamer: PlayerEntity
 var turn: Turn

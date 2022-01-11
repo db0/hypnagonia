@@ -529,6 +529,8 @@ const ACTIVE_EFFECTS := {
 		"description": "{effect_name}: The first time each turn this {entity} takes "\
 				+ "9 or more {damage} from one source, reduce its {focus} by {amount} for this turn.",
 	},
+	# Effect doesn't do anything. The scripting happens in the boss
+	# Assigning this to any torment won't help
 	"surreal_boss": {
 		"name": "Incomprehensibility",
 		"type": "Special",
