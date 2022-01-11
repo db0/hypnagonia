@@ -424,7 +424,7 @@ func _input(event):
 	if event.is_action_pressed("init_debug_game"):
 		# Upgrade cards debug
 #		for c in  globals.player.deck.get_progressing_cards():
-#			c.upgrade_progress = 100
+#			c.upgrade_progress = c.upgrade_threshold
 #		_reveal_entry(upgrade_journal, true)
 #		globals.player.add_artifact(ArtifactDefinitions.BetterArtifactChance.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.IncreaseRandomDamage.canonical_name)
@@ -452,11 +452,11 @@ func _input(event):
 		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, 48)
 #		globals.player.damage = 85
 		var debug_encounters = [
-			EnemyEncounter.new(Act2.Void, "hard"),
+#			EnemyEncounter.new(Act2.Void, "hard"),
 #			EnemyEncounter.new(Act2.TrafficJam, "easy"),
 #			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act2/LoseRandomCurio.gd").new(),
-#			preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd").new(),
+			preload("res://src/dreamscape/Run/NCE/Act1/MultipleOptions.gd").new(),
 #			BossEncounter.new(Act1.BOSSES["Narcissus"]),
 			EliteEncounter.new(Act2.Jumbletron, "medium"),
 #			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()

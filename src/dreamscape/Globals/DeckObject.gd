@@ -140,7 +140,7 @@ func get_upgradable_card_type(type:= "least_progress") -> CardEntry:
 			results_dict["least_progress"]["value"] = ce.upgrade_progress
 	if results_dict[type]["cards"].size() > 1:
 		CFUtils.shuffle_array(results_dict[type]["cards"])
-	return(results_dict[type]["cards"][0])
+	return(results_dict[type]["cards"].front())
 
 
 # Returns a list of all card entries with a specific property match
