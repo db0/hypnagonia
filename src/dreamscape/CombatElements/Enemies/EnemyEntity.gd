@@ -89,6 +89,7 @@ func die() -> void:
 #		animated_art.enemy_polygon.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
 		cfc.flush_cache()
 		call_deferred("queue_free")
+		emit_signal("death_animation_finished", self)
 	else:
 		entity_texture.material = ShaderMaterial.new()
 		entity_texture.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
