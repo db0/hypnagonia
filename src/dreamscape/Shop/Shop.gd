@@ -311,7 +311,6 @@ func _on_shop_card_selected(index: int, shop_card_object, containing_array := al
 	globals.player.deck.add_new_card(containing_array[index].card_name)
 	shop_card_object.disable()
 	_update_progress_cost()
-	_update_remove_cost()
 
 
 func _on_shop_artifact_selected(index: int, shop_artifact_object) -> void:
@@ -338,7 +337,6 @@ func _on_shop_memory_selected(index: int, shop_memory_object) -> void:
 
 func _on_Remove_pressed() -> void:
 	_deck_preview_popup.initiate_card_removal(remove_cost, card_removal_cost_type)
-	_update_remove_cost()
 
 
 func _on_ProgressCards_pressed() -> void:
