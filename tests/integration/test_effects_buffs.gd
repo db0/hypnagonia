@@ -19,6 +19,11 @@ class TestAdvantage:
 			}
 		]
 
+	# I don't know why, but in Gihub actions, the first test it runs
+	# always fails. Scripts just fail to execute and sceng is null.
+	# It sounds like a loading issue (like maybe cfc is not finished loading?)
+	# but no matter how much extra time I make it wait, it is still happening
+	# As such, as a workaround, I'm adding this test, which should typically execute first
 	func test__aa_dummy_test():
 		var sceng = card.execute_scripts()
 		if sceng is GDScriptFunctionState:
@@ -555,7 +560,6 @@ class TestProtection:
 		var sceng
 		for index in range(test_effects.size()):
 			cards[index].scripts = get_dreamer_effect_script(test_effects[index], 5)
-			gut.p(test_effects[index])
 			sceng = cards[index].execute_scripts()
 			if sceng is GDScriptFunctionState:
 				sceng = yield(sceng, "completed")
