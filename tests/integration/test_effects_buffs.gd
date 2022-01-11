@@ -352,7 +352,7 @@ class TestThorns:
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
 		assert_eq(dreamer.damage, 6*REPEAT, "Dreamer should take multiple repeat damage from %s" % [effect])
-		
+
 class TestArmor:
 	extends "res://tests/HUT_DreamerEffectsTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.armor.name
@@ -399,7 +399,7 @@ class TestArmor:
 			for intent in intents:
 				remaining_armor = amount - iter
 				iter += 1
-				if remaining_armor < 0: 
+				if remaining_armor < 0:
 					remaining_armor = 0
 				assert_eq(intent.signifier_amount.text, str(9 - remaining_armor), "Intent DMG hitting %s should be reduced by %s" % [effect, remaining_armor])
 		cfc.NMAP.board.turn.end_player_turn()
@@ -408,7 +408,7 @@ class TestArmor:
 				"%s prevented %s stress" % [effect, expected_armor_dmg])
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 1,
 				"%s stacks modified by turn end" % [effect])
-				
+
 	func test_armor_on_multiple_torments():
 		var intents_to_test = [
 			{
@@ -418,7 +418,7 @@ class TestArmor:
 		]
 		for torment in test_torments:
 			torment.intents.replace_intents(intents_to_test)
-			torment.intents.refresh_intents()		
+			torment.intents.refresh_intents()
 		card.scripts = MULTI_ATTACK_SCRIPT
 		spawn_effect(test_torments[2], effect, 4, '')
 		spawn_effect(test_torments[1], effect, 3, '')
@@ -453,7 +453,7 @@ class TestArmor:
 		yield(yield_to(get_tree(), "idle_frame", 0.1), YIELD)
 		var predictions = test_torment.incoming.get_children()
 		for iindex in range(predictions.size()):
-			assert_eq(predictions[iindex].signifier_amount.text, str(DMG - torment_amount + iindex), "Card DMG should be %s" % [DMG - iindex + 6])		
+			assert_eq(predictions[iindex].signifier_amount.text, str(DMG - torment_amount + iindex), "Card DMG should be %s" % [DMG - iindex + 6])
 #		yield(yield_for(5.1), YIELD)
 		yield(target_entity(card, test_torment), "completed")
 		if sceng is GDScriptFunctionState:
@@ -484,7 +484,7 @@ class TestArmor:
 			sceng = yield(sceng, "completed")
 		assert_eq(test_torment.active_effects.get_effect_stacks(effect), torment_amount - 1,
 				"%s activates even at 0 dmg due to %s" % [Terms.ACTIVE_EFFECTS.impervious.name, effect])
-				
+
 	func test_armor_and_dots():
 		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.poison.name, 5, '')
 		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.burn.name, 5, '')
@@ -492,3 +492,67 @@ class TestArmor:
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.damage, 10,
 				"%s doesn't stop DoTs" % [effect])
+
+
+class TestProtection:
+	extends "res://tests/HUT_DreamerEffectsTestClass.gd"
+	var effect: String = Terms.ACTIVE_EFFECTS.protection.name
+	var amount := 7
+	func _init() -> void:
+		test_card_names = [
+			"Butterfly",
+			"Butterfly",
+			"Butterfly",
+			"Butterfly",
+		]
+		effects_to_play = [
+			{
+				"name": effect,
+				"amount": amount,
+			}
+		]
+
+
+	func test_protection_debuffs():
+		var test_effect = Terms.ACTIVE_EFFECTS.poison.name
+		var test_effect2 = Terms.ACTIVE_EFFECTS.quicken.name
+		cards[0].scripts = get_dreamer_effect_script(test_effect, 5)
+		cards[1].scripts = get_dreamer_effect_script(test_effect2, -5)
+		var sceng = cards[0].execute_scripts()
+		sceng = cards[1].execute_scripts()
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect), amount - 2,
+				"Dreamer should have used 1 %s stack per debuff" % [effect])
+		assert_eq(dreamer.active_effects.get_effect_stacks(test_effect), 0,
+				"%s blocked all %s stacks" % [effect, test_effect])
+		assert_eq(dreamer.active_effects.get_effect_stacks(test_effect2), 0,
+				"%s blocked all %s stacks" % [effect, test_effect2])
+
+
+	func test_fortify_end_turn():
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect), amount,
+				"%s stacks do not reduce at turn end" % [effect])
+		cfc.NMAP.board.turn.end_player_turn()
+
+	func test_protection_non_debuffs():
+		var test_effects := [
+			Terms.ACTIVE_EFFECTS.strengthen.name,
+			Terms.ACTIVE_EFFECTS.laugh_at_danger.name,
+			Terms.ACTIVE_EFFECTS.creative_block.name,
+			Terms.ACTIVE_EFFECTS.empower.name,
+		]
+		var sceng
+		for index in range(test_effects.size()):
+			cards[index].scripts = get_dreamer_effect_script(test_effects[index], 5)
+			gut.p(test_effects[index])
+			sceng = cards[index].execute_scripts()
+			if sceng is GDScriptFunctionState:
+				sceng = yield(sceng, "completed")
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect), amount,
+				"Dreamer should not have used any %s stacks" % [effect])
+		for index in range(test_effects.size()):
+			assert_eq(dreamer.active_effects.get_effect_stacks(test_effects[index]), 5,
+					"%s did not block any %s stacks" % [effect, test_effects[index]])
