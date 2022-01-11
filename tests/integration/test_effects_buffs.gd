@@ -3,8 +3,7 @@ extends "res://tests/HUT_TormentEffectsTestClass.gd"
 class TestAdvantage:
 	extends "res://tests/HUT_DreamerEffectsTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.advantage.name
-	var dmg = cfc.card_definitions["Interpretation"]["_amounts"]["damage_amount"]
-	var modified_dmg = dmg * 2
+	var modified_dmg = DMG * 2
 
 	func _init() -> void:
 		test_card_names = [
@@ -39,24 +38,7 @@ class TestAdvantage:
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 2)
 
 	func test_advantage_X():
-		card.scripts = {
-			"manual": {
-				"hand": [
-					{
-						"name": "modify_damage",
-						"subject": "target",
-						"needs_subject": true,
-						"amount": dmg,
-						"x_modifier": '0',
-						"x_operation": "multiply",
-						"tags": ["Attack", "Card"],
-						"filter_state_subject": [{
-							"filter_group": "EnemyEntities",
-						},],
-					},
-				],
-			},
-		}
+		card.scripts = X_ATTACK_SCRIPT
 		var sceng = snipexecute(card, test_torment)
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
@@ -68,23 +50,7 @@ class TestAdvantage:
 		var new_torment = board.spawn_enemy(GUT_TORMENT)
 		new_torment.damage = 30
 		test_torments.append(new_torment)
-		card.scripts = {
-			"manual": {
-				"hand": [
-					{
-						"name": "modify_damage",
-						"subject": "boardseek",
-						"needs_subject": true,
-						"subject_count": "all",
-						"amount": dmg,
-						"tags": ["Attack", "Card"],
-						"filter_state_seek": [{
-							"filter_group": "EnemyEntities",
-						},],
-					},
-				],
-			},
-		}
+		card.scripts = MULTI_ATTACK_SCRIPT
 		var sceng = card.execute_scripts()
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
@@ -93,6 +59,27 @@ class TestAdvantage:
 					"Torment should take damage")
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 1)
 
+	func test_advantage_and_intents():
+		spawn_effect(test_torment, effect, 2, '')
+		var intents_to_test = [
+			{
+				"intent_scripts": ["Stress:3","Stress:3","Stress:3"],
+				"reshuffle": true,
+			},
+		]
+		test_torment.intents.replace_intents(intents_to_test)
+		test_torment.intents.refresh_intents()
+		cfc.flush_cache()
+		yield(yield_to(cfc, "cache_cleared", 0.2), YIELD)
+		var intents = test_torment.intents.get_children()
+		# Advantage doubles all stress in a single intent turn
+		for intent in intents:
+			assert_eq(intent.signifier_amount.text, '6', "%s Stress intent hitting should be doubled" % [effect])
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		assert_eq(dreamer.damage, 18,
+				"%s doubled stress" % [effect])
+		assert_eq(test_torment.active_effects.get_effect_stacks(effect), 1)
 
 class TestBuffer:
 	extends "res://tests/HUT_DreamerEffectsTestClass.gd"
@@ -129,8 +116,7 @@ class TestBuffer:
 class TestEmpower:
 	extends "res://tests/HUT_DreamerEffectsTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.empower.name
-	var dmg = cfc.card_definitions["Interpretation"]["_amounts"]["damage_amount"]
-	var modified_dmg = int(round(dmg * 1.25))
+	var modified_dmg = int(round(DMG * 1.25))
 	func _init() -> void:
 		test_card_names = [
 			"Interpretation",
@@ -212,7 +198,7 @@ class TestImpervious:
 	extends "res://tests/HUT_DreamerEffectsTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.impervious.name
 	var amount := 3
-	var modified_dmg = cfc.card_definitions["Interpretation"]["_amounts"]["damage_amount"]
+	var modified_dmg = DMG
 	func _init() -> void:
 		torments_amount = 3
 		test_card_names = [
@@ -243,6 +229,30 @@ class TestImpervious:
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 0,
 				"Dreamer should have used all %s stacks" % [effect])
+
+	func test_impervious_on_multiple_torments():
+		card.scripts = MULTI_ATTACK_SCRIPT
+		spawn_effect(test_torments[0], effect, 2, '')
+#		drag_card(card,card.global_position)
+		card._start_dragging(Vector2(0,0))
+		yield(yield_to(get_tree(), "idle_frame", 0.1), YIELD)
+		for index in range(test_torments.size()):
+			var predictions = test_torments[index].incoming.get_children()
+			for iindex in range(predictions.size()):
+				if index == 0:
+					assert_eq(predictions[iindex].signifier_amount.text, '0', "Card DMG hitting %s should be 0" % [effect])
+				else:
+					assert_eq(predictions[iindex].signifier_amount.text, '6', "Card DMG should be %s" % [modified_dmg])
+		var sceng = card.execute_scripts()
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		for index in range(test_torments.size()):
+			if index == 0:
+				assert_eq(test_torments[index].damage, starting_torment_dgm, "Torment should not take damage")
+			else:
+				assert_eq(test_torments[index].damage, starting_torment_dgm + modified_dmg, "Torment should take damage")
+		assert_eq(test_torments[0].active_effects.get_effect_stacks(effect), 1,
+				"%s stacks modified by card attack" % [effect])
 
 	func test_impervious_and_dots():
 		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.poison.name, 5, '')
@@ -276,3 +286,66 @@ class TestImpervious:
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.damage, 18,
 				"%s prevented stress" % [effect])
+
+
+class TestThorns:
+	extends "res://tests/HUT_DreamerEffectsTestClass.gd"
+	var effect: String = Terms.ACTIVE_EFFECTS.thorns.name
+	var amount := 6
+	# We expect to lose 1 thorns due to turn start
+	var modified_dmg = DMG
+	func _init() -> void:
+		test_card_names = [
+			"Interpretation",
+		]
+		effects_to_play = [
+			{
+				"name": effect,
+				"amount": amount,
+			}
+		]
+
+
+	func test_thorns_and_intents():
+		var intents_to_test = [
+			{
+				"intent_scripts": ["Stress:3","Stress:3","Stress:3"],
+				"reshuffle": true,
+			},
+		]
+		var expected_thorns_dmg = 6 * intents_to_test[0]["intent_scripts"].size()
+		test_torment.intents.replace_intents(intents_to_test)
+		test_torment.intents.refresh_intents()
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		assert_eq(test_torment.damage, starting_torment_dgm + expected_thorns_dmg,
+				"%s caused %s stress" % [effect, expected_thorns_dmg])
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 5,
+				"%s stacks modified by turn end" % [effect])
+
+
+	func test_thorns_and_single_interpret():
+		spawn_effect(test_torment, effect, 6, '')
+		yield(yield_to(get_tree(), "idle_frame", 0.1), YIELD)
+		var sceng = snipexecute(card, test_torment)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(dreamer.damage, amount, "Dreamer should take damage from %s" % [effect])
+
+	func test_thorns_and_X_interpret():
+		card.scripts = X_ATTACK_SCRIPT
+		spawn_effect(test_torment, effect, 6, '')
+		yield(yield_to(get_tree(), "idle_frame", 0.1), YIELD)
+		var sceng = snipexecute(card, test_torment)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(dreamer.damage, amount, "Dreamer should take only a single damage from %s" % [effect])
+
+	func test_thorns_and_repeat_interpret():
+		card.scripts = REPEAT_ATTACK_SCRIPT
+		spawn_effect(test_torment, effect, 6, '')
+		yield(yield_to(get_tree(), "idle_frame", 0.1), YIELD)
+		var sceng = snipexecute(card, test_torment)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(dreamer.damage, 6*REPEAT, "Dreamer should take multiple repeat damage from %s" % [effect])
