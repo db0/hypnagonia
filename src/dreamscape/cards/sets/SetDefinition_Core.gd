@@ -2385,6 +2385,7 @@ const CARDS := {
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ Absurdity Unleashed @",
+			"^ Absurdity Unleashed ^",
 			"Total Absurdity Unleashed",
 		],
 	},
@@ -2393,6 +2394,22 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Whenever you apply {confusion} to a Torment, {damage} it for {concentration_damage}",
 		"Cost": 0,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
+		},
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"concentration_damage": 4
+		},
+		"_is_upgrade": true,
+	},
+	"^ Absurdity Unleashed ^": {
+		"Type": "Concentration",
+		"Tags": [Terms.GENERIC_TAGS.alpha.name],
+		"Abilities": "Whenever you apply {confusion} to a Torment, {damage} it for {concentration_damage}",
+		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
