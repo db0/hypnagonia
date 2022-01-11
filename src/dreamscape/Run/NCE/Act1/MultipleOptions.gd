@@ -52,16 +52,29 @@ func begin() -> void:
 				< pathos_choice_payments[type]["cost"]:
 			secondary_choices[type] = "[color=red]" + secondary_choices[type] + "[/color]"
 			disabled_choices.append(type)
+	var option_card
+	if not 'progress' in disabled_choices:
+		option_card = globals.player.deck.get_upgradable_card_type("least_progress")
+		if not option_card:
+			secondary_choices['progress'] = "[color=red]" + secondary_choices['progress'] + "[/color]"
+			disabled_choices.append('progress')
+	if not 'upgrade' in disabled_choices:
+		option_card = globals.player.deck.get_upgradable_card_type("most_progress")
+		if not option_card:
+			secondary_choices['upgrade'] = "[color=red]" + secondary_choices['upgrade'] + "[/color]"
+			disabled_choices.append('upgrade')
 	globals.journal.add_nested_choices(secondary_choices, disabled_choices)
 
 func continue_encounter(key) -> void:
 	match key:
 		"progress":
 			var card_entry : CardEntry = globals.player.deck.get_upgradable_card_type("least_progress")
-			card_entry.upgrade_progress += 4
+			if card_entry:
+				card_entry.upgrade_progress += 4
 		"upgrade":
 			var card_entry : CardEntry = globals.player.deck.get_upgradable_card_type("most_progress")
-			card_entry.upgrade_progress = card_entry.upgrade_threshold
+			if card_entry:
+				card_entry.upgrade_progress = card_entry.upgrade_threshold
 		"remove":
 			var selection_deck = globals.journal.spawn_selection_deck()
 			selection_deck.auto_close = true
