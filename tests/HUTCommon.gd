@@ -27,6 +27,7 @@ const BASIC_HAND := [
 
 # The standard interpretation damage
 const DMG := 6
+const DEF := 5
 const X_ATTACK_SCRIPT := {
 	"manual": {
 		"hand": [

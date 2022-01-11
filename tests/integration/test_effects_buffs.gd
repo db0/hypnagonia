@@ -86,6 +86,7 @@ class TestAdvantage:
 				"%s doubled stress" % [effect])
 		assert_eq(test_torment.active_effects.get_effect_stacks(effect), 1)
 
+
 class TestBuffer:
 	extends "res://tests/HUT_DreamerEffectsTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.buffer.name
@@ -150,8 +151,6 @@ class TestEmpower:
 				"Torment should increased damage")
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 4,
 				effect + " stacks don't reduce on use")
-
-	func test_empower_end_turn():
 		cfc.NMAP.board.turn.end_player_turn()
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 3,
@@ -247,7 +246,7 @@ class TestImpervious:
 				if index == 0:
 					assert_eq(predictions[iindex].signifier_amount.text, '0', "Card DMG hitting %s should be 0" % [effect])
 				else:
-					assert_eq(predictions[iindex].signifier_amount.text, '6', "Card DMG should be %s" % [modified_dmg])
+					assert_eq(predictions[iindex].signifier_amount.text, modified_dmg, "Card DMG should be %s" % [modified_dmg])
 		var sceng = card.execute_scripts()
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
@@ -291,6 +290,11 @@ class TestImpervious:
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.damage, 18,
 				"%s prevented stress" % [effect])
+
+	func test_advantage_opposite():
+		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.marked.name, 1,  '')
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 1,
+				"%s counters %s" % [effect, Terms.ACTIVE_EFFECTS.marked.name])
 
 
 class TestThorns:
@@ -426,7 +430,7 @@ class TestArmor:
 		spawn_effect(test_torments[1], effect, 3, '')
 		spawn_effect(test_torments[0], effect, 2, '')
 #		drag_card(card,card.global_position)
-		card._start_dragging(Vector2(0,0))
+		card._start_dragging(Vector2(card.global_position))
 		yield(yield_to(get_tree(), "idle_frame", 0.1), YIELD)
 		for index in range(test_torments.size()):
 			var predictions = test_torments[index].incoming.get_children()
