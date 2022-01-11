@@ -1,0 +1,33 @@
+name: GUT
+
+on:
+  push: {}
+  pull_request: {}
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  GUT_Tests:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: Godot Tester
+        uses: croconut/godot-tester@v2.5
+        with:
+          version: 3.4
+          # should be long enough for asset import files to get generated
+          import-time: 600
+          assert-check: true
+          max-fails: 0
+          # How long the test should be run before it's timed out and fails
+          test-timeout: 900
+          # Directory containing Gut tests
+          direct-scene: tests/cli/tests.tscn
