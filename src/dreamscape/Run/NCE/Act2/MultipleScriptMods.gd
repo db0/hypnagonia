@@ -59,6 +59,7 @@ func continue_encounter(key) -> void:
 			card_choice_description = "Choose a card that draws cards"
 	var card_filters = [CardFilter.new('_amounts', amounts[key], 'eq')]
 	var selection_deck : SelectionDeck = globals.journal.spawn_selection_deck()
+	selection_deck.popup_exclusive = true
 	# warning-ignore:return_value_discarded
 	var payload := {
 		"amount_key": amounts[key],

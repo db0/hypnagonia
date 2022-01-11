@@ -17,6 +17,7 @@ func _on_artifact_added() -> void:
 		if card_choice_description == '':
 			card_choice_description = "Choose a card to modify with " + artifact_object.definition["name"] 
 		var selection_deck : SelectionDeck = globals.journal.spawn_selection_deck()
+		selection_deck.popup_exclusive = true
 		# warning-ignore:return_value_discarded
 		selection_deck.connect("operation_performed", self, "_on_card_selected")
 		selection_deck.auto_close = true

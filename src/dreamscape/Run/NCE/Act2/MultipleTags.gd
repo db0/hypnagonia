@@ -79,6 +79,7 @@ func continue_encounter(key) -> void:
 		var card_filters = [CardFilter.new('Tags', tag_name, 'ne')]
 #		modified_card.modify_property(property, new_value)
 		var selection_deck : SelectionDeck = globals.journal.spawn_selection_deck()
+		selection_deck.popup_exclusive = true
 		# warning-ignore:return_value_discarded
 		selection_deck.connect("operation_performed", self, "_on_card_selected", [tag_name])
 		selection_deck.auto_close = true
