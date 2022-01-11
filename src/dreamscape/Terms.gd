@@ -312,6 +312,7 @@ const ACTIVE_EFFECTS := {
 		"self_decreasing": SELF_DECREASE.TURN_START,
 		"decrease_type": DECREASE_TYPE.ZERO,
 		"noscript": true,
+		"is_dreamer_only": true,
 		"icon": preload("res://assets/icons/smitten.png"),
 		"generic_description": "{effect_name}: Prevents interpretation.",
 		"rich_text_icon": "res://assets/icons/smitten.png",
