@@ -13,7 +13,7 @@ func get_effect_alteration(
 			or not "Attack" in script.get_property(SP.KEY_TAGS)\
 			or is_source:
 		return(0)
-	var new_value = value - stacks
+	var new_value = value - stacks_amount
 	if new_value < 0:
 		new_value = 0
 	if sceng.snapshot_id > 0:
