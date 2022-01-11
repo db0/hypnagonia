@@ -14,6 +14,7 @@ signal entity_healed(entity, amount, trigger, tags)
 signal entity_defended(entity, amount, trigger, tags)
 signal entity_killed(final_damage)
 signal entity_health_modified(entity, amount, trigger, tags)
+signal death_animation_finished(entity)
 
 
 onready var art := $Art
@@ -100,7 +101,8 @@ func _process(delta: float) -> void:
 				node.modulate.a = 0
 		if shader_progress > 0.9:
 			cfc.flush_cache()
-			queue_free()
+			call_deferred("queue_free")
+			emit_signal("death_animation_finished", self)
 
 
 func set_defence(value) -> void:
