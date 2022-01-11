@@ -81,7 +81,6 @@ const MULTI_ATTACK_SCRIPT := {
 	},
 }
 
-
 # For easy access
 var dreamer: PlayerEntity
 var turn: Turn
@@ -166,8 +165,8 @@ func spawn_effect(target: CombatEntity, effect_name: String, amount: int, upgrad
 
 func get_all_card_names() -> Array:
 	var all_card_names := []
-	for card in cfc.get_tree().get_nodes_in_group("cards"):
-		all_card_names.append(card.canonical_name)
+	for c in cfc.get_tree().get_nodes_in_group("cards"):
+		all_card_names.append(c.canonical_name)
 	return(all_card_names)
 
 func count_card_names(card_name: String) -> int:
@@ -180,8 +179,24 @@ func count_card_names(card_name: String) -> int:
 func get_filtered_cards(property: String, value, comparison := 'eq') -> Array:
 	var matching_cards := []
 	var cfilter = CardFilter.new(property, value, comparison)
-	for card in cfc.get_tree().get_nodes_in_group("cards"):
-		if cfilter.check_card(card.properties):
-			matching_cards.append(card)
+	for c in cfc.get_tree().get_nodes_in_group("cards"):
+		if cfilter.check_card(c.properties):
+			matching_cards.append(c)
 	return(matching_cards)
 	
+
+func get_dreamer_effect_script(effect_name: String, amount: int) -> Dictionary:
+	var apply_dreamer_effect_script := {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"tags": ["Card"],
+					"effect_name": effect_name,
+					"subject": "dreamer",
+					"modification": amount,
+				}
+			],
+		},
+	}	
+	return(apply_dreamer_effect_script)
