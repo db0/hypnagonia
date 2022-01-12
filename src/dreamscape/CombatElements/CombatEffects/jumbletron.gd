@@ -57,6 +57,13 @@ var scars := {
 			"amount_value": "+1",
 		},
 	},
+	CardFilter.new('_amounts', "exert_amount", 'eq'): {
+		"property": "_amounts",
+		"value": {
+			"amount_key": "effect_threshold",
+			"amount_value": "+1",
+		},
+	},
 	CardFilter.new('Tags', Terms.GENERIC_TAGS.alpha.name, 'eq'): {
 		"property": "Tags",
 		"value": "-" + Terms.GENERIC_TAGS.alpha.name,

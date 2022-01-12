@@ -12,7 +12,7 @@ class TestVoid:
 				"name": effect,
 				"amount": 2,
 			}
-		]		
+		]
 
 	func test_void():
 		var sceng = snipexecute(card, test_torment)
@@ -63,6 +63,45 @@ class TestSelfCleaning:
 				"%s reduced %s" % [effect, Terms.ACTIVE_EFFECTS.strengthen.name])
 		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.poison.name), 4 - amount,
 				"%s did not reduce %s" % [effect, Terms.ACTIVE_EFFECTS.poison.name])
+
+
+class TestJumbletron:
+	extends "res://tests/HUT_TormentEffectsTestClass.gd"
+	var effect = Terms.ACTIVE_EFFECTS.jumbletron.name
+	var amount = 1
+	func _init() -> void:
+		test_card_names = [
+			"Subconscious",
+			"Butterfly",
+			"Baby",
+		]
+		effects_to_play = [
+			{
+				"name": effect,
+				"amount": amount,
+			},
+		]
+	
+	
+	func test_jumbletron():
+		var card_entries := []
+		for index in range(cards.size()):
+			watch_signals(cards[index].deck_card_entry)
+			card_entries.append(cards[index].deck_card_entry)
+		var sceng = snipexecute(cards[0], test_torment)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		sceng = cards[1].execute_scripts()
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		sceng = cards[2].execute_scripts()
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		# We need to wait a bit, or we might deinstance critical nodes while
+		# they're executing
+		yield(yield_for(1), YIELD)
+		for ce in card_entries:
+			assert_signal_emitted(ce, "card_entry_modified")
 
 # Need to move this to a new file
 #class TestSurrealBoss:
