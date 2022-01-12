@@ -73,7 +73,8 @@ class TestJumbletron:
 		test_card_names = [
 			"Subconscious",
 			"Butterfly",
-			"Baby",
+			"Interpretation",
+			"Confidence",
 		]
 		effects_to_play = [
 			{
@@ -94,14 +95,21 @@ class TestJumbletron:
 		sceng = cards[1].execute_scripts()
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
-		sceng = cards[2].execute_scripts()
+		sceng = snipexecute(cards[2], test_torment)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		sceng = cards[3].execute_scripts()
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
 		# We need to wait a bit, or we might deinstance critical nodes while
 		# they're executing
 		yield(yield_for(1), YIELD)
-		for ce in card_entries:
-			assert_signal_emitted(ce, "card_entry_modified")
+		for index in range(card_entries.size()):
+			var ce: CardEntry = card_entries[index]
+			if index <= 1:
+				assert_signal_emitted(ce, "card_entry_modified")
+			else:
+				assert_signal_not_emitted(ce, "card_entry_modified")
 
 # Need to move this to a new file
 #class TestSurrealBoss:
