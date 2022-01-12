@@ -33,14 +33,14 @@ var pre_stress_dreamer_anxiety : int
 func _ready() -> void:
 	all_intents = INTENTS.duplicate(true)
 
-func prepare_intents(_starting_index = null, _is_second_try := false) -> Dictionary:
+func prepare_intents(starting_index = null, _is_second_try := false) -> Dictionary:
 	var new_intents : Dictionary
 	if combat_entity.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name) >= 7:
 		new_intents = SPECIAL_INTENTS["Impossibility"]
 		times_last_intent_repeated = 0
 		_display_intents(new_intents)
 	else:
-		new_intents = .prepare_intents()
+		new_intents = .prepare_intents(starting_index)
 	for intent_name in ["Illusionary", "Non-Euclidian"]:
 		if intent_name in new_intents["intent_scripts"]:
 			must_check_for_dreamer_anxiety_taken = true
