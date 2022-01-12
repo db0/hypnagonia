@@ -1,5 +1,23 @@
 # Changelog
 
+## [v0.32.1](https://github.com/db0/hypnagonia/tree/v0.32.1) (2022-01-12)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.32.0...v0.32.1)
+
+**Implemented enhancements:**
+
+- Journal proceed should only appear after card draft, card upgrade and artifact selection have been expanded. [\#190](https://github.com/db0/hypnagonia/issues/190)
+
+**Fixed bugs:**
+
+- Exported non-html executable gives errors about not being able to import "ignore-html" music. [\#189](https://github.com/db0/hypnagonia/issues/189)
+- Opening the card upgrade view popup during the game and closing it via clicking elsewhere, leaves the game paused [\#188](https://github.com/db0/hypnagonia/issues/188)
+- Clicking on the end-turn button while pile view is open, causes mischief [\#187](https://github.com/db0/hypnagonia/issues/187)
+
+**Merged pull requests:**
+
+- Various bugfixes [\#193](https://github.com/db0/hypnagonia/pull/193) ([db0](https://github.com/db0))
+
 ## [v0.32.0](https://github.com/db0/hypnagonia/tree/v0.32.0) (2022-01-12)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.31.0...v0.32.0)
