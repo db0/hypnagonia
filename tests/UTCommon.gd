@@ -199,8 +199,6 @@ func target_entity(source: Card,
 	# We need to offset a bit towards the card rect, to ensure the arrow
 	# Area2D collides
 	var extra_offset = Vector2(10,10)
-	if target.card_rotation in [90,270]:
-		extra_offset = Vector2(10,100)	
 	board._UT_interpolate_mouse_move(target.area2d.global_position + extra_offset,
 			source.global_position,mouse_speed)
 	yield(yield_for(mouse_yield_wait), YIELD)
