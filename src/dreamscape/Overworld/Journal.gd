@@ -449,17 +449,18 @@ func _input(event):
 		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.rest, 20)
 		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 50)
 		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, 49)
+		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.rest, 49)
 		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, 48)
-		globals.player.damage = 85
+#		globals.player.damage = 85
 		var debug_encounters = [
-#			EnemyEncounter.new(Act2.Void, "hard"),
+			EnemyEncounter.new(Act2.Mouse, "hard"),
 #			EnemyEncounter.new(Act2.TrafficJam, "easy"),
-			preload("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd").new(),
+#			preload("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act2/LoseRandomCurio.gd").new(),
-			preload("res://src/dreamscape/Run/NCE/Act1/MultipleOptions.gd").new(),
-			BossEncounter.new(Act1.BOSSES["Narcissus"]),
-			EliteEncounter.new(Act2.Jumbletron, "medium"),
-#			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
+#			preload("res://src/dreamscape/Run/NCE/Act1/MultipleOptions.gd").new(),
+#			BossEncounter.new(Act1.BOSSES["Narcissus"]),
+#			EliteEncounter.new(Act2.Jumbletron, "medium"),
+			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
 		]
 		for encounter in debug_encounters:
 			var journal_choice_scene = JOURNAL_ENCOUNTER_CHOICE_SCENE.instance()
