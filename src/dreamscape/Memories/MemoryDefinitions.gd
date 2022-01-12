@@ -441,7 +441,7 @@ const ProtectSelf := {
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal "\
 			+ "to gain {effect_stacks} {protection}",
 	"icon": preload("res://assets/icons/memories/portrait.png"),
-	"context": EffectContext.OVERWORLD,
+	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.shop,
 	"pathos_threshold_multiplier": 3,
 	"pathos_accumulation_divider": 3,

@@ -81,8 +81,8 @@ class TestJumbletron:
 				"amount": amount,
 			},
 		]
-	
-	
+
+
 	func test_jumbletron():
 		var card_entries := []
 		for index in range(cards.size()):
