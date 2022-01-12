@@ -292,7 +292,13 @@ func _display_intents(new_intents: Dictionary) -> void:
 
 func _connect_signals() -> void:
 	for enemy in get_tree().get_nodes_in_group("EnemyEntities"):
-		enemy.connect("entity_killed", self, "_on_enemy_killed", [enemy])
+		_connect_entity_signals(enemy)
+	cfc.NMAP.board.connect("enemy_spawned", self, "_connect_entity_signals")
+
+
+func _connect_entity_signals(enemy) -> void:
+	# warning-ignore:return_value_discarded
+	enemy.connect("entity_killed", self, "_on_enemy_killed", [enemy])
 
 
 func _on_enemy_killed(_damage: int, _enemy) -> void:
