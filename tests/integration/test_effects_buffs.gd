@@ -246,7 +246,7 @@ class TestImpervious:
 				if index == 0:
 					assert_eq(predictions[iindex].signifier_amount.text, '0', "Card DMG hitting %s should be 0" % [effect])
 				else:
-					assert_eq(predictions[iindex].signifier_amount.text, modified_dmg, "Card DMG should be %s" % [modified_dmg])
+					assert_eq(predictions[iindex].signifier_amount.text, str(modified_dmg), "Card DMG should be %s" % [modified_dmg])
 		var sceng = card.execute_scripts()
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
@@ -292,7 +292,7 @@ class TestImpervious:
 				"%s prevented stress" % [effect])
 
 	func test_advantage_opposite():
-		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.marked.name, 1,  '')
+		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.marked.name, 2,  '')
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 1,
 				"%s counters %s" % [effect, Terms.ACTIVE_EFFECTS.marked.name])
 
