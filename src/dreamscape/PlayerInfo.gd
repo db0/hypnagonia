@@ -124,7 +124,7 @@ func populate_preview_cards() -> void:
 		for card in _deck_preview_grid.get_children():
 			card.queue_free()
 		current_decklist_cache =  globals.player.deck.list_all_cards()
-		for preview_card_entry in globals.player.deck.cards:
+		for preview_card_entry in globals.player.deck.get_sorted_cards():
 			var card_preview_container = CARD_PREVIEW_SCENE.instance()
 			_deck_preview_grid.add_child(card_preview_container)
 			card_preview_container.setup(preview_card_entry.instance_self(true))
@@ -135,6 +135,7 @@ func get_all_artifacts() -> Dictionary:
 	for artifact in _artifacts.get_children():
 		found_artifacts[artifact.canonical_name] = artifact
 	return(found_artifacts)
+
 
 func find_artifact(artifact_name):
 	var artifact = get_all_artifacts().get(artifact_name)

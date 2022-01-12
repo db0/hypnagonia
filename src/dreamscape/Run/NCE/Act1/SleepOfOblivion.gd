@@ -24,7 +24,7 @@ func continue_encounter(key) -> void:
 		"fall_in":
 			globals.player.damage += 3
 			globals.encounters.deep_sleeps += 1
-			for card_entry in globals.player.deck.cards:
+			for card_entry in globals.player.deck.get_sorted_cards():
 				if card_entry.get_property("Type") == "Perturbation":
 					globals.player.deck.remove_card(card_entry)
 	end()
