@@ -139,11 +139,6 @@ func _setup() -> void:
 #		script_load_thread.start(self, "load_script_definitions")
 
 
-# Same as setup but without reloading scripts from disk to reduce loading times
-func setup_gut() -> void:
-	pass
-
-
 # Run when all necessary nodes (Board, CardContainers etc) for the game
 # have been initialized. Allows them to proceed with their ready() functions.
 func _on_all_nodes_mapped() -> void:
