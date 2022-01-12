@@ -31,7 +31,7 @@ func _on_artifact_added() -> void:
 		if not card_filters.empty():
 			potential_cards = globals.player.deck.filter_cards(card_filters)
 		else:
-			potential_cards = globals.player.deck.cards.duplicate()
+			potential_cards = globals.player.deck.get_sorted_cards()
 		if potential_cards.size() > 0:
 			CFUtils.shuffle_array(potential_cards)
 			set_modified_card(potential_cards.pop_back())

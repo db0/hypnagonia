@@ -70,6 +70,13 @@ func list_all_cards(sorted:= false) -> Array:
 	return(card_list)
 
 
+# Returns the cardlist array sorted by card_name
+func get_sorted_cards() -> Array:
+	var sorted_array := cards.duplicate()
+	sorted_array.sort_custom(CFUtils, "sort_scriptables_by_name")
+	return(sorted_array)
+
+
 func count_cards() -> int:
 	return(list_all_cards().size())
 
