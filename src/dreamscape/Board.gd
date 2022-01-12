@@ -2,6 +2,7 @@ extends Board
 
 signal battle_begun
 signal battle_ended
+signal enemy_spawned(entity)
 
 const ENEMY_ENTITY_SCENE = preload("res://src/dreamscape/CombatElements/Enemies/EnemyEntity.tscn")
 
@@ -187,6 +188,7 @@ func spawn_enemy(enemy_properties) -> EnemyEntity:
 	# warning-ignore:return_value_discarded
 	enemy.connect("entity_killed", self, "_enemy_died")
 	cfc.flush_cache()
+	emit_signal("enemy_spawned", enemy)
 	return(enemy)
 
 
@@ -418,11 +420,11 @@ func _input(event):
 #		SoundManager.play_bgm(bgm_tracks[0])
 #		SoundManager.fade_in(bgm_tracks[0])
 		# warning-ignore:unused_variable
-#		_debug_advanced_enemy()
+		_debug_advanced_enemy()
 		var _torment1
 		var _torment2
 		var _torment3
-		_torment1 = spawn_enemy(EnemyDefinitions.VOID)
+#		_torment1 = spawn_enemy(EnemyDefinitions.VOID)
 #		_torment2 = spawn_enemy(EnemyDefinitions.SILENT_TREATMENT)
 #		_torment2 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
@@ -466,10 +468,8 @@ func _input(event):
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"Void",
-			"Guilt",
-			"Silent Treatment",
-			"Void",
+			"A Strange Gaida",
+			"Absurdity Unleashed",
 		]:
 			var ce = CardEntry.new(c)
 			var card = ce.instance_self()
@@ -494,7 +494,7 @@ func _debug_advanced_enemy() -> void:
 #	var advanced_entity: EnemyEntity =\
 #			preload("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn").instance()
 	var advanced_entity: EnemyEntity =\
-			preload("res://src/dreamscape/CombatElements/Enemies/Elites/Bully.tscn").instance()
+			preload("res://src/dreamscape/CombatElements/Enemies/Bosses/Narcissus.tscn").instance()
 	advanced_entity.setup_advanced("hard")
 	_enemy_area.add_child(advanced_entity)
 #	advanced_entity.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.self_cleaning.name, 1)
@@ -513,7 +513,8 @@ func _on_Debug_pressed() -> void:
 	for entity in get_tree().get_nodes_in_group("EnemyEntities"):
 		entity.damage = 1
 	for c in [
-		"Blind Trial",
+		"A Strange Gaida",
+		"Absurdity Unleashed",
 	]:
 		var card = cfc.instance_card(c)
 		cfc.NMAP.hand.add_child(card)
@@ -524,9 +525,9 @@ func _on_Debug_pressed() -> void:
 #		cfc.NMAP.hand.draw_card(cfc.NMAP.deck)
 	# Deck cards
 	for c in [
-		"Survival Mode",
-		"Survival Mode",
-		"Survival Mode",
+#		"Survival Mode",
+#		"Survival Mode",
+#		"Survival Mode",
 #		"Hyperfocus",
 	]:
 		var card = cfc.instance_card(c)

@@ -33,7 +33,6 @@ func begin() -> void:
 
 
 func continue_encounter(key) -> void:
-	var card_choice_description: String
 	match key:
 		"allow":
 			var lost_curio = globals.player.get_random_artifact()

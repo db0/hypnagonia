@@ -1,8 +1,7 @@
 extends CombatEffect
 
 func _ready() -> void:
-	for enemy in get_tree().get_nodes_in_group("EnemyEntities"):
-		cfc.NMAP.board.dreamer.connect("effect_modified", self, "on_dreamer_effect_added")
+	cfc.NMAP.board.dreamer.connect("effect_modified", self, "on_dreamer_effect_added")
 
 func on_dreamer_effect_added(entity: CombatEntity, _trigger: String, details: Dictionary) -> void:
 	if details["effect_name"] == Terms.ACTIVE_EFFECTS.impervious.name\
@@ -18,3 +17,4 @@ func on_dreamer_effect_added(entity: CombatEntity, _trigger: String, details: Di
 				},
 			]
 			execute_script(mastery, entity)
+
