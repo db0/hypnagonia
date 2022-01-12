@@ -41,6 +41,7 @@ onready var journal_cover := $"../../FadeToBlack"
 # This dictionary holds links to card nodes which have been instanced as preview cards
 var popup_cards := {}
 var pre_highlight_bbcode_texts := {}
+var reward_choices_unpreviewed := []
 
 func _ready() -> void:
 	if OS.has_feature("debug"):
@@ -91,6 +92,7 @@ func display_nce_rewards(reward_text: String) -> void:
 		_reveal_entry(reward_journal, false)
 	if globals.player.deck.get_upgradeable_cards().size():
 		_reveal_entry(upgrade_journal, true)
+		reward_choices_unpreviewed.append(upgrade_journal.name)
 	proceed.bbcode_text = _get_entry_texts('PROCEED_TEXTS')
 	_reveal_entry(proceed, true)
 
@@ -99,8 +101,10 @@ func display_enemy_rewards(reward_text: String) -> void:
 	if reward_text != '':
 		reward_journal.bbcode_text = "[Card Draft] " + reward_text
 		_reveal_entry(reward_journal, true, "card_draft")
+		reward_choices_unpreviewed.append(reward_journal.name)
 	if globals.player.deck.get_upgradeable_cards().size():
 		_reveal_entry(upgrade_journal, true)
+		reward_choices_unpreviewed.append(upgrade_journal.name)
 	proceed.bbcode_text = _get_entry_texts('PROCEED_TEXTS')
 	_reveal_entry(proceed, true)
 
@@ -108,9 +112,12 @@ func display_enemy_rewards(reward_text: String) -> void:
 func display_elite_rewards(reward_text: String) -> void:
 	reward_journal.bbcode_text = "[Card Draft] " + reward_text
 	_reveal_entry(reward_journal, true, "elite_card_draft")
+	reward_choices_unpreviewed.append(reward_journal.name)
 	_reveal_entry(artifact_journal, true, "elite_artifact")
+	reward_choices_unpreviewed.append(artifact_journal.name)
 	if globals.player.deck.get_upgradeable_cards().size():
 		_reveal_entry(upgrade_journal, true)
+		reward_choices_unpreviewed.append(upgrade_journal.name)
 	proceed.bbcode_text = _get_entry_texts('PROCEED_TEXTS')
 	_reveal_entry(proceed, true)
 
@@ -118,9 +125,12 @@ func display_elite_rewards(reward_text: String) -> void:
 func display_boss_rewards(reward_text: String) -> void:
 	reward_journal.bbcode_text = "[Card Draft] " + reward_text
 	_reveal_entry(reward_journal, true, "boss_card_draft")
+	reward_choices_unpreviewed.append(reward_journal.name)
 	_reveal_entry(artifact_journal, true, "boss_artifact")
+	reward_choices_unpreviewed.append(artifact_journal.name)
 	if globals.player.deck.get_upgradeable_cards().size():
 		_reveal_entry(upgrade_journal, true)
+		reward_choices_unpreviewed.append(upgrade_journal.name)
 	globals.encounters.prepare_next_act(self)
 
 
@@ -345,6 +355,7 @@ func _on_rte_mouse_exited(rt_label: RichTextLabel) -> void:
 
 func _on_rte_gui_input(event, rt_label: RichTextLabel, type = 'card_draft') -> void:
 	if event.is_pressed() and event.get_button_index() == 1:
+		reward_choices_unpreviewed.erase(rt_label.name)
 		match rt_label.name:
 			"RewardJournal":
 				_disconnect_gui_inputs(rt_label)
@@ -359,6 +370,13 @@ func _on_rte_gui_input(event, rt_label: RichTextLabel, type = 'card_draft') -> v
 				artifact_choice.display(type)
 				grey_out_label(rt_label)
 			"Proceed":
+				if reward_choices_unpreviewed.size() > 0:
+					var popup = AcceptDialog.new()
+					popup.dialog_text = "Warning: You have not yet reviewed all the rewards from this encounter."
+					add_child(popup)
+					popup.popup_centered_minsize()
+					reward_choices_unpreviewed.clear()
+					return
 				SoundManager.play_se(Sounds.get_next_journal_page_sound())
 				# warning-ignore:return_value_discarded
 				get_tree().change_scene(CFConst.PATH_CUSTOM + 'Overworld/Journal.tscn')
@@ -459,7 +477,7 @@ func _input(event):
 #			preload("res://src/dreamscape/Run/NCE/Act2/LoseRandomCurio.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act1/MultipleOptions.gd").new(),
 #			BossEncounter.new(Act1.BOSSES["Narcissus"]),
-#			EliteEncounter.new(Act2.Jumbletron, "medium"),
+			EliteEncounter.new(Act2.Jumbletron, "medium"),
 			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
 		]
 		for encounter in debug_encounters:
