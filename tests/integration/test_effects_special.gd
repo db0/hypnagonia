@@ -18,7 +18,7 @@ class TestVoid:
 		var sceng = snipexecute(card, test_torment)
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
-		yield(yield_for(0.5), YIELD)
+		yield(yield_for(1.5), YIELD)
 		assert_eq(count_card_names("Lacuna"), 2,
 				"2 Lacuna as spawned per played Understanding")
 
