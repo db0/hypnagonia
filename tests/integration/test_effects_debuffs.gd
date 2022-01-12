@@ -118,7 +118,8 @@ class TestPoison:
 		test_torment.intents.refresh_intents()
 		cfc.NMAP.board.turn.end_player_turn()
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
-		assert_true(test_torment.is_dead, "test torment died from %s" % [effect])
+		if is_instance_valid(test_torment):
+			assert_true(test_torment.is_dead, "test torment died from %s" % [effect])
 		assert_eq(test_torments[0].damage, starting_torment_dgm + 12,
 				"%s did damage to torment through defence" % [effect])
 		assert_eq(dreamer.damage, 4, "Dreamer not take stress damage because torment died")
@@ -163,7 +164,8 @@ class TestBurn:
 		test_torment.intents.refresh_intents()
 		cfc.NMAP.board.turn.end_player_turn()
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
-		assert_true(test_torment.is_dead, "test torment died from %s" % [effect])
+		if is_instance_valid(test_torment):
+			assert_true(test_torment.is_dead, "test torment died from %s" % [effect])
 		assert_eq(test_torments[0].damage, starting_torment_dgm + 12,
 				"%s did damage to torment through defence" % [effect])
 		assert_eq(dreamer.damage, 20, "Dreamer takes stress damage because torment died after intents")
