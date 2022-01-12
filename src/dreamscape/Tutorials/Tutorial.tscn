@@ -44,9 +44,9 @@ margin_right = 996.0
 margin_bottom = 50.0
 
 [node name="Title" type="Label" parent="PC/VBC/HBC2"]
-margin_top = 13.0
+margin_top = 14.0
 margin_right = 943.0
-margin_bottom = 37.0
+margin_bottom = 35.0
 size_flags_horizontal = 3
 text = "Quick Reference"
 align = 1
@@ -66,6 +66,7 @@ expand_icon = true
 margin_top = 53.0
 margin_right = 996.0
 margin_bottom = 496.0
+mouse_filter = 2
 size_flags_vertical = 3
 
 [node name="LeftButtons" type="VBoxContainer" parent="PC/VBC/HBC"]
@@ -76,6 +77,7 @@ rect_min_size = Vector2( 50, 0 )
 [node name="Push1" type="Control" parent="PC/VBC/HBC/LeftButtons"]
 margin_right = 50.0
 margin_bottom = 220.0
+mouse_filter = 2
 size_flags_vertical = 3
 
 [node name="Previous" type="Button" parent="PC/VBC/HBC/LeftButtons"]
@@ -94,12 +96,14 @@ expand_icon = true
 margin_top = 223.0
 margin_right = 50.0
 margin_bottom = 443.0
+mouse_filter = 2
 size_flags_vertical = 3
 
 [node name="PageContainer" type="MarginContainer" parent="PC/VBC/HBC"]
 margin_left = 53.0
 margin_right = 943.0
 margin_bottom = 443.0
+mouse_filter = 2
 size_flags_horizontal = 3
 __meta__ = {
 "_edit_group_": true
@@ -114,6 +118,7 @@ rect_min_size = Vector2( 50, 0 )
 [node name="Push1" type="Control" parent="PC/VBC/HBC/RightButtons"]
 margin_right = 50.0
 margin_bottom = 193.0
+mouse_filter = 2
 size_flags_vertical = 3
 
 [node name="Next" type="Button" parent="PC/VBC/HBC/RightButtons"]
@@ -131,6 +136,7 @@ expand_icon = true
 margin_top = 249.0
 margin_right = 50.0
 margin_bottom = 443.0
+mouse_filter = 2
 size_flags_vertical = 3
 
 [connection signal="pressed" from="PC/VBC/HBC2/Exit" to="." method="_on_Exit_pressed"]

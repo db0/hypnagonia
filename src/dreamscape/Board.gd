@@ -420,11 +420,11 @@ func _input(event):
 #		SoundManager.play_bgm(bgm_tracks[0])
 #		SoundManager.fade_in(bgm_tracks[0])
 		# warning-ignore:unused_variable
-		_debug_advanced_enemy()
+#		_debug_advanced_enemy()
 		var _torment1
 		var _torment2
 		var _torment3
-#		_torment1 = spawn_enemy(EnemyDefinitions.VOID)
+		_torment1 = spawn_enemy(EnemyDefinitions.MOUSE)
 #		_torment2 = spawn_enemy(EnemyDefinitions.SILENT_TREATMENT)
 #		_torment2 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
