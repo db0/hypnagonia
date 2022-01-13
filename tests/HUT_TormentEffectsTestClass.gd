@@ -16,4 +16,4 @@ func before_each():
 	for effect_payload in effects_to_play:
 		spawn_effect(test_torment,effect_payload.name, effect_payload.amount, effect_payload.get("upgrade", ''))
 	yield(yield_for(0.1), YIELD)
-#	test_torment.
+

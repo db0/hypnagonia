@@ -14,3 +14,4 @@ __meta__ = {
 }
 _directory1 = "res://tests/unit"
 _directory2 = "res://tests/integration"
+_directory3 = "res://tests/cards"
