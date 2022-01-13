@@ -165,7 +165,6 @@ func before_each():
 		card = cards[0]
 		if not test_scripts.empty():
 			card.scripts = test_scripts
-			print_debug(card.scripts)
 	while board.counters.counters.immersion == 0:
 		yield(yield_to(board.turn, "player_turn_started", 1), YIELD)
 #	print_debug(board.counters.counters)
@@ -230,3 +229,8 @@ func get_dreamer_effect_script(effect_name: String, amount: int) -> Dictionary:
 		},
 	}	
 	return(apply_dreamer_effect_script)
+
+
+# Returns the expected amount of damage, after including the torments starting dmgs
+func tdamage(damage: int) -> int:
+	return(starting_torment_dgm + damage)

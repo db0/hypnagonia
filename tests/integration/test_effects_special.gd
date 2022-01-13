@@ -1,4 +1,4 @@
-extends "res://tests/HUT_TormentTestClass.gd"
+extends "res://tests/HUTCommon.gd"
 
 class TestVoid:
 	extends "res://tests/HUT_TormentEffectsTestClass.gd"
