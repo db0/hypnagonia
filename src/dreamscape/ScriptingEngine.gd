@@ -613,12 +613,13 @@ func modify_pathos(script: ScriptTask) -> int:
 	var pathos = script.get_property("pathos", Terms.RUN_ACCUMULATION_NAMES.enemy)
 	var modification = calculate_modify_pathos(script)
 	if type == "released":
+		var is_cost = script.get_property(SP.KEY_IS_COST)
 		if is_convertion:
 			#We do not use .release_pathos() as we need to keep track of the final modification
 			if globals.player.pathos.repressed[pathos] < modification:
 				modification = globals.player.pathos.repressed[pathos]
-			globals.player.pathos.modify_repressed_pathos(pathos, -modification)
-		globals.player.pathos.modify_released_pathos(pathos, modification)
+			globals.player.pathos.modify_repressed_pathos(pathos, -modification, !is_cost)
+		globals.player.pathos.modify_released_pathos(pathos, modification, !is_cost)
 	else:
 		if is_convertion:
 			if globals.player.pathos.released.get(pathos, 0) < modification:
