@@ -30,10 +30,15 @@ const INTENTS := [
 func _ready() -> void:
 	all_intents = INTENTS.duplicate(true)
 
-func prepare_intents(_starting_index = null, _is_second_try := false) -> Dictionary:
+func prepare_intents(starting_index = null, _is_second_try := false) -> Dictionary:
 	if not unused_intents.size():
 		reshuffle_intents()
-	var new_intents : Dictionary = unused_intents.pop_front().duplicate(true)
+	var new_intents : Dictionary
+	if  starting_index == null or (typeof(starting_index) == TYPE_INT and starting_index > 6):
+		new_intents = unused_intents.pop_front().duplicate(true)
+	else:
+		reshuffle_intents()
+		new_intents = unused_intents[starting_index].duplicate(true)
 	if new_intents.reshuffle:
 		reshuffle_intents()
 	_display_intents(new_intents)
@@ -49,6 +54,7 @@ func _get_boss_scripts(intent_name: String) -> Array:
 	var script : Dictionary
 	match intent_name:
 		"Denial":
+			print_debug(cfc.NMAP.board.dreamer.health - cfc.NMAP.board.dreamer.damage)
 			if cfc.NMAP.board.dreamer.health - cfc.NMAP.board.dreamer.damage > 10:
 				script = {
 					"name": "apply_effect",

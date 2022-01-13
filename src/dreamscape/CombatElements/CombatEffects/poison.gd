@@ -17,7 +17,7 @@ func _decrease_stacks() -> void:
 		var mid_amount: float
 		script = [{
 				"name": "modify_pathos",
-				"tags": ["Poison", "Combat Effect", "Debuff", "Poison"],
+				"tags": ["Poison", "Combat Effect", "Debuff"],
 				"pathos": pathos,
 				"pathos_type": "released",
 				"amount": amount,
@@ -27,7 +27,7 @@ func _decrease_stacks() -> void:
 			mid_amount = globals.player.pathos.released[pathos] + amount
 			script.append({
 					"name": "modify_pathos",
-					"tags": ["Poison", "Combat Effect", "Debuff", "Poison"],
+					"tags": ["Poison", "Combat Effect", "Debuff"],
 					"pathos": mid_pathos,
 					"pathos_type": "released",
 					"amount": mid_amount,
@@ -37,7 +37,7 @@ func _decrease_stacks() -> void:
 				"name": "modify_damage",
 				"subject": "self",
 				"amount": poison_damage,
-				"tags": ["Poison", "Combat Effect", "Debuff", "Poison"],
+				"tags": ["Poison", "Combat Effect", "Debuff"],
 			})
 		if OS.has_feature("debug"):
 			print("DEBUG INFO:Effect: Player losing %s released %s instead of taking %s anxiety due to poison."\

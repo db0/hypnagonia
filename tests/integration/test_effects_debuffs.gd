@@ -126,6 +126,17 @@ class TestPoison:
 		assert_eq(test_torments[0].active_effects.get_effect_stacks(effect), 11,
 				"%s stacks decreased by 1" % [effect])
 
+	func test_poison_not_deadly():
+		dreamer.damage = 60
+		spawn_effect(dreamer, effect, 100, '')
+		watch_signals(globals.player.pathos)
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		assert_eq(dreamer.damage, dreamer.health - 1,
+				"%s left the dreamer at 1 HP" % [effect])
+		assert_signal_emitted(globals.player.pathos, "released_pathos_lost")
+
+
 class TestBurn:
 	extends "res://tests/HUT_DreamerEffectsTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.burn.name
