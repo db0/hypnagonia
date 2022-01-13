@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.32.2](https://github.com/db0/hypnagonia/tree/v0.32.2) (2022-01-13)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.32.1...v0.32.2)
+
+**Merged pull requests:**
+
+- ci: fix for random music export [\#194](https://github.com/db0/hypnagonia/pull/194) ([db0](https://github.com/db0))
+
 ## [v0.32.1](https://github.com/db0/hypnagonia/tree/v0.32.1) (2022-01-12)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.32.0...v0.32.1)
