@@ -66,7 +66,7 @@ func end_player_turn() -> void:
 	for pile in cfc.get_tree().get_nodes_in_group("piles"):
 		if pile.is_popup_open:
 			yield(pile,"popup_closed")
-	SoundManager.play_se('click2')
+	SoundManager.play_se('end_turn')
 	emit_signal("player_turn_ended", self)
 		
 func start_enemy_turn() -> void:

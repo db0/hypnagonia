@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/UI-Quirky_36.mp3-ba19a146d716d7e35303dcaf1110e7c6.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/UI-Quirky_36.mp3"
+dest_files=[ "res://.import/UI-Quirky_36.mp3-ba19a146d716d7e35303dcaf1110e7c6.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
