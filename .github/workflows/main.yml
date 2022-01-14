@@ -30,6 +30,7 @@ jobs:
   version_and_release:
     runs-on: ubuntu-latest
     name: Export Game
+    needs: ["GUT"]
     steps:
     - name: "✔️ Checkout"
       uses: actions/checkout@v2
@@ -63,7 +64,6 @@ jobs:
       if: ${{ steps.release.outputs.version != '' }}
       shell: bash
       run: |
-          rm
           SCENE=ordeal;  KEEP=6; cd assets/music/${SCENE}          && ls *.ogg | tail -n+${KEEP} | shuf > oggs && cat oggs | xargs -I {} mv "{}" "html_ignore_{}" && cat oggs | xargs -I {} sed -i 's/{}/html_ignore_{}/g' "{}.import" && cat oggs | xargs -I {} sed -i "s|[a-z0-9]\+\.oggstr|$(sh -c 'echo -n html_ignore_{} | md5sum  | awk "{print \$1}"').oggstr|g" "{}.import" && cat oggs | xargs -I {} mv "{}.import" "html_ignore_{}.import" && rm oggs && ls -larth
           SCENE=journal; KEEP=4; cd ../../../assets/music/${SCENE} && ls *.ogg | tail -n+${KEEP} | shuf > oggs && cat oggs | xargs -I {} mv "{}" "html_ignore_{}" && cat oggs | xargs -I {} sed -i 's/{}/html_ignore_{}/g' "{}.import" && cat oggs | xargs -I {} sed -i "s|[a-z0-9]\+\.oggstr|$(sh -c 'echo -n html_ignore_{} | md5sum  | awk "{print \$1}"').oggstr|g" "{}.import" && cat oggs | xargs -I {} mv "{}.import" "html_ignore_{}.import" && rm oggs && ls -larth
           SCENE=main;    KEEP=2; cd ../../../assets/music/${SCENE} && ls *.ogg | tail -n+${KEEP} | shuf > oggs && cat oggs | xargs -I {} mv "{}" "html_ignore_{}" && cat oggs | xargs -I {} sed -i 's/{}/html_ignore_{}/g' "{}.import" && cat oggs | xargs -I {} sed -i "s|[a-z0-9]\+\.oggstr|$(sh -c 'echo -n html_ignore_{} | md5sum  | awk "{print \$1}"').oggstr|g" "{}.import" && cat oggs | xargs -I {} mv "{}.import" "html_ignore_{}.import" && rm oggs && ls -larth
