@@ -8,7 +8,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Gain {defence_amount} {confidence}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Sebastian Piszczatowski",
 		"_rarity": "Basic",
 		"_keywords": ["confidence"],
 		"_amounts": {
