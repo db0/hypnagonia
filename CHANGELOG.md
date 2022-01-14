@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.32.4](https://github.com/db0/hypnagonia/tree/v0.32.4) (2022-01-14)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.32.3...v0.32.4)
+
+**Merged pull requests:**
+
+- ci: switching GUT to its own job [\#196](https://github.com/db0/hypnagonia/pull/196) ([db0](https://github.com/db0))
+
 ## [v0.32.3](https://github.com/db0/hypnagonia/tree/v0.32.3) (2022-01-13)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.32.2...v0.32.3)
