@@ -38,14 +38,13 @@ func _on_FancAnimations_toggled(button_pressed: bool) -> void:
 		get_tree().call_group("piles", "enable_shuffle")
 	else:
 		get_tree().call_group("piles", "disable_shuffle")
-	if sound_effect_enabled:
-		SoundManager.play_se('setting_toggle')
+	_play_toggle_sound(button_pressed)
 
 
 func _on_FocusStyle_item_selected(index: int) -> void:
 	cfc.set_setting('focus_style', focus_style.get_item_id(index))
 	if sound_effect_enabled:
-		SoundManager.play_se('setting_toggle')
+		SoundManager.play_se('selection_done')
 
 
 func _on_ExitToMain_pressed() -> void:
@@ -77,5 +76,11 @@ func _on_SoundVolSlider_value_changed(value: float) -> void:
 
 func _on_InterruptMusic_toggled(button_pressed: bool) -> void:
 	cfc.set_setting('interrupt_music',button_pressed)
+	_play_toggle_sound(button_pressed)
+
+func _play_toggle_sound(button_pressed: bool) -> void:
 	if sound_effect_enabled:
-		SoundManager.play_se('setting_toggle')
+		if button_pressed:
+			SoundManager.play_se('setting_toggle_on')
+		else:
+			SoundManager.play_se('setting_toggle_off')

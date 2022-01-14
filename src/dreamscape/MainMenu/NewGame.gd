@@ -77,7 +77,7 @@ static func randomize_aspect_choices() -> Dictionary:
 
 
 func start_new_game() -> void:
-	SoundManager.play_se('click')
+	SoundManager.play_se('button_click')
 	cfc.game_rng_seed = CFUtils.generate_random_seed()
 	globals.player.setup()
 	globals.encounters.prepare_next_act()
@@ -94,7 +94,7 @@ func start_new_game() -> void:
 
 
 func _on_archetype_choice_pressed(archetype: String, _aspect: String, archetype_button) -> void:
-	SoundManager.play_se('click')
+	SoundManager.play_se('select_archetype')
 	var aspect := _aspect.capitalize()
 	var aspect_button = _aspect_buttons[aspect]
 	aspect_button.text = archetype
@@ -111,7 +111,7 @@ func _on_archetype_choice_pressed(archetype: String, _aspect: String, archetype_
 
 
 func _on_Start_pressed() -> void:
-	SoundManager.play_se('click')
+	SoundManager.play_se('button_click')
 	start_new_game()
 
 
@@ -127,7 +127,7 @@ func _on_archetype_mouse_entered(archetype: String) -> void:
 
 
 func _on_StartingCards_pressed() -> void:
-	SoundManager.play_se('click')
+	SoundManager.play_se('select_archetype')
 	_starting_cards_popup.rect_size = Vector2(1000,400)
 	_starting_cards_popup.popup_centered()
 	_all_starting_cards_display.rect_min_size.x = _starting_cards_popup.rect_size.x
