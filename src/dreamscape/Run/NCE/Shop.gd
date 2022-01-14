@@ -13,12 +13,15 @@ func _init():
 func begin() -> void:
 	.begin()
 	current_shop = SHOP_SCENE.instance()
+	current_shop.connect("ready",self, "on_shop_scene_ready")
 	cfc.get_tree().get_root().call_deferred("add_child", current_shop)
-	yield(cfc.get_tree(),"idle_frame")
-	current_shop.back_button.connect("pressed", self, "on_shop_back_pressed")
 
 
 func on_shop_back_pressed() -> void:
 	end()
 	globals.journal.display_nce_rewards('')
 	current_shop.queue_free()
+
+
+func on_shop_scene_ready() -> void:
+	current_shop.back_button.connect("pressed", self, "on_shop_back_pressed")
