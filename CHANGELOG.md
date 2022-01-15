@@ -1,5 +1,19 @@
 # Changelog
 
+## [v0.32.6](https://github.com/db0/hypnagonia/tree/v0.32.6) (2022-01-15)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.32.5...v0.32.6)
+
+**Closed issues:**
+
+- Create CI [\#40](https://github.com/db0/hypnagonia/issues/40)
+
+**Merged pull requests:**
+
+- Fix ci [\#203](https://github.com/db0/hypnagonia/pull/203) ([db0](https://github.com/db0))
+- tests: longer delay for slower ci [\#202](https://github.com/db0/hypnagonia/pull/202) ([db0](https://github.com/db0))
+- Some more quircky SFX. More Tests. Some Bugfixes [\#201](https://github.com/db0/hypnagonia/pull/201) ([db0](https://github.com/db0))
+
 ## [v0.32.5](https://github.com/db0/hypnagonia/tree/v0.32.5) (2022-01-14)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.32.4...v0.32.5)
