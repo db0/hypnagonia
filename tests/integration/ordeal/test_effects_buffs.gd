@@ -1,10 +1,10 @@
-extends "res://tests/HUT_TormentEffectsTestClass.gd"
+extends "res://tests/HUT_Ordeal_TormentEffectsTestClass.gd"
 
 # For checking
 #yield(yield_for(5.1), YIELD)
 
 class TestAdvantage:
-	extends "res://tests/HUT_DreamerEffectsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.advantage.name
 	var modified_dmg = DMG * 2
 
@@ -88,7 +88,7 @@ class TestAdvantage:
 
 
 class TestBuffer:
-	extends "res://tests/HUT_DreamerEffectsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.buffer.name
 	func _init() -> void:
 		test_card_names = [
@@ -120,7 +120,7 @@ class TestBuffer:
 
 
 class TestEmpower:
-	extends "res://tests/HUT_DreamerEffectsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.empower.name
 	var modified_dmg = int(round(DMG * 1.25))
 	func _init() -> void:
@@ -162,7 +162,7 @@ class TestEmpower:
 				"%s counters %s" % [effect, Terms.ACTIVE_EFFECTS.disempower.name])
 
 class TestFortify:
-	extends "res://tests/HUT_DreamerEffectsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.fortify.name
 	var amount := 3
 	func _init() -> void:
@@ -199,7 +199,7 @@ class TestFortify:
 
 
 class TestImpervious:
-	extends "res://tests/HUT_DreamerEffectsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.impervious.name
 	var amount := 3
 	var modified_dmg = DMG
@@ -298,7 +298,7 @@ class TestImpervious:
 
 
 class TestThorns:
-	extends "res://tests/HUT_DreamerEffectsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.thorns.name
 	var amount := 6
 	# We expect to lose 1 thorns due to turn start
@@ -360,7 +360,7 @@ class TestThorns:
 		assert_eq(dreamer.damage, 6*REPEAT, "Dreamer should take multiple repeat damage from %s" % [effect])
 
 class TestArmor:
-	extends "res://tests/HUT_DreamerEffectsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.armor.name
 	var amount := 8
 	var torment_amount := 4
@@ -501,7 +501,7 @@ class TestArmor:
 
 
 class TestProtection:
-	extends "res://tests/HUT_DreamerEffectsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.protection.name
 	var amount := 7
 	func _init() -> void:

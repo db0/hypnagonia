@@ -1,4 +1,4 @@
-extends "res://tests/HUTCommon.gd"
+extends "res://tests/HUTCommon_Ordeal.gd"
 
 var advanced_torment_scene: PackedScene
 var difficulty := 'medium'

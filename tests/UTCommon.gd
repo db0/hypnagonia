@@ -3,6 +3,8 @@ extends "res://addons/gut/test.gd"
 
 const MAIN_SCENE = preload("res://src/dreamscape/Main.tscn")
 var BOARD_SCENE = load("res://src/dreamscape/Board.tscn")
+var JOURNAL_SCENE = load("res://src/dreamscape/Journal.tscn")
+
 const MOUSE_SPEED := {
 	"fast": [10,0.3],
 	"slow": [3,0.6],
@@ -16,6 +18,12 @@ var hand: Hand
 var deck: DreamPile
 var discard: DreamPile
 var forgotten: DreamPile
+var journal: Journal
+var player_info: PlayerInfo
+
+var artifacts := []
+var memories := []
+
 
 func fake_click(pressed, position, flags=0) -> InputEvent:
 	var ev := InputEventMouseButton.new()
@@ -42,6 +50,7 @@ func setup_main() -> void:
 	deck = cfc.NMAP.deck
 	discard = cfc.NMAP.discard
 	forgotten = cfc.NMAP.forgotten
+	player_info = board.player_info
 
 
 func setup_board() -> void:
@@ -56,6 +65,14 @@ func setup_board() -> void:
 	deck = cfc.NMAP.deck
 	discard = cfc.NMAP.discard
 	forgotten = cfc.NMAP.forgotten
+	player_info = board.player_info
+	
+func setup_journal() -> void:
+	cfc._setup()
+	setup_hypnagonia_testing()
+	journal = add_child_autofree(JOURNAL_SCENE.instance())
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # Always reveal the mouseon unclick
+	player_info = journal.player_info
 
 func teardown_board() -> void:
 	cfc.quit_game()
@@ -73,8 +90,6 @@ func teardown_hypnagonia_testing() -> void:
 	cfc.quit_game()
 	globals.reset()
 
-
-
 func setup_test_cards(cards: Array) -> Array:
 	var spawned_cards := []
 	for c in cards:
@@ -87,6 +102,18 @@ func setup_test_cards(cards: Array) -> Array:
 	for c in spawned_cards:
 		c.reorganize_self()
 	return(spawned_cards)
+
+func setup_test_artifacts(artifacts: Array) -> Array:
+	var spawned_artifacts := []
+	for aname in artifacts:
+		var artifact: ArtifactObject = globals.player.add_artifact(aname)
+	return(spawned_artifacts)
+
+func setup_test_memories(memories: Array) -> Array:
+	var spawned_memories := []
+	for mname in memories:
+		var artifact: MemoryObject = globals.player.add_memory(mname)
+	return(spawned_memories)
 
 func click_card(card: Card, _use_fake_mouse := true, offset:=Vector2(0,0)) -> void:
 	var fc:= fake_click(true, offset)
