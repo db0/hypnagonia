@@ -108,16 +108,16 @@ func setup_test_cards(cards: Array) -> Array:
 		c.reorganize_self()
 	return(spawned_cards)
 
-func setup_test_artifacts(artifacts: Array) -> Array:
+func setup_test_artifacts(artifacts_array: Array) -> Array:
 	var spawned_artifacts := []
-	for aname in artifacts:
-		var artifact: ArtifactObject = globals.player.add_artifact(aname)
+	for aname in artifacts_array:
+		spawned_artifacts.append(globals.player.add_artifact(aname))
 	return(spawned_artifacts)
 
-func setup_test_memories(memories: Array) -> Array:
+func setup_test_memories(memories_array: Array) -> Array:
 	var spawned_memories := []
-	for mname in memories:
-		var artifact: MemoryObject = globals.player.add_memory(mname)
+	for mname in memories_array:
+		spawned_memories.append(globals.player.add_memory(mname))
 	return(spawned_memories)
 
 func click_card(card: Card, _use_fake_mouse := true, offset:=Vector2(0,0)) -> void:
