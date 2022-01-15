@@ -3,7 +3,7 @@ extends "res://addons/gut/test.gd"
 
 const MAIN_SCENE = preload("res://src/dreamscape/Main.tscn")
 var BOARD_SCENE = load("res://src/dreamscape/Board.tscn")
-var JOURNAL_SCENE = load("res://src/dreamscape/Journal.tscn")
+var JOURNAL_SCENE = preload("res://src/dreamscape/Overworld/Journal.tscn")
 
 const MOUSE_SPEED := {
 	"fast": [10,0.3],
@@ -11,6 +11,7 @@ const MOUSE_SPEED := {
 	"debug": [1,2],
 }
 
+const PLAYER_HEALTH = 100
 
 var main
 var board: Board
@@ -19,6 +20,7 @@ var deck: DreamPile
 var discard: DreamPile
 var forgotten: DreamPile
 var journal: Journal
+var journal_container: MarginContainer
 var player_info: PlayerInfo
 
 var artifacts := []
@@ -70,8 +72,10 @@ func setup_board() -> void:
 func setup_journal() -> void:
 	cfc._setup()
 	setup_hypnagonia_testing()
-	journal = add_child_autofree(JOURNAL_SCENE.instance())
+	journal_container = add_child_autofree(JOURNAL_SCENE.instance())
+#	yield(yield_to(journal_container, "ready", 1), YIELD)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # Always reveal the mouseon unclick
+	journal = globals.journal
 	player_info = journal.player_info
 
 func teardown_board() -> void:
@@ -83,6 +87,7 @@ func setup_hypnagonia_testing() -> void:
 	cfc.game_rng_seed = "GUT"
 	NewGameMenu.randomize_aspect_choices()
 	globals.player.setup()
+	globals.player.health = PLAYER_HEALTH
 	globals.encounters.prepare_next_act()
 
 

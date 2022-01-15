@@ -647,7 +647,6 @@ const GENERIC := [
 	StartingCards,
 	StartingImmersion,
 	FirstPowerAttack,
-	AccumulateRest,
 	AccumulateEnemy,
 	AccumulateRest,
 	AccumulateNCE,
@@ -755,3 +754,8 @@ static func find_artifact_from_name(artifact_name: String):
 	for artifact_def in get_complete_artifacts_array():
 		if artifact_def.name == artifact_name:
 			return(artifact_def)
+
+static func artifact_exists(artifact_name: String) -> bool:
+	if find_artifact_from_canonical_name(artifact_name):
+		return(true)
+	return(false)
