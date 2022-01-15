@@ -1,4 +1,4 @@
-extends "res://tests/HUTCommon.gd"
+extends "res://tests/HUTCommon_Ordeal.gd"
 
 var testing_card_name: String
 var expected_amount_keys := []

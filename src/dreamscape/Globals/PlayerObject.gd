@@ -109,11 +109,13 @@ func compile_card_type(
 	return(typecards)
 
 
-func add_artifact(artifact_name: String, modifiers := {}) -> void:
+func add_artifact(artifact_name: String, modifiers := {}) -> ArtifactObject:
+	var new_artifact: ArtifactObject
 	if not artifact_name in get_all_artifact_names():
-		var new_artifact = ArtifactObject.new(artifact_name, modifiers)
+		new_artifact = ArtifactObject.new(artifact_name, modifiers)
 		artifacts.append(new_artifact)
 		emit_signal("artifact_added", new_artifact)
+	return(new_artifact)
 
 
 func remove_artifact(value) -> void:
@@ -142,14 +144,15 @@ func get_random_artifact():
 		return(rnd_array[0])
 
 
-func add_memory(memory_name: String, modifiers := {}) -> void:
+func add_memory(memory_name: String, modifiers := {}) -> MemoryObject:
 	# The dreamer can only hold 1 memory for each type of pathos.
 	# If they already have a memory for that pathos, nothing happens.
 	if does_memory_type_exist(memory_name):
-		return
+		return(null)
 	var new_memory = MemoryObject.new(memory_name, modifiers)
 	memories.append(new_memory)
 	emit_signal("memory_added", new_memory)
+	return(new_memory)
 
 
 # Returns the MemoryObject with that name,

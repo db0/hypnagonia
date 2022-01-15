@@ -1,11 +1,11 @@
-extends "res://tests/HUT_TormentEffectsTestClass.gd"
+extends "res://tests/HUT_Ordeal_TormentEffectsTestClass.gd"
 
 # For checking
 #yield(yield_for(5.1), YIELD)
 
 
 class TestDrain:
-	extends "res://tests/HUT_DreamerEffectsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.drain.name
 	func _init() -> void:
 		test_card_names = [
@@ -36,7 +36,7 @@ class TestDrain:
 
 
 class TestDisempower:
-	extends "res://tests/HUT_DreamerEffectsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.disempower.name
 	var modified_dmg = int(round(DMG * 0.75))
 	func _init() -> void:
@@ -79,7 +79,7 @@ class TestDisempower:
 
 
 class TestPoison:
-	extends "res://tests/HUT_DreamerEffectsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.poison.name
 	func _init() -> void:
 		torments_amount = 2
@@ -138,7 +138,7 @@ class TestPoison:
 
 
 class TestBurn:
-	extends "res://tests/HUT_DreamerEffectsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.burn.name
 	func _init() -> void:
 		torments_amount = 2
@@ -185,7 +185,7 @@ class TestBurn:
 
 
 class TestVulnerable:
-	extends "res://tests/HUT_DreamerEffectsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.vulnerable.name
 	var modified_def = int(round(DEF * 0.75))
 	func _init() -> void:
@@ -247,7 +247,7 @@ class TestVulnerable:
 				"%s decreated perplexity" % [effect])
 
 class TestMarked:
-	extends "res://tests/HUT_DreamerEffectsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.marked.name
 	var amount := 3
 	var modified_dmg := int(round(DMG * 1.5))
@@ -342,7 +342,7 @@ class TestMarked:
 				"%s counters %s" % [effect, Terms.ACTIVE_EFFECTS.impervious.name])
 
 class TestDelighted:
-	extends "res://tests/HUT_DreamerEffectsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.delighted.name
 	var amount := 3
 	func _init() -> void:

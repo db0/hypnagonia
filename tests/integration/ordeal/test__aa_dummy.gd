@@ -1,4 +1,4 @@
-extends "res://tests/HUT_TormentEffectsTestClass.gd"
+extends "res://tests/HUT_Ordeal_TormentEffectsTestClass.gd"
 
 func _init() -> void:
 	

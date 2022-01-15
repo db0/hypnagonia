@@ -1,7 +1,7 @@
-extends "res://tests/HUT_IntentScriptsTestClass.gd"
+extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"
 
 class TestStress:
-	extends "res://tests/HUT_IntentScriptsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"
 	func _init() -> void:
 		intents_to_test = [
 			{
@@ -16,7 +16,7 @@ class TestStress:
 
 
 class TestPerplex:
-	extends "res://tests/HUT_IntentScriptsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"
 	func _init() -> void:
 		intents_to_test = [
 			{
@@ -31,7 +31,7 @@ class TestPerplex:
 
 
 class TestPerplexGroup:
-	extends "res://tests/HUT_IntentScriptsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"
 	func _init() -> void:
 		torments_amount = 3
 		intents_to_test = [
@@ -48,7 +48,7 @@ class TestPerplexGroup:
 
 
 class TestDebuff:
-	extends "res://tests/HUT_IntentScriptsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"
 	func _init() -> void:
 		intents_to_test = [
 			{
@@ -68,7 +68,7 @@ class TestDebuff:
 				"Dreamer should gain many debuff stacks")
 
 class TestBuff:
-	extends "res://tests/HUT_IntentScriptsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"
 	func _init() -> void:
 		intents_to_test = [
 			{
@@ -89,7 +89,7 @@ class TestBuff:
 
 
 class TestBuffGroup:
-	extends "res://tests/HUT_IntentScriptsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"
 	func _init() -> void:
 		torments_amount = 3
 		intents_to_test = [
@@ -112,7 +112,7 @@ class TestBuffGroup:
 
 
 class TestStare:
-	extends "res://tests/HUT_IntentScriptsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"
 	func _init() -> void:
 		intents_to_test = [
 			{
@@ -129,7 +129,7 @@ class TestStare:
 
 
 class TestDelight:
-	extends "res://tests/HUT_IntentScriptsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"
 	func _init() -> void:
 		intents_to_test = [
 			{
@@ -148,7 +148,7 @@ class TestDelight:
 
 
 class TestLethargy:
-	extends "res://tests/HUT_IntentScriptsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"
 	func _init() -> void:
 		intents_to_test = [
 			{
@@ -169,7 +169,7 @@ class TestLethargy:
 
 
 class TestEvident:
-	extends "res://tests/HUT_IntentScriptsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"
 	func _init() -> void:
 		intents_to_test = [
 			{
@@ -183,7 +183,7 @@ class TestEvident:
 
 
 class TestFrustrate:
-	extends "res://tests/HUT_IntentScriptsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"
 	func _init() -> void:
 		intents_to_test = [
 			{
@@ -198,7 +198,7 @@ class TestFrustrate:
 
 
 class TestDisheartenNegative:
-	extends "res://tests/HUT_IntentScriptsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"
 	func _init() -> void:
 		set_released_pathos[Terms.RUN_ACCUMULATION_NAMES.enemy] = 37
 		intents_to_test = [
@@ -219,7 +219,7 @@ class TestDisheartenNegative:
 
 
 class TestDisheartenPositive:
-	extends "res://tests/HUT_IntentScriptsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"
 	func _init() -> void:
 		set_released_pathos[Terms.RUN_ACCUMULATION_NAMES.enemy] = 37
 		intents_to_test = [
@@ -239,7 +239,7 @@ class TestDisheartenPositive:
 
 
 class TestUnfocus:
-	extends "res://tests/HUT_IntentScriptsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"
 	func _init() -> void:
 		var test_effect := {
 				"name": Terms.ACTIVE_EFFECTS.rebalance.name,
@@ -263,7 +263,7 @@ class TestUnfocus:
 
 
 class TestPencilsReady:
-	extends "res://tests/HUT_IntentScriptsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"
 	func _init() -> void:
 		var test_effect := {
 				"name": Terms.ACTIVE_EFFECTS.rebalance.name,
@@ -287,7 +287,7 @@ class TestPencilsReady:
 
 
 class TestMemoryFailing:
-	extends "res://tests/HUT_IntentScriptsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"
 	func _init() -> void:
 		globals.test_flags["no_refill"] = false
 		globals.test_flags["no_end_turn_delay"] = false
@@ -308,7 +308,7 @@ class TestMemoryFailing:
 	
 
 class TestIncreaseComplexity:
-	extends "res://tests/HUT_IntentScriptsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"
 	func _init() -> void:
 		intents_to_test = [
 			{

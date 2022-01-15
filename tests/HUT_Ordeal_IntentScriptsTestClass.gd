@@ -1,4 +1,4 @@
-extends "res://tests/HUTCommon.gd"
+extends "res://tests/HUTCommon_Ordeal.gd"
 
 var intents_to_test := [
 #	{

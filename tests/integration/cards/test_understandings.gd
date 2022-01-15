@@ -1,7 +1,7 @@
-extends "res://tests/HUT_CardTestClass.gd"
+extends "res://tests/HUT_Ordeal_CardTestClass.gd"
 
 class TestGaslighter:
-	extends "res://tests/HUT_CardTestClass.gd"
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.poison.name
 	func _init() -> void:
 		testing_card_name = "Gaslighter"

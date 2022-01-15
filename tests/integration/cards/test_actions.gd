@@ -1,7 +1,7 @@
-extends "res://tests/HUT_CardTestClass.gd"
+extends "res://tests/HUT_Ordeal_CardTestClass.gd"
 
 class TestInterpretation:
-	extends "res://tests/HUT_CardTestClass.gd"
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
 	func _init() -> void:
 		testing_card_name = "Interpretation"
 		expected_amount_keys = [

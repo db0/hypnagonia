@@ -1,7 +1,7 @@
-extends "res://tests/HUTCommon.gd"
+extends "res://tests/HUTCommon_Ordeal.gd"
 
 class TestVoid:
-	extends "res://tests/HUT_TormentEffectsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_TormentEffectsTestClass.gd"
 	var effect = Terms.ACTIVE_EFFECTS["void"].name
 	func _init() -> void:
 		test_card_names = [
@@ -27,7 +27,7 @@ class TestVoid:
 				"2 Lacuna as spawned per played Understanding")
 
 class TestSelfCleaning:
-	extends "res://tests/HUT_TormentEffectsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_TormentEffectsTestClass.gd"
 	var effect = Terms.ACTIVE_EFFECTS.self_cleaning.name
 	var amount = 2
 	func _init() -> void:
@@ -70,7 +70,7 @@ class TestSelfCleaning:
 
 
 class TestJumbletron:
-	extends "res://tests/HUT_TormentEffectsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_TormentEffectsTestClass.gd"
 	var effect = Terms.ACTIVE_EFFECTS.jumbletron.name
 	var amount = 1
 	func _init() -> void:
@@ -116,7 +116,7 @@ class TestJumbletron:
 				assert_signal_not_emitted(ce, "card_entry_modified")
 
 class TestEnraged:
-	extends "res://tests/HUT_TormentEffectsTestClass.gd"
+	extends "res://tests/HUT_Ordeal_TormentEffectsTestClass.gd"
 	var effect = Terms.ACTIVE_EFFECTS.enraged.name
 	func _init() -> void:
 		test_card_names = [
