@@ -468,8 +468,6 @@ func _input(event):
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"A Strange Gaida",
-			"Absurdity Unleashed",
 		]:
 			var ce = CardEntry.new(c)
 			var card = ce.instance_self()
@@ -513,8 +511,8 @@ func _on_Debug_pressed() -> void:
 	for entity in get_tree().get_nodes_in_group("EnemyEntities"):
 		entity.damage = 1
 	for c in [
-		"A Strange Gaida",
-		"Absurdity Unleashed",
+			"Fowl Language",
+			"A Thousand Squeaks",
 	]:
 		var card = cfc.instance_card(c)
 		cfc.NMAP.hand.add_child(card)

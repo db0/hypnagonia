@@ -1,7 +1,7 @@
 extends "res://tests/HUTCommon.gd"
 
 var advanced_torment_scene: PackedScene
-var difficulty := 'normal'
+var difficulty := 'medium'
 var advanced_torment: EnemyEntity
 var torments := []
 var intents_to_test := [

@@ -6,6 +6,7 @@ class TestVoid:
 	func _init() -> void:
 		test_card_names = [
 			"Void",
+			"Confidence",
 		]
 		effects_to_play = [
 			{
@@ -16,6 +17,9 @@ class TestVoid:
 
 	func test_void():
 		var sceng = snipexecute(card, test_torment)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		sceng = cards[1].execute_scripts()
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
 		yield(yield_for(1.5), YIELD)
@@ -110,3 +114,38 @@ class TestJumbletron:
 				assert_signal_emitted(ce, "card_entry_modified")
 			else:
 				assert_signal_not_emitted(ce, "card_entry_modified")
+
+class TestEnraged:
+	extends "res://tests/HUT_TormentEffectsTestClass.gd"
+	var effect = Terms.ACTIVE_EFFECTS.enraged.name
+	func _init() -> void:
+		test_card_names = [
+			"Interpretation",
+			"Confidence",
+			"Nothing to Fear",
+			"Fearmonger",
+		]
+		effects_to_play = [
+			{
+				"name": effect,
+				"amount": 2,
+			}
+		]
+
+	func test_enraged():
+		var sceng = cards[1].execute_scripts()
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		sceng = cards[2].execute_scripts()
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		sceng = cards[3].execute_scripts()
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		sceng = snipexecute(cards[0], test_torment)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		yield(yield_for(0.1), YIELD)
+		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 2,
+				"%s added %s from Control cards only" % [effect, Terms.ACTIVE_EFFECTS.strengthen.name])
+

@@ -345,12 +345,6 @@ const ACTIVE_EFFECTS := {
 		"is_invisible": true,
 		"icon": preload("res://assets/icons/triple-yin.png"),
 	},
-	"enraged": {
-		"name": "Meandering Disquietude",
-		"type": "Special",
-		"description": "{effect_name}: Every time you play a Control card, this {entity} gains {amount} {strengthen}",
-		"icon": preload("res://assets/icons/wavy-itinerary.png"),
-	},
 	"creative_block": {
 		"name": "Creative Block",
 		"type": "Special",
@@ -501,6 +495,12 @@ const ACTIVE_EFFECTS := {
 	},
 	# These effects are usually starting on top of special enemies
 	# but might also be given to the player as Understanding concentrations
+	"enraged": {
+		"name": "Meandering Disquietude",
+		"type": "Special",
+		"description": "{effect_name}: Every time you play a Control card, this {entity} gains {amount} {strengthen}",
+		"icon": preload("res://assets/icons/wavy-itinerary.png"),
+	},
 	"stuffed_toy": {
 		"name": "Plushyness",
 		"type": "Concentration",
