@@ -63,8 +63,8 @@ func teardown_board() -> void:
 
 func setup_hypnagonia_testing() -> void:
 	# warning-ignore:return_value_discarded
+	cfc.game_rng_seed = "GUT"
 	NewGameMenu.randomize_aspect_choices()
-	cfc.game_rng_seed = CFUtils.generate_random_seed()
 	globals.player.setup()
 	globals.encounters.prepare_next_act()
 

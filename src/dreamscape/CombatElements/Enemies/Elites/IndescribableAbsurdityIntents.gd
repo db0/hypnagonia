@@ -132,7 +132,7 @@ func _get_elite_scripts(intent_name: String) -> Array:
 						"effect_name": found_concentration,
 						"tags": ["Intent"],
 						"subject": "dreamer",
-						"modification": -1,
+						"modification": -2,
 						"icon": all_intent_scripts.ICON_SPECIAL,
 						"description": "What is it doing?"
 					}
