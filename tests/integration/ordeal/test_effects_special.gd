@@ -145,7 +145,7 @@ class TestEnraged:
 		sceng = snipexecute(cards[0], test_torment)
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
-		yield(yield_for(0.1), YIELD)
+		yield(yield_for(0.3), YIELD)
 		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 2,
 				"%s added %s from Control cards only" % [effect, Terms.ACTIVE_EFFECTS.strengthen.name])
 
