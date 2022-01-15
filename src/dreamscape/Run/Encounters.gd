@@ -36,6 +36,7 @@ func prepare_next_act(current_journal = null) -> void:
 		globals.journal.end_dev_version()
 		return
 	current_act = available_acts.pop_front()
+	print_debug(current_act)
 	remaining_enemies = current_act.ENEMIES.duplicate(true)
 	remaining_elites = current_act.ELITES.duplicate(true)
 	for nce_type in remaining_nce:

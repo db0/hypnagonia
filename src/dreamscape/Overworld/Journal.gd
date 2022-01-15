@@ -58,7 +58,8 @@ func _ready() -> void:
 	player_info.owner_node = self
 	journal_intro.bbcode_text = _get_intro()
 	_reveal_entry(journal_intro)
-	yield(_tween, "tween_all_completed")
+	if not globals.test_flags.get("no_journal_fade"):
+		yield(_tween, "tween_all_completed")
 	var encounter_choices: Array
 	globals.encounters.encounter_number += 1
 	encounter_choices = globals.encounters.generate_journal_choices()
@@ -72,7 +73,8 @@ func _ready() -> void:
 				"_on_choice_pressed",
 				[encounter, journal_choice_scene])
 		_reveal_entry(journal_choice_scene.journal_choice)
-		yield(_tween, "tween_all_completed")
+		if not globals.test_flags.get("no_journal_fade"):
+			yield(_tween, "tween_all_completed")
 	if not cfc.game_settings.get('first_journal_tutorial_done'):
 		player_info._on_Help_pressed()
 		cfc.set_setting('first_journal_tutorial_done', true)

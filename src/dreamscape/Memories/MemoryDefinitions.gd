@@ -531,3 +531,9 @@ static func find_memory_from_name(memory_name: String):
 	for definition in get_complete_memories_array():
 		if definition.name == memory_name:
 			return(definition)
+
+
+static func memory_exists(memory_name: String) -> bool:
+	if find_memory_from_name(memory_name):
+		return(true)
+	return(false)
