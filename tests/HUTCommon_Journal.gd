@@ -6,6 +6,8 @@ var set_released_pathos := {}
 ### Other
 var testing_artifact_names := []
 var testing_memories_names := []
+var testing_card_names := []
+var cards := []
 
 func before_each():
 	if not globals.test_flags.has("no_journal_fade"):
@@ -24,6 +26,7 @@ func before_each():
 			globals.player.pathos.released[pathos_name] = set_released_pathos[pathos_name]
 		else:
 			globals.player.pathos.released[pathos_name] = 0
+	cards = setup_deck_cards(testing_card_names)
 	artifacts = setup_test_artifacts(testing_artifact_names)
 	memories = setup_test_memories(testing_memories_names)
 	yield(yield_to(get_tree(), "idle_frame", 0.1), YIELD)

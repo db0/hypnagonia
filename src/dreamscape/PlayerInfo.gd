@@ -137,10 +137,15 @@ func get_all_artifacts() -> Dictionary:
 	return(found_artifacts)
 
 
-func find_artifact(artifact_name):
+func find_artifact(artifact_name: String):
 	var artifact = get_all_artifacts().get(artifact_name)
 	if artifact:
 		return(artifact)
+
+func find_memory(memory_name: String):
+	var memory = _memories.get_node(memory_name)
+	if memory:
+		return(memory)
 
 func get_ordered_artifacts(ordered_effects: Dictionary) -> Dictionary:
 	for artifact in _artifacts.get_children():

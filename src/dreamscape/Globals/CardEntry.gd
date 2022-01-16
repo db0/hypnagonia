@@ -4,6 +4,7 @@ extends Reference
 
 signal card_entry_upgraded(card_entry)
 signal card_entry_modified(card_entry)
+signal card_entry_progressed(card_entry, amount)
 
 # The baseline threshold which all cards needs to upgrade
 const UPGRADE_THRESHOLD_BASELINE = 6
@@ -92,7 +93,7 @@ func upgrade(upgrade_name: String) -> void:
 # Else returns false
 func record_use() -> bool:
 	if upgrade_progress < upgrade_threshold:
-		upgrade_progress += 1
+		set_upgrade_progress(upgrade_progress + 1)
 		return(true)
 	return(false)
 
@@ -101,11 +102,14 @@ func set_upgrade_progress(amount) -> void:
 	# If the card upgrade progress is -1 it means it's not upgradable
 	if upgrade_threshold < 0:
 		return
+	var pre_upgrade = upgrade_progress
+	if amount > upgrade_threshold:
+		amount = upgrade_threshold
+	elif amount < 0:
+		amount = 0
 	upgrade_progress = amount
-	if upgrade_progress > upgrade_threshold:
-		upgrade_progress = upgrade_threshold
-	elif upgrade_progress < 0:
-		upgrade_progress = 0
+	if pre_upgrade != amount:
+		emit_signal("card_entry_progressed", amount - pre_upgrade)
 
 
 func can_be_upgraded() -> bool:
@@ -185,7 +189,6 @@ func modify_property(property: String, value, record := true) -> void:
 			if not tag in properties[property]:
 				properties[property].append(tag)
 	emit_signal("card_entry_modified", self)
-	globals.player.deck.signal_card_entry_modified(self)
 
 
 # In Hypnagonia, cards with permanent CardEntries, retrieve their scripts from

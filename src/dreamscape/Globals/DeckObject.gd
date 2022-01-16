@@ -5,6 +5,7 @@ signal card_added(card)
 signal card_removed(card)
 signal card_entry_upgraded(card_entry)
 signal card_entry_modified(card_entry)
+signal card_entry_progressed(card_entry, amount)
 
 var cards: Array
 var deck_groups : Dictionary
@@ -16,8 +17,7 @@ func _init(_deck_groups) -> void:
 func assemble_starting_deck() -> void:
 	for key in deck_groups:
 		for card_name in Aspects[key.to_upper()][deck_groups[key]]["Basic"]:
-			var new_card := CardEntry.new(card_name)
-			cards.append(new_card)
+			var new_card := add_new_card(card_name)
 
 
 func update_card_group(type: String, card_group: String) -> void:
@@ -37,6 +37,9 @@ func add_new_card(card_name, progress := 0) -> CardEntry:
 	if OS.has_feature("debug"):
 		print("DEBUG INFO:Deck: Adding new card:" + card_name)
 	var new_card := CardEntry.new(card_name)
+	new_card.connect("card_entry_modified", self, "signal_card_entry_modified")
+	new_card.connect("card_entry_upgraded", self, "signal_card_entry_upgraded")
+	new_card.connect("card_entry_progressed", self, "signal_card_entry_progressed")
 	new_card.upgrade_progress = progress
 	cards.append(new_card)
 	emit_signal("card_added", new_card)
@@ -48,6 +51,9 @@ func remove_card(card_entry: CardEntry) -> void:
 		print("DEBUG INFO:Deck: Removing card:" + card_entry.card_name)
 	# As a failsafe, we do not allow to remove the last card
 	if cards.size() > 1:
+		card_entry.disconnect("card_entry_modified", self, "signal_card_entry_modified")
+		card_entry.disconnect("card_entry_upgraded", self, "signal_card_entry_upgraded")
+		card_entry.disconnect("card_entry_progressed", self, "signal_card_entry_progressed")
 		cards.erase(card_entry)
 		emit_signal("card_removed", card_entry)
 	elif OS.has_feature("debug"):
@@ -59,6 +65,9 @@ func signal_card_entry_upgraded(card_entry: CardEntry) -> void:
 
 func signal_card_entry_modified(card_entry: CardEntry) -> void:
 	emit_signal("card_entry_modified", card_entry)
+
+func signal_card_entry_progressed(card_entry: CardEntry, amount: int) -> void:
+	emit_signal("card_entry_progressed", card_entry, amount)
 
 
 func list_all_cards(sorted:= false) -> Array:
@@ -178,4 +187,4 @@ func filter_card_on_amounts(amount_name: String) -> Array:
 		if card_amounts.has(amount_name):
 			card_list.append(card_entry)
 	return(card_list)
-		
+
