@@ -24,8 +24,11 @@ func setup(card) -> Card:
 func _on_DraftCardObject_gui_input(event: InputEvent) -> void:
 	if not is_disabled and event is InputEventMouseButton and event.is_pressed():
 		if event.get_button_index() == 1:
-			emit_signal("card_selected", index)
+			select_card()
 
+
+func select_card() -> void:
+	emit_signal("card_selected", index)
 
 func refresh_preview_card() -> void:
 	cfc.ov_utils.populate_info_panels(preview_popup.preview_card,preview_popup.focus_info)
