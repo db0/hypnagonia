@@ -20,7 +20,7 @@ class TestProgressRandom:
 		if not signal_details or signal_details.size() == 0:
 			return
 		var card_entry: CardEntry = signal_details[0]
-		assert_has(card_entry.upgrade_progress, get_amount("progress_amount"),
+		assert_eq(card_entry.upgrade_progress, get_amount("progress_amount"),
 				"Selected card progressed as expected")
 
 class TestBossFaster:

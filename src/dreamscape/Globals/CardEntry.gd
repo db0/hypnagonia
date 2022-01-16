@@ -109,7 +109,7 @@ func set_upgrade_progress(amount) -> void:
 		amount = 0
 	upgrade_progress = amount
 	if pre_upgrade != amount:
-		emit_signal("card_entry_progressed", amount - pre_upgrade)
+		emit_signal("card_entry_progressed", self, amount - pre_upgrade)
 
 
 func can_be_upgraded() -> bool:
