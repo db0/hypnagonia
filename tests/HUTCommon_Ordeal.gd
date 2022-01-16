@@ -238,3 +238,26 @@ func get_dreamer_effect_script(effect_name: String, amount: int) -> Dictionary:
 # Returns the expected amount of damage, after including the torments starting dmgs
 func tdamage(damage: int) -> int:
 	return(starting_torment_dgm + damage)
+
+
+func memexecute(memory: Memory, target: CombatEntity = null):
+	var sceng = memory._use()
+	if target:
+		if not dreamer.targeting_arrow.is_targeting:
+			yield(yield_to(dreamer.targeting_arrow, "initiated_targeting", 1), YIELD)
+		dreamer.targeting_arrow.preselect_target(target)
+	if sceng is GDScriptFunctionState:
+		sceng = yield(sceng, "completed")
+
+func setup_deckpile_cards(cards: Array) -> Array:
+	var spawned_cards := []
+	for c in cards:
+		var ce = CardEntry.new(c)
+		var card = ce.instance_self()
+		cfc.NMAP.deck.add_child(card)
+		#card.set_is_faceup(false,true)
+		card._determine_idle_state()
+		spawned_cards.append(card)
+	for c in spawned_cards:
+		c.set_to_idle()
+	return(spawned_cards)
