@@ -245,9 +245,12 @@ func memexecute(memory: Memory, target: CombatEntity = null):
 	if target:
 		if not dreamer.targeting_arrow.is_targeting:
 			yield(yield_to(dreamer.targeting_arrow, "initiated_targeting", 1), YIELD)
-		dreamer.targeting_arrow.preselect_target(target)
+		dreamer.targeting_arrow.call_deferred("preselect_target", target)
 	if sceng is GDScriptFunctionState:
 		sceng = yield(sceng, "completed")
+	elif sceng and not sceng.all_tasks_completed:
+		yield(yield_to(sceng, "tasks_completed", 0.2), YIELD)
+	return(sceng)
 
 func setup_deckpile_cards(cards: Array) -> Array:
 	var spawned_cards := []

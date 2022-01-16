@@ -268,7 +268,7 @@ func snipexecute(card: Card, target: CombatEntity):
 	var sceng = card.execute_scripts()
 	if not card.targeting_arrow.is_targeting:
 		yield(yield_to(card.targeting_arrow, "initiated_targeting", 1), YIELD)
-	card.targeting_arrow.preselect_target(target)
+	card.targeting_arrow.call_deferred("preselect_target", target)
 	if sceng is GDScriptFunctionState:
 		sceng = yield(sceng, "completed")
 	elif sceng and not sceng.all_tasks_completed:

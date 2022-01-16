@@ -155,10 +155,103 @@ class TestRandomChaos:
 		]
 		if not assert_has_amounts():
 			return
-		var deck_cards = setup_deckpile_cards(deck_cards_names)
-		watch_signals(cfc.signal_propagator)
+		var _deck_cards = setup_deckpile_cards(deck_cards_names)
 		var sceng = memexecute(memory)
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
 		assert_eq(deck.get_card_count(), deck_cards_names.size() - get_amount("draw_amount"), "Correct amount of cards played")
 		assert_eq(turn.turn_event_count.get("cards_played", 0), get_amount("draw_amount"), "Correct amount of cards played")
+
+class TestReshuffleHand:
+	extends "res://tests/HUT_Ordeal_MemoriesTestClass.gd"
+	func _init() -> void:
+		testing_memory_name = MemoryDefinitions.ReshuffleHand.canonical_name
+		expected_amount_keys = [
+			"upgrade_multiplier",
+		]
+		test_card_names = [
+			"Interpretation",
+			"Confidence",
+			"Confidence",
+		]
+
+	func test_memory_use():
+		var deck_cards_names := [
+			"Lacuna",
+			"Lacuna",
+			"Lacuna",
+			"Lacuna",
+			"Lacuna",
+		]
+		if not assert_has_amounts():
+			return
+		var _deck_cards = setup_deckpile_cards(deck_cards_names)
+		var hand_pre_cards = hand.get_all_cards()
+		var deck_pre_cards = deck.get_all_cards()
+		watch_signals(deck)
+		var sceng = memexecute(memory)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_ne(hand.get_all_cards(), hand_pre_cards, "Hand contents changed")
+		assert_ne(deck.get_all_cards(), deck_pre_cards, "Deck contents changed")
+		assert_eq(hand.get_card_count(), hand_pre_cards.size(), "Correct amount of cards in hand")
+		assert_signal_emitted(deck, "shuffle_completed")
+
+
+class TestPoisonEnemy:
+	extends "res://tests/HUT_Ordeal_MemoriesTestClass.gd"
+	func _init() -> void:
+		testing_memory_name = MemoryDefinitions.PoisonEnemy.canonical_name
+		expected_amount_keys = [
+			"effect_stacks",
+			"upgrade_multiplier",
+		]
+
+	func test_memory_use():
+		if not assert_has_amounts():
+			return
+		var sceng = memexecute(memory, test_torment)
+#		yield(yield_for(0.2), YIELD)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.poison.name), get_amount("effect_stacks"),
+				"Expected %s stacks added to %s" % [Terms.ACTIVE_EFFECTS.poison.name, dreamer])
+
+
+class TestDisempowerEnemy:
+	extends "res://tests/HUT_Ordeal_MemoriesTestClass.gd"
+	func _init() -> void:
+		testing_memory_name = MemoryDefinitions.DisempowerEnemy.canonical_name
+		expected_amount_keys = [
+			"effect_stacks",
+			"upgrade_multiplier",
+		]
+
+	func test_memory_use():
+		if not assert_has_amounts():
+			return
+		var sceng = memexecute(memory, test_torment)
+#		yield(yield_for(0.2), YIELD)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.disempower.name), get_amount("effect_stacks"),
+				"Expected %s stacks added to %s" % [Terms.ACTIVE_EFFECTS.disempower.name, dreamer])
+
+
+class TestImperviousSelf:
+	extends "res://tests/HUT_Ordeal_MemoriesTestClass.gd"
+	func _init() -> void:
+		testing_memory_name = MemoryDefinitions.ImperviousSelf.canonical_name
+		expected_amount_keys = [
+			"effect_stacks",
+			"upgrade_multiplier",
+		]
+
+	func test_memory_use():
+		if not assert_has_amounts():
+			return
+		var sceng = memexecute(memory)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.impervious.name), get_amount("effect_stacks"),
+				"Expected %s stacks added to %s" % [Terms.ACTIVE_EFFECTS.impervious.name, dreamer])
