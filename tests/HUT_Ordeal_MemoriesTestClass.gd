@@ -1,8 +1,9 @@
-extends "res://tests/HUTCommon_Journal.gd"
+extends "res://tests/HUTCommon_Ordeal.gd"
 
 var testing_memory_name: String
 var memory: Memory
 var expected_amount_keys := []
+
 
 func before_each():
 	if testing_memory_name != '':
@@ -10,8 +11,10 @@ func before_each():
 	var confirm_return = .before_each()
 	if confirm_return is GDScriptFunctionState: # Still working.
 		confirm_return = yield(confirm_return, "completed")
+	spawn_test_torments()
 	if testing_memory_name != '':
 		memory = player_info.find_memory(testing_memory_name)
+	yield(yield_for(0.1), YIELD)
 
 func get_amount(amount_key: String):
 	var requested_amount = memory.artifact_object.definition.get("amounts", {}).get(amount_key)

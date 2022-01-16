@@ -75,7 +75,7 @@ class TestRemovePerturbation:
 			"max_upgrades",
 			"upgrade_multiplier",
 		]
-		testing_card_names = [
+		test_card_names = [
 			"Lacuna",
 			"Gaslighter",
 			"Lacuna",

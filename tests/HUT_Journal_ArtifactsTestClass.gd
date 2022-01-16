@@ -6,7 +6,7 @@ var expected_amount_keys := []
 
 func before_each():
 	if testing_artifact_name != '':
-		testing_artifact_names.append(testing_artifact_name)
+		test_artifact_names.append(testing_artifact_name)
 	var confirm_return = .before_each()
 	if confirm_return is GDScriptFunctionState: # Still working.
 		confirm_return = yield(confirm_return, "completed")

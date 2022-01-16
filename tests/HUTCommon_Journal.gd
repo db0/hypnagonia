@@ -4,9 +4,9 @@ extends "res://tests/UTCommon.gd"
 var set_repressed_pathos := {}
 var set_released_pathos := {}
 ### Other
-var testing_artifact_names := []
-var testing_memories_names := []
-var testing_card_names := []
+var test_artifact_names := []
+var test_memories_names := []
+var test_card_names := []
 var cards := []
 
 func before_each():
@@ -26,9 +26,9 @@ func before_each():
 			globals.player.pathos.released[pathos_name] = set_released_pathos[pathos_name]
 		else:
 			globals.player.pathos.released[pathos_name] = 0
-	cards = setup_deck_cards(testing_card_names)
-	artifacts = setup_test_artifacts(testing_artifact_names)
-	memories = setup_test_memories(testing_memories_names)
+	cards = setup_deck_cards(test_card_names)
+	artifacts = setup_test_artifacts(test_artifact_names)
+	memories = setup_test_memories(test_memories_names)
 	yield(yield_to(get_tree(), "idle_frame", 0.1), YIELD)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), -80)
 

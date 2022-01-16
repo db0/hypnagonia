@@ -254,7 +254,7 @@ class TestIncreaseConfusionStacks:
 	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
 	func _init() -> void:
 		testing_artifact_name = ArtifactDefinitions.IncreaseConfusionStacks.canonical_name
-		testing_card_names = [
+		test_card_names = [
 			"Noisy Whip",
 		]
 
@@ -291,7 +291,7 @@ class TestIncreaseImmersionGain:
 	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
 	func _init() -> void:
 		testing_artifact_name = ArtifactDefinitions.IncreaseImmersionGain.canonical_name
-		testing_card_names = [
+		test_card_names = [
 			"Inner Justice",
 		]
 
