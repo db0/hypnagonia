@@ -2,6 +2,7 @@ class_name CardDraft
 extends HBoxContainer
 
 signal card_drafted(card_entity)
+signal draft_prepared()
 
 const CARD_DRAFT_SCENE = preload("res://src/dreamscape/ChoiceCardObject.tscn")
 
@@ -56,6 +57,7 @@ func populate_draft_cards() -> void:
 		draft_card_object.index = index
 		draft_card_object.connect("card_selected", self, "_on_card_draft_selected", [draft_card_object])
 	globals.journal.card_draft_started(self)
+	emit_signal("draft_prepared")
 
 #	yield(get_tree().create_timer(0.15), "timeout")
 #	call_deferred('set_size',Vector2(0,0))
@@ -109,7 +111,9 @@ func retrieve_draft_cards() -> void:
 					# This break ensures we only add one card from the pool
 					# of availabkle cards of that rarity
 					break
-	draft_card_choices += globals.current_encounter.return_extra_draft_cards()
+	# Normally this should always exist, but might not, in GUT
+	if globals.current_encounter:
+		draft_card_choices += globals.current_encounter.return_extra_draft_cards()
 
 func retrieve_elite_draft() -> void:
 	draft_card_choices.clear()
