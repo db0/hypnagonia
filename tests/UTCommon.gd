@@ -95,10 +95,13 @@ func teardown_hypnagonia_testing() -> void:
 	cfc.quit_game()
 	globals.reset()
 
-func setup_test_cards(cards: Array) -> Array:
+func setup_test_cards(cards: Array, card_entries_only := false) -> Array:
 	var spawned_cards := []
 	for c in cards:
 		var ce = CardEntry.new(c)
+		if card_entries_only:
+			spawned_cards.append(ce)
+			continue
 		var card = ce.instance_self()
 		cfc.NMAP.hand.add_child(card)
 		#card.set_is_faceup(false,true)
@@ -106,6 +109,12 @@ func setup_test_cards(cards: Array) -> Array:
 		spawned_cards.append(card)
 	for c in spawned_cards:
 		c.reorganize_self()
+	return(spawned_cards)
+	
+func setup_deck_cards(cards: Array) -> Array:
+	var spawned_cards := []
+	for c in cards:
+		spawned_cards.append(globals.player.deck.add_new_card(c))
 	return(spawned_cards)
 
 func setup_test_artifacts(artifacts_array: Array) -> Array:
@@ -119,6 +128,8 @@ func setup_test_memories(memories_array: Array) -> Array:
 	for mname in memories_array:
 		spawned_memories.append(globals.player.add_memory(mname))
 	return(spawned_memories)
+
+
 
 func click_card(card: Card, _use_fake_mouse := true, offset:=Vector2(0,0)) -> void:
 	var fc:= fake_click(true, offset)

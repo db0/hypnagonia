@@ -534,6 +534,6 @@ static func find_memory_from_name(memory_name: String):
 
 
 static func memory_exists(memory_name: String) -> bool:
-	if find_memory_from_name(memory_name):
+	if find_memory_from_canonical_name(memory_name):
 		return(true)
 	return(false)
