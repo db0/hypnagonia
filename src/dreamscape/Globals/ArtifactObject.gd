@@ -13,14 +13,17 @@ var canonical_name: String
 var definition: Dictionary
 # Whether this artifact is active during the battle or the journal phases
 var context: int
-# These is an open ended dictionary which we can use to pass arguments to the 
+# These is an open ended dictionary which we can use to pass arguments to the
 # artifact definition. For example if we want the same artifact, but it behaves in
 # different ways, based on how the player got it.
 var modifiers := {}
 
 func _init(artifact_name: String, _mods := {}) -> void:
 	artifact_scene = ARTIFACT_SCENE
-	definition = ArtifactDefinitions[artifact_name].duplicate(true)
+	if globals.test_flags.get("artifact_defintions", {}).has(artifact_name):
+		definition = globals.test_flags.memory_defintions[artifact_name]
+	else:
+		definition = ArtifactDefinitions[artifact_name].duplicate(true)
 	canonical_name = definition["canonical_name"]
 	context = definition["context"]
 	modifiers = _mods

@@ -26,7 +26,10 @@ var modifiers := {}
 
 func _init(memory_name: String, _mods := {}) -> void:
 	memory_scene = MEMORY_SCENE
-	definition = MemoryDefinitions[memory_name].duplicate(true)
+	if globals.test_flags.get("memory_defintions", {}).has(memory_name):
+		definition = globals.test_flags.memory_defintions[memory_name]
+	else:
+		definition = MemoryDefinitions[memory_name].duplicate(true)
 	canonical_name = definition["canonical_name"]
 	context = definition["context"]
 	pathos_used = definition["pathos"]

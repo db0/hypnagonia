@@ -117,6 +117,8 @@ var turn: Turn
 var counters: Counters
 
 var test_card_names := []
+var test_artifact_names := []
+var test_memories_names := []
 var cards : Array
 ### used in spawn_test_torments()
 var torments_amount := 1
@@ -165,6 +167,8 @@ func before_each():
 		card = cards[0]
 		if not test_scripts.empty():
 			card.scripts = test_scripts
+	artifacts = setup_test_artifacts(test_artifact_names)
+	memories = setup_test_memories(test_memories_names)
 	while board.counters.counters.immersion == 0:
 		yield(yield_to(board.turn, "player_turn_started", 1), YIELD)
 #	print_debug(board.counters.counters)
@@ -212,7 +216,7 @@ func get_filtered_cards(property: String, value, comparison := 'eq') -> Array:
 		if cfilter.check_card(c.properties):
 			matching_cards.append(c)
 	return(matching_cards)
-	
+
 
 func get_dreamer_effect_script(effect_name: String, amount: int) -> Dictionary:
 	var apply_dreamer_effect_script := {
@@ -227,7 +231,7 @@ func get_dreamer_effect_script(effect_name: String, amount: int) -> Dictionary:
 				}
 			],
 		},
-	}	
+	}
 	return(apply_dreamer_effect_script)
 
 
