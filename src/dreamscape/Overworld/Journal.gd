@@ -4,6 +4,8 @@ extends PanelContainer
 signal card_draft_started(card_draft_node)
 signal card_upgrade_started(card_upgrade_node)
 signal artifact_selection_started(artifact_selection_node)
+signal choice_entry_added(choice_entry)
+signal secondary_entry_added(choice_entry)
 signal encounter_start(encounter)
 
 const NESTED_CHOICES_SCENE = preload("res://src/dreamscape/Overworld/SecondaryChoicesSlide.tscn")
@@ -73,6 +75,7 @@ func _ready() -> void:
 				"_on_choice_pressed",
 				[encounter, journal_choice_scene])
 		_reveal_entry(journal_choice_scene.journal_choice)
+		emit_signal("choice_entry_added", journal_choice_scene)
 		if not globals.test_flags.get("no_journal_fade"):
 			yield(_tween, "tween_all_completed")
 	if not cfc.game_settings.get('first_journal_tutorial_done'):
@@ -192,6 +195,8 @@ func add_nested_choices(nested_choices: Dictionary, disabled_choices := [], foll
 	# If we're using a follow-up node, then we try to place the nested choices below it
 	if follow_up_node as Node:
 		var choices_selection_vbc : VBoxContainer
+		# If the follow-up node has a `secondary_choices` var, and it's a VBoxContainer node
+		# it expects the new choices we're adding to be placed under it.
 		if 'secondary_choices' in follow_up_node:
 			choices_selection_vbc = follow_up_node.secondary_choices
 		else:
@@ -203,6 +208,7 @@ func add_nested_choices(nested_choices: Dictionary, disabled_choices := [], foll
 	else:
 		journal_choices.add_child(nested_choices_scene)
 	nested_choices_scene.call_deferred("populate_choices", nested_choices, self, disabled_choices)
+	emit_signal("secondary_entry_added", nested_choices_scene)
 
 
 func spawn_selection_deck() -> SelectionDeck:
@@ -237,6 +243,7 @@ func grey_out_label(rt_label: RichTextLabel) -> void:
 
 func add_custom_entry(entry_scene: Control) -> void:
 	entries_list.add_child_below_node(custom_entries_pointer, entry_scene, true)
+	emit_signal("choice_entry_added", entry_scene)
 
 
 func _on_meta_clicked(meta_text: String) -> void:
