@@ -20,7 +20,7 @@ func get_amount(amount_key: String):
 # Will return true if not all asserts succeed
 func assert_has_amounts() -> bool:
 	assert_true(MemoryDefinitions.memory_exists(testing_memory_name), "Memory %s should exist" % [testing_memory_name])
-	var memory_def = MemoryDefinitions.find_memory_from_name(testing_memory_name)
+	var memory_def = MemoryDefinitions.find_memory_from_canonical_name(testing_memory_name)
 	if memory_def != null:
 		if expected_amount_keys.empty():
 			return(true)
