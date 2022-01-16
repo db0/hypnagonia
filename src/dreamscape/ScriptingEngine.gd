@@ -686,8 +686,10 @@ func confirm_play(script: ScriptTask) -> int:
 		# This way we know if, for example, we've played any interpretation cards this turn
 		var existing_turn_count = turn_event_count.get(card_type_event,0)
 		turn_event_count[card_type_event] = existing_turn_count + 1
+		turn_event_count["cards_played"] = turn_event_count.get("cards_played",0) + 1
 		var existing_encounter_count = encounter_event_count.get(card_type_event,0)
 		encounter_event_count[card_type_event] = existing_encounter_count + 1
+		encounter_event_count["cards_played"] = encounter_event_count.get("cards_played",0) + 1
 		for tag in script.owner.get_property("Tags"):
 			existing_turn_count = turn_event_count.get(tag,0)
 			turn_event_count[tag] = existing_turn_count + 1

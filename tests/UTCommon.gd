@@ -130,7 +130,6 @@ func setup_test_memories(memories_array: Array) -> Array:
 	return(spawned_memories)
 
 
-
 func click_card(card: Card, _use_fake_mouse := true, offset:=Vector2(0,0)) -> void:
 	var fc:= fake_click(true, offset)
 	card._on_Card_gui_input(fc)
@@ -275,5 +274,4 @@ func snipexecute(card: Card, target: CombatEntity):
 	elif sceng and not sceng.all_tasks_completed:
 		yield(yield_to(sceng, "tasks_completed", 0.2), YIELD)
 	return(sceng)
-
 
