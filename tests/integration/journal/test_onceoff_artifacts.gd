@@ -139,3 +139,56 @@ class TestBossDraft:
 			if card_entry:
 				assert_eq(card_entry.upgrade_progress,  get_amount("progress_amount"),
 						"Drafted card at max upgrades")
+
+class TestFreeCard:
+	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
+
+	func test_artifact_results():
+		cfc.game_rng_seed = CFUtils.generate_random_seed()
+		watch_signals(globals.player.deck)
+		# warning-ignore:return_value_discarded
+		setup_test_artifacts([ArtifactDefinitions.FreeCard.canonical_name])
+		assert_signal_emitted(globals.player.deck, "card_entry_modified")
+		var signal_details = get_signal_parameters(globals.player.deck, "card_entry_modified")
+		assert_is(signal_details[0], CardEntry)
+		var card_entry: CardEntry = signal_details[0]
+		if card_entry:
+			assert_eq(card_entry.properties.Cost,  0,
+					"Card modified to have zero cost")
+			assert_gt(card_entry.printed_properties.Cost,  0,
+					"Selected card had originally more than 0 cost")
+
+	func test_when_no_valid_selection():
+		cfc.game_rng_seed = CFUtils.generate_random_seed()
+		for c in globals.player.deck.cards:
+			c.modify_property("Cost",0, false)
+		watch_signals(globals.player.deck)
+		# warning-ignore:return_value_discarded
+		setup_test_artifacts([ArtifactDefinitions.FreeCard.canonical_name])
+		assert_signal_not_emitted(globals.player.deck, "card_entry_modified")
+
+# All AddTagArtifact use the same logic, so we do not need to test all of them.
+class TestAddAlphaTag:
+	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.AddAlphaTag.canonical_name
+
+	func test_artifact_results():
+		cfc.game_rng_seed = CFUtils.generate_random_seed()
+		var selection_decks =  cfc.get_tree().get_nodes_in_group("selection_decks")
+		assert_eq(selection_decks.size(), 1)
+		if selection_decks.size() == 0:
+			return
+		var selection_deck : SelectionDeck = selection_decks[0]
+		watch_signals(globals.player.deck)
+		selection_deck._deck_preview_grid.get_children()[0].select_card()
+		assert_signal_emitted(globals.player.deck, "card_entry_modified")
+		var signal_details = get_signal_parameters(globals.player.deck, "card_entry_modified")
+		assert_is(signal_details[0], CardEntry)
+		var card_entry: CardEntry = signal_details[0]
+		if not card_entry:
+			return
+		assert_has(card_entry.properties.Tags,  Terms.GENERIC_TAGS.alpha.name,
+				"Card modified to have alpha tag")
+		assert_does_not_have(card_entry.printed_properties.Tags,  Terms.GENERIC_TAGS.alpha.name,
+				"Selected card had originally no alpha tag")

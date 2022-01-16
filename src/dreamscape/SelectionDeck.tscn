@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/dreamscape/SelectionDeck.gd" type="Script" id=1]
 
-[node name="SelectionDeck" type="PopupPanel"]
+[node name="SelectionDeck" type="PopupPanel" groups=["selection_decks"]]
 margin_right = 1455.0
 margin_bottom = 900.0
 script = ExtResource( 1 )
