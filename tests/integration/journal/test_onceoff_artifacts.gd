@@ -117,7 +117,6 @@ class TestBossDraft:
 		var new_choice = journal.entries_list.get_node("Artifact_BossDraft")
 		assert_not_null(new_choice, "Custom choice added to journal")
 		watch_signals(globals.player.deck)
-		gut.p(globals.player.deck)
 		if new_choice:
 			assert_eq(new_choice.draft_nodes.size(), get_amount("draft_amount"))
 			new_choice._execute_custom_entry()
@@ -130,7 +129,6 @@ class TestBossDraft:
 			nested_choices_scene._on_choice_pressed(nested_choices_scene.secondary_choices_container.get_child(0), Terms.CARD_GROUP_TERMS.class)
 			yield(yield_for(0.3), YIELD)
 			var draft_node : CardDraft = new_choice.draft_nodes[0].get_child(0)
-			gut.p(draft_node)
 			if draft_node as CardDraft:
 				var draft_card = draft_node.get_child(1)
 				watch_signals(draft_node)

@@ -49,14 +49,14 @@ func _set_current_description() -> void:
 			format(MemoryDefinitions.get_memory_bbcode_format(artifact_object.definition, artifact_object.upgrades_amount))
 
 
-func _use() -> void:
+func _use():
 	var sceng = execute_memory_effect()
 	if sceng is GDScriptFunctionState:
 		sceng = yield(sceng, "completed")
 	if sceng and not sceng.can_all_costs_be_paid:
-		return
+		return(sceng)
 	artifact_object.use()
-
+	return(sceng)
 
 # Overridable function
 func execute_memory_effect():
