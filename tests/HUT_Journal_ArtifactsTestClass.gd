@@ -5,11 +5,13 @@ var artifact: Artifact
 var expected_amount_keys := []
 
 func before_each():
-	testing_artifact_names.append(testing_artifact_name)
+	if testing_artifact_name != '':
+		testing_artifact_names.append(testing_artifact_name)
 	var confirm_return = .before_each()
 	if confirm_return is GDScriptFunctionState: # Still working.
 		confirm_return = yield(confirm_return, "completed")
-	artifact = player_info.find_artifact(testing_artifact_name)
+	if testing_artifact_name != '':
+		artifact = player_info.find_artifact(testing_artifact_name)
 
 func get_amount(amount_key: String):
 	var requested_amount = artifact.artifact_object.definition.get("amounts", {}).get(amount_key)
