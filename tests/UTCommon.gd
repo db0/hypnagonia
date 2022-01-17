@@ -25,6 +25,11 @@ var player_info: PlayerInfo
 
 var artifacts := []
 var memories := []
+# These artifacts will be added to the PlayerObject before the board is spawned
+# This ensures that their effects will trigger on _ready()
+var pre_init_artifacts := []
+var dreamer_starting_damage := 0
+
 
 
 func fake_click(pressed, position, flags=0) -> InputEvent:
@@ -88,7 +93,11 @@ func setup_hypnagonia_testing() -> void:
 	NewGameMenu.randomize_aspect_choices()
 	globals.player.setup()
 	globals.player.health = PLAYER_HEALTH
+	for a in pre_init_artifacts:
+		globals.player.add_artifact(a)
 	globals.encounters.prepare_next_act()
+	# Because typically the next act heals
+	globals.player.damage = dreamer_starting_damage
 
 
 func teardown_hypnagonia_testing() -> void:
