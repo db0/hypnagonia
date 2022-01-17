@@ -255,3 +255,166 @@ class TestImperviousSelf:
 			sceng = yield(sceng, "completed")
 		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.impervious.name), get_amount("effect_stacks"),
 				"Expected %s stacks added to %s" % [Terms.ACTIVE_EFFECTS.impervious.name, dreamer])
+
+
+class TestCardDraw:
+	extends "res://tests/HUT_Ordeal_MemoriesTestClass.gd"
+	func _init() -> void:
+		testing_memory_name = MemoryDefinitions.CardDraw.canonical_name
+		expected_amount_keys = [
+			"draw_amount",
+			"upgrade_multiplier",
+		]
+		test_card_names = [
+			"Interpretation",
+			"Confidence",
+		]
+
+	func test_memory_use():
+		var deck_cards_names := [
+			"Lacuna",
+			"Lacuna",
+			"Lacuna",
+			"Lacuna",
+			"Lacuna",
+		]
+		if not assert_has_amounts():
+			return
+		var _deck_cards = setup_deckpile_cards(deck_cards_names)
+		var hand_pre_size = hand.get_card_count()
+		var deck_pre_size = deck.get_card_count()
+		watch_signals(deck)
+		var sceng = memexecute(memory)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(hand.get_card_count(), hand_pre_size + get_amount("draw_amount"), "Hand draw expected amount")
+		assert_eq(deck.get_card_count(), deck_pre_size - get_amount("draw_amount"), "Deck reduced by expected amount")
+
+
+class TestExertRecovery:
+	extends "res://tests/HUT_Ordeal_MemoriesTestClass.gd"
+	func _init() -> void:
+		testing_memory_name = MemoryDefinitions.ExertRecovery.canonical_name
+		expected_amount_keys = [
+			"upgrade_multiplier",
+		]
+		test_card_names = [
+			"Interpretation",
+			"Interpretation",
+		]
+
+	func test_memory_use():
+		if not assert_has_amounts():
+			return
+		card.scripts = EXERT_SCRIPT
+		var sceng = card.execute_scripts()
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(dreamer.damage, 5)
+		dreamer.damage += 10
+		sceng = memexecute(memory)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(dreamer.damage, 10)
+
+class TestExertSelf:
+	extends "res://tests/HUT_Ordeal_MemoriesTestClass.gd"
+	func _init() -> void:
+		testing_memory_name = MemoryDefinitions.ExertSelf.canonical_name
+		expected_amount_keys = [
+			"exert_amount",
+			"repeat_amount",
+			"upgrade_multiplier",
+		]
+
+	func test_memory_use():
+		if not assert_has_amounts():
+			return
+		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.poison.name, 4)
+		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.disempower.name, 4)
+		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.drain.name, 4)
+		var sceng = memexecute(memory)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		var total_exert = get_amount("exert_amount") * get_amount("repeat_amount")
+		assert_eq(dreamer.damage, total_exert)
+		var total_stacks := 0
+		for effect in dreamer.active_effects.get_all_effects_nodes():
+			assert_has(Terms.get_all_effect_types("Debuff"), effect.canonical_name)
+			total_stacks += effect.stacks
+		assert_eq(total_stacks, 12 - (total_exert/2), "%s removed the expected amount of debuffs" % [memory.name])
+
+	func test_upgraded_memory_use():
+		if not assert_has_amounts():
+			return
+		memories[0].set_upgrades_amount(3)
+		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.poison.name, 4)
+		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.disempower.name, 4)
+		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.drain.name, 4)
+		var sceng = memexecute(memory)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		var total_exert = get_amount("exert_amount") * (get_amount("repeat_amount") + 3)
+		assert_eq(dreamer.damage, total_exert)
+		var total_stacks := 0
+		for effect in dreamer.active_effects.get_all_effects_nodes():
+			assert_has(Terms.get_all_effect_types("Debuff"), effect.canonical_name)
+			total_stacks += effect.stacks
+		assert_eq(total_stacks, 12 - (total_exert/2), "%s removed the expected amount of debuffs" % [memory.name])
+
+
+class TestRegenerateSelf:
+	extends "res://tests/HUT_Ordeal_MemoriesTestClass.gd"
+	func _init() -> void:
+		testing_memory_name = MemoryDefinitions.RegenerateSelf.canonical_name
+		expected_amount_keys = [
+			"heal_amount",
+			"turns_amount",
+			"upgrade_multiplier",
+		]
+
+	func test_memory_use():
+		if not assert_has_amounts():
+			return
+		var sceng = memexecute(memory)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.zen_of_flight.name), get_amount("turns_amount"))
+
+
+class TestBufferSelf:
+	extends "res://tests/HUT_Ordeal_MemoriesTestClass.gd"
+	func _init() -> void:
+		testing_memory_name = MemoryDefinitions.BufferSelf.canonical_name
+		expected_amount_keys = [
+			"effect_stacks",
+			"upgrade_multiplier",
+		]
+
+	func test_memory_use():
+		if not assert_has_amounts():
+			return
+		var sceng = memexecute(memory)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.buffer.name), get_amount("effect_stacks"),
+				"Expected %s stacks added to %s" % [Terms.ACTIVE_EFFECTS.buffer.name, dreamer])
+
+
+class TestProtectSelf:
+	extends "res://tests/HUT_Ordeal_MemoriesTestClass.gd"
+	func _init() -> void:
+		testing_memory_name = MemoryDefinitions.ProtectSelf.canonical_name
+		expected_amount_keys = [
+			"effect_stacks",
+			"upgrade_multiplier",
+		]
+
+	func test_memory_use():
+		if not assert_has_amounts():
+			return
+		var sceng = memexecute(memory)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.protection.name), get_amount("effect_stacks"),
+				"Expected %s stacks added to %s" % [Terms.ACTIVE_EFFECTS.protection.name, dreamer])

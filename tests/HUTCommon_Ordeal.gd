@@ -111,6 +111,18 @@ const BIG_DEFENCE_SCRIPT := {
 		],
 	},
 }
+const EXERT_SCRIPT := {
+	"manual": {
+		"hand": [
+			{
+				"name": "modify_damage",
+				"subject": "dreamer",
+				"amount": 5,
+				"tags": ["Exert", "Card"],
+			},
+		],
+	},
+}
 # For easy access
 var dreamer: PlayerEntity
 var turn: Turn
