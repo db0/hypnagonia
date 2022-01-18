@@ -39,3 +39,105 @@ class TestFirstPowerAttack:
 			sceng = yield(sceng, "completed")
 		assert_eq(test_torment.damage, tdamage(DMG + DMG + get_amount("effect_amount")))
 
+
+class TestStartingCards:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.StartingCards.canonical_name
+		pre_init_artifacts.append(ArtifactDefinitions.StartingCards.canonical_name)
+		globals.test_flags["test_initial_hand"] = true
+		globals.test_flags["no_refill"] = false
+		expected_amount_keys = [
+			"draw_amount",
+		]
+		
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		assert_eq(hand.get_card_count(), 5 + get_amount("draw_amount"))
+
+class TestStartingImmersion:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.StartingImmersion.canonical_name
+		pre_init_artifacts.append(ArtifactDefinitions.StartingImmersion.canonical_name)
+		expected_amount_keys = [
+			"immersion_amount",
+		]
+		
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		assert_eq(counters.get_counter("immersion"), 3 + get_amount("immersion_amount"))
+
+class TestStartingStrength:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.StartingStrength.canonical_name
+		pre_init_artifacts.append(ArtifactDefinitions.StartingStrength.canonical_name)
+		expected_amount_keys = [
+			"effect_stacks",
+		]
+		
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), get_amount("effect_stacks"))
+
+class TestStartingThorns:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.StartingThorns.canonical_name
+		pre_init_artifacts.append(ArtifactDefinitions.StartingThorns.canonical_name)
+		expected_amount_keys = [
+			"effect_stacks",
+		]
+		
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.thorns.name), get_amount("effect_stacks"))
+
+class TestStartingConfidence:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.StartingConfidence.canonical_name
+		pre_init_artifacts.append(ArtifactDefinitions.StartingConfidence.canonical_name)
+		expected_amount_keys = [
+			"defence_amount",
+		]
+		
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		assert_eq(dreamer.defence, get_amount("defence_amount"))
+
+class TestPerturbationHeal:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.PerturbationHeal.canonical_name
+		pre_init_artifacts.append(ArtifactDefinitions.PerturbationHeal.canonical_name)
+		dreamer_starting_damage = 30
+		expected_amount_keys = [
+			"heal_amount",
+		]
+		
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		var cf = CardFilter.new("Type", "Perturbation")
+		var pamount = globals.player.deck.filter_cards(cf).size()
+#		gut.p(pamount)
+#		gut.p(get_amount("heal_amount"))
+		assert_eq(dreamer.damage, dreamer_starting_damage - (pamount * get_amount("heal_amount")))
+
+	func extra_hypnagonia_setup():
+		var deck_cards_names := [
+			"Lacuna",
+			"Lacuna",
+			"Lacuna",
+			"Lacuna",
+			"Lacuna",
+		]
+		for c in deck_cards_names:
+			globals.player.deck.add_new_card(c)

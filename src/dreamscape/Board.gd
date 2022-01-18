@@ -53,7 +53,7 @@ func _ready() -> void:
 	# instead of defining them on the scene.
 	# This way any they will work with any size of viewport in a game.
 	# Discard pile goes bottom right
-	if not get_tree().get_root().has_node('Gut'):
+	if not get_tree().get_root().has_node('Gut') or globals.test_flags.get("test_initial_hand", false):
 		load_deck()
 	turn.setup()
 	dreamer = preload("res://src/dreamscape/CombatElements/PlayerEntity.tscn").instance()

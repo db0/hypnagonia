@@ -95,10 +95,14 @@ func setup_hypnagonia_testing() -> void:
 	globals.player.health = PLAYER_HEALTH
 	for a in pre_init_artifacts:
 		globals.player.add_artifact(a)
+	extra_hypnagonia_setup()
 	globals.encounters.prepare_next_act()
 	# Because typically the next act heals
 	globals.player.damage = dreamer_starting_damage
 
+#Overridable
+func extra_hypnagonia_setup():
+	pass
 
 func teardown_hypnagonia_testing() -> void:
 	cfc.quit_game()

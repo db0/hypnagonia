@@ -174,7 +174,7 @@ const ThickStrength := {
 	},
 }
 
-# TODO
+
 const UpgradedAction := {
 	"canonical_name": "UpgradedAction",
 	"name": "UpgradedAction",
@@ -418,7 +418,7 @@ const PowerHeal := {
 }
 
 const PerturbationHeal := {
-	"canonical_name": "StartingHeal",
+	"canonical_name": "PerturbationHeal",
 	"name": "A taste for liquorice",
 	"description": "{artifact_name}: At the start of each Ordeal, {relax} for {heal_amount} per Perturbation in your deck.",
 	"icon": preload("res://assets/icons/artifacts/pretzel.png"),
@@ -456,7 +456,6 @@ const PorcelainDoll := {
 	"rarity": "Encounter",
 }
 
-# TODO
 const RedWave := {
 	"canonical_name": "RedWave",
 	"name": "Inquisite Vibes",
@@ -469,6 +468,7 @@ const RedWave := {
 		"defence_amount": 8
 	},
 }
+
 const BlueWave := {
 	"canonical_name": "BlueWave",
 	"name": "Cool Vibes",
@@ -481,6 +481,7 @@ const BlueWave := {
 		"damage_amount": 5
 	},
 }
+
 const PurpleWave := {
 	"canonical_name": "PurpleWave",
 	"name": "Chill Vibes",
@@ -493,6 +494,7 @@ const PurpleWave := {
 		"heal_amount": 4,
 	},
 }
+
 const ProgressiveImmersion := {
 	"canonical_name": "ProgressiveImmersion",
 	"name": "Progressive Immersion",
@@ -505,6 +507,7 @@ const ProgressiveImmersion := {
 		"immersion_amount": 1,
 	},
 }
+
 const BossCardDraw := {
 	"canonical_name": "BossCardDraw",
 	"name": "Squishy Brain Toy",
@@ -528,6 +531,7 @@ const RandomUpgrades := {
 		"immersion_amount": 1,
 	},
 }
+
 const BetterRareChance := {
 	"canonical_name": "BetterRareChance",
 	"name": "The Gruyere of Insight",
@@ -539,6 +543,7 @@ const BetterRareChance := {
 		"rare_multiplier": 2,
 	},
 }
+
 const BossDraft := {
 	"canonical_name": "BossDraft",
 	"name": "Cool Draft Beer",
@@ -552,6 +557,7 @@ const BossDraft := {
 		"progress_amount": 4,
 	},
 }
+
 const FreeCard := {
 	"canonical_name": "FreeCard",
 	"name": "A Nice Warm Meal",
@@ -560,6 +566,7 @@ const FreeCard := {
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 }
+
 const AddAlphaTag := {
 	"canonical_name": "AddAlphaTag",
 	"name": "Crystal Ball",
@@ -568,6 +575,7 @@ const AddAlphaTag := {
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
 }
+
 const AddOmegaTag := {
 	"canonical_name": "AddOmegaTag",
 	"name": "Jigsaw Piece",
@@ -576,6 +584,7 @@ const AddOmegaTag := {
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
 }
+
 const AddFrozenTag := {
 	"canonical_name": "AddFrozenTag",
 	"name": "Earworm",
@@ -584,6 +593,7 @@ const AddFrozenTag := {
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Rare",
 }
+
 const IncreaseRandomDamage := {
 	"canonical_name": "IncreaseRandomDamage",
 	"name": "Masterwork Looking Glass",
@@ -592,6 +602,7 @@ const IncreaseRandomDamage := {
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 }
+
 const IncreaseRandomDefence := {
 	"canonical_name": "IncreaseRandomDefence",
 	"name": "Fancy Nail Coat",
@@ -600,6 +611,7 @@ const IncreaseRandomDefence := {
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 }
+
 const IncreaseConfusionStacks := {
 	"canonical_name": "IncreaseConfusionStacks",
 	"name": "IncreaseConfusionStacks",
@@ -608,6 +620,7 @@ const IncreaseConfusionStacks := {
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
 }
+
 const IncreaseImmersionGain := {
 	"canonical_name": "IncreaseImmersionGain",
 	"name": "IncreaseImmersionGain",
@@ -616,6 +629,7 @@ const IncreaseImmersionGain := {
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Rare",
 }
+
 const BetterArtifactChance := {
 	"canonical_name": "BetterArtifactChance",
 	"name": "Supportive Plushie",
@@ -699,6 +713,7 @@ const ENCOUNTER := [
 	PorcelainDoll,
 	BetterRareChance,
 	BetterArtifactChance,
+	PerturbationHeal,
 ]
 
 const BOSS := [
