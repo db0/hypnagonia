@@ -2,6 +2,7 @@ extends Board
 
 signal battle_begun
 signal battle_ended
+signal game_over
 signal enemy_spawned(entity)
 
 const ENEMY_ENTITY_SCENE = preload("res://src/dreamscape/CombatElements/Enemies/EnemyEntity.tscn")
@@ -332,8 +333,8 @@ func complete_battle() -> void:
 		globals.player.damage = dreamer.damage
 		globals.player.health = dreamer.health
 		_fade_to_transparent()
-		yield(_tween, "tween_all_completed")
-		globals.current_encounter.end()
+		if _tween.is_active():
+			yield(_tween, "tween_all_completed")
 		emit_signal("battle_ended")
 #	cfc.game_paused = true
 #	mouse_pointer.forget_focus()
@@ -346,7 +347,7 @@ func complete_battle() -> void:
 func game_over() -> void:
 	_fade_to_transparent()
 	yield(_tween, "tween_all_completed")
-	globals.current_encounter.game_over()
+	emit_signal("game_over")
 #	cfc.game_paused = true
 #	mouse_pointer.forget_focus()
 #	end_turn.disabled = true
@@ -380,19 +381,21 @@ func _fade_to_black() -> void:
 
 
 func _fade_from_black() -> void:
-	_tween.interpolate_property(_board_cover,
-			'modulate:a', 1, 0, 1,
-			Tween.TRANS_SINE, Tween.EASE_IN)
-	_tween.start()
-	yield(_tween, "tween_all_completed")
+	if cfc.NMAP.has("main"):
+		_tween.interpolate_property(_board_cover,
+				'modulate:a', 1, 0, 1,
+				Tween.TRANS_SINE, Tween.EASE_IN)
+		_tween.start()
+		yield(_tween, "tween_all_completed")
 	_board_cover.visible = false
 
 
 func _fade_to_transparent() -> void:
-	_tween.interpolate_property(cfc.NMAP.main,
-			'modulate:a', 1, 0, 1,
-			Tween.TRANS_SINE, Tween.EASE_IN)
-	_tween.start()
+	if cfc.NMAP.has("main"):
+		_tween.interpolate_property(cfc.NMAP.main,
+				'modulate:a', 1, 0, 1,
+				Tween.TRANS_SINE, Tween.EASE_IN)
+		_tween.start()
 
 
 func _recalculate_predictions() -> void:
@@ -455,8 +458,11 @@ func _input(event):
 		dreamer.damage = 100
 #		globals.player.add_artifact(ArtifactDefinitions.ThickExplosion.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.PurpleWave.canonical_name)
+		# warning-ignore:return_value_discarded
 		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
+		# warning-ignore:return_value_discarded
 		globals.player.add_memory(MemoryDefinitions.DisempowerEnemy.canonical_name)
+		# warning-ignore:return_value_discarded
 		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.stuffed_toy.name, 12)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1, false, false, ['Debug'], 'thick')
