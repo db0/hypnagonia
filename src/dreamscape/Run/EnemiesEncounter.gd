@@ -56,16 +56,12 @@ func begin() -> void:
 	yield(globals.journal.journal_cover, "fade_finished")
 	current_combat = load(CFConst.PATH_CUSTOM + 'Main.tscn').instance()
 	cfc.get_tree().get_root().call_deferred("add_child", current_combat)
-	# Once we spawn the board/main, we need to wait until all relevant scenes
-	# have been readied before proceeding.
-	yield(cfc, "all_nodes_mapped")
-	# We hide the journal black cover, so that when the board fades out
-	# The journal appears behind it
-	globals.journal.journal_cover.visible = false
-	cfc.NMAP.board.spawn_enemy_encounter(self)
-	cfc.NMAP.board.begin_encounter()
-	globals.music.switch_scene_music('ordeal')
 
+
+func _on_board_instanced() -> void:
+	cfc.NMAP.board.spawn_enemy_encounter(self)
+	globals.music.switch_scene_music('ordeal')
+	._on_board_instanced()
 
 
 func end() -> void:
