@@ -1112,7 +1112,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {effect_stacks} {fortify}. {forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Miikka Veijola",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
@@ -1132,7 +1132,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {defence_amount} {defence}\nGain {effect_stacks} {fortify}. {forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Miikka Veijola",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
@@ -1149,7 +1149,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "Gain {defence_amount} {defence}\nGain {effect_stacks} {fortify}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Miikka Veijola",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER

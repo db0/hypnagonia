@@ -8,6 +8,7 @@ Links to Artists (where one provided)
 * [DioBal](https://www.deviantart.com/diobalt)
 * [Ierenisrt](https://www.artstation.com/iereniss2)
 * [Sebastian Piszczatowski](https://www.artstation.com/seppoday)
+* [Miikka Veijola](https://www.artstation.com/miikkaveijolart)
 
 # Other Licenses
 
