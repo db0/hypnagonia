@@ -23,7 +23,7 @@ func _init():
 			+ "I realized I am in a train and am prepared to drive "\
 			+ "through the forces of Order to revive the Heart of Hell itself!\n"\
 			+ "Did I lead, or did I follow?"
-
+	prepare_journal_art(preload("res://assets/journal/nce/monster_train.jpeg"))
 
 func begin() -> void:
 	# warning-ignore:return_value_discarded
