@@ -25,6 +25,7 @@ func _on_reshuffle(_pile: Pile):
 	drawn_cards[top_card] += 1
 	if drawn_cards[top_card] >= 3:
 		_activate()
+		return
 	var script = [{
 		"name": "draw_cards",
 		"card_count": ArtifactDefinitions.ThinCardDraw.amounts.draw_amount,

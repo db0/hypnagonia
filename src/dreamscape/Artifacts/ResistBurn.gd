@@ -9,7 +9,6 @@ func get_effect_alteration(
 		_subject: Node = null) -> int:
 	if script.script_name != 'apply_effect'\
 			or script.get_property("effect_name") != Terms.ACTIVE_EFFECTS.burn.name\
-			or is_source\
 			or not is_active:
 		return(0)
 	var new_value = value - ArtifactDefinitions.ResistBurn.amounts.alteration_amount

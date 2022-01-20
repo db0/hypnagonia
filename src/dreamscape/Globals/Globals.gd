@@ -31,7 +31,6 @@ func reset() -> void:
 	encounters = SingleRun.new()
 	current_encounter = null
 	journal = null
-	test_flags.clear()
 
 
 func quit_to_main() -> void:
