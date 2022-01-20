@@ -2167,7 +2167,7 @@ const Rancor = {
 				"amount": "per_turn_event_count",
 				"tags": ["Attack", "Card"],
 				"per_turn_event_count": {
-					"event_name": "player_total_damage",
+					"event_name": "player_total_damage_own_turn",
 				},
 				"subject_count": "all",
 				"filter_state_seek": [{
@@ -2187,7 +2187,7 @@ const JustifiedRancor = {
 				"tags": ["Attack", "Card"],
 				"per_turn_event_count": {
 					"multiplier": 3,
-					"event_name": "player_total_damage",
+					"event_name": "player_total_damage_own_turn",
 				},
 				"subject_count": "all",
 				"filter_state_seek": [{
