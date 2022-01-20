@@ -123,6 +123,19 @@ const EXERT_SCRIPT := {
 		],
 	},
 }
+const EFFECT_SCRIPT := {
+	"manual": {
+		"hand": [
+			{
+				"name": "apply_effect",
+				"tags": ["Card"],
+				"effect_name": Terms.ACTIVE_EFFECTS.vulnerable.name,
+				"subject": "dreamer",
+				"modification": 1
+			},
+		],
+	},
+}
 # For easy access
 var dreamer: PlayerEntity
 var turn: Turn
@@ -193,6 +206,10 @@ func after_each():
 	test_scripts.clear()
 	test_torments.clear()
 	yield(yield_for(0.1), YIELD)
+
+
+func after_all():
+	globals.test_flags.clear()
 
 
 func spawn_test_torments() -> void:
@@ -276,3 +293,15 @@ func setup_deckpile_cards(cards: Array) -> Array:
 	for c in spawned_cards:
 		c.set_to_idle()
 	return(spawned_cards)
+
+func activate_quick_intent(intents_script: Array) -> void:
+	var intents_to_test = [
+		{
+			"intent_scripts": intents_script,
+			"reshuffle": true,
+		}]
+	test_torment.intents.replace_intents(intents_to_test)
+	test_torment.intents.refresh_intents()
+	yield(yield_for(0.1), YIELD)
+	turn.end_player_turn()
+	yield(yield_to(turn, "player_turn_started", 3), YIELD)

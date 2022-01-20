@@ -1,3 +1,5 @@
+# Records that an event has happened during the game
+# These are used for filters on scripts.
 class_name TurnEventMessage
 extends Reference
 

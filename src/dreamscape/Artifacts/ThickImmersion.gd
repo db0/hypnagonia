@@ -15,7 +15,7 @@ func _on_player_turn_started(_turn: Turn = null) -> void:
 			"name": "mod_counter",
 			"counter_name": "immersion",
 			"modification": ArtifactDefinitions.ThickImmersion.amounts.immersion_amount,
-			"tags": ["Curio"],
+			"tags": ["New Turn", "Curio"],
 		},
 	]
 	execute_script(script)
@@ -25,7 +25,8 @@ func _on_battle_start() -> void:
 	cfc.NMAP.deck.connect("shuffle_completed", self, "_on_first_reshuffle")
 
 
-func _on_first_reshuffle(pile: Pile) -> void:
+func _on_first_reshuffle(_pile: Pile) -> void:
+	# warning-ignore:return_value_discarded
 	_activate()
 	cfc.NMAP.deck.disconnect("shuffle_completed", self, "_on_first_reshuffle")
 	var script = [
