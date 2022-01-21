@@ -9,12 +9,12 @@ func _ready() -> void:
 
 # Connecting the signal here ensures the artifact will not be disabled at the start of combat
 func _on_battle_start() -> void:
-	cfc.NMAP.deck.connect("shuffle_completed", self, "_on_first_reshuffle")
+	cfc.NMAP.discard.connect("discard_reshuffled_into_deck", self, "_on_first_reshuffle")
 
 
-func _on_first_reshuffle(pile: Pile) -> void:
+func _on_first_reshuffle() -> void:
 	_activate()
-	cfc.NMAP.deck.disconnect("shuffle_completed", self, "_on_first_reshuffle")
+	cfc.NMAP.discard.disconnect("discard_reshuffled_into_deck", self, "_on_first_reshuffle")
 	var script = [
 		{
 			"name": "modify_damage",

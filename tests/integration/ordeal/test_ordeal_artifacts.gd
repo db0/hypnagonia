@@ -337,3 +337,88 @@ class TestImprovePoison:
 		assert_eq(test_torment.active_effects.get_effect_stacks(effect_name), 
 				modification * 2 + get_amount("alteration_amount"),
 				"%s did not modify applying %s stacks to enemies" % [artifact.name, effect_name])
+
+class TestImproveBurn:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	var effect_name = Terms.ACTIVE_EFFECTS.poison.name
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.ImproveBurn.canonical_name
+		expected_amount_keys = [
+			"alteration_amount",
+		]
+		test_card_names = [
+			"Interpretation",
+			"Interpretation",
+		]
+
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		var script = EFFECT_SCRIPT.duplicate(true)
+		var modification = 5
+		script.manual.hand[0].effect_name = effect_name
+		script.manual.hand[0].modification = modification
+		card.scripts = script
+		var sceng = card.execute_scripts()
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")		
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect_name),
+				modification + get_amount("alteration_amount"),
+				"%s modified %s stacks on dreamer from own cards" % [artifact.name, effect_name])
+		var act = activate_quick_intent(["Debuff:5:poison","Buff:5:poison"])
+		if act is GDScriptFunctionState:
+			act = yield(act, "completed")
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect_name),
+				modification * 2 - 1 + get_amount("alteration_amount"),
+				"%s did not modify %s stacks on dreamer from the torment" % [artifact.name, effect_name])
+		script.manual.hand[0].subject = "target"
+		cards[1].scripts = script
+		call_deferred("snipexecute", cards[1], test_torment)
+		yield(self, "card_scripts_executed")
+		assert_eq(test_torment.active_effects.get_effect_stacks(effect_name), 
+				modification * 2 + get_amount("alteration_amount"),
+				"%s did not modify applying %s stacks to enemies" % [artifact.name, effect_name])
+
+
+class TestThickExplosion:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		torments_amount = 3
+		testing_artifact_name = ArtifactDefinitions.ThickExplosion.canonical_name
+		pre_init_artifacts.append(ArtifactDefinitions.ThickExplosion.canonical_name)
+		globals.test_flags["test_initial_hand"] = true
+
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		var i := 0
+		for c in deck.get_all_cards():
+			c.move_to(discard)
+			i += 1
+			if i >= 5:
+				break
+		deck.shuffle_cards()
+		yield(yield_to(deck, "shuffle_completed", 0.5), YIELD)
+		for t in test_torments:
+			assert_eq(t.damage, tdamage(0),
+					"%s did no damage due to simple shuffles" % [artifact.name])
+		var discard_size = discard.get_card_count()
+		discard.reshuffle_in_deck()
+		yield(yield_to(discard, "discard_reshuffled_into_deck", 1.5), YIELD)
+		for t in test_torments:
+			assert_eq(t.damage, tdamage(discard_size),
+					"%s did damage equal to discard pile" % [artifact.name])
+		assert_true(artifact.is_active, "Artifact should be disabled after shuffling")
+		i = 0
+		for c in deck.get_all_cards():
+			c.move_to(discard)
+			i += 1
+			if i >= 5:
+				break
+		discard_size = discard.get_card_count()
+		gut.p(discard_size)
+		discard.reshuffle_in_deck()
+		yield(yield_to(discard, "discard_reshuffled_into_deck", 1.5), YIELD)
+		for t in test_torments:
+			assert_eq(t.damage, tdamage(discard_size),
+					"%s did not activate second time" % [artifact.name])

@@ -330,7 +330,7 @@ const ImproveBurn := {
 const ThickExplosion := {
 	"canonical_name": "ThickExplosion",
 	"name": "ThickExplosion",
-	"description": "{artifact_name}: The first time you reshuffle your deck, "\
+	"description": "{artifact_name}: The first time you reshuffle your deck because it run out of cards, "\
 		+ "deal damage to all enemies equal to your discard pile.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.BATTLE,

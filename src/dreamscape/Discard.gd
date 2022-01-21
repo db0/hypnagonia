@@ -1,5 +1,8 @@
 extends DreamPile
 
+# This signal is emited only when the pile is reshuffled due to the deck
+# running out of cards
+signal discard_reshuffled_into_deck
 # We use this for effects which care about the amount of cards
 # we had in the discard pile before we reshuffled it
 var last_amount_pre_reshuffle := 0
@@ -16,3 +19,4 @@ func reshuffle_in_deck():
 		yield(last_card._tween, "tween_all_completed")
 	yield(get_tree().create_timer(0.2), "timeout")
 	deck.shuffle_cards()
+	emit_signal("discard_reshuffled_into_deck")
