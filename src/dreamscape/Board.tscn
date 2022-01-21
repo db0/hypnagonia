@@ -206,6 +206,7 @@ mouse_filter = 2
 [node name="Deck" parent="VBC/HandArea/HBC/DeckControl/VBC/Control" instance=ExtResource( 2 )]
 scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 4 )
+show_manipulation_buttons = false
 pile_name = "Deck"
 
 [node name="Control" parent="VBC/HandArea/HBC/DeckControl/VBC/Control/Deck" index="0"]
@@ -283,6 +284,7 @@ size_flags_horizontal = 3
 
 [node name="Hand" parent="VBC/HandArea/HBC/HandControl" instance=ExtResource( 3 )]
 placement = 9
+show_manipulation_buttons = false
 
 [node name="DiscardsControl" type="MarginContainer" parent="VBC/HandArea/HBC"]
 margin_left = 1325.0
@@ -310,6 +312,7 @@ scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 1 )
 placement = 9
 index_shift_priority = 1
+show_manipulation_buttons = false
 pile_name = "Forgotten"
 faceup_cards = true
 
@@ -387,6 +390,7 @@ scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 1 )
 placement = 9
 index_shift_priority = 1
+show_manipulation_buttons = false
 pile_name = "Discard"
 faceup_cards = true
 

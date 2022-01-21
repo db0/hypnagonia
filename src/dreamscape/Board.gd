@@ -54,7 +54,9 @@ func _ready() -> void:
 	# instead of defining them on the scene.
 	# This way any they will work with any size of viewport in a game.
 	# Discard pile goes bottom right
-	if not get_tree().get_root().has_node('Gut') or globals.test_flags.get("test_initial_hand", false):
+	if not get_tree().get_root().has_node('Gut')\
+			or (get_tree().get_root().has_node('Gut')
+				and globals.test_flags.get("test_initial_hand", false)):
 		load_deck()
 	turn.setup()
 	dreamer = preload("res://src/dreamscape/CombatElements/PlayerEntity.tscn").instance()
@@ -381,12 +383,11 @@ func _fade_to_black() -> void:
 
 
 func _fade_from_black() -> void:
-	if cfc.NMAP.has("main"):
-		_tween.interpolate_property(_board_cover,
-				'modulate:a', 1, 0, 1,
-				Tween.TRANS_SINE, Tween.EASE_IN)
-		_tween.start()
-		yield(_tween, "tween_all_completed")
+	_tween.interpolate_property(_board_cover,
+			'modulate:a', 1, 0, 1,
+			Tween.TRANS_SINE, Tween.EASE_IN)
+	_tween.start()
+	yield(_tween, "tween_all_completed")
 	_board_cover.visible = false
 
 
