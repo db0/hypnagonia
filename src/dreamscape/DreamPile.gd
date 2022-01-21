@@ -23,12 +23,17 @@ func enable_shuffle() -> void:
 	shuffle_style = _prev_shuffle_style
 
 func _on_DreamPile_input_event(event) -> void:
-	if event.is_pressed()\
-			and not cfc.game_paused\
-			and get_card_count() > 0\
-			and position == Vector2(0,0)\
-			and not are_cards_still_animating()\
-			and event.get_button_index() == 1:
+	if event.is_pressed() and event.get_button_index() == 1:
+		if cfc.game_paused:
+			return
+		if get_card_count() == 0:
+			return
+		if position != Vector2(0,0):
+			return
+		if are_cards_still_animating():
+			return
+		if is_popup_open:
+			return
 		populate_popup()
 
 func _on_DreamPile_mouse_entered() -> void:
