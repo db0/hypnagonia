@@ -1,6 +1,8 @@
 class_name UTCommon
 extends "res://addons/gut/test.gd"
 
+signal card_scripts_executed
+
 const MAIN_SCENE = preload("res://src/dreamscape/Main.tscn")
 var BOARD_SCENE = load("res://src/dreamscape/Board.tscn")
 var JOURNAL_SCENE = preload("res://src/dreamscape/Overworld/Journal.tscn")
@@ -277,7 +279,7 @@ func hover_on_card(target: DreamCard, interpolation_speed := "fast") -> void:
 		repeat += 1
 
 # Execute against a target without targeting arrow wait.
-func snipexecute(card: Card, target: CombatEntity):
+func snipexecute(card: Card, target: CombatEntity, extra_delay = null):
 	var sceng = card.execute_scripts()
 	if not card.targeting_arrow.is_targeting:
 		yield(yield_to(card.targeting_arrow, "initiated_targeting", 1), YIELD)
@@ -286,5 +288,9 @@ func snipexecute(card: Card, target: CombatEntity):
 		sceng = yield(sceng, "completed")
 	elif sceng and not sceng.all_tasks_completed:
 		yield(yield_to(sceng, "tasks_completed", 0.2), YIELD)
+	# This is typically used to allow effects some time to instance
+	if extra_delay:
+		yield(yield_for(extra_delay), YIELD)
+	emit_signal("card_scripts_executed")
 	return(sceng)
 
