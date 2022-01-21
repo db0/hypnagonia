@@ -7,9 +7,13 @@ func get_effect_alteration(
 		is_source := false, 
 		_dry_run := true,
 		_subject: Node = null) -> int:
-	if script.script_name != 'apply_effect'\
-			or script.get_property("effect_name") != Terms.ACTIVE_EFFECTS.disempower.name\
-			or not is_active:
+	if script.script_name != 'apply_effect':
+		return(0)
+	if script.get_property("effect_name") != Terms.ACTIVE_EFFECTS.disempower.name:
+		return(0)
+	if not is_active:
+		return(0)
+	if script.subjects[0] != cfc.NMAP.board.dreamer:
 		return(0)
 	var new_value = 0
 	var alteration = new_value - value

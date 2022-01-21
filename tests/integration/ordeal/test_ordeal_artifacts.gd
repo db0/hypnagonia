@@ -112,24 +112,32 @@ class TestResistDisempower:
 		testing_artifact_name = ArtifactDefinitions.ResistDisempower.canonical_name
 		test_card_names = [
 			"Interpretation",
+			"Interpretation",
 		]
 
 	func test_artifact_effect():
 		if not assert_has_amounts():
 			return
-		var script = EFFECT_SCRIPT.duplicate()
+		var script = EFFECT_SCRIPT.duplicate(true)
+		var modification = 5
 		script.manual.hand[0].effect_name = effect_name
-		script.manual.hand[0].modification = 10
+		script.manual.hand[0].modification = modification
 		card.scripts = script
 		var sceng = card.execute_scripts()
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
-		var act = activate_quick_intent(["Debuff:10:disempower"])
+		var act = activate_quick_intent(["Debuff:10:disempower","Buff:5:disempower"])
 		if act is GDScriptFunctionState:
 			act = yield(act, "completed")
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect_name),
 				0,
 				"%s prevented all %s from all sources" % [artifact.name, effect_name])
+		script.manual.hand[0].subject = "target"
+		cards[1].scripts = script
+		call_deferred("snipexecute", cards[1], test_torment)
+		yield(self, "card_scripts_executed")
+		assert_eq(test_torment.active_effects.get_effect_stacks(effect_name), modification * 2 - 1,
+				"%s did not modify applying %s stacks to enemies" % [artifact.name, effect_name])
 
 class TestResistPoison:
 	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
@@ -141,28 +149,36 @@ class TestResistPoison:
 		]
 		test_card_names = [
 			"Interpretation",
+			"Interpretation",
 		]
 
 	func test_artifact_effect():
 		if not assert_has_amounts():
 			return
-		var script = EFFECT_SCRIPT.duplicate()
+		var script = EFFECT_SCRIPT.duplicate(true)
+		var modification = 5
 		script.manual.hand[0].effect_name = effect_name
-		script.manual.hand[0].modification = 5
+		script.manual.hand[0].modification = modification
 		card.scripts = script
 		var sceng = card.execute_scripts()
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect_name),
-				5 - get_amount("alteration_amount"),
+				modification - get_amount("alteration_amount"),
 				"%s prevented 1 stack of %s from any source" % [artifact.name, effect_name])
-		var act = activate_quick_intent(["Debuff:5:poison"])
+		var act = activate_quick_intent(["Debuff:5:poison","Buff:5:poison"])
 		if act is GDScriptFunctionState:
 			act = yield(act, "completed")
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect_name),
-				9 - get_amount("alteration_amount") * 2,
+				modification * 2 - 1 - get_amount("alteration_amount") * 2,
 				"%s prevented 1 stack of %s from any source" % [artifact.name, effect_name])
-
+		script.manual.hand[0].subject = "target"
+		cards[1].scripts = script
+		call_deferred("snipexecute", cards[1], test_torment)
+		yield(self, "card_scripts_executed")
+		assert_eq(test_torment.active_effects.get_effect_stacks(effect_name),
+				modification * 2,
+				"%s did not modify applying %s stacks to enemies" % [artifact.name, effect_name])
 
 class TestResistBurn:
 	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
@@ -174,27 +190,36 @@ class TestResistBurn:
 		]
 		test_card_names = [
 			"Interpretation",
+			"Interpretation",
 		]
 
 	func test_artifact_effect():
 		if not assert_has_amounts():
 			return
-		var script = EFFECT_SCRIPT.duplicate()
+		var script = EFFECT_SCRIPT.duplicate(true)
+		var modification = 5
 		script.manual.hand[0].effect_name = effect_name
-		script.manual.hand[0].modification = 5
+		script.manual.hand[0].modification = modification
 		card.scripts = script
 		var sceng = card.execute_scripts()
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect_name),
-				5 - get_amount("alteration_amount"),
+				modification - get_amount("alteration_amount"),
 				"%s prevented 1 stack of %s from any source" % [artifact.name, effect_name])
-		var act = activate_quick_intent(["Debuff:5:burn"])
+		var act = activate_quick_intent(["Debuff:5:burn","Buff:5:burn"])
 		if act is GDScriptFunctionState:
 			act = yield(act, "completed")
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect_name),
-				9 - get_amount("alteration_amount") * 2,
+				modification * 2 - 1 - get_amount("alteration_amount") * 2,
 				"%s prevented 1 stack of %s from any source" % [artifact.name, effect_name])
+		script.manual.hand[0].subject = "target"
+		cards[1].scripts = script
+		call_deferred("snipexecute", cards[1], test_torment)
+		yield(self, "card_scripts_executed")
+		assert_eq(test_torment.active_effects.get_effect_stacks(effect_name),
+				modification * 2 - 1,
+				"%s did not modify applying %s stacks to enemies" % [artifact.name, effect_name])
 
 
 class TestResistVulnerable:
@@ -204,21 +229,111 @@ class TestResistVulnerable:
 		testing_artifact_name = ArtifactDefinitions.ResistVulnerable.canonical_name
 		test_card_names = [
 			"Interpretation",
+			"Interpretation",
 		]
 
 	func test_artifact_effect():
 		if not assert_has_amounts():
 			return
-		var script = EFFECT_SCRIPT.duplicate()
+		var script = EFFECT_SCRIPT.duplicate(true)
+		var modification = 5
 		script.manual.hand[0].effect_name = effect_name
-		script.manual.hand[0].modification = 10
+		script.manual.hand[0].modification = modification
 		card.scripts = script
 		var sceng = card.execute_scripts()
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
-		var act = activate_quick_intent(["Debuff:10:disempower"])
+		var act = activate_quick_intent(["Debuff:10:vulnerable","Buff:5:vulnerable"])
 		if act is GDScriptFunctionState:
 			act = yield(act, "completed")
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect_name),
 				0,
 				"%s prevented all %s from all sources" % [artifact.name, effect_name])
+		script.manual.hand[0].subject = "target"
+		cards[1].scripts = script
+		call_deferred("snipexecute", cards[1], test_torment)
+		yield(self, "card_scripts_executed")
+		assert_eq(test_torment.active_effects.get_effect_stacks(effect_name), modification * 2 - 1,
+				"%s did not modify applying %s stacks to enemies" % [artifact.name, effect_name])
+
+class TestImproveThorns:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	var effect_name = Terms.ACTIVE_EFFECTS.thorns.name
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.ImproveThorns.canonical_name
+		expected_amount_keys = [
+			"alteration_amount",
+		]
+		test_card_names = [
+			"Interpretation",
+			"Interpretation",
+		]
+
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		var script = EFFECT_SCRIPT.duplicate(true)
+		var modification = 5
+		script.manual.hand[0].effect_name = effect_name
+		script.manual.hand[0].modification = modification
+		card.scripts = script
+		var sceng = card.execute_scripts()
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect_name),
+				modification + get_amount("alteration_amount"),
+				"%s added 1 stack of %s from any source" % [artifact.name, effect_name])
+		var act = activate_quick_intent(["Debuff:5:thorns","Buff:5:thorns"])
+		if act is GDScriptFunctionState:
+			act = yield(act, "completed")
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect_name),
+				modification * 2 - 1 + get_amount("alteration_amount") * 2,
+				"%s added 1 stack of %s from any source" % [artifact.name, effect_name])
+		script.manual.hand[0].subject = "target"
+		cards[1].scripts = script
+		call_deferred("snipexecute", cards[1], test_torment)
+		yield(self, "card_scripts_executed")
+		assert_eq(test_torment.active_effects.get_effect_stacks(effect_name),
+				modification * 2,
+				"%s did not modify applying %s stacks to enemies" % [artifact.name, effect_name])
+
+class TestImprovePoison:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	var effect_name = Terms.ACTIVE_EFFECTS.poison.name
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.ImprovePoison.canonical_name
+		expected_amount_keys = [
+			"alteration_amount",
+		]
+		test_card_names = [
+			"Interpretation",
+			"Interpretation",
+		]
+
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		var script = EFFECT_SCRIPT.duplicate(true)
+		var modification = 5
+		script.manual.hand[0].effect_name = effect_name
+		script.manual.hand[0].modification = modification
+		card.scripts = script
+		var sceng = card.execute_scripts()
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")		
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect_name),
+				modification + get_amount("alteration_amount"),
+				"%s modified %s stacks on dreamer from own cards" % [artifact.name, effect_name])
+		var act = activate_quick_intent(["Debuff:5:poison","Buff:5:poison"])
+		if act is GDScriptFunctionState:
+			act = yield(act, "completed")
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect_name),
+				modification * 2 - 1 + get_amount("alteration_amount"),
+				"%s did not modify %s stacks on dreamer from the torment" % [artifact.name, effect_name])
+		script.manual.hand[0].subject = "target"
+		cards[1].scripts = script
+		call_deferred("snipexecute", cards[1], test_torment)
+		yield(self, "card_scripts_executed")
+		assert_eq(test_torment.active_effects.get_effect_stacks(effect_name), 
+				modification * 2 + get_amount("alteration_amount"),
+				"%s did not modify applying %s stacks to enemies" % [artifact.name, effect_name])
