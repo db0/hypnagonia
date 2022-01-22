@@ -12,6 +12,7 @@ func before_each():
 		confirm_return = yield(confirm_return, "completed")
 	if testing_artifact_name != '':
 		artifact = player_info.find_artifact(testing_artifact_name)
+		watch_signals(artifact)
 
 func get_amount(amount_key: String):
 	var requested_amount = artifact.artifact_object.definition.get("amounts", {}).get(amount_key)

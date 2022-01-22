@@ -14,6 +14,7 @@ func before_each():
 	spawn_test_torments()
 	if testing_memory_name != '':
 		memory = player_info.find_memory(testing_memory_name)
+		watch_signals(memory)
 	yield(yield_for(0.1), YIELD)
 
 func get_amount(amount_key: String):

@@ -34,7 +34,7 @@ func instance_cards() -> Array:
 # Adds a new card to the deck,
 # and optionally starts it with some ugprade progress
 func add_new_card(card_name, progress := 0) -> CardEntry:
-	if OS.has_feature("debug"):
+	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
 		print("DEBUG INFO:Deck: Adding new card:" + card_name)
 	var new_card := CardEntry.new(card_name)
 	new_card.connect("card_entry_modified", self, "signal_card_entry_modified")

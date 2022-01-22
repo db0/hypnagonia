@@ -12,6 +12,7 @@ func before_each():
 		confirm_return = yield(confirm_return, "completed")
 	if testing_memory_name != '':
 		memory = player_info.find_memory(testing_memory_name)
+		watch_signals(memory)
 
 func get_amount(amount_key: String):
 	var requested_amount = memory.artifact_object.definition.get("amounts", {}).get(amount_key)
