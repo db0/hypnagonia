@@ -10,7 +10,7 @@ func _ready() -> void:
 #		if not cfc.are_all_nodes_mapped:
 #			yield(cfc, "all_nodes_mapped")
 #		_on_player_turn_started(cfc.NMAP.board.turn)
-	signifier_icon.modulate = Color(HConst.COLOR2_CODES[artifact_object.modifiers.colour])
+	signifier_icon.modulate = Color(HConst.COLOR2_CODES[artifact_object.modifiers.get("colour","Obsidian")])
 
 
 # Every time a card of the chosen type is added, it's immediately removed.

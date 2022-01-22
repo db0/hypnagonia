@@ -1,6 +1,8 @@
 class_name PlayerInfo
 extends PanelContainer
 
+signal artifact_instanced(artifact)
+signal memory_instanced(memory)
 
 const CARD_PREVIEW_SCENE = preload("res://src/dreamscape/MainMenu/StartingCardPreviewObject.tscn")
 const PATHOS_INFO_SCENE = preload("res://src/dreamscape/PathosEntryInfo.tscn")
@@ -235,7 +237,7 @@ func _instance_artifact(artifact_object: ArtifactObject, new_addition := false) 
 	new_artifact.setup_artifact(artifact_object, artifact_active, new_addition)
 	_artifacts.add_child(new_artifact)
 	new_artifact.player_info_node = self
-
+	emit_signal("artifact_instanced", new_artifact)
 
 func _instance_memory(memory_object: MemoryObject, new_addition := false) -> void:
 	var new_memory = memory_object.instance_memory()
@@ -245,7 +247,7 @@ func _instance_memory(memory_object: MemoryObject, new_addition := false) -> voi
 	new_memory.setup_artifact(memory_object, memory_active, new_addition)
 	_memories.add_child(new_memory)
 	new_memory.player_info_node = self
-
+	emit_signal("memory_instanced", new_memory)
 
 func _input(event):
 	if event.is_action_pressed("help"):
