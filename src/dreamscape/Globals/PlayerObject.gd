@@ -111,6 +111,7 @@ func compile_card_type(
 
 func add_artifact(artifact_name: String, modifiers := {}) -> ArtifactObject:
 	var new_artifact: ArtifactObject
+	print_debug(get_all_artifact_names())
 	if not artifact_name in get_all_artifact_names():
 		new_artifact = ArtifactObject.new(artifact_name, modifiers)
 		artifacts.append(new_artifact)
@@ -142,6 +143,15 @@ func get_random_artifact():
 		var rnd_array = artifacts.duplicate()
 		CFUtils.shuffle_array(rnd_array)
 		return(rnd_array[0])
+
+
+# Returns the MemoryObject with that name,
+# else returns null if it doesn't exist.
+func find_artifact(artifact_name: String):
+	for artifact in artifacts:
+		if artifact.canonical_name == artifact_name:
+			return(artifact)
+
 
 
 func add_memory(memory_name: String, modifiers := {}) -> MemoryObject:
