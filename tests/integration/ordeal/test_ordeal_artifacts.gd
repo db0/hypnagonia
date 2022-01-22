@@ -25,7 +25,7 @@ class TestThickImmersion:
 				get_amount("effect_stacks"),
 				"%s gives %s when deck shuffled" % [artifact.name, Terms.ACTIVE_EFFECTS.vulnerable.name])
 		assert_true(artifact.is_active, "Artifact should be disabled after shuffling")
-		cfc.NMAP.board.turn.end_player_turn()
+		turn.end_player_turn()
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
 		assert_eq(board.counters.get_counter("immersion"), 3)
 		assert_eq(turn.encounter_event_count.get("immersion_increased",0 ), 0,
@@ -376,7 +376,7 @@ class TestImproveBurn:
 		call_deferred("snipexecute", cards[1], test_torment)
 		yield(self, "card_scripts_executed")
 		assert_eq(test_torment.active_effects.get_effect_stacks(effect_name),
-				modification * 2 - 1+ get_amount("alteration_amount"),
+				modification * 2 - 1 + get_amount("alteration_amount"),
 				"%s modified applying %s stacks to enemies" % [artifact.name, effect_name])
 
 
@@ -586,6 +586,77 @@ class TestProgressiveImmersion:
 	func test_artifact_effect():
 		if not assert_has_amounts():
 			return
-		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion per turn")
+		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion on first turn")
 		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.creative_block.name),
 				1, "%s prevents all card upgrades" % [artifact.name])
+		turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion per turn")
+
+class TestBossCardDraw:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		globals.test_flags["test_initial_hand"] = true
+		globals.test_flags["no_refill"] = false
+		testing_artifact_name = ArtifactDefinitions.BossCardDraw.canonical_name
+		pre_init_artifacts.append(ArtifactDefinitions.BossCardDraw.canonical_name)
+		expected_amount_keys = [
+			"draw_amount",
+		]
+
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		assert_eq(hand.get_card_count(), 6, "Dreamer gets +1 card on first turn")
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		assert_eq(hand.get_card_count(), 6, "Dreamer gets +1 card per turn")
+
+class TestRandomUpgrades:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.RandomUpgrades.canonical_name
+		pre_init_artifacts.append(ArtifactDefinitions.RandomUpgrades.canonical_name)
+		expected_amount_keys = [
+			"immersion_amount",
+		]
+
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion on first turn")
+		turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion per turn")
+
+
+class TestRandomUpgradesDetriment:
+	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.RandomUpgrades.canonical_name
+		expected_amount_keys = [
+			"immersion_amount",
+		]
+
+	func test_artifact_results():
+		if not assert_has_amounts():
+			return
+		for c in globals.player.deck.cards:
+			c.upgrade_progress = c.upgrade_threshold
+		gut.p(globals.player.get_all_artifact_names())
+		var current_upgrades : CardUpgrade = get_tree().get_nodes_in_group("card_upgrade")[0]
+		var pre_use_draft = current_upgrades.get_children()
+		current_upgrades.display()
+		yield(yield_to(current_upgrades, "draft_prepared", 0.2), YIELD)
+		journal.display_enemy_rewards('')
+		var card_to_upgrade = current_upgrades.get_child(1)
+		watch_signals(current_upgrades)
+		watch_signals(globals.player.deck)
+		if card_to_upgrade as CVGridCardObject and globals.player.deck:
+			watch_signals(card_to_upgrade)
+			card_to_upgrade.select_card()
+			assert_signal_emitted(card_to_upgrade, "card_selected")
+		yield(yield_to(globals.player.deck, "card_entry_upgraded", 1), YIELD)
+		assert_signal_emitted(current_upgrades, "card_upgraded")
+		assert_signal_emitted(globals.player.deck, "card_entry_upgraded")
+
