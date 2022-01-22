@@ -127,8 +127,6 @@ class TestPerturbationHeal:
 			return
 		var cf = CardFilter.new("Type", "Perturbation")
 		var pamount = globals.player.deck.filter_cards(cf).size()
-#		gut.p(pamount)
-#		gut.p(get_amount("heal_amount"))
 		assert_eq(dreamer.damage, dreamer_starting_damage - (pamount * get_amount("heal_amount")))
 
 	func extra_hypnagonia_setup():

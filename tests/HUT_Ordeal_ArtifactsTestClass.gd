@@ -17,6 +17,7 @@ func before_each():
 	if testing_artifact_name != '':
 		artifact = player_info.find_artifact(testing_artifact_name)
 		watch_signals(artifact)
+
 	yield(yield_for(0.1), YIELD)
 
 func get_amount(amount_key: String):

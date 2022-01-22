@@ -416,7 +416,6 @@ class TestThickExplosion:
 			if i >= 5:
 				break
 		discard_size = discard.get_card_count()
-		gut.p(discard_size)
 		discard.reshuffle_in_deck()
 		yield(yield_to(discard, "discard_reshuffled_into_deck", 1.5), YIELD)
 		for t in test_torments:
@@ -643,7 +642,6 @@ class TestRandomUpgradesDetriment:
 			return
 		for c in globals.player.deck.cards:
 			c.upgrade_progress = c.upgrade_threshold
-		gut.p(globals.player.get_all_artifact_names())
 		var current_upgrades : CardUpgrade = get_tree().get_nodes_in_group("card_upgrade")[0]
 		var pre_use_draft = current_upgrades.get_children()
 		current_upgrades.display()
