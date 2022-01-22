@@ -7,3 +7,4 @@ func _ready() -> void:
 func _on_card_added(card_entry: CardEntry)  -> void:
 	if card_entry.get_property("Type") == "Control":
 		card_entry.upgrade_progress += ArtifactDefinitions.UpgradedControl.amounts.progress_amount
+		_send_trigger_signal()

@@ -5,7 +5,7 @@ func get_effect_alteration(
 		value: int, 
 		_sceng, 
 		is_source := false, 
-		_dry_run := true,
+		dry_run := true,
 		_subject: Node = null) -> int:
 	if script.script_name != 'apply_effect'\
 			or script.get_property("effect_name") != Terms.ACTIVE_EFFECTS.poison.name\
@@ -14,4 +14,6 @@ func get_effect_alteration(
 		return(0)
 	var new_value = value + ArtifactDefinitions.ImprovePoison.amounts.alteration_amount
 	var alteration = new_value - value
+	if not dry_run:
+		_send_trigger_signal()
 	return(alteration)

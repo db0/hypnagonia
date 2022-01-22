@@ -17,4 +17,5 @@ func get_effect_alteration(
 	# This effect triggers only once per battle
 	if not _dry_run:
 		is_active = false
+		_send_trigger_signal()
 	return(alteration)

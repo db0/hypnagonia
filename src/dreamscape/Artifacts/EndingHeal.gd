@@ -8,3 +8,4 @@ func _ready() -> void:
 
 func _on_battle_ended() -> void:
 	globals.player.damage -= 6
+	_send_trigger_signal()

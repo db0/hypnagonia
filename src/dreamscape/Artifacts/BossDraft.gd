@@ -4,3 +4,4 @@ const JOURNAL_CUSTOM_ENTRY = preload("res://src/dreamscape/Overworld/CustomEntri
 
 func _on_artifact_added() -> void:
 	globals.journal.add_custom_entry(JOURNAL_CUSTOM_ENTRY.instance())
+	_send_trigger_signal()

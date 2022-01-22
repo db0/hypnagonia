@@ -183,7 +183,8 @@ func before_each():
 	# We can override flags from test inner classer
 	if not globals.test_flags.has("no_refill"):
 		globals.test_flags["no_refill"] = true
-	board.begin_encounter()
+	if globals.test_flags.get("start_ordeal_before_each", true):
+		board.begin_encounter()
 	dreamer = cfc.NMAP.board.dreamer
 	turn = cfc.NMAP.board.turn
 	counters = cfc.NMAP.board.counters
@@ -194,11 +195,11 @@ func before_each():
 			card.scripts = test_scripts
 	artifacts = setup_test_artifacts(test_artifact_names)
 	memories = setup_test_memories(test_memories_names)
-	while board.counters.counters.immersion == 0:
-		yield(yield_to(board.turn, "player_turn_started", 1), YIELD)
+	if globals.test_flags.get("start_ordeal_before_each", true):
+		while board.counters.counters.immersion == 0:
+			yield(yield_to(board.turn, "player_turn_started", 1), YIELD)
 #	print_debug(board.counters.counters)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), -80)
-
 
 func after_each():
 	teardown_hypnagonia_testing()

@@ -5,7 +5,7 @@ func get_effect_alteration(
 		value: int, 
 		_sceng, 
 		is_source := false, 
-		_dry_run := true,
+		dry_run := true,
 		_subject: Node = null) -> int:
 	if script.script_name != 'apply_effect':
 		return(0)
@@ -18,4 +18,6 @@ func get_effect_alteration(
 	print_debug(script.subjects, cfc.NMAP.board.dreamer)
 	var new_value = value - ArtifactDefinitions.ResistBurn.amounts.alteration_amount
 	var alteration = new_value - value
+	if not dry_run:
+		_send_trigger_signal()
 	return(alteration)

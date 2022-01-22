@@ -16,25 +16,24 @@ func set_upgrades_increased(value) -> void:
 	# The player can only upgrade a number of cards equal to their deck size
 	# This allows us to avoid punishing larger decks
 	var upgrade_threshold = globals.player.deck.count_cards()
-	# Custom code for a special Boss artifact
-	if ArtifactDefinitions.ProgressiveImmersion.name in globals.player.get_all_artifact_names():
-		upgrade_threshold /= 2
 	if upgrades_increased >= upgrade_threshold:
-		active_effects.mod_effect(
-			"Creative Block",
-			1,
-			true,
-			false,
-			["Core"])
+		stop_upgrades()
 
+func stop_upgrades() -> void:
+	active_effects.mod_effect(
+		Terms.ACTIVE_EFFECTS.creative_block.name, 1, true, false, ["Core"])
 
 # We store how many times the player has been damaged during their own turn
 # We also store the cumulative amount of damage the player has taken during their turn.
 func _on_player_damaged(_pl, amount, _trigger, _tags) -> void:
+	# warning-ignore:return_value_discarded
 	TurnEventMessage.new("player_damaged", +1)
+	# warning-ignore:return_value_discarded
 	TurnEventMessage.new("player_total_damage", amount)
 	if cfc.NMAP.board.turn.current_turn == cfc.NMAP.board.turn.Turns.PLAYER_TURN:
+		# warning-ignore:return_value_discarded
 		TurnEventMessage.new("player_damaged_own_turn", +1)
+		# warning-ignore:return_value_discarded
 		TurnEventMessage.new("player_total_damage_own_turn", amount)
 
 

@@ -28,6 +28,7 @@ func _on_card_added(card_entry: CardEntry)  -> void:
 					"{colour} {artifact_name} ({progress}): At the start of the turn:\n"\
 						+ "If you have 2 or 3 {card_type} cards, draw 1 card and gain 1 {immersion}.\n"\
 						+ "If you have 4 or more {card_type} cards. draw 2 cards and gain 1 {immersion}."
+			_send_trigger_signal()
 
 
 func _add_extra_description_format(format_dict) -> void:
@@ -81,3 +82,6 @@ func _on_player_turn_started(_turn: Turn) -> void:
 			},
 		]
 		execute_script(script)
+
+func _on_scripting_completed(_artifact, _sceng) -> void:
+	_send_trigger_signal()
