@@ -519,6 +519,7 @@ const BossCardDraw := {
 		"draw_amount": 1,
 	},
 }
+
 const RandomUpgrades := {
 	"canonical_name": "RandomUpgrades",
 	"name": "20-sided die",
