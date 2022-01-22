@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.32.7](https://github.com/db0/hypnagonia/tree/v0.32.7) (2022-01-22)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.32.6...v0.32.7)
+
+**Merged pull requests:**
+
+- Various bugfixes and more tests [\#206](https://github.com/db0/hypnagonia/pull/206) ([db0](https://github.com/db0))
+
 ## [v0.32.6](https://github.com/db0/hypnagonia/tree/v0.32.6) (2022-01-15)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.32.5...v0.32.6)
