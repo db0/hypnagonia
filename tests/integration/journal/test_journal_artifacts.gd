@@ -89,9 +89,6 @@ class TestUpgradedConcentration:
 		assert_signal_emit_count(artifact, "artifact_triggered", 1, "Artifact triggered correct amount of times")
 		
 
-
-
-
 class TestPorcelainDoll:
 	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
 
@@ -183,3 +180,40 @@ class TestPPorcelainDollOrdeal:
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
 		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion when correct card types drawn")
 		assert_eq(hand.get_card_count(), 6, "Dreamer gets +1 draw when correct card types drawn")
+
+
+
+
+class TestBetterRareChance:
+	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
+	var uncommon_chance : float = 25.0/100
+	var rare_chance : float = 5.0/100
+	
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.BetterRareChance.canonical_name
+		expected_amount_keys = [
+			"rare_multiplier"
+		]
+
+	func test_artifact_results():
+		if not assert_has_amounts():
+			return
+		assert_eq(get_rare_chance(), rare_chance * get_amount("rare_multiplier"), "rare chance multiplied")
+		assert_eq(get_uncommon_chance(), uncommon_chance, "uncommon chance stayed the same")
+
+	func get_uncommon_chance() -> float:
+		var value := uncommon_chance
+		for artifact in cfc.get_tree().get_nodes_in_group("artifacts"):
+			var multiplier = artifact.get_global_alterant(value, HConst.AlterantTypes.CARD_UNCOMMON_CHANCE)
+			if multiplier:
+				value *= multiplier
+		return(value)
+
+	func get_rare_chance() -> float:
+		var value := rare_chance
+		for artifact in cfc.get_tree().get_nodes_in_group("artifacts"):
+			var multiplier = artifact.get_global_alterant(value, HConst.AlterantTypes.CARD_RARE_CHANCE)
+			if multiplier:
+				value *= multiplier
+		return(value)
+					
