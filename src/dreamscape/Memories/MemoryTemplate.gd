@@ -127,3 +127,8 @@ func _switch_highlight_to(highlight_node: Panel) -> void:
 				hl.visible = true
 			else:
 				hl.visible = false
+
+# When memories trigger scripts, it always means they triggered
+# When not, this function will be overriden
+func _on_scripting_completed(_artifact, _sceng) -> void:
+	_send_trigger_signal()

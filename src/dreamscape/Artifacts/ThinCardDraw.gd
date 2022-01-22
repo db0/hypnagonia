@@ -37,3 +37,7 @@ func _on_reshuffle(_pile: Pile):
 func _on_player_turn_started(_turn: Turn) -> void:
 	drawn_cards.clear()
 	_refresh()
+
+
+func _on_scripting_completed(_artifact, _sceng) -> void:
+	_send_trigger_signal()

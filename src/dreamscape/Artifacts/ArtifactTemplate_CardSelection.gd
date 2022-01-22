@@ -35,6 +35,7 @@ func _on_artifact_added() -> void:
 		if potential_cards.size() > 0:
 			CFUtils.shuffle_array(potential_cards)
 			set_modified_card(potential_cards.pop_back())
+	_send_trigger_signal()
 
 
 func _on_card_selected(operation_details: Dictionary) -> void:

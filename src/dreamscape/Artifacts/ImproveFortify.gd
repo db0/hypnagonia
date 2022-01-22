@@ -4,7 +4,10 @@ func _ready() -> void:
 	if is_active and effect_context == ArtifactDefinitions.EffectContext.BATTLE:
 		if not cfc.are_all_nodes_mapped:
 			yield(cfc, "all_nodes_mapped")
+		if not cfc.NMAP.board.dreamer:
+			yield(cfc.NMAP.board, "ready")
 		cfc.NMAP.board.dreamer.connect("effect_modified", self, "_on_effect_modified")
+
 
 func _on_effect_modified(
 		_entity, _trigger: String, details: Dictionary) -> void:
@@ -21,3 +24,6 @@ func _on_effect_modified(
 			},
 		]
 		execute_script(script)
+
+func _on_scripting_completed(_artifact, _sceng) -> void:
+	_send_trigger_signal()

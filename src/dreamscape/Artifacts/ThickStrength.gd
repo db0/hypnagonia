@@ -44,3 +44,4 @@ func _on_first_reshuffle(_pile: Pile) -> void:
 		},
 	]
 	execute_script(script)
+	_send_trigger_signal()

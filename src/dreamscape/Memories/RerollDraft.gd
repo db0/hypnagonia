@@ -3,6 +3,7 @@ extends Memory
 func execute_memory_effect():
 	for node in _get_active_card_drafts():
 		node.reroll_card_draft()
+	_send_trigger_signal()
 
 
 func _on_memory_ready(_memory: Reference) -> void:

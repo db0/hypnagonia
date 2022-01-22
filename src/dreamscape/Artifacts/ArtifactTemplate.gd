@@ -9,6 +9,9 @@ enum PRIORITY {
 	SET
 }
 
+signal artifact_triggered(artifact)
+signal scripting_completed(artifact, sceng)
+
 export(PRIORITY) var priority
 export(ArtifactDefinitions.EffectContext) var effect_context
 
@@ -36,6 +39,7 @@ func _ready() -> void:
 	setup(artifact_object.definition, artifact_object.canonical_name)
 	# warning-ignore:return_value_discarded
 	artifact_object.connect("removed", self, "_on_artifact_removed")
+	connect("scripting_completed", self, "_on_scripting_completed")
 	if artifact_object.get_class() == "ArtifactObject":
 		# warning-ignore:return_value_discarded
 		artifact_object.connect("counter_modified", self, "_on_artifact_counter_modified")
@@ -94,6 +98,7 @@ func execute_script(
 	elif not sceng.can_all_costs_be_paid and not only_cost_check:
 		#print("DEBUG:" + str(state_scripts))
 		sceng.execute(CFInt.RunType.ELSE)
+	emit_signal("scripting_completed", self, sceng)
 	return(sceng)
 
 
@@ -164,6 +169,7 @@ func _on_artifact_removed() -> void:
 func _on_artifact_counter_modified(value: int) -> void:
 	update_amount(value)
 
+
 # Marks this artifact as activated.
 # Returns false if already activated. Else returns true
 func _activate() -> bool:
@@ -171,6 +177,7 @@ func _activate() -> bool:
 		return(false)
 	_is_activated = true
 	return(true)
+
 
 # Marks this artifact as ready to be reactivated again.
 # Simple function for now which I will extend with
@@ -190,3 +197,13 @@ func _on_enemy_turn_ended(_turn: Turn) -> void:
 
 func _on_enemy_turn_started(_turn: Turn) -> void:
 	pass
+
+
+# Overridable function
+func _on_scripting_completed(_artifact, _sceng) -> void:
+	pass
+
+
+# Used to mark that this artifact's effects have been triggered
+func _send_trigger_signal() -> void:
+	emit_signal("artifact_triggered", self)

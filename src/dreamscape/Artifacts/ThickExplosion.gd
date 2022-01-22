@@ -28,3 +28,7 @@ func _on_first_reshuffle() -> void:
 		},
 	]
 	execute_script(script)
+
+
+func _on_scripting_completed(_artifact, _sceng) -> void:
+	_send_trigger_signal()

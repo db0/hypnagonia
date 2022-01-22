@@ -499,7 +499,7 @@ const ProgressiveImmersion := {
 	"canonical_name": "ProgressiveImmersion",
 	"name": "Progressive Immersion",
 	"description": "{artifact_name}: You have {immersion_amount} extra {immersion} per turn.\n"\
-			+ "You can only progress half the amount of cards per combat.",
+			+ "You cannot progress cards by playing them during ordeals anymore.",
 	"icon": preload("res://assets/icons/artifacts/boss-key.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Boss",

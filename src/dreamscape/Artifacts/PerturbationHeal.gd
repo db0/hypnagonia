@@ -6,3 +6,4 @@ func _ready() -> void:
 		globals.player.damage -=\
 				ArtifactDefinitions.PerturbationHeal.amounts.heal_amount\
 				* globals.player.deck.filter_cards(CardFilter.new("Type","Perturbation")).size()
+		_send_trigger_signal()
