@@ -49,12 +49,8 @@ class TestDollmaker:
 		watch_signals(globals.player.pathos)
 		activate_secondary_choice_by_key("leave")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
-		assert_signal_emitted(globals.encounters.run_changes, "nce_unlocked")
-		var signal_details = get_signal_parameters(globals.encounters.run_changes,  "nce_unlocked")
-		assert_gt(signal_details.size(), 0, "Doll Pickup unlocked")
-		if signal_details.size() >= 1:
-			assert_eq(signal_details[0].nce, preload("res://src/dreamscape/Run/NCE/AllActs/DollPickup.gd"))
-			assert_signal_emitted(globals.player.pathos, "pathos_repressed")
+		assert_nce_unlocked(preload("res://src/dreamscape/Run/NCE/AllActs/DollPickup.gd"))
+		assert_signal_emitted(globals.player.pathos, "pathos_repressed")
 
 	func test_choice_destroy():
 		watch_signals(globals.encounters.run_changes)
@@ -72,7 +68,6 @@ class TestGreed:
 		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act1/Greed.gd")
 
 	func test_choice_accept():
-		watch_signals(globals.encounters.run_changes)
 		watch_signals(globals.player.deck)
 		var lpathos = globals.player.pathos.grab_random_pathos()
 		set_lowest_pathos(lpathos, "released")
@@ -82,19 +77,11 @@ class TestGreed:
 		activate_secondary_choice_by_key("accept")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_gt(globals.player.pathos.released[lpathos], 50)
-		var signal_details = get_signal_parameters(globals.player.pathos,  "released_pathos_gained")
-		assert_not_null(signal_details, "Released pathos gained")
-		if not signal_details:
-			return
-		assert_eq(signal_details[0], lpathos, "Correct pathos added")
-		signal_details = get_signal_parameters(globals.player.deck,  "card_added")
-		assert_not_null(signal_details, "Card added")
-		if not signal_details:
-			return
-		assert_eq(signal_details[0].card_name, "Discombobulation", "Correct perturbation Added")
-			
+		assert_pathos_signaled("released_pathos_gained", lpathos)
+		assert_deck_signaled("card_added", "card_name", "Discombobulation")
+
+
 	func test_choice_leave():
-		watch_signals(globals.encounters.run_changes)
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		var lpathos = globals.player.pathos.grab_random_pathos()
@@ -103,3 +90,52 @@ class TestGreed:
 		activate_secondary_choice_by_key("decline")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_eq(globals.player.pathos.released[lpathos], 50)
+
+class TestMonsterTrain:
+	extends  "res://tests/HUT_Journal_NCETestClass.gd"
+	func _init() -> void:
+		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd")
+
+	func test_choice_lead_success():
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("lead")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_signal_emitted(globals.player, "artifact_added")
+		assert_eq(globals.player.damage, 15, "Player took damage")
+
+	func test_choice_lead_failure():
+		cfc.game_rng_seed = "<f<s_=ZJp@"
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("lead")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_signal_not_emitted(globals.player, "artifact_added")
+		assert_eq(globals.player.damage, 15, "Player took damage")
+
+	func test_choice_follow():
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("follow")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.shop)
+		assert_signal_not_emitted(globals.player, "artifact_added")
+		assert_eq(globals.player.damage, 7, "Player took damage")
+
+
+	func test_choice_abort():
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("abort")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_pathos_signaled("pathos_repressed", Terms.RUN_ACCUMULATION_NAMES.elite)
+		assert_signal_not_emitted(globals.player, "artifact_added")
+		assert_eq(globals.player.damage, 0, "Player took no damage")

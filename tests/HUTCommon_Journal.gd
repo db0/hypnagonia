@@ -36,3 +36,19 @@ func before_each():
 func after_each():
 	teardown_hypnagonia_testing()
 	yield(yield_for(0.1), YIELD)
+
+
+func assert_pathos_signaled(signal_name: String, pathos: String) -> void:
+	var signal_details = get_signal_parameters(globals.player.pathos, signal_name)
+	assert_not_null(signal_details, signal_name + " signal emited by pathos")
+	if not signal_details:
+		return
+	assert_eq(signal_details[0], pathos, "Correct pathos modified")
+
+func assert_deck_signaled(signal_name: String, card_property: String, property_value) -> void:
+	var signal_details = get_signal_parameters(globals.player.deck, signal_name)
+	assert_not_null(signal_details, signal_name + " signal emited by deck")
+	if not signal_details:
+		return
+	if card_property == "card_name":
+		assert_eq(signal_details[0].card_name, property_value, "Card %s property matches %s" % [card_property, property_value])
