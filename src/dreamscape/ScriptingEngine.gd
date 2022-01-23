@@ -98,6 +98,9 @@ func predict_intent_amount(_snapshot_id: int) -> int:
 	for task in scripts_queue:
 		# We put it into another variable to allow Static Typing benefits
 		var script: ScriptTask = task
+		# This is a failsafe in case the node was deinstanced during testing
+		if not cfc.NMAP.has("board"):
+			return(0)
 		# We store the temp modifiers to counters, so that things like
 		# info during targetting can take them into account
 		cfc.NMAP.board.counters.temp_count_modifiers[self] = {
