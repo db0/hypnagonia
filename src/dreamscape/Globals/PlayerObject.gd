@@ -111,7 +111,6 @@ func compile_card_type(
 
 func add_artifact(artifact_name: String, modifiers := {}) -> ArtifactObject:
 	var new_artifact: ArtifactObject
-	print_debug(get_all_artifact_names())
 	if not artifact_name in get_all_artifact_names():
 		new_artifact = ArtifactObject.new(artifact_name, modifiers)
 		artifacts.append(new_artifact)
