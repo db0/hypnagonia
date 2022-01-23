@@ -10,7 +10,7 @@ var shader_params: Dictionary
 var pathos_released: String
 
 func begin() -> void:
-	if OS.has_feature("debug"):
+	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
 		print("DEBUG INFO:Encounter: Entering Encounter: " + get_script().get_path())
 	globals.current_encounter = self
 	# warning-ignore:return_value_discarded

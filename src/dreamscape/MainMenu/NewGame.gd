@@ -86,7 +86,7 @@ func start_new_game() -> void:
 			Tween.TRANS_SINE, Tween.EASE_IN)
 	get_parent().menu_tween.start()
 	yield(get_parent().menu_tween, "tween_all_completed")
-	if OS.has_feature("debug"):
+	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
 		print("DEBUG INFO:Main: Starting game.\n:::Aspects: ", globals.player.deck_groups)
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene(CFConst.PATH_CUSTOM + 'Overworld/Journal.tscn')

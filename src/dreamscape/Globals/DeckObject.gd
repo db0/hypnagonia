@@ -47,7 +47,7 @@ func add_new_card(card_name, progress := 0) -> CardEntry:
 
 
 func remove_card(card_entry: CardEntry) -> void:
-	if OS.has_feature("debug"):
+	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
 		print("DEBUG INFO:Deck: Removing card:" + card_entry.card_name)
 	# As a failsafe, we do not allow to remove the last card
 	if cards.size() > 1:
@@ -56,7 +56,7 @@ func remove_card(card_entry: CardEntry) -> void:
 		card_entry.disconnect("card_entry_progressed", self, "signal_card_entry_progressed")
 		cards.erase(card_entry)
 		emit_signal("card_removed", card_entry)
-	elif OS.has_feature("debug"):
+	elif OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
 		print("DEBUG INFO:Deck: Card Removal Block because: Last card in deck")
 
 

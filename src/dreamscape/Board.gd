@@ -38,7 +38,7 @@ onready var _debug_warning := $VBC/DebugWarning
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 #	print_debug("Board Enter Ready:" + str(OS.get_ticks_msec() - load_start_time) + 'ms')
-	if OS.has_feature("debug"):
+	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
 		print("DEBUG INFO:Board: Entering Ordeal")
 	player_info.owner_node = self
 	_board_cover.visible = true
@@ -109,7 +109,7 @@ func begin_encounter() -> void:
 		player_info._on_Help_pressed()
 		cfc.set_setting('first_ordeal_tutorial_done', true)
 	get_tree().call_group("enemy_intents", "_connect_signals")
-	if OS.has_feature("debug"):
+	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
 			print("DEBUG INFO:Board: Ordeal Encounter Loaded")
 
 
@@ -155,7 +155,7 @@ func randomize_background() -> void:
 
 func spawn_enemy_encounter(encounter: EnemyEncounter) -> void:
 	for enemy_entry in encounter.enemies:
-		if OS.has_feature("debug"):
+		if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
 			print("DEBUG INFO:Board: Spawning Normal Enemy: " + enemy_entry['definition'].get("Name"))
 		var new_enemy = spawn_enemy(enemy_entry['definition'])
 		if enemy_entry.has('starting_intent'):
@@ -196,7 +196,7 @@ func spawn_enemy(enemy_properties) -> EnemyEntity:
 
 
 func spawn_advanced_enemy(encounter: CombatEncounter) -> EnemyEntity:
-	if OS.has_feature("debug"):
+	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
 		print("DEBUG INFO:Board: Spawning Advanced Enemy: " + encounter.enemy_scene.get_path())
 	var advanced_entity: EnemyEntity = encounter.enemy_scene.instance()
 	advanced_entity.setup_advanced(encounter.difficulty)
@@ -588,7 +588,7 @@ func _on_EnemyTurnStuckTimer_timeout() -> void:
 
 
 func _exit_tree():
-	if OS.has_feature("debug"):
+	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
 		print("DEBUG INFO:Board: Exiting Ordeal")
 
 func _store_debug_enemy_states() -> void:

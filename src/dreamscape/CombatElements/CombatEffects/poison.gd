@@ -39,7 +39,7 @@ func _decrease_stacks() -> void:
 				"amount": poison_damage,
 				"tags": ["Poison", "Combat Effect", "Debuff"],
 			})
-		if OS.has_feature("debug"):
+		if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
 			print("DEBUG INFO:Effect: Player losing %s released %s instead of taking %s anxiety due to poison."\
 					% [amount, pathos, stacks - poison_damage])
 			if mid_amount < 0:
