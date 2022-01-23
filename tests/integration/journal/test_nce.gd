@@ -60,7 +60,7 @@ class TestDollmaker:
 		activate_secondary_choice_by_key("destroy")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_emitted(globals.player.pathos, "released_pathos_gained")
-		assert_signal_not_emitted(globals.encounters.run_changes, "nce_unlocked")
+		assert_nce_not_unlocked(preload("res://src/dreamscape/Run/NCE/AllActs/DollPickup.gd"))
 
 class TestGreed:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
@@ -184,7 +184,6 @@ class TestMultipleOptions:
 		assert_pathos_signaled("pathos_spent", porg.high)
 
 	func test_choice_leave():
-		var porg := set_random_pathos_org("released")
 		begin_nce_with_choices(nce)
 		watch_signals(globals.player)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
@@ -223,3 +222,94 @@ class TestPathosForAnxiety:
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_emitted(globals.player.pathos, "released_pathos_gained")
 		assert_between(globals.player.damage, 18, 22, "Player took damage")
+
+class TestPopPsychologist1:
+	extends  "res://tests/HUT_Journal_NCETestClass.gd"
+	func _init() -> void:
+		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act1/PopPsychologist1.gd")
+
+	func test_choice_tiger():
+		watch_signals(globals.encounters.run_changes)
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("tiger")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.nce)
+		assert_nce_unlocked(preload("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist2.gd"))
+	func test_choice_snake():
+		watch_signals(globals.encounters.run_changes)
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("snake")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.snake)
+		assert_nce_unlocked(preload("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist2.gd"))
+	func test_choice_owl():
+		watch_signals(globals.encounters.run_changes)
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("owl")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.owl)
+		assert_nce_unlocked(preload("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist2.gd"))
+
+class TestPopPsychologist2:
+	extends  "res://tests/HUT_Journal_NCETestClass.gd"
+	func _init() -> void:
+		testing_nce_script = preload("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist2.gd")
+
+	func test_choice_passion_fruit():
+		watch_signals(globals.encounters.run_changes)
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("passion fruit")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.artifact)
+		assert_nce_unlocked(preload("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist3.gd"))
+	func test_choice_orange():
+		watch_signals(globals.encounters.run_changes)
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("orange")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.elite)
+		assert_nce_unlocked(preload("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist3.gd"))
+	func test_choice_bananal():
+		watch_signals(globals.encounters.run_changes)
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("banana")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.shop)
+		assert_nce_unlocked(preload("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist3.gd"))
+
+class TestPopPsychologist3:
+	extends  "res://tests/HUT_Journal_NCETestClass.gd"
+	func _init() -> void:
+		testing_nce_script = preload("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist3.gd")
+		dreamer_starting_damage = 70
+
+	func test_choice_death():
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		activate_secondary_choice_by_key("death")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_eq(globals.player.damage, 0)
+	func test_choice_release():
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		activate_secondary_choice_by_key("release")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_eq(globals.player.damage, 0)
+	func test_choice_oblivion():
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		activate_secondary_choice_by_key("oblivion")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_eq(globals.player.damage, 0)
