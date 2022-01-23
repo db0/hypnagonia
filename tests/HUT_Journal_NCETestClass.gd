@@ -52,3 +52,27 @@ func activate_secondary_choice_by_key(key) -> void:
 		return
 	watch_signals(sc)
 	sc.emit_signal("pressed")
+
+func set_lowest_pathos(pathos: String, type := "repressed") -> void:
+	var pdict: Dictionary
+	if type == "repressed":
+		pdict = globals.player.pathos.repressed
+	else:
+		pdict = globals.player.pathos.released
+	for p in pdict:
+		if p != pathos:
+			pdict[p] = 100
+		else:
+			pdict[p] = 50
+
+func set_highest_pathos(pathos: String, type := "repressed") -> void:
+	var pdict: Dictionary
+	if type == "repressed":
+		pdict = globals.player.pathos.repressed
+	else:
+		pdict = globals.player.pathos.released
+	for p in pdict:
+		if p != pathos:
+			pdict[p] = 50
+		else:
+			pdict[p] = 100
