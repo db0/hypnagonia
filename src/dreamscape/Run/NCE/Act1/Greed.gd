@@ -33,8 +33,7 @@ func begin() -> void:
 
 func continue_encounter(key) -> void:
 	if key == "accept":
-		globals.player.pathos.released[pathos_choice_payments[key]["pathos"]]\
-				+= pathos_choice_payments[key]["amount"]
+		globals.player.pathos.modify_released_pathos(pathos_choice_payments[key]["pathos"], pathos_choice_payments[key]["amount"])
 		# warning-ignore:return_value_discarded
 		globals.player.deck.add_new_card("Discombobulation")
 	end()
