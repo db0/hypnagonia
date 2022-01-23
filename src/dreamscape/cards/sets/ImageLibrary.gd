@@ -37,6 +37,7 @@ const CARD_IMAGES := {
 	"Unease": preload("res://assets/cards/doodle1.jpg"),
 	"Dread": preload("res://assets/cards/doodle3.jpg"),
 	"Impossible Construction": preload("res://assets/cards/Impossible_Construction.jpg"),
+	"Excogitate": preload("res://assets/cards/excogitate.jpg"),
 	
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Stuffed Toy": preload("res://assets/journal/torments/stuffed_toy.jpeg"),
