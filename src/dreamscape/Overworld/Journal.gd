@@ -7,6 +7,7 @@ signal artifact_selection_started(artifact_selection_node)
 signal choice_entry_added(choice_entry)
 signal secondary_entry_added(choice_entry)
 signal encounter_start(encounter)
+signal selection_deck_spawned(selection_deck)
 
 const NESTED_CHOICES_SCENE = preload("res://src/dreamscape/Overworld/SecondaryChoicesSlide.tscn")
 const SELECTION_DECK_SCENE = preload("res://src/dreamscape/SelectionDeck.tscn")
@@ -219,6 +220,7 @@ func spawn_selection_deck() -> SelectionDeck:
 		globals.current_encounter.current_shop.add_child(selection_deck)
 	else:
 		add_child(selection_deck)
+	emit_signal("selection_deck_spawned", selection_deck)
 	return(selection_deck)
 
 

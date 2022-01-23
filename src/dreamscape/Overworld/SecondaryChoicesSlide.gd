@@ -1,6 +1,7 @@
 class_name SecondaryChoiceSlide
 extends MarginContainer
 
+signal secondary_choice_selected(choice_key)
 
 onready var scroll_container := $SC
 onready var secondary_choices_container := $SC/SecondaryChoices
@@ -48,3 +49,4 @@ func _on_choice_pressed(
 			_tween.start()
 	globals.hide_all_previews()
 	calling_node.call_deferred("continue_encounter", choice_key)
+	emit_signal("secondary_choice_selected", choice_key)

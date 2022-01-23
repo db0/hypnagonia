@@ -11,7 +11,7 @@ var cards := []
 
 func before_each():
 	if not globals.test_flags.has("no_journal_fade"):
-		globals.test_flags["no_journal_fade"] = true	
+		globals.test_flags["no_journal_fade"] = true
 	# warning-ignore:void_assignment
 	var confirm_return = setup_journal()
 	if confirm_return is GDScriptFunctionState: # Still working.

@@ -47,6 +47,7 @@ class TestIndescribableAbsurdity:
 	func test_spam_debuffs():
 		# This ensures that it will always spawn the same amount of debuffs, regardless of seed
 		cfc.game_rng_seed = CFUtils.generate_random_seed()
+		gut.p("Testing Random Seed: " + cfc.game_rng_seed)
 		# warning-ignore:return_value_discarded
 		advanced_torment.intents.prepare_intents(0)
 		cfc.NMAP.board.turn.end_player_turn()
@@ -66,6 +67,7 @@ class TestIndescribableAbsurdity:
 	func test_spam_buffs():
 		# This ensures that it will always spawn the same amount of debuffs, regardless of seed
 		cfc.game_rng_seed = CFUtils.generate_random_seed()
+		gut.p("Testing Random Seed: " + cfc.game_rng_seed)
 		# warning-ignore:return_value_discarded
 		advanced_torment.intents.prepare_intents(2)
 		cfc.NMAP.board.turn.end_player_turn()
@@ -87,6 +89,7 @@ class TestIndescribableAbsurdity:
 		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.strengthen.name, 3)
 		# This ensures that it will always spawn the same amount of debuffs, regardless of seed
 		cfc.game_rng_seed = CFUtils.generate_random_seed()
+		gut.p("Testing Random Seed: " + cfc.game_rng_seed)
 		# warning-ignore:return_value_discarded
 		advanced_torment.intents.prepare_intents(4)
 		cfc.NMAP.board.turn.end_player_turn()
@@ -103,6 +106,7 @@ class TestIndescribableAbsurdity:
 		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.quicken.name, -3)
 		# This ensures that it will always spawn the same amount of debuffs, regardless of seed
 		cfc.game_rng_seed = CFUtils.generate_random_seed()
+		gut.p("Testing Random Seed: " + cfc.game_rng_seed)
 		# warning-ignore:return_value_discarded
 		advanced_torment.intents.prepare_intents(4)
 		cfc.NMAP.board.turn.end_player_turn()
