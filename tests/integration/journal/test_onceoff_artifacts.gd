@@ -151,6 +151,7 @@ class TestFreeCard:
 
 	func test_artifact_results():
 		cfc.game_rng_seed = CFUtils.generate_random_seed()
+		gut.p("Testing Random Seed: " + cfc.game_rng_seed)
 		watch_signals(globals.player.deck)
 		# warning-ignore:return_value_discarded
 		setup_test_artifacts([ArtifactDefinitions.FreeCard.canonical_name])
@@ -166,6 +167,7 @@ class TestFreeCard:
 
 	func test_when_no_valid_selection():
 		cfc.game_rng_seed = CFUtils.generate_random_seed()
+		gut.p("Testing Random Seed: " + cfc.game_rng_seed)
 		for c in globals.player.deck.cards:
 			c.modify_property("Cost",0, false)
 		watch_signals(globals.player.deck)
@@ -183,6 +185,7 @@ class TestAddAlphaTag:
 		if not assert_has_amounts():
 			return
 		cfc.game_rng_seed = CFUtils.generate_random_seed()
+		gut.p("Testing Random Seed: " + cfc.game_rng_seed)
 		var selection_decks =  cfc.get_tree().get_nodes_in_group("selection_decks")
 		assert_eq(selection_decks.size(), 1)
 		if selection_decks.size() == 0:
@@ -206,6 +209,7 @@ class TestIncreaseRandomDamage:
 
 	func test_artifact_results():
 		cfc.game_rng_seed = CFUtils.generate_random_seed()
+		gut.p("Testing Random Seed: " + cfc.game_rng_seed)
 		watch_signals(globals.player.deck)
 		# warning-ignore:return_value_discarded
 		setup_test_artifacts([ArtifactDefinitions.IncreaseRandomDamage.canonical_name])
@@ -229,6 +233,7 @@ class TestIncreaseRandomDefence:
 
 	func test_artifact_results():
 		cfc.game_rng_seed = CFUtils.generate_random_seed()
+		gut.p("Testing Random Seed: " + cfc.game_rng_seed)
 		watch_signals(globals.player.deck)
 		# warning-ignore:return_value_discarded
 		setup_test_artifacts([ArtifactDefinitions.IncreaseRandomDefence.canonical_name])
@@ -260,6 +265,7 @@ class TestIncreaseConfusionStacks:
 		if not assert_has_amounts():
 			return
 		cfc.game_rng_seed = CFUtils.generate_random_seed()
+		gut.p("Testing Random Seed: " + cfc.game_rng_seed)
 		var selection_decks =  cfc.get_tree().get_nodes_in_group("selection_decks")
 		assert_eq(selection_decks.size(), 1)
 		if selection_decks.size() == 0:
@@ -297,6 +303,7 @@ class TestIncreaseImmersionGain:
 		if not assert_has_amounts():
 			return
 		cfc.game_rng_seed = CFUtils.generate_random_seed()
+		gut.p("Testing Random Seed: " + cfc.game_rng_seed)
 		var selection_decks =  cfc.get_tree().get_nodes_in_group("selection_decks")
 		assert_eq(selection_decks.size(), 1)
 		if selection_decks.size() == 0:
