@@ -4657,7 +4657,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "Shuffle {card_amount} random card from the forgotten pile into the deck.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Miikka Veijola",
 		"_rarity": "Rare",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -4676,7 +4676,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "Shuffle {card_amount} random card from the forgotten pile into the deck.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Miikka Veijola",
 		"_rarity": "Rare",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -4691,7 +4691,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "Shuffle {card_amount} random card from the forgotten pile into the deck.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Miikka Veijola",
 		"_rarity": "Rare",
 		"_keywords": ["confidence"],
 		"_amounts": {
