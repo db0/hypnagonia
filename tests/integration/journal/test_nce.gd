@@ -100,7 +100,7 @@ class TestMonsterTrain:
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
 		activate_secondary_choice_by_key("lead")
-		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		yield(yield_to(globals.player, "artifact_added", 0.2), YIELD)
 		assert_signal_emitted(globals.player, "artifact_added")
 		assert_eq(globals.player.damage, 15, "Player took damage")
 
