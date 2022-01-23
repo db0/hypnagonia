@@ -3,9 +3,9 @@
 extends NonCombatEncounter
 
 var secondary_choices := {
-		'calm': '[Calm]: Gain {calm_random_pathos_amount} repressed {calm_random_pathos}.',
-		'stress': '[Stress]: Take {stress_amount} anxiety. Gain {stress_random_pathos_amount} repressed {stress_random_pathos}.',
-		'fear': '[Fear]: Take {fear_amount} anxiety. Gain {fear_random_pathos_amount} repressed {fear_random_pathos}.',
+		'calm': '[Calm]: Gain {calm_random_pathos_amount} released {calm_random_pathos}.',
+		'stress': '[Stress]: Take {stress_amount} anxiety. Gain {stress_random_pathos_amount} released {stress_random_pathos}.',
+		'fear': '[Fear]: Take {fear_amount} anxiety. Gain {fear_random_pathos_amount} released {fear_random_pathos}.',
 	}
 	
 var nce_resul_fluff := {
@@ -72,7 +72,7 @@ func begin() -> void:
 	globals.journal.add_nested_choices(secondary_choices)
 
 func continue_encounter(key) -> void:
-	globals.player.pathos.repress_pathos(choices[key]["pathos"], choices[key]["reward"])
+	globals.player.pathos.modify_released_pathos(choices[key]["pathos"], choices[key]["reward"])
 	globals.player.damage += choices[key]["anxiety"]
 	end()
 	globals.journal.display_nce_rewards(nce_resul_fluff[key])
