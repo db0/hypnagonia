@@ -109,10 +109,15 @@ func set_random_pathos_org(type := "repressed") -> Dictionary:
 	}
 	return(ret_dict)
 
-func assert_nce_unlocked(nce_script: Script) -> void:
+func assert_nce_unlocked(nce_script: GDScript) -> void:
 	assert_signal_emitted(globals.encounters.run_changes, "nce_unlocked")
 	var signal_details = get_signal_parameters(globals.encounters.run_changes,  "nce_unlocked")
 	assert_not_null(signal_details, "NCE Unlocked")
 	if not signal_details:
 		return
 	assert_eq(signal_details[0].nce, nce_script, "Expected NCE Unlocked")
+	assert_true(globals.encounters.run_changes._is_nce_unlocked(nce_script))
+	
+func assert_nce_not_unlocked(nce_script: GDScript) -> void:
+	assert_signal_not_emitted(globals.encounters.run_changes, "nce_unlocked")
+	assert_false(globals.encounters.run_changes._is_nce_unlocked(nce_script))

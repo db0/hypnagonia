@@ -6,7 +6,7 @@ const SHADER := preload("res://shaders/Roscharch.shader")
 
 var secondary_choices := {
 		'tiger': '[A Tiger]: Gain some released {nce}.',
-		'snake': '[A Snake]:  Gain some released{enemy}.',
+		'snake': '[A Snake]:  Gain some released {enemy}.',
 		'owl': '[An Owl]: Gain some released {shop}.',
 	}
 
