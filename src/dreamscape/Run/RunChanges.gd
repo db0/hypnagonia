@@ -3,6 +3,8 @@
 class_name RunChanges
 extends Reference
 
+signal nce_unlocked(nce)
+
 # NCEs which have been unlocked to appear during this run
 var unlocked_nce := {
 	"easy": {},
@@ -32,10 +34,11 @@ func unlock_nce(nce_name: String, nce_type: String, is_immediate := true) -> voi
 				var unl_nce = act["LOCKED_NCE"][nce_name]
 				if not _is_nce_unlocked(unl_nce.nce):
 					unlocked_nce[nce_type][act_name].append(unl_nce)
+					emit_signal("nce_unlocked", unl_nce)
 					# After unlocking an NCE, we automatically inject it into
 					# The still available NCEs
 					# TODO: Later this will also coordinate the multiple acts
-					if  is_immediate:
+					if is_immediate:
 						for _iter in range(unl_nce.chance_multiplier):
 							encounters.remaining_nce[nce_type].append(unl_nce.nce)
 							CFUtils.shuffle_array(encounters.remaining_nce[nce_type])

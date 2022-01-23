@@ -10,7 +10,7 @@ class TestTheCandyman:
 		gut.p("Testing Random Seed: " + cfc.game_rng_seed)
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
-		activate_secondary_choice(0)
+		activate_secondary_choice_by_index(0)
 		yield(yield_to(journal, "selection_deck_spawned", 0.2), YIELD)
 		assert_signal_emitted(journal, "selection_deck_spawned")
 		var selection_decks =  cfc.get_tree().get_nodes_in_group("selection_decks")
@@ -36,3 +36,32 @@ class TestTheCandyman:
 						if c.properties.Type == HConst.COLOUR_MAP[choice_key[index]] and not index in used_indexes:
 							used_indexes.append(index)
 				assert_eq(used_indexes.size(), 2, "Added and Removed cards match the candy colours")
+
+class TestDollmaker:
+	extends  "res://tests/HUT_Journal_NCETestClass.gd"
+	func _init() -> void:
+		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act1/Dollmaker.gd")
+
+	func test_choice_leave():
+		watch_signals(globals.encounters.run_changes)
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("leave")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_signal_emitted(globals.encounters.run_changes, "nce_unlocked")
+		var signal_details = get_signal_parameters(globals.encounters.run_changes,  "nce_unlocked")
+		assert_gt(signal_details.size(), 0, "Doll Pickup unlocked")
+		if signal_details.size() >= 1:
+			assert_eq(signal_details[0].nce, preload("res://src/dreamscape/Run/NCE/AllActs/DollPickup.gd"))
+			assert_signal_emitted(globals.player.pathos, "pathos_repressed")
+
+	func test_choice_destroy():
+		watch_signals(globals.encounters.run_changes)
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("destroy")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_signal_emitted(globals.player.pathos, "released_pathos_gained")
+		assert_signal_not_emitted(globals.encounters.run_changes, "nce_unlocked")
