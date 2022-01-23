@@ -69,8 +69,7 @@ class TestGreed:
 
 	func test_choice_accept():
 		watch_signals(globals.player.deck)
-		var lpathos = globals.player.pathos.grab_random_pathos()
-		set_lowest_pathos(lpathos, "released")
+		var lpathos = set_lowest_pathos("released")
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
@@ -84,8 +83,7 @@ class TestGreed:
 	func test_choice_leave():
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
-		var lpathos = globals.player.pathos.grab_random_pathos()
-		set_lowest_pathos(lpathos, "released")
+		var lpathos = set_lowest_pathos("released")
 		watch_signals(globals.player.pathos)
 		activate_secondary_choice_by_key("decline")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
@@ -128,7 +126,6 @@ class TestMonsterTrain:
 		assert_signal_not_emitted(globals.player, "artifact_added")
 		assert_eq(globals.player.damage, 7, "Player took damage")
 
-
 	func test_choice_abort():
 		begin_nce_with_choices(nce)
 		watch_signals(globals.player)
@@ -139,3 +136,59 @@ class TestMonsterTrain:
 		assert_pathos_signaled("pathos_repressed", Terms.RUN_ACCUMULATION_NAMES.elite)
 		assert_signal_not_emitted(globals.player, "artifact_added")
 		assert_eq(globals.player.damage, 0, "Player took no damage")
+
+class TestMultipleOptions:
+	extends  "res://tests/HUT_Journal_NCETestClass.gd"
+	func _init() -> void:
+		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act1/MultipleOptions.gd")
+
+	func test_choice_progress():
+		var porg := set_random_pathos_org("released")
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player.deck)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("progress")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_signal_emitted(globals.player.deck, "card_entry_progressed")
+		assert_pathos_signaled("pathos_spent", porg.low)
+
+	func test_choice_upgrade():
+		var porg := set_random_pathos_org("released")
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player.deck)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("upgrade")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_signal_emitted(globals.player.deck, "card_entry_progressed")
+		assert_pathos_signaled("pathos_spent", porg.mid)
+
+	func test_choice_remove():
+		var porg := set_random_pathos_org("released")
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player.deck)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("remove")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_signal_emitted(journal, "selection_deck_spawned")
+		var selection_decks =  cfc.get_tree().get_nodes_in_group("selection_decks")
+		assert_eq(selection_decks.size(), 1, "Selected Deck spawned")
+		if selection_decks.size() == 0:
+			return
+		var selection_deck : SelectionDeck = selection_decks[0]
+		watch_signals(globals.player.deck)
+		selection_deck._deck_preview_grid.get_children()[0].select_card()
+		assert_signal_emitted(globals.player.deck, "card_removed")
+		assert_pathos_signaled("pathos_spent", porg.high)
+
+	func test_choice_leave():
+		var porg := set_random_pathos_org("released")
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("leave")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_pathos_not_signaled("pathos_spent")

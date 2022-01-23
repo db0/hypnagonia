@@ -68,6 +68,7 @@ func begin() -> void:
 func continue_encounter(key) -> void:
 	match key:
 		"progress":
+			globals.player.pathos.modify_released_pathos(pathos_choice_payments[key]["pathos"], pathos_choice_payments[key]["cost"])
 			var card_entry : CardEntry = globals.player.deck.get_upgradable_card_type("least_progress")
 			if card_entry:
 				card_entry.upgrade_progress += 4
@@ -82,7 +83,7 @@ func continue_encounter(key) -> void:
 			selection_deck.update_header("(Free Removal)")
 			selection_deck.update_color(Color(0,1,0))
 	if key != "leave":
-		globals.player.pathos.released[pathos_choice_payments[key]["pathos"]]\
-				-= pathos_choice_payments[key]["cost"]
+		globals.player.pathos.modify_released_pathos(pathos_choice_payments[key]["pathos"], 
+				-pathos_choice_payments[key]["cost"])
 	end()
 	globals.journal.display_nce_rewards('')
