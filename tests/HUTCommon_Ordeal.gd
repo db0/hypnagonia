@@ -198,7 +198,6 @@ func before_each():
 	if globals.test_flags.get("start_ordeal_before_each", true):
 		while board.counters.counters.immersion == 0:
 			yield(yield_to(board.turn, "player_turn_started", 1), YIELD)
-#	print_debug(board.counters.counters)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), -80)
 
 func after_each():

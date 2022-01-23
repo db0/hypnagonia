@@ -12,8 +12,6 @@ func complete_targeting() -> void:
 	clear_points()
 	$ArrowHead.visible = false
 	$ArrowHead/Area2D.monitoring = false
-	if target_object:
-		print_debug(target_object.canonical_name)
 
 
 # Triggers when a targetting arrow hovers over a combat entity while being dragged
@@ -52,6 +50,5 @@ func preselect_target(target) -> void:
 	clear_points()
 	$ArrowHead.visible = false
 	$ArrowHead/Area2D.monitoring = false
-	if target_object:
-		print_debug(target_object.canonical_name)
+
 

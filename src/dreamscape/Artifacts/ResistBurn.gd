@@ -15,7 +15,6 @@ func get_effect_alteration(
 		return(0)
 	if script.subjects[0] != cfc.NMAP.board.dreamer:
 		return(0)
-	print_debug(script.subjects, cfc.NMAP.board.dreamer)
 	var new_value = value - ArtifactDefinitions.ResistBurn.amounts.alteration_amount
 	var alteration = new_value - value
 	if not dry_run:

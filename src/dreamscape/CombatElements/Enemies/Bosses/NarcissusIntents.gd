@@ -54,7 +54,6 @@ func _get_boss_scripts(intent_name: String) -> Array:
 	var script : Dictionary
 	match intent_name:
 		"Denial":
-			print_debug(cfc.NMAP.board.dreamer.health - cfc.NMAP.board.dreamer.damage)
 			if cfc.NMAP.board.dreamer.health - cfc.NMAP.board.dreamer.damage > 10:
 				script = {
 					"name": "apply_effect",

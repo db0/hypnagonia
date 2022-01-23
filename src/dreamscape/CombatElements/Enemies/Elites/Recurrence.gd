@@ -62,7 +62,7 @@ func _on_dreamer_effect_modified(
 		var count = details.get(SP.TRIGGER_NEW_COUNT) - details.get(SP.TRIGGER_PREV_COUNT)
 		if is_learning and not "Turn Decrease" in details.tags and count > 0:
 			self_effects[Terms.ACTIVE_EFFECTS.drain.name] = self_effects.get(Terms.ACTIVE_EFFECTS.drain.name,0) + count
-			print_debug("Recorded: %s : %s" % [details.get("effect_name"),count])
+#			print_debug("Recorded: %s : %s" % [details.get("effect_name"),count])
 
 
 func _on_self_effect_modified(

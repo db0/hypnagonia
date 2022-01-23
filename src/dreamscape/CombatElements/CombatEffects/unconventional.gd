@@ -1,8 +1,6 @@
 extends CombatEffect
 
 func _on_player_turn_started(_turn: Turn) -> void:
-	print_debug(name)
-	print_debug(canonical_name)
 	var defence : int = cfc.card_definitions[name]\
 			.get("_amounts",{}).get("concentration_defence")
 	var discard_threshold : int = cfc.card_definitions[name]\

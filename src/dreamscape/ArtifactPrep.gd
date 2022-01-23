@@ -30,7 +30,6 @@ func _init(rare_percent: int, uncommon_percent: int, amount := 1, artifact_type 
 #		aa[r] = []
 #		for a in all_valid_artifacts[r]:
 #			aa[r].append(a.name)
-#	print_debug(aa)
 	for _iter in range(amount):
 		var randomized_artifacts := []
 		if artifact_type == "boss":
