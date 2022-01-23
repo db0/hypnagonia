@@ -53,6 +53,7 @@ func continue_encounter(key) -> void:
 				nce_result_fluff['lead'] += "\nYou try to lead this train, but you quickly realize you're out of your depth. "\
 						+ "The forces of Order soon overwhelmed your band."
 		"follow":
+			globals.player.damage += 7
 			# warning-ignore:narrowing_conversion
 			globals.player.pathos.modify_released_pathos(
 				Terms.RUN_ACCUMULATION_NAMES.shop,
