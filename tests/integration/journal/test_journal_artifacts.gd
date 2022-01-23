@@ -156,6 +156,7 @@ class TestPPorcelainDollOrdeal:
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
 		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion when correct card types drawn")
 		assert_eq(hand.get_card_count(), 7, "Dreamer gets +2 draw when correct card types drawn")
+		test_card_names.clear()
 
 	func test_artifact_failed():
 		if not assert_has_amounts():
@@ -167,6 +168,7 @@ class TestPPorcelainDollOrdeal:
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
 		assert_eq(counters.get_counter("immersion"), 3, "Dreamer gets +1 immersion when correct card types drawn")
 		assert_eq(hand.get_card_count(), 5, "Dreamer gets +2 draw when correct card types drawn")
+		test_card_names.clear()
 
 	func test_artifact_mini_success():
 		if not assert_has_amounts():
@@ -180,6 +182,7 @@ class TestPPorcelainDollOrdeal:
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
 		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion when correct card types drawn")
 		assert_eq(hand.get_card_count(), 6, "Dreamer gets +1 draw when correct card types drawn")
+		test_card_names.clear()
 
 
 
