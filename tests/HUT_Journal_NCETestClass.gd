@@ -33,11 +33,22 @@ func begin_nce_with_choices(nce: NonCombatEncounter) -> void:
 		nested_choices_scene = get_signal_parameters(journal, "secondary_entry_added")[0]
 		watch_signals(nested_choices_scene)
 
-func activate_secondary_choice(index: int) -> void:
+func activate_secondary_choice_by_index(index: int) -> void:
 	var all_secondary_choices = get_tree().get_nodes_in_group("secondary_choices")
 	assert_gt(all_secondary_choices.size(), index, "As many secondary choices created as expected")
 	if not all_secondary_choices.size() > index:
 		return
 	var sc: JournalNestedChoice = all_secondary_choices[index]
+	watch_signals(sc)
+	sc.emit_signal("pressed")
+	
+func activate_secondary_choice_by_key(key) -> void:
+	var sc: JournalNestedChoice
+	for selected_choice in get_tree().get_nodes_in_group("secondary_choices"):
+		if selected_choice.choice_key == key:
+			sc = selected_choice
+	assert_not_null(sc, "Ensure choice with specified key is found")
+	if not sc:
+		return
 	watch_signals(sc)
 	sc.emit_signal("pressed")

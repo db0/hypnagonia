@@ -24,7 +24,7 @@ func display() -> void:
 func populate_choices(nested_choices: Dictionary, _journal, disabled_choices := []) -> void:
 	secondary_choices_container.rect_min_size.x = rect_size.x - get("custom_constants/margin_left")
 	for choice_key in nested_choices:
-			var secondary_choice = JournalNestedChoice.new(_journal, nested_choices[choice_key])
+			var secondary_choice = JournalNestedChoice.new(_journal, nested_choices[choice_key], choice_key)
 			secondary_choice.rect_min_size.x = rect_size.x - get("custom_constants/margin_left")
 			secondary_choices_container.add_child(secondary_choice)
 			if not choice_key in disabled_choices:
