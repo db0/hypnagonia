@@ -53,7 +53,8 @@ func activate_secondary_choice_by_key(key) -> void:
 	watch_signals(sc)
 	sc.emit_signal("pressed")
 
-func set_lowest_pathos(pathos: String, type := "repressed") -> void:
+func set_lowest_pathos(type := "repressed") -> String:
+	var pathos = globals.player.pathos.grab_random_pathos()
 	var pdict: Dictionary
 	if type == "repressed":
 		pdict = globals.player.pathos.repressed
@@ -64,8 +65,10 @@ func set_lowest_pathos(pathos: String, type := "repressed") -> void:
 			pdict[p] = 100
 		else:
 			pdict[p] = 50
+	return(pathos)
 
-func set_highest_pathos(pathos: String, type := "repressed") -> void:
+func set_highest_pathos(type := "repressed") -> String:
+	var pathos = globals.player.pathos.grab_random_pathos()	
 	var pdict: Dictionary
 	if type == "repressed":
 		pdict = globals.player.pathos.repressed
@@ -76,6 +79,35 @@ func set_highest_pathos(pathos: String, type := "repressed") -> void:
 			pdict[p] = 50
 		else:
 			pdict[p] = 100
+	return(pathos)
+
+func set_random_pathos_org(type := "repressed") -> Dictionary:
+	var pdict: Dictionary
+	if type == "repressed":
+		pdict = globals.player.pathos.repressed
+	else:
+		pdict = globals.player.pathos.released
+	var hpathos = globals.player.pathos.grab_random_pathos()
+	var lpathos = globals.player.pathos.grab_random_pathos()
+	while lpathos == hpathos:
+		lpathos = globals.player.pathos.grab_random_pathos()
+	var mpathos = globals.player.pathos.grab_random_pathos()
+	while mpathos in [lpathos, hpathos]:
+		mpathos = globals.player.pathos.grab_random_pathos()
+	for p in pdict:
+		match p:
+			hpathos:
+				pdict[p] = 150
+			mpathos:
+				pdict[p] = 100
+			lpathos:
+				pdict[p] = 50
+	var ret_dict := {
+		"high": hpathos,
+		"mid": mpathos,
+		"low": lpathos,
+	}
+	return(ret_dict)
 
 func assert_nce_unlocked(nce_script: Script) -> void:
 	assert_signal_emitted(globals.encounters.run_changes, "nce_unlocked")

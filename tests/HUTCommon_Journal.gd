@@ -39,15 +39,25 @@ func after_each():
 
 
 func assert_pathos_signaled(signal_name: String, pathos: String) -> void:
+	assert_signal_emitted(globals.player.pathos, signal_name)
 	var signal_details = get_signal_parameters(globals.player.pathos, signal_name)
 	assert_not_null(signal_details, signal_name + " signal emited by pathos")
 	if not signal_details:
 		return
 	assert_eq(signal_details[0], pathos, "Correct pathos modified")
+	
+func assert_pathos_not_signaled(signal_name: String, pathos := '') -> void:
+	assert_signal_not_emitted(globals.player.pathos, signal_name)
+	if pathos == '':
+		return
+	var signal_details = get_signal_parameters(globals.player.pathos, signal_name)
+	if not signal_details:
+		return
+	assert_ne(signal_details[0], pathos, "Wrong pathos not modified")
 
 func assert_deck_signaled(signal_name: String, card_property: String, property_value) -> void:
 	var signal_details = get_signal_parameters(globals.player.deck, signal_name)
-	assert_not_null(signal_details, signal_name + " signal emited by deck")
+	assert_null(signal_details, signal_name + " signal emited by deck")
 	if not signal_details:
 		return
 	if card_property == "card_name":
