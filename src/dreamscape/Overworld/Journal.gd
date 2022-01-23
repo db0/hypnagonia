@@ -47,7 +47,7 @@ var pre_highlight_bbcode_texts := {}
 var reward_choices_unpreviewed := []
 
 func _ready() -> void:
-	if OS.has_feature("debug"):
+	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
 		print("DEBUG INFO:Journal: Entering Journal")
 	if globals.player.pathos:
 		for entry in globals.player.pathos.repressed:
@@ -84,7 +84,7 @@ func _ready() -> void:
 		cfc.set_setting('first_journal_tutorial_done', true)
 	globals.music.switch_scene_music('journal')
 
-	if OS.has_feature("debug"):
+	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
 		print("DEBUG INFO:Journal: Journal Loaded")
 
 
@@ -514,5 +514,5 @@ func card_upgrade_started(card_upgrade_node) -> void:
 
 
 func _exit_tree():
-	if OS.has_feature("debug"):
+	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
 		print("DEBUG INFO:Journal: Exiting/Changing Journal")
