@@ -39,6 +39,7 @@ class TestBannersOfRuin:
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_not_emitted(globals.player, "artifact_added")
 		assert_eq(globals.player.health, 100, "Player max health not modified")
+		# warning-ignore:return_value_discarded
 		assert_deck_signaled("card_added", "card_name", "Hyena")
 
 class TestGriftlands:
@@ -196,6 +197,7 @@ class TestLoseRandomCurio:
 		watch_signals(globals.player.pathos)
 		activate_secondary_choice_by_key("allow")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+# warning-ignore:return_value_discarded
 		assert_player_signaled("artifact_added", 'canonical_name', "BetterArtifactChance")
 		assert_signal_emitted(globals.player, "artifact_removed")
 
@@ -208,3 +210,65 @@ class TestLoseRandomCurio:
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_not_emitted(globals.player, "artifact_added")
 		assert_signal_not_emitted(globals.player, "artifact_removed")
+
+class TestMiniShop:
+	extends  "res://tests/HUT_Journal_NCETestClass.gd"
+	func _init() -> void:
+		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act2/MiniShop.gd")
+
+	func test_choice_remove():
+		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.artifact] = 100
+		watch_signals(globals.player.deck)
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("remove")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		# warning-ignore:return_value_discarded
+		assert_pathos_signaled("pathos_spent", Terms.RUN_ACCUMULATION_NAMES.artifact)
+		var selection_deck = assert_selection_deck_spawned()
+		selection_deck._deck_preview_grid.get_children()[0].select_card()
+		assert_signal_emitted(globals.player.deck, "card_removed")
+
+	func test_choice_progress():
+		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.shop] = 100
+		watch_signals(globals.player.deck)
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("progress")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		# warning-ignore:return_value_discarded
+		assert_pathos_signaled("pathos_spent", Terms.RUN_ACCUMULATION_NAMES.shop)
+		var selection_deck = assert_selection_deck_spawned()
+		selection_deck._deck_preview_grid.get_children()[0].select_card()
+		assert_signal_emit_count(globals.player.deck, "card_entry_progressed", 2)
+
+	func test_choice_upgrade():
+		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.nce] = 100
+		var memory := globals.player.add_memory('DamageAll')
+		watch_signals(memory)
+		watch_signals(globals.player)
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("upgrade")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		# warning-ignore:return_value_discarded
+		assert_pathos_signaled("pathos_spent", Terms.RUN_ACCUMULATION_NAMES.nce)
+		assert_signal_emit_count(memory, "memory_upgraded", 1)
+
+	func test_choice_leave():
+		watch_signals(globals.player.deck)
+		var secondary_choices = begin_nce_with_choices(nce)
+		if secondary_choices as GDScriptFunctionState:
+			secondary_choices = yield(secondary_choices, "completed")
+		if not secondary_choices:
+			return
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		for selected_choice in get_tree().get_nodes_in_group("secondary_choices"):
+			if selected_choice.choice_key != "leave":
+				assert_not_connected(selected_choice, secondary_choices, "pressed", "_on_choice_pressed")
+		activate_secondary_choice_by_key("leave")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)

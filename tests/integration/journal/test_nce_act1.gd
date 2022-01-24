@@ -134,12 +134,7 @@ class TestMultipleOptions:
 		watch_signals(globals.player.pathos)
 		activate_secondary_choice_by_key("remove")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
-		assert_signal_emitted(journal, "selection_deck_spawned")
-		var selection_decks =  cfc.get_tree().get_nodes_in_group("selection_decks")
-		assert_eq(selection_decks.size(), 1, "Selected Deck spawned")
-		if selection_decks.size() == 0:
-			return
-		var selection_deck : SelectionDeck = selection_decks[0]
+		var selection_deck := assert_selection_deck_spawned()
 		watch_signals(globals.player.deck)
 		selection_deck._deck_preview_grid.get_children()[0].select_card()
 		assert_signal_emitted(globals.player.deck, "card_removed")
