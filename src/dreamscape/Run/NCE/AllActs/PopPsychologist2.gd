@@ -7,7 +7,7 @@ const SHADER := preload("res://shaders/Roscharch.shader")
 var secondary_choices := {
 		'passion fruit': '[A Passion Fruit]: Gain some released {artifact}.',
 		'orange': '[An Orange]:  Gain some released {elite}.',
-		'banana': '[A Banana]: Gain some released {shop}.',
+		'banana': '[A Banana]: Gain some released {rest}.',
 	}
 
 var nce_resul_fluff := "[i]I understand. You're {adjective} your {noun}.[/i]"
@@ -59,10 +59,10 @@ func continue_encounter(key) -> void:
 			globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.elite, released_reward)
 		"banana":
 			var released_reward = round(
-					globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.shop)
+					globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.rest)
 					* 5 * CFUtils.randf_range(0.8,1.2)
 				)
-			globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, released_reward)
+			globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.rest, released_reward)
 	CFUtils.shuffle_array(mad_lib_adjectives)
 	CFUtils.shuffle_array(mad_lib_nouns)
 	var adlib_format = {
