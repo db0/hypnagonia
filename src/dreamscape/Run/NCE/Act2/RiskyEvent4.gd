@@ -53,7 +53,7 @@ func continue_encounter(key) -> void:
 		globals.player.pathos.modify_released_pathos(
 				highest_pathos,
 				-globals.player.pathos.released[highest_pathos],
-				true)
+				false)
 	else:
 		artifact_prep = ArtifactPrep.new(1, 5, 1)
 		globals.player.add_artifact(artifact_prep.selected_artifacts[0].canonical_name)

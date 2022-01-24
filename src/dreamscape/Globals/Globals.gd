@@ -29,6 +29,7 @@ func _ready() -> void:
 func reset() -> void:
 	player = Player.new()
 	encounters = SingleRun.new()
+	unused_journal_texts.clear()
 	current_encounter = null
 	journal = null
 
