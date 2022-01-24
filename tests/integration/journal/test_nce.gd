@@ -351,3 +351,30 @@ class TestRiskyEvent1:
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_emitted(globals.player.pathos, "repressed_pathos_lost")
 		assert_eq(globals.player.damage, 10)
+
+
+class TestSlayTheSpire:
+	extends  "res://tests/HUT_Journal_NCETestClass.gd"
+	func _init() -> void:
+		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act1/SlayTheSpire.gd")
+
+	func test_choice_slay():
+		cfc.game_rng_seed = "tACXVN?OlF"
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("slay")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.nce)
+		assert_pathos_signaled("pathos_repressed", Terms.RUN_ACCUMULATION_NAMES.enemy)
+		assert_eq(globals.player.damage, 10, "Player took damage")
+		
+	func test_choice_decline():
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("leave")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_pathos_signaled("released_pathos_lost", Terms.RUN_ACCUMULATION_NAMES.enemy)
+		assert_pathos_signaled("pathos_repressed", Terms.RUN_ACCUMULATION_NAMES.nce)
+		assert_eq(globals.player.damage, 0, "Player took no damage")
