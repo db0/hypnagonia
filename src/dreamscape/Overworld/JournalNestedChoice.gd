@@ -9,3 +9,7 @@ func _init(_journal: Node, secondary_choice: String, key).(_journal) -> void:
 	formated_description = secondary_choice
 	bbcode_text = formated_description
 	add_to_group("secondary_choices")
+
+func disable() -> void:
+	remove_from_group("secondary_choices")
+	visible = false

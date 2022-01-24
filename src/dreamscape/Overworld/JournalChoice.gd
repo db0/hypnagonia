@@ -45,3 +45,5 @@ func _on_gui_input(event) -> void:
 		disconnect("gui_input", self, "_on_gui_input")
 		disconnect("meta_hover_started", journal, "_on_meta_hover_started")
 		disconnect("meta_hover_ended", journal, "_on_meta_hover_ended")
+		remove_from_group("secondary_choices")
+

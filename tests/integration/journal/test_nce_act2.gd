@@ -392,3 +392,114 @@ class TestMultipleTags:
 			if selected_choice.choice_key != "leave":
 				assert_not_connected(selected_choice, secondary_choices, "pressed", "_on_choice_pressed")
 		assert_signal_not_emitted(globals.player.pathos, "pathos_spent")
+
+class TestRiskyEvent3:
+	extends  "res://tests/HUT_Journal_NCETestClass.gd"
+	func _init() -> void:
+		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act2/RiskyEvent3.gd")
+
+	func test_choice_emotions():
+		var key = "emotions"
+		var reduction = round(globals.player.health * nce.amounts[key])
+		var expected_player_health = 100 - reduction
+		var porg := set_random_pathos_org("released")
+		var secondary_choices = begin_nce_with_choices(nce)
+		watch_signals(globals.player.pathos)
+		if secondary_choices as GDScriptFunctionState:
+			secondary_choices = yield(secondary_choices, "completed")
+		if not secondary_choices:
+			return
+		activate_secondary_choice_by_key(key)
+		yield(yield_to(secondary_choices, "secondary_choice_selected", 0.2), YIELD)
+		assert_signal_emit_count(globals.player.pathos, "released_pathos_gained", 1)
+		assert_almost_eq(globals.player.health, expected_player_health, 0.2)
+		reduction = nce.amounts[key]
+		expected_player_health = expected_player_health - reduction
+		activate_secondary_choice_by_key(key)
+		yield(yield_to(secondary_choices, "secondary_choice_selected", 0.2), YIELD)
+		assert_signal_emit_count(globals.player.pathos, "released_pathos_gained", 2)
+		assert_almost_eq(globals.player.health, expected_player_health, 0.2)
+		reduction = nce.amounts[key]
+		expected_player_health = expected_player_health - reduction
+		activate_secondary_choice_by_key(key)
+		yield(yield_to(secondary_choices, "secondary_choice_selected", 0.2), YIELD)
+		assert_signal_emit_count(globals.player.pathos, "released_pathos_gained", 3)
+		assert_almost_eq(globals.player.health, expected_player_health, 0.2)
+		reduction = nce.amounts["bliss"]
+		expected_player_health = expected_player_health - reduction
+		activate_secondary_choice_by_key("bliss")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_signal_emit_count(globals.player.pathos, "released_pathos_gained", 3)
+		assert_almost_eq(globals.player.health, expected_player_health, 0.2)
+		assert_signal_emitted(nce, "encounter_end")
+
+	func test_choice_knowledge():
+		var key = "knowledge"
+		var reduction = round(globals.player.health * nce.amounts[key])
+		var expected_player_health = 100 - reduction
+		var porg := set_random_pathos_org("released")
+		var secondary_choices = begin_nce_with_choices(nce)
+		watch_signals(globals.player.deck)
+		if secondary_choices as GDScriptFunctionState:
+			secondary_choices = yield(secondary_choices, "completed")
+		if not secondary_choices:
+			return
+		activate_secondary_choice_by_key(key)
+		yield(yield_to(secondary_choices, "secondary_choice_selected", 0.2), YIELD)
+		assert_deck_signaled("card_added", "Type", "Understanding", 0)
+		assert_almost_eq(globals.player.health, expected_player_health, 0.2)
+		reduction = nce.amounts[key]
+		expected_player_health = expected_player_health - reduction
+		activate_secondary_choice_by_key(key)
+		yield(yield_to(secondary_choices, "secondary_choice_selected", 0.2), YIELD)
+		assert_deck_signaled("card_added", "Type", "Understanding", 1)
+		assert_almost_eq(globals.player.health, expected_player_health, 0.2)
+		reduction = nce.amounts[key]
+		expected_player_health = expected_player_health - reduction
+		activate_secondary_choice_by_key(key)
+		yield(yield_to(secondary_choices, "secondary_choice_selected", 0.2), YIELD)
+		assert_deck_signaled("card_added", "Type", "Understanding", 2)
+		assert_almost_eq(globals.player.health, expected_player_health, 0.2)
+		reduction = nce.amounts["bliss"]
+		expected_player_health = expected_player_health - reduction
+		activate_secondary_choice_by_key("bliss")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_signal_emit_count(globals.player.deck, "card_added", 3)
+		assert_almost_eq(globals.player.health, expected_player_health, 0.2)
+		assert_signal_emitted(nce, "encounter_end")
+
+	func test_choice_memories():
+		var memory := globals.player.add_memory('DamageAll')
+		var key = "memories"
+		var reduction = 5
+		var expected_player_health = 100 - reduction
+		var porg := set_random_pathos_org("released")
+		var secondary_choices = begin_nce_with_choices(nce)
+		watch_signals(memory)
+		if secondary_choices as GDScriptFunctionState:
+			secondary_choices = yield(secondary_choices, "completed")
+		if not secondary_choices:
+			return
+		activate_secondary_choice_by_key(key)
+		yield(yield_to(secondary_choices, "secondary_choice_selected", 0.2), YIELD)
+		assert_signal_emit_count(memory, "memory_upgraded", 1)
+		assert_almost_eq(globals.player.health, expected_player_health, 0.2)
+		reduction = nce.amounts[key]
+		expected_player_health = expected_player_health - reduction
+		activate_secondary_choice_by_key(key)
+		yield(yield_to(secondary_choices, "secondary_choice_selected", 0.2), YIELD)
+		assert_signal_emit_count(memory, "memory_upgraded", 2)
+		assert_almost_eq(globals.player.health, expected_player_health, 0.2)
+		reduction = nce.amounts[key]
+		expected_player_health = expected_player_health - reduction
+		activate_secondary_choice_by_key(key)
+		yield(yield_to(secondary_choices, "secondary_choice_selected", 0.2), YIELD)
+		assert_signal_emit_count(memory, "memory_upgraded", 3)
+		assert_almost_eq(globals.player.health, expected_player_health, 0.2)
+		reduction = nce.amounts["bliss"]
+		expected_player_health = expected_player_health - reduction
+		activate_secondary_choice_by_key("bliss")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_signal_emit_count(memory, "memory_upgraded", 3)
+		assert_almost_eq(globals.player.health, expected_player_health, 0.2)
+		assert_signal_emitted(nce, "encounter_end")

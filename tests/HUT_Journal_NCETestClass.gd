@@ -46,6 +46,7 @@ func activate_secondary_choice_by_index(index: int) -> void:
 
 func activate_secondary_choice_by_key(key) -> void:
 	var sc: JournalNestedChoice
+	print_debug(get_tree().get_nodes_in_group("secondary_choices"))
 	for selected_choice in get_tree().get_nodes_in_group("secondary_choices"):
 		if selected_choice.choice_key == key:
 			sc = selected_choice
@@ -54,6 +55,7 @@ func activate_secondary_choice_by_key(key) -> void:
 		return
 	watch_signals(sc)
 	sc.emit_signal("pressed")
+	sc.remove_from_group("secondary_choices")
 
 func set_lowest_pathos(type := "repressed") -> String:
 	var pathos = globals.player.pathos.grab_random_pathos()

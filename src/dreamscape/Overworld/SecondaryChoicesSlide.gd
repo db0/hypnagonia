@@ -41,7 +41,7 @@ func _on_choice_pressed(
 		choice_key) -> void:
 	for choice in secondary_choices_container.get_children():
 		if choice != rich_text_choice:
-			choice.visible = false
+			choice.disable()
 		else:
 			_tween.interpolate_property(scroll_container,
 					'rect_min_size:y', scroll_container.rect_min_size.y, choice.rect_size.y, 1.0,
