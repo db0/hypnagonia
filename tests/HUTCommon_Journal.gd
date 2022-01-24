@@ -66,6 +66,9 @@ func assert_deck_signaled(signal_name: String, property_key: String, property_va
 		return(null)
 	if property_key == "card_name":
 		assert_eq(signal_details[0].card_name, property_value, "Card %s property matches %s" % [property_key, property_value])
+	# For amounts, we just want to ensure that amount key exists in the emited card entry
+	elif property_key == "_amounts":
+		assert_has(signal_details[0].properties.get("_amounts", {}), property_value, "Card %s property matches %s" % [property_key, property_value])
 	else:
 		assert_eq(signal_details[0].properties[property_key], property_value, "Card %s property matches %s" % [property_key, property_value])
 	return(signal_details[0])
