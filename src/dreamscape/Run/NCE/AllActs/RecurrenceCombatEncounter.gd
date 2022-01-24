@@ -97,14 +97,10 @@ func finish_surpise_ordeal() -> void:
 		globals.encounters.run_changes.store["Recurrence"].append(chosen_countermeasure)
 		
 
-func start_ordeal() -> void:
-	var result = .start_ordeal()
-	if result is GDScriptFunctionState:
-		yield(result, "completed")
-	# warning-ignore:return_value_discarded
-	enemy_entity.connect("learning_finished", self, "on_learning_finished")
-
-
 func on_learning_finished(lessons: Dictionary) -> void:
 	for key in lessons:
 		lessons_learned[key].append(lessons[key])
+
+func _on_board_instanced() -> void:
+	._on_board_instanced()
+	enemy_entity.connect("learning_finished", self, "on_learning_finished")

@@ -282,12 +282,19 @@ func _get_elite_scripts(intent_name: String) -> Array:
 					"description": "Is it resting?"
 				}
 				intent_scripts.append(mimic_heal)
-			if intent_scripts.size() == 0:
+			# The recurrence punishes someone who tries to avoid learning by not using their cards.
+			var atk_multiplier = cfc.NMAP.board.turn.turn_event_count.get("total_leftover_immersion", 0)
+			if atk_multiplier > 0:
+				var atk = 10
+				if combat_entity.get_property("_difficulty") == "medium":
+					atk = 15
+				elif combat_entity.get_property("_difficulty") == "hard":
+					atk = 20
 				var script = {
 					"name": "modify_damage",
 					"tags": ["Attack", "Intent"],
 					"subject": "dreamer",
-					"amount": 30,
+					"amount": atk * atk_multiplier,
 					"icon": all_intent_scripts.ICON_ATTACK,
 					"description": "Stress: Will cause the dreamer to take the specified amount of {anxiety}."
 				}
