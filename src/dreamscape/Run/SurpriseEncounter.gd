@@ -4,7 +4,3 @@ class_name SurpriseEncounter
 extends NonCombatEncounter
 
 var surprise_combat_encounter: SurpriseCombatEncounter
-
-func end() -> void:
-	surprise_combat_encounter.finish_surpise_ordeal()
-	.end()

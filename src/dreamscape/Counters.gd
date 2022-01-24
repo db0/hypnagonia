@@ -64,6 +64,9 @@ func mod_counter(counter_name: String,
 	return(retcode)
 
 func _on_player_turn_ended(turn: Turn) -> void:
+	if get_counter("immersion") > 0:
+		TurnEventMessage.new("total_leftover_immersion", get_counter("immersion"), true)
+		TurnEventMessage.new("turns_with_leftover_immersion", +1, true)
 	# warning-ignore:return_value_discarded
 	mod_counter("immersion", 0, true, false, turn, ["End Turn"])
 

@@ -484,7 +484,7 @@ func _input(event):
 		var debug_encounters = [
 #			EnemyEncounter.new(Act2.Mouse, "hard"),
 #			EnemyEncounter.new(Act2.TrafficJam, "easy"),
-#			preload("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd").new(),
+			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act2/LoseRandomCurio.gd").new(),
 			preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd").new(),
 #			BossEncounter.new(Act1.BOSSES["Narcissus"]),
