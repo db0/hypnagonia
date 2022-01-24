@@ -24,14 +24,16 @@ func add_nce(nce_script: Script) -> void:
 	journal_choice_scene.journal_choice.connect("pressed", journal, "_on_choice_pressed", [nce, journal_choice_scene])
 	journal._reveal_entry(journal_choice_scene.journal_choice)
 
-func begin_nce_with_choices(nce_script: NonCombatEncounter) -> void:
+func begin_nce_with_choices(nce_script: NonCombatEncounter) -> SecondaryChoiceSlide:
 	nce_script.begin()
 	yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 	var signal_details = get_signal_parameters(journal, "secondary_entry_added")
-	assert_gt(signal_details.size(), 0, "Secondary choices added")
-	if signal_details.size() >= 1:
-		nested_choices_scene = get_signal_parameters(journal, "secondary_entry_added")[0]
-		watch_signals(nested_choices_scene)
+	assert_not_null(signal_details, "Secondary choices Added")
+	if not signal_details:
+		return(null)
+	nested_choices_scene = signal_details[0]
+	watch_signals(nested_choices_scene)
+	return(nested_choices_scene)
 
 func activate_secondary_choice_by_index(index: int) -> void:
 	var all_secondary_choices = get_tree().get_nodes_in_group("secondary_choices")
@@ -68,7 +70,7 @@ func set_lowest_pathos(type := "repressed") -> String:
 	return(pathos)
 
 func set_highest_pathos(type := "repressed") -> String:
-	var pathos = globals.player.pathos.grab_random_pathos()	
+	var pathos = globals.player.pathos.grab_random_pathos()
 	var pdict: Dictionary
 	if type == "repressed":
 		pdict = globals.player.pathos.repressed
@@ -117,7 +119,7 @@ func assert_nce_unlocked(nce_script: GDScript) -> void:
 		return
 	assert_eq(signal_details[0].nce, nce_script, "Expected NCE Unlocked")
 	assert_true(globals.encounters.run_changes._is_nce_unlocked(nce_script))
-	
+
 func assert_nce_not_unlocked(nce_script: GDScript) -> void:
 	assert_signal_not_emitted(globals.encounters.run_changes, "nce_unlocked")
 	assert_false(globals.encounters.run_changes._is_nce_unlocked(nce_script))

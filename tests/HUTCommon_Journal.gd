@@ -78,3 +78,12 @@ func assert_player_signaled(signal_name: String, property_key: String, property_
 		return(null)
 	assert_eq(signal_details[0].definition[property_key], property_value, "Artifact %s property matches %s" % [property_key, property_value])
 	return(signal_details[0])
+
+func assert_selection_deck_spawned() -> SelectionDeck:
+	assert_signal_emitted(journal, "selection_deck_spawned")
+	var selection_decks =  get_tree().get_nodes_in_group("selection_decks")
+	assert_eq(selection_decks.size(), 1, "Selected Deck spawned")
+	if selection_decks.size() == 0:
+		return(null)
+	var selection_deck : SelectionDeck = selection_decks[0]
+	return(selection_deck)

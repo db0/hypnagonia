@@ -31,6 +31,9 @@ func select_card() -> void:
 	emit_signal("card_selected", index)
 
 func refresh_preview_card() -> void:
+	# This can happen during testing, as the player will not mouse over the card to generate the preview
+	if not preview_popup.preview_card:
+		return
 	cfc.ov_utils.populate_info_panels(preview_popup.preview_card,preview_popup.focus_info)
 
 
@@ -42,4 +45,7 @@ func _on_GridCardObject_mouse_entered() -> void:
 	else:
 		preview_popup.show_preview_card(display_card.canonical_name)		
 		preview_popup.preview_card.deck_card_entry = display_card.deck_card_entry
+	# This can happen during testing, as the player will not mouse over the card to generate the preview
+	if not preview_popup.preview_card:
+		return
 	cfc.ov_utils.populate_info_panels(preview_popup.preview_card, preview_popup.focus_info)
