@@ -223,7 +223,7 @@ class TestMiniShop:
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
 		activate_secondary_choice_by_key("remove")
-		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		yield(yield_to(journal, "selection_deck_spawned", 0.2), YIELD)
 		# warning-ignore:return_value_discarded
 		assert_pathos_signaled("pathos_spent", Terms.RUN_ACCUMULATION_NAMES.artifact)
 		var selection_deck = assert_selection_deck_spawned()
@@ -239,7 +239,7 @@ class TestMiniShop:
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
 		activate_secondary_choice_by_key("progress")
-		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		yield(yield_to(journal, "selection_deck_spawned", 0.2), YIELD)
 		# warning-ignore:return_value_discarded
 		assert_pathos_signaled("pathos_spent", Terms.RUN_ACCUMULATION_NAMES.shop)
 		var selection_deck = assert_selection_deck_spawned()
@@ -296,7 +296,7 @@ class TestMultipleScriptMods:
 			if selected_choice.choice_key == "ignore":
 				assert_not_connected(selected_choice, secondary_choices, "pressed", "_on_choice_pressed")
 		activate_secondary_choice_by_key("scold")
-		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		yield(yield_to(journal, "selection_deck_spawned", 0.2), YIELD)
 		var selection_deck = assert_selection_deck_spawned()
 		if not selection_deck:
 			return
@@ -308,7 +308,7 @@ class TestMultipleScriptMods:
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		activate_secondary_choice_by_key("flail")
-		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		yield(yield_to(journal, "selection_deck_spawned", 0.2), YIELD)
 		var selection_deck = assert_selection_deck_spawned()
 		if not selection_deck:
 			return
@@ -321,7 +321,7 @@ class TestMultipleScriptMods:
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		activate_secondary_choice_by_key("ignore")
-		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		yield(yield_to(journal, "selection_deck_spawned", 0.2), YIELD)
 		var selection_deck = assert_selection_deck_spawned()
 		if not selection_deck:
 			return
@@ -340,7 +340,7 @@ class TestMultipleTags:
 		watch_signals(globals.player.pathos)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		activate_secondary_choice_by_key("alpha")
-		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		yield(yield_to(journal, "selection_deck_spawned", 0.2), YIELD)
 		var selection_deck = assert_selection_deck_spawned()
 		if not selection_deck:
 			return
@@ -355,7 +355,7 @@ class TestMultipleTags:
 		watch_signals(globals.player.pathos)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		activate_secondary_choice_by_key("kappa")
-		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		yield(yield_to(journal, "selection_deck_spawned", 0.2), YIELD)
 		var selection_deck = assert_selection_deck_spawned()
 		if not selection_deck:
 			return
@@ -370,7 +370,7 @@ class TestMultipleTags:
 		watch_signals(globals.player.pathos)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		activate_secondary_choice_by_key("omega")
-		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		yield(yield_to(journal, "selection_deck_spawned", 0.2), YIELD)
 		var selection_deck = assert_selection_deck_spawned()
 		if not selection_deck:
 			return
@@ -503,3 +503,34 @@ class TestRiskyEvent3:
 		assert_signal_emit_count(memory, "memory_upgraded", 3)
 		assert_almost_eq(globals.player.health, expected_player_health, 0.2)
 		assert_signal_emitted(nce, "encounter_end")
+
+
+class TestRiskyEvent4:
+	extends  "res://tests/HUT_Journal_NCETestClass.gd"
+	func _init() -> void:
+		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act2/RiskyEvent4.gd")
+
+	func test_choice_help():
+		var porg := set_random_pathos_org("released")
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player)
+		watch_signals(globals.player.pathos)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		activate_secondary_choice_by_key("help")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_signal_emitted(globals.player, "artifact_added")
+		assert_pathos_signaled("pathos_spent", porg.high)
+		assert_eq(globals.player.pathos.released[porg.high], 0, "All specified pathos spent")
+
+	func test_choice_ignore():
+		var porg := set_random_pathos_org("released")
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player)
+		watch_signals(globals.player.deck)
+		watch_signals(globals.player.pathos)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		activate_secondary_choice_by_key("ignore")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_signal_emitted(globals.player, "artifact_added")
+		assert_pathos_signaled("pathos_repressed", nce.ignore_pathos)
+		assert_deck_signaled("card_added", "card_name", "Apathy")
