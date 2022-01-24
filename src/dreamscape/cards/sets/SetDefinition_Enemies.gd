@@ -9,7 +9,7 @@ const CARDS := {
 		"Abilities": "Apply {effect_stacks} {poison} to a Torment.\n"\
 				+ "Remove all {poison} from the dreamer.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
@@ -30,7 +30,7 @@ const CARDS := {
 		"Abilities": "Apply {effect_stacks} {poison} to a Torment.\n"\
 				+ "Remove all {poison} from the dreamer.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
@@ -46,7 +46,7 @@ const CARDS := {
 		"Abilities": "Apply {effect_stacks} {poison} to a Torment.\n"\
 				+ "Remove all {poison} from the dreamer.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
@@ -62,7 +62,7 @@ const CARDS := {
 		"Abilities": "Apply {effect_stacks} {poison} to a Torment.\n"\
 				+ "Move all {poison} from the dreamer to that Torment.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
@@ -99,7 +99,7 @@ const CARDS := {
 		"Abilities": "Apply {effect_stacks} {burn} to a Torment.\n"\
 				+ "Remove all {burn} from the dreamer.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Ierenisrt#0318",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.burn.name: Terms.ENEMY
@@ -115,7 +115,7 @@ const CARDS := {
 		"Abilities": "Apply {effect_stacks} {burn} to a Torment.\n"\
 				+ "Remove all {burn} from the dreamer.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Ierenisrt#0318",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.burn.name: Terms.ENEMY
@@ -131,7 +131,7 @@ const CARDS := {
 		"Abilities": "Apply {effect_stacks} {burn} to a Torment.\n"\
 				+ "Move all {burn} from the dreamer to that Torment.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Ierenisrt#0318",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.burn.name: Terms.ENEMY
@@ -147,7 +147,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "{forget} a {perturbation} from your deck or discard pile.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "perturbation"],
 		"_amounts": {
@@ -167,7 +167,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "{forget} a {perturbation} from your deck or discard pile.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "perturbation"],
 		"_amounts": {
@@ -181,7 +181,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "{forget} a {perturbation} from your deck or discard pile.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "perturbation"],
 		"_amounts": {
@@ -195,7 +195,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "{forget} a {perturbation} from your deck or discard pile.\n{forget}.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "perturbation"],
 		"_amounts": {
@@ -210,7 +210,7 @@ const CARDS := {
 				+ "{shuffle} a random {perturbation} from your hand into your deck.\n"\
 				+ "{forget} a {perturbation} from your deck or discard pile.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "perturbation"],
 		"_amounts": {
@@ -243,7 +243,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {effect_stacks} {untouchable}. {forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "DioBal",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
@@ -261,7 +261,7 @@ const CARDS := {
 				+ "{relax} 1 per {confidence}.\nRemove all {confidence}\n"\
 				+ "{forget}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "DioBal",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
@@ -277,7 +277,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Apply {effect_stacks} {shaken} to a Torment. {forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.ENEMY
@@ -297,7 +297,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name, Terms.GENERIC_TAGS.alpha.name],
 		"Abilities": "Apply {effect_stacks} {shaken} to a Torment. {forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.ENEMY
@@ -313,7 +313,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Apply {effect_stacks} {shaken} to all Torments. {forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.ENEMY
@@ -329,7 +329,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Apply {effect_stacks} {confusion} to all Torments. {forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
@@ -349,7 +349,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Apply {effect_stacks} {confusion} to all Torments. {forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
@@ -365,7 +365,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.GENERIC_TAGS.alpha.name],
 		"Abilities": "Apply {effect_stacks} {confusion} to all Torments. {forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
@@ -381,7 +381,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.strengthen.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {effect_stacks} {strengthen}. {forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER
@@ -402,7 +402,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.strengthen.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {effect_stacks} {strengthen}. {forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER
@@ -418,7 +418,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.strengthen.name, Terms.GENERIC_TAGS.alpha.name],
 		"Abilities": "Gain {effect_stacks} {strengthen}. {forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER
@@ -434,7 +434,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.strengthen.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {effect_stacks} {strengthen}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER
@@ -450,7 +450,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {effect_stacks} {thorns}. {forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER
@@ -471,7 +471,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {effect_stacks} {thorns}. {forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER
@@ -487,7 +487,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.alpha.name],
 		"Abilities": "Gain {effect_stacks} {thorns}. {forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER
@@ -503,7 +503,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
 		"Abilities": "Gain {effect_stacks} {thorns}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER
@@ -674,7 +674,7 @@ const CARDS := {
 				+ "Gain {effect_stacks} {advantage}\n"\
 				+ "{forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "delayed"],
 		"_effects_info": {
@@ -698,7 +698,7 @@ const CARDS := {
 				+ "Gain {effect_stacks} {advantage}\n"\
 				+ "{forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "delayed"],
 		"_effects_info": {
@@ -718,7 +718,7 @@ const CARDS := {
 				+ "Gain {effect_stacks} {advantage}\n"\
 				+ "{forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "delayed"],
 		"_effects_info": {
@@ -739,7 +739,7 @@ const CARDS := {
 				+ "Gain {released_amount} released Frustration\n"\
 				+ "{forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "interpretation"],
 		"_amounts": {
@@ -761,7 +761,7 @@ const CARDS := {
 				+ "Gain {released_amount} released Frustration\n"\
 				+ "{forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "interpretation"],
 		"_amounts": {
@@ -779,7 +779,7 @@ const CARDS := {
 				+ "Gain {released_amount} released Frustration\n"\
 				+ "{forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "interpretation"],
 		"_amounts": {
@@ -798,7 +798,7 @@ const CARDS := {
 				+ "This resets to 0 at the start of the turn.",
 		"Cost": 2,
 		"_is_concentration": true,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -818,7 +818,7 @@ const CARDS := {
 				+ "This resets to 0 at the start of the turn.",
 		"Cost": 1,
 		"_is_concentration": true,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -834,7 +834,7 @@ const CARDS := {
 				+ "This resets to 0 at the start of the turn.",
 		"Cost": 2,
 		"_is_concentration": true,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -848,7 +848,7 @@ const CARDS := {
 				+ "Every time you shuffle your deck, lose {concentration_amount} {focus}.",
 		"Cost": 3,
 		"_is_concentration": true,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["immersion"],
 		"_amounts": {
@@ -869,7 +869,7 @@ const CARDS := {
 				+ "Every time you shuffle your deck, lose {concentration_amount} {focus}.",
 		"Cost": 2,
 		"_is_concentration": true,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["immersion"],
 		"_amounts": {
@@ -886,7 +886,7 @@ const CARDS := {
 				+ "Every time you shuffle your deck, lose {concentration_amount} {focus}.",
 		"Cost": 3,
 		"_is_concentration": true,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["immersion"],
 		"_amounts": {
@@ -902,7 +902,7 @@ const CARDS := {
 		"Abilities": "Shuffle {card_amount} random forgotten cards into your deck.\n"\
 				+ "Every time you play a forgotten card, take {concentration_amount} {anxiety}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -921,7 +921,7 @@ const CARDS := {
 		"Abilities": "Shuffle {card_amount} random forgotten cards into your deck.\n"\
 				+ "Every time you play a forgotten card, take {concentration_amount} {anxiety}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -936,7 +936,7 @@ const CARDS := {
 		"Abilities": "Shuffle {card_amount} random forgotten cards into your deck.\n"\
 				+ "Every time you play a forgotten card, take {concentration_amount} {anxiety}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -951,7 +951,7 @@ const CARDS := {
 		"Abilities": "The first time each turn target torment gets {effect_threshold} {damage} or more "\
 				+ "from one source, reduce its {focus} by {effect_stacks} for this turn.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": [],
 		"_amounts": {
@@ -970,7 +970,7 @@ const CARDS := {
 		"Abilities": "The first time each turn target torment gets {effect_threshold} {damage} or more "\
 				+ "from one source, reduce its {focus} by {effect_stacks} for this turn.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": [],
 		"_amounts": {
@@ -985,7 +985,7 @@ const CARDS := {
 		"Abilities": "The first time each turn target torment gets {effect_threshold} {damage} or more "\
 				+ "from one source, reduce its {focus} by {effect_stacks} for this turn.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": [],
 		"_amounts": {
@@ -999,7 +999,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}. If they have any buffs, steal {steal_amount} stacks from the most stacks.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["intepretation"],
 		"_amounts": {
@@ -1018,7 +1018,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}. If they have any buffs, steal {steal_amount} stacks from the most stacks.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["intepretation"],
 		"_amounts": {
@@ -1032,7 +1032,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.omega.name],
 		"Abilities": "{damage} for {damage_amount}. If they have any buffs, steal {steal_amount} stacks from the most stacks.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["intepretation"],
 		"_amounts": {
@@ -1046,7 +1046,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.omega.name],
 		"Abilities": "{damage} for {damage_amount}. If they have any buffs, steal {steal_amount} stacks from the most stacks.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["intepretation"],
 		"_amounts": {
@@ -1265,7 +1265,7 @@ const CARDS := {
 				+ "{relax} for as much {interpretation} done.\n"\
 				+ "{forget}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -1284,7 +1284,7 @@ const CARDS := {
 				+ "{relax} for as much {interpretation} done.\n"\
 				+ "{forget}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -1299,7 +1299,7 @@ const CARDS := {
 				+ "{relax} for as much {interpretation} done.\n"\
 				+ "{forget}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["interpretation"],
 		"_amounts": {

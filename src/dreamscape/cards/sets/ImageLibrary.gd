@@ -53,4 +53,5 @@ const CARD_IMAGES := {
 	"The Critic": preload("res://assets/journal/torments/the_critic.jpeg"),
 	"The Victim": preload("res://assets/journal/torments/the_victim.jpeg"),
 	"The Exam": preload("res://assets/journal/torments/exam.jpeg"),
+	"Void": preload("res://assets/journal/torments/void.jpeg"),
 }

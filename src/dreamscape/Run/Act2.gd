@@ -468,7 +468,7 @@ const Void = {
 			},
 		],
 	},
-#	"journal_art": preload("res://assets/journal/torments/stuffed_toy.jpeg"),
+	"journal_art": preload("res://assets/journal/torments/void.jpeg"),
 }
 const ENEMIES = [
 	TrafficJam,
