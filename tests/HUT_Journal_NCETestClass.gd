@@ -99,11 +99,11 @@ func set_random_pathos_org(type := "repressed") -> Dictionary:
 	for p in pdict:
 		match p:
 			hpathos:
-				pdict[p] = 150
+				pdict[p] = 300
 			mpathos:
-				pdict[p] = 100
+				pdict[p] = 200
 			lpathos:
-				pdict[p] = 50
+				pdict[p] = 100
 	var ret_dict := {
 		"high": hpathos,
 		"mid": mpathos,

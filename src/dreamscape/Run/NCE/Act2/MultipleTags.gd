@@ -3,9 +3,9 @@
 extends NonCombatEncounter
 
 var secondary_choices := {
-		'alpha': '[alpha]: {alpha} Lose {lowest_pathos_cost} released {lowest_pathos}. {alpha_desc}',
+		'omega': '[omega]: {omega} Lose {lowest_pathos_cost} released {lowest_pathos}. {omega_desc}',
 		'kappa': '[kappa]: {frozen} Lose {highest_pathos_cost} released {highest_pathos}. {kappa_desc}',
-		'omega': '[omega]: {omega} Lose {middle_pathos_cost} released {middle_pathos}. {omega_desc}',
+		'alpha': '[alpha]: {alpha} Lose {middle_pathos_cost} released {middle_pathos}. {alpha_desc}',
 		'leave': '[Leave]: Nothing Happens.',
 	}
 var pathos_choice_payments := {}
@@ -39,15 +39,15 @@ func begin() -> void:
 		"kappa_desc": card_choice_descriptions.kappa,
 		"omega_desc": card_choice_descriptions.omega,
 	}
-	pathos_choice_payments["alpha"]  = {
+	pathos_choice_payments["omega"]  = {
 		"pathos": lowest_pathos,
 		"cost": lowest_pathos_cost
 	}
-	pathos_choice_payments["kappa"] = {
+	pathos_choice_payments["alpha"] = {
 		"pathos": middle_pathos,
 		"cost": middle_pathos_cost
 	}
-	pathos_choice_payments["omega"] = {
+	pathos_choice_payments["kappa"] = {
 		"pathos": highest_pathos,
 		"cost": highest_pathos_cost
 	}
@@ -88,8 +88,8 @@ func continue_encounter(key) -> void:
 		selection_deck.update_header(card_choice_description\
 				.format(Terms.get_bbcode_formats(18)))
 		selection_deck.update_color(Color(0,1,0))
-		globals.player.pathos.released[pathos_choice_payments[key]["pathos"]]\
-				-= pathos_choice_payments[key]["cost"]
+		globals.player.pathos.modify_released_pathos(pathos_choice_payments[key]["pathos"],
+				-pathos_choice_payments[key]["cost"])
 
 	end()
 	globals.journal.display_nce_rewards('')

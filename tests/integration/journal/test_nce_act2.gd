@@ -327,3 +327,68 @@ class TestMultipleScriptMods:
 			return
 		selection_deck._deck_preview_grid.get_children()[0].select_card()
 		assert_deck_signaled("card_entry_modified", "_amounts", "draw_amount")
+
+class TestMultipleTags:
+	extends  "res://tests/HUT_Journal_NCETestClass.gd"
+	func _init() -> void:
+		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act2/MultipleTags.gd")
+
+	func test_choice_alpha():
+		var porg := set_random_pathos_org("released")
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player.deck)
+		watch_signals(globals.player.pathos)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		activate_secondary_choice_by_key("alpha")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		var selection_deck = assert_selection_deck_spawned()
+		if not selection_deck:
+			return
+		selection_deck._deck_preview_grid.get_children()[0].select_card()
+		assert_deck_signaled("card_entry_modified", "Tags", Terms.GENERIC_TAGS.alpha.name)
+		assert_pathos_signaled("pathos_spent", porg.mid)
+
+	func test_choice_kappa():
+		var porg := set_random_pathos_org("released")
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player.deck)
+		watch_signals(globals.player.pathos)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		activate_secondary_choice_by_key("kappa")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		var selection_deck = assert_selection_deck_spawned()
+		if not selection_deck:
+			return
+		selection_deck._deck_preview_grid.get_children()[0].select_card()
+		assert_deck_signaled("card_entry_modified", "Tags", Terms.GENERIC_TAGS.frozen.name)
+		assert_pathos_signaled("pathos_spent", porg.high)
+
+	func test_choice_omega():
+		var porg := set_random_pathos_org("released")
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player.deck)
+		watch_signals(globals.player.pathos)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		activate_secondary_choice_by_key("omega")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		var selection_deck = assert_selection_deck_spawned()
+		if not selection_deck:
+			return
+		selection_deck._deck_preview_grid.get_children()[0].select_card()
+		assert_deck_signaled("card_entry_modified", "Tags", Terms.GENERIC_TAGS.omega.name)
+		assert_pathos_signaled("pathos_spent", porg.low)
+
+	func test_choice_leave():
+		var secondary_choices = begin_nce_with_choices(nce)
+		watch_signals(globals.player.pathos)
+		if secondary_choices as GDScriptFunctionState:
+			secondary_choices = yield(secondary_choices, "completed")
+		if not secondary_choices:
+			return
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		activate_secondary_choice_by_key("leave")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		for selected_choice in get_tree().get_nodes_in_group("secondary_choices"):
+			if selected_choice.choice_key != "leave":
+				assert_not_connected(selected_choice, secondary_choices, "pressed", "_on_choice_pressed")
+		assert_signal_not_emitted(globals.player.pathos, "pathos_spent")
