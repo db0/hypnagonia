@@ -64,6 +64,7 @@ class TestMonsterTrain:
 		watch_signals(globals.player.pathos)
 		activate_secondary_choice_by_key("lead")
 		yield(yield_to(globals.player, "artifact_added", 0.2), YIELD)
+		yield(yield_for(0.2), YIELD)
 		assert_signal_emitted(globals.player, "artifact_added")
 
 	func test_choice_lead_failure():
