@@ -56,6 +56,7 @@ func assert_pathos_not_signaled(signal_name: String, pathos := '') -> void:
 	assert_ne(signal_details[0], pathos, "Wrong pathos not modified")
 
 func assert_deck_signaled(signal_name: String, card_property: String, property_value) -> void:
+	assert_signal_emitted(globals.player.deck, signal_name)
 	var signal_details = get_signal_parameters(globals.player.deck, signal_name)
 	assert_not_null(signal_details, signal_name + " signal emited by deck")
 	if not signal_details:

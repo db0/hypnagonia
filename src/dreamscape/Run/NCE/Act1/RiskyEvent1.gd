@@ -6,7 +6,7 @@ var artifact_prep: ArtifactPrep
 
 var secondary_choices := {
 		'accept': '[Accept]: 40% chance to gain a random curio. Become {perturbation}.',
-		'decline': '[Decline]: Gain 10 {anxiety}. Lost some repressed {pathos}.',
+		'decline': '[Decline]: Gain 10 {anxiety}. Lose some repressed {pathos}.',
 	}
 
 var nce_result_fluff := {

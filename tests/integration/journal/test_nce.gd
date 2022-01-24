@@ -313,3 +313,41 @@ class TestPopPsychologist3:
 		activate_secondary_choice_by_key("oblivion")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_eq(globals.player.damage, 0)
+
+
+class TestRiskyEvent1:
+	extends  "res://tests/HUT_Journal_NCETestClass.gd"
+	func _init() -> void:
+		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act1/RiskyEvent1.gd")
+
+	func test_choice_accept_failure():
+		watch_signals(globals.player)
+		watch_signals(globals.player.deck)
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("accept")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_signal_not_emitted(globals.player, "artifact_added")
+		assert_deck_signaled("card_added", "card_name", "Terror")
+		
+	func test_choice_accept_success():
+		cfc.game_rng_seed = "tACXVN?OlF"
+		watch_signals(globals.player)
+		watch_signals(globals.player.deck)
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("accept")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_signal_emitted(globals.player, "artifact_added")
+		assert_deck_signaled("card_added", "card_name", "Terror")
+
+	func test_choice_decline():
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("decline")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_signal_emitted(globals.player.pathos, "repressed_pathos_lost")
+		assert_eq(globals.player.damage, 10)
