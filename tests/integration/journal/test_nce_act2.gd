@@ -55,7 +55,8 @@ class TestGriftlands:
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		var card = assert_deck_signaled("card_added", "_rarity", "Common")
 		if card:
-			assert_has(Aspects.get_all_cards_in_archetype(globals.player.deck_groups[Terms.CARD_GROUP_TERMS.class]),
+			assert_has(Aspects.get_all_cards_in_archetype(
+					globals.player.deck_groups[Terms.CARD_GROUP_TERMS.class]),
 					card.card_name, "Card Belongs to Ego Aspect")
 		assert_eq(globals.player.damage, 0, "Player took no damage")
 
@@ -68,7 +69,8 @@ class TestGriftlands:
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		var card = assert_deck_signaled("card_added", "_rarity", "Uncommon")
 		if card:
-			assert_has(Aspects.get_all_cards_in_archetype(globals.player.deck_groups[Terms.CARD_GROUP_TERMS.class]),
+			assert_has(Aspects.get_all_cards_in_archetype(
+					globals.player.deck_groups[Terms.CARD_GROUP_TERMS.class]),
 					card.card_name, "Card Belongs to Ego Aspect")
 		assert_eq(globals.player.damage, 7, "Player took damage")
 
@@ -82,7 +84,8 @@ class TestGriftlands:
 		var card = assert_deck_signaled("card_added", "_rarity", "Rare")
 		assert_eq(globals.player.damage, 15, "Player took damage")
 		if card:
-			assert_has(Aspects.get_all_cards_in_archetype(globals.player.deck_groups[Terms.CARD_GROUP_TERMS.class]),
+			assert_has(Aspects.get_all_cards_in_archetype(
+					globals.player.deck_groups[Terms.CARD_GROUP_TERMS.class]),
 					card.card_name, "Card Belongs to Ego Aspect")
 
 class TestGriftlands2:
@@ -100,11 +103,12 @@ class TestGriftlands2:
 		var card = assert_deck_signaled("card_added", "_rarity", "Common")
 		assert_eq(globals.player.damage, 0, "Player took no damage")
 		if card:
-			assert_has(Aspects.get_all_cards_in_archetype(globals.player.deck_groups[Terms.CARD_GROUP_TERMS.race]),
+			assert_has(Aspects.get_all_cards_in_archetype(
+					globals.player.deck_groups[Terms.CARD_GROUP_TERMS.race]),
 					card.card_name, "Card Belongs to Disposition Aspect")
 		assert_eq(globals.player.damage, 0, "Player took no damage")
 
-	func test_choice_double_gamble():
+	func test_choice_gamble():
 		watch_signals(globals.player.deck)
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
@@ -113,11 +117,12 @@ class TestGriftlands2:
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		var card = assert_deck_signaled("card_added", "_rarity", "Uncommon")
 		if card:
-			assert_has(Aspects.get_all_cards_in_archetype(globals.player.deck_groups[Terms.CARD_GROUP_TERMS.race]),
+			assert_has(Aspects.get_all_cards_in_archetype(
+					globals.player.deck_groups[Terms.CARD_GROUP_TERMS.race]),
 					card.card_name, "Card Belongs to Disposition Aspect")
 		assert_eq(globals.player.damage, 7, "Player took damage")
 
-	func test_choice_triple_investigate():
+	func test_choice_investigate():
 		watch_signals(globals.player.deck)
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
@@ -126,7 +131,8 @@ class TestGriftlands2:
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		var card = assert_deck_signaled("card_added", "_rarity", "Rare")
 		if card:
-			assert_has(Aspects.get_all_cards_in_archetype(globals.player.deck_groups[Terms.CARD_GROUP_TERMS.race]),
+			assert_has(Aspects.get_all_cards_in_archetype(
+					globals.player.deck_groups[Terms.CARD_GROUP_TERMS.race]),
 					card.card_name, "Card Belongs to Disposition Aspect")
 		assert_eq(globals.player.damage, 15, "Player took damage")
 
@@ -135,7 +141,7 @@ class TestGriftlands3:
 	func _init() -> void:
 		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act2/Griftlands3.gd")
 
-	func test_choice_drink():
+	func test_choice_lay_low():
 		watch_signals(globals.player.deck)
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
@@ -145,11 +151,12 @@ class TestGriftlands3:
 		var card = assert_deck_signaled("card_added", "_rarity", "Common")
 		assert_eq(globals.player.damage, 0, "Player took no damage")
 		if card:
-			assert_has(Aspects.get_all_cards_in_archetype(globals.player.deck_groups[Terms.CARD_GROUP_TERMS.life_goal]),
+			assert_has(Aspects.get_all_cards_in_archetype(
+					globals.player.deck_groups[Terms.CARD_GROUP_TERMS.life_goal]),
 					card.card_name, "Card Belongs to Injustice Aspect")
 		assert_eq(globals.player.damage, 0, "Player took no damage")
 
-	func test_choice_double_gamble():
+	func test_choice_clear_name():
 		watch_signals(globals.player.deck)
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
@@ -158,11 +165,12 @@ class TestGriftlands3:
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		var card = assert_deck_signaled("card_added", "_rarity", "Uncommon")
 		if card:
-			assert_has(Aspects.get_all_cards_in_archetype(globals.player.deck_groups[Terms.CARD_GROUP_TERMS.life_goal]),
+			assert_has(Aspects.get_all_cards_in_archetype(
+					globals.player.deck_groups[Terms.CARD_GROUP_TERMS.life_goal]),
 					card.card_name, "Card Belongs to Injustice Aspect")
 		assert_eq(globals.player.damage, 7, "Player took damage")
 
-	func test_choice_triple_investigate():
+	func test_choice_revenge():
 		watch_signals(globals.player.deck)
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
@@ -171,6 +179,32 @@ class TestGriftlands3:
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		var card = assert_deck_signaled("card_added", "_rarity", "Rare")
 		if card:
-			assert_has(Aspects.get_all_cards_in_archetype(globals.player.deck_groups[Terms.CARD_GROUP_TERMS.life_goal]),
+			assert_has(Aspects.get_all_cards_in_archetype(
+					globals.player.deck_groups[Terms.CARD_GROUP_TERMS.life_goal]),
 					card.card_name, "Card Belongs to Injustice Aspect")
 		assert_eq(globals.player.damage, 15, "Player took damage")
+
+class TestLoseRandomCurio:
+	extends  "res://tests/HUT_Journal_NCETestClass.gd"
+	func _init() -> void:
+		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act2/LoseRandomCurio.gd")
+
+	func test_choice_allow():
+		watch_signals(globals.player)
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("allow")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_player_signaled("artifact_added", 'canonical_name', "BetterArtifactChance")
+		assert_signal_emitted(globals.player, "artifact_removed")
+
+	func test_choice_deny():
+		watch_signals(globals.player)
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("deny")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_signal_not_emitted(globals.player, "artifact_added")
+		assert_signal_not_emitted(globals.player, "artifact_removed")

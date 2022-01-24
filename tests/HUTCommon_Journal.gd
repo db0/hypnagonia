@@ -58,12 +58,23 @@ func assert_pathos_not_signaled(signal_name: String, pathos := '') -> void:
 		return
 	assert_ne(signal_details[0], pathos, "Wrong pathos not modified")
 
-func assert_deck_signaled(signal_name: String, card_property: String, property_value, index := -1) -> CardEntry:
+func assert_deck_signaled(signal_name: String, property_key: String, property_value, index := -1) -> CardEntry:
 	assert_signal_emitted(globals.player.deck, signal_name)
 	var signal_details = get_signal_parameters(globals.player.deck, signal_name, index)
 	assert_not_null(signal_details, signal_name + " signal emited by deck")
 	if not signal_details:
 		return(null)
-	if card_property == "card_name":
-		assert_eq(signal_details[0].card_name, property_value, "Card %s property matches %s" % [card_property, property_value])
+	if property_key == "card_name":
+		assert_eq(signal_details[0].card_name, property_value, "Card %s property matches %s" % [property_key, property_value])
+	else:
+		assert_eq(signal_details[0].properties[property_key], property_value, "Card %s property matches %s" % [property_key, property_value])
+	return(signal_details[0])
+
+func assert_player_signaled(signal_name: String, property_key: String, property_value: String, index := -1) -> ArtifactObject:
+	assert_signal_emitted(globals.player, signal_name)
+	var signal_details = get_signal_parameters(globals.player, signal_name, index)
+	assert_not_null(signal_details, signal_name + " signal emited by player")
+	if not signal_details:
+		return(null)
+	assert_eq(signal_details[0].definition[property_key], property_value, "Artifact %s property matches %s" % [property_key, property_value])
 	return(signal_details[0])

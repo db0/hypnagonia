@@ -2,7 +2,9 @@ class_name Player
 extends Reference
 
 signal artifact_added(artifact_name)
+signal artifact_removed(artifact_name)
 signal memory_added(memory_name)
+signal memory_removed(memory_name)
 signal health_changed(damage, health)
 
 var health: int = 90 setget set_health
@@ -124,9 +126,11 @@ func remove_artifact(value) -> void:
 			if value == artifact.canonical_name:
 				artifact.remove_self()
 				artifacts.erase(artifact)
+				emit_signal("artifact_removed", artifact)
 	else:
 		value.remove_self()
 		artifacts.erase(value)
+		emit_signal("artifact_removed", value)
 
 
 func get_all_artifact_names() -> Array:
@@ -195,7 +199,7 @@ func remove_memory(memory_name: String) -> void:
 		if memory_name == memory.canonical_name:
 			memory.remove_self()
 			memories.erase(memory)
-
+			emit_signal("memory_removed", memory)
 
 func get_all_memory_names() -> Array:
 	var mnames_list = []
