@@ -38,12 +38,15 @@ func after_each():
 	yield(yield_for(0.1), YIELD)
 
 
-func assert_pathos_signaled(signal_name: String, pathos: String) -> void:
+func assert_pathos_signaled(signal_name: String, pathos: String, index := -1) -> void:
 	assert_signal_emitted(globals.player.pathos, signal_name)
-	var signal_details = get_signal_parameters(globals.player.pathos, signal_name)
+	# If more than 1 signal of the same name emited, then you need to specify the index
+	# To find the previous ones
+	var signal_details = get_signal_parameters(globals.player.pathos, signal_name, index)
 	assert_not_null(signal_details, signal_name + " signal emited by pathos")
 	if not signal_details:
 		return
+	
 	assert_eq(signal_details[0], pathos, "Correct pathos modified")
 	
 func assert_pathos_not_signaled(signal_name: String, pathos := '') -> void:

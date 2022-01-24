@@ -359,7 +359,6 @@ class TestSlayTheSpire:
 		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act1/SlayTheSpire.gd")
 
 	func test_choice_slay():
-		cfc.game_rng_seed = "tACXVN?OlF"
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
@@ -378,3 +377,74 @@ class TestSlayTheSpire:
 		assert_pathos_signaled("released_pathos_lost", Terms.RUN_ACCUMULATION_NAMES.enemy)
 		assert_pathos_signaled("pathos_repressed", Terms.RUN_ACCUMULATION_NAMES.nce)
 		assert_eq(globals.player.damage, 0, "Player took no damage")
+
+class TestSleepOfOblivion:
+	extends  "res://tests/HUT_Journal_NCETestClass.gd"
+	func _init() -> void:
+		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act1/SleepOfOblivion.gd")
+
+	func test_choice_slay():
+		globals.player.deck.add_new_card("Terror")
+		globals.player.deck.add_new_card("Terror")
+		globals.player.deck.add_new_card("Lacuna")
+		globals.player.deck.add_new_card("Lacuna")
+		watch_signals(globals.player.deck)
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("fall_in")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_signal_emit_count(globals.player.deck, "card_removed", 4)
+		assert_eq(globals.player.damage, 3, "Player took damage")
+		
+	func test_choice_decline():
+		globals.player.deck.add_new_card("Terror")
+		globals.player.deck.add_new_card("Terror")
+		globals.player.deck.add_new_card("Lacuna")
+		globals.player.deck.add_new_card("Lacuna")
+		watch_signals(globals.player.deck)
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("leave")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_pathos_not_signaled("released_pathos_lost")
+		assert_pathos_not_signaled("pathos_repressed")
+		assert_signal_emit_count(globals.player.deck, "card_removed", 0)
+		assert_eq(globals.player.damage, 0, "Player took no damage")
+
+class TestSpider:
+	extends  "res://tests/HUT_Journal_NCETestClass.gd"
+	func _init() -> void:
+		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act1/Spider.gd")
+		dreamer_starting_damage = 30
+
+	func test_choice_eat():
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("eat")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_pathos_signaled("pathos_repressed", Terms.RUN_ACCUMULATION_NAMES.boss)
+		assert_eq(globals.player.damage, dreamer_starting_damage - 10, "Player healed damage")
+		
+	func test_choice_wave():
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("wave")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_pathos_signaled("pathos_repressed", Terms.RUN_ACCUMULATION_NAMES.boss,0)
+		assert_pathos_signaled("pathos_repressed", Terms.RUN_ACCUMULATION_NAMES.elite)
+		assert_eq(globals.player.damage, dreamer_starting_damage, "Player healed damage")
+		assert_eq(globals.player.health, 110, "Player max health increased")
+				
+	func test_choice_offer():
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+		activate_secondary_choice_by_key("offer")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_pathos_not_signaled("pathos_repressed")
+		assert_eq(globals.player.damage, dreamer_starting_damage + 10, "Player healed damage")
+		
