@@ -40,13 +40,18 @@ func begin() -> void:
 	.begin()
 	var scformat := {}
 	for key in secondary_choices:
-		secondary_choices[key] = secondary_choices[key].format(scformat).format(Terms.get_bbcode_formats(18))	
+		secondary_choices[key] = secondary_choices[key].format(scformat).format(Terms.get_bbcode_formats(18))
 	var disabled_choices := []
 	for type in amounts:
 		if globals.player.deck.filter_card_on_amounts(amounts[type]).size() == 0:
 			secondary_choices[type] = "[color=red]" + secondary_choices[type] + "[/color]"
 			disabled_choices.append(type)
-	globals.journal.add_nested_choices(secondary_choices)
+	# Failsafe in case the player has no card draw, no interpretation and no confidence.
+	if disabled_choices.size() >= 3:
+		globals.journal.display_nce_rewards('')
+		end()
+	else:
+		globals.journal.add_nested_choices(secondary_choices, disabled_choices)
 
 func continue_encounter(key) -> void:
 	var card_choice_description: String

@@ -227,6 +227,8 @@ class TestMiniShop:
 		# warning-ignore:return_value_discarded
 		assert_pathos_signaled("pathos_spent", Terms.RUN_ACCUMULATION_NAMES.artifact)
 		var selection_deck = assert_selection_deck_spawned()
+		if not selection_deck:
+			return
 		selection_deck._deck_preview_grid.get_children()[0].select_card()
 		assert_signal_emitted(globals.player.deck, "card_removed")
 
@@ -241,6 +243,8 @@ class TestMiniShop:
 		# warning-ignore:return_value_discarded
 		assert_pathos_signaled("pathos_spent", Terms.RUN_ACCUMULATION_NAMES.shop)
 		var selection_deck = assert_selection_deck_spawned()
+		if not selection_deck:
+			return
 		selection_deck._deck_preview_grid.get_children()[0].select_card()
 		assert_signal_emit_count(globals.player.deck, "card_entry_progressed", 2)
 
@@ -272,3 +276,54 @@ class TestMiniShop:
 				assert_not_connected(selected_choice, secondary_choices, "pressed", "_on_choice_pressed")
 		activate_secondary_choice_by_key("leave")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_signal_not_emitted(globals.player.pathos, "pathos_spent")
+
+class TestMultipleScriptMods:
+	extends  "res://tests/HUT_Journal_NCETestClass.gd"
+	func _init() -> void:
+		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act2/MultipleScriptMods.gd")
+
+	func test_choice_scold():
+		watch_signals(globals.player.deck)
+		var secondary_choices = begin_nce_with_choices(nce)
+		if secondary_choices as GDScriptFunctionState:
+			secondary_choices = yield(secondary_choices, "completed")
+		if not secondary_choices:
+			return
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		# Option should be disabled because the deck doesn't have a relevant card
+		for selected_choice in get_tree().get_nodes_in_group("secondary_choices"):
+			if selected_choice.choice_key == "ignore":
+				assert_not_connected(selected_choice, secondary_choices, "pressed", "_on_choice_pressed")
+		activate_secondary_choice_by_key("scold")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		var selection_deck = assert_selection_deck_spawned()
+		if not selection_deck:
+			return
+		selection_deck._deck_preview_grid.get_children()[0].select_card()
+		assert_deck_signaled("card_entry_modified", "_amounts", "defence_amount")
+
+	func test_choice_flail():
+		watch_signals(globals.player.deck)
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		activate_secondary_choice_by_key("flail")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		var selection_deck = assert_selection_deck_spawned()
+		if not selection_deck:
+			return
+		selection_deck._deck_preview_grid.get_children()[0].select_card()
+		assert_deck_signaled("card_entry_modified", "_amounts", "damage_amount")
+
+	func test_choice_ignore():
+		globals.player.deck.add_new_card("Guilt")
+		watch_signals(globals.player.deck)
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		activate_secondary_choice_by_key("ignore")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		var selection_deck = assert_selection_deck_spawned()
+		if not selection_deck:
+			return
+		selection_deck._deck_preview_grid.get_children()[0].select_card()
+		assert_deck_signaled("card_entry_modified", "_amounts", "draw_amount")
