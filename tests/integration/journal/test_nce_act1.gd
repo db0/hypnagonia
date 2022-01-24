@@ -58,13 +58,15 @@ class TestMonsterTrain:
 		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd")
 
 	func test_choice_lead_success():
+		gut.p(cfc.game_rng_seed)
 		begin_nce_with_choices(nce)
 		watch_signals(globals.player)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
 		activate_secondary_choice_by_key("lead")
 		yield(yield_to(globals.player, "artifact_added", 0.2), YIELD)
-		yield(yield_for(0.2), YIELD)
+		gut.p(cfc.game_rng_seed)
+		gut.p(globals.player.get_all_artifact_names())
 		assert_signal_emitted(globals.player, "artifact_added")
 
 	func test_choice_lead_failure():
