@@ -244,7 +244,7 @@ class TestPopPsychologist1:
 		watch_signals(globals.player.pathos)
 		activate_secondary_choice_by_key("snake")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
-		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.snake)
+		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.enemy)
 		assert_nce_unlocked(preload("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist2.gd"))
 	func test_choice_owl():
 		watch_signals(globals.encounters.run_changes)
@@ -253,7 +253,7 @@ class TestPopPsychologist1:
 		watch_signals(globals.player.pathos)
 		activate_secondary_choice_by_key("owl")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
-		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.owl)
+		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.shop)
 		assert_nce_unlocked(preload("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist2.gd"))
 
 class TestPopPsychologist2:
@@ -286,7 +286,7 @@ class TestPopPsychologist2:
 		watch_signals(globals.player.pathos)
 		activate_secondary_choice_by_key("banana")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
-		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.shop)
+		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.rest)
 		assert_nce_unlocked(preload("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist3.gd"))
 
 class TestPopPsychologist3:
