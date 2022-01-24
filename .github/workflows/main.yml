@@ -20,7 +20,7 @@ jobs:
       with:
         version: 3.4
         # should be long enough for asset import files to get generated
-        import-time: 90
+        import-time: 200
         assert-check: true
         max-fails: 0
         # How long the test should be run before it's timed out and fails
