@@ -1,5 +1,29 @@
 # Changelog
 
+## [v0.32.8](https://github.com/db0/hypnagonia/tree/v0.32.8) (2022-01-24)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.32.7...v0.32.8)
+
+**Implemented enhancements:**
+
+- Add Tests [\#174](https://github.com/db0/hypnagonia/issues/174)
+
+**Fixed bugs:**
+
+- Recurrence event glitch [\#208](https://github.com/db0/hypnagonia/issues/208)
+- Risky Dream 3 "Gain a random Understanding card" choice gives no card [\#135](https://github.com/db0/hypnagonia/issues/135)
+- Overwhelming Presence card does not play nicely with Courage [\#102](https://github.com/db0/hypnagonia/issues/102)
+- Font size of some cards is off [\#59](https://github.com/db0/hypnagonia/issues/59)
+
+**Closed issues:**
+
+- Difficulties to run the desktop version [\#37](https://github.com/db0/hypnagonia/issues/37)
+
+**Merged pull requests:**
+
+- tests: debugging that one failing test [\#210](https://github.com/db0/hypnagonia/pull/210) ([db0](https://github.com/db0))
+- Fixes, Art and Tests [\#209](https://github.com/db0/hypnagonia/pull/209) ([db0](https://github.com/db0))
+
 ## [v0.32.7](https://github.com/db0/hypnagonia/tree/v0.32.7) (2022-01-22)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.32.6...v0.32.7)
