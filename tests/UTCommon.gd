@@ -93,6 +93,7 @@ func setup_hypnagonia_testing() -> void:
 	# warning-ignore:return_value_discarded
 	cfc.game_rng_seed = "GUT"
 	cfc.restore_rng_state()
+#	print_debug([cfc.game_rng.seed, cfc.game_rng.state])
 	NewGameMenu.randomize_aspect_choices()
 	globals.player.setup()
 	globals.player.health = PLAYER_HEALTH

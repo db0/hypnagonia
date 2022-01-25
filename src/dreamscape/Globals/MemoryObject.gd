@@ -7,8 +7,8 @@ signal removed
 signal pathos_accumulated(memory, amount)
 signal memory_ready(memory)
 signal memory_used(memory)
-signal memory_upgraded(memory)
-signal memory_downgraded(memory)
+signal memory_upgraded(memory, amount)
+signal memory_downgraded(memory, amount)
 
 var is_ready := false
 var pathos_used : String
@@ -92,7 +92,7 @@ func upgrade() -> void:
 	if upgrades_amount < definition.amounts.get("max_upgrades", 100) - 1:
 		upgrades_amount += 1
 		_calculate_threshold()
-		emit_signal("memory_upgraded", self)
+		emit_signal("memory_upgraded", self, 1)
 
 
 func set_upgrades_amount(value) -> void:
@@ -103,9 +103,9 @@ func set_upgrades_amount(value) -> void:
 	elif upgrades_amount < 0:
 		upgrades_amount = 0
 	if value > pre_upgrade:
-		emit_signal("memory_upgraded", self)
+		emit_signal("memory_upgraded", self, value - pre_upgrade)
 	else:
-		emit_signal("memory_downgraded", self)
+		emit_signal("memory_downgraded", self, value - pre_upgrade)
 
 
 
