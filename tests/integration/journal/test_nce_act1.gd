@@ -214,10 +214,10 @@ class TestPopPsychologist1:
 		assert_nce_unlocked(preload("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist2.gd"))
 
 
-class TestRiskyEvent1:
+class TestHighwire:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act1/RiskyEvent1.gd")
+		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act1/Highwire.gd")
 
 	func test_choice_accept_failure():
 		watch_signals(globals.player)
