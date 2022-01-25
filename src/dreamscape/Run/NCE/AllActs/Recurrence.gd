@@ -50,8 +50,7 @@ func end() -> void:
 	for memory in memory_prep.selected_memories:
 		var existing_memory = globals.player.find_memory(memory.canonical_name)
 		if existing_memory:
-			existing_memory.upgrade()
-			existing_memory.upgrade()
+			existing_memory.upgrades_amount += 2
 		else:
 			globals.player.add_memory(memory.canonical_name)
 	var reward_text = '{memory1} before. I know this. Overcoming this recurrence {memory2}.'

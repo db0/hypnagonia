@@ -77,6 +77,7 @@ func _ready() -> void:
 	cfc.connect("cache_cleared", self, '_recalculate_predictions')
 	player_info.connect_dreamer_signals(dreamer)
 #	begin_encounter()
+
 #
 func _process(_delta: float) -> void:
 	if cfc.game_paused and cfc.NMAP.has("main") and cfc.NMAP.main._current_focus_source:
