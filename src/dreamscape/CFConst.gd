@@ -37,7 +37,7 @@ enum ShuffleStyle {
 # This is used to know when to refresh the font size cache, but you can use it
 # for other purposes as well.
 # If you never adjust this, the font cache might start growing too large.
-const GAME_VERSION := "v0.32.8"
+const GAME_VERSION := "v0.32.9"
 # The card size you want your  cards to have.
 # This will also adjust all CardContainers to match
 # If you modify this property, you **must** adjust
