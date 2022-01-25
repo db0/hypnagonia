@@ -89,3 +89,23 @@ class TestPopPsychologist3:
 		activate_secondary_choice_by_key("oblivion")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_eq(globals.player.damage, 0)
+
+class TestDollPickup:
+	extends  "res://tests/HUT_Journal_NCETestClass.gd"
+	func _init() -> void:
+		testing_nce_script = preload("res://src/dreamscape/Run/NCE/AllActs/DollPickup.gd")
+		dreamer_starting_damage = 70
+
+	func test_random_choice():
+		cfc.game_rng_seed = CFUtils.generate_random_seed()
+		gut.p("Testing Random Seed: " + cfc.game_rng_seed)
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player)
+		var sc : JournalNestedChoice = activate_secondary_choice_by_index(2)
+		if not sc:
+			return
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		var doll : ArtifactObject = assert_player_signaled("artifact_added", "canonical_name", "PorcelainDoll")
+		assert_eq(sc.choice_key, doll.modifiers.get("colour"), "Colour of doll added matches choice")
+

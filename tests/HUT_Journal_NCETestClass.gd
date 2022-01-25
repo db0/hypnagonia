@@ -35,26 +35,29 @@ func begin_nce_with_choices(nce_script: NonCombatEncounter) -> SecondaryChoiceSl
 	watch_signals(nested_choices_scene)
 	return(nested_choices_scene)
 
-func activate_secondary_choice_by_index(index: int) -> void:
+func activate_secondary_choice_by_index(index: int) -> JournalNestedChoice:
 	var all_secondary_choices = get_tree().get_nodes_in_group("secondary_choices")
 	assert_gt(all_secondary_choices.size(), index, "As many secondary choices created as expected")
 	if not all_secondary_choices.size() > index:
-		return
+		return(null)
 	var sc: JournalNestedChoice = all_secondary_choices[index]
 	watch_signals(sc)
 	sc.emit_signal("pressed")
+	sc.remove_from_group("secondary_choices")
+	return(sc)
 
-func activate_secondary_choice_by_key(key) -> void:
+func activate_secondary_choice_by_key(key) -> JournalNestedChoice:
 	var sc: JournalNestedChoice
 	for selected_choice in get_tree().get_nodes_in_group("secondary_choices"):
 		if selected_choice.choice_key == key:
 			sc = selected_choice
 	assert_not_null(sc, "Ensure choice with specified key is found")
 	if not sc:
-		return
+		return(null)
 	watch_signals(sc)
 	sc.emit_signal("pressed")
 	sc.remove_from_group("secondary_choices")
+	return(sc)
 
 func set_lowest_pathos(type := "repressed") -> String:
 	var pathos = globals.player.pathos.grab_random_pathos()
