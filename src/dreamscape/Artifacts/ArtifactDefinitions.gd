@@ -191,7 +191,7 @@ const UpgradedAction := {
 const UpgradedControl := {
 	"canonical_name": "UpgradedControl",
 	"name": "UpgradedControl",
-	"description": "{artifact_name}: Interpretation cards added to your deck receive {progress_amount} progress.",
+	"description": "{artifact_name}: Control cards added to your deck receive {progress_amount} progress.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
@@ -204,7 +204,7 @@ const UpgradedControl := {
 const UpgradedUnderstanding := {
 	"canonical_name": "UpgradedUnderstanding",
 	"name": "Laser Pointer",
-	"description": "{artifact_name}: Interpretation cards added to your deck receive {progress_amount} progress.",
+	"description": "{artifact_name}: Understanding cards added to your deck receive {progress_amount} progress.",
 	"icon": preload("res://assets/icons/artifacts/target-laser.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
@@ -217,7 +217,7 @@ const UpgradedUnderstanding := {
 const UpgradedConcentration := {
 	"canonical_name": "UpgradedConcentration",
 	"name": "UpgradedConcentration",
-	"description": "{artifact_name}: Interpretation cards added to your deck receive {progress_amount} progress.",
+	"description": "{artifact_name}: Concentration cards added to your deck receive {progress_amount} progress.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
@@ -231,7 +231,7 @@ const ThinCardDraw := {
 	"canonical_name": "ThinCardDraw",
 	"name": "Light Backpack",
 	"description": "{artifact_name}: Every time you reshuffle the deck, draw {draw_amount} card.\n"\
-			+ "This effect stops for the turn you draw the same card three times.",
+			+ "This effect stops for the turn after you draw the same card three times.",
 	"icon": preload("res://assets/icons/artifacts/light-backpack.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
