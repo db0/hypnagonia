@@ -38,7 +38,7 @@ class TestBannersOfRuin:
 		activate_secondary_choice_by_key("hyena")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_not_emitted(globals.player, "artifact_added")
-		assert_eq(globals.player.health, 100, "Player max health not modified")
+		assert_eq(globals.player.health, PLAYER_HEALTH, "Player max health not modified")
 		# warning-ignore:return_value_discarded
 		assert_deck_signaled("card_added", "card_name", "Hyena")
 
@@ -401,7 +401,7 @@ class TestRiskyEvent3:
 	func test_choice_emotions():
 		var key = "emotions"
 		var reduction = round(globals.player.health * nce.amounts[key])
-		var expected_player_health = 100 - reduction
+		var expected_player_health = PLAYER_HEALTH - reduction
 		var porg := set_random_pathos_org("released")
 		var secondary_choices = begin_nce_with_choices(nce)
 		watch_signals(globals.player.pathos)
@@ -436,7 +436,7 @@ class TestRiskyEvent3:
 	func test_choice_knowledge():
 		var key = "knowledge"
 		var reduction = round(globals.player.health * nce.amounts[key])
-		var expected_player_health = 100 - reduction
+		var expected_player_health = PLAYER_HEALTH - reduction
 		var porg := set_random_pathos_org("released")
 		var secondary_choices = begin_nce_with_choices(nce)
 		watch_signals(globals.player.deck)
@@ -472,7 +472,7 @@ class TestRiskyEvent3:
 		var memory := globals.player.add_memory('DamageAll')
 		var key = "memories"
 		var reduction = 5
-		var expected_player_health = 100 - reduction
+		var expected_player_health = PLAYER_HEALTH - reduction
 		var porg := set_random_pathos_org("released")
 		var secondary_choices = begin_nce_with_choices(nce)
 		watch_signals(memory)
@@ -534,3 +534,32 @@ class TestRiskyEvent4:
 		assert_signal_emitted(globals.player, "artifact_added")
 		assert_pathos_signaled("pathos_repressed", nce.ignore_pathos)
 		assert_deck_signaled("card_added", "card_name", "Apathy")
+
+
+class TestSubconscious:
+	extends  "res://tests/HUT_Journal_NCETestClass.gd"
+	func _init() -> void:
+		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act2/Subconscious.gd")
+
+	func test_choice_intrerpret():
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player.deck)
+		watch_signals(globals.player.pathos)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		activate_secondary_choice_by_key("intrerpret")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_deck_signaled("card_added", "card_name", "Subconscious")
+		assert_eq(globals.player.damage, nce.DAMAGE_AMOUNT)
+		assert_signal_not_emitted(globals.player.pathos, "released_pathos_gained")
+
+	func test_choice_avoid():
+		var porg := set_random_pathos_org("released", true)
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player.deck)
+		watch_signals(globals.player.pathos)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		activate_secondary_choice_by_key("avoid")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_signal_not_emitted(globals.player.deck, "card_added")
+		assert_eq(globals.player.damage, 0)
+		assert_pathos_signaled("released_pathos_gained", porg.low)

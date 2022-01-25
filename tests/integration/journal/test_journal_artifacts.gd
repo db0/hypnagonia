@@ -171,7 +171,7 @@ class TestPPorcelainDollOrdeal:
 		assert_eq(hand.get_card_count(), 5, "Dreamer gets +2 draw when correct card types drawn")
 		test_card_names.clear()
 
-	func test_artifact_mini_success():
+	func test_artifact_success():
 		if not assert_has_amounts():
 			return
 		for iter in range(3):
