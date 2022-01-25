@@ -59,3 +59,20 @@ class TestNCE:
 		assert_signal_not_emitted(mem2, "memory_upgraded")
 		assert_signal_not_emitted(mem3, "memory_upgraded")
 		assert_signal_not_emitted(mem4, "memory_upgraded")
+
+
+class TestCounterMeasureCalculations:
+	extends "res://tests/UTCommon.gd"
+	const NCE = preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd")
+	const RECURRENCE_ELITE = {
+		"scene": preload("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")
+	}
+	const RECURRENCE_SURPRISE = preload("res://src/dreamscape/Run/NCE/AllActs/RecurrenceCombatEncounter.gd")
+	func test_recurrence_countermeasure_calculations():
+		cfc._setup()
+		setup_hypnagonia_testing()
+		var surprise_combat_encounter = RECURRENCE_SURPRISE.new(
+			RECURRENCE_ELITE, 
+			"easy", 
+			NCE.new())
+		
