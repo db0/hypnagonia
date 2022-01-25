@@ -84,7 +84,7 @@ func set_highest_pathos(type := "repressed") -> String:
 			pdict[p] = 100
 	return(pathos)
 
-func set_random_pathos_org(type := "repressed") -> Dictionary:
+func set_random_pathos_org(type := "repressed", include_zeroes := false) -> Dictionary:
 	var pdict: Dictionary
 	if type == "repressed":
 		pdict = globals.player.pathos.repressed
@@ -104,7 +104,24 @@ func set_random_pathos_org(type := "repressed") -> Dictionary:
 			mpathos:
 				pdict[p] = 200
 			lpathos:
-				pdict[p] = 100
+				# If the game is looking for 0-pathos as well
+				# Then we need to set the lowest pathos to 0
+				# and everything else to higher than that
+				# to ensure we grab the lowest pathos
+				if include_zeroes:
+					pdict[p] = 0
+				else:
+					pdict[p] = 100
+			_:
+				# If we do not include zeroes, we set all other pathos
+				# to 0, to exclude them. This way we ensure the tests
+				# will know the high, med and low pathos to be grabbed.
+				# If zeroed pathos are included, then 
+				# WE CANNOT ENSURE THE MID PATHOS IS KNOWN FOR THE TESTS.
+				if include_zeroes:
+					pdict[p] = 100
+				else:
+					pdict[p] = 0
 	var ret_dict := {
 		"high": hpathos,
 		"mid": mpathos,

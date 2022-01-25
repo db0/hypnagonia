@@ -42,7 +42,7 @@ func continue_encounter(key) -> void:
 			globals.player.pathos.modify_released_pathos(lowest_pathos, lowest_pathos_amount)
 		"intrerpret":
 			# warning-ignore:return_value_discarded
-			globals.player.damage -= DAMAGE_AMOUNT
+			globals.player.damage += DAMAGE_AMOUNT
 			globals.player.deck.add_new_card("Subconscious")
 	end()
 	globals.journal.display_nce_rewards(nce_result_fluff[key])
