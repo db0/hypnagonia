@@ -10,14 +10,14 @@ var secondary_choices := {
 	}
 
 var nce_result_fluff := {
-		'accept_success': 'Success: {curio}',
-		'accept_fail': "Luck was not with me this time",
-		'decline': 'I decided not to risk it.',
+		'accept_success': 'I made it across, and found {curio} at the other size.',
+		'accept_fail': 'A clown distracted me and I began to fall. Was there a safety net?',
+		'decline': 'The crowd groaned as I climbed down from the platform.',
 	}
 
 func _init():
 	# TODO: Add story
-	description = "<Risky Dream 1 - Story Fluff to be Done>. Select one Option...."
+	description = "I found myself on a small platform atop a circus tent with only a tightrope ahead of me. The crowd below was cheering me on."
 
 func begin() -> void:
 	.begin()
