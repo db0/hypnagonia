@@ -565,7 +565,7 @@ const NCE := {
 		"PopPsychologist1": preload("res://src/dreamscape/Run/NCE/Act1/PopPsychologist1.gd"),
 	},
 	"risky": {
-		"RiskyEvent1": preload("res://src/dreamscape/Run/NCE/Act1/RiskyEvent1.gd"),
+		"Highwire": preload("res://src/dreamscape/Run/NCE/Act1/Highwire.gd"),
 		"Spider": preload("res://src/dreamscape/Run/NCE/Act1/Spider.gd"),
 		# Recurrence appears in Act1, but if it's not encountered, it stays locked
 		"Recurrence1": preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd"),
