@@ -75,4 +75,7 @@ class TestCounterMeasureCalculations:
 			RECURRENCE_ELITE, 
 			"easy", 
 			NCE.new())
-		
+			
+	func after_each():
+		teardown_hypnagonia_testing()
+		yield(yield_for(0.1), YIELD)
