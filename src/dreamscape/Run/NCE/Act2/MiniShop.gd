@@ -26,7 +26,7 @@ var nce_result_fluff := {
 
 func _init():
 	# TODO: Add story
-	description = "<Mini Shop - Story Fluff to be Done>. Select one Option...."
+	description = "A stranger called to me, claiming to be my childhood firend. Did I know him from somwehere?"
 
 func begin() -> void:
 	.begin()
