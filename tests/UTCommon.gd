@@ -46,8 +46,6 @@ func setup_cfc() -> void:
 	pass
 
 func setup_main() -> void:
-	cfc._setup()
-	setup_hypnagonia_testing()
 	main = autoqfree(MAIN_SCENE.instance())
 	get_tree().get_root().add_child(main)
 	if not cfc.are_all_nodes_mapped:
@@ -63,8 +61,6 @@ func setup_main() -> void:
 
 
 func setup_board() -> void:
-	cfc._setup()
-	setup_hypnagonia_testing()
 	board = add_child_autofree(BOARD_SCENE.instance())
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # Always reveal the mouseon unclick
 	if not cfc.are_all_nodes_mapped:
@@ -77,8 +73,6 @@ func setup_board() -> void:
 	player_info = board.player_info
 	
 func setup_journal() -> void:
-	cfc._setup()
-	setup_hypnagonia_testing()
 	journal_container = add_child_autofree(JOURNAL_SCENE.instance())
 #	yield(yield_to(journal_container, "ready", 1), YIELD)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # Always reveal the mouseon unclick

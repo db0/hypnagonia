@@ -62,20 +62,14 @@ class TestNCE:
 
 
 class TestCounterMeasureCalculations:
-	extends "res://tests/UTCommon.gd"
+	extends "res://tests/HUTCommon.gd"
 	const NCE = preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd")
 	const RECURRENCE_ELITE = {
 		"scene": preload("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")
 	}
 	const RECURRENCE_SURPRISE = preload("res://src/dreamscape/Run/NCE/AllActs/RecurrenceCombatEncounter.gd")
 	func test_recurrence_countermeasure_calculations():
-		cfc._setup()
-		setup_hypnagonia_testing()
 		var surprise_combat_encounter = RECURRENCE_SURPRISE.new(
 			RECURRENCE_ELITE, 
 			"easy", 
 			NCE.new())
-			
-	func after_each():
-		teardown_hypnagonia_testing()
-		yield(yield_for(0.1), YIELD)

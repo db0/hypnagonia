@@ -1,4 +1,4 @@
-extends "res://tests/UTCommon.gd"
+extends "res://tests/HUTCommon.gd"
 
 const GUT_TORMENT:= {
 	"Name": "GUT",
@@ -166,6 +166,7 @@ var card: DreamCard
 var test_scripts := {}
 
 func before_each():
+	.before_each()
 	var confirm_return = setup_board()
 	if confirm_return is GDScriptFunctionState: # Still working.
 		confirm_return = yield(confirm_return, "completed")
@@ -201,7 +202,7 @@ func before_each():
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), -80)
 
 func after_each():
-	teardown_hypnagonia_testing()
+	.teardown_hypnagonia_testing()
 	card = null
 	test_scripts.clear()
 	test_torments.clear()

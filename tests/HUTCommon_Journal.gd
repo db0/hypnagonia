@@ -1,4 +1,4 @@
-extends "res://tests/UTCommon.gd"
+extends "res://tests/HUTCommon.gd"
 
 ### Pathos
 var set_repressed_pathos := {}
@@ -10,6 +10,7 @@ var test_card_names := []
 var cards := []
 
 func before_each():
+	.before_each()
 	if not globals.test_flags.has("no_journal_fade"):
 		globals.test_flags["no_journal_fade"] = true
 	# warning-ignore:void_assignment
@@ -31,11 +32,6 @@ func before_each():
 	memories = setup_test_memories(test_memories_names)
 	yield(yield_to(get_tree(), "idle_frame", 0.1), YIELD)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), -80)
-
-
-func after_each():
-	teardown_hypnagonia_testing()
-	yield(yield_for(0.1), YIELD)
 
 
 func assert_pathos_signaled(signal_name: String, pathos: String, index := -1) -> void:
