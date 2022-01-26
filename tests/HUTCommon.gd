@@ -170,6 +170,9 @@ const EFFECT_SCRIPT := {
 func before_each():
 	cfc._setup()
 	setup_hypnagonia_testing()
+	if not globals.test_flags.has("disable_board_background"):
+		globals.test_flags["disable_board_background"] = true
+
 
 func after_each():
 	teardown_hypnagonia_testing()

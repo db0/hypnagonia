@@ -73,10 +73,6 @@ func after_each():
 	yield(yield_for(0.1), YIELD)
 
 
-func after_all():
-	globals.test_flags.clear()
-
-
 func spawn_test_torments() -> void:
 	for _iter in range(torments_amount):
 		test_torment = board.spawn_enemy(GUT_TORMENT)

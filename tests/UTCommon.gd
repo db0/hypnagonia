@@ -106,6 +106,11 @@ func teardown_hypnagonia_testing() -> void:
 	cfc.quit_game()
 	globals.reset()
 
+
+func after_all():
+	globals.test_flags.clear()
+
+
 func setup_test_cards(cards: Array, card_entries_only := false) -> Array:
 	var spawned_cards := []
 	for c in cards:

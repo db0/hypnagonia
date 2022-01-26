@@ -91,7 +91,7 @@ func _process(_delta: float) -> void:
 
 func begin_encounter() -> void:
 	cfc.game_paused = false
-	if not get_tree().get_root().has_node('Gut'):
+	if not globals.test_flags.get("disable_board_background", false):
 		randomize_background()
 		_fade_from_black()
 		yield(_tween, "tween_all_completed")

@@ -1,12 +1,5 @@
 extends "res://tests/HUTCommon_Ordeal.gd"
 
-var intents_to_test := [
-#	{
-#		"intent_scripts": ["Stress:10"],
-#		"reshuffle": true,
-#	},
-]
-
 func before_each():
 	var confirm_return = .before_each()
 	if confirm_return is GDScriptFunctionState: # Still working.
