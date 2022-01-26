@@ -172,6 +172,8 @@ func before_each():
 	setup_hypnagonia_testing()
 	if not globals.test_flags.has("disable_board_background"):
 		globals.test_flags["disable_board_background"] = true
+	if not globals.test_flags.has("disable_starting_artifacts"):
+		globals.test_flags["disable_starting_artifacts"] = true
 
 
 func after_each():

@@ -1,6 +1,7 @@
 class_name EnemyEntity
 extends CombatEntity
 
+signal started_activation(enemy)
 signal finished_activation(enemy)
 
 onready var intents: EnemyIntents = $Intents
@@ -46,6 +47,7 @@ func setup(entity_name: String, properties: Dictionary) -> void:
 
 func activate() -> void:
 	# Just in case the end-turn button is pressed too fast
+	emit_signal("started_activation", self)
 	if is_dead: 
 		emit_signal("finished_activation", self)
 		return

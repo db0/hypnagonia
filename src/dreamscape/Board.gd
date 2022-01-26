@@ -332,14 +332,15 @@ func _dreamer_died(final_damage) -> void:
 
 
 func complete_battle() -> void:
-	if not battle_ended:
-		battle_ended = true
-		globals.player.damage = dreamer.damage
-		globals.player.health = dreamer.health
-		_fade_to_transparent()
-		if _tween.is_active():
-			yield(_tween, "tween_all_completed")
-		emit_signal("battle_ended")
+	if battle_ended:
+		return
+	battle_ended = true
+	globals.player.damage = dreamer.damage
+	globals.player.health = dreamer.health
+	_fade_to_transparent()
+	if _tween.is_active():
+		yield(_tween, "tween_all_completed")
+	emit_signal("battle_ended")
 #	cfc.game_paused = true
 #	mouse_pointer.forget_focus()
 #	end_turn.disabled = true
@@ -349,8 +350,12 @@ func complete_battle() -> void:
 
 
 func game_over() -> void:
+	if battle_ended:
+		return
+	battle_ended = true
 	_fade_to_transparent()
-	yield(_tween, "tween_all_completed")
+	if _tween.is_active():	
+		yield(_tween, "tween_all_completed")
 	emit_signal("game_over")
 #	cfc.game_paused = true
 #	mouse_pointer.forget_focus()
