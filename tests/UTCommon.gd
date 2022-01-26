@@ -114,7 +114,7 @@ func setup_test_cards(cards: Array, card_entries_only := false) -> Array:
 			spawned_cards.append(ce)
 			continue
 		var card = ce.instance_self()
-		cfc.NMAP.hand.add_child(card)
+		hand.add_child(card)
 		#card.set_is_faceup(false,true)
 		card._determine_idle_state()
 		spawned_cards.append(card)
@@ -228,7 +228,6 @@ func execute_with_yield(card: Card) -> void:
 	var sceng = card.execute_scripts()
 	if sceng is GDScriptFunctionState and sceng.is_valid():
 		sceng = yield(yield_to(sceng, "completed", 1), YIELD)
-	return sceng
 
 
 func execute_with_target(card: Card, target) -> void:
@@ -281,7 +280,7 @@ func snipexecute(card: Card, target: CombatEntity, extra_delay = null):
 		yield(yield_to(card.targeting_arrow, "initiated_targeting", 1), YIELD)
 	card.targeting_arrow.call_deferred("preselect_target", target)
 	if sceng is GDScriptFunctionState:
-		sceng = yield(sceng, "completed")
+		sceng = yield(yield_to(sceng, "completed", 1), YIELD)
 	elif sceng and not sceng.all_tasks_completed:
 		yield(yield_to(sceng, "tasks_completed", 0.2), YIELD)
 	# This is typically used to allow effects some time to instance

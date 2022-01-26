@@ -45,7 +45,7 @@ class TestNCE:
 		watch_signals(mem3)
 		watch_signals(mem4)
 		begin_surprise_encounter(nce)
-		yield(yield_to(cfc, "all_nodes_mapped", 3), YIELD)		
+		yield(yield_to(cfc, "all_nodes_mapped", 3), YIELD)
 		assert_has(cfc.NMAP, "board")
 		if not cfc.NMAP.has("board"):
 			return
@@ -61,6 +61,69 @@ class TestNCE:
 		assert_signal_not_emitted(mem4, "memory_upgraded")
 
 
+	func test_learning():
+		begin_surprise_encounter(nce)
+		yield(yield_to(cfc, "all_nodes_mapped", 3), YIELD)
+		assert_has(cfc.NMAP, "board")
+		if not cfc.NMAP.has("board"):
+			return
+		yield(yield_to(cfc.NMAP.board, "battle_begun", 2), YIELD)
+		board = cfc.NMAP.board
+		hand = cfc.NMAP.hand
+		deck = cfc.NMAP.deck
+		discard = cfc.NMAP.discard
+		forgotten = cfc.NMAP.forgotten
+		player_info = board.player_info
+		var card_list = [
+			"Confidence",
+			"Interpretation",
+			"Interpretation",
+			"Interpretation",
+			"Interpretation",
+			"Interpretation",
+		]
+		var recurrence
+		if get_tree().get_nodes_in_group("EnemyEntities").size() > 0:
+			recurrence = get_tree().get_nodes_in_group("EnemyEntities")[0]
+		assert_not_null(recurrence, "Recurrence spawned")
+		if not recurrence:
+			return
+		var sceng
+		cards = setup_test_cards(card_list)
+		for c in cards:
+			c.properties.Cost = 0
+		cards[0].scripts = BIG_DEFENCE_SCRIPT
+		cards[1].scripts = EXERT_SCRIPT
+		cards[2].scripts = EFFECT_SCRIPT
+		cards[3].scripts = REPEAT_ATTACK_SCRIPT
+		cards[4].scripts = DEBUFF_SCRIPT
+		cards[5].scripts = HEAL_SCRIPT
+		yield(yield_for(1), YIELD)
+		for index in [3,4]:
+			sceng = snipexecute(cards[index], recurrence)
+			if sceng is GDScriptFunctionState and sceng.is_valid():
+				sceng = yield(sceng, "completed")
+		for index in [0,1,2,5]:
+			sceng = execute_with_yield(cards[index])
+			if sceng is GDScriptFunctionState and sceng.is_valid():
+				sceng = yield(sceng, "completed")
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		assert_eq(surprise_combat_encounter.lessons_learned.get("attacks", []), [[6,6,6]], "Attacks learned")
+		assert_eq(surprise_combat_encounter.lessons_learned.get("defences", []), [25], "Defences learned")
+		assert_eq(surprise_combat_encounter.lessons_learned.get("heals", []), [-5], "Heals learned")
+		var buffs = surprise_combat_encounter.lessons_learned.get("buffs", [])
+		var debuffs = surprise_combat_encounter.lessons_learned.get("debuffs", [])
+		assert_gt(buffs.size(), 0, "Buffs learned")
+		assert_gt(debuffs.size(), 0, "Debuffs learned")
+		if debuffs.size() == 0 or buffs.size() == 0:
+			return
+		assert_eq(buffs[0].hash(), {"Clarity":1}.hash(), "Correct Buffs learned")
+		assert_eq(debuffs[0].hash(), {"Confusion":1}.hash(), "Correct Debuffs learned")
+		assert_eq(surprise_combat_encounter.lessons_learned.get("cards", []), [6])
+		gut.p(surprise_combat_encounter.lessons_learned)
+
+
 class TestCounterMeasureCalculations:
 	extends "res://tests/HUTCommon.gd"
 	const NCE = preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd")
@@ -71,8 +134,8 @@ class TestCounterMeasureCalculations:
 
 	func test_recurrence_cm_high_defences():
 		var sce = RECURRENCE_SURPRISE.new(
-			RECURRENCE_ELITE, 
-			"easy", 
+			RECURRENCE_ELITE,
+			"easy",
 			NCE.new())
 		sce.lessons_learned["cards"] = [3,3,3,3,3,3,3]
 		sce.lessons_learned["defences"] = [0,18,0,19,17,1,11]
@@ -81,8 +144,8 @@ class TestCounterMeasureCalculations:
 
 	func test_recurrence_cm_defence_avg():
 		var sce = RECURRENCE_SURPRISE.new(
-			RECURRENCE_ELITE, 
-			"easy", 
+			RECURRENCE_ELITE,
+			"easy",
 			NCE.new())
 		sce.lessons_learned["cards"] = [3,3,3,3,3,3,3]
 		sce.lessons_learned["defences"] = [9,12,6,12,12,1,11]
@@ -91,8 +154,8 @@ class TestCounterMeasureCalculations:
 
 	func test_recurrence_cm_attack_amount():
 		var sce = RECURRENCE_SURPRISE.new(
-			RECURRENCE_ELITE, 
-			"easy", 
+			RECURRENCE_ELITE,
+			"easy",
 			NCE.new())
 		sce.lessons_learned["cards"] = [3,3,3,3,3,3,3]
 		sce.lessons_learned["attacks"] = [
@@ -109,8 +172,8 @@ class TestCounterMeasureCalculations:
 
 	func test_recurrence_cm_high_attacks():
 		var sce = RECURRENCE_SURPRISE.new(
-			RECURRENCE_ELITE, 
-			"easy", 
+			RECURRENCE_ELITE,
+			"easy",
 			NCE.new())
 		sce.lessons_learned["cards"] = [3,3,3,3,3,3,3]
 		sce.lessons_learned["attacks"] = [[18],[20],[],[14],[],[15],[16]]
@@ -119,18 +182,18 @@ class TestCounterMeasureCalculations:
 
 	func test_recurrence_cm_heal_avg():
 		var sce = RECURRENCE_SURPRISE.new(
-			RECURRENCE_ELITE, 
-			"easy", 
+			RECURRENCE_ELITE,
+			"easy",
 			NCE.new())
 		sce.lessons_learned["cards"] = [3,3,3,3,3,3,3]
-		sce.lessons_learned["heals"] = [0,12,0,12,12,1,11]
+		sce.lessons_learned["heals"] = [0,-12,0,-12,-12,-1,-11]
 		sce.finish_surpise_ordeal()
 		assert_eq(globals.encounters.run_changes.store.get("Recurrence"), ["heals"])
 
 	func test_recurrence_cm_card_avg():
 		var sce = RECURRENCE_SURPRISE.new(
-			RECURRENCE_ELITE, 
-			"easy", 
+			RECURRENCE_ELITE,
+			"easy",
 			NCE.new())
 		sce.lessons_learned["cards"] = [3,3,3,3,3,3,3]
 		sce.lessons_learned["cards"] = [4,7,2,8,10,3,10,7,4,10,9]
@@ -139,8 +202,8 @@ class TestCounterMeasureCalculations:
 
 	func test_recurrence_cm_nonspecific():
 		var sce = RECURRENCE_SURPRISE.new(
-			RECURRENCE_ELITE, 
-			"easy", 
+			RECURRENCE_ELITE,
+			"easy",
 			NCE.new())
 		sce.lessons_learned["cards"] = [3,3,3,3,3,3,3]
 		sce.lessons_learned["heals"] = [0,0,0,5,0,0,0]
@@ -151,8 +214,8 @@ class TestCounterMeasureCalculations:
 
 	func test_recurrence_buffs():
 		var sce = RECURRENCE_SURPRISE.new(
-			RECURRENCE_ELITE, 
-			"easy", 
+			RECURRENCE_ELITE,
+			"easy",
 			NCE.new())
 		sce.lessons_learned["cards"] = [3,3,3,3,3,3,3]
 		sce.lessons_learned["buffs"] = [
@@ -167,12 +230,12 @@ class TestCounterMeasureCalculations:
 
 	func test_recurrence_debuffs():
 		var sce = RECURRENCE_SURPRISE.new(
-			RECURRENCE_ELITE, 
-			"easy", 
+			RECURRENCE_ELITE,
+			"easy",
 			NCE.new())
 		sce.lessons_learned["cards"] = [3,3,3,3,3,3,3]
 		sce.lessons_learned["buffs"] = [
-			{"disempower": 2},
+			{"disempower": 2, "poison": 6},
 			{"disempower": 1},
 			{"disempower": 1},
 			{"disempower": 4},

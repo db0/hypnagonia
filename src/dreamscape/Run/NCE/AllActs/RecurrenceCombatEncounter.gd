@@ -78,9 +78,10 @@ func finish_surpise_ordeal() -> void:
 	var total_heals : float = 0
 	for turn in lessons_learned.heals:
 		total_heals += turn
+	total_heals = abs(total_heals)
 	if total_heals >= AVERAGE_THRESHOLDS["heals"]:
 		# Using this to avoid increasing the countermeasures very slow or very fast.
-		countermeasures_considered["heals"] = 1.0 + (total_high_defence_turns / 3.0)
+		countermeasures_considered["heals"] = 1.0 + (total_heals / 3.0)
 	var total_cards : float = 0
 	for turn in lessons_learned.cards:
 		total_cards += turn
