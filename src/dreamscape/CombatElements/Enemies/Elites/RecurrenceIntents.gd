@@ -21,6 +21,39 @@ const INTENTS := [
 	},
 ]
 
+const WILD_AMOUNTS := {
+	"easy": 4,
+	"medium": 5,
+	"hard": 6,
+}
+# The amount of damage to do during mimic, for each unspent point of immersion
+const LEFTOVER_IMMERSION_SLAP := {
+	"easy": 10,
+	"medium": 15,
+	"hard": 20,
+}
+# Reduces the normal stress damage by this amount and converts it to burn stacks
+const BURN_AMOUNT_MOD := -1
+# Increases the burn stakcs by this amount when the countermeasures are high
+const BURN_CM_2_MOD := 2
+# Reduces the normal stress damage by this amount and converts it to poison stacks
+const POISON_AMOUNT_MOD := -2
+# Increases the poison stacks by this amount when the countermeasures are high
+const POISON_CM_2_MOD := 2
+# Adds these amount of drain stacks to CM against buffer
+const DRAIN_AMOUNT_MOD := 1
+# Increases the drain stacks by this amount when the countermeasures are high
+const DRAIN_CM_2_MOD := 1
+# Adds these amount of disempower stacks to CM against empower
+const DISEMPOWER_AMOUNT_MOD := 2
+# Increases the disempower stacks by this amount when the countermeasures are high
+const DISEMPOWER_CM_2_MOD := 4
+# Adds these amount of thorns stacks to CM against high amount of attacks
+const THORNS_AMOUNT_MOD := 4
+# Increases the thorns stacks by this amount when the countermeasures are high
+const THORNS_CM_2_MOD := 2
+# How many impervious stacks to add when counter measures against high_attacks are active
+const IMPERVIOUS_STACKS := 2
 
 func _ready() -> void:
 	all_intents = INTENTS.duplicate(true)
@@ -34,19 +67,15 @@ func _get_elite_scripts(intent_name: String) -> Array:
 	var intent_scripts := []
 	match intent_name:
 		"Wild Attacks":
-			var amount : int = 4
-			if combat_entity.get_property("_difficulty") == "medium":
-				amount = 5
-			elif combat_entity.get_property("_difficulty") == "hard":
-				amount = 6
+			var amount : int = WILD_AMOUNTS[combat_entity.get_property("_difficulty")]
 			var unmodified_amount = amount
 			var script : Dictionary
 			if combat_entity.cm_flags.get(Terms.ACTIVE_EFFECTS.impervious.name, 0) > 0\
 					or combat_entity.cm_flags.get(Terms.ACTIVE_EFFECTS.armor.name, 0) > 0:
-				var burn = amount - 1
+				var burn = unmodified_amount + BURN_AMOUNT_MOD
 				if combat_entity.cm_flags.get(Terms.ACTIVE_EFFECTS.impervious.name, 0) +\
 					combat_entity.cm_flags.get(Terms.ACTIVE_EFFECTS.armor.name, 0) > 1:
-					burn += 2
+					burn += BURN_CM_2_MOD
 				script = {
 					"name": "apply_effect",
 					"effect_name": Terms.ACTIVE_EFFECTS.burn.name,
@@ -60,9 +89,9 @@ func _get_elite_scripts(intent_name: String) -> Array:
 				intent_scripts.append(script)
 				amount -= 1
 			if combat_entity.cm_flags.get("high_defences", 0) > 0:
-				var poison = amount - 2
-				if combat_entity.cm_flags.get(Terms.ACTIVE_EFFECTS.impervious.name, 0) > 1:
-					poison += 2
+				var poison = unmodified_amount + POISON_AMOUNT_MOD
+				if combat_entity.cm_flags.get("high_defences", 0) > 1:
+					poison += POISON_CM_2_MOD
 				script = {
 					"name": "apply_effect",
 					"effect_name": Terms.ACTIVE_EFFECTS.poison.name,
@@ -79,7 +108,7 @@ func _get_elite_scripts(intent_name: String) -> Array:
 					"name": "modify_damage",
 					"tags": ["Attack", "Intent", "Unblockable"],
 					"subject": "dreamer",
-					"amount": amount,
+					"amount": unmodified_amount,
 					"icon": all_intent_scripts.ICON_PIERCE,
 					"description": "Piercing Stress: Will cause the dreamer to take the specified amount of unblockable {anxiety}."
 				}
@@ -112,15 +141,15 @@ func _get_elite_scripts(intent_name: String) -> Array:
 					"effect_name": Terms.ACTIVE_EFFECTS.impervious.name,
 					"tags": ["Intent", "Delayed"],
 					"subject": "self",
-					"modification": 2,
+					"modification": IMPERVIOUS_STACKS,
 					"icon": all_intent_scripts.ICON_BUFF,
 					"description": "This Torment is planning to buff itself."
 				}
 				intent_scripts.append(impervious)
 			if combat_entity.cm_flags.get("average_attacks", 0) > 0:
-				var thorns = 4
+				var thorns = THORNS_AMOUNT_MOD
 				if combat_entity.cm_flags.get("average_attacks", 0) > 1:
-					thorns += 2
+					thorns += THORNS_CM_2_MOD
 				script = {
 					"name": "apply_effect",
 					"effect_name": Terms.ACTIVE_EFFECTS.thorns.name,
@@ -133,9 +162,9 @@ func _get_elite_scripts(intent_name: String) -> Array:
 				}
 				intent_scripts.append(script)
 			if combat_entity.cm_flags.get(Terms.ACTIVE_EFFECTS.empower.name, 0) > 0:
-				var disempower = 2
+				var disempower = DISEMPOWER_AMOUNT_MOD
 				if combat_entity.cm_flags.get("average_attacks", 0) > 1:
-					disempower += 4
+					disempower += DISEMPOWER_CM_2_MOD
 				script = {
 					"name": "apply_effect",
 					"effect_name": Terms.ACTIVE_EFFECTS.disempower.name,
@@ -147,9 +176,9 @@ func _get_elite_scripts(intent_name: String) -> Array:
 				}
 				intent_scripts.append(script)
 			if combat_entity.cm_flags.get(Terms.ACTIVE_EFFECTS.buffer.name, 0) > 0:
-				var drain = 1
+				var drain = DRAIN_AMOUNT_MOD
 				if combat_entity.cm_flags.get("average_attacks", 0) > 1:
-					drain += 1
+					drain += DRAIN_CM_2_MOD
 				script = {
 					"name": "apply_effect",
 					"effect_name": Terms.ACTIVE_EFFECTS.drain.name,
@@ -189,7 +218,7 @@ func _get_elite_scripts(intent_name: String) -> Array:
 					"effect_name": Terms.ACTIVE_EFFECTS.impervious.name,
 					"tags": ["Intent", "Delayed"],
 					"subject": "self",
-					"modification": 2,
+					"modification": IMPERVIOUS_STACKS,
 					"icon": all_intent_scripts.ICON_BUFF,
 					"description": "This Torment is planning to buff itself."
 				}
@@ -285,11 +314,7 @@ func _get_elite_scripts(intent_name: String) -> Array:
 			# The recurrence punishes someone who tries to avoid learning by not using their cards.
 			var atk_multiplier = cfc.NMAP.board.turn.turn_event_count.get("total_leftover_immersion", 0)
 			if atk_multiplier > 0:
-				var atk = 10
-				if combat_entity.get_property("_difficulty") == "medium":
-					atk = 15
-				elif combat_entity.get_property("_difficulty") == "hard":
-					atk = 20
+				var atk = LEFTOVER_IMMERSION_SLAP[combat_entity.get_property("_difficulty")]
 				var script = {
 					"name": "modify_damage",
 					"tags": ["Attack", "Intent"],

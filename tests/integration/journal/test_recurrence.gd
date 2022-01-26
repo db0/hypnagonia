@@ -242,3 +242,216 @@ class TestCounterMeasureCalculations:
 		]
 		sce.finish_surpise_ordeal()
 		assert_eq(globals.encounters.run_changes.store.get("Recurrence"), ["disempower"])
+
+
+class TestIntentsEasy:
+	extends "res://tests/HUT_Ordeal_AdvancedTormentTestClass.gd"
+
+
+	func _init() -> void:
+		difficulty = "easy"
+		advanced_torment_scene = preload("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")
+		test_card_names = [
+			"Confidence",
+		]
+
+	func test_wild_attacks_easy():
+		# warning-ignore:return_value_discarded
+		advanced_torment.intents.prepare_intents(0)
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		# The wild attack amount for this difficulty
+		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
+		assert_eq(dreamer.damage,
+				wa * wa,
+				"Dreamer took the expected amount of damage")
+
+
+class TestIntentsMedium:
+	extends "res://tests/HUT_Ordeal_AdvancedTormentTestClass.gd"
+
+
+	func _init() -> void:
+		advanced_torment_scene = preload("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")
+		test_card_names = [
+			"Confidence",
+		]
+
+	func test_wild_attacks_medium():
+		# warning-ignore:return_value_discarded
+		advanced_torment.intents.prepare_intents(0)
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		# The wild attack amount for this difficulty
+		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
+		assert_eq(dreamer.damage,
+				wa * wa,
+				"Dreamer took the expected amount of damage")
+
+	func test_wild_attacks_cm_impervious1():
+		# warning-ignore:return_value_discarded
+		advanced_torment.cm_flags[Terms.ACTIVE_EFFECTS.impervious.name] = 1
+		advanced_torment.intents.prepare_intents(0)
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		# The wild attack amount for this difficulty
+		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
+		assert_eq(dreamer.damage,
+				(wa - 1) * wa,
+				"Dreamer took the expected amount of damage")
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.burn.name),
+				wa + advanced_torment.intents.BURN_AMOUNT_MOD,
+				"%s added %s countermeasure" % [advanced_torment.name, Terms.ACTIVE_EFFECTS.impervious.name])
+
+	func test_wild_attacks_cm_armor1():
+		# warning-ignore:return_value_discarded
+		advanced_torment.cm_flags[Terms.ACTIVE_EFFECTS.armor.name] = 1
+		advanced_torment.intents.prepare_intents(0)
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		# The wild attack amount for this difficulty
+		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
+		assert_eq(dreamer.damage,
+				(wa - 1) * wa,
+				"Dreamer took the expected amount of damage")
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.burn.name),
+				wa + advanced_torment.intents.BURN_AMOUNT_MOD,
+				"%s added %s countermeasure" % [advanced_torment.name, Terms.ACTIVE_EFFECTS.armor.name])
+
+	func test_wild_attacks_cm_thorns1():
+		# warning-ignore:return_value_discarded
+		advanced_torment.cm_flags[Terms.ACTIVE_EFFECTS.thorns.name] = 1
+		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.thorns.name, 10)
+		advanced_torment.intents.prepare_intents(0)
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		# The wild attack amount for this difficulty
+		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
+		assert_eq(dreamer.damage,
+				wa * wa,
+				"Dreamer took the expected amount of damage")
+		assert_eq(advanced_torment.damage,
+				10,
+				"Recurrence consolidated attacks to countermeasure against thorns")
+
+	func test_wild_attacks_cm_high_defense1():
+		# warning-ignore:return_value_discarded
+		advanced_torment.cm_flags["high_defences"] = 1
+		advanced_torment.intents.prepare_intents(0)
+		dreamer.defence = 100
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		# The wild attack amount for this difficulty
+		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
+		assert_eq(dreamer.damage,
+				wa + advanced_torment.intents.POISON_AMOUNT_MOD + wa,
+				"Dreamer took the expected amount of damage through doubt and pierce")
+
+
+class TestIntentsHard:
+	extends "res://tests/HUT_Ordeal_AdvancedTormentTestClass.gd"
+
+
+	func _init() -> void:
+		difficulty = "hard"
+		advanced_torment_scene = preload("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")
+		test_card_names = [
+			"Confidence",
+		]
+
+	func test_wild_attacks_hard():
+		# warning-ignore:return_value_discarded
+		advanced_torment.intents.prepare_intents(0)
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		# The wild attack amount for this difficulty
+		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
+		assert_eq(dreamer.damage,
+				wa * wa,
+				"Dreamer took the expected amount of damage")
+
+
+	func test_wild_attacks_cm_impervious2():
+		# warning-ignore:return_value_discarded
+		advanced_torment.cm_flags[Terms.ACTIVE_EFFECTS.impervious.name] = 2
+		advanced_torment.intents.prepare_intents(0)
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		# The wild attack amount for this difficulty
+		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
+		assert_eq(dreamer.damage,
+				(wa - 1) * wa,
+				"Dreamer took the expected amount of damage")
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.burn.name),
+				wa + advanced_torment.intents.BURN_AMOUNT_MOD + advanced_torment.intents.BURN_CM_2_MOD,
+				"%s added double %s countermeasure" % [advanced_torment.name, Terms.ACTIVE_EFFECTS.impervious.name])
+
+
+	func test_wild_attacks_cm_armor2():
+		# warning-ignore:return_value_discarded
+		advanced_torment.cm_flags[Terms.ACTIVE_EFFECTS.armor.name] = 2
+		advanced_torment.intents.prepare_intents(0)
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		# The wild attack amount for this difficulty
+		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
+		assert_eq(dreamer.damage,
+				(wa - 1) * wa,
+				"Dreamer took the expected amount of damage")
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.burn.name),
+				wa + advanced_torment.intents.BURN_AMOUNT_MOD + advanced_torment.intents.BURN_CM_2_MOD,
+				"%s added double %s countermeasure" % [advanced_torment.name, Terms.ACTIVE_EFFECTS.armor.name])
+
+
+	func test_wild_attacks_cm_armor1_and_impervious1():
+		# warning-ignore:return_value_discarded
+		advanced_torment.cm_flags[Terms.ACTIVE_EFFECTS.armor.name] = 1
+		advanced_torment.cm_flags[Terms.ACTIVE_EFFECTS.impervious.name] = 1
+		advanced_torment.intents.prepare_intents(0)
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		# The wild attack amount for this difficulty
+		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
+		assert_eq(dreamer.damage,
+				(wa - 1) * wa,
+				"Dreamer took the expected amount of damage")
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.burn.name),
+				wa + advanced_torment.intents.BURN_AMOUNT_MOD + advanced_torment.intents.BURN_CM_2_MOD,
+				"%s added %s and %s countermeasure" % [advanced_torment.name, Terms.ACTIVE_EFFECTS.armor.name, Terms.ACTIVE_EFFECTS.impervious.name])
+
+	func test_wild_attacks_cm_high_defense2():
+		# warning-ignore:return_value_discarded
+		advanced_torment.cm_flags["high_defences"] = 2
+		advanced_torment.intents.prepare_intents(0)
+		dreamer.defence = 100
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		# The wild attack amount for this difficulty
+		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
+		assert_eq(dreamer.damage,
+				wa,
+				"Dreamer took the expected amount of damage through pierce")
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.poison.name),
+				wa + advanced_torment.intents.POISON_AMOUNT_MOD + advanced_torment.intents.POISON_CM_2_MOD,
+				"%s added double %s countermeasure" % [advanced_torment.name, "high_defences"])
+
+
+	func test_wild_attacks_cm_high_defense1_and_impervious1():
+		# warning-ignore:return_value_discarded
+		advanced_torment.cm_flags["high_defences"] = 1
+		advanced_torment.cm_flags[Terms.ACTIVE_EFFECTS.impervious.name] = 1
+		dreamer.defence = 100
+		advanced_torment.intents.prepare_intents(0)
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		# The wild attack amount for this difficulty
+		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.burn.name),
+				wa + advanced_torment.intents.BURN_AMOUNT_MOD,
+				"%s added %s countermeasure" % [advanced_torment.name, Terms.ACTIVE_EFFECTS.impervious.name])
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.poison.name),
+				wa + advanced_torment.intents.POISON_AMOUNT_MOD,
+				"%s added %s countermeasure" % [advanced_torment.name, "high_defences"])
+		assert_eq(dreamer.damage,
+				wa,
+				"Dreamer took the expected amount of damage through pierce")

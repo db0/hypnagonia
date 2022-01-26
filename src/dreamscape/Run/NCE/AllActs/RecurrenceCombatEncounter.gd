@@ -93,6 +93,10 @@ func finish_surpise_ordeal() -> void:
 	var chosen_countermeasure := ''
 	var countermeasure_rating : float = 0
 	for cm in countermeasures_considered:
+		# If thorns is already a countermeasure, we don't add it again, as we don't have other tricks against it
+		if cm == Terms.ACTIVE_EFFECTS.thorns.name\
+				and globals.encounters.run_changes.store["Recurrence"].has(Terms.ACTIVE_EFFECTS.thorns.name):
+			continue
 		if countermeasures_considered[cm] > countermeasure_rating:
 			chosen_countermeasure = cm
 	if chosen_countermeasure == '':
