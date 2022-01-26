@@ -1,5 +1,20 @@
 # Changelog
 
+## [v0.32.9](https://github.com/db0/hypnagonia/tree/v0.32.9) (2022-01-25)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.32.8...v0.32.9)
+
+**Closed issues:**
+
+- Recurrence in floor1 combat [\#211](https://github.com/db0/hypnagonia/issues/211)
+
+**Merged pull requests:**
+
+- Added threshold to failing asserts [\#216](https://github.com/db0/hypnagonia/pull/216) ([db0](https://github.com/db0))
+- Highwire act [\#214](https://github.com/db0/hypnagonia/pull/214) ([3CHosler](https://github.com/3CHosler))
+- Change earwork NCE discription [\#213](https://github.com/db0/hypnagonia/pull/213) ([3CHosler](https://github.com/3CHosler))
+- fix: Disconnected leftover encounters [\#212](https://github.com/db0/hypnagonia/pull/212) ([db0](https://github.com/db0))
+
 ## [v0.32.8](https://github.com/db0/hypnagonia/tree/v0.32.8) (2022-01-24)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.32.7...v0.32.8)
