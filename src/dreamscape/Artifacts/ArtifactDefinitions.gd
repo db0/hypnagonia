@@ -19,9 +19,9 @@ enum EffectContext {
 
 const MaxHealth := {
 	"canonical_name": "MaxHealth",
-	"name": "MaxHealth",
+	"name": "Stress-Ball",
 	"description": "{artifact_name}: max {anxiety} inreased by {health_amount}",
-	"icon": preload("res://assets/icons/artifacts/centaur-heart.png"),
+	"icon": preload("res://assets/icons/artifacts/ball-heart.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -148,7 +148,7 @@ const StartingConfidence := {
 
 const ThickImmersion := {
 	"canonical_name": "ThickImmersion",
-	"name": "ThickImmersion",
+	"name": "Weighted Blanket",
 	"description": "{artifact_name}: At that start of each Ordeal turn, gain {immersion_amount} {immersion}. "\
 		+ "This effects ends when your deck is reshuffled and you gain {effect_stacks} {vulnerable}.",
 	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
@@ -177,9 +177,9 @@ const ThickStrength := {
 
 const UpgradedAction := {
 	"canonical_name": "UpgradedAction",
-	"name": "UpgradedAction",
+	"name": "Flashlight",
 	"description": "{artifact_name}: Action cards added to your deck receive {progress_amount} progress.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"icon": preload("res://assets/icons/artifacts/flashlight.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -190,9 +190,9 @@ const UpgradedAction := {
 
 const UpgradedControl := {
 	"canonical_name": "UpgradedControl",
-	"name": "UpgradedControl",
+	"name": "Candle",
 	"description": "{artifact_name}: Interpretation cards added to your deck receive {progress_amount} progress.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"icon": preload("res://assets/icons/artifacts/candle-light.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -216,9 +216,9 @@ const UpgradedUnderstanding := {
 
 const UpgradedConcentration := {
 	"canonical_name": "UpgradedConcentration",
-	"name": "UpgradedConcentration",
+	"name": "Lantern",
 	"description": "{artifact_name}: Interpretation cards added to your deck receive {progress_amount} progress.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"icon": preload("res://assets/icons/artifacts/old-lantern.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -290,9 +290,9 @@ const ResistVulnerable := {
 
 const ImproveThorns := {
 	"canonical_name": "ImproveThorns",
-	"name": "ImproveThorns",
+	"name": "White Rose",
 	"description": "{artifact_name}: Any time you would gain {thorns}, gain {alteration_amount} more.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"icon": preload("res://assets/icons/artifacts/rose.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -615,18 +615,18 @@ const IncreaseRandomDefence := {
 
 const IncreaseConfusionStacks := {
 	"canonical_name": "IncreaseConfusionStacks",
-	"name": "IncreaseConfusionStacks",
+	"name": "Smoke Bomb",
 	"description": "{artifact_name}: Choose a {disempower} card in your deck. Increase the amount of {disempower} stacks it is inflicting by 1.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"icon": preload("res://assets/icons/artifacts/smoke-bomb.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
 }
 
 const IncreaseImmersionGain := {
 	"canonical_name": "IncreaseImmersionGain",
-	"name": "IncreaseImmersionGain",
+	"name": "Bookmark",
 	"description": "{artifact_name}: Choose an {immersion} card in your deck. Increase the amount of {immersion} stacks it is providing by 1.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"icon": preload("res://assets/icons/artifacts/bookmark.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Rare",
 }
