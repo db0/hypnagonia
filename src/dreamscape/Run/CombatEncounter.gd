@@ -7,6 +7,7 @@ var difficulty: String = "medium"
 	
 
 func begin() -> void:
+	# warning-ignore:return_value_discarded
 	cfc.connect("all_nodes_mapped", self, "_on_board_instanced")
 	.begin()
 

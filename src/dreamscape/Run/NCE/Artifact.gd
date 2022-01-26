@@ -35,6 +35,7 @@ func begin() -> void:
 func continue_encounter(key) -> void:
 	match key:
 		"grab": 
+			# warning-ignore:return_value_discarded
 			globals.player.add_artifact(artifact_prep.selected_artifacts[0].canonical_name)
 			# Decided to have 0/1 perturbations on basic difficulty. 
 			# When we add difficulty levels, it will be 1/2
@@ -43,6 +44,7 @@ func continue_encounter(key) -> void:
 			end()
 			globals.journal.display_nce_rewards('')
 		"grab_second": 
+			# warning-ignore:return_value_discarded
 			globals.player.add_artifact(artifact_prep.selected_artifacts[1].canonical_name)
 			# warning-ignore:return_value_discarded
 			globals.player.deck.add_new_card(Perturbations.get_random_perturbation(

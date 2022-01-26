@@ -139,6 +139,7 @@ func _on_card_removed(operation_details: Dictionary, candy: Array) -> void:
 	var reward_desc := "The taste is {taste} and I realized [url={url}]it altered my perception[/url] within the dream."
 	if HConst.COLOUR_MAP[candy[1]] == "Perturbation"\
 			and not SPECIAL_REWARD_ARTIFACT in globals.player.get_all_artifact_names():
+		# warning-ignore:return_value_discarded
 		globals.player.add_artifact(SPECIAL_REWARD_ARTIFACT)
 		reward_desc += "\nThe weird taste made me crave for more!"
 	var popup_tag = NCE_POPUP_DICT.duplicate(true)

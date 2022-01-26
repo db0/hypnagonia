@@ -58,14 +58,18 @@ func mod_counter(counter_name: String,
 				if set_to_mod:
 					total_immersion_gain = value - counters[counter_name]
 				if total_immersion_gain > 1:
+					# warning-ignore:return_value_discarded
 					TurnEventMessage.new("immersion_increased", total_immersion_gain)
 			elif "Buffer" in tags:
+				# warning-ignore:return_value_discarded
 				TurnEventMessage.new("buffer_immersion_gained", +1)
 	return(retcode)
 
 func _on_player_turn_ended(turn: Turn) -> void:
 	if get_counter("immersion") > 0:
+		# warning-ignore:return_value_discarded
 		TurnEventMessage.new("total_leftover_immersion", get_counter("immersion"), true)
+		# warning-ignore:return_value_discarded
 		TurnEventMessage.new("turns_with_leftover_immersion", +1, true)
 	# warning-ignore:return_value_discarded
 	mod_counter("immersion", 0, true, false, turn, ["End Turn"])

@@ -129,6 +129,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/core/BoardPlacementSlot.gd"
 }, {
+"base": "Node",
+"class": "BoardSignalConnector",
+"language": "GDScript",
+"path": "res://src/dreamscape/BoardSignalConnector.gd"
+}, {
 "base": "AdvancedCombatEncounter",
 "class": "BossEncounter",
 "language": "GDScript",
@@ -729,7 +734,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/Memories/MemoryTemplate_TormentCombatEffect.gd"
 }, {
-"base": "Reference",
+"base": "Node",
 "class": "Turn",
 "language": "GDScript",
 "path": "res://src/dreamscape/Turn.gd"
@@ -784,6 +789,7 @@ _global_script_class_icons={
 "Board": "",
 "BoardPlacementGrid": "",
 "BoardPlacementSlot": "",
+"BoardSignalConnector": "",
 "BossEncounter": "",
 "BossIntents": "",
 "CFConst": "",

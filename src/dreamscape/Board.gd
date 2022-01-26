@@ -5,11 +5,11 @@ signal battle_begun
 signal battle_ended
 signal game_over
 signal enemy_spawned(entity)
+signal player_added(entity)
 
 const ENEMY_ENTITY_SCENE = preload("res://src/dreamscape/CombatElements/Enemies/EnemyEntity.tscn")
 
 var end_turn : Button
-var turn := Turn.new()
 var dreamer: PlayerEntity
 var activated_enemies: Array
 var boss_battle := false
@@ -24,6 +24,7 @@ var _debug_enemies_at_end_of_turn
 var _debug_enemies_started_activation := []
 var _debug_enemy_states := {}
 
+onready var turn = $Turn
 onready var bottom_gui := $VBC/HBC
 onready var _player_area := $VBC/CombatArena/PlayerArea
 onready var _enemy_area := $VBC/CombatArena/EnemyArea/Enemies
@@ -72,6 +73,7 @@ func _ready() -> void:
 	# warning-ignore:return_value_discarded
 	dreamer.connect("entity_killed", self, "_dreamer_died")
 	_player_area.add_child(dreamer)
+	emit_signal("player_added", dreamer)
 	dreamer.rect_position = Vector2(100,100)
 	_on_viewport_resized()
 # warning-ignore:return_value_discarded

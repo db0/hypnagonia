@@ -35,6 +35,7 @@ func continue_encounter(key) -> void:
 		"mouse":
 			# warning-ignore:narrowing_conversion
 			globals.player.health *= 0.9
+			# warning-ignore:return_value_discarded
 			globals.player.add_artifact("BetterRareChance")
 		"bear":
 			# warning-ignore:narrowing_conversion

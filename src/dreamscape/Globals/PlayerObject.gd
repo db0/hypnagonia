@@ -42,6 +42,7 @@ func setup() -> void:
 			continue
 		# Each deck group might provide one or more starting artifacts
 		for artifact_name in Aspects[group.to_upper()][deck_groups[group]].get("Starting Artifacts", []):
+			# warning-ignore:return_value_discarded
 			add_artifact(artifact_name.canonical_name)
 	deck.assemble_starting_deck()
 	# Debug #

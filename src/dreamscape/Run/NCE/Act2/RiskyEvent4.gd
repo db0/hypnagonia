@@ -49,6 +49,7 @@ func continue_encounter(key) -> void:
 		# Encounters Needed To Accumulate Amount
 		var entam = amount / globals.player.pathos.get_progression_average(highest_pathos)
 		artifact_prep = ArtifactPrep.new(entam * 2, entam * 4, 1)
+		# warning-ignore:return_value_discarded
 		globals.player.add_artifact(artifact_prep.selected_artifacts[0].canonical_name)
 		globals.player.pathos.modify_released_pathos(
 				highest_pathos,
@@ -56,6 +57,7 @@ func continue_encounter(key) -> void:
 				false)
 	else:
 		artifact_prep = ArtifactPrep.new(1, 5, 1)
+		# warning-ignore:return_value_discarded
 		globals.player.add_artifact(artifact_prep.selected_artifacts[0].canonical_name)
 		globals.player.pathos.modify_repressed_pathos(
 				ignore_pathos,

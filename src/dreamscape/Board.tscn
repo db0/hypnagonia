@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://src/dreamscape/Discard.gd" type="Script" id=1]
 [ext_resource path="res://src/core/Pile.tscn" type="PackedScene" id=2]
@@ -10,7 +10,9 @@
 [ext_resource path="res://assets/card_backs/owl_card_back.png" type="Texture" id=8]
 [ext_resource path="res://assets/backgrounds/tint.png" type="Texture" id=9]
 [ext_resource path="res://assets/icons/GUI/clockwise-rotation.png" type="Texture" id=10]
+[ext_resource path="res://src/dreamscape/BoardSignalConnector.gd" type="Script" id=11]
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=12]
+[ext_resource path="res://src/dreamscape/Turn.gd" type="Script" id=13]
 
 [sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.45098, 0, 0, 1 )
@@ -462,6 +464,12 @@ __meta__ = {
 
 [node name="EnemyTurnStuckTimer" type="Timer" parent="."]
 wait_time = 20.0
+
+[node name="Turn" type="Node" parent="."]
+script = ExtResource( 13 )
+
+[node name="BoardSignalConnector" type="Node" parent="."]
+script = ExtResource( 11 )
 
 [connection signal="timeout" from="EnemyTurnStuckTimer" to="." method="_on_EnemyTurnStuckTimer_timeout"]
 

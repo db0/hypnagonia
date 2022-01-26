@@ -41,7 +41,7 @@ class TestGeneric:
 	extends "res://tests/HUT_Ordeal_GenericTestClass.gd"
 
 	func _init() -> void:
-		pass
+		globals.test_flags["disable_starting_artifacts"] = true
 
 	func test_win():
 		watch_signals(board)
@@ -98,7 +98,6 @@ class TestRounds:
 		for t in test_torments:
 			assert_signal_emit_count(t, "started_activation", 1)	
 			assert_signal_emit_count(t, "finished_activation", 1)	
-
 
 
 class TestTags:

@@ -1,5 +1,6 @@
 extends DreamPile
 
+# warning-ignore:unused_signal
 signal draw_card(deck)
 
 func _ready() -> void:

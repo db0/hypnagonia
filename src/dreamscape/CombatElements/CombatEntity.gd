@@ -72,10 +72,6 @@ func _ready() -> void:
 	active_effects.combat_entity = self
 	highlight.rect_min_size = entity_size + Vector2(1,1)
 	highlight.entity_art = entity_texture
-	var turn: Turn = cfc.NMAP.board.turn
-	for turn_signal in Turn.ALL_SIGNALS:
-		# warning-ignore:return_value_discarded
-		turn.connect(turn_signal, self, "_on_" + turn_signal)
 	_set_texture(defence_icon, defence_texture)
 	if _properties.has('_texture'):
 		_set_texture(entity_texture, _properties["_texture"])
