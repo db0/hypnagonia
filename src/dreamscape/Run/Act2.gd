@@ -535,7 +535,7 @@ const NCE := {
 		"BannersOfRuin": preload("res://src/dreamscape/Run/NCE/Act2/BannersOfRuin.gd"),
 		"MiniShop": preload("res://src/dreamscape/Run/NCE/Act2/MiniShop.gd"),
 		"Subconscious": preload("res://src/dreamscape/Run/NCE/Act2/Subconscious.gd"),
-		"MultipleTags": preload("res://src/dreamscape/Run/NCE/Act2/MultipleTags.gd"),
+		"AlphaKappaOmega": preload("res://src/dreamscape/Run/NCE/Act2/AlphaKappaOmega.gd"),
 		"MultipleScriptMods": preload("res://src/dreamscape/Run/NCE/Act2/MultipleScriptMods.gd"),
 		"LoseRandomCurio": preload("res://src/dreamscape/Run/NCE/Act2/LoseRandomCurio.gd"),
 	},
