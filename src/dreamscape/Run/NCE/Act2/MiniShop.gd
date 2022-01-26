@@ -16,16 +16,14 @@ var pathos := {
 	"upgrade": Terms.RUN_ACCUMULATION_NAMES.nce,
 }
 
-# TODO: Add results fluff
 var nce_result_fluff := {
-		'remove': '',
-		'progress': '',
-		'upgrade': '',
-		'leave': '',
+		'remove': 'The stranger helped take some weight off my shoulders. Did he take more?',
+		'progress': 'The stranger was friendly. He offered some wise words that I can no longer recall.',
+		'upgrade': 'We reminisced about old times as he helped me recall fond memories.',
+		'leave': 'Thinking it must have been a trap, I left. I hope I didn\'t offend him.',
 	}
 
 func _init():
-	# TODO: Add story
 	description = "A stranger called to me, claiming to be my childhood firend. Did I know him from somwehere?"
 
 func begin() -> void:
