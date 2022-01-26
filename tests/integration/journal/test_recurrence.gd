@@ -564,7 +564,6 @@ class TestLearnEasy:
 		cfc.NMAP.board.turn.end_player_turn()
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
-		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
 		assert_eq(advanced_torment.defence,
 				advanced_torment.intents.LEARNING_DEFENCE[difficulty],
 				"Recurrence defended as expected")
@@ -594,7 +593,6 @@ class TestLearnEasy:
 		cfc.NMAP.board.turn.end_player_turn()
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
-		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
 		assert_eq(advanced_torment.defence,
 				advanced_torment.intents.LEARNING_DEFENCE[difficulty],
 				"Recurrence defended as expected")
@@ -618,6 +616,8 @@ class TestLearnMedium:
 		advanced_torment_scene = preload("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")
 		test_card_names = [
 			"Confidence",
+			"Butterfly",
+			"Nothing to Fear",
 		]
 
 	func test_learn_medium():
@@ -629,7 +629,6 @@ class TestLearnMedium:
 		cfc.NMAP.board.turn.end_player_turn()
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
-		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
 		assert_eq(advanced_torment.defence,
 				advanced_torment.intents.LEARNING_DEFENCE[difficulty],
 				"Recurrence defended as expected")
@@ -643,6 +642,36 @@ class TestLearnMedium:
 			str(prev_counter * advanced_torment.intents.LEFTOVER_IMMERSION_SLAP[difficulty]),
 			"Attack copied")
 
+	func test_mimic_misc():
+		# warning-ignore:return_value_discarded
+		cards[0].scripts = EXERT_SCRIPT
+		cards[1].scripts = EFFECT_SCRIPT
+		var sceng
+		for exec_card in cards:
+			sceng = execute_with_yield(exec_card)
+			if sceng is GDScriptFunctionState and sceng.is_valid():
+				sceng = yield(sceng, "completed")
+		advanced_torment.countermeasures = ["high_attacks"]
+		advanced_torment._prepare_countermeasures()
+		advanced_torment.intents.prepare_intents(1)
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		# The wild attack amount for this difficulty
+		var intents = advanced_torment.intents.get_children()
+		assert_eq(intents.size(), 3, "Recurrence copying all intents")
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		assert_eq(advanced_torment.damage,
+				5,
+				"Recurrence took exert damage")
+		assert_eq(advanced_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.empower.name),
+				1,
+				"%s added copied buffs" % [advanced_torment.name])
+		assert_eq(advanced_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.nothing_to_fear.name),
+				0,
+				"%s did not copy concentrations" % [advanced_torment.name])
+
+
 
 class TestLearnHard:
 	extends "res://tests/HUT_Ordeal_AdvancedTormentTestClass.gd"
@@ -652,7 +681,9 @@ class TestLearnHard:
 		difficulty = "hard"
 		advanced_torment_scene = preload("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")
 		test_card_names = [
-			"Confidence",
+			"Interpretation",
+			"Interpretation",
+			"Interpretation",
 		]
 
 	func test_learn_hard():
@@ -665,7 +696,6 @@ class TestLearnHard:
 		cfc.NMAP.board.turn.end_player_turn()
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
-		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
 		assert_eq(advanced_torment.defence,
 				advanced_torment.intents.LEARNING_DEFENCE[difficulty],
 				"Recurrence defended as expected")
@@ -678,5 +708,53 @@ class TestLearnHard:
 			assert_eq(intents[iindex].signifier_amount.text,
 			str(prev_counter * advanced_torment.intents.LEFTOVER_IMMERSION_SLAP[difficulty]),
 			"Attack copied")
+
+
+
+	func test_mimic_cm_thorns():
+		# warning-ignore:return_value_discarded
+		advanced_torment.countermeasures = [Terms.ACTIVE_EFFECTS.thorns.name,Terms.ACTIVE_EFFECTS.thorns.name]
+		advanced_torment._prepare_countermeasures()
+		advanced_torment.intents.prepare_intents(1)
+		var sceng
+		for exec_card in cards:
+			sceng = snipexecute(exec_card, advanced_torment)
+			if sceng is GDScriptFunctionState and sceng.is_valid():
+				sceng = yield(sceng, "completed")
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		var intents = advanced_torment.intents.get_children()
+		assert_eq(intents.size(), 1, "Recurrence is consolidating attacks as countermeasure to thorns")
+		for iindex in range(intents.size()):
+			assert_eq(intents[iindex].signifier_amount.text,
+			str(cards.size() * 6),
+			"Attack copied and consolidated")
+
+
+	func test_mimic_cm_pierce():
+		# warning-ignore:return_value_discarded
+		advanced_torment.countermeasures = ["high_defences","high_defences"]
+		advanced_torment._prepare_countermeasures()
+		advanced_torment.intents.prepare_intents(1)
+		dreamer.defence = 100
+		var sceng
+		for exec_card in cards:
+			sceng = snipexecute(exec_card, advanced_torment)
+			if sceng is GDScriptFunctionState and sceng.is_valid():
+				sceng = yield(sceng, "completed")
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		var intents = advanced_torment.intents.get_children()
+		assert_eq(intents.size(), cards.size(), "Recurrence is setting up piercing as countermeasure to high defences")
+		for iindex in range(intents.size()):
+			assert_eq(intents[iindex].signifier_amount.text,
+			str(6),
+			"Attack copied and piercing")
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		assert_eq(dreamer.damage,
+				cards.size() * 6,
+				"Dreamer took the expected amount of piercing damage")
+		
 
 
