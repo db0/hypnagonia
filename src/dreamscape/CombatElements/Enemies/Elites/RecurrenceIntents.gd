@@ -32,6 +32,11 @@ const LEFTOVER_IMMERSION_SLAP := {
 	"medium": 15,
 	"hard": 20,
 }
+const LEARNING_DEFENCE := {
+	"easy": 10,
+	"medium": 15,
+	"hard": 20,
+}
 # Reduces the normal stress damage by this amount and converts it to burn stacks
 const BURN_AMOUNT_MOD := -1
 # Increases the burn stakcs by this amount when the countermeasures are high
@@ -41,17 +46,17 @@ const POISON_AMOUNT_MOD := -2
 # Increases the poison stacks by this amount when the countermeasures are high
 const POISON_CM_2_MOD := 2
 # Adds these amount of drain stacks to CM against buffer
-const DRAIN_AMOUNT_MOD := 1
+const DRAIN_AMOUNT := 1
 # Increases the drain stacks by this amount when the countermeasures are high
-const DRAIN_CM_2_MOD := 1
+const DRAIN_CM_2_AMOUNT := 1
 # Adds these amount of disempower stacks to CM against empower
-const DISEMPOWER_AMOUNT_MOD := 2
+const DISEMPOWER_AMOUNT := 2
 # Increases the disempower stacks by this amount when the countermeasures are high
-const DISEMPOWER_CM_2_MOD := 4
+const DISEMPOWER_CM_2_AMOUNT := 4
 # Adds these amount of thorns stacks to CM against high amount of attacks
-const THORNS_AMOUNT_MOD := 4
+const THORNS_AMOUNT := 4
 # Increases the thorns stacks by this amount when the countermeasures are high
-const THORNS_CM_2_MOD := 2
+const THORNS_CM_2_AMOUNT := 2
 # How many impervious stacks to add when counter measures against high_attacks are active
 const IMPERVIOUS_STACKS := 2
 
@@ -147,9 +152,9 @@ func _get_elite_scripts(intent_name: String) -> Array:
 				}
 				intent_scripts.append(impervious)
 			if combat_entity.cm_flags.get("average_attacks", 0) > 0:
-				var thorns = THORNS_AMOUNT_MOD
+				var thorns = THORNS_AMOUNT
 				if combat_entity.cm_flags.get("average_attacks", 0) > 1:
-					thorns += THORNS_CM_2_MOD
+					thorns += THORNS_CM_2_AMOUNT
 				script = {
 					"name": "apply_effect",
 					"effect_name": Terms.ACTIVE_EFFECTS.thorns.name,
@@ -162,9 +167,9 @@ func _get_elite_scripts(intent_name: String) -> Array:
 				}
 				intent_scripts.append(script)
 			if combat_entity.cm_flags.get(Terms.ACTIVE_EFFECTS.empower.name, 0) > 0:
-				var disempower = DISEMPOWER_AMOUNT_MOD
-				if combat_entity.cm_flags.get("average_attacks", 0) > 1:
-					disempower += DISEMPOWER_CM_2_MOD
+				var disempower = DISEMPOWER_AMOUNT
+				if combat_entity.cm_flags.get(Terms.ACTIVE_EFFECTS.empower.name, 0) > 1:
+					disempower += DISEMPOWER_CM_2_AMOUNT
 				script = {
 					"name": "apply_effect",
 					"effect_name": Terms.ACTIVE_EFFECTS.disempower.name,
@@ -176,9 +181,9 @@ func _get_elite_scripts(intent_name: String) -> Array:
 				}
 				intent_scripts.append(script)
 			if combat_entity.cm_flags.get(Terms.ACTIVE_EFFECTS.buffer.name, 0) > 0:
-				var drain = DRAIN_AMOUNT_MOD
-				if combat_entity.cm_flags.get("average_attacks", 0) > 1:
-					drain += DRAIN_CM_2_MOD
+				var drain = DRAIN_AMOUNT
+				if combat_entity.cm_flags.get(Terms.ACTIVE_EFFECTS.buffer.name, 0) > 1:
+					drain += DRAIN_CM_2_AMOUNT
 				script = {
 					"name": "apply_effect",
 					"effect_name": Terms.ACTIVE_EFFECTS.drain.name,
@@ -191,11 +196,7 @@ func _get_elite_scripts(intent_name: String) -> Array:
 				intent_scripts.append(script)
 		"Learn":
 #			print_debug("learning")
-			var amount : int = 10
-			if combat_entity.get_property("_difficulty") == "medium":
-				amount = 15
-			elif combat_entity.get_property("_difficulty") == "hard":
-				amount = 20
+			var amount : int = LEARNING_DEFENCE[combat_entity.get_property("_difficulty")]
 			var script = {
 				"name": "null_script",
 				"tags": ["Intent"],
@@ -315,6 +316,7 @@ func _get_elite_scripts(intent_name: String) -> Array:
 			var atk_multiplier = cfc.NMAP.board.turn.turn_event_count.get("total_leftover_immersion", 0)
 			if atk_multiplier > 0:
 				var atk = LEFTOVER_IMMERSION_SLAP[combat_entity.get_property("_difficulty")]
+				print_debug([atk, atk_multiplier,atk * atk_multiplier])
 				var script = {
 					"name": "modify_damage",
 					"tags": ["Attack", "Intent"],

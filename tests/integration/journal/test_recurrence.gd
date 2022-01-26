@@ -244,7 +244,7 @@ class TestCounterMeasureCalculations:
 		assert_eq(globals.encounters.run_changes.store.get("Recurrence"), ["disempower"])
 
 
-class TestIntentsEasy:
+class TestWildAttacksEasy:
 	extends "res://tests/HUT_Ordeal_AdvancedTormentTestClass.gd"
 
 
@@ -267,7 +267,7 @@ class TestIntentsEasy:
 				"Dreamer took the expected amount of damage")
 
 
-class TestIntentsMedium:
+class TestWildAttacksMedium:
 	extends "res://tests/HUT_Ordeal_AdvancedTormentTestClass.gd"
 
 
@@ -344,11 +344,48 @@ class TestIntentsMedium:
 		# The wild attack amount for this difficulty
 		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
 		assert_eq(dreamer.damage,
-				wa + advanced_torment.intents.POISON_AMOUNT_MOD + wa,
-				"Dreamer took the expected amount of damage through doubt and pierce")
+				wa,
+				"Dreamer took the expected amount of damage through pierce")
+
+	func test_wild_attacks_cm_average_attacks1():
+		# warning-ignore:return_value_discarded
+		advanced_torment.cm_flags["average_attacks"] = 1
+		advanced_torment.intents.prepare_intents(0)
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		# The wild attack amount for this difficulty
+		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
+		assert_eq(advanced_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.thorns.name),
+				advanced_torment.intents.THORNS_AMOUNT,
+				"%s added %s countermeasure" % [advanced_torment.name, "average_attacks"])
 
 
-class TestIntentsHard:
+	func test_wild_attacks_cm_empower1():
+		# warning-ignore:return_value_discarded
+		advanced_torment.cm_flags[Terms.ACTIVE_EFFECTS.empower.name] = 1
+		advanced_torment.intents.prepare_intents(0)
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		# The wild attack amount for this difficulty
+		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.disempower.name),
+				advanced_torment.intents.DISEMPOWER_AMOUNT,
+				"%s added double %s countermeasure" % [advanced_torment.name, Terms.ACTIVE_EFFECTS.empower.name])
+
+
+	func test_wild_attacks_cm_buffer1():
+		# warning-ignore:return_value_discarded
+		advanced_torment.cm_flags[Terms.ACTIVE_EFFECTS.buffer.name] = 1
+		advanced_torment.intents.prepare_intents(0)
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		# The wild attack amount for this difficulty
+		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.drain.name),
+				advanced_torment.intents.DRAIN_AMOUNT,
+				"%s added double %s countermeasure" % [advanced_torment.name, Terms.ACTIVE_EFFECTS.buffer.name])
+
+class TestWildAttacksHard:
 	extends "res://tests/HUT_Ordeal_AdvancedTormentTestClass.gd"
 
 
@@ -455,3 +492,191 @@ class TestIntentsHard:
 		assert_eq(dreamer.damage,
 				wa,
 				"Dreamer took the expected amount of damage through pierce")
+
+	func test_wild_attacks_cm_high_attacks2():
+		# warning-ignore:return_value_discarded
+		advanced_torment.cm_flags["high_attacks"] = 2
+		advanced_torment.intents.prepare_intents(0)
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		# The wild attack amount for this difficulty
+		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
+		assert_eq(advanced_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.impervious.name),
+				advanced_torment.intents.IMPERVIOUS_STACKS,
+				"%s added double %s countermeasure" % [advanced_torment.name, "high_attacks"])
+
+	func test_wild_attacks_cm_average_attacks2():
+		# warning-ignore:return_value_discarded
+		advanced_torment.cm_flags["average_attacks"] = 2
+		advanced_torment.intents.prepare_intents(0)
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		# The wild attack amount for this difficulty
+		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
+		assert_eq(advanced_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.thorns.name),
+				advanced_torment.intents.THORNS_AMOUNT + advanced_torment.intents.THORNS_CM_2_AMOUNT,
+				"%s added double %s countermeasure" % [advanced_torment.name, "average_attacks"])
+
+	func test_wild_attacks_cm_empower2():
+		# warning-ignore:return_value_discarded
+		advanced_torment.cm_flags[Terms.ACTIVE_EFFECTS.empower.name] = 2
+		advanced_torment.intents.prepare_intents(0)
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		# The wild attack amount for this difficulty
+		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.disempower.name),
+				advanced_torment.intents.DISEMPOWER_AMOUNT + advanced_torment.intents.DISEMPOWER_CM_2_AMOUNT,
+				"%s added double %s countermeasure" % [advanced_torment.name, Terms.ACTIVE_EFFECTS.empower.name])
+
+	func test_wild_attacks_cm_buffer2():
+		# warning-ignore:return_value_discarded
+		advanced_torment.cm_flags[Terms.ACTIVE_EFFECTS.buffer.name] = 2
+		advanced_torment.intents.prepare_intents(0)
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		# The wild attack amount for this difficulty
+		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.drain.name),
+				advanced_torment.intents.DRAIN_AMOUNT + advanced_torment.intents.DRAIN_CM_2_AMOUNT,
+				"%s added double %s countermeasure" % [advanced_torment.name, Terms.ACTIVE_EFFECTS.buffer.name])
+
+
+class TestLearnEasy:
+	extends "res://tests/HUT_Ordeal_AdvancedTormentTestClass.gd"
+
+
+	func _init() -> void:
+		difficulty = "easy"
+		advanced_torment_scene = preload("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")
+		test_card_names = [
+			"Confidence",
+			"Confidence",
+			"Interpretation",
+			"Interpretation",
+		]
+
+	func test_learn_easy():
+		# warning-ignore:return_value_discarded
+		counters.mod_counter("immersion", 1)
+		var prev_counter = counters.get_counter("immersion")
+		advanced_torment.intents.prepare_intents(1)
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		# The wild attack amount for this difficulty
+		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
+		assert_eq(advanced_torment.defence,
+				advanced_torment.intents.LEARNING_DEFENCE[difficulty],
+				"Recurrence defended as expected")
+		assert_eq(advanced_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.impervious.name),
+				0,
+				"%s did not add %s countermeasures" % [advanced_torment.name, "high_attacks"])
+		var intents = advanced_torment.intents.get_children()
+		assert_eq(intents.size(), 1, "Recurrence is slapping back for remaining immersion")
+		for iindex in range(intents.size()):
+			assert_eq(intents[iindex].signifier_amount.text,
+			str(prev_counter * advanced_torment.intents.LEFTOVER_IMMERSION_SLAP[difficulty]),
+			"Attack copied")
+
+	func test_mimic_easy():
+		# warning-ignore:return_value_discarded
+		advanced_torment.intents.prepare_intents(1)
+		counters.mod_counter("immersion", 1)
+		var sceng
+		for index in [3,2]:
+			sceng = snipexecute(cards[index], advanced_torment)
+			if sceng is GDScriptFunctionState and sceng.is_valid():
+				sceng = yield(sceng, "completed")
+		for index in [0,1]:
+			sceng = execute_with_yield(cards[index])
+			if sceng is GDScriptFunctionState and sceng.is_valid():
+				sceng = yield(sceng, "completed")
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		# The wild attack amount for this difficulty
+		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
+		assert_eq(advanced_torment.defence,
+				advanced_torment.intents.LEARNING_DEFENCE[difficulty],
+				"Recurrence defended as expected")
+		assert_eq(advanced_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.impervious.name),
+				0,
+				"%s did not add %s countermeasures" % [advanced_torment.name, "high_attacks"])
+		var intents = advanced_torment.intents.get_children()
+		assert_eq(intents.size(), 3, "Recurrence should have copied all cards")
+		for iindex in range(intents.size()):
+			if iindex in [0,1]:
+				assert_eq(intents[iindex].signifier_amount.text, str(6), "Attack copied")
+			else:
+				assert_eq(intents[iindex].signifier_amount.text, str(10), "Defences copied")
+
+
+class TestLearnMedium:
+	extends "res://tests/HUT_Ordeal_AdvancedTormentTestClass.gd"
+
+
+	func _init() -> void:
+		advanced_torment_scene = preload("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")
+		test_card_names = [
+			"Confidence",
+		]
+
+	func test_learn_medium():
+		# warning-ignore:return_value_discarded
+		var prev_counter = counters.get_counter("immersion")
+		advanced_torment.countermeasures = ["high_attacks"]
+		advanced_torment._prepare_countermeasures()
+		advanced_torment.intents.prepare_intents(1)
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		# The wild attack amount for this difficulty
+		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
+		assert_eq(advanced_torment.defence,
+				advanced_torment.intents.LEARNING_DEFENCE[difficulty],
+				"Recurrence defended as expected")
+		assert_eq(advanced_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.impervious.name),
+				advanced_torment.intents.IMPERVIOUS_STACKS,
+				"%s added %s countermeasures" % [advanced_torment.name, "high_attacks"])
+		var intents = advanced_torment.intents.get_children()
+		assert_eq(intents.size(), 1, "Recurrence is slapping back for remaining immersion")
+		for iindex in range(intents.size()):
+			assert_eq(intents[iindex].signifier_amount.text,
+			str(prev_counter * advanced_torment.intents.LEFTOVER_IMMERSION_SLAP[difficulty]),
+			"Attack copied")
+
+
+class TestLearnHard:
+	extends "res://tests/HUT_Ordeal_AdvancedTormentTestClass.gd"
+
+
+	func _init() -> void:
+		difficulty = "hard"
+		advanced_torment_scene = preload("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")
+		test_card_names = [
+			"Confidence",
+		]
+
+	func test_learn_hard():
+		# warning-ignore:return_value_discarded
+		counters.mod_counter("immersion", -1)
+		var prev_counter = counters.get_counter("immersion")
+		advanced_torment.countermeasures = ["high_attacks","high_attacks"]
+		advanced_torment._prepare_countermeasures()
+		advanced_torment.intents.prepare_intents(1)
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		# The wild attack amount for this difficulty
+		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
+		assert_eq(advanced_torment.defence,
+				advanced_torment.intents.LEARNING_DEFENCE[difficulty],
+				"Recurrence defended as expected")
+		assert_eq(advanced_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.impervious.name),
+				advanced_torment.intents.IMPERVIOUS_STACKS,
+				"%s added %s countermeasures" % [advanced_torment.name, "high_attacks"])
+		var intents = advanced_torment.intents.get_children()
+		assert_eq(intents.size(), 1, "Recurrence is slapping back for remaining immersion")
+		for iindex in range(intents.size()):
+			assert_eq(intents[iindex].signifier_amount.text,
+			str(prev_counter * advanced_torment.intents.LEFTOVER_IMMERSION_SLAP[difficulty]),
+			"Attack copied")
+
+
