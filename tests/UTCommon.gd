@@ -16,7 +16,7 @@ const MOUSE_SPEED := {
 const PLAYER_HEALTH = 100
 
 var main
-var board: Board
+var board: DreamBoard
 var hand: Hand
 var deck: DreamPile
 var discard: DreamPile

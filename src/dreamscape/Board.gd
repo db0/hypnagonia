@@ -1,3 +1,4 @@
+class_name DreamBoard
 extends Board
 
 signal battle_begun
