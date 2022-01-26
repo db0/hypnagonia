@@ -6,13 +6,13 @@ extends SurpriseCombatEncounter
 # This means that if the dreamer played at least 1 stack per turn, on average
 # we will consider countermeasures for it.
 const AVERAGE_THRESHOLDS := {
-	"average_attacks": 5.0,
+	"average_attacks": 4.0,
 	"defence_average": 9.0,
-	"high_defences": 2.0,
+	"high_defences": 3.0,
 	"high_attacks": 3.0,
 	# This one is special, as it doesn't check the average, but the absolute
 	"heals": 10.0,
-	"average_cards": 7.0
+	"average_cards": 6.0
 }
 
 var lessons_learned := {
@@ -41,6 +41,7 @@ func finish_surpise_ordeal() -> void:
 	for list in [lessons_learned.buffs, lessons_learned.debuffs]:
 		for turn in list:
 			for effect_name in turn:
+				print_debug(effect_name, turn)
 				effect_totals[effect_name] = effect_totals.get(effect_name,0) + turn[effect_name]
 	for effect in effect_totals:
 #		print_debug([effect, float(buff_totals[effect]) / float(total_turns)])
@@ -51,7 +52,7 @@ func finish_surpise_ordeal() -> void:
 	var total_high_defence_turns : float = 0
 	var defence_total : float = 0
 	for turn in lessons_learned.defences:
-		if turn > 12: 
+		if turn > 14: 
 			total_high_defence_turns += 1
 		defence_total += turn
 	var defence_average : float = defence_total / total_turns
@@ -69,7 +70,7 @@ func finish_surpise_ordeal() -> void:
 		total_attacks += turn.size()
 #	print_debug([total_high_attack_turns, total_high_attack_turns >= AVERAGE_THRESHOLDS["high_attacks"]])
 	var average_attacks : float = total_attacks / total_turns
-	# If the player averages more than 8 defence per turn, we try to counteract it
+	# If the player averages more than 6 defence per turn, we try to counteract it
 	if average_attacks >= AVERAGE_THRESHOLDS["average_attacks"]:
 		countermeasures_considered["average_attacks"] = average_attacks / AVERAGE_THRESHOLDS["average_attacks"]
 	if total_high_attack_turns >= AVERAGE_THRESHOLDS["high_attacks"]:
@@ -86,15 +87,16 @@ func finish_surpise_ordeal() -> void:
 	var average_cards : float = total_cards / total_turns
 	# If the player averages more than 8 defence per turn, we try to counteract it
 	if average_cards >= AVERAGE_THRESHOLDS["average_cards"]:
-		countermeasures_considered["average_cards"] = average_attacks / AVERAGE_THRESHOLDS["average_cards"]
+		countermeasures_considered["average_cards"] = average_cards / AVERAGE_THRESHOLDS["average_cards"]
 #	print_debug(countermeasures_considered)
 	var chosen_countermeasure := ''
 	var countermeasure_rating : float = 0
 	for cm in countermeasures_considered:
 		if countermeasures_considered[cm] > countermeasure_rating:
 			chosen_countermeasure = cm
-	if chosen_countermeasure != '':
-		globals.encounters.run_changes.store["Recurrence"].append(chosen_countermeasure)
+	if chosen_countermeasure == '':
+		chosen_countermeasure = "nonspecific"
+	globals.encounters.run_changes.store["Recurrence"].append(chosen_countermeasure)
 		
 
 func on_learning_finished(lessons: Dictionary) -> void:

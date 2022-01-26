@@ -68,8 +68,114 @@ class TestCounterMeasureCalculations:
 		"scene": preload("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")
 	}
 	const RECURRENCE_SURPRISE = preload("res://src/dreamscape/Run/NCE/AllActs/RecurrenceCombatEncounter.gd")
-	func test_recurrence_countermeasure_calculations():
-		var surprise_combat_encounter = RECURRENCE_SURPRISE.new(
+
+	func test_recurrence_cm_high_defences():
+		var sce = RECURRENCE_SURPRISE.new(
 			RECURRENCE_ELITE, 
 			"easy", 
 			NCE.new())
+		sce.lessons_learned["cards"] = [3,3,3,3,3,3,3]
+		sce.lessons_learned["defences"] = [0,18,0,19,17,1,11]
+		sce.finish_surpise_ordeal()
+		assert_eq(globals.encounters.run_changes.store.get("Recurrence"), ["high_defences"])
+
+	func test_recurrence_cm_defence_avg():
+		var sce = RECURRENCE_SURPRISE.new(
+			RECURRENCE_ELITE, 
+			"easy", 
+			NCE.new())
+		sce.lessons_learned["cards"] = [3,3,3,3,3,3,3]
+		sce.lessons_learned["defences"] = [9,12,6,12,12,1,11]
+		sce.finish_surpise_ordeal()
+		assert_eq(globals.encounters.run_changes.store.get("Recurrence"), ["defence_average"])
+
+	func test_recurrence_cm_attack_amount():
+		var sce = RECURRENCE_SURPRISE.new(
+			RECURRENCE_ELITE, 
+			"easy", 
+			NCE.new())
+		sce.lessons_learned["cards"] = [3,3,3,3,3,3,3]
+		sce.lessons_learned["attacks"] = [
+			[5,6,5,6,4,3,3,3],
+			[14,5,5],
+			[3,3,3],
+			[2,2,2,2,2,2,2,2],
+			[],
+			[16,4,4,4,4],
+			[18,3,3,3,3,3,3],
+		]
+		sce.finish_surpise_ordeal()
+		assert_eq(globals.encounters.run_changes.store.get("Recurrence"), ["average_attacks"])
+
+	func test_recurrence_cm_high_attacks():
+		var sce = RECURRENCE_SURPRISE.new(
+			RECURRENCE_ELITE, 
+			"easy", 
+			NCE.new())
+		sce.lessons_learned["cards"] = [3,3,3,3,3,3,3]
+		sce.lessons_learned["attacks"] = [[18],[20],[],[14],[],[15],[16]]
+		sce.finish_surpise_ordeal()
+		assert_eq(globals.encounters.run_changes.store.get("Recurrence"), ["high_attacks"])
+
+	func test_recurrence_cm_heal_avg():
+		var sce = RECURRENCE_SURPRISE.new(
+			RECURRENCE_ELITE, 
+			"easy", 
+			NCE.new())
+		sce.lessons_learned["cards"] = [3,3,3,3,3,3,3]
+		sce.lessons_learned["heals"] = [0,12,0,12,12,1,11]
+		sce.finish_surpise_ordeal()
+		assert_eq(globals.encounters.run_changes.store.get("Recurrence"), ["heals"])
+
+	func test_recurrence_cm_card_avg():
+		var sce = RECURRENCE_SURPRISE.new(
+			RECURRENCE_ELITE, 
+			"easy", 
+			NCE.new())
+		sce.lessons_learned["cards"] = [3,3,3,3,3,3,3]
+		sce.lessons_learned["cards"] = [4,7,2,8,10,3,10,7,4,10,9]
+		sce.finish_surpise_ordeal()
+		assert_eq(globals.encounters.run_changes.store.get("Recurrence"), ["average_cards"])
+
+	func test_recurrence_cm_nonspecific():
+		var sce = RECURRENCE_SURPRISE.new(
+			RECURRENCE_ELITE, 
+			"easy", 
+			NCE.new())
+		sce.lessons_learned["cards"] = [3,3,3,3,3,3,3]
+		sce.lessons_learned["heals"] = [0,0,0,5,0,0,0]
+		sce.lessons_learned["attacks"] = [[6,6,6],[2,5],[],[7,7,7],[],[6,7,6],[6,6]]
+		sce.lessons_learned["defences"] = [0,6,15,0,18,0,0]
+		sce.finish_surpise_ordeal()
+		assert_eq(globals.encounters.run_changes.store.get("Recurrence"), ["nonspecific"])
+
+	func test_recurrence_buffs():
+		var sce = RECURRENCE_SURPRISE.new(
+			RECURRENCE_ELITE, 
+			"easy", 
+			NCE.new())
+		sce.lessons_learned["cards"] = [3,3,3,3,3,3,3]
+		sce.lessons_learned["buffs"] = [
+			{"empower": 2},
+			{"empower": 2},
+			{"empower": 2},
+			{"empower": 2},
+			{"empower": 2},
+		]
+		sce.finish_surpise_ordeal()
+		assert_eq(globals.encounters.run_changes.store.get("Recurrence"), ["empower"])
+
+	func test_recurrence_debuffs():
+		var sce = RECURRENCE_SURPRISE.new(
+			RECURRENCE_ELITE, 
+			"easy", 
+			NCE.new())
+		sce.lessons_learned["cards"] = [3,3,3,3,3,3,3]
+		sce.lessons_learned["buffs"] = [
+			{"disempower": 2},
+			{"disempower": 1},
+			{"disempower": 1},
+			{"disempower": 4},
+		]
+		sce.finish_surpise_ordeal()
+		assert_eq(globals.encounters.run_changes.store.get("Recurrence"), ["disempower"])
