@@ -663,12 +663,14 @@ func calculate_modify_health(subject: CombatEntity, script: ScriptTask) -> int:
 func modify_health(script: ScriptTask) -> int:
 	var retcode: int
 	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
+	var set_to_mod: bool = script.get_property(SP.KEY_SET_TO_MOD)
 	for combat_entity in script.subjects:
 		if combat_entity.is_dead:
 			continue
 		var modification = calculate_modify_health(combat_entity, script)
 		retcode = combat_entity.modify_health(
 				modification,
+				set_to_mod,
 				costs_dry_run(),
 				tags,
 				script.owner)

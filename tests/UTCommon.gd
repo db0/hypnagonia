@@ -295,3 +295,21 @@ func snipexecute(card: Card, target: CombatEntity, extra_delay = null):
 	emit_signal("card_scripts_executed")
 	return(sceng)
 
+func assert_ret_ok(cgf_return_value) -> void:
+	assert_typeof(cgf_return_value, TYPE_INT)
+	if typeof(cgf_return_value) != TYPE_INT:
+		return
+	assert_eq(cgf_return_value, CFConst.ReturnCode.OK, "Expected Return Code to be OK")
+	
+func assert_ret_changed(cgf_return_value) -> void:
+	assert_typeof(cgf_return_value, TYPE_INT)
+	if typeof(cgf_return_value) != TYPE_INT:
+		return
+	assert_eq(cgf_return_value, CFConst.ReturnCode.CHANGED, "Expected Return Code to be CHANGED")
+	
+func assert_ret_failed(cgf_return_value) -> void:
+	assert_typeof(cgf_return_value, TYPE_INT)
+	if typeof(cgf_return_value) != TYPE_INT:
+		return
+	assert_eq(cgf_return_value, CFConst.ReturnCode.FAILED, "Expected Return Code to be FAILED")
+	

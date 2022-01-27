@@ -30,13 +30,6 @@ func setup(signifier_details: Dictionary, signifier_name: String) -> void:
 	priority = effect_definition.get("alterant_priority", Terms.ALTERANT_PRIORITY.ADD)
 
 
-func _ready() -> void:
-	var turn: Turn = cfc.NMAP.board.turn
-	for turn_signal in Turn.ALL_SIGNALS:
-		# warning-ignore:return_value_discarded
-		turn.connect(turn_signal, self, "_on_" + turn_signal)
-
-
 func set_stacks(value: int, tags := ["Manual"], can_go_negative := false) -> void:
 	if value < 0 and not can_go_negative:
 		value = 0

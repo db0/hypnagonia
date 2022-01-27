@@ -11,7 +11,8 @@ signal effect_modified(entity,trigger,details)
 signal entity_attacked(entity, amount, trigger, tags)
 signal entity_damaged(entity, amount, trigger, tags)
 signal entity_healed(entity, amount, trigger, tags)
-signal entity_defended(entity, amount, trigger, tags)
+signal entity_defence_modified(entity, amount, trigger, tags)
+signal entity_damage_blocked(entity, amount, trigger, tags)
 signal entity_killed(final_damage)
 signal entity_health_modified(entity, amount, trigger, tags)
 signal death_animation_finished(entity)
@@ -97,12 +98,14 @@ func _process(delta: float) -> void:
 			emit_signal("death_animation_finished", self)
 
 
-func set_defence(value) -> void:
+func set_defence(value: int) -> void:
 	defence = value
 	_update_health_label()
 
 
-func set_damage(value) -> void:
+func set_damage(value: int) -> void:
+	if value < 0:
+		value = 0
 	damage = value
 	if damage >= health:
 		die()
@@ -110,9 +113,14 @@ func set_damage(value) -> void:
 		_update_health_label()
 
 
-func set_health(value) -> void:
+func set_health(value: int) -> void:
+	if value < 0:
+		value = 0
 	health = value
-	_update_health_label()
+	if damage >= health:
+		die()
+	else:
+		_update_health_label()
 
 
 func die() -> void:
@@ -129,75 +137,80 @@ func die() -> void:
 
 
 func modify_damage(amount: int, dry_run := false, tags := ["Manual"], trigger = null) -> int:
-	var ret : int = CFConst.ReturnCode.CHANGED
-	if damage + amount < 0 and dry_run:
-		ret = CFConst.ReturnCode.FAILED
+	var retcode : int = CFConst.ReturnCode.CHANGED
+	if damage + defence + amount < 0 and dry_run:
+		retcode = CFConst.ReturnCode.FAILED
 	elif amount == 0 and dry_run:
-		ret = CFConst.ReturnCode.OK
+		retcode = CFConst.ReturnCode.OK
 	if not dry_run:
 		if amount > 0 and "Attack" in tags:
 			emit_signal("entity_attacked", self, amount, trigger, tags)
-		elif amount < 0:
-			emit_signal("entity_healed", self, amount, trigger, tags)
 		if defence > 0\
 				and ("Attack" in tags or "Blockable" in tags)\
 				and not "Unblockable" in tags:
 			if amount >= defence:
 				amount -= defence
+				emit_signal("entity_damage_blocked", self, defence, trigger, tags)
 				defence = 0
 			else:
 				defence -= amount
+				emit_signal("entity_damage_blocked", self, amount, trigger, tags)
 				amount = 0
-		damage += amount
+		set_damage(damage + amount)
 		if amount > 0:
 			emit_signal("entity_damaged", self, amount, trigger, tags)
-		if damage < 0:
-			damage = 0
-		if damage >= health:
-			die()
-		_update_health_label()
-	return(ret)
+		elif amount < 0:
+			emit_signal("entity_healed", self, amount, trigger, tags)
+	return(retcode)
 
 
 func modify_defence(
-			amount: int, 
+			amount: int,
 			set_to_mod := false,
-			dry_run := false, 
-			tags := ["Manual"], 
+			dry_run := false,
+			tags := ["Manual"],
 			trigger: CombatEntity = null) -> int:
 	# warning-ignore:unused_variable
 	var retcode: int = CFConst.ReturnCode.CHANGED
 	if set_to_mod and defence == amount:
 		retcode = CFConst.ReturnCode.OK
 	else:
-		if defence + amount < 0:
+		if not set_to_mod and defence + amount < 0:
 			retcode = CFConst.ReturnCode.FAILED
 			amount = -defence
+		if set_to_mod and amount < 0:
+			retcode = CFConst.ReturnCode.FAILED
+			amount = 0
 		if not dry_run:
-			var prev_defence = defence
 			if set_to_mod:
-				set_defence(amount)
-			else:
-				set_defence(defence + amount)
-			if defence > prev_defence:
-				emit_signal("entity_defended", self, amount, trigger, tags)
-	# For now I'm returning always CHANGED, as I don't have any card effects
-	# for which it is a cost to reduce defence.
-	# If and when I add them, I may need to refactor a bit because I'm relying a lot
-	# on targeting being a cost, so that playing cards targeting nothing fails.
-	return(CFConst.ReturnCode.CHANGED)
+				amount = amount - defence
+			set_defence(defence + amount)
+			emit_signal("entity_defence_modified", self, amount, trigger, tags)
+	return(retcode)
 
 
-func modify_health(amount: int, dry_run := false, tags := ["Manual"], trigger = null) -> int:
-	var ret : int = CFConst.ReturnCode.CHANGED
-	if not dry_run:
-		health += amount
-		if amount != 0:
+func modify_health(
+		amount: int,
+		set_to_mod := false,
+		dry_run := false,
+		tags := ["Manual"],
+		trigger = null) -> int:
+	var retcode : int = CFConst.ReturnCode.CHANGED
+	if set_to_mod and health == amount:
+		retcode = CFConst.ReturnCode.OK
+	else:
+		if not set_to_mod and health + amount < 0:
+			retcode = CFConst.ReturnCode.FAILED
+			amount = -health
+		if set_to_mod and amount < 0:
+			retcode = CFConst.ReturnCode.FAILED
+			amount = 0
+		if not dry_run:
+			if set_to_mod:
+				amount = amount - health
+			set_health(health + amount)
 			emit_signal("entity_health_modified", self, amount, trigger, tags)
-		if damage >= health:
-			die()
-		_update_health_label()
-	return(ret)
+	return(retcode)
 
 
 func get_class() -> String:

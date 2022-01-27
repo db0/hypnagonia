@@ -31,7 +31,7 @@ func _ready() -> void:
 	if not cfc.NMAP.board.dreamer:
 		yield(cfc.NMAP.board, "battle_begun")
 	cfc.NMAP.board.dreamer.connect("effect_modified", self, "_on_dreamer_effect_modified")
-	cfc.NMAP.board.dreamer.connect("entity_defended", self, "_on_dreamer_defended")
+	cfc.NMAP.board.dreamer.connect("entity_defence_modified", self, "_on_dreamer_defended")
 	cfc.NMAP.board.dreamer.connect("entity_healed", self, "_on_dreamer_healed")
 	cfc.NMAP.board.dreamer.connect("entity_damaged", self, "_on_dreamer_damaged")
 	cfc.signal_propagator.connect("signal_received", self, "_on_card_signal_received")

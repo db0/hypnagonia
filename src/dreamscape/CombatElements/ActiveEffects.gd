@@ -14,6 +14,8 @@ const OPPOSITES := {
 	Terms.ACTIVE_EFFECTS.impervious.name: Terms.ACTIVE_EFFECTS.marked.name,
 }
 
+signal effect_added(effect)
+
 var all_effects: Dictionary
 # The enemy entity owning these effects
 var combat_entity
@@ -87,6 +89,7 @@ func mod_effect(
 				effect.owning_entity = combat_entity
 				effect.upgrade = upgrade_string
 				add_child(effect)
+				emit_signal("effect_added",effect)
 				var effect_details := Terms.get_effect_entry(effect_name)
 				var setup_dict := {
 					"entity_type": combat_entity.entity_type,
