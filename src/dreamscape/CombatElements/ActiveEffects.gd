@@ -51,8 +51,6 @@ func mod_effect(
 		if upgrade_string != '':
 			combined_effect_name = upgrade_string.capitalize() + ' ' + effect_name
 		var effect : CombatEffect = get_all_effects().get(combined_effect_name, null)
-		if mod < 0:
-			pass
 		if not effect and mod <= 0 and not Terms.get_effect_entry(effect_name).get("can_go_negative"):
 			retcode = CFConst.ReturnCode.OK
 		elif effect and set_to_mod and effect.stacks == mod:
@@ -74,6 +72,8 @@ func mod_effect(
 						else:
 							opposite.set_stacks(0, tags)
 							mod -= opposite.stacks
+						if mod == 0:
+							return(CFConst.ReturnCode.CHANGED)
 				effect = EFFECT_TEMPLATE.instance()
 				if not Terms.get_effect_entry(effect_name).has("noscript"):
 					# We need to store the existing default variables set in the parent class
@@ -112,7 +112,7 @@ func mod_effect(
 
 func get_all_effects() -> Dictionary:
 	var found_effects := {}
-	for effect in get_children():
+	for effect in get_all_effects_nodes():
 		found_effects[effect.get_effect_name()] = effect
 	return(found_effects)
 
@@ -121,7 +121,13 @@ func get_all_effects_nodes() -> Array:
 	return(get_children())
 
 
-func get_ordered_effects(ordered_effects: Dictionary) -> Dictionary:
+func get_ordered_effects(ordered_effects:= {}) -> Dictionary:
+	if ordered_effects.empty():
+		ordered_effects = {
+			"adders" : [],
+			"multipliers" : [],
+			"setters" : [],
+		}
 	for effect in get_children():
 		match effect.priority:
 			Terms.ALTERANT_PRIORITY.ADD:
