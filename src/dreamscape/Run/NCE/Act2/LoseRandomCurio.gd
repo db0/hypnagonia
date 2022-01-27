@@ -36,7 +36,9 @@ func continue_encounter(key) -> void:
 	match key:
 		"allow":
 			var lost_curio = globals.player.get_random_artifact()
-			var fmt = {"lost_curio": _prepare_artifact_popup_bbcode(lost_curio.canonical_name, "and chose something I didn not expect.")}
+			var fmt = {"lost_curio": _prepare_artifact_popup_bbcode(
+					lost_curio.canonical_name, 
+					"and chose something I did not expect.")}
 			nce_result_fluff[key] = nce_result_fluff[key].format(fmt)
 			globals.player.remove_artifact(lost_curio)
 			globals.player.add_artifact("BetterArtifactChance")

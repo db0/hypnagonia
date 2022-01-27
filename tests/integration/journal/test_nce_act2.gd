@@ -189,6 +189,7 @@ class TestLoseRandomCurio:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
 		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act2/LoseRandomCurio.gd")
+		pre_init_artifacts.append(ArtifactDefinitions.EndingHeal.canonical_name)
 
 	func test_choice_allow():
 		watch_signals(globals.player)
@@ -197,7 +198,7 @@ class TestLoseRandomCurio:
 		watch_signals(globals.player.pathos)
 		activate_secondary_choice_by_key("allow")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
-# warning-ignore:return_value_discarded
+		# warning-ignore:return_value_discarded
 		assert_player_signaled("artifact_added", 'canonical_name', "BetterArtifactChance")
 		assert_signal_emitted(globals.player, "artifact_removed")
 

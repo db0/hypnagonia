@@ -34,6 +34,16 @@ class TestCombatEntity:
 		assert_setget(CE, 'damage', 'set_damage')
 		assert_setget(CE, 'health', 'set_health')
 		assert_setget(CE, 'defence', 'set_defence')
+		assert_has_signal(doubled_scene, "effect_modified")
+		assert_has_signal(doubled_scene, "entity_attacked")
+		assert_has_signal(doubled_scene, "entity_damaged")
+		assert_has_signal(doubled_scene, "entity_healed")
+		assert_has_signal(doubled_scene, "entity_defence_modified")
+		assert_has_signal(doubled_scene, "entity_damage_blocked")
+		assert_has_signal(doubled_scene, "entity_killed")
+		assert_has_signal(doubled_scene, "entity_health_modified")
+		assert_has_signal(doubled_scene, "death_animation_finished")
+
 
 	func test_setup():
 		var ceinst = CE.instance()

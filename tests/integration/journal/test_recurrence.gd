@@ -55,6 +55,7 @@ class TestNCE:
 		end_surprise_encounter()
 		assert_nce_unlocked(preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd"))
 		assert_signal_emit_count(globals.player, "memory_added", 1)
+		gut.p([cfc.game_rng.seed,cfc.game_rng.state])
 		assert_signal_emitted_with_parameters(mem1, "memory_upgraded", [mem1,2])
 		assert_signal_not_emitted(mem2, "memory_upgraded")
 		assert_signal_not_emitted(mem3, "memory_upgraded")
@@ -121,7 +122,6 @@ class TestNCE:
 		assert_eq(buffs[0].hash(), {"Clarity":1}.hash(), "Correct Buffs learned")
 		assert_eq(debuffs[0].hash(), {"Confusion":1}.hash(), "Correct Debuffs learned")
 		assert_eq(surprise_combat_encounter.lessons_learned.get("cards", []), [6])
-		gut.p(surprise_combat_encounter.lessons_learned)
 
 
 class TestCounterMeasureCalculations:

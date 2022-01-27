@@ -316,7 +316,6 @@ func _get_elite_scripts(intent_name: String) -> Array:
 			var atk_multiplier = cfc.NMAP.board.turn.turn_event_count.get("total_leftover_immersion", 0)
 			if atk_multiplier > 0:
 				var atk = LEFTOVER_IMMERSION_SLAP[combat_entity.get_property("_difficulty")]
-				print_debug([atk, atk_multiplier,atk * atk_multiplier])
 				var script = {
 					"name": "modify_damage",
 					"tags": ["Attack", "Intent"],

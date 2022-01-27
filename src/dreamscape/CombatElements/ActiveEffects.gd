@@ -16,7 +16,6 @@ const OPPOSITES := {
 
 signal effect_added(effect)
 
-var all_effects: Dictionary
 # The enemy entity owning these effects
 var combat_entity
 var sceng_snapshot_modifiers := {}
@@ -91,8 +90,11 @@ func mod_effect(
 				add_child(effect)
 				emit_signal("effect_added",effect)
 				var effect_details := Terms.get_effect_entry(effect_name)
+				var entity_type := Terms.PLAYER
+				if combat_entity:
+					entity_type = combat_entity.entity_type
 				var setup_dict := {
-					"entity_type": combat_entity.entity_type,
+					"entity_type": entity_type,
 					"icon": effect_details.icon,
 					"amount": 0,
 				}
