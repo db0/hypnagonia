@@ -142,15 +142,15 @@ func memexecute(memory: Memory, target: CombatEntity = null):
 		yield(yield_to(sceng, "tasks_completed", 0.2), YIELD)
 	return(sceng)
 
-func setup_deckpile_cards(cards: Array) -> Array:
+func setup_deckpile_cards(_cards: Array) -> Array:
 	var spawned_cards := []
-	for c in cards:
+	for c in _cards:
 		var ce = CardEntry.new(c)
-		var card = ce.instance_self()
-		cfc.NMAP.deck.add_child(card)
+		var _card = ce.instance_self()
+		cfc.NMAP.deck.add_child(_card)
 		#card.set_is_faceup(false,true)
-		card._determine_idle_state()
-		spawned_cards.append(card)
+		_card._determine_idle_state()
+		spawned_cards.append(_card)
 	for c in spawned_cards:
 		c.set_to_idle()
 	return(spawned_cards)

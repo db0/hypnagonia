@@ -354,6 +354,7 @@ class TestWildAttacksMedium:
 		cfc.NMAP.board.turn.end_player_turn()
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
+# warning-ignore:unused_variable
 		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
 		assert_eq(advanced_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.thorns.name),
 				advanced_torment.intents.THORNS_AMOUNT,
@@ -367,6 +368,7 @@ class TestWildAttacksMedium:
 		cfc.NMAP.board.turn.end_player_turn()
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
+# warning-ignore:unused_variable
 		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
 		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.disempower.name),
 				advanced_torment.intents.DISEMPOWER_AMOUNT,
@@ -380,6 +382,7 @@ class TestWildAttacksMedium:
 		cfc.NMAP.board.turn.end_player_turn()
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
+# warning-ignore:unused_variable
 		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
 		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.drain.name),
 				advanced_torment.intents.DRAIN_AMOUNT,
@@ -500,6 +503,7 @@ class TestWildAttacksHard:
 		cfc.NMAP.board.turn.end_player_turn()
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
+# warning-ignore:unused_variable
 		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
 		assert_eq(advanced_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.impervious.name),
 				advanced_torment.intents.IMPERVIOUS_STACKS,
@@ -512,6 +516,7 @@ class TestWildAttacksHard:
 		cfc.NMAP.board.turn.end_player_turn()
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
+# warning-ignore:unused_variable
 		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
 		assert_eq(advanced_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.thorns.name),
 				advanced_torment.intents.THORNS_AMOUNT + advanced_torment.intents.THORNS_CM_2_AMOUNT,
@@ -524,6 +529,7 @@ class TestWildAttacksHard:
 		cfc.NMAP.board.turn.end_player_turn()
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
+# warning-ignore:unused_variable
 		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
 		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.disempower.name),
 				advanced_torment.intents.DISEMPOWER_AMOUNT + advanced_torment.intents.DISEMPOWER_CM_2_AMOUNT,
@@ -536,6 +542,7 @@ class TestWildAttacksHard:
 		cfc.NMAP.board.turn.end_player_turn()
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
+# warning-ignore:unused_variable
 		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
 		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.drain.name),
 				advanced_torment.intents.DRAIN_AMOUNT + advanced_torment.intents.DRAIN_CM_2_AMOUNT,
@@ -560,6 +567,7 @@ class TestLearnEasy:
 		# warning-ignore:return_value_discarded
 		counters.mod_counter("immersion", 1)
 		var prev_counter = counters.get_counter("immersion")
+# warning-ignore:return_value_discarded
 		advanced_torment.intents.prepare_intents(1)
 		cfc.NMAP.board.turn.end_player_turn()
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
@@ -580,6 +588,7 @@ class TestLearnEasy:
 	func test_mimic_easy():
 		# warning-ignore:return_value_discarded
 		advanced_torment.intents.prepare_intents(1)
+# warning-ignore:return_value_discarded
 		counters.mod_counter("immersion", 1)
 		var sceng
 		for index in [3,2]:
@@ -692,6 +701,7 @@ class TestLearnHard:
 		var prev_counter = counters.get_counter("immersion")
 		advanced_torment.countermeasures = ["high_attacks","high_attacks"]
 		advanced_torment._prepare_countermeasures()
+# warning-ignore:return_value_discarded
 		advanced_torment.intents.prepare_intents(1)
 		cfc.NMAP.board.turn.end_player_turn()
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)

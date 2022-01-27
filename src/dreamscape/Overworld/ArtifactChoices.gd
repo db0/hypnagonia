@@ -56,4 +56,5 @@ func _on_artifact_selected(_option: int, artifact_object) -> void:
 	for child in get_children():
 		if child != artifact_object:
 			child.queue_free()
+# warning-ignore:return_value_discarded
 	globals.player.add_artifact(artifact_object.canonical_name)

@@ -92,6 +92,7 @@ func setup_hypnagonia_testing() -> void:
 	globals.player.setup()
 	globals.player.health = PLAYER_HEALTH
 	for a in pre_init_artifacts:
+# warning-ignore:return_value_discarded
 		globals.player.add_artifact(a)
 	extra_hypnagonia_setup()
 	globals.encounters.prepare_next_act()
