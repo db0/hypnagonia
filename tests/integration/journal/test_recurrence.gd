@@ -23,7 +23,7 @@ class TestNCE:
 		assert_connected(cfc.NMAP.board.dreamer, recurrence,
 				"effect_modified", "_on_dreamer_effect_modified")
 		assert_connected(cfc.NMAP.board.dreamer, recurrence,
-				"entity_defended", "_on_dreamer_defended")
+				"entity_defence_modified", "_on_dreamer_defended")
 		assert_connected(cfc.NMAP.board.dreamer, recurrence,
 				"entity_healed", "_on_dreamer_healed")
 		assert_connected(cfc.NMAP.board.dreamer, recurrence,

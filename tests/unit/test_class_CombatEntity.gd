@@ -34,11 +34,42 @@ class TestCombatEntity:
 		assert_setget(CE, 'damage', 'set_damage')
 		assert_setget(CE, 'health', 'set_health')
 		assert_setget(CE, 'defence', 'set_defence')
-		
-	func test_get_class():
-		var ce = add_child_autofree(CE.instance())
-		assert_eq(ce.get_class(),"CombatEntity")
 
+	func test_setup():
+		var ceinst = CE.instance()
+		var props := {
+			"Health": 100,
+			"Damage": 10,
+			"Type": Terms.ENEMY,
+			"_texture_size_x": 40,
+			"_texture_size_y": 40,
+			"custom_property1": 'abce',
+			"_custom_property2": {
+				"pi": 3.14,
+				"seq": 123,
+				"text": 'xyz',
+			}
+		}
+		ceinst.setup("GUT", props)
+		var ce : CombatEntity = add_child_autofree(ceinst)
+		var expected_size = Vector2(props['_texture_size_x'],props['_texture_size_y'])
+		assert_eq(ce.get_property("Health"), 100)
+		assert_eq(ce.get_property("Damage"), 10)
+		assert_eq(ce.get_property("Type"), Terms.ENEMY)
+		assert_eq(ce.get_property("_texture_size_x"), 40)
+		assert_eq(ce.get_property("custom_property1"), 'abce')
+		assert_eq_shallow(ce.get_property("_custom_property2"), props._custom_property2)
+		assert_eq_deep(ce._properties, props)
+		assert_eq(ce.entity_size, expected_size)
+		assert_eq(ce.canonical_name, 'GUT')
+		assert_eq(ce.name, 'GUT')
+		assert_eq(ce.character_art, 'nobody')
+		assert_eq(ce.art.rect_min_size, expected_size)
+		assert_eq(ce.collision_shape.shape.extents, expected_size / 2)
+		assert_eq(ce.area2d.position, expected_size / 2)
+		assert_eq(ce.name_label.text, "GUT")
+		assert_eq(ce.health_label.text, '10/100')
+		
 class TestHealth:
 	extends "res://tests/UTCommon.gd"
 	const CE = preload("res://src/dreamscape/CombatElements/CombatEntity.tscn")
@@ -290,3 +321,53 @@ class TestTurnTriggers:
 		ce.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.fortify.name, 1)
 		ce._on_enemy_turn_started(null)
 		assert_eq(ce.defence, 100)
+
+class TestOther:
+	extends "res://tests/UTCommon.gd"
+	const CE = preload("res://src/dreamscape/CombatElements/CombatEntity.tscn")
+	var ce: CombatEntity
+
+
+	func before_each() -> void:
+		ce = add_child_autofree(CE.instance())
+
+	func test_get_class():
+		assert_eq(ce.get_class(),"CombatEntity")
+
+	func test_predictions():
+		ce.show_predictions(5)
+		assert_eq(ce.incoming.get_child_count(), 1)
+		if not ce.incoming.get_child_count() != 1:
+			return
+		assert_eq(ce.incoming.get_child(0).get_node("Label").text, '5')
+		ce.show_predictions(15)
+		assert_eq(ce.incoming.get_child_count(), 2)
+		if not ce.incoming.get_child_count() != 2:
+			return
+		assert_eq(ce.incoming.get_child(1).get_node("Label").text, '15')
+		ce.clear_predictions()
+		assert_eq(ce.incoming.get_child_count(), 0)
+
+	func test_defence_description_popup():
+		ce.entity_type = Terms.PLAYER
+		ce._on_Defence_mouse_entered()
+		assert_true(ce.description_popup.visible)
+		assert_ne(ce.description_popup.rect_size, Vector2(0,0))
+		ce._on_CombatSingifier_mouse_exited()
+		assert_false(ce.description_popup.visible)
+
+	func test_health_description_popup():
+		ce.entity_type = Terms.PLAYER
+		ce._on_Health_mouse_entered()
+		assert_true(ce.description_popup.visible)
+		assert_ne(ce.description_popup.rect_size, Vector2(0,0))
+		ce._on_CombatSingifier_mouse_exited()
+		assert_false(ce.description_popup.visible)
+
+	func test_art_description_popup():
+		ce.entity_type = Terms.PLAYER
+		ce._on_Art_mouse_entered()
+		assert_true(ce.description_popup.visible)
+		assert_ne(ce.description_popup.rect_size, Vector2(0,0))
+		ce._on_Art_mouse_exited()
+		assert_false(ce.description_popup.visible)
