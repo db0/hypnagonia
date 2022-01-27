@@ -80,11 +80,7 @@ func _ready() -> void:
 
 
 func _set_texture(node: Node, stream: StreamTexture) -> void:
-		var new_texture = ImageTexture.new()
-		new_texture.storage = ImageTexture.STORAGE_COMPRESS_LOSSLESS
-		var _image = stream.get_data()
-		new_texture.create_from_image(_image)
-		node.texture = new_texture
+		node.texture = CFUtils.convert_texture_to_image(stream, true)
 
 
 func _process(delta: float) -> void:

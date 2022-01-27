@@ -26,7 +26,6 @@ var dreamer_damage := 0
 var dreamer_effects := {}
 var self_effects := {}
 var cards_played := 0
-var generic_
 
 func _ready() -> void:
 	if not cfc.NMAP.board.dreamer:

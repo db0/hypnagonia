@@ -209,6 +209,7 @@ func spawn_advanced_enemy(encounter: CombatEncounter) -> EnemyEntity:
 	advanced_entity.connect("finished_activation", self, "_on_finished_enemy_activation")
 	# warning-ignore:return_value_discarded
 	advanced_entity.connect("entity_killed", self, "_enemy_died")
+	emit_signal("enemy_spawned", advanced_entity)
 	return(advanced_entity)
 
 # Reshuffles all Card objects created back into the deck
