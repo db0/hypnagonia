@@ -332,7 +332,7 @@ class TestMultipleScriptMods:
 class TestMultipleTags:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act2/MultipleTags.gd")
+		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act2/AlphaKappaOmega.gd")
 
 	func test_choice_alpha():
 		var porg := set_random_pathos_org("released")

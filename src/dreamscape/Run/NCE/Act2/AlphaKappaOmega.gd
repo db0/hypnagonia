@@ -10,13 +10,15 @@ var secondary_choices := {
 	}
 var pathos_choice_payments := {}
 var card_choice_descriptions := {
-		'alpha': 'Choose a card which always starts at the bottom of your deck.',
+		'alpha': 'Choose a card which always starts at the top of your deck.',
 		'kappa': 'Choose a card which is not discarded at the end of your turn.',
-		'omega': 'Choose a card which always starts at the top of your deck.',
+		'omega': 'Choose a card which always starts at the bottom of your deck.',
 }
 
 func _init():
-	description = "<Multiple Tags - Story Fluff to be Done>. Select one Option...."
+	description = "I came across a faceless monk with inumerable arms." \
+		+ " \"I am the monk Chance,\" the monk seemed to say from nowhere, \"disciple of the goddess Lady Luck.\"" \
+		+ "\"Would you like the power to control your fate?\""
 
 func begin() -> void:
 	.begin()
