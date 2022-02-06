@@ -483,7 +483,7 @@ const ENEMIES = [
 ]
 
 const IndescribableAbsurdity = {
-	"scene": preload("res://src/dreamscape/CombatElements/Enemies/Elites/IndescribableAbsurdity.tscn"),
+	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/IndescribableAbsurdity.tscn")],
 	"journal_description":\
 		'I remember dreaming something indescribable.',
 	"journal_reward":\
@@ -491,7 +491,7 @@ const IndescribableAbsurdity = {
 	'journal_art': preload("res://assets/journal/advanced/absurdity.jpeg"),
 }
 const Dentist = {
-	"scene": preload("res://src/dreamscape/CombatElements/Enemies/Elites/Dentist.tscn"),
+	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/Dentist.tscn")],
 	"journal_description":\
 		'I was strapped-in, in a strangely familiar place. White. Sterile. The sound of a rapidly spinning machine started echoing behind me...',
 	"journal_reward":\
@@ -499,7 +499,7 @@ const Dentist = {
 	'journal_art': preload("res://assets/journal/advanced/dentist.jpeg"),
 }
 const Jumbletron = {
-	"scene": preload("res://src/dreamscape/CombatElements/Enemies/Elites/Jumbletron.tscn"),
+	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/Jumbletron.tscn")],
 	"journal_description":\
 		'I had enterred a room which seemed to be an amalgram of a lot of different encounters I had.\n'\
 		+ "I couldn't find the exit anymore.",
@@ -515,7 +515,7 @@ const ELITES = [
 ]
 
 const SurrealBoss = {
-	"scene": preload("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn"),
+	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn")],
 	"journal_description":\
 		"The next dream was so incomprehensible, just trying to remember it makes my head hurt",
 	"journal_reward":\

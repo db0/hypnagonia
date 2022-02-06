@@ -199,18 +199,21 @@ func spawn_enemy(enemy_properties) -> EnemyEntity:
 	return(enemy)
 
 
-func spawn_advanced_enemy(encounter: CombatEncounter) -> EnemyEntity:
+func spawn_advanced_enemy(encounter: CombatEncounter) -> Array:
 	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
 		print("DEBUG INFO:Board: Spawning Advanced Enemy: " + encounter.enemy_scene.get_path())
-	var advanced_entity: EnemyEntity = encounter.enemy_scene.instance()
-	advanced_entity.setup_advanced(encounter.difficulty)
-	_enemy_area.add_child(advanced_entity)
-	# warning-ignore:return_value_discarded
-	advanced_entity.connect("finished_activation", self, "_on_finished_enemy_activation")
-	# warning-ignore:return_value_discarded
-	advanced_entity.connect("entity_killed", self, "_enemy_died")
-	emit_signal("enemy_spawned", advanced_entity)
-	return(advanced_entity)
+	var advanced_entities := []
+	for scene in encounter.enemy_scenes:
+		var advanced_entity: EnemyEntity = encounter.enemy_scene.instance()
+		advanced_entity.setup_advanced(encounter.difficulty)
+		_enemy_area.add_child(advanced_entity)
+		# warning-ignore:return_value_discarded
+		advanced_entity.connect("finished_activation", self, "_on_finished_enemy_activation")
+		# warning-ignore:return_value_discarded
+		advanced_entity.connect("entity_killed", self, "_enemy_died")
+		emit_signal("enemy_spawned", advanced_entity)
+		advanced_entities.append(advanced_entity)
+	return(advanced_entities)
 
 # Reshuffles all Card objects created back into the deck
 func _on_ReshuffleAllDeck_pressed() -> void:

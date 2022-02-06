@@ -108,4 +108,4 @@ func on_learning_finished(lessons: Dictionary) -> void:
 func _on_board_instanced() -> void:
 	._on_board_instanced()
 	# warning-ignore:return_value_discarded
-	enemy_entity.connect("learning_finished", self, "on_learning_finished")
+	enemy_entities[0].connect("learning_finished", self, "on_learning_finished")

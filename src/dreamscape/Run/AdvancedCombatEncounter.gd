@@ -1,13 +1,13 @@
 class_name AdvancedCombatEncounter
 extends CombatEncounter
 
-var enemy_scene: PackedScene
-var enemy_entity: EnemyEntity
+var enemy_scenes: Array
+var enemy_entities: Array
 
 func _init(encounter: Dictionary, _difficulty := "medium"):
 	description = encounter.get("journal_description", '')
 	reward_description = encounter.get("journal_reward", '')
-	enemy_scene = encounter['scene']
+	enemy_scenes = encounter['scenes']
 	difficulty = _difficulty
 	prepare_journal_art(encounter)
 
@@ -26,6 +26,6 @@ func start_ordeal() -> void:
 
 func _on_board_instanced() -> void:
 	cfc.disconnect("all_nodes_mapped", self, "_on_board_instanced")
-	enemy_entity = cfc.NMAP.board.spawn_advanced_enemy(self)
+	enemy_entities = cfc.NMAP.board.spawn_advanced_enemy(self)
 	globals.music.switch_scene_music('boss')
 	._on_board_instanced()
