@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/Run/Act2.gd"
 }, {
+"base": "Act",
+"class": "Act3",
+"language": "GDScript",
+"path": "res://src/dreamscape/Run/Act3.gd"
+}, {
 "base": "GridContainer",
 "class": "ActiveEffects",
 "language": "GDScript",
@@ -768,6 +773,7 @@ _global_script_class_icons={
 "Act": "",
 "Act1": "",
 "Act2": "",
+"Act3": "",
 "ActiveEffects": "",
 "AddTagArtifact": "",
 "AdvancedCombatEncounter": "",

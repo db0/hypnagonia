@@ -87,6 +87,9 @@ func setup_hypnagonia_testing() -> void:
 	# warning-ignore:return_value_discarded
 	cfc.game_rng_seed = "GUT"
 	cfc.restore_rng_state()
+#	gut.p(cfc.rng_saved_state)
+#	print_debug([cfc.game_rng.seed, cfc.game_rng.state])
+	cfc.game_rng.state = -6332740101472756719
 #	print_debug([cfc.game_rng.seed, cfc.game_rng.state])
 	NewGameMenu.randomize_aspect_choices()
 	globals.player.setup()
