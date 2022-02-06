@@ -1,10 +1,21 @@
 # Changelog
 
+## [v0.32.10](https://github.com/db0/hypnagonia/tree/v0.32.10) (2022-02-06)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.32.9...v0.32.10)
+
+**Merged pull requests:**
+
+- content\(nce\): Activated HangingOn [\#220](https://github.com/db0/hypnagonia/pull/220) ([db0](https://github.com/db0))
+- More tests and a bit of content [\#219](https://github.com/db0/hypnagonia/pull/219) ([db0](https://github.com/db0))
+- content\(nce\): Added fluff to MultipleTags [\#218](https://github.com/db0/hypnagonia/pull/218) ([3CHosler](https://github.com/3CHosler))
+- content\(nce\): Minishop fluff switched to strange friend [\#217](https://github.com/db0/hypnagonia/pull/217) ([3CHosler](https://github.com/3CHosler))
+
 ## [v0.32.9](https://github.com/db0/hypnagonia/tree/v0.32.9) (2022-01-25)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.32.8...v0.32.9)
 
-**Closed issues:**
+**Fixed bugs:**
 
 - Recurrence in floor1 combat [\#211](https://github.com/db0/hypnagonia/issues/211)
 
