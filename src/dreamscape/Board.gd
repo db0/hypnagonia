@@ -200,11 +200,11 @@ func spawn_enemy(enemy_properties) -> EnemyEntity:
 
 
 func spawn_advanced_enemy(encounter: CombatEncounter) -> Array:
-	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
-		print("DEBUG INFO:Board: Spawning Advanced Enemy: " + encounter.enemy_scene.get_path())
 	var advanced_entities := []
 	for scene in encounter.enemy_scenes:
-		var advanced_entity: EnemyEntity = encounter.enemy_scene.instance()
+		if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+			print("DEBUG INFO:Board: Spawning Advanced Enemy: " + scene.get_path())
+		var advanced_entity: EnemyEntity = scene.instance()
 		advanced_entity.setup_advanced(encounter.difficulty)
 		_enemy_area.add_child(advanced_entity)
 		# warning-ignore:return_value_discarded

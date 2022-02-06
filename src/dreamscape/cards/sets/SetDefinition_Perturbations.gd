@@ -115,6 +115,20 @@ const CARDS := {
 			"exert_amount": 12,
 			"health_amount": 3
 		},
-
+	},
+	"Scattered Dreams": {
+		"Type": "Perturbation",
+		"Tags": [Terms.ACTIVE_EFFECTS.drain.name],
+		"Abilities": "If this card is in your hand at the end of the turn, gain {effect_stacks} {drain}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Perturbation",
+		"_amounts": {
+			"effect_stacks": 1
+		},
+		"_keywords": [],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.drain.name: Terms.PLAYER
+		},
 	},
 }

@@ -68,3 +68,43 @@ class TestNarcissus:
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
 		assert_gt(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.drain.name), 0,
 				"%s inflicted %s due player having hight anxiety" % [advanced_torment.canonical_name, Terms.ACTIVE_EFFECTS.drain.name])
+
+class TestFearAndPhobia:
+	extends "res://tests/HUT_Ordeal_AdvancedTormentTestClass.gd"
+
+
+	func _init() -> void:
+		advanced_torment_scenes = [
+			preload("res://src/dreamscape/CombatElements/Enemies/Bosses/FearBoss.tscn"),
+			preload("res://src/dreamscape/CombatElements/Enemies/Bosses/PhobiaBoss.tscn"),
+		]
+		test_card_names = [
+			"Interpretation",
+			"Confidence",
+		]
+
+	func test_initial_intents():
+		# warning-ignore:return_value_discarded
+		watch_signals(dreamer)
+		turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		assert_signal_emit_count(dreamer, "entity_attacked", 4)
+		assert_eq(get_filtered_cards('Name', "Scattered Dreams").size(), 1)
+		for t in advanced_torments:
+			assert_eq(t.defence, 16)
+		assert_eq(dreamer.defence, 0)
+		assert_eq(dreamer.damage, 20)
+
+	func test_second_intents():
+		advanced_torments[0].intents.prepare_intents(1)
+		advanced_torments[1].intents.prepare_intents(0)
+		# warning-ignore:return_value_discarded
+		watch_signals(dreamer)
+		turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		assert_signal_emit_count(dreamer, "entity_attacked", 1)
+		assert_eq(get_filtered_cards('Name', "Scattered Dreams").size(), 0)
+		for t in advanced_torments:
+			assert_eq(t.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 2)
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 0)
+		assert_eq(dreamer.damage, 22)

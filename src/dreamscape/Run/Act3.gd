@@ -74,18 +74,20 @@ const Jumbletron = {
 const ELITES = [
 ]
 
-const SurrealBoss = {
-	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn")],
+const FearAndPhobia = {
+	"scenes": [
+		preload("res://src/dreamscape/CombatElements/Enemies/Bosses/FearBoss.tscn"),
+		preload("res://src/dreamscape/CombatElements/Enemies/Bosses/PhobiaBoss.tscn"),
+	],
 	"journal_description":\
-		"The next dream was so incomprehensible, just trying to remember it makes my head hurt",
+		"I barely dare to even recall what I dreamt next. Imagine your worst phobia in the scene of your greatest fear...",
 	"journal_reward":\
-		"I don't claim to understand what I was seeing, [url=boss_card_draft]but eventually that vision faded.[/url]"\
-		+ "but my mind was open to [url=boss_artifact]many new possibilities[/url].",
-	'journal_art': preload("res://assets/journal/advanced/surreality.jpeg"),
+		"That was finally it! When I opened my eyes, I felt the most relieved I've ever been.",
+#	'journal_art': preload("res://assets/journal/advanced/surreality.jpeg"),
 }
 
 const BOSSES := {
-	"Surreality": SurrealBoss
+	"Fear_and Phobia": FearAndPhobia
 }
 
 
