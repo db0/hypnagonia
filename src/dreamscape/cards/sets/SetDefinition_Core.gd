@@ -2502,7 +2502,7 @@ const CARDS := {
 		"_rarity": "Basic",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 7,
+			"damage_amount": 6,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -2520,7 +2520,7 @@ const CARDS := {
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 11,
+			"damage_amount": 10,
 		},
 		"_is_upgrade": true,
 	},
@@ -2534,7 +2534,7 @@ const CARDS := {
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 6,
+			"damage_amount": 5,
 		},
 		"_is_upgrade": true,
 	},

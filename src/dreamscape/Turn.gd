@@ -1,5 +1,5 @@
 class_name Turn
-extends Reference
+extends Node
 
 enum Turns {
 	PLAYER_TURN
@@ -36,22 +36,23 @@ var encounter_event_count := {}
 # Tracks whose turn it currently is, the player's, or the enemies.
 var current_turn : int = Turns.PLAYER_TURN
 
+onready var board = get_parent()
 
-func _init() -> void:
+func _ready() -> void:
 	if not cfc.are_all_nodes_mapped:
 		yield(cfc, "all_nodes_mapped")
 	cfc.NMAP.deck.connect("shuffle_completed", self, "_on_deck_shuffled")
 
 func setup() -> void:
-	cfc.NMAP.board.end_turn.connect("pressed", self, "end_player_turn")
-	for obj in [cfc.NMAP.board]:
+	board.end_turn.connect("pressed", self, "end_player_turn")
+	for obj in [board]:
 		for turn_signal in ALL_SIGNALS:
 			# warning-ignore:return_value_discarded
 			connect(turn_signal, obj, "_on_" + turn_signal)
 	for turn_signal in ALL_SIGNALS:
 		# warning-ignore:return_value_discarded
 		connect(turn_signal, cfc.signal_propagator, "_on_signal_received", ["on_" + turn_signal, {"turn": self}])
-	for obj in [cfc.NMAP.board.counters, cfc.NMAP.hand]:
+	for obj in [board.counters, cfc.NMAP.hand]:
 		for turn_signal in PLAYER_SIGNALS:
 			# warning-ignore:return_value_discarded
 			connect(turn_signal, obj, "_on_" + turn_signal)

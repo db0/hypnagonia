@@ -54,6 +54,7 @@ func begin() -> void:
 
 func continue_encounter(key: String) -> void:
 	var mod := {"colour": key}
+	# warning-ignore:return_value_discarded
 	globals.player.add_artifact("PorcelainDoll", mod)
 	end()
 	var result = 'The engineering on this [url={"name": "curio","meta_type": "nce"}]Porcelain Doll[/url] was masterful!'

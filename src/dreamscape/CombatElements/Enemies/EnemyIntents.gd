@@ -116,7 +116,7 @@ func prepare_intents(specific_index = null, is_second_try := false) -> Dictionar
 	# If this intent sets up the next intent, then we store the next intent index to use here.
 	# If this is not defined, then the value will be -1 which is ignored.
 	next_intent_id = new_intents.get("sets_up_intent", '')
-	if new_intents.reshuffle:
+	if new_intents.has("reshuffle") and new_intents.reshuffle:
 		reshuffle_intents()
 	_display_intents(new_intents)
 	return(new_intents)

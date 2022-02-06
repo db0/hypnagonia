@@ -52,6 +52,7 @@ func end() -> void:
 		if existing_memory:
 			existing_memory.upgrades_amount += 2
 		else:
+			# warning-ignore:return_value_discarded
 			globals.player.add_memory(memory.canonical_name)
 	var reward_text = '{memory1} before. I know this. Overcoming this recurrence {memory2}.'
 	var fmt = {

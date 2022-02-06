@@ -9,6 +9,7 @@ var owner_nce
 
 func _init(encounter: Dictionary, difficulty: String, nce).(encounter, difficulty):
 	owner_nce = nce
+	# warning-ignore:return_value_discarded
 	cfc.connect("all_nodes_mapped", self, "_on_board_instanced")
 
 func finish_surpise_ordeal() -> void:

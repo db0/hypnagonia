@@ -14,7 +14,8 @@ const OPPOSITES := {
 	Terms.ACTIVE_EFFECTS.impervious.name: Terms.ACTIVE_EFFECTS.marked.name,
 }
 
-var all_effects: Dictionary
+signal effect_added(effect)
+
 # The enemy entity owning these effects
 var combat_entity
 var sceng_snapshot_modifiers := {}
@@ -50,8 +51,6 @@ func mod_effect(
 		if upgrade_string != '':
 			combined_effect_name = upgrade_string.capitalize() + ' ' + effect_name
 		var effect : CombatEffect = get_all_effects().get(combined_effect_name, null)
-		if mod < 0:
-			pass
 		if not effect and mod <= 0 and not Terms.get_effect_entry(effect_name).get("can_go_negative"):
 			retcode = CFConst.ReturnCode.OK
 		elif effect and set_to_mod and effect.stacks == mod:
@@ -73,6 +72,8 @@ func mod_effect(
 						else:
 							opposite.set_stacks(0, tags)
 							mod -= opposite.stacks
+						if mod == 0:
+							return(CFConst.ReturnCode.CHANGED)
 				effect = EFFECT_TEMPLATE.instance()
 				if not Terms.get_effect_entry(effect_name).has("noscript"):
 					# We need to store the existing default variables set in the parent class
@@ -87,9 +88,13 @@ func mod_effect(
 				effect.owning_entity = combat_entity
 				effect.upgrade = upgrade_string
 				add_child(effect)
+				emit_signal("effect_added",effect)
 				var effect_details := Terms.get_effect_entry(effect_name)
+				var entity_type := Terms.PLAYER
+				if combat_entity:
+					entity_type = combat_entity.entity_type
 				var setup_dict := {
-					"entity_type": combat_entity.entity_type,
+					"entity_type": entity_type,
 					"icon": effect_details.icon,
 					"amount": 0,
 				}
@@ -107,7 +112,7 @@ func mod_effect(
 
 func get_all_effects() -> Dictionary:
 	var found_effects := {}
-	for effect in get_children():
+	for effect in get_all_effects_nodes():
 		found_effects[effect.get_effect_name()] = effect
 	return(found_effects)
 
@@ -116,7 +121,13 @@ func get_all_effects_nodes() -> Array:
 	return(get_children())
 
 
-func get_ordered_effects(ordered_effects: Dictionary) -> Dictionary:
+func get_ordered_effects(ordered_effects:= {}) -> Dictionary:
+	if ordered_effects.empty():
+		ordered_effects = {
+			"adders" : [],
+			"multipliers" : [],
+			"setters" : [],
+		}
 	for effect in get_children():
 		match effect.priority:
 			Terms.ALTERANT_PRIORITY.ADD:
@@ -157,7 +168,7 @@ func get_effect_stacks(effect_name: String) -> int:
 func get_effect_with_most_stacks(effect_type := ''):
 	var highest_effect = null
 	var highest_stacks := 0
-	for effect in get_children():
+	for effect in get_all_effects_nodes():
 		if effect.stacks > highest_stacks:
 			if effect_type and not effect.canonical_name in Terms.get_all_effect_types(effect_type):
 				continue
@@ -166,7 +177,7 @@ func get_effect_with_most_stacks(effect_type := ''):
 	# Effects of type "Versatile" can be considered buffs or debuffs, depending on if they're positive
 	# or negative
 	if effect_type == 'Buff' or effect_type == 'Debuff':
-		for effect in get_children():
+		for effect in get_all_effects_nodes():
 			if effect_type == 'Buff' and effect.stacks > 0 and effect.stacks > highest_stacks:
 				if not effect.canonical_name in Terms.get_all_effect_types('Versatile'):
 					continue
@@ -186,14 +197,14 @@ func get_effect_with_most_stacks(effect_type := ''):
 func get_effect_with_least_stacks(effect_type := ''):
 	var lowest_effect = null
 	var lowest_stacks := -1
-	for effect in get_children():
+	for effect in get_all_effects_nodes():
 		if lowest_stacks < 0 or effect.stacks < lowest_stacks:
 			if effect_type and not effect.canonical_name in Terms.get_all_effect_types(effect_type):
 				continue
 			lowest_effect = effect.canonical_name
 			lowest_stacks = effect.stacks
 	if effect_type == 'Buff' or effect_type == 'Debuff':
-		for effect in get_children():
+		for effect in get_all_effects_nodes():
 			if effect_type == 'Buff' and effect.stacks > 0 and (effect.stacks < lowest_stacks or lowest_stacks < 0):
 				if not effect.canonical_name in Terms.get_all_effect_types('Versatile'):
 					continue
@@ -209,13 +220,14 @@ func get_effect_with_least_stacks(effect_type := ''):
 
 
 func get_random_effect(effect_type := ''):
-	var rng_effects := get_children()
+	var rng_effects := get_all_effects_nodes()
 	var random_effect = null
 	CFUtils.shuffle_array(rng_effects)
 	for effect in rng_effects:
-		if effect_type and effect.canonical_name in Terms.get_all_effect_types(effect_type):
-			random_effect = effect
-			break
+		if effect_type and not effect.canonical_name in Terms.get_all_effect_types(effect_type):
+			continue
+		random_effect = effect
+		break
 	if random_effect:
 		return(random_effect.get_effect_name())
 

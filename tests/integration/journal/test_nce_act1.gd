@@ -10,6 +10,7 @@ class TestDollmaker:
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("leave")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_nce_unlocked(preload("res://src/dreamscape/Run/NCE/AllActs/DollPickup.gd"))
@@ -20,6 +21,7 @@ class TestDollmaker:
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("destroy")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_emitted(globals.player.pathos, "released_pathos_gained")
@@ -36,10 +38,12 @@ class TestGreed:
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("accept")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_gt(globals.player.pathos.released[lpathos], 50)
 		assert_pathos_signaled("released_pathos_gained", lpathos)
+# warning-ignore:return_value_discarded
 		assert_deck_signaled("card_added", "card_name", "Discombobulation")
 
 
@@ -48,6 +52,7 @@ class TestGreed:
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		var lpathos = set_lowest_pathos("released")
 		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("decline")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_eq(globals.player.pathos.released[lpathos], 50)
@@ -62,6 +67,7 @@ class TestMonsterTrain:
 		watch_signals(globals.player)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("lead")
 		yield(yield_to(globals.player, "artifact_added", 0.2), YIELD)
 		assert_signal_emitted(globals.player, "artifact_added")
@@ -72,6 +78,7 @@ class TestMonsterTrain:
 		watch_signals(globals.player)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("lead")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_not_emitted(globals.player, "artifact_added")
@@ -82,6 +89,7 @@ class TestMonsterTrain:
 		watch_signals(globals.player)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("follow")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.shop)
@@ -93,6 +101,7 @@ class TestMonsterTrain:
 		watch_signals(globals.player)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("abort")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_pathos_signaled("pathos_repressed", Terms.RUN_ACCUMULATION_NAMES.elite)
@@ -110,6 +119,7 @@ class TestMultipleOptions:
 		watch_signals(globals.player.deck)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("progress")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_emitted(globals.player.deck, "card_entry_progressed")
@@ -121,6 +131,7 @@ class TestMultipleOptions:
 		watch_signals(globals.player.deck)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("upgrade")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_emitted(globals.player.deck, "card_entry_progressed")
@@ -132,6 +143,7 @@ class TestMultipleOptions:
 		watch_signals(globals.player.deck)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("remove")
 		yield(yield_to(journal, "selection_deck_spawned", 0.2), YIELD)
 		var selection_deck := assert_selection_deck_spawned()
@@ -145,6 +157,7 @@ class TestMultipleOptions:
 		watch_signals(globals.player)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("leave")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_pathos_not_signaled("pathos_spent")
@@ -158,6 +171,7 @@ class TestPathosForAnxiety:
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("calm")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_emitted(globals.player.pathos, "released_pathos_gained")
@@ -166,6 +180,7 @@ class TestPathosForAnxiety:
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("stress")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_emitted(globals.player.pathos, "released_pathos_gained")
@@ -175,6 +190,7 @@ class TestPathosForAnxiety:
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("fear")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_emitted(globals.player.pathos, "released_pathos_gained")
@@ -190,6 +206,7 @@ class TestPopPsychologist1:
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("tiger")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.nce)
@@ -199,6 +216,7 @@ class TestPopPsychologist1:
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("snake")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.enemy)
@@ -208,6 +226,7 @@ class TestPopPsychologist1:
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("owl")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.shop)
@@ -225,9 +244,11 @@ class TestHighwire:
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("accept")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_not_emitted(globals.player, "artifact_added")
+# warning-ignore:return_value_discarded
 		assert_deck_signaled("card_added", "card_name", "Terror")
 		
 	func test_choice_accept_success():
@@ -237,15 +258,18 @@ class TestHighwire:
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("accept")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_emitted(globals.player, "artifact_added")
+# warning-ignore:return_value_discarded
 		assert_deck_signaled("card_added", "card_name", "Terror")
 
 	func test_choice_decline():
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("decline")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_emitted(globals.player.pathos, "repressed_pathos_lost")
@@ -261,6 +285,7 @@ class TestSlayTheSpire:
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("slay")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.nce)
@@ -271,6 +296,7 @@ class TestSlayTheSpire:
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("leave")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_pathos_signaled("released_pathos_lost", Terms.RUN_ACCUMULATION_NAMES.enemy)
@@ -283,28 +309,38 @@ class TestSleepOfOblivion:
 		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act1/SleepOfOblivion.gd")
 
 	func test_choice_slay():
+# warning-ignore:return_value_discarded
 		globals.player.deck.add_new_card("Terror")
+# warning-ignore:return_value_discarded
 		globals.player.deck.add_new_card("Terror")
+# warning-ignore:return_value_discarded
 		globals.player.deck.add_new_card("Lacuna")
+# warning-ignore:return_value_discarded
 		globals.player.deck.add_new_card("Lacuna")
 		watch_signals(globals.player.deck)
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("fall_in")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_emit_count(globals.player.deck, "card_removed", 4)
 		assert_eq(globals.player.damage, 3, "Player took damage")
 		
 	func test_choice_decline():
+# warning-ignore:return_value_discarded
 		globals.player.deck.add_new_card("Terror")
+# warning-ignore:return_value_discarded
 		globals.player.deck.add_new_card("Terror")
+# warning-ignore:return_value_discarded
 		globals.player.deck.add_new_card("Lacuna")
+# warning-ignore:return_value_discarded
 		globals.player.deck.add_new_card("Lacuna")
 		watch_signals(globals.player.deck)
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("leave")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_pathos_not_signaled("released_pathos_lost")
@@ -322,6 +358,7 @@ class TestSpider:
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("eat")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_pathos_signaled("pathos_repressed", Terms.RUN_ACCUMULATION_NAMES.boss)
@@ -331,6 +368,7 @@ class TestSpider:
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("wave")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_pathos_signaled("pathos_repressed", Terms.RUN_ACCUMULATION_NAMES.boss,0)
@@ -342,6 +380,7 @@ class TestSpider:
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("offer")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_pathos_not_signaled("pathos_repressed")

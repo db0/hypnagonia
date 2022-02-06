@@ -17,7 +17,7 @@ func _init(_deck_groups) -> void:
 func assemble_starting_deck() -> void:
 	for key in deck_groups:
 		for card_name in Aspects[key.to_upper()][deck_groups[key]]["Basic"]:
-			var new_card := add_new_card(card_name)
+			var _new_card := add_new_card(card_name)
 
 
 func update_card_group(type: String, card_group: String) -> void:
@@ -37,8 +37,11 @@ func add_new_card(card_name, progress := 0) -> CardEntry:
 	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
 		print("DEBUG INFO:Deck: Adding new card:" + card_name)
 	var new_card := CardEntry.new(card_name)
+	# warning-ignore:return_value_discarded
 	new_card.connect("card_entry_modified", self, "signal_card_entry_modified")
+	# warning-ignore:return_value_discarded
 	new_card.connect("card_entry_upgraded", self, "signal_card_entry_upgraded")
+	# warning-ignore:return_value_discarded
 	new_card.connect("card_entry_progressed", self, "signal_card_entry_progressed")
 	new_card.upgrade_progress = progress
 	cards.append(new_card)

@@ -1,14 +1,15 @@
+class_name DreamBoard
 extends Board
 
 signal battle_begun
 signal battle_ended
 signal game_over
 signal enemy_spawned(entity)
+signal player_added(entity)
 
 const ENEMY_ENTITY_SCENE = preload("res://src/dreamscape/CombatElements/Enemies/EnemyEntity.tscn")
 
 var end_turn : Button
-var turn := Turn.new()
 var dreamer: PlayerEntity
 var activated_enemies: Array
 var boss_battle := false
@@ -23,6 +24,7 @@ var _debug_enemies_at_end_of_turn
 var _debug_enemies_started_activation := []
 var _debug_enemy_states := {}
 
+onready var turn = $Turn
 onready var bottom_gui := $VBC/HBC
 onready var _player_area := $VBC/CombatArena/PlayerArea
 onready var _enemy_area := $VBC/CombatArena/EnemyArea/Enemies
@@ -71,6 +73,7 @@ func _ready() -> void:
 	# warning-ignore:return_value_discarded
 	dreamer.connect("entity_killed", self, "_dreamer_died")
 	_player_area.add_child(dreamer)
+	emit_signal("player_added", dreamer)
 	dreamer.rect_position = Vector2(100,100)
 	_on_viewport_resized()
 # warning-ignore:return_value_discarded
@@ -90,7 +93,7 @@ func _process(_delta: float) -> void:
 
 func begin_encounter() -> void:
 	cfc.game_paused = false
-	if not get_tree().get_root().has_node('Gut'):
+	if not globals.test_flags.get("disable_board_background", false):
 		randomize_background()
 		_fade_from_black()
 		yield(_tween, "tween_all_completed")
@@ -206,6 +209,7 @@ func spawn_advanced_enemy(encounter: CombatEncounter) -> EnemyEntity:
 	advanced_entity.connect("finished_activation", self, "_on_finished_enemy_activation")
 	# warning-ignore:return_value_discarded
 	advanced_entity.connect("entity_killed", self, "_enemy_died")
+	emit_signal("enemy_spawned", advanced_entity)
 	return(advanced_entity)
 
 # Reshuffles all Card objects created back into the deck
@@ -331,14 +335,15 @@ func _dreamer_died(final_damage) -> void:
 
 
 func complete_battle() -> void:
-	if not battle_ended:
-		battle_ended = true
-		globals.player.damage = dreamer.damage
-		globals.player.health = dreamer.health
-		_fade_to_transparent()
-		if _tween.is_active():
-			yield(_tween, "tween_all_completed")
-		emit_signal("battle_ended")
+	if battle_ended:
+		return
+	battle_ended = true
+	globals.player.damage = dreamer.damage
+	globals.player.health = dreamer.health
+	_fade_to_transparent()
+	if _tween.is_active():
+		yield(_tween, "tween_all_completed")
+	emit_signal("battle_ended")
 #	cfc.game_paused = true
 #	mouse_pointer.forget_focus()
 #	end_turn.disabled = true
@@ -348,8 +353,12 @@ func complete_battle() -> void:
 
 
 func game_over() -> void:
+	if battle_ended:
+		return
+	battle_ended = true
 	_fade_to_transparent()
-	yield(_tween, "tween_all_completed")
+	if _tween.is_active():	
+		yield(_tween, "tween_all_completed")
 	emit_signal("game_over")
 #	cfc.game_paused = true
 #	mouse_pointer.forget_focus()

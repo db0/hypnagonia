@@ -16,7 +16,7 @@ const MOUSE_SPEED := {
 const PLAYER_HEALTH = 100
 
 var main
-var board: Board
+var board: DreamBoard
 var hand: Hand
 var deck: DreamPile
 var discard: DreamPile
@@ -46,8 +46,6 @@ func setup_cfc() -> void:
 	pass
 
 func setup_main() -> void:
-	cfc._setup()
-	setup_hypnagonia_testing()
 	main = autoqfree(MAIN_SCENE.instance())
 	get_tree().get_root().add_child(main)
 	if not cfc.are_all_nodes_mapped:
@@ -63,8 +61,6 @@ func setup_main() -> void:
 
 
 func setup_board() -> void:
-	cfc._setup()
-	setup_hypnagonia_testing()
 	board = add_child_autofree(BOARD_SCENE.instance())
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # Always reveal the mouseon unclick
 	if not cfc.are_all_nodes_mapped:
@@ -77,8 +73,6 @@ func setup_board() -> void:
 	player_info = board.player_info
 	
 func setup_journal() -> void:
-	cfc._setup()
-	setup_hypnagonia_testing()
 	journal_container = add_child_autofree(JOURNAL_SCENE.instance())
 #	yield(yield_to(journal_container, "ready", 1), YIELD)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # Always reveal the mouseon unclick
@@ -98,6 +92,7 @@ func setup_hypnagonia_testing() -> void:
 	globals.player.setup()
 	globals.player.health = PLAYER_HEALTH
 	for a in pre_init_artifacts:
+# warning-ignore:return_value_discarded
 		globals.player.add_artifact(a)
 	extra_hypnagonia_setup()
 	globals.encounters.prepare_next_act()
@@ -112,6 +107,11 @@ func teardown_hypnagonia_testing() -> void:
 	cfc.quit_game()
 	globals.reset()
 
+
+func after_all():
+	globals.test_flags.clear()
+
+
 func setup_test_cards(cards: Array, card_entries_only := false) -> Array:
 	var spawned_cards := []
 	for c in cards:
@@ -120,7 +120,7 @@ func setup_test_cards(cards: Array, card_entries_only := false) -> Array:
 			spawned_cards.append(ce)
 			continue
 		var card = ce.instance_self()
-		cfc.NMAP.hand.add_child(card)
+		hand.add_child(card)
 		#card.set_is_faceup(false,true)
 		card._determine_idle_state()
 		spawned_cards.append(card)
@@ -234,7 +234,6 @@ func execute_with_yield(card: Card) -> void:
 	var sceng = card.execute_scripts()
 	if sceng is GDScriptFunctionState and sceng.is_valid():
 		sceng = yield(yield_to(sceng, "completed", 1), YIELD)
-	return sceng
 
 
 func execute_with_target(card: Card, target) -> void:
@@ -287,7 +286,7 @@ func snipexecute(card: Card, target: CombatEntity, extra_delay = null):
 		yield(yield_to(card.targeting_arrow, "initiated_targeting", 1), YIELD)
 	card.targeting_arrow.call_deferred("preselect_target", target)
 	if sceng is GDScriptFunctionState:
-		sceng = yield(sceng, "completed")
+		sceng = yield(yield_to(sceng, "completed", 1), YIELD)
 	elif sceng and not sceng.all_tasks_completed:
 		yield(yield_to(sceng, "tasks_completed", 0.2), YIELD)
 	# This is typically used to allow effects some time to instance
@@ -296,3 +295,21 @@ func snipexecute(card: Card, target: CombatEntity, extra_delay = null):
 	emit_signal("card_scripts_executed")
 	return(sceng)
 
+func assert_ret_ok(cgf_return_value) -> void:
+	assert_typeof(cgf_return_value, TYPE_INT)
+	if typeof(cgf_return_value) != TYPE_INT:
+		return
+	assert_eq(cgf_return_value, CFConst.ReturnCode.OK, "Expected Return Code to be OK")
+	
+func assert_ret_changed(cgf_return_value) -> void:
+	assert_typeof(cgf_return_value, TYPE_INT)
+	if typeof(cgf_return_value) != TYPE_INT:
+		return
+	assert_eq(cgf_return_value, CFConst.ReturnCode.CHANGED, "Expected Return Code to be CHANGED")
+	
+func assert_ret_failed(cgf_return_value) -> void:
+	assert_typeof(cgf_return_value, TYPE_INT)
+	if typeof(cgf_return_value) != TYPE_INT:
+		return
+	assert_eq(cgf_return_value, CFConst.ReturnCode.FAILED, "Expected Return Code to be FAILED")
+	

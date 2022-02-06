@@ -18,4 +18,5 @@ func before_each():
 	advanced_torment = advanced_torment_scene.instance()
 	advanced_torment.setup_advanced(difficulty)
 	board._enemy_area.add_child(advanced_torment)
+	board.emit_signal("enemy_spawned",advanced_torment)
 	advanced_torment.connect("finished_activation", board, "_on_finished_enemy_activation")

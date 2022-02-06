@@ -164,7 +164,7 @@ class TestBurn:
 	func test_burn_on_torments():
 		spawn_effect(test_torment, effect, 12, '')
 		spawn_effect(test_torments[0], effect, 12, '')
-		test_torment.health = 10
+		test_torment.health = 40
 		var intents_to_test = [
 			{
 				"intent_scripts": ["Stress:6"],
@@ -182,6 +182,7 @@ class TestBurn:
 		assert_eq(dreamer.damage, 20, "Dreamer takes stress damage because torment died after intents")
 		assert_eq(test_torments[0].active_effects.get_effect_stacks(effect), 11,
 				"%s stacks decreased by 1" % [effect])
+		yield(yield_for(3), YIELD)
 
 
 class TestVulnerable:

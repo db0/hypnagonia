@@ -37,6 +37,7 @@ func continue_encounter(key) -> void:
 		if rngesus <= 0.4:
 			var accumulated = globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.nce] / 4
 			artifact_prep = ArtifactPrep.new(accumulated/2, accumulated, 1)
+# warning-ignore:return_value_discarded
 			globals.player.add_artifact(artifact_prep.selected_artifacts[0].canonical_name)
 			var fmt = {"curio": _prepare_artifact_popup_bbcode(artifact_prep.selected_artifacts[0].canonical_name, artifact_prep.selected_artifacts[0].name)}
 			result = nce_result_fluff['accept_success'].format(fmt)

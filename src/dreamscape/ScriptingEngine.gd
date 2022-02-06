@@ -663,12 +663,14 @@ func calculate_modify_health(subject: CombatEntity, script: ScriptTask) -> int:
 func modify_health(script: ScriptTask) -> int:
 	var retcode: int
 	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
+	var set_to_mod: bool = script.get_property(SP.KEY_SET_TO_MOD)
 	for combat_entity in script.subjects:
 		if combat_entity.is_dead:
 			continue
 		var modification = calculate_modify_health(combat_entity, script)
 		retcode = combat_entity.modify_health(
 				modification,
+				set_to_mod,
 				costs_dry_run(),
 				tags,
 				script.owner)
@@ -682,10 +684,13 @@ func confirm_play(script: ScriptTask) -> int:
 		if not cfc.NMAP.board.dreamer.active_effects.get_effect_stacks("Creative Block"):
 			if script.owner.deck_card_entry.record_use():
 				cfc.NMAP.board.dreamer.upgrades_increased += 1
+		# warning-ignore:return_value_discarded
 		TurnEventMessage.new("cards_played", +1)
 		var card_type_event = script.owner.get_property("Type") + "_played"
+		# warning-ignore:return_value_discarded
 		TurnEventMessage.new(card_type_event, +1)
 		for tag in script.owner.get_property("Tags"):
+			# warning-ignore:return_value_discarded
 			TurnEventMessage.new(tag, +1)
 	return(retcode)
 

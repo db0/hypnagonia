@@ -12,7 +12,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-_directory1 = "res://tests/unit"
-_directory2 = "res://tests/integration/ordeal"
-_directory3 = "res://tests/integration/cards"
-_directory4 = "res://tests/integration/journal"
+_directory1 = "res://tests/integration/ordeal"
+_directory2 = "res://tests/integration/cards"
+_directory3 = "res://tests/integration/journal"
+_directory4 = "res://tests/unit"

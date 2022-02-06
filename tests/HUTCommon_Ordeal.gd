@@ -1,141 +1,5 @@
-extends "res://tests/UTCommon.gd"
+extends "res://tests/HUTCommon.gd"
 
-const GUT_TORMENT:= {
-	"Name": "GUT",
-	"Type": "GUT",
-	"Health": 100,
-	"Intents": [
-		{
-			"intent_scripts": ["GUT"],
-			"reshuffle": true,
-		},
-	],
-	"_health_variability": 5,
-	"_texture_size_x": "120",
-	"_texture_size_y": "120",
-#	"_texture": preload("res://assets/enemies/lantern-flame.png"),
-	"_character_art": "GUT",
-}
-
-const BASIC_HAND := [
-	"Interpretation",
-	"Interpretation",
-	"Confidence",
-	"Confidence",
-	"Nothing to Fear",
-]
-
-# The standard interpretation damage
-const DMG := 6
-const DEF := 5
-const X_ATTACK_SCRIPT := {
-	"manual": {
-		"hand": [
-			{
-				"name": "modify_damage",
-				"subject": "target",
-				"needs_subject": true,
-				"amount": DMG,
-				"x_modifier": '0',
-				"x_operation": "multiply",
-				"tags": ["Attack", "Card"],
-				"filter_state_subject": [{
-					"filter_group": "EnemyEntities",
-				},],
-			},
-		],
-	},
-}
-const REPEAT = 3
-const REPEAT_ATTACK_SCRIPT := {
-	"manual": {
-		"hand": [
-			{
-				"name": "modify_damage",
-				"subject": "target",
-				"needs_subject": true,
-				"amount": DMG,
-				"repeat": REPEAT,
-				"tags": ["Attack", "Card"],
-				"filter_state_subject": [{
-					"filter_group": "EnemyEntities",
-				},],
-			},
-		],
-	},
-}
-const MULTI_ATTACK_SCRIPT := {
-	"manual": {
-		"hand": [
-			{
-				"name": "modify_damage",
-				"subject": "boardseek",
-				"needs_subject": true,
-				"subject_count": "all",
-				"amount": DMG,
-				"tags": ["Attack", "Card"],
-				"filter_state_seek": [{
-					"filter_group": "EnemyEntities",
-				},],
-			},
-		],
-	},
-}
-const BIG_ATTACK_SCRIPT := {
-	"manual": {
-		"hand": [
-			{
-				"name": "modify_damage",
-				"subject": "target",
-				"needs_subject": true,
-				"amount": DMG * 5,
-				"x_modifier": '0',
-				"x_operation": "multiply",
-				"tags": ["Attack", "Card"],
-				"filter_state_subject": [{
-					"filter_group": "EnemyEntities",
-				},],
-			},
-		],
-	},
-}
-const BIG_DEFENCE_SCRIPT := {
-	"manual": {
-		"hand": [
-			{
-				"name": "assign_defence",
-				"tags": ["Card"],
-				"subject": "dreamer",
-				"amount": DEF * 5,
-			},
-		],
-	},
-}
-const EXERT_SCRIPT := {
-	"manual": {
-		"hand": [
-			{
-				"name": "modify_damage",
-				"subject": "dreamer",
-				"amount": 5,
-				"tags": ["Exert", "Card"],
-			},
-		],
-	},
-}
-const EFFECT_SCRIPT := {
-	"manual": {
-		"hand": [
-			{
-				"name": "apply_effect",
-				"tags": ["Card"],
-				"effect_name": Terms.ACTIVE_EFFECTS.vulnerable.name,
-				"subject": "dreamer",
-				"modification": 1
-			},
-		],
-	},
-}
 # For easy access
 var dreamer: PlayerEntity
 var turn: Turn
@@ -166,6 +30,7 @@ var card: DreamCard
 var test_scripts := {}
 
 func before_each():
+	.before_each()
 	var confirm_return = setup_board()
 	if confirm_return is GDScriptFunctionState: # Still working.
 		confirm_return = yield(confirm_return, "completed")
@@ -201,15 +66,11 @@ func before_each():
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), -80)
 
 func after_each():
-	teardown_hypnagonia_testing()
+	.teardown_hypnagonia_testing()
 	card = null
 	test_scripts.clear()
 	test_torments.clear()
 	yield(yield_for(0.1), YIELD)
-
-
-func after_all():
-	globals.test_flags.clear()
 
 
 func spawn_test_torments() -> void:
@@ -281,15 +142,15 @@ func memexecute(memory: Memory, target: CombatEntity = null):
 		yield(yield_to(sceng, "tasks_completed", 0.2), YIELD)
 	return(sceng)
 
-func setup_deckpile_cards(cards: Array) -> Array:
+func setup_deckpile_cards(_cards: Array) -> Array:
 	var spawned_cards := []
-	for c in cards:
+	for c in _cards:
 		var ce = CardEntry.new(c)
-		var card = ce.instance_self()
-		cfc.NMAP.deck.add_child(card)
+		var _card = ce.instance_self()
+		cfc.NMAP.deck.add_child(_card)
 		#card.set_is_faceup(false,true)
-		card._determine_idle_state()
-		spawned_cards.append(card)
+		_card._determine_idle_state()
+		spawned_cards.append(_card)
 	for c in spawned_cards:
 		c.set_to_idle()
 	return(spawned_cards)

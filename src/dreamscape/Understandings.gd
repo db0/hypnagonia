@@ -8,6 +8,7 @@ extends Reference
 const EXCLUDED_UNDERSTANDINGS := [
 	"Subsconscious",
 	"Hyena",
+	"Chasm",
 ]
 
 # Gathers all perturbations that can be given to the player

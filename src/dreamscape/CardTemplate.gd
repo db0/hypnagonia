@@ -459,10 +459,13 @@ func highlight_modified_properties() -> void:
 			var current_property = get_property(property)
 			if property in CardConfig.PROPERTIES_NUMBERS:
 				var value_text := str(current_property)
-				if current_property != printed_properties.get(property)\
+				# To catch comparing things like 'X' to 0
+				if str(current_property) != str(printed_properties.get(property))\
 						and value_text != label_node.text:
 					card_front.set_label_text(label_node,value_text)
-				if current_property < printed_properties.get(property):
+				if typeof(current_property) != typeof(printed_properties.get(property)):
+					label_node.modulate = Color(1,1,0)
+				elif current_property < printed_properties.get(property):
 					label_node.modulate = Color(0,1,0)
 				elif current_property > printed_properties.get(property):
 					label_node.modulate = Color(1,0,0)

@@ -85,7 +85,9 @@ func _ready() -> void:
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.enemy] = 400
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.artifact] = 400
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.shop] = 11
+# warning-ignore:return_value_discarded
 		globals.player.add_memory(MemoryDefinitions.RerollShop.canonical_name)
+# warning-ignore:return_value_discarded
 		globals.player.add_memory(MemoryDefinitions.DefendSelf.canonical_name)
 #		globals.player.find_memory(MemoryDefinitions.RerollShop.canonical_name).upgrades_amount += 5
 		# We're doing a connect here, because the globals.deck will not exist during its ready
@@ -318,6 +320,7 @@ func _on_shop_artifact_selected(index: int, shop_artifact_object) -> void:
 	if globals.player.pathos.released[pathos] < all_artifact_choices[index].cost:
 		return
 	globals.player.pathos.spend_pathos(pathos, all_artifact_choices[index].cost)
+# warning-ignore:return_value_discarded
 	globals.player.add_artifact(shop_artifact_object.shop_artifact_display.canonical_name)
 	shop_artifact_object.modulate.a = 0
 
@@ -331,6 +334,7 @@ func _on_shop_memory_selected(index: int, shop_memory_object) -> void:
 		var existing_memory = globals.player.find_memory(shop_memory_object.shop_artifact_display.canonical_name)
 		existing_memory.upgrade()
 	else:
+# warning-ignore:return_value_discarded
 		globals.player.add_memory(shop_memory_object.shop_artifact_display.canonical_name)
 	shop_memory_object.modulate.a = 0
 

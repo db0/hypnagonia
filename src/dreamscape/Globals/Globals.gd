@@ -16,7 +16,25 @@ var unused_journal_texts := {}
 var card_back_texture_selection := 0
 var run_unlocks := {}
 # For Unit Testing
-var test_flags := {}
+var test_flags := {
+	### REFERENCES ###
+#	# Loads the initial player deck to he board deck
+#	"test_initial_hand": false, 
+#	# prevents initial hand being drawn
+#	"no_refill": true, 
+#	# prevents starting artifacts being added
+#	"disable_starting_artifacts": false, 
+#	# prevents delay at end of turn
+#	"no_end_turn_delay": true, 
+#	# disables random board background
+#	"disable_board_background": true, 
+#	# disables board journal fade out
+#	"no_journal_fade": true, 
+#	# Custom curio definitions for testing
+#	"artifact_defintions": {}, 
+#	# Custom memory definitions for testing
+#	"memory_defintions": {}, 
+}
 
 
 # Test setup. This should happen at game start

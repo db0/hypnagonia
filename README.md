@@ -83,6 +83,8 @@ If you encounter a bug, please use the [issue tracker](https://github.com/db0/hy
 * If it is a minor issue, such as a specific element (e.g. a card) not working as intended, a memory not doing anything etc, it is enough to write the element that failed and how. You do not need to attach the console output for these, unless the game also broke.
 * If the game itself stopped working (Black screen, Frozen, or you saw the force-unstuck report), please also attach the console output (see instructions below)
 
+Feel free to also join our [matrix support channel](https://matrix.to/#/#hypnagonia-support:matrix.org) and ask questions directly.
+
 ### Console on Windows/Linux/MacOS
 
 Running the game will automatically open a console window. Simply copy-paste all the contents in a file and upload with your issue report.
@@ -113,4 +115,4 @@ We have people doing the following, but we can always use more help:
 
 If you want to contribute some individual pieces of content, please see our [Content Contribution Guide](CONTRIBUTING.md)
 
-If any of these interest you, please contact us on [discord](https://discord.gg/MqTMVDCbR3) or [itch.io](https://itch.io/t/1743902/looking-for-collaborators)
+If any of these interest you, please contact us on [matrix](https://matrix.to/#/#hypnagonia:matrix.org), [discord](https://discord.gg/MqTMVDCbR3) or [itch.io](https://itch.io/t/1743902/looking-for-collaborators)

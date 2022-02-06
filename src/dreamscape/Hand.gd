@@ -1,6 +1,7 @@
 extends Hand
 
 signal hand_refilled
+signal hand_emptied
 
 var is_hand_refilled := false
 func _ready() -> void:
@@ -13,6 +14,7 @@ func empty_hand() -> void:
 			continue
 		yield(get_tree().create_timer(0.05), "timeout")
 		card.move_to(cfc.NMAP.discard)
+	emit_signal("hand_emptied")
 
 func refill_hand(amount = 5) -> void:
 	for _iter in range(amount):
@@ -54,5 +56,5 @@ func _on_player_turn_started(_turn: Turn) -> void:
 func _on_player_turn_ended(_turn: Turn) -> void:
 	var retcode  = empty_hand()
 	if retcode is GDScriptFunctionState:
-		retcode = yield(retcode, "completed")	
+		retcode = yield(retcode, "completed")
 	refill_hand()
