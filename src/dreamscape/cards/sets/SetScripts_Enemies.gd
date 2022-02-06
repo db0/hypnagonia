@@ -949,6 +949,108 @@ const scripts := {
 			],
 		},
 	},
+	"Chasm": {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_properties",
+					"tags": ["Card"],
+					"set_properties": {"Cost": "-1"},
+					"subject": "tutor",
+					"sort_by": "random",
+					"src_container": "hand",
+					"filter_state_tutor": [
+						{
+							"filter_properties": {
+								"comparison": "ne",
+								"Cost": 'X'
+							},
+							"filter_properties3": {
+								"comparison": "ne",
+								"Cost": 'U'
+							},
+							"filter_properties2": {
+								"comparison": "ne",
+								"Cost": 0
+							},
+						},
+					]
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": "forgotten",
+					"tags": ["Played", "Card"],
+				},
+			],
+		},
+	},
+	"Yawning Chasm": {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_properties",
+					"tags": ["Card"],
+					"set_properties": {"Cost": "-1"},
+					"subject": "tutor",
+					"sort_by": "random",
+					"src_container": "hand",
+					"filter_state_tutor": [
+						{
+							"filter_properties": {
+								"comparison": "ne",
+								"Cost": 'X'
+							},
+							"filter_properties3": {
+								"comparison": "ne",
+								"Cost": 'U'
+							},
+							"filter_properties2": {
+								"comparison": "ne",
+								"Cost": 0
+							},
+						},
+					]
+				},
+			],
+		},
+	},
+	"Steep Chasm": {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_properties",
+					"tags": ["Card"],
+					"set_properties": {"Cost": 0},
+					"subject": "tutor",
+					"sort_by": "random",
+					"src_container": "hand",
+					"filter_state_tutor": [
+						{
+							"filter_properties": {
+								"comparison": "ne",
+								"Cost": 'X'
+							},
+							"filter_properties3": {
+								"comparison": "ne",
+								"Cost": 'U'
+							},
+							"filter_properties2": {
+								"comparison": "ne",
+								"Cost": 0
+							},
+						},
+					]
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": "forgotten",
+					"tags": ["Played", "Card"],
+				},
+			],
+		},
+	},
 }
 
 # This fuction returns all the scripts of the specified card name.

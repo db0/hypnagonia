@@ -1307,4 +1307,47 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"Chasm": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "The cost of a random card in your hand is reduced by {reduction_amount} for the rest of combat.\n{forget}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"reduction_amount": 1,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"Yawning Chasm",
+			"Steep Chasm",
+		],
+	},
+	"Yawning Chasm": {
+		"Type": "Understanding",
+		"Tags": [],
+		"Abilities": "The cost of a random card in your hand is reduced by {reduction_amount} for the rest of combat.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"reduction_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"Steep Chasm": {
+		"Type": "Understanding",
+		"Tags": [],
+		"Abilities": "The cost of a random card in your hand is reduced to {reduction_amount} for the rest of combat.\n{forget}.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"reduction_amount": 0,
+		},
+		"_is_upgrade": true,
+	},
 }

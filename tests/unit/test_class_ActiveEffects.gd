@@ -152,6 +152,7 @@ class TestMethods:
 		assert_eq_shallow(ae.sceng_snapshot_modifiers, {"Rebalance":5})
 
 	func test_snapshot_effect_existing() -> void:
+		# warning-ignore:return_value_discarded
 		ae.mod_effect(test_effect)
 		ae.snapshot_effect(test_effect, 5, false, [])
 		assert_signal_emit_count(ae, "effect_added", 1)
@@ -160,13 +161,14 @@ class TestMethods:
 		assert_eq_shallow(ae.sceng_snapshot_modifiers, {"Rebalance":6})
 
 	func test_effect_with_noscript() -> void:
+		# warning-ignore:return_value_discarded
 		ae.mod_effect(test_effect)
 		assert_signal_emit_count(ae, "effect_added", 1)
 		var signal_details = get_signal_parameters(ae, "effect_added")
 		if not signal_details:
 			return
 		var effect : CombatEffect = signal_details[0]
-
+		assert_eq(effect.script, CombatEffect, "Assert no extra script added")
 
 
 class TestOpposites:
