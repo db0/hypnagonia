@@ -8,6 +8,7 @@ extends Reference
 const EXCLUDED_PERTURBATIONS := [
 	"Dread",
 	"Dubious Painkillers",
+	"Scattered Dreams",
 ]
 
 # Gathers all perturbations that can be given to the player
