@@ -516,7 +516,7 @@ const ENEMIES = [
 ]
 
 const RushElite = {
-	"scene": preload("res://src/dreamscape/CombatElements/Enemies/Elites/RushElite.tscn"),
+	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/RushElite.tscn")],
 	"journal_description":\
 		'I remember walls enclosing me and no obvious way out...',
 	"journal_reward":\
@@ -524,7 +524,7 @@ const RushElite = {
 	'journal_art': preload("res://assets/journal/advanced/labyrinth.jpeg"),
 }
 const Bully = {
-	"scene": preload("res://src/dreamscape/CombatElements/Enemies/Elites/Bully.tscn"),
+	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/Bully.tscn")],
 	"journal_description":\
 		'My mind took me back to uncomfortable memories of schoolyard bullying.',
 	"journal_reward":\
@@ -538,7 +538,7 @@ const ELITES = [
 ]
 
 const Narcissus = {
-	"scene": preload("res://src/dreamscape/CombatElements/Enemies/Bosses/Narcissus.tscn"),
+	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Bosses/Narcissus.tscn")],
 	"journal_description":\
 		'I found someone I am sure I know, but I can\'t quite remember who.'\
 		+ 'I found them gazing in a mirror, or was it a lake? They turned their attention to me...',

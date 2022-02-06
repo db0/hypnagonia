@@ -90,7 +90,7 @@ func setup_hypnagonia_testing() -> void:
 #	gut.p(cfc.rng_saved_state)
 #	print_debug([cfc.game_rng.seed, cfc.game_rng.state])
 	cfc.game_rng.state = -6332740101472756719
-#	print_debug([cfc.game_rng.seed, cfc.game_rng.state])
+	print_debug([cfc.game_rng.seed, cfc.game_rng.state])
 	NewGameMenu.randomize_aspect_choices()
 	globals.player.setup()
 	globals.player.health = PLAYER_HEALTH
