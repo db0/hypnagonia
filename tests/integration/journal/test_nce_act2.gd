@@ -587,7 +587,10 @@ class TestHangingOn:
 		assert_signal_emitted(globals.player.deck, "card_added")
 		var removed_cards_signal = get_signal_parameters(globals.player.deck, "card_removed")
 		var added_cards_signal = get_signal_parameters(globals.player.deck, "card_added")
-		if removed_cards_signal.size() == 0 or added_cards_signal.size() == 0:
+		if not removed_cards_signal\
+				or not added_cards_signal \
+				or removed_cards_signal.size() == 0\
+				or added_cards_signal.size() == 0:
 			return
 		var removed_card: CardEntry = removed_cards_signal[0]
 		var added_card: CardEntry = added_cards_signal[0]

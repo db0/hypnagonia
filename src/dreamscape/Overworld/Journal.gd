@@ -224,12 +224,18 @@ func spawn_selection_deck() -> SelectionDeck:
 	return(selection_deck)
 
 
-func prepare_popup_card(card_name: String) -> void:
-	if not popup_cards.has(card_name):
-		var popup_card = CARD_PREVIEW_SCENE.instance()
-		card_storage.add_child(popup_card)
-		popup_card.setup(card_name)
-		popup_cards[card_name] = popup_card
+func prepare_popup_card(card) -> void:
+	var popup_card = CARD_PREVIEW_SCENE.instance()
+	card_storage.add_child(popup_card)
+	if typeof(card) == TYPE_STRING:
+		if not popup_cards.has(card):
+			popup_card.setup(card)
+			popup_cards[card] = popup_card
+	else:
+		if not popup_cards.has(card.get_instance_id()):
+			popup_card.setup(card.instance_self(true))
+			popup_cards[card.get_instance_id()] = popup_card
+			print_debug(popup_cards)
 
 
 func prepare_popup_artifact(artifact_name: String) -> void:
@@ -261,6 +267,9 @@ func _on_meta_hover_started(meta_text: String) -> void:
 		"popup_card":
 			var card_name : String = meta_tag["name"]
 			popup_cards[card_name]._on_GridCardObject_mouse_entered()
+		"popup_card_entry":
+			var card_entry_id : int = meta_tag["name"]
+			popup_cards[card_entry_id]._on_GridCardObject_mouse_entered()
 		"popup_artifact":
 			var artifact_name : String = meta_tag["name"]
 			popup_cards[artifact_name].show_preview_artifact()
@@ -276,6 +285,9 @@ func _on_meta_hover_ended(meta_text: String) -> void:
 		"popup_card":
 			var card_name : String = meta_tag["name"]
 			popup_cards[card_name]._on_GridCardObject_mouse_exited()
+		"popup_card_entry":
+			var card_entry_id : int = meta_tag["name"]
+			popup_cards[card_entry_id]._on_GridCardObject_mouse_exited()
 		"popup_artifact":
 			var artifact_name : String = meta_tag["name"]
 			popup_cards[artifact_name].hide_preview_artifact()
@@ -482,12 +494,13 @@ func _input(event):
 		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, 48)
 #		globals.player.damage = 85
 		var debug_encounters = [
-			EnemyEncounter.new(Act1.Murmurs, "easy"),
+#			EnemyEncounter.new(Act1.Murmurs, "easy"),
 #			EnemyEncounter.new(Act2.TrafficJam, "easy"),
 #			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
+			preload("res://src/dreamscape/Run/NCE/Act3/MultipleDestroys.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act2/HangingOn.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd").new(),
-			BossEncounter.new(Act3.BOSSES["Fear_and Phobia"]),
+#			BossEncounter.new(Act3.BOSSES["Fear_and Phobia"]),
 #			EliteEncounter.new(Act2.Jumbletron, "medium"),
 			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
 		]

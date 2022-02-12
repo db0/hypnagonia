@@ -95,6 +95,7 @@ const NCE := {
 	"easy": {
 	},
 	"risky": {
+		"MultipleDestroys": preload("res://src/dreamscape/Run/NCE/Act3/MultipleDestroys.gd"),
 	}
 }
 

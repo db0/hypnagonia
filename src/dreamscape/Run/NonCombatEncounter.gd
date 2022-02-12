@@ -9,6 +9,10 @@ const NCE_POPUP_DICT := {
 	"name": '',
 	"meta_type": "popup_card",
 }
+const NCE_CARD_ENTRY_POPUP_DICT := {
+	"name": '',
+	"meta_type": "popup_card_entry",
+}
 const ARTIFACT_POPUP_DICT := {
 	"name": '',
 	"meta_type": "popup_artifact",
@@ -25,13 +29,19 @@ func get_meta_hover_description(_meta_tag: String) -> String:
 	return('')
 
 
-func _prepare_card_popup_bbcode(card_name: String, url_text: String) -> String:
-	var popup_tag = NCE_POPUP_DICT.duplicate(true)
-	popup_tag["name"] = card_name
+# 'card' can be either a card name string, or a CardEntry
+func _prepare_card_popup_bbcode(card, url_text: String) -> String:
+	var popup_tag :Dictionary= NCE_POPUP_DICT.duplicate(true)
+	if typeof(card) == TYPE_STRING:
+		popup_tag = NCE_POPUP_DICT.duplicate(true)
+		popup_tag["name"] = card
+		globals.journal.prepare_popup_card(card)
+	else:
+		popup_tag = NCE_CARD_ENTRY_POPUP_DICT.duplicate(true)
+		popup_tag["name"] = card.get_instance_id()
+		globals.journal.prepare_popup_card(card)
 	var url_bbcode := "[url=%s]%s[/url]" % [JSON.print(popup_tag), url_text]
-	globals.journal.prepare_popup_card(card_name)
 	return(url_bbcode)
-
 
 # This also handles memories
 func _prepare_artifact_popup_bbcode(artifact_name: String, url_text: String) -> String:
