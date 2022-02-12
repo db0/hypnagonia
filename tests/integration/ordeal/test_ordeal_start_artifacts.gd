@@ -179,3 +179,23 @@ class TestStartingDisempower:
 			assert_eq(torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.disempower.name), 
 					get_amount("effect_stacks"),
 					"All Torments should have received disempower")
+
+class TestStartingVulnerable:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		globals.test_flags["start_ordeal_before_each"] = false
+		torments_amount = 3
+		testing_artifact_name = ArtifactDefinitions.StartingVulnerable.canonical_name
+		expected_amount_keys = [
+			"effect_stacks",
+		]
+		
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		board.call_deferred("begin_encounter")
+		yield(yield_to(artifact, "artifact_triggered", 1), YIELD)
+		for torment in test_torments:
+			assert_eq(torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.vulnerable.name), 
+					get_amount("effect_stacks"),
+					"All Torments should have received vulnerable")
