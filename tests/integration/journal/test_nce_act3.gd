@@ -93,3 +93,93 @@ class TestArtifactReward:
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_not_emitted(globals.player, "artifact_added")
 		assert_pathos_signaled("released_pathos_gained", porg.low)
+
+
+class TestSubconsciousProcessing:
+	extends  "res://tests/HUT_Journal_NCETestClass.gd"
+	func _init() -> void:
+		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act3/SubconsciousProcessing.gd")
+
+	func test_comment():
+		var choice = "comment"
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		activate_secondary_choice_by_key(choice)
+		var new_choice = journal.entries_list.get_node("CustomDraft")
+		watch_signals(globals.player.deck)
+		if new_choice:
+			assert_eq(new_choice.draft_nodes.size(), nce.DRAFTS[choice])
+			new_choice._execute_custom_entry()
+			yield(yield_for(0.3), YIELD)
+			assert_not_null(new_choice, "Custom choice added to journal")
+			var draft_node : CardDraft = new_choice.draft_nodes[0].get_child(0)
+			if draft_node as CardDraft:
+				var draft_card = draft_node.get_child(1)
+				watch_signals(draft_node)
+				if draft_card as CVGridCardObject and globals.player.deck:
+					watch_signals(draft_card)
+					draft_card.select_card()
+					assert_signal_emitted(draft_card, "card_selected")
+			yield(yield_to(globals.player.deck, "card_added", 1), YIELD)
+			assert_signal_emitted(draft_node, "card_drafted")
+			assert_signal_emitted(globals.player.deck, "card_added")
+			var signal_details = get_signal_parameters(globals.player.deck, "card_added")
+			assert_is(signal_details[0], CardEntry)
+			var card_entry: CardEntry = signal_details[0]
+			assert_eq(globals.player.damage, nce.DAMAGES[choice])
+
+	func test_debug():
+		var choice = "debug"
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		activate_secondary_choice_by_key(choice)
+		var new_choice = journal.entries_list.get_node("CustomDraft")
+		watch_signals(globals.player.deck)
+		if new_choice:
+			assert_eq(new_choice.draft_nodes.size(), nce.DRAFTS[choice])
+			new_choice._execute_custom_entry()
+			yield(yield_for(0.3), YIELD)
+			assert_not_null(new_choice, "Custom choice added to journal")
+			var draft_node : CardDraft = new_choice.draft_nodes[0].get_child(0)
+			if draft_node as CardDraft:
+				var draft_card = draft_node.get_child(1)
+				watch_signals(draft_node)
+				if draft_card as CVGridCardObject and globals.player.deck:
+					watch_signals(draft_card)
+					draft_card.select_card()
+					assert_signal_emitted(draft_card, "card_selected")
+			yield(yield_to(globals.player.deck, "card_added", 1), YIELD)
+			assert_signal_emitted(draft_node, "card_drafted")
+			assert_signal_emitted(globals.player.deck, "card_added")
+			var signal_details = get_signal_parameters(globals.player.deck, "card_added")
+			assert_is(signal_details[0], CardEntry)
+			var card_entry: CardEntry = signal_details[0]
+			assert_eq(globals.player.damage, nce.DAMAGES[choice])
+
+	func test_refactor():
+		var choice = "refactor"
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		activate_secondary_choice_by_key(choice)
+		var new_choice = journal.entries_list.get_node("CustomDraft")
+		watch_signals(globals.player.deck)
+		if new_choice:
+			assert_eq(new_choice.draft_nodes.size(), nce.DRAFTS[choice])
+			new_choice._execute_custom_entry()
+			yield(yield_for(0.3), YIELD)
+			assert_not_null(new_choice, "Custom choice added to journal")
+			var draft_node : CardDraft = new_choice.draft_nodes[0].get_child(0)
+			if draft_node as CardDraft:
+				var draft_card = draft_node.get_child(1)
+				watch_signals(draft_node)
+				if draft_card as CVGridCardObject and globals.player.deck:
+					watch_signals(draft_card)
+					draft_card.select_card()
+					assert_signal_emitted(draft_card, "card_selected")
+			yield(yield_to(globals.player.deck, "card_added", 1), YIELD)
+			assert_signal_emitted(draft_node, "card_drafted")
+			assert_signal_emitted(globals.player.deck, "card_added")
+			var signal_details = get_signal_parameters(globals.player.deck, "card_added")
+			assert_is(signal_details[0], CardEntry)
+			var card_entry: CardEntry = signal_details[0]
+			assert_eq(globals.player.damage, nce.DAMAGES[choice])

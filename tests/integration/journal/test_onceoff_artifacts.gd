@@ -114,7 +114,7 @@ class TestBossDraft:
 	func test_artifact_results():
 		if not assert_has_amounts():
 			return
-		var new_choice = journal.entries_list.get_node("Artifact_BossDraft")
+		var new_choice = journal.entries_list.get_node("CustomDraft")
 		assert_not_null(new_choice, "Custom choice added to journal")
 		watch_signals(globals.player.deck)
 		if new_choice:
@@ -123,6 +123,8 @@ class TestBossDraft:
 			yield(yield_for(0.3), YIELD)
 			var nested_choices_scene = new_choice.secondary_choices.get_child(0)
 			assert_not_null(nested_choices_scene, "artifact nested choices added")
+			if not nested_choices_scene:
+				return
 			assert_eq(nested_choices_scene.secondary_choices_container.get_child_count(),
 					Aspects.ARCHETYPES.size(),
 					"Correct Amount of Aspect Draft choices exist")
