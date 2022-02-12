@@ -17,6 +17,8 @@ enum EffectContext {
 	SHOP
 }
 
+const GENERIC_ARTIFACT_ICON = preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png")
+
 const MaxHealth := {
 	"canonical_name": "MaxHealth",
 	"name": "Stress-Ball",
@@ -85,7 +87,7 @@ const RepressedEnemyBuff := {
 	"name": "Fruscination",
 	"description": "{artifact_name}: At the start of each Ordeal,"\
 		+ " Gain {effect_stacks} {buffer} for each {pathos_amount} Released Frustration you have.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -93,6 +95,7 @@ const RepressedEnemyBuff := {
 		"pathos_amount": 40
 	},
 }
+
 
 const StartingImmersion := {
 	"canonical_name": "StartingImmersion",
@@ -151,7 +154,7 @@ const ThickImmersion := {
 	"name": "Weighted Blanket",
 	"description": "{artifact_name}: At that start of each Ordeal turn, gain {immersion_amount} {immersion}. "\
 		+ "This effects ends when your deck is reshuffled and you gain {effect_stacks} {vulnerable}.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -245,7 +248,7 @@ const ResistDisempower := {
 	"canonical_name": "ResistDisempower",
 	"name": "ResistConfusion",
 	"description": "{artifact_name}: You cannot receive {disempower} anymore.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.BATTLE,
 	"rarity": "Rare",
 }
@@ -268,7 +271,7 @@ const ResistBurn := {
 	"canonical_name": "ResistBurn",
 	"name": "ResistEnvy",
 	"description": "{artifact_name}: Any time you would receive {burn} reduce it by {alteration_amount}.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -281,7 +284,7 @@ const ResistVulnerable := {
 	"canonical_name": "ResistVulnerable",
 	"name": "ResistShaken",
 	"description": "{artifact_name}: You cannot receive {vulnerable} anymore.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.BATTLE,
 	"rarity": "Rare",
 
@@ -305,7 +308,7 @@ const ImprovePoison := {
 	"canonical_name": "ImprovePoison",
 	"name": "ImproveDoubt",
 	"description": "{artifact_name}: Any time you would inflict {poison}, inflict {alteration_amount} more.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -332,7 +335,7 @@ const ThickExplosion := {
 	"name": "ThickExplosion",
 	"description": "{artifact_name}: The first time you reshuffle your deck because it run out of cards, "\
 		+ "deal damage to all enemies equal to your discard pile.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.BATTLE,
 	"rarity": "Rare",
 }
@@ -342,7 +345,7 @@ const AccumulateEnemy := {
 	"canonical_name": "AccumulateEnemy",
 	"name": "Repressed Frustration",
 	"description": "{artifact_name}: Increase your repressed Frustration by {pathos_amount}",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"amounts": {
@@ -353,7 +356,7 @@ const AccumulateRest := {
 	"canonical_name": "AccumulateRest",
 	"name": "Repressed Lethargy",
 	"description": "{artifact_name}: Increase your repressed Lethargy by {pathos_amount}",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"amounts": {
@@ -364,7 +367,7 @@ const AccumulateNCE := {
 	"canonical_name": "AccumulateNCE",
 	"name": "Repressed Curiosity",
 	"description": "{artifact_name}: Increase your repressed Curiosity by {pathos_amount}",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"amounts": {
@@ -375,7 +378,7 @@ const AccumulateShop := {
 	"canonical_name": "AccumulateShop",
 	"name": "Repress Loneliness",
 	"description": "{artifact_name}: Increase your repressed Loneliness by {pathos_amount}",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"amounts": {
@@ -386,7 +389,7 @@ const AccumulateElite := {
 	"canonical_name": "AccumulateElite",
 	"name": "Repressed Foreboding",
 	"description": "{artifact_name}: Increase your repressed Foreboding by {pathos_amount}",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"amounts": {
@@ -397,7 +400,7 @@ const AccumulateArtifact := {
 	"canonical_name": "AccumulateArtifact",
 	"name": "Repressed Desire",
 	"description": "{artifact_name}: Increase your repressed Desire by {pathos_amount}",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"amounts": {
@@ -442,7 +445,7 @@ const ImproveFortify := {
 	"canonical_name": "ImproveFortify",
 	"name": "Ataraxia",
 	"description": "{artifact_name}: Whenever you lose {fortify}, gain that many stacks {armor}.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
 }
@@ -599,7 +602,7 @@ const IncreaseRandomDamage := {
 	"canonical_name": "IncreaseRandomDamage",
 	"name": "Masterwork Looking Glass",
 	"description": "{artifact_name}: A random card dealing {damage} in your deck, will increase its {damage} by 1.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 }
@@ -608,7 +611,7 @@ const IncreaseRandomDefence := {
 	"canonical_name": "IncreaseRandomDefence",
 	"name": "Fancy Nail Coat",
 	"description": "{artifact_name}: A random card giving {defence} in your deck, will increase its {defence} by 1.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 }
@@ -635,7 +638,7 @@ const BetterArtifactChance := {
 	"canonical_name": "BetterArtifactChance",
 	"name": "Supportive Plushie",
 	"description": "{artifact_name}: The quality of the curios your find is increased.",
-	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Encounter",
 	"amounts": {
@@ -644,12 +647,26 @@ const BetterArtifactChance := {
 	},
 }
 
+
+const StartingDisempower := {
+	"canonical_name": "StartingDisempower",
+	"name": "StartingDisempower",
+	"description": "{artifact_name}: At the start of each Ordeal, apply {effect_stacks} {disempower} to all Torments.",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.BATTLE,
+	"rarity": "Encounter",
+	"amounts": {
+		"effect_stacks": 1
+	},
+}
+
+
 ## TODO. Scipt base doesn't exist yet
 #const DoubleMemory := {
 #	"canonical_name": "DoubleMemory",
 #	"name": "Memento",
 #	"description": "{artifact_name}: Double the effect of a random memory",
-#	"icon": preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png"),
+#	"icon": GENERIC_ARTIFACT_ICON,
 #	"context": EffectContext.OVERWORLD,
 #	"rarity": "Rare",
 #}
@@ -715,6 +732,7 @@ const ENCOUNTER := [
 	BetterRareChance,
 	BetterArtifactChance,
 	PerturbationHeal,
+	StartingDisempower,
 ]
 
 const BOSS := [

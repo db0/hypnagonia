@@ -467,7 +467,7 @@ func _input(event):
 #		for c in  globals.player.deck.get_progressing_cards():
 #			c.upgrade_progress = c.upgrade_threshold
 #		_reveal_entry(upgrade_journal, true)
-#		globals.player.add_artifact(ArtifactDefinitions.BetterArtifactChance.canonical_name)
+#		globals.player.add_artifact(ArtifactDefinitions.StartingDisempower.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.IncreaseRandomDamage.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.FreeCard.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
