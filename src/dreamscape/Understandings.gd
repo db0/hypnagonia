@@ -6,7 +6,7 @@ extends Reference
 # Typically those are perturbations given by enemies that should last
 # only the combat and are not meant to be permanent in the deck
 const EXCLUDED_UNDERSTANDINGS := [
-	"Subsconscious",
+	"Subconscious",
 	"Hyena",
 	"Chasm",
 ]

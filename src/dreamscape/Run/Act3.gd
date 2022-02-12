@@ -87,12 +87,13 @@ const FearAndPhobia = {
 }
 
 const BOSSES := {
-	"Fear_and Phobia": FearAndPhobia
+	"Fear_and_Phobia": FearAndPhobia
 }
 
 
 const NCE := {
 	"easy": {
+		"ArtifactReward": preload("res://src/dreamscape/Run/NCE/Act3/ArtifactReward.gd"),
 	},
 	"risky": {
 		"MultipleDestroys": preload("res://src/dreamscape/Run/NCE/Act3/MultipleDestroys.gd"),

@@ -17,6 +17,7 @@ var draft_card_choices : Array
 # This will store the final card chosen by the player to draft.
 var selected_draft: CardEntry
 var card_draft_type: String
+var special_draft_payload
 
 func _process(_delta: float) -> void:
 	# Stupid thing doesn't update automatically after resizing the children inside it
@@ -148,33 +149,13 @@ func retrieve_boss_draft() -> void:
 					draft_card_choices.append(card_name)
 					break
 
-# For now the only custom draft we have is an aspect-only draft for the BossDraft
-# so if we enter this method, we only look for the requirements of that Artifact
-# If I add more custom draft options, then I'll need to refactor this logic
-# with a regex. But it will do for now.
-func retrieve_custom_draft(aspect: String) -> void:
-	draft_card_choices.clear()
-	for _iter in range(get_draft_amount()):
-		var card_names: Array
-		var chance := CFUtils.randf_range(0.0, 1.0)
-#		print_debug(str(rare_chance) + ' : ' + str(rare_chance + uncommon_chance))
-		if chance <= get_rare_chance():
-#			print_debug('Rare: ' + str(chance))
-			card_names = globals.player.compile_rarity_cards('Rare', aspect)
-		elif chance <= get_rare_chance() + get_uncommon_chance():
-#			print_debug('Uncommon: ' + str(chance))
-			card_names = globals.player.compile_rarity_cards('Uncommon', aspect)
-		else:
-#			print_debug('common: ' + str(chance))
-			card_names = globals.player.compile_rarity_cards('Common', aspect)
-		CFUtils.shuffle_array(card_names)
-		if card_names.size():
-			for card_name in card_names:
-				if not card_name in draft_card_choices:
-					draft_card_choices.append(card_name)
-					# This break ensures we only add one card from the pool
-					# of availabkle cards of that rarity
-					break
+
+func retrieve_custom_draft(card_draft_type: String) -> void:
+	match card_draft_type:
+		"artifact_boss_draft":
+			_initiate_artifact_boss_draft()
+		"nce_subconscious_processing":
+			_initiate_nce_subconscious_processing_draft()
 
 
 func get_uncommon_chance() -> float:
@@ -202,3 +183,43 @@ func get_draft_amount() -> int:
 		if addition:
 			value += addition
 	return(value)
+
+
+func _initiate_artifact_boss_draft() -> void:
+	var aspect = special_draft_payload
+	draft_card_choices.clear()
+	for _iter in range(get_draft_amount()):
+		var card_names: Array
+		var chance := CFUtils.randf_range(0.0, 1.0)
+#		print_debug(str(rare_chance) + ' : ' + str(rare_chance + uncommon_chance))
+		if chance <= get_rare_chance():
+#			print_debug('Rare: ' + str(chance))
+			card_names = globals.player.compile_rarity_cards('Rare', aspect)
+		elif chance <= get_rare_chance() + get_uncommon_chance():
+#			print_debug('Uncommon: ' + str(chance))
+			card_names = globals.player.compile_rarity_cards('Uncommon', aspect)
+		else:
+#			print_debug('common: ' + str(chance))
+			card_names = globals.player.compile_rarity_cards('Common', aspect)
+		CFUtils.shuffle_array(card_names)
+		if card_names.size():
+			for card_name in card_names:
+				if not card_name in draft_card_choices:
+					draft_card_choices.append(card_name)
+					# This break ensures we only add one card from the pool
+					# of available cards of that rarity
+					break
+
+func _initiate_nce_subconscious_processing_draft() -> void:
+	draft_card_choices.clear()
+	for _iter in range(get_draft_amount()):
+		var card_names: Array = globals.player.compile_card_type('Understanding')
+		CFUtils.shuffle_array(card_names)
+		if card_names.size():
+			for card_name in card_names:
+				if not card_name in draft_card_choices:
+					draft_card_choices.append(card_name)
+					# This break ensures we only add one card from the pool
+					# of available understandings for this run
+					break
+

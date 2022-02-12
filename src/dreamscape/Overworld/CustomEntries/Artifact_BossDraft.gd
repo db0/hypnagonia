@@ -1,26 +1,17 @@
-extends JournalCustomEntry
+extends JournalCustomDraft
 
-const CARD_DRAFT_SCENE = preload("res://src/dreamscape/Overworld/CardDraftSlide.tscn")
-
-var draft_nodes := []
-
-onready var description := $Description
-onready var secondary_choices := $SecondaryChoices
-
-func _ready() -> void:
+func _setup() -> void:
+	custom_draft_name = "artifact_boss_draft"
+	draft_amount = ArtifactDefinitions.BossDraft.amounts.draft_amount
 	description.bbcode_text = "It was time to drink that curious beer that I discovered.\n"\
-			+ "[Draft %s cards from one of your aspects]" % [ArtifactDefinitions.BossDraft.amounts.draft_amount]
-	for _iter in range(ArtifactDefinitions.BossDraft.amounts.draft_amount):
-		var card_draft = CARD_DRAFT_SCENE.instance()
-		add_child(card_draft)
-		draft_nodes.append(card_draft)
-	_reveal_entry(description, true)
+			+ "[Draft %s cards from one of your aspects]" % [draft_amount]
+
 
 func _execute_custom_entry() -> void:
 	var secondary_choices_dict := {}
 	for aspect in globals.player.deck_groups:
 		secondary_choices_dict[aspect] = "Draft %s cards from my %s aspect (%s)" % [
-				ArtifactDefinitions.BossDraft.amounts.draft_amount,
+				draft_amount,
 				aspect, 
 				globals.player.deck_groups[aspect]
 			]
@@ -28,9 +19,8 @@ func _execute_custom_entry() -> void:
 
 
 func continue_encounter(key) -> void:
-	for draft_node in draft_nodes:
-		draft_node.get_node("CardDraft").connect("card_drafted", self, "_on_card_drafted")
-		draft_node.get_node("CardDraft").display(key)
+	draft_payload = key
+	initiate_custom_draft()
 
 
 func _on_card_drafted(card: CardEntry) -> void:
