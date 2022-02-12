@@ -128,7 +128,7 @@ class TestCounterMeasureCalculations:
 	extends "res://tests/HUTCommon.gd"
 	const NCE = preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd")
 	const RECURRENCE_ELITE = {
-		"scene": preload("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")
+		"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")]
 	}
 	const RECURRENCE_SURPRISE = preload("res://src/dreamscape/Run/NCE/AllActs/RecurrenceCombatEncounter.gd")
 
