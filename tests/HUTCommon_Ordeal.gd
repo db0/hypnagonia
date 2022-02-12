@@ -70,7 +70,6 @@ func after_each():
 	card = null
 	test_scripts.clear()
 	test_torments.clear()
-	test_card_names.clear()
 	yield(yield_for(0.1), YIELD)
 
 

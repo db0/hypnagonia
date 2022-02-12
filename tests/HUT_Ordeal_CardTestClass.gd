@@ -5,7 +5,8 @@ var expected_amount_keys := []
 
 
 func before_each():
-	test_card_names.append(testing_card_name)
+	if testing_card_name and not testing_card_name in test_card_names:
+		test_card_names.append(testing_card_name)
 	var confirm_return = .before_each()
 	if confirm_return is GDScriptFunctionState: # Still working.
 		confirm_return = yield(confirm_return, "completed")
