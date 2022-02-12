@@ -497,7 +497,7 @@ func _input(event):
 #			EnemyEncounter.new(Act1.Murmurs, "easy"),
 #			EnemyEncounter.new(Act2.TrafficJam, "easy"),
 #			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
-			preload("res://src/dreamscape/Run/NCE/Act3/MultipleDestroys.gd").new(),
+			preload("res://src/dreamscape/Run/NCE/Act3/ArtifactReward.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act2/HangingOn.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd").new(),
 #			BossEncounter.new(Act3.BOSSES["Fear_and Phobia"]),
