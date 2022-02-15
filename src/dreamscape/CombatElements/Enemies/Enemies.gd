@@ -575,6 +575,53 @@ const VOID := {
 #	"_texture": preload("res://assets/enemies/slavery-whip.png"),
 	"_character_art": "Nobody"
 }
+const UNNAMED1 := {
+	"Name": "Unnamed Torment 1", 
+	"Type": "Absurdity",
+	"Health": 100,
+	"Intents": [
+		{
+			"intent_scripts": ["Stress:10","Summon Minion 1"],
+			"reshuffle": true,
+			"max_in_a_row": 1,
+		},
+		{
+			"intent_scripts": ["Summon Minion 1", "PerplexGroup:5"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Debuff:1:marked", "Summon Minion 1"],
+			"reshuffle": false,
+			"max_uses": 5,
+		},
+	],
+	"_health_variability": 4,
+	"_texture_size_x": "120",
+	"_texture_size_y": "120",
+#	"_texture": preload("res://assets/enemies/slavery-whip.png"),
+	"_character_art": "Nobody"
+}
+const UNNAMED_MINION1 := {
+	"Name": "Unnamed Minion 1", 
+	"Type": "Absurdity",
+	"Health": 10,
+	"Intents": [
+		{
+			"intent_scripts": ["Stress:7", "Armor The Boss"],
+			"reshuffle": true,
+			"max_in_a_row": 2,
+		},
+		{
+			"intent_scripts": ["Perplex:9", "Armor The Boss"],
+			"reshuffle": false,
+		},
+	],
+	"_health_variability": 4,
+	"_texture_size_x": "60",
+	"_texture_size_y": "60",
+#	"_texture": preload("res://assets/enemies/slavery-whip.png"),
+	"_character_art": "Nobody"
+}
 #	"Spider": {
 #		"Type": "Phobia",
 #		"Health": 1,

@@ -27,38 +27,35 @@ As an example:
 		}
 """
 
-const TrafficJam = {
+const Unnamed1 = {
 	"journal_description":\
-		'I started dreaming about my [url={torment_tag1}]daily commute traffic jam[/url].',
+		'flavour [url={torment_tag1}]tbd[/url].',
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
 	"enemies": {
 		"easy": [
 			{
-				"definition": EnemyDefinitions.TRAFFICJAM,
-				"health_modifier": -20,
+				"definition": EnemyDefinitions.UNNAMED1,
+				"health_modifier": -40,
 			},
 		],
 		"medium": [
 			{
-				"definition": EnemyDefinitions.TRAFFICJAM,
+				"definition": EnemyDefinitions.UNNAMED1,
 			},
 		],
 		"hard": [
 			{
-				"definition": EnemyDefinitions.TRAFFICJAM,
-				"health_modifier": -20,
-			},
-			{
-				"definition": EnemyDefinitions.TRAFFICJAM,
-				"health_modifier": -20,
+				"definition": EnemyDefinitions.UNNAMED1,
+				"health_modifier": +20,
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/torments/traffic_jam.jpeg"),
+#	"journal_art": preload("res://assets/journal/torments/traffic_jam.jpeg"),
 }
 
 const ENEMIES = [
+	Unnamed1,
 ]
 
 const Jumbletron = {
