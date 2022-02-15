@@ -62,6 +62,7 @@ const FILTER_STACKS = "filter_stacks"
 const FILTER_TURN_EVENT_COUNT = "filter_turn_event_count"
 const FILTER_ENCOUNTER_EVENT_COUNT = "filter_encounter_event_count"
 const FILTER_DAMAGE_PCT = "filter_damage_percent"
+#const FILTER_ENTITY_PROPERTIES = "filter_entity_properties"
 
 # This call has been setup to call the original, and allow futher extension
 # simply create new filter
@@ -216,3 +217,29 @@ static func check_effect_filter(entity, effect_states: Array) -> bool:
 					comparison_type):
 				entity_matches = false
 	return(entity_matches)
+
+
+
+## Returns true  if the card properties match against filters specified in
+## the provided card_scripts or if no card property filters were defined.
+## Otherwise returns false.
+#static func check_entity_properties(obj, property_filters: Dictionary) -> bool:
+#	var obj_matches := true
+#	var comparison_type : String = property_filters.get(
+#			ScriptProperties.KEY_COMPARISON, get_default(ScriptProperties.KEY_COMPARISON))
+#	for property in property_filters:
+#		if property == KEY_COMPARISON:
+#			continue
+#		elif property == "Name":
+#			if not CFUtils.compare_strings(
+#					property_filters[property],
+#					obj.canonical_name,
+#					comparison_type):
+#				card_matches = false
+#		else:
+#			if not CFUtils.compare_strings(
+#					property_filters[property],
+#					obj.get_property(property),
+#					comparison_type):
+#				card_matches = false
+#	return(card_matches)

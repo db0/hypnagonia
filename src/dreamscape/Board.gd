@@ -441,7 +441,7 @@ func _input(event):
 		var _torment1
 		var _torment2
 		var _torment3
-		_torment1 = spawn_enemy(EnemyDefinitions.MOUSE)
+		_torment1 = spawn_enemy(EnemyDefinitions.UNNAMED1)
 #		_torment2 = spawn_enemy(EnemyDefinitions.SILENT_TREATMENT)
 #		_torment2 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
@@ -450,7 +450,7 @@ func _input(event):
 		if _torment1:
 			_torment1.health = 2200
 			_torment1.damage = 190
-			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS["void"].name, 1)
+#			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS["void"].name, 1)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.effect_resistance.name, 1, false, false, ["Init"], Terms.ACTIVE_EFFECTS.poison.name)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)

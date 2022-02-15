@@ -242,6 +242,33 @@ const INCREASE_COMPLEXITY := [
 	},
 ]
 
+const SUMMON_MINION1 := [
+	{
+		"name": "spawn_enemy",
+		"enemy": EnemyDefinitions.UNNAMED_MINION1,
+		"set_spawn_as_minion": true,
+		"tags": ["Intent"],
+		"icon": preload("res://assets/icons/uncertainty.png"),
+		"description": "Spawns Torment"
+	},
+]
+const ARMOR_THE_BOSS := [
+	{
+		"name": "apply_effect",
+		"effect_name": Terms.ACTIVE_EFFECTS.armor.name,
+		"tags": ["Intent"],
+		"subject": "boardseek",
+		"modification": 1,
+		"filter_state_seek": [
+			{"filter_properties": {
+				"Name": "Unnamed Torment 1"}
+			}
+		],
+		"icon": "icon_debuff",
+		"description": "It is jumping in front!."
+	}
+]
+
 const GUT := [
 	{
 		"name": "null_script",
@@ -269,6 +296,8 @@ func get_scripts(intent_name: String) -> Dictionary:
 		"Pencils Ready": PENCILS_READY,
 		"Memory Failing": MEMORY_FAILING,
 		"Increase Complexity": INCREASE_COMPLEXITY,
+		"Summon Minion 1": SUMMON_MINION1,
+		"Armor The Boss": ARMOR_THE_BOSS,
 		# Unit Testing #
 		"GUT": GUT,
 	}
