@@ -305,7 +305,6 @@ class TestMemoryFailing:
 		assert_eq(forgotten.get_card_count(), 1,
 				"Forgotten should have 1 card")
 
-	
 
 class TestIncreaseComplexity:
 	extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"
@@ -325,3 +324,40 @@ class TestIncreaseComplexity:
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.damage, 15, "Dreamer should take less damage")
 		assert_eq(test_torment.damage, 15, "Torment should heal less damage")
+
+class TestSummonMinion1:
+	extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"
+	func _init() -> void:
+		intents_to_test = [
+			{
+				"intent_scripts": ["Summon Minion 1"],
+				"reshuffle": true,
+			},
+		]
+
+	func test_summon_minion():
+		assert_eq(get_tree().get_nodes_in_group("EnemyEntities").size(), 2, "New Minion Spawned")
+
+class TestArmorTheBoss:
+	extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"
+	func _init() -> void:
+		torments_amount = 3
+		intents_to_test = [
+			{
+				"intent_scripts": ["Armor The Boss"],
+				"reshuffle": true,
+			},
+		]
+
+	func test_armor_the_boss():
+		for torment in test_torments:
+			assert_eq(torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.armor.name), 0,
+				"No Torments should have armor stacks")
+			torment.intents.replace_intents(intents_to_test)
+			torment.intents.refresh_intents()
+		var boss_torment = board.spawn_enemy(EnemyDefinitions.UNNAMED1)
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		# Boss loses 1 armor stack at the start of its turn
+		assert_eq(boss_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.armor.name), 2,
+			"Boss torment got expected amount of armor")

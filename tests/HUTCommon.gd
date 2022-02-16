@@ -12,8 +12,8 @@ const GUT_TORMENT:= {
 		},
 	],
 	"_health_variability": 5,
-	"_texture_size_x": "120",
-	"_texture_size_y": "120",
+	"_texture_size_x": "90",
+	"_texture_size_y": "90",
 #	"_texture": preload("res://assets/enemies/lantern-flame.png"),
 	"_character_art": "GUT",
 }

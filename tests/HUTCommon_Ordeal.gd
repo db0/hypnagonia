@@ -81,6 +81,7 @@ func spawn_test_torments() -> void:
 	for effect in test_torment_starting_effects:
 		spawn_effect(test_torment, effect.name, effect.amount, effect.get("upgrade", ''))
 
+	
 
 func spawn_effect(target: CombatEntity, effect_name: String, amount: int, upgrade := '') -> void:
 	target.active_effects.mod_effect(effect_name, amount, false, false, ['GUT'], upgrade)
