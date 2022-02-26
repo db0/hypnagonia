@@ -29,7 +29,7 @@ As an example:
 
 const Unnamed1 = {
 	"journal_description":\
-		'flavour [url={torment_tag1}]tbd[/url].',
+		'flavour [url={torment_tag1}]TBD[/url].',
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
 	"enemies": {

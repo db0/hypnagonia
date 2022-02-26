@@ -160,6 +160,17 @@ func custom_script(script: ScriptObject) -> void:
 						"amount_value": '+' + str(increase_amount),
 					}
 					card.deck_card_entry.modify_property("_amounts", payload)
+		"Unnamed Torment 1", "+ Unnamed Torment 1 +", "Ω Unnamed Torment 1 Ω":
+			if not costs_dry_run:
+#				print_debug(subjects[0].is_dead)
+				if subjects.size() and not subjects[0].is_dead:
+					var increase_amount = cfc.card_definitions[card.canonical_name]\
+								.get("_amounts",{}).get("increase_amount", 3)
+					var payload := {
+						"amount_key": "damage_amount",
+						"amount_value": '+' + str(increase_amount),
+					}
+					card.deck_card_entry.modify_property("_amounts", payload)
 
 # warning-ignore:unused_argument
 func custom_alterants(script: ScriptObject) -> int:

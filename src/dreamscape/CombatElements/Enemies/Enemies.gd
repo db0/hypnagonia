@@ -622,6 +622,27 @@ const UNNAMED_MINION1 := {
 #	"_texture": preload("res://assets/enemies/slavery-whip.png"),
 	"_character_art": "Nobody"
 }
+const SPECIAL_MINION1 := {
+	"Name": "Special Minion 1", 
+	"Type": "Absurdity",
+	"Health": 10,
+	"Intents": [
+		{
+			"intent_scripts": ["Stress:7"],
+			"reshuffle": true,
+			"max_in_a_row": 2,
+		},
+		{
+			"intent_scripts": ["Debuff:1:disempower", "BuffGroup:1:armor"],
+			"reshuffle": false,
+		},
+	],
+	"_health_variability": 2,
+	"_texture_size_x": "60",
+	"_texture_size_y": "60",
+#	"_texture": preload("res://assets/enemies/slavery-whip.png"),
+	"_character_art": "Nobody"
+}
 const LIFE_PATH := {
 	"Name": "Life Path", 
 	"Type": "Fear",
@@ -642,8 +663,8 @@ const LIFE_PATH := {
 		},
 	],
 	"_health_variability": 5,
-	"_texture_size_x": "60",
-	"_texture_size_y": "60",
+	"_texture_size_x": "120",
+	"_texture_size_y": "120",
 #	"_texture": preload("res://assets/enemies/slavery-whip.png"),
 	"_character_art": "Nobody"
 }
