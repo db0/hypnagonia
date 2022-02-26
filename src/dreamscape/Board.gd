@@ -18,7 +18,7 @@ var bgm_tracks : Array
 # at the same time as ending the last Torment
 var battle_ended: bool
 
-var enemies_at_start_of_turn
+var enemies_at_start_of_turn = []
 
 var _debug_enemies_at_end_of_turn
 var _debug_enemies_started_activation := []
@@ -314,6 +314,8 @@ func _on_enemy_turn_ended(_turn: Turn) -> void:
 
 
 func _on_finished_enemy_activation(enemy: EnemyEntity) -> void:
+	if turn.current_turn == Turn.Turns.PLAYER_TURN:
+		return
 	if not enemy in activated_enemies:
 		activated_enemies.append(enemy)
 	if activated_enemies.size() == enemies_at_start_of_turn.size():
@@ -441,7 +443,8 @@ func _input(event):
 		var _torment1
 		var _torment2
 		var _torment3
-		_torment1 = spawn_enemy(EnemyDefinitions.UNNAMED1)
+#		_torment1 = spawn_enemy(EnemyDefinitions.UNNAMED1)
+		_torment1 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 #		_torment2 = spawn_enemy(EnemyDefinitions.SILENT_TREATMENT)
 #		_torment2 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
@@ -488,8 +491,8 @@ func _input(event):
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"Life Path",
-			"Illuminated Life Path",
+			"Unnamed Torment 1",
+			"@ Unnamed Torment 1 @",
 			"% Life Path %",
 			"Sustained Life Path",
 		]:

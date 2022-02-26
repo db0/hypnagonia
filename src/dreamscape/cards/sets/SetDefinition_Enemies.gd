@@ -1353,13 +1353,13 @@ const CARDS := {
 	"Life Path": {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Choose {action}, {control} or {concentration}. Spawn {spawned_amount} random card of the chosen type into your hand. It costs 0 the first time you play it.\n{forget}",
+		"Abilities": "Choose {action}, {control} or {concentration}. Spawn {spawn_amount} random card of the chosen type into your hand. It costs 0 the first time you play it.\n{forget}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
 		"_keywords": [],
 		"_amounts": {
-			"spawned_amount": 1,
+			"spawn_amount": 1,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -1371,40 +1371,87 @@ const CARDS := {
 	"% Life Path %": {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Choose {action}, {control} or {concentration}. Spawn {spawned_amount} copies of the same random card of the chosen type into your hand. It costs 0 the first time you play them.\n{forget}",
+		"Abilities": "Choose {action}, {control} or {concentration}. Spawn {spawn_amount} copies of the same random card of the chosen type into your hand. It costs 0 the first time you play them.\n{forget}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
 		"_keywords": [],
 		"_amounts": {
-			"spawned_amount": 3,
+			"spawn_amount": 3,
 		},
 		"_is_upgrade": true,
 	},
 	"Sustained Life Path": {
 		"Type": "Understanding",
 		"Tags": [],
-		"Abilities": "Choose {action}, {control} or {concentration}. Spawn {spawned_amount} random card of the chosen type into your hand. It costs 0 the first time you play it.",
+		"Abilities": "Choose {action}, {control} or {concentration}. Spawn {spawn_amount} random card of the chosen type into your hand. It costs 0 the first time you play it.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
 		"_keywords": [],
 		"_amounts": {
-			"spawned_amount": 1,
+			"spawn_amount": 1,
 		},
 		"_is_upgrade": true,
 	},
 	"Illuminated Life Path": {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Choose {action}, {control} or {concentration}. Spawn {spawned_amount} random upgraded card of the chosen type into your hand. It costs 0 the first time you play it.\n{forget}",
+		"Abilities": "Choose {action}, {control} or {concentration}. Spawn {spawn_amount} random upgraded card of the chosen type into your hand. It costs 0 the first time you play it.\n{forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
 		"_keywords": [],
 		"_amounts": {
-			"spawned_amount": 1,
+			"spawn_amount": 1,
 		},
 		"_is_upgrade": true,
 	},
+	"Unnamed Torment 1": {
+		"Type": "Understanding",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}. Spawn {spawn_amount} special Torment.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": [],
+		"_amounts": {
+			"damage_amount": 20,
+			"spawn_amount": 1
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"+ Unnamed Torment 1 +",
+			"@ Unnamed Torment 1 @",
+		],
+	},
+	"+ Unnamed Torment 1 +": {
+		"Type": "Understanding",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}. Spawn {spawn_amount} special Torment.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": [],
+		"_amounts": {
+			"damage_amount": 20,
+			"spawn_amount": 1
+		},
+		"_is_upgrade": true,
+	},
+	"@ Unnamed Torment 1 @": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.omega.name],
+		"Abilities": "{damage} for {damage_amount}. Spawn {spawn_amount} special Torment.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": [],
+		"_amounts": {
+			"damage_amount": 20,
+			"spawn_amount": 2
+		},
+		"_is_upgrade": true,
+	},
+
 }

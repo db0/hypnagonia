@@ -1070,8 +1070,8 @@ const scripts := {
 						"dest_container": "hand",
 						"selection_amount": 1,
 						"object_count": {
-						"lookup_property": "_amounts",
-							"value_key": "spawned_amount"
+							"lookup_property": "_amounts",
+							"value_key": "spawn_amount"
 						},
 						"tags": ["Card"],
 					},
@@ -1118,8 +1118,8 @@ const scripts := {
 						"dest_container": "hand",
 						"selection_amount": 1,
 						"object_count": {
-						"lookup_property": "_amounts",
-							"value_key": "spawned_amount"
+							"lookup_property": "_amounts",
+							"value_key": "spawn_amount"
 						},
 						"tags": ["Card"],
 					},
@@ -1166,8 +1166,8 @@ const scripts := {
 						"dest_container": "hand",
 						"selection_amount": 1,
 						"object_count": {
-						"lookup_property": "_amounts",
-							"value_key": "spawned_amount"
+							"lookup_property": "_amounts",
+							"value_key": "spawn_amount"
 						},
 						"tags": ["Card"],
 					},
@@ -1220,8 +1220,8 @@ const scripts := {
 						"dest_container": "hand",
 						"selection_amount": 1,
 						"object_count": {
-						"lookup_property": "_amounts",
-							"value_key": "spawned_amount"
+							"lookup_property": "_amounts",
+							"value_key": "spawn_amount"
 						},
 						"tags": ["Card"],
 					},
@@ -1262,8 +1262,8 @@ const scripts := {
 						"dest_container": "hand",
 						"selection_amount": 1,
 						"object_count": {
-						"lookup_property": "_amounts",
-							"value_key": "spawned_amount"
+							"lookup_property": "_amounts",
+							"value_key": "spawn_amount"
 						},
 						"tags": ["Card"],
 					},
@@ -1304,8 +1304,8 @@ const scripts := {
 						"dest_container": "hand",
 						"selection_amount": 1,
 						"object_count": {
-						"lookup_property": "_amounts",
-							"value_key": "spawned_amount"
+							"lookup_property": "_amounts",
+							"value_key": "spawn_amount"
 						},
 						"tags": ["Card"],
 					},
@@ -1352,8 +1352,8 @@ const scripts := {
 						"dest_container": "hand",
 						"selection_amount": 1,
 						"object_count": {
-						"lookup_property": "_amounts",
-							"value_key": "spawned_amount"
+							"lookup_property": "_amounts",
+							"value_key": "spawn_amount"
 						},
 						"tags": ["Card"],
 					},
@@ -1400,8 +1400,8 @@ const scripts := {
 						"dest_container": "hand",
 						"selection_amount": 1,
 						"object_count": {
-						"lookup_property": "_amounts",
-							"value_key": "spawned_amount"
+							"lookup_property": "_amounts",
+							"value_key": "spawn_amount"
 						},
 						"tags": ["Card"],
 					},
@@ -1448,8 +1448,8 @@ const scripts := {
 						"dest_container": "hand",
 						"selection_amount": 1,
 						"object_count": {
-						"lookup_property": "_amounts",
-							"value_key": "spawned_amount"
+							"lookup_property": "_amounts",
+							"value_key": "spawn_amount"
 						},
 						"tags": ["Card"],
 					},
@@ -1482,7 +1482,36 @@ const scripts := {
 				],
 			}
 		}
-	}
+	},
+	"Unnamed Torment 1": {
+		"manual": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "target",
+					"needs_subject": true,
+					"amount": {
+						"lookup_property": "_amounts",
+						"value_key": "damage_amount"
+					},
+					"tags": ["Attack", "Card"],
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					},],
+				},
+				{
+					"name": "spawn_enemy",
+					"enemy": EnemyDefinitions.SPECIAL_MINION1,
+					"set_spawn_as_minion": true,
+					"object_count": {
+						"lookup_property": "_amounts",
+						"value_key": "spawn_amount"
+					},
+					"tags": ["Card"],
+				},
+			],
+		},
+	},
 }
 
 # This fuction returns all the scripts of the specified card name.
