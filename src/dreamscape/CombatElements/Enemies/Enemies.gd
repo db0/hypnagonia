@@ -622,6 +622,31 @@ const UNNAMED_MINION1 := {
 #	"_texture": preload("res://assets/enemies/slavery-whip.png"),
 	"_character_art": "Nobody"
 }
+const LIFE_PATH := {
+	"Name": "Life Path", 
+	"Type": "Fear",
+	"Health": 72,
+	"Intents": [
+		{
+			"intent_scripts": ["Stress:10"],
+			"reshuffle": true,
+		},
+		{
+			"intent_scripts": ["Stress:4", "PerplexGroup:5"],
+			"reshuffle": true,
+			"max_in_a_row": 3,
+		},
+		{
+			"intent_scripts": ["Debuff:2:burn"],
+			"reshuffle": false,
+		},
+	],
+	"_health_variability": 5,
+	"_texture_size_x": "60",
+	"_texture_size_y": "60",
+#	"_texture": preload("res://assets/enemies/slavery-whip.png"),
+	"_character_art": "Nobody"
+}
 #	"Spider": {
 #		"Type": "Phobia",
 #		"Health": 1,

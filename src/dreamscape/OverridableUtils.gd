@@ -69,3 +69,18 @@ func select_card(
 	if selected_cards is GDScriptFunctionState: # Still working.
 		selected_cards = yield(selected_cards, "completed")
 	return(selected_cards)
+
+# In Hypnagonia, the default card pool during each run, is always limited to the deck groups
+# currently in use by the player
+func _get_card_pool() -> Dictionary:
+	var card_names_list := []
+	for archetype in globals.player.deck_groups.values():
+		card_names_list += Aspects.get_all_cards_in_archetype(archetype)
+	# Add all upgrades in the card_names list
+	for card_name in card_names_list:
+		card_names_list += cfc.card_definitions[card_name].get("_upgrades", [])
+	# Retrieve the definitions for all card_names
+	var card_pool: Dictionary
+	for card_name in card_names_list:
+		card_pool[card_name] = cfc.card_definitions[card_name]
+	return(card_pool)

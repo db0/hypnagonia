@@ -1051,6 +1051,438 @@ const scripts := {
 			],
 		},
 	},
+	"Life Path": {
+		"manual": {
+			"hand": {
+				"Action Card": [
+					{
+						"name": "spawn_card_to_container",
+						"card_filters": [
+							{
+								'property': 'Type',
+								'value': 'Action',
+							},
+							{
+								'property': '_is_upgrade',
+								'value': false,
+							}
+						],
+						"dest_container": "hand",
+						"selection_amount": 1,
+						"object_count": {
+						"lookup_property": "_amounts",
+							"value_key": "spawned_amount"
+						},
+						"tags": ["Card"],
+					},
+					{
+						"name": "modify_properties",
+						"tags": ["Card"],
+						"set_properties": {"Cost": "0"},
+						"subject": "previous",
+						"filter_state_subject": [
+							{
+								"filter_properties": {
+									"comparison": "ne",
+									"Cost": 'X'
+								},
+							},
+						]
+					},
+					{
+						"name": "enable_rider",
+						"tags": ["Card"],
+						"rider": "reset_cost_after_play",
+						"subject": "previous",
+					},
+					{
+						"name": "move_card_to_container",
+						"subject": "self",
+						"dest_container": "forgotten",
+						"tags": ["Played", "Card"],
+					},
+				],
+				"Control Card": [
+					{
+						"name": "spawn_card_to_container",
+						"card_filters": [
+							{
+								'property': 'Type',
+								'value': 'Control',
+							},
+							{
+								'property': '_is_upgrade',
+								'value': false,
+							}
+						],
+						"dest_container": "hand",
+						"selection_amount": 1,
+						"object_count": {
+						"lookup_property": "_amounts",
+							"value_key": "spawned_amount"
+						},
+						"tags": ["Card"],
+					},
+					{
+						"name": "modify_properties",
+						"tags": ["Card"],
+						"set_properties": {"Cost": "0"},
+						"subject": "previous",
+						"filter_state_subject": [
+							{
+								"filter_properties": {
+									"comparison": "ne",
+									"Cost": 'X'
+								},
+							},
+						]
+					},
+					{
+						"name": "enable_rider",
+						"tags": ["Card"],
+						"rider": "reset_cost_after_play",
+						"subject": "previous",
+					},
+					{
+						"name": "move_card_to_container",
+						"subject": "self",
+						"dest_container": "forgotten",
+						"tags": ["Played", "Card"],
+					},
+				],
+				"Concentration Card": [
+					{
+						"name": "spawn_card_to_container",
+						"card_filters": [
+							{
+								'property': 'Type',
+								'value': 'Concentration',
+							},
+							{
+								'property': '_is_upgrade',
+								'value': false,
+							}
+						],
+						"dest_container": "hand",
+						"selection_amount": 1,
+						"object_count": {
+						"lookup_property": "_amounts",
+							"value_key": "spawned_amount"
+						},
+						"tags": ["Card"],
+					},
+					{
+						"name": "modify_properties",
+						"tags": ["Card"],
+						"set_properties": {"Cost": "0"},
+						"subject": "previous",
+						"filter_state_subject": [
+							{
+								"filter_properties": {
+									"comparison": "ne",
+									"Cost": 'X'
+								},
+							},
+						]
+					},
+					{
+						"name": "enable_rider",
+						"tags": ["Card"],
+						"rider": "reset_cost_after_play",
+						"subject": "previous",
+					},
+					{
+						"name": "move_card_to_container",
+						"subject": "self",
+						"dest_container": "forgotten",
+						"tags": ["Played", "Card"],
+					},
+				],
+			}
+		}
+	},
+	"Sustained Life Path": {
+		"manual": {
+			"hand": {
+				"Action Card": [
+					{
+						"name": "spawn_card_to_container",
+						"card_filters": [
+							{
+								'property': 'Type',
+								'value': 'Action',
+							},
+							{
+								'property': '_is_upgrade',
+								'value': false,
+							}
+						],
+						"dest_container": "hand",
+						"selection_amount": 1,
+						"object_count": {
+						"lookup_property": "_amounts",
+							"value_key": "spawned_amount"
+						},
+						"tags": ["Card"],
+					},
+					{
+						"name": "modify_properties",
+						"tags": ["Card"],
+						"set_properties": {"Cost": "0"},
+						"subject": "previous",
+						"filter_state_subject": [
+							{
+								"filter_properties": {
+									"comparison": "ne",
+									"Cost": 'X'
+								},
+							},
+						]
+					},
+					{
+						"name": "enable_rider",
+						"tags": ["Card"],
+						"rider": "reset_cost_after_play",
+						"subject": "previous",
+					},
+				],
+				"Control Card": [
+					{
+						"name": "spawn_card_to_container",
+						"card_filters": [
+							{
+								'property': 'Type',
+								'value': 'Control',
+							},
+							{
+								'property': '_is_upgrade',
+								'value': false,
+							}
+						],
+						"dest_container": "hand",
+						"selection_amount": 1,
+						"object_count": {
+						"lookup_property": "_amounts",
+							"value_key": "spawned_amount"
+						},
+						"tags": ["Card"],
+					},
+					{
+						"name": "modify_properties",
+						"tags": ["Card"],
+						"set_properties": {"Cost": "0"},
+						"subject": "previous",
+						"filter_state_subject": [
+							{
+								"filter_properties": {
+									"comparison": "ne",
+									"Cost": 'X'
+								},
+							},
+						]
+					},
+					{
+						"name": "enable_rider",
+						"tags": ["Card"],
+						"rider": "reset_cost_after_play",
+						"subject": "previous",
+					},
+				],
+				"Concentration Card": [
+					{
+						"name": "spawn_card_to_container",
+						"card_filters": [
+							{
+								'property': 'Type',
+								'value': 'Concentration',
+							},
+							{
+								'property': '_is_upgrade',
+								'value': false,
+							}
+						],
+						"dest_container": "hand",
+						"selection_amount": 1,
+						"object_count": {
+						"lookup_property": "_amounts",
+							"value_key": "spawned_amount"
+						},
+						"tags": ["Card"],
+					},
+					{
+						"name": "modify_properties",
+						"tags": ["Card"],
+						"set_properties": {"Cost": "0"},
+						"subject": "previous",
+						"filter_state_subject": [
+							{
+								"filter_properties": {
+									"comparison": "ne",
+									"Cost": 'X'
+								},
+							},
+						]
+					},
+					{
+						"name": "enable_rider",
+						"tags": ["Card"],
+						"rider": "reset_cost_after_play",
+						"subject": "previous",
+					},
+				],
+			}
+		}
+	},
+	"Illuminated Life Path": {
+		"manual": {
+			"hand": {
+				"Action Card": [
+					{
+						"name": "spawn_card_to_container",
+						"card_filters": [
+							{
+								'property': 'Type',
+								'value': 'Action',
+							},
+							{
+								'property': '_is_upgrade',
+								'value': true,
+							}
+						],
+						"dest_container": "hand",
+						"selection_amount": 1,
+						"object_count": {
+						"lookup_property": "_amounts",
+							"value_key": "spawned_amount"
+						},
+						"tags": ["Card"],
+					},
+					{
+						"name": "modify_properties",
+						"tags": ["Card"],
+						"set_properties": {"Cost": "0"},
+						"subject": "previous",
+						"filter_state_subject": [
+							{
+								"filter_properties": {
+									"comparison": "ne",
+									"Cost": 'X'
+								},
+							},
+						]
+					},
+					{
+						"name": "enable_rider",
+						"tags": ["Card"],
+						"rider": "reset_cost_after_play",
+						"subject": "previous",
+					},
+					{
+						"name": "move_card_to_container",
+						"subject": "self",
+						"dest_container": "forgotten",
+						"tags": ["Played", "Card"],
+					},
+				],
+				"Control Card": [
+					{
+						"name": "spawn_card_to_container",
+						"card_filters": [
+							{
+								'property': 'Type',
+								'value': 'Control',
+							},
+							{
+								'property': '_is_upgrade',
+								'value': true,
+							}
+						],
+						"dest_container": "hand",
+						"selection_amount": 1,
+						"object_count": {
+						"lookup_property": "_amounts",
+							"value_key": "spawned_amount"
+						},
+						"tags": ["Card"],
+					},
+					{
+						"name": "modify_properties",
+						"tags": ["Card"],
+						"set_properties": {"Cost": "0"},
+						"subject": "previous",
+						"filter_state_subject": [
+							{
+								"filter_properties": {
+									"comparison": "ne",
+									"Cost": 'X'
+								},
+							},
+						]
+					},
+					{
+						"name": "enable_rider",
+						"tags": ["Card"],
+						"rider": "reset_cost_after_play",
+						"subject": "previous",
+					},
+					{
+						"name": "move_card_to_container",
+						"subject": "self",
+						"dest_container": "forgotten",
+						"tags": ["Played", "Card"],
+					},
+				],
+				"Concentration Card": [
+					{
+						"name": "spawn_card_to_container",
+						"card_filters": [
+							{
+								'property': 'Type',
+								'value': 'Concentration',
+							},
+							{
+								'property': '_is_upgrade',
+								'value': true,
+							}
+						],
+						"dest_container": "hand",
+						"selection_amount": 1,
+						"object_count": {
+						"lookup_property": "_amounts",
+							"value_key": "spawned_amount"
+						},
+						"tags": ["Card"],
+					},
+					{
+						"name": "modify_properties",
+						"tags": ["Card"],
+						"set_properties": {"Cost": "0"},
+						"subject": "previous",
+						"filter_state_subject": [
+							{
+								"filter_properties": {
+									"comparison": "ne",
+									"Cost": 'X'
+								},
+							},
+						]
+					},
+					{
+						"name": "enable_rider",
+						"tags": ["Card"],
+						"rider": "reset_cost_after_play",
+						"subject": "previous",
+					},
+					{
+						"name": "move_card_to_container",
+						"subject": "self",
+						"dest_container": "forgotten",
+						"tags": ["Played", "Card"],
+					},
+				],
+			}
+		}
+	}
 }
 
 # This fuction returns all the scripts of the specified card name.
