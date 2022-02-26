@@ -149,3 +149,97 @@ class TestEnraged:
 		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 2,
 				"%s added %s from Control cards only" % [effect, Terms.ACTIVE_EFFECTS.strengthen.name])
 
+
+class TestLifePathAction:
+	extends "res://tests/HUT_Ordeal_TormentEffectsTestClass.gd"
+	var effect = Terms.ACTIVE_EFFECTS.life_path.name
+	func _init() -> void:
+		test_card_names = [
+			"Interpretation",
+			"Interpretation",
+			"Interpretation",
+		]
+		effects_to_play = [
+			{
+				"name": effect,
+				"amount": 1,
+				"upgrade": "Active"
+			}
+		]
+
+	func test_life_path():
+		var sceng = snipexecute(card, test_torment)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		sceng = snipexecute(cards[1], test_torment)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		yield(yield_for(0.3), YIELD)
+		assert_eq(dreamer.damage, 2,
+				"2 Damage taken as per effect")
+
+class TestLifePathControl:
+	extends "res://tests/HUT_Ordeal_TormentEffectsTestClass.gd"
+	var effect = Terms.ACTIVE_EFFECTS.life_path.name
+	func _init() -> void:
+		torments_amount = 3
+		test_card_names = [
+			"Confidence",
+			"Confidence",
+			"Confidence",
+		]
+		effects_to_play = [
+			{
+				"name": effect,
+				"amount": 1,
+				"upgrade": "Controlling"
+			}
+		]
+
+	func test_life_path():
+		spawn_effect(test_torments[0],effect, 1, "Active")
+		spawn_effect(test_torments[1],effect, 1, "Focused")
+		var sceng = execute_with_yield(card)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		sceng = execute_with_yield(cards[1])
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		yield(yield_for(0.5), YIELD)
+		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.protection.name), 2,
+				"2 %s received" % [Terms.ACTIVE_EFFECTS.protection.name])
+		assert_eq(test_torments[0].active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.protection.name), 0,
+				"0 on test torment with different upgrade")
+		assert_eq(test_torments[1].active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.protection.name), 0,
+				"0 on test torment with different upgrade")
+		for t in test_torments:
+			assert_eq(t.damage, tdamage(-2), "All torments healed")
+
+class TestLifePathConcentration:
+	extends "res://tests/HUT_Ordeal_TormentEffectsTestClass.gd"
+	var effect = Terms.ACTIVE_EFFECTS.life_path.name
+	func _init() -> void:
+		test_card_names = [
+			"Nothing to Fear",
+			"Nothing to Fear",
+			"Nothing to Fear",
+		]
+		effects_to_play = [
+			{
+				"name": effect,
+				"amount": 1,
+				"upgrade": "Focused"
+			}
+		]
+
+	func test_life_path():
+		var sceng = execute_with_yield(card)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		sceng = execute_with_yield(cards[1])
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		yield(yield_for(0.3), YIELD)
+		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 2,
+				"2 %s received" % [Terms.ACTIVE_EFFECTS.strengthen.name])
+

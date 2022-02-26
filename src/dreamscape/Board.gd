@@ -488,6 +488,10 @@ func _input(event):
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
+			"Life Path",
+			"Illuminated Life Path",
+			"% Life Path %",
+			"Sustained Life Path",
 		]:
 			var ce = CardEntry.new(c)
 			var card = ce.instance_self()

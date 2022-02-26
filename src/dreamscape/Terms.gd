@@ -559,7 +559,13 @@ const ACTIVE_EFFECTS := {
 		"icon": preload("res://assets/icons/circle.png"),
 		"description": "{effect_name}: Any time an {understanding} card is played, add {amount} temporary Lacuna {perturbation}s to the discard.",
 	},
-
+	# This should only appear with an upgrade
+	"life_path": {
+		"name": "Life Path",
+		"type": "Special",
+		"icon": preload("res://assets/icons/crossroad.png"),
+		"description": "{effect_name}: Any time an {upgrade} card is played, something bad happens.",
+	},
 }
 
 

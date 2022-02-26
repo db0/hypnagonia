@@ -53,9 +53,122 @@ const Unnamed1 = {
 	},
 #	"journal_art": preload("res://assets/journal/torments/traffic_jam.jpeg"),
 }
+const Life_Paths = {
+	"journal_description":\
+		'I could see  [url={torment_tag1}]mutliple version of myself[/url] as if in a mirror.\n'\
+		+ "I had to figure out which version of me was the one I wanted to become.",
+	"journal_reward":\
+		'Through overcoming that weird experience, I felt wiser.',
+	"enemies": {
+		"easy": [
+			{
+				"definition": EnemyDefinitions.LIFE_PATH,
+				"health_modifier": -20,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.life_path.name,
+						"stacks": 1,
+						"upgrade": "Active",
+					},
+				]
+			},
+			{
+				"definition": EnemyDefinitions.LIFE_PATH,
+				"health_modifier": -20,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.life_path.name,
+						"stacks": 1,
+						"upgrade": "Controlling",
+					},
+				]
+			},
+			{
+				"definition": EnemyDefinitions.LIFE_PATH,
+				"health_modifier": -20,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.life_path.name,
+						"stacks": 1,
+						"upgrade": "Focused",
+					},
+				]
+			},
+		],
+		"medium": [
+			{
+				"definition": EnemyDefinitions.LIFE_PATH,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.life_path.name,
+						"stacks": 1,
+						"upgrade": "Active",
+					},
+				]
+			},
+			{
+				"definition": EnemyDefinitions.LIFE_PATH,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.life_path.name,
+						"stacks": 1,
+						"upgrade": "Controlling",
+					},
+				]
+			},
+			{
+				"definition": EnemyDefinitions.LIFE_PATH,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.life_path.name,
+						"stacks": 1,
+						"upgrade": "Focused",
+					},
+				]
+			},
+		],
+		"hard": [
+			{
+				"definition": EnemyDefinitions.LIFE_PATH,
+				"health_modifier": +5,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.life_path.name,
+						"stacks": 2,
+						"upgrade": "Active",
+					},
+				]
+			},
+			{
+				"definition": EnemyDefinitions.LIFE_PATH,
+				"health_modifier": +30,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.life_path.name,
+						"stacks": 1,
+						"upgrade": "Controlling",
+					},
+				]
+			},
+			{
+				"definition": EnemyDefinitions.LIFE_PATH,
+				"health_modifier": +20,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.life_path.name,
+						"stacks": 2,
+						"upgrade": "Focused",
+					},
+				]
+			},
+		],
+	},
+#	"journal_art": preload("res://assets/journal/torments/traffic_jam.jpeg"),
+}
 
 const ENEMIES = [
 	Unnamed1,
+	Life_Paths,
 ]
 
 const Jumbletron = {

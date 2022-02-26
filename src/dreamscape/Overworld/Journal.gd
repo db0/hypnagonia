@@ -496,6 +496,7 @@ func _input(event):
 		var debug_encounters = [
 #			EnemyEncounter.new(Act1.Murmurs, "easy"),
 #			EnemyEncounter.new(Act2.TrafficJam, "easy"),
+			EnemyEncounter.new(Act3.Life_Paths, "hard"),
 #			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
 			preload("res://src/dreamscape/Run/NCE/Act3/SubconsciousProcessing.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act2/HangingOn.gd").new(),
