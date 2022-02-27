@@ -800,7 +800,7 @@ const CARDS := {
 		"_is_concentration": true,
 		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
-		"_keywords": ["confidence"],
+		"_keywords": ["confidence", "stress"],
 		"_amounts": {
 		},
 		"_upgrade_threshold_modifier": 0,
@@ -820,7 +820,7 @@ const CARDS := {
 		"_is_concentration": true,
 		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
-		"_keywords": ["confidence"],
+		"_keywords": ["confidence", "stress"],
 		"_amounts": {
 		},
 		"_is_upgrade": true,
@@ -836,7 +836,7 @@ const CARDS := {
 		"_is_concentration": true,
 		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
-		"_keywords": ["confidence"],
+		"_keywords": ["confidence", "stress"],
 		"_amounts": {
 		},
 		"_is_upgrade": true,
@@ -850,7 +850,7 @@ const CARDS := {
 		"_is_concentration": true,
 		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
-		"_keywords": ["immersion"],
+		"_keywords": [],
 		"_amounts": {
 			"immersion_amount": 1,
 			"detriment_stacks": 1,
@@ -871,7 +871,7 @@ const CARDS := {
 		"_is_concentration": true,
 		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
-		"_keywords": ["immersion"],
+		"_keywords": [],
 		"_amounts": {
 			"immersion_amount": 1,
 			"concentration_amount": 2,
@@ -888,7 +888,7 @@ const CARDS := {
 		"_is_concentration": true,
 		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
-		"_keywords": ["immersion"],
+		"_keywords": [],
 		"_amounts": {
 			"immersion_amount": 1,
 			"concentration_amount": 2,
@@ -1267,7 +1267,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "forget"],
 		"_amounts": {
 			"damage_amount": 7,
 		},
@@ -1286,7 +1286,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "forget"],
 		"_amounts": {
 			"damage_amount": 10,
 		},
@@ -1301,7 +1301,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "forget"],
 		"_amounts": {
 			"damage_amount": 7,
 		},
@@ -1314,7 +1314,7 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "forget"],
 		"_amounts": {
 			"reduction_amount": 1,
 		},
@@ -1339,12 +1339,12 @@ const CARDS := {
 	},
 	"Steep Chasm": {
 		"Type": "Understanding",
-		"Tags": [],
+		"Tags": [Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "The cost of a random card in your hand is reduced to {reduction_amount} for the rest of combat.\n{forget}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "forget"],
 		"_amounts": {
 			"reduction_amount": 0,
 		},
@@ -1357,7 +1357,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
-		"_keywords": [],
+		"_keywords": ["forget"],
 		"_amounts": {
 			"spawn_amount": 1,
 		},
@@ -1375,7 +1375,7 @@ const CARDS := {
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
-		"_keywords": [],
+		"_keywords": ["forget"],
 		"_amounts": {
 			"spawn_amount": 3,
 		},
@@ -1388,7 +1388,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
-		"_keywords": [],
+		"_keywords": ["forget"],
 		"_amounts": {
 			"spawn_amount": 1,
 		},
@@ -1401,7 +1401,7 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
-		"_keywords": [],
+		"_keywords": ["forget"],
 		"_amounts": {
 			"spawn_amount": 1,
 		},
@@ -1414,7 +1414,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
-		"_keywords": [],
+		"_keywords": ["interpretation"],
 		"_amounts": {
 			"damage_amount": 20,
 			"spawn_amount": 1
@@ -1432,7 +1432,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
-		"_keywords": [],
+		"_keywords": ["interpretation"],
 		"_amounts": {
 			"damage_amount": 20,
 			"spawn_amount": 1
@@ -1446,7 +1446,7 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
-		"_keywords": [],
+		"_keywords": ["interpretation"],
 		"_amounts": {
 			"damage_amount": 20,
 			"spawn_amount": 2
