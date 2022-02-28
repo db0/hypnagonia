@@ -17,7 +17,8 @@ func _init():
 	description = "I found myself walking between a cliff and an impassable forest while one of my hands was wrapped in cement. "\
 			+ "The trees were impervious and the fall high so I was treading carefully. "\
 			+ "At one point, as I was holding on to a branch, I lost my footing and ended up hanging on one hand over the chasm."
-
+	prepare_journal_art(preload("res://assets/journal/nce/chasm.jpeg"))
+	
 func begin() -> void:
 	.begin()
 	var scformat = {

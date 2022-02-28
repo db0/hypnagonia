@@ -55,4 +55,8 @@ const CARD_IMAGES := {
 	"The Exam": preload("res://assets/journal/torments/exam.jpeg"),
 	"Void": preload("res://assets/journal/torments/void.jpeg"),
 	"Cringelord": preload("res://assets/journal/torments/cringelord.jpeg"),
+	"Life Path": preload("res://assets/journal/torments/life_path.jpeg"),
+	"Silent Treatment": preload("res://assets/journal/torments/silent_treatment.jpeg"),
+	"Chasm": preload("res://assets/journal/nce/chasm.jpeg"),
+	"Guilt": preload("res://assets/journal/torments/guilt.jpeg"),
 }

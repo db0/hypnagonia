@@ -163,7 +163,7 @@ const Life_Paths = {
 			},
 		],
 	},
-#	"journal_art": preload("res://assets/journal/torments/traffic_jam.jpeg"),
+	"journal_art": preload("res://assets/journal/torments/life_path.jpeg"),
 }
 
 const Cringelord = {
