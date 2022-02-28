@@ -131,4 +131,16 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.drain.name: Terms.PLAYER
 		},
 	},
+	"Cringeworthy Memory": {
+		"Type": "Perturbation",
+		"Tags": [Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "Gain {exert_amount} {anxiety}\n{forget}.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Perturbation",
+		"_amounts": {
+			"exert_amount": 1
+		},
+		"_keywords": ["release"]
+	},
 }

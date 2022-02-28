@@ -166,9 +166,58 @@ const Life_Paths = {
 #	"journal_art": preload("res://assets/journal/torments/traffic_jam.jpeg"),
 }
 
+const Cringelord = {
+	"journal_description":\
+		'I think I had seen [url={torment_tag1}]this creature before[/url]. Did it always have so many eyes?',
+	"journal_reward":\
+		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": preload("res://assets/journal/torments/cringelord.jpeg"),
+	"enemies": {
+		"easy": [
+			{
+				"definition": EnemyDefinitions.CRINGELORD,
+				"health_modifier": -30,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.coat_of_cringe.name,
+						"stacks": 1,
+					},
+				]
+			},
+		],
+		"medium": [
+			{
+				"definition": EnemyDefinitions.CRINGELORD,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.coat_of_cringe.name,
+						"stacks": 1,
+					},
+				]
+			},
+		],
+		"hard": [
+			{
+				"definition": EnemyDefinitions.CRINGELORD,
+				"health_modifier": -10,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.coat_of_cringe.name,
+						"stacks": 1,
+					},
+				]
+			},
+			{
+				"definition": EnemyDefinitions.FEARMONGER,
+				"health_modifier": -20,
+			},
+		],
+	},
+}
 const ENEMIES = [
 	Unnamed1,
 	Life_Paths,
+	Cringelord,
 ]
 
 const Jumbletron = {

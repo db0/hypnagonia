@@ -1,5 +1,34 @@
 extends "res://tests/HUTCommon_Ordeal.gd"
 
+class TestCoatOfCringe:
+	extends "res://tests/HUT_Ordeal_TormentEffectsTestClass.gd"
+	var effect = Terms.ACTIVE_EFFECTS.coat_of_cringe.name
+	func _init() -> void:
+		test_card_names = [
+			"Interpretation",
+			"Interpretation",
+			"Confidence",
+		]
+		effects_to_play = [
+			{
+				"name": effect,
+				"amount": 1,
+			}
+		]
+
+	func test_effect():
+		var sceng = snipexecute(card, test_torment)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		sceng = snipexecute(cards[1], test_torment)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		sceng = execute_with_yield(cards[2])
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(count_card_names("Cringeworthy Memory"), 2,
+				"1 Cringeworthy Memory spawned per attack")
+
 class TestVoid:
 	extends "res://tests/HUT_Ordeal_TormentEffectsTestClass.gd"
 	var effect = Terms.ACTIVE_EFFECTS["void"].name
@@ -242,4 +271,3 @@ class TestLifePathConcentration:
 		yield(yield_for(0.3), YIELD)
 		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 2,
 				"2 %s received" % [Terms.ACTIVE_EFFECTS.strengthen.name])
-

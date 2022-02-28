@@ -33,3 +33,21 @@ class TestScatteredDreams:
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
 		assert_eq(counters.get_counter("immersion"), 2,
 				"Immersion affected by %s" % [testing_card_name])
+				
+class TestCringeworthyMemory:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	func _init() -> void:
+		testing_card_name = "Cringeworthy Memory"
+		expected_amount_keys = [
+			"exert_amount"
+		]
+
+
+	func test_card_results():
+		assert_has_amounts()
+		yield(yield_for(0.1), YIELD)
+		var sceng = execute_with_yield(card)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(dreamer.damage, 1, "Perturbation did damaghe")
+		assert_eq(card.get_parent(), forgotten, "Pertubratio forgotten")

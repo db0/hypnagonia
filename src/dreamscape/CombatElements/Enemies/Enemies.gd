@@ -650,7 +650,7 @@ const LIFE_PATH := {
 	"Intents": [
 		{
 			"intent_scripts": ["Stress:10"],
-			"reshuffle": true,
+			"reshuffle": false,
 		},
 		{
 			"intent_scripts": ["Stress:4", "PerplexGroup:5"],
@@ -667,6 +667,31 @@ const LIFE_PATH := {
 	"_texture_size_y": "120",
 #	"_texture": preload("res://assets/enemies/slavery-whip.png"),
 	"_character_art": "Nobody"
+}
+const CRINGELORD:= {
+	"Name": "Cringelord",
+	"Type": "Fear",
+	"Health": 97,
+	"Intents": [
+		{
+			"intent_scripts": ["Stress:14"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Stress:6","Stress:7"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Perplex:10","Stare","Stare"],
+			"reshuffle": true,
+			"max_in_a_row": 2,
+		},
+	],
+	"_health_variability": 5,
+	"_texture_size_x": "120",
+	"_texture_size_y": "120",
+#	"_texture": preload("res://assets/enemies/slavery-whip.png"),
+	"_character_art": "nobody",
 }
 #	"Spider": {
 #		"Type": "Phobia",
