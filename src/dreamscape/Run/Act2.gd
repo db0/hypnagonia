@@ -421,7 +421,7 @@ const GuiltyTreatment = {
 			},
 		],
 	},
-#	"journal_art": preload("res://assets/journal/torments/pialephant.jpg"),
+	"journal_art": preload("res://assets/journal/torments/silent_treatment.jpeg"),
 }
 const Void = {
 	"journal_description":\
