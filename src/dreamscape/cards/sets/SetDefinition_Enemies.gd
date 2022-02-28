@@ -1416,7 +1416,7 @@ const CARDS := {
 		"_rarity": "Received",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 20,
+			"damage_amount": 22,
 			"spawn_amount": 1
 		},
 		"_upgrade_threshold_modifier": 0,
@@ -1434,7 +1434,7 @@ const CARDS := {
 		"_rarity": "Received",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 20,
+			"damage_amount": 22,
 			"spawn_amount": 1
 		},
 		"_is_upgrade": true,
@@ -1448,10 +1448,58 @@ const CARDS := {
 		"_rarity": "Received",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 20,
+			"damage_amount": 22,
 			"spawn_amount": 2
 		},
 		"_is_upgrade": true,
 	},
-
+	"Cringelord": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "Shuffle a {perturb_amount} Cringeworthy Memory in your deck.\n"\
+				+ "Gain {defence_amount} {defence}.\n{forget}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["forget"],
+		"_amounts": {
+			"perturb_amount": 1,
+			"defence_amount": 15,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"+ Cringelord +",
+			"@ Cringelord @",
+		],
+	},
+	"+ Cringelord +": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "Shuffle a {perturb_amount} Cringeworthy Memory in your deck.\n"\
+				+ "Gain {defence_amount} {defence}.\n{forget}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["forget"],
+		"_amounts": {
+			"perturb_amount": 1,
+			"defence_amount": 18,
+		},
+		"_is_upgrade": true,
+	},
+	"@ Cringelord @": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "Shuffle a {perturb_amount} Cringeworthy Memory in your deck.\n"\
+				+ "Gain {defence_amount} {defence}.\n{forget}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["forget"],
+		"_amounts": {
+			"perturb_amount": 2,
+			"defence_amount": 16,
+		},
+		"_is_upgrade": true,
+	},
 }

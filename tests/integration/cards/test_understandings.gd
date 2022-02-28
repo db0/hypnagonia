@@ -128,3 +128,24 @@ class TestSteepChasm:
 		assert_eq(reduced_cost_cards, 1, "One card's cost reduced by expected amount")
 		assert_eq(card.get_parent(), forgotten)
 		yield(yield_for(2), YIELD)
+
+class TestCringelord:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	func _init() -> void:
+		testing_card_name = "Cringelord"
+		expected_amount_keys = [
+			"perturb_amount",
+			"defence_amount",
+		]
+
+
+	func test_card_results():
+		assert_has_amounts()
+		var sceng = execute_with_yield(card)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(dreamer.defence, get_amount("defence_amount"))
+		assert_eq(count_card_names("Cringeworthy Memory"), get_amount("perturb_amount"),
+				"Cringeworthy Memory spawned when card played")
+		assert_eq(card.get_parent(), forgotten, "Card forgotten")
+

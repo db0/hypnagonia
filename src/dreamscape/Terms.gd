@@ -566,6 +566,12 @@ const ACTIVE_EFFECTS := {
 		"icon": preload("res://assets/icons/crossroad.png"),
 		"description": "{effect_name}: Any time an {upgrade} card is played, something bad happens.",
 	},
+	"coat_of_cringe": {
+		"name": "Coat of Cringe",
+		"type": "Special",
+		"icon": preload("res://assets/icons/pirate-coat.png"),
+		"description": "{effect_name}: After {opponent_attack} on this torment. add 1 Cringeworthy Memory to your deck.",
+	},
 }
 
 

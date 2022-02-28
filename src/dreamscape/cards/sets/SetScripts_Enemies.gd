@@ -1512,6 +1512,37 @@ const scripts := {
 			],
 		},
 	},
+	"Cringelord": {
+		"manual": {
+			"hand": [
+				{
+					"name": "assign_defence",
+					"tags": ["Card"],
+					"subject": "dreamer",
+					"amount":  {
+						"lookup_property": "_amounts",
+						"value_key": "defence_amount",
+					},
+				},
+				{
+					"name": "perturb",
+					"card_name": "Cringeworthy Memory",
+					"dest_container": "deck",
+					"object_count": {
+						"lookup_property": "_amounts",
+						"value_key": "perturb_amount",
+					},
+					"tags": ["Card", "Perturb"],
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": "forgotten",
+					"tags": ["Played", "Card"],
+				},
+			],
+		},
+	},
 }
 
 # This fuction returns all the scripts of the specified card name.
