@@ -214,10 +214,60 @@ const Cringelord = {
 		],
 	},
 }
+const Nightmare = {
+	"journal_description":\
+		"I cannot quite remember what I dreamed next [url={torment_tag1}]but it was staight out of a horror film[/url].\n"\
+				+ "Whatever I was watching last night must have affected me more than I think.",
+	"journal_reward":\
+		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": preload("res://assets/journal/torments/nightmare.jpeg"),
+	"enemies": {
+		"easy": [
+			{
+				"definition": EnemyDefinitions.NIGHTMARE,
+				"rebalancing": {
+					"Stress": -2,
+				},
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.doom.name,
+						"stacks": 3,
+					},
+				]
+			},
+		],
+		"medium": [
+			{
+				"definition": EnemyDefinitions.NIGHTMARE,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.doom.name,
+						"stacks": 3,
+					},
+				]
+			},
+		],
+		"hard": [
+			{
+				"definition": EnemyDefinitions.NIGHTMARE,
+				"rebalancing": {
+					"Stress": +2,
+				},
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.doom.name,
+						"stacks": 3,
+					},
+				]
+			},
+		],
+	},
+}
 const ENEMIES = [
 	Unnamed1,
 	Life_Paths,
 	Cringelord,
+	Nightmare,
 ]
 
 const Jumbletron = {

@@ -513,7 +513,9 @@ func spawn_enemy(script: ScriptTask) -> void:
 				enemy_entity.health += health_modify
 			var spawn_as_minion :bool = script.get_property(SP.KEY_SET_SPAWN_AS_MINION, false)
 			if spawn_as_minion:
-				enemy_entity.add_to_group("Minions")
+				enemy_entity.add_to_group("MinionEnemyEntities")
+			else:
+				enemy_entity.add_to_group("BasicEnemyEntities")
 			enemy_entity.emit_signal("finished_activation", enemy_entity)
 			var stating_intent = script.get_property('starting_intent', null)
 			if stating_intent:

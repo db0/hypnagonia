@@ -693,6 +693,30 @@ const CRINGELORD:= {
 #	"_texture": preload("res://assets/enemies/slavery-whip.png"),
 	"_character_art": "nobody",
 }
+const NIGHTMARE:= {
+	"Name": "Nightmare",
+	"Type": "Fear",
+	"Health": 60,
+	"Intents": [
+		{
+			"intent_scripts": ["Stress:15","Stress:15"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Stress:5","Stress:5","Stress:5","Stress:5","Stress:5","Stress:5"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Stress:30"],
+			"reshuffle": false,
+		},
+	],
+	"_health_variability": 5,
+	"_texture_size_x": "120",
+	"_texture_size_y": "120",
+#	"_texture": preload("res://assets/enemies/slavery-whip.png"),
+	"_character_art": "nobody",
+}
 #	"Spider": {
 #		"Type": "Phobia",
 #		"Health": 1,

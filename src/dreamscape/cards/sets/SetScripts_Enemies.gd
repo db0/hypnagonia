@@ -1543,6 +1543,50 @@ const scripts := {
 			],
 		},
 	},
+	"Nightmare": {
+		"manual": {
+			"hand": [
+				{
+					"name": "null_script",
+					"tags": ["Card"],
+					"subject": "target",
+					"needs_subject": true,
+					"filter_state_subject": [
+						{"filter_group": "BasicEnemyEntities"},
+						{"filter_group": "MinionEnemyEntities"},
+					],
+				},
+				{
+					"name": "apply_effect",
+					"tags": ["Card"],
+					"effect_name": Terms.ACTIVE_EFFECTS.doom.name,
+					"subject": "previous",
+					"protect_previous": true,
+					"modification":  {
+						"lookup_property": "_amounts",
+						"value_key": "effect_stacks",
+					},
+					"filter_state_subject": [{
+						"filter_group": "BasicEnemyEntities",
+					}],
+				},
+				{
+					"name": "apply_effect",
+					"tags": ["Card"],
+					"effect_name": Terms.ACTIVE_EFFECTS.doom.name,
+					"subject": "previous",
+					"protect_previous": true,
+					"modification":  {
+						"lookup_property": "_amounts",
+						"value_key": "effect_stacks2",
+					},
+					"filter_state_subject": [{
+						"filter_group": "MinionEnemyEntities",
+					}],
+				},
+			],
+		},
+	},
 }
 
 # This fuction returns all the scripts of the specified card name.

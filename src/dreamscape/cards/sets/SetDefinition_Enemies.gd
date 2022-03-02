@@ -3,6 +3,17 @@ extends Reference
 
 const SET = "Core Set"
 const CARDS := {
+	"GUT": {
+		"Type": "Understanding",
+		"Tags": [],
+		"Abilities": "Integration Testing",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": [],
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [],
+	},
 	"Gaslighter": {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
@@ -1499,6 +1510,67 @@ const CARDS := {
 		"_amounts": {
 			"perturb_amount": 2,
 			"defence_amount": 16,
+		},
+		"_is_upgrade": true,
+	},
+	"Nightmare": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.doom.name],
+		"Abilities": "Apply {effect_stacks} {doom} to a basic Torment or {effect_stacks2} {doom} to a minion Torment.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["overcome"],
+		"_amounts": {
+			"effect_stacks": 8,
+			"effect_stacks2": 3,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"* Nightmare *",
+			"@ Nightmare @",
+			"^ Nightmare ^",
+		],
+	},
+	"* Nightmare *": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.doom.name],
+		"Abilities": "Apply {effect_stacks} {doom} to a basic Torment or {effect_stacks2} {doom} to a minion Torment.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["overcome"],
+		"_amounts": {
+			"effect_stacks": 7,
+			"effect_stacks2": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"@ Nightmare @": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.doom.name],
+		"Abilities": "Apply {effect_stacks} {doom} to a basic Torment or {effect_stacks2} {doom} to a minion Torment.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["overcome"],
+		"_amounts": {
+			"effect_stacks": 8,
+			"effect_stacks2": 3,
+		},
+		"_is_upgrade": true,
+	},
+	"^ Nightmare ^": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.doom.name, Terms.GENERIC_TAGS.alpha.name],
+		"Abilities": "Apply {effect_stacks} {doom} to a basic Torment or {effect_stacks2} {doom} to a minion Torment.",
+		"Cost": 3,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["overcome"],
+		"_amounts": {
+			"effect_stacks": 8,
+			"effect_stacks2": 3,
 		},
 		"_is_upgrade": true,
 	},

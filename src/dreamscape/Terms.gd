@@ -352,6 +352,18 @@ const ACTIVE_EFFECTS := {
 		"noscript": true,
 		"icon": preload("res://assets/icons/brain-freeze.png"),
 	},
+	"doom": {
+		"name": "Evanescent",
+		"self_decreasing": SELF_DECREASE.TURN_END,
+		"decrease_type": DECREASE_TYPE.REDUCE,
+		"alterant_priority": ALTERANT_PRIORITY.ADD,
+		"type": "Special",
+		"icon": preload("res://assets/icons/dead-eye.png"),
+		"description": "{effect_name}: This torment will be automatically overcome after {amount} turns."\
+				+ "A Torment overcome in this way, will not provide its Understanding as a reward.",
+		"rich_text_icon": "res://fonts/rich_text_icons/dead-eye.png",
+		"generic_description": "{effect_name}: Automatically overcomes when it runs out.",
+	},
 	"effect_immunity": {
 		"name": "Immunity",
 		"type": "Special",

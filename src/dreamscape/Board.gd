@@ -162,6 +162,7 @@ func spawn_enemy_encounter(encounter: EnemyEncounter) -> void:
 		if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
 			print("DEBUG INFO:Board: Spawning Normal Enemy: " + enemy_entry['definition'].get("Name"))
 		var new_enemy = spawn_enemy(enemy_entry['definition'])
+		new_enemy.add_to_group("BasicEnemyEntities")
 		if enemy_entry.has('starting_intent'):
 			# This delay is needed to allow the starting intent to be added
 			# so that it can be seen to be queued_free
@@ -205,6 +206,7 @@ func spawn_advanced_enemy(encounter: CombatEncounter) -> Array:
 		if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
 			print("DEBUG INFO:Board: Spawning Advanced Enemy: " + scene.get_path())
 		var advanced_entity: EnemyEntity = scene.instance()
+		advanced_entity.add_to_group("AdvancedEnemyEntities")
 		advanced_entity.setup_advanced(encounter.difficulty)
 		_enemy_area.add_child(advanced_entity)
 		# warning-ignore:return_value_discarded
@@ -328,7 +330,7 @@ func _on_finished_enemy_activation(enemy: EnemyEntity) -> void:
 func _enemy_died(_final_damage) -> void:
 	yield(get_tree().create_timer(2), "timeout")
 	if get_tree().get_nodes_in_group("EnemyEntities").size()\
-			- get_tree().get_nodes_in_group("Minions").size() == 0:
+			- get_tree().get_nodes_in_group("MinionEnemyEntities").size() == 0:
 		complete_battle()
 
 
@@ -358,8 +360,6 @@ func complete_battle() -> void:
 
 
 func game_over() -> void:
-	if battle_ended:
-		return
 	battle_ended = true
 	_fade_to_transparent()
 	if _tween.is_active():	

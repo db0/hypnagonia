@@ -76,6 +76,7 @@ func after_each():
 func spawn_test_torments() -> void:
 	for _iter in range(torments_amount):
 		test_torment = board.spawn_enemy(GUT_TORMENT)
+		test_torment.add_to_group("BasicEnemyEntities")
 		test_torment.damage = starting_torment_dgm
 		test_torments.append(test_torment)
 	for effect in test_torment_starting_effects:
