@@ -200,12 +200,14 @@ class TestLifePathAction:
 		var sceng = snipexecute(card, test_torment)
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
+		yield(yield_for(0.1), YIELD)
 		sceng = snipexecute(cards[1], test_torment)
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
 		yield(yield_for(0.3), YIELD)
 		assert_eq(dreamer.damage, 2,
 				"2 Damage taken as per effect")
+		yield(yield_for(0.1), YIELD)
 
 class TestLifePathControl:
 	extends "res://tests/HUT_Ordeal_TormentEffectsTestClass.gd"
@@ -231,10 +233,11 @@ class TestLifePathControl:
 		var sceng = execute_with_yield(card)
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
+		yield(yield_for(0.1), YIELD)
 		sceng = execute_with_yield(cards[1])
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
-		yield(yield_for(0.5), YIELD)
+		yield(yield_for(0.3), YIELD)
 		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.protection.name), 2,
 				"2 %s received" % [Terms.ACTIVE_EFFECTS.protection.name])
 		assert_eq(test_torments[0].active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.protection.name), 0,
