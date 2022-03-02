@@ -1323,7 +1323,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "The cost of a random card in your hand is reduced by {reduction_amount} for the rest of combat.\n{forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["interpretation", "forget"],
 		"_amounts": {
@@ -1340,7 +1340,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "The cost of a random card in your hand is reduced by {reduction_amount} for the rest of combat.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -1353,7 +1353,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "The cost of a random card in your hand is reduced to {reduction_amount} for the rest of combat.\n{forget}.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["interpretation", "forget"],
 		"_amounts": {
@@ -1366,7 +1366,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Choose {action}, {control} or {concentration}. Spawn {spawn_amount} random card of the chosen type into your hand. It costs 0 the first time you play it.\n{forget}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -1384,7 +1384,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Choose {action}, {control} or {concentration}. Spawn {spawn_amount} copies of the same random card of the chosen type into your hand. It costs 0 the first time you play them.\n{forget}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -1397,7 +1397,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Choose {action}, {control} or {concentration}. Spawn {spawn_amount} random card of the chosen type into your hand. It costs 0 the first time you play it.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -1410,7 +1410,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Choose {action}, {control} or {concentration}. Spawn {spawn_amount} random upgraded card of the chosen type into your hand. It costs 0 the first time you play it.\n{forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -1470,7 +1470,7 @@ const CARDS := {
 		"Abilities": "Shuffle a {perturb_amount} Cringeworthy Memory in your deck.\n"\
 				+ "Gain {defence_amount} {defence}.\n{forget}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -1489,7 +1489,7 @@ const CARDS := {
 		"Abilities": "Shuffle a {perturb_amount} Cringeworthy Memory in your deck.\n"\
 				+ "Gain {defence_amount} {defence}.\n{forget}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -1504,7 +1504,7 @@ const CARDS := {
 		"Abilities": "Shuffle a {perturb_amount} Cringeworthy Memory in your deck.\n"\
 				+ "Gain {defence_amount} {defence}.\n{forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -1518,9 +1518,12 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.doom.name],
 		"Abilities": "Apply {effect_stacks} {doom} to a basic Torment or {effect_stacks2} {doom} to a minion Torment.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["overcome"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.doom.name: Terms.ENEMY
+		},
 		"_amounts": {
 			"effect_stacks": 8,
 			"effect_stacks2": 3,
@@ -1537,9 +1540,12 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.doom.name],
 		"Abilities": "Apply {effect_stacks} {doom} to a basic Torment or {effect_stacks2} {doom} to a minion Torment.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["overcome"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.doom.name: Terms.ENEMY
+		},
 		"_amounts": {
 			"effect_stacks": 7,
 			"effect_stacks2": 2,
@@ -1551,9 +1557,12 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.doom.name],
 		"Abilities": "Apply {effect_stacks} {doom} to a basic Torment or {effect_stacks2} {doom} to a minion Torment.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["overcome"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.doom.name: Terms.ENEMY
+		},
 		"_amounts": {
 			"effect_stacks": 8,
 			"effect_stacks2": 3,
@@ -1565,9 +1574,12 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.doom.name, Terms.GENERIC_TAGS.alpha.name],
 		"Abilities": "Apply {effect_stacks} {doom} to a basic Torment or {effect_stacks2} {doom} to a minion Torment.",
 		"Cost": 3,
-		"_illustration": "Nobody",
+		"_illustration": "Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["overcome"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.doom.name: Terms.ENEMY
+		},
 		"_amounts": {
 			"effect_stacks": 8,
 			"effect_stacks2": 3,
