@@ -7,7 +7,7 @@ const TORMENT_META_DICT := {
 }
 
 var enemies: Array
-
+var disabled_extra_draft_rewards := []
 
 func _init(encounter: Dictionary, _difficulty: String):
 	pathos_released = Terms.RUN_ACCUMULATION_NAMES.enemy
@@ -70,4 +70,8 @@ func end() -> void:
 
 
 func return_extra_draft_cards() -> Array:
-	return(get_unique_enemies())
+	var draft_rewards = get_unique_enemies()
+	for enemy in disabled_extra_draft_rewards:
+		if enemy in draft_rewards:
+			draft_rewards.erase(enemy)
+	return(draft_rewards)

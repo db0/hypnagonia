@@ -149,3 +149,41 @@ class TestCringelord:
 				"Cringeworthy Memory spawned when card played")
 		assert_eq(card.get_parent(), forgotten, "Card forgotten")
 
+class TestNightmare:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	var effect: String = Terms.ACTIVE_EFFECTS.doom.name
+	func _init() -> void:
+		testing_card_name = "Nightmare"
+		expected_amount_keys = [
+			"effect_stacks",
+			"effect_stacks2",
+		]
+
+	func test_basic_torment():
+		assert_has_amounts()
+		var sceng = snipexecute(card, test_torment)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(test_torment.active_effects.get_effect_stacks(effect), get_amount("effect_stacks"),
+				"%s stacks on Torment increased by correct amount" % [effect])
+
+	func test_minion_torment():
+		test_torment.remove_from_group("BasicEnemyEntities")
+		test_torment.add_to_group("MinionEnemyEntities")
+		var sceng = snipexecute(card, test_torment)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(test_torment.active_effects.get_effect_stacks(effect), get_amount("effect_stacks2"),
+				"%s stacks on Torment increased by correct amount" % [effect])
+
+
+	func test_advanced_torment():
+		test_torment.remove_from_group("BasicEnemyEntities")
+		test_torment.add_to_group("AdvancedEnemyEntities")
+		var sceng = snipexecute(card, test_torment)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(test_torment.active_effects.get_effect_stacks(effect), 0,
+				"%s stacks on Torment not increased" % [effect])
+
+

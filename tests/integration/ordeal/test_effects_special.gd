@@ -271,3 +271,30 @@ class TestLifePathConcentration:
 		yield(yield_for(0.3), YIELD)
 		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 2,
 				"2 %s received" % [Terms.ACTIVE_EFFECTS.strengthen.name])
+
+class TestDoom:
+	extends "res://tests/HUT_Journal_CombatEncounterTestClass.gd"
+	var effect = Terms.ACTIVE_EFFECTS.doom.name
+	func _init() -> void:
+		add_starting_effect(effect, 2)
+
+	func test_effect():
+		var begin = begin_enemy_encounter()
+		if begin is GDScriptFunctionState:
+			begin = yield(begin, "completed")
+		if not test_torment:
+			return
+		watch_signals(test_torment)
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		assert_signal_not_emitted(test_torment, "entity_killed")
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		assert_signal_emitted(test_torment, "entity_killed")
+		yield(yield_to(ce, 'encounter_end', 5), YIELD)
+		journal.card_draft.display("card_draft")
+		var draft  = get_tree().get_nodes_in_group("card_draft")
+		assert_eq(draft.size(), 1, "Card Draft Started")
+		if draft.size() == 1:
+			return
+		assert_eq(draft[0].get_draft_card_count(), 3, "Killed enemies through doom don't show draft rewards")

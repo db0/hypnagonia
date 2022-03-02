@@ -166,7 +166,13 @@ func get_uncommon_chance() -> float:
 			value *= multiplier
 	return(value)
 
-
+func get_draft_card_count() -> int:
+	var count := 0
+	for child in get_children():
+		if not child as Tween:
+			count += 1
+	return(count)
+	
 func get_rare_chance() -> float:
 	var value := rare_chance
 	for artifact in cfc.get_tree().get_nodes_in_group("artifacts"):
