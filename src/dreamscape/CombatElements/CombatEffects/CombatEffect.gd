@@ -1,6 +1,8 @@
 class_name CombatEffect
 extends CombatSignifier
 
+signal scripting_started(sceng)
+signal scripting_finished(sceng)
 
 var self_decreasing : int = Terms.SELF_DECREASE.FALSE
 var decrease_type : int = Terms.DECREASE_TYPE.REDUCE
@@ -148,6 +150,7 @@ func execute_script(
 			get_parent().combat_entity,
 			trigger_object,
 			trigger_details)
+	emit_signal("scripting_started", sceng)
 	# In case the script involves targetting, we need to wait on further
 	# execution until targetting has completed
 	sceng.execute(CFInt.RunType.COST_CHECK)
@@ -168,6 +171,8 @@ func execute_script(
 	elif not sceng.can_all_costs_be_paid and not only_cost_check:
 		#print("DEBUG:" + str(state_scripts))
 		sceng.execute(CFInt.RunType.ELSE)
+	emit_signal("scripting_finished", sceng)
+	print_debug(canonical_name)
 	return(sceng)
 
 func take_snapshot(id: int) -> void:

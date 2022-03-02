@@ -197,17 +197,19 @@ class TestLifePathAction:
 		]
 
 	func test_life_path():
+		yield(yield_for(0.3), YIELD)
 		var sceng = snipexecute(card, test_torment)
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
-		yield(yield_for(0.3), YIELD)
+		yield(yield_to(combat_effects[0], 'scripting_finished', 1), YIELD)
 		sceng = snipexecute(cards[1], test_torment)
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
-		yield(yield_for(0.3), YIELD)
+		yield(yield_to(combat_effects[0], 'scripting_finished', 1), YIELD)
 		assert_eq(dreamer.damage, 2,
 				"1 damage taken as per stack")
 		yield(yield_for(0.1), YIELD)
+
 
 class TestLifePathControl:
 	extends "res://tests/HUT_Ordeal_TormentEffectsTestClass.gd"
@@ -230,23 +232,20 @@ class TestLifePathControl:
 	func test_life_path():
 		spawn_effect(test_torments[0],effect, 1, "Active")
 		spawn_effect(test_torments[1],effect, 1, "Focused")
-		var sceng = execute_with_yield(card)
-		if sceng is GDScriptFunctionState:
-			sceng = yield(sceng, "completed")
-		yield(yield_for(0.3), YIELD)
-		sceng = execute_with_yield(cards[1])
-		if sceng is GDScriptFunctionState:
-			sceng = yield(sceng, "completed")
-		yield(yield_for(0.3), YIELD)
+		card.execute_scripts()
+		yield(yield_to(combat_effects[0], 'scripting_finished', 1), YIELD)
+		cards[1].execute_scripts()
+		yield(yield_to(combat_effects[0], 'scripting_finished', 1), YIELD)
 		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.protection.name), 2,
-				"2 %s received" % [Terms.ACTIVE_EFFECTS.protection.name])
+				"amount of %s equal to stacks received" % [Terms.ACTIVE_EFFECTS.protection.name])
 		assert_eq(test_torments[0].active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.protection.name), 0,
 				"0 on test torment with different upgrade")
 		assert_eq(test_torments[1].active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.protection.name), 0,
 				"0 on test torment with different upgrade")
 		for t in test_torments:
 			assert_eq(t.damage, tdamage(-2), "All torments healed")
-
+		yield(yield_for(0.3), YIELD)
+		
 class TestLifePathConcentration:
 	extends "res://tests/HUT_Ordeal_TormentEffectsTestClass.gd"
 	var effect = Terms.ACTIVE_EFFECTS.life_path.name
@@ -265,13 +264,10 @@ class TestLifePathConcentration:
 		]
 
 	func test_life_path():
-		var sceng = execute_with_yield(card)
-		if sceng is GDScriptFunctionState:
-			sceng = yield(sceng, "completed")
-		sceng = execute_with_yield(cards[1])
-		if sceng is GDScriptFunctionState:
-			sceng = yield(sceng, "completed")
-		yield(yield_for(0.3), YIELD)
+		card.execute_scripts()
+		yield(yield_to(combat_effects[0], 'scripting_finished', 1), YIELD)
+		cards[1].execute_scripts()
+		yield(yield_to(combat_effects[0], 'scripting_finished', 1), YIELD)
 		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 2,
 				"2 %s received" % [Terms.ACTIVE_EFFECTS.strengthen.name])
 
