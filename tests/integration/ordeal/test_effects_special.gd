@@ -200,13 +200,13 @@ class TestLifePathAction:
 		var sceng = snipexecute(card, test_torment)
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
-		yield(yield_for(0.1), YIELD)
+		yield(yield_for(0.3), YIELD)
 		sceng = snipexecute(cards[1], test_torment)
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
 		yield(yield_for(0.3), YIELD)
 		assert_eq(dreamer.damage, 2,
-				"2 Damage taken as per effect")
+				"1 damage taken as per stack")
 		yield(yield_for(0.1), YIELD)
 
 class TestLifePathControl:
@@ -233,7 +233,7 @@ class TestLifePathControl:
 		var sceng = execute_with_yield(card)
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
-		yield(yield_for(0.1), YIELD)
+		yield(yield_for(0.3), YIELD)
 		sceng = execute_with_yield(cards[1])
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
