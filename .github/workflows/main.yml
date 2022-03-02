@@ -25,7 +25,7 @@ jobs:
         # Allowing some fails on push, as sometimes randomly some asserts might false negative and I haven't yet located the precice reason for this inconsistency
         max-fails: 5
         # How long the test should be run before it's timed out and fails
-        test-timeout: 900
+        test-timeout: 1500
         # Directory containing Gut tests
         direct-scene: tests/cli/tests.tscn
   version_and_release:
