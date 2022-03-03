@@ -386,7 +386,10 @@ func remove_from_deck(permanent := true, tags := []) -> void:
 	if deck_card_entry and permanent:
 		globals.player.deck.remove_card(deck_card_entry)
 
-
+func reorganize_self() ->void:
+	if state == ExtendedCardState.REMOVE_FROM_GAME:
+		return
+	.reorganize_self()
 
 func check_play_costs() -> Color:
 	var ret : Color = CFConst.CostsState.OK

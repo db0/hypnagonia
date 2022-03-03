@@ -270,17 +270,18 @@ const ENEMIES = [
 	Nightmare,
 ]
 
-const Jumbletron = {
-	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/Jumbletron.tscn")],
+const TheGatherer = {
+	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/TheGatherer.tscn")],
 	"journal_description":\
-		'I had enterred a room which seemed to be an amalgram of a lot of different encounters I had.\n'\
-		+ "I couldn't find the exit anymore.",
+		'My next few dreams are extremely difficult to remember. It feels like I was '\
+		+ "doing things almost randomly.",
 	"journal_reward":\
-		'Somehow I figured out the correct organization to make it out.',
+		'Finally I put my thoughts in order.',
 #	'journal_art': preload("res://assets/journal/advanced/dentist.jpeg"),
 }
 
 const ELITES = [
+	TheGatherer
 ]
 
 const FearAndPhobia = {

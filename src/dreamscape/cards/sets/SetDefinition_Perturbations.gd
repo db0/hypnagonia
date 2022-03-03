@@ -141,6 +141,19 @@ const CARDS := {
 		"_amounts": {
 			"exert_amount": 1
 		},
+		"_keywords": ["forget"]
+	},
+	"Dream Fragment": {
+		"Type": "Perturbation",
+		"Tags": [Terms.GENERIC_TAGS.frozen.name, Terms.GENERIC_TAGS.exert.name],
+		"Abilities": "{release}\nTake {exert_amount} {anxiety}.\nDraw {draw_amount} card.\nPut 1 Dream Fragment to your hand.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Perturbation",
+		"_amounts": {
+			"exert_amount": 1,
+			"draw_amount": 1
+		},
 		"_keywords": ["release"]
 	},
 }

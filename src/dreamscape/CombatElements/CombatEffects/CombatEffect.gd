@@ -3,6 +3,7 @@ extends CombatSignifier
 
 signal scripting_started(sceng)
 signal scripting_finished(sceng)
+signal stacks_modified(value)
 
 var self_decreasing : int = Terms.SELF_DECREASE.FALSE
 var decrease_type : int = Terms.DECREASE_TYPE.REDUCE
@@ -63,8 +64,7 @@ func set_stacks(value: int, tags := ["Manual"], can_go_negative := false) -> voi
 		# Otherwise we ensure the icon stays at it's normal colour
 		elif can_go_negative:
 			signifier_icon.modulate = Color(1,1,1)
-			
-			
+	emit_signal("stacks_modified", value)
 
 # To override. This is called by the scripting engine
 # Is source is telling this script whether we're checking for alterants affecting the 

@@ -190,6 +190,59 @@ const scripts := {
 			],
 		},
 	},
+	"Dream Fragment": {
+		"manual": {
+			"hand": [
+				{
+					"name": "remove_card_from_deck",
+					"tags": ["Played", "Card"],
+					"subject": "self",
+				},
+				{
+					"name": "spawn_card_to_container",
+					"card_name": "Dream Fragment",
+					"dest_container": "hand",
+					"tags": ["Card"],
+				},
+				{
+					"name": "modify_damage",
+					"subject": "dreamer",
+					"amount": {
+						"lookup_property": "_amounts",
+						"value_key": "exert_amount"
+					},
+					"tags": ["Exert", "Card"],
+				},
+				{
+					"name": "draw_cards",
+					"tags": ["Card"],
+					"card_count": {
+						"lookup_property": "_amounts",
+						"value_key": "draw_amount"
+					},
+				},
+			],
+		},
+		"card_played": {
+			"pile": [
+				{
+					"name": "remove_card_from_deck",
+					"tags": ["Card"],
+					"subject": "self",
+				},
+			],
+			"trigger": "self",
+		},
+		"on_player_turn_ended": {
+			"hand": [
+				{
+					"name": "remove_card_from_deck",
+					"tags": ["Card"],
+					"subject": "self",
+				},
+			],
+		},
+	},
 }
 
 
