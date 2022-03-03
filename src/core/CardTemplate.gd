@@ -1486,7 +1486,6 @@ func execute_scripts(
 			if not sceng.all_tasks_completed:
 				yield(sceng,"tasks_completed")
 		is_executing_scripts = false
-	if sceng: print_debug(sceng.all_tasks_completed)
 	return(sceng)
 
 

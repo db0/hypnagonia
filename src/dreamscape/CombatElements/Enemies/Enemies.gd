@@ -200,6 +200,7 @@ const BROKEN_MIRROR:= {
 		{
 			"intent_scripts": ["Perplex:10"],
 			"reshuffle": true,
+			"max_in_a_row": 1,
 		},
 	],
 	"_health_variability": 2,
