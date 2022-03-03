@@ -172,7 +172,6 @@ func execute_script(
 		#print("DEBUG:" + str(state_scripts))
 		sceng.execute(CFInt.RunType.ELSE)
 	emit_signal("scripting_finished", sceng)
-	print_debug(canonical_name)
 	return(sceng)
 
 func take_snapshot(id: int) -> void:
