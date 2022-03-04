@@ -268,6 +268,18 @@ const scripts := {
 			],
 		},
 	},
+	"Inescepable Conclusion": {
+		"on_player_turn_ended": {
+			"hand": [
+				{
+					"name": "spawn_card_to_container",
+					"card_name": "Inescepable Conclusion",
+					"dest_container": "discard",
+					"tags": ["Card"],
+				},
+			],
+		},
+	},
 }
 
 

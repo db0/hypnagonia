@@ -134,7 +134,7 @@ const CARDS := {
 	"Cringeworthy Memory": {
 		"Type": "Perturbation",
 		"Tags": [Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Gain {exert_amount} {anxiety}\n{forget}.",
+		"Abilities": "Take {exert_amount} {anxiety}\n{forget}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Perturbation",
@@ -179,5 +179,14 @@ const CARDS := {
 			"exert_amount": 3
 		},
 		"_keywords": ["forget"]
+	},
+	"Inescepable Conclusion": {
+		"Type": "Perturbation",
+		"Tags": [],
+		"Abilities": "If in hand at the end of the turn, add a copy of this card to your discard pile.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Perturbation",
+		"_keywords": []
 	},
 }
