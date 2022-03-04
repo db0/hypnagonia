@@ -23,8 +23,12 @@ func _ready() -> void:
 	intents.combat_entity = self
 	if _properties.has('Intents'):
 		intents.all_intents = _properties.Intents.duplicate(true)
+	# If the _unlock_triggers property is defined. The intents specified in this
+	# array will be unlocked when the specified signal is fired
 	if _properties.has('_unlock_triggers'):
 		intents.unlock_triggers = _properties._unlock_triggers.duplicate(true)
+	# If the _lock_triggers property is defined. The intents specified in this
+	# array will be locked (i.e. not used anymore) when the specified signal is fired
 	if _properties.has('_lock_triggers'):
 		intents.lock_triggers = _properties._lock_triggers.duplicate(true)
 	if _properties.has('_art_scene'):
@@ -83,7 +87,7 @@ func die() -> void:
 	if is_dead:
 		return
 	is_dead = true
-	emit_signal("entity_killed", damage)
+	emit_signal("entity_killed", damage, health)
 	if animated_art:
 		animated_art.defeat()
 		yield(animated_art.animation_player, "animation_finished")

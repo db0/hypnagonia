@@ -590,6 +590,19 @@ const ACTIVE_EFFECTS := {
 		"icon": preload("res://assets/icons/lightning-mask.png"),
 		"description": "{effect_name}: You draw {amount} less cards per turn. If you have 3 or more stacks, you do not discard cards at the end of each turn.",
 	},
+	"act_length": {
+		"name": "Act Length",
+		"type": "Special",
+		"self_decreasing": SELF_DECREASE.TURN_END,
+		"decrease_type": DECREASE_TYPE.REDUCE,
+		"alterant_priority": ALTERANT_PRIORITY.SET,
+		"icon": preload("res://assets/icons/dead-eye.png"),
+		"description": "{effect_name}: This torment will be automatically overcome after {amount} turns (1 per stack). "\
+				+ "At the end of those turns, the dreamer will take {attack} based on the remaining interpretation on this Torment.\n\n"\
+				+ "This torment only receives 1 {opponent_attack} per {opponent_attack}.\n\n"\
+				+ "When this torment is {overcome} through {opponent_attack}, the Theatre Play {opponent_attack} is increased.",
+	},
+
 }
 
 

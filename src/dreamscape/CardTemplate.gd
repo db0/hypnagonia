@@ -381,7 +381,7 @@ func remove_from_deck(permanent := true, tags := []) -> void:
 #	card_front.apply_shader("res://shaders/consume.shader")
 	card_front.material = preload("res://shaders/dissolve.tres")
 #	card_front.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
-	state = ExtendedCardState.REMOVE_FROM_GAME
+	set_state(ExtendedCardState.REMOVE_FROM_GAME)
 	cfc.flush_cache()
 	emit_signal("card_removed",
 			self,
@@ -449,6 +449,11 @@ func connect_card_entry(card_entry) -> void:
 func on_card_entry_modified(card_entry) -> void:
 	properties = card_entry.properties.duplicate(true)
 	refresh_card_front()
+
+func set_state(value: int) -> void:
+	if state == ExtendedCardState.REMOVE_FROM_GAME:
+		return
+	.set_state(value)
 
 
 func _on_self_played(_card,_trigger,_details) -> void:

@@ -11,6 +11,14 @@ func _count_custom() -> int:
 			for subject in subjects:
 				if subject.is_in_group("CombatEntities"):
 					ret += subject.defence
+		SP.KEY_PER_REMAINING_HEALTH:
+			for subject in subjects:
+				if subject.is_in_group("CombatEntities"):
+					ret += subject.health - subject.damage
+		SP.KEY_PER_DAMAGE:
+			for subject in subjects:
+				if subject.is_in_group("CombatEntities"):
+					ret += subject.damage
 		SP.FILTER_PER_EFFECT_STACKS, SP.PER_EFFECT_STACKS:
 			ret = _count_effect_stacks()
 		SP.KEY_PER_ENCOUNTER_EVENT_COUNT:

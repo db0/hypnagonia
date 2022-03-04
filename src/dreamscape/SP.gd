@@ -41,6 +41,8 @@ const KEY_PERMANENT = "is_permanent"
 const PER_EFFECT_STACKS = "per_effect_stacks"
 const KEY_CARD_COUNT := "card_count"
 const KEY_PER_DEFENCE := "per_defence"
+const KEY_PER_REMAINING_HEALTH := "per_remaining_health"
+const KEY_PER_DAMAGE := "per_damage"
 const KEY_PER_TURN_EVENT_COUNT := "per_turn_event_count"
 const KEY_PER_ENCOUNTER_EVENT_COUNT := "per_encounter_event_count"
 # If this is set, the predict() will be rerun every time a new target is hovered and the currect

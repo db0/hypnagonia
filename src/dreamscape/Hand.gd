@@ -15,6 +15,8 @@ func empty_hand() -> void:
 	for card in get_all_cards():
 		if Terms.GENERIC_TAGS.frozen.name in card.get_property("Tags"):
 			continue
+		if card.state == DreamCard.ExtendedCardState.REMOVE_FROM_GAME:
+			continue
 		yield(get_tree().create_timer(0.05), "timeout")
 		card.move_to(cfc.NMAP.discard)
 	emit_signal("hand_emptied")

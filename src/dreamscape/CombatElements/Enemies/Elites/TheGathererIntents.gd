@@ -47,7 +47,7 @@ func _get_elite_scripts(intent_name: String) -> Array:
 				"amount": 9 + difficulty,
 				"icon": all_intent_scripts.ICON_ATTACK,
 				"description": "Stress: Will cause the dreamer to take the specified amount of {anxiety}.\n"\
-						+ "[i]You really should be flossing more...[/i]"
+						+ "[i]I feel my thoughts slipping away from me.[/i]"
 			}
 			intent_scripts.append(script)
 			script = {
@@ -58,7 +58,7 @@ func _get_elite_scripts(intent_name: String) -> Array:
 				"dest_container": "discard",
 				"tags": ["Intent"],
 				"icon": all_intent_scripts.ICON_SPECIAL,
-				"description": "Gather Dreams: [i]I wanted to do something. What was it..?[/i]"
+				"description": "Gather Dreams\n[i]I wanted to do something. What was it..?[/i]"
 			}
 			intent_scripts.append(script)
 			intent_scripts.append(script)
@@ -70,7 +70,7 @@ func _get_elite_scripts(intent_name: String) -> Array:
 				"amount": difficulty,
 				"icon": all_intent_scripts.ICON_ATTACK,
 				"description": "Stress: Will cause the dreamer to take the specified amount of {anxiety}.\n"\
-						+ "[i]You really should be flossing more...[/i]"
+						+ "[i]There's too many options![/i]"
 			}
 			for _iter in range(3):
 				intent_scripts.append(script)
@@ -82,7 +82,7 @@ func _get_elite_scripts(intent_name: String) -> Array:
 				"amount": (difficulty * 2) + 3,
 				"icon": all_intent_scripts.ICON_ATTACK,
 				"description": "Stress: Will cause the dreamer to take the specified amount of {anxiety}.\n"\
-						+ "[i]You really should be flossing more...[/i]"
+						+ "[i]I cannot quite recall what I was about to do.[/i]"
 			}
 			intent_scripts.append(script)
 			script = {

@@ -814,11 +814,11 @@ const KEY_REPEAT := "repeat"
 # task filters fail. (Normally the task is merely skipped).
 # This will cause an [KEY_IS_COST](#LEY_IS_COST] to abort all effects.
 const KEY_FAIL_COST_ON_SKIP = "fail_cost_on_skip"
-const KEY_IMMEDIATE_PLACEMENT = "immediate_placement"
 # Value Type: Bool.
 #
 # Skips fancy anymation when spawning a new card and simply places it in its final destination 
 # immediately.
+const KEY_IMMEDIATE_PLACEMENT = "immediate_placement"
 #---------------------------------------------------------------------
 # Filter Definition Keys
 #

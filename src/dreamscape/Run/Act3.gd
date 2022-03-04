@@ -280,8 +280,19 @@ const TheGatherer = {
 #	'journal_art': preload("res://assets/journal/advanced/dentist.jpeg"),
 }
 
+const TheatrePlay = {
+	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/TheatrePlay.tscn")],
+	"journal_description":\
+		'I was in a theatre troupe and part of a hyped new play. '\
+		+ "It was my first show and I had a protagonist role and nothing was ready.",
+	"journal_reward":\
+		"I don't know how we pulled it through, but as the curtain fell, I felt relieved.",
+	'journal_art': preload("res://assets/journal/advanced/theatre.jpeg"),
+}
+
 const ELITES = [
-	TheGatherer
+	TheGatherer,
+	TheatrePlay,
 ]
 
 const FearAndPhobia = {
