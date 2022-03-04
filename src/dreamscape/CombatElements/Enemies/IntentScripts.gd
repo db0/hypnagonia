@@ -268,6 +268,35 @@ const ARMOR_THE_BOSS := [
 		"description": "It is jumping in front!."
 	}
 ]
+const COMPLICATED_PLAY := [
+	{
+		"name": "assign_defence",
+		"tags": ["Intent"],
+		"subject": "boardseek",
+		"amount": 3,
+		"icon": "icon_defend",
+		"filter_state_seek": [
+			{"filter_properties": {
+				"Name": "Theatre Play"}
+			}
+		],
+		"description": "Who wrote this script?"
+	}
+]
+const ACT_IT_OUT := [
+	{
+		"name": "modify_damage",
+		"tags": ["Attack", "Intent"],
+		"subject": "dreamer",
+		"amount": 'per_remaining_health',
+		"icon": "icon_attack",
+		"description": "Stress: Will cause the dreamer to take the specified amount of {anxiety}.",
+		"per_remaining_health": {
+			"subject": "self",
+			"multiplier": 4,
+		}
+	}
+]
 
 const GUT := [
 	{
@@ -298,6 +327,8 @@ func get_scripts(intent_name: String) -> Dictionary:
 		"Increase Complexity": INCREASE_COMPLEXITY,
 		"Summon Minion 1": SUMMON_MINION1,
 		"Armor The Boss": ARMOR_THE_BOSS,
+		"Complicated Play": COMPLICATED_PLAY,
+		"Act It Out": ACT_IT_OUT,
 		# Unit Testing #
 		"GUT": GUT,
 	}

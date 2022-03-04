@@ -718,6 +718,32 @@ const NIGHTMARE:= {
 #	"_texture": preload("res://assets/enemies/slavery-whip.png"),
 	"_character_art": "nobody",
 }
+const THEATRE_ACT := {
+	"Name": "Theatre Act", 
+	"Type": "Fear",
+	"Health": 3,
+	"_is_ordered": true,
+	"Intents": [
+		{
+			"intent_scripts": ["Complicated Play"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Complicated Play"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Act It Out"],
+			"reshuffle": false,
+		},
+	],
+	"_health_variability": 0,
+	"_texture_size_x": "60",
+	"_texture_size_y": "60",
+#	"_texture": preload("res://assets/enemies/slavery-whip.png"),
+	"_character_art": "Nobody"
+}
+
 #	"Spider": {
 #		"Type": "Phobia",
 #		"Health": 1,

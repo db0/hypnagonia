@@ -13,7 +13,7 @@ signal entity_damaged(entity, amount, trigger, tags)
 signal entity_healed(entity, amount, trigger, tags)
 signal entity_defence_modified(entity, amount, trigger, tags)
 signal entity_damage_blocked(entity, amount, trigger, tags)
-signal entity_killed(final_damage)
+signal entity_killed(final_damage, health)
 signal entity_health_modified(entity, amount, trigger, tags)
 signal death_animation_finished(entity)
 
@@ -130,7 +130,7 @@ func die() -> void:
 	yield(get_tree(), "idle_frame")
 	if damage >= health:
 		is_dead = true
-		emit_signal("entity_killed", damage)
+		emit_signal("entity_killed", damage, health)
 		entity_texture.material = ShaderMaterial.new()
 		entity_texture.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
 		cfc.flush_cache()

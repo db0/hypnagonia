@@ -5,7 +5,7 @@ func get_outrage() -> int:
 	var outrage : int = combat_entity.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.outrage.name)
 	return(outrage)
 
-# Executes a special script throug the scripting engine so that all modifiers are also handled.
+# Executes a special script through the scripting engine so that all modifiers are also handled.
 func execute_special_script(
 		script : Array,
 		owner: Node,

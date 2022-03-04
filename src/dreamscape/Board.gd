@@ -327,7 +327,7 @@ func _on_finished_enemy_activation(enemy: EnemyEntity) -> void:
 		turn.start_player_turn()
 
 
-func _enemy_died(_final_damage) -> void:
+func _enemy_died(_final_damage, _health) -> void:
 	yield(get_tree().create_timer(2), "timeout")
 	if get_tree().get_nodes_in_group("EnemyEntities").size()\
 			- get_tree().get_nodes_in_group("MinionEnemyEntities").size() == 0:
@@ -517,7 +517,7 @@ func _debug_advanced_enemy() -> void:
 #	var advanced_entity: EnemyEntity =\
 #			preload("res://src/dreamscape/CombatElements/Enemies/Bosses/Narcissus.tscn").instance()
 	var advanced_entity: EnemyEntity =\
-			preload("res://src/dreamscape/CombatElements/Enemies/Elites/TheGatherer.tscn").instance()
+			preload("res://src/dreamscape/CombatElements/Enemies/Elites/TheatrePlay.tscn").instance()
 	advanced_entity.setup_advanced("hard")
 	_enemy_area.add_child(advanced_entity)
 #	advanced_entity.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.self_cleaning.name, 1)

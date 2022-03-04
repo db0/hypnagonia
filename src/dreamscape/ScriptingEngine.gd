@@ -202,10 +202,11 @@ func calculate_modify_damage(subject: CombatEntity, script: ScriptTask) -> int:
 		modification = per_msg.found_things
 	else:
 		modification = script.get_property(SP.KEY_AMOUNT)
+	modification = _check_for_x(script, modification)
 	alteration = _check_for_effect_alterants(script, modification, subject, self)
 	if alteration is GDScriptFunctionState:
 		alteration = yield(alteration, "completed")
-	var final_result = _check_for_x(script, modification + alteration)
+	var final_result = modification + alteration
 	return(final_result)
 
 
@@ -250,10 +251,11 @@ func calculate_assign_defence(subject: CombatEntity, script: ScriptTask) -> int:
 		modification = per_msg.found_things
 	else:
 		modification = script.get_property(SP.KEY_AMOUNT)
+	modification = _check_for_x(script, modification)
 	alteration = _check_for_effect_alterants(script, modification, subject, self)
 	if alteration is GDScriptFunctionState:
 		alteration = yield(alteration, "completed")
-	var final_result = _check_for_x(script, modification + alteration)
+	var final_result = modification + alteration
 	return(final_result)
 
 func assign_defence(script: ScriptTask) -> int:
@@ -299,11 +301,12 @@ func calculate_apply_effect(subject: CombatEntity, script: ScriptTask) -> int:
 #		print_debug(per_msg.found_things, modification)
 	else:
 		modification = script.get_property(SP.KEY_MODIFICATION)
+	modification = _check_for_x(script, modification)
 	if not set_to_mod:
 		alteration = _check_for_effect_alterants(script, modification, subject, self)
 		if alteration is GDScriptFunctionState:
 			alteration = yield(alteration, "completed")
-	var final_amount = _check_for_x(script, modification + alteration)
+	var final_amount = modification + alteration
 	return(final_amount)
 
 
@@ -603,10 +606,11 @@ func calculate_modify_pathos(script: ScriptTask) -> float:
 	else:
 		modification = script.get_property(SP.KEY_AMOUNT, 0.0)
 	# warning-ignore:narrowing_conversion
+	modification = _check_for_x(script, modification)
 	alteration = _check_for_effect_alterants(script, modification, cfc.NMAP.board.dreamer, self)
 	if alteration is GDScriptFunctionState:
 		alteration = yield(alteration, "completed")
-	var final_result = _check_for_x(script, modification + alteration)
+	var final_result = modification + alteration
 	return(final_result)
 
 
@@ -655,10 +659,11 @@ func calculate_modify_health(subject: CombatEntity, script: ScriptTask) -> int:
 		modification = per_msg.found_things
 	else:
 		modification = script.get_property(SP.KEY_AMOUNT)
+	modification = _check_for_x(script, modification)
 	alteration = _check_for_effect_alterants(script, modification, subject, self)
 	if alteration is GDScriptFunctionState:
 		alteration = yield(alteration, "completed")
-	var final_result = _check_for_x(script, modification + alteration)
+	var final_result = modification + alteration
 	return(final_result)
 
 
