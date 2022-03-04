@@ -1,5 +1,6 @@
 extends "res://tests/HUT_Ordeal_CardTestClass.gd"
 
+
 class TestScatteredDreams:
 	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.drain.name
@@ -8,7 +9,6 @@ class TestScatteredDreams:
 		expected_amount_keys = [
 			"effect_stacks"
 		]
-
 
 	func test_card_results():
 		assert_has_amounts()
@@ -34,6 +34,7 @@ class TestScatteredDreams:
 		assert_eq(counters.get_counter("immersion"), 2,
 				"Immersion affected by %s" % [testing_card_name])
 
+
 class TestCringeworthyMemory:
 	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
 	func _init() -> void:
@@ -41,7 +42,6 @@ class TestCringeworthyMemory:
 		expected_amount_keys = [
 			"exert_amount"
 		]
-
 
 	func test_card_results():
 		assert_has_amounts()
@@ -52,6 +52,7 @@ class TestCringeworthyMemory:
 		assert_eq(dreamer.damage, 1, "Perturbation did damage")
 		assert_eq(card.get_parent(), forgotten, "Pertubration forgotten")
 
+
 class TestDreamFragment:
 	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
 	func _init() -> void:
@@ -61,7 +62,6 @@ class TestDreamFragment:
 			"exert_amount",
 			"draw_amount",
 		]
-
 
 	func test_card_results():
 		assert_has_amounts()
@@ -77,6 +77,7 @@ class TestDreamFragment:
 		assert_eq(count_card_names("Dream Fragment"), 2,
 				"Card removed but new one took its place")
 
+
 class TestDistracted:
 	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
 	func _init() -> void:
@@ -90,12 +91,12 @@ class TestDistracted:
 			"immersion_cost",
 		]
 
-
 	func test_card_results():
 		assert_has_amounts()
 		assert_eq(cards[0].check_play_costs(), CFConst.CostsState.IMPOSSIBLE)
 		assert_eq(cards[1].check_play_costs(), CFConst.CostsState.OK)
 		assert_eq(cards[2].check_play_costs(), CFConst.CostsState.IMPOSSIBLE)
+
 
 class TestPainfulVision:
 	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
@@ -109,7 +110,6 @@ class TestPainfulVision:
 			"exert_amount"
 		]
 
-
 	func test_card_results():
 		assert_has_amounts()
 		yield(yield_for(0.1), YIELD)
@@ -121,3 +121,22 @@ class TestPainfulVision:
 		assert_eq(dreamer.damage, 3, "Only 1 Perturbation did damage")
 		assert_eq(card.get_parent(), forgotten, "Pertubration forgotten")
 
+
+class TestInescepableConclusion:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	func _init() -> void:
+		test_card_names = [
+			"Inescepable Conclusion",
+			"Inescepable Conclusion",
+		]
+
+	func test_card_results():
+		watch_signals(cfc)
+		var sceng = execute_with_yield(card)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		turn.end_player_turn()
+		yield(yield_to(board.turn, "enemy_turn_started",3 ), YIELD)
+		assert_signal_emit_count(cfc, "new_card_instanced", 1)
+		assert_eq(count_card_names("Inescepable Conclusion"), 3,
+				"1 New Inescepable Conclusion Added")
