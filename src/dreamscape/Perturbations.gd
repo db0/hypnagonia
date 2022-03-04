@@ -7,6 +7,7 @@ extends Reference
 # only the combat and are not meant to be permanent in the deck
 const EXCLUDED_PERTURBATIONS := [
 	"Dread",
+	"Lacuna",
 	"Dubious Painkillers",
 	"Scattered Dreams",
 	"Cringeworthy Memory",

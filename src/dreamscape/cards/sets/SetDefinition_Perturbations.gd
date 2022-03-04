@@ -145,7 +145,7 @@ const CARDS := {
 	},
 	"Dream Fragment": {
 		"Type": "Perturbation",
-		"Tags": [Terms.GENERIC_TAGS.frozen.name, Terms.GENERIC_TAGS.exert.name],
+		"Tags": [Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "{release}\nTake {exert_amount} {anxiety}.\nDraw {draw_amount} card.\nPut 1 Dream Fragment to your hand.",
 		"Cost": 0,
 		"_illustration": "Nobody",
@@ -159,7 +159,7 @@ const CARDS := {
 	"Distracted": {
 		"Type": "Perturbation",
 		"Tags": [],
-		"Abilities": "You cannot play cards that cost {immersion_cost} or more {immersion}",
+		"Abilities": "While in hand, you cannot play cards that cost {immersion_cost} or more {immersion}",
 		"Cost": "U",
 		"_illustration": "Nobody",
 		"_rarity": "Perturbation",
@@ -167,5 +167,17 @@ const CARDS := {
 			"immersion_cost": 2
 		},
 		"_keywords": [],
+	},
+	"Painful Vision": {
+		"Type": "Perturbation",
+		"Tags": [Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "While in hand, at the end of the turn, take {exert_amount} {anxiety}\nPlay: {forget}.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Perturbation",
+		"_amounts": {
+			"exert_amount": 3
+		},
+		"_keywords": ["forget"]
 	},
 }

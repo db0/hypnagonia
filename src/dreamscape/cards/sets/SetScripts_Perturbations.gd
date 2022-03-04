@@ -243,6 +243,31 @@ const scripts := {
 			],
 		},
 	},
+	"Painful Vision": {
+		"manual": {
+			"hand": [
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": "forgotten",
+					"tags": ["Played", "Card"],
+				},
+			],
+		},
+		"on_player_turn_ended": {
+			"hand": [
+				{
+					"name": "modify_damage",
+					"subject": "dreamer",
+					"amount": {
+						"lookup_property": "_amounts",
+						"value_key": "exert_amount"
+					},
+					"tags": ["Exert", "Card"],
+				},
+			],
+		},
+	},
 }
 
 

@@ -18,7 +18,7 @@ class TestScatteredDreams:
 			sceng = yield(sceng, "completed")
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 0,
 				"%s stacks on dreamer not increased when card played" % [effect])
-		cfc.NMAP.board.turn.end_player_turn()
+		turn.end_player_turn()
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
 		assert_eq(counters.get_counter("immersion"), 3,
 				"Immersion not affected by %s" % [testing_card_name])
@@ -26,14 +26,14 @@ class TestScatteredDreams:
 	func test_card_results_remaining_on_hand():
 		assert_has_amounts()
 		yield(yield_for(0.1), YIELD)
-		cfc.NMAP.board.turn.end_player_turn()
+		turn.end_player_turn()
 		yield(yield_to(board.turn, "enemy_turn_started",3 ), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 1,
 				"%s stacks on dreamer not increased when card played" % [effect])
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
 		assert_eq(counters.get_counter("immersion"), 2,
 				"Immersion affected by %s" % [testing_card_name])
-				
+
 class TestCringeworthyMemory:
 	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
 	func _init() -> void:
@@ -96,3 +96,28 @@ class TestDistracted:
 		assert_eq(cards[0].check_play_costs(), CFConst.CostsState.IMPOSSIBLE)
 		assert_eq(cards[1].check_play_costs(), CFConst.CostsState.OK)
 		assert_eq(cards[2].check_play_costs(), CFConst.CostsState.IMPOSSIBLE)
+
+class TestPainfulVision:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	func _init() -> void:
+		testing_card_name = "Painful Vision"
+		test_card_names = [
+			"Painful Vision",
+			"Painful Vision",
+		]
+		expected_amount_keys = [
+			"exert_amount"
+		]
+
+
+	func test_card_results():
+		assert_has_amounts()
+		yield(yield_for(0.1), YIELD)
+		var sceng = execute_with_yield(card)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		turn.end_player_turn()
+		yield(yield_to(board.turn, "enemy_turn_started",3 ), YIELD)
+		assert_eq(dreamer.damage, 3, "Only 1 Perturbation did damage")
+		assert_eq(card.get_parent(), forgotten, "Pertubration forgotten")
+
