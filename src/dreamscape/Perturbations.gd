@@ -10,6 +10,7 @@ const EXCLUDED_PERTURBATIONS := [
 	"Dubious Painkillers",
 	"Scattered Dreams",
 	"Cringeworthy Memory",
+	"Dream Fragment",
 ]
 
 # Gathers all perturbations that can be given to the player

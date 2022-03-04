@@ -297,3 +297,54 @@ class TestDoom:
 		if draft.size() == 1:
 			return
 		assert_eq(draft[0].get_draft_card_count(), 3, "Killed enemies through doom don't show draft rewards")
+
+class TestDisruptionNoDiscard:
+	extends "res://tests/HUT_Ordeal_TormentEffectsTestClass.gd"
+	var effect = Terms.ACTIVE_EFFECTS.disruption.name
+	func _init() -> void:
+		globals.test_flags.test_initial_hand = true
+		test_card_names = [
+		]
+		effects_to_play = [
+			{
+				"name": effect,
+				"amount": 3,
+				"upgrade": "Focused"
+			}
+		]
+
+	func test_effect():
+		turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started", 3), YIELD)
+		assert_eq(hand.get_card_count(), 2,
+				"%s reduced refill by 3" % [effect])
+		turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started", 3), YIELD)
+		assert_eq(hand.get_card_count(), 4,
+				"%s at 3+ stacks prevent card discard" % [effect])
+				
+class TestDisruptionDiscard:
+	extends "res://tests/HUT_Ordeal_TormentEffectsTestClass.gd"
+	var effect = Terms.ACTIVE_EFFECTS.disruption.name
+	func _init() -> void:
+		globals.test_flags.test_initial_hand = true
+		test_card_names = [
+		]
+		effects_to_play = [
+			{
+				"name": effect,
+				"amount": 2,
+				"upgrade": "Focused"
+			}
+		]
+
+	func test_effect():
+		turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started", 3), YIELD)
+		assert_eq(hand.get_card_count(), 3,
+				"%s reduced refill by 2" % [effect])
+		turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started", 3), YIELD)
+		assert_eq(hand.get_card_count(), 3,
+				"%s at 2- stacks does not prevent card discard" % [effect])
+				

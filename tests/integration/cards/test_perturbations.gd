@@ -49,5 +49,30 @@ class TestCringeworthyMemory:
 		var sceng = execute_with_yield(card)
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
-		assert_eq(dreamer.damage, 1, "Perturbation did damaghe")
-		assert_eq(card.get_parent(), forgotten, "Pertubratio forgotten")
+		assert_eq(dreamer.damage, 1, "Perturbation did damage")
+		assert_eq(card.get_parent(), forgotten, "Pertubration forgotten")
+
+class TestDreamFragment:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	func _init() -> void:
+		globals.test_flags.test_initial_hand = true
+		testing_card_name = "Dream Fragment"
+		expected_amount_keys = [
+			"exert_amount",
+			"draw_amount",
+		]
+
+
+	func test_card_results():
+		assert_has_amounts()
+		watch_signals(card)
+		watch_signals(cfc)
+		var sceng = execute_with_yield(card)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_signal_emitted(card, "card_removed")
+		assert_signal_emitted(cfc, "new_card_instanced")
+		assert_eq(dreamer.damage, 1, "Perturbation did damage")\
+		# We check for 2, as the first one will not be freed yet
+		assert_eq(count_card_names("Dream Fragment"), 2,
+				"Card removed but new one took its place")

@@ -585,9 +585,9 @@ const ACTIVE_EFFECTS := {
 		"description": "{effect_name}: After {opponent_attack} on this torment. add 1 Cringeworthy Memory to your deck.",
 	},
 	"disruption": {
-		"name": "Disruption",
+		"name": "Torpor",
 		"type": "Special",
-		"icon": preload("res://assets/icons/pirate-coat.png"),
+		"icon": preload("res://assets/icons/lightning-mask.png"),
 		"description": "{effect_name}: You draw {amount} less cards per turn. If you have 3 or more stacks, you do not discard cards at the end of each turn.",
 	},
 }

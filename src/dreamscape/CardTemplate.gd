@@ -5,6 +5,7 @@ extends Card
 # Since a card might be "played" from any source and to many possible targets
 # we use a specialized signal to trigger effects which fire after playing cards
 signal card_played(card,trigger,details)
+signal card_removed(card,trigger,details)
 
 # Going negative to avoid conflicting with CGF in case it extends its own card states
 enum ExtendedCardState {
@@ -29,6 +30,7 @@ var printed_properties := {}
 func _ready() -> void:
 	# warning-ignore:return_value_discarded
 	connect("card_played", cfc.signal_propagator, "_on_signal_received")
+	connect("card_removed", cfc.signal_propagator, "_on_signal_received")
 # warning-ignore:return_value_discarded
 	connect("state_changed", self, "_on_state_changed")
 
@@ -381,6 +383,13 @@ func remove_from_deck(permanent := true, tags := []) -> void:
 #	card_front.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
 	state = ExtendedCardState.REMOVE_FROM_GAME
 	cfc.flush_cache()
+	emit_signal("card_removed",
+			self,
+			"card_removed",
+			{
+				"tags": tags
+			}
+	)
 	# If this is a permanent removal, we also remove the card from the
 	# whole run
 	if deck_card_entry and permanent:
