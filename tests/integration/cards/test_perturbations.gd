@@ -76,3 +76,23 @@ class TestDreamFragment:
 		# We check for 2, as the first one will not be freed yet
 		assert_eq(count_card_names("Dream Fragment"), 2,
 				"Card removed but new one took its place")
+
+class TestDistracted:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	func _init() -> void:
+		globals.test_flags.test_initial_hand = true
+		testing_card_name = "Distracted"
+		test_card_names = [
+			"Inner Justice",
+			"Interpretation",
+		]
+		expected_amount_keys = [
+			"immersion_cost",
+		]
+
+
+	func test_card_results():
+		assert_has_amounts()
+		assert_eq(cards[0].check_play_costs(), CFConst.CostsState.IMPOSSIBLE)
+		assert_eq(cards[1].check_play_costs(), CFConst.CostsState.OK)
+		assert_eq(cards[2].check_play_costs(), CFConst.CostsState.IMPOSSIBLE)

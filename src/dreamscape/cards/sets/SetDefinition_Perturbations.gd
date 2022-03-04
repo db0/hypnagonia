@@ -156,4 +156,16 @@ const CARDS := {
 		},
 		"_keywords": ["release"]
 	},
+	"Distracted": {
+		"Type": "Perturbation",
+		"Tags": [],
+		"Abilities": "You cannot play cards that cost {immersion_cost} or more {immersion}",
+		"Cost": "U",
+		"_illustration": "Nobody",
+		"_rarity": "Perturbation",
+		"_amounts": {
+			"immersion_cost": 2
+		},
+		"_keywords": [],
+	},
 }
