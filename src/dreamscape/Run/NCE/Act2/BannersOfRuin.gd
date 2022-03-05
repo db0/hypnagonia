@@ -25,9 +25,8 @@ func begin() -> void:
 		"hyena": _prepare_card_popup_bbcode("Hyena", "a special card"),
 		"curio": _prepare_artifact_popup_bbcode("BetterRareChance", "some interesting cheese")
 	}
-	secondary_choices['hyena'] = secondary_choices['hyena'].format(scformat).format(Terms.get_bbcode_formats(18))
-	secondary_choices['mouse'] = secondary_choices['mouse'].format(scformat).format(Terms.get_bbcode_formats(18))
-	secondary_choices['bear'] = secondary_choices['bear'].format(scformat).format(Terms.get_bbcode_formats(18))
+	for c in secondary_choices:
+		secondary_choices[c] = secondary_choices[c].format(scformat).format(Terms.get_bbcode_formats(18))
 	globals.journal.add_nested_choices(secondary_choices)
 
 func continue_encounter(key) -> void:
