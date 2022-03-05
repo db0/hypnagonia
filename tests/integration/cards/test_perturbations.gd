@@ -98,13 +98,13 @@ class TestDistracted:
 		assert_eq(cards[2].check_play_costs(), CFConst.CostsState.IMPOSSIBLE)
 
 
-class TestPainfulVision:
+class TestSuffocation:
 	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
 	func _init() -> void:
-		testing_card_name = "Painful Vision"
+		testing_card_name = "Suffocation"
 		test_card_names = [
-			"Painful Vision",
-			"Painful Vision",
+			"Suffocation",
+			"Suffocation",
 		]
 		expected_amount_keys = [
 			"exert_amount"

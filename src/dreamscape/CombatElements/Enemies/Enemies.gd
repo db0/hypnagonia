@@ -744,14 +744,26 @@ const THEATRE_ACT := {
 	"_character_art": "Delapouite"
 }
 
-#	"Spider": {
-#		"Type": "Phobia",
-#		"Health": 1,
-#		"Intents": [
-#		],
-#		"_health_variability": 2,
-#		"_texture_size_x": "120",
-#		"_texture_size_y": "120",
-#		"_character_art": "nobody",
-#	},
-# 
+const SUBMERGED := {
+	"Name": "Submerged", 
+	"Type": "Phobia",
+	"Health": 94,
+	"_is_ordered": true,
+	"Intents": [
+		{
+			"intent_scripts": ["Stress:10", "SpawnCard:Suffocation:Discard","SpawnCard:Suffocation:Deck"],
+			"reshuffle": true,
+			"max_in_a_row": 2,
+		},
+		{
+			"intent_scripts": ["Stress:15"],
+			"reshuffle": true,
+			"max_in_a_row": 2,
+		},
+	],
+	"_health_variability": 5,
+	"_texture_size_x": "120",
+	"_texture_size_y": "120",
+	"_texture": preload("res://assets/enemies/submerged.png"),
+	"_character_art": "Nobody"
+}

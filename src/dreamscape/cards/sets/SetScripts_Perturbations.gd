@@ -243,7 +243,7 @@ const scripts := {
 			],
 		},
 	},
-	"Painful Vision": {
+	"Suffocation": {
 		"manual": {
 			"hand": [
 				{

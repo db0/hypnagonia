@@ -334,7 +334,7 @@ func _enemy_died(_final_damage, _health) -> void:
 		complete_battle()
 
 
-func _dreamer_died(final_damage) -> void:
+func _dreamer_died(final_damage, _health) -> void:
 	battle_ended = true
 	globals.player.damage = final_damage
 	yield(get_tree().create_timer(1), "timeout")

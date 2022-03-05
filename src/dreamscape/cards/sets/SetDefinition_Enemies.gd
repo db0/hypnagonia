@@ -1586,4 +1586,57 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"Submerged": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "Apply {effect_stacks} {strengthen} to target Torment.\n{forget}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.ENEMY
+		},
+		"_keywords": ["forget"],
+		"_amounts": {
+			"effect_stacks": -1,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"* Submerged *",
+			"^ Submerged ^",
+		],
+	},
+	"* Submerged *": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "Apply {effect_stacks} {strengthen} to target Torment.\n{forget}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.ENEMY
+		},
+		"_keywords": ["forget"],
+		"_amounts": {
+			"effect_stacks": -2,
+		},
+		"_is_upgrade": true,
+	},
+	"^ Submerged ^": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.alpha.name],
+		"Abilities": "Apply {effect_stacks} {strengthen} to target Torment.\n{forget}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.ENEMY
+		},
+		"_keywords": ["forget"],
+		"_amounts": {
+			"effect_stacks": -1,
+		},
+		"_is_upgrade": true,
+	},
+
 }

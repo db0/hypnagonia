@@ -267,8 +267,10 @@ func _display_intents(new_intents: Dictionary) -> void:
 			if intent_array.size() > 1:
 				if intent_scripts[0].has("amount"):
 					intent_scripts[0].amount = int(intent_array[1])
-				else:
+				elif intent_scripts[0].has("modification"):
 					intent_scripts[0].modification = int(intent_array[1])
+				elif intent_scripts[0].has("card_name"):
+					intent_scripts[0].card_name = intent_array[1]
 #				print_debug("Set Intent Value: " + intent_array[1])
 			# If there is a third value in the intent_array, it means this is
 			# an add/remove effect intent. The name of the effect is the
@@ -276,6 +278,8 @@ func _display_intents(new_intents: Dictionary) -> void:
 			if intent_array.size() > 2:
 				if intent_scripts[0].has("effect_name"):
 					intent_scripts[0].effect_name = Terms.ACTIVE_EFFECTS[intent_array[2]].name
+				elif intent_scripts[0].has("card_name") and intent_scripts[0].has("dest_container"):
+					intent_scripts[0].dest_container = intent_array[2]
 			var rebalance : int = rebalancing.get(intent_name,0)
 			if rebalance != 0:
 				if typeof(intent_scripts[0].get("amount")) == TYPE_INT:
