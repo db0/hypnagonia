@@ -361,3 +361,19 @@ class TestArmorTheBoss:
 		# Boss loses 1 armor stack at the start of its turn
 		assert_eq(boss_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.armor.name), 2,
 			"Boss torment got expected amount of armor")
+
+
+class TestSpawnCard:
+	extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"
+	func _init() -> void:
+		intents_to_test = [
+			{
+				"intent_scripts": ["SpawnCard:Lacuna:hand"],
+				"reshuffle": true,
+			},
+		]
+
+	func test_spawn_card():
+		assert_eq(hand.get_card_count(), 1, "1 Lacuna spawned in hand")
+		assert_eq(count_card_names("Lacuna"), 1,
+				"1 Lacuna spawned")

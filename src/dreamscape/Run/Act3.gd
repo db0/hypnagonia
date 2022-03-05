@@ -263,11 +263,54 @@ const Nightmare = {
 		],
 	},
 }
+const Submerged = {
+	"journal_description":\
+		"I had gone too deep. [url={torment_tag1}]The blue surrounded me[/url] and I was running out of air.",
+	"journal_reward":\
+		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": preload("res://assets/journal/torments/submerged.jpg"),
+	"enemies": {
+		"easy": [
+			{
+				"definition": EnemyDefinitions.SUBMERGED,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.clawing_for_air.name,
+						"stacks": 2,
+					},
+				]
+			},
+		],
+		"medium": [
+			{
+				"definition": EnemyDefinitions.SUBMERGED,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.clawing_for_air.name,
+						"stacks": 3,
+					},
+				]
+			},
+		],
+		"hard": [
+			{
+				"definition": EnemyDefinitions.SUBMERGED,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.clawing_for_air.name,
+						"stacks": 4,
+					},
+				]
+			},
+		],
+	},
+}
 const ENEMIES = [
 	Unnamed1,
 	Life_Paths,
 	Cringelord,
 	Nightmare,
+	Submerged,
 ]
 
 const TheGatherer = {

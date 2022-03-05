@@ -60,4 +60,5 @@ const CARD_IMAGES := {
 	"Chasm": preload("res://assets/journal/nce/chasm.jpeg"),
 	"Guilt": preload("res://assets/journal/torments/guilt.jpeg"),
 	"Nightmare": preload("res://assets/journal/torments/nightmare.jpeg"),
+	"Submerged": preload("res://assets/journal/torments/submerged.jpg"),
 }

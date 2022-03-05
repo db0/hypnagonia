@@ -245,7 +245,7 @@ class TestLifePathControl:
 		for t in test_torments:
 			assert_eq(t.damage, tdamage(-2), "All torments healed")
 		yield(yield_for(0.3), YIELD)
-		
+
 class TestLifePathConcentration:
 	extends "res://tests/HUT_Ordeal_TormentEffectsTestClass.gd"
 	var effect = Terms.ACTIVE_EFFECTS.life_path.name
@@ -322,7 +322,7 @@ class TestDisruptionNoDiscard:
 		yield(yield_to(board.turn, "player_turn_started", 3), YIELD)
 		assert_eq(hand.get_card_count(), 4,
 				"%s at 3+ stacks prevent card discard" % [effect])
-				
+
 class TestDisruptionDiscard:
 	extends "res://tests/HUT_Ordeal_TormentEffectsTestClass.gd"
 	var effect = Terms.ACTIVE_EFFECTS.disruption.name
@@ -347,7 +347,7 @@ class TestDisruptionDiscard:
 		yield(yield_to(board.turn, "player_turn_started", 3), YIELD)
 		assert_eq(hand.get_card_count(), 3,
 				"%s at 2- stacks does not prevent card discard" % [effect])
-				
+
 
 
 class TestActLength:
@@ -415,3 +415,32 @@ class TestActLength:
 		turn.end_player_turn()
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_signal_emitted(test_torment, "entity_killed")
+
+
+class TestClawingForAir:
+	extends "res://tests/HUT_Ordeal_TormentEffectsTestClass.gd"
+	var effect = Terms.ACTIVE_EFFECTS.clawing_for_air.name
+	func _init() -> void:
+		globals.test_flags.test_initial_hand = true
+		test_card_names = [
+		]
+		effects_to_play = [
+			{
+				"name": effect,
+				"amount": 3,
+			}
+		]
+
+	func test_effect():
+		turn.end_player_turn()
+		yield(yield_to(turn, "player_turn_started", 3), YIELD)
+		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 3,
+				"%s added correct amount of %s" % [effect, Terms.ACTIVE_EFFECTS.strengthen.name])
+		assert_eq(test_torment.active_effects.get_effect_stacks(effect), 3,
+				"%s stacks not reduced" % [effect])
+		turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started", 3), YIELD)
+		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 6,
+				"%s added correct amount of %s" % [effect, Terms.ACTIVE_EFFECTS.strengthen.name])
+		assert_eq(test_torment.active_effects.get_effect_stacks(effect), 3,
+				"%s stacks not reduced" % [effect])

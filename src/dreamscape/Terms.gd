@@ -185,11 +185,11 @@ const ACTIVE_EFFECTS := {
 		"type": "Versatile",
 		"self_decreasing": SELF_DECREASE.FALSE,
 		"icon": preload("res://assets/icons/templar-eye.png"),
-		"generic_description": "{effect_name}: Increases interpretation dealt by exact amount.",
+		"generic_description": "{effect_name}: Adjusts interpretation dealt by exact amount.",
 		"rich_text_icon": "res://fonts/rich_text_icons/templar-eye.png",
-		"description": "{effect_name} ({effect_icon}): {attack} {damage_verb} by this {entity} is {increased} by {amount} (1 per stack).\n",
+		"description": "{effect_name} ({effect_icon}): {attack} {damage_verb} by this {entity} is adjusted by {amount} (1 per stack).\n",
 		"upgraded_descriptions": {
-			"thick": "{effect_name} ({effect_icon}): {attack} {damage_verb} by this {entity} is increased by {amount} (1 per stack). Remove all stacks when you reshuffle your deck\n",
+			"thick": "{effect_name} ({effect_icon}): {attack} {damage_verb} by this {entity} is adjusted by {amount} (1 per stack). Remove all stacks when you reshuffle your deck\n",
 		},
 		"can_go_negative": true,
 	},
@@ -198,9 +198,9 @@ const ACTIVE_EFFECTS := {
 		"type": "Versatile",
 		"self_decreasing": SELF_DECREASE.FALSE,
 		"icon": preload("res://assets/icons/white-tower.png"),
-		"generic_description": "{effect_name}: Increases confidence gained by exact amount.",
+		"generic_description": "{effect_name}: Adjusts confidence gained by exact amount.",
 		"rich_text_icon": "res://fonts/rich_text_icons/white-tower.png",
-		"description": "{effect_name} ({effect_icon}): {defence} gained by this {entity} is {increased} by {amount} (1 per stack).\n",
+		"description": "{effect_name} ({effect_icon}): {defence} gained by this {entity} is adjusted by {amount} (1 per stack).\n",
 		"can_go_negative": true,
 	},
 	"fortify": {
@@ -601,6 +601,12 @@ const ACTIVE_EFFECTS := {
 				+ "At the end of those turns, the dreamer will take {attack} based on the remaining interpretation on this Torment.\n\n"\
 				+ "This torment only receives 1 {opponent_attack} per {opponent_attack}.\n\n"\
 				+ "When this torment is {overcome} through {opponent_attack}, the Theatre Play {opponent_attack} is increased.",
+	},
+	"clawing_for_air": {
+		"name": "Clawing for Air",
+		"type": "Special",
+		"icon": preload("res://assets/icons/drowning.png"),
+		"description": "{effect_name}: At the end of its turn, this Torment gains {amount} {strengthen}.",
 	},
 
 }

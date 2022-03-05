@@ -186,4 +186,19 @@ class TestNightmare:
 		assert_eq(test_torment.active_effects.get_effect_stacks(effect), 0,
 				"%s stacks on Torment not increased" % [effect])
 
+class TestSubmerged:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	var effect: String = Terms.ACTIVE_EFFECTS.strengthen.name
+	func _init() -> void:
+		testing_card_name = "Submerged"
+		expected_amount_keys = [
+			"effect_stacks"
+		]
 
+	func test_card_results():
+		assert_has_amounts()
+		var sceng = snipexecute(card, test_torment)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(test_torments[0].active_effects.get_effect_stacks(effect), get_amount("effect_stacks"),
+				"%s stacks on Torment decreased by correct amount" % [effect])

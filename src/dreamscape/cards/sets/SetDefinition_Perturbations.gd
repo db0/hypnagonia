@@ -168,7 +168,7 @@ const CARDS := {
 		},
 		"_keywords": [],
 	},
-	"Painful Vision": {
+	"Suffocation": {
 		"Type": "Perturbation",
 		"Tags": [Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "While in hand, at the end of the turn, take {exert_amount} {anxiety}\nPlay: {forget}.",

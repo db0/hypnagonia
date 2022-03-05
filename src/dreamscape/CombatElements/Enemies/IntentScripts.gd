@@ -7,6 +7,7 @@ const ICON_DEFEND := preload("res://assets/icons/shield.png")
 const ICON_DEBUFF := preload("res://assets/icons/cursed-star.png")
 const ICON_BUFF := preload("res://assets/icons/growth.png")
 const ICON_SPECIAL := preload("res://assets/icons/uncertainty.png")
+const ICON_SPAWN_CARD := preload("res://assets/icons/card-joker.png")
 
 const KNOWN_ICONS := {
 	"icon_attack" : ICON_ATTACK,
@@ -15,6 +16,7 @@ const KNOWN_ICONS := {
 	"icon_debuff" : ICON_DEBUFF,
 	"icon_buff" : ICON_BUFF,
 	"icon_special" : ICON_SPECIAL,
+	"icon_spawn_card" : ICON_SPAWN_CARD,
 }
 
 # This approach allows me to use this class both statically, 
@@ -26,6 +28,7 @@ export(StreamTexture) var icon_defend := ICON_DEFEND
 export(StreamTexture) var icon_debuff := ICON_DEBUFF
 export(StreamTexture) var icon_buff := ICON_BUFF
 export(StreamTexture) var icon_special := ICON_SPECIAL
+export(StreamTexture) var icon_spawn_card := ICON_SPAWN_CARD
 
 var resource_icons := {
 	"icon_attack" : icon_attack,
@@ -34,6 +37,7 @@ var resource_icons := {
 	"icon_debuff" : icon_debuff,
 	"icon_buff" : icon_buff,
 	"icon_special" : icon_special,
+	"icon_spawn_card" : icon_spawn_card,
 }
 
 
@@ -117,6 +121,17 @@ const STARE := [
 		"tags": ["Intent"],
 		"icon": preload("res://assets/icons/alien-stare.png"),
 		"description": "Stare: [i]It's not blinking...[/i]"
+	}
+]
+const SPAWN_CARD := [
+	{
+		"name": "spawn_card_to_container",
+		"card_name": null,
+		"dest_container": null,
+		"object_count": 1,
+		"tags": ["Intent"],
+		"icon": "icon_spawn_card",
+		"description": "This Torment is planning to give you a card."
 	}
 ]
 const DELIGHT := [
@@ -316,6 +331,7 @@ func get_scripts(intent_name: String) -> Dictionary:
 		"Buff": BUFF,
 		"BuffGroup": BUFF_GROUP,
 		"Stare": STARE,
+		"SpawnCard": SPAWN_CARD,
 		"Delight": DELIGHT,
 		"Lethargy": LETHARGY,
 		"Evident": EVIDENT,

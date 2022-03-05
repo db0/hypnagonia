@@ -1587,6 +1587,32 @@ const scripts := {
 			],
 		},
 	},
+	"Submerged": {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"tags": ["Card"],
+					"effect_name": Terms.ACTIVE_EFFECTS.strengthen.name,
+					"subject": "target",
+					"needs_target": true,
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					}],
+					"modification":  {
+						"lookup_property": "_amounts",
+						"value_key": "effect_stacks",
+					},
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": "forgotten",
+					"tags": ["Played", "Card"],
+				},
+			],
+		},
+	},
 }
 
 # This fuction returns all the scripts of the specified card name.
