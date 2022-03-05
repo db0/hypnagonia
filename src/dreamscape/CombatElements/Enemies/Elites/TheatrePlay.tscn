@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/EnemyIntents.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/dreamscape/CombatElements/CombatEntity.tscn" type="PackedScene" id=2]
 [ext_resource path="res://shaders/outline.shader" type="Shader" id=3]
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/Elites/TheatrePlay.gd" type="Script" id=4]
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/Elites/TheatrePlayIntents.gd" type="Script" id=5]
+[ext_resource path="res://assets/enemies/theater.png" type="Texture" id=6]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -17,6 +18,7 @@ shader_param/add_margins = false
 
 [node name="TheatrePlay" groups=["BossEntities", "EnemyEntities"] instance=ExtResource( 2 )]
 script = ExtResource( 4 )
+character_art_texture = ExtResource( 6 )
 
 [node name="CenterContainer" parent="." index="0"]
 rect_min_size = Vector2( 0, 36 )

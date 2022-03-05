@@ -16,7 +16,7 @@ class TestBully:
 		advanced_torment.intents.prepare_intents(1)
 		cfc.NMAP.board.turn.end_player_turn()
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
-		assert_eq( get_tree().get_nodes_in_group("EnemyEntities").size(), 3, "All Buddies Summoned")
+		assert_eq( get_tree().get_nodes_in_group("MinionEnemyEntities").size(), 2, "All Buddies Summoned")
 
 	func test_spawn_less_buddies_on_partial_block():
 		dreamer.defence = 10
@@ -24,7 +24,7 @@ class TestBully:
 		advanced_torment.intents.prepare_intents(1)
 		cfc.NMAP.board.turn.end_player_turn()
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
-		assert_eq( get_tree().get_nodes_in_group("EnemyEntities").size(), 2, "Partial Buddies Summoned")
+		assert_eq( get_tree().get_nodes_in_group("MinionEnemyEntities").size(), 1, "Partial Buddies Summoned")
 
 	func test_spawn_no_buddies_on_full_block():
 		dreamer.defence = 20
@@ -32,7 +32,7 @@ class TestBully:
 		advanced_torment.intents.prepare_intents(1)
 		cfc.NMAP.board.turn.end_player_turn()
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
-		assert_eq( get_tree().get_nodes_in_group("EnemyEntities").size(), 1, "No Buddies Summoned")
+		assert_eq( get_tree().get_nodes_in_group("MinionEnemyEntities").size(), 0, "No Buddies Summoned")
 
 class TestIndescribableAbsurdity:
 	extends "res://tests/HUT_Ordeal_AdvancedTormentTestClass.gd"
@@ -100,7 +100,7 @@ class TestIndescribableAbsurdity:
 		assert_eq(total_stacks, 4,
 				"%s dispelled expected amount of effects" % [advanced_torment.canonical_name])
 		assert_eq(dreamer.damage, 4 * 2.5, "Dreamer took the expected amount of damage")
-		
+
 
 	func test_dispell_on_alone():
 		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.quicken.name, -3)
@@ -109,8 +109,41 @@ class TestIndescribableAbsurdity:
 		gut.p("Testing Random Seed: " + cfc.game_rng_seed)
 		# warning-ignore:return_value_discarded
 		advanced_torment.intents.prepare_intents(4)
-		cfc.NMAP.board.turn.end_player_turn()
-		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		turn.end_player_turn()
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.damage, 4 * 5, "Dreamer took the expected amount of damage")
 		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.quicken.name), -3,
 				"%s not dispelled negative %s" % [advanced_torment.canonical_name, Terms.ACTIVE_EFFECTS.quicken.name])
+
+
+class TestTheatrePlay:
+	extends "res://tests/HUT_Ordeal_AdvancedTormentTestClass.gd"
+
+
+	func _init() -> void:
+		advanced_torment_scene = preload("res://src/dreamscape/CombatElements/Enemies/Elites/TheatrePlay.tscn")
+		test_card_names = [
+			"Interpretation",
+		]
+
+	func test_init():
+		# warning-ignore:return_value_discarded
+		assert_eq(get_tree().get_nodes_in_group("MinionEnemyEntities").size(), 2, "All Acts Summoned")
+		turn.end_player_turn()
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		assert_ne(dreamer.damage, 0, "Initial intent is always Stage Fright")
+		assert_eq(count_card_names("Lacuna"), 2,
+				"Initial intent is always Stage Fright")
+		turn.end_player_turn()
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		assert_eq(count_card_names("Lacuna"), 2,
+				"Stage Fright not used twice in a row")
+
+	func test_respawn_acts():
+		for minion in get_tree().get_nodes_in_group("MinionEnemyEntities"):
+			minion.die()
+		yield(yield_for(1.1), YIELD)
+		advanced_torment.intents.prepare_intents()
+		turn.end_player_turn()
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		assert_eq( get_tree().get_nodes_in_group("MinionEnemyEntities").size(), 2, "Acts Respawned")

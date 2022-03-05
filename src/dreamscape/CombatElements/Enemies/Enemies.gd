@@ -740,8 +740,8 @@ const THEATRE_ACT := {
 	"_health_variability": 0,
 	"_texture_size_x": "60",
 	"_texture_size_y": "60",
-#	"_texture": preload("res://assets/enemies/slavery-whip.png"),
-	"_character_art": "Nobody"
+	"_texture": preload("res://assets/enemies/theater-curtains.png"),
+	"_character_art": "Delapouite"
 }
 
 #	"Spider": {
