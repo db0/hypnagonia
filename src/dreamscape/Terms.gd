@@ -596,7 +596,7 @@ const ACTIVE_EFFECTS := {
 		"self_decreasing": SELF_DECREASE.TURN_END,
 		"decrease_type": DECREASE_TYPE.REDUCE,
 		"alterant_priority": ALTERANT_PRIORITY.SET,
-		"icon": preload("res://assets/icons/dead-eye.png"),
+		"icon": preload("res://assets/icons/pocket-watch.png"),
 		"description": "{effect_name}: This torment will be automatically overcome after {amount} turns (1 per stack). "\
 				+ "At the end of those turns, the dreamer will take {attack} based on the remaining interpretation on this Torment.\n\n"\
 				+ "This torment only receives 1 {opponent_attack} per {opponent_attack}.\n\n"\

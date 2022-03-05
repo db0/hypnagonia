@@ -37,7 +37,9 @@ func prepare_intents(specific_index = null, _is_second_try := false) -> Dictiona
 	for minion in get_tree().get_nodes_in_group("MinionEnemyEntities"):
 		if minion.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.act_length.name) > 1:
 			has_long_term_minions = true
-	if init_intents:
+	if specific_index != null:
+		selected_intent = all_intents[specific_index]
+	elif init_intents:
 		selected_intent = all_intents[0]
 		init_intents = false
 	elif get_tree().get_nodes_in_group("MinionEnemyEntities").size() <= difficulty\

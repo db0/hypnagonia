@@ -348,3 +348,70 @@ class TestDisruptionDiscard:
 		assert_eq(hand.get_card_count(), 3,
 				"%s at 2- stacks does not prevent card discard" % [effect])
 				
+
+
+class TestActLength:
+	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
+	var effect: String = Terms.ACTIVE_EFFECTS.act_length.name
+	var amount := 1
+	var modified_dmg = DMG
+	func _init() -> void:
+		torments_amount = 3
+		test_card_names = [
+			"Interpretation",
+		]
+		effects_to_play = [
+			{
+				"name": effect,
+				"amount": amount,
+			}
+		]
+
+	func test_act_length_on_multiple_torments():
+		card.scripts = MULTI_ATTACK_SCRIPT
+		spawn_effect(test_torments[0], effect, 2, '')
+#		drag_card(card,card.global_position)
+		card._start_dragging(Vector2(0,0))
+		yield(yield_to(get_tree(), "idle_frame", 0.1), YIELD)
+		for index in range(test_torments.size()):
+			var predictions = test_torments[index].incoming.get_children()
+			for iindex in range(predictions.size()):
+				if index == 0:
+					assert_eq(predictions[iindex].signifier_amount.text, '1', "Card DMG hitting %s should be 1" % [effect])
+				else:
+					assert_eq(predictions[iindex].signifier_amount.text, str(modified_dmg), "Card DMG should be %s" % [modified_dmg])
+		var sceng = card.execute_scripts()
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		for index in range(test_torments.size()):
+			if index == 0:
+				assert_eq(test_torments[index].damage, starting_torment_dgm + 1, "Torment should take 1 damage")
+			else:
+				assert_eq(test_torments[index].damage, starting_torment_dgm + modified_dmg, "Torment should take damage")
+		assert_eq(test_torments[0].active_effects.get_effect_stacks(effect), 2,
+				"%s stacks not modified by card attack" % [effect])
+
+	func test_act_length_and_dots():
+		spawn_effect(test_torment, effect, 2, '')
+		spawn_effect(test_torment, Terms.ACTIVE_EFFECTS.poison.name, 5, '')
+		spawn_effect(test_torment, Terms.ACTIVE_EFFECTS.burn.name, 5, '')
+		turn.end_player_turn()
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		assert_eq(test_torment.damage, tdamage(2),
+				"%s stops DoTs" % [effect])
+
+	func test_act_length_and_rubber_eggs():
+		spawn_effect(test_torment, effect, 2, '')
+		spawn_effect(test_torment, Terms.ACTIVE_EFFECTS.disempower.name, 1, '')
+		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.rubber_eggs.name, 1, '')
+		turn.end_player_turn()
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		assert_eq(test_torment.damage, tdamage(1),
+				"%s stops Rubber Eggs" % [effect])
+
+	func test_act_length_kill():
+		spawn_effect(test_torment, effect, 1, '')
+		watch_signals(test_torment)
+		turn.end_player_turn()
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		assert_signal_emitted(test_torment, "entity_killed")

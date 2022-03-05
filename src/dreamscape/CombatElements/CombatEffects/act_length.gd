@@ -6,12 +6,12 @@ func get_effect_alteration(
 		sceng, 
 		is_source := false, 
 		_dry_run := true,
-		_subject: Node = null) -> int:
+		subject: Node = null) -> int:
 	var stacks_amount = snapshot_stacks.get(sceng.snapshot_id, stacks)
 	if stacks_amount == 0\
 			or not script.script_name == 'modify_damage'\
 			or value < 1\
-			or is_source:
+			or subject != owning_entity:
 		return(0)
 	if sceng.snapshot_id > 0:
 		# This can only happen if this effect was spawned as part of playing the card
