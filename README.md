@@ -48,19 +48,20 @@ Most other terms you'll encounter will be explained when mousing over cards or i
 * Increased difficulties
 * Balancing
 * More Curios
-* Third Act
 
 See the issue tracker for progress and more ideas and feel free to suggest more.
 
 ## Done
 
+* Three unique acts with different encounters and torments in each.
 * 5 initial card groups
-* Some enemies, encounter and a boss.
 * Curios
 * Memories
 * Shop
-* First and Second Act (in progress)
-* More things to do as encounters instead of overoming torments
+* Non-ordeal encounters
+* Elite Torments
+* Surprise Ordeals
+* Pathos information display
 
 ## Credits
 

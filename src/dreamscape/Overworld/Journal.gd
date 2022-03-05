@@ -129,6 +129,9 @@ func display_elite_rewards(reward_text: String) -> void:
 
 
 func display_boss_rewards(reward_text: String) -> void:
+	if globals.encounters.current_act == Act3:
+		end_dev_version()
+		return
 	reward_journal.bbcode_text = "[Card Draft] " + reward_text
 	_reveal_entry(reward_journal, true, "boss_card_draft")
 	reward_choices_unpreviewed.append(reward_journal.name)
@@ -142,7 +145,8 @@ func display_boss_rewards(reward_text: String) -> void:
 
 func end_dev_version() -> void:
 	proceed.bbcode_text = "And I woke up from the most restful sleep I had in months!\n\n"\
-		+ "[b]Note from Developer:[/b]\nThanks for playing this early version of Hypnagonia. This is all we have at the moment. "\
+		+ "[b]Note from Developer:[/b]\nThanks for playing this early version of Hypnagonia and we hope that you enjoyed the experience. "\
+		+ "Keep playing to see all the game has to offer and the various playstyles. Each run is completely different!\n\n"\
 		+ "Please check back regularly for new updates! And remember, we're actively looking for collaborators.\n"\
 		+ "If you're a character artist, graphics designer, storyteller, card game designer, illustrator, or just someone who wants to give feedback, "\
 		+ "do hit us up on our discord server: [url=discord]https://discord.gg/MqTMVDCbR3[/url] or Matrix [url=matrix]https://matrix.to/#/#hypnagonia:matrix.org[/url].\n\n"\
@@ -498,10 +502,10 @@ func _input(event):
 #			EnemyEncounter.new(Act2.TrafficJam, "easy"),
 #			EnemyEncounter.new(Act3.Submerged, "hard"),
 #			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
-			preload("res://src/dreamscape/Run/NCE/Act3/UnderwaterCave.gd").new(),
+#			preload("res://src/dreamscape/Run/NCE/Act3/UnderwaterCave.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act2/HangingOn.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd").new(),
-#			BossEncounter.new(Act3.BOSSES["Fear_and Phobia"]),
+			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
 #			EliteEncounter.new(Act2.Jumbletron, "medium"),
 #			EliteEncounter.new(Act3.TheatrePlay, "medium"),
 			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()

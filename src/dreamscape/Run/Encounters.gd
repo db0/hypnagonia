@@ -9,7 +9,7 @@ const choices_chances = [3,2,2,2,2,2,1,1,1,1,1]
 # fallback to this one only.
 const fallback_encounter = Terms.RUN_ACCUMULATION_NAMES.enemy
 
-var available_acts := [Act1, Act2]
+var available_acts := [Act1, Act2, Act3]
 var current_act
 var remaining_enemies : Array
 var remaining_elites : Array

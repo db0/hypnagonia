@@ -24,6 +24,6 @@ const PROCEED_TEXTS := [
 ]
 
 const ACT_CHANGE_TEXTS := [
-	"This felt like a conclusion, at which point I had a period of deep sleep"\
-			+ "but my dreams were not over yet. The worst was yet to come..."
+	"This felt like a conclusion, at which point I had a period of deep sleep. "\
+			+ "But my dreams were not over yet; the worst was yet to come..."
 ]

@@ -1019,9 +1019,9 @@ const CARDS := {
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
-			"Ω Wolf Ω",
-			"+ Wolf +",
-			"* Wolf *",
+			"Ω Hyena Ω",
+			"+ Hyena +",
+			"* Hyena *",
 		],
 	},
 	"+ Hyena +": {
