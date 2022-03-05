@@ -6,6 +6,7 @@ const CARD_DRAFT_SCENE = preload("res://src/dreamscape/Overworld/CardDraftSlide.
 var draft_nodes := []
 var draft_payload
 var draft_amount := 1
+var draft_choices := 3
 var custom_draft_name : String
 
 onready var description := $Description
@@ -28,6 +29,7 @@ func initiate_custom_draft() -> void:
 	for draft_node in draft_nodes:
 		draft_node.get_node("CardDraft").connect("card_drafted", self, "_on_card_drafted")
 		draft_node.get_node("CardDraft").special_draft_payload = draft_payload
+		draft_node.get_node("CardDraft").draft_amount = draft_choices
 		draft_node.get_node("CardDraft").display(custom_draft_name)
 
 
@@ -39,3 +41,4 @@ func _on_card_drafted(card: CardEntry) -> void:
 func _setup() -> void:
 	description.bbcode_text = "Initiate Custom Draft for %s cards." % [draft_amount]
 	custom_draft_name = 'CustomDraft'
+	draft_choices = 3

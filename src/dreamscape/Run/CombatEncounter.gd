@@ -17,6 +17,13 @@ func end() -> void:
 	.end()
 
 
+func start_ordeal() -> void:
+	globals.journal.journal_cover.fade_to_black()
+	yield(globals.journal.journal_cover, "fade_finished")
+	current_combat = load(CFConst.PATH_CUSTOM + 'Main.tscn').instance()
+	cfc.get_tree().get_root().call_deferred("add_child", current_combat)
+
+
 func _on_board_instanced() -> void:
 	cfc.disconnect("all_nodes_mapped", self, "_on_board_instanced")
 	cfc.NMAP.board.connect("battle_ended", self, "end")

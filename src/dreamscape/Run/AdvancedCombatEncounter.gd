@@ -1,27 +1,30 @@
 class_name AdvancedCombatEncounter
 extends CombatEncounter
 
-var enemy_scenes: Array
+var enemy_scenes := []
+var basic_enemies := []
 var enemy_entities: Array
 
 func _init(encounter: Dictionary, _difficulty := "medium"):
 	description = encounter.get("journal_description", '')
 	reward_description = encounter.get("journal_reward", '')
-	enemy_scenes = encounter['scenes']
+	# If no advanced enemy scenes are there, there should be some basic enemies defined
+	enemy_scenes = encounter.get('scenes',[])
 	difficulty = _difficulty
+	# Advanced Combat Encounters might also have some basic enemies
+	# They can be defined in the same format as other basic enemies
+	# with a key for easy,medium,hard difficulty, or just with an array which stays the same per difficulty
+	if encounter.has('basic_enemies'):
+		if typeof(encounter['basic_enemies']) == TYPE_ARRAY:
+			basic_enemies = encounter['basic_enemies']
+		else:
+			basic_enemies = encounter['basic_enemies'].get(difficulty,[])
 	prepare_journal_art(encounter)
 
 
 func begin() -> void:
 	.begin()
 	start_ordeal()
-
-
-func start_ordeal() -> void:
-	globals.journal.journal_cover.fade_to_black()
-	yield(globals.journal.journal_cover, "fade_finished")
-	current_combat = load(CFConst.PATH_CUSTOM + 'Main.tscn').instance()
-	cfc.get_tree().get_root().call_deferred("add_child", current_combat)
 
 
 func _on_board_instanced() -> void:

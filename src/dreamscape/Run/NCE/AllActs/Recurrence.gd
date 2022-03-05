@@ -12,19 +12,22 @@ const RECURRENCE_ELITE = {
 const RECURRENCE_SURPRISE = preload("res://src/dreamscape/Run/NCE/AllActs/RecurrenceCombatEncounter.gd")
 
 var difficulties := {
-	# Otherwise we get a cyclic reference
+	# Can't refer to the act class, Otherwise we get a cyclic reference
 	"Early Night": "easy",
 	"Deep Sleep": "medium",
+	"Pre-Dawn": "hard",
 }
 
 var descriptions := {
 	"Early Night": "I recognised the sound. Cracking bark but somehow wet. It made me feel ill hearing it and each snap left a lingering, ghastly anticipation. Not bark...bones. Cracking bones. No...not again...",
 	"Deep Sleep": "The cracking sound was doubly shocking as it ricoched around the quiet, restful moment I had been enjoying. It was twice as loud as before and curdled my thoughts, just as I had begun to collect them. I should have known it would return. It always returns. Crack crack, crunch crunch.",
+	"Pre-Dawn": "Flavor WiP", #TODO Fluff
 }
 
 var journal_arts := {
 	"Early Night": JOURNAL_ART.Act1,
 	"Deep Sleep": JOURNAL_ART.Act2,
+	"Pre-Dawn": JOURNAL_ART.Act3,
 }
 
 var memory_prep: MemoryPrep

@@ -159,30 +159,35 @@ func randomize_background() -> void:
 
 func spawn_enemy_encounter(encounter: EnemyEncounter) -> void:
 	for enemy_entry in encounter.enemies:
-		if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
-			print("DEBUG INFO:Board: Spawning Normal Enemy: " + enemy_entry['definition'].get("Name"))
-		var new_enemy = spawn_enemy(enemy_entry['definition'])
-		new_enemy.add_to_group("BasicEnemyEntities")
-		if enemy_entry.has('starting_intent'):
-			# This delay is needed to allow the starting intent to be added
-			# so that it can be seen to be queued_free
-			yield(get_tree().create_timer(0.1), "timeout")
-			new_enemy.intents.prepare_intents(enemy_entry['starting_intent'])
-		if enemy_entry.has('starting_effects'):
-			for effect in enemy_entry['starting_effects']:
-				new_enemy.active_effects.mod_effect(
-						effect["name"],
-						effect["stacks"], 
-						false, 
-						false, 
-						['Init'], 
-						effect.get("upgrade", ''))
-		if enemy_entry.has('rebalancing'):
-			new_enemy.intents.rebalancing = enemy_entry['rebalancing']
-		if enemy_entry.has('health_modifier'):
-				new_enemy.health += enemy_entry['health_modifier']
-		if enemy_entry.has('starting_defence'):
-				new_enemy.defence += enemy_entry['starting_defence']
+		spawn_basic_enemy(enemy_entry)
+
+# Creates the enemy entity out of an Act definition
+func spawn_basic_enemy(enemy_entry: Dictionary) -> EnemyEntity:
+	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+		print("DEBUG INFO:Board: Spawning Basic Enemy: " + enemy_entry['definition'].get("Name"))
+	var new_enemy = spawn_enemy(enemy_entry['definition'])
+	new_enemy.add_to_group("BasicEnemyEntities")
+	if enemy_entry.has('starting_intent'):
+		# This delay is needed to allow the starting intent to be added
+		# so that it can be seen to be queued_free
+		yield(get_tree().create_timer(0.1), "timeout")
+		new_enemy.intents.prepare_intents(enemy_entry['starting_intent'])
+	if enemy_entry.has('starting_effects'):
+		for effect in enemy_entry['starting_effects']:
+			new_enemy.active_effects.mod_effect(
+					effect["name"],
+					effect["stacks"], 
+					false, 
+					false, 
+					['Init'], 
+					effect.get("upgrade", ''))
+	if enemy_entry.has('rebalancing'):
+		new_enemy.intents.rebalancing = enemy_entry['rebalancing']
+	if enemy_entry.has('health_modifier'):
+			new_enemy.health += enemy_entry['health_modifier']
+	if enemy_entry.has('starting_defence'):
+			new_enemy.defence += enemy_entry['starting_defence']
+	return(new_enemy)
 
 
 func spawn_enemy(enemy_properties) -> EnemyEntity:
@@ -200,8 +205,10 @@ func spawn_enemy(enemy_properties) -> EnemyEntity:
 	return(enemy)
 
 
-func spawn_advanced_enemy(encounter: CombatEncounter) -> Array:
+func spawn_advanced_enemy(encounter: AdvancedCombatEncounter) -> Array:
 	var advanced_entities := []
+	for enemy_entry in encounter.basic_enemies:
+		spawn_basic_enemy(enemy_entry)
 	for scene in encounter.enemy_scenes:
 		if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
 			print("DEBUG INFO:Board: Spawning Advanced Enemy: " + scene.get_path())

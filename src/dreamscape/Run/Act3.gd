@@ -363,6 +363,7 @@ const NCE := {
 	},
 	"risky": {
 		"MultipleDestroys": preload("res://src/dreamscape/Run/NCE/Act3/MultipleDestroys.gd"),
+		"UnderwaterCave": preload("res://src/dreamscape/Run/NCE/Act3/UnderwaterCave.gd"),
 	}
 }
 

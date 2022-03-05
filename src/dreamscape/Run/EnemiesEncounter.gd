@@ -47,15 +47,7 @@ func begin() -> void:
 			_debug_enemies.append(t.definition.Name)
 		print("DEBUG INFO:Encounter: Torments Present: ", _debug_enemies)
 	.begin()
-	# Even though the next two lines should be in all combat encounters
-	# I do not put them into the CombatEncounter begin() function
-	# Because I would anwyay need the yield in this function
-	# So it would just save me a single line,
-	# and leaving it here, makes it more obvious what is happening.
-	globals.journal.journal_cover.fade_to_black()
-	yield(globals.journal.journal_cover, "fade_finished")
-	current_combat = load(CFConst.PATH_CUSTOM + 'Main.tscn').instance()
-	cfc.get_tree().get_root().call_deferred("add_child", current_combat)
+	start_ordeal()
 
 
 func _on_board_instanced() -> void:
