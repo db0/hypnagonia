@@ -185,7 +185,7 @@ class TestTurnEventRecording:
 			"Control_played":2,
 			"Insomnia":1,
 			"cards_played":2,
-			"deck_shuffled":3
+			"deck_shuffled":4
 		}
 		var second_turn_encounter_events = first_turn_event_count.duplicate()
 		for key in second_turn_event_count:
