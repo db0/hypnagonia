@@ -92,7 +92,6 @@ func continue_encounter(key) -> void:
 		selection_deck.update_color(Color(0,1,0))
 		globals.player.pathos.modify_released_pathos(pathos_choice_payments[key]["pathos"],
 				-pathos_choice_payments[key]["cost"])
-
 	end()
 	globals.journal.display_nce_rewards('')
 

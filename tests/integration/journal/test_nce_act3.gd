@@ -210,3 +210,82 @@ class TestBeastMirror:
 		assert_eq(globals.player.health, PLAYER_HEALTH + nce.CONTINUE_HEALTH_LOSS, "Player max health modified")
 		# warning-ignore:return_value_discarded
 		assert_deck_signaled("card_added", "card_name", "Beast Mode")
+
+
+class TestExperience:
+	extends  "res://tests/HUT_Journal_NCETestClass.gd"
+	func _init() -> void:
+		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act3/Experience.gd")
+
+	func test_disabled_choices():
+		var secondary_choices = begin_nce_with_choices(nce)
+		if secondary_choices as GDScriptFunctionState:
+			secondary_choices = yield(secondary_choices, "completed")
+		if not secondary_choices:
+			return
+		for selected_choice in get_tree().get_nodes_in_group("secondary_choices"):
+			if selected_choice.choice_key in ["card", "memory", "pathos"]:
+				assert_not_connected(selected_choice, secondary_choices, "pressed", "_on_choice_pressed")
+
+	func test_choice_card():
+		globals.player.deck.add_new_card("+ Interpretation +")
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player.deck)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+# warning-ignore:return_value_discarded
+		activate_secondary_choice_by_key("card")
+		yield(yield_to(journal, "selection_deck_spawned", 0.2), YIELD)
+		var selection_deck := assert_selection_deck_spawned()
+		if not selection_deck:
+			return
+		selection_deck._deck_preview_grid.get_children()[0].select_card()
+		yield(yield_for(0.2), YIELD)
+		var selection_decks =  get_tree().get_nodes_in_group("selection_decks")
+		var selection_deck2 : SelectionDeck = selection_decks[0]
+		selection_deck2._deck_preview_grid.get_children()[0].select_card()
+		assert_signal_emitted(globals.player.deck, "card_entry_progressed")
+		assert_signal_emitted(globals.player.deck, "card_removed")
+
+	func test_choice_memory():
+		globals.player.deck.add_new_card("+ Interpretation +")
+		var mem1 = globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
+		watch_signals(mem1)
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player.deck)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+# warning-ignore:return_value_discarded
+		activate_secondary_choice_by_key("memory")
+		yield(yield_to(journal, "selection_deck_spawned", 0.2), YIELD)
+		var selection_deck := assert_selection_deck_spawned()
+		if not selection_deck:
+			return
+		selection_deck._deck_preview_grid.get_children()[0].select_card()
+		assert_signal_emitted(globals.player.deck, "card_removed")
+		assert_signal_emitted_with_parameters(mem1, "memory_upgraded", [mem1, nce.MEMORY_PROGRESS])
+
+	func test_choice_pathos():
+		globals.player.deck.add_new_card("+ Interpretation +")
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player.deck)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
+		activate_secondary_choice_by_key("pathos")
+		yield(yield_to(journal, "selection_deck_spawned", 0.2), YIELD)
+		var selection_deck := assert_selection_deck_spawned()
+		if not selection_deck:
+			return
+		selection_deck._deck_preview_grid.get_children()[0].select_card()
+		assert_signal_emitted(globals.player.deck, "card_removed")
+		assert_pathos_signaled("released_pathos_gained", nce.PATHOS)
+
+	func test_choice_progress():
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player.deck)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
+		activate_secondary_choice_by_key("progress")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_pathos_signaled("pathos_repressed", nce.PATHOS)
+		assert_signal_not_emitted(globals.player.deck, "card_removed")

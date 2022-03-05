@@ -464,8 +464,8 @@ func _input(event):
 	### Debug ###
 	if event.is_action_pressed("init_debug_game"):
 		# Upgrade cards debug
-#		for c in  globals.player.deck.get_progressing_cards():
-#			c.upgrade_progress = c.upgrade_threshold
+		for c in  globals.player.deck.get_progressing_cards():
+			c.upgrade_progress = c.upgrade_threshold
 #		_reveal_entry(upgrade_journal, true)
 #		globals.player.add_artifact(ArtifactDefinitions.StartingDisempower.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.IncreaseRandomDamage.canonical_name)
@@ -498,7 +498,7 @@ func _input(event):
 #			EnemyEncounter.new(Act2.TrafficJam, "easy"),
 #			EnemyEncounter.new(Act3.Submerged, "hard"),
 #			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
-			preload("res://src/dreamscape/Run/NCE/Act3/BeastMirror.gd").new(),
+			preload("res://src/dreamscape/Run/NCE/Act3/Experience.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act2/HangingOn.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd").new(),
 #			BossEncounter.new(Act3.BOSSES["Fear_and Phobia"]),

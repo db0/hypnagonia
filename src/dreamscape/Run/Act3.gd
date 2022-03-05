@@ -359,6 +359,7 @@ const NCE := {
 	"easy": {
 		"ArtifactReward": preload("res://src/dreamscape/Run/NCE/Act3/ArtifactReward.gd"),
 		"BeastMirror": preload("res://src/dreamscape/Run/NCE/Act3/BeastMirror.gd"),
+		"Experience": preload("res://src/dreamscape/Run/NCE/Act3/Experience.gd"),
 	},
 	"risky": {
 		"MultipleDestroys": preload("res://src/dreamscape/Run/NCE/Act3/MultipleDestroys.gd"),
