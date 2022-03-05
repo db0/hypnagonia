@@ -156,6 +156,8 @@ func retrieve_custom_draft(card_draft_type: String) -> void:
 			_initiate_artifact_boss_draft()
 		"nce_subconscious_processing":
 			_initiate_nce_subconscious_processing_draft()
+		"nce_underwater_cave":
+			_initiate_nce_underwater_cave_draft()
 
 
 func get_uncommon_chance() -> float:
@@ -227,5 +229,27 @@ func _initiate_nce_subconscious_processing_draft() -> void:
 					draft_card_choices.append(card_name)
 					# This break ensures we only add one card from the pool
 					# of available understandings for this run
+					break
+
+func _initiate_nce_underwater_cave_draft() -> void:
+	draft_card_choices.clear()
+	for _iter in range(get_draft_amount()):
+		var card_names: Array
+		var chance := CFUtils.randf_range(0.0, 1.0)
+#		print_debug(str(rare_chance) + ' : ' + str(rare_chance + uncommon_chance))
+		if chance <= (get_rare_chance() * 3):
+#			print_debug('Rare: ' + str(chance))
+			card_names = globals.player.compile_rarity_cards('Rare')
+		elif chance <= (get_rare_chance() * 3) + (get_uncommon_chance() * 2):
+#			print_debug('Uncommon: ' + str(chance))
+			card_names = globals.player.compile_rarity_cards('Uncommon')
+		else:
+#			print_debug('common: ' + str(chance))
+			card_names = globals.player.compile_rarity_cards('Common')
+		CFUtils.shuffle_array(card_names)
+		if card_names.size():
+			for card_name in card_names:
+				if not card_name in draft_card_choices:
+					draft_card_choices.append(card_name)
 					break
 
