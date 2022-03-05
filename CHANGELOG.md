@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.33.0](https://github.com/db0/hypnagonia/tree/v0.33.0) (2022-03-05)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.32.10...v0.33.0)
+
+**Merged pull requests:**
+
+- Activated 3rd Act [\#221](https://github.com/db0/hypnagonia/pull/221) ([db0](https://github.com/db0))
+
 ## [v0.32.10](https://github.com/db0/hypnagonia/tree/v0.32.10) (2022-02-06)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.32.9...v0.32.10)
