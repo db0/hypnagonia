@@ -183,3 +183,30 @@ class TestSubconsciousProcessing:
 			assert_is(signal_details[0], CardEntry)
 			var card_entry: CardEntry = signal_details[0]
 			assert_eq(globals.player.damage, nce.DAMAGES[choice])
+
+
+class TestBeastMirror:
+	extends  "res://tests/HUT_Journal_NCETestClass.gd"
+	func _init() -> void:
+		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act3/BeastMirror.gd")
+
+	func test_choice_bear():
+		watch_signals(globals.player)
+		watch_signals(globals.player.deck)
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		activate_secondary_choice_by_key("leave")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_eq(globals.player.health, PLAYER_HEALTH, "Player max health not modified")
+		assert_signal_not_emitted(globals.player.deck, "card_added")
+
+	func test_choice_continue():
+		watch_signals(globals.player)
+		watch_signals(globals.player.deck)
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		activate_secondary_choice_by_key("continue")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_eq(globals.player.health, PLAYER_HEALTH + nce.CONTINUE_HEALTH_LOSS, "Player max health modified")
+		# warning-ignore:return_value_discarded
+		assert_deck_signaled("card_added", "card_name", "Beast Mode")

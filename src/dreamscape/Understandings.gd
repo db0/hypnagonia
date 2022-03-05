@@ -10,6 +10,7 @@ const EXCLUDED_UNDERSTANDINGS := [
 	"Subconscious",
 	"Hyena",
 	"Chasm",
+	"Beast Mode",
 ]
 
 # Gathers all perturbations that can be given to the player

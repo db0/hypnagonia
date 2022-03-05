@@ -358,6 +358,7 @@ const BOSSES := {
 const NCE := {
 	"easy": {
 		"ArtifactReward": preload("res://src/dreamscape/Run/NCE/Act3/ArtifactReward.gd"),
+		"BeastMirror": preload("res://src/dreamscape/Run/NCE/Act3/BeastMirror.gd"),
 	},
 	"risky": {
 		"MultipleDestroys": preload("res://src/dreamscape/Run/NCE/Act3/MultipleDestroys.gd"),
