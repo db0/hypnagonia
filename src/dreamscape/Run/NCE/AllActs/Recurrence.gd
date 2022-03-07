@@ -21,7 +21,7 @@ var difficulties := {
 var descriptions := {
 	"Early Night": "I recognised the sound. Cracking bark but somehow wet. It made me feel ill hearing it and each snap left a lingering, ghastly anticipation. Not bark...bones. Cracking bones. No...not again...",
 	"Deep Sleep": "The cracking sound was doubly shocking as it ricoched around the quiet, restful moment I had been enjoying. It was twice as loud as before and curdled my thoughts, just as I had begun to collect them. I should have known it would return. It always returns. Crack crack, crunch crunch.",
-	"Pre-Dawn": "Flavor WiP", #TODO Fluff
+	"Pre-Dawn": "It was the pain of a hot sauce constantly dripping into my open mouth, the repeating of an annoying jingle until it lost all meaning. My whole body felt the disgusting clapping and cracking of wet leater an bones. I knew then that, for better of worse, it would happen again. ", 
 }
 
 var journal_arts := {
