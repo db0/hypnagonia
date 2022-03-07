@@ -1452,8 +1452,8 @@ const CARDS := {
 	},
 	"@ Unnamed Torment 1 @": {
 		"Type": "Understanding",
-		"Tags": [Terms.GENERIC_TAGS.omega.name],
-		"Abilities": "{damage} for {damage_amount}. Spawn {spawn_amount} special Torment.",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}. Spawn {spawn_amount} special Torments.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
