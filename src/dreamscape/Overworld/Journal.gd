@@ -471,15 +471,14 @@ func _input(event):
 #		for c in  globals.player.deck.get_progressing_cards():
 #			c.upgrade_progress = c.upgrade_threshold
 #		_reveal_entry(upgrade_journal, true)
-#		globals.player.add_artifact(ArtifactDefinitions.StartingDisempower.canonical_name)
+#		globals.player.deck.add_new_card("+ Noisy Whip +")
+#		globals.player.add_artifact(ArtifactDefinitions.IncreaseConfusionStacks.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.IncreaseRandomDamage.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.FreeCard.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.HealSelf.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.BossFaster.canonical_name)
-#		globals.player.add_artifact("AccumulateShop")
 #		var card_entry = globals.player.deck.add_new_card("% Subconscious %")
-#		globals.player.deck.add_new_card("Gaslighter")
 #		card_entry.upgrade_progress = card_entry.upgrade_threshold
 #		globals.player.deck.add_new_card("Terror")
 #		globals.player.deck.add_new_card("Prejudice")
