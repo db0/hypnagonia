@@ -40,10 +40,15 @@ func refresh_preview_card() -> void:
 func _on_GridCardObject_mouse_entered() -> void:
 	if is_disabled:
 		return
-	if "deck_card_entry" in display_card and display_card.deck_card_entry:
+	# Ensures we  do not try to create a new orphan instance of a preview card
+	# if one has been added already.
+	# TODO: Test this
+	if preview_popup.has_preview_card():
+		preview_popup.show_preview_card(display_card.canonical_name)
+	elif "deck_card_entry" in display_card and display_card.deck_card_entry:
 		preview_popup.show_preview_card(display_card.deck_card_entry.instance_self(true))
 	else:
-		preview_popup.show_preview_card(display_card.canonical_name)		
+		preview_popup.show_preview_card(display_card.canonical_name)
 		preview_popup.preview_card.deck_card_entry = display_card.deck_card_entry
 	# This can happen during testing, as the player will not mouse over the card to generate the preview
 	if not preview_popup.preview_card:
