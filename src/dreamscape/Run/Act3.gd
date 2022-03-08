@@ -327,7 +327,7 @@ const TheatrePlay = {
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/TheatrePlay.tscn")],
 	"journal_description":\
 		'I was in a theatre troupe and part of a hyped new play. '\
-		+ "It was my first show and I had a protagonist role and nothing was ready.",
+		+ "It was my first show, I had a protagonist role, and nothing was ready.",
 	"journal_reward":\
 		"I don't know how we pulled it through, but as the curtain fell, I felt relieved.",
 	'journal_art': preload("res://assets/journal/advanced/theatre.jpeg"),
@@ -360,6 +360,7 @@ const NCE := {
 		"ArtifactReward": preload("res://src/dreamscape/Run/NCE/Act3/ArtifactReward.gd"),
 		"BeastMirror": preload("res://src/dreamscape/Run/NCE/Act3/BeastMirror.gd"),
 		"Experience": preload("res://src/dreamscape/Run/NCE/Act3/Experience.gd"),
+		"MultipleProgress": preload("res://src/dreamscape/Run/NCE/Act3/MultipleProgress.gd"),
 	},
 	"risky": {
 		"MultipleDestroys": preload("res://src/dreamscape/Run/NCE/Act3/MultipleDestroys.gd"),
