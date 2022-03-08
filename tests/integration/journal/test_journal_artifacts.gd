@@ -221,3 +221,40 @@ class TestBetterRareChance:
 				value *= multiplier
 		return(value)
 					
+
+class TestProgressEverything:
+	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.ProgressEverything.canonical_name
+		expected_amount_keys = [
+			"progress_amount"
+		]
+
+	func test_artifact_results():
+		if not assert_has_amounts():
+			return
+		watch_signals(globals.player.deck)
+		var new_card = globals.player.deck.add_new_card("Interpretation")
+		var progress_amount = get_amount("progress_amount")
+		if progress_amount > new_card.upgrade_threshold:
+			progress_amount =  new_card.upgrade_threshold
+		assert_eq(new_card.upgrade_progress, progress_amount, "Actions progressed")
+		new_card = globals.player.deck.add_new_card("Confidence")
+		progress_amount = get_amount("progress_amount")
+		if progress_amount > new_card.upgrade_threshold:
+			progress_amount =  new_card.upgrade_threshold
+		assert_eq(new_card.upgrade_progress, progress_amount, "Controls progressed")
+		new_card = globals.player.deck.add_new_card("Nothing to Fear")
+		progress_amount = get_amount("progress_amount")
+		if progress_amount > new_card.upgrade_threshold:
+			progress_amount =  new_card.upgrade_threshold
+		assert_eq(new_card.upgrade_progress, progress_amount, "Concentrations progressed")
+		new_card = globals.player.deck.add_new_card("Gaslighter")
+		progress_amount = get_amount("progress_amount")
+		if progress_amount > new_card.upgrade_threshold:
+			progress_amount =  new_card.upgrade_threshold
+		assert_eq(new_card.upgrade_progress, progress_amount, "Understandings progressed")
+		new_card = globals.player.deck.add_new_card("Lacuna")
+		assert_eq(new_card.upgrade_progress, 0, "Perturbations cannot be progressed")
+		assert_signal_emit_count(artifact, "artifact_triggered", 5, "Artifact triggered correct amount of times")
+		

@@ -672,6 +672,18 @@ const StartingVulnerable := {
 	},
 }
 
+const ProgressEverything := {
+	"canonical_name": "ProgressEverything",
+	"name": "ProgressEverything",
+	"description": "{artifact_name}: All cards added to your deck receive {progress_amount} progress.",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Uncommon",
+	"amounts": {
+		"progress_amount": 8
+	},
+}
+
 
 ## TODO. Scipt base doesn't exist yet
 #const DoubleMemory := {
@@ -746,6 +758,7 @@ const ENCOUNTER := [
 	BetterArtifactChance,
 	PerturbationHeal,
 	StartingDisempower,
+	ProgressEverything,
 ]
 
 const BOSS := [

@@ -289,3 +289,57 @@ class TestExperience:
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_pathos_signaled("pathos_repressed", nce.PATHOS)
 		assert_signal_not_emitted(globals.player.deck, "card_removed")
+
+class TestMultipleProgress:
+	extends  "res://tests/HUT_Journal_NCETestClass.gd"
+	func _init() -> void:
+		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act3/MultipleProgress.gd")
+
+	func test_secret_relic():
+		for card in globals.player.deck.cards:
+			card.upgrade_progress = card.upgrade_threshold
+		watch_signals(globals.player)
+		var secondary_choices = begin_nce_with_choices(nce)
+		if secondary_choices as GDScriptFunctionState:
+			secondary_choices = yield(secondary_choices, "completed")
+		if not secondary_choices:
+			return
+		var found_secret_choice := false
+		for selected_choice in get_tree().get_nodes_in_group("secondary_choices"):
+			if selected_choice.choice_key in ["progress2", "progress4", "progress6"]:
+				assert_not_connected(selected_choice, secondary_choices, "pressed", "_on_choice_pressed")
+			if selected_choice.choice_key == 'secret':
+				found_secret_choice = true
+		assert_true(found_secret_choice)
+		if not found_secret_choice:
+			return
+		activate_secondary_choice_by_key("secret")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_signal_emitted(globals.player, "artifact_added")
+
+	func test_progress4():
+		for citer in range(globals.player.deck.cards.size() - 3):
+			globals.player.deck.cards[citer].upgrade_progress = 100
+		watch_signals(globals.player.deck)
+		var secondary_choices = begin_nce_with_choices(nce)
+		if secondary_choices as GDScriptFunctionState:
+			secondary_choices = yield(secondary_choices, "completed")
+		var found_secret_choice := false
+		for selected_choice in get_tree().get_nodes_in_group("secondary_choices"):
+			if selected_choice.choice_key in ["progress6"]:
+				assert_not_connected(selected_choice, secondary_choices, "pressed", "_on_choice_pressed")
+			if selected_choice.choice_key in ["progress2", "progress4"]:
+				assert_connected(selected_choice, secondary_choices, "pressed", "_on_choice_pressed")
+			if selected_choice.choice_key == 'secret':
+				found_secret_choice = true
+		assert_false(found_secret_choice)
+		activate_secondary_choice_by_key("progress4")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		var progressed_cards := 0
+		for card in globals.player.deck.cards:
+			if card.upgrade_progress and card.upgrade_progress != card.upgrade_threshold:
+				assert_eq(card.upgrade_progress, nce.CARD_PROGRESS, "Cards progressed correct amount")
+				progressed_cards += 1
+		assert_eq(progressed_cards, 3, "Correct amount of cards progressed")
+		assert_eq(globals.player.damage, nce.PROGRESS4_DAMAGE)
+				
