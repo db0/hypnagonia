@@ -30,6 +30,12 @@ var journal_arts := {
 	"Pre-Dawn": JOURNAL_ART.Act3,
 }
 
+var memory_upgrades := {
+	"Early Night": 2,
+	"Deep Sleep": 3,
+	"Pre-Dawn": 4,
+}
+
 var memory_prep: MemoryPrep
 
 
@@ -49,14 +55,16 @@ func begin() -> void:
 
 func end() -> void:
 	.end()
+	var reward_upgrades = memory_upgrades[globals.encounters.current_act.get_act_name()]
 	memory_prep = MemoryPrep.new(2, true)
 	for memory in memory_prep.selected_memories:
 		var existing_memory = globals.player.find_memory(memory.canonical_name)
 		if existing_memory:
-			existing_memory.upgrades_amount += 2
+			existing_memory.upgrades_amount += reward_upgrades
 		else:
 			# warning-ignore:return_value_discarded
-			globals.player.add_memory(memory.canonical_name)
+			var new_memory = globals.player.add_memory(memory.canonical_name)
+			new_memory.upgrades_amount += 2 - reward_upgrades
 	var reward_text = '{memory1} before. I know this. Overcoming this recurrence {memory2}.'
 	var fmt = {
 		"memory1": _prepare_artifact_popup_bbcode(
