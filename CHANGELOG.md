@@ -1,5 +1,20 @@
 # Changelog
 
+## [v0.34.0](https://github.com/db0/hypnagonia/tree/v0.34.0) (2022-03-09)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.33.0...v0.34.0)
+
+**Closed issues:**
+
+- More NCE ideas [\#54](https://github.com/db0/hypnagonia/issues/54)
+- Ideas for a pot plant encounter [\#44](https://github.com/db0/hypnagonia/issues/44)
+
+**Merged pull requests:**
+
+- New NCEs [\#224](https://github.com/db0/hypnagonia/pull/224) ([db0](https://github.com/db0))
+- More NCEs [\#223](https://github.com/db0/hypnagonia/pull/223) ([db0](https://github.com/db0))
+- content\(nce\): Update Recurrence Act3 fluff [\#222](https://github.com/db0/hypnagonia/pull/222) ([Silberfarben](https://github.com/Silberfarben))
+
 ## [v0.33.0](https://github.com/db0/hypnagonia/tree/v0.33.0) (2022-03-05)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.32.10...v0.33.0)
