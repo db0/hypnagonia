@@ -21,7 +21,7 @@ func _init():
 	description = "In my wildest dreams, objects in my room manifest differently. "\
 			+ "One of them was the potted plant near the window."\
 			+ "It seemed to be observing me. Wait, did I forget to water it?"
-#	prepare_journal_art(preload("res://assets/journal/nce/beast_mirror.jpeg"))
+	prepare_journal_art(preload("res://assets/journal/nce/potted_plant.jpeg"))
 
 func begin() -> void:
 	.begin()
