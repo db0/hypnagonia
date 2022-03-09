@@ -452,6 +452,25 @@ const ProtectSelf := {
 		"max_upgrades": 10,
 	},
 }
+const RemoveDebuff := {
+	"canonical_name": "RemoveDebuff",
+	"name": "The Poison Ivy Incident",
+	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
+			+ "to gain {defence_amount} {defence} and remove {stacks_amount} stacks of your highest debuff.",
+	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"context": EffectContext.BATTLE,
+	"pathos": Terms.RUN_ACCUMULATION_NAMES.shop,
+	"pathos_threshold_multiplier": 1.8,
+	"pathos_accumulation_divider": 1.3,
+	"keys_modified_by_upgrade": ["defence_amount"],
+	"amounts": {
+		"defence_amount": 5,
+		"stacks_amount": 3,
+		"upgrade_multiplier": 1
+	},
+}
+
+
 # Generic memories which have a chance to appear in any playthrough
 const GENERIC := [
 	DamageAll,
@@ -488,6 +507,7 @@ const ARCHETYPE := [
 
 # These memories are only found in non-combat encounters
 const ENCOUNTER := [
+	RemoveDebuff,
 ]
 
 

@@ -189,4 +189,14 @@ const CARDS := {
 		"_rarity": "Perturbation",
 		"_keywords": []
 	},
+	"Lethe": {
+		"Type": "Perturbation",
+		"Tags": [],
+		"Abilities": "If in hand at the end of the turn, reduce the charge of a random memory by 10%. "\
+				+ "While in hand, you cannot activate memories.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Perturbation",
+		"_keywords": []
+	},
 }
