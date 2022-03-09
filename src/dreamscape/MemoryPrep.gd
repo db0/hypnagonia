@@ -42,6 +42,8 @@ func append_memory(memory_canonical_name: String) -> void:
 	_add_memory(memory_definition)
 
 
+# Adds a memory defintion to the selected_memories
+# Prepares the formating dictionaries for that memory as well.
 func _add_memory(current_memory: Dictionary) -> void:
 	var bbcode_formats = Terms.get_bbcode_formats(18)
 	var memory_format = MemoryDefinitions.get_memory_bbcode_format(current_memory)
@@ -59,6 +61,7 @@ func _add_memory(current_memory: Dictionary) -> void:
 	}
 	selected_memories.append(current_memory)
 
+
 # Returns only the names of the current selected memories
 func _get_names() -> Array:
 	var mnames := []
@@ -67,6 +70,7 @@ func _get_names() -> Array:
 	return(mnames)
 
 
+# Returns only the used pathos of the currently selected memories
 func _get_pathos() -> Array:
 	var pathos := []
 	for m in selected_memories:

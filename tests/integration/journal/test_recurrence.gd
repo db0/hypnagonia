@@ -44,6 +44,8 @@ class TestNCE:
 		watch_signals(mem2)
 		watch_signals(mem3)
 		watch_signals(mem4)
+		nce._test_memory_prep.selected_memories.append(mem1)
+		nce._test_memory_prep.selected_memories.append(mem2)
 		begin_surprise_encounter(nce)
 		yield(yield_to(cfc, "all_nodes_mapped", 3), YIELD)
 		assert_has(cfc.NMAP, "board")
@@ -54,13 +56,12 @@ class TestNCE:
 		watch_signals(globals.player)
 		end_surprise_encounter()
 		assert_nce_unlocked(preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd"))
-		assert_signal_emit_count(globals.player, "memory_added", 1)
+		assert_signal_emit_count(globals.player, "memory_added", 0)
 		gut.p([cfc.game_rng.seed,cfc.game_rng.state])
-		pending("Check memory upgraded once rng consistent")
-#		assert_signal_emitted_with_parameters(mem1, "memory_upgraded", [mem1,2])
-#		assert_signal_not_emitted(mem2, "memory_upgraded")
-#		assert_signal_not_emitted(mem3, "memory_upgraded")
-#		assert_signal_not_emitted(mem4, "memory_upgraded")
+		assert_signal_emitted_with_parameters(mem1, "memory_upgraded", [mem1,2])
+		assert_signal_emitted_with_parameters(mem2, "memory_upgraded", [mem2,2])
+		assert_signal_not_emitted(mem3, "memory_upgraded")
+		assert_signal_not_emitted(mem4, "memory_upgraded")
 
 
 	func test_learning():

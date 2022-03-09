@@ -52,7 +52,7 @@ func _set_current_description() -> void:
 
 func _use():
 	# TODO: Make Lethe turn the memory highlight red
-	if cfc.NMAP.hand.has_card_name("Lethe"):
+	if cfc.NMAP.has('hand') and cfc.NMAP.hand.has_card_name("Lethe"):
 		return
 	var sceng = execute_memory_effect()
 	if sceng is GDScriptFunctionState:

@@ -36,8 +36,10 @@ var memory_upgrades := {
 	"Pre-Dawn": 4,
 }
 
-var memory_prep: MemoryPrep
-
+# Used during testing to predefined chosen memories instead of using RNG
+var _test_memory_prep := {
+	selected_memories = []
+}
 
 func _init():
 	description = descriptions[globals.encounters.current_act.get_act_name()]
@@ -56,7 +58,11 @@ func begin() -> void:
 func end() -> void:
 	.end()
 	var reward_upgrades = memory_upgrades[globals.encounters.current_act.get_act_name()]
-	memory_prep = MemoryPrep.new(2, true)
+	var memory_prep
+	if not _test_memory_prep.selected_memories.empty():
+		memory_prep = _test_memory_prep
+	else:
+		memory_prep = MemoryPrep.new(2, true)
 	for memory in memory_prep.selected_memories:
 		var existing_memory = globals.player.find_memory(memory.canonical_name)
 		if existing_memory:

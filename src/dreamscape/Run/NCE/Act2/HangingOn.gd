@@ -12,6 +12,8 @@ var nce_result_fluff := {
 		'hang': "I wrapped myself around that branch as tight as I could.",
 	}
 
+# For controlling chances during testing
+var _testing_rng = -1
 
 func _init():
 	description = "I found myself walking between a cliff and an impassable forest while one of my hands was wrapped in cement. "\
@@ -41,6 +43,8 @@ func continue_encounter(key) -> void:
 			selection_deck.initiate_card_removal(0)
 		"hang":
 			var rng_roll = CFUtils.randi_range(1,100)
+			if _testing_rng >= 0:
+				rng_roll = _testing_rng
 			if rng_roll <= 50:
 				nce_result_fluff['hang'] += "\nHolding my eyes tight, I was trying to will myself out of this situation. "\
 						+ "Then I heard a crack..."
@@ -57,6 +61,8 @@ func continue_encounter(key) -> void:
 
 func _on_card_removed(operation_details: Dictionary, key: String) -> void:
 	var rng_roll = CFUtils.randi_range(1,100)
+	if _testing_rng >= 0:
+		rng_roll = _testing_rng
 	var card_type: String
 	if key == "swing":
 		card_type = "Action"
