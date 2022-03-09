@@ -47,11 +47,11 @@ func _predict_script_amount(hardcoded_previous_subjects := []) -> void:
 					and hardcoded_previous_subjects.size() > 0):
 			script.prev_subjects = prev_subjects
 		#print("Scripting Subjects: " + str(script.subjects)) # Debug
-		if script.script_name == "custom_script": # TODO
-			# This class contains the customly defined scripts for each
-			# card.
-			var custom := CustomScripts.new(costs_dry_run())
-			custom.custom_script(script)
+#		if script.script_name == "custom_script": # TODO
+#			# This class contains the customly defined scripts for each
+#			# card.
+#			var custom := CustomScripts.new(costs_dry_run())
+#			custom.custom_script(script)
 		for entity in script.subjects:
 #				entity.temp_properties_modifiers[self] = {
 #					"requesting_object": script.owner,

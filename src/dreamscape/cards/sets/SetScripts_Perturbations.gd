@@ -280,6 +280,16 @@ const scripts := {
 			],
 		},
 	},
+	"Lethe": {
+		"on_player_turn_ended": {
+			"hand": [
+				{
+					"name": "custom_script",
+					"tags": ["Card"],
+				},
+			],
+		},
+	},
 }
 
 

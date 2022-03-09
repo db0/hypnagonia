@@ -6,6 +6,7 @@ const MEMORY_SCENE = preload("res://src/dreamscape/Memories/MemoryTemplate.tscn"
 signal removed
 signal pathos_accumulated(memory, amount)
 signal memory_ready(memory)
+signal memory_unready(memory)
 signal memory_used(memory)
 signal memory_upgraded(memory, amount)
 signal memory_downgraded(memory, amount)
@@ -65,11 +66,24 @@ func accumulate_pathos(value: float) -> void:
 	if pathos_accumulated >= pathos_threshold:
 		ready()
 
+func lose_pathos(value: float) -> void:
+	if pathos_accumulated - abs(value) < 0:
+		value = pathos_accumulated
+	pathos_accumulated -= value
+	if pathos_accumulated < pathos_threshold:
+		unready()
+
 
 func ready() -> void:
 	pathos_accumulated = pathos_threshold
 	is_ready = true
 	emit_signal("memory_ready", self)
+
+
+func unready() -> void:
+	is_ready = false
+	emit_signal("memory_unready", self)
+
 
 func use() -> void:
 	is_ready = false

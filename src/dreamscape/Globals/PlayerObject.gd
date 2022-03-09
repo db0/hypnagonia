@@ -179,6 +179,13 @@ func find_memory(memory_name: String):
 		if memory.canonical_name == memory_name:
 			return(memory)
 
+# Returns the MemoryObject which uses the specific pathos,
+# else returns null if no memory uses it.
+func get_memory_by_pathos(pathos: String):
+	for memory in memories:
+		if pathos == memory.pathos_used:
+			return(memory)
+
 
 # Returns a random memory, or null if none exist.
 func get_random_memory():

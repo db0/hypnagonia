@@ -4,6 +4,7 @@ extends Act
 const NCE := {
 	"easy": {
 		"TheCandyman": preload("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd"),
+		"PottedPlant": preload("res://src/dreamscape/Run/NCE/AllActs/PottedPlant.gd"),
 	},
 	"risky": {
 	}

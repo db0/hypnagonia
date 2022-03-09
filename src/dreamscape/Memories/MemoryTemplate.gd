@@ -23,6 +23,7 @@ func setup_artifact(memory_object, _is_active: bool, new_addition: bool) -> void
 	canonical_name = memory_object.canonical_name
 	memory_object.connect("pathos_accumulated", self, "_on_pathos_accumulated")
 	memory_object.connect("memory_ready", self, "_on_memory_ready")
+	memory_object.connect("memory_unready", self, "_on_memory_unready")
 	memory_object.connect("memory_used", self, "_on_memory_used")
 
 
@@ -50,6 +51,9 @@ func _set_current_description() -> void:
 
 
 func _use():
+	# TODO: Make Lethe turn the memory highlight red
+	if cfc.NMAP.hand.has_card_name("Lethe"):
+		return
 	var sceng = execute_memory_effect()
 	if sceng is GDScriptFunctionState:
 		sceng = yield(sceng, "completed")
@@ -91,6 +95,12 @@ func _on_memory_ready(_memory: Reference) -> void:
 	_activate_highlight()
 	_set_current_description()
 	shader_node.material.set_shader_param('percentage', 1.0)
+
+func _on_memory_unready(_memory: Reference) -> void:
+	_deactive_highlight()
+	_set_current_description()
+	shader_node.material.set_shader_param('percentage',
+			float(artifact_object.pathos_accumulated)/float(artifact_object.pathos_threshold))
 
 
 func _on_memory_used(_memory: Reference) -> void:

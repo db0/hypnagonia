@@ -171,6 +171,9 @@ func custom_script(script: ScriptObject) -> void:
 						"amount_value": '+' + str(increase_amount),
 					}
 					card.deck_card_entry.modify_property("_amounts", payload)
+		"Lethe":
+			var rnd_memory = globals.player.get_random_memory()
+			rnd_memory.lose_pathos(rnd_memory.pathos_threshold / 10.0)
 
 # warning-ignore:unused_argument
 func custom_alterants(script: ScriptObject) -> int:
