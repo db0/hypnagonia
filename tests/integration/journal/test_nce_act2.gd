@@ -572,10 +572,10 @@ class TestHangingOn:
 		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act2/HangingOn.gd")
 
 	func test_choice_swing_succeed():
-		cfc.game_rng_seed = "<f<s_=ZJp2"
 		watch_signals(globals.player.deck)
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		nce._testing_rng = 51
 		activate_secondary_choice_by_key("swing")
 		yield(yield_to(journal, "selection_deck_spawned", 0.2), YIELD)
 		# warning-ignore:return_value_discarded
@@ -602,6 +602,7 @@ class TestHangingOn:
 		watch_signals(globals.player.deck)
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		nce._testing_rng = 50
 		activate_secondary_choice_by_key("swing")
 		yield(yield_to(journal, "selection_deck_spawned", 0.2), YIELD)
 		# warning-ignore:return_value_discarded
@@ -625,6 +626,7 @@ class TestHangingOn:
 		watch_signals(globals.player.deck)
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		nce._testing_rng = 31
 		activate_secondary_choice_by_key("shout")
 		yield(yield_to(journal, "selection_deck_spawned", 0.2), YIELD)
 		# warning-ignore:return_value_discarded
@@ -645,10 +647,10 @@ class TestHangingOn:
 		assert_eq(globals.player.damage, 0)
 
 	func test_choice_shout_fail():
-		cfc.game_rng_seed = "<f<s_=ZJp@"
 		watch_signals(globals.player.deck)
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		nce._testing_rng = 30
 		activate_secondary_choice_by_key("shout")
 		yield(yield_to(journal, "selection_deck_spawned", 0.2), YIELD)
 		# warning-ignore:return_value_discarded
@@ -672,20 +674,21 @@ class TestHangingOn:
 		watch_signals(globals.player.deck)
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		nce._testing_rng = 51
 		activate_secondary_choice_by_key("hang")
 		yield(yield_to(journal, "selection_deck_spawned", 0.2), YIELD)
 		assert_signal_not_emitted(globals.player.deck, "card_removed")
 		assert_signal_emitted(globals.player.deck, "card_added")
 		var added_cards_signal = get_signal_parameters(globals.player.deck, "card_added")
-		if added_cards_signal.size() == 0:
+		if not added_cards_signal:
 			return
 		var added_card: CardEntry = added_cards_signal[0]
 		assert_eq(added_card.card_name, "Chasm")
 		assert_eq(globals.player.health, 100)
 
 	func test_choice_hang_fail():
-		cfc.game_rng_seed = "0000000002"
 		watch_signals(globals.player.deck)
+		nce._testing_rng = 50
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		activate_secondary_choice_by_key("hang")
