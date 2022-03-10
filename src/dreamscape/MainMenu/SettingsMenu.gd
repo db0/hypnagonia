@@ -13,6 +13,7 @@ func _ready() -> void:
 #	cfc.game_settings['animate_in_hand'] = cfc.game_settings.get('animate_in_hand', false)
 	cfc.game_settings['focus_style'] = cfc.game_settings.get('focus_style', 2)
 	cfc.game_settings['fancy_movement'] = cfc.game_settings.get('fancy_movement', CFConst.FANCY_MOVEMENT)
+	cfc.game_settings['anim_text_backgrounds'] = cfc.game_settings.get('anim_text_backgrounds', CFConst.FANCY_MOVEMENT)
 	cfc.game_settings['enable_visible_shuffle'] = cfc.game_settings.get('enable_visible_shuffle', CFConst.FANCY_MOVEMENT)
 	cfc.game_settings['main_volume'] = cfc.game_settings.get('main_volume', 0)
 	cfc.game_settings['music_volume'] = cfc.game_settings.get('music_volume', 0)
@@ -84,3 +85,8 @@ func _play_toggle_sound(button_pressed: bool) -> void:
 			SoundManager.play_se('setting_toggle_on')
 		else:
 			SoundManager.play_se('setting_toggle_off')
+
+
+func _on_AnimatedTextBackgrounds_toggled(button_pressed: bool) -> void:
+	cfc.set_setting('anim_text_backgrounds',button_pressed)
+	get_tree().call_group("card_fronts", "toggle_text_shader_visible", button_pressed)

@@ -57,8 +57,10 @@ func _ready() -> void:
 				original_font_sizes[label] = 20
 			_:
 				original_font_sizes[label] = 18
-	var time_offset = CFUtils.randf_range(0.1,100.0)
-	text_shader.material.set_shader_param("time_offset", time_offset)
+	if cfc.game_settings.get('anim_text_backgrounds'):
+		toggle_text_shader_visible(true)
+	else:
+		toggle_text_shader_visible(false)
 
 
 func set_tag_icon(tags: Array) -> void:
@@ -112,6 +114,12 @@ func set_rarity() -> void:
 	rarity_middle.modulate = rarity_color * glow_multiplier
 #	var card_name_label : Label = card_front.card_labels["Name"]
 #	card_name_label.add_color_override("font_color", rarity_color)
+
+func toggle_text_shader_visible(set_visible = null) -> void:
+	if typeof(set_visible) == TYPE_NIL:
+		text_shader.visible = !text_shader.visible
+	else:
+		text_shader.visible = set_visible
 
 func _add_title_bbcode(rtlabel: RichTextLabel):
 	rtlabel.push_color("#FFFFFF")

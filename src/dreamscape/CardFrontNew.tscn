@@ -37,7 +37,7 @@ shader_param/Scale = 1.5
 [sub_resource type="RichTextEffect" id=5]
 script = ExtResource( 10 )
 
-[node name="Front" type="Panel"]
+[node name="Front" type="Panel" groups=["card_fronts"]]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -1255.0
