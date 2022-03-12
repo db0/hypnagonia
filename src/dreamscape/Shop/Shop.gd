@@ -72,6 +72,8 @@ func _ready() -> void:
 		NewGameMenu.randomize_aspect_choices()
 		globals.player.setup()
 		# warning-ignore:return_value_discarded
+		for c in  globals.player.deck.get_progressing_cards():
+			c.upgrade_progress = c.upgrade_threshold - 1
 		globals.player.deck.add_new_card("+ Confidence +")
 		# warning-ignore:return_value_discarded
 		globals.player.deck.add_new_card("+ Confidence +")
