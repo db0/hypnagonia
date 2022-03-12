@@ -67,7 +67,7 @@ material = SubResource( 1 )
 margin_right = 69.0
 texture = ExtResource( 2 )
 expand = true
-stretch_mode = 5
+stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
