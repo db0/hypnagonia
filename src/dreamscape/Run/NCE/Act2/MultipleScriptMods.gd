@@ -82,4 +82,4 @@ func continue_encounter(key) -> void:
 
 
 func _on_card_selected(operation_details: Dictionary, payload: Dictionary) -> void:
-	operation_details.card_entry.modify_property('_amounts', payload)
+	operation_details.card_entry.modify_property('_amounts', payload, true)

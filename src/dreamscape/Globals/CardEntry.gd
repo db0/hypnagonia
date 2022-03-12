@@ -145,12 +145,13 @@ func get_property(property: String):
 
 
 # This permanently modifies a property for that one card in your deck.
-func modify_property(property: String, value, record := true) -> void:
+func modify_property(property: String, value, is_enhancement := true, record := true) -> void:
 	# We record the changes permanently, so that we can re-apply them after the card upgrades
 	if record:
 		var record_entry := {
 			"property": property,
 			"value": value,
+			"is_enhancement": is_enhancement,
 		}
 		property_modifications.append(record_entry)
 	# When modifying _amounts, we expect a certain payload dictionary
@@ -223,6 +224,21 @@ func remove_scripts(standard_task := 'forget', script_state:= 'hand') -> void:
 		printerr("ERROR:CardEntry: Cannot find script state '%s' in unmodified scripts of '%s" % [script_state,card_name])
 
 
+# Returns true, if the card has a property modification that is detrimental
+func is_scarred():
+	for mod_record in property_modifications:
+		if not mod_record.is_enhancement:
+			return(true)
+	return(false)
+
+# Returns true, if the card has a property modification that is beneficial
+func is_enhanced():
+	for mod_record in property_modifications:
+		if mod_record.is_enhancement:
+			return(true)
+	return(false)
+
+
 # This function should only be called from modify_property()
 # to ensure the changes survive card upgrades
 func _modify_amounts(amount_name: String, value) -> void:
@@ -260,14 +276,14 @@ func scar() -> void:
 				"tags": ["Played", "Card"],
 		}
 		add_scripts(forget_task, 'hand', "\n{forget}")
-	modify_property(applicable_mods[0].property, applicable_mods[0].value)
+	modify_property(applicable_mods[0].property, applicable_mods[0].value, false)
 
 
 # Randomly increases the effectiveness of this card.
-func bless() -> void:
+func enhance() -> void:
 	var applicable_mods = CardModifications.check_mod_applicability(properties, "blessing")
 	# No need to check the size of the array as there's going to always be at least one element
 	if typeof(applicable_mods[0].value) == TYPE_STRING\
 			and applicable_mods[0].value == Terms.GENERIC_TAGS.slumber.name:
 		remove_scripts('forget')
-	modify_property(applicable_mods[0].property, applicable_mods[0].value)
+	modify_property(applicable_mods[0].property, applicable_mods[0].value, true)

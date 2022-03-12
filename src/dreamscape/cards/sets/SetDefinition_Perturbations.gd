@@ -206,7 +206,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Perturbation",
-		"_keywords": [],
+		"_keywords": ['scar'],
 		"_upgrade_threshold_modifier": 1,
 		"_upgrades": [
 			"Cockroaches",

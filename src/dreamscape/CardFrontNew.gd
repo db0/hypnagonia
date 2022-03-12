@@ -17,6 +17,8 @@ onready var title := $Title
 onready var rarity_top := $RarityTop
 onready var rarity_middle := $RarityMiddle
 onready var cost_container_background := $CostContainer/CostIcon
+onready var scarred := $Scarred
+onready var enhanced := $Enhanced
 
 func _ready() -> void:
 #	text_expansion_multiplier = {

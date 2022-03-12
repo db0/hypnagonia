@@ -1730,7 +1730,7 @@ const CARDS := {
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
-		"_keywords": ["forget"],
+		"_keywords": ["forget", "enhance"],
 		"_is_upgrade": true,
 	},
 }

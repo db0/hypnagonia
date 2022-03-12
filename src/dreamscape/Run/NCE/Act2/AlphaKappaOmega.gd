@@ -96,4 +96,4 @@ func continue_encounter(key) -> void:
 	globals.journal.display_nce_rewards('')
 
 func _on_card_selected(operation_details: Dictionary, tag_name: String) -> void:
-	operation_details.card_entry.modify_property('Tags', tag_name)
+	operation_details.card_entry.modify_property('Tags', tag_name, true)
