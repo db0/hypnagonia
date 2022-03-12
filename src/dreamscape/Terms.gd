@@ -681,7 +681,7 @@ const GENERIC_TAGS := {
 		"rich_text_icon": "res://fonts/rich_text_icons/omega.png",
 		"generic_description": "[color=purple]{effect_name} ({effect_icon}): This card will always start at the bottom of the deck.[/color]"},
 	"frozen": {
-		"name": "Absorbed",
+		"name": "Cherish",
 		"icon": preload("res://assets/icons/wind-hole.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/wind-hole.png",
 		"generic_description": "[color=purple]{effect_name} ({effect_icon}): This card will not be discarded from hand at the end of the turn.[/color]"},
