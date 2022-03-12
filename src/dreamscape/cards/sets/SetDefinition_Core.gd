@@ -2437,6 +2437,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	# Not yet assigned to an archetype
 	"unnamed_card_4": {
 		"Type": "Control",
 		"Tags": [

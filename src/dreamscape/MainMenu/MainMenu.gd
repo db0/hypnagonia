@@ -135,10 +135,20 @@ func _input(event):
 			"X11":
 				print('Card Library Saved in ${HOME}/.local/share/godot/app_userdata/Hypnagonia/library.json')
 		var ordered_list := []
+		var card_names_for_art_export := {}
 		for libcard in cfc.card_definitions:
 			var card_export := _process_card_export(libcard)
 			if card_export.get("_is_upgrade", false):
 				continue
+			if cfc.card_definitions[libcard].get("_illustration") == 'Nobody':
+				var card_archetypes := Aspects.get_card_archetypes(libcard)
+				if card_archetypes.size() == 0:
+					var type = cfc.card_definitions[libcard].Type
+					card_names_for_art_export[type] = card_names_for_art_export.get(type, [])
+					card_names_for_art_export[type].append(libcard)
+				for archetype in card_archetypes:
+					card_names_for_art_export[archetype] = card_names_for_art_export.get(archetype, [])
+					card_names_for_art_export[archetype].append(libcard)
 			ordered_list.append(card_export)
 			if card_export.has("_upgrades"):
 				for upgrade_name in card_export["_upgrades"]:
@@ -146,6 +156,8 @@ func _input(event):
 		var library_export = File.new()
 		library_export.open("user://library.json",File.WRITE)
 		library_export.store_line(to_json(ordered_list))
+		library_export.open("user://cards_names_without_art.json",File.WRITE)
+		library_export.store_line(to_json(card_names_for_art_export))
 
 func _process_card_export(card_name: String) -> Dictionary:
 	var card_entry = cfc.card_definitions[card_name].duplicate(true)
@@ -155,17 +167,5 @@ func _process_card_export(card_name: String) -> Dictionary:
 	card_entry.erase("_effects_info")
 	card_entry.erase("_illustration")
 	card_entry.erase("_keywords")
-	card_entry['archetypes'] = []
-	for aspect in [
-			Aspects.EGO,
-			Aspects.DISPOSITION,
-			Aspects.INSTRUMENT,
-			Aspects.INJUSTICE]:
-		for archetype in aspect:
-			for rarity in ['Basic','Common','Uncommon','Rare']:
-				for card in aspect[archetype].get(rarity,[]):
-					if card_name == card:
-						if not archetype in card_entry['archetypes']:
-							card_entry['archetypes'].append(archetype)
+	card_entry['archetypes'] = Aspects.get_card_archetypes(card_name)
 	return(card_entry)
-

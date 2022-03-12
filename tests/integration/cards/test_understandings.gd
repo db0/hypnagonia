@@ -202,3 +202,16 @@ class TestSubmerged:
 			sceng = yield(sceng, "completed")
 		assert_eq(test_torments[0].active_effects.get_effect_stacks(effect), get_amount("effect_stacks"),
 				"%s stacks on Torment decreased by correct amount" % [effect])
+
+class TestCockroaches:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	func _init() -> void:
+		globals.test_flags.test_initial_hand = true
+		testing_card_name = "Cockroaches"
+
+	func test_card_results():
+		watch_signals(globals.player.deck)
+		var sceng = execute_with_yield(card)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_signal_emit_count(globals.player.deck, "card_entry_modified", 1)

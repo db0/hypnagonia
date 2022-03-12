@@ -199,4 +199,17 @@ const CARDS := {
 		"_rarity": "Perturbation",
 		"_keywords": []
 	},
+	"Cockroach Infestation": {
+		"Type": "Perturbation",
+		"Tags": [],
+		"Abilities": "If in hand at the end of the turn, permanently scar one random card (in any location).",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Perturbation",
+		"_keywords": [],
+		"_upgrade_threshold_modifier": 1,
+		"_upgrades": [
+			"Cockroaches",
+		],
+	},
 }

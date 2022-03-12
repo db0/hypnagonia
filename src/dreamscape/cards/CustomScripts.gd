@@ -174,6 +174,26 @@ func custom_script(script: ScriptObject) -> void:
 		"Lethe":
 			var rnd_memory = globals.player.get_random_memory()
 			rnd_memory.lose_pathos(rnd_memory.pathos_threshold / 10.0)
+		"Cockroach Infestation":
+			var all_cards = cfc.get_tree().get_nodes_in_group("cards")
+			CFUtils.shuffle_array(all_cards)
+			for selected_card in all_cards:
+				if selected_card.get_property("Type") == "Perturbation":
+					continue
+				if not selected_card.deck_card_entry:
+					continue
+				selected_card.deck_card_entry.scar()
+				break
+		"Cockroaches":
+			var all_cards = cfc.get_tree().get_nodes_in_group("cards")
+			CFUtils.shuffle_array(all_cards)
+			for selected_card in all_cards:
+				if selected_card.get_property("Type") == "Perturbation":
+					continue
+				if not selected_card.deck_card_entry:
+					continue
+				selected_card.deck_card_entry.bless()
+				break
 
 # warning-ignore:unused_argument
 func custom_alterants(script: ScriptObject) -> int:

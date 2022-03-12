@@ -115,5 +115,5 @@ func _on_cfc_signal_received(trigger_card, trigger, _details) -> void:
 					"dest_container": "forgotten",
 					"tags": ["Played", "Card"],
 			}
-			trigger_card.deck_card_entry.modify_scripts(forget_task)
+			trigger_card.deck_card_entry.add_scripts(forget_task)
 		trigger_card.deck_card_entry.modify_property(applicable_scars[0].property, applicable_scars[0].value)

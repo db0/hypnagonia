@@ -1723,5 +1723,14 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-
+	"Cockroaches": {
+		"Type": "Understanding",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "Permanently improve a random card (in any location)\n{forget}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_keywords": ["forget"],
+		"_is_upgrade": true,
+	},
 }
