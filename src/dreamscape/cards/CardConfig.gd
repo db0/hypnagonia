@@ -69,7 +69,11 @@ const EXPLANATIONS = {
 	"delayed": "[color=yellow]Delayed[/color]: This effect will become active at the start of your next turn only.",
 
 	'Sneaky-Beaky': "Note: This effect will not trigger from combat effects such as "\
-			+ "[img=24x24]res://fonts/rich_text_icons/coma.png[/img] or [img=24x24]res://fonts/rich_text_icons/wrapped-heart.png[/img]."
+			+ "[img=24x24]res://fonts/rich_text_icons/coma.png[/img] or [img=24x24]res://fonts/rich_text_icons/wrapped-heart.png[/img].",
+	"scar": "Scar ([img=24x24]res://assets/card_front/scar-wound.png[/img]): "\
+			+ "The affected card will be permanently degraded in a random manner",
+	"enhance": "Enhance ([img=24x24]res://assets/card_front/sun.png[/img]): "\
+			+ "The affected card will be permanently improved in a random manner",
 }
 # Allows the Card object and Card Viewer to replace specific entries during display.
 # For example, you can mark that a cost of 'U' is displayed as an empty string ('').

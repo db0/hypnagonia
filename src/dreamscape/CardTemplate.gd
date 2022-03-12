@@ -107,6 +107,11 @@ func setup() -> void:
 		card_art_file = ImageLibrary.CARD_IMAGES.get(canonical_name)
 	if card_art_file as StreamTexture:
 		card_front.set_card_art(card_art_file)
+	if deck_card_entry:
+		if deck_card_entry.is_scarred():
+			card_front.scarred.visible = true
+		if deck_card_entry.is_enhanced():
+			card_front.enhanced.visible = true		
 
 # Sample code on how to figure out costs of a card
 func get_modified_credits_cost() -> int:
@@ -506,6 +511,10 @@ func _find_upgrade_parent():
 func refresh_card_front() -> void:
 	.refresh_card_front()
 	highlight_modified_properties()
+	if deck_card_entry.is_scarred():
+		card_front.scarred.visible = true
+	if deck_card_entry.is_enhanced():
+		card_front.enhanced.visible = true
 
 # Overridable function to allow games to extend the _on_Card_gui_input() functionality
 func _process_more_card_inputs(event) -> void:

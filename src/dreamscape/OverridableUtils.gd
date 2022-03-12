@@ -15,15 +15,33 @@ func get_subjects(subject_request, _stored_integer: int = 0) -> Array:
 # viewport focus or deckbuilder
 func populate_info_panels(card: Card, focus_info: DetailPanels) -> void:
 	.populate_info_panels(card, focus_info)
-	if card.deck_card_entry and card.deck_card_entry.upgrade_threshold > 0:
-		var upgrade_format := {
-			"current": str(card.deck_card_entry.upgrade_progress),
-			"threshold": str(card.deck_card_entry.upgrade_threshold),
-		}
-		focus_info.add_info(
-				"Upgrade Progress",
-				"Upgrade Progress: {current}/{threshold}".format(upgrade_format), preload("res://src/dreamscape/InfoPanel.tscn"),
-				true)
+	if card.deck_card_entry:
+		if card.deck_card_entry.upgrade_threshold > 0:
+			var upgrade_format := {
+				"current": str(card.deck_card_entry.upgrade_progress),
+				"threshold": str(card.deck_card_entry.upgrade_threshold),
+			}
+			focus_info.add_info(
+					"Upgrade Progress",
+					"Upgrade Progress: {current}/{threshold}".format(upgrade_format), 
+					preload("res://src/dreamscape/InfoPanel.tscn"),
+					true)
+		if card.deck_card_entry.is_scarred():
+			focus_info.add_info(
+					"Scarred",
+					"Scarred ([img=24x24]res://assets/card_front/scar-wound.png[/img]): "\
+					+ "This card has been permanently degraded in some way.\n"\
+					+ "If a numerical property is affected, it will be highlighted red.",
+					preload("res://src/dreamscape/InfoPanel.tscn"),
+					true)
+		if card.deck_card_entry.is_enhanced():
+			focus_info.add_info(
+					"Enhanced",
+					"Enhanced ([img=24x24]res://assets/card_front/sun.png[/img]): "\
+					+ "This card has been permanently iproved in some way.\n"\
+					+ "If a numerical property is affected, it will be highlighted greem.",
+					preload("res://src/dreamscape/InfoPanel.tscn"),
+					true)
 	var added_effects := []
 	var bbcode_format := Terms.get_bbcode_formats(18)
 	if card.get_property("_effects_info"):
