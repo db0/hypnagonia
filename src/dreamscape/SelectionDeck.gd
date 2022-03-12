@@ -93,20 +93,26 @@ func _populate_preview_cards() -> void:
 		current_decklist_cache = globals.player.deck.list_all_cards()
 		for index in range(globals.player.deck.cards.size()):
 			var card_matches:= true
+			var card_entry: CardEntry = globals.player.deck.cards[index]
 			if prespecified_card_list.size() > 0:
-				if not globals.player.deck.cards[index] in prespecified_card_list:
+				if not card_entry in prespecified_card_list:
 					continue
 			else:
 				for f in card_filters:
 					var filter: CardFilter = f
-					if not filter.check_card(globals.player.deck.cards[index].properties):
+					if not filter.check_card(card_entry.properties):
+						card_matches = false
+				if operation == "progress":
+					if card_entry.upgrade_progress >= card_entry.upgrade_threshold:
+						card_matches = false
+					if not CardFilter.new('_is_upgrade', false).check_card(card_entry.properties):
 						card_matches = false
 				if not card_matches:
 					continue
 			var card_preview_container = CARD_CHOICE_SCENE.instance()
 			_deck_preview_grid.add_child(card_preview_container)
-			card_preview_container.index = globals.player.deck.cards[index]
-			card_preview_container.setup(globals.player.deck.cards[index].instance_self(true))
+			card_preview_container.index = card_entry
+			card_preview_container.setup(card_entry.instance_self(true))
 			card_preview_container.connect(
 					"card_selected", 
 					self, 
@@ -140,6 +146,8 @@ func _on_deck_card_selected(card_entry: CardEntry, deck_card_object) -> void:
 	if auto_close:
 		globals.hide_all_previews()
 		queue_free()
+	elif operation == "progress" and card_entry.upgrade_progress >= card_entry.upgrade_threshold:
+		deck_card_object.queue_free()
 	# We assume card selection modifies the decklist somewhat. 
 	# So we ensure the card list is refreshed
 	current_decklist_cache.clear()
