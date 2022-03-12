@@ -474,7 +474,7 @@ func _get_formatted_text(value) -> String:
 
 func highlight_modified_properties() -> void:
 	# We don't check cards in deck to reduce operations
-	if state != CardState.IN_PILE:
+	if state != CardState.IN_PILE and is_instance_valid(card_front):
 		for property in properties:
 			if property.begins_with("_"):
 				continue

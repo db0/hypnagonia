@@ -1613,6 +1613,22 @@ const scripts := {
 			],
 		},
 	},
+	"Cockroaches": {
+		"manual": {
+			"hand": [
+				{
+					"name": "custom_script",
+					"tags": ["Card"],
+				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": "forgotten",
+					"tags": ["Played", "Card"],
+				},
+			],
+		},
+	},
 }
 
 # This fuction returns all the scripts of the specified card name.

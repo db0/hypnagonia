@@ -24,6 +24,13 @@ const INJUSTICE := {
 	"Abusive Relationship": Archetypes.ABUSIVE_RELATIONSHIP
 }
 
+const ALL_ASPECTS := [
+	EGO,
+	DISPOSITION,
+	INSTRUMENT,
+	INJUSTICE
+]
+
 const ARCHETYPES:= {
 	"Ego": {
 		"Dictionary": EGO, 
@@ -75,3 +82,14 @@ static func get_all_cards_in_archetype(archetype, rarities := ["Basic","Common",
 			print_debug("WARNING: " + card_rarity + " is an unknown type of rarity. Ignoring!")
 		all_cards += get_archetype_value(archetype,card_rarity)
 	return(all_cards)
+
+static func get_card_archetypes(card_name: String) -> Array:
+	var card_archetypes := []
+	for aspect in ALL_ASPECTS:
+		for archetype in aspect:
+			for rarity in ['Basic','Common','Uncommon','Rare']:
+				for card in aspect[archetype].get(rarity,[]):
+					if card_name == card:
+						if not archetype in card_archetypes:
+							card_archetypes.append(archetype)
+	return(card_archetypes)

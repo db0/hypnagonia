@@ -342,4 +342,31 @@ class TestMultipleProgress:
 				progressed_cards += 1
 		assert_eq(progressed_cards, 3, "Correct amount of cards progressed")
 		assert_eq(globals.player.damage, nce.PROGRESS4_DAMAGE)
-				
+
+
+class TestCockroaches:
+	extends  "res://tests/HUT_Journal_NCETestClass.gd"
+	func _init() -> void:
+		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act3/Cockroaches.gd")
+
+	func test_ignore():
+		globals.player.damage = 50
+		watch_signals(globals.player.deck)
+		var choice = "ignore"
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		activate_secondary_choice_by_key(choice)
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_signal_emitted(globals.player.deck, "card_added")
+		assert_eq(globals.player.damage, 50 * nce.DAMAGE_PCT_REDUCE)
+		
+	func test_stomp():
+		globals.player.damage = 50
+		watch_signals(globals.player.deck)
+		var choice = "stomp"
+		begin_nce_with_choices(nce)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		activate_secondary_choice_by_key(choice)
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_signal_not_emitted(globals.player.deck, "card_added")
+		assert_eq(globals.player.damage, 50 + nce.STOMP_DAMAGE)

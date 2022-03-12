@@ -296,6 +296,7 @@ const ABUSIVE_RELATIONSHIP := {
 		"Confidence",
 	],
 	"Common": [
+		"Excuses",
 		"Perseverance",
 		"It's The Small Things",
 		"Confrontation",

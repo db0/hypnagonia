@@ -200,10 +200,25 @@ func retrieve_scripts(trigger: String) -> Dictionary:
 	return(found_scripts.get(trigger,{}))
 
 
-func modify_scripts(task: Dictionary, script_state:= 'hand') -> void:
+# Adds a new script to the scripts of the card.
+func add_scripts(task: Dictionary, script_state:= 'hand', extra_abilities_text := '') -> void:
 	if unmodified_scripts['manual'].has(script_state):
 		unmodified_scripts['manual'][script_state].append(task)
-		properties["Abilities"] += "\n{forget}"
+		properties["Abilities"] += extra_abilities_text
+	else:
+		printerr("ERROR:CardEntry: Cannot find script state '%s' in unmodified scripts of '%s" % [script_state,card_name])
+
+# Removes specific tasks from script
+# Works only for standard tasks
+func remove_scripts(standard_task := 'forget', script_state:= 'hand') -> void:
+	if unmodified_scripts['manual'].has(script_state):
+		for task in unmodified_scripts['manual'][script_state]:
+			if standard_task == 'forget':
+				if task.name == "move_card_to_container"\
+						and task["subject"] == "self"\
+						and task["dest_container"] == "forgotten":
+					unmodified_scripts['manual'][script_state].erase(task)
+				properties["Abilities"] = properties["Abilities"].replace('{forget}', '')
 	else:
 		printerr("ERROR:CardEntry: Cannot find script state '%s' in unmodified scripts of '%s" % [script_state,card_name])
 
@@ -219,9 +234,40 @@ func _modify_amounts(amount_name: String, value) -> void:
 			and value.lstrip("*").is_valid_float()\
 			and typeof(current_value) == TYPE_INT:
 		if value.begins_with("*"):
-			new_value = ceil(float(current_value) * float(value.lstrip("*")))
+			# Decreases are rounded down
+			if float(value.lstrip("*")) < 1:
+				new_value = floor(float(current_value) * float(value.lstrip("*")))
+			if float(value.lstrip("*")) >= 1:
+				new_value = ceil(float(current_value) * float(value.lstrip("*")))
 		else:
 			new_value = current_value + int(value)
 	else:
 		new_value = value
 	properties["_amounts"][amount_name] = new_value
+
+
+# Randomly reduces the effectiveness of this card.
+func scar() -> void:
+	var applicable_mods = CardModifications.check_mod_applicability(properties)
+	# No need to check the size of the array as there's going to always be at least one element
+	if typeof(applicable_mods[0].value) == TYPE_STRING\
+			and applicable_mods[0].value == Terms.GENERIC_TAGS.slumber.name\
+			and not get_property("_is_concentration"):
+		var forget_task := {
+				"name": "move_card_to_container",
+				"subject": "self",
+				"dest_container": "forgotten",
+				"tags": ["Played", "Card"],
+		}
+		add_scripts(forget_task, 'hand', "\n{forget}")
+	modify_property(applicable_mods[0].property, applicable_mods[0].value)
+
+
+# Randomly increases the effectiveness of this card.
+func bless() -> void:
+	var applicable_mods = CardModifications.check_mod_applicability(properties, "blessing")
+	# No need to check the size of the array as there's going to always be at least one element
+	if typeof(applicable_mods[0].value) == TYPE_STRING\
+			and applicable_mods[0].value == Terms.GENERIC_TAGS.slumber.name:
+		remove_scripts('forget')
+	modify_property(applicable_mods[0].property, applicable_mods[0].value)

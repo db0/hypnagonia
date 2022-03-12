@@ -290,6 +290,16 @@ const scripts := {
 			],
 		},
 	},
+	"Cockroach Infestation": {
+		"on_player_turn_ended": {
+			"hand": [
+				{
+					"name": "custom_script",
+					"tags": ["Card"],
+				},
+			],
+		},
+	},
 }
 
 

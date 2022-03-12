@@ -140,3 +140,21 @@ class TestInescepableConclusion:
 		assert_signal_emit_count(cfc, "new_card_instanced", 1)
 		assert_eq(count_card_names("Inescepable Conclusion"), 3,
 				"1 New Inescepable Conclusion Added")
+
+class TestCockroachInfestation:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	func _init() -> void:
+		globals.test_flags.test_initial_hand = true
+		test_card_names = [
+			"Cockroach Infestation",
+			"Cockroach Infestation",
+		]
+
+	func test_card_results():
+		watch_signals(globals.player.deck)
+		var sceng = execute_with_yield(card)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		turn.end_player_turn()
+		yield(yield_to(board.turn, "enemy_turn_started",3 ), YIELD)
+		assert_signal_emit_count(globals.player.deck, "card_entry_modified", 1)
