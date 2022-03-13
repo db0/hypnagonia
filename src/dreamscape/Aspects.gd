@@ -83,6 +83,7 @@ static func get_all_cards_in_archetype(archetype, rarities := ["Basic","Common",
 		all_cards += get_archetype_value(archetype,card_rarity)
 	return(all_cards)
 
+
 static func get_card_archetypes(card_name: String) -> Array:
 	var card_archetypes := []
 	for aspect in ALL_ASPECTS:
