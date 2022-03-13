@@ -370,3 +370,94 @@ class TestCockroaches:
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_not_emitted(globals.player.deck, "card_added")
 		assert_eq(globals.player.damage, 50 + nce.STOMP_DAMAGE)
+
+class TestCake:
+	extends  "res://tests/HUT_Journal_NCETestClass.gd"
+	func _init() -> void:
+		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act3/TheCake.gd")
+
+	func test_disabled_choices():
+		var secondary_choices = begin_nce_with_choices(nce)
+		if secondary_choices as GDScriptFunctionState:
+			secondary_choices = yield(secondary_choices, "completed")
+		if not secondary_choices:
+			return
+		for selected_choice in get_tree().get_nodes_in_group("secondary_choices"):
+			if selected_choice.choice_key in ["recipe", "map", "ground"]:
+				assert_not_connected(selected_choice, secondary_choices, "pressed", "_on_choice_pressed")
+
+	func test_choice_recipe():
+		globals.player.deck.add_new_card("+ Interpretation +")
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player.deck)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+# warning-ignore:return_value_discarded
+		activate_secondary_choice_by_key("recipe")
+		yield(yield_to(journal, "selection_deck_spawned", 0.2), YIELD)
+		var selection_deck := assert_selection_deck_spawned()
+		if not selection_deck:
+			return
+		selection_deck._deck_preview_grid.get_children()[0].select_card()
+		yield(yield_for(0.2), YIELD)
+		assert_signal_emitted(globals.player.deck, "card_added")
+		assert_signal_emitted(globals.player.deck, "card_entry_progressed")
+		assert_signal_emitted(globals.player.deck, "card_removed")
+
+	func test_choice_map():
+		globals.player.deck.add_new_card("+ Interpretation +")
+		var mem1 = globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
+		watch_signals(mem1)
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player.deck)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+# warning-ignore:return_value_discarded
+		activate_secondary_choice_by_key("map")
+		yield(yield_to(journal, "selection_deck_spawned", 0.2), YIELD)
+		var selection_deck := assert_selection_deck_spawned()
+		if not selection_deck:
+			return
+		selection_deck._deck_preview_grid.get_children()[0].select_card()
+		yield(yield_for(0.2), YIELD)
+		var selection_decks =  get_tree().get_nodes_in_group("selection_decks")
+		var selection_deck2 : SelectionDeck = selection_decks[0]
+		selection_deck2._deck_preview_grid.get_children()[0].select_card()
+		assert_signal_emitted(globals.player.deck, "card_removed")
+		assert_signal_emitted(globals.player.deck, "card_duplicated")
+
+	func test_choice_ground():
+		globals.player.deck.add_new_card("+ Interpretation +")
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player.deck)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
+		activate_secondary_choice_by_key("ground")
+		yield(yield_to(journal, "selection_deck_spawned", 0.2), YIELD)
+		var selection_deck := assert_selection_deck_spawned()
+		if not selection_deck:
+			return
+		selection_deck._deck_preview_grid.get_children()[0].select_card()
+		yield(yield_for(0.2), YIELD)
+		var selection_decks =  get_tree().get_nodes_in_group("selection_decks")
+		var selection_deck2 : SelectionDeck = selection_decks[0]
+		selection_deck2._deck_preview_grid.get_children()[0].select_card()
+		assert_signal_emitted(globals.player.deck, "card_removed")
+		assert_signal_emitted(globals.player.deck, "card_entry_modified")
+		var signal_details = get_signal_parameters(globals.player.deck, "card_entry_modified")
+		if not signal_details or signal_details.size() == 0:
+			return
+		var card_entry: CardEntry = signal_details[0]
+		assert_eq(card_entry.properties.Cost, card_entry.printed_properties.Cost - 1,
+				"Card modified to have -1 cost")
+		assert_gt(card_entry.printed_properties.Cost, 0,
+				"Selected card had originally more than 0 cost")
+
+	func test_choice_support():
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player.deck)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
+		activate_secondary_choice_by_key("support")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_signal_not_emitted(globals.player.deck, "card_removed")

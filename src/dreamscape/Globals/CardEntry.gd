@@ -290,7 +290,7 @@ func enhance() -> void:
 
 
 func duplicate():
-	new_entry = get_script().new(card_name)
+	var new_entry = get_script().new(card_name)
 	new_entry.properties = properties.duplicate(true)
 	new_entry.property_modifications = property_modifications.duplicate(true)
 	new_entry.upgrade_progress = upgrade_progress

@@ -2,6 +2,7 @@ class_name Deck
 extends Reference
 
 signal card_added(card)
+signal card_duplicated(card, duplicate)
 signal card_removed(card)
 signal card_entry_upgraded(card_entry)
 signal card_entry_modified(card_entry)
@@ -66,6 +67,7 @@ func duplicate_card(card_entry: CardEntry) -> CardEntry:
 	var new_card = card_entry.duplicate()
 	cards.append(new_card)
 	emit_signal("card_added", new_card)
+	emit_signal("card_duplicated", card_entry, new_card)
 	return(new_card)
 
 func signal_card_entry_upgraded(card_entry: CardEntry) -> void:

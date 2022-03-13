@@ -56,4 +56,4 @@ func _prepare_secondary_choices(secondary_choices: Dictionary, scformat: Diction
 		secondary_choices[c] = secondary_choices[c].format(scformat).format(Terms.get_bbcode_formats(18))
 	for choice in disabled_choices:
 		secondary_choices[choice] = "[color=red]" + secondary_choices[choice] + "[/color]"	
-	globals.journal.add_nested_choices(secondary_choices)
+	globals.journal.add_nested_choices(secondary_choices, disabled_choices)
