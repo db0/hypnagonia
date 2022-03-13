@@ -4,7 +4,8 @@ extends CombatEntity
 signal started_activation(enemy)
 signal finished_activation(enemy)
 
-onready var intents: EnemyIntents = $Intents
+const intents_background := preload("res://assets/bubble-155333_1280.png")
+onready var intents: EnemyIntents = $Intents/MC/EnemyIntents
 
 var animated_art
 var is_activating
@@ -19,6 +20,7 @@ func _process(_delta: float) -> void:
 #					'progress', shader_progress)
 
 func _ready() -> void:
+	$Intents/IntentBackground.texture = CFUtils.convert_texture_to_image(intents_background)
 	entity_type = "torment"
 	intents.combat_entity = self
 	if _properties.has('Intents'):

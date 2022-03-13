@@ -1,10 +1,35 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
+[ext_resource path="res://assets/bubble-155333_1280.png" type="Texture" id=1]
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/EnemyIntents.gd" type="Script" id=2]
 
-[node name="EnemyIntents" type="GridContainer" groups=["enemy_intents"]]
-margin_right = 14.0
-margin_bottom = 14.0
+[node name="MC" type="MarginContainer"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IntentBackground" type="TextureRect" parent="."]
+margin_right = 20.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
+
+[node name="MC" type="MarginContainer" parent="."]
+margin_right = 20.0
+margin_bottom = 35.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 25
+
+[node name="EnemyIntents" type="GridContainer" parent="MC" groups=["enemy_intents"]]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 10.0
+margin_bottom = 10.0
 custom_constants/vseparation = 10
 custom_constants/hseparation = 10
 columns = 4

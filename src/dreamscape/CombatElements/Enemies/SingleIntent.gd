@@ -1,6 +1,7 @@
 extends CombatSignifier
 
 var intent_script : Dictionary
+var owning_entity
 
 func setup(signifier_details: Dictionary, signifier_name: String) -> void:
 	.setup(signifier_details, signifier_name)
