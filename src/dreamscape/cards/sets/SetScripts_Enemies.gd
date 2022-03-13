@@ -946,6 +946,12 @@ const scripts := {
 					"amount": "retrieve_integer",
 					"is_inverted": true,
 				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": "forgotten",
+					"tags": ["Played", "Card"],
+				},
 			],
 		},
 	},
