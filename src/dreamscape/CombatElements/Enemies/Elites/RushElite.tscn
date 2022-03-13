@@ -28,6 +28,18 @@ margin_top = 40.0
 margin_right = 69.0
 margin_bottom = 83.0
 rect_min_size = Vector2( 0, 43 )
+
+[node name="IntentBackground" parent="Intents" index="0"]
+margin_right = 69.0
+margin_bottom = 43.0
+
+[node name="MC" parent="Intents" index="1"]
+margin_right = 69.0
+margin_bottom = 43.0
+
+[node name="EnemyIntents" parent="Intents/MC" index="0"]
+margin_right = 59.0
+margin_bottom = 18.0
 script = ExtResource( 4 )
 
 [node name="Art" parent="." index="2"]
@@ -54,3 +66,5 @@ rect_min_size = Vector2( 0, 15 )
 [node name="ActiveEffects" parent="." index="6"]
 margin_top = 177.0
 margin_bottom = 213.0
+
+[editable path="Intents"]

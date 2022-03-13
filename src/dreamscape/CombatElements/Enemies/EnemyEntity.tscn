@@ -24,12 +24,11 @@ rect_min_size = Vector2( 0, 24 )
 [node name="Intents" parent="." index="1" instance=ExtResource( 1 )]
 margin_top = 40.0
 margin_right = 69.0
-margin_bottom = 83.0
-rect_min_size = Vector2( 0, 43 )
+margin_bottom = 70.0
 
 [node name="Art" parent="." index="2"]
-margin_top = 87.0
-margin_bottom = 87.0
+margin_top = 74.0
+margin_bottom = 74.0
 
 [node name="Texture" parent="Art" index="0"]
 material = SubResource( 1 )
@@ -40,20 +39,20 @@ size_flags_vertical = 3
 mouse_filter = 2
 
 [node name="Name" parent="." index="3"]
-margin_top = 91.0
-margin_bottom = 121.0
+margin_top = 78.0
+margin_bottom = 108.0
 rect_min_size = Vector2( 0, 30 )
 
 [node name="HealthBar" parent="." index="4"]
-margin_top = 125.0
-margin_bottom = 133.0
+margin_top = 112.0
+margin_bottom = 120.0
 texture_progress = ExtResource( 5 )
 
 [node name="HBC" parent="." index="5"]
-margin_top = 137.0
-margin_bottom = 173.0
+margin_top = 124.0
+margin_bottom = 160.0
 rect_min_size = Vector2( 0, 15 )
 
 [node name="ActiveEffects" parent="." index="6"]
-margin_top = 177.0
-margin_bottom = 213.0
+margin_top = 164.0
+margin_bottom = 200.0

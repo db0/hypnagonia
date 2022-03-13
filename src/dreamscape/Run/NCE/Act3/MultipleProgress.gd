@@ -9,8 +9,8 @@ const PROGRESS4_DAMAGE = 3
 
 var secondary_choices := {
 		'progress2': '[Progress2]: Progress 2 random cards {progress_amount}.',
-		'progress4': '[Progress4]: Progress 4 random cards by {progress_amount}. Take {anxiety_taken} anxiety',
-		'progress6': '[Progress6]: Progress 6 random cards by {progress_amount}. Lose {max_anxiety_loss} max anxiety.',
+		'progress4': '[Progress4]: Progress 4 random cards by {progress_amount}. Take {anxiety_taken} {anxiety}',
+		'progress6': '[Progress6]: Progress 6 random cards by {progress_amount}. Lose {max_anxiety_loss} max {anxiety}.',
 	}
 
 var secret_option = '[Experience] Gain a {special_curio}'

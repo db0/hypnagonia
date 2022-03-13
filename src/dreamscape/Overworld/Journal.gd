@@ -498,14 +498,15 @@ func _input(event):
 		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, 48)
 #		globals.player.damage = 85
 		var debug_encounters = [
-			EnemyEncounter.new(Act1.Gaslighter, "medium"),
+#			EnemyEncounter.new(Act1.Gaslighter, "medium"),
 #			EnemyEncounter.new(Act2.TrafficJam, "easy"),
 #			EnemyEncounter.new(Act3.Submerged, "hard"),
 #			preload("res://src/dreamscape/Run/NCE/AllActs/PottedPlant.gd").new(),
-			preload("res://src/dreamscape/Run/NCE/Act3/Cockroaches.gd").new(),
+#			preload("res://src/dreamscape/Run/NCE/Act3/Cockroaches.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act2/HangingOn.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd").new(),
 			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
+			EliteEncounter.new(Act1.Bully, "medium"),
 #			EliteEncounter.new(Act2.Jumbletron, "medium"),
 #			EliteEncounter.new(Act3.TheatrePlay, "medium"),
 			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
