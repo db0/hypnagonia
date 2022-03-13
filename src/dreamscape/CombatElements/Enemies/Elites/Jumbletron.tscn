@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://shaders/outline.shader" type="Shader" id=1]
+[ext_resource path="res://shaders/invert.shader" type="Shader" id=1]
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/EnemyIntents.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/dreamscape/CombatElements/CombatEntity.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/Elites/Jumbletron.gd" type="Script" id=4]
@@ -9,11 +9,7 @@
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
 shader = ExtResource( 1 )
-shader_param/color = Color( 1, 1, 1, 1 )
-shader_param/width = 0.0
-shader_param/pattern = 2
-shader_param/inside = false
-shader_param/add_margins = false
+shader_param/is_active = false
 
 [node name="Jumbletron" groups=["BossEntities", "EnemyEntities"] instance=ExtResource( 3 )]
 script = ExtResource( 4 )

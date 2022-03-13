@@ -7,16 +7,17 @@ var entity_art: Control
 func set_highlight(requestedFocus: bool,
 		hoverColour = CFConst.HOST_HOVER_COLOUR) -> void:
 	if entity_art as TextureRect:
-		if not requestedFocus:
-			entity_art.material.set_shader_param(
-					'width', 0.0)
-			entity_art.material.set_shader_param(
-					'color', CFConst.HOST_HOVER_COLOUR)
-		else:
-			entity_art.material.set_shader_param(
-					'width', 30.0)
-			entity_art.material.set_shader_param(
-					'color', hoverColour)
+		entity_art.material.set_shader_param('is_active', requestedFocus)
+#		if not requestedFocus:
+#			entity_art.material.set_shader_param(
+#					'width', 0.0)
+#			entity_art.material.set_shader_param(
+#					'color', CFConst.HOST_HOVER_COLOUR)
+#		else:
+#			entity_art.material.set_shader_param(
+#					'width', 30.0)
+#			entity_art.material.set_shader_param(
+#					'color', hoverColour)
 	elif entity_art as AnimatedEnemy:
 		entity_art.set_highlight(requestedFocus, hoverColour)
 

@@ -26,8 +26,8 @@ const GASLIGHTER:= {
 		},
 	],
 	"_health_variability": 3,
-	"_texture_size_x": "120",
-	"_texture_size_y": "120",
+	"_texture_size_x": "200",
+	"_texture_size_y": "200",
 	"_texture": preload("res://assets/enemies/gaslighter.png"),
 	"_character_art": "A. Mc Leod",
 }
@@ -105,7 +105,7 @@ const THE_CRITIC:= {
 	"_health_variability": 4,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/enemies/tapir.png"),
+	"_texture": preload("res://assets/journal/torments/the_critic.jpeg"),
 	"_character_art": "Delapouite",
 }
 const CLOWN:= {
@@ -133,7 +133,7 @@ const CLOWN:= {
 	"_health_variability": 3,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/enemies/clown.png"),
+	"_texture": preload("res://assets/journal/torments/clown.jpeg"),
 	"_character_art": "Delapouite",
 }
 const BUTTERFLY:= {
@@ -157,7 +157,7 @@ const BUTTERFLY:= {
 	"_health_variability": 8,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/enemies/butterfly.png"),
+	"_texture": preload("res://assets/journal/torments/butterfly.jpeg"),
 	"_character_art": "Lorc",
 		}
 const MURMURS := {
@@ -181,7 +181,7 @@ const MURMURS := {
 	"_health_variability": 4,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/enemies/sound-waves.png"),
+	"_texture": preload("res://assets/journal/torments/murmurs.jpeg"),
 	"_character_art": "Skoll"
 }
 const BROKEN_MIRROR:= {
@@ -206,7 +206,7 @@ const BROKEN_MIRROR:= {
 	"_health_variability": 2,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/enemies/cracked-glass.png"),
+	"_texture": preload("res://assets/journal/torments/broken_mirror.jpg"),
 	"_character_art": "Lorc"
 }
 const PIALEPHANT:= {
@@ -227,7 +227,7 @@ const PIALEPHANT:= {
 	"_health_variability": 10,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/enemies/elephant.png"),
+	"_texture": preload("res://assets/journal/torments/pialephant.jpg"),
 	"_character_art": "Delapouite"
 }
 const THE_LIGHT_CALLING := {
@@ -251,7 +251,7 @@ const THE_LIGHT_CALLING := {
 	"_health_variability": 8,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/enemies/sunbeams.png"),
+	"_texture": preload("res://assets/cards/The Light Calling.jpg"),
 	"_character_art": "Lorc"
 }
 const SQUIRREL := {
@@ -281,7 +281,7 @@ const SQUIRREL := {
 	"_health_variability": 3,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/enemies/squirrel.png"),
+	"_texture": preload("res://assets/cards/Squirrel.jpg"),
 	"_character_art": "Delapouite"
 }
 const BABY := {
@@ -314,7 +314,7 @@ const BABY := {
 	"_health_variability": 2,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/enemies/baby-face.png"),
+	"_texture": preload("res://assets/journal/torments/baby.jpeg"),
 	"_character_art": "Delapouite"
 }
 
@@ -340,7 +340,7 @@ const TRAFFICJAM := {
 	"_health_variability": 8,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/enemies/traffic-lights-red.png"),
+	"_texture": preload("res://assets/journal/torments/traffic_jam.jpeg"),
 	"_character_art": "Delapouite"
 }
 const STUFFEDTOY := {
@@ -361,7 +361,7 @@ const STUFFEDTOY := {
 	"_health_variability": 3,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/enemies/polar-bear.png"),
+	"_texture": preload("res://assets/journal/torments/stuffed_toy.jpeg"),
 	"_character_art": "Cathelineau"
 }
 const MOUSE := {
@@ -388,7 +388,7 @@ const MOUSE := {
 	"_health_variability": 4,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/enemies/seated-mouse.png"),
+	"_texture": preload("res://assets/journal/torments/mouse.jpeg"),
 	"_character_art": "Lorc"
 }
 const THE_EXAM := {
@@ -423,7 +423,7 @@ const THE_EXAM := {
 	"_health_variability": 6,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/enemies/notebook.png"),
+	"_texture": preload("res://assets/journal/torments/exam.jpeg"),
 	"_character_art": "Delapouite"
 }
 const THE_VICTIM := {
@@ -457,7 +457,7 @@ const THE_VICTIM := {
 	"_health_variability": 2,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/enemies/slavery-whip.png"),
+	"_texture": preload("res://assets/journal/torments/the_victim.jpeg"),
 	"_character_art": "Lorc"
 }
 const IMPOSSIBLE_CONSTRUCTION := {
@@ -488,7 +488,7 @@ const IMPOSSIBLE_CONSTRUCTION := {
 	"_health_variability": 1,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-#	"_texture": preload("res://assets/enemies/slavery-whip.png"),
+	"_texture": preload("res://assets/cards/Impossible_Construction.jpg"),
 	"_character_art": "Nobody"
 }
 const SILENT_TREATMENT := {
@@ -523,7 +523,7 @@ const SILENT_TREATMENT := {
 	"_health_variability": 4,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-#	"_texture": preload("res://assets/enemies/slavery-whip.png"),
+	"_texture": preload("res://assets/journal/torments/silent_treatment.jpeg"),
 	"_character_art": "Nobody"
 }
 const GUILT := {
@@ -547,7 +547,7 @@ const GUILT := {
 	"_health_variability": 1,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-#	"_texture": preload("res://assets/enemies/slavery-whip.png"),
+	"_texture": preload("res://assets/journal/torments/guilt.jpeg"),
 	"_character_art": "Nobody"
 }
 const VOID := {
@@ -573,7 +573,7 @@ const VOID := {
 	"_health_variability": 8,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-#	"_texture": preload("res://assets/enemies/slavery-whip.png"),
+	"_texture": preload("res://assets/journal/torments/void.jpeg"),
 	"_character_art": "Nobody"
 }
 const UNNAMED1 := {
@@ -666,7 +666,7 @@ const LIFE_PATH := {
 	"_health_variability": 5,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-#	"_texture": preload("res://assets/enemies/slavery-whip.png"),
+	"_texture": preload("res://assets/journal/torments/life_path.jpeg"),
 	"_character_art": "Nobody"
 }
 const CRINGELORD:= {
@@ -691,7 +691,7 @@ const CRINGELORD:= {
 	"_health_variability": 5,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-#	"_texture": preload("res://assets/enemies/slavery-whip.png"),
+	"_texture": preload("res://assets/journal/torments/cringelord.jpeg"),
 	"_character_art": "nobody",
 }
 const NIGHTMARE:= {
@@ -715,7 +715,7 @@ const NIGHTMARE:= {
 	"_health_variability": 5,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-#	"_texture": preload("res://assets/enemies/slavery-whip.png"),
+	"_texture": preload("res://assets/journal/torments/nightmare.jpeg"),
 	"_character_art": "nobody",
 }
 const THEATRE_ACT := {
@@ -764,6 +764,6 @@ const SUBMERGED := {
 	"_health_variability": 5,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/enemies/submerged.png"),
+	"_texture": preload("res://assets/journal/torments/submerged.jpg"),
 	"_character_art": "Nobody"
 }

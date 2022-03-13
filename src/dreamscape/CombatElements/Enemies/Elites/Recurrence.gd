@@ -7,11 +7,16 @@ const PROPERTIES := {
 	"Health": 107,
 	"Type": "Fear",
 	"Damage": 0,
-	"_texture_size_x": 160,
-	"_texture_size_y": 160,
+	"_texture_size_x": 200,
+	"_texture_size_y": 200,
 	"_character_art": 'Nobody',
 	"_is_ordered": false,
 	"_health_variability": 8,
+}
+const ART := {
+	"easy": preload("res://assets/journal/nce/recurrence1.jpeg"),
+	"medium": preload("res://assets/journal/nce/recurrence2.jpeg"),
+	"hard": preload("res://assets/journal/nce/recurrence3.jpeg"),
 }
 
 var countermeasures = globals.encounters.run_changes.store.get("Recurrence", [])
@@ -26,6 +31,10 @@ var dreamer_damage := 0
 var dreamer_effects := {}
 var self_effects := {}
 var cards_played := 0
+
+func setup_advanced(difficulty: String = "medium") -> void:
+	.setup_advanced(difficulty)
+	_properties['_texture'] = ART[difficulty]
 
 func _ready() -> void:
 	if not cfc.NMAP.board.dreamer:

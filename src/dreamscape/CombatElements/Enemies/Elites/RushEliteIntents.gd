@@ -47,7 +47,7 @@ func _get_intent_scripts(intent_name: String) -> Array:
 
 func _get_elite_scripts(intent_name: String) -> Array:
 	var enraged_stacks: int
-	match get_parent().get_property("_difficulty"):
+	match combat_entity.get_property("_difficulty"):
 		"easy":
 			enraged_stacks = 1
 		"medium":
