@@ -480,7 +480,7 @@ func _input(event):
 		globals.player.add_memory(MemoryDefinitions.BossFaster.canonical_name)
 #		var card_entry = globals.player.deck.add_new_card("% Subconscious %")
 #		card_entry.upgrade_progress = card_entry.upgrade_threshold
-		globals.player.deck.add_new_card("Cockroaches")
+#		globals.player.deck.add_new_card("Cockroaches")
 #		globals.player.deck.add_new_card("Cockroach Infestation")
 #		globals.player.deck.add_new_card("Cockroach Infestation")
 #		globals.player.deck.add_new_card("Prejudice")
@@ -501,9 +501,9 @@ func _input(event):
 			EnemyEncounter.new(Act1.Gaslighter, "medium"),
 #			EnemyEncounter.new(Act2.TrafficJam, "easy"),
 #			EnemyEncounter.new(Act3.Submerged, "hard"),
-			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
+#			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/AllActs/PottedPlant.gd").new(),
-#			preload("res://src/dreamscape/Run/NCE/Act3/Cockroaches.gd").new(),
+			preload("res://src/dreamscape/Run/NCE/Act3/TheCake.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act2/HangingOn.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd").new(),
 			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),

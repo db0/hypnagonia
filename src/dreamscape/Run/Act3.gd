@@ -362,6 +362,7 @@ const NCE := {
 		"Experience": preload("res://src/dreamscape/Run/NCE/Act3/Experience.gd"),
 		"MultipleProgress": preload("res://src/dreamscape/Run/NCE/Act3/MultipleProgress.gd"),
 		"Cockroaches": preload("res://src/dreamscape/Run/NCE/Act3/Cockroaches.gd"),
+		"TheCake": preload("res://src/dreamscape/Run/NCE/Act3/TheCake.gd"),
 	},
 	"risky": {
 		"MultipleDestroys": preload("res://src/dreamscape/Run/NCE/Act3/MultipleDestroys.gd"),

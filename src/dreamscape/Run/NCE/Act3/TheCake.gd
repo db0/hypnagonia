@@ -22,7 +22,7 @@ func _init():
 			+ '"It\'s not good enough!" she yelled, not at me, but at the situation.\n'\
 			+ "The maps on her desk showed that this part of the ground should have kept her cupcake warm, but it was cold.\n"\
 			+ "Why on Earth was I here? I'm just the tech support."
-#	prepare_journal_art(preload("res://assets/journal/nce/cockroach.jpeg"))
+	prepare_journal_art(preload("res://assets/journal/nce/cake.jpeg"))
 
 func begin() -> void:
 	.begin()
@@ -55,27 +55,33 @@ func _on_upgraded_card_selected(operation_details: Dictionary, key: String) -> v
 	globals.player.deck.remove_card(chosen_card)
 	match key:
 		"recipe":
-			var rares := globals.player.compile_rarity_cards("Rare")
-			var uncommon := globals.player.compile_rarity_cards("Uncommon")
-			var both = rares + uncommon
+			var rares : Array = globals.player.compile_rarity_cards("Rare")
+			var uncommon : Array = globals.player.compile_rarity_cards("Uncommon")
+			var both := rares + uncommon
 			CFUtils.shuffle_array(both)
-			var new_card : CardEntry = global.player.deck.add_card(both[0])
+			var new_card : CardEntry = globals.player.deck.add_new_card(both[0])
 			new_card.upgrade_progress = new_card.upgrade_threshold
+			# We have to manually tell the journal to show the upgraded cards option
+			# because by now we've already triggered the rewards display
+			globals.journal._reveal_entry(globals.journal.upgrade_journal, true)
 		"map", "ground":
-			if key == "map":
-				var select_blurb = "(Duplicate Card)"
-			else:
-				var select_blurb = "(Reduce cost by 1)"
 			var selection_deck = globals.journal.spawn_selection_deck()
+			var select_blurb: String
+			if key == "map":
+				select_blurb = "(Duplicate Card)"
+			else:
+				select_blurb = "(Reduce cost by 1)"
+				var card_filters = [CardFilter.new('Cost', 1, 'ge')]
+				selection_deck.card_filters = card_filters
 			selection_deck.auto_close = true
 			selection_deck.initiate_card_selection(0)
 			selection_deck.update_header(select_blurb)
 			selection_deck.update_color(Color(0,1,0))
 			selection_deck.connect("operation_performed", self, "_on_card_selected", [key])
 
-func _on_card_selected(operation_details: Dictionary) -> void:
+func _on_card_selected(operation_details: Dictionary, key: String) -> void:
 	var chosen_card: CardEntry = operation_details.card_entry
 	if key == "map":
-		global.player.deck.duplicate_card(chosen_card)
+		globals.player.deck.duplicate_card(chosen_card)
 	else:
-		chosen_card.modify_property("Cost", "-1", true)
+		chosen_card.modify_property("Cost", str(-COST_REDUCTION), true)
