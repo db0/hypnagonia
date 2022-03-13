@@ -1,5 +1,18 @@
 # Changelog
 
+## [v0.35.1](https://github.com/db0/hypnagonia/tree/v0.35.1) (2022-03-13)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.35.0...v0.35.1)
+
+**Closed issues:**
+
+- Understanding card "Chasm"'s effect is permanent [\#232](https://github.com/db0/hypnagonia/issues/232)
+- Void card is not forgotten [\#231](https://github.com/db0/hypnagonia/issues/231)
+
+**Merged pull requests:**
+
+- Fix Void and Chasm [\#233](https://github.com/db0/hypnagonia/pull/233) ([db0](https://github.com/db0))
+
 ## [v0.35.0](https://github.com/db0/hypnagonia/tree/v0.35.0) (2022-03-13)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.34.0...v0.35.0)
