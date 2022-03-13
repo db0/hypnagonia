@@ -62,6 +62,11 @@ func remove_card(card_entry: CardEntry) -> void:
 	elif OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
 		print("DEBUG INFO:Deck: Card Removal Block because: Last card in deck")
 
+func duplicate_card(card_entry: CardEntry) -> CardEntry:
+	var new_card = card_entry.duplicate()
+	cards.append(new_card)
+	emit_signal("card_added", new_card)
+	return(new_card)
 
 func signal_card_entry_upgraded(card_entry: CardEntry) -> void:
 	emit_signal("card_entry_upgraded", card_entry)

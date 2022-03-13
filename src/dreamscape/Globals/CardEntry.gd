@@ -287,3 +287,11 @@ func enhance() -> void:
 			and applicable_mods[0].value == Terms.GENERIC_TAGS.slumber.name:
 		remove_scripts('forget')
 	modify_property(applicable_mods[0].property, applicable_mods[0].value, true)
+
+
+func duplicate():
+	new_entry = get_script().new(card_name)
+	new_entry.properties = properties.duplicate(true)
+	new_entry.property_modifications = property_modifications.duplicate(true)
+	new_entry.upgrade_progress = upgrade_progress
+	return(new_entry)
