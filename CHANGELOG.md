@@ -1,5 +1,18 @@
 # Changelog
 
+## [v0.35.0](https://github.com/db0/hypnagonia/tree/v0.35.0) (2022-03-13)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.34.0...v0.35.0)
+
+**Closed issues:**
+
+- Adam's game ideas [\#205](https://github.com/db0/hypnagonia/issues/205)
+- Polygonal art for archetypes/journal? [\#6](https://github.com/db0/hypnagonia/issues/6)
+
+**Merged pull requests:**
+
+- Added Cockroaches NCE and some GUI tweaks [\#229](https://github.com/db0/hypnagonia/pull/229) ([db0](https://github.com/db0))
+
 ## [v0.34.0](https://github.com/db0/hypnagonia/tree/v0.34.0) (2022-03-09)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.33.0...v0.34.0)
