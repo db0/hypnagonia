@@ -29,7 +29,7 @@ const GASLIGHTER:= {
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
 	"_texture": preload("res://assets/enemies/gaslighter.png"),
-	"_character_art": "A_Mc",
+	"_character_art": "A. Mc Leod",
 }
 const FEARMONGER:= {
 	"Name": "Fearmonger",

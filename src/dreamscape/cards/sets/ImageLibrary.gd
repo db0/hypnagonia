@@ -44,7 +44,7 @@ const CARD_IMAGES := {
 	"Hyena": preload("res://assets/journal/torments/hyena.jpeg"),
 	"Baby": preload("res://assets/journal/torments/baby.jpeg"),
 	"Traffic Jam": preload("res://assets/journal/torments/traffic_jam.jpeg"),
-	"Gaslighter": preload("res://assets/journal/torments/gaslighter.jpeg"),
+	"Gaslighter": preload("res://assets/journal/torments/gaslighter2.png"),
 	"Butterfly": preload("res://assets/journal/torments/butterfly.jpeg"),
 	"Clown": preload("res://assets/journal/torments/clown.jpeg"),
 	"Fearmonger": preload("res://assets/journal/torments/fearmonger.jpeg"),
