@@ -76,7 +76,7 @@ func instance_self(is_display_card:= false) -> Card:
 	var new_card_object =  cfc.instance_card(card_name)
 	if not is_display_card:
 		card_object = new_card_object
-	new_card_object.properties = properties
+	new_card_object.properties = properties.duplicate(true)
 	new_card_object.printed_properties = printed_properties
 	new_card_object.connect_card_entry(self)
 	return(new_card_object)

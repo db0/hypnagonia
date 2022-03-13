@@ -480,9 +480,9 @@ func _input(event):
 		globals.player.add_memory(MemoryDefinitions.BossFaster.canonical_name)
 #		var card_entry = globals.player.deck.add_new_card("% Subconscious %")
 #		card_entry.upgrade_progress = card_entry.upgrade_threshold
-#		globals.player.deck.add_new_card("Cockroaches")
-#		globals.player.deck.add_new_card("Cockroach Infestation")
-#		globals.player.deck.add_new_card("Cockroach Infestation")
+		globals.player.deck.add_new_card("Chasm")
+		globals.player.deck.add_new_card("Chasm")
+		globals.player.deck.add_new_card("Chasm")
 #		globals.player.deck.add_new_card("Prejudice")
 #		globals.player.damage += 20
 #		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.boss, 100)
