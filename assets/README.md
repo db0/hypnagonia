@@ -9,7 +9,7 @@ Links to Artists (where one provided)
 * [Ierenisrt](https://www.artstation.com/iereniss2)
 * [Sebastian Piszczatowski](https://www.artstation.com/seppoday)
 * [Miikka Veijola](https://www.artstation.com/miikkaveijolart)
-* A_Mc (Url Pending)
+* [A. Mc Leod](https://www.artstation.com/aramcleod)
 
 # Other Licenses
 

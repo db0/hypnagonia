@@ -128,7 +128,7 @@ const Gaslighter = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/torments/gaslighter.jpeg"),
+	"journal_art": preload("res://assets/enemies/gaslighter.png"),
 }
 
 
