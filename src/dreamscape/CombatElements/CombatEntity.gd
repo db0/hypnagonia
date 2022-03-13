@@ -65,13 +65,11 @@ func setup(entity_name: String, properties: Dictionary) -> void:
 
 
 func _ready() -> void:
-	art.rect_min_size = entity_size
-	collision_shape.shape.extents = entity_size / 2
-	area2d.position = entity_size / 2
+	get_viewport().connect("size_changed", self, '_on_viewport_resized')
+	_set_entity_size()
 	name_label.text = canonical_name
 	_update_health_label()
 	active_effects.combat_entity = self
-	highlight.rect_min_size = entity_size + Vector2(1,1)
 	highlight.entity_art = entity_texture
 	_set_texture(defence_icon, defence_texture)
 	if _properties.has('_texture'):
@@ -312,3 +310,14 @@ func _on_enemy_turn_started(_turn: Turn) -> void:
 
 func _on_enemy_turn_ended(_turn: Turn) -> void:
 	pass
+
+
+func _set_entity_size() -> void:
+	var final_size = entity_size * cfc.curr_scale
+	art.rect_min_size = final_size
+	collision_shape.shape.extents = final_size / 2
+	area2d.position = final_size / 2
+	highlight.rect_min_size = final_size + Vector2(1,1)
+
+func _on_viewport_resized() -> void:
+	_set_entity_size()

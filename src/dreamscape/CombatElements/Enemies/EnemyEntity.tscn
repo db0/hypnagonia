@@ -3,17 +3,13 @@
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/EnemyIntents.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/dreamscape/CombatElements/CombatEntity.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/EnemyEntity.gd" type="Script" id=3]
-[ext_resource path="res://shaders/outline.shader" type="Shader" id=4]
+[ext_resource path="res://shaders/invert.shader" type="Shader" id=4]
 [ext_resource path="res://assets/progress_bar/GreenBar.png" type="Texture" id=5]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
 shader = ExtResource( 4 )
-shader_param/color = Color( 1, 1, 1, 1 )
-shader_param/width = 0.0
-shader_param/pattern = 2
-shader_param/inside = false
-shader_param/add_margins = false
+shader_param/is_active = false
 
 [node name="EnemyEntity" groups=["EnemyEntities"] instance=ExtResource( 2 )]
 script = ExtResource( 3 )
@@ -24,11 +20,11 @@ rect_min_size = Vector2( 0, 24 )
 [node name="Intents" parent="." index="1" instance=ExtResource( 1 )]
 margin_top = 40.0
 margin_right = 69.0
-margin_bottom = 70.0
+margin_bottom = 75.0
 
 [node name="Art" parent="." index="2"]
-margin_top = 74.0
-margin_bottom = 74.0
+margin_top = 79.0
+margin_bottom = 79.0
 
 [node name="Texture" parent="Art" index="0"]
 material = SubResource( 1 )
@@ -39,20 +35,20 @@ size_flags_vertical = 3
 mouse_filter = 2
 
 [node name="Name" parent="." index="3"]
-margin_top = 78.0
-margin_bottom = 108.0
+margin_top = 83.0
+margin_bottom = 113.0
 rect_min_size = Vector2( 0, 30 )
 
 [node name="HealthBar" parent="." index="4"]
-margin_top = 112.0
-margin_bottom = 120.0
+margin_top = 117.0
+margin_bottom = 125.0
 texture_progress = ExtResource( 5 )
 
 [node name="HBC" parent="." index="5"]
-margin_top = 124.0
-margin_bottom = 160.0
+margin_top = 129.0
+margin_bottom = 165.0
 rect_min_size = Vector2( 0, 15 )
 
 [node name="ActiveEffects" parent="." index="6"]
-margin_top = 164.0
-margin_bottom = 200.0
+margin_top = 169.0
+margin_bottom = 205.0
