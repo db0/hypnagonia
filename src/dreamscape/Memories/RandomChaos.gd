@@ -7,7 +7,7 @@ func execute_memory_effect():
 				"src_container": "deck",
 				"subject_count": MemoryDefinitions.RandomChaos.amounts.draw_amount,
 				"subject": "index",
-				"subject_index": "random",
+				"subject_index": "top",
 			},
 	]
 	var sceng = execute_script(script)
