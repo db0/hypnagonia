@@ -1,5 +1,17 @@
 # Changelog
 
+## [v0.36.0](https://github.com/db0/hypnagonia/tree/v0.36.0) (2022-03-14)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.35.1...v0.36.0)
+
+**Closed issues:**
+
+- "The Playground" Memory played only one card [\#234](https://github.com/db0/hypnagonia/issues/234)
+
+**Merged pull requests:**
+
+- Switched Ordeal GUI to resemble first person [\#235](https://github.com/db0/hypnagonia/pull/235) ([db0](https://github.com/db0))
+
 ## [v0.35.1](https://github.com/db0/hypnagonia/tree/v0.35.1) (2022-03-13)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.35.0...v0.35.1)
