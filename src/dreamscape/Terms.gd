@@ -299,7 +299,7 @@ const ACTIVE_EFFECTS := {
 		"decrease_type": DECREASE_TYPE.REDUCE,
 		"alterant_priority": ALTERANT_PRIORITY.ADD,
 		"icon": preload("res://assets/icons/heart-shield.png"),
-		"generic_description": "{effect_name}: Prevents damage and degrades per-hit.",
+		"generic_description": "{effect_name}: Prevents stress and degrades per-hit.",
 		"rich_text_icon": "res://fonts/rich_text_icons/heart-shield.png",
 		"description": "{effect_name} ({effect_icon}): Reduce {opponent_attack} on this {entity}, "\
 				+ "by {amount}, then reduce these stacks by 1.\n"\

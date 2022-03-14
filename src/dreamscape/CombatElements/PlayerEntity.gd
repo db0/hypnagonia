@@ -11,6 +11,14 @@ func _ready() -> void:
 # warning-ignore:return_value_discarded
 	connect("entity_damaged", self, "_on_player_damaged")
 
+func _map_nodes() -> void:
+	_health_stats = $HBC/MC/HBC
+	health_label = $HBC/MC/HBC/Health
+	defence_icon = $HBC/Defence/Icon
+	defence_label = $HBC/Defence/Amount
+	health_bar = $HBC/MC/HealthBar
+	active_effects = $HBC2/ActiveEffects
+
 func set_upgrades_increased(value) -> void:
 	upgrades_increased = value
 	# The player can only upgrade a number of cards equal to their deck size

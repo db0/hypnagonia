@@ -1,5 +1,5 @@
 class_name ActiveEffects
-extends GridContainer
+extends Container
 
 const EFFECT_TEMPLATE := preload("res://src/dreamscape/CombatElements/CombatEffects/CombatEffectTemplate.tscn")
 

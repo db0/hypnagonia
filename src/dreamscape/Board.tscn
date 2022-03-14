@@ -102,23 +102,16 @@ mouse_filter = 2
 size_flags_vertical = 3
 theme = ExtResource( 12 )
 
-[node name="PlayerArea" type="CenterContainer" parent="VBC/CombatArena"]
-margin_right = 300.0
-margin_bottom = 473.0
-rect_min_size = Vector2( 300, 0 )
-mouse_filter = 2
-
 [node name="EnemyArea" type="CenterContainer" parent="VBC/CombatArena"]
-margin_left = 303.0
 margin_right = 1455.0
 margin_bottom = 473.0
 mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="Enemies" type="HBoxContainer" parent="VBC/CombatArena/EnemyArea"]
-margin_left = 576.0
+margin_left = 727.0
 margin_top = 236.0
-margin_right = 576.0
+margin_right = 727.0
 margin_bottom = 236.0
 mouse_filter = 2
 custom_constants/separation = 150
@@ -145,8 +138,28 @@ margin_bottom = 80.0
 
 [node name="Push" type="Control" parent="VBC/HBC"]
 margin_left = 36.0
+margin_right = 468.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 100, 0 )
+mouse_filter = 2
+size_flags_horizontal = 3
+
+[node name="PlayerArea" type="MarginContainer" parent="VBC/HBC"]
+margin_left = 471.0
+margin_right = 903.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 300, 0 )
+mouse_filter = 2
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Push2" type="Control" parent="VBC/HBC"]
+margin_left = 906.0
 margin_right = 1339.0
 margin_bottom = 80.0
+rect_min_size = Vector2( 100, 0 )
 mouse_filter = 2
 size_flags_horizontal = 3
 

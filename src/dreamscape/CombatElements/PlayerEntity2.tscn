@@ -1,0 +1,177 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/progress_bar/EmptyBar.png" type="Texture" id=1]
+[ext_resource path="res://src/dreamscape/CombatElements/PlayerEntity.gd" type="Script" id=3]
+[ext_resource path="res://src/dreamscape/CombatElements/ActiveEffects.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/icons/shield.png" type="Texture" id=5]
+[ext_resource path="res://assets/progress_bar/RedBar.png" type="Texture" id=8]
+[ext_resource path="res://src/dreamscape/TargetingArrow.tscn" type="PackedScene" id=9]
+
+[node name="CombatEntity" type="VBoxContainer" groups=["CombatEntities"]]
+margin_top = -30.4889
+margin_right = 69.0
+margin_bottom = 111.511
+grow_vertical = 0
+size_flags_horizontal = 3
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+defence_texture = ExtResource( 5 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 400.0
+margin_bottom = 36.0
+mouse_filter = 1
+
+[node name="Incoming" type="GridContainer" parent="CenterContainer"]
+margin_left = 200.0
+margin_right = 200.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 0, 36 )
+columns = 10
+
+[node name="HBC" type="HBoxContainer" parent="."]
+margin_top = 40.0
+margin_right = 400.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 400, 0 )
+
+[node name="MC" type="MarginContainer" parent="HBC"]
+margin_right = 360.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HealthBar" type="TextureProgress" parent="HBC/MC"]
+margin_right = 360.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 0, 30 )
+size_flags_horizontal = 3
+texture_under = ExtResource( 1 )
+texture_progress = ExtResource( 8 )
+nine_patch_stretch = true
+stretch_margin_left = 20
+stretch_margin_top = 9
+stretch_margin_right = 20
+stretch_margin_bottom = 20
+
+[node name="HBC" type="HBoxContainer" parent="HBC/MC"]
+margin_right = 360.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PushLeft" type="Control" parent="HBC/MC/HBC"]
+margin_right = 135.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBC/MC/HBC"]
+margin_left = 139.0
+margin_right = 187.0
+margin_bottom = 36.0
+size_flags_vertical = 3
+text = "Anxiety"
+align = 1
+valign = 1
+
+[node name="Health" type="Label" parent="HBC/MC/HBC"]
+margin_left = 191.0
+margin_top = 11.0
+margin_right = 220.0
+margin_bottom = 25.0
+mouse_filter = 1
+text = "0/30"
+
+[node name="PushRight" type="Control" parent="HBC/MC/HBC"]
+margin_left = 224.0
+margin_right = 360.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+
+[node name="Defence" type="CenterContainer" parent="HBC"]
+margin_left = 364.0
+margin_right = 400.0
+margin_bottom = 36.0
+mouse_filter = 1
+
+[node name="Icon" type="TextureRect" parent="HBC/Defence"]
+margin_right = 36.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 36, 36 )
+mouse_filter = 2
+expand = true
+stretch_mode = 1
+
+[node name="Amount" type="Label" parent="HBC/Defence"]
+margin_left = 14.0
+margin_top = 11.0
+margin_right = 22.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="."]
+visible = false
+margin_top = 80.0
+margin_right = 121.0
+margin_bottom = 94.0
+text = "Gaslighter"
+align = 1
+autowrap = true
+
+[node name="HBC2" type="HBoxContainer" parent="."]
+margin_top = 80.0
+margin_right = 400.0
+margin_bottom = 116.0
+
+[node name="PushLeft" type="Control" parent="HBC2"]
+margin_right = 196.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+
+[node name="ActiveEffects" parent="HBC2" instance=ExtResource( 4 )]
+margin_left = 200.0
+margin_right = 200.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 0, 36 )
+custom_constants/vseparation = 15
+custom_constants/hseparation = 20
+columns = 20
+
+[node name="PushRight" type="Control" parent="HBC2"]
+margin_left = 204.0
+margin_right = 400.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+
+[node name="Description" type="PopupPanel" parent="."]
+margin_right = 8.0
+margin_bottom = 8.0
+
+[node name="Label" type="RichTextLabel" parent="Description"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 304.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 300, 0 )
+bbcode_enabled = true
+fit_content_height = true
+scroll_active = false
+
+[node name="TargetLine" parent="." instance=ExtResource( 9 )]
+
+[connection signal="mouse_entered" from="HBC/MC/HealthBar" to="." method="_on_Health_mouse_entered"]
+[connection signal="mouse_exited" from="HBC/MC/HealthBar" to="." method="_on_Description_mouse_exited"]
+[connection signal="mouse_entered" from="HBC/MC/HBC/Health" to="." method="_on_Health_mouse_entered"]
+[connection signal="mouse_exited" from="HBC/MC/HBC/Health" to="." method="_on_Description_mouse_exited"]
+[connection signal="mouse_entered" from="HBC/Defence" to="." method="_on_Defence_mouse_entered"]
+[connection signal="mouse_exited" from="HBC/Defence" to="." method="_on_Description_mouse_exited"]

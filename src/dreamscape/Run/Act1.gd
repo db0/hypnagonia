@@ -174,7 +174,7 @@ const Murmurs = {
 
 const TheCritic = {
 	"journal_description":\
-		'Strange furry animals with massive noses (or were they trunks) [url={torment_tag1}]started sniffing at me, and pointing out my weaknesses[/url].',
+		'Strange entities with comically enlarged sense organs [url={torment_tag1}]started circling me, and pointing out all my flaws[/url].',
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
 	"enemies": {
@@ -213,7 +213,7 @@ const TheCritic = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/torments/the_critic.jpeg"),
+	"journal_art": preload("res://assets/enemies/the_critic.png"),
 }
 
 

@@ -14,17 +14,22 @@ shader_param/is_active = false
 [node name="EnemyEntity" groups=["EnemyEntities"] instance=ExtResource( 2 )]
 script = ExtResource( 3 )
 
-[node name="CenterContainer" parent="." index="0"]
-rect_min_size = Vector2( 0, 24 )
+[node name="Push" parent="." index="0"]
+margin_bottom = 0.0
 
 [node name="Intents" parent="." index="1" instance=ExtResource( 1 )]
-margin_top = 40.0
+margin_top = 4.0
 margin_right = 69.0
-margin_bottom = 75.0
+margin_bottom = 39.0
 
-[node name="Art" parent="." index="2"]
-margin_top = 79.0
+[node name="CenterContainer" parent="." index="2"]
+margin_top = 43.0
 margin_bottom = 79.0
+rect_min_size = Vector2( 0, 24 )
+
+[node name="Art" parent="." index="3"]
+margin_top = 83.0
+margin_bottom = 83.0
 
 [node name="Texture" parent="Art" index="0"]
 material = SubResource( 1 )
@@ -34,21 +39,21 @@ size_flags_vertical = 3
 [node name="Highlight" parent="Art" index="1"]
 mouse_filter = 2
 
-[node name="Name" parent="." index="3"]
+[node name="Name" parent="." index="4"]
 margin_top = 83.0
 margin_bottom = 113.0
 rect_min_size = Vector2( 0, 30 )
 
-[node name="HealthBar" parent="." index="4"]
-margin_top = 117.0
-margin_bottom = 125.0
+[node name="HealthBar" parent="." index="5"]
+margin_top = 87.0
+margin_bottom = 95.0
 texture_progress = ExtResource( 5 )
 
-[node name="HBC" parent="." index="5"]
-margin_top = 129.0
-margin_bottom = 165.0
+[node name="HBC" parent="." index="6"]
+margin_top = 99.0
+margin_bottom = 135.0
 rect_min_size = Vector2( 0, 15 )
 
-[node name="ActiveEffects" parent="." index="6"]
-margin_top = 169.0
-margin_bottom = 205.0
+[node name="ActiveEffects" parent="." index="7"]
+margin_top = 139.0
+margin_bottom = 175.0

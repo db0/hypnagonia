@@ -50,7 +50,7 @@ const CARD_IMAGES := {
 	"Fearmonger": preload("res://assets/journal/torments/fearmonger.jpeg"),
 	"Mouse": preload("res://assets/journal/torments/mouse.jpeg"),
 	"Murmurs": preload("res://assets/journal/torments/murmurs.jpeg"),
-	"The Critic": preload("res://assets/journal/torments/the_critic.jpeg"),
+	"The Critic": preload("res://assets/enemies/the_critic.png"),
 	"The Victim": preload("res://assets/journal/torments/the_victim.jpeg"),
 	"The Exam": preload("res://assets/journal/torments/exam.jpeg"),
 	"Void": preload("res://assets/journal/torments/void.jpeg"),
