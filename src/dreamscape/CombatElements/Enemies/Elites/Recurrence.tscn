@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://shaders/invert.shader" type="Shader" id=1]
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/EnemyIntents.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/dreamscape/CombatElements/CombatEntity.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.gd" type="Script" id=4]
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/Elites/RecurrenceIntents.gd" type="Script" id=5]
-[ext_resource path="res://assets/progress_bar/GreenBar.png" type="Texture" id=6]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -57,7 +56,6 @@ rect_min_size = Vector2( 0, 30 )
 [node name="HealthBar" parent="." index="5"]
 margin_top = 95.0
 margin_bottom = 103.0
-texture_progress = ExtResource( 6 )
 
 [node name="HBC" parent="." index="6"]
 margin_top = 107.0

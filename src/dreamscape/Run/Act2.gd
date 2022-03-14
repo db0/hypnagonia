@@ -483,6 +483,7 @@ const ENEMIES = [
 ]
 
 const IndescribableAbsurdity = {
+	"name": "Indescribable Absurdity",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/IndescribableAbsurdity.tscn")],
 	"journal_description":\
 		'I remember dreaming something indescribable.',
@@ -491,6 +492,7 @@ const IndescribableAbsurdity = {
 	'journal_art': preload("res://assets/journal/advanced/absurdity.jpeg"),
 }
 const Dentist = {
+	"name": "Dentist",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/Dentist.tscn")],
 	"journal_description":\
 		'I was strapped-in, in a strangely familiar place. White. Sterile. The sound of a rapidly spinning machine started echoing behind me...',
@@ -499,6 +501,7 @@ const Dentist = {
 	'journal_art': preload("res://assets/journal/advanced/dentist.jpeg"),
 }
 const Jumbletron = {
+	"name": "Jumbletron",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/Jumbletron.tscn")],
 	"journal_description":\
 		'I had enterred a room which seemed to be an amalgram of a lot of different encounters I had.\n'\

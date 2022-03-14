@@ -158,6 +158,8 @@ func _input(event):
 		library_export.store_line(to_json(ordered_list))
 		library_export.open("user://cards_names_without_art.json",File.WRITE)
 		library_export.store_line(to_json(card_names_for_art_export))
+		library_export.open("user://torments_export.json",File.WRITE)
+		library_export.store_line(to_json(_export_torments()))
 
 func _process_card_export(card_name: String) -> Dictionary:
 	var card_entry = cfc.card_definitions[card_name].duplicate(true)
@@ -169,3 +171,27 @@ func _process_card_export(card_name: String) -> Dictionary:
 	card_entry.erase("_keywords")
 	card_entry['archetypes'] = Aspects.get_card_archetypes(card_name)
 	return(card_entry)
+
+func _export_torments() -> Dictionary:
+	var tdict: Dictionary = {
+		'Basic Torments': {},
+		'Elite Torments': {},
+		'Bosses': {},
+	}
+	for act in [Act1, Act2, Act3]:
+		for enemy in act.ENEMIES:
+			for torment in enemy.enemies.easy:
+				if not tdict['Basic Torments'].has(torment.definition.Name):
+					tdict['Basic Torments'][torment.definition.Name] = {}
+					tdict['Basic Torments'][torment.definition.Name]['Journal Description'] = enemy.journal_description
+					tdict['Basic Torments'][torment.definition.Name]['Type'] = torment.definition.Type
+		for enemy in act.ELITES:
+			if not tdict['Elite Torments'].has(enemy.name):
+				tdict['Elite Torments'][enemy.name] = {}
+				tdict['Elite Torments'][enemy.name]['Journal Description'] = enemy.journal_description
+		for enemy in act.BOSSES:
+			if not tdict['Bosses'].has(enemy):
+				tdict['Bosses'][enemy] = {}
+				tdict['Bosses'][enemy]['Journal Description'] = act.BOSSES[enemy].journal_description
+
+	return(tdict)

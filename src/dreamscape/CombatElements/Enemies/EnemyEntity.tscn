@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/EnemyIntents.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/dreamscape/CombatElements/CombatEntity.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/EnemyEntity.gd" type="Script" id=3]
 [ext_resource path="res://shaders/invert.shader" type="Shader" id=4]
-[ext_resource path="res://assets/progress_bar/GreenBar.png" type="Texture" id=5]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -47,7 +46,6 @@ rect_min_size = Vector2( 0, 30 )
 [node name="HealthBar" parent="." index="5"]
 margin_top = 87.0
 margin_bottom = 95.0
-texture_progress = ExtResource( 5 )
 
 [node name="HBC" parent="." index="6"]
 margin_top = 99.0
