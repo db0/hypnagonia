@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/progress_bar/RedBar.png" type="Texture" id=8]
 [ext_resource path="res://src/dreamscape/TargetingArrow.tscn" type="PackedScene" id=9]
 
-[node name="CombatEntity" type="VBoxContainer" groups=["CombatEntities"]]
+[node name="CombatEntity" type="VBoxContainer" groups=["CombatEntities", "PlayerEntities"]]
 margin_top = -30.4889
 margin_right = 69.0
 margin_bottom = 111.511
