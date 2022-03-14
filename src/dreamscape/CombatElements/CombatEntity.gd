@@ -78,9 +78,14 @@ func _ready() -> void:
 			_set_texture(entity_texture, character_art_texture)
 	name_label.text = canonical_name
 	_update_health_label()
-	active_effects.combat_entity = self
+	# Have to do an extra check to due testing double not having _map_nodes()
+	if active_effects:
+		active_effects.combat_entity = self
 	_set_texture(defence_icon, defence_texture)
 
+# Maps the nodes for the standard combat entity scene
+# This allows other combat entity scenes to be different but still use the same code
+# by extending this function with their own function.
 func _map_nodes() -> void:
 	art = $Art
 	collision_shape = $Art/Area2D/CollisionShape2D
