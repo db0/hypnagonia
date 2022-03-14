@@ -447,14 +447,15 @@ func _input(event):
 #		SoundManager.play_bgm(bgm_tracks[0])
 #		SoundManager.fade_in(bgm_tracks[0])
 		# warning-ignore:unused_variable
-		_debug_advanced_enemy()
+#		_debug_advanced_enemy()
 		var _torment1
 		var _torment2
 		var _torment3
 #		_torment1 = spawn_enemy(EnemyDefinitions.UNNAMED1)
 #		_torment1 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
-		_torment2 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
-#		_torment2 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
+		_torment1 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
+		_torment2 = spawn_enemy(EnemyDefinitions.GASLIGHTER)
+		_torment3 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
