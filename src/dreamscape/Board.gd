@@ -26,7 +26,8 @@ var _debug_enemy_states := {}
 
 onready var turn = $Turn
 onready var bottom_gui := $VBC/HBC
-onready var _player_area := $VBC/CombatArena/PlayerArea
+#onready var _player_area := $VBC/CombatArena/PlayerArea
+onready var _player_area := $VBC/HBC/PlayerArea
 onready var _enemy_area := $VBC/CombatArena/EnemyArea/Enemies
 onready var _combat_arena := $VBC/CombatArena
 onready var _background := $Background
@@ -61,7 +62,7 @@ func _ready() -> void:
 				and globals.test_flags.get("test_initial_hand", false)):
 		load_deck()
 	turn.setup()
-	dreamer = preload("res://src/dreamscape/CombatElements/PlayerEntity.tscn").instance()
+	dreamer = preload("res://src/dreamscape/CombatElements/PlayerEntity2.tscn").instance()
 	var dreamer_properties := {
 		"Health": globals.player.health,
 		"Damage": globals.player.damage,
@@ -452,7 +453,7 @@ func _input(event):
 		var _torment3
 #		_torment1 = spawn_enemy(EnemyDefinitions.UNNAMED1)
 #		_torment1 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
-#		_torment2 = spawn_enemy(EnemyDefinitions.SILENT_TREATMENT)
+		_torment2 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
 #		_torment2 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
@@ -466,7 +467,7 @@ func _input(event):
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
 		if _torment2:
 			_torment2.health = 13
-			_torment1.damage = 10
+			_torment2.damage = 10
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.marked.name, 1)
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
@@ -524,7 +525,7 @@ func _debug_advanced_enemy() -> void:
 #	var advanced_entity: EnemyEntity =\
 #			preload("res://src/dreamscape/CombatElements/Enemies/Bosses/Narcissus.tscn").instance()
 	var advanced_entity: EnemyEntity =\
-			preload("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn").instance()
+			preload("res://src/dreamscape/CombatElements/Enemies/Elites/RushElite.tscn").instance()
 	advanced_entity.setup_advanced("hard")
 	_enemy_area.add_child(advanced_entity)
 #	advanced_entity.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.self_cleaning.name, 1)

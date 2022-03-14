@@ -18,20 +18,21 @@ signal entity_health_modified(entity, amount, trigger, tags)
 signal death_animation_finished(entity)
 
 
-onready var art := $Art
-onready var collision_shape := $Art/Area2D/CollisionShape2D
-onready var area2d := $Art/Area2D
-onready var entity_texture :=  $Art/Texture
-onready var highlight := $Art/Highlight
-onready var _health_stats := $HBC
-onready var health_label : Label = $HBC/Health
 onready var name_label : Label = $Name
-onready var defence_icon : TextureRect = $HBC/Defence/Icon
-onready var defence_label : Label = $HBC/Defence/Amount
-onready var active_effects := $ActiveEffects
 onready var incoming := $CenterContainer/Incoming
 onready var description_popup := $Description
 onready var description_label := $Description/Label
+var art : MarginContainer
+var collision_shape : CollisionShape2D
+var area2d : Area2D
+var entity_texture: TextureRect
+var highlight : Control
+var _health_stats
+var health_label : Label
+var defence_icon : TextureRect
+var defence_label : Label
+var health_bar : TextureProgress
+var active_effects
 
 
 var damage : int setget set_damage
@@ -65,18 +66,33 @@ func setup(entity_name: String, properties: Dictionary) -> void:
 
 
 func _ready() -> void:
+	_map_nodes()
+	# warning-ignore:return_value_discarded
 	get_viewport().connect("size_changed", self, '_on_viewport_resized')
-	_set_entity_size()
+	if art:
+		_set_entity_size()
+		highlight.entity_art = entity_texture
+		if _properties.has('_texture'):
+			_set_texture(entity_texture, _properties["_texture"])
+		elif character_art_texture:
+			_set_texture(entity_texture, character_art_texture)
 	name_label.text = canonical_name
 	_update_health_label()
 	active_effects.combat_entity = self
-	highlight.entity_art = entity_texture
 	_set_texture(defence_icon, defence_texture)
-	if _properties.has('_texture'):
-		_set_texture(entity_texture, _properties["_texture"])
-	elif character_art_texture:
-		_set_texture(entity_texture, character_art_texture)
 
+func _map_nodes() -> void:
+	art = $Art
+	collision_shape = $Art/Area2D/CollisionShape2D
+	area2d = $Art/Area2D
+	entity_texture = $Art/Texture
+	highlight = $Art/Highlight
+	_health_stats = $HBC
+	health_label  = $HBC/Health
+	defence_icon  = $HBC/Defence/Icon
+	defence_label = $HBC/Defence/Amount
+	health_bar = $HealthBar
+	active_effects = $ActiveEffects
 
 func _set_texture(node: Node, stream: StreamTexture) -> void:
 		node.texture = CFUtils.convert_texture_to_image(stream, true)
@@ -234,8 +250,8 @@ func clear_predictions() -> void:
 func _update_health_label() -> void:
 	health_label.text = str(damage) + '/' + str(health)
 	defence_label.text = str(defence)
-	$HealthBar.max_value = health
-	$HealthBar.value = damage
+	health_bar.max_value = health
+	health_bar.value = damage
 
 
 func get_property(property_name: String):
@@ -282,8 +298,16 @@ func _on_Art_mouse_exited() -> void:
 
 
 func _on_Art_mouse_entered() -> void:
-	var art_text := "Character art by: " + character_art
-	_show_description_popup(art_text, art)
+	var art_text := "{entity_name}\n\n{description}"\
+			+ "Character art by: {character_art}"
+	var art_fmt = {
+		"entity_name": canonical_name,
+		"character_art": character_art,
+		"description": ''
+	}
+	if _properties.has('_description'):
+		art_fmt["description"] = _properties['_description'] + '\n\n'
+	_show_description_popup(art_text.format(art_fmt), art)
 
 
 func _on_player_turn_started(_turn: Turn) -> void:

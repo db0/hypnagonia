@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/icons/shield.png" type="Texture" id=5]
 [ext_resource path="res://src/dreamscape/CombatElements/Highlight2.gd" type="Script" id=6]
 [ext_resource path="res://shaders/invert.shader" type="Shader" id=7]
-[ext_resource path="res://assets/progress_bar/RedBar.png" type="Texture" id=8]
+[ext_resource path="res://assets/progress_bar/GreenBar.png" type="Texture" id=8]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -40,9 +40,15 @@ __meta__ = {
 }
 defence_texture = ExtResource( 5 )
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="Push" type="Control" parent="."]
 margin_right = 69.0
-margin_bottom = 36.0
+margin_bottom = 5.0
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_top = 9.0
+margin_right = 69.0
+margin_bottom = 45.0
 mouse_filter = 1
 
 [node name="Incoming" type="GridContainer" parent="CenterContainer"]
@@ -53,9 +59,9 @@ rect_min_size = Vector2( 0, 36 )
 columns = 3
 
 [node name="Art" type="MarginContainer" parent="."]
-margin_top = 40.0
+margin_top = 49.0
 margin_right = 69.0
-margin_bottom = 40.0
+margin_bottom = 49.0
 mouse_filter = 1
 
 [node name="Texture" type="TextureRect" parent="Art"]
@@ -70,6 +76,7 @@ __meta__ = {
 
 [node name="Highlight" type="Control" parent="Art"]
 margin_right = 69.0
+mouse_filter = 1
 script = ExtResource( 6 )
 
 [node name="Area2D" type="Area2D" parent="Art"]
@@ -80,6 +87,7 @@ script = SubResource( 2 )
 shape = SubResource( 3 )
 
 [node name="Name" type="Label" parent="."]
+visible = false
 margin_top = 44.0
 margin_right = 69.0
 margin_bottom = 58.0
@@ -88,9 +96,9 @@ align = 1
 autowrap = true
 
 [node name="HealthBar" type="TextureProgress" parent="."]
-margin_top = 62.0
+margin_top = 53.0
 margin_right = 69.0
-margin_bottom = 70.0
+margin_bottom = 61.0
 rect_min_size = Vector2( 0, 8 )
 size_flags_horizontal = 3
 texture_under = ExtResource( 1 )
@@ -98,9 +106,9 @@ texture_progress = ExtResource( 8 )
 nine_patch_stretch = true
 
 [node name="HBC" type="HBoxContainer" parent="."]
-margin_top = 74.0
+margin_top = 65.0
 margin_right = 69.0
-margin_bottom = 110.0
+margin_bottom = 101.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -138,9 +146,9 @@ mouse_filter = 1
 text = "0/30"
 
 [node name="ActiveEffects" parent="." instance=ExtResource( 4 )]
-margin_top = 114.0
+margin_top = 105.0
 margin_right = 69.0
-margin_bottom = 150.0
+margin_bottom = 141.0
 rect_min_size = Vector2( 0, 36 )
 custom_constants/vseparation = 15
 custom_constants/hseparation = 20
