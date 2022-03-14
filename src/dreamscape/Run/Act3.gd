@@ -314,6 +314,7 @@ const ENEMIES = [
 ]
 
 const TheGatherer = {
+	"name": "The Gatherer",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/TheGatherer.tscn")],
 	"journal_description":\
 		'My next few dreams are extremely difficult to remember. It feels like I was '\
@@ -324,6 +325,7 @@ const TheGatherer = {
 }
 
 const TheatrePlay = {
+	"name": "Theatre Play",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/TheatrePlay.tscn")],
 	"journal_description":\
 		'I was in a theatre troupe and part of a hyped new play. '\

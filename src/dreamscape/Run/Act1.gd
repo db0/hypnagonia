@@ -516,6 +516,7 @@ const ENEMIES = [
 ]
 
 const RushElite = {
+	"name": "Labyrinth",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/RushElite.tscn")],
 	"journal_description":\
 		'I remember walls enclosing me and no obvious way out...',
@@ -524,6 +525,7 @@ const RushElite = {
 	'journal_art': preload("res://assets/journal/advanced/labyrinth.jpeg"),
 }
 const Bully = {
+	"name": "Bully",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/Bully.tscn")],
 	"journal_description":\
 		'My mind took me back to uncomfortable memories of schoolyard bullying.',
