@@ -337,6 +337,8 @@ func _on_enemy_turn_ended(_turn: Turn) -> void:
 
 
 func _set_entity_size() -> void:
+	if not art: 
+		return
 	var final_size = entity_size * cfc.curr_scale
 	art.rect_min_size = final_size
 	collision_shape.shape.extents = final_size / 2
