@@ -455,7 +455,7 @@ func _input(event):
 #		_torment1 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 		_torment1 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
 		_torment2 = spawn_enemy(EnemyDefinitions.GASLIGHTER)
-		_torment3 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
+		_torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)

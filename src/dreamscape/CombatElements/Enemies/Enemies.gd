@@ -103,8 +103,8 @@ const THE_CRITIC:= {
 		},
 	],
 	"_health_variability": 4,
-	"_texture_size_x": "120",
-	"_texture_size_y": "120",
+	"_texture_size_x": "150",
+	"_texture_size_y": "150",
 	"_texture": preload("res://assets/enemies/the_critic.png"),
 	"_character_art": "A. Mc Leod",
 	"_description": "The critic loves pointing our where you go wrong as a character. "\
@@ -133,10 +133,10 @@ const CLOWN:= {
 		},
 	],
 	"_health_variability": 3,
-	"_texture_size_x": "120",
-	"_texture_size_y": "120",
-	"_texture": preload("res://assets/journal/torments/clown.jpeg"),
-	"_character_art": "Artbreeder.com",
+	"_texture_size_x": "160",
+	"_texture_size_y": "160",
+	"_texture": preload("res://assets/enemies/clown_amc.png"),
+	"_character_art": "A. Mc Leod",
 }
 const BUTTERFLY:= {
 	"Name": "Butterfly",
