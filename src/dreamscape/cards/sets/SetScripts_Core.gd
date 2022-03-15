@@ -3110,7 +3110,7 @@ const AStrangeGaida = {
 				"subject_count": "all",
 				"modification": {
 					"lookup_property": "_amounts",
-					"value_key": "effect_stacks"
+					"value_key": "effect_stacks2"
 				},
 				"filter_state_seek": [{
 					"filter_group": "EnemyEntities",
