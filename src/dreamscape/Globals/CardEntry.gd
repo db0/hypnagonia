@@ -83,9 +83,13 @@ func instance_self(is_display_card:= false) -> Card:
 
 
 func upgrade(upgrade_name: String) -> void:
+	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+		print("DEBUG INFO:Deck: Upgrading:" + card_name)
 	_setup_card_entry(upgrade_name)
 	for mod in property_modifications:
-		modify_property(mod.property, mod.value, false)
+		modify_property(mod.property, mod.value, mod.is_enhancement, false)
+	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+		print("DEBUG INFO:Deck: Finished Upgrading:" + card_name)
 	emit_signal("card_entry_upgraded", self)
 
 
@@ -219,6 +223,7 @@ func remove_scripts(standard_task := 'forget', script_state:= 'hand') -> void:
 						and task["subject"] == "self"\
 						and task["dest_container"] == "forgotten":
 					unmodified_scripts['manual'][script_state].erase(task)
+				properties["Abilities"] = properties["Abilities"].replace('\n{forget}', '')
 				properties["Abilities"] = properties["Abilities"].replace('{forget}', '')
 	else:
 		printerr("ERROR:CardEntry: Cannot find script state '%s' in unmodified scripts of '%s" % [script_state,card_name])
@@ -259,9 +264,9 @@ func _modify_amounts(amount_name: String, value, purpose := '') -> void:
 		if value.begins_with("*"):
 			# Decreases are rounded down
 			if float(value.lstrip("*")) < 1:
-				new_value = floor(float(current_value) * float(value.lstrip("*")))
+				new_value = int(floor(float(current_value) * float(value.lstrip("*"))))
 			if float(value.lstrip("*")) >= 1:
-				new_value = ceil(float(current_value) * float(value.lstrip("*")))
+				new_value = int(ceil(float(current_value) * float(value.lstrip("*"))))
 		else:
 			new_value = current_value + int(value)
 	else:
@@ -291,7 +296,7 @@ func enhance() -> void:
 	var applicable_mods = CardModifications.check_mod_applicability(properties, "blessing")
 	# No need to check the size of the array as there's going to always be at least one element
 	if typeof(applicable_mods[0].value) == TYPE_STRING\
-			and applicable_mods[0].value == Terms.GENERIC_TAGS.slumber.name:
+			and applicable_mods[0].value == '-' + Terms.GENERIC_TAGS.slumber.name:
 		remove_scripts('forget')
 	modify_property(applicable_mods[0].property, applicable_mods[0].value, true)
 

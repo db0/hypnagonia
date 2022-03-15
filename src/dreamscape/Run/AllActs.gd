@@ -7,6 +7,7 @@ const NCE := {
 		"PottedPlant": preload("res://src/dreamscape/Run/NCE/AllActs/PottedPlant.gd"),
 	},
 	"risky": {
+		"EpicUpgrade": preload("res://src/dreamscape/Run/NCE/AllActs/EpicUpgrade.gd"),
 	}
 }
 

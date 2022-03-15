@@ -109,3 +109,47 @@ class TestDollPickup:
 		var doll : ArtifactObject = assert_player_signaled("artifact_added", "canonical_name", "PorcelainDoll")
 		assert_eq(sc.choice_key, doll.modifiers.get("colour"), "Colour of doll added matches choice")
 
+
+class TestEpicUpgrade:
+	extends  "res://tests/HUT_Journal_NCETestClass.gd"
+	func _init() -> void:
+		testing_nce_script = preload("res://src/dreamscape/Run/NCE/AllActs/EpicUpgrade.gd")
+
+	func test_choice_epic():
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player.deck)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+# warning-ignore:return_value_discarded
+		activate_secondary_choice_by_key("epic")
+		yield(yield_to(journal, "selection_deck_spawned", 0.2), YIELD)
+		var selection_deck := assert_selection_deck_spawned()
+		if not selection_deck:
+			return
+		selection_deck._deck_preview_grid.get_children()[0].select_card()
+		yield(yield_for(0.2), YIELD)
+		assert_signal_emit_count(globals.player.deck, "card_entry_modified", nce.EPIC_AMOUNT)
+		assert_eq(globals.player.health, 100 - nce.MAX_ANXIETY_LOSS)
+
+	func test_choice_gamble():
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player.deck)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+# warning-ignore:return_value_discarded
+		activate_secondary_choice_by_key("gamble")
+		yield(yield_to(journal, "selection_deck_spawned", 0.2), YIELD)
+		var selection_deck := assert_selection_deck_spawned()
+		if not selection_deck:
+			return
+		selection_deck._deck_preview_grid.get_children()[0].select_card()
+		yield(yield_for(0.2), YIELD)
+		assert_signal_emit_count(globals.player.deck, "card_entry_modified", nce.GAMBLE_AMOUNT * 2)
+
+	func test_choice_skip():
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player.deck)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		watch_signals(globals.player.pathos)
+# warning-ignore:return_value_discarded
+		activate_secondary_choice_by_key("skip")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_signal_emitted(globals.player.deck, "card_removed")

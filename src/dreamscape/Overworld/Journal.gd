@@ -478,11 +478,10 @@ func _input(event):
 		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.HealSelf.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.BossFaster.canonical_name)
-#		var card_entry = globals.player.deck.add_new_card("% Subconscious %")
-#		card_entry.upgrade_progress = card_entry.upgrade_threshold
-		globals.player.deck.add_new_card("Chasm")
-		globals.player.deck.add_new_card("Chasm")
-		globals.player.deck.add_new_card("Chasm")
+		var card_entry = globals.player.deck.add_new_card("The Whippy-Flippy")
+		card_entry.upgrade_progress = card_entry.upgrade_threshold
+#		globals.player.deck.add_new_card("Chasm")
+#		globals.player.deck.add_new_card("Chasm")
 #		globals.player.deck.add_new_card("Prejudice")
 #		globals.player.damage += 20
 #		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.boss, 100)
@@ -498,11 +497,11 @@ func _input(event):
 		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, 48)
 #		globals.player.damage = 85
 		var debug_encounters = [
-			EnemyEncounter.new(Act1.TheCritic, "medium"),
+#			EnemyEncounter.new(Act1.TheCritic, "medium"),
 #			EnemyEncounter.new(Act2.TrafficJam, "easy"),
-			EnemyEncounter.new(Act3.Nightmare, "hard"),
+#			EnemyEncounter.new(Act3.Nightmare, "hard"),
 #			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
-#			preload("res://src/dreamscape/Run/NCE/AllActs/PottedPlant.gd").new(),
+			preload("res://src/dreamscape/Run/NCE/AllActs/EpicUpgrade.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act3/TheCake.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act2/HangingOn.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd").new(),

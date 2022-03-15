@@ -2991,12 +2991,12 @@ const TheWhippyFlippy = {
 				"subject": "dreamer",
 				"modification": {
 					"lookup_property": "_amounts",
-					"value_key": "effect_stacks1"
+					"value_key": "effect_stacks"
 				},
 				"store_integer": true,
 				"filter_intent_stress": {
 					"lookup_property": "_amounts",
-					"value_key": "stress_threshold1"
+					"value_key": "stress_threshold"
 				},
 			},
 			{

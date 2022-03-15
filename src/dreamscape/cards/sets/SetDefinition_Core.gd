@@ -4742,7 +4742,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name, Terms.ACTIVE_EFFECTS.empower.name],
 		"Abilities": "If every Torment {stress}:\n"\
-				+ "{stress} ≤ {stress_threshold1}: Gain {effect_stacks1} {buffer}\n"\
+				+ "{stress} ≤ {stress_threshold}: Gain {effect_stacks} {buffer}\n"\
 				+ "{stress} ≤ {stress_threshold2}: Gain {effect_stacks2} {empower}\n"\
 				+ "{stress} ≤ {stress_threshold3}: Gain {effect_stacks3} {strengthen}\n",
 		"Cost": 1,
@@ -4755,8 +4755,8 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER,
 		},
 		"_amounts": {
-			"effect_stacks1": 2,
-			"stress_threshold1": 10,
+			"effect_stacks": 2,
+			"stress_threshold": 10,
 			"effect_stacks2": 2,
 			"stress_threshold2": 5,
 			"effect_stacks3": 1,
@@ -4778,7 +4778,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name, Terms.ACTIVE_EFFECTS.empower.name],
 		"Abilities": "If every Torment {stress}:\n"\
-				+ "{stress} ≤ {stress_threshold1}: Gain {effect_stacks1} {buffer}\n"\
+				+ "{stress} ≤ {stress_threshold}: Gain {effect_stacks} {buffer}\n"\
 				+ "{stress} ≤ {stress_threshold2}: Gain {effect_stacks2} {empower}\n"\
 				+ "{stress} ≤ {stress_threshold3}: Gain {effect_stacks3} {strengthen}\n",
 		"Cost": 1,
@@ -4791,8 +4791,8 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER,
 		},
 		"_amounts": {
-			"effect_stacks1": 3,
-			"stress_threshold1": 10,
+			"effect_stacks": 3,
+			"stress_threshold": 10,
 			"effect_stacks2": 3,
 			"stress_threshold2": 5,
 			"effect_stacks3": 1,
@@ -4809,7 +4809,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name, Terms.ACTIVE_EFFECTS.empower.name],
 		"Abilities": "If every Torment {stress}:\n"\
-				+ "{stress} ≤ {stress_threshold1}: Gain {effect_stacks1} {buffer}\n"\
+				+ "{stress} ≤ {stress_threshold}: Gain {effect_stacks} {buffer}\n"\
 				+ "{stress} ≤ {stress_threshold2}: Gain {effect_stacks2} {empower}\n"\
 				+ "{stress} ≤ {stress_threshold3}: Gain {effect_stacks3} {strengthen}\n",
 		"Cost": 1,
@@ -4822,8 +4822,8 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER,
 		},
 		"_amounts": {
-			"effect_stacks1": 1,
-			"stress_threshold1": 10,
+			"effect_stacks": 1,
+			"stress_threshold": 10,
 			"effect_stacks2": 1,
 			"stress_threshold2": 5,
 			"effect_stacks3": 2,
@@ -4840,7 +4840,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name, Terms.ACTIVE_EFFECTS.empower.name],
 		"Abilities": "If every Torment {stress}:\n"\
-				+ "{stress} ≤ {stress_threshold1}: Gain {effect_stacks1} {buffer}\n"\
+				+ "{stress} ≤ {stress_threshold}: Gain {effect_stacks} {buffer}\n"\
 				+ "{stress} ≤ {stress_threshold2}: Gain {effect_stacks2} {empower}\n"\
 				+ "{stress} ≤ {stress_threshold3}: Gain {effect_stacks3} {strengthen}\n",
 		"Cost": 1,
@@ -4853,8 +4853,8 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER,
 		},
 		"_amounts": {
-			"effect_stacks1": 2,
-			"stress_threshold1": 13,
+			"effect_stacks": 2,
+			"stress_threshold": 13,
 			"effect_stacks2": 2,
 			"stress_threshold2": 8,
 			"effect_stacks3": 1,

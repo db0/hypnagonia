@@ -37,14 +37,21 @@ static func get_scars() -> Dictionary:
 		[CardFilter.new('_amounts', "effect_stacks2", 'eq')]: {
 			"property": "_amounts",
 			"value": {
-				"amount_key": "effect_stacks",
+				"amount_key": "effect_stacks2",
+				"amount_value": "-1",
+			},
+		},
+		[CardFilter.new('_amounts', "effect_stacks3", 'eq')]: {
+			"property": "_amounts",
+			"value": {
+				"amount_key": "effect_stacks3",
 				"amount_value": "-1",
 			},
 		},
 		[CardFilter.new('_amounts', "detriment_stacks", 'eq')]: {
 			"property": "_amounts",
 			"value": {
-				"amount_key": "effect_stacks",
+				"amount_key": "detriment_stacks",
 				"amount_value": "+1",
 			},
 		},
@@ -121,14 +128,21 @@ static func get_blessings() -> Dictionary:
 		[CardFilter.new('_amounts', "effect_stacks2", 'eq')]: {
 			"property": "_amounts",
 			"value": {
-				"amount_key": "effect_stacks",
+				"amount_key": "effect_stacks2",
+				"amount_value": "+1",
+			},
+		},
+		[CardFilter.new('_amounts', "effect_stacks3", 'eq')]: {
+			"property": "_amounts",
+			"value": {
+				"amount_key": "effect_stacks3",
 				"amount_value": "+1",
 			},
 		},
 		[CardFilter.new('_amounts', "detriment_stacks", 'eq')]: {
 			"property": "_amounts",
 			"value": {
-				"amount_key": "effect_stacks",
+				"amount_key": "detriment_stacks",
 				"amount_value": "-1",
 			},
 		},
