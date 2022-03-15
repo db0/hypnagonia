@@ -58,8 +58,6 @@ func add_info(
 	if existing_details.has(id) and not requires_refresh:
 		existing_details[id].visible = true
 	else:
-		if existing_details.has(id):
-			existing_details[id].queue_free()
 		var new_info_panel : Node
 		if info_scene != null:
 			new_info_panel = info_scene.instance()
