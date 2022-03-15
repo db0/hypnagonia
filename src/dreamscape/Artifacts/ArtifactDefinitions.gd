@@ -663,7 +663,7 @@ const StartingDisempower := {
 const StartingVulnerable := {
 	"canonical_name": "StartingVulnerable",
 	"name": "StartingVulnerable",
-	"description": "{artifact_name}: At the start of each Ordeal, apply {effect_stacks} {vulnetable} to all Torments.",
+	"description": "{artifact_name}: At the start of each Ordeal, apply {effect_stacks} {vulnerable} to all Torments.",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.BATTLE,
 	"rarity": "Common",
