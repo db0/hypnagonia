@@ -1,6 +1,15 @@
 #class_name CoreDefinitions
 extends Reference
 
+"""
+The key "_amount_purpose_map" is used to map _amount keys that apply effects
+to the exact effect each of them is meant to modify. It is not used by 
+the scripting engine, but rather for things like artifacts which modify
+amounts for specific effects, to be able to target the right amount
+It is generally only needed for cards which apply multiple effect types at the
+same time
+"""
+
 const SET = "Core Set"
 const CARDS := {
 	"Confidence": {
@@ -184,6 +193,10 @@ const CARDS := {
 			"effect_stacks": 2,
 			"effect_stacks2": 1
 		},
+		"_amount_purpose_map": {
+			"effect_stacks": Terms.ACTIVE_EFFECTS.vulnerable.name,
+			"effect_stacks2": Terms.ACTIVE_EFFECTS.advantage.name,
+		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"* Dive-in *",
@@ -206,6 +219,10 @@ const CARDS := {
 			"effect_stacks": 1,
 			"effect_stacks2": 1
 		},
+		"_amount_purpose_map": {
+			"effect_stacks": Terms.ACTIVE_EFFECTS.vulnerable.name,
+			"effect_stacks2": Terms.ACTIVE_EFFECTS.advantage.name,
+		},
 		"_is_upgrade": true,
 	},
 	"* Dive-in *": {
@@ -223,6 +240,10 @@ const CARDS := {
 		"_amounts": {
 			"effect_stacks": 3,
 			"effect_stacks2": 3
+		},
+		"_amount_purpose_map": {
+			"effect_stacks": Terms.ACTIVE_EFFECTS.vulnerable.name,
+			"effect_stacks2": Terms.ACTIVE_EFFECTS.advantage.name,
 		},
 		"_is_upgrade": true,
 	},
@@ -4424,6 +4445,10 @@ const CARDS := {
 			"effect_stacks2": 2,
 			"deck_size": 9,
 		},
+		"_amount_purpose_map": {
+			"effect_stacks": Terms.ACTIVE_EFFECTS.armor.name,
+			"effect_stacks2": Terms.ACTIVE_EFFECTS.buffer.name,
+		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Endless Posibilities +",
@@ -4450,6 +4475,10 @@ const CARDS := {
 			"effect_stacks2": 2,
 			"deck_size": 9,
 		},
+		"_amount_purpose_map": {
+			"effect_stacks": Terms.ACTIVE_EFFECTS.armor.name,
+			"effect_stacks2": Terms.ACTIVE_EFFECTS.buffer.name,
+		},
 		"_is_upgrade": true,
 	},
 	"* Endless Posibilities *": {
@@ -4471,6 +4500,10 @@ const CARDS := {
 			"effect_stacks2": 3,
 			"deck_size": 9,
 		},
+		"_amount_purpose_map": {
+			"effect_stacks": Terms.ACTIVE_EFFECTS.armor.name,
+			"effect_stacks2": Terms.ACTIVE_EFFECTS.buffer.name,
+		},
 		"_is_upgrade": true,
 	},
 	"% Endless Posibilities %": {
@@ -4491,6 +4524,10 @@ const CARDS := {
 			"effect_stacks": 5,
 			"effect_stacks2": 3,
 			"deck_size": 15,
+		},
+		"_amount_purpose_map": {
+			"effect_stacks": Terms.ACTIVE_EFFECTS.armor.name,
+			"effect_stacks2": Terms.ACTIVE_EFFECTS.buffer.name,
 		},
 		"_is_upgrade": true,
 	},
@@ -4725,6 +4762,11 @@ const CARDS := {
 			"effect_stacks3": 1,
 			"stress_threshold3": 0,
 		},
+		"_amount_purpose_map": {
+			"effect_stacks": Terms.ACTIVE_EFFECTS.buffer.name,
+			"effect_stacks2": Terms.ACTIVE_EFFECTS.empower.name,
+			"effect_stacks3": Terms.ACTIVE_EFFECTS.strengthen.name,
+		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"* The Whippy-Flippy *",
@@ -4756,6 +4798,11 @@ const CARDS := {
 			"effect_stacks3": 1,
 			"stress_threshold3": 0,
 		},
+		"_amount_purpose_map": {
+			"effect_stacks": Terms.ACTIVE_EFFECTS.buffer.name,
+			"effect_stacks2": Terms.ACTIVE_EFFECTS.empower.name,
+			"effect_stacks3": Terms.ACTIVE_EFFECTS.strengthen.name,
+		},
 		"_is_upgrade": true,
 	},
 	"% The Whippy-Flippy %": {
@@ -4782,6 +4829,11 @@ const CARDS := {
 			"effect_stacks3": 2,
 			"stress_threshold3": 0,
 		},
+		"_amount_purpose_map": {
+			"effect_stacks": Terms.ACTIVE_EFFECTS.buffer.name,
+			"effect_stacks2": Terms.ACTIVE_EFFECTS.empower.name,
+			"effect_stacks3": Terms.ACTIVE_EFFECTS.strengthen.name,
+		},
 		"_is_upgrade": true,
 	},
 	"= The Whippy-Flippy =": {
@@ -4807,6 +4859,11 @@ const CARDS := {
 			"stress_threshold2": 8,
 			"effect_stacks3": 1,
 			"stress_threshold3": 2,
+		},
+		"_amount_purpose_map": {
+			"effect_stacks": Terms.ACTIVE_EFFECTS.buffer.name,
+			"effect_stacks2": Terms.ACTIVE_EFFECTS.empower.name,
+			"effect_stacks3": Terms.ACTIVE_EFFECTS.strengthen.name,
 		},
 		"_is_upgrade": true,
 	},
@@ -4894,7 +4951,7 @@ const CARDS := {
 	"A Strange Gaida": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.ACTIVE_EFFECTS.marked.name],
-		"Abilities": "All Torments gain {effect_stacks} {confusion} and {effect_stacks} {marked}. {forget}",
+		"Abilities": "All Torments gain {effect_stacks} {confusion} and {effect_stacks2} {marked}. {forget}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -4905,6 +4962,11 @@ const CARDS := {
 		},
 		"_amounts": {
 			"effect_stacks": 3,
+			"effect_stacks2": 3,
+		},
+		"_amount_purpose_map": {
+			"effect_stacks": Terms.ACTIVE_EFFECTS.disempower.name,
+			"effect_stacks2": Terms.ACTIVE_EFFECTS.marked.name,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -4915,7 +4977,7 @@ const CARDS := {
 	"* A Strange Gaida *": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.ACTIVE_EFFECTS.marked.name],
-		"Abilities": "All Torments gain {effect_stacks} {confusion} and {effect_stacks} {marked}. {forget}",
+		"Abilities": "All Torments gain {effect_stacks} {confusion} and {effect_stacks2} {marked}. {forget}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -4926,13 +4988,18 @@ const CARDS := {
 		},
 		"_amounts": {
 			"effect_stacks": 5,
+			"effect_stacks2": 5,
+		},
+		"_amount_purpose_map": {
+			"effect_stacks": Terms.ACTIVE_EFFECTS.disempower.name,
+			"effect_stacks2": Terms.ACTIVE_EFFECTS.marked.name,
 		},
 		"_is_upgrade": true,
 	},
 	"@ A Strange Gaida @": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.ACTIVE_EFFECTS.marked.name],
-		"Abilities": "All Torments gain {effect_stacks} {confusion} and {effect_stacks} {marked}. {forget}",
+		"Abilities": "All Torments gain {effect_stacks} {confusion} and {effect_stacks2} {marked}. {forget}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -4943,6 +5010,11 @@ const CARDS := {
 		},
 		"_amounts": {
 			"effect_stacks": 2,
+			"effect_stacks2": 2,
+		},
+		"_amount_purpose_map": {
+			"effect_stacks": Terms.ACTIVE_EFFECTS.disempower.name,
+			"effect_stacks2": Terms.ACTIVE_EFFECTS.marked.name,
 		},
 		"_is_upgrade": true,
 	},
@@ -5517,6 +5589,10 @@ const CARDS := {
 			"effect_stacks2": 2,
 			"x_requirement": 1,
 		},
+		"_amount_purpose_map": {
+			"effect_stacks": Terms.ACTIVE_EFFECTS.impervious.name,
+			"effect_stacks2": Terms.ACTIVE_EFFECTS.burn.name,
+		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ Launch @",
@@ -5542,6 +5618,10 @@ const CARDS := {
 			"effect_stacks2": 2,
 			"x_requirement": 1,
 		},
+		"_amount_purpose_map": {
+			"effect_stacks": Terms.ACTIVE_EFFECTS.impervious.name,
+			"effect_stacks2": Terms.ACTIVE_EFFECTS.burn.name,
+		},
 		"_is_upgrade": true,
 	},
 	"* Launch *": {
@@ -5562,6 +5642,10 @@ const CARDS := {
 			"effect_stacks2": 3,
 			"x_requirement": 1,
 		},
+		"_amount_purpose_map": {
+			"effect_stacks": Terms.ACTIVE_EFFECTS.impervious.name,
+			"effect_stacks2": Terms.ACTIVE_EFFECTS.burn.name,
+		},
 		"_is_upgrade": true,
 	},
 	"% Launch %": {
@@ -5581,6 +5665,10 @@ const CARDS := {
 			"effect_stacks": 1,
 			"effect_stacks2": 2,
 			"x_requirement": 0,
+		},
+		"_amount_purpose_map": {
+			"effect_stacks": Terms.ACTIVE_EFFECTS.impervious.name,
+			"effect_stacks2": Terms.ACTIVE_EFFECTS.burn.name,
 		},
 		"_is_upgrade": true,
 	},

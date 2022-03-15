@@ -34,6 +34,8 @@ var test_flags := {
 #	"artifact_defintions": {}, 
 #	# Custom memory definitions for testing
 #	"memory_defintions": {}, 
+#   # Preselected random choice for use during testing
+#   "test_rng_ndex": 0,
 }
 
 

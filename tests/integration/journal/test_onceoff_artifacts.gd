@@ -258,23 +258,27 @@ class TestIncreaseRandomDefence:
 class TestIncreaseConfusionStacks:
 	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
 	func _init() -> void:
+		globals.test_flags["test_rng_ndex"] = 2
 		testing_artifact_name = ArtifactDefinitions.IncreaseConfusionStacks.canonical_name
 		test_card_names = [
-			"Noisy Whip",
+			"A Strange Gaida",
 		]
 
-	func test_artifact_results():
+	func test_effect_stacks2():
 		if not assert_has_amounts():
 			return
-		cfc.game_rng_seed = CFUtils.generate_random_seed()
-		gut.p("Testing Random Seed: " + cfc.game_rng_seed)
+#		cfc.game_rng_seed = CFUtils.generate_random_seed()
+#		gut.p("Testing Random Seed: " + cfc.game_rng_seed)
 		var selection_decks =  cfc.get_tree().get_nodes_in_group("selection_decks")
 		assert_eq(selection_decks.size(), 1)
 		if selection_decks.size() == 0:
 			return
 		var selection_deck : SelectionDeck = selection_decks[0]
 		watch_signals(globals.player.deck)
-		selection_deck._deck_preview_grid.get_children()[0].select_card()
+		assert_eq(selection_deck._deck_preview_grid.get_children().size(), 3)
+		if selection_deck._deck_preview_grid.get_children().size() < 3:
+			return
+		selection_deck._deck_preview_grid.get_children()[2].select_card()
 		assert_signal_emitted(globals.player.deck, "card_entry_modified")
 		var signal_details = get_signal_parameters(globals.player.deck, "card_entry_modified")
 		if not signal_details or signal_details.size() == 0:
@@ -288,8 +292,13 @@ class TestIncreaseConfusionStacks:
 		assert_has(card_entry.printed_properties._amounts, "effect_stacks")
 		if not card_entry.printed_properties._amounts.has("effect_stacks"):
 			return
+		assert_has(card_entry.printed_properties._amounts, "effect_stacks2")
+		if not card_entry.printed_properties._amounts.has("effect_stacks2"):
+			return
 		assert_eq(card_entry.properties._amounts.effect_stacks,  card_entry.printed_properties._amounts.effect_stacks + 1,
 				"effect_stacks increased by 1")
+		assert_eq(card_entry.properties._amounts.effect_stacks2,  card_entry.printed_properties._amounts.effect_stacks2,
+				"effect_stacks2 not modified")
 
 
 # All AddTagArtifact use the same logic, so we do not need to test all of them.

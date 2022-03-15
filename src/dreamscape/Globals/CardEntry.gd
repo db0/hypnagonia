@@ -156,7 +156,7 @@ func modify_property(property: String, value, is_enhancement := true, record := 
 		property_modifications.append(record_entry)
 	# When modifying _amounts, we expect a certain payload dictionary
 	if property == "_amounts":
-		_modify_amounts(value.amount_key, value.amount_value)
+		_modify_amounts(value.amount_key, value.amount_value, value.get("purpose", ''))
 	elif typeof(properties.get(property)) == typeof(value):
 		# This handles dictionary propertie, like _amounts
 		if typeof(value) == TYPE_DICTIONARY:
@@ -241,9 +241,16 @@ func is_enhanced():
 
 # This function should only be called from modify_property()
 # to ensure the changes survive card upgrades
-func _modify_amounts(amount_name: String, value) -> void:
+func _modify_amounts(amount_name: String, value, purpose := '') -> void:
 	if not properties.has("_amounts"):
 		properties["_amounts"] = {}
+	if amount_name == 'discover_purpose':
+		var amount_keys : Array = HUtils.get_amount_key_by_purpose(purpose, properties)
+		# when using a purpose seek, there may be multiple amount keys matching it
+		# in which care, we'll do some recursion to loop through all of them
+		for amount_key in amount_keys:
+			_modify_amounts(amount_key, value)
+			return
 	var current_value = properties["_amounts"].get(amount_name)
 	var new_value
 	if typeof(value) == TYPE_STRING\

@@ -33,8 +33,11 @@ func _on_artifact_added() -> void:
 		else:
 			potential_cards = globals.player.deck.get_sorted_cards()
 		if potential_cards.size() > 0:
-			CFUtils.shuffle_array(potential_cards)
-			set_modified_card(potential_cards.pop_back())
+			if globals.test_flags.get("test_rng_ndex", -1) >= 0:
+				set_modified_card(potential_cards[globals.test_flags.test_rng_ndex])
+			else:
+				CFUtils.shuffle_array(potential_cards)
+				set_modified_card(potential_cards.pop_back())
 	_send_trigger_signal()
 
 
