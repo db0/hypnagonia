@@ -7,7 +7,7 @@ var secondary_choices := {
 		'Action': '[choice1]: {release} a random {action}.',
 		'Control': '[choice2]: {release} a random {control}.',
 		'Concentration': '[choice3]: {release} a random {concentration}.',
-		'Understanding': '[choice4]: {release} a random {perturbation}.',
+		'Understanding': '[choice4]: {release} a random {understanding}.',
 	}
 
 # TODO: Fluff
@@ -17,7 +17,7 @@ var cards_per_type := {}
 
 func _init():
 	# TODO: Fluff
-	description = "<Multiple Options - Story Fluff to be Done>. Select one Option...."
+	description = "<Multiple Release - Story Fluff to be Done>. Select one Option...."
 
 func begin() -> void:
 	.begin()
