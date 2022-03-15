@@ -177,7 +177,6 @@ class TestFreeCard:
 		setup_test_artifacts([ArtifactDefinitions.FreeCard.canonical_name])
 		assert_signal_not_emitted(globals.player.deck, "card_entry_modified")
 
-# All AddTagArtifact use the same logic, so we do not need to test all of them.
 class TestAddAlphaTag:
 	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
 	func _init() -> void:
@@ -205,7 +204,7 @@ class TestAddAlphaTag:
 		assert_does_not_have(card_entry.printed_properties.Tags,  Terms.GENERIC_TAGS.alpha.name,
 				"Selected card had originally no alpha tag")
 
-# All AddTagArtifact use the same logic, so we do not need to test all of them.
+
 class TestIncreaseRandomDamage:
 	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
 
@@ -229,7 +228,7 @@ class TestIncreaseRandomDamage:
 		assert_eq(card_entry.properties._amounts.damage_amount,  card_entry.printed_properties._amounts.damage_amount + 1,
 				"Card damage increased by 1")
 
-# All AddTagArtifact use the same logic, so we do not need to test all of them.
+
 class TestIncreaseRandomDefence:
 	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
 
@@ -254,7 +253,7 @@ class TestIncreaseRandomDefence:
 				"Card damage increased by 1")
 
 
-# All AddTagArtifact use the same logic, so we do not need to test all of them.
+
 class TestIncreaseConfusionStacks:
 	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
 	func _init() -> void:
@@ -301,7 +300,6 @@ class TestIncreaseConfusionStacks:
 				"effect_stacks2 not modified")
 
 
-# All AddTagArtifact use the same logic, so we do not need to test all of them.
 class TestIncreaseImmersionGain:
 	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
 	func _init() -> void:

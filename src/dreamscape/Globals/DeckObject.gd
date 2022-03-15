@@ -198,3 +198,12 @@ func filter_card_on_amounts(amount_name: String) -> Array:
 			card_list.append(card_entry)
 	return(card_list)
 
+# Returns a random card from this deck object
+# A custom list of objects can also be passed and it will return
+# a card from there
+# For example you can feed it the results of filter_cards()
+func get_random_card(card_list = cards) -> CardEntry:
+	var rng_array = card_list.duplicate()
+	CFUtils.shuffle_array(rng_array)
+	return(rng_array.back())
+	

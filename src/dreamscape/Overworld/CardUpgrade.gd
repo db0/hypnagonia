@@ -37,6 +37,7 @@ func populate_upgrade_cards() -> void:
 	globals.journal.card_upgrade_started(self)
 	emit_signal("upgrade_prepared")
 
+
 func _on_card_upgrade_selected(option: int, draft_card_object) -> void:
 	var upgrade_options : Array = upgradable_cards[option].upgrade_options
 	var select_return
