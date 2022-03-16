@@ -1589,7 +1589,7 @@ const CARDS := {
 	"Submerged": {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Apply {effect_stacks} {strengthen} to target Torment.\n{forget}",
+		"Abilities": "Apply {detriment_stacks} {strengthen} to target Torment.\n{forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
@@ -1598,7 +1598,7 @@ const CARDS := {
 		},
 		"_keywords": ["forget"],
 		"_amounts": {
-			"effect_stacks": -1,
+			"detriment_stacks": -1,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -1609,7 +1609,7 @@ const CARDS := {
 	"* Submerged *": {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Apply {effect_stacks} {strengthen} to target Torment.\n{forget}",
+		"Abilities": "Apply {detriment_stacks} {strengthen} to target Torment.\n{forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
@@ -1618,14 +1618,14 @@ const CARDS := {
 		},
 		"_keywords": ["forget"],
 		"_amounts": {
-			"effect_stacks": -2,
+			"detriment_stacks": -2,
 		},
 		"_is_upgrade": true,
 	},
 	"^ Submerged ^": {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.alpha.name],
-		"Abilities": "Apply {effect_stacks} {strengthen} to target Torment.\n{forget}",
+		"Abilities": "Apply {detriment_stacks} {strengthen} to target Torment.\n{forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
@@ -1634,7 +1634,7 @@ const CARDS := {
 		},
 		"_keywords": ["forget"],
 		"_amounts": {
-			"effect_stacks": -1,
+			"detriment_stacks": -1,
 		},
 		"_is_upgrade": true,
 	},

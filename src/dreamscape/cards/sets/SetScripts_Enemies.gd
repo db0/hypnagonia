@@ -1607,7 +1607,7 @@ const scripts := {
 					}],
 					"modification":  {
 						"lookup_property": "_amounts",
-						"value_key": "effect_stacks",
+						"value_key": "detriment_stacks",
 					},
 				},
 				{
