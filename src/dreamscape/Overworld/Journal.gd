@@ -480,7 +480,8 @@ func _input(event):
 		globals.player.add_memory(MemoryDefinitions.BossFaster.canonical_name)
 #		var card_entry = globals.player.deck.add_new_card("The Whippy-Flippy")
 #		card_entry.upgrade_progress = card_entry.upgrade_threshold
-#		globals.player.deck.add_new_card("Chasm")
+		globals.player.deck.add_new_card("Cringelord")
+		globals.player.deck.add_new_card("A Chick of the Light")
 #		globals.player.deck.add_new_card("Chasm")
 #		globals.player.deck.add_new_card("Chasm")
 #		globals.player.deck.add_new_card("Prejudice")

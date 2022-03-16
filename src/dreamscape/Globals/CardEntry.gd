@@ -269,6 +269,10 @@ func _modify_amounts(amount_name: String, value, purpose := '') -> void:
 				new_value = int(ceil(float(current_value) * float(value.lstrip("*"))))
 		else:
 			new_value = current_value + int(value)
+			# For now, I assume no amounts will be negative
+			# (They should use is_inverted instead)
+			if new_value < 0: 
+				new_value = 0
 	else:
 		new_value = value
 	properties["_amounts"][amount_name] = new_value

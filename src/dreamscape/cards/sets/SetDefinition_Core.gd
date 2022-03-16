@@ -841,14 +841,14 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-			+ "Repeat this if Torments are not going to be inflicting any {stress} this turn.",
+			+ "Repeat this if no Torment is going to be inflicting more than {max_requirements_amount} {stress} this turn.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "stress"],
 		"_amounts": {
 			"damage_amount": 15,
-			"stress_amount": 0,
+			"max_requirements_amount": 0,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -861,14 +861,14 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-			+ "Repeat this if Torments are not going to be inflicting any {stress} this turn.",
+			+ "Repeat this if no Torment is going to be inflicting more than {max_requirements_amount} {stress} this turn.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "stress"],
 		"_amounts": {
 			"damage_amount": 14,
-			"stress_amount": 0,
+			"max_requirements_amount": 0,
 		},
 		"_is_upgrade": true,
 	},
@@ -876,14 +876,14 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-			+ "Repeat this if Torments are not going to be inflicting any {stress} this turn.",
+			+ "Repeat this if no Torment is going to be inflicting more than {max_requirements_amount} {stress} this turn.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "stress"],
 		"_amounts": {
 			"damage_amount": 19,
-			"stress_amount": 0,
+			"max_requirements_amount": 0,
 		},
 		"_is_upgrade": true,
 	},
@@ -891,14 +891,14 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-			+ "Repeat this if no Torment is going to be inflicting more than {stress_amount} {stress} this turn.",
+			+ "Repeat this if no Torment is going to be inflicting more than {max_requirements_amount} {stress} this turn.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "stress"],
 		"_amounts": {
 			"damage_amount": 15,
-			"stress_amount": 5,
+			"max_requirements_amount": 5,
 		},
 		"_is_upgrade": true,
 	},
@@ -2280,7 +2280,7 @@ const CARDS := {
 	"Fowl Language": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
-		"Abilities": "Each Torment is applied {doubt} equals to its {confusion} x{multiplier_amount}",
+		"Abilities": "Each Torment is applied {doubt} equals to its {confusion}x{multiplier_amount}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -3166,7 +3166,7 @@ const CARDS := {
 		"_keywords": ["interpretation"],
 		"_amounts": {
 			"damage_amount": 6,
-			"x_modifer": "+1"
+			"x_modifer": "+1",
 		},
 		"_is_upgrade": true,
 	},
@@ -3186,7 +3186,7 @@ const CARDS := {
 	"Dodge": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
-		"Abilities": "Requires at least {requirements_amount} {confidence} to play.\nGain {effect_stacks} {untouchable}",
+		"Abilities": "Requires at least {min_requirements_amount} {confidence} to play.\nGain {effect_stacks} {untouchable}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -3195,7 +3195,7 @@ const CARDS := {
 		"_rarity": "Common",
 		"_amounts": {
 			"effect_stacks": 1,
-			"requirements_amount": 3
+			"min_requirements_amount": 3
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -3206,7 +3206,7 @@ const CARDS := {
 	"@ Dodge @": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
-		"Abilities": "Requires at least {requirements_amount} {confidence} to play.\nGain {effect_stacks} {untouchable}",
+		"Abilities": "Requires at least {min_requirements_amount} {confidence} to play.\nGain {effect_stacks} {untouchable}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -3215,14 +3215,14 @@ const CARDS := {
 		"_rarity": "Common",
 		"_amounts": {
 			"effect_stacks": 1,
-			"requirements_amount": 3
+			"min_requirements_amount": 3
 		},
 		"_is_upgrade": true,
 	},
 	"* Dodge *": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
-		"Abilities": "Requires at least {requirements_amount} {confidence} to play.\nGain {effect_stacks} {untouchable}",
+		"Abilities": "Requires at least {min_requirements_amount} {confidence} to play.\nGain {effect_stacks} {untouchable}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -3231,7 +3231,7 @@ const CARDS := {
 		"_rarity": "Common",
 		"_amounts": {
 			"effect_stacks": 2,
-			"requirements_amount": 3
+			"min_requirements_amount": 3
 		},
 		"_is_upgrade": true,
 	},
@@ -5412,7 +5412,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "If you have {requirements_amount} {defence}, gain {effect_stacks} {fortify}",
+				+ "If you have {max_requirements_amount} {defence}, gain {effect_stacks} {fortify}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -5422,7 +5422,7 @@ const CARDS := {
 		},
 		"_amounts": {
 			"damage_amount": 8,
-			"requirements_amount": 0,
+			"max_requirements_amount": 0,
 			"effect_stacks": 1,
 		},
 		"_upgrade_threshold_modifier": 0,
@@ -5435,7 +5435,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "If you have  {requirements_amount} {defence}, gain {effect_stacks} {fortify}",
+				+ "If you have {max_requirements_amount} or less {defence}, gain {effect_stacks} {fortify}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -5445,7 +5445,7 @@ const CARDS := {
 		},
 		"_amounts": {
 			"damage_amount": 11,
-			"requirements_amount": 0,
+			"max_requirements_amount": 0,
 			"effect_stacks": 1,
 		},
 		"_is_upgrade": true,
@@ -5454,7 +5454,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "If you have {requirements_amount} or less {defence}, gain {effect_stacks} {fortify}",
+				+ "If you have {max_requirements_amount} or less {defence}, gain {effect_stacks} {fortify}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -5464,7 +5464,7 @@ const CARDS := {
 		},
 		"_amounts": {
 			"damage_amount": 8,
-			"requirements_amount": 5,
+			"max_requirements_amount": 5,
 			"effect_stacks": 1,
 		},
 		"_is_upgrade": true,
@@ -5567,7 +5567,7 @@ const CARDS := {
 		"_keywords": ["confidence"],
 		"_amounts": {
 			"defence_amount": 7,
-			"x_modifer": "+1"
+			"x_modifer": "+1",
 		},
 		"_is_upgrade": true,
 	},
@@ -5788,7 +5788,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "Gain {defence_amount} {confidence}.\n"\
-			+ "If no Torment is going to be inflicting more than {stress_amount} {stress}"\
+			+ "If no Torment is going to be inflicting more than {max_requirements_amount} {stress}"\
 					 + "this turn, gain {effect_stacks} {fortify}.",
 		"Cost": 2,
 		"_illustration": "Nobody",
@@ -5799,7 +5799,7 @@ const CARDS := {
 		"_keywords": ["confidence", "stress"],
 		"_amounts": {
 			"defence_amount": 12,
-			"stress_amount": 5,
+			"max_requirements_amount": 5,
 			"effect_stacks": 1
 		},
 		"_upgrade_threshold_modifier": 0,
@@ -5812,7 +5812,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "Gain {defence_amount} {confidence}.\n"\
-			+ "If no Torment is going to be inflicting more than {stress_amount} "\
+			+ "If no Torment is going to be inflicting more than {max_requirements_amount} "\
 					 + "this turn, gain {effect_stacks} {fortify}.",
 		"Cost": 2,
 		"_illustration": "Nobody",
@@ -5823,7 +5823,7 @@ const CARDS := {
 		"_keywords": ["confidence", "stress"],
 		"_amounts": {
 			"defence_amount": 16,
-			"stress_amount": 5,
+			"max_requirements_amount": 5,
 			"effect_stacks": 1
 		},
 		"_is_upgrade": true,
@@ -5832,7 +5832,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "Gain {defence_amount} {confidence}.\n"\
-			+ "If no Torment is going to be inflicting more than {stress_amount} "\
+			+ "If no Torment is going to be inflicting more than {max_requirements_amount} "\
 					 + "this turn, gain {effect_stacks} {fortify}.",
 		"Cost": 2,
 		"_illustration": "Nobody",
@@ -5843,7 +5843,7 @@ const CARDS := {
 		"_keywords": ["confidence", "stress"],
 		"_amounts": {
 			"defence_amount": 13,
-			"stress_amount": 8,
+			"max_requirements_amount": 8,
 			"effect_stacks": 1
 		},
 		"_is_upgrade": true,
@@ -5852,7 +5852,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
-				+ "If your {anxiety} is less than {health_percent}% full, gain {effect_stacks} {buffer}",
+				+ "If your {anxiety} is less than {max_requirements_amount}% full, gain {effect_stacks} {buffer}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -5863,7 +5863,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_stacks": 1,
 			"defence_amount": 12,
-			"health_percent": 25,
+			"max_requirements_amount": 25,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -5876,7 +5876,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
-				+ "If your {anxiety} is less than {health_percent}% full, gain {effect_stacks} {buffer}",
+				+ "If your {anxiety} is less than {max_requirements_amount}% full, gain {effect_stacks} {buffer}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -5887,7 +5887,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_stacks": 1,
 			"defence_amount": 16,
-			"health_percent": 25,
+			"max_requirements_amount": 25,
 		},
 		"_is_upgrade": true,
 	},
@@ -5895,7 +5895,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
-				+ "If your {anxiety} is less than {health_percent}% full, gain {effect_stacks} {buffer}",
+				+ "If your {anxiety} is less than {max_requirements_amount}% full, gain {effect_stacks} {buffer}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -5906,7 +5906,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_stacks": 1,
 			"defence_amount": 14,
-			"health_percent": 35,
+			"max_requirements_amount": 35,
 		},
 		"_is_upgrade": true,
 	},
@@ -5914,7 +5914,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
-				+ "If your {anxiety} is less than {health_percent}% full, gain {effect_stacks} {buffer}",
+				+ "If your {anxiety} is less than {max_requirements_amount}% full, gain {effect_stacks} {buffer}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -5925,7 +5925,7 @@ const CARDS := {
 		"_amounts": {
 			"effect_stacks": 2,
 			"defence_amount": 14,
-			"health_percent": 15,
+			"max_requirements_amount": 15,
 		},
 		"_is_upgrade": true,
 	},

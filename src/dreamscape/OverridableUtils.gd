@@ -31,7 +31,7 @@ func populate_info_panels(card: Card, focus_info: DetailPanels) -> void:
 					"Scarred",
 					"Scarred ([img=24x24]res://assets/card_front/scar-wound.png[/img]): "\
 					+ "This card has been permanently degraded in some way.\n"\
-					+ "If a numerical property is affected, it will be highlighted red.",
+					+ "If a numerical property is affected, it will be highlighted [color=red]red[/color].",
 					preload("res://src/dreamscape/InfoPanel.tscn"),
 					true)
 		if card.deck_card_entry.is_enhanced():
@@ -39,7 +39,7 @@ func populate_info_panels(card: Card, focus_info: DetailPanels) -> void:
 					"Enhanced",
 					"Enhanced ([img=24x24]res://assets/card_front/sun.png[/img]): "\
 					+ "This card has been permanently iproved in some way.\n"\
-					+ "If a numerical property is affected, it will be highlighted greem.",
+					+ "If a numerical property is affected, it will be highlighted [color=green]green[/color].",
 					preload("res://src/dreamscape/InfoPanel.tscn"),
 					true)
 	var added_effects := []

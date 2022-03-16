@@ -959,14 +959,14 @@ const CARDS := {
 	"The Victim": {
 		"Type": "Understanding",
 		"Tags": [],
-		"Abilities": "The first time each turn target torment gets {effect_threshold} {damage} or more "\
+		"Abilities": "The first time each turn target torment gets at least {concentration_requirements} {damage} "\
 				+ "from one source, reduce its {focus} by {effect_stacks} for this turn.",
 		"Cost": 0,
 		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": [],
 		"_amounts": {
-			"effect_threshold": 9,
+			"concentration_requirements": 9,
 			"effect_stacks": 1,
 		},
 		"_upgrade_threshold_modifier": 0,
@@ -978,14 +978,14 @@ const CARDS := {
 	"^ The Victim ^": {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.alpha.name],
-		"Abilities": "The first time each turn target torment gets {effect_threshold} {damage} or more "\
+		"Abilities": "The first time each turn target torment gets at least {concentration_requirements} {damage} "\
 				+ "from one source, reduce its {focus} by {effect_stacks} for this turn.",
 		"Cost": 0,
 		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": [],
 		"_amounts": {
-			"effect_threshold": 9,
+			"concentration_requirements": 9,
 			"effect_stacks": 1,
 		},
 		"_is_upgrade": true,
@@ -993,14 +993,14 @@ const CARDS := {
 	"* The Victim *": {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.alpha.name],
-		"Abilities": "The first time each turn target torment gets {effect_threshold} {damage} or more "\
+		"Abilities": "The first time each turn target torment gets at least {concentration_requirements} {damage} "\
 				+ "from one source, reduce its {focus} by {effect_stacks} for this turn.",
 		"Cost": 0,
 		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": [],
 		"_amounts": {
-			"effect_threshold": 9,
+			"concentration_requirements": 9,
 			"effect_stacks": 2,
 		},
 		"_is_upgrade": true,
@@ -1467,7 +1467,7 @@ const CARDS := {
 	"Cringelord": {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Shuffle a {perturb_amount} Cringeworthy Memory in your deck.\n"\
+		"Abilities": "Shuffle {perturb_amount} Cringeworthy Memory in your deck.\n"\
 				+ "Gain {defence_amount} {defence}.\n{forget}",
 		"Cost": 1,
 		"_illustration": "Db0 via Artbreeder.com",
@@ -1589,7 +1589,7 @@ const CARDS := {
 	"Submerged": {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Apply {detriment_stacks} {strengthen} to target Torment.\n{forget}",
+		"Abilities": "Apply -{detriment_stacks} {strengthen} to target Torment.\n{forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
@@ -1598,7 +1598,7 @@ const CARDS := {
 		},
 		"_keywords": ["forget"],
 		"_amounts": {
-			"detriment_stacks": -1,
+			"detriment_stacks": 1,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -1609,7 +1609,7 @@ const CARDS := {
 	"* Submerged *": {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Apply {detriment_stacks} {strengthen} to target Torment.\n{forget}",
+		"Abilities": "Apply -{detriment_stacks} {strengthen} to target Torment.\n{forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
@@ -1618,14 +1618,14 @@ const CARDS := {
 		},
 		"_keywords": ["forget"],
 		"_amounts": {
-			"detriment_stacks": -2,
+			"detriment_stacks": 2,
 		},
 		"_is_upgrade": true,
 	},
 	"^ Submerged ^": {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.alpha.name],
-		"Abilities": "Apply {detriment_stacks} {strengthen} to target Torment.\n{forget}",
+		"Abilities": "Apply -{detriment_stacks} {strengthen} to target Torment.\n{forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
@@ -1634,7 +1634,7 @@ const CARDS := {
 		},
 		"_keywords": ["forget"],
 		"_amounts": {
-			"detriment_stacks": -1,
+			"detriment_stacks": 1,
 		},
 		"_is_upgrade": true,
 	},

@@ -8,7 +8,7 @@ func _ready():
 
 func _on_entity_damaged(entity, amount, _trigger: Node, _tags: Array) -> void:
 	if amount >= cfc.card_definitions["The Victim"]\
-			.get("_amounts",{}).get("effect_threshold", 9) and reduced_strength == 0:
+			.get("_amounts",{}).get("concentration_requirements", 9) and reduced_strength == 0:
 		var discern = [
 			{
 				"name": "apply_effect",
