@@ -480,7 +480,8 @@ func _input(event):
 		globals.player.add_memory(MemoryDefinitions.BossFaster.canonical_name)
 #		var card_entry = globals.player.deck.add_new_card("The Whippy-Flippy")
 #		card_entry.upgrade_progress = card_entry.upgrade_threshold
-		globals.player.deck.add_new_card("Submerged")
+#		globals.player.deck.add_new_card("Chasm")
+#		globals.player.deck.add_new_card("Chasm")
 #		globals.player.deck.add_new_card("Chasm")
 #		globals.player.deck.add_new_card("Prejudice")
 #		globals.player.damage += 20
@@ -505,7 +506,8 @@ func _input(event):
 #			preload("res://src/dreamscape/Run/NCE/Act3/TheCake.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act2/HangingOn.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd").new(),
-			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
+			BossEncounter.new(Act2.BOSSES["Surreality"]),
+#			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
 			EliteEncounter.new(Act1.Bully, "medium"),
 #			EliteEncounter.new(Act2.Jumbletron, "medium"),
 #			EliteEncounter.new(Act3.TheatrePlay, "medium"),

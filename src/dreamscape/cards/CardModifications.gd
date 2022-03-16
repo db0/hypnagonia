@@ -69,6 +69,13 @@ static func get_scars() -> Dictionary:
 				"amount_value": "-1",
 			},
 		},
+		[CardFilter.new('_amounts', "immersion_amount", 'eq')]: {
+			"property": "_amounts",
+			"value": {
+				"amount_key": "immersion_amount",
+				"amount_value": "-1",
+			},
+		},
 		[CardFilter.new('_amounts', "effect_threshold", 'eq')]: {
 			"property": "_amounts",
 			"value": {
@@ -157,6 +164,13 @@ static func get_blessings() -> Dictionary:
 			"property": "_amounts",
 			"value": {
 				"amount_key": "increase_amount",
+				"amount_value": "+1",
+			},
+		},
+		[CardFilter.new('_amounts', "immersion_amount", 'eq')]: {
+			"property": "_amounts",
+			"value": {
+				"amount_key": "immersion_amount",
 				"amount_value": "+1",
 			},
 		},
