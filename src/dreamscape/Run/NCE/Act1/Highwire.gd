@@ -14,6 +14,9 @@ var nce_result_fluff := {
 		'accept_fail': 'A clown distracted me and I began to fall. Was there a safety net?',
 		'decline': 'The crowd groaned as I climbed down from the platform.',
 	}
+	
+# For controlling chances during testing
+var _testing_rng = -1
 
 func _init():
 	# TODO: Add story
@@ -33,8 +36,10 @@ func continue_encounter(key) -> void:
 	var result: String
 	if key == "accept":
 		result = nce_result_fluff['accept_fail']
-		var rngesus = CFUtils.randf_range(0.0,1.0)
-		if rngesus <= 0.4:
+		var rngesus = CFUtils.randi_range(1,100)
+		if _testing_rng >= 0:
+			rngesus = _testing_rng
+		if rngesus <= 40:
 			var accumulated = globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.nce] / 4
 			artifact_prep = ArtifactPrep.new(accumulated/2, accumulated, 1)
 # warning-ignore:return_value_discarded

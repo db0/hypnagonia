@@ -243,6 +243,7 @@ class TestHighwire:
 		watch_signals(globals.player.deck)
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		nce._testing_rng = 41
 		watch_signals(globals.player.pathos)
 # warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("accept")
@@ -252,11 +253,11 @@ class TestHighwire:
 		assert_deck_signaled("card_added", "card_name", "Terror")
 		
 	func test_choice_accept_success():
-		cfc.game_rng_seed = "tACXVN?OlF"
 		watch_signals(globals.player)
 		watch_signals(globals.player.deck)
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		nce._testing_rng = 40
 		watch_signals(globals.player.pathos)
 # warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("accept")
