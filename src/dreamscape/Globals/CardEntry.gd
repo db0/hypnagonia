@@ -84,12 +84,10 @@ func instance_self(is_display_card:= false) -> Card:
 
 func upgrade(upgrade_name: String) -> void:
 	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
-		print("DEBUG INFO:Deck: Upgrading:" + card_name)
+		print("DEBUG INFO:CardEntry: Upgrading:" + card_name)
 	_setup_card_entry(upgrade_name)
 	for mod in property_modifications:
 		modify_property(mod.property, mod.value, mod.is_enhancement, false)
-	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
-		print("DEBUG INFO:Deck: Finished Upgrading:" + card_name)
 	emit_signal("card_entry_upgraded", self)
 
 
@@ -150,6 +148,8 @@ func get_property(property: String):
 
 # This permanently modifies a property for that one card in your deck.
 func modify_property(property: String, value, is_enhancement := true, record := true) -> void:
+	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+		print("DEBUG INFO:CardEntry: Modifying %s: %s" % [card_name, [property,value]])
 	# We record the changes permanently, so that we can re-apply them after the card upgrades
 	if record:
 		var record_entry := {
