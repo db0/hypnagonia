@@ -1,5 +1,25 @@
 # Changelog
 
+## [v0.38.0](https://github.com/db0/hypnagonia/tree/v0.38.0) (2022-03-16)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.37.0...v0.38.0)
+
+## [v0.37.0](https://github.com/db0/hypnagonia/tree/v0.37.0) (2022-03-16)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.36.0...v0.37.0)
+
+**Closed issues:**
+
+- Game hung [\#239](https://github.com/db0/hypnagonia/issues/239)
+- "Smoke Bomb" curio also buffs other card stats [\#238](https://github.com/db0/hypnagonia/issues/238)
+- NCE to release a random card selects card from wrong category [\#237](https://github.com/db0/hypnagonia/issues/237)
+- A Bully's Laughing One died after summon [\#236](https://github.com/db0/hypnagonia/issues/236)
+
+**Merged pull requests:**
+
+- Fix various bugs and added 1 new NCE [\#241](https://github.com/db0/hypnagonia/pull/241) ([db0](https://github.com/db0))
+- Minor description fixes [\#240](https://github.com/db0/hypnagonia/pull/240) ([simply-peachy](https://github.com/simply-peachy))
+
 ## [v0.36.0](https://github.com/db0/hypnagonia/tree/v0.36.0) (2022-03-14)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.35.1...v0.36.0)
