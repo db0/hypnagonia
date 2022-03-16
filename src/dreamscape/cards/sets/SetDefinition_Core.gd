@@ -5788,7 +5788,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "Gain {defence_amount} {confidence}.\n"\
-			+ "If no Torment is going to be inflicting more than {stress_amount} "\
+			+ "If no Torment is going to be inflicting more than {stress_amount} {stress}"\
 					 + "this turn, gain {effect_stacks} {fortify}.",
 		"Cost": 2,
 		"_illustration": "Nobody",
