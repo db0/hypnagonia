@@ -187,6 +187,7 @@ static func get_scars() -> Dictionary:
 		},
 		[
 			CardFilter.new('Tags', Terms.GENERIC_TAGS.slumber.name, 'ne'),
+			CardFilter.new('Tags', 2, 'lt'),
 			CardFilter.new('Type', "Concentration", 'ne'),
 			CardFilter.new('_is_concentration', false),
 		]: {
@@ -362,11 +363,17 @@ static func get_blessings() -> Dictionary:
 				"amount_value": "+1",
 			},
 		},
-		[CardFilter.new('Tags', Terms.GENERIC_TAGS.alpha.name, 'ne')]: {
+		[
+			CardFilter.new('Tags', Terms.GENERIC_TAGS.alpha.name, 'ne'),
+			CardFilter.new('Tags', 2, 'lt'),
+		]: {
 			"property": "Tags",
 			"value": Terms.GENERIC_TAGS.alpha.name,
 		},
-		[CardFilter.new('Tags', Terms.GENERIC_TAGS.frozen.name, 'ne')]: {
+		[
+			CardFilter.new('Tags', Terms.GENERIC_TAGS.frozen.name, 'ne'),
+			CardFilter.new('Tags', 2, 'lt'),
+		]: {
 			"property": "Tags",
 			"value": Terms.GENERIC_TAGS.frozen.name,
 		},
