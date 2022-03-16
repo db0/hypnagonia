@@ -5,8 +5,8 @@ const EPIC_AMOUNT = 4
 const GAMBLE_AMOUNT = 4
 
 var secondary_choices := {
-		'epic': "[Epic Upgrade]: Lose {anxiety_loss} max {anxiety}. Choose a card and Enhance it {epic_amount} times. (Enhancing randomly improves a card.)",
-		'gamble': "[Gamble]: Choose a card. Enhance it {gamble_amount} times then Scar it {gamble_amount} times (Scarring randomly degrades a card.).",
+		'epic': "[Epic Upgrade]: Lose {anxiety_loss} max {anxiety}. Choose a non-{concentration} card and Enhance it {epic_amount} times. (Enhancing randomly improves a card.)",
+		'gamble': "[Gamble]: Choose a non-{concentration} card. Enhance it {gamble_amount} times then Scar it {gamble_amount} times (Scarring randomly degrades a card.).",
 		'skip': "[Skip]: Release a random card from your deck.",
 	}
 
@@ -38,6 +38,8 @@ func continue_encounter(key) -> void:
 			var selection_deck : SelectionDeck = globals.journal.spawn_selection_deck()
 			selection_deck.popup_exclusive = true
 			# warning-ignore:return_value_discarded
+			var card_filters = [CardFilter.new('Type', 'Concentration', 'ne')]
+			selection_deck.card_filters = card_filters
 			selection_deck.connect("operation_performed", self, "_on_card_selected", [key])
 			selection_deck.auto_close = true
 			selection_deck.initiate_card_selection(0)
