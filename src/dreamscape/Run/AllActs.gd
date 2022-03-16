@@ -8,6 +8,7 @@ const NCE := {
 	},
 	"risky": {
 		"EpicUpgrade": preload("res://src/dreamscape/Run/NCE/AllActs/EpicUpgrade.gd"),
+		"OstrichEggs": preload("res://src/dreamscape/Run/NCE/AllActs/OstrichEggs.gd"),
 	}
 }
 

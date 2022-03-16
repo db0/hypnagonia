@@ -153,3 +153,55 @@ class TestEpicUpgrade:
 		activate_secondary_choice_by_key("skip")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_emitted(globals.player.deck, "card_removed")
+
+class TestOstrichEggs:
+	extends  "res://tests/HUT_Journal_NCETestClass.gd"
+	var action_filters = [
+		CardFilter.new('_rarity', 'Basic'),
+		CardFilter.new('Type', 'Action'),
+	]
+	var control_filters = [
+		CardFilter.new('_rarity', 'Basic'),
+		CardFilter.new('Type', 'Control'),
+	]
+	func _init() -> void:
+		testing_nce_script = preload("res://src/dreamscape/Run/NCE/AllActs/OstrichEggs.gd")
+
+	func test_choice_scramble():
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player.deck)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		# warning-ignore:return_value_discarded
+		activate_secondary_choice_by_key("scramble")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_signal_emit_count(globals.player.deck, "card_entry_modified", 11)
+		for card_entry in globals.player.deck.filter_cards(action_filters):
+			assert_true(card_entry.is_enhanced())
+			assert_false(card_entry.is_scarred())
+		for card_entry in globals.player.deck.filter_cards(control_filters):
+			assert_false(card_entry.is_enhanced())
+			assert_true(card_entry.is_scarred())
+
+	func test_choice_omelette():
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player.deck)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		# warning-ignore:return_value_discarded
+		activate_secondary_choice_by_key("omelette")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_signal_emit_count(globals.player.deck, "card_entry_modified", 11)
+		for card_entry in globals.player.deck.filter_cards(action_filters):
+			assert_false(card_entry.is_enhanced())
+			assert_true(card_entry.is_scarred())
+		for card_entry in globals.player.deck.filter_cards(control_filters):
+			assert_true(card_entry.is_enhanced())
+			assert_false(card_entry.is_scarred())
+
+	func test_choice_hungrey():
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player.deck)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+		# warning-ignore:return_value_discarded
+		activate_secondary_choice_by_key("hungry")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_signal_emit_count(globals.player.deck, "card_entry_modified", nce.HUNGRY_AMOUNT)
