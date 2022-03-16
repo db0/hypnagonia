@@ -196,12 +196,16 @@ class TestVulnerable:
 		effects_to_play = [
 			{
 				"name": effect,
-				"amount": 4,
+				"amount": 5,
+				"tags": ['Delayed'],
 			}
 		]
 
 
 	func test_vulnerable_general():
+		# We're testing it delayed to make sure the delayed is removed as well
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
 		card._start_dragging(Vector2(card.global_position))
 		yield(yield_to(get_tree(), "idle_frame", 0.1), YIELD)
 		assert_eq(dreamer.incoming.get_child_count(), 1,

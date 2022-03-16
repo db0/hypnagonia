@@ -191,7 +191,7 @@ func _on_player_turn_started(_turn: Turn) -> void:
 			is_delayed = false
 		else:
 			_decrease_stacks()
-	elif entity_type == Terms.ENEMY and is_delayed:
+	elif is_delayed:
 		is_delayed = false
 
 func _on_enemy_turn_ended(_turn: Turn) -> void:

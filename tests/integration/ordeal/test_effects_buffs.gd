@@ -98,6 +98,7 @@ class TestBuffer:
 			{
 				"name": effect,
 				"amount": 4,
+				"tags": ['Delayed'],
 			}
 		]
 
@@ -105,19 +106,25 @@ class TestBuffer:
 	func test_buffer_general():
 		cfc.NMAP.board.turn.end_player_turn()
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 4,
+				"Dreamer should not have used delayed %s stacks" % [effect])
+		assert_eq(counters.counters.immersion, 3,
+				"Dreamer's energy not increased")
+		assert_eq(cfc.NMAP.board.turn.turn_event_count.get("buffer_immersion_gained", 0), 0, "Not increased due to Delayed")
+		cfc.NMAP.board.turn.end_player_turn()
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 0,
 				"Dreamer should have already used %s stacks" % [effect])
 		assert_eq(counters.counters.immersion, 7,
 				"Dreamer's energy increased")
-		assert_eq(cfc.NMAP.board.turn.turn_event_count.get("buffer_immersion_gained"), 1)
-		assert_eq(cfc.NMAP.board.turn.turn_event_count.get("immersion_increased",0), 0)
-		assert_eq(cfc.NMAP.board.turn.encounter_event_count.get("immersion_increased",0), 0)
+		assert_eq(cfc.NMAP.board.turn.turn_event_count.get("buffer_immersion_gained", 0), 1)
+		assert_eq(cfc.NMAP.board.turn.turn_event_count.get("immersion_increased",0), 0, "Buffer immersion does not count for mid-turn immersion gain")
+		assert_eq(cfc.NMAP.board.turn.encounter_event_count.get("immersion_increased",0), 0, "Buffer immersion does not count for mid-turn immersion gain")
 
 	func test_buffer_opposite():
 		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.drain.name, 2,  '')
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 2,
 				"%s counters %s" % [effect, Terms.ACTIVE_EFFECTS.drain.name])
-
 
 class TestEmpower:
 	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
