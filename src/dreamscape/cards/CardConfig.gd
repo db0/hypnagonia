@@ -111,7 +111,6 @@ static func get_amounts_format(properties_dict: Dictionary, printed_properties_d
 				else:
 					amount_color = "green"
 			elif amounts_format[amount] < printed_amounts_format[amount]:
-				print_debug(amount)
 				if amount in inverted_amounts:
 					amount_color = "green"
 				else:

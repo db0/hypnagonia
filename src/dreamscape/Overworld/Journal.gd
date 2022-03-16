@@ -503,7 +503,7 @@ func _input(event):
 #			EnemyEncounter.new(Act2.TrafficJam, "easy"),
 #			EnemyEncounter.new(Act3.Nightmare, "hard"),
 #			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
-			preload("res://src/dreamscape/Run/NCE/AllActs/EpicUpgrade.gd").new(),
+			preload("res://src/dreamscape/Run/NCE/AllActs/OstrichEggs.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act3/TheCake.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act2/HangingOn.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd").new(),

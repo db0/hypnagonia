@@ -176,10 +176,13 @@ func filter_cards(filters) -> Array:
 	for c in cards:
 		var card_entry: CardEntry = c
 		if typeof(filters) == TYPE_ARRAY:
+			var card_matches = true
 			for f in filters:
 				var filter: CardFilter = f
-				if filter.check_card(card_entry.properties):
-					card_list.append(card_entry)
+				if not filter.check_card(card_entry.properties):
+					card_matches = false
+			if card_matches:
+				card_list.append(card_entry)
 		elif filters as CardFilter:
 			var filter: CardFilter = filters
 			if filter.check_card(card_entry.properties):
