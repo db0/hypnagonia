@@ -84,8 +84,8 @@ func spawn_test_torments() -> void:
 
 	
 
-func spawn_effect(target: CombatEntity, effect_name: String, amount: int, upgrade := '') -> void:
-	target.active_effects.mod_effect(effect_name, amount, false, false, ['GUT'], upgrade)
+func spawn_effect(target: CombatEntity, effect_name: String, amount: int, upgrade := '', tags := ['GUT']) -> void:
+	target.active_effects.mod_effect(effect_name, amount, false, false, tags, upgrade)
 
 
 func get_all_card_names() -> Array:
