@@ -95,10 +95,27 @@ static func get_amounts_format(properties_dict: Dictionary, printed_properties_d
 	for amount in amounts_format:
 		var amount_color = "yellow"
 		if printed_amounts_format.has(amount):
+			# These amounts become better when being reduced
+			# so we want to reverse the colours (i.e. green when lower then printed)
+			var inverted_amounts = [
+				"min_requirements_amount",
+				"forget_amount",
+				"discard_amount",
+				"exert_amount",
+				"detriment_stacks",
+				"perturb_amount",
+			]
 			if amounts_format[amount] > printed_amounts_format[amount]:
-				amount_color = "green"
+				if amount in inverted_amounts:
+					amount_color = "red"
+				else:
+					amount_color = "green"
 			elif amounts_format[amount] < printed_amounts_format[amount]:
-				amount_color = "red"
+				print_debug(amount)
+				if amount in inverted_amounts:
+					amount_color = "green"
+				else:
+					amount_color = "red"
 		var fmt := {
 			"color": amount_color,
 			"amount": amounts_format[amount],

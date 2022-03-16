@@ -16,7 +16,7 @@ func _init(_dry_run) -> void:
 #
 # You can pass a predefined subject, but it's optional.
 func custom_script(script: ScriptObject) -> void:
-	var card: Card = script.owner
+	var card: DreamCard = script.owner
 	var subjects: Array = script.subjects
 	# I don't like the extra indent caused by this if,
 	# But not all object will be Card
@@ -93,9 +93,14 @@ func custom_script(script: ScriptObject) -> void:
 				for subject in subjects:
 					var dstacks = subject.active_effects.get_effect_stacks(
 							Terms.ACTIVE_EFFECTS.disempower.name)
-					if card.canonical_name == "% unnamed_card_2 %":
+					if card.canonical_name == "% Fowl Language %":
 						dstacks += 1
-					var multiplier = cfc.card_definitions[card.canonical_name]\
+					var multiplier : int 
+					if card.deck_card_entry:
+						multiplier = card.deck_card_entry\
+								.get_property("_amounts",{}).get("multiplier_amount")
+					else:
+						multiplier = cfc.card_definitions[card.canonical_name]\
 								.get("_amounts",{}).get("multiplier_amount")
 					var card_script := [{
 							"name": "apply_effect",

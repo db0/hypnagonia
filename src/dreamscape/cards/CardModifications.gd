@@ -20,11 +20,87 @@ static func get_scars() -> Dictionary:
 				"amount_value": "*0.9",
 			},
 		},
+		[CardFilter.new('_amounts', "damage_amount2", 'eq')]: {
+			"property": "_amounts",
+			"value": {
+				"amount_key": "damage_amount",
+				"amount_value": "*0.9",
+			},
+		},
 		[CardFilter.new('_amounts', "defence_amount", 'eq')]: {
 			"property": "_amounts",
 			"value": {
 				"amount_key": "defence_amount",
 				"amount_value": "*0.9",
+			},
+		},
+		[CardFilter.new('_amounts', "defence_amount2", 'eq')]: {
+			"property": "_amounts",
+			"value": {
+				"amount_key": "defence_amount",
+				"amount_value": "*0.9",
+			},
+		},
+		[CardFilter.new('_amounts', "healing_amount", 'eq')]: {
+			"property": "_amounts",
+			"value": {
+				"amount_key": "healing_amount",
+				"amount_value": "*0.9",
+			},
+		},
+		[CardFilter.new('_amounts', "chain_amount", 'eq')]: {
+			"property": "_amounts",
+			"value": {
+				"amount_key": "chain_amount",
+				"amount_value": "-1",
+			},
+		},
+		[CardFilter.new('_amounts', "draw_amount", 'eq')]: {
+			"property": "_amounts",
+			"value": {
+				"amount_key": "draw_amount",
+				"amount_value": "-1",
+			},
+		},
+		# Used when the player has to forget cards as cost
+		# So increasing this amount makes the card worse
+		[CardFilter.new('_amounts', "forget_amount", 'eq')]: {
+			"property": "_amounts",
+			"value": {
+				"amount_key": "forget_amount",
+				"amount_value": "+1",
+			},
+		},
+		# Used when the player has to discard cards as cost
+		# So increasing this amount makes the card worse
+		[CardFilter.new('_amounts', "discard_amount", 'eq')]: {
+			"property": "_amounts",
+			"value": {
+				"amount_key": "discard_amount",
+				"amount_value": "+1",
+			},
+		},
+		# Used when the player gains this amount of perturbations as the effect
+		# So increasing this amount makes the card worse
+		[CardFilter.new('_amounts', "perturb_amount", 'eq')]: {
+			"property": "_amounts",
+			"value": {
+				"amount_key": "perturb_amount",
+				"amount_value": "+1",
+			},
+		},
+		[CardFilter.new('_amounts', "turns_amount", 'eq')]: {
+			"property": "_amounts",
+			"value": {
+				"amount_key": "turns_amount",
+				"amount_value": "-1",
+			},
+		},
+		[CardFilter.new('_amounts', "multiplier_amount", 'eq')]: {
+			"property": "_amounts",
+			"value": {
+				"amount_key": "multiplier_amount",
+				"amount_value": "-1",
 			},
 		},
 		[CardFilter.new('_amounts', "effect_stacks", 'eq')]: {
@@ -76,18 +152,29 @@ static func get_scars() -> Dictionary:
 				"amount_value": "-1",
 			},
 		},
-		[CardFilter.new('_amounts', "effect_threshold", 'eq')]: {
-			"property": "_amounts",
-			"value": {
-				"amount_key": "effect_threshold",
-				"amount_value": "+1",
-			},
-		},
 		[CardFilter.new('_amounts', "exert_amount", 'eq')]: {
 			"property": "_amounts",
 			"value": {
-				"amount_key": "effect_threshold",
+				"amount_key": "exert_amount",
 				"amount_value": "+1",
+			},
+		},
+		# Used when the player has to have this or higher amount of something
+		# So increasing this amount makes the card worse
+		[CardFilter.new('_amounts', "min_requirements_amount", 'eq')]: {
+			"property": "_amounts",
+			"value": {
+				"amount_key": "min_requirements_amount",
+				"amount_value": "+1",
+			},
+		},
+		# Used when the player has to have this or lower amount of something
+		# So decreasing this amount makes the card worse
+		[CardFilter.new('_amounts', "max_requirements_amount", 'eq')]: {
+			"property": "_amounts",
+			"value": {
+				"amount_key": "max_requirements_amount",
+				"amount_value": "-1",
 			},
 		},
 		[CardFilter.new('Tags', Terms.GENERIC_TAGS.alpha.name, 'eq')]: {
@@ -118,11 +205,87 @@ static func get_blessings() -> Dictionary:
 				"amount_value": "*1.1",
 			},
 		},
+		[CardFilter.new('_amounts', "damage_amount2", 'eq')]: {
+			"property": "_amounts",
+			"value": {
+				"amount_key": "damage_amount2",
+				"amount_value": "*1.1",
+			},
+		},
 		[CardFilter.new('_amounts', "defence_amount", 'eq')]: {
 			"property": "_amounts",
 			"value": {
 				"amount_key": "defence_amount",
 				"amount_value": "*1.1",
+			},
+		},
+		[CardFilter.new('_amounts', "defence_amount2", 'eq')]: {
+			"property": "_amounts",
+			"value": {
+				"amount_key": "defence_amount2",
+				"amount_value": "*1.1",
+			},
+		},
+		[CardFilter.new('_amounts', "healing_amount", 'eq')]: {
+			"property": "_amounts",
+			"value": {
+				"amount_key": "healing_amount",
+				"amount_value": "*1.1",
+			},
+		},
+		[CardFilter.new('_amounts', "chain_amount", 'eq')]: {
+			"property": "_amounts",
+			"value": {
+				"amount_key": "chain_amount",
+				"amount_value": "+1",
+			},
+		},
+		[CardFilter.new('_amounts', "draw_amount", 'eq')]: {
+			"property": "_amounts",
+			"value": {
+				"amount_key": "draw_amount",
+				"amount_value": "+1",
+			},
+		},
+		# Used when the player has to forget cards as cost
+		# So decreasing this amount makes the card better
+		[CardFilter.new('_amounts', "forget_amount", 'eq')]: {
+			"property": "_amounts",
+			"value": {
+				"amount_key": "forget_amount",
+				"amount_value": "-1",
+			},
+		},
+		# Used when the player has to discard cards as cost
+		# So decreasing this amount makes the card better
+		[CardFilter.new('_amounts', "discard_amount", 'eq')]: {
+			"property": "_amounts",
+			"value": {
+				"amount_key": "discard_amount",
+				"amount_value": "-1",
+			},
+		},
+		# Used when the player gains this amount of perturbations as the effect
+		# So decreasing this amount makes the card better
+		[CardFilter.new('_amounts', "perturb_amount", 'eq')]: {
+			"property": "_amounts",
+			"value": {
+				"amount_key": "perturb_amount",
+				"amount_value": "-1",
+			},
+		},
+		[CardFilter.new('_amounts', "turns_amount", 'eq')]: {
+			"property": "_amounts",
+			"value": {
+				"amount_key": "turns_amount",
+				"amount_value": "+1",
+			},
+		},
+		[CardFilter.new('_amounts', "multiplier_amount", 'eq')]: {
+			"property": "_amounts",
+			"value": {
+				"amount_key": "multiplier_amount",
+				"amount_value": "+1",
 			},
 		},
 		[CardFilter.new('_amounts', "effect_stacks", 'eq')]: {
@@ -174,18 +337,29 @@ static func get_blessings() -> Dictionary:
 				"amount_value": "+1",
 			},
 		},
-		[CardFilter.new('_amounts', "effect_threshold", 'eq')]: {
-			"property": "_amounts",
-			"value": {
-				"amount_key": "effect_threshold",
-				"amount_value": "-1",
-			},
-		},
 		[CardFilter.new('_amounts', "exert_amount", 'eq')]: {
 			"property": "_amounts",
 			"value": {
-				"amount_key": "effect_threshold",
+				"amount_key": "exert_amount",
 				"amount_value": "-1",
+			},
+		},
+		# Used when the player has to have this or higher amount of something
+		# So decreasing this amount makes the card better
+		[CardFilter.new('_amounts', "min_requirements_amount", 'eq')]: {
+			"property": "_amounts",
+			"value": {
+				"amount_key": "min_requirements_amount",
+				"amount_value": "-1",
+			},
+		},
+		# Used when the player has to have this or lower amount of something
+		# So increasing this amount makes the card better
+		[CardFilter.new('_amounts', "max_requirements_amount", 'eq')]: {
+			"property": "_amounts",
+			"value": {
+				"amount_key": "max_requirements_amount",
+				"amount_value": "+1",
 			},
 		},
 		[CardFilter.new('Tags', Terms.GENERIC_TAGS.alpha.name, 'ne')]: {

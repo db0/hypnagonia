@@ -1608,6 +1608,7 @@ const scripts := {
 					"modification":  {
 						"lookup_property": "_amounts",
 						"value_key": "detriment_stacks",
+						"is_inverted": true,
 					},
 				},
 				{

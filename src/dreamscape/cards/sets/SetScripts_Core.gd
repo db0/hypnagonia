@@ -434,7 +434,7 @@ const FindWeakness = {
 				"subject": "previous",
 				"filter_intent_stress": {
 					"lookup_property": "_amounts",
-					"value_key": "stress_amount"
+					"value_key": "max_requirements_amount"
 				},
 				"filter_state_subject": [{
 					"filter_group": "EnemyEntities",
@@ -1860,7 +1860,7 @@ const Dodge = {
 				},
 				"filter_dreamer_defence": {
 					"lookup_property": "_amounts",
-					"value_key": "requirements_amount"
+					"value_key": "min_requirements_amount"
 				},
 				"comparison": "ge",
 				"fail_cost_on_skip": true,
@@ -3388,7 +3388,7 @@ const TheFinger = {
 				},
 				"filter_dreamer_defence": {
 					"lookup_property": "_amounts",
-					"value_key": "requirements_amount"
+					"value_key": "max_requirements_amount"
 				},
 				"comparison": "le",
 			},
@@ -3584,7 +3584,7 @@ const AChickOfTheLight = {
 				},
 				"filter_intent_stress": {
 					"lookup_property": "_amounts",
-					"value_key": "stress_amount"
+					"value_key": "max_requirements_amount"
 				},
 			}
 		],
@@ -3614,7 +3614,7 @@ const NearGroundFlight = {
 				"filter_damage_percent": {
 					"percent": {
 						"lookup_property": "_amounts",
-						"value_key": "health_percent",
+						"value_key": "max_requirements_amount",
 						"default": 0,
 					},
 					"comparison": "le",
