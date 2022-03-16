@@ -63,7 +63,7 @@ const MAD_SCIENTIST := {
 		Terms.ACTIVE_EFFECTS.buffer.name,
 	],
 	"Artifacts": [
-		
+		ArtifactDefinitions.IncreaseBufferStacks
 	],
 	"Memories": [
 		MemoryDefinitions.ReshuffleHand,
@@ -164,7 +164,8 @@ const FEARLESS:= {
 	],
 	"Artifacts": [
 		ArtifactDefinitions.ImprovePoison,
-		ArtifactDefinitions.ImproveFortify
+		ArtifactDefinitions.ImproveFortify,
+		ArtifactDefinitions.IncreasePoisonStacks,
 	],
 	"Memories": [
 		MemoryDefinitions.PoisonEnemy,
@@ -278,7 +279,8 @@ const ABUSIVE_RELATIONSHIP := {
 		Terms.GENERIC_TAGS.exert.name,
 	],
 	"Artifacts": [
-		ArtifactDefinitions.IncreaseImmersionGain
+		ArtifactDefinitions.IncreaseImmersionGain,
+		ArtifactDefinitions.DecreaseExertStacks,
 	],
 	"Memories": [
 		MemoryDefinitions.ExertRecovery,

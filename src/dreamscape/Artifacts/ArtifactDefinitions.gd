@@ -619,7 +619,7 @@ const IncreaseRandomDefence := {
 const IncreaseConfusionStacks := {
 	"canonical_name": "IncreaseConfusionStacks",
 	"name": "Smoke Bomb",
-	"description": "{artifact_name}: Choose a {disempower} card in your deck. Increase the amount of {disempower} stacks it is inflicting by 1.",
+	"description": "{artifact_name}: Choose a {disempower} card in your deck. Increase the amount of {disempower} stacks it is applying by 1.",
 	"icon": preload("res://assets/icons/artifacts/smoke-bomb.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
@@ -628,7 +628,7 @@ const IncreaseConfusionStacks := {
 const IncreaseImmersionGain := {
 	"canonical_name": "IncreaseImmersionGain",
 	"name": "Bookmark",
-	"description": "{artifact_name}: Choose an {immersion} card in your deck. Increase the amount of {immersion} stacks it is providing by 1.",
+	"description": "{artifact_name}: Choose an {immersion} card in your deck. Increase the amount of {immersion} it is providing by 1.",
 	"icon": preload("res://assets/icons/artifacts/bookmark.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Rare",
@@ -682,6 +682,33 @@ const ProgressEverything := {
 	"amounts": {
 		"progress_amount": 8
 	},
+}
+
+const IncreaseBufferStacks := {
+	"canonical_name": "IncreaseBufferStacks",
+	"name": "Increase Fascination Stacks",
+	"description": "{artifact_name}: Choose a {buffer} card in your deck. Increase the amount of {buffer} stacks it is providing by 1.",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Uncommon",
+}
+
+const IncreasePoisonStacks := {
+	"canonical_name": "IncreasePoisonStacks",
+	"name": "Increase Doubt Stacks",
+	"description": "{artifact_name}: Choose a {doubt} card in your deck. Increase the amount of {doubt} stacks it is providing by 1.",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Uncommon",
+}
+
+const DecreaseExertStacks := {
+	"canonical_name": "DecreaseExertStacks",
+	"name": "Decrease Rationalization Stacks",
+	"description": "{artifact_name}: Choose a {exert} card in your deck. Decrease the amount of {anxiety} it is giving by 2.",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Uncommon",
 }
 
 
@@ -749,6 +776,9 @@ const ARCHETYPE := [
 	EndingHeal,
 	IncreaseConfusionStacks,
 	IncreaseImmersionGain,
+	IncreaseBufferStacks,
+	IncreasePoisonStacks,
+	DecreaseExertStacks,
 ]
 
 # These artifacts are only found in non-combat encounters

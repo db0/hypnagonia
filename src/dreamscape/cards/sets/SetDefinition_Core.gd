@@ -1609,7 +1609,7 @@ const CARDS := {
 	},
 	"Confident Slap": {
 		"Type": "Action",
-		"Tags": [],
+		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "Apply {effect_stacks} {doubt} to target Torment.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -1628,7 +1628,7 @@ const CARDS := {
 	},
 	"* Confident Slap *": {
 		"Type": "Action",
-		"Tags": [],
+		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "Apply {effect_stacks} {doubt} to target Torment.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -1643,7 +1643,7 @@ const CARDS := {
 	},
 	"@ Confident Slap @": {
 		"Type": "Action",
-		"Tags": [],
+		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "Apply {effect_stacks} {doubt} to target Torment.",
 		"Cost": 0,
 		"_illustration": "Nobody",

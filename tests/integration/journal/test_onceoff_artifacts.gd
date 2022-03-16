@@ -336,3 +336,135 @@ class TestIncreaseImmersionGain:
 		assert_eq(card_entry.properties._amounts.immersion_amount,  card_entry.printed_properties._amounts.immersion_amount + 1,
 				"immersion_amount increased by 1")
 
+class TestIncreasePoisonStacks:
+	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		globals.test_flags["test_rng_ndex"] = 2
+		testing_artifact_name = ArtifactDefinitions.IncreasePoisonStacks.canonical_name
+		test_card_names = [
+			"Confident Slap",
+			"Laugh at Danger",
+		]
+
+	func test_artifact():
+		if not assert_has_amounts():
+			return
+#		cfc.game_rng_seed = CFUtils.generate_random_seed()
+#		gut.p("Testing Random Seed: " + cfc.game_rng_seed)
+		var selection_decks =  cfc.get_tree().get_nodes_in_group("selection_decks")
+		assert_eq(selection_decks.size(), 1)
+		if selection_decks.size() == 0:
+			return
+		var selection_deck : SelectionDeck = selection_decks[0]
+		watch_signals(globals.player.deck)
+		assert_eq(selection_deck._deck_preview_grid.get_children().size(), 1)
+		if selection_deck._deck_preview_grid.get_children().size() < 1:
+			return
+		selection_deck._deck_preview_grid.get_children()[0].select_card()
+		assert_signal_emitted(globals.player.deck, "card_entry_modified")
+		var signal_details = get_signal_parameters(globals.player.deck, "card_entry_modified")
+		if not signal_details or signal_details.size() == 0:
+			return
+		var card_entry: CardEntry = signal_details[0]
+		assert_has(card_entry.printed_properties.Tags,  Terms.ACTIVE_EFFECTS.poison.name,
+				"Selected card always had the poison tag")
+		assert_has(card_entry.printed_properties, "_amounts")
+		if not card_entry.printed_properties.has("_amounts"):
+			return
+		assert_has(card_entry.printed_properties._amounts, "effect_stacks")
+		if not card_entry.printed_properties._amounts.has("effect_stacks"):
+			return
+		assert_eq(card_entry.properties._amounts.effect_stacks,  card_entry.printed_properties._amounts.effect_stacks + 1,
+				"effect_stacks increased by 1")
+
+class TestIncreaseBufferStacks:
+	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		globals.test_flags["test_rng_ndex"] = 2
+		testing_artifact_name = ArtifactDefinitions.IncreaseBufferStacks.canonical_name
+		test_card_names = [
+			"The Whippy-Flippy",
+			"Eureka",
+		]
+
+	func test_artifact():
+		if not assert_has_amounts():
+			return
+#		cfc.game_rng_seed = CFUtils.generate_random_seed()
+#		gut.p("Testing Random Seed: " + cfc.game_rng_seed)
+		var selection_decks =  cfc.get_tree().get_nodes_in_group("selection_decks")
+		assert_eq(selection_decks.size(), 1)
+		if selection_decks.size() == 0:
+			return
+		var selection_deck : SelectionDeck = selection_decks[0]
+		watch_signals(globals.player.deck)
+		assert_eq(selection_deck._deck_preview_grid.get_children().size(), 1)
+		if selection_deck._deck_preview_grid.get_children().size() < 1:
+			return
+		selection_deck._deck_preview_grid.get_children()[0].select_card()
+		assert_signal_emitted(globals.player.deck, "card_entry_modified")
+		var signal_details = get_signal_parameters(globals.player.deck, "card_entry_modified")
+		if not signal_details or signal_details.size() == 0:
+			return
+		var card_entry: CardEntry = signal_details[0]
+		assert_has(card_entry.printed_properties.Tags,  Terms.ACTIVE_EFFECTS.buffer.name,
+				"Selected card always had the buffer tag")
+		assert_has(card_entry.printed_properties, "_amounts")
+		if not card_entry.printed_properties.has("_amounts"):
+			return
+		assert_has(card_entry.printed_properties._amounts, "effect_stacks")
+		if not card_entry.printed_properties._amounts.has("effect_stacks"):
+			return
+		assert_has(card_entry.printed_properties._amounts, "effect_stacks2")
+		if not card_entry.printed_properties._amounts.has("effect_stacks2"):
+			return
+		assert_has(card_entry.printed_properties._amounts, "effect_stacks3")
+		if not card_entry.printed_properties._amounts.has("effect_stacks3"):
+			return
+		assert_eq(card_entry.properties._amounts.effect_stacks,  card_entry.printed_properties._amounts.effect_stacks + 1,
+				"effect_stacks increased by 1")
+		assert_eq(card_entry.properties._amounts.effect_stacks2,  card_entry.printed_properties._amounts.effect_stacks2,
+				"effect_stacks2 not modified")
+		assert_eq(card_entry.properties._amounts.effect_stacks3,  card_entry.printed_properties._amounts.effect_stacks3,
+				"effect_stacks3 not modified")
+
+
+class TestDecreaseExertStacks:
+	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		globals.test_flags["test_rng_ndex"] = 2
+		testing_artifact_name = ArtifactDefinitions.DecreaseExertStacks.canonical_name
+		test_card_names = [
+			"That too, shall pass",
+		]
+
+	func test_artifact():
+		if not assert_has_amounts():
+			return
+#		cfc.game_rng_seed = CFUtils.generate_random_seed()
+#		gut.p("Testing Random Seed: " + cfc.game_rng_seed)
+		var selection_decks =  cfc.get_tree().get_nodes_in_group("selection_decks")
+		assert_eq(selection_decks.size(), 1)
+		if selection_decks.size() == 0:
+			return
+		var selection_deck : SelectionDeck = selection_decks[0]
+		watch_signals(globals.player.deck)
+		assert_eq(selection_deck._deck_preview_grid.get_children().size(), 1)
+		if selection_deck._deck_preview_grid.get_children().size() < 1:
+			return
+		selection_deck._deck_preview_grid.get_children()[0].select_card()
+		assert_signal_emitted(globals.player.deck, "card_entry_modified")
+		var signal_details = get_signal_parameters(globals.player.deck, "card_entry_modified")
+		if not signal_details or signal_details.size() == 0:
+			return
+		var card_entry: CardEntry = signal_details[0]
+		assert_has(card_entry.printed_properties.Tags,  Terms.GENERIC_TAGS.exert.name,
+				"Selected card always had the exert tag")
+		assert_has(card_entry.printed_properties, "_amounts")
+		if not card_entry.printed_properties.has("_amounts"):
+			return
+		assert_has(card_entry.printed_properties._amounts, "exert_amount")
+		if not card_entry.printed_properties._amounts.has("exert_amount"):
+			return
+		assert_eq(card_entry.properties._amounts.exert_amount,  card_entry.printed_properties._amounts.exert_amount - 2,
+				"exert_amount increased by 1")
