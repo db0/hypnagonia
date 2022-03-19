@@ -29,8 +29,7 @@ func _on_artifact_added() -> void:
 		print_debug("ERROR: amount name '%s' not known." % [amount_name])
 		return
 	if amount_name == "discover_purpose":
-		var new_filter = DreamCardFilter.new('_amounts', purpose, 'eq')
-		new_filter.custom_filter = "discover_purpose"
+		var new_filter = DreamCardFilter.new('_amounts', purpose, 'eq', false, "discover_purpose")
 		card_filters.append(new_filter)
 	else:
 		card_filters.append(DreamCardFilter.new('_amounts', amount_name, 'eq'))

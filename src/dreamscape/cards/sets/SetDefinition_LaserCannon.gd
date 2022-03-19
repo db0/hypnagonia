@@ -407,7 +407,7 @@ const CARDS := {
 				+ "Fuse {fuse_amount} -> Plasma Shield",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Uncommon",
+			"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
 			"defence_amount": 17,
@@ -454,6 +454,79 @@ const CARDS := {
 		},
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
+		},
+		"_is_upgrade": true,
+	},
+	"Photon Blade": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "The next {discount_uses} {control} cards you play this turn"\
+				+ "costs -{discount_amount} {immersion}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 11,
+			"discount_amount": 1,
+			"discount_uses": 1,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"+ Photon Blade +",
+			"% Photon Blade %",
+			"= Photon Blade =",
+		],
+	},
+	"+ Photon Blade +": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "The next {discount_uses} {control} cards you play this turn"\
+				+ "costs -{discount_amount} {immersion}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 15,
+			"discount_amount": 1,
+			"discount_uses": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"% Photon Blade %": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "The next {discount_uses} {control} cards you play this turn"\
+				+ "costs -{discount_amount} {immersion}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 11,
+			"discount_amount": 2,
+			"discount_uses": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"= Photon Blade =": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "The next {discount_uses} {control} cards you play this turn"\
+				+ "costs -{discount_amount} {immersion}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 9,
+			"discount_amount": 1,
+			"discount_uses": 2,
 		},
 		"_is_upgrade": true,
 	},

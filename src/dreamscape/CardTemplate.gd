@@ -491,6 +491,8 @@ func highlight_modified_properties() -> void:
 				if str(current_property) != str(printed_properties.get(property))\
 						and value_text != label_node.text:
 					card_front.set_label_text(label_node,value_text)
+				elif value_text != label_node.text:
+					card_front.set_label_text(label_node,value_text)
 				if typeof(current_property) != typeof(printed_properties.get(property)):
 					label_node.modulate = Color(1,1,0)
 				elif current_property < printed_properties.get(property):

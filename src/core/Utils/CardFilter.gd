@@ -21,11 +21,13 @@ func _init(
 		_property: String,
 		_value,
 		_comparison := 'eq',
-		_compare_int_as_str := false) -> void:
+		_compare_int_as_str := false,
+		_custom_filter = null) -> void:
 	property = _property
 	filter = _value
 	comparison = _comparison
 	compare_int_as_str = _compare_int_as_str
+	custom_filter = _custom_filter
 	if compare_int_as_str and not comparison in ['eq', 'ne']:
 		printerr("ERROR:CardFilter: Cannot compare int as strings using comparison: %s. Defaulting to 'eq' instead" % [comparison])
 		comparison = 'eq'
@@ -42,6 +44,8 @@ func _init(
 		filter = int(filter)
 		
 # Takes the properties dictionary
+# Returns true if the card matches this filter
+# Else returns false
 func check_card(card_properties: Dictionary) -> bool:
 	var card_matches := false
 	var prop_value = card_properties.get(property)

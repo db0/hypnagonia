@@ -5,7 +5,8 @@ func _init(
 		_property: String,
 		_value,
 		_comparison := 'eq',
-		_compare_int_as_str := false).(_property, _value, _comparison, _compare_int_as_str) -> void:
+		_compare_int_as_str := false,
+		_custom_filter = null).(_property, _value, _comparison, _compare_int_as_str, _custom_filter) -> void:
 	pass
 
 func custom_check(card_properties: Dictionary) -> bool:

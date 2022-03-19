@@ -221,6 +221,42 @@ const PlasmaShield = {
 		],
 	},
 }
+const PhotonBlade = {
+	"manual": {
+		"hand": [
+			{
+				"name": "modify_damage",
+				"subject": "target",
+				"needs_subject": true,
+				"amount": {
+					"lookup_property": "_amounts",
+					"value_key": "damage_amount"
+				},
+				"tags": ["Attack", "Card"],
+				"filter_state_subject": [{
+					"filter_group": "EnemyEntities",
+				},],
+			},
+			{
+				"name": "set_discount",
+				"tags": ["Card"],
+				"discount_uses": {
+					"lookup_property": "_amounts",
+					"value_key": "discount_uses"
+				},
+				"discount_amount": {
+					"lookup_property": "_amounts",
+					"value_key": "discount_amount",
+					"is_inverted": true,
+				},
+				"discount_filters": [
+					{"property": "Type", "value": "Control"},
+					{"property": "Cost", "value": 1, "comparison": "ge"},
+				],
+			}
+		],
+	},
+}
 
 
 # This fuction returns all the scripts of the specified card name.
@@ -238,5 +274,6 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 		"Photon Shield": PhotonShield,
 		"Lumen Shield": LumenShield,
 		"Plasma Shield": PlasmaShield,
+		"Photon Blade": PhotonBlade,
 	}
 	return(_prepare_scripts(scripts, card_name, get_modified))
