@@ -1,6 +1,6 @@
 extends NonCombatEncounter
 
-const MAX_ANXIETY_LOSS := 15
+const MAX_ANXIETY_LOSS := 30
 const EPIC_AMOUNT = 4
 const GAMBLE_AMOUNT = 4
 

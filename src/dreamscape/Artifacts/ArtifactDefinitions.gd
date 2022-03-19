@@ -181,7 +181,7 @@ const ThickStrength := {
 const UpgradedAction := {
 	"canonical_name": "UpgradedAction",
 	"name": "Flashlight",
-	"description": "{artifact_name}: Action cards added to your deck receive {progress_amount} progress.",
+	"description": "{artifact_name}: {action} cards added to your deck receive {progress_amount} progress.",
 	"icon": preload("res://assets/icons/artifacts/flashlight.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
@@ -194,7 +194,7 @@ const UpgradedAction := {
 const UpgradedControl := {
 	"canonical_name": "UpgradedControl",
 	"name": "Candle",
-	"description": "{artifact_name}: Interpretation cards added to your deck receive {progress_amount} progress.",
+	"description": "{artifact_name}: {control} cards added to your deck receive {progress_amount} progress.",
 	"icon": preload("res://assets/icons/artifacts/candle-light.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
@@ -207,7 +207,7 @@ const UpgradedControl := {
 const UpgradedUnderstanding := {
 	"canonical_name": "UpgradedUnderstanding",
 	"name": "Laser Pointer",
-	"description": "{artifact_name}: Understanding cards added to your deck receive {progress_amount} progress.",
+	"description": "{artifact_name}: {understanding} cards added to your deck receive {progress_amount} progress.",
 	"icon": preload("res://assets/icons/artifacts/target-laser.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
@@ -220,7 +220,7 @@ const UpgradedUnderstanding := {
 const UpgradedConcentration := {
 	"canonical_name": "UpgradedConcentration",
 	"name": "Lantern",
-	"description": "{artifact_name}: Interpretation cards added to your deck receive {progress_amount} progress.",
+	"description": "{artifact_name}: {concentration} cards added to your deck receive {progress_amount} progress.",
 	"icon": preload("res://assets/icons/artifacts/old-lantern.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
