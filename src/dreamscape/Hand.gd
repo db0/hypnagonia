@@ -2,6 +2,7 @@ extends Hand
 
 signal hand_refilled
 signal hand_emptied
+signal cards_fused(card,trigger,details)
 
 var is_hand_refilled := false
 var refill_amount := 5
@@ -9,7 +10,7 @@ var discard_at_turn_end := true
 var cards_in_fusion := []
 
 func _ready() -> void:
-	pass
+	connect("cards_fused", cfc.signal_propagator, "_on_signal_received")
 
 func empty_hand() -> void:
 	is_hand_refilled = false
@@ -102,3 +103,8 @@ func _check_for_fusion(card) -> void:
 		fused_card.global_position = c.global_position
 		fused_card.spawn_destination = self
 		fused_card.state = Card.CardState.MOVING_TO_SPAWN_DESTINATION
+		emit_signal("cards_fused",
+				fused_card,
+				"cards_fused",
+				{}
+		)
