@@ -130,7 +130,7 @@ func retrieve_scripts(trigger: String) -> Dictionary:
 	if not scripts.empty() and not scripts.get(trigger,{}).empty():
 		found_scripts = scripts.get(trigger,{}).duplicate(true)
 	elif deck_card_entry:
-		found_scripts = deck_card_entry.retrieve_scripts(trigger)
+		found_scripts = deck_card_entry.retrieve_scripts(trigger, properties)
 	else:
 		found_scripts= .retrieve_scripts(trigger).duplicate(true)
 	if trigger == "manual" and get_state_exec() == "hand" and state != ExtendedCardState.AUTOPLAY_DISPLAY:
@@ -466,6 +466,9 @@ func _on_self_played(_card,_trigger,_details) -> void:
 		# warning-ignore:return_value_discarded
 		modify_property("Cost", printed_properties['Cost'])
 		enabled_riders.erase("reset_cost_after_play")
+
+
+
 
 
 # Overridable function for formatting card text

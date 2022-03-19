@@ -55,6 +55,17 @@ const KEY_PER_ENCOUNTER_EVENT_COUNT := "per_encounter_event_count"
 # If this is set, the predict() will be rerun every time a new target is hovered and the currect
 # hovered target will be sent as a hardcoded previous_subjects.
 const KEY_PREDICT_REQUIRES_TARGET := "predict_requires_target"
+# Specifies the exact amount key to modify with modify_amount
+# This can also be set to "discover_purpose" but in this case
+# the KEY_AMOUNT_PURPOSE has to exist as well
+const KEY_AMOUNT_KEY := "amount_key"
+# Specifies how to modify the amount. It can be a simple integer to add/remove
+# Or it can be a string like *1.1 to perform multiplication
+# See HUtils.modify_amounts()
+const KEY_AMOUNT_VALUE := "amount_value"
+# Provide the purpose to use to discover the amount key to modify
+# To use this, amount_key has to be set to 'discover_purpose'
+const KEY_AMOUNT_PURPOSE := "amount_purpose"
 # Adds a special trigger on the card that we can execute with custom code
 const RIDER := "rider"
 

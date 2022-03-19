@@ -459,7 +459,7 @@ const CARDS := {
 	},
 	"Photon Blade": {
 		"Type": "Action",
-		"Tags": [],
+		"Tags": [Terms.GENERIC_TAGS.frozen.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "The next {discount_uses} {control} cards you play this turn"\
 				+ "costs -{discount_amount} {immersion}",
@@ -481,7 +481,7 @@ const CARDS := {
 	},
 	"+ Photon Blade +": {
 		"Type": "Action",
-		"Tags": [],
+		"Tags": [Terms.GENERIC_TAGS.frozen.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "The next {discount_uses} {control} cards you play this turn"\
 				+ "costs -{discount_amount} {immersion}",
@@ -498,7 +498,7 @@ const CARDS := {
 	},
 	"% Photon Blade %": {
 		"Type": "Action",
-		"Tags": [],
+		"Tags": [Terms.GENERIC_TAGS.frozen.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "The next {discount_uses} {control} cards you play this turn"\
 				+ "costs -{discount_amount} {immersion}",
@@ -515,7 +515,7 @@ const CARDS := {
 	},
 	"= Photon Blade =": {
 		"Type": "Action",
-		"Tags": [],
+		"Tags": [Terms.GENERIC_TAGS.frozen.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "The next {discount_uses} {control} cards you play this turn"\
 				+ "costs -{discount_amount} {immersion}",
@@ -527,6 +527,145 @@ const CARDS := {
 			"damage_amount": 9,
 			"discount_amount": 1,
 			"discount_uses": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"Charged Shot": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "While in your hand, increase {interpretation} by {increase_amount} "\
+				+ "every time another card is played.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 5,
+			"increase_amount": 1,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"+ Charged Shot +",
+			"^ Charged Shot ^",
+			"% Charged Shot %",
+		],
+	},
+	"+ Charged Shot +": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "While in your hand, increase {interpretation} by {increase_amount} "\
+				+ "every time another card is played.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 8,
+			"increase_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"^ Charged Shot ^": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.alpha.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "While in your hand, increase {interpretation} by {increase_amount} "\
+				+ "every time another card is played.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 5,
+			"increase_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"% Charged Shot %": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "While in your hand, increase {interpretation} by {increase_amount} "\
+				+ "every time another card is played.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 5,
+			"increase_amount": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"Blinding Flash": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.startup.name],
+		"Abilities": "{forget}\n{startup}: Gain {effect_stacks} {armor}.\n",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": [],
+		"_amounts": {
+			"effect_stacks": 3,
+		},
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"* Blinding Flash *",
+			"Ω Blinding Flash Ω",
+			"Searing Flash",
+		],
+	},
+	"* Blinding Flash *": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "{forget}\n{startup}: Gain {effect_stacks} {armor}.\n",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": [],
+		"_amounts": {
+			"effect_stacks": 4,
+		},
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER
+		},
+		"_is_upgrade": true,
+	},
+	"Ω Blinding Flash Ω": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.omega.name],
+		"Abilities": "{forget}\n{startup}: Gain {effect_stacks} {armor}.\n",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": [],
+		"_amounts": {
+			"effect_stacks": 3,
+		},
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER
+		},
+		"_is_upgrade": true,
+	},
+	"Searing Flash": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "Draw {draw_amount} cards. {forget}\n{startup}: Gain {effect_stacks} {armor}.\n",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": [],
+		"_amounts": {
+			"draw_amount": 1,
+			"effect_stacks": 3,
+		},
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER
 		},
 		"_is_upgrade": true,
 	},

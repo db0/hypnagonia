@@ -273,6 +273,7 @@ const LASER_CANNON := {
 #	"Icon": preload("res://icon.png"),
 	"Tags": [
 		Terms.GENERIC_TAGS.fusion.name,
+		Terms.GENERIC_TAGS.startup.name,
 	],
 	"Artifacts": [
 
@@ -293,8 +294,10 @@ const LASER_CANNON := {
 		"Vulcan",
 		"Photon Shield",
 		"Photon Blade",
+		"Blinding Flash",
 	],
 	"Uncommon": [
+		"Charged Shot",
 	],
 	"Rare": [
 	],

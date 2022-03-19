@@ -701,6 +701,23 @@ const GENERIC_TAGS := {
 		"icon": preload("res://assets/icons/molecule.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/molecule.png",
 		"generic_description": "{effect_name} ({effect_icon}): Cards which combine into a stronger card."},
+	# Unused. Needs icon
+	"init": {
+		"name": "Init",
+		"icon": preload("res://assets/icons/molecule.png"),
+		"rich_text_icon": "res://fonts/rich_text_icons/molecule.png",
+		"generic_description": "[color=purple]{effect_name} ({effect_icon}): This card can only be played as the first one in the turn.[/color]"},
+	# Unused. Needs icon
+	"close": {
+		"name": "close",
+		"icon": preload("res://assets/icons/molecule.png"),
+		"rich_text_icon": "res://fonts/rich_text_icons/molecule.png",
+		"generic_description": "[color=purple]{effect_name} ({effect_icon}): After this card is played, your turn immediately ends.[/color]"},
+	"startup": {
+		"name": "Vivification",
+		"icon": preload("res://assets/icons/star-pupil.png"),
+		"rich_text_icon": "res://fonts/rich_text_icons/star-pupil.png",
+		"generic_description": "{effect_name} ({effect_icon}): This card has an effect which is triggered as soon as an Ordeal starts"},
 }
 
 

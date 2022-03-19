@@ -81,7 +81,7 @@ func _ready() -> void:
 	cfc.connect("cache_cleared", self, '_recalculate_predictions')
 	player_info.connect_dreamer_signals(dreamer)
 #	begin_encounter()
-
+	connect("battle_begun", cfc.signal_propagator, "_on_signal_received", [self, "battle_begun", {}])
 #
 func _process(_delta: float) -> void:
 	if cfc.game_paused and cfc.NMAP.has("main") and cfc.NMAP.main._current_focus_source:
@@ -500,8 +500,8 @@ func _input(event):
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"= Photon Blade =",
-			"% Photon Blade %",
+			"Charged Shot",
+#			"Charged Shot",
 		]:
 			var ce = CardEntry.new(c)
 			var card = ce.instance_self()
