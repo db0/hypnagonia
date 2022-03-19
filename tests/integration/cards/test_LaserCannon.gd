@@ -50,7 +50,6 @@ class TestMegaCannon:
 		expected_amount_keys = [
 			"damage_amount",
 			"effect_stacks",
-			"fuse_amount",
 		]
 
 	func test_card_results():
