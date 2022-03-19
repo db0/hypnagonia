@@ -192,7 +192,7 @@ class TestSubmerged:
 	func _init() -> void:
 		testing_card_name = "Submerged"
 		expected_amount_keys = [
-			"effect_stacks"
+			"detriment_stacks"
 		]
 
 	func test_card_results():
@@ -200,7 +200,7 @@ class TestSubmerged:
 		var sceng = snipexecute(card, test_torment)
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
-		assert_eq(test_torments[0].active_effects.get_effect_stacks(effect), get_amount("effect_stacks"),
+		assert_eq(test_torments[0].active_effects.get_effect_stacks(effect), -get_amount("detriment_stacks"),
 				"%s stacks on Torment decreased by correct amount" % [effect])
 
 class TestCockroaches:

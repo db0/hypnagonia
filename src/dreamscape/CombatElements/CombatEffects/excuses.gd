@@ -9,12 +9,13 @@ func get_effect_alteration(
 		sceng, 
 		_is_source := false, 
 		_dry_run := true,
-		_subject: Node = null) -> int:
+		subject: Node = null) -> int:
 	var stacks_amount = stacks
 	if stacks_amount == 0\
 			or not script.script_name == 'modify_damage'\
 			or sceng.snapshot_id > 0\
-			or cfc.NMAP.board.turn.current_turn != cfc.NMAP.board.turn.Turns.PLAYER_TURN:
+			or cfc.NMAP.board.turn.current_turn != cfc.NMAP.board.turn.Turns.PLAYER_TURN\
+			or subject != owning_entity:
 		return(0)
 	var new_value := value
 	var multiplier = cfc.card_definitions[name]\

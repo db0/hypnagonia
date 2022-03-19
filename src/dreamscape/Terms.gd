@@ -473,6 +473,7 @@ const ACTIVE_EFFECTS := {
 		"name": "Excuses",
 		"type": "Concentration",
 		"is_card_reference": true,
+		"alterant_priority": ALTERANT_PRIORITY.SET,
 		"icon": preload("res://assets/icons/chained-heart.png"),
 	},
 	"tolerance":  {
