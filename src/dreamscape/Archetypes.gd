@@ -269,6 +269,43 @@ const RUBBER_CHICKEN := {
 		"Sneaky-Beaky",
 	]
 }
+const LASER_CANNON := {
+#	"Icon": preload("res://icon.png"),
+	"Tags": [
+		Terms.GENERIC_TAGS.fusion.name,
+	],
+	"Artifacts": [
+
+	],
+	"Memories": [
+
+	],
+	"Perturbations": [
+		
+	],
+	"Basic": [
+		"Interpretation",
+		"Interpretation",
+		"Interpretation",
+	],
+	"Common": [
+		"Cannon",
+		"Vulcan",
+		"Photon Shield",
+	],
+	"Uncommon": [
+	],
+	"Rare": [
+	],
+	"Special": [
+		"HiCannon",
+		"MegaCannon",
+		"Vulcan2",
+		"Vulcan3",
+		"Lumen Shield",
+		"Plasma Shield",
+	]
+}
 
 
 const ABUSIVE_RELATIONSHIP := {
