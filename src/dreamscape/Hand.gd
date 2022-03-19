@@ -6,6 +6,7 @@ signal hand_emptied
 var is_hand_refilled := false
 var refill_amount := 5
 var discard_at_turn_end := true
+var cards_in_fusion := []
 
 func _ready() -> void:
 	pass
@@ -53,6 +54,7 @@ func draw_card(pile : Pile = cfc.NMAP.deck) -> Card:
 		card = pile.get_top_card()
 	if card:
 		card.move_to(self)
+		_check_for_fusion(card)
 	return card
 
 func _on_player_turn_started(_turn: Turn) -> void:
@@ -64,3 +66,39 @@ func _on_player_turn_ended(_turn: Turn) -> void:
 		if retcode is GDScriptFunctionState:
 			retcode = yield(retcode, "completed")
 	refill_hand()
+
+func _check_for_fusion(card) -> void:
+	if not card.get_property("Tags").has(Terms.GENERIC_TAGS.fusion.name):
+		return
+	for c in get_all_cards():
+		if c == card:
+			continue
+		if c in cards_in_fusion:
+			continue
+		if card in cards_in_fusion:
+			continue
+		var drawn_card_name : String = card.canonical_name
+		var checked_card_name : String = c.canonical_name
+		if card.get_property("_is_upgrade"):
+			drawn_card_name = card.find_upgrade_parent()
+		if c.get_property("_is_upgrade"):
+			checked_card_name = c.find_upgrade_parent()
+		if not checked_card_name == drawn_card_name:
+			continue
+		var upgraded_fusion := false
+		if card.get_property("_is_upgrade") and c.get_property("_is_upgrade"):
+			upgraded_fusion = true
+		cards_in_fusion.append(c)
+		cards_in_fusion.append(card)
+		var fused_card_name = card.get_property("_fuses_into")
+		var fused_card_properties = cfc.card_definitions[fused_card_name]
+		if upgraded_fusion:
+			fused_card_name = fused_card_properties.get("_upgrades")[0]
+		c.remove_from_deck(false, ['fusion'])
+		card.remove_from_deck(false, ['fusion'])
+		var fused_card = cfc.instance_card(fused_card_name)
+		cfc.NMAP.board.add_child(fused_card)
+		fused_card.scale = Vector2(0.1,0.1)
+		fused_card.global_position = c.global_position
+		fused_card.spawn_destination = self
+		fused_card.state = Card.CardState.MOVING_TO_SPAWN_DESTINATION

@@ -101,7 +101,7 @@ func setup() -> void:
 		printed_properties = properties.duplicate()
 	var card_art_file
 	if get_property("_is_upgrade"):
-		var card_upgrade_parent_name =  _find_upgrade_parent()
+		var card_upgrade_parent_name =  find_upgrade_parent()
 		card_art_file = ImageLibrary.CARD_IMAGES.get(card_upgrade_parent_name)
 	else:
 		card_art_file = ImageLibrary.CARD_IMAGES.get(canonical_name)
@@ -501,12 +501,13 @@ func highlight_modified_properties() -> void:
 					label_node.modulate = Color(1,1,1)
 
 
-func _find_upgrade_parent():
+func find_upgrade_parent():
 	for card_name in cfc.card_definitions:
 		var upgrades = cfc.card_definitions[card_name].get("_upgrades")
 		if upgrades and canonical_name in upgrades:
 			return(card_name)
 	return(false)
+
 
 func refresh_card_front() -> void:
 	.refresh_card_front()

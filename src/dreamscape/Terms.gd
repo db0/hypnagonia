@@ -695,6 +695,11 @@ const GENERIC_TAGS := {
 		"icon": preload("res://assets/icons/drama-masks.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/drama-masks.png",
 		"generic_description": "{effect_name} ({effect_icon}): Modifies Pathos when played."},
+	"fusion": {
+		"name": "Fusion",
+		"icon": preload("res://assets/icons/molecule.png"),
+		"rich_text_icon": "res://fonts/rich_text_icons/molecule.png",
+		"generic_description": "{effect_name} ({effect_icon}): Cards which combine into a stronger card."},
 }
 
 
