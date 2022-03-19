@@ -81,7 +81,7 @@ static func get_all_cards_in_archetype(archetype, rarities := ["Basic","Common",
 	for card_rarity in rarities:
 		if not card_rarity in ["Basic","Common","Uncommon","Rare","Special"]:
 			print_debug("WARNING: " + card_rarity + " is an unknown type of rarity. Ignoring!")
-		all_cards += get_archetype_value(archetype,card_rarity)
+		all_cards += get_archetype_value(archetype,card_rarity, [])
 	return(all_cards)
 
 

@@ -390,7 +390,7 @@ const CARDS := {
 	"Butterfly": {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.strengthen.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Gain {effect_stacks} {strengthen}. {forget}",
+		"Abilities": "Gain {effect_stacks} {strengthen}.\n{forget}",
 		"Cost": 0,
 		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
@@ -411,7 +411,7 @@ const CARDS := {
 	"* Butterfly *": {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.strengthen.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Gain {effect_stacks} {strengthen}. {forget}",
+		"Abilities": "Gain {effect_stacks} {strengthen}.\n{forget}",
 		"Cost": 0,
 		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
@@ -427,7 +427,7 @@ const CARDS := {
 	"^ Butterfly ^": {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.strengthen.name, Terms.GENERIC_TAGS.alpha.name],
-		"Abilities": "Gain {effect_stacks} {strengthen}. {forget}",
+		"Abilities": "Gain {effect_stacks} {strengthen}.\n{forget}",
 		"Cost": 0,
 		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
