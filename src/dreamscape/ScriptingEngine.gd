@@ -565,6 +565,45 @@ func draw_cards(script: ScriptTask) -> int:
 		script.subjects = drawn_cards
 	return(retcode)
 
+
+func set_discount(script: ScriptTask) -> int:
+	var retcode: int = CFConst.ReturnCode.CHANGED
+	if not costs_dry_run():
+		# We inject the tags from the script into the tags sent by the signal
+		var _tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
+		var discount_amount: int
+		if str(script.get_property(SP.KEY_DISCOUNT_AMOUNT)) == SP.VALUE_RETRIEVE_INTEGER:
+			discount_amount = stored_integer
+			if script.get_property(SP.KEY_IS_INVERTED):
+				discount_amount *= -1
+			discount_amount += script.get_property(SP.KEY_ADJUST_RETRIEVED_INTEGER)
+		else:
+			discount_amount = script.get_property(SP.KEY_DISCOUNT_AMOUNT, 1)
+			if script.get_property(SP.KEY_IS_INVERTED):
+				discount_amount *= -1
+		var discount_filters : Array
+		for filter_def in script.get_property(SP.KEY_DISCOUNT_FILTERS, []):
+			var new_filter = CardFilter.new(
+				filter_def.property,
+				filter_def.value,
+				filter_def.get("comparison", 'eq'),
+				filter_def.get("_compare_int_as_str", false),
+				filter_def.get("custom_filter", null)
+			)
+			discount_filters.append(new_filter)
+		var discount_uses : int = script.get_property("discount_uses", 1)
+		var counter : String = script.get_property(SP.KEY_COUNTER_NAME, "Immersion")
+		var is_permanent : int = script.get_property("is_permanent", false)
+		var discount = CostDiscount.new(
+				discount_amount, 
+				discount_uses, 
+				discount_filters, 
+				counter, 
+				is_permanent)
+		cfc.NMAP.board.counters.add_child(discount)
+	return(retcode)
+
+
 func enable_rider(script: ScriptTask) -> int:
 	var retcode: int = CFConst.ReturnCode.CHANGED
 	if not costs_dry_run():

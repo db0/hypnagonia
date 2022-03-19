@@ -40,6 +40,13 @@ const KEY_SET_SPAWN_AS_MINION = "set_spawn_as_minion"
 const KEY_PERMANENT = "is_permanent"
 const PER_EFFECT_STACKS = "per_effect_stacks"
 const KEY_CARD_COUNT := "card_count"
+# Reduces the cost of the next matching card played by this amount
+# Default: 1
+const KEY_DISCOUNT_AMOUNT := "discount_amount"
+# Will discount cards matching these filters. 
+# The value is an array of dictionaries
+# Each dictionary has the payload for a single CardFilter
+const KEY_DISCOUNT_FILTERS := "discount_filters"
 const KEY_PER_DEFENCE := "per_defence"
 const KEY_PER_REMAINING_HEALTH := "per_remaining_health"
 const KEY_PER_DAMAGE := "per_damage"

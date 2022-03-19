@@ -292,6 +292,7 @@ const LASER_CANNON := {
 		"Cannon",
 		"Vulcan",
 		"Photon Shield",
+		"Photon Blade",
 	],
 	"Uncommon": [
 	],
