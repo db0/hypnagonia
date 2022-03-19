@@ -160,7 +160,7 @@ func modify_property(property: String, value, is_enhancement := true, record := 
 		property_modifications.append(record_entry)
 	# When modifying _amounts, we expect a certain payload dictionary
 	if property == "_amounts":
-		_modify_amounts(value.amount_key, value.amount_value, value.get("purpose", ''))
+		HUtils.modify_amounts(properties, value.amount_key, value.amount_value, value.get("purpose", ''))
 	elif typeof(properties.get(property)) == typeof(value):
 		# This handles dictionary propertie, like _amounts
 		if typeof(value) == TYPE_DICTIONARY:
@@ -198,9 +198,16 @@ func modify_property(property: String, value, is_enhancement := true, record := 
 
 # In Hypnagonia, cards with permanent CardEntries, retrieve their scripts from
 # them. This allows us to permanently modify the card scripts of a card in the deck.
-func retrieve_scripts(trigger: String) -> Dictionary:
+# However the Card object properties take precedence over the CardEntry properties
+# As the card object might be modified temporarily in combat whereas the permanent
+# CardEntry properties might not be affected
+# When the card_properties is sent, it is therefore utilized.
+func retrieve_scripts(trigger: String, card_properties = null) -> Dictionary:
 	var found_scripts: Dictionary = unmodified_scripts.duplicate(true)
-	CoreScripts.lookup_script_property(found_scripts, card_name, self)
+	if card_properties:
+		CoreScripts.lookup_script_property(found_scripts, card_name, card_properties)
+	else:
+		CoreScripts.lookup_script_property(found_scripts, card_name, properties)
 #	print(found_scripts.get(trigger,{}))
 	return(found_scripts.get(trigger,{}))
 
@@ -242,41 +249,6 @@ func is_enhanced():
 		if mod_record.is_enhancement:
 			return(true)
 	return(false)
-
-
-# This function should only be called from modify_property()
-# to ensure the changes survive card upgrades
-func _modify_amounts(amount_name: String, value, purpose := '') -> void:
-	if not properties.has("_amounts"):
-		properties["_amounts"] = {}
-	if amount_name == 'discover_purpose':
-		var amount_keys : Array = HUtils.get_amount_key_by_purpose(purpose, properties)
-		# when using a purpose seek, there may be multiple amount keys matching it
-		# in which care, we'll do some recursion to loop through all of them
-		for amount_key in amount_keys:
-			_modify_amounts(amount_key, value)
-			return
-	var current_value = properties["_amounts"].get(amount_name)
-	var new_value
-	if typeof(value) == TYPE_STRING\
-			and value.lstrip("*").is_valid_float()\
-			and typeof(current_value) == TYPE_INT:
-		if value.begins_with("*"):
-			# Decreases are rounded down
-			if float(value.lstrip("*")) < 1:
-				new_value = int(floor(float(current_value) * float(value.lstrip("*"))))
-			if float(value.lstrip("*")) >= 1:
-				new_value = int(ceil(float(current_value) * float(value.lstrip("*"))))
-		else:
-			new_value = current_value + int(value)
-			# For now, I assume no amounts will be negative
-			# (They should use is_inverted instead)
-			if new_value < 0: 
-				new_value = 0
-	else:
-		new_value = value
-	properties["_amounts"][amount_name] = new_value
-
 
 # Randomly reduces the effectiveness of this card.
 func scar() -> void:

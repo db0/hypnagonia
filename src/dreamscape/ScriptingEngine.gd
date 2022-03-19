@@ -741,6 +741,26 @@ func confirm_play(script: ScriptTask) -> int:
 	return(retcode)
 
 
+# Task for modifying a card's amounts
+# * Requires the following keys:
+#	* [KEY_SUBJECT](ScriptProperties#KEY_SUBJECT)
+#	* [KEY_AMOUNT_KEY](SP#KEY_AMOUNT_KEY)
+#	* [KEY_AMOUNT_VALUE](SP#KEY_AMOUNT_VALUE)
+# * Optionall specify also
+#   * [KEY_AMOUNT_PURPOSE](SP#KEY_AMOUNT_PURPOSE)
+func modify_amount(script: ScriptTask) -> int:
+	var retcode: int = CFConst.ReturnCode.CHANGED
+	# We inject the tags from the script into the tags sent by the signal
+	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
+	for card in script.subjects:
+		var amount_key = script.get_property(SP.KEY_AMOUNT_KEY)
+		var value = script.get_property(SP.KEY_AMOUNT_VALUE)
+		var purpose = script.get_property(SP.KEY_AMOUNT_PURPOSE, '')
+		HUtils.modify_amounts(card.properties, amount_key, value, purpose)
+		card.refresh_card_front()
+	return(retcode)
+
+
 # Initiates a seek through the owner and target combat entity to see if there's any effects
 # which modify the intensity of the task in question
 static func _check_for_effect_alterants(

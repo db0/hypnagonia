@@ -81,3 +81,39 @@ static func get_amount_key_by_purpose(purpose: String, card_properties: Dictiona
 			if card_properties["_amount_purpose_map"][key] == purpose:
 				matching_keys.append(key)
 	return(matching_keys)
+
+# Modifies the provided card properties _amounts dictionary with the specified modifications
+# String values modify the existing value in-place through addition/multiplication
+# Interget values replace the existing value completely
+# For a CardEntry's properties, this function should only be called from modify_property()
+# to ensure the changes survive card upgrades
+static func modify_amounts(properties: Dictionary, amount_name: String, value, purpose := '') -> void:
+	if not properties.has("_amounts"):
+		properties["_amounts"] = {}
+	if amount_name == 'discover_purpose':
+		var amount_keys : Array = get_amount_key_by_purpose(purpose, properties)
+		# when using a purpose seek, there may be multiple amount keys matching it
+		# in which care, we'll do some recursion to loop through all of them
+		for amount_key in amount_keys:
+			modify_amounts(properties, amount_key, value)
+			return
+	var current_value = properties["_amounts"].get(amount_name)
+	var new_value
+	if typeof(value) == TYPE_STRING\
+			and value.lstrip("*").is_valid_float()\
+			and typeof(current_value) == TYPE_INT:
+		if value.begins_with("*"):
+			# Decreases are rounded down
+			if float(value.lstrip("*")) < 1:
+				new_value = int(floor(float(current_value) * float(value.lstrip("*"))))
+			if float(value.lstrip("*")) >= 1:
+				new_value = int(ceil(float(current_value) * float(value.lstrip("*"))))
+		else:
+			new_value = current_value + int(value)
+			# For now, I assume no amounts will be negative
+			# (They should use is_inverted instead)
+			if new_value < 0: 
+				new_value = 0
+	else:
+		new_value = value
+	properties["_amounts"][amount_name] = new_value

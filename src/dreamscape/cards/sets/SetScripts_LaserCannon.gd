@@ -257,6 +257,101 @@ const PhotonBlade = {
 		],
 	},
 }
+const ChargedShot = {
+	"manual": {
+		"hand": [
+			{
+				"name": "modify_damage",
+				"subject": "target",
+				"needs_subject": true,
+				"amount": {
+					"lookup_property": "_amounts",
+					"value_key": "damage_amount"
+				},
+				"tags": ["Attack", "Card"],
+				"filter_state_subject": [{
+					"filter_group": "EnemyEntities",
+				},],
+			},
+		],
+	},
+	"card_played": {
+		"hand": [
+			{
+				"name": "modify_amount",
+				"tags": ["Card"],
+				"amount_key": "damage_amount",
+				"amount_value": {
+					"lookup_property": "_amounts",
+					"value_key": "increase_amount",
+					"convert_to_string": true,
+				},
+				"subject": "self",
+			},
+		],
+		"trigger": "another",
+	},
+}
+const BlindingFlash = {
+	"battle_begun": {
+		"all": [
+			{
+				"name": "apply_effect",
+				"tags": ["Card", "Delayed"],
+				"effect_name": Terms.ACTIVE_EFFECTS.armor.name,
+				"subject": "dreamer",
+				"modification": {
+					"lookup_property": "_amounts",
+					"value_key": "effect_stacks"
+				},
+			},
+		],
+	},
+	"manual": {
+		"hand": [
+			{
+				"name": "move_card_to_container",
+				"subject": "self",
+				"dest_container": "forgotten",
+				"tags": ["Played", "Card"],
+			},
+		],
+	},
+}
+const SearingFlash = {
+	"battle_begun": {
+		"all": [
+			{
+				"name": "apply_effect",
+				"tags": ["Card", "Delayed"],
+				"effect_name": Terms.ACTIVE_EFFECTS.armor.name,
+				"subject": "dreamer",
+				"modification": {
+					"lookup_property": "_amounts",
+					"value_key": "effect_stacks"
+				},
+			},
+		],
+	},
+	"manual": {
+		"hand": [
+			{
+				"name": "move_card_to_container",
+				"subject": "self",
+				"dest_container": "forgotten",
+				"tags": ["Played", "Card"],
+			},
+			{
+				"name": "draw_cards",
+				"tags": ["Card"],
+				"card_count": {
+					"lookup_property": "_amounts",
+					"value_key": "draw_amount"
+				},
+			},
+		],
+	},
+}
 
 
 # This fuction returns all the scripts of the specified card name.
@@ -275,5 +370,7 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 		"Lumen Shield": LumenShield,
 		"Plasma Shield": PlasmaShield,
 		"Photon Blade": PhotonBlade,
+		"Charged Shot": ChargedShot,
+		"Blinding Flash": BlindingFlash,
 	}
 	return(_prepare_scripts(scripts, card_name, get_modified))

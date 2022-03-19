@@ -3826,7 +3826,7 @@ func _prepare_scripts(all_scripts: Dictionary, card_name: String, get_modified :
 # So we do that and replace the value in that dictionary with the looked up value.
 # This allows us to tweak the values of scripts from the card definitions
 # and thus have only one adjustment point
-static func lookup_script_property(script: Dictionary, card_name: String, card_entry = null) -> void:
+static func lookup_script_property(script: Dictionary, card_name: String, card_properties = null) -> void:
 	for key in script:
 		if typeof(script[key]) == TYPE_DICTIONARY:
 			if script[key].has("lookup_property"):
@@ -3835,19 +3835,21 @@ static func lookup_script_property(script: Dictionary, card_name: String, card_e
 				var value_key = lookup.get("value_key")
 				var default_value = lookup.get("default")
 				var value
-				if card_entry:
-					value = card_entry.properties\
+				if card_properties:
+					value = card_properties\
 						.get(lookup_property, {}).get(value_key, default_value)
 				else:
 					value = cfc.card_definitions[card_name]\
 						.get(lookup_property, {}).get(value_key, default_value)
 				if lookup.get("is_inverted"):
 					value *= -1
+				if lookup.get("convert_to_string", false):
+					value = str(value)
 				script[key] = value
 			else:
-				lookup_script_property(script[key], card_name, card_entry)
+				lookup_script_property(script[key], card_name, card_properties)
 		elif typeof(script[key]) == TYPE_ARRAY:
 			for task in script[key]:
 				if typeof(task) == TYPE_DICTIONARY:
-					lookup_script_property(task, card_name, card_entry)
+					lookup_script_property(task, card_name, card_properties)
 

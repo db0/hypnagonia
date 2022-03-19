@@ -17,6 +17,10 @@ func get_amount(amount_key: String):
 	var requested_amount = card.deck_card_entry.properties.get("_amounts", {}).get(amount_key)
 	return(requested_amount)
 
+func get_current_amount(amount_key: String):
+	var requested_amount = card.properties.get("_amounts", {}).get(amount_key)
+	return(requested_amount)
+
 func assert_has_amounts() -> void:
 	var card_def = cfc.card_definitions.get(testing_card_name)
 	# We don't use assert_has here, because the failed output includes the whole
