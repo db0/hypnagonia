@@ -500,6 +500,20 @@ func _input(event):
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
+			"+ Cannon +",
+			"+ Cannon +",
+			"+ Cannon +",
+			"+ Cannon +",
+			"+ Cannon +",
+			"+ Cannon +",
+			"+ Cannon +",
+			"+ Cannon +",
+			"+ Cannon +",
+#			"Cannon",
+#			"Cannon",
+#			"Cannon",
+#			"Cannon",
+#			"Cannon",
 		]:
 			var ce = CardEntry.new(c)
 			var card = ce.instance_self()

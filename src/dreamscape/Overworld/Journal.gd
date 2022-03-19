@@ -164,7 +164,7 @@ func proceed_to_next_act() -> void:
 func display_loss() -> void:
 	proceed.bbcode_text = "And at this point I woke up in cold sweat!!\n\n"\
 		+ "[b]Note from Developer:[/b]\nThanks for playing this early version of Hypnagonia."\
-		+ "There's still more to play. Can you reach and defeat the first 'Boss'?\n\n"\
+		+ "There's still more to play. Can you reach and defeat the third act 'Boss'?\n\n"\
 		+ "Please check back regularly for new updates! And remember, we're actively looking for collaborators.\n"\
 		+ "If you're a character artist, graphics designer, storyteller, card game designer, illustrator, or just someone who wants to give feedback, "\
 		+ "do hit us up on our discord server: [url=discord]https://discord.gg/MqTMVDCbR3[/url] or Matrix [url=matrix]https://matrix.to/#/#hypnagonia:matrix.org[/url].\n\n"\
@@ -503,13 +503,13 @@ func _input(event):
 #			EnemyEncounter.new(Act2.TrafficJam, "easy"),
 #			EnemyEncounter.new(Act3.Nightmare, "hard"),
 #			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
-			preload("res://src/dreamscape/Run/NCE/AllActs/OstrichEggs.gd").new(),
+#			preload("res://src/dreamscape/Run/NCE/AllActs/OstrichEggs.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act3/TheCake.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act2/HangingOn.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd").new(),
-			BossEncounter.new(Act2.BOSSES["Surreality"]),
-#			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
-			EliteEncounter.new(Act1.Bully, "medium"),
+#			BossEncounter.new(Act2.BOSSES["Surreality"]),
+			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
+#			EliteEncounter.new(Act1.Bully, "medium"),
 #			EliteEncounter.new(Act2.Jumbletron, "medium"),
 #			EliteEncounter.new(Act3.TheatrePlay, "medium"),
 			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
