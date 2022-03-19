@@ -130,7 +130,16 @@ func setup_test_cards(cards: Array, card_entries_only := false) -> Array:
 	for c in spawned_cards:
 		c.reorganize_self()
 	return(spawned_cards)
-	
+
+func add_single_card(card_name: String, container: CardContainer) -> Card:
+	var ce = CardEntry.new(card_name)
+	var card = ce.instance_self()
+	container.add_child(card)
+	card._determine_idle_state()
+	if container == hand:
+		card.reorganize_self()
+	return(card)
+
 func setup_deck_cards(cards: Array) -> Array:
 	var spawned_cards := []
 	for c in cards:
