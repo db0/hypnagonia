@@ -543,7 +543,7 @@ const CARDS := {
 	"Whirlwind": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
-		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times",
+		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -561,7 +561,7 @@ const CARDS := {
 	"+ Whirlwind +": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
-		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times",
+		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -575,7 +575,7 @@ const CARDS := {
 	"= Whirlwind =": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
-		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times",
+		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
