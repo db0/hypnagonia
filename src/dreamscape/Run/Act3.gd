@@ -307,7 +307,7 @@ const Submerged = {
 	},
 }
 const ENEMIES = [
-	Unnamed1,
+	Administration,
 	Life_Paths,
 	Cringelord,
 	Nightmare,
