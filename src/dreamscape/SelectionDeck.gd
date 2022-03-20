@@ -82,7 +82,8 @@ func _display() -> void:
 	rect_size = Vector2(popup_size_x,600)
 	popup_centered()
 	_populate_preview_cards()
-
+	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+		print("DEBUG INFO:SelectionDeck: Started Card Display with a %s card selection" % [_deck_preview_grid.get_child_count()])
 
 # Goes through the player's deck and creates a card selection object
 # for each card in it.
@@ -118,7 +119,10 @@ func _populate_preview_cards() -> void:
 					self, 
 					"_on_deck_card_selected", 
 					[card_preview_container])
-
+		if _deck_preview_grid.get_child_count() == 0:
+			hide()
+			if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+				print("DEBUG INFO:SelectionDeck: Automatically Hiding because no cards match criteria")
 
 # Triggers the operation requested on the selected card, if the player has enough
 # pathos
