@@ -571,6 +571,22 @@ const NanoMachines = {
 		],
 	},
 }
+const SpareLens = {
+	"manual": {
+		"hand": [
+			{
+				"name": "apply_effect",
+				"tags": ["Card"],
+				"effect_name": Terms.ACTIVE_EFFECTS.spare_lens.name,
+				"subject": "dreamer",
+				"modification": {
+					"lookup_property": "_amounts",
+					"value_key": "concentration_stacks"
+				},
+			},
+		],
+	},
+}
 
 
 # This fuction returns all the scripts of the specified card name.

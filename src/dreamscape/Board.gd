@@ -265,8 +265,8 @@ func get_all_scriptables() -> Array:
 func load_deck() -> void:
 	if not globals.player.deck:
 		# warning-ignore:return_value_discarded
-		NewGameMenu.randomize_aspect_choices()
 		cfc.game_rng_seed = CFUtils.generate_random_seed()
+		NewGameMenu.randomize_aspect_choices()
 		globals.player.setup()
 		globals.encounters.prepare_next_act()
 	for card in globals.player.deck.instance_cards():
@@ -442,6 +442,8 @@ func _recalculate_predictions() -> void:
 func _input(event):
 	if event.is_action_pressed("init_debug_game"):
 		Music.prepare_background_music('ordeal')
+		globals.player.deck_groups[Terms.CARD_GROUP_TERMS.item] = "Laser Cannon"
+		globals.player.deck.deck_groups[Terms.CARD_GROUP_TERMS.item] = "Laser Cannon"
 #		var bgm_tracks = SoundManagerClass.get_sound_files_in_dir("res://assets/music/ordeal/")
 #		CFUtils.shuffle_array(bgm_tracks)
 #		SoundManager.play_bgm(bgm_tracks[0])
@@ -490,7 +492,7 @@ func _input(event):
 		globals.player.add_memory(MemoryDefinitions.RandomChaos.canonical_name)
 		# warning-ignore:return_value_discarded
 		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
-#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.stuffed_toy.name, 12)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.spare_lens.name, 2)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1, false, false, ['Debug'], 'thick')
 		for pathos in Terms.RUN_ACCUMULATION_NAMES.values():
 			if pathos != Terms.RUN_ACCUMULATION_NAMES.boss:
