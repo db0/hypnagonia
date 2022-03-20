@@ -637,6 +637,44 @@ const Streamlining = {
 		],
 	},
 }
+const Brooding = {
+	"manual": {
+		"hand": [
+			{
+				"name": "move_card_to_container",
+				"dest_container": "discard",
+				"subject": "self",
+				"tags": ["Played", "Card"],
+			},
+			{
+				"name": "move_card_to_container",
+				"tags": ["Card"],
+				"is_cost": false,
+				"subject": "index",
+				"subject_count": "all",
+				"subject_index": "top",
+				SP.KEY_NEEDS_SELECTION: true,
+				SP.KEY_SELECTION_COUNT: {
+					"lookup_property": "_amounts",
+					"value_key": "forget_amount"
+				},
+				SP.KEY_SELECTION_TYPE: "equal",
+				SP.KEY_SELECTION_OPTIONAL: false,
+				SP.KEY_SELECTION_IGNORE_SELF: true,
+				"src_container": "hand",
+				"dest_container": "forgotten",
+			},
+			{
+				"name": "draw_cards",
+				"tags": ["Card"],
+				"card_count": {
+					"lookup_property": "_amounts",
+					"value_key": "draw_amount"
+				},
+			},
+		],
+	},
+}
 
 
 # This fuction returns all the scripts of the specified card name.
@@ -666,5 +704,7 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 		"Nano-Machines": NanoMachines,
 		"Heat Venting": HeatVenting,
 		"High Heat Venting": HighHeatVenting,
+		"Streamlining": Streamlining,
+		"Brooding": Brooding,
 	}
 	return(_prepare_scripts(scripts, card_name, get_modified))

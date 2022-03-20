@@ -14,4 +14,4 @@ border_color = Color( 1, 0.513726, 0.313726, 1 )
 border_blend = true
 shadow_color = Color( 0, 0, 0, 0.235294 )
 shadow_offset = Vector2( 0, 1 )
-anti_aliasing_size = 3
+anti_aliasing_size = 3.0

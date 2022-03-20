@@ -303,6 +303,7 @@ const LASER_CANNON := {
 		"Widebeam",
 		"Heat Venting",
 		"Streamlining",
+		"Brooding",
 	],
 	"Rare": [
 		"Precision",

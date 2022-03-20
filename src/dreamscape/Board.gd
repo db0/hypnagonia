@@ -493,7 +493,7 @@ func _input(event):
 		# warning-ignore:return_value_discarded
 		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.eureka.name, 2)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.heat_venting.name, 1, false, false, ['Debug'], 'high')
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.heat_venting.name, 1, false, false, ['Debug'], 'high')
 		for pathos in Terms.RUN_ACCUMULATION_NAMES.values():
 			if pathos != Terms.RUN_ACCUMULATION_NAMES.boss:
 				globals.player.pathos.modify_released_pathos(pathos, globals.player.pathos.get_threshold(pathos))
@@ -502,7 +502,8 @@ func _input(event):
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"Charged Shot",
+			"Brooding",
+			"! Brooding !",
 #			"Charged Shot",
 		]:
 			var ce = CardEntry.new(c)
