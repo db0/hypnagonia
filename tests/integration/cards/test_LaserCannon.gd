@@ -269,3 +269,44 @@ class TestDarkRecovery:
 
 	func extra_hypnagonia_setup():
 		globals.player.deck.add_new_card("Dark Recovery")
+		
+class TestDarkApproach:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	func _init() -> void:
+		globals.test_flags["test_initial_hand"] = true
+		testing_card_name = "Dark Approach"
+		expected_amount_keys = [
+			"draw_amount",
+		]
+
+	func test_card_results():
+		assert_has_amounts()
+		assert_eq(hand.get_card_count(), get_amount("draw_amount") + 1,
+				"%s drew correct amount of cards" % [card.canonical_name])
+
+	func extra_hypnagonia_setup():
+		globals.player.deck.add_new_card("Dark Approach")
+
+class TestWidebeam:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	func _init() -> void:
+		testing_card_name = "Widebeam"
+		globals.test_flags["test_initial_hand"] = true
+		expected_amount_keys = [
+			"damage_amount",
+			"forget_amount",
+		]
+
+	func test_card_results():
+		assert_has_amounts()
+		var initial_card_size = hand.get_card_count()
+		var last_card = deck.get_bottom_card()
+		var sceng = snipexecute(card, test_torment)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(test_torment.damage, tdamage(get_amount("damage_amount")),
+				"%s dealt correct amount of interpretation" % [card.canonical_name])
+		assert_eq(hand.get_card_count(), initial_card_size - get_amount("forget_amount"))
+		assert_eq(forgotten.get_card_count(), get_amount("forget_amount"))
+		assert_eq(last_card.get_parent(), forgotten)
+

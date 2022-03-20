@@ -2223,7 +2223,7 @@ const CARDS := {
 	"Blind Trial": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "{shuffle} your discard pile into your deck.\nPlay {draw_amount} Random card from your deck. {forget}.",
+		"Abilities": "{shuffle} your discard pile into your draw pile.\nPlay {draw_amount} Random card from your draw pile. {forget}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -2241,7 +2241,7 @@ const CARDS := {
 	"@ Blind Trial @": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "{shuffle} your discard pile into your deck.\nPlay {draw_amount} Random card from your deck. {forget}.",
+		"Abilities": "{shuffle} your discard pile into your draw pile.\nPlay {draw_amount} Random card from your draw pile. {forget}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -2254,7 +2254,7 @@ const CARDS := {
 	"! Blind Trial !": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "{shuffle} your discard pile into your deck.\nPlay {draw_amount} Random card from your deck. {forget}.",
+		"Abilities": "{shuffle} your discard pile into your draw pile.\nPlay {draw_amount} Random card from your draw pile. {forget}.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -2267,7 +2267,7 @@ const CARDS := {
 	"Sustained Blind Trial": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
-		"Abilities": "{shuffle} your discard pile into your deck.\nPlay {draw_amount} Random card from your deck.",
+		"Abilities": "{shuffle} your discard pile into your draw pile.\nPlay {draw_amount} Random card from your draw pile.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -2517,7 +2517,7 @@ const CARDS := {
 	"Change of Mind": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
-		"Abilities": "{damage} for {damage_amount}. {shuffle} this card into your deck.",
+		"Abilities": "{damage} for {damage_amount}. {shuffle} this card into your draw pile.",
 		"Cost": 1,
 		"_illustration": "Maria Thoukydidou",
 		"_avoid_normal_discard": true,
@@ -2535,7 +2535,7 @@ const CARDS := {
 	"+ Change of Mind +": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
-		"Abilities": "{damage} for {damage_amount}. {shuffle} this card into your deck.",
+		"Abilities": "{damage} for {damage_amount}. {shuffle} this card into your draw pile.",
 		"Cost": 1,
 		"_illustration": "Maria Thoukydidou",
 		"_avoid_normal_discard": true,
@@ -2549,7 +2549,7 @@ const CARDS := {
 	"@ Change of Mind @": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
-		"Abilities": "{damage} for {damage_amount}. {shuffle} this card into your deck.",
+		"Abilities": "{damage} for {damage_amount}. {shuffle} this card into your draw pile.",
 		"Cost": 0,
 		"_illustration": "Maria Thoukydidou",
 		"_avoid_normal_discard": true,
@@ -2563,7 +2563,7 @@ const CARDS := {
 	"Brilliance": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you {shuffle} your deck, gain {concentration_defence} {confidence}.",
+		"Abilities": "Whenever you {shuffle} your draw pile, gain {concentration_defence} {confidence}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -2581,7 +2581,7 @@ const CARDS := {
 	"@ Brilliance @": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you {shuffle} your deck, gain {concentration_defence} {confidence}.",
+		"Abilities": "Whenever you {shuffle} your draw pile, gain {concentration_defence} {confidence}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -2594,7 +2594,7 @@ const CARDS := {
 	"^ Brilliance ^": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.alpha.name],
-		"Abilities": "Whenever you {shuffle} your deck, gain {concentration_defence} {confidence}.",
+		"Abilities": "Whenever you {shuffle} your draw pile, gain {concentration_defence} {confidence}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -2607,7 +2607,7 @@ const CARDS := {
 	"Blinding Brilliance": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you {shuffle} your deck, gain {concentration_defence} {confidence}.",
+		"Abilities": "Whenever you {shuffle} your draw pile, gain {concentration_defence} {confidence}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -2621,7 +2621,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.swift.name, Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "Gain {defence_amount} {confidence}.\n"\
-				+ "If you've {shuffle}d your deck this turn, "\
+				+ "If you've {shuffle}d your draw pile this turn, "\
 				+ "gain {defence_amount2} {confidence} and draw {draw_amount} card.",
 		"Cost": 1,
 		"_illustration": "Maria Thoukydidou",
@@ -2643,7 +2643,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Gain {defence_amount} {confidence}.\n"\
-				+ "If you've {shuffle}d your deck this turn, "\
+				+ "If you've {shuffle}d your draw pile this turn, "\
 				+ "gain {defence_amount2} {confidence} and draw {draw_amount} card.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -2660,7 +2660,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Gain {defence_amount} {confidence}.\n"\
-				+ "If you've {shuffle}d your deck this turn, "\
+				+ "If you've {shuffle}d your draw pile this turn, "\
 				+ "gain {defence_amount2} {confidence} and draw {draw_amount} card.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -2677,7 +2677,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Gain {defence_amount} {confidence}.\n"\
-				+ "If you've {shuffle}d your deck this turn, "\
+				+ "If you've {shuffle}d your draw pile this turn, "\
 				+ "gain {defence_amount2} {confidence} and draw {draw_amount} card.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -2693,7 +2693,7 @@ const CARDS := {
 	"Wild Inspiration": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.purpose.name],
-		"Abilities": "{forget} the top {forget_amount} card of the deck: Gain {immersion_amount} {immersion}. Draw {draw_amount} cards.",
+		"Abilities": "{forget} the top {forget_amount} card of the draw pile: Gain {immersion_amount} {immersion}. Draw {draw_amount} cards.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -2712,7 +2712,7 @@ const CARDS := {
 	"+ Wild Inspiration +": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.purpose.name],
-		"Abilities": "{forget} the top {forget_amount} card of the deck: Gain {immersion_amount} {immersion}. Draw {draw_amount} cards.",
+		"Abilities": "{forget} the top {forget_amount} card of the draw pile: Gain {immersion_amount} {immersion}. Draw {draw_amount} cards.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -2727,7 +2727,7 @@ const CARDS := {
 	"! Wild Inspiration !": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.purpose.name],
-		"Abilities": "{forget} the top {forget_amount} card of the deck: Gain {immersion_amount} {immersion}. Draw {draw_amount} cards.",
+		"Abilities": "{forget} the top {forget_amount} card of the draw pile: Gain {immersion_amount} {immersion}. Draw {draw_amount} cards.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -2743,7 +2743,7 @@ const CARDS := {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
 		"Abilities": "At the end of your turn, {shuffle} the top {concentration_cards} card "\
-				+ "from the discard pile into the deck.",
+				+ "from the discard pile into the draw pile.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -2761,7 +2761,7 @@ const CARDS := {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.alpha.name],
 		"Abilities": "At the end of your turn, {shuffle} the top {concentration_cards} card "\
-				+ "from the discard pile into the deck.",
+				+ "from the discard pile into the draw pile.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -2774,7 +2774,7 @@ const CARDS := {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
 		"Abilities": "At the end of your turn, {shuffle} the top {concentration_cards} card "\
-				+ "from the discard pile into the deck.",
+				+ "from the discard pile into the draw pile.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -2787,7 +2787,7 @@ const CARDS := {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
 		"Abilities": "At the end of your turn, {shuffle} the top {concentration_cards} cards "\
-				+ "from the discard pile into the deck.",
+				+ "from the discard pile into the draw pile.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -2800,7 +2800,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.insomnia.name],
 		"Abilities": "{damage} for {damage_amount}. You may {discard} {discard_amount} cards from your hand "\
-				+ "to {shuffle} this card into your deck.",
+				+ "to {shuffle} this card into your draw pile.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -2818,7 +2818,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.insomnia.name],
 		"Abilities": "{damage} for {damage_amount}. You may {discard} {discard_amount} cards from your hand "\
-				+ "to {shuffle} this card into your deck.",
+				+ "to {shuffle} this card into your draw pile.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -2832,7 +2832,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.insomnia.name],
 		"Abilities": "{damage} for {damage_amount}. You may {discard} {discard_amount} card from your hand "\
-				+ "to {shuffle} this card into your deck.",
+				+ "to {shuffle} this card into your draw pile.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -2846,7 +2846,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "{damage} for {damage_amount2} for each time your deck was shuffled.",
+				+ "{damage} for {damage_amount2} for each time your draw pile was shuffled.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
@@ -2865,7 +2865,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "{damage} for {damage_amount2} for each time your deck was shuffled.",
+				+ "{damage} for {damage_amount2} for each time your draw pile was shuffled.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
@@ -2880,7 +2880,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "{damage} for {damage_amount2} for each time your deck was shuffled.",
+				+ "{damage} for {damage_amount2} for each time your draw pile was shuffled.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
@@ -2895,7 +2895,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "If you've shuffled your deck this turn, apply {effect_stacks} {vulnerable}.",
+				+ "If you've shuffled your draw pile this turn, apply {effect_stacks} {vulnerable}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -2914,7 +2914,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "If you've shuffled your deck this turn, apply {effect_stacks} {vulnerable}.",
+				+ "If you've shuffled your draw pile this turn, apply {effect_stacks} {vulnerable}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -2929,7 +2929,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "If you've shuffled your deck this turn, apply {effect_stacks} {vulnerable}.",
+				+ "If you've shuffled your draw pile this turn, apply {effect_stacks} {vulnerable}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -2943,7 +2943,7 @@ const CARDS := {
 	"Eureka!": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
-		"Abilities": "Gain {concentration_stacks} {buffer} every other time you shuffle your deck.",
+		"Abilities": "Gain {concentration_stacks} {buffer} every other time you shuffle your draw pile.",
 		"Cost": 2,
 		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Rare",
@@ -2960,7 +2960,7 @@ const CARDS := {
 	"@ Eureka! @": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
-		"Abilities": "Gain {concentration_stacks} {buffer} every other time you shuffle your deck.",
+		"Abilities": "Gain {concentration_stacks} {buffer} every other time you shuffle your draw pile.",
 		"Cost": 1,
 		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Rare",
@@ -2972,7 +2972,7 @@ const CARDS := {
 	"^ Eureka! ^": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name, Terms.GENERIC_TAGS.alpha.name],
-		"Abilities": "Gain {concentration_stacks} {buffer} every other time you shuffle your deck.",
+		"Abilities": "Gain {concentration_stacks} {buffer} every other time you shuffle your draw pile.",
 		"Cost": 2,
 		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Rare",
@@ -2984,7 +2984,7 @@ const CARDS := {
 	"Inspired Eureka!": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
-		"Abilities": "Gain {concentration_stacks} {buffer} every other time you shuffle your deck.",
+		"Abilities": "Gain {concentration_stacks} {buffer} every other time you shuffle your draw pile.",
 		"Cost": 2,
 		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Rare",
@@ -4249,7 +4249,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "You may take {exert_amount} {anxiety} "\
-				+ "to {shuffle} this card into your deck.",
+				+ "to {shuffle} this card into your draw pile.",
 		"Cost": 1,
 		"_illustration": "Maria Thoukydidou",
 		"_avoid_normal_discard": true,
@@ -4270,7 +4270,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "You may take {exert_amount} {anxiety} "\
-				+ "to {shuffle} this card into your deck.",
+				+ "to {shuffle} this card into your draw pile.",
 		"Cost": 1,
 		"_illustration": "Maria Thoukydidou",
 		"_avoid_normal_discard": true,
@@ -4287,7 +4287,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "You may take {exert_amount} {anxiety} "\
-				+ "to {shuffle} this card into your deck.",
+				+ "to {shuffle} this card into your draw pile.",
 		"Cost": 1,
 		"_illustration": "Maria Thoukydidou",
 		"_avoid_normal_discard": true,
@@ -4303,7 +4303,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} all Torments for {damage_amount}.\n"\
-				+ "If your deck currently has at least {deck_size} cards, "\
+				+ "If your draw pile currently has at least {deck_size} cards, "\
 				+ "{damage} all Torments for {damage_amount2}",
 		"Cost": 3,
 		"_illustration": "Nobody",
@@ -4325,7 +4325,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} all Torments for {damage_amount}.\n"\
-				+ "If your deck currently has at least {deck_size} cards, "\
+				+ "If your draw pile currently has at least {deck_size} cards, "\
 				+ "{damage} all Torments for {damage_amount2}",
 		"Cost": 3,
 		"_illustration": "Nobody",
@@ -4342,7 +4342,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} all Torments for {damage_amount}.\n"\
-				+ "If your deck currently has at least {deck_size} cards, "\
+				+ "If your draw pile currently has at least {deck_size} cards, "\
 				+ "{damage} all Torments for {damage_amount2}",
 		"Cost": 3,
 		"_illustration": "Nobody",
@@ -4359,7 +4359,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} all Torments for {damage_amount}.\n"\
-				+ "If your deck currently has at least {deck_size} cards, "\
+				+ "If your draw pile currently has at least {deck_size} cards, "\
 				+ "{damage} all Torments for {damage_amount2}",
 		"Cost": 3,
 		"_illustration": "Nobody",
@@ -4431,8 +4431,8 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.ACTIVE_EFFECTS.armor.name],
 		"Abilities": "Gain {effect_stacks} {armor}.\n"\
-				+ "If your deck currently has at least {deck_size} cards, "\
-				+ "shuffle this card back into the deck and gain {effect_stacks2} {buffer}.",
+				+ "If your draw pile currently has at least {deck_size} cards, "\
+				+ "shuffle this card back into the draw pile and gain {effect_stacks2} {buffer}.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -4460,8 +4460,8 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.ACTIVE_EFFECTS.armor.name],
 		"Abilities": "Gain {effect_stacks} {armor}.\n"\
-				+ "If your deck currently has at least {deck_size} cards, "\
-				+ "shuffle this card back into the deck and gain {effect_stacks2} {buffer}.",
+				+ "If your draw pile currently has at least {deck_size} cards, "\
+				+ "shuffle this card back into the draw pile and gain {effect_stacks2} {buffer}.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -4485,8 +4485,8 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.ACTIVE_EFFECTS.armor.name],
 		"Abilities": "Gain {effect_stacks} {armor}.\n"\
-				+ "If your deck currently has at least {deck_size} cards, "\
-				+ "shuffle this card back into the deck and gain {effect_stacks2} {buffer}.",
+				+ "If your draw pile currently has at least {deck_size} cards, "\
+				+ "shuffle this card back into the draw pile and gain {effect_stacks2} {buffer}.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -4510,8 +4510,8 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.ACTIVE_EFFECTS.armor.name],
 		"Abilities": "Gain {effect_stacks} {armor}.\n"\
-				+ "If your deck currently has at least {deck_size} cards, "\
-				+ "shuffle this card back into the deck and gain {effect_stacks2} {buffer}.",
+				+ "If your draw pile currently has at least {deck_size} cards, "\
+				+ "shuffle this card back into the draw pile and gain {effect_stacks2} {buffer}.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -4592,7 +4592,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "{damage} for {chain_amount} for every {per_division} cards currently in your deck.",
+				+ "{damage} for {chain_amount} for every {per_division} cards currently in your draw pile.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -4612,7 +4612,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "{damage} for {chain_amount} for every {per_division} cards currently in your deck.",
+				+ "{damage} for {chain_amount} for every {per_division} cards currently in your draw pile.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -4628,7 +4628,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "{damage} for {chain_amount} for every {per_division} cards currently in your deck.",
+				+ "{damage} for {chain_amount} for every {per_division} cards currently in your draw pile.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -4644,7 +4644,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "Shuffle the top {card_amount} card of the discard pile into the deck.",
+				+ "Shuffle the top {card_amount} card of the discard pile into the draw pile.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -4663,7 +4663,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "Shuffle the top {card_amount} card of the discard pile into the deck.",
+				+ "Shuffle the top {card_amount} card of the discard pile into the draw pile.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -4678,7 +4678,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "Shuffle the top {card_amount} cards of the discard pile into the deck.",
+				+ "Shuffle the top {card_amount} cards of the discard pile into the draw pile.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -4693,7 +4693,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
-				+ "Shuffle {card_amount} random card from the forgotten pile into the deck.",
+				+ "Shuffle {card_amount} random card from the forgotten pile into the draw pile.",
 		"Cost": 2,
 		"_illustration": "Miikka Veijola",
 		"_rarity": "Rare",
@@ -4712,7 +4712,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
-				+ "Shuffle {card_amount} random card from the forgotten pile into the deck.",
+				+ "Shuffle {card_amount} random card from the forgotten pile into the draw pile.",
 		"Cost": 2,
 		"_illustration": "Miikka Veijola",
 		"_rarity": "Rare",
@@ -4727,7 +4727,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.omega.name],
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
-				+ "Shuffle {card_amount} random card from the forgotten pile into the deck.",
+				+ "Shuffle {card_amount} random card from the forgotten pile into the draw pile.",
 		"Cost": 2,
 		"_illustration": "Miikka Veijola",
 		"_rarity": "Rare",
