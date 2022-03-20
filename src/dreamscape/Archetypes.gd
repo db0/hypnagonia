@@ -279,7 +279,7 @@ const LASER_CANNON := {
 
 	],
 	"Memories": [
-
+		MemoryDefinitions.ActivateStartups
 	],
 	"Perturbations": [
 		
