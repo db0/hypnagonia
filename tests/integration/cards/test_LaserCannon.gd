@@ -398,8 +398,6 @@ class TestSpareLens:
 			return
 		assert_has(deck.get_top_card().get_property('Tags'), Terms.GENERIC_TAGS.fusion.name)
 
-
-
 class TestHeatVenting:
 	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.heat_venting.name
@@ -412,7 +410,6 @@ class TestHeatVenting:
 			}
 		]
 
-
 	func test_heat_venting():
 		for iter in 4:
 			var c : DreamCard = cfc.instance_card("Cannon")
@@ -422,6 +419,30 @@ class TestHeatVenting:
 		yield(yield_for(1), YIELD)
 		assert_eq(dreamer.defence, amount * get_amount_from_card(effect, "concentration_defence") * 2,
 				"%s gave correct amount of confidence" % [effect])
+		
+
+class TestStreamlining:
+	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
+	var effect: String = Terms.ACTIVE_EFFECTS.streamlining.name
+	var amount = 2
+	func _init() -> void:
+		globals.test_flags["test_initial_hand"] = true
+		effects_to_play = [
+			{
+				"name": effect,
+				"amount": amount,
+			}
+		]
+
+	func test_effect():
+		for iter in 4:
+			var c : DreamCard = cfc.instance_card("Cannon")
+			deck.add_child(c)
+			c._determine_idle_state()
+			hand.draw_card()
+		yield(yield_for(1), YIELD)
+		assert_eq(hand.get_card_count(), amount * 2 + 2,
+				"%s drew correct amount of cards" % [effect])
 		
 
 
