@@ -201,6 +201,7 @@ func filter_card_on_amounts(amount_name: String) -> Array:
 			card_list.append(card_entry)
 	return(card_list)
 
+
 # Returns a random card from this deck object
 # A custom list of objects can also be passed and it will return
 # a card from there
