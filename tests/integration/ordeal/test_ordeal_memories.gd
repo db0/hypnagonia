@@ -418,3 +418,27 @@ class TestProtectSelf:
 			sceng = yield(sceng, "completed")
 		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.protection.name), get_amount("effect_stacks"),
 				"Expected %s stacks added to %s" % [Terms.ACTIVE_EFFECTS.protection.name, dreamer])
+
+
+class TestActivateStartups:
+	extends "res://tests/HUT_Ordeal_MemoriesTestClass.gd"
+	func _init() -> void:
+		globals.test_flags["test_initial_hand"] = true
+		testing_memory_name = MemoryDefinitions.ActivateStartups.canonical_name
+		expected_amount_keys = [
+			"upgrade_multiplier",
+		]
+
+	func test_memory_use():
+		if not assert_has_amounts():
+			return
+		spawn_test_card("Dark Approach", forgotten)
+		spawn_test_card("Precision", forgotten)
+		var sceng = memexecute(memory)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		yield(yield_for(1), YIELD)
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 2,
+				"Expected %s stacks added to %s" % [Terms.ACTIVE_EFFECTS.strengthen.name, dreamer])
+		assert_eq(hand.get_card_count(), 2,
+				"%s drew correct amount of cards" % [memory.canonical_name])

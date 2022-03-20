@@ -82,7 +82,7 @@ func spawn_test_torments() -> void:
 	for effect in test_torment_starting_effects:
 		spawn_effect(test_torment, effect.name, effect.amount, effect.get("upgrade", ''))
 
-	
+
 
 func spawn_effect(target: CombatEntity, effect_name: String, amount: int, upgrade := '', tags := ['GUT']) -> void:
 	target.active_effects.mod_effect(effect_name, amount, false, false, tags, upgrade)
@@ -168,3 +168,9 @@ func activate_quick_intent(intents_script: Array) -> void:
 	yield(yield_for(0.1), YIELD)
 	turn.end_player_turn()
 	yield(yield_to(turn, "player_turn_started", 3), YIELD)
+
+func spawn_test_card(card_name: String, card_container: CardContainer) -> DreamCard:
+	var c : DreamCard = cfc.instance_card(card_name)
+	card_container.add_child(c)
+	c._determine_idle_state()
+	return(c)

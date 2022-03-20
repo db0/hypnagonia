@@ -469,6 +469,21 @@ const RemoveDebuff := {
 		"upgrade_multiplier": 1
 	},
 }
+const ActivateStartups := {
+	"canonical_name": "ActivateStartups",
+	"name": "First Kiss",
+	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
+			+ "to gain the effects of all {startup} cards in your forgotten pile.",
+	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"context": EffectContext.BATTLE,
+	"pathos": Terms.RUN_ACCUMULATION_NAMES.artifact,
+	"pathos_threshold_multiplier": 2.5,
+	"pathos_accumulation_divider": 1.3,
+	"keys_modified_by_upgrade": ["pathos_threshold_multiplier"],
+	"amounts": {
+		"upgrade_multiplier": 1
+	},
+}
 
 
 # Generic memories which have a chance to appear in any playthrough
@@ -502,7 +517,8 @@ const ARCHETYPE := [
 	ExertRecovery,
 	ExertSelf,
 	RegenerateSelf,
-	BufferSelf
+	BufferSelf,
+	ActivateStartups,
 ]
 
 # These memories are only found in non-combat encounters
