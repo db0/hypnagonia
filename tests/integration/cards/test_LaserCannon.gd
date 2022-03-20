@@ -349,3 +349,31 @@ class TestPrecision:
 	func extra_hypnagonia_setup():
 		globals.player.deck.add_new_card(testing_card_name)
 
+
+class TestNanoMachines:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	func _init() -> void:
+		testing_card_name = "Nano-Machines"
+		globals.test_flags["test_initial_hand"] = true
+		expected_amount_keys = [
+			"damage_amount",
+			"draw_amount",
+		]
+
+	func test_card_results():
+		assert_has_amounts()
+		var c1 : DreamCard = cfc.instance_card("Cannon")
+		deck.add_child(c1)
+		c1._determine_idle_state()
+		var c2 : DreamCard = cfc.instance_card("Vulcan")
+		deck.add_child(c2)
+		c2._determine_idle_state()
+		var sceng = snipexecute(card, test_torment)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(test_torment.damage, tdamage(get_amount("damage_amount")),
+				"%s dealt correct amount of interpretation" % [card.canonical_name])
+		assert_eq(hand.get_card_count(), 2, "Only 2 of the drawn cards are Fusion")
+				
+
+		
