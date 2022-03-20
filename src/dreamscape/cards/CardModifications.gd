@@ -90,6 +90,14 @@ static func get_scars() -> Array:
 				"amount_value": "-1",
 			},
 		},
+		{
+			"filters": [CardFilter.new('_amounts', "draw_amount2", 'eq')],
+			"property": "_amounts",
+			"value": {
+				"amount_key": "draw_amount2",
+				"amount_value": "-1",
+			},
+		},
 		# Used when the player has to forget cards as cost
 		# So increasing this amount makes the card worse
 		{
@@ -337,6 +345,14 @@ static func get_blessings() -> Array:
 				"amount_value": "+1",
 			},
 		},
+		{
+			"filters": [CardFilter.new('_amounts', "draw_amount2", 'eq')],
+			"property": "_amounts",
+			"value": {
+				"amount_key": "draw_amount2",
+				"amount_value": "+1",
+			},
+		},
 		# Used when the player has to forget cards as cost
 		# So decreasing this amount makes the card better
 		{
@@ -501,11 +517,13 @@ static func get_blessings() -> Array:
 			"property": "Tags",
 			"value": Terms.GENERIC_TAGS.frozen.name,
 		},
-		{
-			"filters": [CardFilter.new('Tags', Terms.GENERIC_TAGS.slumber.name, 'eq')],
-			"property": "Tags",
-			"value": '-' + Terms.GENERIC_TAGS.slumber.name,
-		},
+		# Not all cards with slumber forget themselves
+		# also removing forget can completely break some cards.
+#		{
+#			"filters": [CardFilter.new('Tags', Terms.GENERIC_TAGS.slumber.name, 'eq')],
+#			"property": "Tags",
+#			"value": '-' + Terms.GENERIC_TAGS.slumber.name,
+#		},
 	]
 	return(blessings)
 

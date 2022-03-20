@@ -414,6 +414,93 @@ const GhostRecovery = {
 		],
 	},
 }
+const DarkApproach = {
+	"battle_begun": {
+		"all": [
+			{
+				"name": "draw_cards",
+				"tags": ["Card"],
+				"card_count": {
+					"lookup_property": "_amounts",
+					"value_key": "draw_amount"
+				},
+			},
+		],
+	},
+	"manual": {
+		"hand": [
+			{
+				"name": "move_card_to_container",
+				"subject": "self",
+				"dest_container": "forgotten",
+				"tags": ["Played", "Card"],
+			},
+		],
+	},
+}
+const GhostApproach = {
+	"battle_begun": {
+		"all": [
+			{
+				"name": "draw_cards",
+				"tags": ["Card"],
+				"card_count": {
+					"lookup_property": "_amounts",
+					"value_key": "draw_amount"
+				},
+			},
+		],
+	},
+	"manual": {
+		"hand": [
+			{
+				"name": "move_card_to_container",
+				"subject": "self",
+				"dest_container": "forgotten",
+				"tags": ["Played", "Card"],
+			},
+			{
+				"name": "draw_cards",
+				"tags": ["Card"],
+				"card_count": {
+					"lookup_property": "_amounts",
+					"value_key": "draw_amount2"
+				},
+			},
+		],
+	},
+}
+const Widebeam = {
+	"manual": {
+		"hand": [
+			{
+				"name": "modify_damage",
+				"subject": "target",
+				"needs_subject": true,
+				"amount": {
+					"lookup_property": "_amounts",
+					"value_key": "damage_amount"
+				},
+				"tags": ["Attack", "Card"],
+				"filter_state_subject": [{
+					"filter_group": "EnemyEntities",
+				},],
+			},
+			{
+				"name": "move_card_to_container",
+				"tags": ["Card"],
+				"src_container": "deck",
+				"dest_container": "forgotten",
+				"subject_count": {
+					"lookup_property": "_amounts",
+					"value_key": "forget_amount"
+				},
+				"subject": "index",
+				"subject_index": "bottom",
+			},
+		],
+	},
+}
 
 
 # This fuction returns all the scripts of the specified card name.
@@ -436,5 +523,8 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 		"Blinding Flash": BlindingFlash,
 		"Dark Recovery": DarkRecovery,
 		"Ghost Recovery": GhostRecovery,
+		"Dark Approach": DarkApproach,
+		"Ghost Approach": GhostApproach,
+		"Widebeam": Widebeam,
 	}
 	return(_prepare_scripts(scripts, card_name, get_modified))
