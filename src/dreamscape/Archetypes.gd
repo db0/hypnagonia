@@ -301,6 +301,8 @@ const LASER_CANNON := {
 		"Dark Recovery",
 		"Dark Approach",
 		"Widebeam",
+		"Heat Venting",
+		"Streamlining",
 	],
 	"Rare": [
 		"Precision",

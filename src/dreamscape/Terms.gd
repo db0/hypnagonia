@@ -518,6 +518,12 @@ const ACTIVE_EFFECTS := {
 		"icon": preload("res://assets/icons/heat-haze.png"),
 		"is_card_reference": true
 	},
+	"streamlining":  {
+		"name": "Streamlining",
+		"type": "Concentration",
+		"icon": preload("res://assets/icons/abstract-070.png"),
+		"is_card_reference": true
+	},
 	# These effects are usually starting on top of special enemies
 	# but might also be given to the player as Understanding concentrations
 	"enraged": {

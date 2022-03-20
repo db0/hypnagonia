@@ -11,7 +11,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
 			"damage_amount": 8,
 			"effect_stacks": 1,
@@ -36,7 +36,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
 			"damage_amount": 10,
 			"effect_stacks": 1,
@@ -56,7 +56,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
 			"damage_amount": 8,
 			"effect_stacks": 2,
@@ -76,7 +76,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
 			"damage_amount": 9,
 			"effect_stacks": 1,
@@ -96,7 +96,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Special",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
 			"damage_amount": 14,
 			"effect_stacks": 2,
@@ -118,7 +118,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Special",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
 			"damage_amount": 17,
 			"effect_stacks": 2,
@@ -174,7 +174,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
 			"damage_amount": 4,
 			"chain_amount": 2,
@@ -196,7 +196,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
 			"damage_amount": 5,
 			"chain_amount": 2,
@@ -213,7 +213,7 @@ const CARDS := {
 		"Cost": 9,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
 			"damage_amount": 3,
 			"chain_amount": 2,
@@ -230,7 +230,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
 			"damage_amount": 4,
 			"chain_amount": 2,
@@ -247,7 +247,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Special",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
 			"damage_amount": 3,
 			"chain_amount": 5,
@@ -266,7 +266,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Special",
-		"_keywords": ["interpretation"],
+		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
 			"damage_amount": 4,
 			"chain_amount": 5,
@@ -316,7 +316,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["confidence"],
+		"_keywords": ["confidence", "fuse"],
 		"_amounts": {
 			"defence_amount": 8,
 			"fuse_amount": 2,
@@ -337,7 +337,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["confidence"],
+		"_keywords": ["confidence", "fuse"],
 		"_amounts": {
 			"defence_amount": 11,
 			"fuse_amount": 2,
@@ -353,7 +353,7 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["confidence"],
+		"_keywords": ["confidence", "fuse"],
 		"_amounts": {
 			"defence_amount": 6,
 			"fuse_amount": 2,
@@ -369,7 +369,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["confidence"],
+		"_keywords": ["confidence", "fuse"],
 		"_amounts": {
 			"defence_amount": 9,
 			"fuse_amount": 2,
@@ -385,7 +385,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Special",
-		"_keywords": ["confidence"],
+		"_keywords": ["confidence", "fuse"],
 		"_amounts": {
 			"defence_amount": 14,
 			"effect_stacks": 1,
@@ -408,7 +408,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 			"_rarity": "Special",
-		"_keywords": ["confidence"],
+		"_keywords": ["confidence", "fuse"],
 		"_amounts": {
 			"defence_amount": 17,
 			"effect_stacks": 1,
@@ -1036,7 +1036,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["confidence"],
+		"_keywords": ["confidence", "fuse"],
 		"_amounts": {
 			"concentration_stacks": 1,
 			"concentration_defence": 7,
@@ -1055,7 +1055,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["confidence"],
+		"_keywords": ["confidence", "fuse"],
 		"_amounts": {
 			"concentration_stacks": 1,
 			"concentration_defence": 7,
@@ -1069,7 +1069,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["confidence"],
+		"_keywords": ["confidence", "fuse"],
 		"_amounts": {
 			"concentration_stacks": 1,
 			"concentration_defence": 7,
@@ -1083,10 +1083,67 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_keywords": ["confidence"],
+		"_keywords": ["confidence", "fuse"],
 		"_amounts": {
 			"concentration_stacks": 1,
 			"concentration_defence": 10,
+		},
+		"_is_upgrade": true,
+	},
+	"Streamlining": {
+		"Type": "Concentration",
+		"Tags": [],
+		"Abilities": "Draw {concentration_draw} cards whenever you fuse {fusion} cards.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["fuse"],
+		"_amounts": {
+			"concentration_draw": 2,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"@ Streamlining @",
+			"^ Streamlining ^",
+			"Rapid Streamlining",
+		],
+	},
+	"@ Streamlining @": {
+		"Type": "Concentration",
+		"Tags": [],
+		"Abilities": "Draw {concentration_stacks} cards whenever you fuse {fusion} cards.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["fuse"],
+		"_amounts": {
+			"concentration_stacks": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"^ Streamlining ^": {
+		"Type": "Concentration",
+		"Tags": [],
+		"Abilities": "Draw {concentration_stacks} cards whenever you fuse {fusion} cards.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["fuse"],
+		"_amounts": {
+			"concentration_stacks": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"! Streamlining !": {
+		"Type": "Concentration",
+		"Tags": [],
+		"Abilities": "Draw {concentration_stacks} cards whenever you fuse {fusion} cards.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["fuse"],
+		"_amounts": {
+			"concentration_stacks": 3,
 		},
 		"_is_upgrade": true,
 	},

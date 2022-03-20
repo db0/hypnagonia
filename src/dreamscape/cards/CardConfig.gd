@@ -74,6 +74,8 @@ const EXPLANATIONS = {
 			+ "The affected card will be permanently degraded in a random manner",
 	"enhance": "Enhance ([img=24x24]res://assets/card_front/sun.png[/img]): "\
 			+ "The affected card will be permanently improved in a random manner",
+	"fuse": "Fuse ([img=24x24]%s[/img]): " % [Terms.GENERIC_TAGS.fusion.rich_text_icon]\
+			+ "Fusion occurs when two cards with fusion are drawn into the same hand",
 }
 # Allows the Card object and Card Viewer to replace specific entries during display.
 # For example, you can mark that a cost of 'U' is displayed as an empty string ('').

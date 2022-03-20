@@ -620,6 +620,23 @@ const HighHeatVenting = {
 		],
 	},
 }
+const Streamlining = {
+	"manual": {
+		"hand": [
+			{
+				"name": "apply_effect",
+				"tags": ["Card"],
+				"effect_name": Terms.ACTIVE_EFFECTS.heat_venting.name,
+				"subject": "dreamer",
+				"modification": {
+					"lookup_property": "_amounts",
+					"value_key": "concentration_stacks"
+				},
+				"upgrade_name": "high",
+			},
+		],
+	},
+}
 
 
 # This fuction returns all the scripts of the specified card name.
