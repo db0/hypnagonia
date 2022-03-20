@@ -27,26 +27,27 @@ As an example:
 		}
 """
 
-const Unnamed1 = {
+const Administration = {
 	"journal_description":\
-		'flavour [url={torment_tag1}]TBD[/url].',
+		'My vision blurred as day turned to night. [url={torment_tag1}]My boss raised his voice[/url] before I even spoke.\n'\
+		+ "The dilemma was between my career or my sanity.",
 	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+		'The extra headspace granted to me allowed me to reflect more.',
 	"enemies": {
 		"easy": [
 			{
-				"definition": EnemyDefinitions.UNNAMED1,
+				"definition": EnemyDefinitions.ADMINISTRATION,
 				"health_modifier": -40,
 			},
 		],
 		"medium": [
 			{
-				"definition": EnemyDefinitions.UNNAMED1,
+				"definition": EnemyDefinitions.ADMINISTRATION,
 			},
 		],
 		"hard": [
 			{
-				"definition": EnemyDefinitions.UNNAMED1,
+				"definition": EnemyDefinitions.ADMINISTRATION,
 				"health_modifier": +20,
 			},
 		],
@@ -306,7 +307,7 @@ const Submerged = {
 	},
 }
 const ENEMIES = [
-	Unnamed1,
+	Administration,
 	Life_Paths,
 	Cringelord,
 	Nightmare,

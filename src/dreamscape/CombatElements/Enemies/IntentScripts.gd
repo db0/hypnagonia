@@ -260,7 +260,7 @@ const INCREASE_COMPLEXITY := [
 const SUMMON_MINION1 := [
 	{
 		"name": "spawn_enemy",
-		"enemy": EnemyDefinitions.UNNAMED_MINION1,
+		"enemy": EnemyDefinitions.OVERWORKED_SERVUS,
 		"set_spawn_as_minion": true,
 		"tags": ["Intent"],
 		"icon": preload("res://assets/icons/uncertainty.png"),
@@ -276,7 +276,7 @@ const ARMOR_THE_BOSS := [
 		"modification": 1,
 		"filter_state_seek": [
 			{"filter_properties": {
-				"Name": "Unnamed Torment 1"}
+				"Name": "Administration"}
 			}
 		],
 		"icon": "icon_debuff",

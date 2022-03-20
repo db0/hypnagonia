@@ -1418,7 +1418,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Unnamed Torment 1": {
+	"Administration": {
 		"Type": "Understanding",
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}. Spawn {spawn_amount} special Torment.",
@@ -1432,11 +1432,11 @@ const CARDS := {
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
-			"+ Unnamed Torment 1 +",
-			"@ Unnamed Torment 1 @",
+			"+ Administration 1 +",
+			"@ Administration 1 @",
 		],
 	},
-	"+ Unnamed Torment 1 +": {
+	"+ Administration +": {
 		"Type": "Understanding",
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}. Spawn {spawn_amount} special Torment.",
@@ -1450,7 +1450,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"@ Unnamed Torment 1 @": {
+	"@ Administration @": {
 		"Type": "Understanding",
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}. Spawn {spawn_amount} special Torments.",
