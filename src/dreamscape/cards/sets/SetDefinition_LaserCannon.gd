@@ -600,7 +600,7 @@ const CARDS := {
 		"_is_upgrade": true,
 	},
 	"Blinding Flash": {
-		"Type": "Action",
+		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.startup.name],
 		"Abilities": "{forget}\n{startup}: Gain {effect_stacks} {armor}",
 		"Cost": 0,
@@ -621,7 +621,7 @@ const CARDS := {
 		],
 	},
 	"* Blinding Flash *": {
-		"Type": "Action",
+		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "{forget}\n{startup}: Gain {effect_stacks} {armor}",
 		"Cost": 0,
@@ -637,7 +637,7 @@ const CARDS := {
 		"_is_upgrade": true,
 	},
 	"Ω Blinding Flash Ω": {
-		"Type": "Action",
+		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.omega.name],
 		"Abilities": "{forget}\n{startup}: Gain {effect_stacks} {armor}",
 		"Cost": 0,
@@ -653,7 +653,7 @@ const CARDS := {
 		"_is_upgrade": true,
 	},
 	"Searing Flash": {
-		"Type": "Action",
+		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Draw {draw_amount} cards. {forget}\n{startup}: Gain {effect_stacks} {armor}",
 		"Cost": 0,
@@ -801,7 +801,7 @@ const CARDS := {
 		"_upgrade_threshold_modifier": -2,
 		"_upgrades": [
 			"+ Widebeam +",
-			"- Widebeam -",
+			"~ Widebeam ~",
 			"^ Widebeam ^",
 		],
 	},
@@ -835,7 +835,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"- Widebeam -": {
+	"~ Widebeam ~": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "{forget} the last {forget_amount} card of your draw pile. "\
@@ -847,6 +847,75 @@ const CARDS := {
 		"_amounts": {
 			"damage_amount": 18,
 			"forget_amount": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"Precision": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.ACTIVE_EFFECTS.strengthen.name],
+		"Abilities": "{forget}\n{startup}: Gain {effect_stacks} {strengthen}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["forget"],
+		"_amounts": {
+			"effect_stacks": 2,
+		},
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"* Precision *",
+			"Ω Precision Ω",
+			"@ Precision @",
+		],
+	},
+	"* Precision *": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.ACTIVE_EFFECTS.strengthen.name],
+		"Abilities": "{forget}\n{startup}: Gain {effect_stacks} {strengthen}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["forget"],
+		"_amounts": {
+			"effect_stacks": 3,
+		},
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER
+		},
+		"_is_upgrade": true,
+	},
+	"Ω Precision Ω": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.omega.name],
+		"Abilities": "{forget}\n{startup}: Gain {effect_stacks} {strengthen}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["forget"],
+		"_amounts": {
+			"effect_stacks": 2,
+		},
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER
+		},
+		"_is_upgrade": true,
+	},
+	"@ Precision @": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.omega.name],
+		"Abilities": "{forget}\n{startup}: Gain {effect_stacks} {strengthen}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["forget"],
+		"_amounts": {
+			"effect_stacks": 2,
+		},
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER
 		},
 		"_is_upgrade": true,
 	},

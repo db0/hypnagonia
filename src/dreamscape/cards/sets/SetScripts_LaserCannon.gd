@@ -501,6 +501,32 @@ const Widebeam = {
 		],
 	},
 }
+const Precision = {
+	"battle_begun": {
+		"all": [
+			{
+				"name": "apply_effect",
+				"tags": ["Card"],
+				"effect_name": Terms.ACTIVE_EFFECTS.strengthen.name,
+				"subject": "dreamer",
+				"modification": {
+					"lookup_property": "_amounts",
+					"value_key": "effect_stacks"
+				},
+			},
+		],
+	},
+	"manual": {
+		"hand": [
+			{
+				"name": "move_card_to_container",
+				"subject": "self",
+				"dest_container": "forgotten",
+				"tags": ["Played", "Card"],
+			},
+		],
+	},
+}
 
 
 # This fuction returns all the scripts of the specified card name.
@@ -526,5 +552,6 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 		"Dark Approach": DarkApproach,
 		"Ghost Approach": GhostApproach,
 		"Widebeam": Widebeam,
+		"Precision": Precision,
 	}
 	return(_prepare_scripts(scripts, card_name, get_modified))

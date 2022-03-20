@@ -249,7 +249,7 @@ class TestBlindingFlash:
 				"%s stacks on Dreamer increased by correct amount" % [effect])
 
 	func extra_hypnagonia_setup():
-		globals.player.deck.add_new_card("Blinding Flash")
+		globals.player.deck.add_new_card(testing_card_name)
 
 
 class TestDarkRecovery:
@@ -285,7 +285,7 @@ class TestDarkApproach:
 				"%s drew correct amount of cards" % [card.canonical_name])
 
 	func extra_hypnagonia_setup():
-		globals.player.deck.add_new_card("Dark Approach")
+		globals.player.deck.add_new_card(testing_card_name)
 
 class TestWidebeam:
 	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
@@ -299,14 +299,53 @@ class TestWidebeam:
 
 	func test_card_results():
 		assert_has_amounts()
-		var initial_card_size = hand.get_card_count()
+		var initial_card_size = deck.get_card_count()
 		var last_card = deck.get_bottom_card()
 		var sceng = snipexecute(card, test_torment)
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
 		assert_eq(test_torment.damage, tdamage(get_amount("damage_amount")),
 				"%s dealt correct amount of interpretation" % [card.canonical_name])
-		assert_eq(hand.get_card_count(), initial_card_size - get_amount("forget_amount"))
+		assert_eq(deck.get_card_count(), initial_card_size - get_amount("forget_amount"))
 		assert_eq(forgotten.get_card_count(), get_amount("forget_amount"))
 		assert_eq(last_card.get_parent(), forgotten)
+
+class TestWidebeamForget:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	func _init() -> void:
+		testing_card_name = "~ Widebeam ~"
+		globals.test_flags["test_initial_hand"] = true
+		expected_amount_keys = [
+			"damage_amount",
+			"forget_amount",
+		]
+
+	func test_card_results():
+		assert_has_amounts()
+		var initial_card_size = deck.get_card_count()
+		var sceng = snipexecute(card, test_torment)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(test_torment.damage, tdamage(get_amount("damage_amount")),
+				"%s dealt correct amount of interpretation" % [card.canonical_name])
+		assert_eq(deck.get_card_count(), initial_card_size - get_amount("forget_amount"))
+		assert_eq(forgotten.get_card_count(), get_amount("forget_amount") + 1)
+
+class TestPrecision:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	var effect: String = Terms.ACTIVE_EFFECTS.strengthen.name
+	func _init() -> void:
+		testing_card_name = "Precision"
+		globals.test_flags["test_initial_hand"] = true
+		expected_amount_keys = [
+			"effect_stacks",
+		]
+
+	func test_card_results():
+		assert_has_amounts()
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect), get_amount("effect_stacks"),
+				"%s stacks on Dreamer increased by correct amount" % [effect])
+
+	func extra_hypnagonia_setup():
+		globals.player.deck.add_new_card(testing_card_name)
 
