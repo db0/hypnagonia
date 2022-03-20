@@ -506,6 +506,12 @@ const ACTIVE_EFFECTS := {
 		"icon": preload("res://assets/icons/flying-trout.png"),
 		"is_card_reference": true
 	},
+	"spare_lens":  {
+		"name": "Spare Lens",
+		"type": "Concentration",
+		"icon": preload("res://assets/icons/microscope-lens.png"),
+		"is_card_reference": true
+	},
 	# These effects are usually starting on top of special enemies
 	# but might also be given to the player as Understanding concentrations
 	"enraged": {

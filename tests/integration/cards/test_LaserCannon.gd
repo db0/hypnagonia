@@ -376,4 +376,26 @@ class TestNanoMachines:
 		assert_eq(hand.get_card_count(), 2, "Only 2 of the drawn cards are Fusion")
 				
 
+class TestSpareLens:
+	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
+	var effect: String = Terms.ACTIVE_EFFECTS.spare_lens.name
+	var amount = 2
+	func _init() -> void:
+		effects_to_play = [
+			{
+				"name": effect,
+				"amount": amount,
+			}
+		]
+
+
+	func test_spare_lens_gen():
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3), YIELD)
+		yield(yield_for(1), YIELD)
+		assert_eq(deck.get_card_count(), 2)
+		if deck.get_card_count() == 0:
+			return
+		assert_has(deck.get_top_card().get_property('Tags'), Terms.GENERIC_TAGS.fusion.name)
+
 		

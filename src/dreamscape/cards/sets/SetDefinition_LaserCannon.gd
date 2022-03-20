@@ -277,7 +277,7 @@ const CARDS := {
 	},
 	"Vulcan3": {
 		"Type": "Action",
-		"Tags": [Terms.GENERIC_TAGS.fusion.name],
+		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -294,7 +294,7 @@ const CARDS := {
 	},
 	"+ Vulcan3 +": {
 		"Type": "Action",
-		"Tags": [Terms.GENERIC_TAGS.fusion.name],
+		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times.\n"\
 				+ "Fuse {fuse_amount} -> Vulcan3",
 		"Cost": 1,
@@ -422,7 +422,7 @@ const CARDS := {
 	},
 	"Plasma Shield": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.ACTIVE_EFFECTS.fortify.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "Gain {defence_amount} {confidence}\nGain {effect_stacks} {fortify}",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -442,7 +442,7 @@ const CARDS := {
 	},
 	"+ Plasma Shield +": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.ACTIVE_EFFECTS.fortify.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "Gain {defence_amount} {confidence}\nGain {effect_stacks} {fortify}",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -684,7 +684,7 @@ const CARDS := {
 		"_upgrades": [
 			"+ Dark Recovery +",
 			"Ghost Recovery",
-			"Ω Dark Recoveryr Ω",
+			"Ω Dark Recovery Ω",
 		],
 	},
 	"+ Dark Recovery +": {
@@ -968,5 +968,67 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"Spare Lens": {
+		"Type": "Concentration",
+		"Tags": [],
+		"Abilities": "At the end of the turn. add {concentration_stacks} random common {fusion} card "\
+				+ " to the top of the draw pile,",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": [],
+		"_amounts": {
+			"concentration_stacks": 1,
+		},
+		"_upgrade_threshold_modifier": -3,
+		"_upgrades": [
+			"@ Spare Lens @",
+			"^ Spare Lens ^",
+			"! Spare Lens !",
+		],
+	},
+	"@ Spare Lens @": {
+		"Type": "Concentration",
+		"Tags": [],
+		"Abilities": "At the end of the turn. add {concentration_stacks} random common {fusion} card "\
+				+ " to the top of the draw pile,",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": [],
+		"_amounts": {
+			"concentration_stacks": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"^ Spare Lens ^": {
+		"Type": "Concentration",
+		"Tags": [Terms.GENERIC_TAGS.alpha.name],
+		"Abilities": "At the end of the turn. add {concentration_stacks} random common {fusion} card "\
+				+ " to the top of the draw pile,",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": [],
+		"_amounts": {
+			"concentration_stacks": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"! Spare Lens !": {
+		"Type": "Concentration",
+		"Tags": [Terms.GENERIC_TAGS.alpha.name],
+		"Abilities": "At the end of the turn. add {concentration_stacks} random common {fusion} card "\
+				+ " to the top of the draw pile,",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": [],
+		"_amounts": {
+			"concentration_stacks": 2,
+		},
+		"_is_upgrade": true,
+	},
+
 }
 
