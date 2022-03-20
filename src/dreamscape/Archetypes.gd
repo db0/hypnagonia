@@ -299,8 +299,11 @@ const LASER_CANNON := {
 	"Uncommon": [
 		"Charged Shot",
 		"Dark Recovery",
+		"Dark Approach",
+		"Widebeam",
 	],
 	"Rare": [
+		"Precision",
 	],
 	"Special": [
 		"HiCannon",

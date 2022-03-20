@@ -527,6 +527,50 @@ const Precision = {
 		],
 	},
 }
+const NanoMachines = {
+	"manual": {
+		"hand": [
+			{
+				"name": "modify_damage",
+				"subject": "target",
+				"needs_subject": true,
+				"amount": {
+					"lookup_property": "_amounts",
+					"value_key": "damage_amount"
+				},
+				"tags": ["Attack", "Card"],
+				"filter_state_subject": [{
+					"filter_group": "EnemyEntities",
+				},],
+			},
+			{
+				"name": "draw_cards",
+				"tags": ["Card"],
+				"card_count": {
+					"lookup_property": "_amounts",
+					"value_key": "draw_amount"
+				},
+			},
+			{
+				"name": "move_card_to_container",
+				"tags": ["Card"],
+				"src_container": "hand",
+				"dest_container": "discard",
+				"subject": "previous",
+				"filter_each_previous_subject": true,
+				"filter_state_subject": [{
+					"filter_cardfilters": [
+						{
+							"property": "Tags",
+							"value": Terms.GENERIC_TAGS.fusion.name,
+							"comparison": 'ne'
+						}
+					],
+				},],
+			},
+		],
+	},
+}
 
 
 # This fuction returns all the scripts of the specified card name.
@@ -553,5 +597,6 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 		"Ghost Approach": GhostApproach,
 		"Widebeam": Widebeam,
 		"Precision": Precision,
+		"Nano-Machines": NanoMachines,
 	}
 	return(_prepare_scripts(scripts, card_name, get_modified))

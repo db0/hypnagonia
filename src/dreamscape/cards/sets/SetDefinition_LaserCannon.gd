@@ -613,7 +613,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER
 		},
-		"_upgrade_threshold_modifier": 0,
+		"_upgrade_threshold_modifier": -3,
 		"_upgrades": [
 			"* Blinding Flash *",
 			"Ω Blinding Flash Ω",
@@ -916,6 +916,55 @@ const CARDS := {
 		},
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER
+		},
+		"_is_upgrade": true,
+	},
+	"Nano-Machines": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.swift.name, Terms.GENERIC_TAGS.insomnia.name],
+		"Abilities": "{damage} for {damage_amount}. Draw {draw_amount} cards."\
+				+ "Discard all drawn cards without {fusion}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 5,
+			"draw_amount": 4,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"! Nano-Machines !",
+			"+ Nano-Machines +",
+		],
+	},
+	"+ Nano-Machines +": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.swift.name, Terms.GENERIC_TAGS.insomnia.name],
+		"Abilities": "{damage} for {damage_amount}. Draw {draw_amount} cards."\
+				+ "Discard all drawn cards without {fusion}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 8,
+			"draw_amount": 4,
+		},
+		"_is_upgrade": true,
+	},
+	"! Nano-Machines !": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.swift.name, Terms.GENERIC_TAGS.insomnia.name],
+		"Abilities": "{damage} for {damage_amount}. Draw {draw_amount} cards."\
+				+ "Discard all drawn cards without {fusion}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 4,
+			"draw_amount": 6,
 		},
 		"_is_upgrade": true,
 	},
