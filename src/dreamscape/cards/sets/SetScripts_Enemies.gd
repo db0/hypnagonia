@@ -1489,7 +1489,7 @@ const scripts := {
 			}
 		}
 	},
-	"Unnamed Torment 1": {
+	"Administration": {
 		"manual": {
 			"hand": [
 				{
@@ -1507,7 +1507,7 @@ const scripts := {
 				},
 				{
 					"name": "spawn_enemy",
-					"enemy": EnemyDefinitions.SPECIAL_MINION1,
+					"enemy": EnemyDefinitions.OVERCHARGED_SERVUS,
 					"set_spawn_as_minion": true,
 					"object_count": {
 						"lookup_property": "_amounts",
