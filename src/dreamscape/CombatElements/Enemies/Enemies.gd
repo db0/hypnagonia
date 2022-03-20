@@ -494,7 +494,7 @@ const IMPOSSIBLE_CONSTRUCTION := {
 	"_character_art": "Miikka Veijola"
 }
 const SILENT_TREATMENT := {
-	"Name": "Silent Treatment", 
+	"Name": "Silent Treatment",
 	"Type": "Abuse",
 	"Health": 83,
 	"Intents": [
@@ -529,7 +529,7 @@ const SILENT_TREATMENT := {
 	"_character_art": "Artbreeder.com"
 }
 const GUILT := {
-	"Name": "Guilt", 
+	"Name": "Guilt",
 	"Type": "Abuse",
 	"Health": 10,
 	"Intents": [
@@ -553,7 +553,7 @@ const GUILT := {
 	"_character_art": "Artbreeder.com"
 }
 const VOID := {
-	"Name": "Void", 
+	"Name": "Void",
 	"Type": "Absurdity",
 	"Health": 132,
 	"Intents": [
@@ -578,8 +578,8 @@ const VOID := {
 	"_texture": preload("res://assets/journal/torments/void.jpeg"),
 	"_character_art": "Artbreeder.com"
 }
-const UNNAMED1 := {
-	"Name": "Unnamed Torment 1", 
+const ADMINISTRATION := {
+	"Name": "Administration",
 	"Type": "Absurdity",
 	"Health": 100,
 	"Intents": [
@@ -602,10 +602,13 @@ const UNNAMED1 := {
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
 #	"_texture": preload("res://assets/enemies/slavery-whip.png"),
-	"_character_art": "Nobody"
+	"_character_art": "Nobody",
+	"_description": "Administration is cruel when profit is involved. "\
+			+ "They meticulously dissect productivity and efficiency to command obedience, and mandatory overtime is never out of the question."
+
 }
-const UNNAMED_MINION1 := {
-	"Name": "Unnamed Minion 1", 
+const OVERWORKED_SERVUS := {
+	"Name": "Overworked Servus",
 	"Type": "Absurdity",
 	"Health": 10,
 	"Intents": [
@@ -623,10 +626,12 @@ const UNNAMED_MINION1 := {
 	"_texture_size_x": "60",
 	"_texture_size_y": "60",
 #	"_texture": preload("res://assets/enemies/slavery-whip.png"),
-	"_character_art": "Nobody"
+	"_character_art": "Nobody",
+	"_description": "Hapless individuals who have already been confined to the constriction of Administration. "\
+			+ "Pent-up frustration creates a toxic and unhealthy environment full of despair, and those under Administration are affected accordingly."
 }
-const SPECIAL_MINION1 := {
-	"Name": "Special Minion 1", 
+const OVERCHARGED_SERVUS := {
+	"Name": "Overcharged Servus",
 	"Type": "Absurdity",
 	"Health": 10,
 	"Intents": [
@@ -644,10 +649,12 @@ const SPECIAL_MINION1 := {
 	"_texture_size_x": "60",
 	"_texture_size_y": "60",
 #	"_texture": preload("res://assets/enemies/slavery-whip.png"),
-	"_character_art": "Nobody"
+	"_character_art": "Nobody",
+	"_description": "Determined individuals confined by Administration whose capabilities are flourishing. "\
+			+ "Aggressive promotion and training causes their spawning, and they grow more hostile to their peers."
 }
 const LIFE_PATH := {
-	"Name": "Life Path", 
+	"Name": "Life Path",
 	"Type": "Fear",
 	"Health": 72,
 	"Intents": [
@@ -721,7 +728,7 @@ const NIGHTMARE:= {
 	"_character_art": "Artbreeder.com",
 }
 const THEATRE_ACT := {
-	"Name": "Theatre Act", 
+	"Name": "Theatre Act",
 	"Type": "Fear",
 	"Health": 3,
 	"_is_ordered": true,
@@ -747,7 +754,7 @@ const THEATRE_ACT := {
 }
 
 const SUBMERGED := {
-	"Name": "Submerged", 
+	"Name": "Submerged",
 	"Type": "Phobia",
 	"Health": 94,
 	"_is_ordered": true,
