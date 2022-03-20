@@ -578,8 +578,8 @@ const VOID := {
 	"_texture": preload("res://assets/journal/torments/void.jpeg"),
 	"_character_art": "Artbreeder.com"
 }
-const UNNAMED1 := {
-	"Name": "Unnamed Torment 1", 
+const ADMINISTRATION := {
+	"Name": "Administration", 
 	"Type": "Absurdity",
 	"Health": 100,
 	"Intents": [
@@ -603,9 +603,12 @@ const UNNAMED1 := {
 	"_texture_size_y": "120",
 #	"_texture": preload("res://assets/enemies/slavery-whip.png"),
 	"_character_art": "Nobody"
+	"_description": "Administration is cruel when profit is involved. "\
+			+ "They meticulously dissect productivity and efficiency to command obedience, and mandatory overtime is never out of the question."
+	
 }
-const UNNAMED_MINION1 := {
-	"Name": "Unnamed Minion 1", 
+const OVERWORKED_SERVUS := {
+	"Name": "Overworked Servus", 
 	"Type": "Absurdity",
 	"Health": 10,
 	"Intents": [
@@ -624,9 +627,11 @@ const UNNAMED_MINION1 := {
 	"_texture_size_y": "60",
 #	"_texture": preload("res://assets/enemies/slavery-whip.png"),
 	"_character_art": "Nobody"
+	"_description": "Hapless individuals who have already been confined to the constriction of Administration. "\
+			+ "Pent-up frustration creates a toxic and unhealthy environment full of despair, and those under Administration are affected accordingly."
 }
-const SPECIAL_MINION1 := {
-	"Name": "Special Minion 1", 
+const OVERCHARGED_SERVUS := {
+	"Name": "Overcharged Servus", 
 	"Type": "Absurdity",
 	"Health": 10,
 	"Intents": [
@@ -645,6 +650,8 @@ const SPECIAL_MINION1 := {
 	"_texture_size_y": "60",
 #	"_texture": preload("res://assets/enemies/slavery-whip.png"),
 	"_character_art": "Nobody"
+	"_description": "Determined individuals confined by Administration whose capabilities are flourishing. "\
+			+ "Aggressive promotion and training causes their spawning, and they grow more hostile to their peers."
 }
 const LIFE_PATH := {
 	"Name": "Life Path", 
