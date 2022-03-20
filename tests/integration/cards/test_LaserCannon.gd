@@ -245,11 +245,27 @@ class TestBlindingFlash:
 
 	func test_card_results():
 		assert_has_amounts()
-		var sceng = execute_with_yield(card)
-		if sceng is GDScriptFunctionState:
-			sceng = yield(sceng, "completed")
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), get_amount("effect_stacks"),
 				"%s stacks on Dreamer increased by correct amount" % [effect])
 
 	func extra_hypnagonia_setup():
 		globals.player.deck.add_new_card("Blinding Flash")
+
+
+class TestDarkRecovery:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	func _init() -> void:
+		globals.test_flags["test_initial_hand"] = true
+		testing_card_name = "Dark Recovery"
+		dreamer_starting_damage = 20
+		expected_amount_keys = [
+			"healing_amount",
+		]
+
+	func test_card_results():
+		assert_has_amounts()
+		assert_eq(dreamer.damage, dreamer_starting_damage - get_amount("healing_amount"),
+				"%s healed correct amount of damage" % [card.canonical_name])
+
+	func extra_hypnagonia_setup():
+		globals.player.deck.add_new_card("Dark Recovery")

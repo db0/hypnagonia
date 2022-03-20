@@ -352,6 +352,68 @@ const SearingFlash = {
 		],
 	},
 }
+const DarkRecovery = {
+	"battle_begun": {
+		"all": [
+			{
+				"name": "modify_damage",
+				"subject": "dreamer",
+				"amount": {
+					"lookup_property": "_amounts",
+					"value_key": "healing_amount",
+					"default": 0,
+					"is_inverted": true,
+				},
+				"tags": ["Healing", "Card"],
+			},
+		],
+	},
+	"manual": {
+		"hand": [
+			{
+				"name": "move_card_to_container",
+				"subject": "self",
+				"dest_container": "forgotten",
+				"tags": ["Played", "Card"],
+			},
+		],
+	},
+}
+const GhostRecovery = {
+	"battle_begun": {
+		"all": [
+			{
+				"name": "modify_damage",
+				"subject": "dreamer",
+				"amount": {
+					"lookup_property": "_amounts",
+					"value_key": "healing_amount",
+					"default": 0,
+					"is_inverted": true,
+				},
+				"tags": ["Healing", "Card"],
+			},
+		],
+	},
+	"manual": {
+		"hand": [
+			{
+				"name": "move_card_to_container",
+				"subject": "self",
+				"dest_container": "forgotten",
+				"tags": ["Played", "Card"],
+			},
+			{
+				"name": "draw_cards",
+				"tags": ["Card"],
+				"card_count": {
+					"lookup_property": "_amounts",
+					"value_key": "draw_amount"
+				},
+			},
+		],
+	},
+}
 
 
 # This fuction returns all the scripts of the specified card name.
@@ -372,5 +434,7 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 		"Photon Blade": PhotonBlade,
 		"Charged Shot": ChargedShot,
 		"Blinding Flash": BlindingFlash,
+		"Dark Recovery": DarkRecovery,
+		"Ghost Recovery": GhostRecovery,
 	}
 	return(_prepare_scripts(scripts, card_name, get_modified))
