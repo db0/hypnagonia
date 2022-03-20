@@ -269,7 +269,7 @@ class TestDarkRecovery:
 
 	func extra_hypnagonia_setup():
 		globals.player.deck.add_new_card("Dark Recovery")
-		
+
 class TestDarkApproach:
 	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
 	func _init() -> void:
@@ -374,7 +374,7 @@ class TestNanoMachines:
 		assert_eq(test_torment.damage, tdamage(get_amount("damage_amount")),
 				"%s dealt correct amount of interpretation" % [card.canonical_name])
 		assert_eq(hand.get_card_count(), 2, "Only 2 of the drawn cards are Fusion")
-				
+
 
 class TestSpareLens:
 	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
@@ -398,4 +398,30 @@ class TestSpareLens:
 			return
 		assert_has(deck.get_top_card().get_property('Tags'), Terms.GENERIC_TAGS.fusion.name)
 
+
+
+class TestHeatVenting:
+	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
+	var effect: String = Terms.ACTIVE_EFFECTS.heat_venting.name
+	var amount = 2
+	func _init() -> void:
+		effects_to_play = [
+			{
+				"name": effect,
+				"amount": amount,
+			}
+		]
+
+
+	func test_heat_venting():
+		for iter in 4:
+			var c : DreamCard = cfc.instance_card("Cannon")
+			deck.add_child(c)
+			c._determine_idle_state()
+			hand.draw_card()
+		yield(yield_for(1), YIELD)
+		assert_eq(dreamer.defence, amount * get_amount_from_card(effect, "concentration_defence") * 2,
+				"%s gave correct amount of confidence" % [effect])
 		
+
+

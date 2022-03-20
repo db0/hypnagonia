@@ -512,6 +512,12 @@ const ACTIVE_EFFECTS := {
 		"icon": preload("res://assets/icons/microscope-lens.png"),
 		"is_card_reference": true
 	},
+	"heat_venting":  {
+		"name": "Heat Venting",
+		"type": "Concentration",
+		"icon": preload("res://assets/icons/heat-haze.png"),
+		"is_card_reference": true
+	},
 	# These effects are usually starting on top of special enemies
 	# but might also be given to the player as Understanding concentrations
 	"enraged": {

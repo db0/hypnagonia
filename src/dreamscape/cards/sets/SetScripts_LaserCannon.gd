@@ -587,6 +587,39 @@ const SpareLens = {
 		],
 	},
 }
+const HeatVenting = {
+	"manual": {
+		"hand": [
+			{
+				"name": "apply_effect",
+				"tags": ["Card"],
+				"effect_name": Terms.ACTIVE_EFFECTS.heat_venting.name,
+				"subject": "dreamer",
+				"modification": {
+					"lookup_property": "_amounts",
+					"value_key": "concentration_stacks"
+				},
+			},
+		],
+	},
+}
+const HighHeatVenting = {
+	"manual": {
+		"hand": [
+			{
+				"name": "apply_effect",
+				"tags": ["Card"],
+				"effect_name": Terms.ACTIVE_EFFECTS.heat_venting.name,
+				"subject": "dreamer",
+				"modification": {
+					"lookup_property": "_amounts",
+					"value_key": "concentration_stacks"
+				},
+				"upgrade_name": "high",
+			},
+		],
+	},
+}
 
 
 # This fuction returns all the scripts of the specified card name.
@@ -614,5 +647,7 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 		"Widebeam": Widebeam,
 		"Precision": Precision,
 		"Nano-Machines": NanoMachines,
+		"Heat Venting": HeatVenting,
+		"High Heat Venting": HighHeatVenting,
 	}
 	return(_prepare_scripts(scripts, card_name, get_modified))

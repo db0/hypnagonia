@@ -27,3 +27,7 @@ func before_each():
 		if not is_instance_valid(torment):
 			test_torments.erase(torment)
 
+func get_amount_from_card(card_name: String, amount_key: String):
+	var amount_value = cfc.card_definitions[card_name]\
+		.get("_amounts",{}).get(amount_key)
+	return(amount_value)
