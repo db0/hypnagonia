@@ -1029,6 +1029,66 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-
+	"Heat Venting": {
+		"Type": "Concentration",
+		"Tags": [],
+		"Abilities": "Gain {concentration_defence} {defence} whenever you fuse {fusion} cards.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"concentration_stacks": 1,
+			"concentration_defence": 7,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"@ Heat Venting @",
+			"^ Heat Venting ^",
+			"High Heat Venting",
+		],
+	},
+	"@ Heat Venting @": {
+		"Type": "Concentration",
+		"Tags": [],
+		"Abilities": "Gain {concentration_defence} {defence} whenever you fuse {fusion} cards.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"concentration_stacks": 1,
+			"concentration_defence": 7,
+		},
+		"_is_upgrade": true,
+	},
+	"^ Heat Venting ^": {
+		"Type": "Concentration",
+		"Tags": [Terms.GENERIC_TAGS.alpha.name],
+		"Abilities": "Gain {concentration_defence} {defence} whenever you fuse {fusion} cards.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"concentration_stacks": 1,
+			"concentration_defence": 7,
+		},
+		"_is_upgrade": true,
+	},
+	"High Heat Venting": {
+		"Type": "Concentration",
+		"Tags": [Terms.GENERIC_TAGS.alpha.name],
+		"Abilities": "Gain {concentration_defence} {defence} whenever you fuse {fusion} cards.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"concentration_stacks": 1,
+			"concentration_defence": 10,
+		},
+		"_is_upgrade": true,
+	},
 }
 
