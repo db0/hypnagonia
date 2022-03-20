@@ -446,3 +446,30 @@ class TestStreamlining:
 		
 
 
+
+class TestBrooding:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	func _init() -> void:
+		testing_card_name = "Brooding"
+		globals.test_flags["test_initial_hand"] = true
+		globals.test_flags["no_refill"] = false
+		expected_amount_keys = [
+			"forget_amount",
+			"draw_amount",
+		]
+
+	func test_card_results():
+		assert_has_amounts()
+		var sceng = execute_with_yield(card)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		var selwindows = get_tree().get_nodes_in_group("selection_windows")
+		assert_eq(selwindows.size(), 1)
+		if not selwindows.size() == 1:
+			return
+		var selection_window = selwindows[0]
+		pending("Add check that cards are forgotten")
+		pending("Add check that cards are drawn")
+		pending("Add check that cards are drawn even when there's nothing to forget")
+
+
