@@ -304,6 +304,8 @@ const LASER_CANNON := {
 	],
 	"Rare": [
 		"Precision",
+		"Nano-Machines",
+		"Spare Lens",
 	],
 	"Special": [
 		"HiCannon",

@@ -95,7 +95,7 @@ const CARDS := {
 				+ "Fuse {fuse_amount} -> MegaCannon",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Uncommon",
+		"_rarity": "Special",
 		"_keywords": ["interpretation"],
 		"_amounts": {
 			"damage_amount": 14,
@@ -117,7 +117,7 @@ const CARDS := {
 				+ "Fuse {fuse_amount} -> MegaCannon",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Uncommon",
+		"_rarity": "Special",
 		"_keywords": ["interpretation"],
 		"_amounts": {
 			"damage_amount": 17,
@@ -136,7 +136,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}. Apply {effect_stacks} {marked}",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Rare",
+		"_rarity": "Special",
 		"_keywords": ["interpretation"],
 		"_amounts": {
 			"damage_amount": 24,
@@ -155,7 +155,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}. Apply {effect_stacks} {marked}",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Rare",
+		"_rarity": "Special",
 		"_keywords": ["interpretation"],
 		"_amounts": {
 			"damage_amount": 29,
@@ -246,7 +246,7 @@ const CARDS := {
 				+ "Fuse {fuse_amount} -> Vulcan3",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Uncommon",
+		"_rarity": "Special",
 		"_keywords": ["interpretation"],
 		"_amounts": {
 			"damage_amount": 3,
@@ -265,7 +265,7 @@ const CARDS := {
 				+ "Fuse {fuse_amount} -> Vulcan3",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Uncommon",
+		"_rarity": "Special",
 		"_keywords": ["interpretation"],
 		"_amounts": {
 			"damage_amount": 4,
@@ -281,7 +281,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times.",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Rare",
+		"_rarity": "Special",
 		"_keywords": ["interpretation"],
 		"_amounts": {
 			"damage_amount": 5,
@@ -384,7 +384,7 @@ const CARDS := {
 				+ "Fuse {fuse_amount} -> Plasma Shield",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Uncommon",
+		"_rarity": "Special",
 		"_keywords": ["confidence"],
 		"_amounts": {
 			"defence_amount": 14,
@@ -407,7 +407,7 @@ const CARDS := {
 				+ "Fuse {fuse_amount} -> Plasma Shield",
 		"Cost": 1,
 		"_illustration": "Nobody",
-			"_rarity": "Uncommon",
+			"_rarity": "Special",
 		"_keywords": ["confidence"],
 		"_amounts": {
 			"defence_amount": 17,
@@ -426,7 +426,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\nGain {effect_stacks} {fortify}",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Rare",
+		"_rarity": "Special",
 		"_keywords": ["confidence"],
 		"_amounts": {
 			"defence_amount": 20,
@@ -446,7 +446,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\nGain {effect_stacks} {fortify}",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Rare",
+		"_rarity": "Special",
 		"_keywords": ["confidence"],
 		"_amounts": {
 			"defence_amount": 23,
