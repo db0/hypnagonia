@@ -298,6 +298,7 @@ const LASER_CANNON := {
 	],
 	"Uncommon": [
 		"Charged Shot",
+		"Dark Recovery",
 	],
 	"Rare": [
 	],

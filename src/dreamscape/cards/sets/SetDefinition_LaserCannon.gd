@@ -602,11 +602,11 @@ const CARDS := {
 	"Blinding Flash": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.startup.name],
-		"Abilities": "{forget}\n{startup}: Gain {effect_stacks} {armor}.\n",
+		"Abilities": "{forget}\n{startup}: Gain {effect_stacks} {armor}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": [],
+		"_keywords": ["forget"],
 		"_amounts": {
 			"effect_stacks": 3,
 		},
@@ -623,11 +623,11 @@ const CARDS := {
 	"* Blinding Flash *": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "{forget}\n{startup}: Gain {effect_stacks} {armor}.\n",
+		"Abilities": "{forget}\n{startup}: Gain {effect_stacks} {armor}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": [],
+		"_keywords": ["forget"],
 		"_amounts": {
 			"effect_stacks": 4,
 		},
@@ -639,11 +639,11 @@ const CARDS := {
 	"Ω Blinding Flash Ω": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.omega.name],
-		"Abilities": "{forget}\n{startup}: Gain {effect_stacks} {armor}.\n",
+		"Abilities": "{forget}\n{startup}: Gain {effect_stacks} {armor}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": [],
+		"_keywords": ["forget"],
 		"_amounts": {
 			"effect_stacks": 3,
 		},
@@ -655,17 +655,74 @@ const CARDS := {
 	"Searing Flash": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Draw {draw_amount} cards. {forget}\n{startup}: Gain {effect_stacks} {armor}.\n",
+		"Abilities": "Draw {draw_amount} cards. {forget}\n{startup}: Gain {effect_stacks} {armor}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": [],
+		"_keywords": ["forget"],
 		"_amounts": {
 			"draw_amount": 1,
 			"effect_stacks": 3,
 		},
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER
+		},
+		"_is_upgrade": true,
+	},
+	"Dark Recovery": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.startup.name,Terms.GENERIC_TAGS.relax.name],
+		"Abilities": "{forget}\n{startup}: {relax} for {healing_amount}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["forget"],
+		"_amounts": {
+			"healing_amount": 3
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"+ Dark Recovery +",
+			"Ghost Recovery",
+			"Ω Dark Recoveryr Ω",
+		],
+	},
+	"+ Dark Recovery +": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.startup.name,Terms.GENERIC_TAGS.relax.name],
+		"Abilities": "{forget}\n{startup}: {relax} for {healing_amount}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["forget"],
+		"_amounts": {
+			"healing_amount": 5
+		},
+		"_is_upgrade": true,
+	},
+	"Ω Dark Recovery Ω": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.startup.name,Terms.GENERIC_TAGS.omega.name],
+		"Abilities": "{forget}\n{startup}: {relax} for {healing_amount}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["forget"],
+		"_amounts": {
+			"healing_amount": 3
+		},
+		"_is_upgrade": true,
+	},
+	"Ghost Recovery": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.startup.name,Terms.GENERIC_TAGS.omega.name],
+		"Abilities": "Draw {draw_amount} cards. {forget}\n{startup}: {relax} for {healing_amount}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["forget"],
+		"_amounts": {
+			"healing_amount": 3
 		},
 		"_is_upgrade": true,
 	},
