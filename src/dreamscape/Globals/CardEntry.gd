@@ -16,6 +16,7 @@ const UPGRADE_THRESHOLDS_RARITY_MODIFIERS := {
 	"Rare": +4,
 	"Received": +8,
 	"Perturbation": 0,
+	"Special": 0,
 }
 const UPGRADE_THRESHOLDS_TYPE_MODIFIERS := {
 	"Action": 0,

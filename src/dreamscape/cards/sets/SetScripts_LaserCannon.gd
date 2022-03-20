@@ -695,6 +695,7 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 		"Photon Blade": PhotonBlade,
 		"Charged Shot": ChargedShot,
 		"Blinding Flash": BlindingFlash,
+		"Searing Flash": SearingFlash,
 		"Dark Recovery": DarkRecovery,
 		"Ghost Recovery": GhostRecovery,
 		"Dark Approach": DarkApproach,
@@ -706,5 +707,6 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 		"High Heat Venting": HighHeatVenting,
 		"Streamlining": Streamlining,
 		"Brooding": Brooding,
+		"Spare Lens": SpareLens,
 	}
 	return(_prepare_scripts(scripts, card_name, get_modified))

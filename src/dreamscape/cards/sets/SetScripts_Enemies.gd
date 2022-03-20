@@ -1,6 +1,48 @@
 #extends CoreScripts
 extends "res://src/dreamscape/cards/sets/SetScripts_Core.gd"
 
+const BeastMode = {
+	"manual": {
+		"hand": [
+			{
+				"name": "apply_effect",
+				"tags": ["Card"],
+				"effect_name": Terms.ACTIVE_EFFECTS.strengthen.name,
+				"subject": "dreamer",
+				"modification": {
+					"lookup_property": "_amounts",
+					"value_key": "effect_stacks"
+				},
+			},
+			{
+				"name": "apply_effect",
+				"tags": ["Card"],
+				"effect_name": Terms.ACTIVE_EFFECTS.quicken.name,
+				"subject": "dreamer",
+				"modification": {
+					"lookup_property": "_amounts",
+					"value_key": "effect_stacks2"
+				},
+			},
+			{
+				"name": "apply_effect",
+				"tags": ["Card"],
+				"effect_name": Terms.ACTIVE_EFFECTS.thorns.name,
+				"subject": "dreamer",
+				"modification": {
+					"lookup_property": "_amounts",
+					"value_key": "effect_stacks3"
+				},
+			},
+			{
+				"name": "move_card_to_container",
+				"subject": "self",
+				"dest_container": "forgotten",
+				"tags": ["Played", "Card"],
+			},
+		],
+	},
+}
 
 const scripts := {
 	"Gaslighter": {
@@ -1636,6 +1678,7 @@ const scripts := {
 			],
 		},
 	},
+	"Beast Mode": BeastMode,
 }
 
 # This fuction returns all the scripts of the specified card name.

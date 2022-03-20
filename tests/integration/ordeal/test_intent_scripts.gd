@@ -355,7 +355,7 @@ class TestArmorTheBoss:
 				"No Torments should have armor stacks")
 			torment.intents.replace_intents(intents_to_test)
 			torment.intents.refresh_intents()
-		var boss_torment = board.spawn_enemy(EnemyDefinitions.UNNAMED1)
+		var boss_torment = board.spawn_enemy(EnemyDefinitions.ADMINISTRATION)
 		cfc.NMAP.board.turn.end_player_turn()
 		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
 		# Boss loses 1 armor stack at the start of its turn

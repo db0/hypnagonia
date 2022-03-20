@@ -1432,8 +1432,8 @@ const CARDS := {
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
-			"+ Administration 1 +",
-			"@ Administration 1 @",
+			"+ Administration +",
+			"@ Administration @",
 		],
 	},
 	"+ Administration +": {
