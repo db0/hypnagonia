@@ -217,13 +217,13 @@ class TestChargedShot:
 		var sceng = execute_with_yield(cards[2])
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
-		yield(yield_for(0.3), YIELD)
+		yield(yield_for(0.5), YIELD)
 		assert_eq(get_current_amount("damage_amount"), get_amount("damage_amount") + get_amount("increase_amount"),
 				"%s damage amount increased" % [card.canonical_name])
 		sceng = execute_with_yield(cards[1])
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
-		yield(yield_for(0.3), YIELD)
+		yield(yield_for(0.5), YIELD)
 		assert_eq(get_current_amount("damage_amount"), get_amount("damage_amount") + get_amount("increase_amount") * 2,
 				"%s damage amount increased" % [card.canonical_name])
 		sceng = snipexecute(card, test_torment)
