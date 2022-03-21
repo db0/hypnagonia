@@ -196,6 +196,9 @@ class TestPhotonBlade:
 		var cd: CostDiscount = get_tree().get_nodes_in_group("cost_discounts")[0]
 		assert_eq(cd.uses, get_amount("discount_uses"))
 		assert_eq(cd.discount_amount, -get_amount("discount_amount"))
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3), YIELD)
+		assert_eq(get_tree().get_nodes_in_group("cost_discounts").size(), 1, "One Discounter is permanent")
 
 class TestChargedShot:
 	extends "res://tests/HUT_Ordeal_CardTestClass.gd"

@@ -593,7 +593,7 @@ func set_discount(script: ScriptTask) -> int:
 			discount_filters.append(new_filter)
 		var discount_uses : int = script.get_property("discount_uses", 1)
 		var counter : String = script.get_property(SP.KEY_COUNTER_NAME, "Immersion")
-		var is_permanent : int = script.get_property("is_permanent", false)
+		var is_permanent : bool = script.get_property("is_permanent", false)
 		var discount = CostDiscount.new(
 				discount_amount, 
 				discount_uses, 
