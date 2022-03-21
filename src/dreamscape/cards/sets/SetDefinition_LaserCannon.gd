@@ -1338,6 +1338,54 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-
+	"Light Jump": {
+		"Type": "Control",
+		"Tags": [],
+		"Abilities": "Gain {defence_amount} {confidence}\n"\
+				+ "Put {discard_amount} cards to the bottom of the draw pile.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Basic",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 8,
+			"discard_amount": 1,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"+ Light Jump +",
+			"@ Light Jump @",
+		],
+	},
+	"+ Light Jump +": {
+		"Type": "Control",
+		"Tags": [],
+		"Abilities": "Gain {defence_amount} {confidence}\n"\
+				+ "Put {discard_amount} cards to the bottom of the draw pile.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Basic",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 11,
+			"discard_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"@ Light Jump @": {
+		"Type": "Control",
+		"Tags": [],
+		"Abilities": "Gain {defence_amount} {confidence}\n"\
+				+ "Put {discard_amount} cards to the bottom of the draw pile.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Basic",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 5,
+			"discard_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
 }
 
