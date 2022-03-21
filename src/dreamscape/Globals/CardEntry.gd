@@ -56,9 +56,9 @@ func _setup_card_entry(_card_name: String) -> void:
 	properties = cfc.card_definitions.get(card_name, {}).duplicate(true)
 	printed_properties = cfc.card_definitions.get(card_name, {}).duplicate(true)
 	# If the key is not set, it means the card is not upgradable
-	upgrade_threshold = properties.get("_upgrade_threshold_modifier", -1)
+	upgrade_threshold = properties.get("_upgrade_threshold_modifier", -1000)
 	# if it is set, then it is modifying the card's standard upgrade threshold based on its rarity
-	if upgrade_threshold >= 0:
+	if upgrade_threshold != -1000:
 		upgrade_threshold =\
 				UPGRADE_THRESHOLD_BASELINE\
 				+ UPGRADE_THRESHOLDS_RARITY_MODIFIERS[properties["_rarity"]]\

@@ -613,7 +613,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER
 		},
-		"_upgrade_threshold_modifier": -3,
+		"_upgrade_threshold_modifier": -2,
 		"_upgrades": [
 			"* Blinding Flash *",
 			"Ω Blinding Flash Ω",
@@ -980,7 +980,7 @@ const CARDS := {
 		"_amounts": {
 			"concentration_stacks": 1,
 		},
-		"_upgrade_threshold_modifier": -3,
+		"_upgrade_threshold_modifier": -2,
 		"_upgrades": [
 			"@ Spare Lens @",
 			"^ Spare Lens ^",
