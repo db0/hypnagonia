@@ -1,6 +1,7 @@
 extends NonCombatEncounter
 
 var artifact_prep : ArtifactPrep
+var testing_rng := 0
 
 var secondary_choices := {
 		'lead': '[Lead]: Take 15 anxiety. 60% chance to gain a random curio.',
@@ -42,6 +43,8 @@ func continue_encounter(key) -> void:
 		"lead":
 			globals.player.damage += 15
 			var artifact_roll = CFUtils.randi_range(1,100)
+			if testing_rng:
+				artifact_roll = testing_rng
 			if artifact_roll <= 60:
 				artifact_prep = ArtifactPrep.new(5, 20, 1)
 				nce_result_fluff['lead'] += "\nThrough your leadership, this train of monsters succeeds "\

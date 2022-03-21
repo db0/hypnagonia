@@ -63,6 +63,7 @@ class TestMonsterTrain:
 		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd")
 
 	func test_choice_lead_success():
+		nce.testing_rng = 60
 		begin_nce_with_choices(nce)
 		watch_signals(globals.player)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
@@ -73,7 +74,7 @@ class TestMonsterTrain:
 		assert_signal_emitted(globals.player, "artifact_added")
 
 	func test_choice_lead_failure():
-		cfc.game_rng_seed = "<f<s_=ZJp@"
+		nce.testing_rng = 61
 		begin_nce_with_choices(nce)
 		watch_signals(globals.player)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
