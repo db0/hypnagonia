@@ -509,3 +509,26 @@ class TestFusionGrenade:
 			assert_eq(t.damage, tdamage(get_amount("damage_amount")),
 					"%s dealt correct amount of interpretation" % [card.canonical_name])
 
+
+class TestLightJump:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	func _init() -> void:
+		testing_card_name = "Light Jump"
+		expected_amount_keys = [
+			"defence_amount",
+			"discard_amount",
+		]
+
+	func test_card_results():
+		assert_has_amounts()
+		var sceng = execute_with_yield(card)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(dreamer.defence, get_amount("defence_amount"),
+				"%s gave correct amount of confidence" % [card.canonical_name])
+		var selwindows = get_tree().get_nodes_in_group("selection_windows")
+		assert_eq(selwindows.size(), 1)
+		if not selwindows.size() == 1:
+			return
+		var selection_window = selwindows[0]
+		pending("Add check that cards are moved to bottom of deck")

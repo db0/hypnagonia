@@ -287,7 +287,7 @@ const LASER_CANNON := {
 	"Basic": [
 		"Interpretation",
 		"Interpretation",
-		"Interpretation",
+		"Light Jump",
 	],
 	"Common": [
 		"Cannon",

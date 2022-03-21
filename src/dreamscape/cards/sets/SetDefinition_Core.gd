@@ -2542,7 +2542,7 @@ const CARDS := {
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 10,
+			"damage_amount": 9,
 		},
 		"_is_upgrade": true,
 	},
@@ -2556,7 +2556,7 @@ const CARDS := {
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 5,
+			"damage_amount": 4,
 		},
 		"_is_upgrade": true,
 	},

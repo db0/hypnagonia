@@ -728,6 +728,40 @@ const FusionGrenade = {
 		],
 	},
 }
+const LightJump = {
+	"manual": {
+		"hand": [
+			{
+				"name": "assign_defence",
+				"tags": ["Card"],
+				"subject": "dreamer",
+				"amount": {
+					"lookup_property": "_amounts",
+					"value_key": "defence_amount"
+				},
+			},
+			{
+				"name": "move_card_to_container",
+				"tags": ["Card"],
+				"is_cost": false,
+				"subject": "index",
+				"subject_count": "all",
+				"subject_index": "top",
+				SP.KEY_NEEDS_SELECTION: true,
+				SP.KEY_SELECTION_COUNT: {
+					"lookup_property": "_amounts",
+					"value_key": "discard_amount"
+				},
+				SP.KEY_SELECTION_TYPE: "equal",
+				SP.KEY_SELECTION_OPTIONAL: false,
+				SP.KEY_SELECTION_IGNORE_SELF: true,
+				SP.KEY_DEST_INDEX: "bottom",
+				"src_container": "hand",
+				"dest_container": "deck",
+			},
+		],
+	},
+}
 
 # This fuction returns all the scripts of the specified card name.
 #
@@ -762,5 +796,6 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 		"Spare Lens": SpareLens,
 		"Recycling": Recycling,
 		"Fusion Grenade": FusionGrenade,
+		"Light Jump": LightJump,
 	}
 	return(_prepare_scripts(scripts, card_name, get_modified))
