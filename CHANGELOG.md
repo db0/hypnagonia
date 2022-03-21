@@ -1,12 +1,16 @@
 # Changelog
 
-## [Unreleased](https://github.com/db0/hypnagonia/tree/HEAD)
+## [v0.40.1](https://github.com/db0/hypnagonia/tree/v0.40.1) (2022-03-21)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.40.0...HEAD)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.40.0...v0.40.1)
 
 **Closed issues:**
 
 - Laser Cannon Archetype [\#199](https://github.com/db0/hypnagonia/issues/199)
+
+**Merged pull requests:**
+
+- v0.40 bugfixes [\#247](https://github.com/db0/hypnagonia/pull/247) ([db0](https://github.com/db0))
 
 ## [v0.40.0](https://github.com/db0/hypnagonia/tree/v0.40.0) (2022-03-21)
 
