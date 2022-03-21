@@ -1078,7 +1078,7 @@ const CARDS := {
 	},
 	"High Heat Venting": {
 		"Type": "Concentration",
-		"Tags": [Terms.GENERIC_TAGS.alpha.name],
+		"Tags": [],
 		"Abilities": "Gain {concentration_defence} {defence} whenever you fuse {fusion} cards.",
 		"Cost": 1,
 		"_illustration": "Nobody",
