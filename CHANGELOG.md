@@ -1,8 +1,25 @@
 # Changelog
 
+## [Unreleased](https://github.com/db0/hypnagonia/tree/HEAD)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.40.0...HEAD)
+
+**Closed issues:**
+
+- Laser Cannon Archetype [\#199](https://github.com/db0/hypnagonia/issues/199)
+
+## [v0.40.0](https://github.com/db0/hypnagonia/tree/v0.40.0) (2022-03-21)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.39.0...v0.40.0)
+
+**Merged pull requests:**
+
+- Edit to Enemies.gd [\#246](https://github.com/db0/hypnagonia/pull/246) ([KironIB](https://github.com/KironIB))
+- Added Laser Cannon Archetype [\#245](https://github.com/db0/hypnagonia/pull/245) ([db0](https://github.com/db0))
+
 ## [v0.39.0](https://github.com/db0/hypnagonia/tree/v0.39.0) (2022-03-17)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.37.0...v0.39.0)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.38.0...v0.39.0)
 
 **Closed issues:**
 
@@ -13,13 +30,13 @@
 
 - Enhancements and Scars can now affect more properties [\#244](https://github.com/db0/hypnagonia/pull/244) ([db0](https://github.com/db0))
 
-## [v0.37.0](https://github.com/db0/hypnagonia/tree/v0.37.0) (2022-03-16)
-
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.38.0...v0.37.0)
-
 ## [v0.38.0](https://github.com/db0/hypnagonia/tree/v0.38.0) (2022-03-16)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.36.0...v0.38.0)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.37.0...v0.38.0)
+
+## [v0.37.0](https://github.com/db0/hypnagonia/tree/v0.37.0) (2022-03-16)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.36.0...v0.37.0)
 
 **Closed issues:**
 
