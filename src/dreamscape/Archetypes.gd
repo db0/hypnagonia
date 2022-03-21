@@ -276,10 +276,10 @@ const LASER_CANNON := {
 		Terms.GENERIC_TAGS.startup.name,
 	],
 	"Artifacts": [
-
+		ArtifactDefinitions.DoubleFirstStartup,
 	],
 	"Memories": [
-		MemoryDefinitions.ActivateStartups
+		MemoryDefinitions.ActivateStartups,
 	],
 	"Perturbations": [
 		
