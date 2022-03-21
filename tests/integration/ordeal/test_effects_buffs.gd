@@ -542,6 +542,48 @@ class TestProtection:
 		assert_eq(dreamer.active_effects.get_effect_stacks(test_effect2), 0,
 				"%s blocked all %s stacks" % [effect, test_effect2])
 
+	func test_protection_dreamer_only_debuffs():
+		var test_effect = Terms.ACTIVE_EFFECTS.drain.name
+		var test_effect2 = Terms.ACTIVE_EFFECTS.delighted.name
+		cards[0].scripts = get_dreamer_effect_script(test_effect, 5)
+		cards[1].scripts = get_dreamer_effect_script(test_effect2, 2)
+		var sceng = cards[0].execute_scripts()
+		sceng = cards[1].execute_scripts()
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect), amount - 2,
+				"Dreamer should have used 1 %s stack per debuff" % [effect])
+		assert_eq(dreamer.active_effects.get_effect_stacks(test_effect), 0,
+				"%s blocked all %s stacks" % [effect, test_effect])
+		assert_eq(dreamer.active_effects.get_effect_stacks(test_effect2), 0,
+				"%s blocked all %s stacks" % [effect, test_effect2])
+
+	func test_protection_dreamer_only_debuffs_on_torment():
+		spawn_effect(test_torment, effect, amount, '')
+		var test_effect = Terms.ACTIVE_EFFECTS.drain.name
+		var test_effect2 = Terms.ACTIVE_EFFECTS.strengthen.name
+		var test_effect3 = Terms.ACTIVE_EFFECTS.disempower.name
+		cards[0].scripts = get_torment_effect_script(test_effect, 5)
+		cards[1].scripts = get_torment_effect_script(test_effect2, 2)
+		cards[2].scripts = get_torment_effect_script(test_effect3, 2)
+		var sceng = snipexecute(cards[0], test_torment)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		sceng = snipexecute(cards[1], test_torment)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		sceng = snipexecute(cards[2], test_torment)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(test_torment.active_effects.get_effect_stacks(effect), amount - 1,
+				"Torment should have used 1 %s stack per debuff" % [effect])
+		assert_eq(test_torment.active_effects.get_effect_stacks(test_effect3), 0,
+				"%s blocked all %s stacks" % [effect, test_effect3])
+		assert_eq(test_torment.active_effects.get_effect_stacks(test_effect2), 2,
+				"%s didn't block %s stacks" % [effect, test_effect2])
+		assert_eq(test_torment.active_effects.get_effect_stacks(test_effect), 5,
+				"%s didn't block %s stacks" % [effect, test_effect])
+
 
 	func test_fortify_end_turn():
 		cfc.NMAP.board.turn.end_player_turn()
