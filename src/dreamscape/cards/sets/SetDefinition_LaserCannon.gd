@@ -1322,7 +1322,7 @@ const CARDS := {
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
-			"! Fusion Grenade !",
+			"+ Fusion Grenade +",
 		],
 	},
 	"+ Fusion Grenade +": {
