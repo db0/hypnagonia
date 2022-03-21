@@ -524,6 +524,12 @@ const ACTIVE_EFFECTS := {
 		"icon": preload("res://assets/icons/abstract-070.png"),
 		"is_card_reference": true
 	},
+	"focus_calibration":  {
+		"name": "Focus Calibration",
+		"type": "Concentration",
+		"icon": preload("res://assets/icons/double-diaphragm.png"),
+		"is_card_reference": true
+	},
 	# These effects are usually starting on top of special enemies
 	# but might also be given to the player as Understanding concentrations
 	"enraged": {

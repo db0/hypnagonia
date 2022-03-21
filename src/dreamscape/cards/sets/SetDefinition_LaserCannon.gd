@@ -1092,7 +1092,7 @@ const CARDS := {
 	},
 	"Streamlining": {
 		"Type": "Concentration",
-		"Tags": [],
+		"Tags": [Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Draw {concentration_draw} cards whenever you fuse {fusion} cards.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -1110,7 +1110,7 @@ const CARDS := {
 	},
 	"@ Streamlining @": {
 		"Type": "Concentration",
-		"Tags": [],
+		"Tags": [Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Draw {concentration_stacks} cards whenever you fuse {fusion} cards.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -1123,7 +1123,7 @@ const CARDS := {
 	},
 	"^ Streamlining ^": {
 		"Type": "Concentration",
-		"Tags": [],
+		"Tags": [Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Draw {concentration_stacks} cards whenever you fuse {fusion} cards.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -1136,7 +1136,7 @@ const CARDS := {
 	},
 	"! Streamlining !": {
 		"Type": "Concentration",
-		"Tags": [],
+		"Tags": [Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Draw {concentration_stacks} cards whenever you fuse {fusion} cards.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -1384,6 +1384,58 @@ const CARDS := {
 		"_amounts": {
 			"defence_amount": 5,
 			"discard_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"Focus Calibration": {
+		"Type": "Concentration",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.purpose.name],
+		"Abilities": "At the start of the next {concentration_stacks} turns gain {concentration_immersion} {immersion}\n"\
+				+ "and {forget} the bottom {concentration_forget} cards of your draw pile.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["forget"],
+		"_amounts": {
+			"concentration_stacks": 7,
+			"concentration_immersion": 1,
+			"concentration_forget": 1,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"= Focus Calibration =",
+			"+ Focus Calibration +",
+		],
+	},
+	"= Focus Calibration =": {
+		"Type": "Concentration",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.frozen.name],
+		"Abilities": "At the start of the next {concentration_stacks} turns gain {concentration_immersion} {immersion}\n"\
+				+ "and {forget} the bottom {concentration_forget} cards of your draw pile.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["forget"],
+		"_amounts": {
+			"concentration_stacks": 7,
+			"concentration_immersion": 1,
+			"concentration_forget": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"+ Focus Calibration +": {
+		"Type": "Concentration",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "At the start of the next {concentration_stacks} turns gain {concentration_immersion} {immersion}\n"\
+				+ "and {forget} the bottom {concentration_forget} cards of your draw pile.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["forget"],
+		"_amounts": {
+			"concentration_stacks": 7,
+			"concentration_immersion": 1,
+			"concentration_forget": 1,
 		},
 		"_is_upgrade": true,
 	},
