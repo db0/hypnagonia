@@ -472,4 +472,40 @@ class TestBrooding:
 		pending("Add check that cards are drawn")
 		pending("Add check that cards are drawn even when there's nothing to forget")
 
+class TestRecycling:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	func _init() -> void:
+		testing_card_name = "Recycling"
+		expected_amount_keys = [
+			"defence_amount",
+			"defence_amount2",
+		]
+
+	func test_card_results():
+		assert_has_amounts()
+		TurnEventMessage.new("card_fused", +4)
+		var sceng = execute_with_yield(card)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(dreamer.defence, get_amount("defence_amount") + get_amount("defence_amount2") * 4,
+				"%s gave correct amount of confidence" % [card.canonical_name])
+
+
+class TestFusionGrenade:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	func _init() -> void:
+		torments_amount = 3
+		testing_card_name = "Fusion Grenade"
+		expected_amount_keys = [
+			"damage_amount",
+		]
+
+	func test_card_results():
+		assert_has_amounts()
+		var sceng = execute_with_yield(card)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		for t in test_torments:
+			assert_eq(t.damage, tdamage(get_amount("damage_amount")),
+					"%s dealt correct amount of interpretation" % [card.canonical_name])
 
