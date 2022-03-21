@@ -19,7 +19,7 @@ func _init(
 	uses = _uses
 	card_filters = _card_filters
 	counter = _counter
-	is_permanent = is_permanent
+	is_permanent = _is_permanent
 
 func _ready() -> void:
 	add_to_group("scriptables")

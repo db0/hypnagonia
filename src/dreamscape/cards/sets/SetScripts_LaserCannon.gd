@@ -240,6 +240,7 @@ const PhotonBlade = {
 			{
 				"name": "set_discount",
 				"tags": ["Card"],
+				"is_permanent": true,
 				"discount_uses": {
 					"lookup_property": "_amounts",
 					"value_key": "discount_uses"

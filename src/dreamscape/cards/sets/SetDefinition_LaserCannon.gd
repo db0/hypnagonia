@@ -459,9 +459,9 @@ const CARDS := {
 	},
 	"Photon Blade": {
 		"Type": "Action",
-		"Tags": [Terms.GENERIC_TAGS.frozen.name],
+		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "The next {discount_uses} {control} cards you play this turn "\
+				+ "The next {discount_uses} {control} card you play "\
 				+ "costs -{discount_amount} {immersion}",
 		"Cost": 2,
 		"_illustration": "Nobody",
@@ -481,9 +481,9 @@ const CARDS := {
 	},
 	"+ Photon Blade +": {
 		"Type": "Action",
-		"Tags": [Terms.GENERIC_TAGS.frozen.name],
+		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "The next {discount_uses} {control} cards you play this turn "\
+				+ "The next {discount_uses} {control} cards you play "\
 				+ "costs -{discount_amount} {immersion}",
 		"Cost": 2,
 		"_illustration": "Nobody",
@@ -498,28 +498,28 @@ const CARDS := {
 	},
 	"% Photon Blade %": {
 		"Type": "Action",
-		"Tags": [Terms.GENERIC_TAGS.frozen.name],
+		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "The next {discount_uses} {control} cards you play this turn "\
+				+ "The next {discount_uses} {control} cards you play "\
 				+ "costs -{discount_amount} {immersion}",
-		"Cost": 1,
+		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
 			"damage_amount": 11,
-			"discount_amount": 2,
+			"discount_amount": 3,
 			"discount_uses": 1,
 		},
 		"_is_upgrade": true,
 	},
 	"= Photon Blade =": {
 		"Type": "Action",
-		"Tags": [Terms.GENERIC_TAGS.frozen.name],
+		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "The next {discount_uses} {control} cards you play this turn "\
+				+ "The next {discount_uses} {control} cards you play "\
 				+ "costs -{discount_amount} {immersion}",
-		"Cost": 1,
+		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
