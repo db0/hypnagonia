@@ -57,6 +57,8 @@ func initiate_selection(
 		_selection_count := 0, 
 		_selection_type := 'min',
 		_selection_optional := false) -> void:
+	if OS.has_feature("debug") and not get_tree().get_root().has_node('Gut'):
+		print("DEBUG INFO:SelectionWindow: Initiated Selection")
 	# We don't allow the player to close the popup with the close button
 	# as that will not send the mandatory signal to unpause the game
 	get_close_button().visible = false
@@ -148,6 +150,8 @@ func initiate_selection(
 			0, 1, 0.5,
 			Tween.TRANS_SINE, Tween.EASE_IN)
 	_tween.start()
+	if OS.has_feature("debug") and not get_tree().get_root().has_node('Gut'):
+		print("DEBUG INFO:SelectionWindow: Started Card Display with a %s card selection" % [_card_grid.get_child_count()])
 
 
 # Overridable function for games to extend processing of dupe card
