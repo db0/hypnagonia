@@ -446,9 +446,6 @@ class TestStreamlining:
 		yield(yield_for(1), YIELD)
 		assert_eq(hand.get_card_count(), amount * 2 + 2,
 				"%s drew correct amount of cards" % [effect])
-		
-
-
 
 class TestBrooding:
 	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
@@ -535,3 +532,30 @@ class TestLightJump:
 			return
 		var selection_window = selwindows[0]
 		pending("Add check that cards are moved to bottom of deck")
+
+
+class TestFocusCalibration:
+	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
+	var effect: String = Terms.ACTIVE_EFFECTS.focus_calibration.name
+	var amount = 4
+	func _init() -> void:
+		globals.test_flags["test_initial_hand"] = true
+		effects_to_play = [
+			{
+				"name": effect,
+				"amount": amount,
+			}
+		]
+
+	func test_effect():
+		var last_card : DreamCard = deck.get_bottom_card()
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3), YIELD)
+		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion every turn")
+		assert_eq(last_card.get_parent(), forgotten, "Last card forgotten")
+		last_card = deck.get_bottom_card()
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3), YIELD)
+		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion every turn")
+		assert_eq(last_card.get_parent(), forgotten, "Last card forgotten")
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 2)

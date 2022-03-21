@@ -305,6 +305,7 @@ const LASER_CANNON := {
 		"Streamlining",
 		"Brooding",
 		"Recycling",
+		"Focus Calibration",
 	],
 	"Rare": [
 		"Precision",
