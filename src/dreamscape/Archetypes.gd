@@ -304,11 +304,13 @@ const LASER_CANNON := {
 		"Heat Venting",
 		"Streamlining",
 		"Brooding",
+		"Recycling",
 	],
 	"Rare": [
 		"Precision",
 		"Nano-Machines",
 		"Spare Lens",
+		"Universal Component",
 	],
 	"Special": [
 		"HiCannon",
@@ -317,6 +319,7 @@ const LASER_CANNON := {
 		"Vulcan3",
 		"Lumen Shield",
 		"Plasma Shield",
+		"Fusion Grenade",
 	]
 }
 

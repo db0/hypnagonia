@@ -432,8 +432,8 @@ class TestActivateStartups:
 	func test_memory_use():
 		if not assert_has_amounts():
 			return
-		spawn_test_card("Dark Approach", forgotten)
-		spawn_test_card("Precision", forgotten)
+		add_single_card("Dark Approach", forgotten)
+		add_single_card("Precision", forgotten)
 		var sceng = memexecute(memory)
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")

@@ -15,6 +15,7 @@ class TestCardDefinitions:
 			"GUT",
 			"Lacuna",
 			"Distracted",
+			"Universal Component",
 		]
 		var pending_scripting_card_names = [
 			"War Paint"

@@ -84,14 +84,31 @@ func _check_for_fusion(card) -> void:
 			drawn_card_name = card.find_upgrade_parent()
 		if c.get_property("_is_upgrade"):
 			checked_card_name = c.find_upgrade_parent()
-		if not checked_card_name == drawn_card_name:
+		# This card matches all fusion cards
+		var uc = "Universal Component"
+		if checked_card_name != drawn_card_name\
+				and checked_card_name != uc and drawn_card_name != uc:
 			continue
 		var upgraded_fusion := false
 		if card.get_property("_is_upgrade") and c.get_property("_is_upgrade"):
 			upgraded_fusion = true
 		cards_in_fusion.append(c)
 		cards_in_fusion.append(card)
-		var fused_card_name = card.get_property("_fuses_into")
+		var fused_card_name : String
+		# We need to make sure we do not select the Universal Component fusion
+		# unless it's explicitly two Universal Components fusing
+		if drawn_card_name == uc and checked_card_name != uc:
+			fused_card_name = c.get_property("_fuses_into")
+		else:
+			fused_card_name = card.get_property("_fuses_into")
+		var uc_drawn_cards := 0
+		var uc_immersion := 0
+		if drawn_card_name == uc:
+			uc_drawn_cards += card.get_property("_amounts")["draw_amount"]
+			uc_immersion += card.get_property("_amounts")["immersion_amount"]
+		if checked_card_name == uc:
+			uc_drawn_cards += c.get_property("_amounts")["draw_amount"]
+			uc_immersion += c.get_property("_amounts")["immersion_amount"]
 		var fused_card_properties = cfc.card_definitions[fused_card_name]
 		if upgraded_fusion:
 			fused_card_name = fused_card_properties.get("_upgrades")[0]
@@ -99,6 +116,13 @@ func _check_for_fusion(card) -> void:
 		card.remove_from_deck(false, ['fusion'])
 		var fused_card = cfc.instance_card(fused_card_name)
 		cfc.NMAP.board.add_child(fused_card)
+		for iter in uc_drawn_cards:
+			draw_card()
+		# If the turn is current, we simply increase energy immediately
+		if cfc.NMAP.board.turn.current_turn == cfc.NMAP.board.turn.Turns.PLAYER_TURN:
+			cfc.NMAP.board.counters.mod_counter("immersion", uc_immersion, false, false, null, ["Fusion"])
+		else:
+			cfc.NMAP.board.dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, uc_immersion, false, false, ["Fusion"])
 		fused_card.scale = Vector2(0.1,0.1)
 		fused_card.global_position = c.global_position
 		fused_card.spawn_destination = self
@@ -108,3 +132,4 @@ func _check_for_fusion(card) -> void:
 				"cards_fused",
 				{}
 		)
+		TurnEventMessage.new("card_fused", +1)

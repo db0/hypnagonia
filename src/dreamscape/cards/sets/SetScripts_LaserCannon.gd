@@ -675,7 +675,59 @@ const Brooding = {
 		],
 	},
 }
-
+const Recycling = {
+	"manual": {
+		"hand": [
+			{
+				"name": "assign_defence",
+				"tags": ["Card"],
+				"subject": "dreamer",
+				"amount": {
+					"lookup_property": "_amounts",
+					"value_key": "defence_amount"
+				},
+			},
+			{
+				"name": "assign_defence",
+				"subject": "dreamer",
+				"amount": "per_encounter_event_count",
+				"tags": ["Card"],
+				"per_encounter_event_count": {
+					"event_name": "card_fused",
+					"multiplier": {
+						"lookup_property": "_amounts",
+						"value_key": "defence_amount2"
+					},
+				},
+			},
+		],
+	},
+}
+const FusionGrenade = {
+	"manual": {
+		"hand": [
+			{
+				"name": "modify_damage",
+				"subject": "boardseek",
+				"amount": {
+					"lookup_property": "_amounts",
+					"value_key": "damage_amount"
+				},
+				"subject_count": "all",
+				"tags": ["Attack", "Card"],
+				"filter_state_seek": [{
+					"filter_group": "EnemyEntities",
+				},],
+			},
+			{
+				"name": "move_card_to_container",
+				"subject": "self",
+				"dest_container": "forgotten",
+				"tags": ["Played", "Card"],
+			},
+		],
+	},
+}
 
 # This fuction returns all the scripts of the specified card name.
 #
@@ -708,5 +760,7 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 		"Streamlining": Streamlining,
 		"Brooding": Brooding,
 		"Spare Lens": SpareLens,
+		"Recycling": Recycling,
+		"Fusion Grenade": FusionGrenade,
 	}
 	return(_prepare_scripts(scripts, card_name, get_modified))

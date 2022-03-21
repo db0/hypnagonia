@@ -168,7 +168,7 @@ const CARDS := {
 	},
 	"Vulcan": {
 		"Type": "Action",
-		"Tags": [Terms.GENERIC_TAGS.fusion.name],
+		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times.\n"\
 				+ "Fuse {fuse_amount} -> Vulcan2",
 		"Cost": 1,
@@ -184,13 +184,13 @@ const CARDS := {
 		"_upgrades": [
 			"+ Vulcan +",
 			"@ Vulcan @",
-			"Ω Vulcan Ω",
+			"% Vulcan %",
 		],
 		"_fuses_into": "Vulcan2"
 	},
 	"+ Vulcan +": {
 		"Type": "Action",
-		"Tags": [Terms.GENERIC_TAGS.fusion.name],
+		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times.\n"\
 				+ "Fuse {fuse_amount} -> Vulcan2",
 		"Cost": 1,
@@ -207,7 +207,7 @@ const CARDS := {
 	},
 	"@ Vulcan @": {
 		"Type": "Action",
-		"Tags": [Terms.GENERIC_TAGS.fusion.name],
+		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times.\n"\
 				+ "Fuse {fuse_amount} -> Vulcan2",
 		"Cost": 9,
@@ -222,9 +222,9 @@ const CARDS := {
 		"_is_upgrade": true,
 		"_fuses_into": "Vulcan2"
 	},
-	"Ω Vulcan Ω": {
+	"% Vulcan %": {
 		"Type": "Action",
-		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.GENERIC_TAGS.omega.name],
+		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times.\n"\
 				+ "Fuse {fuse_amount} -> Vulcan2",
 		"Cost": 1,
@@ -232,8 +232,8 @@ const CARDS := {
 		"_rarity": "Common",
 		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
-			"damage_amount": 4,
-			"chain_amount": 2,
+			"damage_amount": 2,
+			"chain_amount": 5,
 			"fuse_amount": 2,
 		},
 		"_is_upgrade": true,
@@ -241,7 +241,7 @@ const CARDS := {
 	},
 	"Vulcan2": {
 		"Type": "Action",
-		"Tags": [Terms.GENERIC_TAGS.fusion.name],
+		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times.\n"\
 				+ "Fuse {fuse_amount} -> Vulcan3",
 		"Cost": 1,
@@ -260,7 +260,7 @@ const CARDS := {
 	},
 	"+ Vulcan2 +": {
 		"Type": "Action",
-		"Tags": [Terms.GENERIC_TAGS.fusion.name],
+		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times.\n"\
 				+ "Fuse {fuse_amount} -> Vulcan3",
 		"Cost": 1,
@@ -277,7 +277,7 @@ const CARDS := {
 	},
 	"Vulcan3": {
 		"Type": "Action",
-		"Tags": [],
+		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -294,7 +294,7 @@ const CARDS := {
 	},
 	"+ Vulcan3 +": {
 		"Type": "Action",
-		"Tags": [],
+		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times.\n"\
 				+ "Fuse {fuse_amount} -> Vulcan3",
 		"Cost": 1,
@@ -1208,5 +1208,136 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"Recycling": {
+		"Type": "Control",
+		"Tags": [],
+		"Abilities": "Gain {defence_amount} {defence}. Gain {defence_amount2} {defence},"\
+				+ " for each {fusion} fusion you've achieved this ordeal.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 8,
+			"defence_amount2": 3,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"+ Recycling +",
+			"% Recycling %",
+		],
+	},
+	"+ Recycling +": {
+		"Type": "Control",
+		"Tags": [],
+		"Abilities": "Gain {defence_amount} {defence}. Gain {defence_amount2} {defence},"\
+				+ " for each {fusion} fusion you've achieved this ordeal.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 11,
+			"defence_amount2": 3,
+		},
+		"_is_upgrade": true,
+	},
+	"% Recycling %": {
+		"Type": "Control",
+		"Tags": [],
+		"Abilities": "Gain {defence_amount} {defence}. Gain {defence_amount2} {defence},"\
+				+ " for each {fusion} fusion you've achieved this ordeal.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 6,
+			"defence_amount2": 6,
+		},
+		"_is_upgrade": true,
+	},
+	"Universal Component": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.GENERIC_TAGS.swift.name],
+		"Abilities": "This card will {fusion} fuse with any other available fusion card\n"\
+				+ "Whenever this card fuses, draw {draw_amount} card and gain {immersion_amount} {immersion}.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["fuse"],
+		"_amounts": {
+			"draw_amount": 1,
+			"immersion_amount": 1,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"! Universal Component !",
+			"@ Universal Component @",
+		],
+		"_fuses_into": "Fusion Grenade"
+	},
+	"! Universal Component !": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.GENERIC_TAGS.swift.name],
+		"Abilities": "This card will {fusion} fuse with any other available fusion card\n"\
+				+ "Whenever this card fuses, draw {draw_amount} card and gain {immersion_amount} {immersion}.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["fuse"],
+		"_amounts": {
+			"draw_amount": 3,
+			"immersion_amount": 1,
+		},
+		"_is_upgrade": true,
+		"_fuses_into": "Fusion Grenade"
+	},
+	"@ Universal Component @": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.GENERIC_TAGS.swift.name],
+		"Abilities": "This card will {fusion} fuse with any other available fusion card\n"\
+				+ "Whenever this card fuses, draw {draw_amount} card and gain {immersion_amount} {immersion}.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["fuse"],
+		"_amounts": {
+			"draw_amount": 1,
+			"immersion_amount": 2,
+		},
+		"_is_upgrade": true,
+		"_fuses_into": "Fusion Grenade"
+	},
+	"Fusion Grenade": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage_amount} all torments for {damage}\n{forget}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Special",
+		"_keywords": ["fuse"],
+		"_amounts": {
+			"damage_amount": 30,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"! Fusion Grenade !",
+		],
+	},
+	"+ Fusion Grenade +": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage_amount} all torments for {damage}\n{forget}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": ["fuse"],
+		"_amounts": {
+			"damage_amount": 40,
+		},
+		"_is_upgrade": true,
+	},
+
 }
 

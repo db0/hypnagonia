@@ -37,7 +37,7 @@ static func get_scars() -> Array:
 			"filters": [CardFilter.new('_amounts', "damage_amount2", 'eq')],
 			"property": "_amounts",
 			"value": {
-				"amount_key": "damage_amount",
+				"amount_key": "damage_amount2",
 				"amount_value": "*0.9",
 			},
 		},
@@ -62,7 +62,7 @@ static func get_scars() -> Array:
 			"filters": [CardFilter.new('_amounts', "defence_amount2", 'eq')],
 			"property": "_amounts",
 			"value": {
-				"amount_key": "defence_amount",
+				"amount_key": "defence_amount2",
 				"amount_value": "*0.9",
 			},
 		},

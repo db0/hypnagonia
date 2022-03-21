@@ -1606,9 +1606,9 @@ const Itsalive = {
 				"per_encounter_event_count": {
 					"event_name": "deck_shuffled",
 					"multiplier": {
-					"lookup_property": "_amounts",
-					"value_key": "damage_amount2"
-				},
+						"lookup_property": "_amounts",
+						"value_key": "damage_amount2"
+					},
 				},
 			},
 		],

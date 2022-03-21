@@ -168,9 +168,3 @@ func activate_quick_intent(intents_script: Array) -> void:
 	yield(yield_for(0.1), YIELD)
 	turn.end_player_turn()
 	yield(yield_to(turn, "player_turn_started", 3), YIELD)
-
-func spawn_test_card(card_name: String, card_container: CardContainer) -> DreamCard:
-	var c : DreamCard = cfc.instance_card(card_name)
-	card_container.add_child(c)
-	c._determine_idle_state()
-	return(c)
