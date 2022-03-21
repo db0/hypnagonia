@@ -5,7 +5,7 @@ const SET = "Laser Cannon"
 const CARDS := {
 	"Cannon": {
 		"Type": "Action",
-		"Tags": [Terms.GENERIC_TAGS.fusion.name],
+		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.ACTIVE_EFFECTS.marked.name],
 		"Abilities": "{damage} for {damage_amount}. Apply {effect_stacks} {marked}\n"\
 				+ "Fuse {fuse_amount} -> HiCannon",
 		"Cost": 1,
@@ -30,7 +30,7 @@ const CARDS := {
 	},
 	"+ Cannon +": {
 		"Type": "Action",
-		"Tags": [Terms.GENERIC_TAGS.fusion.name],
+		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.ACTIVE_EFFECTS.marked.name],
 		"Abilities": "{damage} for {damage_amount}. Apply {effect_stacks} {marked}\n"\
 				+ "Fuse {fuse_amount} -> HiCannon",
 		"Cost": 1,
@@ -50,7 +50,7 @@ const CARDS := {
 	},
 	"* Cannon *": {
 		"Type": "Action",
-		"Tags": [Terms.GENERIC_TAGS.fusion.name],
+		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.ACTIVE_EFFECTS.marked.name],
 		"Abilities": "{damage} for {damage_amount}. Apply {effect_stacks} {marked}\n"\
 				+ "Fuse {fuse_amount} -> HiCannon",
 		"Cost": 1,
@@ -90,7 +90,7 @@ const CARDS := {
 	},
 	"HiCannon": {
 		"Type": "Action",
-		"Tags": [Terms.GENERIC_TAGS.fusion.name],
+		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.ACTIVE_EFFECTS.marked.name],
 		"Abilities": "{damage} for {damage_amount}. Apply {effect_stacks} {marked}\n"\
 				+ "Fuse {fuse_amount} -> MegaCannon",
 		"Cost": 1,
@@ -112,7 +112,7 @@ const CARDS := {
 	},
 	"+ HiCannon +": {
 		"Type": "Action",
-		"Tags": [Terms.GENERIC_TAGS.fusion.name],
+		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.ACTIVE_EFFECTS.marked.name],
 		"Abilities": "{damage} for {damage_amount}. Apply {effect_stacks} {marked}\n"\
 				+ "Fuse {fuse_amount} -> MegaCannon",
 		"Cost": 1,
@@ -132,7 +132,7 @@ const CARDS := {
 	},
 	"MegaCannon": {
 		"Type": "Action",
-		"Tags": [],
+		"Tags": [Terms.ACTIVE_EFFECTS.marked.name],
 		"Abilities": "{damage} for {damage_amount}. Apply {effect_stacks} {marked}",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -151,7 +151,7 @@ const CARDS := {
 	},
 	"+ MegaCannon +": {
 		"Type": "Action",
-		"Tags": [],
+		"Tags": [Terms.ACTIVE_EFFECTS.marked.name],
 		"Abilities": "{damage} for {damage_amount}. Apply {effect_stacks} {marked}",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -1150,7 +1150,7 @@ const CARDS := {
 	"Brooding": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.swift.name],
-		"Abilities": "{forget} {forget_amount} cards. Draw {draw_amount} card.",
+		"Abilities": "{forget} {forget_amount} cards. Draw {draw_amount} cards.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -1169,7 +1169,7 @@ const CARDS := {
 	"! Brooding !": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.swift.name],
-		"Abilities": "{forget} {forget_amount} cards. Draw {draw_amount} cards.",
+		"Abilities": "{forget} {forget_amount} cards. Draw {draw_amount} cardss.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -1183,7 +1183,7 @@ const CARDS := {
 	"= Brooding =": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.frozen.name],
-		"Abilities": "{forget} {forget_amount} cards. Draw {draw_amount} card.",
+		"Abilities": "{forget} {forget_amount} cards. Draw {draw_amount} cards.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -1260,7 +1260,7 @@ const CARDS := {
 	"Universal Component": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.GENERIC_TAGS.swift.name],
-		"Abilities": "This card will {fusion} fuse with any other available fusion card\n"\
+		"Abilities": "This card will fuse with any other available {fusion} card.\n"\
 				+ "Whenever this card fuses, draw {draw_amount} card and gain {immersion_amount} {immersion}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
@@ -1280,7 +1280,7 @@ const CARDS := {
 	"! Universal Component !": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.GENERIC_TAGS.swift.name],
-		"Abilities": "This card will {fusion} fuse with any other available fusion card\n"\
+		"Abilities": "This card will fuse with any other available {fusion} card.\n"\
 				+ "Whenever this card fuses, draw {draw_amount} card and gain {immersion_amount} {immersion}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
@@ -1296,7 +1296,7 @@ const CARDS := {
 	"@ Universal Component @": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.GENERIC_TAGS.swift.name],
-		"Abilities": "This card will {fusion} fuse with any other available fusion card\n"\
+		"Abilities": "This card will fuse with any other available {fusion} card.\n"\
 				+ "Whenever this card fuses, draw {draw_amount} card and gain {immersion_amount} {immersion}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
@@ -1312,7 +1312,7 @@ const CARDS := {
 	"Fusion Grenade": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage_amount} all torments for {damage}\n{forget}",
+		"Abilities": "{damage} all torments for {damage_amount}\n{forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Special",
@@ -1328,7 +1328,7 @@ const CARDS := {
 	"+ Fusion Grenade +": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage_amount} all torments for {damage}\n{forget}",
+		"Abilities": "{damage} all torments for {damage_amount}\n{forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
