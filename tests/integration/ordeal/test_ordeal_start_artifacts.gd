@@ -199,3 +199,22 @@ class TestStartingVulnerable:
 			assert_eq(torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.vulnerable.name), 
 					get_amount("effect_stacks"),
 					"All Torments should have received vulnerable")
+
+class TestDoubleFirstStartup:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		globals.test_flags["start_ordeal_before_each"] = false
+		testing_artifact_name = ArtifactDefinitions.DoubleFirstStartup.canonical_name
+		test_card_names = [
+			"Precision",
+			"Precision",
+		]
+		
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		board.call_deferred("begin_encounter")
+		yield(yield_to(artifact, "artifact_triggered", 1), YIELD)
+		for torment in test_torments:
+			assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 
+					6, "One startup effect triggered twice")

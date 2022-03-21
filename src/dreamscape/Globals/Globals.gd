@@ -36,6 +36,8 @@ var test_flags := {
 #	"memory_defintions": {}, 
 #   # Preselected random choice for use during testing
 #   "test_rng_ndex": 0,
+#   # Prevents the ordeal from starting during before_each()
+#	"start_ordeal_before_each": true
 }
 
 

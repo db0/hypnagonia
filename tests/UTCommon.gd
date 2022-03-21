@@ -119,6 +119,7 @@ func setup_test_cards(cards: Array, card_entries_only := false) -> Array:
 	var spawned_cards := []
 	for c in cards:
 		var ce = CardEntry.new(c)
+		globals.player.deck.cards.append(ce)
 		if card_entries_only:
 			spawned_cards.append(ce)
 			continue

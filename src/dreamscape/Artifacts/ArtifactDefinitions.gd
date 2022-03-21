@@ -711,6 +711,15 @@ const DecreaseExertStacks := {
 	"rarity": "Uncommon",
 }
 
+const DoubleFirstStartup := {
+	"canonical_name": "DoubleFirstStartup",
+	"name": "Birthday Gift",
+	"description": "{artifact_name}: One random {startup} effect is triggered twice.",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.BATTLE,
+	"rarity": "Uncommon",
+}
+
 
 ## TODO. Scipt base doesn't exist yet
 #const DoubleMemory := {
@@ -779,6 +788,7 @@ const ARCHETYPE := [
 	IncreaseBufferStacks,
 	IncreasePoisonStacks,
 	DecreaseExertStacks,
+	DoubleFirstStartup,
 ]
 
 # These artifacts are only found in non-combat encounters
