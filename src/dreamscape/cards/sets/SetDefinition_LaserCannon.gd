@@ -210,7 +210,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times.\n"\
 				+ "Fuse {fuse_amount} -> Vulcan2",
-		"Cost": 9,
+		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": ["interpretation", "fuse"],

@@ -126,6 +126,26 @@ func get_dreamer_effect_script(effect_name: String, amount: int) -> Dictionary:
 	}
 	return(apply_dreamer_effect_script)
 
+func get_torment_effect_script(effect_name: String, amount: int) -> Dictionary:
+	var apply_dreamer_effect_script := {
+		"manual": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"tags": ["Card"],
+					"needs_subject": true,
+					"effect_name": effect_name,
+					"subject": "target",
+					"modification": amount,
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					},],
+				}
+			],
+		},
+	}
+	return(apply_dreamer_effect_script)
+
 
 # Returns the expected amount of damage, after including the torments starting dmgs
 func tdamage(damage: int) -> int:
