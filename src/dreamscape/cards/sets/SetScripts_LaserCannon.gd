@@ -627,7 +627,7 @@ const Streamlining = {
 			{
 				"name": "apply_effect",
 				"tags": ["Card"],
-				"effect_name": Terms.ACTIVE_EFFECTS.heat_venting.name,
+				"effect_name": Terms.ACTIVE_EFFECTS.streamlining.name,
 				"subject": "dreamer",
 				"modification": {
 					"lookup_property": "_amounts",
