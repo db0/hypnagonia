@@ -89,6 +89,10 @@ func _check_for_fusion(card) -> void:
 		if checked_card_name != drawn_card_name\
 				and checked_card_name != uc and drawn_card_name != uc:
 			continue
+		if not card.get_property("_fuses_into"):
+			continue
+		if not c.get_property("_fuses_into"):
+			continue
 		var upgraded_fusion := false
 		if card.get_property("_is_upgrade") and c.get_property("_is_upgrade"):
 			upgraded_fusion = true
