@@ -1455,7 +1455,7 @@ const CARDS := {
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"! Quick Dash !",
-			"% Quick Dash %",
+			"+ Quick Dash +",
 		],
 	},
 	"! Quick Dash !": {

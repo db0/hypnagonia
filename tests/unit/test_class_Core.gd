@@ -20,7 +20,6 @@ class TestCardDefinitions:
 		for c in known_unscripted_card_names:
 			for upgrade in cfc.card_definitions.get(c, {}).get('_upgrades',[]):
 				known_unscripted_card_names.append(upgrade)
-				gut.p(upgrade)
 		var pending_scripting_card_names = [
 			"War Paint"
 		]
