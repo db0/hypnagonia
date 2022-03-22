@@ -270,7 +270,7 @@ func scar() -> void:
 
 # Randomly increases the effectiveness of this card.
 func enhance() -> void:
-	var applicable_mods = CardModifications.check_mod_applicability(properties, "blessing")
+	var applicable_mods = CardModifications.check_mod_applicability(properties, "enhancement")
 	# No need to check the size of the array as there's going to always be at least one element
 	if typeof(applicable_mods[0].value) == TYPE_STRING\
 			and applicable_mods[0].value == '-' + Terms.GENERIC_TAGS.slumber.name:
