@@ -673,6 +673,14 @@ func modify_property(
 							# We allow setting number properties as strings.
 							# We assume the designer knows what they're doing
 							properties[property] = value
+				# If the property is an array, and the value is a string, we assume they want
+				# to add this value to the array
+				# If the value is prepended by -, we assume the want to remove the value.
+				if property in CardConfig.PROPERTIES_ARRAYS and typeof(value) == TYPE_STRING:
+					if value.begins_with('-'):
+						properties[property].erase(value.lstrip('-'))
+					else:
+						properties[property].append(value)
 			refresh_property_label(property)
 	return(retcode)
 

@@ -1284,6 +1284,8 @@ static func filter_trigger(
 	# Checking card properties is its own function as it might be
 	# called from other places as well
 	var is_valid := check_validity(trigger_card, card_scripts, "trigger")
+	if is_valid and not check_validity(owner_card, card_scripts, "self"):
+		is_valid = false
 
 	# Here we check that the trigger matches the _request_ for trigger
 	# A trigger which requires "another" card, should not trigger
