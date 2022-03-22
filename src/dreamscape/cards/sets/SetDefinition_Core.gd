@@ -131,7 +131,7 @@ const CARDS := {
 	"Out of Reach": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
-		"Abilities": "Gain {effect_stacks} {untouchable}",
+		"Abilities": "Gain {effect_stacks} {impervious}",
 		"Cost": 3,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -150,7 +150,7 @@ const CARDS := {
 	"@ Out of Reach @": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
-		"Abilities": "Gain {effect_stacks} {untouchable}",
+		"Abilities": "Gain {effect_stacks} {impervious}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -165,7 +165,7 @@ const CARDS := {
 	"* Out of Reach *": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
-		"Abilities": "Gain {effect_stacks} {untouchable}",
+		"Abilities": "Gain {effect_stacks} {impervious}",
 		"Cost": 4,
 		"_illustration": "Nobody",
 		"_effects_info": {
