@@ -502,10 +502,14 @@ func _input(event):
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"+ Quick Dash +",
-			"+ Quick Dash +",
-			"+ Quick Dash +",
-			"+ Quick Dash +",
+			"+ Cannon +",
+			"+ Cannon +",
+			"+ Cannon +",
+			"Cannon",
+			"Cannon",
+			"Cannon",
+			"Cannon",
+			"Cannon",
 #			"Charged Shot",
 		]:
 			var ce = CardEntry.new(c)
@@ -552,7 +556,7 @@ func _on_Debug_pressed() -> void:
 	for entity in get_tree().get_nodes_in_group("EnemyEntities"):
 		entity.damage = 1
 	for c in [
-#			"Fowl Language",
+			"Universal Component",
 #			"A Thousand Squeaks",
 	]:
 		var card = cfc.instance_card(c)
@@ -564,7 +568,7 @@ func _on_Debug_pressed() -> void:
 #		cfc.NMAP.hand.draw_card(cfc.NMAP.deck)
 	# Deck cards
 	for c in [
-#		"Survival Mode",
+#		"Universal Component",
 #		"Survival Mode",
 #		"Survival Mode",
 #		"Hyperfocus",
