@@ -9,561 +9,183 @@ const LAST_RESORT_SCAR := {
 		"property": "Cost",
 		"value": "+1",
 	}# We only use this if none of the others exist, as it's very nerfing
-const LAST_RESORT_BLESSING := {
+const LAST_RESORT_ENHANCEMENT := {
 		"property": "Cost",
 		"value": "-1",
 	}
+const BENEFICIAL_INTEGERS := [
+	"chain_amount",
+	"draw_amount",
+	"draw_amount2",
+	"scry_amount",
+	"effect_stacks",
+	"effect_stacks2",
+	"effect_stacks3",
+	"steal_amount",
+	"increase_amount",
+	"turns_amount",
+	"multiplier_amount",
+	"immersion_amount",
+	"max_requirements_amount",
 
-static func get_scars() -> Array:
-	var scars := [
-		{
-			"filters": [CardFilter.new('_amounts', "damage_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "damage_amount",
-				"amount_value": "*0.9",
-			},
-		},
-		# Duplicate to increase chances
-		{
-			"filters": [CardFilter.new('_amounts', "damage_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "damage_amount",
-				"amount_value": "*0.9",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "damage_amount2", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "damage_amount2",
-				"amount_value": "*0.9",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "defence_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "defence_amount",
-				"amount_value": "*0.9",
-			},
-		},
-		# Duplicate to increase chances
-		{
-			"filters": [CardFilter.new('_amounts', "defence_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "defence_amount",
-				"amount_value": "*0.9",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "defence_amount2", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "defence_amount2",
-				"amount_value": "*0.9",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "healing_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "healing_amount",
-				"amount_value": "*0.9",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "chain_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "chain_amount",
-				"amount_value": "-1",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "draw_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "draw_amount",
-				"amount_value": "-1",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "draw_amount2", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "draw_amount2",
-				"amount_value": "-1",
-			},
-		},
-		# Used when the player looks through their draw pile to select cards
-		{
-			"filters": [CardFilter.new('_amounts', "scry_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "scry_amount",
-				"amount_value": "-1",
-			},
-		},
-		# Used when the player has to forget cards as cost
-		# So increasing this amount makes the card worse
-		{
-			"filters": [CardFilter.new('_amounts', "forget_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "forget_amount",
-				"amount_value": "+1",
-			},
-		},
-		# Used when the player has to discard cards as cost
-		# So increasing this amount makes the card worse
-		{
-			"filters": [CardFilter.new('_amounts', "discard_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "discard_amount",
-				"amount_value": "+1",
-			},
-		},
-		# Used when the player gains this amount of perturbations as the effect
-		# So increasing this amount makes the card worse
-		{
-			"filters": [CardFilter.new('_amounts', "perturb_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "perturb_amount",
-				"amount_value": "+1",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "turns_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "turns_amount",
-				"amount_value": "-1",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "multiplier_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "multiplier_amount",
-				"amount_value": "-1",
-			},
-		},
-		# Duplicate to increase chances
-		{
-			"filters": [CardFilter.new('_amounts', "effect_stacks", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "effect_stacks",
-				"amount_value": "-1",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "effect_stacks", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "effect_stacks",
-				"amount_value": "-1",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "effect_stacks2", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "effect_stacks2",
-				"amount_value": "-1",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "effect_stacks3", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "effect_stacks3",
-				"amount_value": "-1",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "detriment_stacks", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "detriment_stacks",
-				"amount_value": "+1",
-			},
-		},
-		# Duplicate to increase chances
-		{
-			"filters": [CardFilter.new('_amounts', "detriment_stacks", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "detriment_stacks",
-				"amount_value": "+1",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "steal_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "steal_amount",
-				"amount_value": "-1",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "increase_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "increase_amount",
-				"amount_value": "-1",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "immersion_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "immersion_amount",
-				"amount_value": "-1",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "exert_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "exert_amount",
-				"amount_value": "+1",
-			},
-		},
-		# Used when the player has to have this or higher amount of something
-		# So increasing this amount makes the card worse
-		{
-			"filters": [CardFilter.new('_amounts', "min_requirements_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "min_requirements_amount",
-				"amount_value": "+1",
-			},
-		},
-		# Used when the player has to have this or lower amount of something
-		# So decreasing this amount makes the card worse
-		{
-			"filters": [CardFilter.new('_amounts', "max_requirements_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "max_requirements_amount",
-				"amount_value": "-1",
-			},
-		},
-		{
-			"filters": [CardFilter.new('Tags', Terms.GENERIC_TAGS.alpha.name, 'eq')],
-			"property": "Tags",
-			"value": "-" + Terms.GENERIC_TAGS.alpha.name,
-		},
-		{
-			"filters": [CardFilter.new('Tags', Terms.GENERIC_TAGS.frozen.name, 'eq')],
-			"property": "Tags",
-			"value": "-" + Terms.GENERIC_TAGS.frozen.name,
-		},
-		{
-			"filters": [
-				CardFilter.new('Tags', Terms.GENERIC_TAGS.slumber.name, 'ne'),
-				CardFilter.new('Tags', 2, 'lt'),
-				CardFilter.new('Type', "Concentration", 'ne'),
-				CardFilter.new('_is_concentration', false),
-			],
-			"property": "Tags",
-			"value": Terms.GENERIC_TAGS.slumber.name,
-		},
+]
+const DETRIMENTAL_INTEGERS := [
+	"forget_amount",
+	"discard_amount",
+	"perturb_amount",
+	"detriment_stacks",
+	"exert_amount",
+	"min_requirements_amount",
+]
+# Duplicates to increase chances
+const BENEFICIAL_FLOATS := [
+	"damage_amount",
+	"damage_amount",
+	"damage_amount2",
+	"defence_amount",
+	"defence_amount",
+	"defence_amount2",
+	"healing_amount",
+]
+const DETRIMENTAL_FLOATS := [
+]
+const BENEFICIAL_TAGS := [
+	Terms.GENERIC_TAGS.alpha.name,
+	Terms.GENERIC_TAGS.frozen.name,
+]
+const DETRIMENTAL_TAGS := [
+	Terms.GENERIC_TAGS.omega.name,
+]
+const SPECIAL_MODS := {
+	"scar": [
+		Terms.GENERIC_TAGS.slumber.name,
+	],
+	"enhancement": [
 	]
-	return(scars)
+}
+const ALL_NUMERICALS =\
+		BENEFICIAL_INTEGERS +\
+		DETRIMENTAL_INTEGERS +\
+		BENEFICIAL_FLOATS +\
+		DETRIMENTAL_FLOATS
 
-static func get_blessings() -> Array:
-	var blessings := [
-		{
-			"filters": [CardFilter.new('_amounts', "damage_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "damage_amount",
-				"amount_value": "*1.1",
-			},
-		},
-		# Duplicate to increase chances
-		{
-			"filters": [CardFilter.new('_amounts', "damage_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "damage_amount",
-				"amount_value": "*1.1",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "damage_amount2", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "damage_amount2",
-				"amount_value": "*1.1",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "defence_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "defence_amount",
-				"amount_value": "*1.1",
-			},
-		},
-		# Duplicate to increase chances
-		{
-			"filters": [CardFilter.new('_amounts', "defence_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "defence_amount",
-				"amount_value": "*1.1",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "defence_amount2", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "defence_amount2",
-				"amount_value": "*1.1",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "healing_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "healing_amount",
-				"amount_value": "*1.1",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "chain_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "chain_amount",
-				"amount_value": "+1",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "draw_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "draw_amount",
-				"amount_value": "+1",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "draw_amount2", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "draw_amount2",
-				"amount_value": "+1",
-			},
-		},
-		# Used when the player looks through their draw pile to select cards
-		{
-			"filters": [CardFilter.new('_amounts', "scry_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "scry_amount",
-				"amount_value": "+1",
-			},
-		},
-		# Used when the player has to forget cards as cost
-		# So decreasing this amount makes the card better
-		{
-			"filters": [CardFilter.new('_amounts', "forget_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "forget_amount",
-				"amount_value": "-1",
-			},
-		},
-		# Used when the player has to discard cards as cost
-		# So decreasing this amount makes the card better
-		{
-			"filters": [CardFilter.new('_amounts', "discard_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "discard_amount",
-				"amount_value": "-1",
-			},
-		},
-		# Used when the player gains this amount of perturbations as the effect
-		# So decreasing this amount makes the card better
-		{
-			"filters": [CardFilter.new('_amounts', "perturb_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "perturb_amount",
-				"amount_value": "-1",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "turns_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "turns_amount",
-				"amount_value": "+1",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "multiplier_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "multiplier_amount",
-				"amount_value": "+1",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "effect_stacks", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "effect_stacks",
-				"amount_value": "+1",
-			},
-		},
-		# Duplicate to increase chances
-		{
-			"filters": [CardFilter.new('_amounts', "effect_stacks", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "effect_stacks",
-				"amount_value": "+1",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "effect_stacks2", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "effect_stacks2",
-				"amount_value": "+1",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "effect_stacks3", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "effect_stacks3",
-				"amount_value": "+1",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "detriment_stacks", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "detriment_stacks",
-				"amount_value": "-1",
-			},
-		},
-		# Duplicate to increase chances
-		{
-			"filters": [CardFilter.new('_amounts', "detriment_stacks", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "detriment_stacks",
-				"amount_value": "-1",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "steal_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "steal_amount",
-				"amount_value": "+1",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "increase_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "increase_amount",
-				"amount_value": "+1",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "immersion_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "immersion_amount",
-				"amount_value": "+1",
-			},
-		},
-		{
-			"filters": [CardFilter.new('_amounts', "exert_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "exert_amount",
-				"amount_value": "-1",
-			},
-		},
-		# Used when the player has to have this or higher amount of something
-		# So decreasing this amount makes the card better
-		{
-			"filters": [CardFilter.new('_amounts', "min_requirements_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "min_requirements_amount",
-				"amount_value": "-1",
-			},
-		},
-		# Used when the player has to have this or lower amount of something
-		# So increasing this amount makes the card better
-		{
-			"filters": [CardFilter.new('_amounts', "max_requirements_amount", 'eq')],
-			"property": "_amounts",
-			"value": {
-				"amount_key": "max_requirements_amount",
-				"amount_value": "+1",
-			},
-		},
-		{
-			"filters": [
-				CardFilter.new('Tags', Terms.GENERIC_TAGS.alpha.name, 'ne'),
-				CardFilter.new('Tags', 2, 'lt'),
-			],
-			"property": "Tags",
-			"value": Terms.GENERIC_TAGS.alpha.name,
-		},
-		{
-			"filters": [
-				CardFilter.new('Tags', Terms.GENERIC_TAGS.frozen.name, 'ne'),
-				CardFilter.new('Tags', 2, 'lt'),
-			],
-			"property": "Tags",
-			"value": Terms.GENERIC_TAGS.frozen.name,
-		},
-		# Not all cards with slumber forget themselves
-		# also removing forget can completely break some cards.
-#		{
-#			"filters": [CardFilter.new('Tags', Terms.GENERIC_TAGS.slumber.name, 'eq')],
-#			"property": "Tags",
-#			"value": '-' + Terms.GENERIC_TAGS.slumber.name,
-#		},
-	]
-	return(blessings)
+const ALL_MODIFIERS =\
+		BENEFICIAL_INTEGERS +\
+		DETRIMENTAL_INTEGERS +\
+		BENEFICIAL_FLOATS +\
+		DETRIMENTAL_FLOATS +\
+		BENEFICIAL_TAGS +\
+		DETRIMENTAL_TAGS
+
+# These tags should never be applied at the same time
+const OPPOSITE_TAGS := {
+	Terms.GENERIC_TAGS.alpha.name: Terms.GENERIC_TAGS.omega.name,
+	Terms.GENERIC_TAGS.omega.name: Terms.GENERIC_TAGS.alpha.name,
+	Terms.GENERIC_TAGS.init.name: Terms.GENERIC_TAGS.close.name,
+	Terms.GENERIC_TAGS.close.name: Terms.GENERIC_TAGS.init.name,
+}
 
 static func check_mod_applicability(card_properties: Dictionary, type := 'scar') -> Array:
 	var applicable_mods := []
 	var mods: Array
 	var last_resort_mod : Dictionary
-	if type == 'scar':
-		mods = get_scars()
-		last_resort_mod = LAST_RESORT_SCAR
-	else:
-		mods = get_blessings()
-		last_resort_mod = LAST_RESORT_BLESSING
-	for mod in mods:
+	var filters: Array
+	for mod in ALL_MODIFIERS + SPECIAL_MODS[type]:
+		if type == 'scar':
+			filters = _get_scar_filters(mod)
+			last_resort_mod = LAST_RESORT_SCAR
+		else:
+			filters = _get_enhancement_filters(mod)
+			last_resort_mod = LAST_RESORT_ENHANCEMENT
 		var filters_passed := true
-		for filter in mod.filters:
+
+		for filter in filters:
 			if not filter.check_card(card_properties):
 				filters_passed = false
 		if filters_passed:
-			applicable_mods.append(mod)
+			applicable_mods.append(_get_mod_value(mod, type))
 	if applicable_mods.size() > 0:
 		CFUtils.shuffle_array(applicable_mods)
 	else:
 		applicable_mods.append(last_resort_mod)
 	return(applicable_mods)
+
+static func _get_enhancement_filters(modification: String) -> Array:
+	var filters: Array
+	if modification in ALL_NUMERICALS:
+		filters.append(CardFilter.new('_amounts', modification, 'eq'))
+	# If it's not a numerical, it's a tag
+	elif modification in BENEFICIAL_TAGS:
+		filters.append(CardFilter.new('Tags', modification, 'ne'))
+		filters.append(CardFilter.new('Tags', 2, 'lt'))
+		if OPPOSITE_TAGS.has(modification):
+			filters.append(CardFilter.new('Tags', OPPOSITE_TAGS[modification], 'ne'))
+	elif modification in DETRIMENTAL_TAGS:
+		filters.append(CardFilter.new('Tags', modification, 'eq'))
+	return(filters)
+
+static func _get_scar_filters(modification: String) -> Array:
+	var filters: Array
+	if modification in ALL_NUMERICALS:
+		filters.append(CardFilter.new('_amounts', modification, 'eq'))
+	# If it's not a numerical, it's a tag
+	elif modification in BENEFICIAL_TAGS:
+		filters.append(CardFilter.new('Tags', modification, 'eq'))
+	elif modification in DETRIMENTAL_TAGS:
+		filters.append(CardFilter.new('Tags', modification, 'ne'))
+		filters.append(CardFilter.new('Tags', 2, 'lt'))
+		if OPPOSITE_TAGS.has(modification):
+			filters.append(CardFilter.new('Tags', OPPOSITE_TAGS[modification], 'ne'))
+	elif modification == Terms.GENERIC_TAGS.slumber.name:
+		filters = [
+			CardFilter.new('Tags', Terms.GENERIC_TAGS.slumber.name, 'ne'),
+			CardFilter.new('Tags', 2, 'lt'),
+			CardFilter.new('Type', "Concentration", 'ne'),
+			CardFilter.new('_is_concentration', false),
+		]
+	return(filters)
+
+static func _get_mod_value(modification: String, type := 'scar') -> Dictionary:
+	# The expected dictionary is based on numerical amounts
+	# for tags we'll also change the 'property' value
+	# and the value will be just the tag name
+	var value_dict := {
+		"property": "_amounts",
+		"value": {
+			"amount_key": modification,
+			"amount_value": "",
+		},
+	}
+	if modification in BENEFICIAL_INTEGERS:
+		if type == 'scar':
+			value_dict["value"]["amount_value"] = "-1"
+		else:
+			value_dict["value"]["amount_value"] = "+1"
+	if modification in DETRIMENTAL_INTEGERS:
+		if type == 'scar':
+			value_dict["value"]["amount_value"] = "+1"
+		else:
+			value_dict["value"]["amount_value"] = "-1"
+	if modification in BENEFICIAL_FLOATS:
+		if type == 'scar':
+			value_dict["value"]["amount_value"] = "*0.9"
+		else:
+			value_dict["value"]["amount_value"] = "*1.1"
+	if modification in DETRIMENTAL_FLOATS:
+		if type == 'scar':
+			value_dict["value"]["amount_value"] = "*1.1"
+		else:
+			value_dict["value"]["amount_value"] = "*0.9"
+	if modification in BENEFICIAL_TAGS:
+		value_dict["property"] = "Tags"
+		if type == 'scar':
+			value_dict["value"] = "-" + modification
+		else:
+			value_dict["value"] = modification
+	if modification in DETRIMENTAL_TAGS:
+		value_dict["property"] = "Tags"
+		if type == 'scar':
+			value_dict["value"] = modification
+		else:
+			value_dict["value"] = "-" + modification
+	return(value_dict)
