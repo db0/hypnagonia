@@ -513,6 +513,8 @@ class TestFusionGrenade:
 class TestLightJump:
 	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
 	func _init() -> void:
+		globals.test_flags["test_initial_hand"] = true
+		globals.test_flags["no_refill"] = false
 		testing_card_name = "Light Jump"
 		expected_amount_keys = [
 			"defence_amount",

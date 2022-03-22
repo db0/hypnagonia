@@ -455,7 +455,7 @@ func _input(event):
 		var _torment3
 #		_torment1 = spawn_enemy(EnemyDefinitions.UNNAMED1)
 #		_torment1 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
-#		_torment1 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
+		_torment1 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
 #		_torment2 = spawn_enemy(EnemyDefinitions.GASLIGHTER)
 #		_torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
@@ -502,9 +502,8 @@ func _input(event):
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"Light Jump",
-			"Light Jump",
-			"Light Jump",
+			"! Quick Dash !",
+			"+ Quick Dash +",
 #			"Charged Shot",
 		]:
 			var ce = CardEntry.new(c)

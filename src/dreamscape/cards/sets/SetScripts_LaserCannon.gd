@@ -763,6 +763,42 @@ const LightJump = {
 		],
 	},
 }
+const QuickDash = {
+	"manual": {
+		"hand": [
+			{
+				"name": "move_card_to_container",
+				"tags": ["Card"],
+				"is_cost": false,
+				"subject": "index",
+				"subject_count": {
+					"lookup_property": "_amounts",
+					"value_key": "scry_amount"
+				},
+				"subject_index": "top",
+				SP.KEY_NEEDS_SELECTION: true,
+				SP.KEY_SELECTION_COUNT: {
+					"lookup_property": "_amounts",
+					"value_key": "scry_amount"
+				},
+				SP.KEY_SELECTION_TYPE: "max",
+				SP.KEY_SELECTION_OPTIONAL: false,
+				SP.KEY_SELECTION_IGNORE_SELF: true,
+				SP.KEY_DEST_INDEX: "bottom",
+				"src_container": "deck",
+				"dest_container": "deck",
+			},
+			{
+				"name": "draw_cards",
+				"tags": ["Card"],
+				"card_count": {
+					"lookup_property": "_amounts",
+					"value_key": "draw_amount"
+				},
+			},
+		],
+	},
+}
 const FocusCalibration = {
 	"manual": {
 		"hand": [
@@ -815,5 +851,6 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 		"Fusion Grenade": FusionGrenade,
 		"Light Jump": LightJump,
 		"Focus Calibration": FocusCalibration,
+		"Quick Dash": QuickDash,
 	}
 	return(_prepare_scripts(scripts, card_name, get_modified))
