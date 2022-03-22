@@ -111,7 +111,16 @@ func setup() -> void:
 		if deck_card_entry.is_scarred():
 			card_front.scarred.visible = true
 		if deck_card_entry.is_enhanced():
-			card_front.enhanced.visible = true		
+			card_front.enhanced.visible = true
+
+
+func refresh_property_label(property: String) -> void:
+	if not is_instance_valid(card_front) or not card_front.card_labels.has(property):
+		return
+	.refresh_property_label(property)
+	if get_parent().name != "Viewport" and property == 'Tags':
+		card_front.set_tag_icon(get_property("Tags"))
+
 
 # Sample code on how to figure out costs of a card
 func get_modified_credits_cost() -> int:

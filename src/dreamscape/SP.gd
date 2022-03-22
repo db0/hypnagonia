@@ -154,6 +154,7 @@ static func filter_trigger(
 				comparison_type):
 			is_valid = false
 
+	# Checks that the amount of specified event is above a certain threshold
 	if is_valid and card_scripts.has(FILTER_ENCOUNTER_EVENT_COUNT):
 		var filter_event_count : Dictionary = card_scripts[FILTER_ENCOUNTER_EVENT_COUNT]
 		var comparison_type = filter_event_count.get(
@@ -166,6 +167,7 @@ static func filter_trigger(
 				comparison_type):
 			is_valid = false
 
+	# Checks that the dreamer's damage is above or below a certain threshold
 	if is_valid and card_scripts.has(FILTER_DAMAGE_PCT):
 		var filter_health_pct : Dictionary = card_scripts[FILTER_DAMAGE_PCT]
 		var comparison_type = filter_health_pct.get(
@@ -178,6 +180,7 @@ static func filter_trigger(
 				comparison_type):
 			is_valid = false
 
+	# Checks that the immersion expended for this effect is above a certain threshold
 	if is_valid and card_scripts.has(FILTER_X_USAGE):
 		var filter_x_usage_dict : Dictionary = card_scripts[FILTER_X_USAGE]
 		var comparison_type = filter_x_usage_dict.get(
