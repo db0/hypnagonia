@@ -502,7 +502,9 @@ func _input(event):
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"! Quick Dash !",
+			"+ Quick Dash +",
+			"+ Quick Dash +",
+			"+ Quick Dash +",
 			"+ Quick Dash +",
 #			"Charged Shot",
 		]:
