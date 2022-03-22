@@ -295,6 +295,7 @@ const LASER_CANNON := {
 		"Photon Shield",
 		"Photon Blade",
 		"Blinding Flash",
+		"Quick Dash",
 	],
 	"Uncommon": [
 		"Charged Shot",

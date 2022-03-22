@@ -98,6 +98,15 @@ static func get_scars() -> Array:
 				"amount_value": "-1",
 			},
 		},
+		# Used when the player looks through their draw pile to select cards
+		{
+			"filters": [CardFilter.new('_amounts', "scry_amount", 'eq')],
+			"property": "_amounts",
+			"value": {
+				"amount_key": "scry_amount",
+				"amount_value": "-1",
+			},
+		},
 		# Used when the player has to forget cards as cost
 		# So increasing this amount makes the card worse
 		{
@@ -350,6 +359,15 @@ static func get_blessings() -> Array:
 			"property": "_amounts",
 			"value": {
 				"amount_key": "draw_amount2",
+				"amount_value": "+1",
+			},
+		},
+		# Used when the player looks through their draw pile to select cards
+		{
+			"filters": [CardFilter.new('_amounts', "scry_amount", 'eq')],
+			"property": "_amounts",
+			"value": {
+				"amount_key": "scry_amount",
 				"amount_value": "+1",
 			},
 		},

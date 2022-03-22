@@ -1397,7 +1397,7 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_amounts": {
-			"concentration_stacks": 7,
+			"concentration_stacks": 4,
 			"concentration_immersion": 1,
 			"concentration_forget": 1,
 		},
@@ -1417,7 +1417,7 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_amounts": {
-			"concentration_stacks": 7,
+			"concentration_stacks": 4,
 			"concentration_immersion": 1,
 			"concentration_forget": 1,
 		},
@@ -1433,9 +1433,58 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_amounts": {
-			"concentration_stacks": 7,
+			"concentration_stacks": 6,
 			"concentration_immersion": 1,
 			"concentration_forget": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"Quick Dash": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.swift.name],
+		"Abilities": "Look at the top {scry_amount} cards in your draw pile. Select any number to put to the bottom. "\
+				+ "Draw {draw_amount} cards.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"draw_amount": 1,
+			"scry_amount": 3,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"! Quick Dash !",
+			"% Quick Dash %",
+		],
+	},
+	"! Quick Dash !": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.swift.name],
+		"Abilities": "Look at the top {scry_amount} cards in your draw pile. Select any number to put to the bottom. "\
+				+ "Draw {draw_amount} cards.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"draw_amount": 2,
+			"scry_amount": 2,
+		},
+		"_is_upgrade": true,
+	},
+	"+ Quick Dash +": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.swift.name],
+		"Abilities": "Look at the top {scry_amount} cards in your draw pile. Select any number to put to the bottom. "\
+				+ "Draw {draw_amount} cards.",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"draw_amount": 1,
+			"scry_amount": 6,
 		},
 		"_is_upgrade": true,
 	},
