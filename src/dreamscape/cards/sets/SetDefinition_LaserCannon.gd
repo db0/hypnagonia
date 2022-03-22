@@ -1389,7 +1389,7 @@ const CARDS := {
 	},
 	"Focus Calibration": {
 		"Type": "Concentration",
-		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.purpose.name],
+		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.frozen.name],
 		"Abilities": "At the start of the next {concentration_stacks} turns gain {concentration_immersion} {immersion}\n"\
 				+ "and {forget} the bottom {concentration_forget} cards of your draw pile.",
 		"Cost": 0,
@@ -1403,13 +1403,13 @@ const CARDS := {
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
-			"= Focus Calibration =",
+			"^ Focus Calibration ^",
 			"+ Focus Calibration +",
 		],
 	},
-	"= Focus Calibration =": {
+	"^ Focus Calibration ^": {
 		"Type": "Concentration",
-		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.frozen.name],
+		"Tags": [Terms.GENERIC_TAGS.alpha.name, Terms.GENERIC_TAGS.frozen.name],
 		"Abilities": "At the start of the next {concentration_stacks} turns gain {concentration_immersion} {immersion}\n"\
 				+ "and {forget} the bottom {concentration_forget} cards of your draw pile.",
 		"Cost": 0,
@@ -1425,7 +1425,7 @@ const CARDS := {
 	},
 	"+ Focus Calibration +": {
 		"Type": "Concentration",
-		"Tags": [Terms.GENERIC_TAGS.slumber.name],
+		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.frozen.name],
 		"Abilities": "At the start of the next {concentration_stacks} turns gain {concentration_immersion} {immersion}\n"\
 				+ "and {forget} the bottom {concentration_forget} cards of your draw pile.",
 		"Cost": 0,
@@ -1433,7 +1433,7 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_amounts": {
-			"concentration_stacks": 6,
+			"concentration_stacks": 7,
 			"concentration_immersion": 1,
 			"concentration_forget": 1,
 		},
