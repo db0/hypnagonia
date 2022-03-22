@@ -2,6 +2,7 @@ extends CombatSignifier
 
 signal artifact_selected(option)
 var index: int
+var selected := false
 
 onready var shader_effect := $ShaderEffect
 onready var bbc := $BackBufferCopy
@@ -38,6 +39,12 @@ func apply_shader(shader_path: String) -> void:
 
 func _on_JournalArtifactChoice_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
+		if selected: 
+			return
+		selected = true
+		disconnect("gui_input", self, "_on_JournalArtifactChoice_gui_input")
+		disconnect("mouse_entered", self, "_on_CombatSingifier_mouse_entered")
+		decription_popup.visible = false
 		if event.get_button_index() == 1:
 			emit_signal("artifact_selected", index)
 
