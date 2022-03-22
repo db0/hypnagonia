@@ -889,7 +889,7 @@ const CARDS := {
 	},
 	"Ω Precision Ω": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.omega.name],
+		"Tags": [Terms.GENERIC_TAGS.startup.name],
 		"Abilities": "{forget}\n{startup}: Gain {effect_stacks} {strengthen}",
 		"Cost": 1,
 		"_illustration": "Nobody",
