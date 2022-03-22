@@ -343,6 +343,7 @@ func _on_shop_memory_selected(index: int, shop_memory_object) -> void:
 
 func _on_Remove_pressed() -> void:
 	_deck_preview_popup.initiate_card_removal(remove_cost, card_removal_cost_type)
+	_set_remove_cost_text()
 
 
 func _on_ProgressCards_pressed() -> void:
@@ -398,11 +399,9 @@ func _update_remove_cost() -> void:
 		"uses_avail": str(remove_uses),
 		"uses_max": str(remove_max_usage),
 	}
-	_remove_cost.text = "{cost} {pathos}\n({uses_avail}/{uses_max} uses)".format(remove_text_format)
 	if _deck_preview_popup.operation == "remove":
 		_deck_preview_popup.operation_cost = remove_cost
-		_deck_preview_popup.update_header(
-				"{cost} {pathos} ({uses_avail}/{uses_max} uses)".format(remove_text_format))
+		_set_remove_cost_text()
 	if remove_cost > globals.player.pathos.released[card_removal_cost_type]:
 		if _deck_preview_popup.operation == "remove":
 			_deck_preview_popup.update_color(Color(1,0,0))
@@ -412,6 +411,16 @@ func _update_remove_cost() -> void:
 			_deck_preview_popup.update_color(Color(1,1,0))
 		_remove_cost.add_color_override("font_color", Color(1,1,0))
 
+func _set_remove_cost_text() -> void:
+	var remove_text_format = {
+		"cost": str(remove_cost),
+		"pathos": card_removal_cost_type.capitalize(),
+		"uses_avail": str(remove_uses),
+		"uses_max": str(remove_max_usage),
+	}
+	_remove_cost.text = "{cost} {pathos}\n({uses_avail}/{uses_max} uses)".format(remove_text_format)
+	_deck_preview_popup.update_header(
+			"{cost} {pathos} ({uses_avail}/{uses_max} uses)".format(remove_text_format))
 
 func _on_deck_operation_performed(operation_details: Dictionary) -> void:
 	if operation_details["operation"] == "remove":
