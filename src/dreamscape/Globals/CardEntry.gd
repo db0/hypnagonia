@@ -233,6 +233,11 @@ func remove_scripts(standard_task := 'forget', script_state:= 'hand') -> void:
 					unmodified_scripts['manual'][script_state].erase(task)
 				properties["Abilities"] = properties["Abilities"].replace('\n{forget}', '')
 				properties["Abilities"] = properties["Abilities"].replace('{forget}', '')
+			if standard_task == 'end_turn':
+				if task.name == "end_turn":
+					unmodified_scripts['manual'][script_state].erase(task)
+				properties["Abilities"] = properties["Abilities"].replace('\n{end_turn}', '')
+				properties["Abilities"] = properties["Abilities"].replace('{end_turn}', '')
 	else:
 		printerr("ERROR:CardEntry: Cannot find script state '%s' in unmodified scripts of '%s" % [script_state,card_name])
 
@@ -265,6 +270,12 @@ func scar() -> void:
 				"tags": ["Played", "Card"],
 		}
 		add_scripts(forget_task, 'hand', "\n{forget}")
+	if typeof(applicable_mods[0].value) == TYPE_STRING\
+			and applicable_mods[0].value == Terms.GENERIC_TAGS.end_turn.name:
+		var forget_task := {
+				"name": "end_turn"
+		}
+		add_scripts(forget_task, 'hand', "\n{end_turn}")
 	modify_property(applicable_mods[0].property, applicable_mods[0].value, false)
 
 

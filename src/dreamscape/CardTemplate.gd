@@ -430,6 +430,9 @@ func check_play_costs() -> Color:
 		ret = CFConst.CostsState.IMPOSSIBLE
 	if properties.get("_is_unplayable", false):
 		ret = CFConst.CostsState.IMPOSSIBLE
+	if properties.get("Tags", []).has(Terms.GENERIC_TAGS.init.name)\
+			and cfc.NMAP.board.turn.turn_event_count.get("cards_played", 0) > 0:
+		ret = CFConst.CostsState.IMPOSSIBLE
 	# Distracted Perturbation
 	if typeof(properties.get("Cost")) == TYPE_INT\
 			and immersion_cost >= 2\

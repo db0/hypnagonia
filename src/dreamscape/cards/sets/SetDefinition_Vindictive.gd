@@ -35,7 +35,7 @@ const CARDS := {
 	},
 	"Store in Mind": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.frozen.name, Terms.GENERIC_TAGS.slumber.name],
+		"Tags": [Terms.GENERIC_TAGS.frozen.name, Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.init.name],
 		"Abilities": "Choose {beneficial_integer} card. It becomes {frozen}\n{forget}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
@@ -48,7 +48,7 @@ const CARDS := {
 	},
 	"Anger Memento": {
 		"Type": "Action",
-		"Tags": [Terms.GENERIC_TAGS.chain.name],
+		"Tags": [Terms.GENERIC_TAGS.chain.name, Terms.GENERIC_TAGS.end_turn.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "If {frozen}, {damage} for {damage_amount2}",
 		"Cost": 1,

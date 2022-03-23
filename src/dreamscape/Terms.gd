@@ -725,17 +725,16 @@ const GENERIC_TAGS := {
 		"icon": preload("res://assets/icons/molecule.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/molecule.png",
 		"generic_description": "{effect_name} ({effect_icon}): Cards which combine into a stronger card."},
-	# Unused. Needs icon
 	"init": {
 		"name": "Init",
-		"icon": preload("res://assets/icons/molecule.png"),
-		"rich_text_icon": "res://fonts/rich_text_icons/molecule.png",
+		"icon": preload("res://assets/icons/power-button.png"),
+		"rich_text_icon": "res://fonts/rich_text_icons/power-button.png",
 		"generic_description": "[color=purple]{effect_name} ({effect_icon}): This card can only be played as the first one in the turn.[/color]"},
 	# Unused. Needs icon
-	"close": {
+	"end_turn": {
 		"name": "close",
-		"icon": preload("res://assets/icons/molecule.png"),
-		"rich_text_icon": "res://fonts/rich_text_icons/molecule.png",
+		"icon": preload("res://assets/icons/stop-sign.png"),
+		"rich_text_icon": "res://fonts/rich_text_icons/stop-sign.png",
 		"generic_description": "[color=purple]{effect_name} ({effect_icon}): After this card is played, your turn immediately ends.[/color]"},
 	"startup": {
 		"name": "Vivification",
@@ -816,6 +815,10 @@ const GENERIC_CARD_BBCODE := {
 	},
 	"pierce": {
 		"name": "Pierce",
+		"rich_text_color": "teal",
+	},
+	"end_turn": {
+		"name": "End Turn",
 		"rich_text_color": "teal",
 	},
 }
