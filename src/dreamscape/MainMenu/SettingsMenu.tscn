@@ -29,15 +29,15 @@ __meta__ = {
 [node name="PC" type="PanelContainer" parent="."]
 self_modulate = Color( 1, 1, 1, 0.690196 )
 margin_left = 548.0
-margin_top = 142.0
+margin_top = 112.0
 margin_right = 906.0
-margin_bottom = 758.0
+margin_bottom = 788.0
 
 [node name="VBC" type="VBoxContainer" parent="PC"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 351.0
-margin_bottom = 609.0
+margin_bottom = 669.0
 size_flags_horizontal = 3
 custom_constants/separation = 20
 
@@ -63,25 +63,32 @@ margin_bottom = 153.0
 custom_fonts/font = ExtResource( 3 )
 text = "Anim. Text Background"
 
-[node name="InterruptMusic" type="CheckButton" parent="PC/VBC"]
+[node name="EnableGlow" type="CheckButton" parent="PC/VBC"]
 margin_top = 173.0
 margin_right = 344.0
 margin_bottom = 213.0
+custom_fonts/font = ExtResource( 3 )
+text = "Enable Glow"
+
+[node name="InterruptMusic" type="CheckButton" parent="PC/VBC"]
+margin_top = 233.0
+margin_right = 344.0
+margin_bottom = 273.0
 custom_fonts/font = ExtResource( 3 )
 pressed = true
 text = "Interrupt Music"
 
 [node name="MainVol" type="Label" parent="PC/VBC"]
-margin_top = 233.0
+margin_top = 293.0
 margin_right = 344.0
-margin_bottom = 260.0
+margin_bottom = 320.0
 custom_fonts/font = ExtResource( 3 )
 text = "Main Volume"
 
 [node name="MainVolSlider" type="HSlider" parent="PC/VBC"]
-margin_top = 280.0
+margin_top = 340.0
 margin_right = 344.0
-margin_bottom = 296.0
+margin_bottom = 356.0
 size_flags_horizontal = 3
 min_value = -80.0
 max_value = 23.0
@@ -90,16 +97,16 @@ __meta__ = {
 }
 
 [node name="MusicVol" type="Label" parent="PC/VBC"]
-margin_top = 316.0
+margin_top = 376.0
 margin_right = 344.0
-margin_bottom = 343.0
+margin_bottom = 403.0
 custom_fonts/font = ExtResource( 3 )
 text = "Music Volume"
 
 [node name="MusicVolSlider" type="HSlider" parent="PC/VBC"]
-margin_top = 363.0
+margin_top = 423.0
 margin_right = 344.0
-margin_bottom = 379.0
+margin_bottom = 439.0
 size_flags_horizontal = 3
 min_value = -80.0
 max_value = 10.0
@@ -108,16 +115,16 @@ __meta__ = {
 }
 
 [node name="SoundVol" type="Label" parent="PC/VBC"]
-margin_top = 399.0
+margin_top = 459.0
 margin_right = 344.0
-margin_bottom = 426.0
+margin_bottom = 486.0
 custom_fonts/font = ExtResource( 3 )
 text = "Effects Volume"
 
 [node name="SoundVolSlider" type="HSlider" parent="PC/VBC"]
-margin_top = 446.0
+margin_top = 506.0
 margin_right = 344.0
-margin_bottom = 462.0
+margin_bottom = 522.0
 size_flags_horizontal = 3
 min_value = -80.0
 max_value = 10.0
@@ -126,18 +133,18 @@ __meta__ = {
 }
 
 [node name="ExitToMain" type="Button" parent="PC/VBC"]
-margin_top = 482.0
+margin_top = 542.0
 margin_right = 344.0
-margin_bottom = 532.0
+margin_bottom = 592.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 2 )
 text = "Exit To Main Menu"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PC/VBC"]
-margin_top = 552.0
+margin_top = 612.0
 margin_right = 344.0
-margin_bottom = 602.0
+margin_bottom = 662.0
 
 [node name="Back" type="Button" parent="PC/VBC/HBoxContainer"]
 margin_right = 344.0
@@ -150,6 +157,7 @@ text = "BACK"
 [connection signal="item_selected" from="PC/VBC/FocusStyle" to="." method="_on_FocusStyle_item_selected"]
 [connection signal="toggled" from="PC/VBC/FancyAnimations" to="." method="_on_FancAnimations_toggled"]
 [connection signal="toggled" from="PC/VBC/AnimatedTextBackgrounds" to="." method="_on_AnimatedTextBackgrounds_toggled"]
+[connection signal="toggled" from="PC/VBC/EnableGlow" to="." method="_on_EnableGlow_toggled"]
 [connection signal="toggled" from="PC/VBC/InterruptMusic" to="." method="_on_InterruptMusic_toggled"]
 [connection signal="value_changed" from="PC/VBC/MainVolSlider" to="." method="_on_MainVolSlider_value_changed"]
 [connection signal="value_changed" from="PC/VBC/MusicVolSlider" to="." method="_on_MusicVolSlider_value_changed"]

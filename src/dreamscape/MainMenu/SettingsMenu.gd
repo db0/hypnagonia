@@ -3,6 +3,8 @@ extends CenterContainer
 onready var back_button = $PC/VBC/HBoxContainer/Back
 onready var focus_style = $PC/VBC/FocusStyle
 onready var fancy_movement = $PC/VBC/FancyAnimations
+onready var animated_text_backgrounds = $PC/VBC/AnimatedTextBackgrounds
+onready var enable_glow = $PC/VBC/EnableGlow
 onready var interrupt_music = $PC/VBC/InterruptMusic
 onready var main_vol_slider = $PC/VBC/MainVolSlider
 onready var music_vol_slider = $PC/VBC/MusicVolSlider
@@ -14,6 +16,7 @@ func _ready() -> void:
 	cfc.game_settings['focus_style'] = cfc.game_settings.get('focus_style', 2)
 	cfc.game_settings['fancy_movement'] = cfc.game_settings.get('fancy_movement', CFConst.FANCY_MOVEMENT)
 	cfc.game_settings['anim_text_backgrounds'] = cfc.game_settings.get('anim_text_backgrounds', CFConst.FANCY_MOVEMENT)
+	cfc.game_settings['glow_enabled'] = cfc.game_settings.get('glow_enabled', true)
 	cfc.game_settings['enable_visible_shuffle'] = cfc.game_settings.get('enable_visible_shuffle', CFConst.FANCY_MOVEMENT)
 	cfc.game_settings['main_volume'] = cfc.game_settings.get('main_volume', 0)
 	cfc.game_settings['music_volume'] = cfc.game_settings.get('music_volume', 0)
@@ -25,6 +28,8 @@ func _ready() -> void:
 #	animate_in_hand.pressed = cfc.game_settings.animate_in_hand
 	focus_style.selected = focus_style.get_item_index(cfc.game_settings.focus_style)
 	fancy_movement.pressed = cfc.game_settings.fancy_movement
+	animated_text_backgrounds.pressed = cfc.game_settings.anim_text_backgrounds
+	enable_glow.pressed = cfc.game_settings.glow_enabled
 	interrupt_music.pressed = cfc.game_settings.interrupt_music
 	main_vol_slider.value = cfc.game_settings.main_volume
 	music_vol_slider.value = cfc.game_settings.music_volume
@@ -90,3 +95,17 @@ func _play_toggle_sound(button_pressed: bool) -> void:
 func _on_AnimatedTextBackgrounds_toggled(button_pressed: bool) -> void:
 	cfc.set_setting('anim_text_backgrounds',button_pressed)
 	get_tree().call_group("card_fronts", "toggle_text_shader_visible", button_pressed)
+	if button_pressed:
+		SoundManager.play_se('setting_toggle_on')
+	else:
+		SoundManager.play_se('setting_toggle_off')
+
+
+func _on_EnableGlow_toggled(button_pressed: bool) -> void:
+	cfc.set_setting('glow_enabled',button_pressed)
+	if cfc.NMAP.has('main'):
+		cfc.NMAP.main.toggle_glow(button_pressed)
+	if button_pressed:
+		SoundManager.play_se('setting_toggle_on')
+	else:
+		SoundManager.play_se('setting_toggle_off')
