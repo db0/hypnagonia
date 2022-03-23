@@ -32,7 +32,7 @@ class TestExcuses:
 			sceng = yield(sceng, "completed")
 		assert_eq(test_torment.damage, starting_torment_dgm + modified_dmg, "Torment should take damage")
 		assert_eq(dreamer.damage, 1, "Dreamer damage reduced to 1")
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 1,
 				"%s stacks do not decrease" % [effect])
@@ -43,7 +43,7 @@ class TestExcuses:
 		var sceng = snipexecute(card, test_torment)
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		assert_eq(test_torment.damage, starting_torment_dgm + modified_dmg, "Torment should take damage")
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.damage, 7,

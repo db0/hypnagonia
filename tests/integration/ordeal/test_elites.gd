@@ -14,24 +14,24 @@ class TestBully:
 	func test_spawn_buddies_on_damage():
 		# warning-ignore:return_value_discarded
 		advanced_torment.intents.prepare_intents(1)
-		cfc.NMAP.board.turn.end_player_turn()
-		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_eq( get_tree().get_nodes_in_group("MinionEnemyEntities").size(), 2, "All Buddies Summoned")
 
 	func test_spawn_less_buddies_on_partial_block():
 		dreamer.defence = 10
 		# warning-ignore:return_value_discarded
 		advanced_torment.intents.prepare_intents(1)
-		cfc.NMAP.board.turn.end_player_turn()
-		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_eq( get_tree().get_nodes_in_group("MinionEnemyEntities").size(), 1, "Partial Buddies Summoned")
 
 	func test_spawn_no_buddies_on_full_block():
 		dreamer.defence = 20
 		# warning-ignore:return_value_discarded
 		advanced_torment.intents.prepare_intents(1)
-		cfc.NMAP.board.turn.end_player_turn()
-		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_eq( get_tree().get_nodes_in_group("MinionEnemyEntities").size(), 0, "No Buddies Summoned")
 
 class TestIndescribableAbsurdity:
@@ -50,8 +50,8 @@ class TestIndescribableAbsurdity:
 		gut.p("Testing Random Seed: " + cfc.game_rng_seed)
 		# warning-ignore:return_value_discarded
 		advanced_torment.intents.prepare_intents(0)
-		cfc.NMAP.board.turn.end_player_turn()
-		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		var total_stacks := 0
 		for effect in dreamer.active_effects.get_all_effects_nodes():
 			assert_has(Terms.get_all_effect_types("Debuff"), effect.canonical_name)
@@ -70,8 +70,8 @@ class TestIndescribableAbsurdity:
 		gut.p("Testing Random Seed: " + cfc.game_rng_seed)
 		# warning-ignore:return_value_discarded
 		advanced_torment.intents.prepare_intents(2)
-		cfc.NMAP.board.turn.end_player_turn()
-		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		var total_stacks := 0
 		for effect in advanced_torment.active_effects.get_all_effects_nodes():
 			if effect.canonical_name == "Self Cleaning": continue
@@ -92,8 +92,8 @@ class TestIndescribableAbsurdity:
 		gut.p("Testing Random Seed: " + cfc.game_rng_seed)
 		# warning-ignore:return_value_discarded
 		advanced_torment.intents.prepare_intents(4)
-		cfc.NMAP.board.turn.end_player_turn()
-		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		var total_stacks := 0
 		for effect in dreamer.active_effects.get_all_effects_nodes():
 			total_stacks += abs(effect.stacks)
@@ -109,7 +109,7 @@ class TestIndescribableAbsurdity:
 		gut.p("Testing Random Seed: " + cfc.game_rng_seed)
 		# warning-ignore:return_value_discarded
 		advanced_torment.intents.prepare_intents(4)
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.damage, 4 * 5, "Dreamer took the expected amount of damage")
 		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.quicken.name), -3,
@@ -129,12 +129,12 @@ class TestTheatrePlay:
 	func test_init():
 		# warning-ignore:return_value_discarded
 		assert_eq(get_tree().get_nodes_in_group("MinionEnemyEntities").size(), 2, "All Acts Summoned")
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_ne(dreamer.damage, 0, "Initial intent is always Stage Fright")
 		assert_eq(count_card_names("Lacuna"), 2,
 				"Initial intent is always Stage Fright")
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_eq(count_card_names("Lacuna"), 2,
 				"Stage Fright not used twice in a row")
@@ -144,6 +144,6 @@ class TestTheatrePlay:
 			minion.die()
 		yield(yield_for(1.1), YIELD)
 		advanced_torment.intents.prepare_intents()
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_eq( get_tree().get_nodes_in_group("MinionEnemyEntities").size(), 2, "Acts Respawned")

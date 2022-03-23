@@ -153,7 +153,7 @@ class TestPPorcelainDollOrdeal:
 		for iter in range(8):
 			test_card_names.append("Interpretation")
 		cards = setup_test_cards(test_card_names)
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(board.turn, "player_turn_started",5 ), YIELD)
 		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion when correct card types drawn")
 		assert_eq(hand.get_card_count(), 7, "Dreamer gets +2 draw when correct card types drawn")
@@ -165,7 +165,7 @@ class TestPPorcelainDollOrdeal:
 		for iter in range(8):
 			test_card_names.append("Confidence")
 		cards = setup_test_cards(test_card_names)
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(board.turn, "player_turn_started",5 ), YIELD)
 		assert_eq(counters.get_counter("immersion"), 3, "Dreamer gets +1 immersion when correct card types drawn")
 		assert_eq(hand.get_card_count(), 5, "Dreamer gets +2 draw when correct card types drawn")
@@ -179,7 +179,7 @@ class TestPPorcelainDollOrdeal:
 		for iter in range(3):
 			test_card_names.append("Confidence")
 		cards = setup_test_cards(test_card_names)
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(board.turn, "player_turn_started",5 ), YIELD)
 		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion when correct card types drawn")
 		assert_eq(hand.get_card_count(), 6, "Dreamer gets +1 draw when correct card types drawn")

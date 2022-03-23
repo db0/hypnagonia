@@ -18,19 +18,19 @@ class TestScatteredDreams:
 			sceng = yield(sceng, "completed")
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 0,
 				"%s stacks on dreamer not increased when card played" % [effect])
-		turn.end_player_turn()
-		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_eq(counters.get_counter("immersion"), 3,
 				"Immersion not affected by %s" % [testing_card_name])
 
 	func test_card_results_remaining_on_hand():
 		assert_has_amounts()
 		yield(yield_for(0.1), YIELD)
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(board.turn, "enemy_turn_started",3 ), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 1,
 				"%s stacks on dreamer not increased when card played" % [effect])
-		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_eq(counters.get_counter("immersion"), 2,
 				"Immersion affected by %s" % [testing_card_name])
 
@@ -116,7 +116,7 @@ class TestSuffocation:
 		var sceng = execute_with_yield(card)
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(board.turn, "enemy_turn_started",3 ), YIELD)
 		assert_eq(dreamer.damage, 3, "Only 1 Perturbation did damage")
 		assert_eq(card.get_parent(), forgotten, "Pertubration forgotten")
@@ -135,7 +135,7 @@ class TestInescepableConclusion:
 		var sceng = execute_with_yield(card)
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(board.turn, "enemy_turn_started",3 ), YIELD)
 		assert_signal_emit_count(cfc, "new_card_instanced", 1)
 		assert_eq(count_card_names("Inescepable Conclusion"), 3,
@@ -155,6 +155,6 @@ class TestCockroachInfestation:
 		var sceng = execute_with_yield(card)
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(board.turn, "enemy_turn_started",3 ), YIELD)
 		assert_signal_emit_count(globals.player.deck, "card_entry_modified", 1)

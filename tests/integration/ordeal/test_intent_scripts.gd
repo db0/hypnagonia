@@ -212,8 +212,8 @@ class TestDisheartenNegative:
 		yield(yield_to(get_tree(), "idle_frame", 0.1), YIELD)
 		assert_eq(globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.enemy], 17,
 				"Frustration should decrease")
-		cfc.NMAP.board.turn.end_player_turn()
-		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_eq(globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.enemy], 0,
 				"Frustration should decrease to 0")
 
@@ -232,8 +232,8 @@ class TestDisheartenPositive:
 	func test_dishearten():
 		assert_eq(globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.enemy], 57,
 				"Frustration should decrease")
-		cfc.NMAP.board.turn.end_player_turn()
-		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_eq(globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.enemy], 77,
 				"Frustration should decrease to 0")
 
@@ -320,8 +320,8 @@ class TestIncreaseComplexity:
 		assert_eq(dreamer.damage, 10, "Dreamer should take damage")
 		assert_eq(test_torment.damage, 20, "Torment should heal damage")
 		dreamer.defence = 5
-		cfc.NMAP.board.turn.end_player_turn()
-		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.damage, 15, "Dreamer should take less damage")
 		assert_eq(test_torment.damage, 15, "Torment should heal less damage")
 
@@ -356,8 +356,8 @@ class TestArmorTheBoss:
 			torment.intents.replace_intents(intents_to_test)
 			torment.intents.refresh_intents()
 		var boss_torment = board.spawn_enemy(EnemyDefinitions.ADMINISTRATION)
-		cfc.NMAP.board.turn.end_player_turn()
-		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		# Boss loses 1 armor stack at the start of its turn
 		assert_eq(boss_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.armor.name), 2,
 			"Boss torment got expected amount of armor")

@@ -186,5 +186,5 @@ func activate_quick_intent(intents_script: Array) -> void:
 	test_torment.intents.replace_intents(intents_to_test)
 	test_torment.intents.refresh_intents()
 	yield(yield_for(0.1), YIELD)
-	turn.end_player_turn()
+	turn.call_deferred("end_player_turn")
 	yield(yield_to(turn, "player_turn_started", 3), YIELD)

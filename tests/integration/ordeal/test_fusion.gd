@@ -7,7 +7,7 @@ class TestNormalFusion:
 		watch_signals(hand)
 		for iter in 4:
 			add_single_card('Cannon', deck)
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(hand, "cards_fused", 3), YIELD)
 		# Wait one more sec to allow cards to despawn
 		yield(yield_for(1), YIELD)
@@ -19,7 +19,7 @@ class TestNormalFusion:
 		watch_signals(hand)
 		for iter in 4:
 			add_single_card('+ Cannon +', deck)
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(hand, "cards_fused", 3), YIELD)
 		# Wait one more sec to allow cards to despawn
 		yield(yield_for(1), YIELD)
@@ -33,7 +33,7 @@ class TestNormalFusion:
 			add_single_card('Cannon', deck)
 		for iter in 1:
 			add_single_card('+ Cannon +', deck)
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(hand, "cards_fused", 3), YIELD)
 		# Wait one more sec to allow cards to despawn
 		yield(yield_for(1), YIELD)
@@ -52,7 +52,7 @@ class TestUniversalComponent:
 		for iter in 3:
 			add_single_card('Cannon', deck)
 		add_single_card('Universal Component', deck)
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(hand, "cards_fused", 3), YIELD)
 		# Wait one more sec to allow cards to despawn
 		yield(yield_for(1), YIELD)
@@ -66,7 +66,7 @@ class TestUniversalComponent:
 		watch_signals(hand)
 		for iter in 2:
 			add_single_card('Universal Component', deck)
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(hand, "cards_fused", 3), YIELD)
 		# Wait one more sec to allow cards to despawn
 		yield(yield_for(1), YIELD)
