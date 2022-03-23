@@ -167,7 +167,8 @@ class TestTurnEventRecording:
 			"Risky":1,
 			"Slumber":1,
 			"Understanding_played":1,
-			"cards_played":5
+			"cards_played":5,
+			"new_turn":1,
 		}
 		assert_eq_deep(turn.turn_event_count, first_turn_event_count)
 		assert_eq_deep(turn.encounter_event_count, first_turn_event_count)
@@ -185,7 +186,8 @@ class TestTurnEventRecording:
 			"Control_played":2,
 			"Insomnia":1,
 			"cards_played":2,
-			"deck_shuffled":4
+			"deck_shuffled":4,
+			"new_turn":1,
 		}
 		var second_turn_encounter_events = first_turn_event_count.duplicate()
 		for key in second_turn_event_count:

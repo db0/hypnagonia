@@ -457,7 +457,7 @@ class TestCheekPinching:
 		spawn_effect(test_torment,effect, 1)
 		counters.call_deferred("mod_counter", "immersion", 2)
 		yield(yield_to(counters, "mod_counter", 0.2), YIELD)
-		assert_eq(test_torment.defence, 10)
+		assert_eq(test_torment.defence, 20)
 		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 1,
 				"%s added %s" % [effect, Terms.ACTIVE_EFFECTS.poison.name])
 		turn.call_deferred("end_player_turn")
