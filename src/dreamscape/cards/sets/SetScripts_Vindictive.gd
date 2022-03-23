@@ -34,6 +34,9 @@ const AngerMemento = {
 					],
 				}],
 			},
+			{
+				"name": "end_turn",
+			}
 		],
 	},
 }

@@ -59,6 +59,8 @@ const BENEFICIAL_TAGS := [
 ]
 const DETRIMENTAL_TAGS := [
 	Terms.GENERIC_TAGS.omega.name,
+	Terms.GENERIC_TAGS.end_turn.name,
+	Terms.GENERIC_TAGS.init.name,
 ]
 const SPECIAL_MODS := {
 	"scar": [
@@ -85,8 +87,8 @@ const ALL_MODIFIERS =\
 const OPPOSITE_TAGS := {
 	Terms.GENERIC_TAGS.alpha.name: Terms.GENERIC_TAGS.omega.name,
 	Terms.GENERIC_TAGS.omega.name: Terms.GENERIC_TAGS.alpha.name,
-	Terms.GENERIC_TAGS.init.name: Terms.GENERIC_TAGS.close.name,
-	Terms.GENERIC_TAGS.close.name: Terms.GENERIC_TAGS.init.name,
+	Terms.GENERIC_TAGS.init.name: Terms.GENERIC_TAGS.end_turn.name,
+	Terms.GENERIC_TAGS.end_turn.name: Terms.GENERIC_TAGS.init.name,
 }
 
 static func check_mod_applicability(card_properties: Dictionary, type := 'scar') -> Array:

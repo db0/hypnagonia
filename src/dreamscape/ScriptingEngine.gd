@@ -741,6 +741,13 @@ func confirm_play(script: ScriptTask) -> int:
 	return(retcode)
 
 
+func end_turn(script: ScriptTask) -> int:
+	var retcode: int = CFConst.ReturnCode.CHANGED
+	if not costs_dry_run():
+		cfc.NMAP.board.turn.end_player_turn()
+	return(retcode)
+
+
 # Task for modifying a card's amounts
 # * Requires the following keys:
 #	* [KEY_SUBJECT](ScriptProperties#KEY_SUBJECT)
