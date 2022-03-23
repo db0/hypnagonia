@@ -46,7 +46,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Anger Memento": {
+	"Memento of Anger": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name, Terms.GENERIC_TAGS.end_turn.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
@@ -61,11 +61,11 @@ const CARDS := {
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
-			"+ Anger Memento +",
-			"% Anger Memento %",
+			"+ Memento of Anger +",
+			"% Memento of Anger %",
 		],
 	},
-	"+ Anger Memento +": {
+	"+ Memento of Anger +": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
@@ -80,7 +80,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"% Anger Memento %": {
+	"% Memento of Anger %": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\

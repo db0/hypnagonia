@@ -201,6 +201,9 @@ func select_cards(indexes :Array = []) -> void:
 	emit_signal("confirmed")
 	
 
+func get_all_card_options() -> Array:
+	return(_card_dupe_map.keys())
+
 # Cancels out of the selection window
 func _on_cancel_pressed() -> void:
 	selected_cards.clear()

@@ -119,7 +119,7 @@ const StoreInMind = {
 func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 	# This format allows me to trace which script failed during load
 	var scripts := {
-		"Anger Memento": AngerMemento,
+		"Memento of Anger": AngerMemento,
 		"Keep in Mind": KeepInMind,
 		"Store in Mind": StoreInMind,
 	}
