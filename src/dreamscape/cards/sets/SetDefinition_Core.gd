@@ -3,7 +3,7 @@ extends Reference
 
 """
 The key "_amount_purpose_map" is used to map _amount keys that apply effects
-to the exact effect each of them is meant to modify. It is not used by 
+to the exact effect each of them is meant to modify. It is not used by
 the scripting engine, but rather for things like artifacts which modify
 amounts for specific effects, to be able to target the right amount
 It is generally only needed for cards which apply multiple effect types at the
@@ -2501,6 +2501,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [
 			Terms.GENERIC_TAGS.fading.name,
+			Terms.GENERIC_TAGS.slumber.name,
 			Terms.GENERIC_TAGS.alpha.name,
 		],
 		"Abilities": "Gain {defence_amount} {confidence}\n{forget}.",
@@ -2692,7 +2693,11 @@ const CARDS := {
 	},
 	"Wild Inspiration": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.purpose.name],
+		"Tags": [
+			Terms.GENERIC_TAGS.slumber.name,
+			Terms.GENERIC_TAGS.purpose.name,
+			Terms.GENERIC_TAGS.swift.name
+		],
 		"Abilities": "{forget} the top {forget_amount} card of the draw pile: Gain {immersion_amount} {immersion}. Draw {draw_amount} cards.",
 		"Cost": 0,
 		"_illustration": "Nobody",
@@ -2711,7 +2716,12 @@ const CARDS := {
 	},
 	"+ Wild Inspiration +": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.purpose.name],
+		"Tags": [
+			Terms.GENERIC_TAGS.slumber.name,
+			Terms.GENERIC_TAGS.purpose.name,
+			Terms.GENERIC_TAGS.swift.name
+		],
+
 		"Abilities": "{forget} the top {forget_amount} card of the draw pile: Gain {immersion_amount} {immersion}. Draw {draw_amount} cards.",
 		"Cost": 0,
 		"_illustration": "Nobody",
@@ -2726,7 +2736,12 @@ const CARDS := {
 	},
 	"! Wild Inspiration !": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.purpose.name],
+		"Tags": [
+			Terms.GENERIC_TAGS.slumber.name,
+			Terms.GENERIC_TAGS.purpose.name,
+			Terms.GENERIC_TAGS.swift.name
+		],
+
 		"Abilities": "{forget} the top {forget_amount} card of the draw pile: Gain {immersion_amount} {immersion}. Draw {draw_amount} cards.",
 		"Cost": 0,
 		"_illustration": "Nobody",
@@ -3058,7 +3073,7 @@ const CARDS := {
 	},
 	"Improved Perseverance": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.swift.name, Terms.GENERIC_TAGS.purpose.name],
+		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Gain {immersion_amount} {immersion}\nDraw {draw_amount} card\nGain {effect_stacks} {drain}\n{forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
@@ -3483,7 +3498,7 @@ const CARDS := {
 	},
 	"That too, shall pass": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.exert.name],
+		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Take {exert_amount} {anxiety}\nGain {immersion_amount} {immersion}.\n{forget}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
@@ -3502,7 +3517,7 @@ const CARDS := {
 	},
 	"% That too, shall pass %": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.exert.name],
+		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Take {exert_amount} {anxiety}\nGain {immersion_amount} {immersion}.\n{forget}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
@@ -3516,7 +3531,7 @@ const CARDS := {
 	},
 	"+ That too, shall pass +": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.exert.name],
+		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Take {exert_amount} {anxiety}\nGain {immersion_amount} {immersion}.\n{forget}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
@@ -3530,7 +3545,12 @@ const CARDS := {
 	},
 	"That too, must pass": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.exert.name],
+		"Tags": [
+			Terms.GENERIC_TAGS.purpose.name,
+			Terms.GENERIC_TAGS.exert.name,
+			Terms.GENERIC_TAGS.slumber.name,
+			Terms.GENERIC_TAGS.swift.name
+		],
 		"Abilities": "Take {exert_amount} {anxiety}\nGain {immersion_amount} {immersion}.\nDraw {draw_amount} card. {forget}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
@@ -4429,7 +4449,11 @@ const CARDS := {
 	},
 	"Endless Posibilities": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.ACTIVE_EFFECTS.armor.name],
+		"Tags": [
+			Terms.GENERIC_TAGS.spark.name, 
+			Terms.ACTIVE_EFFECTS.armor.name,
+			Terms.ACTIVE_EFFECTS.buffer.name
+		],
 		"Abilities": "Gain {effect_stacks} {armor}.\n"\
 				+ "If your draw pile currently has at least {deck_size} cards, "\
 				+ "shuffle this card back into the draw pile and gain {effect_stacks2} {buffer}.",
@@ -4458,7 +4482,12 @@ const CARDS := {
 	},
 	"+ Endless Posibilities +": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.ACTIVE_EFFECTS.armor.name],
+		"Tags": [
+			Terms.GENERIC_TAGS.spark.name, 
+			Terms.ACTIVE_EFFECTS.armor.name,
+			Terms.ACTIVE_EFFECTS.buffer.name
+		],
+
 		"Abilities": "Gain {effect_stacks} {armor}.\n"\
 				+ "If your draw pile currently has at least {deck_size} cards, "\
 				+ "shuffle this card back into the draw pile and gain {effect_stacks2} {buffer}.",
@@ -4483,7 +4512,12 @@ const CARDS := {
 	},
 	"* Endless Posibilities *": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.ACTIVE_EFFECTS.armor.name],
+		"Tags": [
+			Terms.GENERIC_TAGS.spark.name, 
+			Terms.ACTIVE_EFFECTS.armor.name,
+			Terms.ACTIVE_EFFECTS.buffer.name
+		],
+
 		"Abilities": "Gain {effect_stacks} {armor}.\n"\
 				+ "If your draw pile currently has at least {deck_size} cards, "\
 				+ "shuffle this card back into the draw pile and gain {effect_stacks2} {buffer}.",
@@ -4508,7 +4542,12 @@ const CARDS := {
 	},
 	"% Endless Posibilities %": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.ACTIVE_EFFECTS.armor.name],
+		"Tags": [
+			Terms.GENERIC_TAGS.spark.name, 
+			Terms.ACTIVE_EFFECTS.armor.name,
+			Terms.ACTIVE_EFFECTS.buffer.name
+		],
+
 		"Abilities": "Gain {effect_stacks} {armor}.\n"\
 				+ "If your draw pile currently has at least {deck_size} cards, "\
 				+ "shuffle this card back into the draw pile and gain {effect_stacks2} {buffer}.",
@@ -4533,7 +4572,7 @@ const CARDS := {
 	},
 	"I'll Show Them All": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.purpose.name,Terms.GENERIC_TAGS.swift.name],
+		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Remove all {buffer}: Gain that much {immersion} "\
 				+ "and draw that many cards + {draw_amount}.",
 		"Cost": 0,
@@ -4554,7 +4593,7 @@ const CARDS := {
 	},
 	"! I'll Show Them All !": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.purpose.name,Terms.GENERIC_TAGS.swift.name],
+		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Remove all {buffer}: Gain that much {immersion} "\
 				+ "and draw that many cards + {draw_amount}.",
 		"Cost": 0,
@@ -4571,7 +4610,7 @@ const CARDS := {
 	},
 	"@ I'll Show Them All @": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.purpose.name,Terms.GENERIC_TAGS.swift.name],
+		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Remove all {buffer}: Gain that much {immersion} + {immersion_amount} "\
 				+ "and draw that many cards + 1.",
 		"Cost": 0,
@@ -4740,7 +4779,11 @@ const CARDS := {
 	},
 	"The Whippy-Flippy": {
 		"Type": "Control",
-		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name, Terms.ACTIVE_EFFECTS.empower.name],
+		"Tags": [
+			Terms.ACTIVE_EFFECTS.buffer.name, 
+			Terms.ACTIVE_EFFECTS.empower.name,
+			Terms.ACTIVE_EFFECTS.strengthen.name
+		],
 		"Abilities": "If every Torment {stress}:\n"\
 				+ "{stress} ≤ {stress_threshold}: Gain {effect_stacks} {buffer}\n"\
 				+ "{stress} ≤ {stress_threshold2}: Gain {effect_stacks2} {empower}\n"\
@@ -4776,7 +4819,12 @@ const CARDS := {
 	},
 	"* The Whippy-Flippy *": {
 		"Type": "Control",
-		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name, Terms.ACTIVE_EFFECTS.empower.name],
+		"Tags": [
+			Terms.ACTIVE_EFFECTS.buffer.name, 
+			Terms.ACTIVE_EFFECTS.empower.name,
+			Terms.ACTIVE_EFFECTS.strengthen.name
+		],
+
 		"Abilities": "If every Torment {stress}:\n"\
 				+ "{stress} ≤ {stress_threshold}: Gain {effect_stacks} {buffer}\n"\
 				+ "{stress} ≤ {stress_threshold2}: Gain {effect_stacks2} {empower}\n"\
@@ -4807,7 +4855,12 @@ const CARDS := {
 	},
 	"% The Whippy-Flippy %": {
 		"Type": "Control",
-		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name, Terms.ACTIVE_EFFECTS.empower.name],
+		"Tags": [
+			Terms.ACTIVE_EFFECTS.buffer.name, 
+			Terms.ACTIVE_EFFECTS.empower.name,
+			Terms.ACTIVE_EFFECTS.strengthen.name
+		],
+
 		"Abilities": "If every Torment {stress}:\n"\
 				+ "{stress} ≤ {stress_threshold}: Gain {effect_stacks} {buffer}\n"\
 				+ "{stress} ≤ {stress_threshold2}: Gain {effect_stacks2} {empower}\n"\
@@ -4838,7 +4891,12 @@ const CARDS := {
 	},
 	"= The Whippy-Flippy =": {
 		"Type": "Control",
-		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name, Terms.ACTIVE_EFFECTS.empower.name],
+		"Tags": [
+			Terms.ACTIVE_EFFECTS.buffer.name, 
+			Terms.ACTIVE_EFFECTS.empower.name,
+			Terms.ACTIVE_EFFECTS.strengthen.name
+		],
+
 		"Abilities": "If every Torment {stress}:\n"\
 				+ "{stress} ≤ {stress_threshold}: Gain {effect_stacks} {buffer}\n"\
 				+ "{stress} ≤ {stress_threshold2}: Gain {effect_stacks2} {empower}\n"\
@@ -4950,7 +5008,11 @@ const CARDS := {
 	},
 	"A Strange Gaida": {
 		"Type": "Control",
-		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.ACTIVE_EFFECTS.marked.name],
+		"Tags": [
+			Terms.ACTIVE_EFFECTS.disempower.name, 
+			Terms.ACTIVE_EFFECTS.marked.name,
+			Terms.GENERIC_TAGS.slumber.name
+		],
 		"Abilities": "All Torments gain {effect_stacks} {confusion} and {effect_stacks2} {marked}. {forget}",
 		"Cost": 2,
 		"_illustration": "Nobody",
@@ -4976,7 +5038,12 @@ const CARDS := {
 	},
 	"* A Strange Gaida *": {
 		"Type": "Control",
-		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.ACTIVE_EFFECTS.marked.name],
+		"Tags": [
+			Terms.ACTIVE_EFFECTS.disempower.name, 
+			Terms.ACTIVE_EFFECTS.marked.name,
+			Terms.GENERIC_TAGS.slumber.name
+		],
+
 		"Abilities": "All Torments gain {effect_stacks} {confusion} and {effect_stacks2} {marked}. {forget}",
 		"Cost": 2,
 		"_illustration": "Nobody",
@@ -4998,7 +5065,12 @@ const CARDS := {
 	},
 	"@ A Strange Gaida @": {
 		"Type": "Control",
-		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.ACTIVE_EFFECTS.marked.name],
+		"Tags": [
+			Terms.ACTIVE_EFFECTS.disempower.name, 
+			Terms.ACTIVE_EFFECTS.marked.name,
+			Terms.GENERIC_TAGS.slumber.name
+		],
+
 		"Abilities": "All Torments gain {effect_stacks} {confusion} and {effect_stacks2} {marked}. {forget}",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -5156,7 +5228,7 @@ const CARDS := {
 	},
 	"Sensuous": {
 		"Type": "Control",
-		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name,Terms.ACTIVE_EFFECTS.thorns.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.ACTIVE_EFFECTS.thorns.name],
 		"Abilities": "Apply {effect_stacks} {confusion} to Target Torment, "\
 				+ "then gain {thorns} equal to the target's {confusion}.",
 		"Cost": 1,
@@ -5178,7 +5250,7 @@ const CARDS := {
 	},
 	"* Sensuous *": {
 		"Type": "Control",
-		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name,Terms.ACTIVE_EFFECTS.thorns.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.ACTIVE_EFFECTS.thorns.name],
 		"Abilities": "Apply {effect_stacks} {confusion} to Target Torment, "\
 				+ "then gain {thorns} equal to the target's {confusion}.",
 		"Cost": 1,
@@ -5196,7 +5268,7 @@ const CARDS := {
 	},
 	"Ω Sensuous Ω": {
 		"Type": "Control",
-		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.GENERIC_TAGS.omega.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.omega.name],
 		"Abilities": "Apply {effect_stacks} {confusion} to Target Torment, "\
 				+ "then gain {thorns} equal to the target's {confusion}.",
 		"Cost": 1,
@@ -5573,7 +5645,7 @@ const CARDS := {
 	},
 	"Launch": {
 		"Type": "Control",
-		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name,Terms.ACTIVE_EFFECTS.burn.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name, Terms.ACTIVE_EFFECTS.burn.name],
 		"Abilities": "Gain X {impervious}\n"\
 				+ "If X is at least {x_requirement}, all Torments gain {effect_stacks2} {burn}",
 		"Cost": 'X',
@@ -5602,7 +5674,7 @@ const CARDS := {
 	},
 	"@ Launch @": {
 		"Type": "Control",
-		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name,Terms.ACTIVE_EFFECTS.burn.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name, Terms.ACTIVE_EFFECTS.burn.name],
 		"Abilities": "Gain X * {effect_stacks} {impervious}\n"\
 				+ "If X is at least {x_requirement}, all Torments gain {effect_stacks} {burn}",
 		"Cost": 'X',
@@ -5626,7 +5698,7 @@ const CARDS := {
 	},
 	"* Launch *": {
 		"Type": "Control",
-		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name,Terms.ACTIVE_EFFECTS.burn.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name, Terms.ACTIVE_EFFECTS.burn.name],
 		"Abilities": "Gain X * {effect_stacks} {impervious}\n"\
 				+ "If X is at least {x_requirement}, all Torments gain {effect_stacks2} {burn}",
 		"Cost": 'X',
@@ -5650,7 +5722,7 @@ const CARDS := {
 	},
 	"% Launch %": {
 		"Type": "Control",
-		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name,Terms.ACTIVE_EFFECTS.burn.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name, Terms.ACTIVE_EFFECTS.burn.name],
 		"Abilities": "Gain X * {effect_stacks} {impervious}\n"\
 				+ "All Torments gain {effect_stacks2} {burn}",
 		"Cost": 'X',
