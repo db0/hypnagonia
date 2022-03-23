@@ -41,6 +41,8 @@ onready var _progress_cost := $"../VBC/VBC/HBC/Buttons/ProgressCost"
 func initiate_card_removal(cost: int = 0, cost_type: String = Terms.RUN_ACCUMULATION_NAMES.enemy) -> void:
 	operation_cost = cost
 	operation_cost_type = cost_type
+	if operation != "remove":
+		_clear_existing_cache()
 	operation = "remove"
 	_deck_operation_name.text = "Remove Card"
 	_display()
@@ -51,6 +53,8 @@ func initiate_card_progress(cost: int = 0, cost_type: String = Terms.RUN_ACCUMUL
 	progress_amount = amount
 	operation_cost = cost
 	operation_cost_type = cost_type
+	if operation != "progress":
+		_clear_existing_cache()
 	operation = "progress"
 	_deck_operation_name.text = "Progress Card Upgrade"
 	_display()
@@ -59,6 +63,8 @@ func initiate_card_progress(cost: int = 0, cost_type: String = Terms.RUN_ACCUMUL
 func initiate_card_selection(cost: int = 0, cost_type: String = Terms.RUN_ACCUMULATION_NAMES.enemy) -> void:
 	operation_cost = cost
 	operation_cost_type = cost_type
+	if operation != "selection":
+		_clear_existing_cache()
 	operation = "selection"
 	_deck_operation_name.text = "Select Card"
 	_display()
@@ -89,8 +95,7 @@ func _display() -> void:
 # for each card in it.
 func _populate_preview_cards() -> void:
 	if current_decklist_cache != globals.player.deck.list_all_cards():
-		for card in _deck_preview_grid.get_children():
-			card.queue_free()
+		_clear_existing_cache()
 		current_decklist_cache = globals.player.deck.list_all_cards()
 		for index in range(globals.player.deck.cards.size()):
 			var card_matches:= true
@@ -154,4 +159,9 @@ func _on_deck_card_selected(card_entry: CardEntry, deck_card_object) -> void:
 		deck_card_object.queue_free()
 	# We assume card selection modifies the decklist somewhat. 
 	# So we ensure the card list is refreshed
+	current_decklist_cache.clear()
+
+func _clear_existing_cache() -> void:
+	for card in _deck_preview_grid.get_children():
+		card.queue_free()
 	current_decklist_cache.clear()
