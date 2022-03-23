@@ -100,3 +100,4 @@ func _on_card_selected(operation_details: Dictionary) -> void:
 	if operation_details.operation == "progress":
 		var chosen_card: CardEntry = operation_details.card_entry
 		chosen_card.upgrade_progress = chosen_card.upgrade_threshold
+		globals.journal._reveal_entry(globals.journal.upgrade_journal, true)
