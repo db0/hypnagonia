@@ -468,10 +468,10 @@ func _input(event):
 	### Debug ###
 	if event.is_action_pressed("init_debug_game"):
 		# Upgrade cards debug
-#		for c in  globals.player.deck.get_progressing_cards():
+		for c in globals.player.deck.get_progressing_cards():
+			c.upgrade_progress = c.upgrade_threshold
 #			if c.card_name == "Noisy Whip":
 #				globals.player.deck.remove_card(c)
-#			c.upgrade_progress = c.upgrade_threshold
 #		_reveal_entry(upgrade_journal, true)
 #		globals.player.deck.add_new_card("+ Noisy Whip +")
 		globals.player.add_artifact(ArtifactDefinitions.IncreaseConfusionStacks.canonical_name)
