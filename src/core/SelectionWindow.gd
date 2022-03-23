@@ -1,6 +1,7 @@
 class_name SelectionWindow
 extends AcceptDialog
 
+signal card_choices_ready
 
 # The path to the GridCardObject scene.
 const _GRID_CARD_OBJECT_SCENE_FILE = CFConst.PATH_CORE\
@@ -158,6 +159,7 @@ func initiate_selection(
 			0, 1, 0.5,
 			Tween.TRANS_SINE, Tween.EASE_IN)
 	_tween.start()
+	emit_signal("card_choices_ready")
 	if OS.has_feature("debug") and not get_tree().get_root().has_node('Gut'):
 		print("DEBUG INFO:SelectionWindow: Started Card Display with a %s card selection" % [_card_grid.get_child_count()])
 
@@ -187,6 +189,17 @@ func on_selection_gui_input(event: InputEvent, dupe_selection: Card, origin_card
 			_card_dupe_map[selected_cards[0]].highlight.set_highlight(false)
 			selected_cards.remove(0)
 
+
+# Manually selects cards based on their index.
+# Typically used for testing
+func select_cards(indexes :Array = []) -> void:
+	var all_choices = _card_dupe_map.keys()
+	for index in indexes:
+		if index + 1 > all_choices.size(): 
+			continue
+		selected_cards.append(all_choices[index])
+	emit_signal("confirmed")
+	
 
 # Cancels out of the selection window
 func _on_cancel_pressed() -> void:
