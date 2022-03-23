@@ -1133,7 +1133,6 @@ func move_to(targetHost: Node,
 	# depending on the board_placement variable
 	targetHost = targetHost.get_final_placement_node(self)
 	targetHost = common_pre_move_scripts(targetHost, parentHost, tags)
-	print_debug([self, parentHost.name, targetHost.name])
 	if targetHost == cfc.NMAP.board and not board_position:
 		match board_placement:
 			BoardPlacement.NONE:

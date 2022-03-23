@@ -776,3 +776,39 @@ const SUBMERGED := {
 	"_texture": preload("res://assets/journal/torments/submerged.jpg"),
 	"_character_art": "Artbreeder.com"
 }
+
+const HANDSY_AUNT := {
+	"Name": "Handsy Aunt",
+	"Type": "Fear",
+	"Health": 300,
+	"_is_ordered": true,
+	"Intents": [
+		{
+			"sets_up_intent": "babble",
+			"intent_scripts": ["Stress:8", "Stress:8", "Stress:8"],
+			"reshuffle": false,
+			"max_in_a_row": 3,
+		},
+		{
+			"id": "mark",
+			"intent_scripts": ["Perplex:15", "Stress:8", "Debuff:1:marked"],
+			"reshuffle": false,
+			"sets_up_intent": "babble",
+		},
+		{
+			"intent_scripts": ["Debuff:4:vulnerable"],
+			"reshuffle": false,
+			"max_in_a_row": 1,
+		},
+		{
+			"intent_scripts": ["Awkward Compliments"],
+			"reshuffle": true,
+			"sets_up_intent": "mark",
+		},
+	],
+	"_health_variability": 10,
+	"_texture_size_x": "120",
+	"_texture_size_y": "120",
+	"_texture": preload("res://assets/journal/torments/handsy_aunt.jpeg"),
+	"_character_art": "Artbreeder.com"
+}

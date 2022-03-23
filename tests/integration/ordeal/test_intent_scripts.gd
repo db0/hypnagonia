@@ -377,3 +377,24 @@ class TestSpawnCard:
 		assert_eq(hand.get_card_count(), 1, "1 Lacuna spawned in hand")
 		assert_eq(count_card_names("Lacuna"), 1,
 				"1 Lacuna spawned")
+
+
+class TestAwkwardCompliments:
+	extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"
+	func _init() -> void:
+		intents_to_test = [
+			{
+				"intent_scripts": ["Awkward Compliments"],
+				"reshuffle": true,
+			},
+		]
+
+	func test_stress():
+		assert_eq(dreamer.damage, 3, "Dreamer should take damage")
+		assert_eq(test_torment.damage, tdamage(0), "Torment should not take damage")
+		test_torment.intents.replace_intents(intents_to_test)
+		test_torment.intents.refresh_intents()
+		TurnEventMessage.new("new_turn", 3)
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3), YIELD)
+		assert_eq(dreamer.damage, 3 * 6, "Dreamer should take damage")

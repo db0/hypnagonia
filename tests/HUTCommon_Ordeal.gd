@@ -148,7 +148,7 @@ func get_torment_effect_script(effect_name: String, amount: int) -> Dictionary:
 
 
 # Returns the expected amount of damage, after including the torments starting dmgs
-func tdamage(damage: int) -> int:
+func tdamage(damage: int = 0) -> int:
 	return(starting_torment_dgm + damage)
 
 
