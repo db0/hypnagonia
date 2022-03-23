@@ -130,7 +130,8 @@ func initiate_selection(
 		_card_dupe_map[card] = dupe_selection
 #		yield(dupe_selection, "ready")
 #		yield(get_tree().create_timer(0.3), "timeout")
-		dupe_selection.set_is_faceup(card.is_faceup,true)
+		if typeof(card) != TYPE_STRING:
+			dupe_selection.set_is_faceup(card.is_faceup,true)
 		dupe_selection.set_is_faceup(true,true)
 		# We connect each card grid's gui input into a call which will handle
 		# The selections
