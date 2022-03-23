@@ -17,5 +17,5 @@ func before_each():
 	test_torment.intents.replace_intents(intents_to_test)
 	test_torment.intents.refresh_intents()
 	yield(yield_to(get_tree(), "idle_frame", 0.1), YIELD)
-	cfc.NMAP.board.turn.end_player_turn()
-	yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+	turn.call_deferred("end_player_turn")
+	yield(yield_to(turn, "player_turn_started",3 ), YIELD)

@@ -84,14 +84,14 @@ class TestSelfCleaning:
 
 
 	func test_self_cleaning():
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.poison.name), 5 - amount,
 				"%s reduced %s" % [effect, Terms.ACTIVE_EFFECTS.poison.name])
 		assert_eq(abs(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name)), 4,
 				"%s did not reduce %s" % [effect, Terms.ACTIVE_EFFECTS.disempower.name])
-		cfc.NMAP.board.turn.end_player_turn()
-		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_eq(abs(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name)), 4 - amount,
 				"%s reduced %s" % [effect, Terms.ACTIVE_EFFECTS.strengthen.name])
 		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.poison.name), 4 - amount,
@@ -284,11 +284,11 @@ class TestDoom:
 		if not test_torment:
 			return
 		watch_signals(test_torment)
-		cfc.NMAP.board.turn.end_player_turn()
-		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_signal_not_emitted(test_torment, "entity_killed")
-		cfc.NMAP.board.turn.end_player_turn()
-		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_signal_emitted(test_torment, "entity_killed")
 		yield(yield_to(ce, 'encounter_end', 5), YIELD)
 		journal.card_draft.display("card_draft")
@@ -314,11 +314,11 @@ class TestDisruptionNoDiscard:
 		]
 
 	func test_effect():
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(board.turn, "player_turn_started", 3), YIELD)
 		assert_eq(hand.get_card_count(), 2,
 				"%s reduced refill by 3" % [effect])
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(board.turn, "player_turn_started", 3), YIELD)
 		assert_eq(hand.get_card_count(), 4,
 				"%s at 3+ stacks prevent card discard" % [effect])
@@ -339,11 +339,11 @@ class TestDisruptionDiscard:
 		]
 
 	func test_effect():
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(board.turn, "player_turn_started", 3), YIELD)
 		assert_eq(hand.get_card_count(), 3,
 				"%s reduced refill by 2" % [effect])
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(board.turn, "player_turn_started", 3), YIELD)
 		assert_eq(hand.get_card_count(), 3,
 				"%s at 2- stacks does not prevent card discard" % [effect])
@@ -395,7 +395,7 @@ class TestActLength:
 		spawn_effect(test_torment, effect, 2, '')
 		spawn_effect(test_torment, Terms.ACTIVE_EFFECTS.poison.name, 5, '')
 		spawn_effect(test_torment, Terms.ACTIVE_EFFECTS.burn.name, 5, '')
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_eq(test_torment.damage, tdamage(2),
 				"%s stops DoTs" % [effect])
@@ -404,7 +404,7 @@ class TestActLength:
 		spawn_effect(test_torment, effect, 2, '')
 		spawn_effect(test_torment, Terms.ACTIVE_EFFECTS.disempower.name, 1, '')
 		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.rubber_eggs.name, 1, '')
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_eq(test_torment.damage, tdamage(1),
 				"%s stops Rubber Eggs" % [effect])
@@ -412,7 +412,7 @@ class TestActLength:
 	func test_act_length_kill():
 		spawn_effect(test_torment, effect, 1, '')
 		watch_signals(test_torment)
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_signal_emitted(test_torment, "entity_killed")
 
@@ -432,13 +432,13 @@ class TestClawingForAir:
 		]
 
 	func test_effect():
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started", 3), YIELD)
 		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 3,
 				"%s added correct amount of %s" % [effect, Terms.ACTIVE_EFFECTS.strengthen.name])
 		assert_eq(test_torment.active_effects.get_effect_stacks(effect), 3,
 				"%s stacks not reduced" % [effect])
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(board.turn, "player_turn_started", 3), YIELD)
 		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 6,
 				"%s added correct amount of %s" % [effect, Terms.ACTIVE_EFFECTS.strengthen.name])
@@ -460,7 +460,7 @@ class TestCheekPinching:
 		assert_eq(test_torment.defence, 10)
 		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 1,
 				"%s added %s" % [effect, Terms.ACTIVE_EFFECTS.poison.name])
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_eq(test_torment.defence, 0)
 		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 1,

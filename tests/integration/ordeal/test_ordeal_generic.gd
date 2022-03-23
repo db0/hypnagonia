@@ -77,7 +77,7 @@ class TestRounds:
 		for t in test_torments:
 			watch_signals(t)
 		counters.mod_counter("immersion",5)
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_ended", 1), YIELD)
 		assert_true(board.end_turn.disabled, "End Turn Button Enabled")
 		assert_signal_emitted(hand, "hand_emptied")
@@ -121,7 +121,7 @@ class TestTags:
 		assert_true(hand.has_card(alpha1.card_object), "Alpha cards should start in hand")
 		assert_true(hand.has_card(alpha2.card_object), "Alpha cards should start in hand")
 		assert_eq(deck.get_bottom_card(), omega1.card_object, "Omega cards should start at the deck bottom")
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started", 3), YIELD)
 		assert_true(hand.has_card(alpha1.card_object), "Frozen cards should stay in hand")
 		assert_eq(hand.get_card_count(), 6, "Hand refill ignores frozen cards")
@@ -172,7 +172,7 @@ class TestTurnEventRecording:
 		assert_eq_deep(turn.turn_event_count, first_turn_event_count)
 		assert_eq_deep(turn.encounter_event_count, first_turn_event_count)
 
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(hand, "hand_refilled", 3), YIELD)
 		for index in [0,1]:
 			sceng = execute_with_yield(cards[index])
@@ -244,7 +244,7 @@ class TestTorments:
 				if i in [0,3]:
 					test_torments[i].health = 34
 		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.thorns.name, 15)
-		turn.end_player_turn()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started", 3), YIELD)
 		assert_eq(turn.current_turn, turn.Turns.PLAYER_TURN, "Turn back to the player")
 		assert_eq(counters.get_counter("immersion"), 3, "Dreamer starts with 3 immersion")
