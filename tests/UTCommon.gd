@@ -24,6 +24,7 @@ var forgotten: DreamPile
 var journal: Journal
 var journal_container: MarginContainer
 var player_info: PlayerInfo
+var turn: Turn
 
 var artifacts := []
 var memories := []
@@ -51,6 +52,7 @@ func setup_main() -> void:
 	if not cfc.are_all_nodes_mapped:
 		yield(cfc, "all_nodes_mapped")
 	board = cfc.NMAP.board
+	turn = board.turn
 #	board.load_test_cards()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # Always reveal the mouseon unclick
 	hand = cfc.NMAP.hand
@@ -66,6 +68,7 @@ func setup_board() -> void:
 	if not cfc.are_all_nodes_mapped:
 		yield(cfc, "all_nodes_mapped")
 #	board.load_test_cards()
+	turn = board.turn
 	hand = cfc.NMAP.hand
 	deck = cfc.NMAP.deck
 	discard = cfc.NMAP.discard
