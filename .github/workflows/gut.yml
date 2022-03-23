@@ -28,6 +28,6 @@ jobs:
           assert-check: true
           max-fails: 0
           # How long the test should be run before it's timed out and fails
-          test-timeout: 1500
+          test-timeout: 3600
           # Directory containing Gut tests
           direct-scene: tests/cli/tests.tscn
