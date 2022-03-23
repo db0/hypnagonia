@@ -8,6 +8,7 @@ signal choice_entry_added(choice_entry)
 signal secondary_entry_added(choice_entry)
 signal encounter_start(encounter)
 signal selection_deck_spawned(selection_deck)
+signal entry_displayed(entry)
 
 const NESTED_CHOICES_SCENE = preload("res://src/dreamscape/Overworld/SecondaryChoicesSlide.tscn")
 const SELECTION_DECK_SCENE = preload("res://src/dreamscape/SelectionDeck.tscn")
@@ -103,7 +104,7 @@ func display_nce_rewards(reward_text: String) -> void:
 	_reveal_entry(proceed, true)
 
 
-func display_enemy_rewards(reward_text: String) -> void:
+func display_enemy_rewards(reward_text: String = '') -> void:
 	if reward_text != '':
 		reward_journal.bbcode_text = "[Card Draft] " + reward_text
 		_reveal_entry(reward_journal, true, "card_draft")
@@ -343,6 +344,7 @@ func _reveal_entry(
 			'modulate:a', 0, 1, 0.5,
 			Tween.TRANS_SINE, Tween.EASE_IN)
 	_tween.start()
+	emit_signal("entry_displayed", rich_text_node)
 
 
 func _disconnect_gui_inputs(rich_text_node: RichTextLabel) -> void:
@@ -468,8 +470,8 @@ func _input(event):
 	### Debug ###
 	if event.is_action_pressed("init_debug_game"):
 		# Upgrade cards debug
-		for c in globals.player.deck.get_progressing_cards():
-			c.upgrade_progress = c.upgrade_threshold
+#		for c in globals.player.deck.get_progressing_cards():
+#			c.upgrade_progress = c.upgrade_threshold
 #			if c.card_name == "Noisy Whip":
 #				globals.player.deck.remove_card(c)
 #		_reveal_entry(upgrade_journal, true)
