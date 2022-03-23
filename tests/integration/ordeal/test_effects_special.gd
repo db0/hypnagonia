@@ -84,8 +84,8 @@ class TestSelfCleaning:
 
 
 	func test_self_cleaning():
-		cfc.NMAP.board.turn.end_player_turn()
-		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		turn.end_player_turn()
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.poison.name), 5 - amount,
 				"%s reduced %s" % [effect, Terms.ACTIVE_EFFECTS.poison.name])
 		assert_eq(abs(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name)), 4,
@@ -444,3 +444,24 @@ class TestClawingForAir:
 				"%s added correct amount of %s" % [effect, Terms.ACTIVE_EFFECTS.strengthen.name])
 		assert_eq(test_torment.active_effects.get_effect_stacks(effect), 3,
 				"%s stacks not reduced" % [effect])
+
+class TestCheekPinching:
+	extends "res://tests/HUT_Ordeal_TormentEffectsTestClass.gd"
+	var effect = Terms.ACTIVE_EFFECTS.cheek_pinching.name
+	func _init() -> void:
+		globals.test_flags.test_initial_hand = true
+		test_card_names = [
+		]
+
+	func test_effect():
+		spawn_effect(test_torment,effect, 1)
+		counters.call_deferred("mod_counter", "immersion", 2)
+		yield(yield_to(counters, "mod_counter", 0.2), YIELD)
+		assert_eq(test_torment.defence, 10)
+		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 1,
+				"%s added %s" % [effect, Terms.ACTIVE_EFFECTS.poison.name])
+		turn.end_player_turn()
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		assert_eq(test_torment.defence, 0)
+		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 1,
+				"%s added %s" % [effect, Terms.ACTIVE_EFFECTS.poison.name])

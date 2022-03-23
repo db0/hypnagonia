@@ -104,7 +104,7 @@ func _set_texture(node: Node, stream: StreamTexture) -> void:
 
 
 func _process(delta: float) -> void:
-	if is_dead and entity_texture.material as ShaderMaterial:
+	if is_dead and entity_texture and entity_texture.material as ShaderMaterial:
 		shader_progress += delta
 		entity_texture.material.set_shader_param(
 				'progress', shader_progress)
@@ -150,9 +150,10 @@ func die() -> void:
 	if damage >= health:
 		is_dead = true
 		emit_signal("entity_killed", damage, health)
-		entity_texture.material = ShaderMaterial.new()
-		entity_texture.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
 		cfc.flush_cache()
+		if entity_texture:
+			entity_texture.material = ShaderMaterial.new()
+			entity_texture.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
 
 
 func modify_damage(amount: int, dry_run := false, tags := ["Manual"], trigger = null) -> int:

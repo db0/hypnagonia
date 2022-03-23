@@ -63,4 +63,5 @@ const CARD_IMAGES := {
 	"Submerged": preload("res://assets/journal/torments/submerged.jpg"),
 	"Cockroach Infestation": preload("res://assets/journal/nce/cockroach.jpeg"),
 	"Cockroaches": preload("res://assets/journal/nce/cockroach.jpeg"),
+	"Handsy Aunt": preload("res://assets/journal/torments/handsy_aunt.jpeg"),
 }

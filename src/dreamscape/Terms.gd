@@ -633,7 +633,12 @@ const ACTIVE_EFFECTS := {
 		"icon": preload("res://assets/icons/drowning.png"),
 		"description": "{effect_name}: At the end of its turn, this Torment gains {amount} {strengthen}.",
 	},
-
+	"cheek_pinching": {
+		"name": "Cheek Pinching",
+		"type": "Special",
+		"icon": preload("res://assets/icons/pincers.png"),
+		"description": "{effect_name}: Any time the {enemy} gains {immersion} during their turn, this {entity} gains 10 {defence} per {immersion} gained, and {amount} {focus}",
+	},
 }
 
 

@@ -306,12 +306,62 @@ const Submerged = {
 		],
 	},
 }
+const HandsyAunt = {
+	"journal_description":\
+		"I could hear the overly-loud laughter in the other room. [url={torment_tag1}]My aunt had come for a visit[/url]"\
+				+  "I heard the dreaded call from inside: [i]Come, come, let me take a good look at you![/i].",
+	"journal_reward":\
+		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": preload("res://assets/journal/torments/handsy_aunt.jpeg"),
+	"enemies": {
+		"easy": [
+			{
+				"definition": EnemyDefinitions.HANDSY_AUNT,
+				"rebalancing": {
+					"Stress": -2,
+				},
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.cheek_pinching.name,
+						"stacks": 1,
+					},
+				]
+			},
+		],
+		"medium": [
+			{
+				"definition": EnemyDefinitions.HANDSY_AUNT,
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.cheek_pinching.name,
+						"stacks": 1,
+					},
+				]
+			},
+		],
+		"hard": [
+			{
+				"definition": EnemyDefinitions.HANDSY_AUNT,
+				"rebalancing": {
+					"Stress": +1,
+				},
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.cheek_pinching.name,
+						"stacks": 2,
+					},
+				]
+			},
+		],
+	},
+}
 const ENEMIES = [
 	Administration,
 	Life_Paths,
 	Cringelord,
 	Nightmare,
 	Submerged,
+	HandsyAunt,
 ]
 
 const TheGatherer = {

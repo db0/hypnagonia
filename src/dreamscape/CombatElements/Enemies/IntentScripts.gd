@@ -312,6 +312,21 @@ const ACT_IT_OUT := [
 		}
 	}
 ]
+const AWKWARD_COMPLIMENTS := [
+	{
+		"name": "modify_damage",
+		"tags": ["Attack", "Intent"],
+		"subject": "dreamer",
+		"amount": 'per_encounter_event_count',
+		"per_encounter_event_count": {
+			"event_name": "new_turn",
+			"multiplier": 3,
+		},
+		"icon": "icon_attack",
+		"description": "Stress: Will cause the dreamer to take the specified amount of {anxiety}.\n"\
+				+ "[i]My my...[/i]",
+	}
+]
 
 const GUT := [
 	{
@@ -345,6 +360,7 @@ func get_scripts(intent_name: String) -> Dictionary:
 		"Armor The Boss": ARMOR_THE_BOSS,
 		"Complicated Play": COMPLICATED_PLAY,
 		"Act It Out": ACT_IT_OUT,
+		"Awkward Compliments": AWKWARD_COMPLIMENTS,
 		# Unit Testing #
 		"GUT": GUT,
 	}

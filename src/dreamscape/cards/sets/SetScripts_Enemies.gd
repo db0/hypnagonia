@@ -43,6 +43,29 @@ const BeastMode = {
 		],
 	},
 }
+const HandsyAunt = {
+	"manual": {
+		"hand": [
+			{
+				"name": "modify_damage",
+				"subject": "target",
+				"needs_subject": true,
+				"amount": 'per_encounter_event_count',
+				"per_encounter_event_count": {
+					"event_name": "new_turn",
+					"multiplier": {
+						"lookup_property": "_amounts",
+						"value_key": "multiplier_amount"
+					}
+				},
+				"tags": ["Attack", "Card"],
+				"filter_state_subject": [{
+					"filter_group": "EnemyEntities",
+				},],
+			},
+		],
+	},
+}
 
 const scripts := {
 	"Gaslighter": {
@@ -1679,6 +1702,7 @@ const scripts := {
 		},
 	},
 	"Beast Mode": BeastMode,
+	"Handsy Aunt": HandsyAunt,
 }
 
 # This fuction returns all the scripts of the specified card name.

@@ -215,3 +215,21 @@ class TestCockroaches:
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
 		assert_signal_emit_count(globals.player.deck, "card_entry_modified", 1)
+
+class TestHandsyAunt:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	func _init() -> void:
+		globals.test_flags.test_initial_hand = true
+		testing_card_name = "Handsy Aunt"
+		expected_amount_keys = [
+			"multiplier_amount"
+		]
+
+	func test_card_results():
+		assert_has_amounts()
+		TurnEventMessage.new("new_turn", 4)
+		var sceng = snipexecute(card, test_torment)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(test_torment.damage, tdamage(get_amount("multiplier_amount") * 5))
+			
