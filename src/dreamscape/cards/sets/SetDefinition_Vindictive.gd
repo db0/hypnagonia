@@ -35,7 +35,7 @@ const CARDS := {
 	},
 	"Store in Mind": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.frozen.name, Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.init.name],
+		"Tags": [Terms.GENERIC_TAGS.frozen.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Choose {beneficial_integer} card. It becomes {frozen}\n{forget}.",
 		"Cost": 0,
 		"_illustration": "Nobody",

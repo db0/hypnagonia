@@ -40,6 +40,40 @@ const AngerMemento = {
 		],
 	},
 }
+const KeepInMind = {
+	"manual": {
+		"hand": [
+			{
+				"name": "modify_properties",
+				"tags": ["Card"],
+				"set_properties": {"Tags": Terms.GENERIC_TAGS.frozen.name},
+				"needs_subject": true,
+				"subject": "tutor",
+				"filter_state_tutor": [{
+					"filter_cardfilters": [
+						{
+							"property": "Tags",
+							"value": Terms.GENERIC_TAGS.frozen.name,
+							"comparison": "ne",
+						}
+					],
+				}],
+				"subject_count": {
+					"lookup_property": "_amounts",
+					"value_key": "beneficial_integer"
+				},
+				"sort_by": "random",
+				"src_container": "hand",
+			},
+			{
+				"name": "move_card_to_container",
+				"subject": "self",
+				"dest_container": "forgotten",
+				"tags": ["Played", "Card"],
+			},
+		],
+	},
+}
 const StoreInMind = {
 	"manual": {
 		"hand": [
@@ -86,6 +120,7 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 	# This format allows me to trace which script failed during load
 	var scripts := {
 		"Anger Memento": AngerMemento,
+		"Keep in Mind": KeepInMind,
 		"Store in Mind": StoreInMind,
 	}
 	return(_prepare_scripts(scripts, card_name, get_modified))

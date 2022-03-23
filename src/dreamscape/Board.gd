@@ -502,8 +502,8 @@ func _input(event):
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"Store in Mind",
-			"Store in Mind",
+			"Keep in Mind",
+			"Keep in Mind",
 			"Store in Mind",
 			"Store in Mind",
 			"Anger Memento",
@@ -565,11 +565,6 @@ func _on_Debug_pressed() -> void:
 #		cfc.NMAP.hand.draw_card(cfc.NMAP.deck)
 	# Deck cards
 	for c in [
-		"@ Out of Reach @",
-		"@ Out of Reach @",
-		"@ Out of Reach @",
-		"@ Out of Reach @",
-		"@ Out of Reach @",
 #		"Survival Mode",
 #		"Survival Mode",
 #		"Hyperfocus",
