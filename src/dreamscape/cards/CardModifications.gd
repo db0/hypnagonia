@@ -14,6 +14,7 @@ const LAST_RESORT_ENHANCEMENT := {
 		"value": "-1",
 	}
 const BENEFICIAL_INTEGERS := [
+	"beneficial_integer",
 	"chain_amount",
 	"draw_amount",
 	"draw_amount2",
@@ -30,6 +31,7 @@ const BENEFICIAL_INTEGERS := [
 
 ]
 const DETRIMENTAL_INTEGERS := [
+	"detrimental_integer",
 	"forget_amount",
 	"discard_amount",
 	"perturb_amount",
@@ -39,6 +41,7 @@ const DETRIMENTAL_INTEGERS := [
 ]
 # Duplicates to increase chances
 const BENEFICIAL_FLOATS := [
+	"beneficial_float",
 	"damage_amount",
 	"damage_amount",
 	"damage_amount2",
@@ -48,6 +51,7 @@ const BENEFICIAL_FLOATS := [
 	"healing_amount",
 ]
 const DETRIMENTAL_FLOATS := [
+	"detrimental_float",
 ]
 const BENEFICIAL_TAGS := [
 	Terms.GENERIC_TAGS.alpha.name,
@@ -117,7 +121,7 @@ static func _get_enhancement_filters(modification: String) -> Array:
 	# If it's not a numerical, it's a tag
 	elif modification in BENEFICIAL_TAGS:
 		filters.append(CardFilter.new('Tags', modification, 'ne'))
-		filters.append(CardFilter.new('Tags', 2, 'lt'))
+		filters.append(CardFilter.new('Tags', 4, 'lt'))
 		if OPPOSITE_TAGS.has(modification):
 			filters.append(CardFilter.new('Tags', OPPOSITE_TAGS[modification], 'ne'))
 	elif modification in DETRIMENTAL_TAGS:
@@ -133,13 +137,13 @@ static func _get_scar_filters(modification: String) -> Array:
 		filters.append(CardFilter.new('Tags', modification, 'eq'))
 	elif modification in DETRIMENTAL_TAGS:
 		filters.append(CardFilter.new('Tags', modification, 'ne'))
-		filters.append(CardFilter.new('Tags', 2, 'lt'))
+		filters.append(CardFilter.new('Tags', 4, 'lt'))
 		if OPPOSITE_TAGS.has(modification):
 			filters.append(CardFilter.new('Tags', OPPOSITE_TAGS[modification], 'ne'))
 	elif modification == Terms.GENERIC_TAGS.slumber.name:
 		filters = [
 			CardFilter.new('Tags', Terms.GENERIC_TAGS.slumber.name, 'ne'),
-			CardFilter.new('Tags', 2, 'lt'),
+			CardFilter.new('Tags', 4, 'lt'),
 			CardFilter.new('Type', "Concentration", 'ne'),
 			CardFilter.new('_is_concentration', false),
 		]

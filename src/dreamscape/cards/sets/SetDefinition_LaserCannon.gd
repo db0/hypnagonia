@@ -70,7 +70,7 @@ const CARDS := {
 	},
 	"Ω Cannon Ω": {
 		"Type": "Action",
-		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.GENERIC_TAGS.omega.name],
+		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.ACTIVE_EFFECTS.marked.name, Terms.GENERIC_TAGS.omega.name],
 		"Abilities": "{damage} for {damage_amount}. Apply {effect_stacks} {marked}\n"\
 				+ "Fuse {fuse_amount} -> HiCannon",
 		"Cost": 1,
@@ -601,7 +601,7 @@ const CARDS := {
 	},
 	"Blinding Flash": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.startup.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.armor.name, Terms.GENERIC_TAGS.startup.name],
 		"Abilities": "{forget}\n{startup}: Gain {effect_stacks} {armor}",
 		"Cost": 0,
 		"_illustration": "Nobody",
@@ -622,7 +622,7 @@ const CARDS := {
 	},
 	"* Blinding Flash *": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.slumber.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.armor.name, Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "{forget}\n{startup}: Gain {effect_stacks} {armor}",
 		"Cost": 0,
 		"_illustration": "Nobody",
@@ -638,7 +638,7 @@ const CARDS := {
 	},
 	"Ω Blinding Flash Ω": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.omega.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.armor.name, Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.omega.name],
 		"Abilities": "{forget}\n{startup}: Gain {effect_stacks} {armor}",
 		"Cost": 0,
 		"_illustration": "Nobody",
@@ -654,7 +654,7 @@ const CARDS := {
 	},
 	"Searing Flash": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.slumber.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.armor.name, Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Draw {draw_amount} cards. {forget}\n{startup}: Gain {effect_stacks} {armor}",
 		"Cost": 0,
 		"_illustration": "Nobody",
@@ -671,7 +671,7 @@ const CARDS := {
 	},
 	"Dark Recovery": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.startup.name,Terms.GENERIC_TAGS.relax.name],
+		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.relax.name],
 		"Abilities": "{forget}\n{startup}: {relax} for {healing_amount}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -689,7 +689,7 @@ const CARDS := {
 	},
 	"+ Dark Recovery +": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.startup.name,Terms.GENERIC_TAGS.relax.name],
+		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.relax.name],
 		"Abilities": "{forget}\n{startup}: {relax} for {healing_amount}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -702,7 +702,7 @@ const CARDS := {
 	},
 	"Ω Dark Recovery Ω": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.startup.name,Terms.GENERIC_TAGS.omega.name],
+		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.relax.name, Terms.GENERIC_TAGS.omega.name],
 		"Abilities": "{forget}\n{startup}: {relax} for {healing_amount}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -760,7 +760,7 @@ const CARDS := {
 	},
 	"Ω Dark Approach Ω": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.omega.name],
+		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.swift.name, Terms.GENERIC_TAGS.omega.name],
 		"Abilities": "{forget}\n{startup}: Draw {draw_amount} cards.",
 		"Cost": 0,
 		"_illustration": "Nobody",
@@ -889,7 +889,7 @@ const CARDS := {
 	},
 	"Ω Precision Ω": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.startup.name],
+		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.ACTIVE_EFFECTS.strengthen.name, Terms.GENERIC_TAGS.omega.name],
 		"Abilities": "{forget}\n{startup}: Gain {effect_stacks} {strengthen}",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -905,7 +905,7 @@ const CARDS := {
 	},
 	"@ Precision @": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.omega.name],
+		"Tags": [Terms.GENERIC_TAGS.startup.name],
 		"Abilities": "{forget}\n{startup}: Gain {effect_stacks} {strengthen}",
 		"Cost": 0,
 		"_illustration": "Nobody",
@@ -1259,7 +1259,7 @@ const CARDS := {
 	},
 	"Universal Component": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.GENERIC_TAGS.swift.name],
+		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.GENERIC_TAGS.swift.name, Terms.GENERIC_TAGS.purpose.name],
 		"Abilities": "This card will fuse with any other available {fusion} card.\n"\
 				+ "Whenever this card fuses, draw {draw_amount} card and gain {immersion_amount} {immersion}.",
 		"Cost": 0,
@@ -1279,7 +1279,7 @@ const CARDS := {
 	},
 	"! Universal Component !": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.GENERIC_TAGS.swift.name],
+		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.GENERIC_TAGS.swift.name, Terms.GENERIC_TAGS.purpose.name],
 		"Abilities": "This card will fuse with any other available {fusion} card.\n"\
 				+ "Whenever this card fuses, draw {draw_amount} card and gain {immersion_amount} {immersion}.",
 		"Cost": 0,
@@ -1295,7 +1295,7 @@ const CARDS := {
 	},
 	"@ Universal Component @": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.GENERIC_TAGS.swift.name],
+		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.GENERIC_TAGS.swift.name, Terms.GENERIC_TAGS.purpose.name],
 		"Abilities": "This card will fuse with any other available {fusion} card.\n"\
 				+ "Whenever this card fuses, draw {draw_amount} card and gain {immersion_amount} {immersion}.",
 		"Cost": 0,
@@ -1409,7 +1409,7 @@ const CARDS := {
 	},
 	"^ Focus Calibration ^": {
 		"Type": "Concentration",
-		"Tags": [Terms.GENERIC_TAGS.alpha.name, Terms.GENERIC_TAGS.frozen.name],
+		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.frozen.name, Terms.GENERIC_TAGS.alpha.name],
 		"Abilities": "At the start of the next {concentration_stacks} turns gain {concentration_immersion} {immersion}\n"\
 				+ "and {forget} the bottom {concentration_forget} cards of your draw pile.",
 		"Cost": 0,

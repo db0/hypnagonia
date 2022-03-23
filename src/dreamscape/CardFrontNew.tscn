@@ -417,6 +417,78 @@ rect_min_size = Vector2( 22, 22 )
 mouse_filter = 2
 expand = true
 
+[node name="TagContainer3" type="CenterContainer" parent="."]
+visible = false
+use_parent_material = true
+margin_left = 1.333
+margin_top = 98.0
+margin_right = 41.333
+margin_bottom = 138.0
+rect_min_size = Vector2( 40, 40 )
+mouse_filter = 2
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TagContainer" type="TextureRect" parent="TagContainer3"]
+modulate = Color( 0.129412, 0.129412, 0.129412, 1 )
+use_parent_material = true
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 35.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 30, 30 )
+mouse_filter = 2
+texture = ExtResource( 6 )
+expand = true
+
+[node name="TagIcon" type="TextureRect" parent="TagContainer3"]
+use_parent_material = true
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 31.0
+margin_bottom = 31.0
+rect_min_size = Vector2( 22, 22 )
+mouse_filter = 2
+expand = true
+
+[node name="TagContainer4" type="CenterContainer" parent="."]
+visible = false
+use_parent_material = true
+margin_left = 159.574
+margin_top = 98.0
+margin_right = 199.574
+margin_bottom = 138.0
+rect_min_size = Vector2( 40, 40 )
+mouse_filter = 2
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TagContainer" type="TextureRect" parent="TagContainer4"]
+modulate = Color( 0.129412, 0.129412, 0.129412, 1 )
+use_parent_material = true
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 35.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 30, 30 )
+mouse_filter = 2
+texture = ExtResource( 6 )
+expand = true
+
+[node name="TagIcon" type="TextureRect" parent="TagContainer4"]
+use_parent_material = true
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 31.0
+margin_bottom = 31.0
+rect_min_size = Vector2( 22, 22 )
+mouse_filter = 2
+expand = true
+
 [node name="BackBufferCopy" type="BackBufferCopy" parent="."]
 visible = false
 copy_mode = 2

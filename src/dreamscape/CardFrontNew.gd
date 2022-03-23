@@ -4,8 +4,12 @@ extends CardFront
 onready var cost_container := $CostContainer
 onready var tag_container1 := $TagContainer1
 onready var tag_container2 := $TagContainer2
+onready var tag_container3 := $TagContainer3
+onready var tag_container4 := $TagContainer4
 onready var tag_icon1 := $TagContainer1/TagIcon
 onready var tag_icon2 := $TagContainer2/TagIcon
+onready var tag_icon3 := $TagContainer3/TagIcon
+onready var tag_icon4 := $TagContainer4/TagIcon
 onready var card_design := $CardDesign
 onready var shader_effect := $ShaderEffect
 onready var text_shader := $TextShader
@@ -69,6 +73,8 @@ func set_tag_icon(tags: Array) -> void:
 	# This allow this function to be reused during the game as well
 	tag_container1.visible = false
 	tag_container2.visible = false
+	tag_container3.visible = false
+	tag_container4.visible = false
 	for tag in tags:
 		var tex : StreamTexture = Terms.get_term_value(tag, 'icon')
 		# This means there's no dedicated texture for that tag specified.
@@ -83,6 +89,12 @@ func set_tag_icon(tags: Array) -> void:
 		elif not tag_container2.visible:
 			tag_icon2.texture = new_texture
 			tag_container2.visible = true
+		elif not tag_container3.visible:
+			tag_icon3.texture = new_texture
+			tag_container3.visible = true
+		elif not tag_container4.visible:
+			tag_icon4.texture = new_texture
+			tag_container4.visible = true
 
 
 func apply_shader(shader_path: String) -> void:

@@ -1640,7 +1640,12 @@ const CARDS := {
 	},
 	"Beast Mode": {
 		"Type": "Understanding",
-		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.slumber.name],
+		"Tags": [
+			Terms.ACTIVE_EFFECTS.thorns.name,
+			Terms.ACTIVE_EFFECTS.quicken.name,
+			Terms.ACTIVE_EFFECTS.strengthen.name,
+			Terms.GENERIC_TAGS.slumber.name,
+		],
 		"Abilities": "Gain {effect_stacks} {strengthen}, {effect_stacks2} {quicken} and {effect_stacks3} {thorns}.\n{forget}",
 		"Cost": 2,
 		"_illustration": "Nobody",
@@ -1665,7 +1670,13 @@ const CARDS := {
 	},
 	"* Beast Mode *": {
 		"Type": "Understanding",
-		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.slumber.name],
+		"Tags": [
+			Terms.ACTIVE_EFFECTS.thorns.name,
+			Terms.ACTIVE_EFFECTS.quicken.name,
+			Terms.ACTIVE_EFFECTS.strengthen.name,
+			Terms.GENERIC_TAGS.slumber.name,
+		],
+
 		"Abilities": "Gain {effect_stacks} {strengthen}, {effect_stacks2} {quicken} and {effect_stacks3} {thorns}.\n{forget}",
 		"Cost": 2,
 		"_illustration": "Nobody",
@@ -1685,7 +1696,13 @@ const CARDS := {
 	},
 	"% Beast Mode %": {
 		"Type": "Understanding",
-		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.slumber.name],
+		"Tags": [
+			Terms.ACTIVE_EFFECTS.thorns.name,
+			Terms.ACTIVE_EFFECTS.quicken.name,
+			Terms.ACTIVE_EFFECTS.strengthen.name,
+			Terms.GENERIC_TAGS.slumber.name,
+		],
+
 		"Abilities": "Gain {effect_stacks} {strengthen}, {effect_stacks2} {quicken} and {effect_stacks3} {thorns}.\n{forget}",
 		"Cost": 2,
 		"_illustration": "Nobody",
@@ -1705,7 +1722,13 @@ const CARDS := {
 	},
 	"@ Beast Mode @": {
 		"Type": "Understanding",
-		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.slumber.name],
+		"Tags": [
+			Terms.ACTIVE_EFFECTS.thorns.name,
+			Terms.ACTIVE_EFFECTS.quicken.name,
+			Terms.ACTIVE_EFFECTS.strengthen.name,
+			Terms.GENERIC_TAGS.slumber.name,
+		],
+
 		"Abilities": "Gain {effect_stacks} {strengthen}, {effect_stacks2} {quicken} and {effect_stacks3} {thorns}.\n{forget}",
 		"Cost": 1,
 		"_illustration": "Nobody",
