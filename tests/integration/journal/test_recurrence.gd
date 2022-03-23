@@ -110,8 +110,8 @@ class TestNCE:
 			sceng = execute_with_yield(cards[index])
 			if sceng is GDScriptFunctionState and sceng.is_valid():
 				sceng = yield(sceng, "completed")
-		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		board.turn.call_deferred("end_player_turn")
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
 		assert_eq(surprise_combat_encounter.lessons_learned.get("attacks", []), [[6,6,6]], "Attacks learned")
 		assert_eq(surprise_combat_encounter.lessons_learned.get("defences", []), [25], "Defences learned")
 		assert_eq(surprise_combat_encounter.lessons_learned.get("heals", []), [-5], "Heals learned")

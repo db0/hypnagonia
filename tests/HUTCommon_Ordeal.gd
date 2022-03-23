@@ -2,7 +2,6 @@ extends "res://tests/HUTCommon.gd"
 
 # For easy access
 var dreamer: PlayerEntity
-var turn: Turn
 var counters: Counters
 
 var test_card_names := []
@@ -51,7 +50,6 @@ func before_each():
 	if globals.test_flags.get("start_ordeal_before_each", true):
 		board.begin_encounter()
 	dreamer = cfc.NMAP.board.dreamer
-	turn = cfc.NMAP.board.turn
 	counters = cfc.NMAP.board.counters
 	cards = setup_test_cards(test_card_names)
 	if cards.size() > 0:
