@@ -1257,7 +1257,7 @@ const CARDS := {
 	},
 	"! Guilt !": {
 		"Type": "Understanding",
-		"Tags": [Terms.GENERIC_TAGS.swift.name],
+		"Tags": [Terms.GENERIC_TAGS.swift.name, Terms.GENERIC_TAGS.init.name],
 		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} cards.",
 		"Cost": 0,
 		"_illustration": "Nobody",
