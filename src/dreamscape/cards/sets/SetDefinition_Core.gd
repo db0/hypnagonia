@@ -910,6 +910,7 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": ["confidence"],
+		"_avoid_normal_discard": true,
 		"_amounts": {
 			"defence_amount": 8,
 			"draw_amount": 1,
@@ -928,6 +929,7 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": ["confidence"],
+		"_avoid_normal_discard": true,
 		"_amounts": {
 			"defence_amount": 12,
 			"draw_amount": 1,
@@ -942,6 +944,7 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": ["confidence"],
+		"_avoid_normal_discard": true,
 		"_amounts": {
 			"defence_amount": 8,
 			"draw_amount": 2,
@@ -2628,6 +2631,7 @@ const CARDS := {
 		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
+		"_avoid_normal_discard": true,
 		"_amounts": {
 			"defence_amount": 8,
 			"defence_amount2": 3,
@@ -2650,6 +2654,7 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
+		"_avoid_normal_discard": true,
 		"_amounts": {
 			"defence_amount": 12,
 			"defence_amount2": 3,
@@ -2667,6 +2672,7 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
+		"_avoid_normal_discard": true,
 		"_amounts": {
 			"defence_amount": 9,
 			"defence_amount2": 3,
@@ -2684,6 +2690,7 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
+		"_avoid_normal_discard": true,
 		"_amounts": {
 			"defence_amount": 6,
 			"defence_amount2": 11,
@@ -2703,6 +2710,7 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
+		"_avoid_normal_discard": true,
 		"_amounts": {
 			"immersion_amount": 1,
 			"draw_amount": 2,
@@ -2727,6 +2735,7 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
+		"_avoid_normal_discard": true,
 		"_amounts": {
 			"immersion_amount": 2,
 			"draw_amount": 3,
@@ -2747,6 +2756,7 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
+		"_avoid_normal_discard": true,
 		"_amounts": {
 			"immersion_amount": 1,
 			"draw_amount": 3,
@@ -3045,6 +3055,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
+		"_avoid_normal_discard": true,
 		"_amounts": {
 			"draw_amount": 1,
 		},
@@ -4579,6 +4590,7 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
 		"_keywords": [],
+		"_avoid_normal_discard": true,
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
 		},
@@ -4598,6 +4610,7 @@ const CARDS := {
 				+ "and draw that many cards + {draw_amount}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
+		"_avoid_normal_discard": true,
 		"_rarity": "Rare",
 		"_keywords": [],
 		"_effects_info": {
@@ -4615,6 +4628,7 @@ const CARDS := {
 				+ "and draw that many cards + 1.",
 		"Cost": 0,
 		"_illustration": "Nobody",
+		"_avoid_normal_discard": true,
 		"_rarity": "Rare",
 		"_keywords": [],
 		"_effects_info": {
