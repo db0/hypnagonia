@@ -485,6 +485,7 @@ func _input(event):
 #		var card_entry = globals.player.deck.add_new_card("The Whippy-Flippy")
 #		card_entry.upgrade_progress = card_entry.upgrade_threshold
 		globals.player.deck.add_new_card("Handsy Aunt")
+		globals.player.deck.add_new_card("A Fine Specimen")
 #		globals.player.deck.add_new_card("Chasm")
 #		globals.player.deck.add_new_card("Chasm")
 #		globals.player.deck.add_new_card("Prejudice")

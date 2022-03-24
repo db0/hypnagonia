@@ -4645,7 +4645,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "{damage} for {chain_amount} for every {per_division} cards currently in your draw pile.",
+				+ "{damage} for {chain_amount} for every {detrimental_float} cards currently in your draw pile.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -4653,7 +4653,7 @@ const CARDS := {
 		"_amounts": {
 			"damage_amount": 7,
 			"chain_amount": 1,
-			"per_division": 5,
+			"detrimental_float": 5.0,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -4665,7 +4665,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "{damage} for {chain_amount} for every {per_division} cards currently in your draw pile.",
+				+ "{damage} for {chain_amount} for every {detrimental_float} cards currently in your draw pile.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -4673,7 +4673,7 @@ const CARDS := {
 		"_amounts": {
 			"damage_amount": 10,
 			"chain_amount": 1,
-			"per_division": 5,
+			"detrimental_float": 5.0,
 		},
 		"_is_upgrade": true,
 	},
@@ -4681,7 +4681,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "{damage} for {chain_amount} for every {per_division} cards currently in your draw pile.",
+				+ "{damage} for {chain_amount} for every {detrimental_float} cards currently in your draw pile.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -4689,7 +4689,7 @@ const CARDS := {
 		"_amounts": {
 			"damage_amount": 7,
 			"chain_amount": 2,
-			"per_division": 4,
+			"detrimental_float": 4.0,
 		},
 		"_is_upgrade": true,
 	},

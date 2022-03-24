@@ -2907,7 +2907,7 @@ const AFineSpecimen = {
 					},
 					"divider": {
 					"lookup_property": "_amounts",
-						"value_key": "per_division"
+						"value_key": "detrimental_float"
 					},
 				},
 			},

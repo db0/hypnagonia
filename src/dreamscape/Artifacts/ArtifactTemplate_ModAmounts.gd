@@ -1,22 +1,6 @@
 class_name ModAmountsArtifact
 extends ModifyPropertyArtifact
 
-# This list is not exhaustive
-# Just the most common ones, which might be ones used in curios
-const KNOWN_AMOUNTS := [
-	"discover_purpose",
-	"damage_amount",
-	"defence_amount",
-	"draw_amount",
-	"healing_amount",
-	"immersion_amount",
-	"effect_stacks",
-	"chain_amount",
-	"multiplier_amount",
-	"discard_amount",
-	"exert_amount",
-]
-
 var amount_name: String
 var amount_value
 # This key is used to specify which purpose amount keys to look for
@@ -25,7 +9,7 @@ var purpose := ''
 var payload: Dictionary
 
 func _on_artifact_added() -> void:
-	if not amount_name in KNOWN_AMOUNTS:
+	if not amount_name in CardModifications.ALL_NUMERICALS:
 		print_debug("ERROR: amount name '%s' not known." % [amount_name])
 		return
 	if amount_name == "discover_purpose":

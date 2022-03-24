@@ -55,7 +55,7 @@ const HandsyAunt = {
 					"event_name": "new_turn",
 					"multiplier": {
 						"lookup_property": "_amounts",
-						"value_key": "multiplier_amount"
+						"value_key": "beneficial_float"
 					}
 				},
 				"tags": ["Attack", "Card"],
