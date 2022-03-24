@@ -189,13 +189,15 @@ func on_selection_gui_input(event: InputEvent, dupe_selection: Card, origin_card
 
 # Manually selects cards based on their index.
 # Typically used for testing
-func select_cards(indexes :Array = []) -> void:
+# Returns an array with the Card object selected
+func select_cards(indexes :Array = []) -> Array:
 	var all_choices = _card_dupe_map.keys()
 	for index in indexes:
 		if index + 1 > all_choices.size(): 
 			continue
 		selected_cards.append(all_choices[index])
 	emit_signal("confirmed")
+	return(selected_cards)
 	
 
 func get_all_card_options() -> Array:

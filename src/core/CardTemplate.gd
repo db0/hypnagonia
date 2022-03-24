@@ -479,8 +479,8 @@ func _on_Card_gui_input(event) -> void:
 						if state == CardState.FOCUSED_IN_HAND\
 								and  _has_targeting_cost_hand_script()\
 								and check_play_costs() != CFConst.CostsState.IMPOSSIBLE:
-							var _sceng = execute_scripts()
 							cfc.card_drag_ongoing = null
+							var _sceng = execute_scripts()
 						elif state == CardState.FOCUSED_IN_HAND\
 								and (disable_dragging_from_hand
 								or check_play_costs() == CFConst.CostsState.IMPOSSIBLE):

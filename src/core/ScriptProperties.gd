@@ -1052,7 +1052,7 @@ const FILTER_TASK = "filter_task"
 const FILTER_CARD_NAME = "filter_card_name"
 # Value Type: Dictionary
 #
-# Requires similar input as [KEY_PER_BOARDSEEK](#KEY_PER_BOARDSEEK)
+# Requires similar input as [KEY_PER_TUTOR](#KEY_PER_TUTOR)
 # But also needs [FILTER_CARD_COUNT](#FILTER_CARD_COUNT) specified
 const FILTER_PER_TUTOR = "filter_per_tutor_count"
 # Value Type: Dictionary

@@ -9,7 +9,7 @@ var purpose := ''
 var payload: Dictionary
 
 func _on_artifact_added() -> void:
-	if not amount_name in CardModifications.ALL_NUMERICALS:
+	if not amount_name in CardModifications.ALL_NUMERICALS + ["discover_purpose"]:
 		print_debug("ERROR: amount name '%s' not known." % [amount_name])
 		return
 	if amount_name == "discover_purpose":

@@ -503,7 +503,7 @@ func _input(event):
 #			"Fowl Language",
 #			"A Thousand Squeaks",
 			"Moving On",
-			"% Moving On %",
+			"@ Fist of Candies @",
 #			"Charged Shot",
 		]:
 			var ce = CardEntry.new(c)
