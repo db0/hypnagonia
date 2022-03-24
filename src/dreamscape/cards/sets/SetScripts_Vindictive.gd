@@ -178,6 +178,31 @@ const MovingOn = {
 		],
 	},
 }
+const FistOfCandies = {
+	"manual": {
+		"hand": [
+			{
+				"name": "modify_damage",
+				"subject": "target",
+				"needs_subject": true,
+				"amount": 'per_tutor',
+				"per_tutor": {
+					"src_container": "hand",
+					"subject": "tutor",
+					"subject_count": "all",
+					"multiplier": {
+						"lookup_property": "_amounts",
+						"value_key": "damage_amount"
+					},
+				},
+				"tags": ["Attack", "Card"],
+				"filter_state_subject": [{
+					"filter_group": "EnemyEntities",
+				},],
+			},
+		],
+	},
+}
 
 # This fuction returns all the scripts of the specified card name.
 #
@@ -190,5 +215,6 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 		"Keep in Mind": KeepInMind,
 		"Store in Mind": StoreInMind,
 		"Moving On": MovingOn,
+		"Fist of Candies": FistOfCandies,
 	}
 	return(_prepare_scripts(scripts, card_name, get_modified))

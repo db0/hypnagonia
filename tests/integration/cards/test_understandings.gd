@@ -222,7 +222,7 @@ class TestHandsyAunt:
 		globals.test_flags.test_initial_hand = true
 		testing_card_name = "Handsy Aunt"
 		expected_amount_keys = [
-			"multiplier_amount"
+			"beneficial_float"
 		]
 
 	func test_card_results():
