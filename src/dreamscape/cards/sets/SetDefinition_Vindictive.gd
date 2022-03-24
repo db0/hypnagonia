@@ -10,7 +10,7 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Basic",
-		"_keywords": ["interpretation"],
+		"_keywords": [],
 		"_amounts": {
 			"beneficial_integer": 1,
 		},
@@ -27,7 +27,7 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Basic",
-		"_keywords": ["interpretation"],
+		"_keywords": [],
 		"_amounts": {
 			"beneficial_integer": 2,
 		},
@@ -40,7 +40,7 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Basic",
-		"_keywords": ["interpretation"],
+		"_keywords": [],
 		"_amounts": {
 			"beneficial_integer": 1,
 		},
@@ -48,13 +48,13 @@ const CARDS := {
 	},
 	"Memento of Anger": {
 		"Type": "Action",
-		"Tags": [Terms.GENERIC_TAGS.chain.name, Terms.GENERIC_TAGS.end_turn.name],
+		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "If {frozen}, {damage} for {damage_amount2}",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Common",
-		"_keywords": ["interpretation"],
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation", "frozen"],
 		"_amounts": {
 			"damage_amount": 8,
 			"damage_amount2": 3,
@@ -72,8 +72,8 @@ const CARDS := {
 				+ "If {frozen}, {damage} for {damage_amount2}",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Common",
-		"_keywords": ["interpretation"],
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation", "frozen"],
 		"_amounts": {
 			"damage_amount": 11,
 			"damage_amount2": 3,
@@ -87,13 +87,115 @@ const CARDS := {
 				+ "If {frozen}, {damage} for {damage_amount2}",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Common",
-		"_keywords": ["interpretation"],
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation", "frozen"],
 		"_amounts": {
 			"damage_amount": 6,
 			"damage_amount2": 10,
 		},
 		"_is_upgrade": true,
 	},
+	"Memento of Safety": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.chain.name],
+		"Abilities": "Gain {defence_amount} {defence_amount}.\n"\
+				+ "If {frozen}, gain {defence_amount} {defence_amount2}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence", "frozen"],
+		"_amounts": {
+			"defence_amount": 7,
+			"defence_amount2": 3,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"+ Memento of Safety +",
+			"% Memento of Safety %",
+		],
+	},
+	"+ Memento of Safety +": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.chain.name],
+		"Abilities": "Gain {defence_amount} {defence_amount}.\n"\
+				+ "If {frozen}, gain {defence_amount} {defence_amount2}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence", "frozen"],
+		"_amounts": {
+			"defence_amount": 10,
+			"defence_amount2": 3,
+		},
+		"_is_upgrade": true,
+	},
+	"% Memento of Safety %": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.chain.name],
+		"Abilities": "Gain {defence_amount} {defence_amount}.\n"\
+				+ "If {frozen}, gain {defence_amount} {defence_amount2}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence", "frozen"],
+		"_amounts": {
+			"defence_amount": 5,
+			"defence_amount2": 10,
+		},
+		"_is_upgrade": true,
+	},
+	"Moving On": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.frozen.name],
+		"Abilities": "Draw {draw_amount} cards.\n"\
+				+ "Discard {discard_amount} cards.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": [],
+		"_avoid_normal_discard": true,
+		"_amounts": {
+			"draw_amount": 2,
+			"discard_amount": 1,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"! Moving On !",
+			"% Moving On %",
+		],
+	},
+	"! Moving On !": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.frozen.name],
+		"Abilities": "Draw {draw_amount} cards.\n"\
+				+ "Discard {discard_amount} cards.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": [],
+		"_avoid_normal_discard": true,
+		"_amounts": {
+			"draw_amount": 3,
+			"discard_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"% Moving On %": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.frozen.name],
+		"Abilities": "Draw {draw_amount} cards.\n"\
+				+ "Discard {discard_amount} cards.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_avoid_normal_discard": true,
+		"_keywords": [],
+		"_amounts": {
+			"draw_amount": 5,
+			"discard_amount": 4,
+		},
+		"_is_upgrade": true,
+	},
+
 }
 

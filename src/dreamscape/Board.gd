@@ -502,8 +502,8 @@ func _input(event):
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"Handsy Aunt",
-			"@ Handsy Aunt @",
+			"Moving On",
+			"% Moving On %",
 #			"Charged Shot",
 		]:
 			var ce = CardEntry.new(c)
@@ -512,8 +512,8 @@ func _input(event):
 			#card.set_is_faceup(false,true)
 			card._determine_idle_state()
 		cfc.NMAP.deck.shuffle_cards(false)
-		for c in cfc.NMAP.deck.get_all_cards():
-			c.queue_free()
+#		for c in cfc.NMAP.deck.get_all_cards():
+#			c.queue_free()
 		# Deck Cards
 		begin_encounter()
 		player_info._on_Settings_pressed()

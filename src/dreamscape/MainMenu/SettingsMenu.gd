@@ -95,17 +95,19 @@ func _play_toggle_sound(button_pressed: bool) -> void:
 func _on_AnimatedTextBackgrounds_toggled(button_pressed: bool) -> void:
 	cfc.set_setting('anim_text_backgrounds',button_pressed)
 	get_tree().call_group("card_fronts", "toggle_text_shader_visible", button_pressed)
-	if button_pressed:
-		SoundManager.play_se('setting_toggle_on')
-	else:
-		SoundManager.play_se('setting_toggle_off')
+	if sound_effect_enabled:
+		if button_pressed:
+			SoundManager.play_se('setting_toggle_on')
+		else:
+			SoundManager.play_se('setting_toggle_off')
 
 
 func _on_EnableGlow_toggled(button_pressed: bool) -> void:
 	cfc.set_setting('glow_enabled',button_pressed)
 	if cfc.NMAP.has('main'):
 		cfc.NMAP.main.toggle_glow(button_pressed)
-	if button_pressed:
-		SoundManager.play_se('setting_toggle_on')
-	else:
-		SoundManager.play_se('setting_toggle_off')
+	if sound_effect_enabled:
+		if button_pressed:
+			SoundManager.play_se('setting_toggle_on')
+		else:
+			SoundManager.play_se('setting_toggle_off')

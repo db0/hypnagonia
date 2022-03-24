@@ -76,6 +76,8 @@ const EXPLANATIONS = {
 			+ "The affected card will be permanently improved in a random manner",
 	"fuse": "Fuse ([img=24x24]%s[/img]): " % [Terms.GENERIC_TAGS.fusion.rich_text_icon]\
 			+ "Fusion occurs when two cards with fusion are drawn into the same hand",
+	"frozen": "Cherish ([img=24x24]%s[/img]): " % [Terms.GENERIC_TAGS.frozen.rich_text_icon]\
+			+ "A cherised card is not discarded at the end of the turn.",
 }
 # Allows the Card object and Card Viewer to replace specific entries during display.
 # For example, you can mark that a cost of 'U' is displayed as an empty string ('').
@@ -88,28 +90,3 @@ const REPLACEMENTS = {
 #		'U': '',
 #	}
 }
-
-# Creates the format dictionary to convert strings pointing to amounts
-# text in the card abilities, into rich text numbers.
-static func get_amounts_format(properties_dict: Dictionary, printed_properties_dict := {}) -> Dictionary:
-	var amounts_format = properties_dict.get("_amounts", {}).duplicate(true)
-	var printed_amounts_format = printed_properties_dict.get("_amounts", {}).duplicate(true)
-	for amount in amounts_format:
-		var amount_color = "yellow"
-		if printed_amounts_format.has(amount):
-			if amounts_format[amount] > printed_amounts_format[amount]:
-				if amount in CardModifications.DETRIMENTAL_INTEGERS + CardModifications.DETRIMENTAL_FLOATS:
-					amount_color = "red"
-				else:
-					amount_color = "green"
-			elif amounts_format[amount] < printed_amounts_format[amount]:
-				if amount in CardModifications.DETRIMENTAL_INTEGERS + CardModifications.DETRIMENTAL_FLOATS:
-					amount_color = "green"
-				else:
-					amount_color = "red"
-		var fmt := {
-			"color": amount_color,
-			"amount": amounts_format[amount],
-		}
-		amounts_format[amount] = "[color={color}]{amount}[/color]".format(fmt)
-	return(amounts_format)

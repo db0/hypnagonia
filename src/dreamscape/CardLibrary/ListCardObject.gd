@@ -19,7 +19,7 @@ func _on_viewport_resized() -> void:
 
 func _get_bbcode_format() -> Dictionary:
 	var basic_bbcode_formats := Terms.get_bbcode_formats()
-	var amounts_format := CardConfig.get_amounts_format(cfc.card_definitions[card_name])
+	var amounts_format := HUtils.get_amounts_format(cfc.card_definitions[card_name])
 	for amount in amounts_format:
 		basic_bbcode_formats[amount] = amounts_format[amount]
 	return(basic_bbcode_formats)
