@@ -1,5 +1,23 @@
 # Changelog
 
+## [Unreleased](https://github.com/db0/hypnagonia/tree/HEAD)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.42.0...HEAD)
+
+**Closed issues:**
+
+- Enemy intents should appear in a black "thinking" bubble [\#226](https://github.com/db0/hypnagonia/issues/226)
+
+## [v0.42.0](https://github.com/db0/hypnagonia/tree/v0.42.0) (2022-03-24)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.41.1...v0.42.0)
+
+**Merged pull requests:**
+
+- Fix tests to allow release [\#253](https://github.com/db0/hypnagonia/pull/253) ([db0](https://github.com/db0))
+- tests: fix release [\#252](https://github.com/db0/hypnagonia/pull/252) ([db0](https://github.com/db0))
+- Various Bugfixes [\#251](https://github.com/db0/hypnagonia/pull/251) ([db0](https://github.com/db0))
+
 ## [v0.41.1](https://github.com/db0/hypnagonia/tree/v0.41.1) (2022-03-23)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.41.0...v0.41.1)
