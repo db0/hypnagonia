@@ -46,7 +46,6 @@ const DETRIMENTAL_INTEGERS := [
 # however by increasing it by 1.1 and rounding up, we make the change significant in both cases.
 const BENEFICIAL_FLOATS := [
 	"beneficial_float",
-	"multiplier_amount",
 	"damage_amount",
 	"damage_amount",
 	"damage_amount2",

@@ -1762,12 +1762,12 @@ const CARDS := {
 	"Handsy Aunt": {
 		"Type": "Understanding",
 		"Tags": [],
-		"Abilities": "{damage} for {multiplier_amount} for each turn in this ordeal.",
+		"Abilities": "{damage} for {beneficial_float} for each turn in this ordeal.",
 		"Cost": 2,
 		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_amounts": {
-			"multiplier_amount": 3.0,
+			"beneficial_float": 3.0,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -1778,24 +1778,24 @@ const CARDS := {
 	"+ Handsy Aunt +": {
 		"Type": "Understanding",
 		"Tags": [],
-		"Abilities": "{damage} for {multiplier_amount} for each turn in this ordeal.",
+		"Abilities": "{damage} for {beneficial_float} for each turn in this ordeal.",
 		"Cost": 2,
 		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_amounts": {
-			"multiplier_amount": 4.0,
+			"beneficial_float": 4.0,
 		},
 		"_is_upgrade": true,
 	},
 	"@ Handsy Aunt @": {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.omega.name],
-		"Abilities": "{damage} for {multiplier_amount} for each turn in this ordeal.",
+		"Abilities": "{damage} for {beneficial_float} for each turn in this ordeal.",
 		"Cost": 1,
 		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_amounts": {
-			"multiplier_amount": 2.5,
+			"beneficial_float": 2.5,
 		},
 		"_is_upgrade": true,
 	},
