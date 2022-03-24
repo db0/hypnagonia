@@ -101,19 +101,22 @@ static func modify_amounts(properties: Dictionary, amount_name: String, value, p
 	var new_value
 	if typeof(value) == TYPE_STRING\
 			and value.lstrip("*").is_valid_float()\
-			and typeof(current_value) == TYPE_INT:
+			and typeof(current_value) in [TYPE_INT, TYPE_REAL]:
 		if value.begins_with("*"):
-			# Decreases are rounded down
-			if float(value.lstrip("*")) < 1:
-				new_value = int(floor(float(current_value) * float(value.lstrip("*"))))
-			if float(value.lstrip("*")) >= 1:
-				new_value = int(ceil(float(current_value) * float(value.lstrip("*"))))
+			# We reduce floats to a single decimal
+			new_value = stepify(float(current_value) * float(value.lstrip("*")), 0.1)
 		else:
-			new_value = current_value + int(value)
+			new_value = current_value + float(value)
 			# For now, I assume no amounts will be negative
 			# (They should use is_inverted instead)
 			if new_value < 0: 
 				new_value = 0
+		if typeof(current_value) == TYPE_INT:
+			# Decreases are rounded down
+			if float(value.lstrip("*")) < 1:
+				new_value = int(floor(new_value))
+			if float(value.lstrip("*")) >= 1:
+				new_value = ceil(float(new_value))
 	else:
 		new_value = value
 	properties["_amounts"][amount_name] = new_value
