@@ -476,7 +476,7 @@ func _input(event):
 #				globals.player.deck.remove_card(c)
 #		_reveal_entry(upgrade_journal, true)
 #		globals.player.deck.add_new_card("+ Noisy Whip +")
-		globals.player.add_artifact(ArtifactDefinitions.IncreaseConfusionStacks.canonical_name)
+#		globals.player.add_artifact(ArtifactDefinitions.IncreaseConfusionStacks.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.IncreaseRandomDamage.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.FreeCard.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
@@ -484,8 +484,7 @@ func _input(event):
 		globals.player.add_memory(MemoryDefinitions.BossFaster.canonical_name)
 #		var card_entry = globals.player.deck.add_new_card("The Whippy-Flippy")
 #		card_entry.upgrade_progress = card_entry.upgrade_threshold
-		globals.player.deck.add_new_card("Spare Lens")
-		globals.player.deck.add_new_card("* Butterfly *")
+		globals.player.deck.add_new_card("Handsy Aunt")
 #		globals.player.deck.add_new_card("Chasm")
 #		globals.player.deck.add_new_card("Chasm")
 #		globals.player.deck.add_new_card("Prejudice")
@@ -507,7 +506,7 @@ func _input(event):
 #			EnemyEncounter.new(Act2.TrafficJam, "easy"),
 			EnemyEncounter.new(Act3.HandsyAunt, "hard"),
 #			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
-#			preload("res://src/dreamscape/Run/NCE/AllActs/EpicUpgrade.gd").new(),
+			preload("res://src/dreamscape/Run/NCE/AllActs/EpicUpgrade.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act3/TheCake.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act2/HangingOn.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd").new(),

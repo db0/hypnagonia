@@ -40,8 +40,13 @@ const DETRIMENTAL_INTEGERS := [
 	"min_requirements_amount",
 ]
 # Duplicates to increase chances
+# This doesn't mean that these amounts are float, but rather that they're multiplied by floats
+# This allows us more percentage-based increases.
+# For example increasing a value from 4 to 5 is significant, but from 30 to 31 is not
+# however by increasing it by 1.1 and rounding up, we make the change significant in both cases.
 const BENEFICIAL_FLOATS := [
 	"beneficial_float",
+	"multiplier_amount",
 	"damage_amount",
 	"damage_amount",
 	"damage_amount2",

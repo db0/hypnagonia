@@ -1767,7 +1767,7 @@ const CARDS := {
 		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_amounts": {
-			"multiplier_amount": 3,
+			"multiplier_amount": 3.0,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -1783,7 +1783,7 @@ const CARDS := {
 		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_amounts": {
-			"multiplier_amount": 4,
+			"multiplier_amount": 4.0,
 		},
 		"_is_upgrade": true,
 	},
