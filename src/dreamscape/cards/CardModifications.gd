@@ -4,15 +4,19 @@
 class_name CardModifications
 extends Reference
 
-# We only use this if none of the others exist, as it's very nerfing
+# We only use this if none of the others exist, as it's very destabilizing
 const LAST_RESORT_SCAR := {
 		"property": "Cost",
 		"value": "+1",
-	}# We only use this if none of the others exist, as it's very nerfing
+	}
+	
+# We only use this if none of the others exist, as it's very destabilizing
 const LAST_RESORT_ENHANCEMENT := {
 		"property": "Cost",
 		"value": "-1",
 	}
+
+# Duplicates to increase chances
 const BENEFICIAL_INTEGERS := [
 	"beneficial_integer",
 	"chain_amount",
@@ -28,8 +32,8 @@ const BENEFICIAL_INTEGERS := [
 	"multiplier_amount",
 	"immersion_amount",
 	"max_requirements_amount",
-
 ]
+
 const DETRIMENTAL_INTEGERS := [
 	"detrimental_integer",
 	"forget_amount",
@@ -39,11 +43,12 @@ const DETRIMENTAL_INTEGERS := [
 	"exert_amount",
 	"min_requirements_amount",
 ]
-# Duplicates to increase chances
+
 # This doesn't mean that these amounts are float, but rather that they're multiplied by floats
 # This allows us more percentage-based increases.
 # For example increasing a value from 4 to 5 is significant, but from 30 to 31 is not
 # however by increasing it by 1.1 and rounding up, we make the change significant in both cases.
+# Duplicates to increase chances
 const BENEFICIAL_FLOATS := [
 	"beneficial_float",
 	"damage_amount",

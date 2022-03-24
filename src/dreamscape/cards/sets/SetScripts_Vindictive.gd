@@ -34,9 +34,6 @@ const AngerMemento = {
 					],
 				}],
 			},
-			{
-				"name": "end_turn",
-			}
 		],
 	},
 }
@@ -112,6 +109,75 @@ const StoreInMind = {
 		],
 	},
 }
+const MementoOfSafety = {
+	"manual": {
+		"hand": [
+			{
+				"name": "assign_defence",
+				"tags": ["Card"],
+				"subject": "dreamer",
+				"amount": {
+					"lookup_property": "_amounts",
+					"value_key": "defence_amount"
+				},
+			},
+			{
+				"name": "assign_defence",
+				"tags": ["Card"],
+				"subject": "dreamer",
+				"amount": {
+					"lookup_property": "_amounts",
+					"value_key": "defence_amount2"
+				},
+				"filter_state_self": [{
+					"filter_cardfilters": [
+						{
+							"property": "Tags",
+							"value": Terms.GENERIC_TAGS.frozen.name,
+						}
+					],
+				}],
+			},
+		],
+	},
+}
+const MovingOn = {
+	"manual": {
+		"hand": [
+			{
+				"name": "move_card_to_container",
+				"dest_container": "discard",
+				"subject": "self",
+				"tags": ["Played", "Card"],
+			},
+			{
+				"name": "draw_cards",
+				"tags": ["Card"],
+				"card_count": {
+					"lookup_property": "_amounts",
+					"value_key": "draw_amount"
+				},
+			},
+			{
+				"name": "move_card_to_container",
+				"tags": ["Card"],
+				"subject": "index",
+				"subject_count": "all",
+				"subject_index": "top",
+				SP.KEY_NEEDS_SELECTION: true,
+				SP.KEY_SELECTION_COUNT: {
+					"lookup_property": "_amounts",
+					"value_key": "discard_amount"
+				},
+				SP.KEY_SELECTION_TYPE: "equal",
+				SP.KEY_SELECTION_OPTIONAL: false,
+				SP.KEY_SELECTION_IGNORE_SELF: true,
+				"src_container": "hand",
+				"dest_container": "discard",
+			},
+		],
+	},
+}
 
 # This fuction returns all the scripts of the specified card name.
 #
@@ -120,7 +186,9 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 	# This format allows me to trace which script failed during load
 	var scripts := {
 		"Memento of Anger": AngerMemento,
+		"Memento of Safety": MementoOfSafety,
 		"Keep in Mind": KeepInMind,
 		"Store in Mind": StoreInMind,
+		"Moving On": MovingOn,
 	}
 	return(_prepare_scripts(scripts, card_name, get_modified))

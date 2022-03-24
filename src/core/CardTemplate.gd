@@ -1885,6 +1885,17 @@ func common_pre_run(_sceng) -> void:
 func common_post_execution_scripts(_trigger: String) -> void:
 	pass
 
+
+# This function when we think the card is turned the right way, to ensure it's not stuck
+# in a weird position
+func ensure_proper() -> void:
+	var to_visible = _card_front_container
+	var to_invisible = _card_back_container
+	if not is_faceup:
+		to_visible = _card_back_container
+		to_invisible = _card_front_container
+	_flip_card(to_invisible, to_visible, true)
+
 # Returns true is the card has hand_drag_starts_targeting set to true
 # is currently in hand, and has a targetting task.
 #
@@ -2089,6 +2100,7 @@ func _flip_card(to_invisible: Control, to_visible: Control, instant := false) ->
 		to_invisible.visible = false
 		to_invisible.rect_scale.x = 0
 		to_invisible.rect_position.x = to_visible.rect_size.x/2
+		highlight.rect_scale = Vector2(1,1)
 	# When dupe cards in focus viewport are created, they have parent == null
 	# This causes them to raise an error trying to create a tween
 	# So we skip that.

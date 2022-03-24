@@ -486,9 +486,9 @@ func _on_self_played(_card,_trigger,_details) -> void:
 # Overridable function for formatting card text
 func _get_formatted_text(value) -> String:
 	var text = str(value)
-	var amounts_format = CardConfig.get_amounts_format(properties, printed_properties)
+	var amounts_format = HUtils.get_amounts_format(properties, printed_properties)
 	if not amounts_format.size():
-		amounts_format = CardConfig.get_amounts_format(cfc.card_definitions[canonical_name])
+		amounts_format = HUtils.get_amounts_format(cfc.card_definitions[canonical_name])
 	return(text.format(amounts_format))
 
 
