@@ -119,7 +119,7 @@ func set_random_pathos_org(type := "repressed", include_zeroes := false) -> Dict
 				# If we do not include zeroes, we set all other pathos
 				# to 0, to exclude them. This way we ensure the tests
 				# will know the high, med and low pathos to be grabbed.
-				# If zeroed pathos are included, then 
+				# If zeroed pathos are included, then
 				# WE CANNOT ENSURE THE MID PATHOS IS KNOWN FOR THE TESTS.
 				if include_zeroes:
 					pdict[p] = 100

@@ -42,9 +42,9 @@ func assert_pathos_signaled(signal_name: String, pathos: String, index := -1) ->
 	assert_not_null(signal_details, signal_name + " signal emited by pathos")
 	if not signal_details:
 		return
-	
+
 	assert_eq(signal_details[0], pathos, "Correct pathos modified")
-	
+
 func assert_pathos_not_signaled(signal_name: String, pathos := '') -> void:
 	assert_signal_not_emitted(globals.player.pathos, signal_name)
 	if pathos == '':
