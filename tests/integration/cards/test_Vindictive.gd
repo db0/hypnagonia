@@ -22,7 +22,7 @@ class TestStoreInMind:
 		if not selwindows.size():
 			return
 		var selection_window : SelectionWindow = selwindows[0]
-		yield(yield_to(selection_window, "card_choices_ready", 1), YIELD)
+		yield(yield_to(selection_window, "selection_window_opened", 1), YIELD)
 		var card_options = selection_window.get_all_card_options()
 		for sel_card in card_options:
 			assert_does_not_have(sel_card.properties.Tags, Terms.GENERIC_TAGS.frozen.name, "Cards with frozen are excluded")
@@ -112,16 +112,17 @@ class TestMovingOn:
 	func test_card_results():
 		assert_has_amounts()
 		var sceng = execute_with_yield(card)
+		yield(yield_for(0.3), YIELD)
 		var selwindows = get_tree().get_nodes_in_group("selection_windows")
 		assert_ne(selwindows.size(), 0)
 		if not selwindows.size():
+			if sceng is GDScriptFunctionState:
+				sceng = yield(sceng, "completed")
 			return
 		var selection_window : SelectionWindow = selwindows[0]
-		yield(yield_to(selection_window, "card_choices_ready", 1), YIELD)
+		yield(yield_to(selection_window, "selection_window_opened", 1), YIELD)
 		var card_options = selection_window.get_all_card_options()
 		var selcards = selection_window.select_cards([0])
 		assert_eq(hand.get_card_count(), 6, "One extra card drawn")
 		for c in selcards:
 			assert_eq(c.get_parent(), discard, "Selected cards discarded")
-		# If I don't put a yield here, it crashes.
-		yield(yield_for(0.3), YIELD)
