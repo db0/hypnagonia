@@ -98,7 +98,7 @@ const CARDS := {
 	"Memento of Safety": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
-		"Abilities": "Gain {defence_amount} {defence_amount}.\n"\
+		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If {frozen}, gain {defence_amount} {defence_amount2}",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -117,7 +117,7 @@ const CARDS := {
 	"+ Memento of Safety +": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
-		"Abilities": "Gain {defence_amount} {defence_amount}.\n"\
+		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If {frozen}, gain {defence_amount} {defence_amount2}",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -132,7 +132,7 @@ const CARDS := {
 	"% Memento of Safety %": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
-		"Abilities": "Gain {defence_amount} {defence_amount}.\n"\
+		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If {frozen}, gain {defence_amount} {defence_amount2}",
 		"Cost": 1,
 		"_illustration": "Nobody",
