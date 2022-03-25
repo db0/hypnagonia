@@ -231,5 +231,5 @@ class TestHandsyAunt:
 		var sceng = snipexecute(card, test_torment)
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
-		assert_eq(test_torment.damage, tdamage(get_amount("multiplier_amount") * 5))
+		assert_eq(test_torment.damage, tdamage(get_amount("beneficial_float") * 5))
 			
