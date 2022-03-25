@@ -1406,6 +1406,10 @@ func execute_scripts(
 		only_cost_check := false):
 	if cfc.game_paused:
 		return
+	# Just in case the card is displayed outside the main game
+	# and somehow its script is triggered.
+	if not cfc.NMAP.has('board'):
+		return
 	common_pre_execution_scripts(trigger, trigger_details)
 	var card_scripts = retrieve_scripts(trigger)
 	# I use this spot to add a breakpoint when testing script behaviour

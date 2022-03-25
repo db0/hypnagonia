@@ -205,6 +205,39 @@ const FEARLESS:= {
 		"Unshakeable"
 	]
 }
+const VINDICTIVE:= {
+	"Anxiety": 0,
+#	"Icon": preload("res://icon.png"),
+	"Tags": [
+		Terms.GENERIC_TAGS.frozen.name,
+		Terms.ACTIVE_EFFECTS.thorns.name,
+	],
+	"Artifacts": [
+
+	],
+	"Memories": [
+
+	],
+	"Perturbations": [
+		
+	],
+	"Basic": [
+		"Confidence",
+		"Confidence",
+		"Keep in Mind",
+	],
+	"Common": [
+		"Moving On",
+		"Fist of Candies",
+	],
+	"Uncommon": [
+		"Memento of Anger",
+		"Memento of Safety",
+	],
+	"Rare": [
+
+	]
+}
 	# Archetypes: Self-harm
 const COWARD := {
 	"Anxiety": -5,
