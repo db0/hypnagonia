@@ -1150,7 +1150,7 @@ const CARDS := {
 	"Brooding": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.swift.name],
-		"Abilities": "{forget} {forget_amount} cards. Draw {draw_amount} cards.",
+		"Abilities": "{forget} {forget_amount} card. Draw {draw_amount} cards.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -1169,7 +1169,7 @@ const CARDS := {
 	"! Brooding !": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.swift.name],
-		"Abilities": "{forget} {forget_amount} cards. Draw {draw_amount} cardss.",
+		"Abilities": "{forget} {forget_amount} card. Draw {draw_amount} cardss.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -1183,7 +1183,7 @@ const CARDS := {
 	"= Brooding =": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.frozen.name],
-		"Abilities": "{forget} {forget_amount} cards. Draw {draw_amount} cards.",
+		"Abilities": "{forget} {forget_amount} card. Draw {draw_amount} cards.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -1197,7 +1197,7 @@ const CARDS := {
 	"@ Brooding @": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.frozen.name],
-		"Abilities": "{forget} {forget_amount} cards. Draw {draw_amount} card.",
+		"Abilities": "{forget} {forget_amount} card. Draw {draw_amount} card.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
