@@ -211,6 +211,12 @@ const OutofReach = {
 					"value_key": "effect_stacks"
 				},
 			},
+			{
+				"name": "move_card_to_container",
+				"subject": "self",
+				"dest_container": "forgotten",
+				"tags": ["Played", "Card"],
+			},
 		],
 	},
 }
@@ -254,6 +260,15 @@ const InnerJustice = {
 					"lookup_property": "_amounts",
 					"value_key": "immersion_amount"
 				},
+			},
+			{
+				"name": "modify_damage",
+				"subject": "dreamer",
+				"amount": {
+					"lookup_property": "_amounts",
+					"value_key": "exert_amount"
+				},
+				"tags": ["Exert", "Card"],
 			},
 		],
 	},
