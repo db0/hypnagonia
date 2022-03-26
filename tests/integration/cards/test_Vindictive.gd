@@ -218,3 +218,59 @@ class TestNothingForgotten:
 			if c.get_property("Tags").has(Terms.GENERIC_TAGS.frozen.name):
 				frozens += 1
 		assert_eq(frozens, 2)
+
+
+class TestStewing:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	func _init() -> void:
+		testing_card_name = "Stewing"
+		expected_amount_keys = [
+			"defence_amount",
+			"increase_amount",
+		]
+
+	func test_card_results():
+		assert_has_amounts()
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3), YIELD)
+		var sceng = execute_with_yield(card)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(dreamer.defence, get_amount("defence_amount") + get_amount("increase_amount"))
+
+
+class TestReactionary:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	var effect: String = Terms.ACTIVE_EFFECTS.thorns.name
+	func _init() -> void:
+		testing_card_name = "Reactionary"
+		expected_amount_keys = [
+			"damage_amount",
+			"effect_stacks",
+			"min_requirements_amount",
+		]
+
+	func test_no_stress():
+		assert_has_amounts()
+		var sceng = snipexecute(card, test_torment)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(test_torment.damage, tdamage(get_amount("damage_amount")))
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 0,
+				"%s stacks on Dreamer not increased" % [effect])
+
+	func test_stress():
+		var intents_to_test = [
+			{
+				"intent_scripts": ["Stress:10"],
+				"reshuffle": true,
+			},
+		]
+		test_torment.intents.replace_intents(intents_to_test)
+		test_torment.intents.refresh_intents()
+		var sceng = snipexecute(card, test_torment)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(test_torment.damage, tdamage(get_amount("damage_amount")))
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect), get_amount("effect_stacks"),
+				"%s stacks on Dreamer increased by correct amount" % [effect])

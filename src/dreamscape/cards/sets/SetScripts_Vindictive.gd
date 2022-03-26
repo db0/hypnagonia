@@ -269,13 +269,13 @@ const TheColdDish = {
 		"hand": [
 			{
 				"name": "modify_damage",
+				"tags": ["Attack", "Card"],
 				"subject": "target",
 				"needs_subject": true,
 				"amount": {
 					"lookup_property": "_amounts",
 					"value_key": "damage_amount"
 				},
-				"tags": ["Attack", "Card"],
 				"filter_state_subject": [{
 					"filter_group": "EnemyEntities",
 				},],
@@ -322,6 +322,82 @@ const NothingForgotten = {
 		],
 	},
 }
+const Stewing = {
+	"manual": {
+		"hand": [
+			{
+				"name": "assign_defence",
+				"tags": ["Card"],
+				"subject": "dreamer",
+				"amount": {
+					"lookup_property": "_amounts",
+					"value_key": "defence_amount"
+				},
+			},
+		],
+	},
+	"player_turn_started": {
+		"hand": [
+			{
+				"name": "modify_amount",
+				"tags": ["Card"],
+				"amount_key": "defence_amount",
+				"amount_value": {
+					"lookup_property": "_amounts",
+					"value_key": "increase_amount",
+					"convert_to_string": true,
+				},
+				"subject": "self",
+			},
+		],
+	},
+}
+const Reactionary = {
+	"manual": {
+		"hand": [
+			{
+				"name": "modify_damage",
+				"subject": "target",
+				"needs_subject": true,
+				"amount": {
+					"lookup_property": "_amounts",
+					"value_key": "damage_amount"
+				},
+				"tags": ["Attack", "Card"],
+				"filter_state_subject": [{
+					"filter_group": "EnemyEntities",
+				},],
+			},
+			{
+				"name": "nested_script",
+				"nested_tasks": [
+					{
+						"name": "apply_effect",
+						"tags": ["Card"],
+						"effect_name": Terms.ACTIVE_EFFECTS.thorns.name,
+						"subject": "dreamer",
+						"modification": {
+							"lookup_property": "_amounts",
+							"value_key": "effect_stacks"
+						},
+					},
+				],
+				# This trick allows me to trigger parts of the script only
+				# if the previous target matches a filter
+				"subject": "previous",
+				"filter_state_subject": [{
+					"filter_intent_stress": {
+						"amount": {
+							"lookup_property": "_amounts",
+							"value_key": "min_requirements_amount"
+						},
+						"comparison": 'ge',
+					},
+				},],
+			}
+		],
+	},
+}
 
 # This fuction returns all the scripts of the specified card name.
 #
@@ -340,5 +416,7 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 		"Last Vestige of Warmth": LastVestigeOfWarmth,
 		"The Cold Dish": TheColdDish,
 		"Nothing Forgotten": NothingForgotten,
+		"Stewing": Stewing,
+		"Reactionary": Reactionary,
 	}
 	return(_prepare_scripts(scripts, card_name, get_modified))

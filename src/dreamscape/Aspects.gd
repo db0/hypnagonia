@@ -14,6 +14,7 @@ const EGO := {
 const DISPOSITION := {
 	"Fearless": Archetypes.FEARLESS,
 	"Coward": Archetypes.COWARD,
+	"Vindictive": Archetypes.VINDICTIVE,
 }
 
 const INSTRUMENT := {

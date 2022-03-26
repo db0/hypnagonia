@@ -43,7 +43,7 @@ const KEY_CARD_COUNT := "card_count"
 # Reduces the cost of the next matching card played by this amount
 # Default: 1
 const KEY_DISCOUNT_AMOUNT := "discount_amount"
-# Will discount cards matching these filters. 
+# Will discount cards matching these filters.
 # The value is an array of dictionaries
 # Each dictionary has the payload for a single CardFilter
 const KEY_DISCOUNT_FILTERS := "discount_filters"
@@ -74,7 +74,7 @@ const FILTER_X_USAGE = "filter_x_usage"
 const FILTER_INTENT_STRESS = "filter_intent_stress"
 const FILTER_PER_EFFECT_STACKS = "filter_per_effect_stacks"
 const FILTER_EFFECTS = "filter_effects"
-# Filters that the enemy object does not match a specific object. 
+# Filters that the enemy object does not match a specific object.
 # Can only be specified in CustomScripts as it needs an object value.
 const FILTER_IS_NOT_SPECIFIED_ENEMY = "filter_not_enemy"
 const FILTER_DREAMER_DEFENCE = "filter_dreamer_defence"
@@ -102,8 +102,15 @@ static func filter_trigger(
 
 
 	if is_valid and card_scripts.get(FILTER_INTENT_STRESS) != null:
+		var stress_requirements : Dictionary = card_scripts.get(FILTER_INTENT_STRESS)
+		var stress_comparison : String = stress_requirements.get(
+			ScriptProperties.KEY_COMPARISON, get_default(ScriptProperties.KEY_COMPARISON))
+		var stress_amount : int = stress_requirements.get("amount", 0)
 		for enemy in cfc.get_tree().get_nodes_in_group("EnemyEntities"):
-			if enemy.intents.get_total_damage() > card_scripts.get(FILTER_INTENT_STRESS):
+			if not CFUtils.compare_numbers(
+					enemy.intents.get_total_damage(),
+					stress_amount,
+					stress_comparison):
 				is_valid = false
 	if is_valid and card_scripts.get("filter_dreamer_effect"):
 		var current_stacks = cfc.NMAP.board.dreamer.active_effects.get_effect_stacks(
@@ -195,7 +202,7 @@ static func filter_trigger(
 	return(is_valid)
 
 static func check_validity(obj, card_scripts, type := "trigger") -> bool:
-	var card_matches := .check_validity(obj, card_scripts, type)
+	var obj_matches := .check_validity(obj, card_scripts, type)
 	if obj and card_scripts.get(ScriptProperties.FILTER_STATE + type):
 		var state_filters_array : Array = card_scripts.get(ScriptProperties.FILTER_STATE + type)
 		for state_filters in state_filters_array:
@@ -206,11 +213,21 @@ static func check_validity(obj, card_scripts, type := "trigger") -> bool:
 				# It will treat these two states as an "AND"
 				if filter == FILTER_EFFECTS\
 						and not check_effect_filter(obj, state_filters[filter]):
-					card_matches = false
+					obj_matches = false
 				if filter == FILTER_IS_NOT_SPECIFIED_ENEMY\
 						and obj == state_filters[filter]:
-					card_matches = false
-	return(card_matches)
+					obj_matches = false
+				# Checks if the individual torment being considered is applying stress this turn
+				if filter == FILTER_INTENT_STRESS:
+					var stress_comparison : String = state_filters[filter].get(
+						ScriptProperties.KEY_COMPARISON, get_default(ScriptProperties.KEY_COMPARISON))
+					var stress_amount : int = state_filters[filter].get("amount", 0)
+					if not CFUtils.compare_numbers(
+							obj.intents.get_total_damage(),
+							stress_amount,
+							stress_comparison):
+						obj_matches = false
+	return(obj_matches)
 
 
 # Returns true if the card tokens match against filters specified in

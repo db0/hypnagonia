@@ -433,8 +433,11 @@ const FindWeakness = {
 				"tags": ["Attack", "Card"],
 				"subject": "previous",
 				"filter_intent_stress": {
-					"lookup_property": "_amounts",
-					"value_key": "max_requirements_amount"
+					"amount": {
+						"lookup_property": "_amounts",
+						"value_key": "max_requirements_amount"
+					},
+					"comparison": 'le',
 				},
 				"filter_state_subject": [{
 					"filter_group": "EnemyEntities",
@@ -2995,8 +2998,11 @@ const TheWhippyFlippy = {
 				},
 				"store_integer": true,
 				"filter_intent_stress": {
-					"lookup_property": "_amounts",
-					"value_key": "stress_threshold"
+					"amount": {
+						"lookup_property": "_amounts",
+						"value_key": "stress_threshold"
+					},
+					"comparison": 'le',
 				},
 			},
 			{
@@ -3010,8 +3016,11 @@ const TheWhippyFlippy = {
 				},
 				"store_integer": true,
 				"filter_intent_stress": {
-					"lookup_property": "_amounts",
-					"value_key": "stress_threshold2"
+					"amount": {
+						"lookup_property": "_amounts",
+						"value_key": "stress_threshold2"
+					},
+					"comparison": 'le',
 				},
 			},
 			{
@@ -3025,8 +3034,11 @@ const TheWhippyFlippy = {
 				},
 				"store_integer": true,
 				"filter_intent_stress": {
-					"lookup_property": "_amounts",
-					"value_key": "stress_threshold3"
+					"amount": {
+						"lookup_property": "_amounts",
+						"value_key": "stress_threshold3"
+					},
+					"comparison": 'le',
 				},
 			},
 		],
@@ -3583,8 +3595,11 @@ const AChickOfTheLight = {
 					"value_key": "effect_stacks"
 				},
 				"filter_intent_stress": {
-					"lookup_property": "_amounts",
-					"value_key": "max_requirements_amount"
+					"amount": {
+						"lookup_property": "_amounts",
+						"value_key": "max_requirements_amount"
+					},
+					"comparison": 'le',
 				},
 			}
 		],
