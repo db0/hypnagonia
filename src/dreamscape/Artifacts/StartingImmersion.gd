@@ -8,7 +8,7 @@ func _on_player_turn_started(_turn: Turn = null) -> void:
 			"name": "mod_counter",
 			"counter_name": "immersion",
 			"modification": ArtifactDefinitions.StartingImmersion.amounts.immersion_amount,
-			"tags": ["Curio"],
+			"tags": ["Curio", "New Turn"],
 		},
 	]
 	execute_script(script)
