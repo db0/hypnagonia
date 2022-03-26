@@ -297,13 +297,15 @@ func calculate_chance_for_encounter(entry: String, include_next_progression := t
 			return(100)
 		else:
 			return(0)
+	elif repressed[Terms.RUN_ACCUMULATION_NAMES.boss]\
+			+ progressions[Terms.RUN_ACCUMULATION_NAMES.boss].front() >= 100:
+		if entry == Terms.RUN_ACCUMULATION_NAMES.boss:
+			return(100)
+		else:
+			return(0)
 	elif entry == Terms.RUN_ACCUMULATION_NAMES.boss:
 		return(0)
 	# If the boss is going to appear, all other encounters have 0 chance.
-	if entry != Terms.RUN_ACCUMULATION_NAMES.boss \
-			and repressed[Terms.RUN_ACCUMULATION_NAMES.boss]\
-			+ progressions[Terms.RUN_ACCUMULATION_NAMES.boss].front() >= 100:
-		return(0)
 	var total: float = 0
 	var progression : float = 0
 	for pathos_entry in repressed:
