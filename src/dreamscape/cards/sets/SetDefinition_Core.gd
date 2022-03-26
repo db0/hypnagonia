@@ -4803,9 +4803,9 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.strengthen.name
 		],
 		"Abilities": "If every Torment {stress}:\n"\
-				+ "{stress} ≤ {stress_threshold}: Gain {effect_stacks} {buffer}\n"\
-				+ "{stress} ≤ {stress_threshold2}: Gain {effect_stacks2} {empower}\n"\
-				+ "{stress} ≤ {stress_threshold3}: Gain {effect_stacks3} {strengthen}\n",
+				+ "{stress} ≤ {beneficial_integer}: Gain {effect_stacks} {buffer}\n"\
+				+ "{stress} ≤ {beneficial_integer2}: Gain {effect_stacks2} {empower}\n"\
+				+ "{stress} ≤ {beneficial_integer3}: Gain {effect_stacks3} {strengthen}\n",
 		"Cost": 1,
 		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Rare",
@@ -4817,11 +4817,11 @@ const CARDS := {
 		},
 		"_amounts": {
 			"effect_stacks": 2,
-			"stress_threshold": 10,
+			"beneficial_integer": 10,
 			"effect_stacks2": 2,
-			"stress_threshold2": 5,
+			"beneficial_integer2": 5,
 			"effect_stacks3": 1,
-			"stress_threshold3": 0,
+			"beneficial_integer3": 0,
 		},
 		"_amount_purpose_map": {
 			"effect_stacks": Terms.ACTIVE_EFFECTS.buffer.name,
@@ -4844,9 +4844,9 @@ const CARDS := {
 		],
 
 		"Abilities": "If every Torment {stress}:\n"\
-				+ "{stress} ≤ {stress_threshold}: Gain {effect_stacks} {buffer}\n"\
-				+ "{stress} ≤ {stress_threshold2}: Gain {effect_stacks2} {empower}\n"\
-				+ "{stress} ≤ {stress_threshold3}: Gain {effect_stacks3} {strengthen}\n",
+				+ "{stress} ≤ {beneficial_integer}: Gain {effect_stacks} {buffer}\n"\
+				+ "{stress} ≤ {beneficial_integer2}: Gain {effect_stacks2} {empower}\n"\
+				+ "{stress} ≤ {beneficial_integer3}: Gain {effect_stacks3} {strengthen}\n",
 		"Cost": 1,
 		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Rare",
@@ -4858,11 +4858,11 @@ const CARDS := {
 		},
 		"_amounts": {
 			"effect_stacks": 3,
-			"stress_threshold": 10,
+			"beneficial_integer": 10,
 			"effect_stacks2": 3,
-			"stress_threshold2": 5,
+			"beneficial_integer2": 5,
 			"effect_stacks3": 1,
-			"stress_threshold3": 0,
+			"beneficial_integer3": 0,
 		},
 		"_amount_purpose_map": {
 			"effect_stacks": Terms.ACTIVE_EFFECTS.buffer.name,
@@ -4880,9 +4880,9 @@ const CARDS := {
 		],
 
 		"Abilities": "If every Torment {stress}:\n"\
-				+ "{stress} ≤ {stress_threshold}: Gain {effect_stacks} {buffer}\n"\
-				+ "{stress} ≤ {stress_threshold2}: Gain {effect_stacks2} {empower}\n"\
-				+ "{stress} ≤ {stress_threshold3}: Gain {effect_stacks3} {strengthen}\n",
+				+ "{stress} ≤ {beneficial_integer}: Gain {effect_stacks} {buffer}\n"\
+				+ "{stress} ≤ {beneficial_integer2}: Gain {effect_stacks2} {empower}\n"\
+				+ "{stress} ≤ {beneficial_integer3}: Gain {effect_stacks3} {strengthen}\n",
 		"Cost": 1,
 		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Rare",
@@ -4894,11 +4894,11 @@ const CARDS := {
 		},
 		"_amounts": {
 			"effect_stacks": 1,
-			"stress_threshold": 10,
+			"beneficial_integer": 10,
 			"effect_stacks2": 1,
-			"stress_threshold2": 5,
+			"beneficial_integer2": 5,
 			"effect_stacks3": 2,
-			"stress_threshold3": 0,
+			"beneficial_integer3": 0,
 		},
 		"_amount_purpose_map": {
 			"effect_stacks": Terms.ACTIVE_EFFECTS.buffer.name,
@@ -4916,9 +4916,9 @@ const CARDS := {
 		],
 
 		"Abilities": "If every Torment {stress}:\n"\
-				+ "{stress} ≤ {stress_threshold}: Gain {effect_stacks} {buffer}\n"\
-				+ "{stress} ≤ {stress_threshold2}: Gain {effect_stacks2} {empower}\n"\
-				+ "{stress} ≤ {stress_threshold3}: Gain {effect_stacks3} {strengthen}\n",
+				+ "{stress} ≤ {beneficial_integer}: Gain {effect_stacks} {buffer}\n"\
+				+ "{stress} ≤ {beneficial_integer2}: Gain {effect_stacks2} {empower}\n"\
+				+ "{stress} ≤ {beneficial_integer3}: Gain {effect_stacks3} {strengthen}\n",
 		"Cost": 1,
 		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Rare",
@@ -4930,11 +4930,11 @@ const CARDS := {
 		},
 		"_amounts": {
 			"effect_stacks": 2,
-			"stress_threshold": 13,
+			"beneficial_integer": 13,
 			"effect_stacks2": 2,
-			"stress_threshold2": 8,
+			"beneficial_integer2": 8,
 			"effect_stacks3": 1,
-			"stress_threshold3": 2,
+			"beneficial_integer3": 2,
 		},
 		"_amount_purpose_map": {
 			"effect_stacks": Terms.ACTIVE_EFFECTS.buffer.name,

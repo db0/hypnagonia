@@ -3000,7 +3000,7 @@ const TheWhippyFlippy = {
 				"filter_intent_stress": {
 					"amount": {
 						"lookup_property": "_amounts",
-						"value_key": "stress_threshold"
+						"value_key": "beneficial_integer"
 					},
 					"comparison": 'le',
 				},
@@ -3018,7 +3018,7 @@ const TheWhippyFlippy = {
 				"filter_intent_stress": {
 					"amount": {
 						"lookup_property": "_amounts",
-						"value_key": "stress_threshold2"
+						"value_key": "beneficial_integer2"
 					},
 					"comparison": 'le',
 				},
@@ -3036,7 +3036,7 @@ const TheWhippyFlippy = {
 				"filter_intent_stress": {
 					"amount": {
 						"lookup_property": "_amounts",
-						"value_key": "stress_threshold3"
+						"value_key": "beneficial_integer3"
 					},
 					"comparison": 'le',
 				},
