@@ -27,6 +27,8 @@ var artifact_object
 var _is_activated = false
 # Helps us track our parents
 var player_info_node: Control
+# This is used to track if the artifact has been used during a predictions run
+var snapshot_is_active: Dictionary
 
 func _ready() -> void:
 	if is_active and effect_context == ArtifactDefinitions.EffectContext.BATTLE:

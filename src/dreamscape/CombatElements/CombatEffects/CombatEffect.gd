@@ -12,6 +12,7 @@ var priority : int = Terms.ALTERANT_PRIORITY.ADD
 var entity_type: String
 var owning_entity: CombatEntity
 var stacks: int = 0 setget set_stacks
+# This is used to track how many stacks have been used during a predictions run
 var snapshot_stacks: Dictionary
 # Used for custom effects from cards which can be upgraded
 # The string signifies the upgrade used, and should be handled

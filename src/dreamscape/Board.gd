@@ -484,7 +484,7 @@ func _input(event):
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
 		dreamer.health = 1000
 		dreamer.damage = 100
-#		globals.player.add_artifact(ArtifactDefinitions.ThickExplosion.canonical_name)
+		globals.player.add_artifact(ArtifactDefinitions.FirstPowerAttack.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.PurpleWave.canonical_name)
 		# warning-ignore:return_value_discarded
 #		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
@@ -502,8 +502,8 @@ func _input(event):
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"Note-Taking",
-			"Note-Taking",
+			"Whirlwind",
+			"Whirlwind",
 #			"Charged Shot",
 		]:
 			var ce = CardEntry.new(c)
