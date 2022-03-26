@@ -274,10 +274,10 @@ class TestIncreaseConfusionStacks:
 			return
 		var selection_deck : SelectionDeck = selection_decks[0]
 		watch_signals(globals.player.deck)
-		assert_eq(selection_deck._deck_preview_grid.get_children().size(), 1)
-		if selection_deck._deck_preview_grid.get_children().size() < 1:
+		assert_eq(selection_deck._deck_preview_grid.get_children().size(), 3)
+		if selection_deck._deck_preview_grid.get_children().size() < 3:
 			return
-		selection_deck._deck_preview_grid.get_children()[0].select_card()
+		selection_deck._deck_preview_grid.get_children()[2].select_card()
 		assert_signal_emitted(globals.player.deck, "card_entry_modified")
 		var signal_details = get_signal_parameters(globals.player.deck, "card_entry_modified")
 		if not signal_details or signal_details.size() == 0:
