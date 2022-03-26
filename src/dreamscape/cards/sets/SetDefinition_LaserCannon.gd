@@ -1093,13 +1093,13 @@ const CARDS := {
 	"Streamlining": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
-		"Abilities": "Draw {concentration_draw} cards whenever you fuse {fusion} cards.",
+		"Abilities": "Draw {concentration_stacks} cards whenever you fuse {fusion} cards.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["fuse"],
 		"_amounts": {
-			"concentration_draw": 2,
+			"concentration_stacks": 2,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
