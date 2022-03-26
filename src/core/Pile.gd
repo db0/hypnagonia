@@ -122,6 +122,8 @@ func _on_ViewPopup_popup_hide() -> void:
 			# whatever is the default for the pile
 			if card.is_faceup != faceup_cards:
 				card.set_is_faceup(faceup_cards,true)
+			else:
+				card.ensure_proper()
 			card.state = card.CardState.IN_PILE
 	reorganize_stack()
 	if show_manipulation_buttons:
