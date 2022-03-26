@@ -223,6 +223,7 @@ scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 4 )
 show_manipulation_buttons = false
 pile_name = "Deck"
+sorted_popup = true
 
 [node name="Control" parent="VBC/HandArea/HBC/DeckControl/VBC/Control/Deck" index="0"]
 custom_styles/panel = SubResource( 1 )
