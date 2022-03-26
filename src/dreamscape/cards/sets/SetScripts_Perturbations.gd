@@ -25,7 +25,7 @@ const scripts := {
 		},
 	},
 	"Unease": {
-		"on_player_turn_ended": {
+		"player_turn_ended": {
 			"hand": [
 				{
 					"name": "apply_effect",
@@ -41,7 +41,7 @@ const scripts := {
 		},
 	},
 	"Discombobulation": {
-		"on_player_turn_ended": {
+		"player_turn_ended": {
 			"hand": [
 				{
 					"name": "apply_effect",
@@ -57,7 +57,7 @@ const scripts := {
 		},
 	},
 	"Prejudice": {
-		"on_player_turn_ended": {
+		"player_turn_ended": {
 			"hand": [
 				{
 					"name": "apply_effect",
@@ -88,7 +88,7 @@ const scripts := {
 			],
 			"filter_source": "deck",
 		},
-		"on_player_turn_started": {
+		"player_turn_started": {
 			"hand": [
 				{
 					# Have to go with a custom_script here, because the
@@ -101,7 +101,7 @@ const scripts := {
 				},
 			],
 		},
-		"on_player_turn_ended": {
+		"player_turn_ended": {
 			"hand": [
 				{
 					"name": "move_card_to_container",
@@ -154,7 +154,7 @@ const scripts := {
 		},
 	},
 	"Scattered Dreams": {
-		"on_player_turn_ended": {
+		"player_turn_ended": {
 			"hand": [
 				{
 					"name": "apply_effect",
@@ -233,7 +233,7 @@ const scripts := {
 			],
 			"trigger": "self",
 		},
-		"on_player_turn_ended": {
+		"player_turn_ended": {
 			"hand": [
 				{
 					"name": "remove_card_from_deck",
@@ -254,7 +254,7 @@ const scripts := {
 				},
 			],
 		},
-		"on_player_turn_ended": {
+		"player_turn_ended": {
 			"hand": [
 				{
 					"name": "modify_damage",
@@ -269,7 +269,7 @@ const scripts := {
 		},
 	},
 	"Inescepable Conclusion": {
-		"on_player_turn_ended": {
+		"player_turn_ended": {
 			"hand": [
 				{
 					"name": "spawn_card_to_container",
@@ -281,7 +281,7 @@ const scripts := {
 		},
 	},
 	"Lethe": {
-		"on_player_turn_ended": {
+		"player_turn_ended": {
 			"hand": [
 				{
 					"name": "custom_script",
@@ -291,7 +291,7 @@ const scripts := {
 		},
 	},
 	"Cockroach Infestation": {
-		"on_player_turn_ended": {
+		"player_turn_ended": {
 			"hand": [
 				{
 					"name": "custom_script",
