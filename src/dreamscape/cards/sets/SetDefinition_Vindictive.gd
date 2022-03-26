@@ -99,7 +99,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
-				+ "If {frozen}, gain {defence_amount} {defence_amount2}",
+				+ "If {frozen}, gain {defence_amount2} {defence}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -118,7 +118,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
-				+ "If {frozen}, gain {defence_amount} {defence_amount2}",
+				+ "If {frozen}, gain {defence_amount2} {defence}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -133,7 +133,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
-				+ "If {frozen}, gain {defence_amount} {defence_amount2}",
+				+ "If {frozen}, gain {defence_amount2} {defence}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -244,7 +244,7 @@ const CARDS := {
 	"Hand of Grudge": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Gain {effect_stacks} {thorns} for each card in hand (including self)",
+		"Abilities": "Gain {effect_stacks} {thorns} for each card in hand (including self)\n{forget}",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -295,8 +295,8 @@ const CARDS := {
 	},
 	"Vestige of Warmth": {
 		"Type": "Concentration",
-		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "At the end of the turn, gain {defence_amount} {defence} for each card in hand.",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "At the end of the turn, gain {concentration_effect} {defence} for each card in hand.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -313,8 +313,8 @@ const CARDS := {
 	},
 	"@ Vestige of Warmth @": {
 		"Type": "Concentration",
-		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "At the end of the turn, gain {defence_amount} {defence} for each card in hand.",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "At the end of the turn, gain {concentration_effect} {defence} for each card in hand.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -327,8 +327,8 @@ const CARDS := {
 	},
 	"Last Vestige of Warmth": {
 		"Type": "Concentration",
-		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "At the end of the turn, gain {defence_amount} {defence} for each card in hand.",
+		"Tags": [Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "At the end of the turn, gain {concentration_effect} {defence} for each card in hand.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -391,7 +391,7 @@ const CARDS := {
 	"Nothing Forgotten": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "At the start of the turn, {concentration_stacks}random card in your hand becomes {frozen}.",
+		"Abilities": "At the start of the turn, {concentration_stacks} random card in your hand becomes {frozen}.",
 		"Cost": 3,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
@@ -409,7 +409,7 @@ const CARDS := {
 	"@ Nothing Forgotten @": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "At the start of the turn, {concentration_stacks}random card in your hand becomes {frozen}.",
+		"Abilities": "At the start of the turn, {concentration_stacks} random card in your hand becomes {frozen}.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
@@ -422,7 +422,7 @@ const CARDS := {
 	"^ Nothing Forgotten ^": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.alpha.name],
-		"Abilities": "At the start of the turn, {concentration_stacks}random card in your hand becomes {frozen}.",
+		"Abilities": "At the start of the turn, {concentration_stacks} random card in your hand becomes {frozen}.",
 		"Cost": 3,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
