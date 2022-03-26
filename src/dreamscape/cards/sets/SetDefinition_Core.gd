@@ -3470,7 +3470,7 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["anxiety"],
 		"_amounts": {
-			"exert_amount": 2,
+			"exert_amount": 3,
 			"draw_amount": 1,
 			"draw_amount2": 1,
 		},
@@ -3490,7 +3490,7 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["anxiety"],
 		"_amounts": {
-			"exert_amount": 2,
+			"exert_amount": 4,
 			"draw_amount": 1,
 			"draw_amount2": 2,
 		},
