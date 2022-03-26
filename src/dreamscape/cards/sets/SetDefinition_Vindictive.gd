@@ -485,11 +485,14 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "If the Torment intents to {stress} for {min_requirements_amount} or more, gain {effect_stacks} {thorns}",
+				+ "If the Torment intends to {stress} for {min_requirements_amount} or more, gain {effect_stacks} {thorns}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
+		},
 		"_amounts": {
 			"damage_amount": 3,
 			"effect_stacks": 2,
@@ -505,11 +508,14 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "If the Torment intents to {stress} for {min_requirements_amount} or more, gain {effect_stacks} {thorns}",
+				+ "If the Torment intends to {stress} for {min_requirements_amount} or more, gain {effect_stacks} {thorns}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
+		},
 		"_amounts": {
 			"damage_amount": 3,
 			"effect_stacks": 4,
@@ -521,15 +527,70 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "If the Torment intents to {stress} for {min_requirements_amount} or more, gain {effect_stacks} {thorns}",
+				+ "If the Torment intends to {stress} for {min_requirements_amount} or more, gain {effect_stacks} {thorns}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
+		},
 		"_amounts": {
 			"damage_amount": 6,
 			"effect_stacks": 2,
 			"min_requirements_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"That's Going in the Book": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
+		"Abilities": "Gain {effect_stacks} {thorns}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": [],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"effect_stacks": 4,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"* That's Going in the Book *",
+			"~ That's Going in the Book ~",
+		],
+	},
+	"* That's Going in the Book *": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
+		"Abilities": "Gain {effect_stacks} {thorns}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": [],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"effect_stacks": 5,
+		},
+		"_is_upgrade": true,
+	},
+	"~ That's Going in the Book ~": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "Gain {effect_stacks} {thorns}\n{forget}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": [],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"effect_stacks": 8,
 		},
 		"_is_upgrade": true,
 	},

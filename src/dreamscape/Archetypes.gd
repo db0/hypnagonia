@@ -230,6 +230,8 @@ const VINDICTIVE:= {
 		"Moving On",
 		"Fist of Candies",
 		"Hand of Grudge",
+		"Reactionary",
+		"That's Going in the Book",
 	],
 	"Uncommon": [
 		"Memento of Anger",
