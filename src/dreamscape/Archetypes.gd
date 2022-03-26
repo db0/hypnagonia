@@ -238,6 +238,7 @@ const VINDICTIVE:= {
 		"Memento of Safety",
 		"Vestige of Warmth",
 		"Stewing",
+		"Note-Taking",
 	],
 	"Rare": [
 		"The Cold Dish",
