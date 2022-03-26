@@ -144,7 +144,7 @@ class TestHandofGrudge:
 		var sceng = execute_with_yield(card)
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
-		assert_eq(dreamer.active_effects.get_effect_stacks(effect), get_amount("effect_stacks"),
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect), int(get_amount("effect_stacks") * 6),
 				"%s stacks on Dreamer increased by correct amount" % [effect])
 
 
