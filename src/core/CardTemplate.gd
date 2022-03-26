@@ -105,6 +105,7 @@ signal card_targeted(card,trigger,details)
 signal dragging_started(card)
 # Sent when the card's state changes
 signal state_changed(card, old_state, new_state)
+signal scripts_executed(card, sceng, trigger)
 
 
 # The properties dictionary will be filled in by the setup() code
@@ -1504,6 +1505,7 @@ func execute_scripts(
 			if not sceng.all_tasks_completed:
 				yield(sceng,"tasks_completed")
 		is_executing_scripts = false
+		emit_signal("scripts_executed", self, sceng, trigger)
 	return(sceng)
 
 

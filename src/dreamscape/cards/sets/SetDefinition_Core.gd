@@ -130,9 +130,9 @@ const CARDS := {
 	},
 	"Out of Reach": {
 		"Type": "Control",
-		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
-		"Abilities": "Gain {effect_stacks} {impervious}",
-		"Cost": 3,
+		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "Gain {effect_stacks} {impervious}\n{forget}.",
+		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
@@ -150,8 +150,8 @@ const CARDS := {
 	"@ Out of Reach @": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
-		"Abilities": "Gain {effect_stacks} {impervious}",
-		"Cost": 2,
+		"Abilities": "Gain {effect_stacks} {impervious}\n{forget}.",
+		"Cost": 0,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
@@ -165,8 +165,8 @@ const CARDS := {
 	"* Out of Reach *": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
-		"Abilities": "Gain {effect_stacks} {impervious}",
-		"Cost": 4,
+		"Abilities": "Gain {effect_stacks} {impervious}\n{forget}.",
+		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER

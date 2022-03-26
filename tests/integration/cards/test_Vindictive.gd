@@ -126,3 +126,95 @@ class TestMovingOn:
 		assert_eq(hand.get_card_count(), 6, "One extra card drawn")
 		for c in selcards:
 			assert_eq(c.get_parent(), discard, "Selected cards discarded")
+
+
+class TestHandofGrudge:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	var effect: String = Terms.ACTIVE_EFFECTS.thorns.name
+	func _init() -> void:
+		globals.test_flags["test_initial_hand"] = true
+		globals.test_flags["no_refill"] = false
+		testing_card_name = "Hand of Grudge"
+		expected_amount_keys = [
+			"effect_stacks",
+		]
+
+	func test_card_results():
+		assert_has_amounts()
+		var sceng = execute_with_yield(card)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect), get_amount("effect_stacks"),
+				"%s stacks on Dreamer increased by correct amount" % [effect])
+
+
+class TestVestigeOfWarmth:
+	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
+	var effect: String = Terms.ACTIVE_EFFECTS.vestige_of_warmth.name
+	var amount = 1
+	func _init() -> void:
+		globals.test_flags["test_initial_hand"] = true
+		globals.test_flags["no_refill"] = false
+		effects_to_play = [
+			{
+				"name": effect,
+				"amount": amount,
+			}
+		]
+
+	func test_vestige():
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "enemy_turn_started",1), YIELD)
+		assert_eq(dreamer.defence, 5)
+
+
+class TestTheColdDish:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	func _init() -> void:
+		testing_card_name = "The Cold Dish"
+		expected_amount_keys = [
+			"damage_amount",
+			"beneficial_integer",
+		]
+
+	func test_card_results():
+		assert_has_amounts()
+		var original_cost = card.get_property("Cost")
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(card, "scripts_executed",3), YIELD)
+		assert_eq(card.get_property("Cost"), original_cost - get_amount("beneficial_integer"))
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(card, "scripts_executed",3), YIELD)
+		assert_eq(card.get_property("Cost"), original_cost - get_amount("beneficial_integer") * 2)
+
+
+
+class TestNothingForgotten:
+	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
+	var effect: String = Terms.ACTIVE_EFFECTS.nothing_forgotten.name
+	var amount = 1
+	func _init() -> void:
+		globals.test_flags["test_initial_hand"] = true
+		globals.test_flags["no_refill"] = false
+		effects_to_play = [
+			{
+				"name": effect,
+				"amount": amount,
+			}
+		]
+
+	func test_vestige():
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3), YIELD)
+		var frozens := 0
+		for c in hand.get_all_cards():
+			if c.get_property("Tags").has(Terms.GENERIC_TAGS.frozen.name):
+				frozens += 1
+		assert_eq(frozens, 1)
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3), YIELD)
+		frozens = 0
+		for c in hand.get_all_cards():
+			if c.get_property("Tags").has(Terms.GENERIC_TAGS.frozen.name):
+				frozens += 1
+		assert_eq(frozens, 2)

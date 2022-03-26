@@ -203,6 +203,125 @@ const FistOfCandies = {
 		],
 	},
 }
+const HandofGrudge = {
+	"manual": {
+		"hand": [
+			{
+				"name": "apply_effect",
+				"tags": ["Card"],
+				"subject": "dreamer",
+				"amount": 'per_tutor',
+				"effect_name": Terms.ACTIVE_EFFECTS.thorns.name,
+				"per_tutor": {
+					"src_container": "hand",
+					"subject": "tutor",
+					"subject_count": "all",
+					"multiplier": {
+						"lookup_property": "_amounts",
+						"value_key": "effect_stacks"
+					},
+				},
+			},
+			{
+				"name": "move_card_to_container",
+				"subject": "self",
+				"dest_container": "forgotten",
+				"tags": ["Played", "Card"],
+			},
+		],
+	},
+}
+const VestigeOfWarmth = {
+	"manual": {
+		"hand": [
+			{
+				"name": "apply_effect",
+				"tags": ["Card"],
+				"effect_name": Terms.ACTIVE_EFFECTS.vestige_of_warmth.name,
+				"subject": "dreamer",
+				"modification": {
+					"lookup_property": "_amounts",
+					"value_key": "concentration_stacks"
+				},
+			},
+		],
+	}
+}
+const LastVestigeOfWarmth = {
+	"manual": {
+		"hand": [
+			{
+				"name": "apply_effect",
+				"tags": ["Card"],
+				"effect_name": Terms.ACTIVE_EFFECTS.vestige_of_warmth.name,
+				"upgrade_name": "last",
+				"subject": "dreamer",
+				"modification": {
+					"lookup_property": "_amounts",
+					"value_key": "concentration_stacks"
+				},
+			},
+		],
+	},
+}
+const TheColdDish = {
+	"manual": {
+		"hand": [
+			{
+				"name": "modify_damage",
+				"subject": "target",
+				"needs_subject": true,
+				"amount": {
+					"lookup_property": "_amounts",
+					"value_key": "damage_amount"
+				},
+				"tags": ["Attack", "Card"],
+				"filter_state_subject": [{
+					"filter_group": "EnemyEntities",
+				},],
+			},
+		],
+	},
+	"player_turn_started": {
+		"hand": [
+			{
+				"name": "modify_properties",
+				"tags": ["Card"],
+				"set_properties": {
+					"Cost": {
+						"lookup_property": "_amounts",
+						"value_key": "beneficial_integer",
+						"convert_to_string": true,
+						"is_inverted": true,
+					}
+				},
+				"subject": "self",
+			},
+			{
+				"name": "enable_rider",
+				"tags": ["Card"],
+				"rider": "reset_cost_after_play",
+				"subject": "self",
+			},
+		],
+	},
+}
+const NothingForgotten = {
+	"manual": {
+		"hand": [
+			{
+				"name": "apply_effect",
+				"tags": ["Card"],
+				"effect_name": Terms.ACTIVE_EFFECTS.nothing_forgotten.name,
+				"subject": "dreamer",
+				"modification": {
+					"lookup_property": "_amounts",
+					"value_key": "concentration_stacks"
+				},
+			},
+		],
+	},
+}
 
 # This fuction returns all the scripts of the specified card name.
 #
@@ -216,5 +335,10 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 		"Store in Mind": StoreInMind,
 		"Moving On": MovingOn,
 		"Fist of Candies": FistOfCandies,
+		"Hand of Grudge": HandofGrudge,
+		"Vestige of Warmth": VestigeOfWarmth,
+		"Last Vestige of Warmth": LastVestigeOfWarmth,
+		"The Cold Dish": TheColdDish,
+		"Nothing Forgotten": NothingForgotten,
 	}
 	return(_prepare_scripts(scripts, card_name, get_modified))

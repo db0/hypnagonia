@@ -162,7 +162,7 @@ const CARDS := {
 		"_rarity": "Received",
 		"_keywords": ["forget", "perturbation"],
 		"_amounts": {
-			"defence_amount": 4,
+			"defence_amount": 2,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -182,7 +182,7 @@ const CARDS := {
 		"_rarity": "Received",
 		"_keywords": ["forget", "perturbation"],
 		"_amounts": {
-			"defence_amount": 6,
+			"defence_amount": 4,
 		},
 		"_is_upgrade": true,
 	},
@@ -196,7 +196,7 @@ const CARDS := {
 		"_rarity": "Received",
 		"_keywords": ["forget", "perturbation"],
 		"_amounts": {
-			"defence_amount": 4,
+			"defence_amount": 2,
 		},
 		"_is_upgrade": true,
 	},
