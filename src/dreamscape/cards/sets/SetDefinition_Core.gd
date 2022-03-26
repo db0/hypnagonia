@@ -3225,19 +3225,19 @@ const CARDS := {
 		"_rarity": "Common",
 		"_amounts": {
 			"effect_stacks": 1,
-			"min_requirements_amount": 3
+			"min_requirements_amount": 5
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
-			"@ Dodge @",
+			"% Dodge %",
 			"* Dodge *",
 		],
 	},
-	"@ Dodge @": {
+	"% Dodge %": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
 		"Abilities": "Requires at least {min_requirements_amount} {confidence} to play.\nGain {effect_stacks} {untouchable}",
-		"Cost": 0,
+		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
@@ -3245,7 +3245,7 @@ const CARDS := {
 		"_rarity": "Common",
 		"_amounts": {
 			"effect_stacks": 1,
-			"min_requirements_amount": 3
+			"min_requirements_amount": 2
 		},
 		"_is_upgrade": true,
 	},
@@ -3261,7 +3261,7 @@ const CARDS := {
 		"_rarity": "Common",
 		"_amounts": {
 			"effect_stacks": 2,
-			"min_requirements_amount": 3
+			"min_requirements_amount": 5
 		},
 		"_is_upgrade": true,
 	},
