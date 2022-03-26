@@ -3844,7 +3844,10 @@ static func lookup_script_property(script: Dictionary, card_name: String, card_p
 				if lookup.get("is_inverted"):
 					value *= -1
 				if lookup.get("convert_to_string", false):
-					value = str(value)
+					if value > 0:
+						value = '+' + str(value)
+					else:
+						value = str(value)
 				script[key] = value
 			else:
 				lookup_script_property(script[key], card_name, card_properties)

@@ -784,7 +784,7 @@ const HANDSY_AUNT := {
 	"_is_ordered": true,
 	"Intents": [
 		{
-			"sets_up_intent": "babble",
+			"id": "babble",
 			"intent_scripts": ["Stress:8", "Stress:8", "Stress:8"],
 			"reshuffle": false,
 			"max_in_a_row": 3,

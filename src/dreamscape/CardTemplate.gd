@@ -338,6 +338,8 @@ func execute_scripts(
 		only_cost_check := false):
 	if is_executing_scripts:
 		return
+	if trigger == "player_turn_started":
+		pass
 	var sceng = .execute_scripts(
 		trigger_card,
 		trigger,

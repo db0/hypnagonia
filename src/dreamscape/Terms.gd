@@ -530,6 +530,18 @@ const ACTIVE_EFFECTS := {
 		"icon": preload("res://assets/icons/double-diaphragm.png"),
 		"is_card_reference": true
 	},
+	"vestige_of_warmth":  {
+		"name": "Vestige of Warmth",
+		"type": "Concentration",
+		"icon": preload("res://assets/icons/incubator.png"),
+		"is_card_reference": true
+	},
+	"nothing_forgotten":  {
+		"name": "Nothing Forgotten",
+		"type": "Concentration",
+		"icon": preload("res://assets/icons/elephant.png"),
+		"is_card_reference": true
+	},
 	# These effects are usually starting on top of special enemies
 	# but might also be given to the player as Understanding concentrations
 	"enraged": {

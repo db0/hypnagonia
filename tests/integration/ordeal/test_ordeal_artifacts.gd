@@ -422,8 +422,6 @@ class TestThickExplosion:
 			assert_eq(t.damage, tdamage(discard_size),
 					"%s did not activate second time" % [artifact.name])
 
-
-
 class TestImproveImpervious:
 	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
 	var effect_name = Terms.ACTIVE_EFFECTS.impervious.name
