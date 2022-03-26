@@ -432,5 +432,106 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"Stewing": {
+		"Type": "Control",
+		"Tags": [],
+		"Abilities": "Gain {defence_amount} {defence}."\
+				+ "Every turn this card starts in your hand, increase this amount by {increase_amount}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 5,
+			"increase_amount": 1,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"^ Stewing ^",
+			"+ Stewing +",
+		],
+	},
+	"^ Stewing ^": {
+		"Type": "Control",
+		"Tags": [Terms.GENERIC_TAGS.alpha.name],
+		"Abilities": "Gain {defence_amount} {defence}."\
+				+ "Every turn this card starts in your hand, increase this amount by {increase_amount}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 5,
+			"increase_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"+ Stewing +": {
+		"Type": "Control",
+		"Tags": [],
+		"Abilities": "Gain {defence_amount} {defence}."\
+				+ "Every turn this card starts in your hand, increase this amount by {increase_amount}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_amounts": {
+			"defence_amount": 8,
+			"increase_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"Reactionary": {
+		"Type": "Action",
+		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "If the Torment intents to {stress} for {min_requirements_amount} or more, gain {effect_stacks} {thorns}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 3,
+			"effect_stacks": 2,
+			"min_requirements_amount": 1,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"* Reactionary *",
+			"+ Reactionary +",
+		],
+	},
+	"* Reactionary *": {
+		"Type": "Action",
+		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "If the Torment intents to {stress} for {min_requirements_amount} or more, gain {effect_stacks} {thorns}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 3,
+			"effect_stacks": 4,
+			"min_requirements_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"+ Reactionary +": {
+		"Type": "Action",
+		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
+		"Abilities": "{damage} for {damage_amount}.\n"\
+				+ "If the Torment intents to {stress} for {min_requirements_amount} or more, gain {effect_stacks} {thorns}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Common",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 6,
+			"effect_stacks": 2,
+			"min_requirements_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
 }
 

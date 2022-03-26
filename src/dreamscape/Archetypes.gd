@@ -229,13 +229,17 @@ const VINDICTIVE:= {
 	"Common": [
 		"Moving On",
 		"Fist of Candies",
+		"Hand of Grudge",
 	],
 	"Uncommon": [
 		"Memento of Anger",
 		"Memento of Safety",
+		"Vestige of Warmth",
+		"Stewing",
 	],
 	"Rare": [
-
+		"The Cold Dish",
+		"Nothing Forgotten",
 	]
 }
 	# Archetypes: Self-harm

@@ -19,6 +19,8 @@ const LAST_RESORT_ENHANCEMENT := {
 # Duplicates to increase chances
 const BENEFICIAL_INTEGERS := [
 	"beneficial_integer",
+	"beneficial_integer2",
+	"beneficial_integer3",
 	"chain_amount",
 	"draw_amount",
 	"draw_amount2",
@@ -36,6 +38,8 @@ const BENEFICIAL_INTEGERS := [
 
 const DETRIMENTAL_INTEGERS := [
 	"detrimental_integer",
+	"detrimental_integer2",
+	"detrimental_integer3",
 	"forget_amount",
 	"discard_amount",
 	"perturb_amount",
@@ -51,6 +55,8 @@ const DETRIMENTAL_INTEGERS := [
 # Duplicates to increase chances
 const BENEFICIAL_FLOATS := [
 	"beneficial_float",
+	"beneficial_float2",
+	"beneficial_float3",
 	"damage_amount",
 	"damage_amount",
 	"damage_amount2",
@@ -61,6 +67,8 @@ const BENEFICIAL_FLOATS := [
 ]
 const DETRIMENTAL_FLOATS := [
 	"detrimental_float",
+	"detrimental_float2",
+	"detrimental_float3",
 ]
 const BENEFICIAL_TAGS := [
 	Terms.GENERIC_TAGS.alpha.name,
