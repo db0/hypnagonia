@@ -1441,13 +1441,13 @@ const CARDS := {
 	},
 	"Quick Dash": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.swift.name],
-		"Abilities": "Look at the top {scry_amount} cards in your draw pile. Select any number to put to the bottom. "\
-				+ "Draw {draw_amount} cards.",
+		"Tags": [Terms.GENERIC_TAGS.swift.name, Terms.GENERIC_TAGS.scry.name],
+		"Abilities": "{scry} {scry_amount}. Select any number to put to the bottom. "\
+				+ "Draw {draw_amount} card.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["confidence"],
+		"_keywords": [],
 		"_amounts": {
 			"draw_amount": 1,
 			"scry_amount": 3,
@@ -1460,28 +1460,28 @@ const CARDS := {
 	},
 	"! Quick Dash !": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.swift.name],
-		"Abilities": "Look at the top {scry_amount} cards in your draw pile. Select any number to put to the bottom. "\
-				+ "Draw {draw_amount} cards.",
+		"Tags": [Terms.GENERIC_TAGS.swift.name, Terms.GENERIC_TAGS.scry.name, Terms.GENERIC_TAGS.init.name],
+		"Abilities": "{scry} {scry_amount}. Select any number to put to the bottom. "\
+				+ "Draw {draw_amount} card.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["confidence"],
+		"_keywords": [],
 		"_amounts": {
-			"draw_amount": 2,
+			"draw_amount": 3,
 			"scry_amount": 2,
 		},
 		"_is_upgrade": true,
 	},
 	"+ Quick Dash +": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.swift.name],
-		"Abilities": "Look at the top {scry_amount} cards in your draw pile. Select any number to put to the bottom. "\
-				+ "Draw {draw_amount} cards.",
+		"Tags": [Terms.GENERIC_TAGS.swift.name, Terms.GENERIC_TAGS.scry.name],
+		"Abilities": "{scry} {scry_amount}. Select any number to put to the bottom. "\
+				+ "Draw {draw_amount} card.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": ["confidence"],
+		"_keywords": [],
 		"_amounts": {
 			"draw_amount": 1,
 			"scry_amount": 6,

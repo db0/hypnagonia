@@ -718,6 +718,11 @@ const GENERIC_TAGS := {
 		"icon": preload("res://assets/icons/idea.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/idea.png",
 		"generic_description": "{effect_name} ({effect_icon}): Reshuffles the deck."},
+	"scry": {
+		"name": "Scry",
+		"icon": preload("res://assets/icons/crystal-ball.png"),
+		"rich_text_icon": "res://fonts/rich_text_icons/crystal-ball.png",
+		"generic_description": "{effect_name} ({effect_icon}): Looks into the top X cards of the draw pile."},
 	"alpha": {
 		"name": "Intuition",
 		"icon": preload("res://assets/icons/light-bulb.png"),
@@ -753,7 +758,6 @@ const GENERIC_TAGS := {
 		"icon": preload("res://assets/icons/power-button.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/power-button.png",
 		"generic_description": "[color=purple]{effect_name} ({effect_icon}): This card can only be played as the first one in the turn.[/color]"},
-	# Unused. Needs icon
 	"end_turn": {
 		"name": "close",
 		"icon": preload("res://assets/icons/stop-sign.png"),
@@ -791,6 +795,10 @@ const GENERIC_CARD_BBCODE := {
 	"anxiety": {
 		"name": "Anxiety",
 		"rich_text_icon": "res://fonts/rich_text_icons/heart-beats.png",
+	},
+	"scry": {
+		"name": "Scry",
+		"rich_text_icon": "res://fonts/rich_text_icons/crystal-ball.png",
 	},
 	"exhaust": {
 		"name": "Forget",
