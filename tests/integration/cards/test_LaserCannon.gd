@@ -384,6 +384,7 @@ class TestSpareLens:
 	var effect: String = Terms.ACTIVE_EFFECTS.spare_lens.name
 	var amount = 2
 	func _init() -> void:
+		
 		effects_to_play = [
 			{
 				"name": effect,
@@ -393,6 +394,7 @@ class TestSpareLens:
 
 
 	func test_spare_lens_gen():
+		globals.player.deck_groups[Terms.CARD_GROUP_TERMS.item] = "Laser Cannon"
 		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started",3), YIELD)
 		yield(yield_for(1), YIELD)
