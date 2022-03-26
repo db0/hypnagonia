@@ -94,7 +94,7 @@ func setup_hypnagonia_testing() -> void:
 #	print_debug([cfc.game_rng.seed, cfc.game_rng.state])
 	cfc.game_rng.state = -6332740101472756719
 	print_debug([cfc.game_rng.seed, cfc.game_rng.state])
-	NewGameMenu.randomize_aspect_choices()
+	set_testing_aspects()
 	globals.player.setup()
 	globals.player.health = PLAYER_HEALTH
 	for a in pre_init_artifacts:
@@ -104,6 +104,13 @@ func setup_hypnagonia_testing() -> void:
 	globals.encounters.prepare_next_act()
 	# Because typically the next act heals
 	globals.player.damage = dreamer_starting_damage
+
+func set_testing_aspects():
+	var archetypes := {}
+	globals.player.deck_groups[Terms.CARD_GROUP_TERMS.class] = "Flyer"
+	globals.player.deck_groups[Terms.CARD_GROUP_TERMS.race] = "Fearless"
+	globals.player.deck_groups[Terms.CARD_GROUP_TERMS.item] = "Rubber Chicken"
+	globals.player.deck_groups[Terms.CARD_GROUP_TERMS.life_goal] = "Abusive Relationship"
 
 #Overridable
 func extra_hypnagonia_setup():
