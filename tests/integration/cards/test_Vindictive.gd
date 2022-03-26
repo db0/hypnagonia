@@ -274,3 +274,22 @@ class TestReactionary:
 		assert_eq(test_torment.damage, tdamage(get_amount("damage_amount")))
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), get_amount("effect_stacks"),
 				"%s stacks on Dreamer increased by correct amount" % [effect])
+
+
+class TestGoingInTheBook:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	var effect: String = Terms.ACTIVE_EFFECTS.thorns.name
+	func _init() -> void:
+		testing_card_name = "That's Going in the Book"
+		expected_amount_keys = [
+			"effect_stacks",
+		]
+
+	func test_card_effect():
+		assert_has_amounts()
+		var sceng = execute_with_yield(card)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect), get_amount("effect_stacks"),
+				"%s stacks on Dreamer increased by correct amount" % [effect])
+
