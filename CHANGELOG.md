@@ -1,12 +1,18 @@
 # Changelog
 
-## [Unreleased](https://github.com/db0/hypnagonia/tree/HEAD)
+## [v0.42.1](https://github.com/db0/hypnagonia/tree/v0.42.1) (2022-03-26)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.42.0...HEAD)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.42.0...v0.42.1)
 
 **Closed issues:**
 
 - Enemy intents should appear in a black "thinking" bubble [\#226](https://github.com/db0/hypnagonia/issues/226)
+
+**Merged pull requests:**
+
+- Incresed push to main timeout [\#257](https://github.com/db0/hypnagonia/pull/257) ([db0](https://github.com/db0))
+- tests: fix test broken by changed ij [\#256](https://github.com/db0/hypnagonia/pull/256) ([db0](https://github.com/db0))
+- Various nerfs on starting cards [\#255](https://github.com/db0/hypnagonia/pull/255) ([db0](https://github.com/db0))
 
 ## [v0.42.0](https://github.com/db0/hypnagonia/tree/v0.42.0) (2022-03-24)
 
@@ -58,7 +64,7 @@
 
 ## [v0.39.0](https://github.com/db0/hypnagonia/tree/v0.39.0) (2022-03-17)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.38.0...v0.39.0)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.37.0...v0.39.0)
 
 **Closed issues:**
 
@@ -69,13 +75,13 @@
 
 - Enhancements and Scars can now affect more properties [\#244](https://github.com/db0/hypnagonia/pull/244) ([db0](https://github.com/db0))
 
-## [v0.38.0](https://github.com/db0/hypnagonia/tree/v0.38.0) (2022-03-16)
-
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.37.0...v0.38.0)
-
 ## [v0.37.0](https://github.com/db0/hypnagonia/tree/v0.37.0) (2022-03-16)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.36.0...v0.37.0)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.38.0...v0.37.0)
+
+## [v0.38.0](https://github.com/db0/hypnagonia/tree/v0.38.0) (2022-03-16)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.36.0...v0.38.0)
 
 **Closed issues:**
 
