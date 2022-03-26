@@ -449,7 +449,7 @@ class TestDecreaseExertStacks:
 			return
 		var selection_deck : SelectionDeck = selection_decks[0]
 		watch_signals(globals.player.deck)
-		assert_eq(selection_deck._deck_preview_grid.get_children().size(), 1)
+		assert_eq(selection_deck._deck_preview_grid.get_children().size(), 2)
 		if selection_deck._deck_preview_grid.get_children().size() < 1:
 			return
 		selection_deck._deck_preview_grid.get_children()[0].select_card()
