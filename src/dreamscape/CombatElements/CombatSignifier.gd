@@ -55,5 +55,10 @@ func _on_CombatSingifier_mouse_exited() -> void:
 	decription_popup.visible = false
 
 func update_amount(value) -> void:
+	# If the value we're trying to assign is a string
+	# It's propable a per definition, so we don't show it
+	# We'll wait for the proper integer from the recalculations instead.
+	if typeof(value) == TYPE_STRING:
+		return
 	amount = value
 	signifier_amount.text = str(value)
