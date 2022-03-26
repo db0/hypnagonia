@@ -210,7 +210,7 @@ const HandofGrudge = {
 				"name": "apply_effect",
 				"tags": ["Card"],
 				"subject": "dreamer",
-				"amount": 'per_tutor',
+				"modification": 'per_tutor',
 				"effect_name": Terms.ACTIVE_EFFECTS.thorns.name,
 				"per_tutor": {
 					"src_container": "hand",
@@ -398,6 +398,38 @@ const Reactionary = {
 		],
 	},
 }
+const ThatsGoingInTheBook = {
+	"manual": {
+		"hand": [
+			{
+				"name": "apply_effect",
+				"tags": ["Card"],
+				"subject": "dreamer",
+				"modification": {
+					"lookup_property": "_amounts",
+					"value_key": "effect_stacks"
+				},
+				"effect_name": Terms.ACTIVE_EFFECTS.thorns.name,
+			},
+		],
+	},
+}
+const NoteTaking = {
+	"manual": {
+		"hand": [
+			{
+				"name": "apply_effect",
+				"tags": ["Card"],
+				"effect_name": Terms.ACTIVE_EFFECTS.note_taking.name,
+				"subject": "dreamer",
+				"modification": {
+					"lookup_property": "_amounts",
+					"value_key": "concentration_stacks"
+				},
+			},
+		],
+	},
+}
 
 # This fuction returns all the scripts of the specified card name.
 #
@@ -418,5 +450,7 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 		"Nothing Forgotten": NothingForgotten,
 		"Stewing": Stewing,
 		"Reactionary": Reactionary,
+		"That's Going in the Book": ThatsGoingInTheBook,
+		"Note-Taking": NoteTaking,
 	}
 	return(_prepare_scripts(scripts, card_name, get_modified))
