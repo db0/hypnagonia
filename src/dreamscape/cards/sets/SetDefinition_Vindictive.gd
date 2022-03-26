@@ -594,5 +594,58 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"Note-Taking": {
+		"Type": "Concentration",
+		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
+		"Abilities": "At the start of each turn, gain {concentration_stacks} {thorns}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": [],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"concentration_stacks": 2,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"* Note-Taking *",
+			"@ Note-Taking @",
+		],
+	},
+	"* Note-Taking *": {
+		"Type": "Concentration",
+		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
+		"Abilities": "At the start of each turn, gain {concentration_stacks} {thorns}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": [],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"concentration_stacks": 3,
+		},
+		"_is_upgrade": true,
+	},
+	"@ Note-Taking @": {
+		"Type": "Concentration",
+		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
+		"Abilities": "At the start of each turn, gain {concentration_stacks} {thorns}",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": [],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"concentration_stacks": 2,
+		},
+		"_is_upgrade": true,
+	},
+
 }
 

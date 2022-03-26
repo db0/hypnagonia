@@ -293,3 +293,21 @@ class TestGoingInTheBook:
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), get_amount("effect_stacks"),
 				"%s stacks on Dreamer increased by correct amount" % [effect])
 
+
+class TestNoteTaking:
+	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
+	var effect: String = Terms.ACTIVE_EFFECTS.note_taking.name
+	var amount = 3
+	func _init() -> void:
+		effects_to_play = [
+			{
+				"name": effect,
+				"amount": amount,
+			}
+		]
+
+	func test_effect():
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3), YIELD)
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.thorns.name), amount,
+				"%s stacks on Dreamer increased by correct amount" % [Terms.ACTIVE_EFFECTS.thorns.name])

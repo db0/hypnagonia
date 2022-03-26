@@ -4,7 +4,7 @@ func _on_player_turn_started(_turn: Turn) -> void:
 	var script = [
 		{
 			"name": "modify_properties",
-			"tags": ["Card"],
+			"tags": ["Concentration", "Combat Effect"],
 			"set_properties": {"Tags": Terms.GENERIC_TAGS.frozen.name},
 			"needs_subject": true,
 			"subject": "tutor",

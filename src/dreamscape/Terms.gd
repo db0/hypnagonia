@@ -542,6 +542,12 @@ const ACTIVE_EFFECTS := {
 		"icon": preload("res://assets/icons/elephant.png"),
 		"is_card_reference": true
 	},
+	"note_taking":  {
+		"name": "Note-Taking",
+		"type": "Concentration",
+		"icon": preload("res://assets/icons/notebook.png"),
+		"is_card_reference": true
+	},
 	# These effects are usually starting on top of special enemies
 	# but might also be given to the player as Understanding concentrations
 	"enraged": {
