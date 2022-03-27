@@ -531,6 +531,79 @@ const Planning = {
 		],
 	},
 }
+const SavedforLater  = {
+	"manual": {
+		"hand": [
+			{
+				"name": "assign_defence",
+				"tags": ["Card"],
+				"subject": "dreamer",
+				"amount": {
+					"lookup_property": "_amounts",
+					"value_key": "defence_amount"
+				},
+			},
+			{
+				"name": "nested_script",
+				"nested_tasks": [
+					{
+						"name": "apply_effect",
+						"tags": ["Card"],
+						"effect_name": Terms.ACTIVE_EFFECTS.empower.name,
+						"subject": "dreamer",
+						"modification": {
+							"lookup_property": "_amounts",
+							"value_key": "effect_stacks"
+						},
+					},
+				],
+				# This trick allows me to trigger parts of the script only
+				# if the previous target matches a filter
+				"subject": "dreamer",
+				"filter_state_subject": [{
+					"filter_effects": [
+						{
+							"filter_effect_name": Terms.ACTIVE_EFFECTS.thorns.name,
+						},
+					]
+				},],
+			}
+		],
+	},
+}
+const Shadenfreude = {
+	"manual": {
+		"hand": [
+			{
+				"name": "apply_effect",
+				"tags": ["Card"],
+				"effect_name": Terms.ACTIVE_EFFECTS.shadenfreude.name,
+				"subject": "dreamer",
+				"modification": {
+					"lookup_property": "_amounts",
+					"value_key": "concentration_stacks"
+				},
+			},
+		],
+	}
+}
+const BitterShadenfreude = {
+	"manual": {
+		"hand": [
+			{
+				"name": "apply_effect",
+				"tags": ["Card"],
+				"effect_name": Terms.ACTIVE_EFFECTS.shadenfreude.name,
+				"upgrade_name": "bitter",
+				"subject": "dreamer",
+				"modification": {
+					"lookup_property": "_amounts",
+					"value_key": "concentration_stacks"
+				},
+			},
+		],
+	},
+}
 
 # This fuction returns all the scripts of the specified card name.
 #
@@ -556,5 +629,8 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 		"Vengeance": Vengeance,
 		"Unstoppable Vengeance": UnstoppableVengeance,
 		"Planning": Planning,
+		"Saved for Later ": SavedforLater,
+		"Shadenfreude": Shadenfreude,
+		"Bitter Shadenfreude": BitterShadenfreude,
 	}
 	return(_prepare_scripts(scripts, card_name, get_modified))

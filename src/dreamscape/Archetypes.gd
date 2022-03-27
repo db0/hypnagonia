@@ -246,6 +246,7 @@ const VINDICTIVE:= {
 	"Rare": [
 		"The Cold Dish",
 		"Nothing Forgotten",
+		"Shadenfreude",
 	]
 }
 	# Archetypes: Self-harm

@@ -3184,7 +3184,7 @@ const OneWithThePoultry = {
 				"filter_state_subject": [{
 					"filter_effects": [
 						{
-							"filter_effect_name": "Fascination",
+							"filter_effect_name": Terms.ACTIVE_EFFECTS.buffer.name,
 						},
 					]
 				},],

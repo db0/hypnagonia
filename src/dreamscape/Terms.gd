@@ -342,6 +342,18 @@ const ACTIVE_EFFECTS := {
 		"description": "{effect_name} ({effect_icon}): This torment will be automatically overcome after {amount} turns  (1 per stack). "\
 				+ "A Torment overcome in this way, will not provide an {understanding} card as a draft reward.",
 	},
+	# TODO Idea
+	"boon": {
+		"name": "Boon",
+		"type": "Special",
+		"self_decreasing": SELF_DECREASE.TURN_END,
+		"decrease_type": DECREASE_TYPE.REDUCE,
+		"alterant_priority": ALTERANT_PRIORITY.ADD,
+		"icon": preload("res://assets/icons/dead-eye.png"),
+		"generic_description": "{effect_name}: At the start of your turn, this provides a random benefit based on how many you have.",
+		"rich_text_icon": "res://fonts/rich_text_icons/dead-eye.png",
+		"description": "{effect_name} ({effect_icon}): TODO",
+	},
 	"outrage": {
 		"name": "Outrage",
 		"type": "Special",
@@ -546,6 +558,12 @@ const ACTIVE_EFFECTS := {
 		"name": "Note-Taking",
 		"type": "Concentration",
 		"icon": preload("res://assets/icons/notebook.png"),
+		"is_card_reference": true
+	},
+	"shadenfreude":  {
+		"name": "Shadenfreude",
+		"type": "Concentration",
+		"icon": preload("res://assets/icons/imp-laugh.png"),
 		"is_card_reference": true
 	},
 	# These effects are usually starting on top of special enemies
