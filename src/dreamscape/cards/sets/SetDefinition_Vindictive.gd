@@ -48,50 +48,59 @@ const CARDS := {
 	},
 	"Memento of Anger": {
 		"Type": "Action",
-		"Tags": [Terms.GENERIC_TAGS.chain.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.burn.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "If {frozen}, {damage} for {damage_amount2}",
+				+ "If {frozen}, also apply {effect_stacks} {burn}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "frozen"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.burn.name: Terms.ENEMY,
+		},
 		"_amounts": {
 			"damage_amount": 8,
-			"damage_amount2": 3,
+			"effect_stacks": 2,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ Memento of Anger +",
-			"% Memento of Anger %",
+			"* Memento of Anger *",
 		],
 	},
 	"+ Memento of Anger +": {
 		"Type": "Action",
-		"Tags": [Terms.GENERIC_TAGS.chain.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.burn.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "If {frozen}, {damage} for {damage_amount2}",
+				+ "If {frozen}, also apply {effect_stacks} {burn}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "frozen"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.burn.name: Terms.ENEMY,
+		},
 		"_amounts": {
 			"damage_amount": 11,
-			"damage_amount2": 3,
+			"effect_stacks": 2,
 		},
 		"_is_upgrade": true,
 	},
-	"% Memento of Anger %": {
+	"* Memento of Anger *": {
 		"Type": "Action",
-		"Tags": [Terms.GENERIC_TAGS.chain.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.burn.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "If {frozen}, {damage} for {damage_amount2}",
+				+ "If {frozen}, also apply {effect_stacks} {burn}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "frozen"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.burn.name: Terms.ENEMY,
+		},
 		"_amounts": {
-			"damage_amount": 6,
-			"damage_amount2": 10,
+			"damage_amount": 7,
+			"effect_stacks": 4,
 		},
 		"_is_upgrade": true,
 	},
@@ -155,7 +164,7 @@ const CARDS := {
 		"_keywords": [],
 		"_avoid_normal_discard": true,
 		"_amounts": {
-			"draw_amount": 2,
+			"draw_amount": 3,
 			"discard_amount": 1,
 		},
 		"_upgrade_threshold_modifier": 0,
@@ -175,8 +184,8 @@ const CARDS := {
 		"_keywords": [],
 		"_avoid_normal_discard": true,
 		"_amounts": {
-			"draw_amount": 3,
-			"discard_amount": 2,
+			"draw_amount": 4,
+			"discard_amount": 1,
 		},
 		"_is_upgrade": true,
 	},
@@ -191,8 +200,8 @@ const CARDS := {
 		"_avoid_normal_discard": true,
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"draw_amount": 6,
-			"discard_amount": 3,
+			"draw_amount": 7,
+			"discard_amount": 2,
 		},
 		"_is_upgrade": true,
 	},
@@ -754,5 +763,67 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"Saved for Later": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.armor.name],
+		"Abilities": "Gain {defence_amount} {defence}.\n"\
+				+ "If you have {thorns}, gain {effect_stacks} {armor}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"defence_amount": 7,
+			"effect_stacks": 3,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"+ Saved for Later +",
+			"* Saved for Later *",
+		],
+	},
+	"+ Saved for Later +": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.armor.name],
+		"Abilities": "Gain {defence_amount} {defence}.\n"\
+				+ "If you have {thorns}, gain {effect_stacks} {armor}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"defence_amount": 10,
+			"effect_stacks": 3,
+		},
+		"_is_upgrade": true,
+	},
+	"* Saved for Later *": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.armor.name],
+		"Abilities": "Gain {defence_amount} {defence}.\n"\
+				+ "If you have {thorns}, gain {effect_stacks} {armor}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["confidence"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"defence_amount": 7,
+			"effect_stacks": 5,
+		},
+		"_is_upgrade": true,
+	},
+
 }
 
