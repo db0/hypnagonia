@@ -765,20 +765,20 @@ const CARDS := {
 	},
 	"Saved for Later": {
 		"Type": "Control",
-		"Tags": [Terms.ACTIVE_EFFECTS.armor.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.empower.name],
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
-				+ "If you have {thorns}, gain {effect_stacks} {armor}",
+				+ "If you have {thorns}, gain {effect_stacks} {empower}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
-			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.empower.name: Terms.PLAYER,
 		},
 		"_amounts": {
-			"defence_amount": 7,
-			"effect_stacks": 3,
+			"defence_amount": 8,
+			"effect_stacks": 2,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -788,42 +788,99 @@ const CARDS := {
 	},
 	"+ Saved for Later +": {
 		"Type": "Control",
-		"Tags": [Terms.ACTIVE_EFFECTS.armor.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.empower.name],
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
-				+ "If you have {thorns}, gain {effect_stacks} {armor}",
+				+ "If you have {thorns}, gain {effect_stacks} {empower}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
-			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.empower.name: Terms.PLAYER,
 		},
 		"_amounts": {
-			"defence_amount": 10,
-			"effect_stacks": 3,
+			"defence_amount": 11,
+			"effect_stacks": 2,
 		},
 		"_is_upgrade": true,
 	},
 	"* Saved for Later *": {
 		"Type": "Control",
-		"Tags": [Terms.ACTIVE_EFFECTS.armor.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.empower.name],
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
-				+ "If you have {thorns}, gain {effect_stacks} {armor}",
+				+ "If you have {thorns}, gain {effect_stacks} {empower}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
-			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.empower.name: Terms.PLAYER,
 		},
 		"_amounts": {
-			"defence_amount": 7,
-			"effect_stacks": 5,
+			"defence_amount": 8,
+			"effect_stacks": 3,
 		},
 		"_is_upgrade": true,
 	},
-
+	"Shadenfreude": {
+		"Type": "Concentration",
+		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
+		"Abilities": "At the start of each turn, gain {concentration_stacks} {armor} "\
+		 		+ "for every {concentration_divider} {damage} all Torments received during their own turn.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": [],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"concentration_stacks": 1,
+			"concentration_divider": 5.0,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"Bitter Shadenfreude",
+			"@ Shadenfreude @",
+		],
+	},
+	"@ Shadenfreude @": {
+		"Type": "Concentration",
+		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
+		"Abilities": "At the start of each turn, gain {concentration_stacks} {armor} "\
+		 		+ "for every {concentration_divider} {damage} all Torments received during their own turn.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": [],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"concentration_stacks": 1,
+			"concentration_divider": 5,
+		},
+		"_is_upgrade": true,
+	},
+	"Bitter Shadenfreude": {
+		"Type": "Concentration",
+		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
+		"Abilities": "At the start of each turn, gain {concentration_stacks} {armor} "\
+		 		+ "for every {concentration_divider} {damage} all Torments received during their own turn.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": [],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"concentration_stacks": 1,
+			"concentration_divider": 4,
+		},
+		"_is_upgrade": true,
+	},
 }
 

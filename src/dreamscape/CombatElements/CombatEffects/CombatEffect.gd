@@ -116,7 +116,9 @@ func _get_effect_description() -> String:
 			# while it's using the card text as its string, it nevertheless, replaces one format key of the
 			# card description with the {amount} key, which will be replaced with the amount of stacks
 			# on this condition. This is typically used on conditions which apply multiple stacks
-			var repl_key = effect_entry.get('format_key_to_replace_with_amount')
+			# If concentration_stacks is used in the description, it is also assumed we want to 
+			# replace it with the stack amount
+			var repl_key = effect_entry.get('format_key_to_replace_with_amount', "concentration_stacks")
 			if repl_key:
 				default_desc = card_reference["Abilities"].format({repl_key: "{amount}"}).format(card_reference.get("_amounts", {}))
 			else:

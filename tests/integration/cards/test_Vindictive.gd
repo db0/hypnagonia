@@ -359,7 +359,7 @@ class TestPlanning:
 
 class TestSavedforLater:
 	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
-	var effect: String = Terms.ACTIVE_EFFECTS.armor.name
+	var effect: String = Terms.ACTIVE_EFFECTS.empower.name
 	func _init() -> void:
 		testing_card_name = "Saved for Later"
 		expected_amount_keys = [
@@ -385,3 +385,23 @@ class TestSavedforLater:
 		assert_eq(dreamer.defence, get_amount("defence_amount"))
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 0,
 				"%s stacks on Dreamer not increased" % [effect])
+
+
+class TestShadenfreude:
+	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
+	var effect: String = Terms.ACTIVE_EFFECTS.shadenfreude.name
+	var amount = 2
+	func _init() -> void:
+		effects_to_play = [
+			{
+				"name": effect,
+				"amount": amount,
+			}
+		]
+
+	func test_effect():
+		spawn_effect(test_torment, Terms.ACTIVE_EFFECTS.poison.name, 14, '')
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3), YIELD)
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.armor.name), amount,
+				"%s stacks on Dreamer increased by correct amount" % [Terms.ACTIVE_EFFECTS.armor.name])

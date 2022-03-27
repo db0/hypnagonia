@@ -456,7 +456,7 @@ func _input(event):
 #		_torment1 = spawn_enemy(EnemyDefinitions.UNNAMED1)
 #		_torment1 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 		_torment1 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
-#		_torment2 = spawn_enemy(EnemyDefinitions.GASLIGHTER)
+		_torment2 = spawn_enemy(EnemyDefinitions.GASLIGHTER)
 #		_torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
@@ -469,12 +469,12 @@ func _input(event):
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.effect_resistance.name, 1, false, false, ["Init"], Terms.ACTIVE_EFFECTS.poison.name)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
 		if _torment2:
-			_torment2.health = 13
+			_torment2.health = 1399
 			_torment2.damage = 10
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.marked.name, 1)
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
-#			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 15)
+			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 15)
 #			_torment2.defence = 10
 		if _torment3:
 			_torment3.health = 100
@@ -484,7 +484,7 @@ func _input(event):
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
 		dreamer.health = 1000
 		dreamer.damage = 100
-		globals.player.add_artifact(ArtifactDefinitions.FirstPowerAttack.canonical_name)
+#		globals.player.add_artifact(ArtifactDefinitions.FirstPowerAttack.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.PurpleWave.canonical_name)
 		# warning-ignore:return_value_discarded
 #		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
@@ -492,7 +492,8 @@ func _input(event):
 #		globals.player.add_memory(MemoryDefinitions.RandomChaos.canonical_name)
 		# warning-ignore:return_value_discarded
 #		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
-#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.eureka.name, 2)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.shadenfreude.name, 3)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 10)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.heat_venting.name, 1, false, false, ['Debug'], 'high')
 		for pathos in Terms.RUN_ACCUMULATION_NAMES.values():
 			if pathos != Terms.RUN_ACCUMULATION_NAMES.boss:
