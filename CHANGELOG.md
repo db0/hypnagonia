@@ -1,5 +1,22 @@
 # Changelog
 
+## [Unreleased](https://github.com/db0/hypnagonia/tree/HEAD)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.42.2...HEAD)
+
+**Fixed bugs:**
+
+- Rosetta Stone does not have the right prediction with repeats [\#259](https://github.com/db0/hypnagonia/issues/259)
+
+## [v0.42.2](https://github.com/db0/hypnagonia/tree/v0.42.2) (2022-03-27)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.42.1...v0.42.2)
+
+**Merged pull requests:**
+
+- Various bugfixes [\#260](https://github.com/db0/hypnagonia/pull/260) ([db0](https://github.com/db0))
+- Fixed scripts on Inner Justice and Out of Reach [\#258](https://github.com/db0/hypnagonia/pull/258) ([db0](https://github.com/db0))
+
 ## [v0.42.1](https://github.com/db0/hypnagonia/tree/v0.42.1) (2022-03-26)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.42.0...v0.42.1)
@@ -64,7 +81,7 @@
 
 ## [v0.39.0](https://github.com/db0/hypnagonia/tree/v0.39.0) (2022-03-17)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.37.0...v0.39.0)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.38.0...v0.39.0)
 
 **Closed issues:**
 
@@ -75,13 +92,13 @@
 
 - Enhancements and Scars can now affect more properties [\#244](https://github.com/db0/hypnagonia/pull/244) ([db0](https://github.com/db0))
 
-## [v0.37.0](https://github.com/db0/hypnagonia/tree/v0.37.0) (2022-03-16)
-
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.38.0...v0.37.0)
-
 ## [v0.38.0](https://github.com/db0/hypnagonia/tree/v0.38.0) (2022-03-16)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.36.0...v0.38.0)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.37.0...v0.38.0)
+
+## [v0.37.0](https://github.com/db0/hypnagonia/tree/v0.37.0) (2022-03-16)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.36.0...v0.37.0)
 
 **Closed issues:**
 
