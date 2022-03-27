@@ -128,7 +128,7 @@ class TestMovingOn:
 		yield(yield_to(selection_window, "selection_window_opened", 1), YIELD)
 		var card_options = selection_window.get_all_card_options()
 		var selcards = selection_window.select_cards([0])
-		assert_eq(hand.get_card_count(), 6, "One extra card drawn")
+		assert_eq(hand.get_card_count(), 5 + get_amount("draw_amount") - get_amount("discard_amount"), "One extra card drawn")
 		for c in selcards:
 			assert_eq(c.get_parent(), discard, "Selected cards discarded")
 
