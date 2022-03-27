@@ -430,6 +430,107 @@ const NoteTaking = {
 		],
 	},
 }
+const Vengeance = {
+	"manual": {
+		"hand": [
+			{
+				"name": "modify_damage",
+				"tags": ["Attack", "Card", "Unblockable"],
+				"subject": "target",
+				"needs_subject": true,
+				"amount": "per_effect_stacks",
+				"per_effect_stacks": {
+					"effect_name": Terms.ACTIVE_EFFECTS.thorns.name,
+					"subject": "dreamer",
+					"modifier": {
+						"lookup_property": "_amounts",
+						"value_key": "beneficial_integer",
+					},
+				},
+				"filter_state_subject": [{
+					"filter_group": "EnemyEntities",
+				},],
+			},
+		],
+	},
+}
+const UnstoppableVengeance = {
+	"manual": {
+		"hand": [
+			{
+				"name": "apply_effect",
+				"tags": ["Card"],
+				"subject": "dreamer",
+				"modification": {
+					"lookup_property": "_amounts",
+					"value_key": "effect_stacks"
+				},
+				"effect_name": Terms.ACTIVE_EFFECTS.thorns.name,
+			},
+			{
+				"name": "modify_damage",
+				"tags": ["Attack", "Card", "Unblockable"],
+				"subject": "target",
+				"needs_subject": true,
+				"amount": "per_effect_stacks",
+				"per_effect_stacks": {
+					"effect_name": Terms.ACTIVE_EFFECTS.thorns.name,
+					"subject": "dreamer",
+					"modifier": {
+						"lookup_property": "_amounts",
+						"value_key": "beneficial_integer",
+					},
+				},
+				"filter_state_subject": [{
+					"filter_group": "EnemyEntities",
+				},],
+			},
+		],
+	},
+}
+const Planning = {
+	"manual": {
+		"hand": [
+			{
+				"name": "move_card_to_container",
+				"dest_container": "discard",
+				"subject": "self",
+				"tags": ["Played", "Card"],
+			},
+			{
+				"name": "modify_damage",
+				"subject": "target",
+				"needs_subject": true,
+				"amount": {
+					"lookup_property": "_amounts",
+					"value_key": "damage_amount"
+				},
+				"tags": ["Attack", "Card"],
+				"filter_state_subject": [{
+					"filter_group": "EnemyEntities",
+				},],
+			},
+			{
+				"name": "move_card_to_container",
+				"tags": ["Card"],
+				"subject": "tutor",
+				"subject_count": {
+					"lookup_property": "_amounts",
+					"value_key": "draw_amount"
+				},
+				"src_container":  "deck",
+				"dest_container":  "hand",
+				"filter_state_tutor": [
+					{
+						"filter_properties": {
+							"Tags": Terms.ACTIVE_EFFECTS.thorns.name
+						},
+					},
+				],
+			},
+		],
+	},
+}
 
 # This fuction returns all the scripts of the specified card name.
 #
@@ -452,5 +553,8 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 		"Reactionary": Reactionary,
 		"That's Going in the Book": ThatsGoingInTheBook,
 		"Note-Taking": NoteTaking,
+		"Vengeance": Vengeance,
+		"Unstoppable Vengeance": UnstoppableVengeance,
+		"Planning": Planning,
 	}
 	return(_prepare_scripts(scripts, card_name, get_modified))

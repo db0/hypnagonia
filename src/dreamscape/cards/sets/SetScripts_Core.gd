@@ -3104,7 +3104,7 @@ const ThePlotChickens = {
 				"filter_state_subject": [{
 					"filter_effects": [
 						{
-							"filter_effect_name": "Confusion",
+							"filter_effect_name": Terms.ACTIVE_EFFECTS.disempower.name,
 						},
 					]
 				},],
@@ -3230,7 +3230,7 @@ const Sensuous = {
 				"predict_requires_target": true,
 				"modification": "per_effect_stacks",
 				"per_effect_stacks": {
-					"effect_name": "Confusion",
+					"effect_name": Terms.ACTIVE_EFFECTS.disempower.name,
 					"subject": "previous",
 					"original_previous": true,
 				},
