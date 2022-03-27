@@ -56,11 +56,12 @@ class TestKeepInMind:
 
 class TestAngerMemento:
 	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	var effect: String = Terms.ACTIVE_EFFECTS.burn.name
 	func _init() -> void:
 		testing_card_name = "Memento of Anger"
 		expected_amount_keys = [
 			"damage_amount",
-			"damage_amount2",
+			"effect_stacks",
 		]
 		test_card_names = [
 			"Memento of Anger",
@@ -72,14 +73,18 @@ class TestAngerMemento:
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
 		assert_eq(test_torment.damage, tdamage(get_amount("damage_amount")))
-
+		assert_eq(test_torment.active_effects.get_effect_stacks(effect), 0,
+				"%s stacks on Torment not increased" % [effect])
+				
 	func test_frozen_card_results():
 		assert_has_amounts()
 		card.properties.Tags.append(Terms.GENERIC_TAGS.frozen.name)
 		var sceng = snipexecute(card, test_torment)
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
-		assert_eq(test_torment.damage, tdamage(get_amount("damage_amount") + get_amount("damage_amount2")))
+		assert_eq(test_torment.damage, tdamage(get_amount("damage_amount")))
+		assert_eq(test_torment.active_effects.get_effect_stacks(effect), int(get_amount("effect_stacks")),
+				"%s stacks on Torment increased by correct amount" % [effect])
 
 class TestFistofCandies:
 	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
@@ -351,3 +356,32 @@ class TestPlanning:
 		assert_eq(test_torment.damage, tdamage(get_amount("damage_amount")))
 		assert_eq(scard.get_parent(), hand)
 				
+
+class TestSavedforLater:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	var effect: String = Terms.ACTIVE_EFFECTS.armor.name
+	func _init() -> void:
+		testing_card_name = "Saved for Later"
+		expected_amount_keys = [
+			"defence_amount",
+			"effect_stacks",
+		]
+
+	func test_card_results_with_thorns():
+		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.thorns.name, 5, '')
+		assert_has_amounts()
+		var sceng = execute_with_yield(card)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(dreamer.defence, get_amount("defence_amount"))
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect), int(get_amount("effect_stacks")),
+				"%s stacks on Dreamer increased by correct amount" % [effect])
+
+	func test_card_results_without_thorns():
+		assert_has_amounts()
+		var sceng = execute_with_yield(card)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(dreamer.defence, get_amount("defence_amount"))
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 0,
+				"%s stacks on Dreamer not increased" % [effect])

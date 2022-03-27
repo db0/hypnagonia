@@ -206,7 +206,7 @@ const FEARLESS:= {
 	]
 }
 const VINDICTIVE:= {
-	"Anxiety": 0,
+	"Anxiety": 2,
 #	"Icon": preload("res://icon.png"),
 	"Tags": [
 		Terms.GENERIC_TAGS.frozen.name,
@@ -241,6 +241,7 @@ const VINDICTIVE:= {
 		"Note-Taking",
 		"Vengeance",
 		"Planning",
+		"Saved for Later",
 	],
 	"Rare": [
 		"The Cold Dish",
