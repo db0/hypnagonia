@@ -17,14 +17,14 @@ const AngerMemento = {
 				},],
 			},
 			{
-				"name": "modify_damage",
+				"name": "apply_effect",
+				"tags": ["Card"],
 				"subject": "previous",
-				"needs_subject": true,
-				"amount": {
+				"modification": {
 					"lookup_property": "_amounts",
-					"value_key": "damage_amount2"
+					"value_key": "effect_stacks"
 				},
-				"tags": ["Attack", "Card"],
+				"effect_name": Terms.ACTIVE_EFFECTS.burn.name,
 				"filter_state_self": [{
 					"filter_cardfilters": [
 						{
