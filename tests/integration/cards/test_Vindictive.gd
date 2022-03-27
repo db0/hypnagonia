@@ -311,3 +311,43 @@ class TestNoteTaking:
 		yield(yield_to(turn, "player_turn_started",3), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.thorns.name), amount,
 				"%s stacks on Dreamer increased by correct amount" % [Terms.ACTIVE_EFFECTS.thorns.name])
+
+
+class TestVengeance:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	var effect: String = Terms.ACTIVE_EFFECTS.thorns.name
+	func _init() -> void:
+		testing_card_name = "Unstoppable Vengeance"
+		expected_amount_keys = [
+			"beneficial_integer",
+			"effect_stacks",
+		]
+
+	func test_card_effect():
+		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.thorns.name, 5, '')
+		var sceng = snipexecute(card, test_torment)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(test_torment.damage, tdamage(5 + get_amount("beneficial_integer") + get_amount("effect_stacks")))
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 5 + get_amount("effect_stacks"),
+				"%s stacks on Dreamer increased by correct amount" % [effect])
+				
+
+class TestPlanning:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	var effect: String = Terms.ACTIVE_EFFECTS.thorns.name
+	func _init() -> void:
+		testing_card_name = "Planning"
+		expected_amount_keys = [
+			"damage_amount",
+			"draw_amount",
+		]
+
+	func test_card_effect():
+		var scard = add_single_card("That's Going in the Book", deck)
+		var sceng = snipexecute(card, test_torment)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(test_torment.damage, tdamage(get_amount("damage_amount")))
+		assert_eq(scard.get_parent(), hand)
+				

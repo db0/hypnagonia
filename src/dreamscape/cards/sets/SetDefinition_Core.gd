@@ -1553,14 +1553,13 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 6,
+			"damage_amount": 7,
 			"draw_amount": 1,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"+ High Morale +",
 			"! High Morale !",
-			"@ High Morale @",
 		],
 	},
 	"+ High Morale +": {
@@ -1592,25 +1591,8 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 6,
+			"damage_amount": 7,
 			"draw_amount": 2,
-		},
-		"_is_upgrade": true,
-	},
-	"@ High Morale @": {
-		"Type": "Action",
-		"Tags": [],
-		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {courage} card.",
-		"Cost": 0,
-		"_illustration": "Nobody",
-		"_effects_info": {
-			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
-		},
-		"_rarity": "Uncommon",
-		"_keywords": ["interpretation"],
-		"_amounts": {
-			"damage_amount": 4,
-			"draw_amount": 1,
 		},
 		"_is_upgrade": true,
 	},

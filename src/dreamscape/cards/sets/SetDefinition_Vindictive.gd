@@ -646,6 +646,113 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-
+	"Vengeance": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for as much as your {thorns} stacks + {beneficial_integer}. This bypasses {defence}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"beneficial_integer": 2,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"+ Vengeance +",
+			"Unstoppable Vengeance",
+		],
+	},
+	"+ Vengeance +": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} for as much as your {thorns} stacks + {beneficial_integer}. This bypasses {defence}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"beneficial_integer": 5
+		},
+		"_is_upgrade": true,
+	},
+	"Unstoppable Vengeance": {
+		"Type": "Action",
+		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
+		"Abilities": "Gain {effect_stacks} {thorns}. {damage} for as much as your {thorns} stacks + {beneficial_integer}. This bypasses {defence}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"beneficial_integer": 2,
+			"effect_stacks": 1
+		},
+		"_is_upgrade": true,
+	},
+	"Planning": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.swift.name],
+		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {thorns} card.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER
+		},
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 6,
+			"draw_amount": 1,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"+ Planning +",
+			"! Planning !",
+		],
+	},
+	"+ Planning +": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.swift.name],
+		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {thorns} card.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER
+		},
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 10,
+			"draw_amount": 1,
+		},
+		"_is_upgrade": true,
+	},
+	"! Planning !": {
+		"Type": "Action",
+		"Tags": [Terms.GENERIC_TAGS.swift.name],
+		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {thorns} card.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER
+		},
+		"_rarity": "Uncommon",
+		"_keywords": ["interpretation"],
+		"_amounts": {
+			"damage_amount": 7,
+			"draw_amount": 2,
+		},
+		"_is_upgrade": true,
+	},
 }
 
