@@ -18,6 +18,13 @@ const JOURNAL_ENCOUNTER_CHOICE_SCENE = preload("res://src/dreamscape/Overworld/J
 const PATHOS_INFO_SCENE = preload("res://src/dreamscape/PathosChangeInfo.tscn")
 
 var pathos_infos := {}
+# This is set to fase a millisecond after a popup closes
+# to avoid the click which closes it, selecting a choice
+var popups_active := false
+# This dictionary holds links to card nodes which have been instanced as preview cards
+var popup_cards := {}
+var pre_highlight_bbcode_texts := {}
+var reward_choices_unpreviewed := []
 
 onready var page_illustration := $HBC/MC/JournalPageIllustration
 onready var page_shader := $HBC/MC/JournalPageShader
@@ -42,10 +49,6 @@ onready var _pathos_description := $PathosDetails/VBC/Description
 onready var player_info := $"../PlayerInfo"
 onready var journal_cover := $"../../FadeToBlack"
 
-# This dictionary holds links to card nodes which have been instanced as preview cards
-var popup_cards := {}
-var pre_highlight_bbcode_texts := {}
-var reward_choices_unpreviewed := []
 
 func _ready() -> void:
 	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
@@ -60,6 +63,7 @@ func _ready() -> void:
 #	globals.encounters.setup() # Debug
 	globals.journal = self
 	player_info.owner_node = self
+	player_info.connect("popup_opened", self, "_on_playerinfo_popup_opened")
 	journal_intro.bbcode_text = _get_intro()
 	_reveal_entry(journal_intro)
 	if not globals.test_flags.get("no_journal_fade"):
@@ -461,7 +465,8 @@ func show_pathos_popup(description_text: String, pathos_dict: Dictionary) -> voi
 #	print_debug(total_chance)
 	if highest_chance == 0:
 		pathos_infos[Terms.RUN_ACCUMULATION_NAMES.enemy].set_max_chance()
-	pathos_details_popup.visible = true
+	pathos_details_popup.popup()
+#	pathos_details_popup.visible = true
 	pathos_details_popup.rect_size = Vector2(0,0)
 	pathos_details_popup.rect_global_position = get_local_mouse_position() + Vector2(-pathos_details_popup.rect_size.x - 10,-5)
 
@@ -543,3 +548,13 @@ func card_upgrade_started(card_upgrade_node) -> void:
 func _exit_tree():
 	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
 		print("DEBUG INFO:Journal: Exiting/Changing Journal")
+
+
+func _on_playerinfo_popup_hidden() -> void:
+	popups_active = false
+
+func _on_playerinfo_popup_opened(popup_node: Popup) -> void:
+	popups_active = true
+	if popup_node.is_connected("popup_hide", self, "_on_playerinfo_popup_hidden"):
+		return
+	popup_node.connect("popup_hide", self, "_on_playerinfo_popup_hidden", [], CONNECT_DEFERRED)

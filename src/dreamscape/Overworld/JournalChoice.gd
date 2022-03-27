@@ -38,6 +38,8 @@ func _on_mouse_exited() -> void:
 
 func _on_gui_input(event) -> void:
 	if event.is_pressed() and event.get_button_index() == 1:
+		if journal.popups_active:
+			return
 		emit_signal("pressed")
 		bbcode_text = "[color=grey]" + formated_description + "[/color]"
 		disconnect("mouse_entered", self, "_on_mouse_entered")

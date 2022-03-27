@@ -3,6 +3,7 @@ extends PanelContainer
 
 signal artifact_instanced(artifact)
 signal memory_instanced(memory)
+signal popup_opened(popup)
 
 const CARD_PREVIEW_SCENE = preload("res://src/dreamscape/MainMenu/StartingCardPreviewObject.tscn")
 const PATHOS_INFO_SCENE = preload("res://src/dreamscape/PathosEntryInfo.tscn")
@@ -119,6 +120,7 @@ func _on_Deck_pressed() -> void:
 	_deck_preview_popup.rect_size = Vector2(popup_size_x,600)
 	_deck_preview_popup.popup_centered()
 	populate_preview_cards()
+	emit_signal("popup_opened", _deck_preview_popup)
 
 
 func populate_preview_cards() -> void:
@@ -193,6 +195,7 @@ func _on_Pathos_pressed() -> void:
 		pathos_infos[entry].update_labels()
 	_pathos_details.rect_global_position =\
 		_pathos_button.rect_global_position + Vector2(-_pathos_details.rect_size.x,50)
+	emit_signal("popup_opened", _pathos_details)
 
 
 func _on_Help_pressed() -> void:
