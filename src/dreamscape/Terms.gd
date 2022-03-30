@@ -560,8 +560,8 @@ const ACTIVE_EFFECTS := {
 		"icon": preload("res://assets/icons/notebook.png"),
 		"is_card_reference": true
 	},
-	"shadenfreude":  {
-		"name": "Shadenfreude",
+	"schadenfreude":  {
+		"name": "Schadenfreude",
 		"type": "Concentration",
 		"icon": preload("res://assets/icons/imp-laugh.png"),
 		"is_card_reference": true

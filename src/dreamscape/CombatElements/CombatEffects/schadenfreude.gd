@@ -13,6 +13,7 @@ func _on_player_turn_started(_turn: Turn) -> void:
 	var divider : int = cfc.card_definitions[name]\
 			.get("_amounts",{}).get("concentration_divider")
 	var effect_stacks = int(floor(float(stacks) * float(gathered_damage) / divider))
+	print_debug([effect_stacks,stacks,gathered_damage,divider])
 	var script = [
 		{
 			"name": "apply_effect",

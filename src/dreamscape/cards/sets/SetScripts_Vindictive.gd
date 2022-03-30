@@ -571,13 +571,13 @@ const SavedforLater  = {
 		],
 	},
 }
-const Shadenfreude = {
+const Schadenfreude = {
 	"manual": {
 		"hand": [
 			{
 				"name": "apply_effect",
 				"tags": ["Card"],
-				"effect_name": Terms.ACTIVE_EFFECTS.shadenfreude.name,
+				"effect_name": Terms.ACTIVE_EFFECTS.schadenfreude.name,
 				"subject": "dreamer",
 				"modification": {
 					"lookup_property": "_amounts",
@@ -587,13 +587,13 @@ const Shadenfreude = {
 		],
 	}
 }
-const BitterShadenfreude = {
+const BitterSchadenfreude = {
 	"manual": {
 		"hand": [
 			{
 				"name": "apply_effect",
 				"tags": ["Card"],
-				"effect_name": Terms.ACTIVE_EFFECTS.shadenfreude.name,
+				"effect_name": Terms.ACTIVE_EFFECTS.schadenfreude.name,
 				"upgrade_name": "bitter",
 				"subject": "dreamer",
 				"modification": {
@@ -630,7 +630,7 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 		"Unstoppable Vengeance": UnstoppableVengeance,
 		"Planning": Planning,
 		"Saved for Later": SavedforLater,
-		"Shadenfreude": Shadenfreude,
-		"Bitter Shadenfreude": BitterShadenfreude,
+		"Schadenfreude": Schadenfreude,
+		"Bitter Schadenfreude": BitterSchadenfreude,
 	}
 	return(_prepare_scripts(scripts, card_name, get_modified))
