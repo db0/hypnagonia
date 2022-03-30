@@ -90,8 +90,6 @@ const BIG_ATTACK_SCRIPT := {
 				"subject": "target",
 				"needs_subject": true,
 				"amount": DMG * 5,
-				"x_modifier": '0',
-				"x_operation": "multiply",
 				"tags": ["Attack", "Card"],
 				"filter_state_subject": [{
 					"filter_group": "EnemyEntities",

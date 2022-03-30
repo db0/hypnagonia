@@ -203,7 +203,8 @@ func calculate_modify_damage(subject: CombatEntity, script: ScriptTask) -> int:
 	else:
 		modification = script.get_property(SP.KEY_AMOUNT)
 	modification = _check_for_x(script, modification)
-	alteration = _check_for_effect_alterants(script, modification, subject, self)
+	alteration = _check_for_alterants(script, modification, subject)
+	alteration = _check_for_effect_alterants(script, modification + alteration, subject, self)
 	if alteration is GDScriptFunctionState:
 		alteration = yield(alteration, "completed")
 	var final_result = modification + alteration
@@ -252,7 +253,8 @@ func calculate_assign_defence(subject: CombatEntity, script: ScriptTask) -> int:
 	else:
 		modification = script.get_property(SP.KEY_AMOUNT)
 	modification = _check_for_x(script, modification)
-	alteration = _check_for_effect_alterants(script, modification, subject, self)
+	alteration = _check_for_alterants(script, modification, subject)
+	alteration = _check_for_effect_alterants(script, modification + alteration, subject, self)
 	if alteration is GDScriptFunctionState:
 		alteration = yield(alteration, "completed")
 	var final_result = modification + alteration
@@ -303,7 +305,8 @@ func calculate_apply_effect(subject: CombatEntity, script: ScriptTask) -> int:
 		modification = script.get_property(SP.KEY_MODIFICATION)
 	modification = _check_for_x(script, modification)
 	if not set_to_mod:
-		alteration = _check_for_effect_alterants(script, modification, subject, self)
+		alteration = _check_for_alterants(script, modification, subject)
+		alteration = _check_for_effect_alterants(script, modification + alteration, subject, self)
 		if alteration is GDScriptFunctionState:
 			alteration = yield(alteration, "completed")
 	var final_amount = modification + alteration
@@ -595,10 +598,10 @@ func set_discount(script: ScriptTask) -> int:
 		var counter : String = script.get_property(SP.KEY_COUNTER_NAME, "Immersion")
 		var is_permanent : bool = script.get_property("is_permanent", false)
 		var discount = CostDiscount.new(
-				discount_amount, 
-				discount_uses, 
-				discount_filters, 
-				counter, 
+				discount_amount,
+				discount_uses,
+				discount_filters,
+				counter,
 				is_permanent)
 		cfc.NMAP.board.counters.add_child(discount)
 	return(retcode)

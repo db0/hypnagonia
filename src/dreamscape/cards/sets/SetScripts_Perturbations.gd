@@ -300,6 +300,24 @@ const scripts := {
 			],
 		},
 	},
+	"Self-Centered": {
+		"alterants": {
+			"hand": [
+				{
+					"filter_task": "modify_damage",
+					"alteration": {
+						"lookup_property": "_amounts",
+						"value_key": "detrimental_integer",
+						"is_inverted": true,
+					},
+					"subject": "previous",
+					"filter_state_subject": [
+						{"filter_group": "EnemyEntities"},
+					]
+				},
+			],
+		},
+	},
 }
 
 
