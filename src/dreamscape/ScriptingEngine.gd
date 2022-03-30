@@ -183,7 +183,8 @@ func predict_subjects(script: ScriptTask, prev_subjects: Array) -> Array:
 
 func calculate_modify_damage(subject: CombatEntity, script: ScriptTask) -> int:
 	var modification: int
-	var alteration = 0
+	var card_alteration = 0
+	var effect_alteration = 0
 	if str(script.get_property(SP.KEY_AMOUNT)) == SP.VALUE_RETRIEVE_INTEGER:
 		# If the damage is requested, is only applies to stored integers
 		# so we flip the stored_integer's value.
@@ -203,12 +204,14 @@ func calculate_modify_damage(subject: CombatEntity, script: ScriptTask) -> int:
 	else:
 		modification = script.get_property(SP.KEY_AMOUNT)
 	modification = _check_for_x(script, modification)
-	alteration = _check_for_alterants(script, modification, subject)
-	alteration = _check_for_effect_alterants(script, modification + alteration, subject, self)
-	if alteration is GDScriptFunctionState:
-		alteration = yield(alteration, "completed")
-	var final_result = modification + alteration
-	return(final_result)
+	card_alteration = _check_for_alterants(script, modification, subject)
+	# As the card alterants are always additive, we consider them as part of the value
+	# when checking for effects
+	effect_alteration = _check_for_effect_alterants(script, modification + card_alteration, subject, self)
+	if effect_alteration is GDScriptFunctionState:
+		effect_alteration = yield(effect_alteration, "completed")
+	var final_amount = modification + card_alteration + effect_alteration
+	return(final_amount)
 
 
 func modify_damage(script: ScriptTask) -> int:
@@ -233,7 +236,8 @@ func modify_damage(script: ScriptTask) -> int:
 
 func calculate_assign_defence(subject: CombatEntity, script: ScriptTask) -> int:
 	var modification: int
-	var alteration = 0
+	var card_alteration = 0
+	var effect_alteration = 0
 	if str(script.get_property(SP.KEY_AMOUNT)) == SP.VALUE_RETRIEVE_INTEGER:
 		# If the modification is requested, is only applies to stored integers
 		# so we flip the stored_integer's value.
@@ -253,12 +257,14 @@ func calculate_assign_defence(subject: CombatEntity, script: ScriptTask) -> int:
 	else:
 		modification = script.get_property(SP.KEY_AMOUNT)
 	modification = _check_for_x(script, modification)
-	alteration = _check_for_alterants(script, modification, subject)
-	alteration = _check_for_effect_alterants(script, modification + alteration, subject, self)
-	if alteration is GDScriptFunctionState:
-		alteration = yield(alteration, "completed")
-	var final_result = modification + alteration
-	return(final_result)
+	card_alteration = _check_for_alterants(script, modification, subject)
+	# As the card alterants are always additive, we consider them as part of the value
+	# when checking for effects
+	effect_alteration = _check_for_effect_alterants(script, modification + card_alteration, subject, self)
+	if effect_alteration is GDScriptFunctionState:
+		effect_alteration = yield(effect_alteration, "completed")
+	var final_amount = modification + card_alteration + effect_alteration
+	return(final_amount)
 
 func assign_defence(script: ScriptTask) -> int:
 	var retcode: int
@@ -284,7 +290,8 @@ func assign_defence(script: ScriptTask) -> int:
 
 func calculate_apply_effect(subject: CombatEntity, script: ScriptTask) -> int:
 	var modification: int
-	var alteration = 0
+	var card_alteration = 0
+	var effect_alteration = 0
 	var set_to_mod: bool = script.get_property(SP.KEY_SET_TO_MOD)
 	if str(script.get_property(SP.KEY_MODIFICATION)) == SP.VALUE_RETRIEVE_INTEGER:
 		modification = stored_integer
@@ -305,11 +312,13 @@ func calculate_apply_effect(subject: CombatEntity, script: ScriptTask) -> int:
 		modification = script.get_property(SP.KEY_MODIFICATION)
 	modification = _check_for_x(script, modification)
 	if not set_to_mod:
-		alteration = _check_for_alterants(script, modification, subject)
-		alteration = _check_for_effect_alterants(script, modification + alteration, subject, self)
-		if alteration is GDScriptFunctionState:
-			alteration = yield(alteration, "completed")
-	var final_amount = modification + alteration
+		card_alteration = _check_for_alterants(script, modification, subject)
+		# As the card alterants are always additive, we consider them as part of the value
+		# when checking for effects
+		effect_alteration = _check_for_effect_alterants(script, modification + card_alteration, subject, self)
+		if effect_alteration is GDScriptFunctionState:
+			effect_alteration = yield(effect_alteration, "completed")
+	var final_amount = modification + card_alteration + effect_alteration
 	return(final_amount)
 
 

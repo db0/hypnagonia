@@ -629,7 +629,7 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 		"Vengeance": Vengeance,
 		"Unstoppable Vengeance": UnstoppableVengeance,
 		"Planning": Planning,
-		"Saved for Later ": SavedforLater,
+		"Saved for Later": SavedforLater,
 		"Shadenfreude": Shadenfreude,
 		"Bitter Shadenfreude": BitterShadenfreude,
 	}
