@@ -824,7 +824,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Shadenfreude": {
+	"Schadenfreude": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
 		"Abilities": "At the start of each turn, gain {concentration_stacks} {armor} "\
@@ -842,11 +842,11 @@ const CARDS := {
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
-			"Bitter Shadenfreude",
-			"@ Shadenfreude @",
+			"Bitter Schadenfreude",
+			"@ Schadenfreude @",
 		],
 	},
-	"@ Shadenfreude @": {
+	"@ Schadenfreude @": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
 		"Abilities": "At the start of each turn, gain {concentration_stacks} {armor} "\
@@ -864,7 +864,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Bitter Shadenfreude": {
+	"Bitter Schadenfreude": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
 		"Abilities": "At the start of each turn, gain {concentration_stacks} {armor} "\

@@ -389,7 +389,7 @@ class TestSavedforLater:
 
 class TestShadenfreude:
 	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
-	var effect: String = Terms.ACTIVE_EFFECTS.shadenfreude.name
+	var effect: String = Terms.ACTIVE_EFFECTS.schadenfreude.name
 	var amount = 2
 	func _init() -> void:
 		effects_to_play = [
@@ -403,5 +403,5 @@ class TestShadenfreude:
 		spawn_effect(test_torment, Terms.ACTIVE_EFFECTS.poison.name, 14, '')
 		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started",3), YIELD)
-		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.armor.name), amount,
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.armor.name), int(floor(amount * 14.0 / 5.0)),
 				"%s stacks on Dreamer increased by correct amount" % [Terms.ACTIVE_EFFECTS.armor.name])
