@@ -22,7 +22,7 @@ const FLYER:= {
 		MemoryDefinitions.RegenerateSelf,
 	],
 	"Perturbations": [
-		
+
 	],
 	"Basic": [
 		"Out of Reach",
@@ -109,13 +109,13 @@ const WARRIOR:= {
 	"Icon": preload("res://icon.png"),
 	"Tags": [],
 	"Artifacts": [
-		
+
 	],
 	"Memories": [
-		
+
 	],
 	"Perturbations": [
-		
+
 	],
 	"Basic": [
 		"War Paint",
@@ -134,13 +134,13 @@ const RUNNER := {
 	"Icon": preload("res://icon.png"),
 	"Tags": [],
 	"Artifacts": [
-		
+
 	],
 	"Memories": [
-		
+
 	],
 	"Perturbations": [
-		
+
 	],
 	"Basic": [
 	],
@@ -172,7 +172,7 @@ const FEARLESS:= {
 		MemoryDefinitions.FortifySelf,
 	],
 	"Perturbations": [
-		
+		"Self-Centered",
 	],
 	"Basic": [
 		"Confidence",
@@ -213,13 +213,14 @@ const VINDICTIVE:= {
 		Terms.ACTIVE_EFFECTS.thorns.name,
 	],
 	"Artifacts": [
-
+		ArtifactDefinitions.ImproveThorns,
+		ArtifactDefinitions.StartingThorns,
 	],
 	"Memories": [
 
 	],
 	"Perturbations": [
-		
+		"Self-Centered",
 	],
 	"Basic": [
 		"Confidence",
@@ -255,13 +256,13 @@ const COWARD := {
 	"Icon": preload("res://icon.png"),
 	"Tags": [],
 	"Artifacts": [
-		
+
 	],
 	"Memories": [
-		
+
 	],
 	"Perturbations": [
-		
+
 	],
 	"_is_inactive": true
 }
@@ -280,7 +281,7 @@ const RUBBER_CHICKEN := {
 		MemoryDefinitions.DisempowerEnemy,
 	],
 	"Perturbations": [
-		
+
 	],
 	"Basic": [
 		"Interpretation",
@@ -326,7 +327,7 @@ const LASER_CANNON := {
 		MemoryDefinitions.ActivateStartups,
 	],
 	"Perturbations": [
-		
+
 	],
 	"Basic": [
 		"Interpretation",
@@ -389,7 +390,7 @@ const ABUSIVE_RELATIONSHIP := {
 		ArtifactDefinitions.EndingHeal
 	],
 	"Perturbations": [
-		
+
 	],
 	"Basic": [
 		"Inner Justice",

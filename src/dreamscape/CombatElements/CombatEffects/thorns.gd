@@ -15,4 +15,10 @@ func _on_entity_attacked(_entity, _amount, trigger: Node, _tags: Array) -> void:
 	or (entity_type == Terms.ENEMY 
 			and trigger 
 			and trigger.is_in_group("PlayerEntities")):
-		trigger.modify_damage(stacks, false, ["Combat Effect", "Blockable", "Thorns"], owning_entity)
+		var script = [{
+			"name": "modify_damage",
+			"subject": "trigger",
+			"amount": stacks,
+			"tags": ["Combat Effect", "Blockable", "Thorns", "Buff"],
+		}]
+		execute_script(script, trigger)

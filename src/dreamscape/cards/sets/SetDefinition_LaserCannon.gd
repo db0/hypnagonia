@@ -538,7 +538,7 @@ const CARDS := {
 				+ "every time another card is played.",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
 			"damage_amount": 5,
@@ -559,7 +559,7 @@ const CARDS := {
 				+ "every time another card is played.",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
 			"damage_amount": 8,
@@ -575,7 +575,7 @@ const CARDS := {
 				+ "every time another card is played.",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
 			"damage_amount": 5,
@@ -591,10 +591,10 @@ const CARDS := {
 				+ "every time another card is played.",
 		"Cost": 2,
 		"_illustration": "Nobody",
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 5,
+			"damage_amount": 2,
 			"increase_amount": 2,
 		},
 		"_is_upgrade": true,

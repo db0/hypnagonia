@@ -171,7 +171,7 @@ const CARDS := {
 	"Suffocation": {
 		"Type": "Perturbation",
 		"Tags": [Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "While in hand, at the end of the turn, take {exert_amount} {anxiety}\nPlay: {forget}.",
+		"Abilities": "While in hand, at the end of the turn, take {exert_amount} {anxiety}\n{unplayable}\nPlay: {forget}.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Perturbation",
@@ -211,5 +211,17 @@ const CARDS := {
 		"_upgrades": [
 			"Cockroaches",
 		],
+	},
+	"Self-Centered": {
+		"Type": "Perturbation",
+		"Tags": [],
+		"Abilities": "While in hand, Torments take {detrimental_integer} less {damage} from each source.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Perturbation",
+		"_amounts": {
+			"detrimental_integer": 10
+		},
+		"_keywords": [],
 	},
 }

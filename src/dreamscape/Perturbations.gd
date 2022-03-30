@@ -13,6 +13,12 @@ const EXCLUDED_PERTURBATIONS := [
 	"Cringeworthy Memory",
 	"Dream Fragment",
 	"Cockroach Infestation",
+	"Suffocation",
+	# The below are archetype perturbations which are excluded as they can easily be ignored
+	# unless the player is using that archetype. So we want them only to appear
+	# when that archetype is being used.
+	"Apathy",
+	"Self-Centered",
 ]
 
 # Gathers all perturbations that can be given to the player
@@ -32,3 +38,16 @@ static func get_random_perturbation(archetype_perturbations := []) -> String:
 	var parray = gather_perturbations(archetype_perturbations)
 	CFUtils.shuffle_array(parray)
 	return(parray[0])
+
+# Gets the player's archetype perturbations and increases the chances that the player gets one of them
+# in a random choice, by the integer provided.
+static func get_archetype_perturbations_chance(chance := 3) -> Array:
+	var archetype_perturbations = globals.player.get_archetype_perturbations()
+	var increased_ap := []
+	# We increase the chance that an archetype specific perturbation will be gained
+	# randomly, when one exists
+	# I use a range, so that I can easily increase the chance later.
+	while increased_ap.size() < chance and archetype_perturbations.size() > 0:
+		CFUtils.shuffle_array(archetype_perturbations)
+		increased_ap.append(archetype_perturbations[0])
+	return(increased_ap)

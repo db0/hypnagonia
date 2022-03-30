@@ -148,7 +148,7 @@ class TestCockroachInfestation:
 		test_card_names = [
 			"Cockroach Infestation",
 			"Cockroach Infestation",
-		]
+		]		
 
 	func test_card_results():
 		watch_signals(globals.player.deck)
@@ -158,3 +158,48 @@ class TestCockroachInfestation:
 		turn.call_deferred("end_player_turn")
 		yield(yield_to(board.turn, "enemy_turn_started",3 ), YIELD)
 		assert_signal_emit_count(globals.player.deck, "card_entry_modified", 1)
+
+class TestSelfCentered:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	func _init() -> void:
+		globals.test_flags.no_refill = false
+		testing_card_name = "Self-Centered"
+		test_card_names = [
+			"Self-Centered",
+			"Interpretation",
+		]
+		expected_amount_keys = [
+			"detrimental_integer"
+		]
+		
+	func test_card_results():
+		assert_has_amounts()
+		spawn_effect(test_torment, Terms.ACTIVE_EFFECTS.poison.name, 14, '')
+		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.thorns.name, 9, '')
+		var intents_to_test = [
+			{
+				"intent_scripts": ["Stress:10"],
+				"reshuffle": true,
+			},
+		]
+		test_torment.intents.replace_intents(intents_to_test)
+		test_torment.intents.refresh_intents()
+		cards[1].scripts = BIG_ATTACK_SCRIPT
+		var torment_added_damage = DMG*5 - get_amount("detrimental_integer")
+		var sceng = cards[1].execute_scripts()
+		if not cards[1].targeting_arrow.is_targeting:
+			yield(yield_to(cards[1].targeting_arrow, "initiated_targeting", 1), YIELD)
+		assert_eq(test_torment.incoming.get_child_count(), 1,
+				"Torment should have 1 intents displayed")
+		for prediction in test_torment.incoming.get_children():
+			assert_true(prediction.signifier_amount.visible, "Damage amount should  be visible")
+			assert_eq(prediction.signifier_amount.text, str(torment_added_damage), "Card damage should be reduced as expected")
+		yield(target_entity(cards[1], test_torment), "completed")
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(test_torment.damage, tdamage(torment_added_damage), "Torment should take expected damage")
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		assert_eq(dreamer.damage, 10, "Dreamer should take damage from intents")
+		assert_eq(test_torment.damage, tdamage(torment_added_damage + 4), "Torment should take reducted damage from poison")
+
