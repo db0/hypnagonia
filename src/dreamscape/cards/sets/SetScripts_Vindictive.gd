@@ -673,6 +673,42 @@ const Prepared = {
 		],
 	},
 }
+const TheLastStraw = {
+	"manual": {
+		"hand": [
+			{
+				"name": "modify_damage",
+				"subject": "dreamer",
+				"amount": "per_effect_stacks",
+				"tags": ["Exert", "Card"],
+				"per_effect_stacks": {
+					"effect_name": Terms.ACTIVE_EFFECTS.thorns.name,
+					"subject": "dreamer",
+					"divider": {
+						"lookup_property": "_amounts",
+						"value_key": "beneficial_float",
+					},
+				},
+			},
+			{
+				"name": "apply_effect",
+				"tags": ["Card"],
+				"effect_name": Terms.ACTIVE_EFFECTS.thorns.name,
+				"subject": "dreamer",
+				"modification": "per_effect_stacks",
+				"skip_sceng_snapshot": true,
+				"per_effect_stacks": {
+					"effect_name": Terms.ACTIVE_EFFECTS.thorns.name,
+					"subject": "dreamer",
+					"multiplier": {
+						"lookup_property": "_amounts",
+						"value_key": "beneficial_percentage",
+					},
+				},
+			},
+		],
+	},
+}
 # This fuction returns all the scripts of the specified card name.
 #
 # if no scripts have been defined, an empty dictionary is returned instead.
@@ -702,5 +738,6 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 		"Bitter Schadenfreude": BitterSchadenfreude,
 		"Reckoning Time": ReckoningTime,
 		"Prepared": Prepared,
+		"The Last Straw": TheLastStraw,
 	}
 	return(_prepare_scripts(scripts, card_name, get_modified))

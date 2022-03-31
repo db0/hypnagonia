@@ -503,7 +503,9 @@ func _input(event):
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"* Reckoning Time *",
+			"The Last Straw",
+			"* The Last Straw *",
+			"% The Last Straw %",
 #			"Whirlwind",
 #			"Charged Shot",
 		]:

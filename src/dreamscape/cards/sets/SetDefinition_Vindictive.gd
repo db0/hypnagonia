@@ -996,5 +996,60 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"The Last Straw": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "Take {anxiety} equal to your {thorns}/{beneficial_float}.\nIncrease your {thorns} by {beneficial_percentage}\n{forget}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": [],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"beneficial_percentage": 1.0,
+			"beneficial_float": 2.0,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"* The Last Straw *",
+			"% The Last Straw %",
+		],
+	},
+	"* The Last Straw *": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "Take {anxiety} equal to your {thorns}/{beneficial_float}.\nIncrease your {thorns} by {beneficial_percentage}\n{forget}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": [],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"beneficial_percentage": 1.5,
+			"beneficial_float": 2.0,
+		},
+		"_is_upgrade": true,
+	},
+	"% The Last Straw %": {
+		"Type": "Control",
+		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.slumber.name],
+		"Abilities": "Take {anxiety} equal to your {thorns}/{beneficial_float}.\nIncrease your {thorns} by {beneficial_percentage}\n{forget}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Rare",
+		"_keywords": [],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"beneficial_percentage": 1.0,
+			"beneficial_float": 3.0,
+		},
+		"_is_upgrade": true,
+	},
 }
 

@@ -105,7 +105,7 @@ static func modify_amounts(properties: Dictionary, amount_name: String, value, p
 		if value.begins_with("*"):
 			# We reduce floats to a single decimal
 			var step := 0.1
-			if current_value < 1:
+			if 'percentage' in amount_name:
 				step = 0.01
 			new_value = stepify(float(current_value) * float(value.lstrip("*")), step)
 		else:
