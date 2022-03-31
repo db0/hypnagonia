@@ -57,6 +57,7 @@ const BENEFICIAL_FLOATS := [
 	"beneficial_float",
 	"beneficial_float2",
 	"beneficial_float3",
+	"beneficial_percentage",
 	"damage_amount",
 	"damage_amount",
 	"damage_amount2",
@@ -69,6 +70,7 @@ const DETRIMENTAL_FLOATS := [
 	"detrimental_float",
 	"detrimental_float2",
 	"detrimental_float3",
+	"detrimental_percentage",
 ]
 const BENEFICIAL_TAGS := [
 	Terms.GENERIC_TAGS.alpha.name,

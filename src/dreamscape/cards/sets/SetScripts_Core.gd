@@ -3536,15 +3536,15 @@ const Swoop = {
 					"filter_group": "EnemyEntities",
 				},],
 				"per_effect_stacks": {
-					"effect_name": "Untouchable",
+					"effect_name": Terms.ACTIVE_EFFECTS.impervious.name,
 					"subject": "dreamer",
 					"modifier": {
-					"lookup_property": "_amounts",
+						"lookup_property": "_amounts",
 						"value_key": "per_modifier",
 						"default": 0,
 					},
 					"multiplier": {
-					"lookup_property": "_amounts",
+						"lookup_property": "_amounts",
 						"value_key": "per_multiplier",
 						"default": 1,
 					},

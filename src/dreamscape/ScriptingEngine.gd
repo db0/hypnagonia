@@ -69,7 +69,12 @@ func _predict_script_amount(hardcoded_previous_subjects := []) -> void:
 					prediction_icon = Terms.get_term_value("Confidence", "icon")
 				entity.show_predictions(amount, prediction_icon)
 				var snapshot_method = "snapshot_" + script.script_name
-				if has_method(snapshot_method):
+				# We use the "skip_sceng_snapshot" to avoid taking snapshots of predictions for followup scripts
+				# Some scripts, like Reckoning Time do not work well with this, because active_effects.get_effect_stacks()
+				# (unlike alterants) do not store the sceng snapshot number and the snapshot numbers are cleared
+				# only after sceng completes. This is an ugly workaround and a refactoring on the perEngine should
+				# fix that.
+				if has_method(snapshot_method) and not script.get_property("skip_sceng_snapshot", false):
 					call(snapshot_method, script, amount, entity)
 
 		if not script.get_property(SP.KEY_PROTECT_PREVIOUS) and hardcoded_previous_subjects.size() == 0:
