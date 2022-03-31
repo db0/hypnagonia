@@ -645,6 +645,34 @@ const ReckoningTime = {
 		],
 	},
 }
+const Prepared = {
+	"manual": {
+		"hand": [
+			{
+				"name": "assign_defence",
+				"tags": ["Card"],
+				"subject": "dreamer",
+				"amount": 11,
+			},
+			{
+				"name": "move_card_to_container",
+				"subject": "self",
+				"dest_container": "forgotten",
+				"tags": ["Played", "Card"],
+			},
+		],
+	},
+	"on_player_turn_ended": {
+		"hand": [
+			{
+				"name": "move_card_to_container",
+				"tags": ["Card"],
+				"subject": "self",
+				"dest_container": "forgotten",
+			},
+		],
+	},
+}
 # This fuction returns all the scripts of the specified card name.
 #
 # if no scripts have been defined, an empty dictionary is returned instead.
@@ -673,5 +701,6 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 		"Schadenfreude": Schadenfreude,
 		"Bitter Schadenfreude": BitterSchadenfreude,
 		"Reckoning Time": ReckoningTime,
+		"Prepared": Prepared,
 	}
 	return(_prepare_scripts(scripts, card_name, get_modified))

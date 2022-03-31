@@ -217,7 +217,7 @@ const VINDICTIVE:= {
 		ArtifactDefinitions.StartingThorns,
 	],
 	"Memories": [
-
+		MemoryDefinitions.ThornsSelf,
 	],
 	"Perturbations": [
 		"Self-Centered",
@@ -243,11 +243,13 @@ const VINDICTIVE:= {
 		"Vengeance",
 		"Planning",
 		"Saved for Later",
+		"Reckoning Time",
+		"Prepared",
 	],
 	"Rare": [
 		"The Cold Dish",
 		"Nothing Forgotten",
-		"Shadenfreude",
+		"Schadenfreude",
 	]
 }
 	# Archetypes: Self-harm

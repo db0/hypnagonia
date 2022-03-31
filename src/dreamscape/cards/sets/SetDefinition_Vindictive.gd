@@ -940,6 +940,61 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-
+	"Prepared": {
+		"Type": "Control",
+		"Tags": [
+			Terms.GENERIC_TAGS.fading.name,
+			Terms.GENERIC_TAGS.slumber.name,
+		],
+		"Abilities": "Gain {defence_amount} {confidence}\n{forget}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_avoid_normal_discard": true,
+		"_rarity": "Common",
+		"_keywords": ["confidence", "forget"],
+		"_amounts": {
+			"defence_amount": 11
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"+ Prepared +",
+			"^ Prepared ^",
+		],
+	},
+	"+ Prepared +": {
+		"Type": "Control",
+		"Tags": [
+			Terms.GENERIC_TAGS.fading.name,
+			Terms.GENERIC_TAGS.slumber.name,
+		],
+		"Abilities": "Gain {defence_amount} {confidence}\n{forget}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_avoid_normal_discard": true,
+		"_rarity": "Common",
+		"_keywords": ["confidence", "forget"],
+		"_amounts": {
+			"defence_amount": 15
+		},
+		"_is_upgrade": true,
+	},
+	"^ Prepared ^": {
+		"Type": "Control",
+		"Tags": [
+			Terms.GENERIC_TAGS.fading.name,
+			Terms.GENERIC_TAGS.slumber.name,
+			Terms.GENERIC_TAGS.alpha.name,
+		],
+		"Abilities": "Gain {defence_amount} {confidence}\n{forget}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_avoid_normal_discard": true,
+		"_rarity": "Common",
+		"_keywords": ["confidence", "forget"],
+		"_amounts": {
+			"defence_amount": 11
+		},
+		"_is_upgrade": true,
+	},
 }
 

@@ -484,7 +484,22 @@ const ActivateStartups := {
 		"upgrade_multiplier": 1
 	},
 }
-
+const ThornsSelf := {
+	"canonical_name": "ThornsSelf",
+	"name": "Bullied",
+	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
+			+ "to gain {effect_stacks} {thorns}",
+	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"context": EffectContext.BATTLE,
+	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
+	"pathos_threshold_multiplier": 2.3,
+	"pathos_accumulation_divider": 2.3,
+	"keys_modified_by_upgrade": ["pathos_threshold_multiplier"],
+	"amounts": {
+		"effect_stacks": 3,
+		"upgrade_multiplier": 1
+	},
+}
 
 # Generic memories which have a chance to appear in any playthrough
 const GENERIC := [
