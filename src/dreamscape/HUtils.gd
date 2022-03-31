@@ -104,7 +104,10 @@ static func modify_amounts(properties: Dictionary, amount_name: String, value, p
 			and typeof(current_value) in [TYPE_INT, TYPE_REAL]:
 		if value.begins_with("*"):
 			# We reduce floats to a single decimal
-			new_value = stepify(float(current_value) * float(value.lstrip("*")), 0.1)
+			var step := 0.1
+			if current_value < 1:
+				step = 0.01
+			new_value = stepify(float(current_value) * float(value.lstrip("*")), step)
 		else:
 			new_value = current_value + float(value)
 			# For now, I assume no amounts will be negative
@@ -116,7 +119,7 @@ static func modify_amounts(properties: Dictionary, amount_name: String, value, p
 			if float(value.lstrip("*")) < 1:
 				new_value = int(floor(new_value))
 			if float(value.lstrip("*")) >= 1:
-				new_value = ceil(float(new_value))
+				new_value = int(ceil(new_value))
 	else:
 		new_value = value
 	properties["_amounts"][amount_name] = new_value
@@ -143,5 +146,7 @@ static func get_amounts_format(properties_dict: Dictionary, printed_properties_d
 			"color": amount_color,
 			"amount": amounts_format[amount],
 		}
+		if 'percentage' in amount:
+			fmt.amount = str(amounts_format[amount] * 100) + '%'
 		amounts_format[amount] = "[color={color}]{amount}[/color]".format(fmt)
 	return(amounts_format)

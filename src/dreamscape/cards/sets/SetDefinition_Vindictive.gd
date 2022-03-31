@@ -882,5 +882,64 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"Reckoning Time": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} all Torments as much as your {thorns} stacks * {multiplier_amount}.\n"\
+		 		+ "Decrease your {thorns} stacks by {detrimental_percentage}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": [],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"multiplier_amount": 2.0,
+			"detrimental_percentage": 0.4,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"+ Reckoning Time +",
+			"* Reckoning Time *",
+		],
+	},
+	"+ Reckoning Time +": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} all Torments as much as your {thorns} stacks * {multiplier_amount}.\n"\
+		 		+ "Decrease your {thorns} stacks by {detrimental_percentage}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": [],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"multiplier_amount": 2.0,
+			"detrimental_percentage": 0.4,
+		},
+		"_is_upgrade": true,
+	},
+	"* Reckoning Time *": {
+		"Type": "Action",
+		"Tags": [],
+		"Abilities": "{damage} all Torments as much as your {thorns} stacks * {multiplier_amount}.\n"\
+		 		+ "Decrease your {thorns} stacks by {detrimental_percentage}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Uncommon",
+		"_keywords": [],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
+		},
+		"_amounts": {
+			"multiplier_amount": 2.5,
+			"detrimental_percentage": 0.3,
+		},
+		"_is_upgrade": true,
+	},
+
 }
 

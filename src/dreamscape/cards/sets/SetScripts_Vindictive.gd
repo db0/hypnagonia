@@ -604,7 +604,47 @@ const BitterSchadenfreude = {
 		],
 	},
 }
-
+const ReckoningTime = {
+	"manual": {
+		"hand": [
+			{
+				"name": "modify_damage",
+				"subject": "boardseek",
+				"subject_count": "all",
+				"amount": "per_effect_stacks",
+				"tags": ["Attack", "Card"],
+				"filter_state_subject": [{
+					"filter_group": "EnemyEntities",
+				},],
+				"per_effect_stacks": {
+					"effect_name": Terms.ACTIVE_EFFECTS.thorns.name,
+					"subject": "dreamer",
+					"multiplier": {
+						"lookup_property": "_amounts",
+						"value_key": "multiplier_amount",
+					},
+				},
+			},
+			{
+				"name": "apply_effect",
+				"tags": ["Card"],
+				"effect_name": Terms.ACTIVE_EFFECTS.thorns.name,
+				"subject": "dreamer",
+				"modification": "per_effect_stacks",
+				"skip_sceng_snapshot": true,
+				"per_effect_stacks": {
+					"effect_name": Terms.ACTIVE_EFFECTS.thorns.name,
+					"subject": "dreamer",
+					"multiplier": {
+						"lookup_property": "_amounts",
+						"value_key": "detrimental_percentage",
+						"is_inverted": true,
+					},
+				},
+			},
+		],
+	},
+}
 # This fuction returns all the scripts of the specified card name.
 #
 # if no scripts have been defined, an empty dictionary is returned instead.
@@ -632,5 +672,6 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 		"Saved for Later": SavedforLater,
 		"Schadenfreude": Schadenfreude,
 		"Bitter Schadenfreude": BitterSchadenfreude,
+		"Reckoning Time": ReckoningTime,
 	}
 	return(_prepare_scripts(scripts, card_name, get_modified))

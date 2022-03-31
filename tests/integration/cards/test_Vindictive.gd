@@ -405,3 +405,23 @@ class TestShadenfreude:
 		yield(yield_to(turn, "player_turn_started",3), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.armor.name), int(floor(amount * 14.0 / 5.0)),
 				"%s stacks on Dreamer increased by correct amount" % [Terms.ACTIVE_EFFECTS.armor.name])
+
+
+class TestReckoningTime:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	var effect: String = Terms.ACTIVE_EFFECTS.thorns.name
+	func _init() -> void:
+		testing_card_name = "Reckoning Time"
+		expected_amount_keys = [
+			"detrimental_percentage",
+			"multiplier_amount",
+		]
+
+	func test_card_effect():
+		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.thorns.name, 15, '')
+		var sceng = execute_with_yield(card)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(test_torment.damage, tdamage(15 * get_amount("multiplier_amount")))
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 15 - 15 * get_amount("detrimental_percentage"),
+				"%s stacks on Dreamer decreased by correct amount" % [effect])
