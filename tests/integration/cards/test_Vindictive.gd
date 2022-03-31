@@ -425,3 +425,25 @@ class TestReckoningTime:
 		assert_eq(test_torment.damage, tdamage(15 * get_amount("multiplier_amount")))
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 15 - 15 * get_amount("detrimental_percentage"),
 				"%s stacks on Dreamer decreased by correct amount" % [effect])
+
+
+class TestTheLastStraw:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	var effect: String = Terms.ACTIVE_EFFECTS.thorns.name
+	func _init() -> void:
+		testing_card_name = "The Last Straw"
+		expected_amount_keys = [
+			"beneficial_percentage",
+			"beneficial_float",
+		]
+
+	func test_card_effect():
+		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.thorns.name, 15, '')
+		var sceng = execute_with_yield(card)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(dreamer.damage, int(15 / get_amount("beneficial_float")))
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 15 + 15 * get_amount("beneficial_percentage"),
+				"%s stacks on Dreamer decreased by correct amount" % [effect])
+		yield(yield_for(3.3), YIELD)
+				

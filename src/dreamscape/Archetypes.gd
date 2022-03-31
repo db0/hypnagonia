@@ -250,6 +250,7 @@ const VINDICTIVE:= {
 		"The Cold Dish",
 		"Nothing Forgotten",
 		"Schadenfreude",
+		"The Last Straw",
 	]
 }
 	# Archetypes: Self-harm
