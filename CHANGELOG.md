@@ -1,12 +1,21 @@
 # Changelog
 
-## [Unreleased](https://github.com/db0/hypnagonia/tree/HEAD)
+## [v0.43.0](https://github.com/db0/hypnagonia/tree/v0.43.0) (2022-03-31)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.42.2...HEAD)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.42.2...v0.43.0)
 
 **Fixed bugs:**
 
 - Rosetta Stone does not have the right prediction with repeats [\#259](https://github.com/db0/hypnagonia/issues/259)
+
+**Closed issues:**
+
+- When a journal popup is up, the journal choices should not be clickable [\#261](https://github.com/db0/hypnagonia/issues/261)
+- Vindictive Archetype [\#230](https://github.com/db0/hypnagonia/issues/230)
+
+**Merged pull requests:**
+
+- Finalized Vindictive Archetype [\#262](https://github.com/db0/hypnagonia/pull/262) ([db0](https://github.com/db0))
 
 ## [v0.42.2](https://github.com/db0/hypnagonia/tree/v0.42.2) (2022-03-27)
 
