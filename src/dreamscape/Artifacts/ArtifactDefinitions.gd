@@ -720,7 +720,7 @@ const DoubleFirstStartup := {
 	"rarity": "Uncommon",
 }
 
-
+## TODO: Artifact which increases chance to find Fusion cards
 ## TODO. Scipt base doesn't exist yet
 #const DoubleMemory := {
 #	"canonical_name": "DoubleMemory",

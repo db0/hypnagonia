@@ -1316,34 +1316,6 @@ const TotalAbsurdityUnleashed = {
 		],
 	},
 }
-const unnamed_card_4 = {
-	"manual": {
-		"hand": [
-			{
-				"name": "assign_defence",
-				"tags": ["Card"],
-				"subject": "dreamer",
-				"amount": 11,
-			},
-			{
-				"name": "move_card_to_container",
-				"subject": "self",
-				"dest_container": "forgotten",
-				"tags": ["Played", "Card"],
-			},
-		],
-	},
-	"on_player_turn_ended": {
-		"hand": [
-			{
-				"name": "move_card_to_container",
-				"tags": ["Card"],
-				"subject": "self",
-				"dest_container": "forgotten",
-			},
-		],
-	},
-}
 const ChangeofMind = {
 	"manual": {
 		"hand": [
@@ -3717,7 +3689,6 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 		"Cockfighting": Cockfighting,
 		"Absurdity Unleashed": AbsurdityUnleashed,
 		"Total Absurdity Unleashed": TotalAbsurdityUnleashed,
-		"unnamed_card_4": unnamed_card_4,
 		"Change of Mind": ChangeofMind,
 		"Brilliance": Brilliance,
 		"Blinding Brilliance": BlindingBrilliance,
