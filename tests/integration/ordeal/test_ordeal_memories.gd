@@ -442,3 +442,49 @@ class TestActivateStartups:
 				"Expected %s stacks added to %s" % [Terms.ACTIVE_EFFECTS.strengthen.name, dreamer])
 		assert_eq(hand.get_card_count(), 2,
 				"%s drew correct amount of cards" % [memory.canonical_name])
+
+
+class TestThornsSelf:
+	extends "res://tests/HUT_Ordeal_MemoriesTestClass.gd"
+	func _init() -> void:
+		testing_memory_name = MemoryDefinitions.ThornsSelf.canonical_name
+		expected_amount_keys = [
+			"effect_stacks",
+			"upgrade_multiplier",
+		]
+
+	func test_memory_use():
+		if not assert_has_amounts():
+			return
+		var sceng = memexecute(memory)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.thorns.name), get_amount("effect_stacks"),
+				"Expected %s stacks added to %s" % [Terms.ACTIVE_EFFECTS.thorns.name, dreamer])
+
+
+class TestFreezeCard:
+	extends "res://tests/HUT_Ordeal_MemoriesTestClass.gd"
+	func _init() -> void:
+		globals.test_flags["test_initial_hand"] = true
+		globals.test_flags["no_refill"] = false
+		testing_memory_name = MemoryDefinitions.FreezeCard.canonical_name
+		expected_amount_keys = [
+			"upgrade_multiplier",
+		]
+
+	func test_card_results():
+		if not assert_has_amounts():
+			return
+		var sceng = memexecute(memory)
+		var selwindows = get_tree().get_nodes_in_group("selection_windows")
+		assert_ne(selwindows.size(), 0)
+		if not selwindows.size():
+			return
+		var selection_window : SelectionWindow = selwindows[0]
+		yield(yield_to(selection_window, "selection_window_opened", 1), YIELD)
+		var card_options = selection_window.get_all_card_options()
+		for sel_card in card_options:
+			assert_does_not_have(sel_card.properties.Tags, Terms.GENERIC_TAGS.frozen.name, "Cards with frozen are excluded")
+		selection_window.select_cards([0])
+		assert_has(card_options[0].properties.Tags, Terms.GENERIC_TAGS.frozen.name, "Chosen card got frozen tag")

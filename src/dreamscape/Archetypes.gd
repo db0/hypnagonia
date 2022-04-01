@@ -218,6 +218,7 @@ const VINDICTIVE:= {
 	],
 	"Memories": [
 		MemoryDefinitions.ThornsSelf,
+		MemoryDefinitions.FreezeCard,
 	],
 	"Perturbations": [
 		"Self-Centered",

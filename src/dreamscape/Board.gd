@@ -492,8 +492,8 @@ func _input(event):
 #		globals.player.add_memory(MemoryDefinitions.RandomChaos.canonical_name)
 		# warning-ignore:return_value_discarded
 #		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
-#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.shadenfreude.name, 3)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 15)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.streamlining.name, 2)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 15)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.heat_venting.name, 1, false, false, ['Debug'], 'high')
 		for pathos in Terms.RUN_ACCUMULATION_NAMES.values():
 			if pathos != Terms.RUN_ACCUMULATION_NAMES.boss:
