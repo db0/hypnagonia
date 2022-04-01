@@ -871,3 +871,10 @@ func _check_for_x(script: ScriptTask, final_amount: int) -> int:
 	# can just return the usual results
 	else:
 		return(final_amount)
+
+
+# Extendable function to perform extra checks on the script
+# according to game logic
+func _pre_task_exec(script: ScriptTask) -> void:
+	if script.owner is CombatEntity and script.owner.is_dead:
+		script.is_valid = false

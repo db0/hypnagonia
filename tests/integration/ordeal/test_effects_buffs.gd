@@ -348,6 +348,7 @@ class TestThorns:
 			sceng = yield(sceng, "completed")
 		assert_eq(dreamer.damage, amount, "Dreamer should take damage from %s" % [effect])
 
+
 	func test_thorns_and_X_interpret():
 		card.scripts = X_ATTACK_SCRIPT
 		spawn_effect(test_torment, effect, 6, '')
@@ -356,6 +357,7 @@ class TestThorns:
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
 		assert_eq(dreamer.damage, amount, "Dreamer should take only a single damage from %s" % [effect])
+
 
 	func test_thorns_and_repeat_interpret():
 		card.scripts = REPEAT_ATTACK_SCRIPT
@@ -366,6 +368,23 @@ class TestThorns:
 			sceng = yield(sceng, "completed")
 		assert_eq(dreamer.damage, 6*REPEAT, "Dreamer should take multiple repeat damage from %s" % [effect])
 
+	func test_thorns_interrupting_intents():
+		var intents_to_test = [
+			{
+				"intent_scripts": ["Stress:3","Stress:3","Stress:3","Debuff:3:disempower"],
+				"reshuffle": true,
+			},
+		]
+		test_torment.health = 35
+		test_torment.intents.replace_intents(intents_to_test)
+		test_torment.intents.refresh_intents()
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		assert_true(test_torment.is_dead, "Test torment dies due to thorns")
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.disempower.name), 0,
+				"Dreamer did not receive %s stacks due to torment intents interrupted" % [Terms.ACTIVE_EFFECTS.disempower.name])
+		assert_eq(dreamer.damage, 6, "Dreamer damage interrupted due to torment dying to %s" % [effect])
+		
 class TestArmor:
 	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.armor.name
