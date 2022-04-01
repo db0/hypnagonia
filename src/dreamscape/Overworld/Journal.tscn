@@ -196,21 +196,25 @@ scroll_active = false
 [node name="PathosDetails" type="PopupPanel" parent="VBC/Journal"]
 margin_right = 4.0
 margin_bottom = 4.0
+mouse_filter = 2
 
 [node name="VBC" type="VBoxContainer" parent="VBC/Journal/PathosDetails"]
 margin_left = 2.0
 margin_top = 2.0
 margin_right = 528.0
 margin_bottom = 46.0
+mouse_filter = 2
 
 [node name="Description" type="RichTextLabel" parent="VBC/Journal/PathosDetails/VBC"]
 margin_right = 395.0
 margin_bottom = 21.0
 rect_min_size = Vector2( 300, 0 )
+mouse_filter = 2
 fit_content_height = true
 scroll_active = false
 
 [node name="Header" parent="VBC/Journal/PathosDetails/VBC" instance=ExtResource( 8 )]
+mouse_filter = 2
 
 [node name="FadeToBlack" parent="." instance=ExtResource( 6 )]
 visible = false

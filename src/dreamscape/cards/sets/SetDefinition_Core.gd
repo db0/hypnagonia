@@ -534,7 +534,7 @@ const CARDS := {
 	"~ Inner Justice ~": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Gain {immersion_amount} {immersion}. Take {exert_amount} {anxiety}",
+		"Abilities": "Gain {immersion_amount} {immersion}. Take {exert_amount} {anxiety}\n{forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Basic",

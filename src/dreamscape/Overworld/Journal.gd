@@ -465,10 +465,13 @@ func show_pathos_popup(description_text: String, pathos_dict: Dictionary) -> voi
 #	print_debug(total_chance)
 	if highest_chance == 0:
 		pathos_infos[Terms.RUN_ACCUMULATION_NAMES.enemy].set_max_chance()
-	pathos_details_popup.popup()
+	# If I use the popup() function, it takes priority on mouse inputs on the whole screen
+	# Which means when I move the mouse, it consider it "exited" from the pathos icon
+	# so it them immediately hides then popup, causing a flickering effect.
+	pathos_details_popup.visible = true
 #	pathos_details_popup.visible = true
 	pathos_details_popup.rect_size = Vector2(0,0)
-	pathos_details_popup.rect_global_position = get_local_mouse_position() + Vector2(-pathos_details_popup.rect_size.x - 10,-5)
+	pathos_details_popup.rect_global_position = get_local_mouse_position() + Vector2(-pathos_details_popup.rect_size.x - 20,-5)
 
 
 func _input(event):
