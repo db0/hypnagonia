@@ -757,7 +757,6 @@ const SUBMERGED := {
 	"Name": "Submerged",
 	"Type": "Phobia",
 	"Health": 94,
-	"_is_ordered": true,
 	"Intents": [
 		{
 			"intent_scripts": ["Stress:10", "SpawnCard:Suffocation:Discard","SpawnCard:Suffocation:Deck"],
@@ -781,7 +780,6 @@ const HANDSY_AUNT := {
 	"Name": "Handsy Aunt",
 	"Type": "Fear",
 	"Health": 300,
-	"_is_ordered": true,
 	"Intents": [
 		{
 			"id": "babble",
@@ -811,4 +809,37 @@ const HANDSY_AUNT := {
 	"_texture_size_y": "120",
 	"_texture": preload("res://assets/journal/torments/handsy_aunt.jpeg"),
 	"_character_art": "Artbreeder.com"
+}
+
+const CIRCULAR_ARGUMENTS := {
+	"Name": "Circular Arguments",
+	"Type": "Abuse",
+	"Health": 80,
+	"Intents": [
+		{
+			"intent_scripts": ["SpawnCard:Unease:Deck", "SpawnCard:Unease:Deck", "ShuffleDeck"],
+			"reshuffle": false,
+			"max_uses": 1,
+		},
+		{
+			"intent_scripts": ["Stress:7", "Stress:8"],
+			"reshuffle": true,
+			"max_in_a_row": 2,
+		},
+		{
+			"intent_scripts": ["Perplex:12", "Buff:1:impervious"],
+			"reshuffle": false,
+			"max_in_a_row": 1,
+		},
+		{
+			"intent_scripts": ["Stress:10"],
+			"reshuffle": false,
+			"max_in_a_row": 3,
+		},
+	],
+	"_health_variability": 15,
+	"_texture_size_x": "120",
+	"_texture_size_y": "120",
+#	"_texture": preload("res://assets/journal/torments/handsy_aunt.jpeg"),
+	"_character_art": "Nobody"
 }

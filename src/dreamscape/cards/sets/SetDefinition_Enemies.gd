@@ -1799,4 +1799,17 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
+	"Circular Arguments": {
+		"Type": "Understanding",
+		"Tags": [],
+		"Abilities": "{damage} for {damage_amount}\n{release}",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_amounts": {
+			"damage_amount": 25,
+		},
+		"_upgrade_threshold_modifier": -10,
+		"_upgrades": [],
+	},
 }

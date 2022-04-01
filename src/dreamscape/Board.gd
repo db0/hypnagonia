@@ -171,7 +171,7 @@ func spawn_basic_enemy(enemy_entry: Dictionary) -> EnemyEntity:
 	if enemy_entry.has('starting_intent'):
 		# This delay is needed to allow the starting intent to be added
 		# so that it can be seen to be queued_free
-		yield(get_tree().create_timer(0.1), "timeout")
+		yield(get_tree().create_timer(0.3), "timeout")
 		new_enemy.intents.prepare_intents(enemy_entry['starting_intent'])
 	if enemy_entry.has('starting_effects'):
 		for effect in enemy_entry['starting_effects']:
