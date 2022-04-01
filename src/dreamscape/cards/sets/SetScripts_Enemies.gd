@@ -66,6 +66,30 @@ const HandsyAunt = {
 		],
 	},
 }
+const Circular_Arguments = {
+	"manual": {
+		"hand": [
+			{
+				"name": "modify_damage",
+				"subject": "target",
+				"needs_subject": true,
+				"amount": {
+					"lookup_property": "_amounts",
+					"value_key": "damage_amount"
+				},
+				"tags": ["Attack", "Card"],
+				"filter_state_subject": [{
+					"filter_group": "EnemyEntities",
+				},],
+			},
+			{
+				"name": "remove_card_from_deck",
+				"subject": "self",
+				"tags": ["Played", "Card"],
+			}
+		],
+	},
+}
 
 const scripts := {
 	"Gaslighter": {

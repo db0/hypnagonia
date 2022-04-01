@@ -132,8 +132,20 @@ const SPAWN_CARD := [
 		"tags": ["Intent"],
 		"icon": "icon_spawn_card",
 		"description": "This Torment is planning to give you a card."
-	}
+	},
 ]
+
+
+const SHUFFLE_DECK := [
+	{
+		"name": "shuffle_container",
+		"tags": ["Intent"],
+		"dest_container": 'deck',
+		"icon": "icon_special",
+		"description": "This Torment is planning to shuffle your draw pile."
+	},
+]
+
 const DELIGHT := [
 	{
 		"name": "apply_effect",
@@ -347,6 +359,7 @@ func get_scripts(intent_name: String) -> Dictionary:
 		"BuffGroup": BUFF_GROUP,
 		"Stare": STARE,
 		"SpawnCard": SPAWN_CARD,
+		"ShuffleDeck": SHUFFLE_DECK,
 		"Delight": DELIGHT,
 		"Lethargy": LETHARGY,
 		"Evident": EVIDENT,

@@ -355,6 +355,59 @@ const HandsyAunt = {
 		],
 	},
 }
+const Circular_Arguments = {
+	"journal_description":\
+		'Again and again [url={torment_tag1}]we had to repeat the same arguments[/url].\n'\
+		+ "I felt we had just resolved it just a minute ago, and yet, here we are discussing it again.",
+	"journal_reward":\
+		'Through overcoming that weird experience, I felt wiser.',
+	"enemies": {
+		"easy": [
+			{
+				"definition": EnemyDefinitions.CIRCULAR_ARGUMENTS,
+				"starting_intent": 0
+			},
+			{
+				"definition": EnemyDefinitions.CIRCULAR_ARGUMENTS,
+				"starting_intent": 0
+			},
+		],
+		"medium": [
+			{
+				"definition": EnemyDefinitions.CIRCULAR_ARGUMENTS,
+				"starting_intent": 0
+			},
+			{
+				"definition": EnemyDefinitions.CIRCULAR_ARGUMENTS,
+				"starting_intent": 0
+			},
+			{
+				"definition": EnemyDefinitions.CIRCULAR_ARGUMENTS,
+				"starting_intent": 0
+			},
+		],
+		"hard": [
+			{
+				"definition": EnemyDefinitions.CIRCULAR_ARGUMENTS,
+				"starting_intent": 0
+			},
+			{
+				"definition": EnemyDefinitions.CIRCULAR_ARGUMENTS,
+				"starting_intent": 0
+			},
+			{
+				"definition": EnemyDefinitions.CIRCULAR_ARGUMENTS,
+				"starting_intent": 0
+			},
+			{
+				"definition": EnemyDefinitions.CIRCULAR_ARGUMENTS,
+				"starting_intent": 0
+			},
+		],
+	},
+#	"journal_art": preload("res://assets/journal/torments/life_path.jpeg"),
+}
+
 const ENEMIES = [
 	Administration,
 	Life_Paths,
@@ -362,6 +415,7 @@ const ENEMIES = [
 	Nightmare,
 	Submerged,
 	HandsyAunt,
+	Circular_Arguments,
 ]
 
 const TheGatherer = {
