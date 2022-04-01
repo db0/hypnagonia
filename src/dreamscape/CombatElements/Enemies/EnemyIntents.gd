@@ -310,11 +310,12 @@ func _on_enemy_killed(_damage: int, _health: int, _enemy) -> void:
 		for intent_id in unlock_triggers["entity_killed"]:
 			var intent = find_intent_id(intent_id)
 			intent["not_in_rotation"] = false
+		refresh_intents()
 	if lock_triggers.has("entity_killed"):
 		for intent_id in lock_triggers["entity_killed"]:
 			var intent = find_intent_id(intent_id)
 			intent["not_in_rotation"] = true
-	refresh_intents()
+		refresh_intents()
 
 
 # Overridable function
