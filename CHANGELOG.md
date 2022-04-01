@@ -1,8 +1,20 @@
 # Changelog
 
+## [v0.43.1](https://github.com/db0/hypnagonia/tree/v0.43.1) (2022-04-01)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.43.0...v0.43.1)
+
+**Merged pull requests:**
+
+- Some small fixes [\#263](https://github.com/db0/hypnagonia/pull/263) ([db0](https://github.com/db0))
+
 ## [v0.43.0](https://github.com/db0/hypnagonia/tree/v0.43.0) (2022-03-31)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.42.2...v0.43.0)
+
+**Implemented enhancements:**
+
+- Vindictive Archetype [\#230](https://github.com/db0/hypnagonia/issues/230)
 
 **Fixed bugs:**
 
@@ -11,7 +23,6 @@
 **Closed issues:**
 
 - When a journal popup is up, the journal choices should not be clickable [\#261](https://github.com/db0/hypnagonia/issues/261)
-- Vindictive Archetype [\#230](https://github.com/db0/hypnagonia/issues/230)
 
 **Merged pull requests:**
 
