@@ -472,7 +472,7 @@ const RemoveDebuff := {
 const ActivateStartups := {
 	"canonical_name": "ActivateStartups",
 	"name": "First Kiss",
-	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
+	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal "\
 			+ "to gain the effects of all {startup} cards in your forgotten pile.",
 	"icon": preload("res://assets/icons/memories/portrait.png"),
 	"context": EffectContext.BATTLE,
@@ -481,13 +481,14 @@ const ActivateStartups := {
 	"pathos_accumulation_divider": 1.3,
 	"keys_modified_by_upgrade": ["pathos_threshold_multiplier"],
 	"amounts": {
-		"upgrade_multiplier": 1
+		"upgrade_multiplier": 1,
+		"max_upgrades": 5,
 	},
 }
 const ThornsSelf := {
 	"canonical_name": "ThornsSelf",
 	"name": "Bullied",
-	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
+	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal "\
 			+ "to gain {effect_stacks} {thorns}",
 	"icon": preload("res://assets/icons/memories/portrait.png"),
 	"context": EffectContext.BATTLE,
@@ -497,7 +498,24 @@ const ThornsSelf := {
 	"keys_modified_by_upgrade": ["pathos_threshold_multiplier"],
 	"amounts": {
 		"effect_stacks": 3,
-		"upgrade_multiplier": 1
+		"upgrade_multiplier": 1,
+		"max_upgrades": 8,
+	},
+}
+const FreezeCard := {
+	"canonical_name": "FreezeCard",
+	"name": "First Love",
+	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal "\
+			+ "to give a card in your hand {frozen}",
+	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"context": EffectContext.BATTLE,
+	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
+	"pathos_threshold_multiplier": 3,
+	"pathos_accumulation_divider": 2,
+	"keys_modified_by_upgrade": ["pathos_accumulation_divider"],
+	"amounts": {
+		"upgrade_multiplier": 1,
+		"max_upgrades": 5,
 	},
 }
 
@@ -534,6 +552,8 @@ const ARCHETYPE := [
 	RegenerateSelf,
 	BufferSelf,
 	ActivateStartups,
+	ThornsSelf,
+	FreezeCard,
 ]
 
 # These memories are only found in non-combat encounters
