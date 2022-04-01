@@ -494,13 +494,14 @@ func _input(event):
 		globals.player.add_memory(MemoryDefinitions.BossFaster.canonical_name)
 #		var card_entry = globals.player.deck.add_new_card("The Whippy-Flippy")
 #		card_entry.upgrade_progress = card_entry.upgrade_threshold
-		globals.player.deck.add_new_card("The Last Straw")
+#		var new_card = globals.player.deck.add_new_card("Store in Mind")
+#		new_card.modify_property("_amounts", {"amount_key": "beneficial_integer", "amount_value": "+1"})
 #		globals.player.deck.add_new_card("A Fine Specimen")
 #		globals.player.deck.add_new_card("Chasm")
 #		globals.player.deck.add_new_card("Chasm")
 #		globals.player.deck.add_new_card("Prejudice")
 #		globals.player.damage += 20
-		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.boss, 95)
+#		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.boss, 95)
 		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 50)
 		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.enemy, 50)
 		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, 20)
@@ -524,7 +525,7 @@ func _input(event):
 			preload("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
 #			BossEncounter.new(Act2.BOSSES["Surreality"]),
 			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
-#			EliteEncounter.new(Act1.Bully, "medium"),
+			EliteEncounter.new(Act1.Bully, "medium"),
 #			EliteEncounter.new(Act2.Jumbletron, "medium"),
 #			EliteEncounter.new(Act3.TheatrePlay, "medium"),
 			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
