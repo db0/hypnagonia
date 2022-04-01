@@ -321,7 +321,6 @@ class TestThorns:
 			}
 		]
 
-
 	func test_thorns_and_intents():
 		var intents_to_test = [
 			{
@@ -339,7 +338,6 @@ class TestThorns:
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 5,
 				"%s stacks modified by turn end" % [effect])
 
-
 	func test_thorns_and_single_interpret():
 		spawn_effect(test_torment, effect, 6, '')
 		yield(yield_to(get_tree(), "idle_frame", 0.1), YIELD)
@@ -347,7 +345,6 @@ class TestThorns:
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
 		assert_eq(dreamer.damage, amount, "Dreamer should take damage from %s" % [effect])
-
 
 	func test_thorns_and_X_interpret():
 		card.scripts = X_ATTACK_SCRIPT
@@ -357,7 +354,6 @@ class TestThorns:
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
 		assert_eq(dreamer.damage, amount, "Dreamer should take only a single damage from %s" % [effect])
-
 
 	func test_thorns_and_repeat_interpret():
 		card.scripts = REPEAT_ATTACK_SCRIPT
@@ -403,7 +399,6 @@ class TestArmor:
 				"amount": amount,
 			}
 		]
-
 
 	func test_armor_and_intents():
 		var intents_to_test = [

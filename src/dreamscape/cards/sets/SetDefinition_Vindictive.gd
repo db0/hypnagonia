@@ -304,7 +304,7 @@ const CARDS := {
 	},
 	"Vestige of Warmth": {
 		"Type": "Concentration",
-		"Tags": [Terms.GENERIC_TAGS.slumber.name],
+		"Tags": [],
 		"Abilities": "At the end of the turn, gain {concentration_effect} {defence} for each card in hand.",
 		"Cost": 1,
 		"_illustration": "Nobody",
@@ -322,7 +322,7 @@ const CARDS := {
 	},
 	"@ Vestige of Warmth @": {
 		"Type": "Concentration",
-		"Tags": [Terms.GENERIC_TAGS.slumber.name],
+		"Tags": [],
 		"Abilities": "At the end of the turn, gain {concentration_effect} {defence} for each card in hand.",
 		"Cost": 0,
 		"_illustration": "Nobody",
@@ -336,7 +336,7 @@ const CARDS := {
 	},
 	"Last Vestige of Warmth": {
 		"Type": "Concentration",
-		"Tags": [Terms.GENERIC_TAGS.slumber.name],
+		"Tags": [],
 		"Abilities": "At the end of the turn, gain {concentration_effect} {defence} for each card in hand.",
 		"Cost": 1,
 		"_illustration": "Nobody",
