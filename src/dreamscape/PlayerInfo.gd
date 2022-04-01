@@ -270,6 +270,7 @@ func _on_ArtifactsShowButton_pressed() -> void:
 	SoundManager.play_se('click')
 	_artifact_popup.rect_global_position =\
 		_artifact_button.rect_global_position + Vector2(-50,50)
+	emit_signal("popup_opened", _artifact_popup)
 
 
 func _on_button_mouse_entered(button: Button) -> void:
