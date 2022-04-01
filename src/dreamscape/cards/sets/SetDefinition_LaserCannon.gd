@@ -1462,7 +1462,7 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.swift.name, Terms.GENERIC_TAGS.scry.name, Terms.GENERIC_TAGS.init.name],
 		"Abilities": "{scry} {scry_amount}. Select any number to put to the bottom. "\
-				+ "Draw {draw_amount} card.",
+				+ "Draw {draw_amount} cards.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
