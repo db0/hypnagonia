@@ -388,6 +388,8 @@ func _on_rte_mouse_exited(rt_label: RichTextLabel) -> void:
 
 func _on_rte_gui_input(event, rt_label: RichTextLabel, type = 'card_draft') -> void:
 	if event.is_pressed() and event.get_button_index() == 1:
+		if popups_active:
+			return
 		reward_choices_unpreviewed.erase(rt_label.name)
 		match rt_label.name:
 			"RewardJournal":
