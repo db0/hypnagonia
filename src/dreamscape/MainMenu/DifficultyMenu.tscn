@@ -50,6 +50,7 @@ margin_bottom = 64.0
 [node name="CheckBox" type="CheckBox" parent="PC/VBC/PreventCardBasicRelease"]
 margin_right = 275.0
 margin_bottom = 26.0
+mouse_filter = 1
 custom_fonts/font = ExtResource( 3 )
 text = "Basic cards lose release upgrade"
 align = 1
@@ -62,6 +63,7 @@ margin_bottom = 110.0
 [node name="CheckBox" type="CheckBox" parent="PC/VBC/DesireCuriosGivePerturbation"]
 margin_right = 270.0
 margin_bottom = 26.0
+mouse_filter = 1
 custom_fonts/font = ExtResource( 3 )
 text = "Desire Curios Give Perturbations"
 align = 1
@@ -306,3 +308,15 @@ rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 3 )
 text = "BACK"
+
+[node name="Descriptions" type="PopupPanel" parent="."]
+margin_left = 723.0
+margin_top = 439.0
+margin_right = 731.0
+margin_bottom = 461.0
+
+[node name="Description" type="Label" parent="Descriptions"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 4.0
+margin_bottom = 18.0

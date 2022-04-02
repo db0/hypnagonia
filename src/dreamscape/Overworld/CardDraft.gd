@@ -49,7 +49,7 @@ func populate_draft_cards() -> void:
 		'card_draft':
 			retrieve_draft_cards()
 		_:
-			retrieve_custom_draft(card_draft_type)
+			retrieve_custom_draft()
 	for index in range(draft_card_choices.size()):
 		var card_name: String = draft_card_choices[index]
 		var draft_card_object = CARD_DRAFT_SCENE.instance()
@@ -150,7 +150,7 @@ func retrieve_boss_draft() -> void:
 					break
 
 
-func retrieve_custom_draft(card_draft_type: String) -> void:
+func retrieve_custom_draft() -> void:
 	match card_draft_type:
 		"artifact_boss_draft":
 			_initiate_artifact_boss_draft()
