@@ -4,9 +4,20 @@ extends Reference
 signal total_difficulty_recalculated(new_total)
 
 const DIFFICULTY_FILE = "user://Difficulties.json"
-const PROGRESS_INCREASE_STEP := 4
 const DIFFICULTY_MULTIPLIERS := {
 	"desire_curios_give_perturbation": 2,
+}
+const TOTAL_DIFFICULTY_MAPS := {
+	"act_healing": {
+		0.0: 3,
+		0.25: 2,
+		0.5: 1,
+		0.75: 0,
+		1.0: -1,
+	}
+}
+const DIFFICULTY_STEPS := {
+	"progress_increase": 4,
 }
 
 var difficulties := {}
@@ -31,6 +42,8 @@ func set_progress_increase(value) -> void:
 	store_difficulty_to_file('progress_increase', value)
 	
 func set_act_healing(value) -> void:
+	if not TOTAL_DIFFICULTY_MAPS['act_healing'].has(value):
+		value = seek_value_from_difficulty('act_healing', value)
 	act_healing = value
 	recalculate_total_difficulty()
 	store_difficulty_to_file('act_healing', value)
@@ -72,21 +85,11 @@ func init_difficulty_settings_from_file() -> void:
 func recalculate_total_difficulty() -> void:
 	total_difficulty = 0
 	total_difficulty += starting_perturbations
-	total_difficulty += progress_increase / PROGRESS_INCREASE_STEP
-	total_difficulty += _calc_act_healing_difficulty()
+	total_difficulty += progress_increase / DIFFICULTY_STEPS.progress_increase
+	total_difficulty += TOTAL_DIFFICULTY_MAPS.act_healing[act_healing]
 	total_difficulty += calc_boolean_difficulty(prevent_basic_cards_release)
 	total_difficulty += calc_boolean_difficulty(desire_curios_give_perturbation) * DIFFICULTY_MULTIPLIERS.desire_curios_give_perturbation
 	emit_signal("total_difficulty_recalculated", total_difficulty)
-
-func _calc_act_healing_difficulty() -> int:
-	var total_calc: int
-	match act_healing:
-		0.0: total_calc = 3
-		0.25: total_calc = 2
-		0.5: total_calc = 1
-		0.75: total_calc = 0
-		1.0: total_calc = -1
-	return(total_calc)
 
 # Boolean variables are always worded so that false is difficulty 0
 # and true is difficulty 1
@@ -95,3 +98,20 @@ func calc_boolean_difficulty(bool_var: bool) -> int:
 	if bool_var:
 		return(1)
 	return(0)
+
+func get_difficulty(difficulty_key: String) -> int:
+	var req_dif : int
+	if TOTAL_DIFFICULTY_MAPS.has(difficulty_key):
+		req_dif = TOTAL_DIFFICULTY_MAPS[difficulty_key][self[difficulty_key]]
+	else:
+		req_dif = self[difficulty_key]
+	req_dif *= DIFFICULTY_MULTIPLIERS.get(difficulty_key, 1)
+	return(req_dif)
+
+func seek_value_from_difficulty(difficulty_key: String, value: int):
+	if not TOTAL_DIFFICULTY_MAPS.has(difficulty_key):
+		print_debug("WARNING: value %s for %s is unexpected" % [value, difficulty_key])
+		return
+	for key in TOTAL_DIFFICULTY_MAPS[difficulty_key]:
+		if TOTAL_DIFFICULTY_MAPS[difficulty_key][key] == value:
+			return(key)

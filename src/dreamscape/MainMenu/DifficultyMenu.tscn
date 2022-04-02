@@ -22,16 +22,16 @@ __meta__ = {
 [node name="PC" type="PanelContainer" parent="."]
 self_modulate = Color( 1, 1, 1, 0.690196 )
 margin_left = 527.0
-margin_top = 258.0
+margin_top = 220.0
 margin_right = 927.0
-margin_bottom = 642.0
+margin_bottom = 680.0
 rect_min_size = Vector2( 400, 0 )
 
 [node name="VBC" type="VBoxContainer" parent="PC"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 393.0
-margin_bottom = 377.0
+margin_bottom = 453.0
 size_flags_horizontal = 3
 custom_constants/separation = 20
 
@@ -54,17 +54,6 @@ custom_fonts/font = ExtResource( 3 )
 text = "Basic cards lose release upgrade"
 align = 1
 
-[node name="Count" type="Label" parent="PC/VBC/PreventCardBasicRelease"]
-margin_left = 279.0
-margin_top = 4.0
-margin_right = 386.0
-margin_bottom = 22.0
-rect_min_size = Vector2( 55, 0 )
-size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 3 )
-text = "0"
-align = 2
-
 [node name="DesireCuriosGivePerturbation" type="HBoxContainer" parent="PC/VBC"]
 margin_top = 84.0
 margin_right = 386.0
@@ -76,17 +65,6 @@ margin_bottom = 26.0
 custom_fonts/font = ExtResource( 3 )
 text = "Desire Curios Give Perturbations"
 align = 1
-
-[node name="Count" type="Label" parent="PC/VBC/DesireCuriosGivePerturbation"]
-margin_left = 274.0
-margin_top = 4.0
-margin_right = 386.0
-margin_bottom = 22.0
-rect_min_size = Vector2( 55, 0 )
-size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 3 )
-text = "0"
-align = 2
 
 [node name="StartingPerturbations" type="HBoxContainer" parent="PC/VBC"]
 margin_top = 130.0
@@ -169,7 +147,8 @@ margin_left = 164.0
 margin_right = 327.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
-max_value = 4.0
+min_value = -1.0
+max_value = 3.0
 value = 1.0
 tick_count = 5
 ticks_on_borders = true
@@ -183,10 +162,74 @@ custom_fonts/font = ExtResource( 3 )
 text = "0"
 align = 2
 
-[node name="EliteDifficulty" type="HBoxContainer" parent="PC/VBC"]
+[node name="ShopPrices" type="HBoxContainer" parent="PC/VBC"]
 margin_top = 244.0
 margin_right = 386.0
 margin_bottom = 262.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="PC/VBC/ShopPrices"]
+margin_right = 169.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 3 )
+text = "% Shop Price Increase"
+
+[node name="HSlider" type="HSlider" parent="PC/VBC/ShopPrices"]
+margin_left = 173.0
+margin_right = 327.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+max_value = 4.0
+value = 1.0
+tick_count = 5
+ticks_on_borders = true
+
+[node name="Count" type="Label" parent="PC/VBC/ShopPrices"]
+margin_left = 331.0
+margin_right = 386.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 55, 0 )
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+align = 2
+
+[node name="MaxHealth" type="HBoxContainer" parent="PC/VBC"]
+margin_top = 282.0
+margin_right = 386.0
+margin_bottom = 300.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="PC/VBC/MaxHealth"]
+margin_right = 183.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 3 )
+text = "% Max Anxiety modified"
+
+[node name="HSlider" type="HSlider" parent="PC/VBC/MaxHealth"]
+margin_left = 187.0
+margin_right = 327.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+max_value = 4.0
+value = 1.0
+tick_count = 5
+ticks_on_borders = true
+
+[node name="Count" type="Label" parent="PC/VBC/MaxHealth"]
+margin_left = 331.0
+margin_right = 386.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 55, 0 )
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+align = 2
+
+[node name="EliteDifficulty" type="HBoxContainer" parent="PC/VBC"]
+margin_top = 320.0
+margin_right = 386.0
+margin_bottom = 338.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -216,9 +259,9 @@ text = "0"
 align = 2
 
 [node name="NormalDifficulty" type="HBoxContainer" parent="PC/VBC"]
-margin_top = 282.0
+margin_top = 358.0
 margin_right = 386.0
-margin_bottom = 300.0
+margin_bottom = 376.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -247,9 +290,9 @@ text = "0"
 align = 2
 
 [node name="Back" type="Button" parent="PC/VBC"]
-margin_top = 320.0
+margin_top = 396.0
 margin_right = 386.0
-margin_bottom = 370.0
+margin_bottom = 446.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 3 )
