@@ -35,6 +35,15 @@ const TOTAL_DIFFICULTY_MAPS := {
 const DIFFICULTY_STEPS := {
 	"progress_increase": 4,
 }
+const DESCRIPTIONS := {
+	"starting_perturbations": "Your starting deck will get the specified amounr of random Perturbations",
+	"progress_increase": "The progress required to upgrade each card will be increased by this amount",
+	"act_healing": "At the end of each act the dreamer will remove anxiety equal to this percent of their max anxiety.",
+	"shop_prices": "The shop prices are modified by this percentage.",
+	"max_health": "The dreamer starting max anxiety is modified by this percentage.",
+	"prevent_basic_cards_release": "Basic (AKA Starting) cards cannot receive an upgrade which removes them permanently from the deck.",
+	"desire_curios_give_perturbation": "Curios discovered using repressed desire will require you to add 1 extra Perturbation to your deck.",
+}
 
 var difficulties := {}
 var total_difficulty := 0

@@ -34,6 +34,7 @@ func initiate_custom_draft() -> void:
 
 
 # Overridable function in case we want more stuff to hapen post-draft
+# warning-ignore:unused_argument
 func _on_card_drafted(card: CardEntry) -> void:
 	pass
 

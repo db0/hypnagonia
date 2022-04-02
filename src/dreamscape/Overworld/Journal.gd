@@ -63,6 +63,7 @@ func _ready() -> void:
 #	globals.encounters.setup() # Debug
 	globals.journal = self
 	player_info.owner_node = self
+	# warning-ignore:return_value_discarded
 	player_info.connect("popup_opened", self, "_on_playerinfo_popup_opened")
 	journal_intro.bbcode_text = _get_intro()
 	_reveal_entry(journal_intro)

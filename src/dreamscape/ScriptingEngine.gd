@@ -598,7 +598,7 @@ func set_discount(script: ScriptTask) -> int:
 			discount_amount = script.get_property(SP.KEY_DISCOUNT_AMOUNT, 1)
 			if script.get_property(SP.KEY_IS_INVERTED):
 				discount_amount *= -1
-		var discount_filters : Array
+		var discount_filters := []
 		for filter_def in script.get_property(SP.KEY_DISCOUNT_FILTERS, []):
 			var new_filter = CardFilter.new(
 				filter_def.property,

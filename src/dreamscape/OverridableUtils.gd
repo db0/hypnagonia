@@ -98,7 +98,7 @@ func _get_card_pool() -> Dictionary:
 	for card_name in card_names_list:
 		card_names_list += cfc.card_definitions[card_name].get("_upgrades", [])
 	# Retrieve the definitions for all card_names
-	var card_pool: Dictionary
+	var card_pool := {}
 	for card_name in card_names_list:
 		card_pool[card_name] = cfc.card_definitions[card_name]
 	return(card_pool)
