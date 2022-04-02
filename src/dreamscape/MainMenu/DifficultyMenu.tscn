@@ -61,11 +61,11 @@ margin_right = 386.0
 margin_bottom = 110.0
 
 [node name="CheckBox" type="CheckBox" parent="PC/VBC/DesireCuriosGivePerturbation"]
-margin_right = 270.0
+margin_right = 266.0
 margin_bottom = 26.0
 mouse_filter = 1
 custom_fonts/font = ExtResource( 3 )
-text = "Desire Curios Give Perturbations"
+text = "Desire curios give perturbations"
 align = 1
 
 [node name="StartingPerturbations" type="HBoxContainer" parent="PC/VBC"]
@@ -80,7 +80,7 @@ margin_right = 200.0
 margin_bottom = 18.0
 rect_min_size = Vector2( 200, 0 )
 custom_fonts/font = ExtResource( 3 )
-text = "Starting Perturbations"
+text = "Starting perturbations"
 
 [node name="HSlider" type="HSlider" parent="PC/VBC/StartingPerturbations"]
 margin_left = 204.0
@@ -112,7 +112,7 @@ margin_right = 200.0
 margin_bottom = 18.0
 rect_min_size = Vector2( 200, 0 )
 custom_fonts/font = ExtResource( 3 )
-text = "Increase Progress Req."
+text = "Increase progress req."
 
 [node name="HSlider" type="HSlider" parent="PC/VBC/IncreaseProgressReq"]
 margin_left = 204.0
@@ -145,7 +145,7 @@ margin_right = 200.0
 margin_bottom = 18.0
 rect_min_size = Vector2( 200, 0 )
 custom_fonts/font = ExtResource( 3 )
-text = "End-of-Act Relax"
+text = "End-of-act relaxation"
 
 [node name="HSlider" type="HSlider" parent="PC/VBC/ActHealing"]
 margin_left = 204.0
@@ -179,7 +179,7 @@ margin_right = 200.0
 margin_bottom = 18.0
 rect_min_size = Vector2( 200, 0 )
 custom_fonts/font = ExtResource( 3 )
-text = "Shop Prices"
+text = "Shop prices"
 
 [node name="HSlider" type="HSlider" parent="PC/VBC/ShopPrices"]
 margin_left = 204.0
@@ -213,7 +213,7 @@ margin_right = 200.0
 margin_bottom = 18.0
 rect_min_size = Vector2( 200, 0 )
 custom_fonts/font = ExtResource( 3 )
-text = "Max Anxiety`"
+text = "Max anxiety"
 
 [node name="HSlider" type="HSlider" parent="PC/VBC/MaxAnxiety"]
 margin_left = 204.0
@@ -247,7 +247,7 @@ margin_right = 200.0
 margin_bottom = 18.0
 rect_min_size = Vector2( 200, 0 )
 custom_fonts/font = ExtResource( 3 )
-text = "Elite Torment Difficulty"
+text = "Elite torment difficulty"
 
 [node name="HSlider" type="HSlider" parent="PC/VBC/EliteDifficulty"]
 margin_left = 204.0
@@ -280,7 +280,7 @@ margin_right = 200.0
 margin_bottom = 18.0
 rect_min_size = Vector2( 200, 0 )
 custom_fonts/font = ExtResource( 3 )
-text = "Normal Torment Difficulty"
+text = "Normal torment difficulty"
 
 [node name="HSlider" type="HSlider" parent="PC/VBC/NormalDifficulty"]
 margin_left = 204.0
