@@ -19,6 +19,10 @@ func assemble_starting_deck() -> void:
 	for key in deck_groups:
 		for card_name in Aspects[key.to_upper()][deck_groups[key]]["Basic"]:
 			var _new_card := add_new_card(card_name)
+	for iter in globals.difficulty.starting_perturbations:
+		var rng_perturbation = Perturbations.get_random_perturbation(
+				Perturbations.get_archetype_perturbations_chance())
+		add_new_card(rng_perturbation)
 
 
 func update_card_group(type: String, card_group: String) -> void:

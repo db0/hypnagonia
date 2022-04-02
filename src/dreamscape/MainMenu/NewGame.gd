@@ -13,7 +13,9 @@ onready var _all_starting_cards_display := $StartingCardsPopup/VBC/StartingCards
 onready var _all_starting_cards_tags := $StartingCardsPopup/VBC/Tags
 onready var _all_starting_curios := $StartingCardsPopup/VBC/Curios
 onready var _aspect_description_label := $ChoicePopup/CC/VBC/Description
-onready var _starting_cards_button := $VBC/ControlButtons/VBC/StartingCards
+onready var _starting_cards_button := $VBC/ControlButtons/VBC/HBC/StartingCards
+onready var _difficulties_popup := $DifficultiesPopup
+onready var _difficulties := $DifficultiesPopup/DifficultyMenu
 onready var _start_button := $VBC/ControlButtons/VBC/Start
 onready var _choice_tween := $VBC/CC/Choices/Tween
 onready var _aspect_buttons := {
@@ -43,6 +45,8 @@ func _ready() -> void:
 # warning-ignore:return_value_discarded
 	get_viewport().connect("size_changed", self, '_on_Menu_resized')
 	_on_Menu_resized()
+	_difficulties.back_button.connect("pressed", self, "_on_difficulties_back_pressed")
+
 
 func on_aspect_button_pressed(button_name : String):
 	SoundManager.play_se('book_open')
@@ -113,6 +117,12 @@ func _on_archetype_choice_pressed(archetype: String, _aspect: String, archetype_
 func _on_Start_pressed() -> void:
 	SoundManager.play_se('button_click')
 	start_new_game()
+
+
+func _on_Difficulty_pressed() -> void:
+	SoundManager.play_se('button_click')
+	_difficulties_popup.popup_centered_minsize()
+	
 
 
 func _on_archetype_mouse_entered(archetype: String) -> void:
@@ -201,3 +211,5 @@ func _on_popup_hide() -> void:
 	_archetype_starting_cards_tags.clear(true)
 	_archetype_starting_curios.clear(true)
 
+func _on_difficulties_back_pressed() -> void:
+	_difficulties_popup.hide()
