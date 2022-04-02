@@ -44,6 +44,7 @@ func setup() -> void:
 		for artifact_name in Aspects[group.to_upper()][deck_groups[group]].get("Starting Artifacts", []):
 			# warning-ignore:return_value_discarded
 			add_artifact(artifact_name.canonical_name)
+	health = round(health * globals.difficulty.max_health)
 	deck.assemble_starting_deck()
 	# Debug #
 #	add_artifact("StartingImmersion")

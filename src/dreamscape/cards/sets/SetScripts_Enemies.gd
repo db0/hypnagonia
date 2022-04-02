@@ -1727,6 +1727,7 @@ const scripts := {
 	},
 	"Beast Mode": BeastMode,
 	"Handsy Aunt": HandsyAunt,
+	"Circular Arguments": Circular_Arguments,
 }
 
 # This fuction returns all the scripts of the specified card name.
