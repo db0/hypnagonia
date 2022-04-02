@@ -5,7 +5,7 @@ const DAMAGE_PCT_REDUCE := 0.5
 const STOMP_DAMAGE := 3
 
 var secondary_choices := {
-		'ignore': '[Ignore]: Reduce {anxiety} by {pct}%. Become {infested}.',
+		'ignore': '[Ignore]: Reduce taken {anxiety} by {pct}%. Become {infested}.',
 		'stomp': '[Stomp]: Take {damage_amount} {anxiety}.',
 	}
 
