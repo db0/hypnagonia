@@ -25,6 +25,18 @@ onready var nodes_map := {
 		"count": $"PC/VBC/ActHealing/Count",
 		"_is_percentage": true,
 	},
+	"shop_prices": {
+		"label": $"PC/VBC/ShopPrices/Label",
+		"hslider": $"PC/VBC/ShopPrices/HSlider",
+		"count": $"PC/VBC/ShopPrices/Count",
+		"_is_percentage": true,
+	},
+	"max_health": {
+		"label": $"PC/VBC/MaxAnxiety/Label",
+		"hslider": $"PC/VBC/MaxAnxiety/HSlider",
+		"count": $"PC/VBC/MaxAnxiety/Count",
+		"_is_percentage": true,
+	},
 }
 
 func _ready() -> void:

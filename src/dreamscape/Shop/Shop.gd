@@ -144,6 +144,7 @@ func populate_shop_cards() -> void:
 					+ (CFUtils.randi_range(
 						prog_avg / -5 * rarity_price_multipliers[rarity],
 						prog_avg / 5 * rarity_price_multipliers[rarity]))
+			card_cost = round(card_cost * globals.difficulty.shop_prices)
 			var shop_choice_dict = {
 				"card_name": card_name,
 				"cost": card_cost,
@@ -178,6 +179,7 @@ func populate_shop_artifacts() -> void:
 				+ (CFUtils.randi_range(
 					prog_avg / -5 * rarity_price_multipliers[rarity],
 					prog_avg / 5 * rarity_price_multipliers[rarity]))
+		artifact_cost = round(artifact_cost * globals.difficulty.shop_prices)
 		var shop_choice_dict = {
 			"artifact_name": artifact.name,
 			"cost": artifact_cost,
@@ -207,6 +209,7 @@ func populate_shop_memories() -> void:
 					cost_type)
 		var memory_cost =\
 				(round(prog_avg * memory_cost_multiplier)) + (CFUtils.randi_range(-3, 3))
+		memory_cost = round(memory_cost * globals.difficulty.shop_prices)
 		var shop_choice_dict = {
 			"memory_name": memory.name,
 			"cost": memory_cost,
@@ -253,6 +256,7 @@ func populate_special_cards() -> void:
 				+ (CFUtils.randi_range(
 					prog_avg / -5 * rarity_price_multipliers[rarity],
 					prog_avg / 5 * rarity_price_multipliers[rarity]))
+		card_cost = round(card_cost * globals.difficulty.shop_prices)
 		var shop_choice_dict = {
 			"card_name": card_name,
 			"cost": card_cost,
@@ -361,7 +365,8 @@ func _update_progress_cost() -> void:
 			globals.player.pathos.get_progression_average(
 				card_progress_cost_type)
 			* globals.player.deck.get_upgrade_percentage()
-			* 3)
+			* 3
+			* globals.difficulty.shop_prices)
 	if progress_cost < 2:
 		progress_cost = 3
 	var progress_text_format = {
@@ -393,6 +398,7 @@ func _update_remove_cost() -> void:
 			card_removal_cost_type))
 	remove_cost = (prog_avg * CFUtils.randf_range(2.5, 3.2))\
 			+ (prog_avg * globals.encounters.shop_deck_removals)
+	remove_cost = round(remove_cost * globals.difficulty.shop_prices)
 	var remove_text_format = {
 		"cost": str(remove_cost),
 		"pathos": card_removal_cost_type.capitalize(),

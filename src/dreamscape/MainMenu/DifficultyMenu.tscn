@@ -74,13 +74,14 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="PC/VBC/StartingPerturbations"]
-margin_right = 165.0
+margin_right = 200.0
 margin_bottom = 18.0
+rect_min_size = Vector2( 200, 0 )
 custom_fonts/font = ExtResource( 3 )
 text = "Starting Perturbations"
 
 [node name="HSlider" type="HSlider" parent="PC/VBC/StartingPerturbations"]
-margin_left = 169.0
+margin_left = 204.0
 margin_right = 327.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
@@ -105,13 +106,14 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="PC/VBC/IncreaseProgressReq"]
-margin_right = 173.0
+margin_right = 200.0
 margin_bottom = 18.0
+rect_min_size = Vector2( 200, 0 )
 custom_fonts/font = ExtResource( 3 )
 text = "Increase Progress Req."
 
 [node name="HSlider" type="HSlider" parent="PC/VBC/IncreaseProgressReq"]
-margin_left = 177.0
+margin_left = 204.0
 margin_right = 327.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
@@ -137,13 +139,14 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="PC/VBC/ActHealing"]
-margin_right = 160.0
+margin_right = 200.0
 margin_bottom = 18.0
+rect_min_size = Vector2( 200, 0 )
 custom_fonts/font = ExtResource( 3 )
-text = "% Relax at end of Act"
+text = "End-of-Act Relax"
 
 [node name="HSlider" type="HSlider" parent="PC/VBC/ActHealing"]
-margin_left = 164.0
+margin_left = 204.0
 margin_right = 327.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
@@ -170,19 +173,21 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="PC/VBC/ShopPrices"]
-margin_right = 169.0
+margin_right = 200.0
 margin_bottom = 18.0
+rect_min_size = Vector2( 200, 0 )
 custom_fonts/font = ExtResource( 3 )
-text = "% Shop Price Increase"
+text = "Shop Prices"
 
 [node name="HSlider" type="HSlider" parent="PC/VBC/ShopPrices"]
-margin_left = 173.0
+margin_left = 204.0
 margin_right = 327.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
-max_value = 4.0
+min_value = -1.0
+max_value = 1.0
 value = 1.0
-tick_count = 5
+tick_count = 3
 ticks_on_borders = true
 
 [node name="Count" type="Label" parent="PC/VBC/ShopPrices"]
@@ -194,30 +199,32 @@ custom_fonts/font = ExtResource( 3 )
 text = "0"
 align = 2
 
-[node name="MaxHealth" type="HBoxContainer" parent="PC/VBC"]
+[node name="MaxAnxiety" type="HBoxContainer" parent="PC/VBC"]
 margin_top = 282.0
 margin_right = 386.0
 margin_bottom = 300.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="PC/VBC/MaxHealth"]
-margin_right = 183.0
+[node name="Label" type="Label" parent="PC/VBC/MaxAnxiety"]
+margin_right = 200.0
 margin_bottom = 18.0
+rect_min_size = Vector2( 200, 0 )
 custom_fonts/font = ExtResource( 3 )
-text = "% Max Anxiety modified"
+text = "Max Anxiety`"
 
-[node name="HSlider" type="HSlider" parent="PC/VBC/MaxHealth"]
-margin_left = 187.0
+[node name="HSlider" type="HSlider" parent="PC/VBC/MaxAnxiety"]
+margin_left = 204.0
 margin_right = 327.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
-max_value = 4.0
+min_value = -3.0
+max_value = 5.0
 value = 1.0
-tick_count = 5
+tick_count = 9
 ticks_on_borders = true
 
-[node name="Count" type="Label" parent="PC/VBC/MaxHealth"]
+[node name="Count" type="Label" parent="PC/VBC/MaxAnxiety"]
 margin_left = 331.0
 margin_right = 386.0
 margin_bottom = 18.0
@@ -234,13 +241,14 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="PC/VBC/EliteDifficulty"]
-margin_right = 169.0
+margin_right = 200.0
 margin_bottom = 18.0
+rect_min_size = Vector2( 200, 0 )
 custom_fonts/font = ExtResource( 3 )
 text = "Elite Torment Difficulty"
 
 [node name="HSlider" type="HSlider" parent="PC/VBC/EliteDifficulty"]
-margin_left = 173.0
+margin_left = 204.0
 margin_right = 327.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
@@ -266,13 +274,14 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="PC/VBC/NormalDifficulty"]
-margin_right = 190.0
+margin_right = 200.0
 margin_bottom = 18.0
+rect_min_size = Vector2( 200, 0 )
 custom_fonts/font = ExtResource( 3 )
 text = "Normal Torment Difficulty"
 
 [node name="HSlider" type="HSlider" parent="PC/VBC/NormalDifficulty"]
-margin_left = 194.0
+margin_left = 204.0
 margin_right = 327.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
