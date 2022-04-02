@@ -15,6 +15,7 @@ onready var _all_starting_curios := $StartingCardsPopup/VBC/Curios
 onready var _aspect_description_label := $ChoicePopup/CC/VBC/Description
 onready var _starting_cards_button := $VBC/ControlButtons/VBC/HBC/StartingCards
 onready var _difficulties_popup := $DifficultiesPopup
+onready var _difficulty_button := $VBC/ControlButtons/VBC/Difficulty
 onready var _difficulties := $DifficultiesPopup/DifficultyMenu
 onready var _start_button := $VBC/ControlButtons/VBC/Start
 onready var _choice_tween := $VBC/CC/Choices/Tween
@@ -46,6 +47,9 @@ func _ready() -> void:
 	get_viewport().connect("size_changed", self, '_on_Menu_resized')
 	_on_Menu_resized()
 	_difficulties.back_button.connect("pressed", self, "_on_difficulties_back_pressed")
+	globals.difficulty.connect("total_difficulty_recalculated", self, "_on_total_difficulty_changed")
+	_difficulty_button.text = "Change Difficulty (%s)" % [globals.difficulty.total_difficulty]
+	
 
 
 func on_aspect_button_pressed(button_name : String):
@@ -213,3 +217,6 @@ func _on_popup_hide() -> void:
 
 func _on_difficulties_back_pressed() -> void:
 	_difficulties_popup.hide()
+
+func _on_total_difficulty_changed(total_difficulty) -> void:
+	_difficulty_button.text = "Change Difficulty (%s)" % [total_difficulty]
