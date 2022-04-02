@@ -28,7 +28,7 @@ var run_changes := RunChanges.new(self)
 # Loads the next act from the list and prepares the encounters for it
 func prepare_next_act(current_journal = null) -> void:
 	# Changing acts, heals the player a bit
-	var healing_done = globals.player.health * 0.75
+	var healing_done = globals.player.health * globals.difficulty.act_healing
 	if healing_done > globals.player.damage:
 		healing_done = globals.player.damage
 	globals.player.damage -= healing_done

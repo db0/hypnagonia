@@ -3,7 +3,7 @@
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 17
+size = 14
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true

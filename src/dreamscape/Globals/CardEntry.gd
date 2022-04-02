@@ -63,7 +63,8 @@ func _setup_card_entry(_card_name: String) -> void:
 				UPGRADE_THRESHOLD_BASELINE\
 				+ UPGRADE_THRESHOLDS_RARITY_MODIFIERS[properties["_rarity"]]\
 				+ UPGRADE_THRESHOLDS_TYPE_MODIFIERS[properties["Type"]]\
-				+ upgrade_threshold
+				+ upgrade_threshold\
+				+ globals.difficulty.progress_increase
 	set_upgrade_options()
 	if cfc.scripts_loading:
 		yield(cfc, "scripts_loaded")

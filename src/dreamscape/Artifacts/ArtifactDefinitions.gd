@@ -721,6 +721,8 @@ const DoubleFirstStartup := {
 }
 
 ## TODO: Artifact which increases chance to find Fusion cards
+## TODO: Artifact which allows to enhance a card instead of resting
+## TODO: Artifact which allows to upgrade a memory instead of resting
 ## TODO. Scipt base doesn't exist yet
 #const DoubleMemory := {
 #	"canonical_name": "DoubleMemory",

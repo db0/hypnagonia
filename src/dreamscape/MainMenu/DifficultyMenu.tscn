@@ -22,60 +22,60 @@ __meta__ = {
 [node name="PC" type="PanelContainer" parent="."]
 self_modulate = Color( 1, 1, 1, 0.690196 )
 margin_left = 527.0
-margin_top = 266.0
+margin_top = 258.0
 margin_right = 927.0
-margin_bottom = 633.0
+margin_bottom = 642.0
 rect_min_size = Vector2( 400, 0 )
 
 [node name="VBC" type="VBoxContainer" parent="PC"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 393.0
-margin_bottom = 360.0
+margin_bottom = 377.0
 size_flags_horizontal = 3
 custom_constants/separation = 20
 
 [node name="TotalDifficulty" type="Label" parent="PC/VBC"]
 margin_right = 386.0
-margin_bottom = 21.0
+margin_bottom = 18.0
 custom_fonts/font = ExtResource( 3 )
 text = "Difficulty: 0"
 align = 1
 
 [node name="LoseBasicRelease" type="CheckBox" parent="PC/VBC"]
-margin_top = 41.0
+margin_top = 38.0
 margin_right = 386.0
-margin_bottom = 70.0
+margin_bottom = 64.0
 custom_fonts/font = ExtResource( 3 )
 disabled = true
 text = "Basic cards lose release upgrade"
 align = 1
 
 [node name="CuriosAlwaysGivePerturbation" type="CheckBox" parent="PC/VBC"]
-margin_top = 90.0
+margin_top = 84.0
 margin_right = 386.0
-margin_bottom = 119.0
+margin_bottom = 110.0
 custom_fonts/font = ExtResource( 3 )
 disabled = true
 text = "Desire Curios Give Perturbations"
 align = 1
 
 [node name="StartingPerturbations" type="HBoxContainer" parent="PC/VBC"]
-margin_top = 139.0
+margin_top = 130.0
 margin_right = 386.0
-margin_bottom = 160.0
+margin_bottom = 148.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="PC/VBC/StartingPerturbations"]
-margin_right = 194.0
-margin_bottom = 21.0
+margin_right = 165.0
+margin_bottom = 18.0
 custom_fonts/font = ExtResource( 3 )
 text = "Starting Perturbations"
 
 [node name="HSlider" type="HSlider" parent="PC/VBC/StartingPerturbations"]
-margin_left = 198.0
-margin_right = 352.0
+margin_left = 169.0
+margin_right = 327.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
 max_value = 4.0
@@ -83,30 +83,30 @@ tick_count = 5
 ticks_on_borders = true
 
 [node name="Count" type="Label" parent="PC/VBC/StartingPerturbations"]
-margin_left = 356.0
+margin_left = 331.0
 margin_right = 386.0
-margin_bottom = 21.0
-rect_min_size = Vector2( 30, 0 )
+margin_bottom = 18.0
+rect_min_size = Vector2( 55, 0 )
 custom_fonts/font = ExtResource( 3 )
 text = "0"
 align = 2
 
 [node name="IncreaseProgressReq" type="HBoxContainer" parent="PC/VBC"]
-margin_top = 180.0
+margin_top = 168.0
 margin_right = 386.0
-margin_bottom = 201.0
+margin_bottom = 186.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="PC/VBC/IncreaseProgressReq"]
-margin_right = 201.0
-margin_bottom = 21.0
+margin_right = 173.0
+margin_bottom = 18.0
 custom_fonts/font = ExtResource( 3 )
 text = "Increase Progress Req."
 
 [node name="HSlider" type="HSlider" parent="PC/VBC/IncreaseProgressReq"]
-margin_left = 205.0
-margin_right = 352.0
+margin_left = 177.0
+margin_right = 327.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
 max_value = 12.0
@@ -115,30 +115,62 @@ tick_count = 4
 ticks_on_borders = true
 
 [node name="Count" type="Label" parent="PC/VBC/IncreaseProgressReq"]
-margin_left = 356.0
+margin_left = 331.0
 margin_right = 386.0
-margin_bottom = 21.0
-rect_min_size = Vector2( 30, 0 )
+margin_bottom = 18.0
+rect_min_size = Vector2( 55, 0 )
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+align = 2
+
+[node name="ActHealing" type="HBoxContainer" parent="PC/VBC"]
+margin_top = 206.0
+margin_right = 386.0
+margin_bottom = 224.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="PC/VBC/ActHealing"]
+margin_right = 160.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 3 )
+text = "% Relax at end of Act"
+
+[node name="HSlider" type="HSlider" parent="PC/VBC/ActHealing"]
+margin_left = 164.0
+margin_right = 327.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+max_value = 4.0
+value = 1.0
+tick_count = 5
+ticks_on_borders = true
+
+[node name="Count" type="Label" parent="PC/VBC/ActHealing"]
+margin_left = 331.0
+margin_right = 386.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 55, 0 )
 custom_fonts/font = ExtResource( 3 )
 text = "0"
 align = 2
 
 [node name="EliteDifficulty" type="HBoxContainer" parent="PC/VBC"]
-margin_top = 221.0
+margin_top = 244.0
 margin_right = 386.0
-margin_bottom = 242.0
+margin_bottom = 262.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="PC/VBC/EliteDifficulty"]
-margin_right = 200.0
-margin_bottom = 21.0
+margin_right = 169.0
+margin_bottom = 18.0
 custom_fonts/font = ExtResource( 3 )
 text = "Elite Torment Difficulty"
 
 [node name="HSlider" type="HSlider" parent="PC/VBC/EliteDifficulty"]
-margin_left = 204.0
-margin_right = 352.0
+margin_left = 173.0
+margin_right = 327.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
 max_value = 2.0
@@ -147,30 +179,30 @@ tick_count = 3
 ticks_on_borders = true
 
 [node name="Count" type="Label" parent="PC/VBC/EliteDifficulty"]
-margin_left = 356.0
+margin_left = 331.0
 margin_right = 386.0
-margin_bottom = 21.0
-rect_min_size = Vector2( 30, 0 )
+margin_bottom = 18.0
+rect_min_size = Vector2( 55, 0 )
 custom_fonts/font = ExtResource( 3 )
 text = "0"
 align = 2
 
 [node name="NormalDifficulty" type="HBoxContainer" parent="PC/VBC"]
-margin_top = 262.0
+margin_top = 282.0
 margin_right = 386.0
-margin_bottom = 283.0
+margin_bottom = 300.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="PC/VBC/NormalDifficulty"]
-margin_right = 225.0
-margin_bottom = 21.0
+margin_right = 190.0
+margin_bottom = 18.0
 custom_fonts/font = ExtResource( 3 )
 text = "Normal Torment Difficulty"
 
 [node name="HSlider" type="HSlider" parent="PC/VBC/NormalDifficulty"]
-margin_left = 229.0
-margin_right = 352.0
+margin_left = 194.0
+margin_right = 327.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
 max_value = 3.0
@@ -178,18 +210,18 @@ editable = false
 tick_count = 4
 
 [node name="Count" type="Label" parent="PC/VBC/NormalDifficulty"]
-margin_left = 356.0
+margin_left = 331.0
 margin_right = 386.0
-margin_bottom = 21.0
-rect_min_size = Vector2( 30, 0 )
+margin_bottom = 18.0
+rect_min_size = Vector2( 55, 0 )
 custom_fonts/font = ExtResource( 3 )
 text = "0"
 align = 2
 
 [node name="Back" type="Button" parent="PC/VBC"]
-margin_top = 303.0
+margin_top = 320.0
 margin_right = 386.0
-margin_bottom = 353.0
+margin_bottom = 370.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 3 )
