@@ -132,6 +132,9 @@ func is_progressing() -> bool:
 # the options when it's upgraded
 func set_upgrade_options() -> void:
 	upgrade_options = properties.get("_upgrades", []).duplicate(true)
+	if globals.difficulty.prevent_basic_cards_release and properties.get("_rarity") == "Basic":
+		# The upgrades which release cards have the '-' symbol
+		upgrade_options.erase("- %s -" % [card_name])
 	if upgrade_options.size() > 2:
 		CFUtils.shuffle_array(upgrade_options)
 		upgrade_options.resize(2)

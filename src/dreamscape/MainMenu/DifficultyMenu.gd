@@ -11,14 +11,26 @@ onready var _increase_progress_count := $"PC/VBC/IncreaseProgressReq/Count"
 onready var _act_healing_label := $"PC/VBC/ActHealing/Label"
 onready var _act_healing_slider := $"PC/VBC/ActHealing/HSlider"
 onready var _act_healing_count := $"PC/VBC/ActHealing/Count"
+onready var _prevent_basic_card_release_checkbox := $"PC/VBC/PreventCardBasicRelease/CheckBox"
+onready var _prevent_basic_card_release_count := $"PC/VBC/PreventCardBasicRelease/Count"
+onready var _desire_curios_give_perturbation_checkbox := $"PC/VBC/DesireCuriosGivePerturbation/CheckBox"
+onready var _desire_curios_give_perturbation_count := $"PC/VBC/DesireCuriosGivePerturbation/Count"
 onready var sliders = [
 	_starting_perturbations_slider,
 	_increase_progress_slider,
 	_act_healing_slider,
 ]
+onready var checkboxes = [
+	_prevent_basic_card_release_checkbox,
+	_desire_curios_give_perturbation_checkbox,
+]
 
 func _ready() -> void:
 	_total_difficulty.text = "Difficulty: " + str(globals.difficulty.total_difficulty) 
+	_prevent_basic_card_release_checkbox.pressed = globals.difficulty.prevent_basic_cards_release
+	_prevent_basic_card_release_count.text = str(globals.difficulty.calc_boolean_difficulty(globals.difficulty.prevent_basic_cards_release))
+	_desire_curios_give_perturbation_checkbox.pressed = globals.difficulty.desire_curios_give_perturbation
+	_desire_curios_give_perturbation_count.text = str(globals.difficulty.calc_boolean_difficulty(globals.difficulty.desire_curios_give_perturbation) * globals.difficulty.DIFFICULTY_MULTIPLIERS.desire_curios_give_perturbation)
 	_starting_perturbations_slider.value = globals.difficulty.starting_perturbations
 	_starting_perturbations_count.text = str(globals.difficulty.starting_perturbations)
 	_increase_progress_slider.value = globals.difficulty.progress_increase
@@ -28,6 +40,8 @@ func _ready() -> void:
 	_act_healing_count.text = str(globals.difficulty.act_healing * 100) + '%'
 	for slider in sliders:
 		slider.connect("value_changed", self, "_on_HSlider_value_changed", [slider])
+	for checkbox in checkboxes:
+		checkbox.connect("pressed", self, "_on_CheckBox_pressed", [checkbox])
 	# warning-ignore:return_value_discarded
 	globals.difficulty.connect("total_difficulty_recalculated", self, "_on_total_difficulty_changed")
 
@@ -43,6 +57,15 @@ func _on_HSlider_value_changed(value: int, slider: HSlider) -> void:
 			var pct := _convert_act_healing_to_pct(value)
 			globals.difficulty.act_healing = pct
 			_act_healing_count.text = str(pct * 100) + '%'
+
+func _on_CheckBox_pressed(checkbox: CheckBox) -> void:
+	match checkbox:
+		_prevent_basic_card_release_checkbox:
+			globals.difficulty.prevent_basic_cards_release = checkbox.pressed
+			_prevent_basic_card_release_count.text = str(globals.difficulty.calc_boolean_difficulty(checkbox.pressed))
+		_desire_curios_give_perturbation_checkbox:
+			globals.difficulty.desire_curios_give_perturbation = checkbox.pressed
+			_desire_curios_give_perturbation_count.text = str(globals.difficulty.calc_boolean_difficulty(checkbox.pressed) * globals.difficulty.DIFFICULTY_MULTIPLIERS.desire_curios_give_perturbation)
 
 func _on_total_difficulty_changed(total_difficulty) -> void:
 	_total_difficulty.text = "Difficulty: " + str(total_difficulty) 

@@ -42,23 +42,51 @@ custom_fonts/font = ExtResource( 3 )
 text = "Difficulty: 0"
 align = 1
 
-[node name="LoseBasicRelease" type="CheckBox" parent="PC/VBC"]
+[node name="PreventCardBasicRelease" type="HBoxContainer" parent="PC/VBC"]
 margin_top = 38.0
 margin_right = 386.0
 margin_bottom = 64.0
+
+[node name="CheckBox" type="CheckBox" parent="PC/VBC/PreventCardBasicRelease"]
+margin_right = 275.0
+margin_bottom = 26.0
 custom_fonts/font = ExtResource( 3 )
-disabled = true
 text = "Basic cards lose release upgrade"
 align = 1
 
-[node name="CuriosAlwaysGivePerturbation" type="CheckBox" parent="PC/VBC"]
+[node name="Count" type="Label" parent="PC/VBC/PreventCardBasicRelease"]
+margin_left = 279.0
+margin_top = 4.0
+margin_right = 386.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 55, 0 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+align = 2
+
+[node name="DesireCuriosGivePerturbation" type="HBoxContainer" parent="PC/VBC"]
 margin_top = 84.0
 margin_right = 386.0
 margin_bottom = 110.0
+
+[node name="CheckBox" type="CheckBox" parent="PC/VBC/DesireCuriosGivePerturbation"]
+margin_right = 270.0
+margin_bottom = 26.0
 custom_fonts/font = ExtResource( 3 )
-disabled = true
 text = "Desire Curios Give Perturbations"
 align = 1
+
+[node name="Count" type="Label" parent="PC/VBC/DesireCuriosGivePerturbation"]
+margin_left = 274.0
+margin_top = 4.0
+margin_right = 386.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 55, 0 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+align = 2
 
 [node name="StartingPerturbations" type="HBoxContainer" parent="PC/VBC"]
 margin_top = 130.0
