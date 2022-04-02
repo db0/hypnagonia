@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/dreamscape/MainMenu/NewGame.gd" type="Script" id=1]
 [ext_resource path="res://src/dreamscape/MainMenu/Archetype.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/dreamscape/MainMenu/StartingCards.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/dreamscape/MainMenu/TagsList.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/dreamscape/MainMenu/ArtifactsList.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/dreamscape/MainMenu/DifficultyMenu.tscn" type="PackedScene" id=6]
 
 [node name="NewGame" type="PanelContainer"]
 anchor_right = 1.0
@@ -190,28 +191,42 @@ margin_right = 1441.0
 margin_bottom = 816.0
 
 [node name="VBC" type="VBoxContainer" parent="VBC/ControlButtons"]
-margin_left = 520.0
-margin_right = 920.0
+margin_left = 518.0
+margin_right = 922.0
 margin_bottom = 260.0
 custom_constants/separation = 20
 
-[node name="StartingCards" type="Button" parent="VBC/ControlButtons/VBC"]
-margin_right = 400.0
+[node name="HBC" type="HBoxContainer" parent="VBC/ControlButtons/VBC"]
+margin_right = 404.0
 margin_bottom = 50.0
-rect_min_size = Vector2( 400, 50 )
+
+[node name="StartingCards" type="Button" parent="VBC/ControlButtons/VBC/HBC"]
+margin_right = 200.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 200, 50 )
 disabled = true
 text = "See Starting Cards"
 
-[node name="Randomize" type="Button" parent="VBC/ControlButtons/VBC"]
+[node name="Randomize" type="Button" parent="VBC/ControlButtons/VBC/HBC"]
+margin_left = 204.0
+margin_right = 404.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 200, 50 )
+text = "Randomize"
+
+[node name="Difficulty" type="Button" parent="VBC/ControlButtons/VBC"]
 margin_top = 70.0
-margin_right = 400.0
+margin_right = 404.0
 margin_bottom = 120.0
 rect_min_size = Vector2( 400, 50 )
-text = "Randomize"
+text = "Difficulty"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Start" type="Button" parent="VBC/ControlButtons/VBC"]
 margin_top = 140.0
-margin_right = 400.0
+margin_right = 404.0
 margin_bottom = 190.0
 rect_min_size = Vector2( 400, 50 )
 disabled = true
@@ -219,7 +234,7 @@ text = "Start Game"
 
 [node name="Back" type="Button" parent="VBC/ControlButtons/VBC"]
 margin_top = 210.0
-margin_right = 400.0
+margin_right = 404.0
 margin_bottom = 260.0
 rect_min_size = Vector2( 400, 50 )
 text = "Back"
@@ -306,6 +321,8 @@ __meta__ = {
 }
 
 [node name="Tags" parent="StartingCardsPopup/VBC" instance=ExtResource( 4 )]
+margin_right = 1433.0
+margin_bottom = 80.0
 
 [node name="Curios" parent="StartingCardsPopup/VBC" instance=ExtResource( 5 )]
 visible = false
@@ -316,8 +333,21 @@ margin_right = 1433.0
 margin_bottom = 364.0
 rect_min_size = Vector2( 0, 280 )
 
-[connection signal="pressed" from="VBC/ControlButtons/VBC/StartingCards" to="." method="_on_StartingCards_pressed"]
-[connection signal="pressed" from="VBC/ControlButtons/VBC/Randomize" to="." method="_on_Randomize_pressed"]
+[node name="DifficultiesPopup" type="PopupPanel" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1448.0
+margin_bottom = 893.0
+
+[node name="DifficultyMenu" parent="DifficultiesPopup" instance=ExtResource( 6 )]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[connection signal="pressed" from="VBC/ControlButtons/VBC/HBC/StartingCards" to="." method="_on_StartingCards_pressed"]
+[connection signal="pressed" from="VBC/ControlButtons/VBC/HBC/Randomize" to="." method="_on_Randomize_pressed"]
+[connection signal="pressed" from="VBC/ControlButtons/VBC/Difficulty" to="." method="_on_Difficulty_pressed"]
 [connection signal="pressed" from="VBC/ControlButtons/VBC/Start" to="." method="_on_Start_pressed"]
 [connection signal="popup_hide" from="ChoicePopup" to="." method="_on_popup_hide"]
 [connection signal="popup_hide" from="StartingCardsPopup" to="." method="_on_popup_hide"]

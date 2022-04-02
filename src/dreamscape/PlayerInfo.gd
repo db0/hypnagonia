@@ -44,9 +44,13 @@ onready var _tutorial := $Help/Tutorial
 onready var _artifacts := $ArtifactsPopup/Artifacts
 onready var _memories := $HBC/Memories
 onready var _version := $HBC/Version
+onready var _difficulty := $HBC/Difficulty
+onready var _difficulty_icon := $HBC/DifficultyIcon
 
 func _ready() -> void:
 	$PathosDetails/VBC/Header.description = _pathos_description
+	_difficulty.text = str(globals.difficulty.total_difficulty)
+	_difficulty_icon.texture = CFUtils.convert_texture_to_image(_difficulty_icon.texture)
 	if globals.player.pathos:
 		for entry in globals.player.pathos.repressed:
 			var pinfo = PATHOS_INFO_SCENE.instance()

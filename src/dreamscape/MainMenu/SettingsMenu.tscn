@@ -28,67 +28,67 @@ __meta__ = {
 
 [node name="PC" type="PanelContainer" parent="."]
 self_modulate = Color( 1, 1, 1, 0.690196 )
-margin_left = 548.0
-margin_top = 112.0
-margin_right = 906.0
-margin_bottom = 788.0
+margin_left = 578.0
+margin_top = 124.0
+margin_right = 876.0
+margin_bottom = 776.0
 
 [node name="VBC" type="VBoxContainer" parent="PC"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 351.0
-margin_bottom = 669.0
+margin_right = 291.0
+margin_bottom = 645.0
 size_flags_horizontal = 3
 custom_constants/separation = 20
 
 [node name="FocusStyle" type="OptionButton" parent="PC/VBC"]
-margin_right = 344.0
-margin_bottom = 33.0
+margin_right = 284.0
+margin_bottom = 27.0
 custom_fonts/font = ExtResource( 3 )
 text = "Large Card Preview"
 items = [ "Large Card Preview", null, false, 2, null, "Info Panels Only", null, false, 3, null, "Hand Card Zoom", null, false, 0, null ]
 selected = 0
 
 [node name="FancyAnimations" type="CheckButton" parent="PC/VBC"]
-margin_top = 53.0
-margin_right = 344.0
-margin_bottom = 93.0
+margin_top = 47.0
+margin_right = 284.0
+margin_bottom = 87.0
 custom_fonts/font = ExtResource( 3 )
 text = "Fancy Animations"
 
 [node name="AnimatedTextBackgrounds" type="CheckButton" parent="PC/VBC"]
-margin_top = 113.0
-margin_right = 344.0
-margin_bottom = 153.0
+margin_top = 107.0
+margin_right = 284.0
+margin_bottom = 147.0
 custom_fonts/font = ExtResource( 3 )
 text = "Anim. Text Background"
 
 [node name="EnableGlow" type="CheckButton" parent="PC/VBC"]
-margin_top = 173.0
-margin_right = 344.0
-margin_bottom = 213.0
+margin_top = 167.0
+margin_right = 284.0
+margin_bottom = 207.0
 custom_fonts/font = ExtResource( 3 )
 text = "Enable Glow"
 
 [node name="InterruptMusic" type="CheckButton" parent="PC/VBC"]
-margin_top = 233.0
-margin_right = 344.0
-margin_bottom = 273.0
+margin_top = 227.0
+margin_right = 284.0
+margin_bottom = 267.0
 custom_fonts/font = ExtResource( 3 )
 pressed = true
 text = "Interrupt Music"
 
 [node name="MainVol" type="Label" parent="PC/VBC"]
-margin_top = 293.0
-margin_right = 344.0
-margin_bottom = 320.0
+margin_top = 287.0
+margin_right = 284.0
+margin_bottom = 308.0
 custom_fonts/font = ExtResource( 3 )
 text = "Main Volume"
 
 [node name="MainVolSlider" type="HSlider" parent="PC/VBC"]
-margin_top = 340.0
-margin_right = 344.0
-margin_bottom = 356.0
+margin_top = 328.0
+margin_right = 284.0
+margin_bottom = 344.0
 size_flags_horizontal = 3
 min_value = -80.0
 max_value = 23.0
@@ -97,16 +97,16 @@ __meta__ = {
 }
 
 [node name="MusicVol" type="Label" parent="PC/VBC"]
-margin_top = 376.0
-margin_right = 344.0
-margin_bottom = 403.0
+margin_top = 364.0
+margin_right = 284.0
+margin_bottom = 385.0
 custom_fonts/font = ExtResource( 3 )
 text = "Music Volume"
 
 [node name="MusicVolSlider" type="HSlider" parent="PC/VBC"]
-margin_top = 423.0
-margin_right = 344.0
-margin_bottom = 439.0
+margin_top = 405.0
+margin_right = 284.0
+margin_bottom = 421.0
 size_flags_horizontal = 3
 min_value = -80.0
 max_value = 10.0
@@ -115,16 +115,16 @@ __meta__ = {
 }
 
 [node name="SoundVol" type="Label" parent="PC/VBC"]
-margin_top = 459.0
-margin_right = 344.0
-margin_bottom = 486.0
+margin_top = 441.0
+margin_right = 284.0
+margin_bottom = 462.0
 custom_fonts/font = ExtResource( 3 )
 text = "Effects Volume"
 
 [node name="SoundVolSlider" type="HSlider" parent="PC/VBC"]
-margin_top = 506.0
-margin_right = 344.0
-margin_bottom = 522.0
+margin_top = 482.0
+margin_right = 284.0
+margin_bottom = 498.0
 size_flags_horizontal = 3
 min_value = -80.0
 max_value = 10.0
@@ -133,21 +133,21 @@ __meta__ = {
 }
 
 [node name="ExitToMain" type="Button" parent="PC/VBC"]
-margin_top = 542.0
-margin_right = 344.0
-margin_bottom = 592.0
+margin_top = 518.0
+margin_right = 284.0
+margin_bottom = 568.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 2 )
 text = "Exit To Main Menu"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PC/VBC"]
-margin_top = 612.0
-margin_right = 344.0
-margin_bottom = 662.0
+margin_top = 588.0
+margin_right = 284.0
+margin_bottom = 638.0
 
 [node name="Back" type="Button" parent="PC/VBC/HBoxContainer"]
-margin_right = 344.0
+margin_right = 284.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
