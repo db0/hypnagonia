@@ -1,5 +1,22 @@
 # Changelog
 
+## [v0.44.0](https://github.com/db0/hypnagonia/tree/v0.44.0) (2022-04-03)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.43.1...v0.44.0)
+
+**Implemented enhancements:**
+
+- Add torment \(elite?\) that dumps 5 perturbations in the deck at the start of combat [\#267](https://github.com/db0/hypnagonia/issues/267)
+
+**Fixed bugs:**
+
+- Closing curios popup should not be able to select journal choices  [\#265](https://github.com/db0/hypnagonia/issues/265)
+- Something weird with the Bully. When his minions die his damage intents appeared to change [\#264](https://github.com/db0/hypnagonia/issues/264)
+
+**Merged pull requests:**
+
+- Added Harder and Easier difficulties [\#269](https://github.com/db0/hypnagonia/pull/269) ([db0](https://github.com/db0))
+
 ## [v0.43.1](https://github.com/db0/hypnagonia/tree/v0.43.1) (2022-04-01)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.43.0...v0.43.1)
