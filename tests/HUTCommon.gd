@@ -164,6 +164,19 @@ const EFFECT_SCRIPT := {
 		],
 	},
 }
+const SPAWN_CARD_SCRIPT := {
+	"manual": {
+		"hand": [
+			{
+				"name": "spawn_card_to_container",
+				"card_name": "GUT",
+				"dest_container": "hand",
+				"immediate_placement": true,
+				"tags": ["GUT"],
+			},
+		],
+	},
+}
 
 func before_each():
 	cfc._setup()
