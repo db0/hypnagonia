@@ -171,7 +171,7 @@ const CARDS := {
 	"Suffocation": {
 		"Type": "Perturbation",
 		"Tags": [Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "While in hand, at the end of the turn, take {exert_amount} {anxiety}\n{unplayable}\nPlay: {forget}.",
+		"Abilities": "While in hand, at the end of the turn, take {exert_amount} {anxiety}\nPlay: {forget}.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Perturbation",
