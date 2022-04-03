@@ -484,7 +484,7 @@ func _input(event):
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
 		dreamer.health = 1000
 		dreamer.damage = 100
-#		globals.player.add_artifact(ArtifactDefinitions.FirstPowerAttack.canonical_name)
+		globals.player.add_artifact(ArtifactDefinitions.ImproveImpervious.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.PurpleWave.canonical_name)
 		# warning-ignore:return_value_discarded
 #		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
@@ -503,16 +503,10 @@ func _input(event):
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"! Quick Dash !",
-			"! Quick Dash !",
-			"! Quick Dash !",
-			"! Quick Dash !",
-			"Cannon",
-			"Cannon",
-			"Cannon",
-			"Cannon",
-			"Cannon",
-			"Cannon",
+			"Out of Reach",
+			"Out of Reach",
+			"Out of Reach",
+			"Out of Reach",
 #			"Whirlwind",
 #			"Charged Shot",
 		]:
@@ -562,6 +556,7 @@ func _on_Debug_pressed() -> void:
 	for entity in get_tree().get_nodes_in_group("EnemyEntities"):
 		entity.damage = 1
 	for c in [
+		"Out of Reach"
 #			"Universal Component",
 #			"A Thousand Squeaks",
 	]:
