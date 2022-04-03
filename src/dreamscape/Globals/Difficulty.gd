@@ -3,6 +3,14 @@ extends Reference
 
 signal total_difficulty_recalculated(new_total)
 
+enum DifficultyStrings {
+	CASUAL = -2
+	EASY
+	NORMAL
+	HARD
+	TOUGH
+	EPIC
+}
 const DIFFICULTY_FILE = "user://Difficulties.json"
 const DIFFICULTY_MULTIPLIERS := {
 	"desire_curios_give_perturbation": 2,
@@ -38,11 +46,14 @@ const DIFFICULTY_STEPS := {
 const DESCRIPTIONS := {
 	"starting_perturbations": "Your starting deck will get the specified amounr of random Perturbations",
 	"progress_increase": "The progress required to upgrade each card will be increased by this amount",
-	"act_healing": "At the end of each act the dreamer will remove anxiety equal to this percent of their max anxiety.",
+	"act_healing": "At the end of each act the dreamer will release anxiety equal to this percent of their max anxiety.",
 	"shop_prices": "The shop prices are modified by this percentage.",
 	"max_health": "The dreamer starting max anxiety is modified by this percentage.",
 	"prevent_basic_cards_release": "Basic (AKA Starting) cards cannot receive an upgrade which removes them permanently from the deck.",
 	"desire_curios_give_perturbation": "Curios discovered using repressed desire will require you to add 1 extra Perturbation to your deck.",
+	"encounter_difficulty": "Modifies the chance to get beneficial or detrimental journal encounters.\n"\
+			+ "Harder difficulties will make Torments appear more often and the Boss to appear earlier.\n"\
+			+ "Easier difficulties will make Rest sites, Shops and Curios appear more often instead\n",
 }
 
 var difficulties := {}
@@ -54,6 +65,7 @@ var shop_prices := 1.0 setget set_shop_prices
 var max_health := 1.0 setget set_max_health
 var prevent_basic_cards_release := false setget set_prevent_basic_cards_release
 var desire_curios_give_perturbation := false setget set_desire_curios_give_perturbation
+var encounter_difficulty := 0 setget set_encounter_difficulty
 
 func _init() -> void:
 	init_difficulty_settings_from_file()
@@ -85,6 +97,11 @@ func set_prevent_basic_cards_release(value) -> void:
 func set_desire_curios_give_perturbation(value) -> void:
 	desire_curios_give_perturbation = value
 	_finalize_value("desire_curios_give_perturbation", desire_curios_give_perturbation)
+	
+func set_encounter_difficulty(value) -> void:
+	encounter_difficulty = value
+	_finalize_value("encounter_difficulty", encounter_difficulty)
+
 
 # Whenever a setting is changed via this function, it also stores it
 # permanently on-disk.
@@ -119,6 +136,7 @@ func recalculate_total_difficulty() -> void:
 	total_difficulty += TOTAL_DIFFICULTY_MAPS.max_health[max_health]
 	total_difficulty += calc_boolean_difficulty(prevent_basic_cards_release)
 	total_difficulty += calc_boolean_difficulty(desire_curios_give_perturbation) * DIFFICULTY_MULTIPLIERS.desire_curios_give_perturbation
+	total_difficulty += encounter_difficulty
 	emit_signal("total_difficulty_recalculated", total_difficulty)
 
 
@@ -149,8 +167,10 @@ func seek_value_from_difficulty(difficulty_key: String, value: int):
 
 
 func _get_percentage_value(difficulty_key: String, value) -> float:
-	if not TOTAL_DIFFICULTY_MAPS[difficulty_key].has(value):
+	if typeof(value) == TYPE_INT:
 		value = seek_value_from_difficulty(difficulty_key, value)
+	elif not TOTAL_DIFFICULTY_MAPS[difficulty_key].has(value):
+		printerr("WARNING: Unexpected value %s assigned to %s" % [value,difficulty_key])
 	return(value)
 
 

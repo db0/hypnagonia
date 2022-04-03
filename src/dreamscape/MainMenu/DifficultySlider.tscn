@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/dreamscape/MainMenu/SettingsMenuFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/dreamscape/MainMenu/DifficultySlider.gd" type="Script" id=2]
+
+[node name="DifficultySlider" type="HBoxContainer"]
+margin_top = 396.0
+margin_right = 386.0
+margin_bottom = 414.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Description" type="Label" parent="."]
+margin_right = 200.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 200, 0 )
+custom_fonts/font = ExtResource( 1 )
+text = "Normal torment difficulty"
+
+[node name="Slider" type="HSlider" parent="."]
+margin_left = 204.0
+margin_right = 327.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+max_value = 3.0
+editable = false
+tick_count = 4
+
+[node name="Result" type="Label" parent="."]
+margin_left = 331.0
+margin_right = 386.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 55, 0 )
+custom_fonts/font = ExtResource( 1 )
+text = "0"
+align = 2
+
+[connection signal="value_changed" from="Slider" to="." method="_on_Slider_value_changed"]

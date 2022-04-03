@@ -21,7 +21,7 @@ const pathos_descriptions := {
 			+ "Repressed: Increases the chance that Rest encounters will appear ({chance}).\n"\
 			+ "Released: Can be used to progress your cards in the shop.",
 	Terms.RUN_ACCUMULATION_NAMES.boss: "{pathos}\n"\
-			+ "Repressed: When this reaches 100+, you will encounter this Act's adversary.\n"\
+			+ "Repressed: When this reaches {boss_threshold}+, you will encounter this Act's adversary.\n"\
 			+ "Released: Unknown...",
 }
 
@@ -50,6 +50,8 @@ func _on_PathosEntryInfo_mouse_entered() -> void:
 	var desc_format := {
 		"pathos": name.capitalize(),
 		"chance": '0%',
+		"boss_threshold": globals.player.pathos.thresholds[Terms.RUN_ACCUMULATION_NAMES.boss]\
+				* globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.boss)
 	}
 	if chance > 0:
 		desc_format["chance"] = 'max ' + str(chance) + '%'
