@@ -402,17 +402,16 @@ const ABUSIVE_RELATIONSHIP := {
 		"Confidence",
 	],
 	"Common": [
-		"Excuses",
-		"Perseverance",
 		"It's The Small Things",
 		"Confrontation",
 		"Could Be Worse",
 		"Dismissal",
 		"It's not about me",
-		"That too, shall pass",
 		"Is it my fault?",
 	],
 	"Uncommon": [
+		"That too, shall pass",
+		"Perseverance",
 		"Flashbacks",
 		"Enough is enough!",
 		"Grit",
@@ -420,6 +419,7 @@ const ABUSIVE_RELATIONSHIP := {
 		"Rancor",
 		"Lash-out",
 		"Survival Mode",
+		"Excuses",
 	],
 	"Rare": [
 		"The Happy Place",

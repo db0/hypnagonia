@@ -2997,13 +2997,13 @@ const CARDS := {
 		"Abilities": "Gain {immersion_amount} {immersion}\nGain {effect_stacks} {drain}\n{forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.drain.name: Terms.PLAYER
 		},
 		"_amounts": {
-			"immersion_amount": 2,
+			"immersion_amount": 3,
 			"effect_stacks": 1,
 		},
 		"_upgrade_threshold_modifier": 0,
@@ -3018,13 +3018,13 @@ const CARDS := {
 		"Abilities": "Gain {immersion_amount} {immersion}\nDraw {draw_amount} card\nGain {effect_stacks} {drain}\n{forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.drain.name: Terms.PLAYER
 		},
 		"_amounts": {
-			"immersion_amount": 2,
+			"immersion_amount": 3,
 			"effect_stacks": 1,
 			"draw_amount": 1,
 		},
@@ -3036,13 +3036,13 @@ const CARDS := {
 		"Abilities": "Gain {immersion_amount} {immersion}\nGain {effect_stacks} {drain}\n{forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.drain.name: Terms.PLAYER
 		},
 		"_amounts": {
-			"immersion_amount": 3,
+			"immersion_amount": 4,
 			"effect_stacks": 1,
 		},
 		"_is_upgrade": true,
@@ -3252,7 +3252,7 @@ const CARDS := {
 		"_keywords": ["confidence", "anxiety"],
 		"_amounts": {
 			"exert_amount": 2,
-			"defence_amount": 12
+			"defence_amount": 14
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -3270,7 +3270,7 @@ const CARDS := {
 		"_keywords": ["confidence", "anxiety"],
 		"_amounts": {
 			"exert_amount": 2,
-			"defence_amount": 15
+			"defence_amount": 17
 		},
 		"_is_upgrade": true,
 	},
@@ -3284,7 +3284,7 @@ const CARDS := {
 		"_keywords": ["confidence", "anxiety"],
 		"_amounts": {
 			"exert_amount": 1,
-			"defence_amount": 13
+			"defence_amount": 15
 		},
 		"_is_upgrade": true,
 	},
@@ -3298,7 +3298,7 @@ const CARDS := {
 		"_keywords": ["interpretation", "anxiety"],
 		"_amounts": {
 			"exert_amount": 3,
-			"damage_amount": 12,
+			"damage_amount": 15,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -3316,7 +3316,7 @@ const CARDS := {
 		"_keywords": ["interpretation", "anxiety"],
 		"_amounts": {
 			"exert_amount": 3,
-			"damage_amount": 16,
+			"damage_amount": 19,
 		},
 		"_is_upgrade": true,
 	},
@@ -3330,7 +3330,7 @@ const CARDS := {
 		"_keywords": ["interpretation", "anxiety"],
 		"_amounts": {
 			"exert_amount": 2,
-			"damage_amount": 14,
+			"damage_amount": 17,
 		},
 		"_is_upgrade": true,
 	},
@@ -3439,11 +3439,11 @@ const CARDS := {
 	},
 	"That too, shall pass": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Take {exert_amount} {anxiety}\nGain {immersion_amount} {immersion}.\n{forget}.",
+		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.exert.name],
+		"Abilities": "Take {exert_amount} {anxiety}\nGain {immersion_amount} {immersion}.",
 		"Cost": 0,
 		"_illustration": "Nobody",
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_keywords": ["anxiety"],
 		"_amounts": {
 			"exert_amount": 4,
@@ -3458,12 +3458,12 @@ const CARDS := {
 	},
 	"% That too, shall pass %": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Take {exert_amount} {anxiety}\nGain {immersion_amount} {immersion}.\n{forget}.",
+		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.exert.name],
+		"Abilities": "Take {exert_amount} {anxiety}\nGain {immersion_amount} {immersion}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_keywords": ["anxiety"],
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_amounts": {
 			"exert_amount": 1,
 			"immersion_amount": 3,
@@ -3472,12 +3472,12 @@ const CARDS := {
 	},
 	"+ That too, shall pass +": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Take {exert_amount} {anxiety}\nGain {immersion_amount} {immersion}.\n{forget}.",
+		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.exert.name],
+		"Abilities": "Take {exert_amount} {anxiety}\nGain {immersion_amount} {immersion}",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_keywords": ["anxiety"],
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_amounts": {
 			"exert_amount": 4,
 			"immersion_amount": 4,
@@ -3489,14 +3489,13 @@ const CARDS := {
 		"Tags": [
 			Terms.GENERIC_TAGS.purpose.name,
 			Terms.GENERIC_TAGS.exert.name,
-			Terms.GENERIC_TAGS.slumber.name,
 			Terms.GENERIC_TAGS.swift.name
 		],
-		"Abilities": "Take {exert_amount} {anxiety}\nGain {immersion_amount} {immersion}.\nDraw {draw_amount} card. {forget}.",
+		"Abilities": "Take {exert_amount} {anxiety}\nGain {immersion_amount} {immersion}.\nDraw {draw_amount} card",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_keywords": ["anxiety"],
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_amounts": {
 			"exert_amount": 4,
 			"immersion_amount": 3,
@@ -3601,7 +3600,7 @@ const CARDS := {
 		"_rarity": "Common",
 		"_keywords": ["interpretation", "anxiety"],
 		"_amounts": {
-			"damage_amount": 8,
+			"damage_amount": 10,
 			"exert_amount": 3,
 		},
 		"_upgrade_threshold_modifier": 0,
@@ -3620,7 +3619,7 @@ const CARDS := {
 		"_rarity": "Common",
 		"_keywords": ["interpretation", "anxiety"],
 		"_amounts": {
-			"damage_amount": 11,
+			"damage_amount": 13,
 			"exert_amount": 3,
 		},
 		"_is_upgrade": true,
@@ -3635,7 +3634,7 @@ const CARDS := {
 		"_rarity": "Common",
 		"_keywords": ["interpretation", "anxiety"],
 		"_amounts": {
-			"damage_amount": 9,
+			"damage_amount": 10,
 			"exert_amount": 1,
 		},
 		"_is_upgrade": true,
@@ -3650,7 +3649,7 @@ const CARDS := {
 		"_rarity": "Common",
 		"_keywords": ["interpretation", "pierce", "anxiety"],
 		"_amounts": {
-			"damage_amount": 9,
+			"damage_amount": 11,
 			"exert_amount": 3,
 		},
 		"_upgrade_threshold_modifier": 0,
@@ -3669,7 +3668,7 @@ const CARDS := {
 		"_rarity": "Common",
 		"_keywords": ["interpretation", "pierce", "anxiety"],
 		"_amounts": {
-			"damage_amount": 12,
+			"damage_amount": 14,
 			"exert_amount": 3,
 		},
 		"_is_upgrade": true,
@@ -3684,7 +3683,7 @@ const CARDS := {
 		"_rarity": "Common",
 		"_keywords": ["interpretation", "pierce", "anxiety"],
 		"_amounts": {
-			"damage_amount": 10,
+			"damage_amount": 12,
 			"exert_amount": 1,
 		},
 		"_is_upgrade": true,
@@ -3704,7 +3703,7 @@ const CARDS := {
 		"_amounts": {
 			"damage_amount": 9,
 			"exert_amount": 2,
-			"effect_stacks": 2,
+			"effect_stacks": 3,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -3727,7 +3726,7 @@ const CARDS := {
 		"_amounts": {
 			"damage_amount": 12,
 			"exert_amount": 2,
-			"effect_stacks": 2,
+			"effect_stacks": 3,
 		},
 		"_is_upgrade": true,
 	},
@@ -3746,7 +3745,7 @@ const CARDS := {
 		"_amounts": {
 			"damage_amount": 10,
 			"exert_amount": 4,
-			"effect_stacks": 5,
+			"effect_stacks": 6,
 		},
 		"_is_upgrade": true,
 	},
@@ -3764,7 +3763,7 @@ const CARDS := {
 		},
 		"_amounts": {
 			"exert_amount": 4,
-			"defence_amount": 8,
+			"defence_amount": 10,
 			"effect_stacks": 1,
 		},
 		"_upgrade_threshold_modifier": 0,
@@ -3787,7 +3786,7 @@ const CARDS := {
 		},
 		"_amounts": {
 			"exert_amount": 4,
-			"defence_amount": 11,
+			"defence_amount": 13,
 			"effect_stacks": 1,
 		},
 		"_is_upgrade": true,
@@ -3806,7 +3805,7 @@ const CARDS := {
 		},
 		"_amounts": {
 			"exert_amount": 7,
-			"defence_amount": 12,
+			"defence_amount": 14,
 			"effect_stacks": 2,
 		},
 		"_is_upgrade": true,
@@ -3817,7 +3816,7 @@ const CARDS := {
 		"Abilities": "The first {concentration_threshold} time you take {anxiety} during your turn reduce it to 1.",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_keywords": ["anxiety"],
 		"_amounts": {
 			"concentration_threshold": 1,
@@ -3834,7 +3833,7 @@ const CARDS := {
 		"Abilities": "The first {concentration_threshold} time you take {anxiety} during your turn reduce it to 1.",
 		"Cost": 0,
 		"_illustration": "Nobody",
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_keywords": ["anxiety"],
 		"_amounts": {
 			"concentration_threshold": 1,
@@ -3847,7 +3846,7 @@ const CARDS := {
 		"Abilities": "The first {concentration_threshold} times you take {anxiety} during your turn reduce it to 1.",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_keywords": ["anxiety"],
 		"_amounts": {
 			"concentration_threshold": 2,
