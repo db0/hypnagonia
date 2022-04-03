@@ -1017,7 +1017,7 @@ const CARDS := {
 	},
 	"! Spare Lens !": {
 		"Type": "Concentration",
-		"Tags": [Terms.GENERIC_TAGS.alpha.name],
+		"Tags": [],
 		"Abilities": "At the end of the turn. add {concentration_stacks} random common {fusion} card "\
 				+ " to the top of the draw pile,",
 		"Cost": 1,
