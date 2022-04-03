@@ -503,13 +503,7 @@ func _input(event):
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"Confidence",
-			"Confidence",
-			"Confidence",
-			"Confidence",
-			"Confidence",
-			"Confidence",
-			"Confidence",
+			"Light Jump",
 #			"Whirlwind",
 #			"Charged Shot",
 		]:

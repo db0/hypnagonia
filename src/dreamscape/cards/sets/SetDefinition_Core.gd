@@ -553,8 +553,8 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 3,
-			"chain_amount": 3,
+			"damage_amount": 2,
+			"chain_amount": 5,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -571,8 +571,8 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 5,
-			"chain_amount": 3,
+			"damage_amount": 4,
+			"chain_amount": 4,
 		},
 		"_is_upgrade": true,
 	},
@@ -585,8 +585,8 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 3,
-			"chain_amount": 4,
+			"damage_amount": 2,
+			"chain_amount": 8,
 		},
 		"_is_upgrade": true,
 	},
