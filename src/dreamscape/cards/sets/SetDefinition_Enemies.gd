@@ -157,12 +157,12 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "{forget} a {perturbation} from your deck or discard pile.",
-		"Cost": 0,
+		"Cost": 1,
 		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "perturbation"],
 		"_amounts": {
-			"defence_amount": 2,
+			"defence_amount": 4,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -177,12 +177,12 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "{forget} a {perturbation} from your deck or discard pile.",
-		"Cost": 0,
+		"Cost": 1,
 		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "perturbation"],
 		"_amounts": {
-			"defence_amount": 4,
+			"defence_amount": 7,
 		},
 		"_is_upgrade": true,
 	},
@@ -191,12 +191,12 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.omega.name],
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "{forget} a {perturbation} from your deck or discard pile.",
-		"Cost": 0,
+		"Cost": 1,
 		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "perturbation"],
 		"_amounts": {
-			"defence_amount": 2,
+			"defence_amount": 6,
 		},
 		"_is_upgrade": true,
 	},
@@ -220,12 +220,12 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "{shuffle} a random {perturbation} from your hand into your deck.\n"\
 				+ "{forget} a {perturbation} from your deck or discard pile.",
-		"Cost": 0,
+		"Cost": 1,
 		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "perturbation"],
 		"_amounts": {
-			"defence_amount": 4,
+			"defence_amount": 6,
 		},
 		"_is_upgrade": true,
 	},
