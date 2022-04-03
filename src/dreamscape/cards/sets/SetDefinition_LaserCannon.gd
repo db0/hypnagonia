@@ -1112,7 +1112,7 @@ const CARDS := {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Draw {concentration_stacks} cards whenever you fuse {fusion} cards.",
-		"Cost": 1,
+		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["fuse"],
@@ -1123,7 +1123,7 @@ const CARDS := {
 	},
 	"^ Streamlining ^": {
 		"Type": "Concentration",
-		"Tags": [Terms.GENERIC_TAGS.swift.name],
+		"Tags": [Terms.GENERIC_TAGS.swift.name, Terms.GENERIC_TAGS.alpha.name],
 		"Abilities": "Draw {concentration_stacks} cards whenever you fuse {fusion} cards.",
 		"Cost": 1,
 		"_illustration": "Nobody",
