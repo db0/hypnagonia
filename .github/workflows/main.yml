@@ -87,7 +87,9 @@ jobs:
       run: |
           cp -v /home/runner/.local/share/godot/dist/* .
           cp '/home/runner/.local/share/godot/builds/LinuxX11/Hypnagonia_Linux.x86_64' .
+          cp '/home/runner/.local/share/godot/builds/LinuxX11/Hypnagonia_Linux_Lite.x86_64' .
           cp '/home/runner/.local/share/godot/builds/Windows Desktop/Hypnagonia_Windows.exe' .
+          cp '/home/runner/.local/share/godot/builds/Windows Desktop/Hypnagonia_Windows_Lite.exe' .
           cp '/home/runner/.local/share/godot/builds/Mac OSX/Hypnagonia_MacOSX.zip' .
           ls -larth
     - name: "🚀 Upload HTML5 version to itch.io"
@@ -100,6 +102,16 @@ jobs:
         ITCH_USER: dbzer0
         PACKAGE: HTML5.zip
         VERSION: "${{ steps.release.outputs.version }}"
+    - name: "☢ Upload Windows Lite version to itch.io"
+      if: ${{ steps.release.outputs.version != '' }}
+      uses: josephbmanley/butler-publish-itchio-action@master
+      env:
+        BUTLER_CREDENTIALS: "${{ secrets.BUTLER_CREDENTIALS }}"
+        CHANNEL: windows
+        ITCH_GAME: hypnagonia
+        ITCH_USER: dbzer0
+        PACKAGE: Hypnagonia_Windows_Lite.exe
+        VERSION: "${{ steps.release.outputs.version }}"
     - name: "☢ Upload Windows version to itch.io"
       if: ${{ steps.release.outputs.version != '' }}
       uses: josephbmanley/butler-publish-itchio-action@master
@@ -109,6 +121,16 @@ jobs:
         ITCH_GAME: hypnagonia
         ITCH_USER: dbzer0
         PACKAGE: Hypnagonia_Windows.exe
+        VERSION: "${{ steps.release.outputs.version }}"
+    - name: "🐧 Upload Linux Lite version to itch.io"
+      if: ${{ steps.release.outputs.version != '' }}
+      uses: josephbmanley/butler-publish-itchio-action@master
+      env:
+        BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+        CHANNEL: linux
+        ITCH_GAME: hypnagonia
+        ITCH_USER: dbzer0
+        PACKAGE: Hypnagonia_Linux_Lite.x86_64
         VERSION: "${{ steps.release.outputs.version }}"
     - name: "🐧 Upload Linux version to itch.io"
       if: ${{ steps.release.outputs.version != '' }}
