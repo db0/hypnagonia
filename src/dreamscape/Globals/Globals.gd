@@ -44,10 +44,10 @@ var test_flags := {
 
 # Test setup. This should happen at game start
 func _ready() -> void:
+	difficulty = Difficulty.new()
 	music = Music.new()
 	player = Player.new()
 	encounters = SingleRun.new()
-	difficulty = Difficulty.new()
 
 
 func reset() -> void:

@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/dreamscape/MainMenu/SettingsMenuFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/dreamscape/MainMenu/DifficultyCheckbox.gd" type="Script" id=2]
+
+[node name="DifficultyCheckbox" type="HBoxContainer"]
+margin_top = 38.0
+margin_right = 386.0
+margin_bottom = 64.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckBox" type="CheckBox" parent="."]
+margin_right = 260.0
+margin_bottom = 26.0
+mouse_filter = 1
+custom_fonts/font = ExtResource( 1 )
+text = "Difficulty Checkbox Description"
+align = 1
+
+[connection signal="toggled" from="CheckBox" to="." method="_on_CheckBox_toggled"]

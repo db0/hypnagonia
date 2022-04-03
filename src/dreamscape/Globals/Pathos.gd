@@ -43,13 +43,13 @@ var progressions := {
 # They are also used to determine how much of a pathos is released every time
 # that encounter is selected (see release_adjustments below).
 var thresholds := {
-	Terms.RUN_ACCUMULATION_NAMES.enemy: 1.3,
-	Terms.RUN_ACCUMULATION_NAMES.rest: 5.0,
-	Terms.RUN_ACCUMULATION_NAMES.nce: 3.0,
-	Terms.RUN_ACCUMULATION_NAMES.shop: 4.0,
-	Terms.RUN_ACCUMULATION_NAMES.elite: 5.3,
-	Terms.RUN_ACCUMULATION_NAMES.artifact: 6.0,
-	Terms.RUN_ACCUMULATION_NAMES.boss: 16.0,
+	Terms.RUN_ACCUMULATION_NAMES.enemy: 1.3 - globals.difficulty.encounter_difficulty * 0.1,
+	Terms.RUN_ACCUMULATION_NAMES.rest: 5.0 + globals.difficulty.encounter_difficulty * 0.5,
+	Terms.RUN_ACCUMULATION_NAMES.nce: 3.0 + globals.difficulty.encounter_difficulty * 0.5,
+	Terms.RUN_ACCUMULATION_NAMES.shop: 4.0 + globals.difficulty.encounter_difficulty * 0.5,
+	Terms.RUN_ACCUMULATION_NAMES.elite: 5.3 - globals.difficulty.encounter_difficulty * 0.5,
+	Terms.RUN_ACCUMULATION_NAMES.artifact: 6.0 + globals.difficulty.encounter_difficulty * 0.5,
+	Terms.RUN_ACCUMULATION_NAMES.boss: 17.0 - globals.difficulty.encounter_difficulty * 1,
 }
 
 
@@ -79,6 +79,7 @@ func _init() -> void:
 #			round(get_progression_average(grab_random_pathos())* CFUtils.randf_range(3,5))
 #	released[grab_random_pathos()] +=\
 #			round(get_progression_average(grab_random_pathos())* CFUtils.randf_range(3,5))
+	print_debug(thresholds)
 
 
 # Increases the specified repressed pathos by the standard amount
@@ -292,13 +293,15 @@ func get_pathos_org(type := "released", include_zeroes := false) -> Dictionary:
 func calculate_chance_for_encounter(entry: String, include_next_progression := true, mod_pathos_dict := {}) -> int:
 	if not entry in repressed:
 		return(-1)
-	if repressed[Terms.RUN_ACCUMULATION_NAMES.boss] >= 100:
+	var boss_threshold = thresholds[Terms.RUN_ACCUMULATION_NAMES.boss]\
+			* get_progression_average(Terms.RUN_ACCUMULATION_NAMES.boss)
+	if repressed[Terms.RUN_ACCUMULATION_NAMES.boss] >= boss_threshold:
 		if entry == Terms.RUN_ACCUMULATION_NAMES.boss:
 			return(100)
 		else:
 			return(0)
 	elif repressed[Terms.RUN_ACCUMULATION_NAMES.boss]\
-			+ progressions[Terms.RUN_ACCUMULATION_NAMES.boss].front() >= 100:
+			+ progressions[Terms.RUN_ACCUMULATION_NAMES.boss].front() >= boss_threshold:
 		if entry == Terms.RUN_ACCUMULATION_NAMES.boss:
 			return(100)
 		else:

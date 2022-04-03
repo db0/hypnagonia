@@ -131,7 +131,9 @@ func _get_journal_options(requested_options := 3) -> Array:
 	var selected_options := []
 	var pathos : Pathos = globals.player.pathos
 	# If boss accumulation is >= 100, then it becomes the only option
-	if pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.boss] >= 100:
+	var boss_threshold = globals.player.pathos.thresholds[Terms.RUN_ACCUMULATION_NAMES.boss]\
+		* globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.boss)
+	if pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.boss] >= boss_threshold:
 		selected_options.append(Terms.RUN_ACCUMULATION_NAMES.boss)
 	else:
 		for acc in pathos.repressed:
