@@ -503,10 +503,13 @@ func _input(event):
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"Out of Reach",
-			"Out of Reach",
-			"Out of Reach",
-			"Out of Reach",
+			"Confidence",
+			"Confidence",
+			"Confidence",
+			"Confidence",
+			"Confidence",
+			"Confidence",
+			"Confidence",
 #			"Whirlwind",
 #			"Charged Shot",
 		]:
