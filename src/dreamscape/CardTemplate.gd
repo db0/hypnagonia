@@ -292,8 +292,6 @@ func generate_discard_tasks(specify_parent := "hand") -> Array:
 # The reason to go via sceng, is because we  don't want to increment if costs
 # cannot be paid.
 func generate_play_confirm_scripts() -> Array:
-	if not deck_card_entry:
-		return([])
 	var confirm_play_template := {
 			"name": "confirm_play",
 		}
