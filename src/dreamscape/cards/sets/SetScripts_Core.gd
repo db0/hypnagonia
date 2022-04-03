@@ -2043,12 +2043,6 @@ const ThatTooShallPass = {
 					"value_key": "immersion_amount"
 				},
 			},
-			{
-				"name": "move_card_to_container",
-				"subject": "self",
-				"dest_container": "forgotten",
-				"tags": ["Played", "Card"],
-			},
 		],
 	},
 }
@@ -2071,12 +2065,6 @@ const ThatTooMustPass = {
 					"lookup_property": "_amounts",
 					"value_key": "immersion_amount"
 				},
-			},
-			{
-				"name": "move_card_to_container",
-				"subject": "self",
-				"dest_container": "forgotten",
-				"tags": ["Played", "Card"],
 			},
 			{
 				"name": "draw_cards",
