@@ -1,5 +1,19 @@
 extends CardFront
 
+const TEXT_BACKGROUND_COLOURS := {
+	"Action": Color(0.15,0,0),
+	"Control": Color(0,0,0.15),
+	"Concentration": Color(0,0.15,0),
+	"Perturbation": Color(0,0,0),
+	"Understanding": Color(0.38,0,0.65),
+}
+const SHADER_BACKGROUND_COLOURS := {
+	"Action": Color(0,0,0),
+	"Control": Color(0,0,0.1),
+	"Concentration": Color(0,0.1,0),
+	"Perturbation": Color(0,0,0),
+	"Understanding": Color(0.22,0,0.35),
+}
 
 onready var cost_container := $CostContainer
 onready var tag_container1 := $TagContainer1
@@ -23,6 +37,7 @@ onready var rarity_middle := $RarityMiddle
 onready var cost_container_background := $CostContainer/CostIcon
 onready var scarred := $Scarred
 onready var enhanced := $Enhanced
+onready var text_style : StyleBoxFlat = text_background.get("custom_styles/panel/StyleBoxFlat")
 
 func _ready() -> void:
 #	text_expansion_multiplier = {
@@ -134,6 +149,11 @@ func toggle_text_shader_visible(set_visible = null) -> void:
 		text_shader.visible = !text_shader.visible
 	else:
 		text_shader.visible = set_visible
+	if card_owner.get_property("Type"):
+		if not text_shader.visible:
+			text_style.set_bg_color(TEXT_BACKGROUND_COLOURS[card_owner.get_property("Type")])
+		else:
+			text_style.set_bg_color(SHADER_BACKGROUND_COLOURS[card_owner.get_property("Type")])
 
 func _add_title_bbcode(rtlabel: RichTextLabel):
 	rtlabel.push_color("#FFFFFF")
