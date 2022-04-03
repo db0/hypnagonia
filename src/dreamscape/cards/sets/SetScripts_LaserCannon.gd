@@ -747,7 +747,7 @@ const LightJump = {
 				"is_cost": false,
 				"subject": "index",
 				"subject_count": "all",
-				"subject_index": "top",
+				"subject_index": "bottom",
 				SP.KEY_NEEDS_SELECTION: true,
 				SP.KEY_SELECTION_COUNT: {
 					"lookup_property": "_amounts",
