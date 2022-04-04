@@ -493,7 +493,7 @@ func _input(event):
 #		globals.player.deck.add_new_card("+ Noisy Whip +")
 #		globals.player.add_artifact(ArtifactDefinitions.IncreaseConfusionStacks.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.IncreaseRandomDamage.canonical_name)
-#		globals.player.add_artifact(ArtifactDefinitions.FreeCard.canonical_name)
+		globals.player.add_artifact(ArtifactDefinitions.QuickenUp.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.HealSelf.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.BossFaster.canonical_name)
@@ -533,7 +533,8 @@ func _input(event):
 #			EliteEncounter.new(Act1.Bully, "medium"),
 #			EliteEncounter.new(Act2.Jumbletron, "medium"),
 #			EliteEncounter.new(Act3.TheatrePlay, "medium"),
-			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
+#			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
+			preload("res://src/dreamscape/Run/NCE/Rest.gd").new()
 		]
 		for encounter in debug_encounters:
 			var journal_choice_scene = JOURNAL_ENCOUNTER_CHOICE_SCENE.instance()
