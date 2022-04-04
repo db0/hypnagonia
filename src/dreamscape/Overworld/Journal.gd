@@ -150,7 +150,11 @@ func display_boss_rewards(reward_text: String) -> void:
 
 
 func end_dev_version() -> void:
-	proceed.bbcode_text = "And I woke up from the most restful sleep I had in months!\n\n"\
+	var victory_texts = JournalTexts.VICTORY_TEXTS.get(
+			globals.player.deck_groups[Terms.CARD_GROUP_TERMS.life_goal], 
+			JournalTexts.VICTORY_TEXTS.generic)
+	CFUtils.shuffle_array(victory_texts)
+	proceed.bbcode_text = victory_texts[0] + "\n\n"\
 		+ "[b]Note from Developer:[/b]\nThanks for playing this early version of Hypnagonia and we hope that you enjoyed the experience. "\
 		+ "Keep playing to see all the game has to offer and the various playstyles. Each run is completely different!\n\n"\
 		+ "Please check back regularly for new updates! And remember, we're actively looking for collaborators.\n"\
