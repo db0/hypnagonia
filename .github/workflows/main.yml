@@ -87,9 +87,9 @@ jobs:
       run: |
           cp -v /home/runner/.local/share/godot/dist/* .
           cp '/home/runner/.local/share/godot/builds/LinuxX11/Hypnagonia_Linux.x86_64' .
-          cp '/home/runner/.local/share/godot/builds/LinuxX11/Hypnagonia_Linux_Lite.x86_64' .
+          cp '/home/runner/.local/share/godot/builds/LinuxX11 Lite/Hypnagonia_Linux_Lite.x86_64' .
           cp '/home/runner/.local/share/godot/builds/Windows Desktop/Hypnagonia_Windows.exe' .
-          cp '/home/runner/.local/share/godot/builds/Windows Desktop/Hypnagonia_Windows_Lite.exe' .
+          cp '/home/runner/.local/share/godot/builds/Windows Desktop Lite/Hypnagonia_Windows_Lite.exe' .
           cp '/home/runner/.local/share/godot/builds/Mac OSX/Hypnagonia_MacOSX.zip' .
           ls -larth
     - name: "🚀 Upload HTML5 version to itch.io"
