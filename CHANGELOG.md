@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.44.3](https://github.com/db0/hypnagonia/tree/v0.44.3) (2022-04-04)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.44.2...v0.44.3)
+
+**Merged pull requests:**
+
+- Added different itch.io channels for uploads [\#272](https://github.com/db0/hypnagonia/pull/272) ([db0](https://github.com/db0))
+
 ## [v0.44.2](https://github.com/db0/hypnagonia/tree/v0.44.2) (2022-04-04)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.44.1...v0.44.2)
