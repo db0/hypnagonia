@@ -52,7 +52,7 @@ const Administration = {
 			},
 		],
 	},
-#	"journal_art": preload("res://assets/journal/torments/traffic_jam.jpeg"),
+	"journal_art": preload("res://assets/journal/torments/administration.jpeg"),
 }
 const Life_Paths = {
 	"journal_description":\
@@ -454,7 +454,7 @@ const FearAndPhobia = {
 		"I barely dare to even recall what I dreamt next. Imagine your worst phobia in the scene of your greatest fear...",
 	"journal_reward":\
 		"That was finally it! When I opened my eyes, I felt the most relieved I've ever been.",
-#	'journal_art': preload("res://assets/journal/advanced/surreality.jpeg"),
+	'journal_art': preload("res://assets/journal/advanced/phobia.jpeg"),
 }
 
 const BOSSES := {
