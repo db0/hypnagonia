@@ -720,6 +720,30 @@ const DoubleFirstStartup := {
 	"rarity": "Uncommon",
 }
 
+const StrengthenUp := {
+	"canonical_name": "StrengthenUp",
+	"name": "Buddha Figurine",
+	"description": "{artifact_name}: Up to three times during Rest, "\
+			+ "you can meditate. Each meditation done, providess one starting {strengthen} during ordeal.",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.BATTLE,
+	"rarity": "Rare",
+	"amount": 0,
+	"max_uses": 3,
+}
+
+const QuickenUp := {
+	"canonical_name": "QuickenUp",
+	"name": "Chess Set",
+	"description": "{artifact_name}: Up to three times during Rest, "\
+			+ "you can concentrate. Each concentration done, providess one starting {quicken} during ordeal.",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.BATTLE,
+	"rarity": "Rare",
+	"amount": 0,
+	"max_uses": 3,
+}
+
 ## TODO: Artifact which increases chance to find Fusion cards
 ## TODO: Artifact which allows to enhance a card instead of resting
 ## TODO: Artifact which allows to upgrade a memory instead of resting
@@ -772,6 +796,8 @@ const GENERIC := [
 	IncreaseRandomDamage,
 	IncreaseRandomDefence,
 	StartingVulnerable,
+	StrengthenUp,
+	QuickenUp,
 
 ]
 

@@ -42,7 +42,7 @@ func continue_encounter(key) -> void:
 			selection_deck.card_filters = card_filters
 			selection_deck.connect("operation_performed", self, "_on_card_selected", [key])
 			selection_deck.auto_close = true
-			selection_deck.initiate_card_selection(0)
+			selection_deck.initiate_card_selection
 			var select_blurb: String
 			if key == "epic":
 				select_blurb = "(Epically Enhance card)"
