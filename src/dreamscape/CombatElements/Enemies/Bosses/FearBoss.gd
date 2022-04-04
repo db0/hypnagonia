@@ -7,7 +7,7 @@ const PROPERTIES := {
 	"Damage": 0,
 	"_texture_size_x": 160,
 	"_texture_size_y": 160,
-	"_character_art": 'Nobody',
+	"_character_art": 'Artbreeder.com',
 	"_health_variability": 5,
 }
 
