@@ -27,8 +27,8 @@ margin_right = 327.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
 max_value = 3.0
-editable = false
 tick_count = 4
+ticks_on_borders = true
 
 [node name="Result" type="Label" parent="."]
 margin_left = 331.0

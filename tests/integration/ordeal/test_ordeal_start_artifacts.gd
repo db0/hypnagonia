@@ -25,7 +25,6 @@ class TestFirstPowerAttack:
 		test_card_names = [
 			"Interpretation",
 			"Interpretation",
-			"Whirlwind",
 		]
 
 	func test_artifact_effect():
@@ -41,15 +40,16 @@ class TestFirstPowerAttack:
 		assert_eq(test_torment.damage, tdamage(DMG + DMG + get_amount("effect_amount")))
 
 	func test_artifact_effect_repeat_predictions():
-		var normal_dmg = cards[2].properties._amounts.damage_amount
+		card.scripts = REPEAT_ATTACK_SCRIPT
+		var normal_dmg = DMG
 		var modified_dmg = normal_dmg + ArtifactDefinitions.FirstPowerAttack.amounts.effect_amount
 		if not assert_has_amounts():
 			return
-		var sceng = cards[2].execute_scripts()
-		if not cards[2].targeting_arrow.is_targeting:
-			yield(yield_to(cards[2].targeting_arrow, "initiated_targeting", 1), YIELD)
+		var sceng = card.execute_scripts()
+		if not card.targeting_arrow.is_targeting:
+			yield(yield_to(card.targeting_arrow, "initiated_targeting", 1), YIELD)
 		assert_eq(test_torment.incoming.get_child_count(), 3,
-				"Torment should have 1 intents displayed")
+				"Torment should have 3 intents displayed")
 		var predictions = test_torment.incoming.get_children()
 		for index in predictions.size():
 			if index == 0:

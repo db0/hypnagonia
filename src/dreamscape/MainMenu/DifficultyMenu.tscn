@@ -74,7 +74,6 @@ text = "Starting perturbations"
 [node name="Slider" parent="PC/VBC/StartingPerturbations" index="1"]
 margin_right = 377.0
 max_value = 4.0
-editable = true
 tick_count = 5
 
 [node name="Result" parent="PC/VBC/StartingPerturbations" index="2"]
@@ -94,7 +93,6 @@ text = "Increase progress req."
 margin_right = 377.0
 max_value = 12.0
 step = 4.0
-editable = true
 
 [node name="Result" parent="PC/VBC/IncreaseProgressReq" index="2"]
 margin_left = 381.0
@@ -113,7 +111,6 @@ text = "End-of-act relaxation"
 [node name="Slider" parent="PC/VBC/ActHealing" index="1"]
 margin_right = 377.0
 min_value = -1.0
-editable = true
 tick_count = 5
 
 [node name="Result" parent="PC/VBC/ActHealing" index="2"]
@@ -134,7 +131,6 @@ text = "Shop prices"
 margin_right = 377.0
 min_value = -1.0
 max_value = 1.0
-editable = true
 tick_count = 3
 
 [node name="Result" parent="PC/VBC/ShopPrices" index="2"]
@@ -155,7 +151,6 @@ text = "Max anxiety"
 margin_right = 377.0
 min_value = -3.0
 max_value = 5.0
-editable = true
 tick_count = 9
 
 [node name="Result" parent="PC/VBC/MaxAnxiety" index="2"]
@@ -175,7 +170,6 @@ text = "Encounter Difficulty"
 [node name="Slider" parent="PC/VBC/EncounterDifficulty" index="1"]
 margin_right = 377.0
 min_value = -2.0
-editable = true
 tick_count = 6
 
 [node name="Result" parent="PC/VBC/EncounterDifficulty" index="2"]
