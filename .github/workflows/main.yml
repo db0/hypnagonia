@@ -107,7 +107,7 @@ jobs:
       uses: josephbmanley/butler-publish-itchio-action@master
       env:
         BUTLER_CREDENTIALS: "${{ secrets.BUTLER_CREDENTIALS }}"
-        CHANNEL: windows
+        CHANNEL: windows_lite
         ITCH_GAME: hypnagonia
         ITCH_USER: dbzer0
         PACKAGE: Hypnagonia_Windows_Lite.exe
@@ -127,7 +127,7 @@ jobs:
       uses: josephbmanley/butler-publish-itchio-action@master
       env:
         BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
-        CHANNEL: linux
+        CHANNEL: linux_lite
         ITCH_GAME: hypnagonia
         ITCH_USER: dbzer0
         PACKAGE: Hypnagonia_Linux_Lite.x86_64
