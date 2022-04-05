@@ -486,3 +486,6 @@ const LOCKED_NCE := {
 
 static func get_act_name() -> String:
 	return(Act.ACT_NAMES.Act3)
+
+static func get_act_number() -> int:
+	return(3)

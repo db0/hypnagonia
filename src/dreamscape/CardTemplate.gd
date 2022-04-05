@@ -519,11 +519,7 @@ func highlight_modified_properties() -> void:
 
 
 func find_upgrade_parent():
-	for card_name in cfc.card_definitions:
-		var upgrades = cfc.card_definitions[card_name].get("_upgrades")
-		if upgrades and canonical_name in upgrades:
-			return(card_name)
-	return(false)
+	return(HUtils.find_upgrade_parent(canonical_name))
 
 
 func refresh_card_front() -> void:
