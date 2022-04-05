@@ -24,9 +24,9 @@ const TOTAL_DIFFICULTY_MAPS := {
 		1.0: -1,
 	},
 	"shop_prices": {
-		1.5: 1,
+		1.25: 1,
 		1.0: 0,
-		0.5: -1,
+		0.75: -1,
 	},
 	"max_health": {
 		0.8: 2,
