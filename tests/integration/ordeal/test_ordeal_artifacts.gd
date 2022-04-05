@@ -673,3 +673,21 @@ class TestNoRest:
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion per turn")
 
+
+class TestSmallerDrafts:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.SmallerDrafts.canonical_name
+		pre_init_artifacts.append(ArtifactDefinitions.SmallerDrafts.canonical_name)
+		expected_amount_keys = [
+			"immersion_amount",
+		]
+
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion on first turn")
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion per turn")
+

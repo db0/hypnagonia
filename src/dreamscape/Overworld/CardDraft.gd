@@ -109,19 +109,7 @@ func retrieve_draft_cards() -> void:
 		if card_names.size():
 			for card_name in card_names:
 				if not _card_draft_choice_exists(card_name):
-					var upgraded_chance = CFUtils.randf_range(0.0, 1.0)
-					var upgraded_name = null
-					print_debug([upgraded_chance, globals.encounters.current_act.get_act_number(), get_upgraded_chance()])
-					if globals.encounters.current_act.get_act_number() == 2 and upgraded_chance <= get_upgraded_chance():
-						upgraded_name =  _get_random_upgrade(card_name)
-					if globals.encounters.current_act.get_act_number() == 3 and upgraded_chance <= get_upgraded_chance() * 2:
-						upgraded_name =  _get_random_upgrade(card_name)
-					if upgraded_name:
-						draft_card_choices.append(upgraded_name)
-					else:
-						draft_card_choices.append(card_name)
-					# This break ensures we only add one card from the pool
-					# of availabkle cards of that rarity
+					_add_draft_choice(card_name)
 					break
 	# Normally this should always exist, but might not, in GUT
 	if globals.current_encounter:
@@ -161,16 +149,7 @@ func retrieve_elite_draft() -> void:
 		if card_names.size():
 			for card_name in card_names:
 				if not _card_draft_choice_exists(card_name):
-					var upgraded_chance = CFUtils.randf_range(0.0, 1.0)
-					var upgraded_name = null
-					if globals.encounters.current_act.get_act_number() == 2 and upgraded_chance <= get_upgraded_chance():
-						upgraded_name =  _get_random_upgrade(card_name)
-					if globals.encounters.current_act.get_act_number() == 3 and upgraded_chance <= get_upgraded_chance() * 2:
-						upgraded_name =  _get_random_upgrade(card_name)
-					if upgraded_name:
-						draft_card_choices.append(upgraded_name)
-					else:
-						draft_card_choices.append(card_name)
+					_add_draft_choice(card_name)
 					break
 
 func retrieve_boss_draft() -> void:
@@ -181,7 +160,7 @@ func retrieve_boss_draft() -> void:
 		if card_names.size():
 			for card_name in card_names:
 				if not card_name in draft_card_choices:
-					draft_card_choices.append(card_name)
+					_add_draft_choice(card_name)
 					break
 
 
@@ -259,7 +238,7 @@ func _initiate_artifact_boss_draft() -> void:
 		if card_names.size():
 			for card_name in card_names:
 				if not card_name in draft_card_choices:
-					draft_card_choices.append(card_name)
+					_add_draft_choice(card_name)
 					# This break ensures we only add one card from the pool
 					# of available cards of that rarity
 					break
@@ -272,7 +251,7 @@ func _initiate_nce_subconscious_processing_draft() -> void:
 		if card_names.size():
 			for card_name in card_names:
 				if not card_name in draft_card_choices:
-					draft_card_choices.append(card_name)
+					_add_draft_choice(card_name)
 					# This break ensures we only add one card from the pool
 					# of available understandings for this run
 					break
@@ -296,6 +275,17 @@ func _initiate_nce_underwater_cave_draft() -> void:
 		if card_names.size():
 			for card_name in card_names:
 				if not card_name in draft_card_choices:
-					draft_card_choices.append(card_name)
+					_add_draft_choice(card_name)
 					break
 
+func _add_draft_choice(card_name) -> void:
+	var upgraded_chance = CFUtils.randf_range(0.0, 1.0)
+	var upgraded_name = null
+	if globals.encounters.current_act.get_act_number() == 2 and upgraded_chance <= get_upgraded_chance():
+		upgraded_name =  _get_random_upgrade(card_name)
+	if globals.encounters.current_act.get_act_number() == 3 and upgraded_chance <= get_upgraded_chance() * 2:
+		upgraded_name =  _get_random_upgrade(card_name)
+	if upgraded_name:
+		draft_card_choices.append(upgraded_name)
+	else:
+		draft_card_choices.append(card_name)
