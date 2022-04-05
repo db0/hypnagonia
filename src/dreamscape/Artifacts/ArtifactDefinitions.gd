@@ -816,6 +816,29 @@ const SmallerDrafts := {
 	},
 }
 
+
+
+const BirdHouse := {
+	"canonical_name": "BirdHouse",
+	"name": "Bird House",
+	"description": "{artifact_name}: Gain or upgrade one random memory\n"\
+			+ "Gain {draft_amount} card\n"\
+			+ "Gain a good amount of a random released pathos\n"\
+			+ "Gain {health_amount} max {anxiety}\n"\
+			+ "Progress the card requiring the most progress by {progress_amount}\n",
+	"icon": preload("res://assets/icons/artifacts/bird-house.png"),
+	"context": EffectContext.BATTLE,
+	"rarity": "Boss",
+	"amounts": {
+		"draft_amount": 1,
+		"draft_choices": 5,
+		"pathos_avg_multiplier": 5,
+		"memory_amount": 1,
+		"memory_upgrade_amount": 2,
+		"health_amount": 5,
+		"progress_amount": 10,
+	},
+}
 ## TODO: Artifact which increases chance to find Fusion cards
 ## TODO. Scipt base doesn't exist yet
 #const DoubleMemory := {
@@ -909,6 +932,7 @@ const BOSS := [
 	BossDraft,
 	NoRest,
 	SmallerDrafts,
+	BirdHouse,
 ]
 
 

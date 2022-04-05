@@ -128,6 +128,17 @@ func get_progressing_cards() -> Array:
 			progressing_cards.append(card_entry)
 	return(progressing_cards)
 
+func get_card_needing_most_progress() -> CardEntry:
+	var selected_card: CardEntry
+	var most_progress_needed := 0
+	for card_entry in get_progressing_cards():
+		if most_progress_needed == 0:
+			selected_card = card_entry
+			most_progress_needed = card_entry.upgrade_threshold - card_entry.upgrade_progress
+		elif card_entry.upgrade_threshold - card_entry.upgrade_progress > most_progress_needed:
+			selected_card = card_entry
+			most_progress_needed = card_entry.upgrade_threshold - card_entry.upgrade_progress
+	return(selected_card)
 
 func count_progressing_cards() -> int:
 	return(get_progressing_cards().size())
