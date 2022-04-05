@@ -24,16 +24,16 @@ __meta__ = {
 [node name="PC" type="PanelContainer" parent="."]
 self_modulate = Color( 1, 1, 1, 0.690196 )
 margin_left = 502.0
-margin_top = 220.0
+margin_top = 197.0
 margin_right = 952.0
-margin_bottom = 680.0
+margin_bottom = 703.0
 rect_min_size = Vector2( 450, 0 )
 
 [node name="VBC" type="VBoxContainer" parent="PC"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 443.0
-margin_bottom = 453.0
+margin_bottom = 499.0
 size_flags_horizontal = 3
 custom_constants/separation = 20
 
@@ -60,7 +60,7 @@ difficulty_key = "desire_curios_give_perturbation"
 
 [node name="CheckBox" parent="PC/VBC/DesireCuriosGivePerturbation" index="0"]
 margin_right = 266.0
-text = "Desire curios give perturbations"
+text = "Desire curios might give perturbations"
 
 [node name="DesireCuriosGivePerturbation2" parent="PC/VBC" instance=ExtResource( 4 )]
 margin_top = 130.0
