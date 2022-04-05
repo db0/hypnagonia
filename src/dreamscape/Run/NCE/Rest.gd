@@ -15,6 +15,7 @@ var unlockable_choices := {
 	"strengthen_up": '[%s] Increase starting {strengthen} by 1.' % [ArtifactDefinitions.StrengthenUp.name],
 	"quicken_up": '[%s] Increase starting {strengthen} by 1.' % [ArtifactDefinitions.QuickenUp.name],
 	"enhance": '[%s] Enhance one card.' % [ArtifactDefinitions.EnhanceOnRest.name],
+	"upgrade_memories": '[%s] Upgrade all Memories.' % [ArtifactDefinitions.UpgradeMemoryOnRest.name],
 }
 
 var reward_texts := {
@@ -25,6 +26,7 @@ var reward_texts := {
 	"strengthen_up": 'I remembered I was carrying around this curious Buddha. I deciced to give meditation a try.',
 	"quicken_up": 'I roused myself just enough to play a quick game of chess with myself. It made me feel more grounded.',
 	"enhance": 'The Dream Catcher stirred and displayed what came before. I could use this knowledge to improve the way I act from now on.',
+	"upgrade_memories": 'I took the opportunity to look through the camera I use to remember what happened in my life.',
 	
 }
 
@@ -58,6 +60,11 @@ func begin() -> void:
 		secondary_choices['enhance'] = unlockable_choices['enhance']
 		if enhance.counter >= ArtifactDefinitions.EnhanceOnRest.max_uses:
 			disabled_choices.append('enhance')
+	var upgrade_memories = globals.player.find_artifact(ArtifactDefinitions.UpgradeMemoryOnRest.canonical_name)
+	if upgrade_memories:
+		secondary_choices['upgrade_memories'] = unlockable_choices['upgrade_memories']
+		if upgrade_memories.counter >= ArtifactDefinitions.EnhanceOnRest.max_uses:
+			disabled_choices.append('upgrade_memories')
 	if globals.player.deck.count_progressing_cards() < 1:
 		disabled_choices.append('progress')
 	_prepare_secondary_choices(secondary_choices, scformat, disabled_choices)
@@ -95,6 +102,11 @@ func continue_encounter(key) -> void:
 			selection_deck.update_color(Color(0,1,0))
 			var enhance = globals.player.find_artifact(ArtifactDefinitions.EnhanceOnRest.canonical_name)
 			enhance.counter += 1
+		"upgrade_memories":
+			for memory in globals.player.memories:
+				memory.upgrades_amount += 1
+			var upgrade = globals.player.find_artifact(ArtifactDefinitions.UpgradeMemoryOnRest.canonical_name)
+			upgrade.counter += 1
 	globals.journal.display_nce_rewards(reward_texts[key])
 	end()
 

@@ -79,7 +79,6 @@ func _init() -> void:
 #			round(get_progression_average(grab_random_pathos())* CFUtils.randf_range(3,5))
 #	released[grab_random_pathos()] +=\
 #			round(get_progression_average(grab_random_pathos())* CFUtils.randf_range(3,5))
-	print_debug(thresholds)
 
 
 # Increases the specified repressed pathos by the standard amount
