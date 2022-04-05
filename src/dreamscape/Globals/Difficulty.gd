@@ -57,6 +57,7 @@ const DESCRIPTIONS := {
 	"prevent_basic_cards_release": "Basic (AKA Starting) cards cannot receive an upgrade which removes them permanently from the deck.",
 	"desire_curios_give_perturbation": "Curios discovered using repressed desire will have a an extra chance to add a Perturbation to your deck.",
 	"lower_upgraded_draft_chance": "Less chance to discover upgraded cards during acts 2 and 3.",
+	"unremovable_perturbation": "An unreleaseable perturbation will be added to your deck.",
 	"encounter_difficulty": "Modifies the chance to get beneficial or detrimental journal encounters.\n"\
 			+ "Harder difficulties will make Torments appear more often and the Boss to appear earlier.\n"\
 			+ "Easier difficulties will make Rest sites, Shops and Curios appear more often instead\n",

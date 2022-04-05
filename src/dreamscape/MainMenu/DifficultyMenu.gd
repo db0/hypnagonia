@@ -4,22 +4,14 @@ onready var back_button = $"PC/VBC/Back"
 onready var _total_difficulty := $"PC/VBC/TotalDifficulty"
 onready var desc_popup := $"Descriptions"
 onready var desc_label := $"Descriptions/Description"
-onready var difficulty_options := [
-	$"PC/VBC/PreventCardBasicRelease",
-	$"PC/VBC/DesireCuriosGivePerturbation",
-	$"PC/VBC/StartingPerturbations",
-	$"PC/VBC/IncreaseProgressReq",
-	$"PC/VBC/ActHealing",
-	$"PC/VBC/ShopPrices",
-	$"PC/VBC/MaxAnxiety",
-	$"PC/VBC/EncounterDifficulty",
-]
+onready var difficulty_options_container := $"PC/VBC"
 
 func _ready() -> void:
 	_total_difficulty.text = "Difficulty: " + str(globals.difficulty.total_difficulty)
-	for cnode in difficulty_options:
-		cnode.connect("mouse_entered", self, "_on_difficulty_mouse_entered", [cnode])
-		cnode.connect("mouse_exited", self, "_on_difficulty_mouse_exited")
+	for cnode in difficulty_options_container.get_children():
+		if cnode is DifficultyOption:
+			cnode.connect("mouse_entered", self, "_on_difficulty_mouse_entered", [cnode])
+			cnode.connect("mouse_exited", self, "_on_difficulty_mouse_exited")
 	# warning-ignore:return_value_discarded
 	globals.difficulty.connect("total_difficulty_recalculated", self, "_on_total_difficulty_changed")
 
@@ -35,6 +27,8 @@ func _on_total_difficulty_changed(total_difficulty) -> void:
 	_total_difficulty.text = "Difficulty: " + str(total_difficulty)
 
 func _on_difficulty_mouse_entered(cnode: Node) -> void:
+	if not globals.difficulty.DESCRIPTIONS.has(cnode.difficulty_key):
+		return
 	desc_label.text = globals.difficulty.DESCRIPTIONS[cnode.difficulty_key]
 	desc_popup.visible = true
 	desc_popup.rect_size = Vector2(0,0)
