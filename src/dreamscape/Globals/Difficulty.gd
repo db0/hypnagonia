@@ -56,6 +56,7 @@ const DESCRIPTIONS := {
 	"starting_damage": "The dreamer starts with a prexisting amount of anxiety.",
 	"prevent_basic_cards_release": "Basic (AKA Starting) cards cannot receive an upgrade which removes them permanently from the deck.",
 	"desire_curios_give_perturbation": "Curios discovered using repressed desire will require you to add 1 extra Perturbation to your deck.",
+	"lower_upgraded_draft_chance": "Less chance to discover upgraded cards during acts 2 and 3.",
 	"encounter_difficulty": "Modifies the chance to get beneficial or detrimental journal encounters.\n"\
 			+ "Harder difficulties will make Torments appear more often and the Boss to appear earlier.\n"\
 			+ "Easier difficulties will make Rest sites, Shops and Curios appear more often instead\n",
@@ -71,6 +72,7 @@ var max_health := 1.0 setget set_max_health
 var starting_damage := 0.0 setget set_starting_damage
 var prevent_basic_cards_release := false setget set_prevent_basic_cards_release
 var desire_curios_give_perturbation := false setget set_desire_curios_give_perturbation
+var lower_upgraded_draft_chance := false setget set_lower_upgraded_draft_chance
 var encounter_difficulty := 0 setget set_encounter_difficulty
 
 func _init() -> void:
@@ -107,6 +109,10 @@ func set_prevent_basic_cards_release(value) -> void:
 func set_desire_curios_give_perturbation(value) -> void:
 	desire_curios_give_perturbation = value
 	_finalize_value("desire_curios_give_perturbation", desire_curios_give_perturbation)
+	
+func set_lower_upgraded_draft_chance(value) -> void:
+	lower_upgraded_draft_chance = value
+	_finalize_value("lower_upgraded_draft_chance", lower_upgraded_draft_chance)
 	
 func set_encounter_difficulty(value) -> void:
 	encounter_difficulty = value
@@ -147,6 +153,7 @@ func recalculate_total_difficulty() -> void:
 	total_difficulty += TOTAL_DIFFICULTY_MAPS.starting_damage[starting_damage]
 	total_difficulty += calc_boolean_difficulty(prevent_basic_cards_release)
 	total_difficulty += calc_boolean_difficulty(desire_curios_give_perturbation) * DIFFICULTY_MULTIPLIERS.desire_curios_give_perturbation
+	total_difficulty += calc_boolean_difficulty(lower_upgraded_draft_chance)
 	total_difficulty += encounter_difficulty
 	emit_signal("total_difficulty_recalculated", total_difficulty)
 

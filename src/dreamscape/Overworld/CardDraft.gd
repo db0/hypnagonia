@@ -221,6 +221,8 @@ func get_rare_chance() -> float:
 
 func get_act2_upgraded_chance() -> float:
 	var value := act2_upgraded_chance
+	if globals.difficulty.lower_upgraded_draft_chance:
+		value *= 0.5
 	for artifact in cfc.get_tree().get_nodes_in_group("artifacts"):
 		var multiplier = artifact.get_global_alterant(value, HConst.AlterantTypes.CARD_UPGRADE_CHANCE)
 		if multiplier:
@@ -229,6 +231,8 @@ func get_act2_upgraded_chance() -> float:
 
 func get_act3_upgraded_chance() -> float:
 	var value := act3_upgraded_chance
+	if globals.difficulty.lower_upgraded_draft_chance:
+		value *= 0.5
 	for artifact in cfc.get_tree().get_nodes_in_group("artifacts"):
 		var multiplier = artifact.get_global_alterant(value, HConst.AlterantTypes.CARD_UPGRADE_CHANCE)
 		if multiplier:

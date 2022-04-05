@@ -62,10 +62,20 @@ difficulty_key = "desire_curios_give_perturbation"
 margin_right = 266.0
 text = "Desire curios give perturbations"
 
-[node name="StartingPerturbations" parent="PC/VBC" instance=ExtResource( 5 )]
+[node name="DesireCuriosGivePerturbation2" parent="PC/VBC" instance=ExtResource( 4 )]
 margin_top = 130.0
 margin_right = 436.0
-margin_bottom = 148.0
+margin_bottom = 156.0
+difficulty_key = "lower_upgraded_draft_chance"
+
+[node name="CheckBox" parent="PC/VBC/DesireCuriosGivePerturbation2" index="0"]
+margin_right = 327.0
+text = "Reduced chance to find upgraded cards"
+
+[node name="StartingPerturbations" parent="PC/VBC" instance=ExtResource( 5 )]
+margin_top = 176.0
+margin_right = 436.0
+margin_bottom = 194.0
 difficulty_key = "starting_perturbations"
 
 [node name="Description" parent="PC/VBC/StartingPerturbations" index="0"]
@@ -81,9 +91,9 @@ margin_left = 381.0
 margin_right = 436.0
 
 [node name="IncreaseProgressReq" parent="PC/VBC" instance=ExtResource( 5 )]
-margin_top = 168.0
+margin_top = 214.0
 margin_right = 436.0
-margin_bottom = 186.0
+margin_bottom = 232.0
 difficulty_key = "progress_increase"
 
 [node name="Description" parent="PC/VBC/IncreaseProgressReq" index="0"]
@@ -99,9 +109,9 @@ margin_left = 381.0
 margin_right = 436.0
 
 [node name="ActHealing" parent="PC/VBC" instance=ExtResource( 5 )]
-margin_top = 206.0
+margin_top = 252.0
 margin_right = 436.0
-margin_bottom = 224.0
+margin_bottom = 270.0
 difficulty_key = "act_healing"
 result_type = 1
 
@@ -118,9 +128,9 @@ margin_left = 381.0
 margin_right = 436.0
 
 [node name="ShopPrices" parent="PC/VBC" instance=ExtResource( 5 )]
-margin_top = 244.0
+margin_top = 290.0
 margin_right = 436.0
-margin_bottom = 262.0
+margin_bottom = 308.0
 difficulty_key = "shop_prices"
 result_type = 1
 
@@ -138,9 +148,9 @@ margin_left = 381.0
 margin_right = 436.0
 
 [node name="MaxAnxiety" parent="PC/VBC" instance=ExtResource( 5 )]
-margin_top = 282.0
+margin_top = 328.0
 margin_right = 436.0
-margin_bottom = 300.0
+margin_bottom = 346.0
 difficulty_key = "max_health"
 result_type = 1
 
@@ -158,9 +168,9 @@ margin_left = 381.0
 margin_right = 436.0
 
 [node name="StartingAnxiety" parent="PC/VBC" instance=ExtResource( 5 )]
-margin_top = 320.0
+margin_top = 366.0
 margin_right = 436.0
-margin_bottom = 338.0
+margin_bottom = 384.0
 difficulty_key = "starting_damage"
 result_type = 1
 
@@ -177,9 +187,9 @@ margin_left = 381.0
 margin_right = 436.0
 
 [node name="EncounterDifficulty" parent="PC/VBC" instance=ExtResource( 5 )]
-margin_top = 358.0
+margin_top = 404.0
 margin_right = 436.0
-margin_bottom = 376.0
+margin_bottom = 422.0
 difficulty_key = "encounter_difficulty"
 result_type = 2
 
@@ -196,9 +206,9 @@ margin_left = 381.0
 margin_right = 436.0
 
 [node name="Back" type="Button" parent="PC/VBC"]
-margin_top = 396.0
+margin_top = 442.0
 margin_right = 436.0
-margin_bottom = 446.0
+margin_bottom = 492.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 3 )
@@ -218,6 +228,7 @@ margin_bottom = 18.0
 
 [editable path="PC/VBC/PreventCardBasicRelease"]
 [editable path="PC/VBC/DesireCuriosGivePerturbation"]
+[editable path="PC/VBC/DesireCuriosGivePerturbation2"]
 [editable path="PC/VBC/StartingPerturbations"]
 [editable path="PC/VBC/IncreaseProgressReq"]
 [editable path="PC/VBC/ActHealing"]
