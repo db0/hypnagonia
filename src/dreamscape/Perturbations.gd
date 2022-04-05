@@ -14,6 +14,7 @@ const EXCLUDED_PERTURBATIONS := [
 	"Dream Fragment",
 	"Cockroach Infestation",
 	"Suffocation",
+	"Hybris",
 	# The below are archetype perturbations which are excluded as they can easily be ignored
 	# unless the player is using that archetype. So we want them only to appear
 	# when that archetype is being used.

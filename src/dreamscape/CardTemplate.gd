@@ -406,7 +406,7 @@ func remove_from_deck(permanent := true, tags := []) -> void:
 	)
 	# If this is a permanent removal, we also remove the card from the
 	# whole run
-	if deck_card_entry and permanent:
+	if deck_card_entry and permanent and not properties.get("_is_unremovable", false):
 		globals.player.deck.remove_card(deck_card_entry)
 
 func reorganize_self() ->void:

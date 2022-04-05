@@ -59,7 +59,7 @@ margin_bottom = 110.0
 difficulty_key = "desire_curios_give_perturbation"
 
 [node name="CheckBox" parent="PC/VBC/DesireCuriosGivePerturbation" index="0"]
-margin_right = 266.0
+margin_right = 313.0
 text = "Desire curios might give perturbations"
 
 [node name="DesireCuriosGivePerturbation2" parent="PC/VBC" instance=ExtResource( 4 )]
@@ -72,10 +72,20 @@ difficulty_key = "lower_upgraded_draft_chance"
 margin_right = 327.0
 text = "Reduced chance to find upgraded cards"
 
-[node name="StartingPerturbations" parent="PC/VBC" instance=ExtResource( 5 )]
+[node name="UnremovablePerturbation" parent="PC/VBC" instance=ExtResource( 4 )]
 margin_top = 176.0
 margin_right = 436.0
-margin_bottom = 194.0
+margin_bottom = 202.0
+difficulty_key = "unremovable_perturbation"
+
+[node name="CheckBox" parent="PC/VBC/UnremovablePerturbation" index="0"]
+margin_right = 215.0
+text = "Add Special Perturbation"
+
+[node name="StartingPerturbations" parent="PC/VBC" instance=ExtResource( 5 )]
+margin_top = 222.0
+margin_right = 436.0
+margin_bottom = 240.0
 difficulty_key = "starting_perturbations"
 
 [node name="Description" parent="PC/VBC/StartingPerturbations" index="0"]
@@ -83,17 +93,15 @@ text = "Starting perturbations"
 
 [node name="Slider" parent="PC/VBC/StartingPerturbations" index="1"]
 margin_right = 377.0
-max_value = 4.0
-tick_count = 5
 
 [node name="Result" parent="PC/VBC/StartingPerturbations" index="2"]
 margin_left = 381.0
 margin_right = 436.0
 
 [node name="IncreaseProgressReq" parent="PC/VBC" instance=ExtResource( 5 )]
-margin_top = 214.0
+margin_top = 260.0
 margin_right = 436.0
-margin_bottom = 232.0
+margin_bottom = 278.0
 difficulty_key = "progress_increase"
 
 [node name="Description" parent="PC/VBC/IncreaseProgressReq" index="0"]
@@ -109,9 +117,9 @@ margin_left = 381.0
 margin_right = 436.0
 
 [node name="ActHealing" parent="PC/VBC" instance=ExtResource( 5 )]
-margin_top = 252.0
+margin_top = 298.0
 margin_right = 436.0
-margin_bottom = 270.0
+margin_bottom = 316.0
 difficulty_key = "act_healing"
 result_type = 1
 
@@ -128,9 +136,9 @@ margin_left = 381.0
 margin_right = 436.0
 
 [node name="ShopPrices" parent="PC/VBC" instance=ExtResource( 5 )]
-margin_top = 290.0
+margin_top = 336.0
 margin_right = 436.0
-margin_bottom = 308.0
+margin_bottom = 354.0
 difficulty_key = "shop_prices"
 result_type = 1
 
@@ -148,9 +156,9 @@ margin_left = 381.0
 margin_right = 436.0
 
 [node name="MaxAnxiety" parent="PC/VBC" instance=ExtResource( 5 )]
-margin_top = 328.0
+margin_top = 374.0
 margin_right = 436.0
-margin_bottom = 346.0
+margin_bottom = 392.0
 difficulty_key = "max_health"
 result_type = 1
 
@@ -168,9 +176,9 @@ margin_left = 381.0
 margin_right = 436.0
 
 [node name="StartingAnxiety" parent="PC/VBC" instance=ExtResource( 5 )]
-margin_top = 366.0
+margin_top = 412.0
 margin_right = 436.0
-margin_bottom = 384.0
+margin_bottom = 430.0
 difficulty_key = "starting_damage"
 result_type = 1
 
@@ -187,9 +195,9 @@ margin_left = 381.0
 margin_right = 436.0
 
 [node name="EncounterDifficulty" parent="PC/VBC" instance=ExtResource( 5 )]
-margin_top = 404.0
+margin_top = 450.0
 margin_right = 436.0
-margin_bottom = 422.0
+margin_bottom = 468.0
 difficulty_key = "encounter_difficulty"
 result_type = 2
 
@@ -206,9 +214,9 @@ margin_left = 381.0
 margin_right = 436.0
 
 [node name="Back" type="Button" parent="PC/VBC"]
-margin_top = 442.0
+margin_top = 488.0
 margin_right = 436.0
-margin_bottom = 492.0
+margin_bottom = 538.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 3 )
@@ -229,6 +237,7 @@ margin_bottom = 18.0
 [editable path="PC/VBC/PreventCardBasicRelease"]
 [editable path="PC/VBC/DesireCuriosGivePerturbation"]
 [editable path="PC/VBC/DesireCuriosGivePerturbation2"]
+[editable path="PC/VBC/UnremovablePerturbation"]
 [editable path="PC/VBC/StartingPerturbations"]
 [editable path="PC/VBC/IncreaseProgressReq"]
 [editable path="PC/VBC/ActHealing"]

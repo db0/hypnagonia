@@ -24,8 +24,12 @@ func continue_encounter(key) -> void:
 		"fall_in":
 			globals.player.damage += 3
 			globals.encounters.deep_sleeps += 1
-			for card_entry in globals.player.deck.get_sorted_cards():
-				if card_entry.get_property("Type") == "Perturbation":
-					globals.player.deck.remove_card(card_entry)
+			var card_filters := [
+				CardFilter.new("Type","Perturbation"),
+				CardFilter.new("_is_unremovable", false),
+			]
+			var all_perturbations : Array = globals.player.deck.filter_cards(card_filters)
+			for card_entry in all_perturbations:
+				globals.player.deck.remove_card(card_entry)
 	end()
 	globals.journal.display_nce_rewards(nce_resul_fluff[key])
