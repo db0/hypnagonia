@@ -1,5 +1,12 @@
 extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
 
+class TestTODO:
+	extends "res://tests/HUTCommon.gd"
+
+	func test_pending():
+		pending("IncreaseUpgradedDraftChance")
+		pending("ReduceCurioRerollPerturbChance")
+
 class TestUpgradedAction:
 	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
 	func _init() -> void:
@@ -269,8 +276,29 @@ class TestSmallerDraft:
 		]
 
 	func test_rewards():
+		if not assert_has_amounts():
+			return
 		journal.call_deferred("display_enemy_rewards")
 		yield(yield_to(journal._tween, "tween_all_completed", 1), YIELD)
 		journal.card_draft.display()
 		assert_eq(journal.card_draft.get_child_count(),2, "1 draft plus tween node exist")
 		assert_eq(journal.card_draft.draft_card_choices.size(), 1)
+
+class TestBirdHouse:
+	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.BirdHouse.canonical_name
+		expected_amount_keys = [
+			"draft_amount",
+			"draft_choices",
+			"pathos_avg_multiplier",
+			"memory_amount",
+			"memory_upgrade_amount",
+			"health_amount",
+			"progress_amount",
+		]
+
+	func test_rewards():
+		if not assert_has_amounts():
+			return
+		pending("test BirdHouse Stuff")
