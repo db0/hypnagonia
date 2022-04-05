@@ -13,8 +13,7 @@ const CARD_DRAFT_SCENE = preload("res://src/dreamscape/ChoiceCardObject.tscn")
 var uncommon_chance : float = 25.0/100 setget ,get_uncommon_chance
 var rare_chance : float = 5.0/100 setget ,get_rare_chance
 var draft_amount := 3 setget ,get_draft_amount
-var act2_upgraded_chance : float = 20.0/100 setget ,get_act2_upgraded_chance
-var act3_upgraded_chance : float = 40.0/100 setget ,get_act3_upgraded_chance
+var upgraded_chance : float = 20.0/100 setget ,get_upgraded_chance
 var draft_card_choices : Array
 # This will store the final card chosen by the player to draft.
 var selected_draft: CardEntry
@@ -112,9 +111,10 @@ func retrieve_draft_cards() -> void:
 				if not _card_draft_choice_exists(card_name):
 					var upgraded_chance = CFUtils.randf_range(0.0, 1.0)
 					var upgraded_name = null
-					if globals.encounters.current_act.get_act_number() == 2 and upgraded_chance <= get_act2_upgraded_chance():
+					print_debug([upgraded_chance, globals.encounters.current_act.get_act_number(), get_upgraded_chance()])
+					if globals.encounters.current_act.get_act_number() == 2 and upgraded_chance <= get_upgraded_chance():
 						upgraded_name =  _get_random_upgrade(card_name)
-					if globals.encounters.current_act.get_act_number() == 3 and upgraded_chance <= get_act3_upgraded_chance():
+					if globals.encounters.current_act.get_act_number() == 3 and upgraded_chance <= get_upgraded_chance() * 2:
 						upgraded_name =  _get_random_upgrade(card_name)
 					if upgraded_name:
 						draft_card_choices.append(upgraded_name)
@@ -163,9 +163,9 @@ func retrieve_elite_draft() -> void:
 				if not _card_draft_choice_exists(card_name):
 					var upgraded_chance = CFUtils.randf_range(0.0, 1.0)
 					var upgraded_name = null
-					if globals.encounters.current_act.get_act_number() == 2 and upgraded_chance <= get_act2_upgraded_chance():
+					if globals.encounters.current_act.get_act_number() == 2 and upgraded_chance <= get_upgraded_chance():
 						upgraded_name =  _get_random_upgrade(card_name)
-					if globals.encounters.current_act.get_act_number() == 3 and upgraded_chance <= get_act3_upgraded_chance():
+					if globals.encounters.current_act.get_act_number() == 3 and upgraded_chance <= get_upgraded_chance() * 2:
 						upgraded_name =  _get_random_upgrade(card_name)
 					if upgraded_name:
 						draft_card_choices.append(upgraded_name)
@@ -219,18 +219,8 @@ func get_rare_chance() -> float:
 	return(value)
 
 
-func get_act2_upgraded_chance() -> float:
-	var value := act2_upgraded_chance
-	if globals.difficulty.lower_upgraded_draft_chance:
-		value *= 0.5
-	for artifact in cfc.get_tree().get_nodes_in_group("artifacts"):
-		var multiplier = artifact.get_global_alterant(value, HConst.AlterantTypes.CARD_UPGRADE_CHANCE)
-		if multiplier:
-			value *= multiplier
-	return(value)
-
-func get_act3_upgraded_chance() -> float:
-	var value := act3_upgraded_chance
+func get_upgraded_chance() -> float:
+	var value := upgraded_chance
 	if globals.difficulty.lower_upgraded_draft_chance:
 		value *= 0.5
 	for artifact in cfc.get_tree().get_nodes_in_group("artifacts"):
