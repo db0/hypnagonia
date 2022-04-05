@@ -23,7 +23,7 @@ func _init():
 func begin() -> void:
 	var luck_up = globals.player.find_artifact(ArtifactDefinitions.ReduceCurioRerollPerturbChance.canonical_name)
 	if luck_up:
-		perturbation_chance -= 0.25
+		perturbation_chance *= ArtifactDefinitions.ReduceCurioRerollPerturbChance.amounts.chance_multiplier
 	accumulated = globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.artifact]
 	# The rarity of artifact found is based on the accumulated pathos
 	# warning-ignore:integer_division

@@ -764,16 +764,30 @@ const UpgradeMemoryOnRest := {
 	"max_uses": 3,
 }
 
-const ReduceCurioRerollPerturbChance := {
+const ReduceCurioRerollPerturbChance := { # TODO: Tests
 	"canonical_name": "ReduceCurioRerollPerturbChance",
 	"name": "Shamrock",
 	"description": "{artifact_name}: Reduces the chance to get a perturbation when rerolling a desire curio.",
 	"icon": preload("res://assets/icons/artifacts/shamrock.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
+	"amounts": {
+		"chance_multiplier": 0.6,
+	},
 }
 
-## TODO: Artifact which increases chance to get upgraded cards
+const IncreaseUpgradedDraftChance := { # TODO: Tests
+	"canonical_name": "IncreaseUpgradedDraftChance",
+	"name": "Ancient Literature",
+	"description": "{artifact_name}: Increases the chance to find an upgraded chance when drafting cards.",
+	"icon": preload("res://assets/icons/artifacts/classical-knowledge.png"),
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Uncommon",
+	"amounts": {
+		"chance_multiplier": 1.25,
+	},
+}
+
 ## TODO: Artifact which increases chance to find Fusion cards
 ## TODO. Scipt base doesn't exist yet
 #const DoubleMemory := {
@@ -829,6 +843,7 @@ const GENERIC := [
 	EnhanceOnRest,
 	UpgradeMemoryOnRest,
 	ReduceCurioRerollPerturbChance,
+	IncreaseUpgradedDraftChance,
 ]
 
 # Archetype-specific artifacts which only appear in runs in which
