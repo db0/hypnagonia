@@ -764,6 +764,7 @@ const UpgradeMemoryOnRest := {
 	"max_uses": 3,
 }
 
+## TODO: Artifact which increases chance to get upgraded cards
 ## TODO: Artifact which increases chance to find Fusion cards
 ## TODO. Scipt base doesn't exist yet
 #const DoubleMemory := {
