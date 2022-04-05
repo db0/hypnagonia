@@ -367,8 +367,8 @@ func _update_progress_cost() -> void:
 			* globals.player.deck.get_upgrade_percentage()
 			* 3
 			* globals.difficulty.shop_prices)
-	if progress_cost < 2:
-		progress_cost = 3
+	if progress_cost <= 2 * globals.difficulty.shop_prices:
+		progress_cost = round(3 * globals.difficulty.shop_prices)
 	var progress_text_format = {
 		"cost": str(progress_cost),
 		"pathos": card_progress_cost_type.capitalize(),
