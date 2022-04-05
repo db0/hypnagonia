@@ -55,7 +55,7 @@ const DESCRIPTIONS := {
 	"max_health": "The dreamer starting max anxiety is modified by this percentage.",
 	"starting_damage": "The dreamer starts with a prexisting amount of anxiety.",
 	"prevent_basic_cards_release": "Basic (AKA Starting) cards cannot receive an upgrade which removes them permanently from the deck.",
-	"desire_curios_give_perturbation": "Curios discovered using repressed desire will require you to add 1 extra Perturbation to your deck.",
+	"desire_curios_give_perturbation": "Curios discovered using repressed desire will have a an extra chance to add a Perturbation to your deck.",
 	"lower_upgraded_draft_chance": "Less chance to discover upgraded cards during acts 2 and 3.",
 	"encounter_difficulty": "Modifies the chance to get beneficial or detrimental journal encounters.\n"\
 			+ "Harder difficulties will make Torments appear more often and the Boss to appear earlier.\n"\
