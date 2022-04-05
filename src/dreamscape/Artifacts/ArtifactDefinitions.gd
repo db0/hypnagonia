@@ -742,6 +742,17 @@ const QuickenUp := {
 	"max_uses": 3,
 }
 
+const EnhanceOnRest := {
+	"canonical_name": "EnhanceOnRest",
+	"name": "Dream Catcher",
+	"description": "{artifact_name}: You can enhance cards during deep torpor.",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.BATTLE,
+	"rarity": "Rare",
+	"amount": 0,
+	"max_uses": 3,
+}
+
 ## TODO: Artifact which increases chance to find Fusion cards
 ## TODO: Artifact which allows to enhance a card instead of resting
 ## TODO: Artifact which allows to upgrade a memory instead of resting
@@ -796,6 +807,7 @@ const GENERIC := [
 	StartingVulnerable,
 	StrengthenUp,
 	QuickenUp,
+	EnhanceOnRest,
 
 ]
 
