@@ -67,6 +67,9 @@ func begin() -> void:
 			disabled_choices.append('upgrade_memories')
 	if globals.player.deck.count_progressing_cards() < 1:
 		disabled_choices.append('progress')
+	var no_rest = globals.player.find_artifact(ArtifactDefinitions.NoRest.canonical_name)
+	if no_rest:
+		disabled_choices.append('rest')
 	_prepare_secondary_choices(secondary_choices, scformat, disabled_choices)
 
 

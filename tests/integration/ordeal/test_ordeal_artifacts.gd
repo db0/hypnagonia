@@ -656,3 +656,20 @@ class TestRandomUpgradesDetriment:
 		assert_signal_emitted(current_upgrades, "card_upgraded")
 		assert_signal_emitted(globals.player.deck, "card_entry_upgraded")
 
+class TestNoRest:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.NoRest.canonical_name
+		pre_init_artifacts.append(ArtifactDefinitions.NoRest.canonical_name)
+		expected_amount_keys = [
+			"immersion_amount",
+		]
+
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion on first turn")
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion per turn")
+

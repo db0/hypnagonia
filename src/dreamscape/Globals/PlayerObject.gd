@@ -254,12 +254,13 @@ func _is_memory_valid(memory_def: Dictionary) -> bool:
 
 # Goes through all archetypes and gathers all artifacts specified
 # Returns a list with all artifacts tied to all archetypes of the player.
-func get_archetype_artifacts() -> Array:
+func get_archetype_artifacts(boss_artifacts := false) -> Array:
 	var artifact_list := []
 	for arch in get_current_archetypes():
-		artifact_list += Aspects.get_archetype_value(arch, "Artifacts")
+		for a in Aspects.get_archetype_value(arch, "Artifacts"):
+			if boss_artifacts == (a.rarity == "Boss"):
+				artifact_list.append(a)
 	return(artifact_list)
-
 
 # Goes through all archetypes and gathers all artifacts specified
 # Returns a list with all artifacts tied to all archetypes of the player.

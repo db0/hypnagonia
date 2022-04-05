@@ -17,7 +17,7 @@ const DIFFICULTY_MULTIPLIERS := {
 }
 const TOTAL_DIFFICULTY_MAPS := {
 	"act_healing": {
-		0.0: 3,
+		0.0: 3, # Disabled
 		0.25: 2,
 		0.5: 1,
 		0.75: 0,
