@@ -747,7 +747,7 @@ const EnhanceOnRest := {
 	"name": "Dream Catcher",
 	"description": "{artifact_name}: You can enhance cards during deep torpor.",
 	"icon": preload("res://assets/icons/artifacts/dream-catcher.png"),
-	"context": EffectContext.BATTLE,
+	"context": EffectContext.OVERWORLD,
 	"rarity": "Rare",
 	"amount": 0,
 	"max_uses": 3,
@@ -758,10 +758,19 @@ const UpgradeMemoryOnRest := {
 	"name": "Portable Photo Camera",
 	"description": "{artifact_name}: You can upgrade your memories during deep torpor.",
 	"icon": preload("res://assets/icons/artifacts/photo-camera.png"),
-	"context": EffectContext.BATTLE,
+	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
 	"amount": 0,
 	"max_uses": 3,
+}
+
+const ReduceCurioRerollPerturbChance := {
+	"canonical_name": "ReduceCurioRerollPerturbChance",
+	"name": "Shamrock",
+	"description": "{artifact_name}: Reduces the chance to get a perturbation when rerolling a desire curio.",
+	"icon": preload("res://assets/icons/artifacts/shamrock.png"),
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Common",
 }
 
 ## TODO: Artifact which increases chance to get upgraded cards
@@ -819,6 +828,7 @@ const GENERIC := [
 	QuickenUp,
 	EnhanceOnRest,
 	UpgradeMemoryOnRest,
+	ReduceCurioRerollPerturbChance,
 ]
 
 # Archetype-specific artifacts which only appear in runs in which

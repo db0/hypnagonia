@@ -21,6 +21,9 @@ func _init():
 	pathos_released = Terms.RUN_ACCUMULATION_NAMES.artifact
 
 func begin() -> void:
+	var luck_up = globals.player.find_artifact(ArtifactDefinitions.ReduceCurioRerollPerturbChance.canonical_name)
+	if luck_up:
+		perturbation_chance -= 0.25
 	accumulated = globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.artifact]
 	# The rarity of artifact found is based on the accumulated pathos
 	# warning-ignore:integer_division
@@ -84,8 +87,8 @@ func continue_encounter(key) -> void:
 		"recall":
 			var bbformat = artifact_prep.selected_artifacts[1]["bbformat"]
 			bbformat["chance_percent"] = perturbation_chance * 100
-			bbformat["double_perturbation_percent"] = perturbation_chance * perturbation_chance * 100
-			bbformat["zero_perturbation_percent"] = (1 - perturbation_chance) * (1 - perturbation_chance) * 100
+			bbformat["double_perturbation_percent"] = round(perturbation_chance * perturbation_chance * 100)
+			bbformat["zero_perturbation_percent"] = round((1 - perturbation_chance) * (1 - perturbation_chance) * 100)
 			bbformat["single_perturbation_percent"] = 100 - bbformat["zero_perturbation_percent"]
 			var alternate_artifact_choices = {
 				"grab_second": "[img=18x18]{icon}[/img] {description}.\n".format(bbformat)\
