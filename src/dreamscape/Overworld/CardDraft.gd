@@ -13,6 +13,8 @@ const CARD_DRAFT_SCENE = preload("res://src/dreamscape/ChoiceCardObject.tscn")
 var uncommon_chance : float = 25.0/100 setget ,get_uncommon_chance
 var rare_chance : float = 5.0/100 setget ,get_rare_chance
 var draft_amount := 3 setget ,get_draft_amount
+var act2_upgraded_chance : float = 20.0/100 setget ,get_act2_upgraded_chance
+var act3_upgraded_chance : float = 40.0/100 setget ,get_act3_upgraded_chance
 var draft_card_choices : Array
 # This will store the final card chosen by the player to draft.
 var selected_draft: CardEntry
@@ -107,14 +109,38 @@ func retrieve_draft_cards() -> void:
 		CFUtils.shuffle_array(card_names)
 		if card_names.size():
 			for card_name in card_names:
-				if not card_name in draft_card_choices:
-					draft_card_choices.append(card_name)
+				if not _card_draft_choice_exists(card_name):
+					var upgraded_chance = CFUtils.randf_range(0.0, 1.0)
+					var upgraded_name = null
+					if globals.encounters.current_act.get_act_number() == 2 and upgraded_chance <= get_act2_upgraded_chance():
+						upgraded_name =  _get_random_upgrade(card_name)
+					if globals.encounters.current_act.get_act_number() == 3 and upgraded_chance <= get_act3_upgraded_chance():
+						upgraded_name =  _get_random_upgrade(card_name)
+					if upgraded_name:
+						draft_card_choices.append(upgraded_name)
+					else:
+						draft_card_choices.append(card_name)
 					# This break ensures we only add one card from the pool
 					# of availabkle cards of that rarity
 					break
 	# Normally this should always exist, but might not, in GUT
 	if globals.current_encounter:
 		draft_card_choices += globals.current_encounter.return_extra_draft_cards()
+
+func _card_draft_choice_exists(card_name: String) -> bool:
+	var all_draft_choice_variants := []
+	for dcard in draft_card_choices:
+		all_draft_choice_variants += HUtils.get_all_card_variants(dcard)
+	for card_variant in HUtils.get_all_card_variants(card_name):
+		if all_draft_choice_variants.has(card_variant):
+			return(true)
+	return(false)
+
+func _get_random_upgrade(card_name: String) -> String:
+	var upgrade_options : Array = cfc.card_definitions[card_name].get("_upgrades", []).duplicate(true)
+	if upgrade_options.size() > 2:
+		CFUtils.shuffle_array(upgrade_options)
+	return(upgrade_options.front())
 
 func retrieve_elite_draft() -> void:
 	draft_card_choices.clear()
@@ -134,8 +160,17 @@ func retrieve_elite_draft() -> void:
 		CFUtils.shuffle_array(card_names)
 		if card_names.size():
 			for card_name in card_names:
-				if not card_name in draft_card_choices:
-					draft_card_choices.append(card_name)
+				if not _card_draft_choice_exists(card_name):
+					var upgraded_chance = CFUtils.randf_range(0.0, 1.0)
+					var upgraded_name = null
+					if globals.encounters.current_act.get_act_number() == 2 and upgraded_chance <= get_act2_upgraded_chance():
+						upgraded_name =  _get_random_upgrade(card_name)
+					if globals.encounters.current_act.get_act_number() == 3 and upgraded_chance <= get_act3_upgraded_chance():
+						upgraded_name =  _get_random_upgrade(card_name)
+					if upgraded_name:
+						draft_card_choices.append(upgraded_name)
+					else:
+						draft_card_choices.append(card_name)
 					break
 
 func retrieve_boss_draft() -> void:
@@ -174,11 +209,28 @@ func get_draft_card_count() -> int:
 		if not child as Tween:
 			count += 1
 	return(count)
-	
+
 func get_rare_chance() -> float:
 	var value := rare_chance
 	for artifact in cfc.get_tree().get_nodes_in_group("artifacts"):
 		var multiplier = artifact.get_global_alterant(value, HConst.AlterantTypes.CARD_RARE_CHANCE)
+		if multiplier:
+			value *= multiplier
+	return(value)
+
+
+func get_act2_upgraded_chance() -> float:
+	var value := act2_upgraded_chance
+	for artifact in cfc.get_tree().get_nodes_in_group("artifacts"):
+		var multiplier = artifact.get_global_alterant(value, HConst.AlterantTypes.CARD_UPGRADE_CHANCE)
+		if multiplier:
+			value *= multiplier
+	return(value)
+
+func get_act3_upgraded_chance() -> float:
+	var value := act3_upgraded_chance
+	for artifact in cfc.get_tree().get_nodes_in_group("artifacts"):
+		var multiplier = artifact.get_global_alterant(value, HConst.AlterantTypes.CARD_UPGRADE_CHANCE)
 		if multiplier:
 			value *= multiplier
 	return(value)

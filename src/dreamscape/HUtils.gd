@@ -150,3 +150,18 @@ static func get_amounts_format(properties_dict: Dictionary, printed_properties_d
 			fmt.amount = str(amounts_format[amount] * 100) + '%'
 		amounts_format[amount] = "[color={color}]{amount}[/color]".format(fmt)
 	return(amounts_format)
+
+static func get_all_card_variants(card_name: String) -> Array:
+	var all_variants := []
+	if cfc.card_definitions[card_name].has("_upgrades"):
+		all_variants += cfc.card_definitions[card_name]["_upgrades"]
+	elif cfc.card_definitions[card_name].get("_is_upgrade", false):
+		all_variants.append(find_upgrade_parent(card_name))
+	return(all_variants)
+
+static func find_upgrade_parent(card_name: String):
+	for card_name in cfc.card_definitions:
+		var upgrades = cfc.card_definitions[card_name].get("_upgrades")
+		if upgrades and card_name in upgrades:
+			return(card_name)
+	return(false)
