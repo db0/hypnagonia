@@ -18,6 +18,7 @@ enum EffectContext {
 }
 
 const GENERIC_ARTIFACT_ICON = preload("res://assets/icons/artifacts/perspective-dice-six-faces-random.png")
+const GENERIC_BOSS_ARTIFACT_ICON = preload("res://assets/icons/artifacts/boss-key.png")
 
 const MaxHealth := {
 	"canonical_name": "MaxHealth",
@@ -503,7 +504,7 @@ const ProgressiveImmersion := {
 	"name": "Progressive Immersion",
 	"description": "{artifact_name}: You have {immersion_amount} extra {immersion} per turn.\n"\
 			+ "You cannot progress cards by playing them during ordeals anymore.",
-	"icon": preload("res://assets/icons/artifacts/boss-key.png"),
+	"icon": GENERIC_BOSS_ARTIFACT_ICON,
 	"context": EffectContext.BATTLE,
 	"rarity": "Boss",
 	"amounts": {
@@ -515,7 +516,7 @@ const BossCardDraw := {
 	"canonical_name": "BossCardDraw",
 	"name": "Squishy Brain Toy",
 	"description": "{artifact_name}: Draw {draw_amount} card at the start of each turn",
-	"icon": preload("res://assets/icons/artifacts/boss-key.png"),
+	"icon": GENERIC_BOSS_ARTIFACT_ICON,
 	"context": EffectContext.BATTLE,
 	"rarity": "Boss",
 	"amounts": {
@@ -794,10 +795,24 @@ const NoRest := {
 	"description": "{artifact_name}: You have {immersion_amount} extra {immersion} per turn.\n"\
 			+ "You cannot rest during deep torpor anymore.",
 	"icon": preload("res://assets/icons/artifacts/moka-pot.png"),
-	"context": EffectContext.OVERWORLD,
+	"context": EffectContext.BATTLE,
 	"rarity": "Boss",
 	"amounts": {
 		"immersion_amount": 1,
+	},
+}
+
+const SmallerDrafts := {
+	"canonical_name": "SmallerDrafts",
+	"name": "Smaller Drafts",
+	"description": "{artifact_name}: You have {immersion_amount} extra {immersion} per turn.\n"\
+			+ "Your choice of cards to draft is reduced by 2 (min 1).",
+	"icon": GENERIC_BOSS_ARTIFACT_ICON,
+	"context": EffectContext.BATTLE,
+	"rarity": "Boss",
+	"amounts": {
+		"immersion_amount": 1,
+		"card_draft_modifier": -2,
 	},
 }
 
@@ -893,6 +908,7 @@ const BOSS := [
 	BossCardDraw,
 	BossDraft,
 	NoRest,
+	SmallerDrafts,
 ]
 
 

@@ -19,7 +19,7 @@ class TestUpgradedAction:
 #		yield(yield_to(artifact, "artifact_triggered", 2.2), YIELD)
 		assert_eq(new_card.upgrade_progress, 0, "Wrong type not progressed")
 		assert_signal_emit_count(artifact, "artifact_triggered", 1, "Artifact triggered correct amount of times")
-		
+
 
 
 class TestUpgradedControl:
@@ -41,7 +41,7 @@ class TestUpgradedControl:
 #		yield(yield_to(artifact, "artifact_triggered", 2.2), YIELD)
 		assert_eq(new_card.upgrade_progress, 0, "Wrong type not progressed")
 		assert_signal_emit_count(artifact, "artifact_triggered", 1, "Artifact triggered correct amount of times")
-		
+
 
 
 
@@ -64,7 +64,7 @@ class TestUpgradedUnderstanding:
 #		yield(yield_to(artifact, "artifact_triggered", 2.2), YIELD)
 		assert_eq(new_card.upgrade_progress, 0, "Wrong type not progressed")
 		assert_signal_emit_count(artifact, "artifact_triggered", 1, "Artifact triggered correct amount of times")
-		
+
 
 
 
@@ -87,7 +87,7 @@ class TestUpgradedConcentration:
 #		yield(yield_to(artifact, "artifact_triggered", 2.2), YIELD)
 		assert_eq(new_card.upgrade_progress, 0, "Wrong type not progressed")
 		assert_signal_emit_count(artifact, "artifact_triggered", 1, "Artifact triggered correct amount of times")
-		
+
 
 class TestPorcelainDoll:
 	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
@@ -132,7 +132,7 @@ class TestPorcelainDoll:
 			assert_eq(artifact.artifact_object.context, ArtifactDefinitions.EffectContext.BATTLE, "Porcelain Doll activated")
 			globals.player.remove_artifact(doll)
 			yield(artifact, "tree_exited")
-		
+
 
 
 class TestPPorcelainDollOrdeal:
@@ -192,7 +192,7 @@ class TestBetterRareChance:
 	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
 	var uncommon_chance : float = 25.0/100
 	var rare_chance : float = 5.0/100
-	
+
 	func _init() -> void:
 		testing_artifact_name = ArtifactDefinitions.BetterRareChance.canonical_name
 		expected_amount_keys = [
@@ -220,7 +220,7 @@ class TestBetterRareChance:
 			if multiplier:
 				value *= multiplier
 		return(value)
-					
+
 
 class TestProgressEverything:
 	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
@@ -257,4 +257,20 @@ class TestProgressEverything:
 		new_card = globals.player.deck.add_new_card("Lacuna")
 		assert_eq(new_card.upgrade_progress, 0, "Perturbations cannot be progressed")
 		assert_signal_emit_count(artifact, "artifact_triggered", 5, "Artifact triggered correct amount of times")
-		
+
+
+class TestSmallerDraft:
+	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.SmallerDrafts.canonical_name
+		expected_amount_keys = [
+			"immersion_amount",
+			"card_draft_modifier"
+		]
+
+	func test_rewards():
+		journal.call_deferred("display_enemy_rewards")
+		yield(yield_to(journal._tween, "tween_all_completed", 1), YIELD)
+		journal.card_draft.display()
+		assert_eq(journal.card_draft.get_child_count(),2, "1 draft plus tween node exist")
+		assert_eq(journal.card_draft.draft_card_choices.size(), 1)

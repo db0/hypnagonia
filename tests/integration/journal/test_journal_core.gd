@@ -27,3 +27,24 @@ class TestUpgrades:
 		selection_windows[0].select_cards([0])
 		assert_signal_emitted(globals.player.deck, "card_entry_upgraded")
 		
+
+
+class TestNormalRewards:
+	extends "res://tests/HUTCommon_Journal.gd"
+
+	func test_rewards():
+		journal.call_deferred("display_enemy_rewards")
+		yield(yield_to(journal._tween, "tween_all_completed", 1), YIELD)
+		journal.card_draft.display()
+		assert_eq(journal.card_draft.get_child_count(),4, "1 draft plus tween node exist")
+		assert_eq(journal.card_draft.draft_card_choices.size(), 3)
+
+class TestEliteRewards:
+	extends "res://tests/HUTCommon_Journal.gd"
+
+	func test_rewards():
+		journal.call_deferred("display_elite_rewards")
+		yield(yield_to(journal._tween, "tween_all_completed", 1), YIELD)
+		journal.card_draft.display()
+		assert_eq(journal.card_draft.get_child_count(),4, "1 draft plus tween node exist")
+		assert_eq(journal.card_draft.draft_card_choices.size(), 3)
