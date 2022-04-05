@@ -31,11 +31,12 @@ func prepare_next_act(current_journal = null) -> void:
 	var healing_done = globals.player.health * globals.difficulty.act_healing
 	if healing_done > globals.player.damage:
 		healing_done = globals.player.damage
-	globals.player.damage -= healing_done
 	if not available_acts.size():
 		globals.journal.end_dev_version()
 		return
 	current_act = available_acts.pop_front()
+	if current_act != Act1:
+		globals.player.damage -= healing_done
 	remaining_enemies = current_act.ENEMIES.duplicate(true)
 	remaining_elites = current_act.ELITES.duplicate(true)
 	for nce_type in remaining_nce:
