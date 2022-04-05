@@ -723,8 +723,7 @@ const DoubleFirstStartup := {
 const StrengthenUp := {
 	"canonical_name": "StrengthenUp",
 	"name": "Buddha Figurine",
-	"description": "{artifact_name}: Up to three times during Rest, "\
-			+ "you can meditate. Each meditation done, providess one starting {strengthen} during ordeal.",
+	"description": "{artifact_name}: You can gain {strengthen} during deep torpor.",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.BATTLE,
 	"rarity": "Rare",
@@ -735,8 +734,7 @@ const StrengthenUp := {
 const QuickenUp := {
 	"canonical_name": "QuickenUp",
 	"name": "Chess Set",
-	"description": "{artifact_name}: Up to three times during Rest, "\
-			+ "you can concentrate. Each concentration done, providess one starting {quicken} during ordeal.",
+	"description": "{artifact_name}: You can gain {quicken} during deep torpor.",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.BATTLE,
 	"rarity": "Rare",
