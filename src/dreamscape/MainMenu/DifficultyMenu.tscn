@@ -24,16 +24,16 @@ __meta__ = {
 [node name="PC" type="PanelContainer" parent="."]
 self_modulate = Color( 1, 1, 1, 0.690196 )
 margin_left = 502.0
-margin_top = 239.0
+margin_top = 220.0
 margin_right = 952.0
-margin_bottom = 661.0
+margin_bottom = 680.0
 rect_min_size = Vector2( 450, 0 )
 
 [node name="VBC" type="VBoxContainer" parent="PC"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 443.0
-margin_bottom = 415.0
+margin_bottom = 453.0
 size_flags_horizontal = 3
 custom_constants/separation = 20
 
@@ -150,17 +150,36 @@ text = "Max anxiety"
 [node name="Slider" parent="PC/VBC/MaxAnxiety" index="1"]
 margin_right = 377.0
 min_value = -3.0
-max_value = 5.0
-tick_count = 9
+max_value = 2.0
+tick_count = 6
 
 [node name="Result" parent="PC/VBC/MaxAnxiety" index="2"]
 margin_left = 381.0
 margin_right = 436.0
 
-[node name="EncounterDifficulty" parent="PC/VBC" instance=ExtResource( 5 )]
+[node name="StartingAnxiety" parent="PC/VBC" instance=ExtResource( 5 )]
 margin_top = 320.0
 margin_right = 436.0
 margin_bottom = 338.0
+difficulty_key = "starting_damage"
+result_type = 1
+
+[node name="Description" parent="PC/VBC/StartingAnxiety" index="0"]
+text = "Starting anxiety"
+
+[node name="Slider" parent="PC/VBC/StartingAnxiety" index="1"]
+margin_right = 377.0
+max_value = 4.0
+tick_count = 5
+
+[node name="Result" parent="PC/VBC/StartingAnxiety" index="2"]
+margin_left = 381.0
+margin_right = 436.0
+
+[node name="EncounterDifficulty" parent="PC/VBC" instance=ExtResource( 5 )]
+margin_top = 358.0
+margin_right = 436.0
+margin_bottom = 376.0
 difficulty_key = "encounter_difficulty"
 result_type = 2
 
@@ -177,9 +196,9 @@ margin_left = 381.0
 margin_right = 436.0
 
 [node name="Back" type="Button" parent="PC/VBC"]
-margin_top = 358.0
+margin_top = 396.0
 margin_right = 436.0
-margin_bottom = 408.0
+margin_bottom = 446.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 3 )
@@ -204,4 +223,5 @@ margin_bottom = 18.0
 [editable path="PC/VBC/ActHealing"]
 [editable path="PC/VBC/ShopPrices"]
 [editable path="PC/VBC/MaxAnxiety"]
+[editable path="PC/VBC/StartingAnxiety"]
 [editable path="PC/VBC/EncounterDifficulty"]

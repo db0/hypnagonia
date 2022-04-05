@@ -29,15 +29,19 @@ const TOTAL_DIFFICULTY_MAPS := {
 		0.5: -1,
 	},
 	"max_health": {
-		0.5: 5,
-		0.6: 4,
-		0.7: 3,
 		0.8: 2,
 		0.9: 1,
 		1.0: 0,
 		1.1: -1,
 		1.2: -2,
 		1.3: -3,
+	},
+	"starting_damage": {
+		0.4: 4,
+		0.3: 3,
+		0.2: 2,
+		0.1: 1,
+		0.0: 0,
 	},
 }
 const DIFFICULTY_STEPS := {
@@ -49,6 +53,7 @@ const DESCRIPTIONS := {
 	"act_healing": "At the end of each act the dreamer will release anxiety equal to this percent of their max anxiety.",
 	"shop_prices": "The shop prices are modified by this percentage.",
 	"max_health": "The dreamer starting max anxiety is modified by this percentage.",
+	"starting_damage": "The dreamer starts with a prexisting amount of anxiety.",
 	"prevent_basic_cards_release": "Basic (AKA Starting) cards cannot receive an upgrade which removes them permanently from the deck.",
 	"desire_curios_give_perturbation": "Curios discovered using repressed desire will require you to add 1 extra Perturbation to your deck.",
 	"encounter_difficulty": "Modifies the chance to get beneficial or detrimental journal encounters.\n"\
@@ -63,6 +68,7 @@ var progress_increase := 0 setget set_progress_increase
 var act_healing := 0.75 setget set_act_healing
 var shop_prices := 1.0 setget set_shop_prices
 var max_health := 1.0 setget set_max_health
+var starting_damage := 0.0 setget set_starting_damage
 var prevent_basic_cards_release := false setget set_prevent_basic_cards_release
 var desire_curios_give_perturbation := false setget set_desire_curios_give_perturbation
 var encounter_difficulty := 0 setget set_encounter_difficulty
@@ -89,6 +95,10 @@ func set_shop_prices(value) -> void:
 func set_max_health(value) -> void:
 	max_health = _get_percentage_value("max_health", value)
 	_finalize_value("max_health", max_health)
+
+func set_starting_damage(value) -> void:
+	starting_damage = _get_percentage_value("starting_damage", value)
+	_finalize_value("starting_damage", starting_damage)
 
 func set_prevent_basic_cards_release(value) -> void:
 	prevent_basic_cards_release = value
@@ -134,6 +144,7 @@ func recalculate_total_difficulty() -> void:
 	total_difficulty += TOTAL_DIFFICULTY_MAPS.act_healing[act_healing]
 	total_difficulty += TOTAL_DIFFICULTY_MAPS.shop_prices[shop_prices]
 	total_difficulty += TOTAL_DIFFICULTY_MAPS.max_health[max_health]
+	total_difficulty += TOTAL_DIFFICULTY_MAPS.starting_damage[starting_damage]
 	total_difficulty += calc_boolean_difficulty(prevent_basic_cards_release)
 	total_difficulty += calc_boolean_difficulty(desire_curios_give_perturbation) * DIFFICULTY_MULTIPLIERS.desire_curios_give_perturbation
 	total_difficulty += encounter_difficulty
