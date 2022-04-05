@@ -11,8 +11,14 @@ var secondary_choices := {
 		'resist': '[Resist] Nothing happens.',
 	}
 
+var unlockable_choices := {
+	"strengthen_up": '[%s] Increase starting {strengthen} by 1.' % [ArtifactDefinitions.StrengthenUp.name],
+	"quicken_up": '[%s] Increase starting {strengthen} by 1.' % [ArtifactDefinitions.QuickenUp.name]
+}
+
 var reward_texts := {
 	"rest": '...and I left myself fall into it.',
+	# TODO: Make these fluff pieces better
 	"progress": '...but my thoughts would not subside. I instead concentrated on my previous experiences in this dream.',
 	"resist": '...and I struggled mightily to stave it off.',
 	"strengthen_up": 'I remembered I was carrying around this curious Buddha. I deciced to give meditation a try.',
@@ -37,12 +43,12 @@ func begin() -> void:
 	var disabled_choices := []
 	var strengthen_up = globals.player.find_artifact(ArtifactDefinitions.StrengthenUp.canonical_name)
 	if strengthen_up:
-		secondary_choices['strengthen_up'] = '[%s] Increase starting {strengthen} by 1.' % [ArtifactDefinitions.StrengthenUp.name]
+		secondary_choices['strengthen_up'] = unlockable_choices['strengthen_up']
 		if strengthen_up.counter >= ArtifactDefinitions.StrengthenUp.max_uses:
 			disabled_choices.append('strengthen_up')
 	var quicken_up = globals.player.find_artifact(ArtifactDefinitions.QuickenUp.canonical_name)
 	if quicken_up:
-		secondary_choices['quicken_up'] = '[%s] Increase starting {quicken} by 1.' % [ArtifactDefinitions.QuickenUp.name]
+		secondary_choices['quicken_up'] = unlockable_choices['quicken_up']
 		if quicken_up.counter >= ArtifactDefinitions.StrengthenUp.max_uses:
 			disabled_choices.append('quicken_up')
 	if globals.player.deck.count_progressing_cards() < 1:

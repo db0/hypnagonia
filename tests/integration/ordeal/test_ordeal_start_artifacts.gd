@@ -235,3 +235,50 @@ class TestDoubleFirstStartup:
 		for torment in test_torments:
 			assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 
 					6, "One startup effect triggered twice")
+
+
+class TestStrengthenUp0Counters:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.StrengthenUp.canonical_name
+		pre_init_artifacts.append(ArtifactDefinitions.StrengthenUp.canonical_name)
+
+	func test_artifact_effect_zero_counters():
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 0)
+
+
+class TestStrengthenUp2Counters:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.StrengthenUp.canonical_name
+		pre_init_artifacts.append(ArtifactDefinitions.StrengthenUp.canonical_name)
+
+	func test_artifact_effect_two_counters():
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 2)
+
+	func extra_hypnagonia_setup() -> void:
+		var curio = globals.player.find_artifact(ArtifactDefinitions.StrengthenUp.canonical_name)
+		curio.counter = 2
+
+class TestQuickenUp0Counters:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.QuickenUp.canonical_name
+		pre_init_artifacts.append(ArtifactDefinitions.QuickenUp.canonical_name)
+
+	func test_artifact_effect_zero_counters():
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.quicken.name), 0)
+
+
+class TestQuickenUp2Counters:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.QuickenUp.canonical_name
+		pre_init_artifacts.append(ArtifactDefinitions.QuickenUp.canonical_name)
+
+	func test_artifact_effect_two_counters():
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.quicken.name), 2)
+
+	func extra_hypnagonia_setup() -> void:
+		var curio = globals.player.find_artifact(ArtifactDefinitions.QuickenUp.canonical_name)
+		curio.counter = 2
