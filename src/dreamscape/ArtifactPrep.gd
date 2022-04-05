@@ -34,6 +34,7 @@ func _init(rare_percent: int, uncommon_percent: int, amount := 1, artifact_type 
 		var randomized_artifacts := []
 		if artifact_type == "boss":
 			randomized_artifacts = all_valid_artifacts['Boss'].duplicate(true)
+			randomized_artifacts += globals.player.get_archetype_artifacts(true)
 		else:
 			for r in [rare, uncommon, common]:
 				# We populate a massive list with one artifact of each type per chance.

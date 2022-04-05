@@ -788,6 +788,19 @@ const IncreaseUpgradedDraftChance := { # TODO: Tests
 	},
 }
 
+const NoRest := {
+	"canonical_name": "NoRest",
+	"name": "Moka Pot",
+	"description": "{artifact_name}: You have {immersion_amount} extra {immersion} per turn.\n"\
+			+ "You cannot rest during deep torpor anymore.",
+	"icon": preload("res://assets/icons/artifacts/moka-pot.png"),
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Boss",
+	"amounts": {
+		"immersion_amount": 1,
+	},
+}
+
 ## TODO: Artifact which increases chance to find Fusion cards
 ## TODO. Scipt base doesn't exist yet
 #const DoubleMemory := {
@@ -879,7 +892,9 @@ const BOSS := [
 	RandomUpgrades,
 	BossCardDraw,
 	BossDraft,
+	NoRest,
 ]
+
 
 # Takes as arguments the purpose of artifacts to return. Generic, Shop or Boss
 # Each purpose returns a slightly different format dictionary

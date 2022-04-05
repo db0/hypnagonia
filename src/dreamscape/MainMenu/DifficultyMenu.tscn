@@ -129,7 +129,7 @@ text = "End-of-act relaxation"
 [node name="Slider" parent="PC/VBC/ActHealing" index="1"]
 margin_right = 377.0
 min_value = -1.0
-tick_count = 5
+max_value = 2.0
 
 [node name="Result" parent="PC/VBC/ActHealing" index="2"]
 margin_left = 381.0
