@@ -73,6 +73,7 @@ var starting_damage := 0.0 setget set_starting_damage
 var prevent_basic_cards_release := false setget set_prevent_basic_cards_release
 var desire_curios_give_perturbation := false setget set_desire_curios_give_perturbation
 var lower_upgraded_draft_chance := false setget set_lower_upgraded_draft_chance
+var unremovable_perturbation := false setget set_unremovable_perturbation
 var encounter_difficulty := 0 setget set_encounter_difficulty
 
 func _init() -> void:
@@ -114,6 +115,10 @@ func set_lower_upgraded_draft_chance(value) -> void:
 	lower_upgraded_draft_chance = value
 	_finalize_value("lower_upgraded_draft_chance", lower_upgraded_draft_chance)
 	
+func set_unremovable_perturbation(value) -> void:
+	unremovable_perturbation = value
+	_finalize_value("unremovable_perturbation", unremovable_perturbation)
+	
 func set_encounter_difficulty(value) -> void:
 	encounter_difficulty = value
 	_finalize_value("encounter_difficulty", encounter_difficulty)
@@ -154,6 +159,7 @@ func recalculate_total_difficulty() -> void:
 	total_difficulty += calc_boolean_difficulty(prevent_basic_cards_release)
 	total_difficulty += calc_boolean_difficulty(desire_curios_give_perturbation) * DIFFICULTY_MULTIPLIERS.desire_curios_give_perturbation
 	total_difficulty += calc_boolean_difficulty(lower_upgraded_draft_chance)
+	total_difficulty += calc_boolean_difficulty(unremovable_perturbation)
 	total_difficulty += encounter_difficulty
 	emit_signal("total_difficulty_recalculated", total_difficulty)
 

@@ -526,15 +526,15 @@ func _input(event):
 			preload("res://src/dreamscape/Run/NCE/AllActs/EpicUpgrade.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act3/TheCake.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act2/HangingOn.gd").new(),
-#			preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd").new(),
-			preload("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
+			preload("res://src/dreamscape/Run/NCE/Act1/SleepOfOblivion.gd").new(),
+#			preload("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
 #			BossEncounter.new(Act2.BOSSES["Surreality"]),
 			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
 #			EliteEncounter.new(Act1.Bully, "medium"),
 #			EliteEncounter.new(Act2.Jumbletron, "medium"),
 #			EliteEncounter.new(Act3.TheatrePlay, "medium"),
-#			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
-			preload("res://src/dreamscape/Run/NCE/Rest.gd").new()
+			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
+#			preload("res://src/dreamscape/Run/NCE/Rest.gd").new()
 		]
 		for encounter in debug_encounters:
 			var journal_choice_scene = JOURNAL_ENCOUNTER_CHOICE_SCENE.instance()

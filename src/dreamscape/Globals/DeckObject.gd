@@ -23,6 +23,8 @@ func assemble_starting_deck() -> void:
 		var rng_perturbation = Perturbations.get_random_perturbation(
 				Perturbations.get_archetype_perturbations_chance())
 		add_new_card(rng_perturbation)
+	if globals.difficulty.unremovable_perturbation:
+		add_new_card("Hybris")
 
 
 func update_card_group(type: String, card_group: String) -> void:
@@ -57,6 +59,8 @@ func add_new_card(card_name, progress := 0) -> CardEntry:
 func remove_card(card_entry: CardEntry) -> void:
 	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
 		print("DEBUG INFO:Deck: Removing card:" + card_entry.card_name)
+	if card_entry.properties.get("_is_unremovable", false):
+		return
 	# As a failsafe, we do not allow to remove the last card
 	if cards.size() > 1:
 		card_entry.disconnect("card_entry_modified", self, "signal_card_entry_modified")

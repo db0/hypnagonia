@@ -224,4 +224,15 @@ const CARDS := {
 		},
 		"_keywords": [],
 	},
+	"Hybris": {
+		"Type": "Perturbation",
+		"Tags": [],
+		"Abilities": "Cannot be released from the deck.\n{unplayable}",
+		"Cost": 'U',
+		"_illustration": "Nobody",
+		"_rarity": "Perturbation",
+		"_keywords": [],
+		"_is_unplayable": true,
+		"_is_unremovable": true,
+	},
 }

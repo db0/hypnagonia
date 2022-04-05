@@ -113,6 +113,9 @@ func _populate_preview_cards() -> void:
 						card_matches = false
 					if not CardFilter.new('_is_upgrade', false).check_card(card_entry.properties):
 						card_matches = false
+				if operation == "remove":
+					if not CardFilter.new('_is_unremovable', false).check_card(card_entry.properties):
+						card_matches = false
 				if not card_matches:
 					continue
 			var card_preview_container = CARD_CHOICE_SCENE.instance()
