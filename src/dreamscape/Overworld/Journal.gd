@@ -493,7 +493,7 @@ func _input(event):
 #		globals.player.deck.add_new_card("+ Noisy Whip +")
 #		globals.player.add_artifact(ArtifactDefinitions.IncreaseConfusionStacks.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.IncreaseRandomDamage.canonical_name)
-		globals.player.add_artifact(ArtifactDefinitions.UpgradeMemoryOnRest.canonical_name)
+		globals.player.add_artifact(ArtifactDefinitions.ReduceCurioRerollPerturbChance.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.HealSelf.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.BossFaster.canonical_name)
