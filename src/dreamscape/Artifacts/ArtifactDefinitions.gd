@@ -753,9 +753,18 @@ const EnhanceOnRest := {
 	"max_uses": 3,
 }
 
+const UpgradeMemoryOnRest := {
+	"canonical_name": "UpgradeMemoryOnRest",
+	"name": "Portable Photo Camera",
+	"description": "{artifact_name}: You can upgrade your memories during deep torpor.",
+	"icon": preload("res://assets/icons/artifacts/photo-camera.png"),
+	"context": EffectContext.BATTLE,
+	"rarity": "Uncommon",
+	"amount": 0,
+	"max_uses": 3,
+}
+
 ## TODO: Artifact which increases chance to find Fusion cards
-## TODO: Artifact which allows to enhance a card instead of resting
-## TODO: Artifact which allows to upgrade a memory instead of resting
 ## TODO. Scipt base doesn't exist yet
 #const DoubleMemory := {
 #	"canonical_name": "DoubleMemory",
@@ -808,7 +817,7 @@ const GENERIC := [
 	StrengthenUp,
 	QuickenUp,
 	EnhanceOnRest,
-
+	UpgradeMemoryOnRest,
 ]
 
 # Archetype-specific artifacts which only appear in runs in which
