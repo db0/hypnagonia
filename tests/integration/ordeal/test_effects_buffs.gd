@@ -286,7 +286,7 @@ class TestImpervious:
 		for torment in test_torments:
 			torment.intents.replace_intents(intents_to_test)
 			torment.intents.refresh_intents()
-		cfc.flush_cache()
+		cfc.call_deferred("flush_cache")
 		yield(yield_to(cfc, "cache_cleared", 0.2), YIELD)
 		assert_eq(test_torments.size(), 3)
 		for index in range(test_torments.size()):
