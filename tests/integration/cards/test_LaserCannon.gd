@@ -379,6 +379,24 @@ class TestNanoMachines:
 		assert_eq(hand.get_card_count(), 2, "Only 2 of the drawn cards are Fusion")
 
 
+	func test_card_results_with_fusion():
+		assert_has_amounts()
+		var c3 : DreamCard = cfc.instance_card("Interpretation")
+		deck.add_child(c3)
+		c3._determine_idle_state()
+		var c1 : DreamCard = cfc.instance_card("Cannon")
+		deck.add_child(c1)
+		c1._determine_idle_state()
+		var c2 : DreamCard = cfc.instance_card("Cannon")
+		deck.add_child(c2)
+		c2._determine_idle_state()
+		var sceng = snipexecute(card, test_torment)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		yield(yield_to(hand, "cards_fused", 1), YIELD)
+		assert_eq(hand.get_card_count(), 1, "Only 1 fused card left in hand")
+
+
 class TestSpareLens:
 	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.spare_lens.name

@@ -492,7 +492,7 @@ func _input(event):
 #		globals.player.add_memory(MemoryDefinitions.RandomChaos.canonical_name)
 		# warning-ignore:return_value_discarded
 #		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.streamlining.name, 2)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.streamlining.name, 2)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 15)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.heat_venting.name, 1, false, false, ['Debug'], 'high')
 		for pathos in Terms.RUN_ACCUMULATION_NAMES.values():
@@ -503,10 +503,7 @@ func _input(event):
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"Store in Mind",
-			"Store in Mind",
-			"Light Jump",
-			"Light Jump",
+			"Nano-Machines",
 		]:
 			var ce = CardEntry.new(c)
 			var card = ce.instance_self()
@@ -554,7 +551,7 @@ func _on_Debug_pressed() -> void:
 	for entity in get_tree().get_nodes_in_group("EnemyEntities"):
 		entity.damage = 1
 	for c in [
-		"Out of Reach"
+		"Nano-Machines"
 #			"Universal Component",
 #			"A Thousand Squeaks",
 	]:
@@ -567,6 +564,10 @@ func _on_Debug_pressed() -> void:
 #		cfc.NMAP.hand.draw_card(cfc.NMAP.deck)
 	# Deck cards
 	for c in [
+		"Butterfly",
+		"Cannon",
+		"Cannon",
+		"Butterfly",
 #		"Survival Mode",
 #		"Survival Mode",
 #		"Hyperfocus",
