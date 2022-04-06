@@ -233,7 +233,7 @@ class TestMultipleEffectsMethods:
 	var empower : CombatEffect
 	var advantage : CombatEffect
 	var armor : CombatEffect
-	var impervious : CombatEffect
+	var protection : CombatEffect
 	var strengthen : CombatEffect
 	var quicken : CombatEffect
 	var nothing_to_fear : CombatEffect
@@ -241,7 +241,7 @@ class TestMultipleEffectsMethods:
 		Terms.ACTIVE_EFFECTS.empower.name,
 		Terms.ACTIVE_EFFECTS.advantage.name,
 		Terms.ACTIVE_EFFECTS.poison.name,
-		Terms.ACTIVE_EFFECTS.impervious.name,
+		Terms.ACTIVE_EFFECTS.protection.name,
 		Terms.ACTIVE_EFFECTS.strengthen.name,
 		Terms.ACTIVE_EFFECTS.quicken.name,
 		Terms.ACTIVE_EFFECTS.nothing_to_fear.name,
@@ -249,7 +249,7 @@ class TestMultipleEffectsMethods:
 	var buff_names := [
 		Terms.ACTIVE_EFFECTS.empower.name,
 		Terms.ACTIVE_EFFECTS.advantage.name,
-		Terms.ACTIVE_EFFECTS.impervious.name,
+		Terms.ACTIVE_EFFECTS.protection.name,
 		Terms.ACTIVE_EFFECTS.strengthen.name,
 	]
 	var debuff_names := [
@@ -361,9 +361,9 @@ class TestMultipleEffectsMethods:
 		armor =  get_signal_parameters(ae, "effect_added")[0]
 		effect_nodes.append(armor)
 # warning-ignore:return_value_discarded
-		ae.mod_effect(Terms.ACTIVE_EFFECTS.impervious.name,6)
-		impervious  =  get_signal_parameters(ae, "effect_added")[0]
-		effect_nodes.append(impervious)
+		ae.mod_effect(Terms.ACTIVE_EFFECTS.protection.name,6)
+		protection  =  get_signal_parameters(ae, "effect_added")[0]
+		effect_nodes.append(protection)
 # warning-ignore:return_value_discarded
 		ae.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name,5)
 		strengthen  =  get_signal_parameters(ae, "effect_added")[0]
