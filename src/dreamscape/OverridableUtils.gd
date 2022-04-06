@@ -57,6 +57,7 @@ func populate_info_panels(card: Card, focus_info: DetailPanels) -> void:
 			format["double_amount"] = "2"
 			format["triple_amount"] = "3"
 			format["half_amount"] = "0.5"
+			format["imp_mark_pct"] = "25% per stack"
 			focus_info.add_info(
 					effect_entry.name,
 					effect_entry.description.format(format).\
