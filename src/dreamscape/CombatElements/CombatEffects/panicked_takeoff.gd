@@ -16,7 +16,7 @@ func _on_entity_damaged(entity, _amount, _trigger: Node, _tags: Array) -> void:
 			"effect_name": Terms.ACTIVE_EFFECTS.impervious.name,
 			"subject": "dreamer",
 			"modification": stacks * cfc.card_definitions[name]\
-			.get("_amounts",{}).get("concentration_stacks", 1),
+					.get("_amounts",{}).get("concentration_stacks", 1),
 			"tags": ["Combat Effect", "Concentration"],
 		},
 	]
