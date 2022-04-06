@@ -436,10 +436,13 @@ const PerturbationHeal := {
 const ImproveImpervious := {
 	"canonical_name": "ImproveImpervious",
 	"name": "Pet Eel",
-	"description": "{artifact_name}: At the start of the dreamer's turn, {impervious} is halved instead of removed.",
+	"description": "{artifact_name}: {impervious} {stress} reduction on the dreamer is increased.",
 	"icon": preload("res://assets/icons/artifacts/eel.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
+	"amounts": {
+		"per_stack_modifier": 0.03
+	},
 }
 
 const ImproveFortify := {

@@ -424,20 +424,37 @@ class TestThickExplosion:
 
 class TestImproveImpervious:
 	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
-	var effect_name = Terms.ACTIVE_EFFECTS.impervious.name
+	var effect = Terms.ACTIVE_EFFECTS.impervious.name
 	func _init() -> void:
 		testing_artifact_name = ArtifactDefinitions.ImproveImpervious.canonical_name
 
 	func test_artifact_effect():
 		if not assert_has_amounts():
 			return
-		var modification = 5
-		spawn_effect(dreamer, effect_name, modification)
-		turn.call("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
-		assert_eq(dreamer.active_effects.get_effect_stacks(effect_name),
-				modification / 2,
-				"%s only halved at start of turn due to %s" % [effect_name,artifact.name])
+		var modification = 4
+		var reduction = 1 - (3 * 0.28)
+		spawn_effect(dreamer, effect, modification)
+		var intents_to_test = [
+			{
+				"intent_scripts": ["Stress:100","Stress:100","Stress:100","Stress:100"],
+				"reshuffle": true,
+			},
+		]
+		for torment in test_torments:
+			torment.intents.replace_intents(intents_to_test)
+			torment.intents.refresh_intents()
+		cfc.call_deferred("flush_cache")
+		yield(yield_to(cfc, "cache_cleared", 0.4), YIELD)
+		var intents = test_torment.intents.get_children()
+		for iindex in range(intents.size()):
+			if iindex == 0:
+				assert_eq(intents[iindex].signifier_amount.text, str(100 * reduction), "Stress intent hitting %s should be decreased" % [effect])
+			if iindex == 1:
+				assert_eq(intents[iindex].signifier_amount.text, str(100 * reduction ), "Stress intent hitting %s should be decreased" % [effect])
+			if iindex == 2:
+				assert_eq(intents[iindex].signifier_amount.text, str(100 * (reduction + 0.28) ), "Stress intent hitting %s should be decreased" % [effect])
+			if iindex == 3:
+				assert_eq(intents[iindex].signifier_amount.text, str(100 * (reduction + (0.28 * 2)) ), "Stress intent hitting %s should be decreased" % [effect])
 
 class TestImproveFortify:
 	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
