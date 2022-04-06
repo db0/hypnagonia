@@ -93,12 +93,12 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.ACTIVE_EFFECTS.marked.name],
 		"Abilities": "{damage} for {damage_amount}. Apply {effect_stacks} {marked}\n"\
 				+ "Fuse {fuse_amount} -> MegaCannon",
-		"Cost": 1,
+		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Special",
 		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
-			"damage_amount": 14,
+			"damage_amount": 16,
 			"effect_stacks": 2,
 			"fuse_amount": 2,
 		},
@@ -115,12 +115,12 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.ACTIVE_EFFECTS.marked.name],
 		"Abilities": "{damage} for {damage_amount}. Apply {effect_stacks} {marked}\n"\
 				+ "Fuse {fuse_amount} -> MegaCannon",
-		"Cost": 1,
+		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Special",
 		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
-			"damage_amount": 17,
+			"damage_amount": 20,
 			"effect_stacks": 2,
 			"fuse_amount": 2,
 		},
@@ -134,12 +134,12 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.marked.name],
 		"Abilities": "{damage} for {damage_amount}. Apply {effect_stacks} {marked}",
-		"Cost": 1,
+		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Special",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 24,
+			"damage_amount": 21,
 			"effect_stacks": 3,
 		},
 		"_effects_info": {
@@ -153,12 +153,12 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.marked.name],
 		"Abilities": "{damage} for {damage_amount}. Apply {effect_stacks} {marked}",
-		"Cost": 1,
+		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Special",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 29,
+			"damage_amount": 26,
 			"effect_stacks": 3,
 		},
 		"_effects_info": {
@@ -249,8 +249,8 @@ const CARDS := {
 		"_rarity": "Special",
 		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
-			"damage_amount": 3,
-			"chain_amount": 5,
+			"damage_amount": 4,
+			"chain_amount": 3,
 			"fuse_amount": 2,
 		},
 		"_upgrades": [
@@ -269,7 +269,7 @@ const CARDS := {
 		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
 			"damage_amount": 4,
-			"chain_amount": 5,
+			"chain_amount": 4,
 			"fuse_amount": 2,
 		},
 		"_is_upgrade": true,
@@ -285,7 +285,7 @@ const CARDS := {
 		"_keywords": ["interpretation"],
 		"_amounts": {
 			"damage_amount": 5,
-			"chain_amount": 5,
+			"chain_amount": 3,
 			"fuse_amount": 2,
 		},
 		"_upgrades": [
@@ -302,8 +302,8 @@ const CARDS := {
 		"_rarity": "Rare",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 6,
-			"chain_amount": 5,
+			"damage_amount": 5,
+			"chain_amount": 4,
 			"fuse_amount": 2,
 		},
 		"_is_upgrade": true,
@@ -318,7 +318,7 @@ const CARDS := {
 		"_rarity": "Common",
 		"_keywords": ["confidence", "fuse"],
 		"_amounts": {
-			"defence_amount": 8,
+			"defence_amount": 7,
 			"fuse_amount": 2,
 		},
 		"_upgrade_threshold_modifier": 0,
@@ -339,7 +339,7 @@ const CARDS := {
 		"_rarity": "Common",
 		"_keywords": ["confidence", "fuse"],
 		"_amounts": {
-			"defence_amount": 11,
+			"defence_amount": 10,
 			"fuse_amount": 2,
 		},
 		"_is_upgrade": true,
@@ -355,7 +355,7 @@ const CARDS := {
 		"_rarity": "Common",
 		"_keywords": ["confidence", "fuse"],
 		"_amounts": {
-			"defence_amount": 6,
+			"defence_amount": 5,
 			"fuse_amount": 2,
 		},
 		"_is_upgrade": true,
@@ -371,7 +371,7 @@ const CARDS := {
 		"_rarity": "Common",
 		"_keywords": ["confidence", "fuse"],
 		"_amounts": {
-			"defence_amount": 9,
+			"defence_amount": 8,
 			"fuse_amount": 2,
 		},
 		"_is_upgrade": true,
@@ -382,12 +382,12 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "Gain {defence_amount} {confidence}\nGain {effect_stacks} {fortify}\n"\
 				+ "Fuse {fuse_amount} -> Plasma Shield",
-		"Cost": 1,
+		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Special",
 		"_keywords": ["confidence", "fuse"],
 		"_amounts": {
-			"defence_amount": 14,
+			"defence_amount": 15,
 			"effect_stacks": 1,
 			"fuse_amount": 2,
 		},
@@ -405,12 +405,12 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "Gain {defence_amount} {confidence}\nGain {effect_stacks} {fortify}\n"\
 				+ "Fuse {fuse_amount} -> Plasma Shield",
-		"Cost": 1,
+		"Cost": 2,
 		"_illustration": "Nobody",
 			"_rarity": "Special",
 		"_keywords": ["confidence", "fuse"],
 		"_amounts": {
-			"defence_amount": 17,
+			"defence_amount": 18,
 			"effect_stacks": 1,
 			"fuse_amount": 2,
 		},
@@ -424,12 +424,12 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "Gain {defence_amount} {confidence}\nGain {effect_stacks} {fortify}",
-		"Cost": 1,
+		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Special",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"defence_amount": 20,
+			"defence_amount": 22,
 			"effect_stacks": 3,
 		},
 		"_effects_info": {
@@ -449,7 +449,7 @@ const CARDS := {
 		"_rarity": "Special",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"defence_amount": 23,
+			"defence_amount": 27,
 			"effect_stacks": 3,
 		},
 		"_effects_info": {
