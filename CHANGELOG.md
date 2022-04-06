@@ -1,5 +1,17 @@
 # Changelog
 
+## [v0.47.0](https://github.com/db0/hypnagonia/tree/v0.47.0) (2022-04-06)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.46.0...v0.47.0)
+
+**Fixed bugs:**
+
+- Perturbation "Lethe" seems to break memories [\#275](https://github.com/db0/hypnagonia/issues/275)
+
+**Merged pull requests:**
+
+- Big Rebalance Change [\#277](https://github.com/db0/hypnagonia/pull/277) ([db0](https://github.com/db0))
+
 ## [v0.46.0](https://github.com/db0/hypnagonia/tree/v0.46.0) (2022-04-05)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.45.0...v0.46.0)
