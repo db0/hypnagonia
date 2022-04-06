@@ -51,8 +51,12 @@ func _set_current_description() -> void:
 
 
 func _use():
+	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+		print("DEBUG INFO:Memory: About to use: " + canonical_name)
 	# TODO: Make Lethe turn the memory highlight red
 	if cfc.NMAP.has('hand') and cfc.NMAP.hand.has_card_name("Lethe"):
+		if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+			print("DEBUG INFO:Memory use aborted because Lethe in hand")
 		return
 	var sceng = execute_memory_effect()
 	if sceng is GDScriptFunctionState:

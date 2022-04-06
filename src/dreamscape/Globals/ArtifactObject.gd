@@ -19,6 +19,8 @@ var context: int
 var modifiers := {}
 
 func _init(artifact_name: String, _mods := {}) -> void:
+	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+		print("DEBUG INFO:Adding Artifact: " + artifact_name)
 	artifact_scene = ARTIFACT_SCENE
 	if globals.test_flags.get("artifact_defintions", {}).has(artifact_name):
 		definition = globals.test_flags.memory_defintions[artifact_name]
