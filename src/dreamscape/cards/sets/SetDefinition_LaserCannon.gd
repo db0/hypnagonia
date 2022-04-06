@@ -140,7 +140,7 @@ const CARDS := {
 		"_keywords": ["interpretation"],
 		"_amounts": {
 			"damage_amount": 21,
-			"effect_stacks": 3,
+			"effect_stacks": 4,
 		},
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.marked.name: Terms.ENEMY
@@ -159,7 +159,7 @@ const CARDS := {
 		"_keywords": ["interpretation"],
 		"_amounts": {
 			"damage_amount": 26,
-			"effect_stacks": 3,
+			"effect_stacks": 4,
 		},
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.marked.name: Terms.ENEMY
