@@ -208,8 +208,10 @@ class TestFortify:
 class TestImpervious:
 	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.impervious.name
-	var amount := 3
-	var modified_dmg = DMG
+	var amount := 4
+	var reduction_per_stack = 0.25
+	var reduction = 0.25
+	var modified_dmg = int(round(DMG * reduction))
 	func _init() -> void:
 		torments_amount = 3
 		test_card_names = [
@@ -229,21 +231,22 @@ class TestImpervious:
 				"Torment should have 1 intents displayed")
 		for prediction in test_torment.incoming.get_children():
 			assert_true(prediction.signifier_amount.visible, "Damage amount should be visible")
-			assert_eq(prediction.signifier_amount.text, str(modified_dmg), "Card damage should not be affected")
+			assert_eq(prediction.signifier_amount.text, str(DMG), "Card damage should not be affected")
 		yield(target_entity(card, test_torment), "completed")
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
-		assert_eq(test_torment.damage, starting_torment_dgm + modified_dmg, "Torment should take damage")
-		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 3,
+		assert_eq(test_torment.damage, tdamage(DMG), "Torment should take damage")
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 4,
 				"%s stacks not modified by own attacks" % [effect])
 		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
-		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 0,
-				"Dreamer should have used all %s stacks" % [effect])
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect), amount / 2,
+				"Stacks %s should be halved" % [effect])
 
 	func test_impervious_on_multiple_torments():
 		card.scripts = MULTI_ATTACK_SCRIPT
 		spawn_effect(test_torments[0], effect, 2, '')
+		var modified_dmg = int(round(DMG * 0.5))
 #		drag_card(card,card.global_position)
 		card._start_dragging(Vector2(0,0))
 		yield(yield_to(get_tree(), "idle_frame", 0.1), YIELD)
@@ -251,17 +254,17 @@ class TestImpervious:
 			var predictions = test_torments[index].incoming.get_children()
 			for iindex in range(predictions.size()):
 				if index == 0:
-					assert_eq(predictions[iindex].signifier_amount.text, '0', "Card DMG hitting %s should be 0" % [effect])
+					assert_eq(predictions[iindex].signifier_amount.text, str(modified_dmg), "Card DMG hitting %s should be reduced" % [effect])
 				else:
-					assert_eq(predictions[iindex].signifier_amount.text, str(modified_dmg), "Card DMG should be %s" % [modified_dmg])
+					assert_eq(predictions[iindex].signifier_amount.text, str(DMG), "Card DMG should be %s" % [modified_dmg])
 		var sceng = card.execute_scripts()
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
 		for index in range(test_torments.size()):
 			if index == 0:
-				assert_eq(test_torments[index].damage, starting_torment_dgm, "Torment should not take damage")
+				assert_eq(test_torments[index].damage, tdamage(modified_dmg), "Torment should not take reduced damage")
 			else:
-				assert_eq(test_torments[index].damage, starting_torment_dgm + modified_dmg, "Torment should take damage")
+				assert_eq(test_torments[index].damage, tdamage(DMG), "Torment should take damage")
 		assert_eq(test_torments[0].active_effects.get_effect_stacks(effect), 1,
 				"%s stacks modified by card attack" % [effect])
 
@@ -276,7 +279,7 @@ class TestImpervious:
 	func test_impervious_and_intents():
 		var intents_to_test = [
 			{
-				"intent_scripts": ["Stress:3","Stress:3","Stress:3"],
+				"intent_scripts": ["Stress:4","Stress:4","Stress:4"],
 				"reshuffle": true,
 			},
 		]
@@ -290,17 +293,29 @@ class TestImpervious:
 			var intents = test_torments[index].intents.get_children()
 			for iindex in range(intents.size()):
 				if index == 0:
-					assert_eq(intents[iindex].signifier_amount.text, '0', "Stress intent hitting %s should be 0" % [effect])
+					if iindex == 0:
+						assert_eq(intents[iindex].signifier_amount.text, str(4 * reduction), "Stress intent hitting %s should be decreased" % [effect])
+					if iindex == 1:
+						assert_eq(intents[iindex].signifier_amount.text, str(4 * reduction ), "Stress intent hitting %s should be decreased" % [effect])
+					if iindex == 2:
+						assert_eq(intents[iindex].signifier_amount.text, str(4 * (reduction + reduction_per_stack) ), "Stress intent hitting %s should be decreased" % [effect])
+				elif index == 1:
+					if iindex == 0:
+						assert_eq(intents[iindex].signifier_amount.text, str(4 * (reduction + reduction_per_stack * 2) ), "Stress intent hitting %s should be decreased" % [effect])
+					if iindex == 1:
+						assert_eq(intents[iindex].signifier_amount.text, '4', "Stress intent should be 4")
+					if iindex == 2:
+						assert_eq(intents[iindex].signifier_amount.text, '4', "Stress intent should be 4")
 				else:
-					assert_eq(intents[iindex].signifier_amount.text, '3', "Stress intent should be 3")
+					assert_eq(intents[iindex].signifier_amount.text, '4', "Stress intent should be 4")
 		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
-		assert_eq(dreamer.damage, 18,
+		assert_eq(dreamer.damage, 4 * 5 + 3 + 2 + 1 + 1,
 				"%s prevented stress" % [effect])
 
 	func test_advantage_opposite():
 		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.marked.name, 2,  '')
-		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 1,
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 2,
 				"%s counters %s" % [effect, Terms.ACTIVE_EFFECTS.marked.name])
 
 

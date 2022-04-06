@@ -97,6 +97,11 @@ func _set_current_description() -> void:
 	format["half_amount"] = str(stacks/2)
 	format["increased"] = "increased"
 	format["upgrade"] = upgrade
+	# Impervious/Marked effects max out at 3 stacks.
+	var imp_mark_stacks = stacks
+	if imp_mark_stacks > 3:
+		imp_mark_stacks = 3
+	format["imp_mark_pct"] = str(imp_mark_stacks * 0.25 * 100) + '%'
 	if stacks < 0:
 		format["increased"] = "decreased"
 		format["amount"] = str(abs(stacks))

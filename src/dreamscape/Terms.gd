@@ -219,13 +219,27 @@ const ACTIVE_EFFECTS := {
 		"name": "Untouchable",
 		"type": "Buff",
 		"self_decreasing": SELF_DECREASE.TURN_START,
-		"decrease_type": DECREASE_TYPE.ZERO,
-		"alterant_priority": ALTERANT_PRIORITY.SET,
+		"decrease_type": DECREASE_TYPE.HALVE,
+		"alterant_priority": ALTERANT_PRIORITY.MULTIPLY,
 		"icon": preload("res://assets/icons/dodging.png"),
-		"generic_description": "{effect_name}: Prevents all {stress} from Torments",
+		"generic_description": "{effect_name}: Each stack reduces {opponent_attack} by 25% to a maximum of 75%",
 		"rich_text_icon": "res://fonts/rich_text_icons/dodging.png",
-		"description": "{effect_name} ({effect_icon}): The next {amount} {opponent_attack} does not increase {health}.\n"\
-				+ "Remove all stacks at the start of the turn."
+		"description": "{effect_name} ({effect_icon}): The next {opponent_attack} is reduced by {imp_mark_pct}.\n"\
+				+ "Halve (rounded down) the amount of these stacks at the start of the turn.\n"\
+				+ "(Each stack increases reduction by 25% to a max of 75%. Each {opponent_attack} removes one stack. )"
+	},
+	"marked": {
+		"name": "Prominent",
+		"type": "Debuff",
+		"self_decreasing": SELF_DECREASE.TURN_START,
+		"decrease_type": DECREASE_TYPE.HALVE,
+		"alterant_priority": ALTERANT_PRIORITY.MULTIPLY,
+		"icon": preload("res://assets/icons/light-projector.png"),
+		"generic_description": "{effect_name}: Each stack increases {attack} by 25% on this {entity} to a maximum of 75%",
+		"rich_text_icon": "res://fonts/rich_text_icons/light-projector.png",
+		"description": "{effect_name} ({effect_icon}): The next {opponent_attack} on this {entity} is increased by {imp_mark_pct}.\n"\
+				+ "Halve (rounded down) the amount of these stacks at the start of the turn.\n"\
+				+ "(Each stack increases {opponent_attack} by 25% to a max of 75%. Each {opponent_attack} removes one stack.)"
 	},
 	"poison": {
 		"name": "Doubt",
@@ -266,18 +280,6 @@ const ACTIVE_EFFECTS := {
 		"rich_text_icon": "res://fonts/rich_text_icons/cracked-shield.png",
 		"description": "{effect_name} ({effect_icon}): {defence} added to this {entity} is reduced by 25%.\n" \
 				+ "Reduce these stacks by 1 at the end of the turn."
-	},
-	"marked": {
-		"name": "Prominent",
-		"type": "Debuff",
-		"self_decreasing": SELF_DECREASE.TURN_START,
-		"decrease_type": DECREASE_TYPE.REDUCE,
-		"alterant_priority": ALTERANT_PRIORITY.MULTIPLY,
-		"icon": preload("res://assets/icons/light-projector.png"),
-		"generic_description": "{effect_name}: Increases Interpretation on specific Torments.",
-		"rich_text_icon": "res://fonts/rich_text_icons/light-projector.png",
-		"description": "{effect_name} ({effect_icon}): {damage} done to this {entity} by {opponent_attack} is increased by 50%.\n" \
-				+ "Reduce these stacks by 1 at the start of the turn."
 	},
 	"thorns": {
 		"name": "Grudge",
