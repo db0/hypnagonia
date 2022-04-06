@@ -211,12 +211,6 @@ const OutofReach = {
 					"value_key": "effect_stacks"
 				},
 			},
-			{
-				"name": "move_card_to_container",
-				"subject": "self",
-				"dest_container": "forgotten",
-				"tags": ["Played", "Card"],
-			},
 		],
 	},
 }
@@ -1848,12 +1842,6 @@ const Dodge = {
 					"lookup_property": "_amounts",
 					"value_key": "effect_stacks"
 				},
-				"filter_dreamer_defence": {
-					"lookup_property": "_amounts",
-					"value_key": "min_requirements_amount"
-				},
-				"comparison": "ge",
-				"fail_cost_on_skip": true,
 			},
 		],
 	},

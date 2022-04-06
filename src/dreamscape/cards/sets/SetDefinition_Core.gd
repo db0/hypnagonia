@@ -130,8 +130,8 @@ const CARDS := {
 	},
 	"Out of Reach": {
 		"Type": "Control",
-		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Gain {effect_stacks} {impervious}\n{forget}.",
+		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
+		"Abilities": "Gain {effect_stacks} {impervious}.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -150,7 +150,7 @@ const CARDS := {
 	"@ Out of Reach @": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
-		"Abilities": "Gain {effect_stacks} {impervious}\n{forget}.",
+		"Abilities": "Gain {effect_stacks} {impervious}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -165,7 +165,7 @@ const CARDS := {
 	"* Out of Reach *": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
-		"Abilities": "Gain {effect_stacks} {impervious}\n{forget}.",
+		"Abilities": "Gain {effect_stacks} {impervious}.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -1713,7 +1713,7 @@ const CARDS := {
 		"_keywords": ["interpretation", "overcome"],
 		"_amounts": {
 			"damage_amount": 12,
-			"effect_stacks": 2,
+			"effect_stacks": 3,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -1734,7 +1734,7 @@ const CARDS := {
 		"_keywords": ["interpretation", "overcome"],
 		"_amounts": {
 			"damage_amount": 16,
-			"effect_stacks": 2,
+			"effect_stacks": 3,
 		},
 		"_is_upgrade": true,
 	},
@@ -1751,7 +1751,7 @@ const CARDS := {
 		"_keywords": ["interpretation", "overcome"],
 		"_amounts": {
 			"damage_amount": 11,
-			"effect_stacks": 2,
+			"effect_stacks": 3,
 		},
 		"_is_upgrade": true,
 	},
@@ -3142,8 +3142,8 @@ const CARDS := {
 	"Dodge": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
-		"Abilities": "Requires at least {min_requirements_amount} {confidence} to play.\nGain {effect_stacks} {untouchable}",
-		"Cost": 1,
+		"Abilities": "Gain {effect_stacks} {untouchable}",
+		"Cost": 0,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
@@ -3151,7 +3151,6 @@ const CARDS := {
 		"_rarity": "Common",
 		"_amounts": {
 			"effect_stacks": 1,
-			"min_requirements_amount": 5
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -3162,8 +3161,8 @@ const CARDS := {
 	"% Dodge %": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
-		"Abilities": "Requires at least {min_requirements_amount} {confidence} to play.\nGain {effect_stacks} {untouchable}",
-		"Cost": 1,
+		"Abilities": "Gain {effect_stacks} {untouchable}",
+		"Cost": 0,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
@@ -3171,15 +3170,14 @@ const CARDS := {
 		"_rarity": "Common",
 		"_amounts": {
 			"effect_stacks": 1,
-			"min_requirements_amount": 2
 		},
 		"_is_upgrade": true,
 	},
 	"* Dodge *": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
-		"Abilities": "Requires at least {min_requirements_amount} {confidence} to play.\nGain {effect_stacks} {untouchable}",
-		"Cost": 1,
+		"Abilities": "Gain {effect_stacks} {untouchable}",
+		"Cost": 0,
 		"_illustration": "Nobody",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
@@ -3187,7 +3185,6 @@ const CARDS := {
 		"_rarity": "Common",
 		"_amounts": {
 			"effect_stacks": 2,
-			"min_requirements_amount": 5
 		},
 		"_is_upgrade": true,
 	},
@@ -3216,9 +3213,6 @@ const CARDS := {
 		"Abilities": "At the end of the next {turns_amount} turns where you have not played any {attack_card} cards, {relax} for {concentration_healing}.",
 		"Cost": 1,
 		"_illustration": "Maria Thoukydidou",
-		"_effects_info": {
-			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
-		},
 		"_rarity": "Uncommon",
 		"_amounts": {
 			"turns_amount": 3,
@@ -3232,9 +3226,6 @@ const CARDS := {
 		"Abilities": "At the end of the next {turns_amount} turns where you have not played more than 1 {attack_card} card, {relax} for {concentration_healing}",
 		"Cost": 1,
 		"_illustration": "Maria Thoukydidou",
-		"_effects_info": {
-			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
-		},
 		"_rarity": "Uncommon",
 		"_amounts": {
 			"turns_amount": 4,
@@ -5589,7 +5580,7 @@ const CARDS := {
 	"Launch": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name, Terms.ACTIVE_EFFECTS.burn.name],
-		"Abilities": "Gain X {impervious}\n"\
+		"Abilities": "Gain X * {effect_stacks} {impervious}\n"\
 				+ "If X is at least {x_requirement}, all Torments gain {effect_stacks2} {burn}",
 		"Cost": 'X',
 		"_illustration": "Nobody",
@@ -5600,7 +5591,7 @@ const CARDS := {
 		},
 		"_keywords": [],
 		"_amounts": {
-			"effect_stacks": 1,
+			"effect_stacks": 2,
 			"effect_stacks2": 2,
 			"x_requirement": 1,
 		},
@@ -5629,7 +5620,7 @@ const CARDS := {
 		},
 		"_keywords": [],
 		"_amounts": {
-			"effect_stacks": 2,
+			"effect_stacks": 3,
 			"effect_stacks2": 2,
 			"x_requirement": 1,
 		},
@@ -5653,7 +5644,7 @@ const CARDS := {
 		},
 		"_keywords": [],
 		"_amounts": {
-			"effect_stacks": 1,
+			"effect_stacks": 2,
 			"effect_stacks2": 3,
 			"x_requirement": 1,
 		},
@@ -5677,7 +5668,7 @@ const CARDS := {
 		},
 		"_keywords": [],
 		"_amounts": {
-			"effect_stacks": 1,
+			"effect_stacks": 2,
 			"effect_stacks2": 2,
 			"x_requirement": 0,
 		},
@@ -5700,7 +5691,7 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER,
 		},
 		"_amounts": {
-			"damage_amount": 9,
+			"damage_amount": 6,
 			"per_modifier": 1,
 		},
 		"_upgrade_threshold_modifier": 0,
@@ -5722,7 +5713,7 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER,
 		},
 		"_amounts": {
-			"damage_amount": 12,
+			"damage_amount": 9,
 			"per_modifier": 1,
 		},
 		"_is_upgrade": true,
@@ -5740,7 +5731,7 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER,
 		},
 		"_amounts": {
-			"damage_amount": 10,
+			"damage_amount": 7,
 			"per_multiplier": 2,
 		},
 		"_is_upgrade": true,
@@ -5757,7 +5748,7 @@ const CARDS := {
 		"_keywords": [""],
 		"_rarity": "Rare",
 		"_amounts": {
-			"concentration_stacks": 1,
+			"concentration_stacks": 2,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -5777,7 +5768,7 @@ const CARDS := {
 		"_keywords": [""],
 		"_rarity": "Rare",
 		"_amounts": {
-			"concentration_stacks": 1,
+			"concentration_stacks": 2,
 		},
 		"_is_upgrade": true,
 	},
@@ -5794,7 +5785,7 @@ const CARDS := {
 		"_keywords": [""],
 		"_rarity": "Rare",
 		"_amounts": {
-			"concentration_stacks": 1,
+			"concentration_stacks": 2,
 			"concentration_cards": 1,
 		},
 		"_is_upgrade": true,
