@@ -593,7 +593,7 @@ const ADMINISTRATION := {
 			"reshuffle": false,
 		},
 		{
-			"intent_scripts": ["Debuff:1:marked", "Summon Minion 1"],
+			"intent_scripts": ["Debuff:4:marked", "Summon Minion 1"],
 			"reshuffle": false,
 			"max_uses": 5,
 		},
@@ -789,7 +789,7 @@ const HANDSY_AUNT := {
 		},
 		{
 			"id": "mark",
-			"intent_scripts": ["Perplex:15", "Stress:8", "Debuff:1:marked"],
+			"intent_scripts": ["Perplex:15", "Stress:8", "Debuff:2:marked"],
 			"reshuffle": false,
 			"sets_up_intent": "babble",
 		},

@@ -233,7 +233,7 @@ const CARDS := {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {effect_stacks} {untouchable}. {forget}",
-		"Cost": 1,
+		"Cost": 0,
 		"_illustration": "DioBal",
 		"_rarity": "Received",
 		"_effects_info": {
@@ -241,15 +241,15 @@ const CARDS := {
 		},
 		"_keywords": ["forget"],
 		"_amounts": {
-			"effect_stacks": 2,
+			"effect_stacks": 3,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
-			"@ The Laughing One @",
+			"* The Laughing One *",
 			"ROFLMAO",
 		],
 	},
-	"@ The Laughing One @": {
+	"* The Laughing One *": {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {effect_stacks} {untouchable}. {forget}",
@@ -261,7 +261,7 @@ const CARDS := {
 		},
 		"_keywords": ["forget"],
 		"_amounts": {
-			"effect_stacks": 2,
+			"effect_stacks": 4,
 		},
 		"_is_upgrade": true,
 	},

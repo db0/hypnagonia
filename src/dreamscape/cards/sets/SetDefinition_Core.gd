@@ -4958,7 +4958,7 @@ const CARDS := {
 		},
 		"_amounts": {
 			"effect_stacks": 3,
-			"effect_stacks2": 3,
+			"effect_stacks2": 6,
 		},
 		"_amount_purpose_map": {
 			"effect_stacks": Terms.ACTIVE_EFFECTS.disempower.name,
@@ -4989,7 +4989,7 @@ const CARDS := {
 		},
 		"_amounts": {
 			"effect_stacks": 5,
-			"effect_stacks2": 5,
+			"effect_stacks2": 10,
 		},
 		"_amount_purpose_map": {
 			"effect_stacks": Terms.ACTIVE_EFFECTS.disempower.name,
@@ -5016,7 +5016,7 @@ const CARDS := {
 		},
 		"_amounts": {
 			"effect_stacks": 2,
-			"effect_stacks2": 2,
+			"effect_stacks2": 4,
 		},
 		"_amount_purpose_map": {
 			"effect_stacks": Terms.ACTIVE_EFFECTS.disempower.name,
