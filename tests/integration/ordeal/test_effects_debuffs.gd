@@ -286,7 +286,7 @@ class TestMarked:
 				"%s stacks not modified by own attacks" % [effect])
 		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
-		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 1,
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 2,
 				"Dreamer should halved stack %s" % [effect])
 
 	func test_marked_on_multiple_torments():
