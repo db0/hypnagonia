@@ -497,7 +497,7 @@ func _input(event):
 		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.HealSelf.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.BossFaster.canonical_name)
-#		var card_entry = globals.player.deck.add_new_card("The Whippy-Flippy")
+		var card_entry = globals.player.deck.add_new_card("Universal Component")
 #		card_entry.upgrade_progress = card_entry.upgrade_threshold
 #		var new_card = globals.player.deck.add_new_card("Store in Mind")
 #		new_card.modify_property("_amounts", {"amount_key": "beneficial_integer", "amount_value": "+1"})
