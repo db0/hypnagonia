@@ -1950,7 +1950,7 @@ const CARDS := {
 			"effect_stacks": 1,
 			"defence_amount": 7,
 		},
-		"_upgrade_threshold_modifier": 3,
+		"_upgrade_threshold_modifier": 5,
 		"_upgrades": [
 			"+ Loop de loop +",
 			"* Loop de loop *",
@@ -5877,7 +5877,7 @@ const CARDS := {
 		"_keywords": ["confidence", "anxiety"],
 		"_amounts": {
 			"effect_stacks": 1,
-			"defence_amount": 12,
+			"defence_amount": 13,
 			"max_requirements_amount": 25,
 		},
 		"_upgrade_threshold_modifier": 0,
@@ -5901,7 +5901,7 @@ const CARDS := {
 		"_keywords": ["confidence", "anxiety"],
 		"_amounts": {
 			"effect_stacks": 1,
-			"defence_amount": 16,
+			"defence_amount": 17,
 			"max_requirements_amount": 25,
 		},
 		"_is_upgrade": true,
@@ -5920,7 +5920,7 @@ const CARDS := {
 		"_keywords": ["confidence", "anxiety"],
 		"_amounts": {
 			"effect_stacks": 1,
-			"defence_amount": 14,
+			"defence_amount": 15,
 			"max_requirements_amount": 35,
 		},
 		"_is_upgrade": true,
@@ -5939,7 +5939,7 @@ const CARDS := {
 		"_keywords": ["confidence", "anxiety"],
 		"_amounts": {
 			"effect_stacks": 2,
-			"defence_amount": 14,
+			"defence_amount": 15,
 			"max_requirements_amount": 15,
 		},
 		"_is_upgrade": true,

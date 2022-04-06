@@ -1348,10 +1348,10 @@ const CARDS := {
 		"_rarity": "Basic",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"defence_amount": 8,
+			"defence_amount": 7,
 			"discard_amount": 1,
 		},
-		"_upgrade_threshold_modifier": 0,
+		"_upgrade_threshold_modifier": 3,
 		"_upgrades": [
 			"+ Light Jump +",
 			"@ Light Jump @",
@@ -1367,7 +1367,7 @@ const CARDS := {
 		"_rarity": "Basic",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"defence_amount": 11,
+			"defence_amount": 10,
 			"discard_amount": 1,
 		},
 		"_is_upgrade": true,
@@ -1382,7 +1382,7 @@ const CARDS := {
 		"_rarity": "Basic",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"defence_amount": 5,
+			"defence_amount": 4,
 			"discard_amount": 1,
 		},
 		"_is_upgrade": true,
