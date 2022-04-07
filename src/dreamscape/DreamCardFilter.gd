@@ -19,4 +19,11 @@ func custom_check(card_properties: Dictionary) -> bool:
 		# If any exist, then we're good
 		if amount_keys.size():
 			card_matches = true
+	if custom_filter == 'compare_amounts':
+		var amounts = card_properties.get("_amounts", {})
+		if amounts.has(property) and CFUtils.compare_numbers(
+				amounts[property],
+				filter,
+				comparison):
+			card_matches = true
 	return(card_matches)

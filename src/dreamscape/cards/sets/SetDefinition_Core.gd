@@ -514,7 +514,7 @@ const CARDS := {
 		"_rarity": "Basic",
 		"_amounts": {
 			"immersion_amount": 3,
-			"exert_amount": 1,
+			"exert_amount": 2,
 		},
 		"_is_upgrade": true,
 	},
@@ -3437,8 +3437,8 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["anxiety"],
 		"_amounts": {
-			"exert_amount": 4,
-			"immersion_amount": 3,
+			"exert_amount": 3,
+			"immersion_amount": 2,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -3456,8 +3456,8 @@ const CARDS := {
 		"_keywords": ["anxiety"],
 		"_rarity": "Uncommon",
 		"_amounts": {
-			"exert_amount": 1,
-			"immersion_amount": 3,
+			"exert_amount": 5,
+			"immersion_amount": 5,
 		},
 		"_is_upgrade": true,
 	},
@@ -3470,8 +3470,8 @@ const CARDS := {
 		"_keywords": ["anxiety"],
 		"_rarity": "Uncommon",
 		"_amounts": {
-			"exert_amount": 4,
-			"immersion_amount": 4,
+			"exert_amount": 3,
+			"immersion_amount": 3,
 		},
 		"_is_upgrade": true,
 	},
