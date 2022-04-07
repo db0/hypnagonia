@@ -6,7 +6,6 @@ func _ready() -> void:
 			yield(cfc, "all_nodes_mapped")
 		if not cfc.NMAP.board.dreamer:
 			yield(cfc.NMAP.board, "ready")
-		cfc.NMAP.board.dreamer.stop_upgrades()
 
 
 func _on_player_turn_started(_turn: Turn = null) -> void:
