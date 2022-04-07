@@ -133,12 +133,12 @@ static func get_amounts_format(properties_dict: Dictionary, printed_properties_d
 		var amount_color = "yellow"
 		if printed_amounts_format.has(amount):
 			if amounts_format[amount] > printed_amounts_format[amount]:
-				if amount in CardModifications.DETRIMENTAL_INTEGERS + CardModifications.DETRIMENTAL_FLOATS:
+				if amount in HConst.DETRIMENTAL_INTEGERS + HConst.DETRIMENTAL_FLOATS:
 					amount_color = "red"
 				else:
 					amount_color = "green"
 			elif amounts_format[amount] < printed_amounts_format[amount]:
-				if amount in CardModifications.DETRIMENTAL_INTEGERS + CardModifications.DETRIMENTAL_FLOATS:
+				if amount in HConst.DETRIMENTAL_INTEGERS + HConst.DETRIMENTAL_FLOATS:
 					amount_color = "green"
 				else:
 					amount_color = "red"
