@@ -24,7 +24,7 @@ func assemble_starting_deck() -> void:
 				Perturbations.get_archetype_perturbations_chance())
 		add_new_card(rng_perturbation)
 	if globals.difficulty.unremovable_perturbation:
-		add_new_card("Hybris")
+		add_new_card("Hubris")
 
 
 func update_card_group(type: String, card_group: String) -> void:

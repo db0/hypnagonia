@@ -14,7 +14,7 @@ class TestCardDefinitions:
 		var known_unscripted_card_names = [
 			"GUT",
 			"Lacuna",
-			"Hybris",
+			"Hubris",
 			"Distracted",
 			"Universal Component",
 		]

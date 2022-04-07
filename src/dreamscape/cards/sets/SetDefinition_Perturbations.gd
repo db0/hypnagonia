@@ -224,7 +224,7 @@ const CARDS := {
 		},
 		"_keywords": [],
 	},
-	"Hybris": {
+	"Hubris": {
 		"Type": "Perturbation",
 		"Tags": [],
 		"Abilities": "Cannot be released from the deck.\n{unplayable}",
