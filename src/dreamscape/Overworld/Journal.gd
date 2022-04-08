@@ -519,14 +519,14 @@ func _input(event):
 		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, 48)
 #		globals.player.damage = 85
 		var debug_encounters = [
-#			EnemyEncounter.new(Act1.TheCritic, "medium"),
+			EnemyEncounter.new(Act1.TheLaughingOnes, "hard"),
 #			EnemyEncounter.new(Act2.TrafficJam, "easy"),
 			EnemyEncounter.new(Act3.Circular_Arguments, "medium"),
 #			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
 			preload("res://src/dreamscape/Run/NCE/AllActs/EpicUpgrade.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act3/TheCake.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act2/HangingOn.gd").new(),
-			preload("res://src/dreamscape/Run/NCE/Act1/SleepOfOblivion.gd").new(),
+			preload("res://src/dreamscape/Run/NCE/Act1/PopPsychologist1.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
 #			BossEncounter.new(Act2.BOSSES["Surreality"]),
 			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
