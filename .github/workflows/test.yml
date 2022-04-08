@@ -1,0 +1,57 @@
+name: Prepare New Release
+
+on:
+  push:
+    branches:
+      - steam_upload
+
+
+jobs:
+  steam_test:
+    runs-on: ubuntu-latest
+    name: Export Game
+    steps:
+    - name: "✔️ Checkout"
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: "🤖 Export game"
+      uses: firebelley/godot-export@v3.0.0
+      with:
+        godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/3.4/Godot_v3.4-stable_linux_headless.64.zip
+        godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/3.4/Godot_v3.4-stable_export_templates.tpz
+        relative_project_path: ./
+        base_version: "0.47.0"
+        create_release: false
+        archive_export_output: true
+        export_debug: true
+    - name: "🛠 Prepare files for upload to itch.io"
+      shell: bash
+      run: |
+          cp -v /home/runner/.local/share/godot/dist/* .
+          mkdir -p build/StandaloneWindows64
+          mkdir -p build/StandaloneLinux64
+          mkdir -p build/StandaloneMacOS
+          cp '/home/runner/.local/share/godot/builds/LinuxX11/Hypnagonia_Linux.x86_64' .
+          cp '/home/runner/.local/share/godot/builds/LinuxX11/Hypnagonia_Linux.x86_64' build/StandaloneLinux64/
+          cp '/home/runner/.local/share/godot/builds/LinuxX11 Lite/Hypnagonia_Linux_Lite.x86_64' .
+          cp '/home/runner/.local/share/godot/builds/Windows Desktop/Hypnagonia_Windows.exe' .
+          cp '/home/runner/.local/share/godot/builds/Windows Desktop/Hypnagonia_Windows.exe' build/StandaloneWindows64/
+          cp '/home/runner/.local/share/godot/builds/Windows Desktop Lite/Hypnagonia_Windows_Lite.exe' .
+          cp '/home/runner/.local/share/godot/builds/Mac OSX/Hypnagonia_MacOSX.zip' .
+          cp '/home/runner/.local/share/godot/builds/Mac OSX/Hypnagonia_MacOSX.zip' build/StandaloneMacOS/
+          ls -larth
+    - uses: game-ci/steam-deploy@v1
+      with:
+        username: ${{ secrets.STEAM_USERNAME }}
+        password: ${{ secrets.STEAM_PASSWORD }}
+        configVdf: ${{ secrets.STEAM_CONFIG_VDF}}
+        ssfnFileName: ${{ secrets.STEAM_SSFN_FILE_NAME }}
+        ssfnFileContents: ${{ secrets.STEAM_SSFN_FILE_CONTENTS }}
+        appId: 1962610
+        buildDescription: "0.47.0"
+        rootPath: build
+        depot1Path: StandaloneWindows64
+        depot2Path: StandaloneLinux64
+        depot3Path: StandaloneMacOS
+        releaseBranch: prerelease
