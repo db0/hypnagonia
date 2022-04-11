@@ -1249,6 +1249,11 @@ const CARDS := {
 			"@ Towering Presence @",
 			"Overwhelming Presence",
 		],
+		"_difficulty_cost_adjustment": {
+			"permanent_defence": {
+				true: 3
+			}
+		}
 	},
 	"@ Towering Presence @": {
 		"Type": "Action",
@@ -1259,6 +1264,11 @@ const CARDS := {
 		"_rarity": "Common",
 		"_keywords": ["confidence", "interpretation"],
 		"_is_upgrade": true,
+		"_difficulty_cost_adjustment": {
+			"permanent_defence": {
+				true: 3
+			}
+		}
 	},
 	"Overwhelming Presence": {
 		"Type": "Action",
@@ -1272,6 +1282,11 @@ const CARDS := {
 			"damage_amount": 6,
 		},
 		"_is_upgrade": true,
+		"_difficulty_cost_adjustment": {
+			"permanent_defence": {
+				true: 3
+			}
+		}
 	},
 	"Unassailable": {
 		"Type": "Concentration",

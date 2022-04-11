@@ -55,6 +55,12 @@ func _setup_card_entry(_card_name: String) -> void:
 	card_name = _card_name
 	properties = cfc.card_definitions.get(card_name, {}).duplicate(true)
 	printed_properties = cfc.card_definitions.get(card_name, {}).duplicate(true)
+	if printed_properties.has("_difficulty_cost_adjustment"):
+		var new_cost = printed_properties.Cost
+		for key in printed_properties["_difficulty_cost_adjustment"]:
+			new_cost = printed_properties["_difficulty_cost_adjustment"][key].get(globals.difficulty[key], new_cost)
+		printed_properties.Cost = new_cost
+		properties.Cost = new_cost
 	# If the key is not set, it means the card is not upgradable
 	upgrade_threshold = properties.get("_upgrade_threshold_modifier", -1000)
 	# if it is set, then it is modifying the card's standard upgrade threshold based on its rarity
