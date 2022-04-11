@@ -513,6 +513,7 @@ const ENEMIES = [
 	TheLightCalling,
 	Baby,
 	Squirrel,
+	Gaslighter,
 ]
 
 const RushElite = {

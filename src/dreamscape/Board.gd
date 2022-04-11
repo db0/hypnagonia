@@ -462,14 +462,14 @@ func _input(event):
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 		if _torment1:
-#			_torment1.health = 60
+			_torment1.health = 600
 			_torment1.damage = 15
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS["void"].name, 1)
 			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.effect_resistance.name, 1, false, false, ["Init"], Terms.ACTIVE_EFFECTS.poison.name)
 			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
 		if _torment2:
-#			_torment2.health = 45
+			_torment2.health = 450
 			_torment2.damage = 10
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.marked.name, 1)
@@ -477,12 +477,12 @@ func _input(event):
 			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.marked.name, 4)
 #			_torment2.defence = 10
 		if _torment3:
-#			_torment3.health = 100
+			_torment3.health = 1000
 			_torment3.damage = 0
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 1)
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 3)
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
-		dreamer.health = 91
+		dreamer.health = 910
 		dreamer.damage = 56
 		globals.player.add_artifact(ArtifactDefinitions.ImproveImpervious.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.PurpleWave.canonical_name)
@@ -492,11 +492,11 @@ func _input(event):
 #		globals.player.add_memory(MemoryDefinitions.RandomChaos.canonical_name)
 		# warning-ignore:return_value_discarded
 #		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.impervious.name, 3)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 6)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.absurdity_unleashed.name, 1)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.creative_block.name, 1)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.laugh_at_danger.name, 1)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.fortify.name, 6)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 6)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.absurdity_unleashed.name, 1)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.creative_block.name, 1)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.laugh_at_danger.name, 1)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.heat_venting.name, 1, false, false, ['Debug'], 'high')
 		for pathos in Terms.RUN_ACCUMULATION_NAMES.values():
 			if pathos != Terms.RUN_ACCUMULATION_NAMES.boss:
@@ -506,11 +506,11 @@ func _input(event):
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
-			"Prejudice",
-			"Self-Deception",
-			"The Whippy-Flippy",
-			"Interpretation",
-			"Confidence",
+#			"Prejudice",
+#			"Self-Deception",
+#			"The Whippy-Flippy",
+#			"Interpretation",
+#			"Grit",
 		]:
 			var ce = CardEntry.new(c)
 			var card = ce.instance_self()
@@ -521,7 +521,6 @@ func _input(event):
 #		for c in cfc.NMAP.deck.get_all_cards():
 #			c.queue_free()
 		# Deck Cards
-		globals.test_flags["no_refill"] =  true
 		begin_encounter()
 		player_info._on_Settings_pressed()
 		yield(get_tree().create_timer(0.1), "timeout")
@@ -550,16 +549,16 @@ func _debug_advanced_enemy() -> void:
 
 func _on_Debug_pressed() -> void:
 	# warning-ignore:return_value_discarded
-	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.impervious.name, 1)
+	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.fortify.name, 1)
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.vulnerable.name, 2)
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.drain.name, 5)
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.introspection.name, 6)
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.nunclucks.name, 1)
-#	dreamer.defence += 30
+	dreamer.defence += 30
 	for entity in get_tree().get_nodes_in_group("EnemyEntities"):
 		entity.damage = 1
 	for c in [
-#		"Nano-Machines"
+		"Grit"
 #			"Universal Component",
 #			"A Thousand Squeaks",
 	]:
