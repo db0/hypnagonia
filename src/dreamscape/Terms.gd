@@ -213,7 +213,13 @@ const ACTIVE_EFFECTS := {
 		"generic_description": "{effect_name}: Prevents concentration from expiring each turn.",
 		"rich_text_icon": "res://fonts/rich_text_icons/beams-aura.png",
 		"description": "{effect_name} ({effect_icon}): {defence} is not removed at start of turn.\n"\
-				+ "Halve (rounded down) the amount of these stacks at the start of the turn."
+				+ "Halve (rounded down) the amount of these stacks at the start of the turn.",
+		"difficulty_adjusted_description": {
+			"permanent_defence": {
+				true: "{effect_name} ({effect_icon}): {defence} is increased 10% for each stack at the start of turn.\n"\
+				+ "Halve (rounded down) the amount of these stacks at the start of the turn.",
+			}
+		}
 	},
 	"impervious": {
 		"name": "Untouchable",

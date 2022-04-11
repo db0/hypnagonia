@@ -436,7 +436,7 @@ const PerturbationHeal := {
 const ImproveImpervious := {
 	"canonical_name": "ImproveImpervious",
 	"name": "Pet Eel",
-	"description": "{artifact_name}: {impervious} {stress} reduction on the dreamer is increased.",
+	"description": "{artifact_name}: {impervious} {stress} reduction on the dreamer is increased by 3% per stack.",
 	"icon": preload("res://assets/icons/artifacts/eel.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",

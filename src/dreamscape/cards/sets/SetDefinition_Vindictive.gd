@@ -233,7 +233,6 @@ const CARDS := {
 		"_amounts": {
 			"damage_amount": 4.0,
 		},
-		"_upgrade_threshold_modifier": 0,
 		"_is_upgrade": true,
 	},
 	"@ Fist of Candies @": {
@@ -247,7 +246,6 @@ const CARDS := {
 		"_amounts": {
 			"damage_amount": 2.5,
 		},
-		"_upgrade_threshold_modifier": 0,
 		"_is_upgrade": true,
 	},
 	"Hand of Grudge": {

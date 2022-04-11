@@ -23,7 +23,7 @@ func populate_info_panels(card: Card, focus_info: DetailPanels) -> void:
 			}
 			focus_info.add_info(
 					"Upgrade Progress",
-					"Upgrade Progress: {current}/{threshold}".format(upgrade_format), 
+					"Upgrade Progress: {current}/{threshold}".format(upgrade_format),
 					preload("res://src/dreamscape/InfoPanel.tscn"),
 					true)
 		if card.deck_card_entry.is_scarred():
@@ -49,6 +49,11 @@ func populate_info_panels(card: Card, focus_info: DetailPanels) -> void:
 		for effect_name in effects_info:
 			added_effects.append(effect_name)
 			var effect_entry = Terms.get_term_entry(effect_name, 'description')
+			var effect_description : String = effect_entry.get('description', '')
+			var diff_desc :Dictionary= effect_entry.get('difficulty_adjusted_description', {})
+			if not diff_desc.empty():
+				for key in diff_desc:
+					effect_description = diff_desc[key].get(globals.difficulty[key], effect_description)
 			var entity_type: String = effects_info[effect_entry.name]
 			var format = Terms.COMMON_FORMATS[entity_type].duplicate()
 			format["effect_name"] = effect_entry.name
@@ -60,7 +65,7 @@ func populate_info_panels(card: Card, focus_info: DetailPanels) -> void:
 			format["imp_mark_pct"] = "25% per stack"
 			focus_info.add_info(
 					effect_entry.name,
-					effect_entry.description.format(format).\
+					effect_description.format(format).\
 						format(bbcode_format), preload("res://src/dreamscape/EffectInfoPanel.tscn"))
 	var tags : Array = card.get_property("Tags")
 	for tag in tags:

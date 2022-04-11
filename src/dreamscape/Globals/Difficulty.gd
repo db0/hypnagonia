@@ -14,6 +14,8 @@ enum DifficultyStrings {
 const DIFFICULTY_FILE = "user://Difficulties.json"
 const DIFFICULTY_MULTIPLIERS := {
 	"desire_curios_give_perturbation": 2,
+	"permanent_defence": -5,
+	"permanent_immersion": -4,
 }
 const TOTAL_DIFFICULTY_MAPS := {
 	"act_healing": {
@@ -58,6 +60,8 @@ const DESCRIPTIONS := {
 	"desire_curios_give_perturbation": "Curios discovered using repressed desire will have a an extra chance to add a Perturbation to your deck.",
 	"lower_upgraded_draft_chance": "Less chance to discover upgraded cards during acts 2 and 3.",
 	"unremovable_perturbation": "An unreleaseable perturbation will be added to your deck.",
+	"permanent_defence": "Confidence and Perpexity are not removed at the start of the turn. Courage is adjusted.",
+	"permanent_immersion": "Unused Immersion is not lost at end of turn. The dreamer can store a max of 10 immersion.",
 	"encounter_difficulty": "Modifies the chance to get beneficial or detrimental journal encounters.\n"\
 			+ "Harder difficulties will make Torments appear more often and the Boss to appear earlier.\n"\
 			+ "Easier difficulties will make Rest sites, Shops and Curios appear more often instead\n",
@@ -75,6 +79,8 @@ var prevent_basic_cards_release := false setget set_prevent_basic_cards_release
 var desire_curios_give_perturbation := false setget set_desire_curios_give_perturbation
 var lower_upgraded_draft_chance := false setget set_lower_upgraded_draft_chance
 var unremovable_perturbation := false setget set_unremovable_perturbation
+var permanent_defence := false setget set_permanent_defence
+var permanent_immersion := false setget set_permanent_immersion
 var encounter_difficulty := 0 setget set_encounter_difficulty
 
 func _init() -> void:
@@ -120,6 +126,14 @@ func set_unremovable_perturbation(value) -> void:
 	unremovable_perturbation = value
 	_finalize_value("unremovable_perturbation", unremovable_perturbation)
 	
+func set_permanent_defence(value) -> void:
+	permanent_defence = value
+	_finalize_value("permanent_defence", permanent_defence)
+	
+func set_permanent_immersion(value) -> void:
+	permanent_immersion = value
+	_finalize_value("permanent_immersion", permanent_immersion)
+	
 func set_encounter_difficulty(value) -> void:
 	encounter_difficulty = value
 	_finalize_value("encounter_difficulty", encounter_difficulty)
@@ -161,6 +175,8 @@ func recalculate_total_difficulty() -> void:
 	total_difficulty += calc_boolean_difficulty(desire_curios_give_perturbation) * DIFFICULTY_MULTIPLIERS.desire_curios_give_perturbation
 	total_difficulty += calc_boolean_difficulty(lower_upgraded_draft_chance)
 	total_difficulty += calc_boolean_difficulty(unremovable_perturbation)
+	total_difficulty += calc_boolean_difficulty(permanent_defence) * DIFFICULTY_MULTIPLIERS.permanent_defence
+	total_difficulty += calc_boolean_difficulty(permanent_immersion) * DIFFICULTY_MULTIPLIERS.permanent_immersion
 	total_difficulty += encounter_difficulty
 	emit_signal("total_difficulty_recalculated", total_difficulty)
 

@@ -71,12 +71,19 @@ func _on_player_turn_ended(turn: Turn) -> void:
 		TurnEventMessage.new("total_leftover_immersion", get_counter("immersion"), true)
 		# warning-ignore:return_value_discarded
 		TurnEventMessage.new("turns_with_leftover_immersion", +1, true)
-	# warning-ignore:return_value_discarded
-	mod_counter("immersion", 0, true, false, turn, ["End Turn"])
+	if not globals.difficulty.permanent_immersion:
+		# warning-ignore:return_value_discarded
+		mod_counter("immersion", 0, true, false, turn, ["End Turn"])
 
 func _on_player_turn_started(turn: Turn) -> void:
+	var immersion_to_add := 3
+	if globals.difficulty.permanent_immersion and get_counter("immersion") + immersion_to_add > 10:
+		immersion_to_add = 10 - get_counter("immersion")
+		if immersion_to_add < 0: 
+			immersion_to_add = 0
 	# warning-ignore:return_value_discarded
-	mod_counter("immersion", 3, false, false, turn, ["New Turn"])
+	mod_counter("immersion", immersion_to_add, false, false, turn, ["New Turn"])
+		
 
 func _on_counter_enterred(counter_node: Control) -> void:
 	var description_text : String = needed_counters[counter_node.name]["Description"]

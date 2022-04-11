@@ -87,6 +87,7 @@ func _on_CombatSingifier_mouse_entered() -> void:
 func _set_current_description() -> void:
 	var format = Terms.COMMON_FORMATS[entity_type].duplicate()
 	var effect_entry = Terms.get_term_entry(canonical_name, 'description')
+	var diff_description = Terms.get_term_entry(canonical_name, 'description')
 	format["effect_name"] = name
 	if effect_entry.has("rich_text_icon"):
 		format["effect_icon"] = "[img=18x18]" + effect_entry.rich_text_icon + "[/img]"
@@ -111,12 +112,16 @@ func _set_current_description() -> void:
 
 func _get_effect_description() -> String:
 	var effect_entry : Dictionary = Terms.ACTIVE_EFFECTS[_get_template_name()]
-	var default_desc : String = effect_entry.get('description', '')
+	var effect_description : String = effect_entry.get('description', '')
+	var diff_desc :Dictionary= effect_entry.get('difficulty_adjusted_description', {})
+	if not diff_desc.empty():
+		for key in diff_desc:
+			effect_description = diff_desc[key].get(globals.difficulty[key], effect_description)
 	if owning_entity.type == Terms.PLAYER:
-		default_desc += effect_entry.get('extra_dreamer_description', '')
+		effect_description += effect_entry.get('extra_dreamer_description', '')
 	if effect_entry.get("is_card_reference"):
 		var card_reference = cfc.card_definitions.get(name)
-		if default_desc == '':
+		if effect_description == '':
 			# The format_key_to_replace_with_amount key, when set, allows us to specify an effect that
 			# while it's using the card text as its string, it nevertheless, replaces one format key of the
 			# card description with the {amount} key, which will be replaced with the amount of stacks
@@ -125,12 +130,12 @@ func _get_effect_description() -> String:
 			# replace it with the stack amount
 			var repl_key = effect_entry.get('format_key_to_replace_with_amount', "concentration_stacks")
 			if repl_key:
-				default_desc = card_reference["Abilities"].format({repl_key: "{amount}"}).format(card_reference.get("_amounts", {}))
+				effect_description = card_reference["Abilities"].format({repl_key: "{amount}"}).format(card_reference.get("_amounts", {}))
 			else:
-				default_desc = card_reference["Abilities"].format(card_reference.get("_amounts", {}))
+				effect_description = card_reference["Abilities"].format(card_reference.get("_amounts", {}))
 		else:
-				default_desc = default_desc.format(card_reference.get("_amounts", {}))
-	return(default_desc)
+				effect_description = effect_description.format(card_reference.get("_amounts", {}))
+	return(effect_description)
 
 # Returns the lowercase name of the token, including its upgrade modifier
 func get_effect_name() -> String:

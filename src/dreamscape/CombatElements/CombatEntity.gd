@@ -320,8 +320,9 @@ func _on_player_turn_started(_turn: Turn) -> void:
 	if entity_type == Terms.PLAYER:
 		var fortify = active_effects.get_effect(Terms.ACTIVE_EFFECTS.fortify.name)
 		if fortify:
+			set_defence(defence + defence * 0.1 * fortify.stacks)
 			fortify.set_stacks(fortify.stacks / 2, ["Turn Decrease"])
-		else:
+		elif not globals.difficulty.permanent_defence:
 			set_defence(0)
 
 
@@ -333,8 +334,10 @@ func _on_enemy_turn_started(_turn: Turn) -> void:
 	if entity_type == Terms.ENEMY:
 		var fortify = active_effects.get_effect(Terms.ACTIVE_EFFECTS.fortify.name)
 		if fortify:
-			fortify.stacks -= 1
-		else:
+			if globals.difficulty.permanent_defence:
+				set_defence(defence + defence * 0.1 * fortify.stacks)
+			fortify.set_stacks(fortify.stacks / 2, ["Turn Decrease"])
+		elif not globals.difficulty.permanent_defence:
 			set_defence(0)
 
 
