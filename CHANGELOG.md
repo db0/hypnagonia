@@ -1,5 +1,21 @@
 # Changelog
 
+## [v0.47.1](https://github.com/db0/hypnagonia/tree/v0.47.1) (2022-04-11)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.47.0...v0.47.1)
+
+**Implemented enhancements:**
+
+- \[CANCELLED\] Substance addiction archetype [\#268](https://github.com/db0/hypnagonia/issues/268)
+
+**Fixed bugs:**
+
+- When enhanced to discard 0 cards, popup window still appears [\#283](https://github.com/db0/hypnagonia/issues/283)
+
+**Merged pull requests:**
+
+- Added 2 new difficulties [\#284](https://github.com/db0/hypnagonia/pull/284) ([db0](https://github.com/db0))
+
 ## [v0.47.0](https://github.com/db0/hypnagonia/tree/v0.47.0) (2022-04-06)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.46.0...v0.47.0)
