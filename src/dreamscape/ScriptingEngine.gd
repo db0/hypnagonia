@@ -415,6 +415,7 @@ func autoplay_card(script: ScriptTask) -> int:
 					1,
 					Tween.TRANS_SINE,
 					Tween.EASE_IN_OUT)
+			card.z_index = 0
 			card._add_tween_rotation(0,360, 1)
 			card._tween.start()
 			yield(card._tween, "tween_all_completed")
@@ -422,26 +423,45 @@ func autoplay_card(script: ScriptTask) -> int:
 			var card_scripts = card.retrieve_scripts("manual")
 			var autoplay_exec : String = card.get_state_exec()
 			if not card_scripts.get("hand"):
-				if card.get_property("Type") == "Concentration":
+				if card.get_property("Type") == "Concentration" or card.get_property("_is_concentration"):
 					card_scripts[autoplay_exec] = card.generate_remove_from_deck_tasks()
 				else:
 					card_scripts[autoplay_exec] = card.generate_discard_tasks("board")
 			else:
 				card_scripts[autoplay_exec] = card_scripts["hand"]
-				if card.get_property("Type") == "Concentration":
-					card_scripts[autoplay_exec] += card.generate_remove_from_deck_tasks()
+				if typeof(card_scripts[autoplay_exec]) == TYPE_ARRAY:
+					if card.get_property("Type") == "Concentration" or card.get_property("_is_concentration"):
+						card_scripts[autoplay_exec] += card.generate_remove_from_deck_tasks()
+					else:
+						card_scripts[autoplay_exec] += card.generate_discard_tasks("board")
+					card_scripts[autoplay_exec] += card.generate_play_confirm_scripts()
+					for script_task in card_scripts[autoplay_exec]:
+						if script_task.get("subject") and script_task["subject"] == 'target':
+							script_task["subject"] = "boardseek"
+							script_task["subject_count"] = 1
+							script_task["sort_by"] = "random"
+							if script_task.get("filter_state_subject"):
+								script_task["filter_state_seek"] = script_task.get("filter_state_subject")
+						script_task["is_cost"] = false
+						script_task["needs_subject"] = false
+				# This injects into multiple-option dictionaries
 				else:
-					card_scripts[autoplay_exec] += card.generate_discard_tasks("board")
-			card_scripts[autoplay_exec] += card.generate_play_confirm_scripts()
-			for script_task in card_scripts[autoplay_exec]:
-				if script_task.get("subject") and script_task["subject"] == 'target':
-					script_task["subject"] = "boardseek"
-					script_task["subject_count"] = 1
-					script_task["sort_by"] = "random"
-					if script_task.get("filter_state_subject"):
-						script_task["filter_state_seek"] = script_task.get("filter_state_subject")
-				script_task["is_cost"] = false
-				script_task["needs_subject"] = false
+					for key in card_scripts[autoplay_exec]:
+						if card.get_property("Type") == "Concentration" or card.get_property("_is_concentration"):
+							card_scripts[autoplay_exec][key] += card.generate_remove_from_deck_tasks()
+						elif not card.has_move_script(card_scripts[autoplay_exec][key]):
+							card_scripts[autoplay_exec][key] += card.generate_discard_tasks("board")
+						card_scripts[autoplay_exec][key] += card.generate_play_confirm_scripts()
+						for script_task in card_scripts[autoplay_exec][key]:
+							if script_task.get("subject") and script_task["subject"] == 'target':
+								script_task["subject"] = "boardseek"
+								script_task["subject_count"] = 1
+								script_task["sort_by"] = "random"
+								if script_task.get("filter_state_subject"):
+									script_task["filter_state_seek"] = script_task.get("filter_state_subject")
+							script_task["is_cost"] = false
+							script_task["needs_subject"] = false
+
 			card.scripts["autoplay"] = card_scripts
 			var sceng = card.execute_scripts(
 					script.owner,

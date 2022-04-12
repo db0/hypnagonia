@@ -489,7 +489,7 @@ func _input(event):
 		# warning-ignore:return_value_discarded
 #		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
 		# warning-ignore:return_value_discarded
-#		globals.player.add_memory(MemoryDefinitions.RandomChaos.canonical_name)
+		globals.player.add_memory(MemoryDefinitions.RandomChaos.canonical_name)
 		# warning-ignore:return_value_discarded
 #		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
 		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.fortify.name, 6)
@@ -510,7 +510,6 @@ func _input(event):
 #			"Self-Deception",
 #			"The Whippy-Flippy",
 #			"Interpretation",
-#			"Grit",
 		]:
 			var ce = CardEntry.new(c)
 			var card = ce.instance_self()
@@ -558,7 +557,7 @@ func _on_Debug_pressed() -> void:
 	for entity in get_tree().get_nodes_in_group("EnemyEntities"):
 		entity.damage = 1
 	for c in [
-		"Grit"
+#		"Grit"
 #			"Universal Component",
 #			"A Thousand Squeaks",
 	]:
@@ -571,6 +570,7 @@ func _on_Debug_pressed() -> void:
 #		cfc.NMAP.hand.draw_card(cfc.NMAP.deck)
 	# Deck cards
 	for c in [
+		"Life Path",
 #		"Butterfly",
 #		"Cannon",
 #		"Cannon",
