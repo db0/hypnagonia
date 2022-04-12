@@ -522,7 +522,7 @@ func _input(event):
 			EnemyEncounter.new(Act1.TheLaughingOnes, "hard"),
 #			EnemyEncounter.new(Act2.TrafficJam, "easy"),
 			EnemyEncounter.new(Act3.Circular_Arguments, "medium"),
-#			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
+			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
 			preload("res://src/dreamscape/Run/NCE/AllActs/EpicUpgrade.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act3/TheCake.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act2/HangingOn.gd").new(),
@@ -542,6 +542,7 @@ func _input(event):
 			journal_choice_scene.setup(self, encounter)
 			journal_choice_scene.journal_choice.connect("pressed", self, "_on_choice_pressed", [encounter, journal_choice_scene])
 			_reveal_entry(journal_choice_scene.journal_choice)
+			emit_signal("choice_entry_added", journal_choice_scene)
 #		print_debug(SoundManager._get_all_playing_type_steams('BGM'))
 
 # These three functions,prevent warnings in the compiler

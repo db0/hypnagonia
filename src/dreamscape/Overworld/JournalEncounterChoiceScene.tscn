@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/dreamscape/Overworld/JournalEncounterChoiceScene.gd" type="Script" id=2]
 
-[node name="JournalEncounterChoiceScene" type="HBoxContainer"]
+[node name="JournalEncounterChoiceScene" type="HBoxContainer" groups=["JournalEncounterChoiceScene"]]
 margin_right = 40.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
