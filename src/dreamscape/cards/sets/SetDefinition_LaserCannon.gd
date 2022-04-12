@@ -1331,7 +1331,7 @@ const CARDS := {
 		"Abilities": "{damage} all torments for {damage_amount}\n{forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
-		"_rarity": "Rare",
+		"_rarity": "Special",
 		"_keywords": ["fuse"],
 		"_amounts": {
 			"damage_amount": 40,

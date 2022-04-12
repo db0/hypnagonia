@@ -948,7 +948,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_avoid_normal_discard": true,
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_keywords": ["confidence", "forget"],
 		"_amounts": {
 			"defence_amount": 11
@@ -969,7 +969,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_avoid_normal_discard": true,
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_keywords": ["confidence", "forget"],
 		"_amounts": {
 			"defence_amount": 15
@@ -987,7 +987,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_avoid_normal_discard": true,
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_keywords": ["confidence", "forget"],
 		"_amounts": {
 			"defence_amount": 11
