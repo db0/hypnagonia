@@ -71,12 +71,12 @@ func _process(delta: float) -> void:
 					cfc.NMAP.board.mouse_pointer.current_focused_card = null
 				queue_free()
 		ExtendedCardState.AUTOPLAY_DISPLAY:
-			z_index = 99
+			z_index = 0
 			set_focus(false)
 			set_control_mouse_filters(false)
 			buttons.set_active(false)
 		ExtendedCardState.SPAWNED_PERTURBATION:
-			z_index = 99
+			z_index = 0
 			set_focus(false)
 			set_control_mouse_filters(false)
 			buttons.set_active(false)
