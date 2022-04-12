@@ -20,6 +20,8 @@ func recalculate_amount(snapshot_id: int) -> void:
 		{})
 	var adjusted_amount = sceng.predict_intent_amount(snapshot_id)
 	if typeof(intent_script.get("amount")) != TYPE_INT:
+		# If the amount is a string, we assume it's a per_ which usually returns positive integers
+		# in case I need to return a negative one, I'll refactor this.
 		if adjusted_amount < 0:
 			adjusted_amount = 0
 	else:

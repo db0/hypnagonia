@@ -741,7 +741,7 @@ const GENERIC_TAGS := {
 		"name": "Fading",
 		"icon": preload("res://assets/icons/empty-hourglass.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/empty-hourglass.png",
-		"generic_description": "[color=purple]{effect_name} ({effect_icon}): If still in the hand at the end of the turn, it is forgotten.[/color]"},
+		"generic_description": "[color=#A020F0]{effect_name} ({effect_icon}): If still in the hand at the end of the turn, it is forgotten.[/color]"},
 	"spark": {
 		"name": "Spark",
 		"icon": preload("res://assets/icons/idea.png"),
@@ -756,17 +756,17 @@ const GENERIC_TAGS := {
 		"name": "Intuition",
 		"icon": preload("res://assets/icons/light-bulb.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/light-bulb.png",
-		"generic_description": "[color=purple]{effect_name} ({effect_icon}): This card will always be in the starting hand.[/color]"},
+		"generic_description": "[color=#A020F0]{effect_name} ({effect_icon}): This card will always be in the starting hand.[/color]"},
 	"omega": {
 		"name": "Enigma",
 		"icon": preload("res://assets/icons/omega.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/omega.png",
-		"generic_description": "[color=purple]{effect_name} ({effect_icon}): This card will always start at the bottom of the deck.[/color]"},
+		"generic_description": "[color=#A020F0]{effect_name} ({effect_icon}): This card will always start at the bottom of the deck.[/color]"},
 	"frozen": {
 		"name": "Cherish",
 		"icon": preload("res://assets/icons/wind-hole.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/wind-hole.png",
-		"generic_description": "[color=purple]{effect_name} ({effect_icon}): This card will not be discarded from hand at the end of the turn.[/color]"},
+		"generic_description": "[color=#A020F0]{effect_name} ({effect_icon}): This card will not be discarded from hand at the end of the turn.[/color]"},
 	"exert": {
 		"name": "Rationalizations",
 		"icon": preload("res://assets/icons/skills.png"),
@@ -786,12 +786,12 @@ const GENERIC_TAGS := {
 		"name": "Init",
 		"icon": preload("res://assets/icons/power-button.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/power-button.png",
-		"generic_description": "[color=purple]{effect_name} ({effect_icon}): This card can only be played as the first one in the turn.[/color]"},
+		"generic_description": "[color=#A020F0]{effect_name} ({effect_icon}): This card can only be played as the first one in the turn.[/color]"},
 	"end_turn": {
 		"name": "close",
 		"icon": preload("res://assets/icons/stop-sign.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/stop-sign.png",
-		"generic_description": "[color=purple]{effect_name} ({effect_icon}): After this card is played, your turn immediately ends.[/color]"},
+		"generic_description": "[color=#A020F0]{effect_name} ({effect_icon}): After this card is played, your turn immediately ends.[/color]"},
 	"startup": {
 		"name": "Vivification",
 		"icon": preload("res://assets/icons/star-pupil.png"),
@@ -863,7 +863,8 @@ const GENERIC_CARD_BBCODE := {
 	},
 	"understanding_card": {
 		"name": "Understanding",
-		"rich_text_color": "purple",
+		"rich_text_color": "#A020F0",
+#		"rich_text_color": "purple",
 	},
 	"discard": {
 		"name": "Discard",
