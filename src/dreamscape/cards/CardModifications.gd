@@ -121,4 +121,10 @@ static func _get_mod_value(modification: String, type := 'scar') -> Dictionary:
 			value_dict["value"] = modification
 		else:
 			value_dict["value"] = "-" + modification
+	if modification == Terms.GENERIC_TAGS.slumber.name:
+		value_dict["property"] = "Tags"
+		if type == 'scar':
+			value_dict["value"] = modification
+		else:
+			value_dict["value"] = "-" + modification
 	return(value_dict)
