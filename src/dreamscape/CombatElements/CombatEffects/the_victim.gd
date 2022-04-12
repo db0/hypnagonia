@@ -22,7 +22,7 @@ func _on_entity_damaged(entity, amount, _trigger: Node, _tags: Array) -> void:
 		reduced_strength = stacks
 
 
-func _on_enemy_turn_started(_turn: Turn) -> void:
-	if owning_entity.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name) > 0:
+func _on_enemy_turn_ended(_turn: Turn) -> void:
+	if reduced_strength != 0:
 		owning_entity.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, reduced_strength, false, false, ["Scripted"])
 	reduced_strength = 0

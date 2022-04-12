@@ -465,3 +465,36 @@ class TestCheekPinching:
 		assert_eq(test_torment.defence, 0)
 		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 1,
 				"%s added %s" % [effect, Terms.ACTIVE_EFFECTS.poison.name])
+
+class TestVictim:
+	extends "res://tests/HUT_Ordeal_TormentEffectsTestClass.gd"
+	var effect = Terms.ACTIVE_EFFECTS.the_victim.name
+	func _init() -> void:
+		test_card_names = [
+			"Interpretation"
+		]
+
+	func test_effect():
+		card.scripts = BIG_ATTACK_SCRIPT
+		spawn_effect(test_torment,effect, 1)
+		spawn_effect(test_torment,Terms.ACTIVE_EFFECTS.poison.name, 10)
+		var intents_to_test = [
+			{
+				"intent_scripts": ["Stress:10"],
+				"reshuffle": true,
+			},
+		]
+		for torment in test_torments:
+			torment.intents.replace_intents(intents_to_test)
+			torment.intents.refresh_intents()
+		cfc.flush_cache()
+		var sceng = snipexecute(card, test_torment)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), -1,
+				"%s added %s" % [effect, Terms.ACTIVE_EFFECTS.the_victim.name])
+		board.turn.call_deferred("end_player_turn")
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 0,
+				"%s removed %s" % [effect, Terms.ACTIVE_EFFECTS.the_victim.name])
+		assert_eq(dreamer.damage, 9, "Dreamer took reduced damage due to %s" % [effect])
