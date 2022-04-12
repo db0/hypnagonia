@@ -596,12 +596,14 @@ const ACTIVE_EFFECTS := {
 		"icon": preload("res://assets/icons/seated-mouse.png"),
 		"description": "{effect_name}: Gain 1 {immersion} per turn. "\
 				+ "Lose 2 {focus} every time you shuffle your deck",
+		"blocked_by_protection": true,
 	},
 	"the_exam": {
 		"name": "Exam Time",
 		"type": "Concentration",
 		"icon": preload("res://assets/icons/pencil.png"),
 		"description": "{effect_name}: Every time you {forget} a card, take {amount} {anxiety}.",
+		"blocked_by_protection": true,
 	},
 	"the_victim": {
 		"name": "Discern",
@@ -609,6 +611,7 @@ const ACTIVE_EFFECTS := {
 		"icon": preload("res://assets/icons/think.png"),
 		"description": "{effect_name}: The first time each turn this {entity} takes "\
 				+ "9 or more {damage} from one source, reduce its {focus} by {amount} for this turn.",
+		"blocked_by_protection": true,
 	},
 	# Effect doesn't do anything. The scripting happens in the boss
 	# Assigning this to any torment won't help

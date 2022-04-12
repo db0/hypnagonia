@@ -614,7 +614,7 @@ class TestProtection:
 				"%s didn't block %s stacks" % [effect, test_effect])
 
 
-	func test_fortify_end_turn():
+	func test_protection_end_turn():
 		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), amount,
@@ -639,3 +639,21 @@ class TestProtection:
 		for index in range(test_effects.size()):
 			assert_eq(dreamer.active_effects.get_effect_stacks(test_effects[index]), 5,
 					"%s did not block any %s stacks" % [effect, test_effects[index]])
+
+	func test_protection_special_preventable_effects():
+		var test_effects := [
+			Terms.ACTIVE_EFFECTS.the_victim.name,
+			Terms.ACTIVE_EFFECTS.mouse.name,
+			Terms.ACTIVE_EFFECTS.the_exam.name,
+		]
+		var sceng
+		for index in range(test_effects.size()):
+			cards[index].scripts = get_dreamer_effect_script(test_effects[index], 5)
+			sceng = cards[index].execute_scripts()
+			if sceng is GDScriptFunctionState:
+				sceng = yield(sceng, "completed")
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect), amount - test_effects.size(),
+				"Dreamer should have used %s stacks" % [effect])
+		for index in range(test_effects.size()):
+			assert_eq(dreamer.active_effects.get_effect_stacks(test_effects[index]), 0,
+					"%s blocked special preventable %s stacks" % [effect, test_effects[index]])
