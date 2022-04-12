@@ -15,9 +15,12 @@ func get_effect_alteration(
 	if subject != owning_entity:
 		return(0)
 	var exclude_dreamer_debuffs : bool = owning_entity.entity_type == Terms.ENEMY
-	print_debug([owning_entity.canonical_name, exclude_dreamer_debuffs,script.get_property("effect_name"), value])
-	print_debug([not script.get_property("effect_name") in Terms.get_all_effect_types("Debuff", exclude_dreamer_debuffs), not (script.get_property("effect_name") in Terms.get_all_effect_types("Versatile", exclude_dreamer_debuffs) and value >= 0)])
+	var effect_entry = Terms.get_term_entry(script.get_property("effect_name"), '')
+	# Why not just add the effect as debuff directly and we're using "blocked_by_protection"? 
+	# becasuse we do not want scripts which add random debuffs to have
+	# a chance to add special debuffs in the mix
 	if not script.get_property("effect_name") in Terms.get_all_effect_types("Debuff", exclude_dreamer_debuffs)\
+			and not effect_entry.get("blocked_by_protection", false)\
 			and not (script.get_property("effect_name") in Terms.get_all_effect_types("Versatile", exclude_dreamer_debuffs) 
 				and value < 0):
 		return(0)
