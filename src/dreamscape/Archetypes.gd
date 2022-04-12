@@ -294,7 +294,6 @@ const RUBBER_CHICKEN := {
 	],
 	"Common": [
 		"Confounding Movements",
-		"Mania",
 		"Ventriloquism",
 		"Cockfighting",
 		"A Thousand Squeaks",
@@ -302,6 +301,7 @@ const RUBBER_CHICKEN := {
 		"Massive Eggression",
 	],
 	"Uncommon": [
+		"Mania",
 		"Rubber Eggs",
 		"The Joke",
 		"Fowl Language",
@@ -402,7 +402,6 @@ const ABUSIVE_RELATIONSHIP := {
 		"Confidence",
 	],
 	"Common": [
-		"It's The Small Things",
 		"Confrontation",
 		"Could Be Worse",
 		"Dismissal",
@@ -410,6 +409,7 @@ const ABUSIVE_RELATIONSHIP := {
 		"Is it my fault?",
 	],
 	"Uncommon": [
+		"It's The Small Things",
 		"That too, shall pass",
 		"Perseverance",
 		"Flashbacks",

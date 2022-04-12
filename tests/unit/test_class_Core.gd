@@ -31,3 +31,13 @@ class TestCardDefinitions:
 				pending("Write script for: " + card_name)
 				continue
 			assert_true(cfc.unmodified_set_scripts.has(card_name), card_name + " is scripted")
+
+	func test_rarities_matching():
+		for archetype in Aspects.get_complete_archetype_list():
+			for rarity in ["Basic","Common","Uncommon","Rare","Special"]:
+				for card_name in Aspects.get_all_cards_in_archetype(archetype, [rarity]):
+					assert_eq(cfc.card_definitions[card_name]["_rarity"], rarity,
+						"%s card rarity matches archetype rarity" % [card_name])
+					for upgrade_name in HUtils.get_all_card_variants(card_name):
+						assert_eq(cfc.card_definitions[upgrade_name]["_rarity"], rarity,
+							"%s upgraded card rarity matches archetype rarity" % [upgrade_name])

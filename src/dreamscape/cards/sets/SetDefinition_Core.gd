@@ -2014,7 +2014,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
 		},
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_amounts": {
 			"effect_stacks": 4,
 		},
@@ -2034,7 +2034,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
 		},
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_amounts": {
 			"effect_stacks": 2,
 		},
@@ -2049,7 +2049,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
 		},
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_amounts": {
 			"effect_stacks": 6,
 		},
@@ -2064,7 +2064,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
 		},
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_amounts": {
 			"effect_stacks": 10,
 		},
@@ -2488,7 +2488,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Maria Thoukydidou",
 		"_avoid_normal_discard": true,
-		"_rarity": "Common",
+		"_rarity": "Basic",
 		"_keywords": ["interpretation"],
 		"_amounts": {
 			"damage_amount": 9,
@@ -2502,7 +2502,7 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Maria Thoukydidou",
 		"_avoid_normal_discard": true,
-		"_rarity": "Common",
+		"_rarity": "Basic",
 		"_keywords": ["interpretation"],
 		"_amounts": {
 			"damage_amount": 4,
