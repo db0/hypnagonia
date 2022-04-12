@@ -1,5 +1,14 @@
 # Changelog
 
+## [v0.47.2](https://github.com/db0/hypnagonia/tree/v0.47.2) (2022-04-12)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.47.1...v0.47.2)
+
+**Merged pull requests:**
+
+- fix: Crash on predicting amounts in intents [\#287](https://github.com/db0/hypnagonia/pull/287) ([db0](https://github.com/db0))
+- Various bugfixes [\#285](https://github.com/db0/hypnagonia/pull/285) ([db0](https://github.com/db0))
+
 ## [v0.47.1](https://github.com/db0/hypnagonia/tree/v0.47.1) (2022-04-11)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.47.0...v0.47.1)
