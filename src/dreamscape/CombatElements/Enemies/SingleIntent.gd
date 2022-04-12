@@ -19,4 +19,8 @@ func recalculate_amount(snapshot_id: int) -> void:
 		get_parent(),
 		{})
 	var adjusted_amount = sceng.predict_intent_amount(snapshot_id)
+	if intent_script.get("amount",0) > 0 and adjusted_amount < 0:
+		adjusted_amount = 0
+	if intent_script.get("amount",0) < 0 and adjusted_amount > 0:
+		adjusted_amount = 0
 	update_amount(adjusted_amount)
