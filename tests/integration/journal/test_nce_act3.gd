@@ -461,3 +461,34 @@ class TestCake:
 		activate_secondary_choice_by_key("support")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_not_emitted(globals.player.deck, "card_removed")
+
+
+class TestCucumbers:
+	extends  "res://tests/HUT_Journal_NCETestClass.gd"
+	func _init() -> void:
+		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act3/Cucumbers.gd")
+
+
+	func test_choice_stand():
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player.deck)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+# warning-ignore:return_value_discarded
+		activate_secondary_choice_by_key("stand")
+		yield(yield_to(journal, "selection_deck_spawned", 0.2), YIELD)
+		var selection_deck := assert_selection_deck_spawned()
+		selection_deck._deck_preview_grid.get_children()[0].select_card()
+		assert_signal_emitted(globals.player.deck, "card_removed")
+		assert_signal_emitted(globals.player.deck, "card_entry_modified")
+
+	func test_choice_jump():
+		globals.player.damage = 40
+		begin_nce_with_choices(nce)
+		watch_signals(globals.player)
+		watch_signals(globals.player.deck)
+		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
+# warning-ignore:return_value_discarded
+		activate_secondary_choice_by_key("jump")
+		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
+		assert_eq(globals.player.damage, 40 - nce.RELAX_AMOUNT)
+		assert_signal_emitted(globals.player.deck, "card_entry_modified")
