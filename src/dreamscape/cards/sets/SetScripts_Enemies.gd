@@ -90,6 +90,16 @@ const Circular_Arguments = {
 		],
 	},
 }
+const Recurrence = {
+	"manual": {
+		"hand": [
+			{
+				"name": "custom_script",
+				"tags": ["Card"],
+			},
+		],
+	},
+}
 
 const scripts := {
 	"Gaslighter": {
@@ -1728,6 +1738,7 @@ const scripts := {
 	"Beast Mode": BeastMode,
 	"Handsy Aunt": HandsyAunt,
 	"Circular Arguments": Circular_Arguments,
+	"Recurrence": Recurrence,
 }
 
 # This fuction returns all the scripts of the specified card name.
