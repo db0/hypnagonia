@@ -98,7 +98,7 @@ func custom_script(script: ScriptObject) -> void:
 					var multiplier : int
 					if card.deck_card_entry:
 						multiplier = card.deck_card_entry\
-								.get_property("_amounts",{}).get("multiplier_amount")
+								.get_property("_amounts").get("multiplier_amount")
 					else:
 						multiplier = cfc.card_definitions[card.canonical_name]\
 								.get("_amounts",{}).get("multiplier_amount")
