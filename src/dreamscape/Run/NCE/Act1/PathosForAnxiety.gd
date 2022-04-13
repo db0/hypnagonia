@@ -3,21 +3,25 @@
 extends NonCombatEncounter
 
 var secondary_choices := {
-		'calm': '[Calm]: Gain {calm_random_pathos_amount} released {calm_random_pathos}.',
-		'stress': '[Stress]: Take {stress_amount} anxiety. Gain {stress_random_pathos_amount} released {stress_random_pathos}.',
-		'fear': '[Fear]: Take {fear_amount} anxiety. Gain {fear_random_pathos_amount} released {fear_random_pathos}.',
+		'calm': '[Songbird]: Gain {calm_random_pathos_amount} released {calm_random_pathos}.',
+		'stress': '[Peacock]: Take {stress_amount} anxiety. Gain {stress_random_pathos_amount} released {stress_random_pathos}.',
+		'fear': '[Lion]: Take {fear_amount} anxiety. Gain {fear_random_pathos_amount} released {fear_random_pathos}.',
 	}
 	
-var nce_resul_fluff := {
-		'calm': '<Calm Choice - Story Fluff to be Done>',
-		'stress': '<Stress Choice - Story Fluff to be Done>',
-		'fear': '<Fear Choice - Story Fluff to be Done>',
+var nce_result_fluff := {
+		'calm': 'The bananas showered me with praise, absolutely peeling before my eyes.',
+		'stress': 'The apples cheered for me until their cores exploded.',
+		'fear': "All the blueberries cried in their seats as they slowly melted away.",
 	}
 	
 var choices := {}
 
 func _init():
-	description = "<Pathos For Anxiety - Story Fluff to be Done>. Select one Option...."
+	description = """
+My mind was in a haze and there was a ringing in my ears. 
+My nervoussness was continuing to grow, yet I was determined to impress my fruity audience. 
+They pointed the cameras directly at me. It was time to let out the inner animal inside me.
+"""
 
 func begin() -> void:
 	.begin()
@@ -75,4 +79,4 @@ func continue_encounter(key) -> void:
 	globals.player.pathos.modify_released_pathos(choices[key]["pathos"], choices[key]["reward"])
 	globals.player.damage += choices[key]["anxiety"]
 	end()
-	globals.journal.display_nce_rewards(nce_resul_fluff[key])
+	globals.journal.display_nce_rewards(nce_result_fluff[key])
