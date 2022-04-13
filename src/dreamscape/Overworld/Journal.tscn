@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/dreamscape/Overworld/Journal.gd" type="Script" id=1]
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://src/dreamscape/FadeToBlack.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/dreamscape/Overworld/ArtifactChoices.gd" type="Script" id=7]
 [ext_resource path="res://src/dreamscape/PathosChangeInfo.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/dreamscape/Overworld/MemoryChoice.gd" type="Script" id=9]
 
 [sub_resource type="ShaderMaterial" id=1]
 
@@ -147,10 +148,32 @@ script = ExtResource( 7 )
 
 [node name="Tween" type="Tween" parent="VBC/Journal/HBC/JournalEntry/VBC/ArtifactSlide/ArtifactChoice"]
 
-[node name="CustomEntriesPointer" type="Control" parent="VBC/Journal/HBC/JournalEntry/VBC"]
+[node name="MemoryJournal" type="RichTextLabel" parent="VBC/Journal/HBC/JournalEntry/VBC"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 56.0
+margin_right = 720.0
+margin_bottom = 106.0
+rect_min_size = Vector2( 0, 50 )
+bbcode_enabled = true
+bbcode_text = "[Memory] Something clicked in me, and memories started flooding in."
+text = "[Memory] Something clicked in me, and memories started flooding in."
+fit_content_height = true
+
+[node name="MemorySlide" type="ScrollContainer" parent="VBC/Journal/HBC/JournalEntry/VBC"]
 margin_top = 65.0
 margin_right = 724.0
 margin_bottom = 65.0
+
+[node name="MemoryChoice" type="HBoxContainer" parent="VBC/Journal/HBC/JournalEntry/VBC/MemorySlide" groups=["artifact_selection"]]
+script = ExtResource( 9 )
+
+[node name="Tween" type="Tween" parent="VBC/Journal/HBC/JournalEntry/VBC/MemorySlide/MemoryChoice"]
+
+[node name="CustomEntriesPointer" type="Control" parent="VBC/Journal/HBC/JournalEntry/VBC"]
+margin_top = 68.0
+margin_right = 724.0
+margin_bottom = 68.0
 
 [node name="Push" type="Control" parent="VBC/Journal/HBC/JournalEntry/VBC"]
 visible = false
@@ -224,3 +247,4 @@ visible = false
 [connection signal="meta_hover_started" from="VBC/Journal/HBC/JournalEntry/VBC/RewardJournal" to="VBC/Journal" method="_on_meta_hover_started"]
 [connection signal="meta_clicked" from="VBC/Journal/HBC/JournalEntry/VBC/UpgradeJournal" to="VBC/Journal" method="_on_UpgradeJournal_meta_clicked"]
 [connection signal="meta_clicked" from="VBC/Journal/HBC/JournalEntry/VBC/ArtifactJournal" to="VBC/Journal" method="_on_ArtifactJournal_meta_clicked"]
+[connection signal="meta_clicked" from="VBC/Journal/HBC/JournalEntry/VBC/MemoryJournal" to="VBC/Journal" method="_on_MemoryJournal_meta_clicked"]

@@ -188,7 +188,7 @@ func custom_script(script: ScriptObject) -> void:
 					continue
 				selected_card.deck_card_entry.enhance()
 				break
-		"Recurrence":
+		"Recurrence", "+ Recurrence +", "++ Recurrence ++":
 			var all_intents = cfc.get_tree().get_nodes_in_group("SingleIntents")
 			var owning_entity = null
 			var stress := 0
@@ -199,6 +199,14 @@ func custom_script(script: ScriptObject) -> void:
 			var buff_selected : String
 			var debuff_selected : String
 			var special_effects := 0
+			var stress_perplex_divider = 2.5
+			var effect_divider = 2.0
+			if card.canonical_name == "+ Recurrence +":
+				stress_perplex_divider -= 0.5
+				effect_divider -= 0.5
+			if card.canonical_name == "++ Recurrence ++":
+				stress_perplex_divider -= 1
+				effect_divider -= 1
 			for intent in all_intents:
 				if intent.intent_script.name == "modify_damage":
 					stress += int(intent.intent_script.amount)
@@ -233,7 +241,7 @@ func custom_script(script: ScriptObject) -> void:
 				card_script.append(task)
 				card_text += "Target a Torment. "
 			if stress > 0:
-				var interpret_amount := int(ceil(stress / 2.5))
+				var interpret_amount := int(ceil(stress / stress_perplex_divider))
 				task = {
 						"name": "modify_damage",
 						"amount": interpret_amount,
@@ -243,7 +251,7 @@ func custom_script(script: ScriptObject) -> void:
 				card_script.append(task)
 				card_text += "{attack} for %s. " % [interpret_amount]
 			if perplex > 0:
-				var perplex_amount := int(ceil(perplex / 2.5))
+				var perplex_amount := int(ceil(perplex / stress_perplex_divider))
 				task = {
 					"name": "assign_defence",
 					"tags": ["Card"],
@@ -253,7 +261,7 @@ func custom_script(script: ScriptObject) -> void:
 				card_script.append(task)
 				card_text += "Gain %s {defence} " % [perplex_amount]
 			if buff > 0:
-				var effect_amount = int(ceil(buff / 2.0))
+				var effect_amount = int(ceil(buff / effect_divider))
 				task = {
 					"name": "apply_effect",
 					"tags": ["Card"],
@@ -264,7 +272,7 @@ func custom_script(script: ScriptObject) -> void:
 				card_script.append(task)
 				card_text += "Gain %s {%s} " % [effect_amount, buff_selected.to_lower()]
 			if debuff > 0:
-				var effect_amount = int(ceil(debuff / 2.0))
+				var effect_amount = int(ceil(debuff / effect_divider))
 				task = {
 					"name": "apply_effect",
 					"tags": ["Card"],

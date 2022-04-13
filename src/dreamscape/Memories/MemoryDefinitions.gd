@@ -422,7 +422,7 @@ const GainMaxHealth := {
 	"canonical_name": "GainMaxHealth",
 	"name": "Birthday Party",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during the Dream Journal "\
-			+ "to permanently increase your {anxiety} threshold by {anxiety_amount}.",
+			+ "to permanently increase your max {anxiety} {anxiety_amount}.",
 	"icon": preload("res://assets/icons/memories/portrait.png"),
 	"context": EffectContext.OVERWORLD,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.shop,

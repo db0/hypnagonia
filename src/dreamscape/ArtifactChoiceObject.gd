@@ -17,7 +17,7 @@ func setup(signifier_details: Dictionary, signifier_name: String) -> void:
 	# The existence of a pathos key, signifies that this artifact is a memory
 	if signifier_details.has('pathos'):
 		var upgrades = signifier_details.get("upgrades",0)
-		# If a card has upgrades, we want the card displayed in the shop to have the statiastics
+		# If a card has upgrades, we want the card displayed in the shop to have the statistics
 		# of its upgraded version
 		if signifier_details.get("is_upgrade"):
 			upgrades += 1

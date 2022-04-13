@@ -19,6 +19,7 @@ const SAME_SCRIPT_ADJECTIVES := [
 const SAME_SCRIPT_SYMBOLS := [
 	"@", # Used when the upgraded card has just lower cost
 	"+", # Used when the upgraded card has higher amount of damage or defence.
+	"++", # Used when the upgraded card has even higher amount of damage or defence.
 	"*", # Used when the upgraded card has higher amount of effect stacks.
 	"-", # Used when the upgraded card is adding an extra task to remove the card from deck.
 	"~", # Used when the upgraded card is adding an extra task to exhaust the card.
