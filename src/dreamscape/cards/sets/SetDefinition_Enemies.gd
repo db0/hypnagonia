@@ -1815,7 +1815,8 @@ const CARDS := {
 	"Recurrence": {
 		"Type": "Understanding",
 		"Tags": [],
-		"Abilities": "This card's ability will change to weaker aggregate of all current Torment intents",
+		"Abilities": "This card's ability will weakly copy all current Torment intents. "\
+				+ "{shuffle} this card into your draw pile.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
@@ -1825,7 +1826,8 @@ const CARDS := {
 	"+ Recurrence +": {
 		"Type": "Understanding",
 		"Tags": [],
-		"Abilities": "This card's ability will change to an aggregate of all current Torment intents",
+		"Abilities": "This card's ability will copy all current Torment intents"\
+				+ "{shuffle} this card into your draw pile.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
@@ -1836,7 +1838,8 @@ const CARDS := {
 	"++ Recurrence ++": {
 		"Type": "Understanding",
 		"Tags": [],
-		"Abilities": "This card's ability will change to a stronger aggregate of all current Torment intents",
+		"Abilities": "This card's ability will strongly copy all current Torment intents"\
+				+ "{shuffle} this card into your draw pile.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Received",

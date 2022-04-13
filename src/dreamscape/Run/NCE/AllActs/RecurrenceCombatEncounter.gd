@@ -41,7 +41,6 @@ func finish_surpise_ordeal() -> void:
 	for list in [lessons_learned.buffs, lessons_learned.debuffs]:
 		for turn in list:
 			for effect_name in turn:
-				print_debug(effect_name, turn)
 				effect_totals[effect_name] = effect_totals.get(effect_name,0) + turn[effect_name]
 	for effect in effect_totals:
 #		print_debug([effect, float(buff_totals[effect]) / float(total_turns)])

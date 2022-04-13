@@ -97,6 +97,17 @@ const Recurrence = {
 				"name": "custom_script",
 				"tags": ["Card"],
 			},
+			{
+				"name": "move_card_to_container",
+				"subject": "self",
+				"dest_container": "deck",
+				"tags": ["Played", "Card"],
+			},
+			{
+				"name": "shuffle_container",
+				"tags": ["Card"],
+				"dest_container": "deck",
+			},
 		],
 	},
 }

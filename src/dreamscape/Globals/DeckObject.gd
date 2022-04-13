@@ -229,4 +229,3 @@ func get_random_card(card_list = cards) -> CardEntry:
 	var rng_array = card_list.duplicate()
 	CFUtils.shuffle_array(rng_array)
 	return(rng_array.back())
-	
