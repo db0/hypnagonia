@@ -399,6 +399,7 @@ func _exit_tree():
 	if script_load_thread:
 		script_load_thread.wait_to_finish()
 
+
 # The SignalPropagator is responsible for collecting all card signals
 # and asking all cards to check if there's any automation they need to perform
 class SignalPropagator:

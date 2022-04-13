@@ -205,6 +205,15 @@ func is_playing(sound : String) -> bool:
 	return(playing)
 
 
+func pause_streams(type: String) -> void:
+	for stream in _get_all_playing_type_steams(type):
+		set_paused(stream, true)
+
+func unpause_streams(type: String) -> void:
+	for stream in _get_all_paused_type_steams(type):
+		set_paused(stream, false)
+		
+
 func pause(sound : String) -> void:
 	set_paused(sound, true)
 
@@ -213,8 +222,14 @@ func unpause(sound : String) -> void:
 	set_paused(sound, false)
 
 
-func set_paused(sound : String, paused : bool = true) -> void:
-	var audiostream := find_audiostream(sound)
+func set_paused(sound, paused : bool = true) -> void:
+	var audiostream: SoundManagerAudioStreamPlayer
+	if typeof(sound) == TYPE_STRING:
+		audiostream = find_audiostream(sound)
+	elif sound is SoundManagerAudioStreamPlayer:
+		audiostream = sound
+	else:
+		return
 	if audiostream:
 		audiostream.set_stream_paused(paused)
 	elif debug:
@@ -871,6 +886,15 @@ func get_all_playing_streams() -> Array:
 		if audiostream.playing:
 			playing_streams.append(audiostream)
 	return(playing_streams)
+	
+# Returns an Array of SoundManagerAudioStreamPlayer which are currently playing sounds.
+func get_all_paused_streams() -> Array:
+	var paused_streams := []
+	for c in get_children():
+		var audiostream : SoundManagerAudioStreamPlayer = c
+		if audiostream.stream_paused:
+			paused_streams.append(audiostream)
+	return(paused_streams)
 
 
 func find_playing_audiostream(identifier: String) -> SoundManagerAudioStreamPlayer:
@@ -955,6 +979,14 @@ func _get_all_playing_types() -> Array:
 func _get_all_playing_type_steams(sound_type: String) -> Array:
 	var found_streams := []
 	for audiostream in get_all_playing_streams():
+		if audiostream.sound_type == sound_type:
+			found_streams.append(audiostream)
+	return(found_streams)
+
+# Returns an array with all playing streams of a specific type
+func _get_all_paused_type_steams(sound_type: String) -> Array:
+	var found_streams := []
+	for audiostream in get_all_paused_streams():
 		if audiostream.sound_type == sound_type:
 			found_streams.append(audiostream)
 	return(found_streams)

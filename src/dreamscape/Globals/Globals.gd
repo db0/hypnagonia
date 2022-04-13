@@ -75,5 +75,12 @@ func set_current_encounter(value) -> void:
 	current_encounter = value
 	emit_signal("encounter_selected", value)
 
+# Pause/Unpause music function
+func _notification(what):
+	if what == MainLoop.NOTIFICATION_WM_FOCUS_IN:
+		SoundManager.unpause_streams('BGM')
+	elif what == MainLoop.NOTIFICATION_WM_FOCUS_OUT:
+		SoundManager.pause_streams('BGM')
+
 func _exit_tree():
 	print("Hypnagonia Exited Gracefully.")
