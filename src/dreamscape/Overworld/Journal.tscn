@@ -165,7 +165,7 @@ margin_top = 65.0
 margin_right = 724.0
 margin_bottom = 65.0
 
-[node name="MemoryChoice" type="HBoxContainer" parent="VBC/Journal/HBC/JournalEntry/VBC/MemorySlide" groups=["artifact_selection"]]
+[node name="MemoryChoice" type="HBoxContainer" parent="VBC/Journal/HBC/JournalEntry/VBC/MemorySlide" groups=["memory_selection"]]
 script = ExtResource( 9 )
 
 [node name="Tween" type="Tween" parent="VBC/Journal/HBC/JournalEntry/VBC/MemorySlide/MemoryChoice"]

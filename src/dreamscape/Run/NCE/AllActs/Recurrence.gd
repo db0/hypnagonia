@@ -46,10 +46,6 @@ var memory_upgrades := {
 	3: 4,
 }
 
-# Used during testing to predefined chosen memories instead of using RNG
-var _test_memory_prep := {
-	selected_memories = []
-}
 
 var unused_takeovers : Array
 var attempts_to_escape := 0
