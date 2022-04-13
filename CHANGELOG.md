@@ -1,5 +1,22 @@
 # Changelog
 
+## [v0.48.0](https://github.com/db0/hypnagonia/tree/v0.48.0) (2022-04-13)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.47.2...v0.48.0)
+
+**Implemented enhancements:**
+
+- Music should stop while game is not focused [\#289](https://github.com/db0/hypnagonia/issues/289)
+- Add Recurrence understanding [\#288](https://github.com/db0/hypnagonia/issues/288)
+
+**Fixed bugs:**
+
+- Floating card info panels should not  move outside the monitor [\#281](https://github.com/db0/hypnagonia/issues/281)
+
+**Merged pull requests:**
+
+- More content [\#291](https://github.com/db0/hypnagonia/pull/291) ([db0](https://github.com/db0))
+
 ## [v0.47.2](https://github.com/db0/hypnagonia/tree/v0.47.2) (2022-04-12)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.47.1...v0.47.2)
@@ -195,7 +212,7 @@
 
 ## [v0.39.0](https://github.com/db0/hypnagonia/tree/v0.39.0) (2022-03-17)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.38.0...v0.39.0)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.37.0...v0.39.0)
 
 **Closed issues:**
 
@@ -206,13 +223,13 @@
 
 - Enhancements and Scars can now affect more properties [\#244](https://github.com/db0/hypnagonia/pull/244) ([db0](https://github.com/db0))
 
-## [v0.38.0](https://github.com/db0/hypnagonia/tree/v0.38.0) (2022-03-16)
-
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.37.0...v0.38.0)
-
 ## [v0.37.0](https://github.com/db0/hypnagonia/tree/v0.37.0) (2022-03-16)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.36.0...v0.37.0)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.38.0...v0.37.0)
+
+## [v0.38.0](https://github.com/db0/hypnagonia/tree/v0.38.0) (2022-03-16)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.36.0...v0.38.0)
 
 **Closed issues:**
 
