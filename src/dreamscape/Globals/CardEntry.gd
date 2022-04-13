@@ -55,6 +55,9 @@ func _setup_card_entry(_card_name: String) -> void:
 	card_name = _card_name
 	properties = cfc.card_definitions.get(card_name, {}).duplicate(true)
 	printed_properties = cfc.card_definitions.get(card_name, {}).duplicate(true)
+	# We add the name as an extra property to allow us to seek it via CardFilters
+	properties["_name"] = card_name
+	printed_properties["_name"] = card_name
 	if printed_properties.has("_difficulty_cost_adjustment"):
 		var new_cost = printed_properties.Cost
 		for key in printed_properties["_difficulty_cost_adjustment"]:

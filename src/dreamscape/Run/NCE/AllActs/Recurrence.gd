@@ -55,7 +55,9 @@ var unused_takeovers : Array
 var attempts_to_escape := 0
 
 func _init():
-	globals.journal.connect("choice_entry_added", self, "_takeover_journal_entry")
+	# In GUT it will not exist
+	if is_instance_valid(globals.journal):
+		globals.journal.connect("choice_entry_added", self, "_takeover_journal_entry")
 	for existing_entry in globals.get_tree().get_nodes_in_group("JournalEncounterChoiceScene"):
 		_takeover_journal_entry(existing_entry)
 	description = descriptions[globals.encounters.current_act.get_act_number()]
@@ -74,9 +76,24 @@ func begin() -> void:
 func end() -> void:
 	.end()
 	var reward_upgrades = memory_upgrades[globals.encounters.current_act.get_act_number()]
-	var reward_text = 'I have seen this all before. I know this...'
+	
+	var fmt := {
+		"card": "I know this"
+	}
+	var existing_card = globals.player.deck.filter_cards(DreamCardFilter.new("_name", "Recurrence"))
+	var existing_upgraded_card = globals.player.deck.filter_cards(DreamCardFilter.new("_name", "+ Recurrence +"))
+	if existing_card.size() > 0:
+		fmt["card"] = _prepare_card_popup_bbcode("+ Recurrence +", "I know this")
+		existing_card[0].upgrade("+ Recurrence +")
+	elif existing_upgraded_card.size() > 0:
+		fmt["card"] = _prepare_card_popup_bbcode("++ Recurrence ++", "I know this")
+		existing_upgraded_card[0].upgrade("++ Recurrence ++")
+	var reward_text = 'I have seen this all before. {card}...'.format(fmt)
 	globals.journal.display_memory_rewards({"quantity": 2, "upgrades": reward_upgrades})
-	globals.journal.display_nce_rewards(reward_text, "empty_draft")
+	if existing_card.size() == 0 and existing_upgraded_card.size() == 0:
+		globals.journal.display_nce_rewards(reward_text, "empty_draft")
+	else:
+		globals.journal.display_nce_rewards(reward_text)
 	if globals.encounters.current_act.get_act_number() == 1:
 		globals.encounters.run_changes.unlock_nce("Recurrence2", "risky", false)
 	elif globals.encounters.current_act.get_act_number() == 2:

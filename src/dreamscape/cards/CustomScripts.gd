@@ -201,12 +201,15 @@ func custom_script(script: ScriptObject) -> void:
 			var special_effects := 0
 			var stress_perplex_divider = 2.5
 			var effect_divider = 2.0
+			var special_multiplier = 1.0
 			if card.canonical_name == "+ Recurrence +":
 				stress_perplex_divider -= 0.5
 				effect_divider -= 0.5
+				special_multiplier += 0.5
 			if card.canonical_name == "++ Recurrence ++":
 				stress_perplex_divider -= 1
 				effect_divider -= 1
+				special_multiplier += 1
 			for intent in all_intents:
 				if intent.intent_script.name == "modify_damage":
 					stress += int(intent.intent_script.amount)
@@ -282,6 +285,26 @@ func custom_script(script: ScriptObject) -> void:
 				}
 				card_script.append(task)
 				card_text += "Apply %s {%s} " % [effect_amount, debuff_selected.to_lower()]
+			if special_effects > 0:
+				var effect_amount = int(ceil(special_effects * special_multiplier))
+				task = {
+					"name": "apply_effect",
+					"tags": ["Card"],
+					"effect_name": Terms.ACTIVE_EFFECTS.buffer.name,
+					"subject": "dreamer",
+					"modification": effect_amount,
+				}
+				card_script.append(task)
+				card_text += "Gain %s {buffer} " % [effect_amount]
+			if other > 0:
+				var draw_amount = int(ceil(other * special_multiplier))
+				task = {
+					"name": "draw_cards",
+					"tags": ["Card"],
+					"card_count": draw_amount
+				}
+				card_script.append(task)
+				card_text += "Draw %s Cards " % [draw_amount]
 #			print_debug([stress, perplex, debuff, debuff_selected,buff, buff_selected ,other])
 #			print_debug(card_text)
 #			print_debug(card_script)
