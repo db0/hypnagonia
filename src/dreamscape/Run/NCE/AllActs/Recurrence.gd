@@ -74,30 +74,9 @@ func begin() -> void:
 func end() -> void:
 	.end()
 	var reward_upgrades = memory_upgrades[globals.encounters.current_act.get_act_number()]
-	var memory_prep
-	if not _test_memory_prep.selected_memories.empty():
-		memory_prep = _test_memory_prep
-	else:
-		memory_prep = MemoryPrep.new(2, true)
-	for memory in memory_prep.selected_memories:
-		var existing_memory = globals.player.find_memory(memory.canonical_name)
-		if existing_memory:
-			existing_memory.upgrades_amount += reward_upgrades
-		else:
-			# warning-ignore:return_value_discarded
-			var new_memory = globals.player.add_memory(memory.canonical_name)
-			new_memory.upgrades_amount += 2 - reward_upgrades
-	var reward_text = '{memory1} before. I know this. Overcoming this recurrence {memory2}.'
-	var fmt = {
-		"memory1": _prepare_artifact_popup_bbcode(
-				memory_prep.selected_memories[0].canonical_name,
-				"I have seen this"),
-		"memory2": _prepare_artifact_popup_bbcode(
-				memory_prep.selected_memories[1].canonical_name,
-				"jolted my memories"),
-	}
-	reward_text = reward_text.format(fmt)
-	globals.journal.display_nce_rewards(reward_text)
+	var reward_text = 'I have seen this all before. I know this...'
+	globals.journal.display_memory_rewards({"quantity": 2, "upgrades": reward_upgrades})
+	globals.journal.display_nce_rewards(reward_text, "empty_draft")
 	if globals.encounters.current_act.get_act_number() == 1:
 		globals.encounters.run_changes.unlock_nce("Recurrence2", "risky", false)
 	elif globals.encounters.current_act.get_act_number() == 2:
@@ -115,7 +94,7 @@ func _takeover_journal_entry(choice_entry) -> void:
 			self,
 			"_on_choice_pressed",
 			[choice_entry])
-			
+
 func _on_choice_pressed(choice_entry) -> void:
 	if unused_takeovers.size() == 0:
 		unused_takeovers = RECURRENCE_TAKEOVERS.duplicate()
@@ -127,3 +106,6 @@ func _on_choice_pressed(choice_entry) -> void:
 	var shake_level = 10 + attempts_to_escape * 3
 	choice_entry.journal_choice.formated_description = \
 			"[shake rate=%s level=%s][color=red][i]%s[/i][/color][/shake]" % [shake_rate, shake_level, rng_choice]
+
+func return_extra_draft_cards() -> Array:
+	return(["Recurrence"])

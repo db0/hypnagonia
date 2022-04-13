@@ -49,6 +49,8 @@ func populate_draft_cards() -> void:
 			retrieve_elite_draft()
 		'card_draft':
 			retrieve_draft_cards()
+		'empty_draft':
+			retrieve_nce_cards()
 		_:
 			retrieve_custom_draft()
 	for index in range(draft_card_choices.size()):
@@ -163,6 +165,13 @@ func retrieve_boss_draft() -> void:
 					_add_draft_choice(card_name)
 					break
 
+# This draft doesn't add any cards from the cardpool, but just cards from the encounter.
+# Useful for giving the player the choice of getting a special card
+func retrieve_nce_cards() -> void:
+	draft_card_choices.clear()
+	# Normally this should always exist, but might not, in GUT
+	if globals.current_encounter:
+		draft_card_choices += globals.current_encounter.return_extra_draft_cards()
 
 func retrieve_custom_draft() -> void:
 	match card_draft_type:

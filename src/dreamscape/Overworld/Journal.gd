@@ -4,6 +4,7 @@ extends PanelContainer
 signal card_draft_started(card_draft_node)
 signal card_upgrade_started(card_upgrade_node)
 signal artifact_selection_started(artifact_selection_node)
+signal memory_selection_started(memory_selection_node)
 signal choice_entry_added(choice_entry)
 signal secondary_entry_added(choice_entry)
 signal encounter_start(encounter)
@@ -34,9 +35,11 @@ onready var card_storage := $EnemyCardStorage
 onready var reward_journal := $HBC/JournalEntry/VBC/RewardJournal
 onready var upgrade_journal := $HBC/JournalEntry/VBC/UpgradeJournal
 onready var artifact_journal := $HBC/JournalEntry/VBC/ArtifactJournal
+onready var memory_journal := $HBC/JournalEntry/VBC/MemoryJournal
 onready var card_draft := $HBC/JournalEntry/VBC/CardDraftSlide/CardDraft
 onready var card_upgrade := $HBC/JournalEntry/VBC/UgradeSlide/CardUpgrade
 onready var artifact_choice := $HBC/JournalEntry/VBC/ArtifactSlide/ArtifactChoice
+onready var memory_choice := $HBC/JournalEntry/VBC/MemorySlide/MemoryChoice
 onready var proceed := $HBC/JournalEntry/VBC/Proceed
 onready var entries_list := $HBC/JournalEntry/VBC
 onready var custom_entries_pointer := $HBC/JournalEntry/VBC/CustomEntriesPointer
@@ -94,11 +97,18 @@ func _ready() -> void:
 		print("DEBUG INFO:Journal: Journal Loaded")
 
 
-func display_nce_rewards(reward_text: String) -> void:
+func display_nce_rewards(reward_text: String, add_draft_type = null) -> void:
 	# This catches the player losing in an NCE
 	if globals.player.damage >= globals.player.health:
 		display_loss()
 		return
+	if add_draft_type:
+		match add_draft_type:
+			"empty_draft":
+				reward_text = '[Card Reward] ' + reward_text
+			"card_draft":
+				reward_text = '[Card Draft] ' + reward_text
+		_reveal_entry(reward_journal, true, add_draft_type)
 	if reward_text != '':
 		reward_journal.bbcode_text = reward_text
 		_reveal_entry(reward_journal, false)
@@ -148,10 +158,23 @@ func display_boss_rewards(reward_text: String) -> void:
 		reward_choices_unpreviewed.append(upgrade_journal.name)
 	globals.encounters.prepare_next_act(self)
 
+# This reward is a bit more special, as it doesn't have many types
+# so instead we pass it the amount of memories instead
+func display_memory_rewards(memory_payload:= {"quantity": 1}) -> void:
+	_reveal_entry(memory_journal, true, memory_payload)
+	reward_choices_unpreviewed.append(memory_journal.name)
+
+# This reward is a bit more special, as it doesn't have many types
+# so instead we pass it the amount of memories instead
+func display_empty_card_rewards() -> void:
+	reward_journal.bbcode_text = "[Card Reward]"
+	_reveal_entry(reward_journal, true, "empty_draft")
+	reward_choices_unpreviewed.append(reward_journal.name)
+
 
 func end_dev_version() -> void:
 	var victory_texts = JournalTexts.VICTORY_TEXTS.get(
-			globals.player.deck_groups[Terms.CARD_GROUP_TERMS.life_goal], 
+			globals.player.deck_groups[Terms.CARD_GROUP_TERMS.life_goal],
 			JournalTexts.VICTORY_TEXTS.generic)
 	CFUtils.shuffle_array(victory_texts)
 	proceed.bbcode_text = victory_texts[0] + "\n\n"\
@@ -382,6 +405,10 @@ func _on_ArtifactJournal_meta_clicked() -> void:
 	pass # Replace with function body.
 
 
+func _on_MemoryJournal_meta_clicked() -> void:
+	pass # Replace with function body.
+
+
 func _on_rte_mouse_entered(rt_label: RichTextLabel) -> void:
 	# We store this so we can revert the bbcode text without the yello highlight
 	rt_label.bbcode_text = "[color=yellow]" + rt_label.bbcode_text + "[/color]"
@@ -408,6 +435,10 @@ func _on_rte_gui_input(event, rt_label: RichTextLabel, type = 'card_draft') -> v
 			"ArtifactJournal":
 				_disconnect_gui_inputs(rt_label)
 				artifact_choice.display(type)
+				grey_out_label(rt_label)
+			"MemoryJournal":
+				_disconnect_gui_inputs(rt_label)
+				memory_choice.display(type)
 				grey_out_label(rt_label)
 			"Proceed":
 				if reward_choices_unpreviewed.size() > 0:
@@ -553,6 +584,10 @@ func card_draft_started(card_draft_node) -> void:
 
 func artifact_selection_started(artifact_selection_node) -> void:
 	emit_signal("artifact_selection_started", artifact_selection_node)
+
+
+func memory_selection_started(memory_selection_node) -> void:
+	emit_signal("memory_selection_started", memory_selection_node)
 
 
 func card_upgrade_started(card_upgrade_node) -> void:
