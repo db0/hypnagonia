@@ -8,6 +8,10 @@ var selected_memories := []
 # Prepares the right amount of memories as requested
 # Stores the options in selected_memories list
 func _init(amount := 1, limit_to_one_per_pathos := false) -> void:
+	if globals.test_flags.has("test_memory_prep"):
+		for pre_mem in globals.test_flags.test_memory_prep:
+			_add_memory(pre_mem)
+		return
 	var all_valid_memories := MemoryDefinitions.get_memories(
 			globals.player.get_archetype_memories(),
 			globals.player.get_all_invalid_memory_names())

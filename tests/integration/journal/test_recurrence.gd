@@ -4,64 +4,78 @@ class TestNCE:
 	extends "res://tests/HUT_Journal_NCESurpriseClass.gd"
 	func _init() -> void:
 		testing_nce_script = preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd")
-#
-#	func test_memory_rewards():
-#		begin_surprise_encounter(nce)
-#		yield(yield_to(cfc, "all_nodes_mapped", 3), YIELD)
-#		assert_has(cfc.NMAP, "board")
-#		if not cfc.NMAP.has("board"):
-#			return
-#		yield(yield_to(cfc.NMAP.board, "battle_begun", 2), YIELD)
-#		watch_signals(globals.encounters.run_changes)
-#		watch_signals(globals.player)
-#		var recurrence
-#		if get_tree().get_nodes_in_group("EnemyEntities").size() > 0:
-#			recurrence = get_tree().get_nodes_in_group("EnemyEntities")[0]
-#		assert_not_null(recurrence, "Recurrence spawned")
-#		if not recurrence:
-#			return
-#		assert_connected(cfc.NMAP.board.dreamer, recurrence,
-#				"effect_modified", "_on_dreamer_effect_modified")
-#		assert_connected(cfc.NMAP.board.dreamer, recurrence,
-#				"entity_defence_modified", "_on_dreamer_defended")
-#		assert_connected(cfc.NMAP.board.dreamer, recurrence,
-#				"entity_healed", "_on_dreamer_healed")
-#		assert_connected(cfc.NMAP.board.dreamer, recurrence,
-#				"entity_damaged", "_on_dreamer_damaged")
-#		assert_connected(cfc.signal_propagator, recurrence,
-#				"signal_received", "_on_card_signal_received")
-#		assert_eq(recurrence.get_property("_difficulty"), "easy", "Difficulty set correctly")
-#		end_surprise_encounter()
-#		assert_nce_unlocked(preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd"))
-#		assert_signal_emit_count(globals.player, "memory_added", 2)
-#
-#	func test_memory_upgrade_rewards():
-#		var mem1 = globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
-#		var mem2 = globals.player.add_memory(MemoryDefinitions.BossFaster.canonical_name)
-#		var mem3 = globals.player.add_memory(MemoryDefinitions.HealSelf.canonical_name)
-#		var mem4 = globals.player.add_memory(MemoryDefinitions.ProgressRandom.canonical_name)
-#		watch_signals(mem1)
-#		watch_signals(mem2)
-#		watch_signals(mem3)
-#		watch_signals(mem4)
-#		nce._test_memory_prep.selected_memories.append(mem1)
-#		nce._test_memory_prep.selected_memories.append(mem2)
-#		begin_surprise_encounter(nce)
-#		yield(yield_to(cfc, "all_nodes_mapped", 3), YIELD)
-#		assert_has(cfc.NMAP, "board")
-#		if not cfc.NMAP.has("board"):
-#			return
-#		yield(yield_to(cfc.NMAP.board, "battle_begun", 2), YIELD)
-#		watch_signals(globals.encounters.run_changes)
-#		watch_signals(globals.player)
-#		end_surprise_encounter()
-#		assert_nce_unlocked(preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd"))
-#		assert_signal_emit_count(globals.player, "memory_added", 0)
-#		gut.p([cfc.game_rng.seed,cfc.game_rng.state])
-#		assert_signal_emitted_with_parameters(mem1, "memory_upgraded", [mem1,2])
-#		assert_signal_emitted_with_parameters(mem2, "memory_upgraded", [mem2,2])
-#		assert_signal_not_emitted(mem3, "memory_upgraded")
-#		assert_signal_not_emitted(mem4, "memory_upgraded")
+
+	func test_memory_rewards():
+		begin_surprise_encounter(nce)
+		yield(yield_to(cfc, "all_nodes_mapped", 3), YIELD)
+		assert_has(cfc.NMAP, "board")
+		if not cfc.NMAP.has("board"):
+			return
+		yield(yield_to(cfc.NMAP.board, "battle_begun", 2), YIELD)
+		watch_signals(globals.encounters.run_changes)
+		watch_signals(globals.player)
+		var recurrence
+		if get_tree().get_nodes_in_group("EnemyEntities").size() > 0:
+			recurrence = get_tree().get_nodes_in_group("EnemyEntities")[0]
+		assert_not_null(recurrence, "Recurrence spawned")
+		if not recurrence:
+			return
+		assert_connected(cfc.NMAP.board.dreamer, recurrence,
+				"effect_modified", "_on_dreamer_effect_modified")
+		assert_connected(cfc.NMAP.board.dreamer, recurrence,
+				"entity_defence_modified", "_on_dreamer_defended")
+		assert_connected(cfc.NMAP.board.dreamer, recurrence,
+				"entity_healed", "_on_dreamer_healed")
+		assert_connected(cfc.NMAP.board.dreamer, recurrence,
+				"entity_damaged", "_on_dreamer_damaged")
+		assert_connected(cfc.signal_propagator, recurrence,
+				"signal_received", "_on_card_signal_received")
+		assert_eq(recurrence.get_property("_difficulty"), "easy", "Difficulty set correctly")
+		end_surprise_encounter()
+		assert_nce_unlocked(preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd"))
+		journal.memory_choice.display({"quantity": 2, "upgrades": 2})
+		var memory_choices = get_tree().get_nodes_in_group("artifact_choice_objects")
+		assert_eq(memory_choices.size(), 2)
+		if memory_choices.size() != 1:
+			return
+		memory_choices[0].select_self()
+		yield(yield_to(globals.player, "memory_added", 0.2), YIELD)
+		assert_signal_emit_count(globals.player, "memory_added", 1)
+
+	func test_memory_upgrade_rewards():
+		globals.test_flags["test_memory_prep"] = [
+			MemoryDefinitions.DamageAll,
+			MemoryDefinitions.BossFaster
+		]
+		var mem1 = globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
+		var mem2 = globals.player.add_memory(MemoryDefinitions.BossFaster.canonical_name)
+		var mem3 = globals.player.add_memory(MemoryDefinitions.HealSelf.canonical_name)
+		var mem4 = globals.player.add_memory(MemoryDefinitions.ProgressRandom.canonical_name)
+		watch_signals(mem1)
+		watch_signals(mem2)
+		watch_signals(mem3)
+		watch_signals(mem4)
+		begin_surprise_encounter(nce)
+		yield(yield_to(cfc, "all_nodes_mapped", 3), YIELD)
+		assert_has(cfc.NMAP, "board")
+		if not cfc.NMAP.has("board"):
+			return
+		yield(yield_to(cfc.NMAP.board, "battle_begun", 2), YIELD)
+		watch_signals(globals.encounters.run_changes)
+		watch_signals(globals.player)
+		end_surprise_encounter()
+		assert_nce_unlocked(preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd"))
+		journal.memory_choice.display({"quantity": 2, "upgrades": 2})
+		var memory_choices = get_tree().get_nodes_in_group("artifact_choice_objects")
+		assert_eq(memory_choices.size(), 2)
+		if memory_choices.size() != 1:
+			return
+		memory_choices[0].select_self()
+		assert_signal_emit_count(globals.player, "memory_added", 0)
+		assert_signal_emitted_with_parameters(mem1, "memory_upgraded", [mem1,2])
+		assert_signal_not_emitted(mem2, "memory_upgraded")
+		assert_signal_not_emitted(mem3, "memory_upgraded")
+		assert_signal_not_emitted(mem4, "memory_upgraded")
 
 
 	func test_learning():

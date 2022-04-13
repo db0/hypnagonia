@@ -39,8 +39,9 @@ var test_flags := {
 #   "test_rng_ndex": 0,
 #   # Prevents the ordeal from starting during before_each()
 #	"start_ordeal_before_each": true
+#	test_artifact_prep : [],
+#	test_memory_prep : [],
 }
-
 
 # Test setup. This should happen at game start
 func _ready() -> void:
