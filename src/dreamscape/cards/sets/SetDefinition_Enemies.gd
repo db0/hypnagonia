@@ -1812,4 +1812,14 @@ const CARDS := {
 		"_upgrade_threshold_modifier": -10,
 		"_upgrades": [],
 	},
+	"Recurrence": {
+		"Type": "Understanding",
+		"Tags": [],
+		"Abilities": "Perform an action depending on the target Torment intents",
+		"Cost": 0,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_upgrade_threshold_modifier": -10,
+		"_upgrades": [],
+	},
 }

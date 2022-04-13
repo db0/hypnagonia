@@ -106,7 +106,6 @@ func end() -> void:
 func _takeover_journal_entry(choice_entry) -> void:
 	if choice_entry.journal_choice.encounter == self:
 		return
-	print([self,choice_entry.journal_choice.encounter])
 	choice_entry.journal_choice.disconnect(
 			"pressed",
 			globals.journal,

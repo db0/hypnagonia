@@ -509,7 +509,10 @@ func _input(event):
 #			"Prejudice",
 #			"Self-Deception",
 #			"The Whippy-Flippy",
-#			"Interpretation",
+			"Recurrence",
+			"Recurrence",
+			"Recurrence",
+			"Recurrence",
 		]:
 			var ce = CardEntry.new(c)
 			var card = ce.instance_self()

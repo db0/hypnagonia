@@ -95,7 +95,7 @@ func custom_script(script: ScriptObject) -> void:
 							Terms.ACTIVE_EFFECTS.disempower.name)
 					if card.canonical_name == "% Fowl Language %":
 						dstacks += 1
-					var multiplier : int 
+					var multiplier : int
 					if card.deck_card_entry:
 						multiplier = card.deck_card_entry\
 								.get_property("_amounts",{}).get("multiplier_amount")
@@ -188,6 +188,110 @@ func custom_script(script: ScriptObject) -> void:
 					continue
 				selected_card.deck_card_entry.enhance()
 				break
+		"Recurrence":
+			var all_intents = cfc.get_tree().get_nodes_in_group("SingleIntents")
+			var owning_entity = null
+			var stress := 0
+			var perplex := 0
+			var debuff := 0
+			var buff := 0
+			var other := 0
+			var buff_selected : String
+			var debuff_selected : String
+			var special_effects := 0
+			for intent in all_intents:
+				if intent.intent_script.name == "modify_damage":
+					stress += int(intent.intent_script.amount)
+				elif intent.intent_script.name == "assign_defence":
+					perplex += int(intent.intent_script.amount)
+				elif intent.intent_script.name == "apply_effect":
+					if intent.intent_script.effect_name in Terms.get_all_effect_types('Buff'):
+						if buff_selected == '':
+							buff += int(intent.intent_script.modification)
+							buff_selected = intent.intent_script.effect_name
+					elif intent.intent_script.effect_name in Terms.get_all_effect_types('Debuff'):
+						if debuff_selected == '':
+							debuff += int(intent.intent_script.modification)
+							debuff_selected = intent.intent_script.effect_name
+					else:
+						special_effects += 1
+				else:
+					other += 1
+			var task : Dictionary
+			var card_script := []
+			var card_text := ''
+			if stress > 0 or debuff > 0:
+				task = {
+					"name": "null_script",
+					"tags": ["Card"],
+					"subject": "target",
+					"needs_subject": true,
+					"filter_state_subject": [{
+						"filter_group": "EnemyEntities",
+					},],
+				}
+				card_script.append(task)
+				card_text += "Target a Torment. "
+			if stress > 0:
+				var interpret_amount := int(ceil(stress / 2.5))
+				task = {
+						"name": "modify_damage",
+						"amount": interpret_amount,
+						"tags": ["Attack", "Card"],
+						"subject": "previous",
+				}
+				card_script.append(task)
+				card_text += "{attack} for %s. " % [interpret_amount]
+			if perplex > 0:
+				var perplex_amount := int(ceil(perplex / 2.5))
+				task = {
+					"name": "assign_defence",
+					"tags": ["Card"],
+					"subject": "dreamer",
+					"amount": perplex_amount
+				}
+				card_script.append(task)
+				card_text += "Gain %s {defence} " % [perplex_amount]
+			if buff > 0:
+				var effect_amount = int(ceil(buff / 2.0))
+				task = {
+					"name": "apply_effect",
+					"tags": ["Card"],
+					"effect_name": buff_selected,
+					"subject": "dreamer",
+					"modification": effect_amount,
+				}
+				card_script.append(task)
+				card_text += "Gain %s {%s} " % [effect_amount, buff_selected.to_lower()]
+			if debuff > 0:
+				var effect_amount = int(ceil(debuff / 2.0))
+				task = {
+					"name": "apply_effect",
+					"tags": ["Card"],
+					"effect_name": debuff_selected,
+					"subject": "previous",
+					"modification": effect_amount,
+				}
+				card_script.append(task)
+				card_text += "Apply %s {%s} " % [effect_amount, debuff_selected.to_lower()]
+#			print_debug([stress, perplex, debuff, debuff_selected,buff, buff_selected ,other])
+#			print_debug(card_text)
+#			print_debug(card_script)
+			var bbcode = Terms.get_bbcode_formats()
+			card.modify_property("Abilities", card_text.format(bbcode))
+			card.scripts = { "manual": { "hand": card_script }}
+			var cost := 0
+			if stress + perplex > 21:
+				cost += 1
+			if stress + perplex > 42:
+				cost += 1
+			if debuff + buff > 7:
+				cost += 1
+			if debuff + buff > 15:
+				cost += 2
+#			print_debug([stress + perplex, debuff + buff, cost])
+			card.modify_property("Cost", cost)
+			card.refresh_card_front()
 
 # warning-ignore:unused_argument
 func custom_alterants(script: ScriptObject) -> int:
