@@ -5,20 +5,25 @@ const EPIC_AMOUNT = 4
 const GAMBLE_AMOUNT = 4
 
 var secondary_choices := {
-		'epic': "[Epic Upgrade]: Lose {anxiety_loss} max {anxiety}. Choose a non-{concentration} card and Enhance it {epic_amount} times. (Enhancing randomly improves a card.)",
-		'gamble': "[Gamble]: Choose a non-{concentration} card. Enhance it {gamble_amount} times then Scar it {gamble_amount} times (Scarring randomly degrades a card.).",
+		'epic': "[Grow]: Lose {anxiety_loss} max {anxiety}. Choose a non-{concentration} card and Enhance it {epic_amount} times. (Enhancing randomly improves a card.)",
+		'gamble': "[Dance]: Choose a non-{concentration} card. Enhance it {gamble_amount} times then Scar it {gamble_amount} times (Scarring randomly degrades a card.).",
 		'skip': "[Skip]: Release a random card from your deck.",
 	}
 
 var nce_result_fluff := {
-		'epic': "",
-		'gamble': "",
-		'skip': "Card Removed: {selected_card}",
+		'epic': "As I winced and looked past the hard times, I saw light in our future.",
+		'gamble': "Scars are a testament to values of the past. Time is of the essence.",
+		'skip': "I rejected my longing for oblivion and the strive for power. Mortality is a virtue.\n"\
+				+ "Card Removed: {selected_card}",
 	}
 var existing_memory
 
 func _init():
-	description = "<Epic Upgrade - Story Fluff to be Done>. Select one Option...."
+	description = """
+The rays of energy surrounded me as I was swimming in the void. 
+Each of them passesed right above my head, pressing me to make a choice for better or for worse.
+I struggled to concentrate as the soft and electrifying colors dance around me within the darkness while I tasted their power dancing across my soul.
+"""
 #	prepare_journal_art(preload("res://assets/journal/nce/potted_plant.jpeg"))
 
 func begin() -> void:
