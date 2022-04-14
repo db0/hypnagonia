@@ -316,10 +316,14 @@ func custom_script(script: ScriptObject) -> void:
 				cost += 1
 			if stress + perplex > 42:
 				cost += 1
-			if debuff + buff > 7:
+			if debuff + buff + special_effects > 7:
 				cost += 1
-			if debuff + buff > 15:
-				cost += 2
+			if debuff + buff + special_effects > 15:
+				cost += 1
+			if other > 2:
+				cost += 1
+			if other > 4:
+				cost += 1
 #			print_debug([stress + perplex, debuff + buff, cost])
 			card.modify_property("Cost", cost)
 			card.refresh_card_front()
