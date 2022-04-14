@@ -18,6 +18,11 @@ const ARTIFACT_PREVIEW_SCENE = preload("res://src/dreamscape/MainMenu/ArtifactPr
 const JOURNAL_ENCOUNTER_CHOICE_SCENE = preload("res://src/dreamscape/Overworld/JournalEncounterChoiceScene.tscn")
 const PATHOS_INFO_SCENE = preload("res://src/dreamscape/PathosChangeInfo.tscn")
 
+const WORD_DEFINITIONS := {
+	"scar": "Will permanently degrade a card in a random manner",
+	"enhance": "Will permanently improve a card in a random manner",
+}
+
 var pathos_infos := {}
 # This is set to fase a millisecond after a popup closes
 # to avoid the click which closes it, selecting a choice
@@ -314,6 +319,9 @@ func _on_meta_hover_started(meta_text: String) -> void:
 			show_description_popup(
 					globals.current_encounter.get_meta_hover_description(
 						meta_tag["name"]))
+		"definition":
+			if WORD_DEFINITIONS.has(meta_tag["definition"]):
+				show_description_popup(WORD_DEFINITIONS[meta_tag["definition"]])
 
 
 func _on_meta_hover_ended(meta_text: String) -> void:
@@ -328,7 +336,7 @@ func _on_meta_hover_ended(meta_text: String) -> void:
 		"popup_artifact":
 			var artifact_name : String = meta_tag["name"]
 			popup_cards[artifact_name].hide_preview_artifact()
-		"nce":
+		"nce", "definition":
 			_description_popup.visible = false
 
 
@@ -516,8 +524,8 @@ func _input(event):
 	### Debug ###
 	if event.is_action_pressed("init_debug_game"):
 		# Upgrade cards debug
-		for c in globals.player.deck.get_progressing_cards():
-			c.upgrade_progress = c.upgrade_threshold
+#		for c in globals.player.deck.get_progressing_cards():
+#			c.upgrade_progress = c.upgrade_threshold
 #			if c.card_name == "Noisy Whip":
 #				globals.player.deck.remove_card(c)
 #		_reveal_entry(upgrade_journal, true)
@@ -556,7 +564,7 @@ func _input(event):
 #			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
 			preload("res://src/dreamscape/Run/NCE/AllActs/EpicUpgrade.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act3/TheCake.gd").new(),
-			preload("res://src/dreamscape/Run/NCE/Act2/HangingOn.gd").new(),
+			preload("res://src/dreamscape/Run/NCE/Act2/Blanket.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act1/PathosForAnxiety.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
 #			BossEncounter.new(Act2.BOSSES["Surreality"]),

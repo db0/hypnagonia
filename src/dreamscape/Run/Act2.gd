@@ -542,6 +542,7 @@ const NCE := {
 		"MultipleScriptMods": preload("res://src/dreamscape/Run/NCE/Act2/MultipleScriptMods.gd"),
 		"LoseRandomCurio": preload("res://src/dreamscape/Run/NCE/Act2/LoseRandomCurio.gd"),
 		"HangingOn": preload("res://src/dreamscape/Run/NCE/Act2/HangingOn.gd"),
+		"Blanket": preload("res://src/dreamscape/Run/NCE/Act2/Blanket.gd"),
 	},
 	"risky": {
 		"RiskyEvent3": preload("res://src/dreamscape/Run/NCE/Act2/RiskyEvent3.gd"),
