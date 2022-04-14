@@ -516,8 +516,8 @@ func _input(event):
 	### Debug ###
 	if event.is_action_pressed("init_debug_game"):
 		# Upgrade cards debug
-#		for c in globals.player.deck.get_progressing_cards():
-#			c.upgrade_progress = c.upgrade_threshold
+		for c in globals.player.deck.get_progressing_cards():
+			c.upgrade_progress = c.upgrade_threshold
 #			if c.card_name == "Noisy Whip":
 #				globals.player.deck.remove_card(c)
 #		_reveal_entry(upgrade_journal, true)
@@ -556,8 +556,8 @@ func _input(event):
 #			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
 			preload("res://src/dreamscape/Run/NCE/AllActs/EpicUpgrade.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act3/TheCake.gd").new(),
-#			preload("res://src/dreamscape/Run/NCE/Act2/HangingOn.gd").new(),
-			preload("res://src/dreamscape/Run/NCE/Act1/PathosForAnxiety.gd").new(),
+			preload("res://src/dreamscape/Run/NCE/Act2/HangingOn.gd").new(),
+#			preload("res://src/dreamscape/Run/NCE/Act1/PathosForAnxiety.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
 #			BossEncounter.new(Act2.BOSSES["Surreality"]),
 #			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
