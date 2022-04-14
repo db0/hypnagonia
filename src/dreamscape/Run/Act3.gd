@@ -407,6 +407,58 @@ const Circular_Arguments = {
 	},
 #	"journal_art": preload("res://assets/journal/torments/life_path.jpeg"),
 }
+const Influencer = {
+	"journal_description":\
+		"I was checking Instagram, TikTok, Reddit, just constantly doom-scrolling [url={torment_tag1}]through perfect lives[/url]. "\
+				+  "Was I even really dreaming?",
+	"journal_reward":\
+		'Through overcoming that weird experience, I felt wiser.',
+#	"journal_art": preload("res://assets/journal/torments/handsy_aunt.jpeg"),
+	"enemies": {
+		"easy": [
+			{
+				"definition": EnemyDefinitions.INFLUENCER,
+				"starting_intent": 0,
+				"rebalancing": {
+					"Perplex": -1,
+				},
+			},
+		],
+		"medium": [
+			{
+				"definition": EnemyDefinitions.INFLUENCER,
+				"starting_intent": 0,
+			},
+			{
+				"definition": EnemyDefinitions.BROKEN_MIRROR,
+				"health_modifier": +5,
+				"starting_defence": +15,
+				"starting_intent": 2,
+			},
+		],
+		"hard": [
+			{
+				"definition": EnemyDefinitions.INFLUENCER,
+				"starting_intent": 0,
+				"rebalancing": {
+					"Perplex": +1,
+				},
+			},
+			{
+				"definition": EnemyDefinitions.BROKEN_MIRROR,
+				"health_modifier": +5,
+				"starting_defence": +15,
+				"starting_intent": 2,
+			},
+			{
+				"definition": EnemyDefinitions.BROKEN_MIRROR,
+				"health_modifier": +5,
+				"starting_defence": +15,
+				"starting_intent": 2,
+			},
+		],
+	},
+}
 
 const ENEMIES = [
 	Administration,
@@ -416,6 +468,7 @@ const ENEMIES = [
 	Submerged,
 	HandsyAunt,
 	Circular_Arguments,
+	Influencer,
 ]
 
 const TheGatherer = {

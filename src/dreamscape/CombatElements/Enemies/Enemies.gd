@@ -843,3 +843,32 @@ const CIRCULAR_ARGUMENTS := {
 #	"_texture": preload("res://assets/journal/torments/handsy_aunt.jpeg"),
 	"_character_art": "Nobody"
 }
+const INFLUENCER := {
+	"Name": "Influencer",
+	"Type": "Existential",
+	"Health": 180,
+	"Intents": [
+		{
+			"intent_scripts": ["Conspicuous Consumption", "Perplex:10"],
+			"reshuffle": true,
+			"max_in_a_row": 1,
+		},
+		{
+			"intent_scripts": ["Perplex:20", "Buff:1:fortify"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Debuff:2:disempower", "Stress:15","Perplex:3"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Buff:1:protection","Buff:3:impervious","Perplex:3","Debuff:2:poison"],
+			"reshuffle": false,
+		},
+	],
+	"_health_variability": 8,
+	"_texture_size_x": "120",
+	"_texture_size_y": "120",
+#	"_texture": preload("res://assets/journal/torments/handsy_aunt.jpeg"),
+	"_character_art": "Nobody"
+}

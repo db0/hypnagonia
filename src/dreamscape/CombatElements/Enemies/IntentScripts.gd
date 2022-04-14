@@ -340,6 +340,19 @@ const AWKWARD_COMPLIMENTS := [
 	}
 ]
 
+const CONSPICUOUS_CONSUMPTION := [
+	{
+		"name": "apply_effect",
+		"effect_name": Terms.ACTIVE_EFFECTS.burn.name,
+		"tags": ["Intent", "Delayed"],
+		"subject": "dreamer",
+		"modification": 12,
+		"set_to_mod": true,
+		"icon": "icon_debuff",
+		"description": "Their life is just so perfect!"
+	}
+]
+
 const GUT := [
 	{
 		"name": "null_script",
@@ -374,6 +387,7 @@ func get_scripts(intent_name: String) -> Dictionary:
 		"Complicated Play": COMPLICATED_PLAY,
 		"Act It Out": ACT_IT_OUT,
 		"Awkward Compliments": AWKWARD_COMPLIMENTS,
+		"Conspicuous Consumption": CONSPICUOUS_CONSUMPTION,
 		# Unit Testing #
 		"GUT": GUT,
 	}

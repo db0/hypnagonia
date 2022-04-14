@@ -1846,4 +1846,17 @@ const CARDS := {
 		"_upgrade_threshold_modifier": -50,
 		"_is_upgrade": true,
 	},
+	"Influencer": {
+		"Type": "Understanding",
+		"Tags": [],
+		"Abilities": "Apply {effect_stacks} {burn}\n{release}.",
+		"Cost": 1,
+		"_illustration": "Nobody",
+		"_rarity": "Received",
+		"_amounts": {
+			"effect_stacks": 12,
+		},
+		"_upgrade_threshold_modifier": -50,
+		"_upgrades": [],
+	},
 }

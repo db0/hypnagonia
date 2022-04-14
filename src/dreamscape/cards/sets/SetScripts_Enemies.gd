@@ -90,6 +90,31 @@ const Circular_Arguments = {
 		],
 	},
 }
+const Influencer = {
+	"manual": {
+		"hand": [
+			{
+				"name": "apply_effect",
+				"tags": ["Card"],
+				"effect_name": Terms.ACTIVE_EFFECTS.burn.name,
+				"subject": "target",
+				"needs_subject": true,
+				"modification":  {
+					"lookup_property": "_amounts",
+					"value_key": "effect_stacks",
+				},
+				"filter_state_subject": [{
+					"filter_group": "EnemyEntities",
+				}],
+			},
+			{
+				"name": "remove_card_from_deck",
+				"subject": "self",
+				"tags": ["Played", "Card"],
+			}
+		],
+	},
+}
 const Recurrence = {
 	"manual": {
 		"hand": [
@@ -1750,6 +1775,7 @@ const scripts := {
 	"Handsy Aunt": HandsyAunt,
 	"Circular Arguments": Circular_Arguments,
 	"Recurrence": Recurrence,
+	"Influencer": Influencer,
 }
 
 # This fuction returns all the scripts of the specified card name.

@@ -560,7 +560,7 @@ func _input(event):
 		var debug_encounters = [
 #			EnemyEncounter.new(Act1.TheLaughingOnes, "hard"),
 #			EnemyEncounter.new(Act2.TrafficJam, "easy"),
-#			EnemyEncounter.new(Act3.Circular_Arguments, "medium"),
+			EnemyEncounter.new(Act3.Influencer, "hard"),
 #			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
 			preload("res://src/dreamscape/Run/NCE/AllActs/EpicUpgrade.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act3/TheCake.gd").new(),
