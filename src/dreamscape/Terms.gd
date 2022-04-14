@@ -788,7 +788,7 @@ const GENERIC_TAGS := {
 		"rich_text_icon": "res://fonts/rich_text_icons/power-button.png",
 		"generic_description": "[color=#A020F0]{effect_name} ({effect_icon}): This card can only be played as the first one in the turn.[/color]"},
 	"end_turn": {
-		"name": "close",
+		"name": "Close",
 		"icon": preload("res://assets/icons/stop-sign.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/stop-sign.png",
 		"generic_description": "[color=#A020F0]{effect_name} ({effect_icon}): After this card is played, your turn immediately ends.[/color]"},

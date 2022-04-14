@@ -14,7 +14,7 @@ var secondary_choices := {
 var unlockable_choices := {
 	"strengthen_up": '[%s] Increase starting {strengthen} by 1.' % [ArtifactDefinitions.StrengthenUp.name],
 	"quicken_up": '[%s] Increase starting {quicken} by 1.' % [ArtifactDefinitions.QuickenUp.name],
-	"enhance": '[%s] Enhance one card.' % [ArtifactDefinitions.EnhanceOnRest.name],
+	"enhance": '[%s] [url={"definition": "enhance","meta_type": "definition"}]Enhance[/url] one card.' % [ArtifactDefinitions.EnhanceOnRest.name],
 	"upgrade_memories": '[%s] Upgrade all Memories.' % [ArtifactDefinitions.UpgradeMemoryOnRest.name],
 }
 

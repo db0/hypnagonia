@@ -5,8 +5,8 @@ const EPIC_AMOUNT = 4
 const GAMBLE_AMOUNT = 4
 
 var secondary_choices := {
-		'epic': "[Grow]: Lose {anxiety_loss} max {anxiety}. Choose a non-{concentration} card and Enhance it {epic_amount} times. (Enhancing randomly improves a card.)",
-		'gamble': "[Dance]: Choose a non-{concentration} card. Enhance it {gamble_amount} times then Scar it {gamble_amount} times (Scarring randomly degrades a card.).",
+		'epic': '[Grow]: Lose {anxiety_loss} max {anxiety}. Choose a non-{concentration} card and [url={"definition": "enhance","meta_type": "definition"}]Enhance[/url] it {epic_amount} times.',
+		'gamble': '[Dance]: Choose a non-{concentration} card. Enhance it {gamble_amount} times then [url={"definition": "scar","meta_type": "definition"}]Scar[/url] it {gamble_amount} times.',
 		'skip': "[Skip]: Release a random card from your deck.",
 	}
 
