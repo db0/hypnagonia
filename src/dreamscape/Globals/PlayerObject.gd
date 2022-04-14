@@ -106,7 +106,7 @@ func compile_card_type(
 		return(Understanding.gather_understanding(upgraded_choice[upgraded]))
 	var all_cards :=  []
 	for rarity in rarities:
-		all_cards += compile_rarity_cards(rarity)
+		all_cards += HUtils.get_all_list_variants(compile_rarity_cards(rarity))
 	var typecards := []
 	for card_name in all_cards:
 		if cfc.card_definitions[card_name].get(CardConfig.SCENE_PROPERTY) == type:

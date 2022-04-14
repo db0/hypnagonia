@@ -426,7 +426,7 @@ const TheGatherer = {
 		+ "doing things almost randomly.",
 	"journal_reward":\
 		'Finally I put my thoughts in order.',
-#	'journal_art': preload("res://assets/journal/advanced/dentist.jpeg"),
+	'journal_art': preload("res://assets/journal/advanced/the_gatherer.jpeg"),
 }
 
 const TheatrePlay = {

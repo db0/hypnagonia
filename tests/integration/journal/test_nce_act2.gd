@@ -623,6 +623,9 @@ class TestHangingOn:
 		assert_eq(globals.player.damage, 5)
 
 	func test_choice_shout_succeed():
+		# We're upgrading all cards as well to test that received card is also upgraded
+		for c in globals.player.deck.cards:
+			c.upgrade(c.upgrade_options[0])
 		watch_signals(globals.player.deck)
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
@@ -644,6 +647,7 @@ class TestHangingOn:
 		var added_card: CardEntry = added_cards_signal[0]
 		assert_eq(removed_card.properties.Type, "Control")
 		assert_eq(added_card.properties.Type, "Control")
+		assert_has(added_card.properties, "_is_upgrade")
 		assert_eq(globals.player.damage, 0)
 
 	func test_choice_shout_fail():

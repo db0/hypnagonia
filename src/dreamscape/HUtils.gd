@@ -159,6 +159,15 @@ static func get_all_card_variants(card_name: String) -> Array:
 		all_variants.append(find_upgrade_parent(card_name))
 	return(all_variants)
 
+
+static func get_all_list_variants(card_list: Array) -> Array:
+	var all_variants := card_list.duplicate()
+	for card_name in card_list:
+		for variant_name in get_all_card_variants(card_name):
+			if not all_variants.has(variant_name):
+				all_variants.append(variant_name)
+	return(all_variants)
+
 static func find_upgrade_parent(card_name: String):
 	for cn in cfc.card_definitions:
 		var upgrades = cfc.card_definitions[cn].get("_upgrades", [])
