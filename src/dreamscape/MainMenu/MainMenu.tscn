@@ -49,6 +49,8 @@ __meta__ = {
 }
 
 [node name="CardLibrary" parent="." instance=ExtResource( 2 )]
+margin_left = -1455.0
+margin_right = -1455.0
 custom_styles/panel = SubResource( 1 )
 replacements = {
 }
@@ -57,8 +59,12 @@ property_width_exceptions = {
 }
 
 [node name="NewGame" parent="." instance=ExtResource( 5 )]
+margin_left = 1455.0
+margin_right = 1455.0
 
 [node name="Settings" parent="." instance=ExtResource( 7 )]
+margin_left = 1455.0
+margin_right = 1455.0
 
 [node name="ReadMe" type="PopupPanel" parent="."]
 margin_right = 4.0

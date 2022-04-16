@@ -174,3 +174,33 @@ static func find_upgrade_parent(card_name: String):
 		if upgrades.has(card_name):
 			return(cn)
 	return(false)
+
+
+# Shuffles all possible backgrounds in the game and selects one at random
+# Retuns a dictionary  with 2 keys
+# * image (ImageTexture): The image texture as the first element
+# * is_bright (bool): Whether that background is considered bright or dark
+# The type of background to return can also be specified through the "type" var
+# * 'any': Return either dark or bright bg
+# * 'dark': Return only dark bg
+# * 'bright': Return only bright bg
+static func get_random_background(type := 'any') -> Dictionary:
+	var dark_backgrounds := []
+	var bright_backgrounds := []
+	if type != 'bright':
+		dark_backgrounds = CFUtils.list_imported_in_directory("res://assets/backgrounds/dark/")
+	if type != 'dark':
+		bright_backgrounds = CFUtils.list_imported_in_directory("res://assets/backgrounds/bright/")
+	var all_backgrounds := bright_backgrounds + dark_backgrounds
+	CFUtils.shuffle_array(all_backgrounds)
+	var selected_background :String = all_backgrounds[0]
+	var bpath: String
+	if selected_background in bright_backgrounds:
+		bpath = "res://assets/backgrounds/bright/"
+	else:
+		bpath = "res://assets/backgrounds/dark/"
+	var return_res := {
+		"image": CFUtils.convert_texture_to_image(bpath + selected_background), 
+		"is_bright": selected_background in bright_backgrounds
+	}
+	return(return_res)

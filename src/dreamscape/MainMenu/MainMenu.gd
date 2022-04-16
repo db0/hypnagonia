@@ -16,13 +16,6 @@ const SUBTITLES := [
 	"A rhapsody of reverie and retrospection",
 ]
 
-const MENU_BGS := {
-	"Main": preload("res://assets/backgrounds/dark/6dd4ba414af241de43bb89a489fb_hires.jpeg"),
-	"NewGame": preload("res://assets/backgrounds/dark/980b14c8f71200ba0f77e0f7e32e_hires.jpeg"),
-	"Settings": preload("res://assets/backgrounds/dark/b4a03c7cc79975394222cea40841_hires.jpeg"),
-	"CardLibrary": preload("res://assets/backgrounds/dark/b292f25067d5db12d8187686e9ca_hires.jpeg"),
-	
-}
 # The time it takes to switch from one menu tab to another
 const menu_switch_time = 0.35
 
@@ -38,6 +31,7 @@ onready var menu_tween := $MenuTween
 onready var bg_tween := $BGTween
 onready var _subtitle := $MainMenu/VBox/Margin/VBoxContainer/Subtitle
 onready var _version := $MainMenu/VBox/Version
+onready var _bg_shader := $Shader
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -64,10 +58,9 @@ func _ready() -> void:
 
 
 func on_button_pressed(_button_name : String) -> void:
-	if MENU_BGS.has(_button_name):
-		_switch_bg(MENU_BGS[_button_name])
 	match _button_name:
 		"NewGame":
+			_switch_bg(HUtils.get_random_background('dark').image)
 			SoundManager.play_se('click')
 			switch_to_tab(new_game)
 #			get_tree().change_scene(CFConst.PATH_CUSTOM + 'Main.tscn')
@@ -80,9 +73,11 @@ func on_button_pressed(_button_name : String) -> void:
 			_readme_popup.rect_size = _readme_label.rect_size
 			_readme_popup.popup_centered_minsize()
 		"CardLibrary":
+			_switch_bg(HUtils.get_random_background('dark').image)
 			SoundManager.play_se(Sounds.get_shove_sound())
 			switch_to_tab(card_library)
 		"Settings":
+			_switch_bg(HUtils.get_random_background('dark').image)
 			SoundManager.play_se(Sounds.get_shove_sound())
 			switch_to_tab(settings)
 		"Exit":
@@ -121,7 +116,7 @@ func switch_to_main_menu(tab: Control) -> void:
 			main_menu.rect_position.x, 0, menu_switch_time,
 			Tween.TRANS_BACK, Tween.EASE_IN_OUT)
 	menu_tween.start()
-	_switch_bg(MENU_BGS["Main"])
+	_switch_bg(HUtils.get_random_background('dark').image)
 
 
 func _on_DeckBuilder_Back_pressed() -> void:
@@ -183,19 +178,25 @@ func _process_card_export(card_name: String) -> Dictionary:
 	card_entry['archetypes'] = Aspects.get_card_archetypes(card_name)
 	return(card_entry)
 
-func _switch_bg(bg_image) -> void:
-	if not bg_tween.is_active():
-		bg_tween.interpolate_property(self,'self_modulate',
-				self_modulate, Color(0,0,0), 1.0,
-				Tween.TRANS_QUAD, Tween.EASE_IN)
-		bg_tween.start()
-		yield(bg_tween, "tween_all_completed")
-		texture = CFUtils.convert_texture_to_image(bg_image)
-		self_modulate = Color(0,0,0)
-		bg_tween.interpolate_property(self,'self_modulate',
-				self_modulate, Color(1,1,1), 1.0,
-				Tween.TRANS_SINE, Tween.EASE_OUT)
-		bg_tween.start()
+func _switch_bg(bg_image: ImageTexture) -> void:
+	bg_tween.remove_all()
+	bg_tween.interpolate_property(self,'self_modulate',
+			self_modulate, Color(0,0,0), 0.3,
+			Tween.TRANS_QUAD, Tween.EASE_IN)
+	bg_tween.interpolate_property(_bg_shader,'self_modulate:a',
+			_bg_shader.self_modulate.a, 0, 0.3,
+			Tween.TRANS_QUAD, Tween.EASE_IN)
+	bg_tween.start()
+	yield(bg_tween, "tween_all_completed")
+	texture = bg_image
+	self_modulate = Color(0,0,0)
+	bg_tween.interpolate_property(self,'self_modulate',
+			self_modulate, Color(1,1,1), 1.0,
+			Tween.TRANS_SINE, Tween.EASE_OUT)
+	bg_tween.interpolate_property(_bg_shader,'self_modulate:a',
+			_bg_shader.self_modulate.a, 0.3, 1.0,
+			Tween.TRANS_QUAD, Tween.EASE_OUT)
+	bg_tween.start()
 
 func _export_torments() -> Dictionary:
 	var tdict: Dictionary = {
