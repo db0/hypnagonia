@@ -139,23 +139,9 @@ func _prepare_omega() -> void:
 
 
 func randomize_background() -> void:
-	var dark_backgrounds := CFUtils.list_imported_in_directory("res://assets/backgrounds/dark/")
-	var bright_backgrounds := CFUtils.list_imported_in_directory("res://assets/backgrounds/bright/")
-	var all_backgrounds := bright_backgrounds + dark_backgrounds
-	CFUtils.shuffle_array(all_backgrounds)
-	var selected_background :String = all_backgrounds[0]
-	var bpath: String
-	if selected_background in bright_backgrounds:
-		bpath = "res://assets/backgrounds/bright/"
-		_bg_tint.visible = true
-	else:
-		bpath = "res://assets/backgrounds/dark/"
-	var background_resource: String = bpath + selected_background
-	var tex = load(background_resource)
-	var new_texture = ImageTexture.new();
-	var image = tex.get_data()
-	new_texture.create_from_image(image)
-	_background.texture = new_texture
+	var rng_bg = HUtils.get_random_background()
+	_background.texture = rng_bg.image
+	_bg_tint.visible = rng_bg.is_bright
 
 
 func spawn_enemy_encounter(encounter: EnemyEncounter) -> void:
