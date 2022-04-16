@@ -3,8 +3,8 @@ extends NonCombatEncounter
 
 
 var secondary_choices := {
-		'destroy': '[Destroy the workshop]: Gain {destroy_amount} released {boss}.',
-		'leave': '[Leave the alone]: Gain {leave_amount} repressed {elite}.',
+		'destroy': '[Destroy the workshop]: Gain {destroy_amount} {released_boss}.',
+		'leave': '[Leave the alone]: Gain {leave_amount} {repressed_elite}.',
 	}
 
 	
@@ -32,12 +32,10 @@ func begin() -> void:
 	amounts["leave_amount"] = round(
 					globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.elite)
 					* 4 * CFUtils.randf_range(0.8,1.2))
-	var scformat := Terms.RUN_ACCUMULATION_NAMES.duplicate()
+	var scformat := {}
 	scformat["destroy_amount"] = amounts["destroy_amount"]
 	scformat["leave_amount"] = amounts["leave_amount"]
-	secondary_choices['destroy'] = secondary_choices['destroy'].format(scformat)
-	secondary_choices['leave'] = secondary_choices['leave'].format(scformat)
-	globals.journal.add_nested_choices(secondary_choices)
+	_prepare_secondary_choices(secondary_choices, scformat)
 
 func continue_encounter(key) -> void:
 	match key:

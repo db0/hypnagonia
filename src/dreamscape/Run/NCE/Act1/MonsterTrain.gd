@@ -5,8 +5,8 @@ var testing_rng := 0
 
 var secondary_choices := {
 		'lead': '[Lead]: Take 15 anxiety. 60% chance to gain a random curio.',
-		'follow': '[Follow]: Take 7 anxiety. Gain {follow_amount} released {shop}.',
-		'abort': '[Abort]: Gain {abort_amount} repressed {elite}.',
+		'follow': '[Follow]: Take 7 anxiety. Gain {follow_amount} {released_shop}.',
+		'abort': '[Abort]: Gain {abort_amount} {repressed_elite}.',
 	}
 
 var nce_result_fluff := {
@@ -34,9 +34,7 @@ func begin() -> void:
 			Terms.RUN_ACCUMULATION_NAMES.shop) * 3
 	scformat["abort_amount"] = globals.player.pathos.get_progression_average(
 			Terms.RUN_ACCUMULATION_NAMES.elite) * 2
-	for key in secondary_choices:
-		secondary_choices[key] = secondary_choices[key].format(scformat).format(Terms.get_bbcode_formats(18))
-	globals.journal.add_nested_choices(secondary_choices)
+	_prepare_secondary_choices(secondary_choices, scformat)
 
 func continue_encounter(key) -> void:
 	match key:

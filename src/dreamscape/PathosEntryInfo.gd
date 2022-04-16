@@ -3,26 +3,26 @@ extends MarginContainer
 const pathos_descriptions := {
 	"Header": "Mouse over any pathos below to have it explained.",
 	Terms.RUN_ACCUMULATION_NAMES.enemy: "{pathos}\n"\
-			+ "Repressed: Increases the chance that Torments will appear as encounters ({chance}).\n"\
-			+ "Released: Can be used to buy or remove Archetype cards in the shop.",
+			+ "Repressed: %s ({chance}).\n" % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.enemy].repressed]\
+			+ "Released: %s." % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.enemy].released],
 	Terms.RUN_ACCUMULATION_NAMES.nce: "{pathos}\n"\
-			+ "Repressed: Increases the chance that Non-Ordeal encounters will appear ({chance}).\n"\
-			+ "Released: Can be used to buy Archetype cards to your deck in the shop.",
+			+ "Repressed: %s ({chance}).\n" % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.nce].repressed]\
+			+ "Released: %s" % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.nce].released],
 	Terms.RUN_ACCUMULATION_NAMES.shop: "{pathos}\n"\
-			+ "Repressed: Increases the chance that the Shop encounter will appear ({chance}).\n"\
-			+ "Released: Can be used to buy Memories in the shop.",
+			+ "Repressed: %s ({chance}).\n" % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.shop].repressed]\
+			+ "Released: %s." % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.shop].released],
 	Terms.RUN_ACCUMULATION_NAMES.elite: "{pathos}\n"\
-			+ "Repressed: Increases the chance that Elite Torment will appear as encounters ({chance}).\n"\
-			+ "Released: Can be used to buy Curios in the shop.",
+			+ "Repressed: %s ({chance}).\n" % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.elite].repressed]\
+			+ "Released: %s." % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.elite].released],
 	Terms.RUN_ACCUMULATION_NAMES.artifact: "{pathos}\n"\
-			+ "Repressed: Increases the chance that Curios will appear as encounters ({chance}).\n"\
-			+ "Released: Can be used to buy Understanding cards in the shop.",
+			+ "Repressed: %s ({chance}).\n" % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.artifact].repressed]\
+			+ "Released: %s." % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.artifact].released],
 	Terms.RUN_ACCUMULATION_NAMES.rest: "{pathos}\n"\
-			+ "Repressed: Increases the chance that Rest encounters will appear ({chance}).\n"\
-			+ "Released: Can be used to progress your cards in the shop.",
+			+ "Repressed: %s ({chance}).\n" % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.rest].repressed]\
+			+ "Released: %s." % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.rest].released],
 	Terms.RUN_ACCUMULATION_NAMES.boss: "{pathos}\n"\
-			+ "Repressed: When this reaches {boss_threshold}+, you will encounter this Act's adversary.\n"\
-			+ "Released: Unknown...",
+			+ "Repressed: %s .\n" % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.boss].repressed]\
+			+ "Released: %s" % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.boss].released],
 }
 
 var description: Label
@@ -50,8 +50,7 @@ func _on_PathosEntryInfo_mouse_entered() -> void:
 	var desc_format := {
 		"pathos": name.capitalize(),
 		"chance": '0%',
-		"boss_threshold": globals.player.pathos.thresholds[Terms.RUN_ACCUMULATION_NAMES.boss]\
-				* globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.boss)
+		"boss_threshold": globals.player.pathos.get_boss_threshold()
 	}
 	if chance > 0:
 		desc_format["chance"] = 'max ' + str(chance) + '%'

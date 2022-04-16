@@ -41,6 +41,41 @@ const RUN_ACCUMULATION_NAMES := {
 	"boss": "closure",
 }
 
+const PATHOS_DESCRIPTIONS := {
+	RUN_ACCUMULATION_NAMES.enemy: {
+		"repressed": "Increases the chance that Torments will appear as encounters. "\
+			+ "If the repressed pathos gets too high, it also makes their ordeals harder",
+		"released": "Can be used to buy or remove Archetype cards in the shop."
+	},
+	RUN_ACCUMULATION_NAMES.nce: {
+		"repressed": "Increases the chance that Non-Ordeal encounters will appear. "\
+			+ "If the repressed pathos gets too high, more risky  encounters will be chosen",
+		"released": "Can be used to buy Archetype cards to your deck in the shop."
+	},
+	RUN_ACCUMULATION_NAMES.shop: {
+		"repressed": "Increases the chance that the Shop encounter will appear",
+		"released": "Can be used to buy Memories in the shop."
+	},
+	RUN_ACCUMULATION_NAMES.elite: {
+		"repressed": "Increases the chance that Elite Torment will appear as encounters. "\
+			+ "If the repressed pathos gets too high, it also makes their ordeals harder",
+		"released": "Can be used to buy Curios in the shop."
+	},
+	RUN_ACCUMULATION_NAMES.artifact: {
+		"repressed": "Increases the chance that Curios will appear as encounters. "\
+			+ "If the repressed pathos gets too high, there is a better chance for higher rarity curio",
+		"released": "Can be used to buy Understanding cards in the shop."
+	},
+	RUN_ACCUMULATION_NAMES.rest: {
+		"repressed": "Increases the chance that Rest encounters will appear.",
+		"released": "Can be used to progress your cards in the shop."
+	},
+	RUN_ACCUMULATION_NAMES.boss: {
+		"repressed": "When this reaches {boss_threshold}+, you will encounter this Act's adversary.",
+		"released": "Unknown..."
+	},
+}
+
 const RUN_ACCUMULATION_TYPES := {
 	RUN_ACCUMULATION_NAMES.enemy: "Normal Torment",
 	RUN_ACCUMULATION_NAMES.rest: "Rest",
@@ -1004,3 +1039,31 @@ static func get_bbcode_formats(preset_icon_size = null) -> Dictionary:
 						complete_format_dict[terms_dict[entry].name.to_lower()] =\
 								"[ghost freq=2.0 span=7.0]{name}[/ghost]".format(terms_dict[entry])
 	return(complete_format_dict)
+
+static func get_pathos_descriptions_bbcode() -> Dictionary:
+	var pathos_bbcode_urls := {}
+	for key in RUN_ACCUMULATION_NAMES.keys() + RUN_ACCUMULATION_NAMES.values():
+		var type = key
+		if key in RUN_ACCUMULATION_NAMES.keys():
+			type = RUN_ACCUMULATION_NAMES[key]
+		for state in ['repressed', 'released']:
+			var fmt = {
+				"url_meta": JSON.print({"definition": state + '_' + key, "meta_type": "definition"}),
+				"pathos_state": state + ' ' + type,
+			}
+			pathos_bbcode_urls[state + '_' + key] = "[url={url_meta}]{pathos_state}[/url]".format(fmt)
+	return(pathos_bbcode_urls)
+
+static func get_pathos_descriptions_formats() -> Dictionary:
+	var pathos_bbcode_formats := {}
+	for type in PATHOS_DESCRIPTIONS:
+		for state in ['repressed', 'released']:
+			pathos_bbcode_formats[state + '_' + type] = PATHOS_DESCRIPTIONS[type][state]
+	# We also want to allow the developer to specify the pathos by its functinal name
+	# instead of the thematic name
+	# For example {repressed_enemy} should also work along with {repressed_frustration}
+	for key in RUN_ACCUMULATION_NAMES.keys():
+		var type = RUN_ACCUMULATION_NAMES[key]
+		for state in ['repressed', 'released']:
+			pathos_bbcode_formats[state + '_' + key] = PATHOS_DESCRIPTIONS[type][state]
+	return(pathos_bbcode_formats)

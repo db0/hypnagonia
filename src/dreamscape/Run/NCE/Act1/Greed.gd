@@ -3,7 +3,7 @@
 extends NonCombatEncounter
 
 var secondary_choices := {
-		'accept': '[Accept]: Gain {lowest_pathos_amount} released {lowest_pathos}. Become {perturbation}.',
+		'accept': '[Accept]: Gain {lowest_pathos_amount} {lowest_pathos}. Become {perturbation}.',
 		'decline': '[Decline]: Nothing Happens.',
 	}
 var pathos_choice_payments := {}
@@ -20,7 +20,7 @@ func begin() -> void:
 	var lowest_pathos_amount = round(globals.player.pathos.get_progression_average(lowest_pathos)\
 			* 8 * CFUtils.randf_range(0.8,1.2))
 	var scformat = {
-		"lowest_pathos": lowest_pathos,
+		"lowest_pathos": '{released_%s}' % [lowest_pathos],
 		"lowest_pathos_amount":  lowest_pathos_amount,
 		"perturbation": _prepare_card_popup_bbcode("Discombobulation", "discombobulated")
 	}
@@ -28,8 +28,7 @@ func begin() -> void:
 		"pathos": lowest_pathos,
 		"amount": lowest_pathos_amount
 	}
-	secondary_choices['accept'] = secondary_choices['accept'].format(scformat)
-	globals.journal.add_nested_choices(secondary_choices, [])
+	_prepare_secondary_choices(secondary_choices, scformat)
 
 func continue_encounter(key) -> void:
 	if key == "accept":

@@ -3,9 +3,9 @@
 extends NonCombatEncounter
 
 var secondary_choices := {
-		'calm': '[Songbird]: Gain {calm_random_pathos_amount} released {calm_random_pathos}.',
-		'stress': '[Peacock]: Take {stress_amount} anxiety. Gain {stress_random_pathos_amount} released {stress_random_pathos}.',
-		'fear': '[Lion]: Take {fear_amount} anxiety. Gain {fear_random_pathos_amount} released {fear_random_pathos}.',
+		'calm': '[Songbird]: Gain {calm_random_pathos_amount} {calm_random_pathos}.',
+		'stress': '[Peacock]: Take {stress_amount} anxiety. Gain {stress_random_pathos_amount} {stress_random_pathos}.',
+		'fear': '[Lion]: Take {fear_amount} anxiety. Gain {fear_random_pathos_amount} {fear_random_pathos}.',
 	}
 	
 var nce_result_fluff := {
@@ -44,12 +44,12 @@ func begin() -> void:
 	var stress_amount = CFUtils.randi_range(9,11)
 	var fear_amount = CFUtils.randi_range(18,22)
 	var scformat = {
-		"calm_random_pathos": calm_choice,
+		"calm_random_pathos": '{released_%s}' % [calm_choice],
 		"calm_random_pathos_amount":  calm_choice_amount,
-		"stress_random_pathos": stress_choice,
+		"stress_random_pathos": '{released_%s}' % [stress_choice],
 		"stress_random_pathos_amount":  stress_choice_amount,
 		"stress_amount":  stress_amount,
-		"fear_random_pathos": fear_choice,
+		"fear_random_pathos": '{released_%s}' % [fear_choice],
 		"fear_random_pathos_amount":  fear_choice_amount,
 		"fear_amount":  fear_amount,
 	}
@@ -68,12 +68,7 @@ func begin() -> void:
 		"reward": fear_choice_amount,
 		"anxiety": fear_amount,
 	}
-	secondary_choices['calm'] = secondary_choices['calm'].format(scformat)
-	secondary_choices['stress'] = secondary_choices['stress'].format(scformat)
-	secondary_choices['fear'] = secondary_choices['fear'].format(scformat)
-	for type in ['calm', 'stress', 'fear']:
-		secondary_choices[type] = secondary_choices[type].format(scformat)
-	globals.journal.add_nested_choices(secondary_choices)
+	_prepare_secondary_choices(secondary_choices, scformat)
 
 func continue_encounter(key) -> void:
 	globals.player.pathos.modify_released_pathos(choices[key]["pathos"], choices[key]["reward"])
