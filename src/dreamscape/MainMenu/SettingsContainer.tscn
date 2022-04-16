@@ -3,6 +3,7 @@
 [ext_resource path="res://src/dreamscape/MainMenu/SettingsMenu.tscn" type="PackedScene" id=1]
 
 [node name="Settings" type="PanelContainer"]
+self_modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -18,19 +19,58 @@ margin_right = 1448.0
 margin_bottom = 893.0
 
 [node name="PC" parent="SettingsMenu" index="0"]
-margin_left = 573.0
-margin_top = 241.0
-margin_right = 867.0
-margin_bottom = 644.0
+margin_left = 585.0
+margin_top = 158.0
+margin_right = 855.0
+margin_bottom = 728.0
 
 [node name="VBC" parent="SettingsMenu/PC" index="0"]
-margin_bottom = 396.0
+margin_right = 263.0
+margin_bottom = 563.0
 
-[node name="ExitToMain" parent="SettingsMenu/PC/VBC" index="7"]
+[node name="FocusStyle" parent="SettingsMenu/PC/VBC" index="0"]
+margin_right = 256.0
+items = [ "Large Card Preview", null, false, 2, null, "Info Panels Only", null, false, 3, null, "Hand Card Zoom", null, false, 0, null ]
+
+[node name="FancyAnimations" parent="SettingsMenu/PC/VBC" index="1"]
+margin_right = 256.0
+
+[node name="AnimatedTextBackgrounds" parent="SettingsMenu/PC/VBC" index="2"]
+margin_right = 256.0
+
+[node name="EnableGlow" parent="SettingsMenu/PC/VBC" index="3"]
+margin_right = 256.0
+
+[node name="InterruptMusic" parent="SettingsMenu/PC/VBC" index="4"]
+margin_right = 256.0
+
+[node name="MainVol" parent="SettingsMenu/PC/VBC" index="5"]
+margin_right = 256.0
+
+[node name="MainVolSlider" parent="SettingsMenu/PC/VBC" index="6"]
+margin_right = 256.0
+
+[node name="MusicVol" parent="SettingsMenu/PC/VBC" index="7"]
+margin_right = 256.0
+
+[node name="MusicVolSlider" parent="SettingsMenu/PC/VBC" index="8"]
+margin_right = 256.0
+
+[node name="SoundVol" parent="SettingsMenu/PC/VBC" index="9"]
+margin_right = 256.0
+
+[node name="SoundVolSlider" parent="SettingsMenu/PC/VBC" index="10"]
+margin_right = 256.0
+
+[node name="ExitToMain" parent="SettingsMenu/PC/VBC" index="11"]
 visible = false
 
-[node name="HBoxContainer" parent="SettingsMenu/PC/VBC" index="8"]
-margin_top = 339.0
-margin_bottom = 389.0
+[node name="HBoxContainer" parent="SettingsMenu/PC/VBC" index="12"]
+margin_top = 506.0
+margin_right = 256.0
+margin_bottom = 556.0
+
+[node name="Back" parent="SettingsMenu/PC/VBC/HBoxContainer" index="0"]
+margin_right = 256.0
 
 [editable path="SettingsMenu"]
