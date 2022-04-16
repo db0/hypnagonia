@@ -43,10 +43,11 @@ func _ready() -> void:
 		choice_button.connect("mouse_entered", self, "on_aspect_icon_mouse_entered", [choice_icon])
 		# warning-ignore:return_value_discarded
 		choice_button.connect("mouse_exited", self, "on_aspect_icon_mouse_exited", [choice_icon])
-# warning-ignore:return_value_discarded
+	# warning-ignore:return_value_discarded
 	get_viewport().connect("size_changed", self, '_on_Menu_resized')
 	_on_Menu_resized()
 	_difficulties.back_button.connect("pressed", self, "_on_difficulties_back_pressed")
+	# warning-ignore:return_value_discarded
 	globals.difficulty.connect("total_difficulty_recalculated", self, "_on_total_difficulty_changed")
 	_difficulty_button.text = "Change Difficulty (%s)" % [globals.difficulty.total_difficulty]
 	

@@ -22,8 +22,10 @@ func assemble_starting_deck() -> void:
 	for iter in globals.difficulty.starting_perturbations:
 		var rng_perturbation = Perturbations.get_random_perturbation(
 				Perturbations.get_archetype_perturbations_chance())
+		# warning-ignore:return_value_discarded
 		add_new_card(rng_perturbation)
 	if globals.difficulty.unremovable_perturbation:
+		# warning-ignore:return_value_discarded
 		add_new_card("Hubris")
 
 

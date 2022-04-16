@@ -183,9 +183,9 @@ func find_memory(memory_name: String):
 
 # Returns the MemoryObject which uses the specific pathos,
 # else returns null if no memory uses it.
-func get_memory_by_pathos(pathos: String):
+func get_memory_by_pathos(pathos_type: String):
 	for memory in memories:
-		if pathos == memory.pathos_used:
+		if pathos_type == memory.pathos_used:
 			return(memory)
 
 

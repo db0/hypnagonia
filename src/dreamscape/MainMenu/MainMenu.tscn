@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=1]
 [ext_resource path="res://src/dreamscape/CardLibrary/CardLibrary.tscn" type="PackedScene" id=2]
@@ -7,9 +7,18 @@
 [ext_resource path="res://src/dreamscape/MainMenu/NewGame.tscn" type="PackedScene" id=5]
 [ext_resource path="res://fonts/MainMenuTitle.tres" type="DynamicFont" id=6]
 [ext_resource path="res://src/dreamscape/MainMenu/SettingsContainer.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/backgrounds/dark/4d39ff92c943a33859ce96558c0d_hires.jpeg" type="Texture" id=8]
+[ext_resource path="res://assets/main_menu/card_library_button_pressed.png" type="Texture" id=8]
 [ext_resource path="res://assets/backgrounds/dark/6dd4ba414af241de43bb89a489fb_hires.jpeg" type="Texture" id=9]
 [ext_resource path="res://shaders/mists.shader" type="Shader" id=10]
+[ext_resource path="res://assets/main_menu/new_game_button.png" type="Texture" id=11]
+[ext_resource path="res://assets/main_menu/new_game_button_pressed.png" type="Texture" id=12]
+[ext_resource path="res://assets/icons/GUI/cog.png" type="Texture" id=13]
+[ext_resource path="res://assets/icons/GUI/info.png" type="Texture" id=14]
+[ext_resource path="res://assets/main_menu/exit_button_pressed.png" type="Texture" id=15]
+[ext_resource path="res://assets/main_menu/exit_button.png" type="Texture" id=16]
+[ext_resource path="res://assets/main_menu/quickstart_button.png" type="Texture" id=17]
+[ext_resource path="res://assets/main_menu/quickstart_button_pressed.png" type="Texture" id=18]
+[ext_resource path="res://assets/main_menu/card_library_button.png" type="Texture" id=19]
 
 [sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 10 )
@@ -32,7 +41,7 @@ size_flags_vertical = 3
 theme = ExtResource( 1 )
 texture = ExtResource( 9 )
 expand = true
-stretch_mode = 6
+stretch_mode = 7
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -87,36 +96,88 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="MainMenu"]
-visible = false
+[node name="CornerElements" type="HBoxContainer" parent="MainMenu"]
 margin_right = 1455.0
 margin_bottom = 900.0
-texture = ExtResource( 8 )
-expand = true
-stretch_mode = 6
 
-[node name="ColorRect" type="ColorRect" parent="MainMenu"]
-visible = false
-self_modulate = Color( 1, 1, 1, 0.392157 )
+[node name="LeftSide" type="VBoxContainer" parent="MainMenu/CornerElements"]
+margin_right = 100.0
+margin_bottom = 900.0
+
+[node name="Readme" type="TextureButton" parent="MainMenu/CornerElements/LeftSide"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+texture_normal = ExtResource( 14 )
+expand = true
+stretch_mode = 5
+
+[node name="Push" type="Control" parent="MainMenu/CornerElements/LeftSide"]
+margin_top = 103.0
+margin_right = 100.0
+margin_bottom = 817.0
+size_flags_vertical = 3
+
+[node name="Exit" type="TextureButton" parent="MainMenu/CornerElements/LeftSide"]
+margin_top = 820.0
+margin_right = 100.0
+margin_bottom = 900.0
+rect_min_size = Vector2( 0, 80 )
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 15 )
+expand = true
+stretch_mode = 5
+
+[node name="Push" type="Control" parent="MainMenu/CornerElements"]
+margin_left = 103.0
+margin_right = 1352.0
+margin_bottom = 900.0
+size_flags_horizontal = 3
+
+[node name="RightSide" type="VBoxContainer" parent="MainMenu/CornerElements"]
+margin_left = 1355.0
 margin_right = 1455.0
 margin_bottom = 900.0
-color = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
+
+[node name="Settings" type="TextureButton" parent="MainMenu/CornerElements/RightSide"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+texture_normal = ExtResource( 13 )
+expand = true
+stretch_mode = 5
+
+[node name="Push" type="Control" parent="MainMenu/CornerElements/RightSide"]
+margin_top = 103.0
+margin_right = 100.0
+margin_bottom = 876.0
+size_flags_vertical = 3
+
+[node name="Version" type="Label" parent="MainMenu/CornerElements/RightSide"]
+margin_top = 879.0
+margin_right = 100.0
+margin_bottom = 900.0
+text = "v0.14.0"
+align = 2
 
 [node name="VBox" type="VBoxContainer" parent="MainMenu"]
 margin_right = 1455.0
 margin_bottom = 900.0
+mouse_filter = 2
+size_flags_horizontal = 3
 
 [node name="Margin" type="MarginContainer" parent="MainMenu/VBox"]
 margin_right = 1455.0
-margin_bottom = 436.0
+margin_bottom = 249.0
+mouse_filter = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
 custom_constants/margin_top = 90
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/VBox/Margin"]
 margin_top = 90.0
 margin_right = 1455.0
-margin_bottom = 436.0
+margin_bottom = 249.0
+mouse_filter = 2
 
 [node name="Title" type="Label" parent="MainMenu/VBox/Margin/VBoxContainer"]
 margin_right = 1455.0
@@ -134,63 +195,49 @@ text = "Therapy through Nightmares"
 align = 1
 
 [node name="Center" type="CenterContainer" parent="MainMenu/VBox"]
-margin_top = 439.0
+margin_top = 252.0
 margin_right = 1455.0
-margin_bottom = 876.0
+margin_bottom = 900.0
+mouse_filter = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="VButtons" type="VBoxContainer" parent="MainMenu/VBox/Center"]
-margin_left = 631.0
-margin_top = 118.0
-margin_right = 823.0
-margin_bottom = 318.0
+margin_left = 577.0
+margin_top = 129.0
+margin_right = 877.0
+margin_bottom = 519.0
 rect_min_size = Vector2( 192, 0 )
-custom_constants/separation = 10
+custom_constants/separation = 30
 
-[node name="NewGame" type="Button" parent="MainMenu/VBox/Center/VButtons"]
-margin_right = 192.0
-margin_bottom = 25.0
-text = "New Game"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="QuickStart" type="Button" parent="MainMenu/VBox/Center/VButtons"]
-margin_top = 35.0
-margin_right = 192.0
-margin_bottom = 60.0
-text = "Quick Start"
-
-[node name="CardLibrary" type="Button" parent="MainMenu/VBox/Center/VButtons"]
-margin_top = 70.0
-margin_right = 192.0
-margin_bottom = 95.0
-text = "Card Library"
-
-[node name="Settings" type="Button" parent="MainMenu/VBox/Center/VButtons"]
-margin_top = 105.0
-margin_right = 192.0
+[node name="NewGame" type="TextureButton" parent="MainMenu/VBox/Center/VButtons"]
+margin_right = 300.0
 margin_bottom = 130.0
-text = "Settings"
+rect_min_size = Vector2( 300, 130 )
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 12 )
+expand = true
+stretch_mode = 5
 
-[node name="Readme" type="Button" parent="MainMenu/VBox/Center/VButtons"]
-margin_top = 140.0
-margin_right = 192.0
-margin_bottom = 165.0
-text = "Read Me"
+[node name="QuickStart" type="TextureButton" parent="MainMenu/VBox/Center/VButtons"]
+margin_top = 160.0
+margin_right = 300.0
+margin_bottom = 260.0
+rect_min_size = Vector2( 220, 100 )
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 18 )
+expand = true
+stretch_mode = 5
 
-[node name="Exit" type="Button" parent="MainMenu/VBox/Center/VButtons"]
-margin_top = 175.0
-margin_right = 192.0
-margin_bottom = 200.0
-text = "Exit"
-
-[node name="Version" type="Label" parent="MainMenu/VBox"]
-margin_top = 879.0
-margin_right = 1455.0
-margin_bottom = 900.0
-text = "v0.14.0"
-align = 2
+[node name="CardLibrary" type="TextureButton" parent="MainMenu/VBox/Center/VButtons"]
+margin_top = 290.0
+margin_right = 300.0
+margin_bottom = 390.0
+rect_min_size = Vector2( 220, 100 )
+texture_normal = ExtResource( 19 )
+texture_pressed = ExtResource( 8 )
+expand = true
+stretch_mode = 5
 
 [node name="MenuTween" type="Tween" parent="."]
 
