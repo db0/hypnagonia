@@ -3,9 +3,9 @@
 extends NonCombatEncounter
 
 var secondary_choices := {
-		'remove': '[Remove]: Pay {remove} released {remove_pathos}. Remove a card from your deck.',
-		'progress': '[Progress]: Pay {progress} released {progress_pathos}. Progress a card in your deck 4 times.',
-		'upgrade': '[Upgrade]: Pay {upgrade} released {upgrade_pathos}. Upgrade a random memory 2 times.',
+		'remove': '[Remove]: Pay {remove} {remove_pathos}. Remove a card from your deck.',
+		'progress': '[Progress]: Pay {progress} {progress_pathos}. Progress a card in your deck 4 times.',
+		'upgrade': '[Upgrade]: Pay {upgrade} {upgrade_pathos}. Upgrade a random memory 2 times.',
 		'leave': '[Leave]: Nothing Happens.'
 	}
 
@@ -36,9 +36,7 @@ func begin() -> void:
 	var scformat := {}
 	for key in pathos:
 		scformat[key] = amounts[key]
-		scformat[key + "_pathos"] = pathos[key]
-	for key in secondary_choices:
-		secondary_choices[key] = secondary_choices[key].format(scformat).format(Terms.get_bbcode_formats(18))
+		scformat[key + "_pathos"] = '{released_%s}' % [pathos[key]]
 	var disabled_choices = []
 	if globals.player.memories.size() == 0:
 		disabled_choices.append('upgrade')
@@ -47,9 +45,7 @@ func begin() -> void:
 	for type in pathos:
 		if globals.player.pathos.released[pathos[type]] < amounts[type]:
 			disabled_choices.append(type)
-	for choice in disabled_choices:
-		secondary_choices[choice] = "[color=red]" + secondary_choices[choice] + "[/color]"
-	globals.journal.add_nested_choices(secondary_choices, disabled_choices)
+	_prepare_secondary_choices(secondary_choices, scformat)
 
 func continue_encounter(key) -> void:
 	if key in pathos:

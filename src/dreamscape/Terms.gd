@@ -1056,14 +1056,18 @@ static func get_pathos_descriptions_bbcode() -> Dictionary:
 
 static func get_pathos_descriptions_formats() -> Dictionary:
 	var pathos_bbcode_formats := {}
+	# Need to put the boss threshold.
+	var fmt_fmt = {
+		"boss_threshold": globals.player.pathos.get_boss_threshold()
+	}
 	for type in PATHOS_DESCRIPTIONS:
 		for state in ['repressed', 'released']:
-			pathos_bbcode_formats[state + '_' + type] = PATHOS_DESCRIPTIONS[type][state]
+			pathos_bbcode_formats[state + '_' + type] = PATHOS_DESCRIPTIONS[type][state].format(fmt_fmt)
 	# We also want to allow the developer to specify the pathos by its functinal name
 	# instead of the thematic name
 	# For example {repressed_enemy} should also work along with {repressed_frustration}
 	for key in RUN_ACCUMULATION_NAMES.keys():
 		var type = RUN_ACCUMULATION_NAMES[key]
 		for state in ['repressed', 'released']:
-			pathos_bbcode_formats[state + '_' + key] = PATHOS_DESCRIPTIONS[type][state]
+			pathos_bbcode_formats[state + '_' + key] = PATHOS_DESCRIPTIONS[type][state].format(fmt_fmt)
 	return(pathos_bbcode_formats)

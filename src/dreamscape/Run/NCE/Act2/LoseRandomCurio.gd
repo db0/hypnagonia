@@ -23,13 +23,10 @@ func begin() -> void:
 	var scformat = {
 		"special_curio": _prepare_artifact_popup_bbcode("BetterArtifactChance", "special curio")
 	}
-	for key in secondary_choices:
-		secondary_choices[key] = secondary_choices[key].format(scformat).format(Terms.get_bbcode_formats(18))	
 	var disabled_choices := []
 	if globals.player.artifacts.size() == 0:
-		secondary_choices['allow'] = "[color=red]" + secondary_choices['allow'] + "[/color]"
 		disabled_choices.append('allow')
-	globals.journal.add_nested_choices(secondary_choices)
+	_prepare_secondary_choices(secondary_choices, scformat)
 
 
 func continue_encounter(key) -> void:

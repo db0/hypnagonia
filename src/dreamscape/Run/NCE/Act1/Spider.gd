@@ -3,8 +3,8 @@
 extends NonCombatEncounter
 
 var secondary_choices := {
-		'eat': '[Eat the spider]: Recover 10 {anxiety}. Gain {boss_amount} repressed {boss_pathos}',
-		'wave': '[Wave at the spider]: Gain 10 max {anxiety}. Gain {boss_amount} repressed {boss_pathos}. Gain {elite_amount} represed {elite_pathos}',
+		'eat': '[Eat the spider]: Recover 10 {anxiety}. Gain {boss_amount} {boss_pathos}',
+		'wave': '[Wave at the spider]: Gain 10 max {anxiety}. Gain {boss_amount} {boss_pathos}. Gain {elite_amount} represed {elite_pathos}',
 		'offer': '[Offer yourself to the spider]: Take 10 {anxiety}.',
 	}
 
@@ -21,18 +21,15 @@ func _init():
 func begin() -> void:
 	.begin()
 	var scformat = {
-		"boss_pathos": Terms.RUN_ACCUMULATION_NAMES.boss,
+		"boss_pathos": '{repressed_%s}' % [Terms.RUN_ACCUMULATION_NAMES.boss],
 		"boss_amount": round(globals.player.pathos.get_progression_average(
-		Terms.RUN_ACCUMULATION_NAMES.boss) * 2),
-		"elite_pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
+				Terms.RUN_ACCUMULATION_NAMES.boss) * 2),
+		"elite_pathos": '{repressed_%s}' % [Terms.RUN_ACCUMULATION_NAMES.elite],
 		"elite_amount": round(globals.player.pathos.get_progression_average(
 		Terms.RUN_ACCUMULATION_NAMES.elite) * 2),
 	}
-	secondary_choices['eat'] = secondary_choices['eat'].format(scformat).format(Terms.get_bbcode_formats(18))
-	secondary_choices['wave'] = secondary_choices['wave'].format(scformat).format(Terms.get_bbcode_formats(18))
-	secondary_choices['offer'] = secondary_choices['offer'].format(scformat).format(Terms.get_bbcode_formats(18))
-	globals.journal.add_nested_choices(secondary_choices, [])
-	
+	_prepare_secondary_choices(secondary_choices, scformat)
+
 func continue_encounter(key) -> void:
 	if key == "eat":
 		globals.player.damage -= 10

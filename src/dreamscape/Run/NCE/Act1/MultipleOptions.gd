@@ -3,9 +3,9 @@
 extends NonCombatEncounter
 
 var secondary_choices := {
-		'progress': '[Progress]: Lose {lowest_pathos_cost} released {lowest_pathos}. Progress the least progressed card by 4.',
-		'upgrade': '[Upgrade]: Lose {middle_pathos_cost} released {middle_pathos}. Upgrade the most progressed card.',
-		'remove': '[Remove]: Lose {highest_pathos_cost} released {highest_pathos}. Remove a card from your deck.',
+		'progress': '[Progress]: Lose {lowest_pathos_cost} {lowest_pathos}. Progress the least progressed card by 4.',
+		'upgrade': '[Upgrade]: Lose {middle_pathos_cost} {middle_pathos}. Upgrade the most progressed card.',
+		'remove': '[Remove]: Lose {highest_pathos_cost} {highest_pathos}. Remove a card from your deck.',
 		'leave': '[Leave]: Nothing Happens.',
 	}
 var pathos_choice_payments := {}
@@ -24,11 +24,11 @@ func begin() -> void:
 	var middle_pathos_cost = globals.player.pathos.get_progression_average(middle_pathos) * 3
 	var highest_pathos_cost = globals.player.pathos.get_progression_average(highest_pathos) * 3
 	var scformat = {
-		"lowest_pathos": lowest_pathos,
+		"lowest_pathos": '{released_%s}' % [lowest_pathos],
 		"lowest_pathos_cost":  lowest_pathos_cost,
-		"middle_pathos": middle_pathos,
+		"middle_pathos": '{released_%s}' % [middle_pathos],
 		"middle_pathos_cost":  middle_pathos_cost,
-		"highest_pathos": highest_pathos,
+		"highest_pathos": '{released_%s}' % [highest_pathos],
 		"highest_pathos_cost":  highest_pathos_cost,
 	}
 	pathos_choice_payments["progress"]  = {
@@ -43,8 +43,6 @@ func begin() -> void:
 		"pathos": highest_pathos,
 		"cost": highest_pathos_cost
 	}
-	for key in secondary_choices:
-		secondary_choices[key] = secondary_choices[key].format(scformat).format(Terms.get_bbcode_formats(18))	
 	var disabled_choices := []
 	for type in ['progress', 'upgrade', 'remove']:
 		secondary_choices[type] = secondary_choices[type].format(scformat)
@@ -63,7 +61,7 @@ func begin() -> void:
 		if not option_card:
 			secondary_choices['upgrade'] = "[color=red]" + secondary_choices['upgrade'] + "[/color]"
 			disabled_choices.append('upgrade')
-	globals.journal.add_nested_choices(secondary_choices, disabled_choices)
+	_prepare_secondary_choices(secondary_choices, scformat)
 
 func continue_encounter(key) -> void:
 	match key:
