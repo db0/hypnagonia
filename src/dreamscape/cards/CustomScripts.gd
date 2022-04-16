@@ -253,6 +253,17 @@ func custom_script(script: ScriptObject) -> void:
 				}
 				card_script.append(task)
 				card_text += "{attack} for %s. " % [interpret_amount]
+			if debuff > 0:
+				var effect_amount = int(ceil(debuff / effect_divider))
+				task = {
+					"name": "apply_effect",
+					"tags": ["Card"],
+					"effect_name": debuff_selected,
+					"subject": "previous",
+					"modification": effect_amount,
+				}
+				card_script.append(task)
+				card_text += "Apply %s {%s} " % [effect_amount, debuff_selected.to_lower()]
 			if perplex > 0:
 				var perplex_amount := int(ceil(perplex / stress_perplex_divider))
 				task = {
@@ -274,17 +285,6 @@ func custom_script(script: ScriptObject) -> void:
 				}
 				card_script.append(task)
 				card_text += "Gain %s {%s} " % [effect_amount, buff_selected.to_lower()]
-			if debuff > 0:
-				var effect_amount = int(ceil(debuff / effect_divider))
-				task = {
-					"name": "apply_effect",
-					"tags": ["Card"],
-					"effect_name": debuff_selected,
-					"subject": "previous",
-					"modification": effect_amount,
-				}
-				card_script.append(task)
-				card_text += "Apply %s {%s} " % [effect_amount, debuff_selected.to_lower()]
 			if special_effects > 0:
 				var effect_amount = int(ceil(special_effects * special_multiplier))
 				task = {

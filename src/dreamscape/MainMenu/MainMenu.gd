@@ -1,4 +1,4 @@
-extends Panel
+extends TextureRect
 
 const README := "Thank you for trying out Hypnagonia!\n\n"\
 		+ "This game is a Free Software 'Spire-like' deckbuilder. "\
@@ -16,6 +16,13 @@ const SUBTITLES := [
 	"A rhapsody of reverie and retrospection",
 ]
 
+const MENU_BGS := {
+	"Main": preload("res://assets/backgrounds/dark/6dd4ba414af241de43bb89a489fb_hires.jpeg"),
+	"NewGame": preload("res://assets/backgrounds/dark/980b14c8f71200ba0f77e0f7e32e_hires.jpeg"),
+	"Settings": preload("res://assets/backgrounds/dark/b4a03c7cc79975394222cea40841_hires.jpeg"),
+	"CardLibrary": preload("res://assets/backgrounds/dark/b292f25067d5db12d8187686e9ca_hires.jpeg"),
+	
+}
 # The time it takes to switch from one menu tab to another
 const menu_switch_time = 0.35
 
@@ -28,6 +35,7 @@ onready var new_game := $NewGame
 onready var _readme_label := $ReadMe/Label
 onready var _readme_popup := $ReadMe
 onready var menu_tween := $MenuTween
+onready var bg_tween := $BGTween
 onready var _subtitle := $MainMenu/VBox/Margin/VBoxContainer/Subtitle
 onready var _version := $MainMenu/VBox/Version
 
@@ -56,6 +64,8 @@ func _ready() -> void:
 
 
 func on_button_pressed(_button_name : String) -> void:
+	if MENU_BGS.has(_button_name):
+		_switch_bg(MENU_BGS[_button_name])
 	match _button_name:
 		"NewGame":
 			SoundManager.play_se('click')
@@ -111,6 +121,7 @@ func switch_to_main_menu(tab: Control) -> void:
 			main_menu.rect_position.x, 0, menu_switch_time,
 			Tween.TRANS_BACK, Tween.EASE_IN_OUT)
 	menu_tween.start()
+	_switch_bg(MENU_BGS["Main"])
 
 
 func _on_DeckBuilder_Back_pressed() -> void:
@@ -171,6 +182,20 @@ func _process_card_export(card_name: String) -> Dictionary:
 	card_entry.erase("_keywords")
 	card_entry['archetypes'] = Aspects.get_card_archetypes(card_name)
 	return(card_entry)
+
+func _switch_bg(bg_image) -> void:
+	if not bg_tween.is_active():
+		bg_tween.interpolate_property(self,'self_modulate',
+				self_modulate, Color(0,0,0), 1.0,
+				Tween.TRANS_QUAD, Tween.EASE_IN)
+		bg_tween.start()
+		yield(bg_tween, "tween_all_completed")
+		texture = CFUtils.convert_texture_to_image(bg_image)
+		self_modulate = Color(0,0,0)
+		bg_tween.interpolate_property(self,'self_modulate',
+				self_modulate, Color(1,1,1), 1.0,
+				Tween.TRANS_SINE, Tween.EASE_OUT)
+		bg_tween.start()
 
 func _export_torments() -> Dictionary:
 	var tdict: Dictionary = {

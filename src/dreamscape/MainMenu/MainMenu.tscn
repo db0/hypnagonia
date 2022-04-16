@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=1]
 [ext_resource path="res://src/dreamscape/CardLibrary/CardLibrary.tscn" type="PackedScene" id=2]
@@ -7,6 +7,12 @@
 [ext_resource path="res://src/dreamscape/MainMenu/NewGame.tscn" type="PackedScene" id=5]
 [ext_resource path="res://fonts/MainMenuTitle.tres" type="DynamicFont" id=6]
 [ext_resource path="res://src/dreamscape/MainMenu/SettingsContainer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/backgrounds/dark/4d39ff92c943a33859ce96558c0d_hires.jpeg" type="Texture" id=8]
+[ext_resource path="res://assets/backgrounds/dark/6dd4ba414af241de43bb89a489fb_hires.jpeg" type="Texture" id=9]
+[ext_resource path="res://shaders/mists.shader" type="Shader" id=10]
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 10 )
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.145098, 0.145098, 0.145098, 1 )
@@ -18,13 +24,26 @@ font_data = ExtResource( 4 )
 [sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0, 0, 0, 1 )
 
-[node name="Menu" type="Panel"]
+[node name="Menu" type="TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 6
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shader" type="ColorRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0.294118 )
+material = SubResource( 5 )
+margin_right = 1455.0
+margin_bottom = 900.0
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -62,7 +81,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureRect" type="TextureRect" parent="MainMenu"]
+visible = false
+margin_right = 1455.0
+margin_bottom = 900.0
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 6
+
 [node name="ColorRect" type="ColorRect" parent="MainMenu"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.392157 )
 margin_right = 1455.0
 margin_bottom = 900.0
 color = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
@@ -168,3 +197,5 @@ custom_styles/panel = SubResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="BGTween" type="Tween" parent="."]
