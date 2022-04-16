@@ -316,11 +316,11 @@ func _initiate_artifact_birdhouse_draft() -> void:
 
 
 func _add_draft_choice(card_name) -> void:
-	var upgraded_chance = CFUtils.randf_range(0.0, 1.0)
+	var upgraded_roll = CFUtils.randf_range(0.0, 1.0)
 	var upgraded_name = null
-	if globals.encounters.current_act.get_act_number() == 2 and upgraded_chance <= get_upgraded_chance():
+	if globals.encounters.current_act.get_act_number() == 2 and upgraded_roll <= get_upgraded_chance():
 		upgraded_name =  _get_random_upgrade(card_name)
-	if globals.encounters.current_act.get_act_number() == 3 and upgraded_chance <= get_upgraded_chance() * 2:
+	if globals.encounters.current_act.get_act_number() == 3 and upgraded_roll <= get_upgraded_chance() * 2:
 		upgraded_name =  _get_random_upgrade(card_name)
 	if upgraded_name:
 		draft_card_choices.append(upgraded_name)

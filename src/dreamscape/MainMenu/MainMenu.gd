@@ -20,6 +20,9 @@ const SUBTITLES := [
 const menu_switch_time = 0.35
 
 onready var v_buttons := $MainMenu/VBox/Center/VButtons
+onready var readme_button := $MainMenu/CornerElements/LeftSide/Readme
+onready var settings_button := $MainMenu/CornerElements/RightSide/Settings
+onready var exit_button := $MainMenu/CornerElements/LeftSide/Exit
 onready var main_menu := $MainMenu
 #onready var settings_menu := $SettingsMenu
 onready var card_library := $CardLibrary
@@ -30,13 +33,13 @@ onready var _readme_popup := $ReadMe
 onready var menu_tween := $MenuTween
 onready var bg_tween := $BGTween
 onready var _subtitle := $MainMenu/VBox/Margin/VBoxContainer/Subtitle
-onready var _version := $MainMenu/VBox/Version
+onready var _version := $MainMenu/CornerElements/RightSide/Version
 onready var _bg_shader := $Shader
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("Hypnagonia Version: " + CFConst.GAME_VERSION)
-	for option_button in v_buttons.get_children():
+	for option_button in v_buttons.get_children() + [settings_button, readme_button, exit_button]:
 		if option_button.has_signal('pressed'):
 			option_button.connect('pressed', self, 'on_button_pressed', [option_button.name])
 	new_game.rect_position.x = get_viewport().size.x
@@ -124,7 +127,7 @@ func _on_DeckBuilder_Back_pressed() -> void:
 
 
 func _on_Menu_resized() -> void:
-	for tab in [main_menu, card_library, new_game, settings]:
+	for tab in [main_menu, card_library, new_game, settings, _bg_shader]:
 		if is_instance_valid(tab):
 			tab.rect_size = get_viewport().size
 			if tab.rect_position.x < 0.0:
