@@ -45,7 +45,7 @@ func begin() -> void:
 	for type in pathos:
 		if globals.player.pathos.released[pathos[type]] < amounts[type]:
 			disabled_choices.append(type)
-	_prepare_secondary_choices(secondary_choices, scformat)
+	_prepare_secondary_choices(secondary_choices, scformat, disabled_choices)
 
 func continue_encounter(key) -> void:
 	if key in pathos:

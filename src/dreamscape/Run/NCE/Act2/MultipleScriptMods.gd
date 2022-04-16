@@ -39,8 +39,6 @@ func begin() -> void:
 	# warning-ignore:return_value_discarded
 	.begin()
 	var scformat := {}
-	for key in secondary_choices:
-		secondary_choices[key] = secondary_choices[key].format(scformat).format(Terms.get_bbcode_formats(18))
 	var disabled_choices := []
 	for type in amounts:
 		if globals.player.deck.filter_card_on_amounts(amounts[type]).size() == 0:
@@ -51,7 +49,7 @@ func begin() -> void:
 		globals.journal.display_nce_rewards('')
 		end()
 	else:
-		globals.journal.add_nested_choices(secondary_choices, disabled_choices)
+		_prepare_secondary_choices(secondary_choices, scformat, disabled_choices)
 
 func continue_encounter(key) -> void:
 	var card_choice_description: String

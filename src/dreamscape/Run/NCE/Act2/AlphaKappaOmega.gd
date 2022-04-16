@@ -60,7 +60,7 @@ func begin() -> void:
 				< pathos_choice_payments[type]["cost"]:
 			secondary_choices[type] = "[color=red]" + secondary_choices[type] + "[/color]"
 			disabled_choices.append(type)
-	_prepare_secondary_choices(secondary_choices, scformat)
+	_prepare_secondary_choices(secondary_choices, scformat, disabled_choices)
 
 func continue_encounter(key) -> void:
 	var tag_name: String

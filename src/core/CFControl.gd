@@ -385,6 +385,8 @@ func flush_cache() -> void:
 func hide_all_previews() -> void:
 	for card_preview_node in cfc.get_tree().get_nodes_in_group("card_preview"):
 		card_preview_node.hide_preview_card()
+	for card_preview_node in cfc.get_tree().get_nodes_in_group("info_popup"):
+		card_preview_node.hide()
 
 
 func _on_viewport_resized() -> void:

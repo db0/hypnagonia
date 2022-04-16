@@ -9,8 +9,8 @@ const CARD_PROGRESS = 3
 var secondary_choices := {
 		'card': '[Card]: Remove an upgraded card. Upgrade a card.',
 		'memory': '[Memory]: Remove an upgraded card. Upgrade a random Memory {memory_progress} times.',
-		'pathos': '[Pathos]: Remove an upgraded card. Gain {released_pathos_amount} released {pathos}.',
-		'progress': '[Progress]: Represss {repressed_pathos_amount} {pathos}. Progress a random card by {progress}',
+		'pathos': '[Pathos]: Remove an upgraded card. Gain {released_pathos_amount} released {released_pathos}.',
+		'progress': '[Progress]: Gain {repressed_pathos_amount} {repressed_pathos}. Progress a random card by {progress}',
 	}
 
 # TODO: Fluff
@@ -38,11 +38,10 @@ func begin() -> void:
 		"memory_progress": MEMORY_PROGRESS,
 		"released_pathos_amount": released_pathos_amount,
 		"repressed_pathos_amount": repressed_pathos_amount,
-		"pathos": PATHOS,
+		"repressed_pathos": '{repressed_%s}' % [PATHOS],
+		"released_pathos": '{released_%s}' % [PATHOS],
 		"progress": CARD_PROGRESS,
 	}
-	for c in secondary_choices:
-		secondary_choices[c] = secondary_choices[c].format(scformat).format(Terms.get_bbcode_formats(18))
 	var disabled_choices = []
 	if globals.player.deck.count_progressing_cards() == 0:
 		secondary_choices['progress'] = '[Leave]: Nothing happens.'
@@ -54,9 +53,7 @@ func begin() -> void:
 		disabled_choices.append('memory')
 	if globals.player.deck.count_progressing_cards() == 0 and not 'card' in disabled_choices:
 		disabled_choices.append('card')
-	for choice in disabled_choices:
-		secondary_choices[choice] = "[color=red]" + secondary_choices[choice] + "[/color]"
-	globals.journal.add_nested_choices(secondary_choices, disabled_choices)
+	_prepare_secondary_choices(secondary_choices, scformat, disabled_choices)
 
 func continue_encounter(key) -> void:
 	if key != 'progress':

@@ -26,10 +26,7 @@ func begin() -> void:
 	var scformat = {
 		"chasm": _prepare_card_popup_bbcode("Chasm", "a special card"),
 	}
-	secondary_choices['swing'] = secondary_choices['swing'].format(scformat).format(Terms.get_bbcode_formats(18))
-	secondary_choices['shout'] = secondary_choices['shout'].format(scformat).format(Terms.get_bbcode_formats(18))
-	secondary_choices['hang'] = secondary_choices['hang'].format(scformat).format(Terms.get_bbcode_formats(18))
-	globals.journal.add_nested_choices(secondary_choices)
+	_prepare_secondary_choices(secondary_choices, scformat)
 
 func continue_encounter(key) -> void:
 	match key:

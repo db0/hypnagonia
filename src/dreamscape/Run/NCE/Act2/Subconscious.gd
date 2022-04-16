@@ -6,7 +6,7 @@ const DAMAGE_AMOUNT := 7
 
 var secondary_choices := {
 		'intrerpret': '[intrerpret]: Take {damage_amount} {anxiety}. Gain {subconscious}',
-		'avoid': '[avoid]: Gain {lowest_pathos_amount} released {lowest_pathos}.',
+		'avoid': '[avoid]: Gain {lowest_pathos_amount} {lowest_pathos}.',
 	}
 	
 var nce_result_fluff := {
@@ -27,14 +27,12 @@ func begin() -> void:
 	lowest_pathos_amount = round(globals.player.pathos.get_progression_average(lowest_pathos)\
 			* 9 * CFUtils.randf_range(0.8,1.2))
 	var scformat = {
-		"lowest_pathos": lowest_pathos,
+		"lowest_pathos": '{released_%s}' % [lowest_pathos],
 		"lowest_pathos_amount":  lowest_pathos_amount,
 		"damage_amount":  DAMAGE_AMOUNT,
 		"subconscious": _prepare_card_popup_bbcode("Subconscious", " an insight into your own mind."),
 	}
-	secondary_choices['intrerpret'] = secondary_choices['intrerpret'].format(scformat).format(Terms.get_bbcode_formats(18))
-	secondary_choices['avoid'] = secondary_choices['avoid'].format(scformat).format(Terms.get_bbcode_formats(18))
-	globals.journal.add_nested_choices(secondary_choices)
+	_prepare_secondary_choices(secondary_choices, scformat)
 
 func continue_encounter(key) -> void:
 	match key:

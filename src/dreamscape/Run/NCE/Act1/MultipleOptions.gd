@@ -61,7 +61,7 @@ func begin() -> void:
 		if not option_card:
 			secondary_choices['upgrade'] = "[color=red]" + secondary_choices['upgrade'] + "[/color]"
 			disabled_choices.append('upgrade')
-	_prepare_secondary_choices(secondary_choices, scformat)
+	_prepare_secondary_choices(secondary_choices, scformat, disabled_choices)
 
 func continue_encounter(key) -> void:
 	match key:

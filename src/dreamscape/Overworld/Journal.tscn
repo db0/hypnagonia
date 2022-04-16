@@ -202,7 +202,7 @@ margin_bottom = 893.0
 
 [node name="Tween" type="Tween" parent="VBC/Journal"]
 
-[node name="MetaDescription" type="PopupPanel" parent="VBC/Journal"]
+[node name="MetaDescription" type="PopupPanel" parent="VBC/Journal" groups=["info_popup"]]
 margin_right = 4.0
 margin_bottom = 4.0
 
