@@ -5,9 +5,9 @@ extends NonCombatEncounter
 const SHADER := preload("res://shaders/Roscharch.shader")
 
 var secondary_choices := {
-		'tiger': '[A Tiger]: Gain some released {nce}.',
-		'snake': '[A Snake]:  Gain some released {enemy}.',
-		'owl': '[An Owl]: Gain some released {shop}.',
+		'tiger': '[A Tiger]: Gain some {released_nce}.',
+		'snake': '[A Snake]:  Gain some {released_enemy}.',
+		'owl': '[An Owl]: Gain some {released_shop}.',
 	}
 
 var nce_resul_fluff := "[i]I see. You're {adjective} your {noun}.[/i]"
@@ -39,10 +39,7 @@ func begin() -> void:
 		'time_offset': CFUtils.randf_range(0, 10000)
 	}
 	prepare_shader_art(SHADER, _shader_params)
-	var scformat := Terms.RUN_ACCUMULATION_NAMES.duplicate()
-	for choice in secondary_choices:
-		secondary_choices[choice] = secondary_choices[choice].format(scformat)
-	globals.journal.add_nested_choices(secondary_choices)
+	_prepare_secondary_choices(secondary_choices, {})
 
 func continue_encounter(key) -> void:
 	match key:

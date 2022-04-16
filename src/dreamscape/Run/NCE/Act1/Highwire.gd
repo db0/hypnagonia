@@ -2,11 +2,12 @@
 
 extends NonCombatEncounter
 
+const PATHOS_USED = Terms.RUN_ACCUMULATION_NAMES.artifact
 var artifact_prep: ArtifactPrep
 
 var secondary_choices := {
 		'accept': '[Accept]: 40% chance to gain a random curio. Become {perturbation}.',
-		'decline': '[Decline]: Gain 10 {anxiety}. Lose some repressed {pathos}.',
+		'decline': '[Decline]: Gain 10 {anxiety}. Lose some {repressed_pathos}.',
 	}
 
 var nce_result_fluff := {
@@ -26,11 +27,9 @@ func begin() -> void:
 	.begin()
 	var scformat = {
 		"perturbation": _prepare_card_popup_bbcode("Terror", "terrified"),
-		"pathos": Terms.RUN_ACCUMULATION_NAMES.artifact,
+		"repressed_pathos": '{repressed_%s}' % [PATHOS_USED],
 	}
-	secondary_choices['accept'] = secondary_choices['accept'].format(scformat)
-	secondary_choices['decline'] = secondary_choices['decline'].format(scformat).format(Terms.get_bbcode_formats(18))
-	globals.journal.add_nested_choices(secondary_choices, [])
+	_prepare_secondary_choices(secondary_choices, scformat)
 
 func continue_encounter(key) -> void:
 	var result: String

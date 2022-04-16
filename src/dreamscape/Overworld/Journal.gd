@@ -320,8 +320,12 @@ func _on_meta_hover_started(meta_text: String) -> void:
 					globals.current_encounter.get_meta_hover_description(
 						meta_tag["name"]))
 		"definition":
+			var pathos_descriptions = Terms.get_pathos_descriptions_formats()
 			if WORD_DEFINITIONS.has(meta_tag["definition"]):
 				show_description_popup(WORD_DEFINITIONS[meta_tag["definition"]])
+			if pathos_descriptions.has(meta_tag["definition"]):
+				show_description_popup(pathos_descriptions[meta_tag["definition"]])
+			
 
 
 func _on_meta_hover_ended(meta_text: String) -> void:
@@ -496,9 +500,10 @@ func show_description_popup(description_text: String) -> void:
 	_description_label.bbcode_text = description_text
 	_description_popup.visible = true
 	_description_popup.rect_size = Vector2(0,0)
-	_description_popup.rect_global_position = get_local_mouse_position() + Vector2(20,-5)
-	if _description_popup.rect_global_position.x + _description_popup.rect_size.x > get_viewport().size.x:
-		_description_popup.rect_global_position.x = get_viewport().size.x - _description_popup.rect_size.x
+	_description_popup.rect_global_position = get_local_mouse_position()\
+			+ Vector2(-_description_popup.rect_size.x/1.5,-_description_popup.rect_size.y/1.5)
+#	if _description_popup.rect_global_position.x + _description_popup.rect_size.x > get_viewport().size.x:
+#		_description_popup.rect_global_position.x = get_viewport().size.x - _description_popup.rect_size.x
 
 
 func show_pathos_popup(description_text: String, pathos_dict: Dictionary) -> void:
@@ -560,19 +565,19 @@ func _input(event):
 		var debug_encounters = [
 #			EnemyEncounter.new(Act1.TheLaughingOnes, "hard"),
 #			EnemyEncounter.new(Act2.TrafficJam, "easy"),
-			EnemyEncounter.new(Act3.Influencer, "hard"),
+#			EnemyEncounter.new(Act3.Influencer, "hard"),
 #			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
 			preload("res://src/dreamscape/Run/NCE/AllActs/EpicUpgrade.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Act3/TheCake.gd").new(),
-			preload("res://src/dreamscape/Run/NCE/Act2/Blanket.gd").new(),
-#			preload("res://src/dreamscape/Run/NCE/Act1/PathosForAnxiety.gd").new(),
+#			preload("res://src/dreamscape/Run/NCE/Act2/Blanket.gd").new(),
+			preload("res://src/dreamscape/Run/NCE/Act1/Highwire.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
 #			BossEncounter.new(Act2.BOSSES["Surreality"]),
 #			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
 #			EliteEncounter.new(Act1.Bully, "medium"),
 #			EliteEncounter.new(Act2.Jumbletron, "medium"),
 #			EliteEncounter.new(Act3.TheatrePlay, "medium"),
-			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
+#			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
 #			preload("res://src/dreamscape/Run/NCE/Rest.gd").new()
 		]
 		for encounter in debug_encounters:

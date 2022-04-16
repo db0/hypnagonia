@@ -53,7 +53,10 @@ func _prepare_artifact_popup_bbcode(artifact_name: String, url_text: String) -> 
  
 func _prepare_secondary_choices(secondary_choices: Dictionary, scformat: Dictionary, disabled_choices := []) -> void:
 	for c in secondary_choices:
-		secondary_choices[c] = secondary_choices[c].format(scformat).format(Terms.get_bbcode_formats(18))
+		secondary_choices[c] = secondary_choices[c]\
+				.format(scformat)\
+				.format(Terms.get_bbcode_formats(18))\
+				.format(Terms.get_pathos_descriptions_bbcode())
 	for choice in disabled_choices:
 		secondary_choices[choice] = "[color=red]" + secondary_choices[choice] + "[/color]"	
 	globals.journal.add_nested_choices(secondary_choices, disabled_choices)

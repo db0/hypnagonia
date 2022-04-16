@@ -7,7 +7,7 @@ var pathos_gained : float
 
 var secondary_choices := {
 		'sleep': '[Sleep]: Choose and [url={"definition": "scar","meta_type": "definition"}]Scar[/url] a card then create a copy of it.',
-		'throw': '[Throw it off]: Gain {pathos_amount} repressed {pathos_type}',
+		'throw': '[Throw it off]: Gain {pathos_amount} {repressed_{pathos_type}}',
 	}
 
 var nce_result_fluff := {

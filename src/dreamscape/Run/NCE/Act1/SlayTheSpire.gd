@@ -1,8 +1,8 @@
 extends NonCombatEncounter
 
 var secondary_choices := {
-		'slay': '[Slay]: Take 10 anxiety. Gain {slay_amount} repressed {enemy}. Gain some released {nce}',
-		'leave': '[Leave]: Gain {leave_amount} repressed {nce}. Lose some released {enemy}.',
+		'slay': '[Slay]: Take 10 anxiety. Gain {slay_amount} {repressed_enemy}. Gain some {released_nce}',
+		'leave': '[Leave]: Gain {leave_amount} {repressed_nce}. Lose some released {released_enemy}.',
 	}
 	
 var nce_result_fluff := {
@@ -25,9 +25,7 @@ func begin() -> void:
 			Terms.RUN_ACCUMULATION_NAMES.enemy) * 2
 	scformat["leave_amount"] = globals.player.pathos.get_progression_average(
 		Terms.RUN_ACCUMULATION_NAMES.nce) * 2
-	secondary_choices['slay'] = secondary_choices['slay'].format(scformat)
-	secondary_choices['leave'] = secondary_choices['leave'].format(scformat)
-	globals.journal.add_nested_choices(secondary_choices)
+	_prepare_secondary_choices(secondary_choices, scformat)
 
 func continue_encounter(key) -> void:
 	match key:

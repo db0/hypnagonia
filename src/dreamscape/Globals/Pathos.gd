@@ -337,3 +337,7 @@ func calculate_chance_for_encounter(entry: String, include_next_progression := t
 		chance = 0
 #	print_debug([entry, mod_pathos_dict.get(entry,0), entry_total, total,chance])
 	return(chance)
+
+func get_boss_threshold() -> float:
+	return(thresholds[Terms.RUN_ACCUMULATION_NAMES.boss]
+			* get_progression_average(Terms.RUN_ACCUMULATION_NAMES.boss))

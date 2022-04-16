@@ -5,9 +5,9 @@ extends NonCombatEncounter
 const SHADER := preload("res://shaders/Roscharch.shader")
 
 var secondary_choices := {
-		'passion fruit': '[A Passion Fruit]: Gain some released {artifact}.',
-		'orange': '[An Orange]:  Gain some released {elite}.',
-		'banana': '[A Banana]: Gain some released {rest}.',
+		'passion fruit': '[A Passion Fruit]: Gain some {released_artifact}.',
+		'orange': '[An Orange]:  Gain some {released_elite}.',
+		'banana': '[A Banana]: Gain some {released_rest}.',
 	}
 
 var nce_resul_fluff := "[i]I understand. You're {adjective} your {noun}.[/i]"
@@ -38,10 +38,7 @@ func begin() -> void:
 		'time_offset': CFUtils.randf_range(0, 10000)
 	}
 	prepare_shader_art(SHADER, _shader_params)
-	var scformat := Terms.RUN_ACCUMULATION_NAMES.duplicate()
-	for choice in secondary_choices:
-		secondary_choices[choice] = secondary_choices[choice].format(scformat)
-	globals.journal.add_nested_choices(secondary_choices)
+	_prepare_secondary_choices(secondary_choices, {})
 
 func continue_encounter(key) -> void:
 	match key:

@@ -81,6 +81,7 @@ func _ready() -> void:
 	cfc.connect("cache_cleared", self, '_recalculate_predictions')
 	player_info.connect_dreamer_signals(dreamer)
 #	begin_encounter()
+	# warning-ignore:return_value_discarded
 	connect("battle_begun", cfc.signal_propagator, "_on_signal_received", [self, "battle_begun", {}])
 #
 func _process(_delta: float) -> void:
@@ -470,6 +471,7 @@ func _input(event):
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
 		dreamer.health = 910
 		dreamer.damage = 56
+		# warning-ignore:return_value_discarded
 		globals.player.add_artifact(ArtifactDefinitions.ImproveImpervious.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.PurpleWave.canonical_name)
 		# warning-ignore:return_value_discarded
