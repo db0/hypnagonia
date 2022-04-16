@@ -7,8 +7,8 @@ var highest_pathos: String
 var ignore_pathos : String = Terms.RUN_ACCUMULATION_NAMES.enemy
 
 var secondary_choices := {
-		'help': '[Help]: Pay all your released {pathos} ({amount}). Gain a random curio.',
-		'ignore': '[Ignore]: Repress {ignore_amount} {ignore_pathos}. Gain a random curio. Become {perturbation}.',
+		'help': '[Help]: Pay all your {pathos} ({amount}). Gain a random curio.',
+		'ignore': '[Ignore]: Gain {ignore_amount} {ignore_pathos}. Gain a random curio. Become {perturbation}.',
 	}
 
 # TODO Result fluff
@@ -29,19 +29,15 @@ func begin() -> void:
 	highest_pathos = pathos_org["highest_pathos"]["selected"]
 	var scformat = {
 		"perturbation": _prepare_card_popup_bbcode("Apathy", "apathetic"),
-		"pathos": highest_pathos,
+		"pathos": '{released_%s}' % [highest_pathos],
 		"amount": floor(globals.player.pathos.released[highest_pathos]),
-		"ignore_pathos": ignore_pathos,
+		"ignore_pathos": '{repressed_%s}' % [ignore_pathos],
 		"ignore_amount": globals.player.pathos.get_progression_average(ignore_pathos) * 2,
 	}
-	for key in secondary_choices:
-		secondary_choices[key] = secondary_choices[key].format(scformat).format(Terms.get_bbcode_formats(18))
 	var disabled_choices = []
 	if floor(globals.player.pathos.released[highest_pathos]) == 0:
 		disabled_choices.append('help')
-	for choice in disabled_choices:
-		secondary_choices[choice] = "[color=red]" + secondary_choices[choice] + "[/color]"
-	globals.journal.add_nested_choices(secondary_choices, disabled_choices)
+	_prepare_secondary_choices(secondary_choices, scformat, disabled_choices)
 
 func continue_encounter(key) -> void:
 	if key == "help":

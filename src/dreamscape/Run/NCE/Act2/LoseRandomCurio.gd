@@ -26,7 +26,7 @@ func begin() -> void:
 	var disabled_choices := []
 	if globals.player.artifacts.size() == 0:
 		disabled_choices.append('allow')
-	_prepare_secondary_choices(secondary_choices, scformat)
+	_prepare_secondary_choices(secondary_choices, scformat, disabled_choices)
 
 
 func continue_encounter(key) -> void:
