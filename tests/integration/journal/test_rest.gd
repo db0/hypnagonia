@@ -3,7 +3,7 @@ extends "res://tests/HUT_Journal_NCETestClass.gd"
 class TestRest:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Rest.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/Rest.gd")
 
 	func test_option_rest():
 		globals.player.damage = 50
@@ -20,7 +20,7 @@ class TestRest:
 class TestProgress:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Rest.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/Rest.gd")
 		
 	func test_option_progress():
 		globals.player.damage = 50
@@ -42,7 +42,7 @@ class TestProgress:
 class TestQuickenUp:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Rest.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/Rest.gd")
 		
 	func test_option_quicken_up():
 		var curio = globals.player.add_artifact(ArtifactDefinitions.QuickenUp.canonical_name)
@@ -71,7 +71,7 @@ class TestQuickenUp:
 class TestStrengthenUp:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Rest.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/Rest.gd")
 		
 	func test_option_quicken_up():
 		var curio = globals.player.add_artifact(ArtifactDefinitions.StrengthenUp.canonical_name)
@@ -99,7 +99,7 @@ class TestStrengthenUp:
 class TestEnhanceOnRest:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Rest.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/Rest.gd")
 		
 	func test_option_quicken_up():
 		var curio = globals.player.add_artifact(ArtifactDefinitions.EnhanceOnRest.canonical_name)
@@ -132,7 +132,7 @@ class TestEnhanceOnRest:
 class TestUpgradeMemoryOnRest:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Rest.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/Rest.gd")
 		
 	func test_option_quicken_up():
 		var mems = [
@@ -168,7 +168,7 @@ class TestUpgradeMemoryOnRest:
 class TestNoRest:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Rest.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/Rest.gd")
 
 	func test_option_quicken_up_disabled():
 		var curio = globals.player.add_artifact(ArtifactDefinitions.NoRest.canonical_name)

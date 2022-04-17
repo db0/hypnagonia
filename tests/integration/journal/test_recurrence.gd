@@ -3,7 +3,7 @@ extends "res://tests/HUT_Journal_NCESurpriseClass.gd"
 class TestNCE:
 	extends "res://tests/HUT_Journal_NCESurpriseClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd")
 
 	func test_memory_rewards():
 		begin_surprise_encounter(nce)
@@ -32,7 +32,7 @@ class TestNCE:
 				"signal_received", "_on_card_signal_received")
 		assert_eq(recurrence.get_property("_difficulty"), "easy", "Difficulty set correctly")
 		end_surprise_encounter()
-		assert_nce_unlocked(preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd"))
+		assert_nce_unlocked(load("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd"))
 		journal.memory_choice.display({"quantity": 2, "upgrades": 2})
 		var memory_choices = get_tree().get_nodes_in_group("artifact_choice_objects")
 		assert_eq(memory_choices.size(), 2)
@@ -64,7 +64,7 @@ class TestNCE:
 		watch_signals(globals.encounters.run_changes)
 		watch_signals(globals.player)
 		end_surprise_encounter()
-		assert_nce_unlocked(preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd"))
+		assert_nce_unlocked(load("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd"))
 		journal.memory_choice.display({"quantity": 2, "upgrades": 2})
 		var memory_choices = get_tree().get_nodes_in_group("artifact_choice_objects")
 		assert_eq(memory_choices.size(), 2)
@@ -142,11 +142,11 @@ class TestNCE:
 
 class TestCounterMeasureCalculations:
 	extends "res://tests/HUTCommon.gd"
-	const NCE = preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd")
+	const NCE = load("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd")
 	const RECURRENCE_ELITE = {
-		"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")]
+		"scenes": [load("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")]
 	}
-	const RECURRENCE_SURPRISE = preload("res://src/dreamscape/Run/NCE/AllActs/RecurrenceCombatEncounter.gd")
+	const RECURRENCE_SURPRISE = load("res://src/dreamscape/Run/NCE/AllActs/RecurrenceCombatEncounter.gd")
 
 	func test_recurrence_cm_high_defences():
 		var sce = RECURRENCE_SURPRISE.new(
@@ -266,7 +266,7 @@ class TestWildAttacksEasy:
 
 	func _init() -> void:
 		difficulty = "easy"
-		advanced_torment_scene = preload("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")
+		advanced_torment_scene = load("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")
 		test_card_names = [
 			"Confidence",
 		]
@@ -288,7 +288,7 @@ class TestWildAttacksMedium:
 
 
 	func _init() -> void:
-		advanced_torment_scene = preload("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")
+		advanced_torment_scene = load("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")
 		test_card_names = [
 			"Confidence",
 		]
@@ -410,7 +410,7 @@ class TestWildAttacksHard:
 
 	func _init() -> void:
 		difficulty = "hard"
-		advanced_torment_scene = preload("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")
+		advanced_torment_scene = load("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")
 		test_card_names = [
 			"Confidence",
 		]
@@ -571,7 +571,7 @@ class TestLearnEasy:
 
 	func _init() -> void:
 		difficulty = "easy"
-		advanced_torment_scene = preload("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")
+		advanced_torment_scene = load("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")
 		test_card_names = [
 			"Confidence",
 			"Confidence",
@@ -638,7 +638,7 @@ class TestLearnMedium:
 
 
 	func _init() -> void:
-		advanced_torment_scene = preload("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")
+		advanced_torment_scene = load("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")
 		test_card_names = [
 			"Confidence",
 			"Butterfly",
@@ -704,7 +704,7 @@ class TestLearnHard:
 
 	func _init() -> void:
 		difficulty = "hard"
-		advanced_torment_scene = preload("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")
+		advanced_torment_scene = load("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")
 		test_card_names = [
 			"Interpretation",
 			"Interpretation",

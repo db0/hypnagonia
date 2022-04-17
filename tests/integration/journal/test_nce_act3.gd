@@ -3,7 +3,7 @@ extends "res://tests/HUT_Journal_NCETestClass.gd"
 class TestMultipleDestroys:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act3/MultipleDestroys.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act3/MultipleDestroys.gd")
 
 	func test_choices():
 		watch_signals(globals.player.deck)
@@ -44,7 +44,7 @@ class TestMultipleDestroys:
 class TestArtifactReward:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act3/ArtifactReward.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act3/ArtifactReward.gd")
 
 	func test_receive():
 		var porg := set_random_pathos_org("released")
@@ -98,7 +98,7 @@ class TestArtifactReward:
 class TestSubconsciousProcessing:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act3/SubconsciousProcessing.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act3/SubconsciousProcessing.gd")
 
 	func test_comment():
 		var choice = "comment"
@@ -188,7 +188,7 @@ class TestSubconsciousProcessing:
 class TestBeastMirror:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act3/BeastMirror.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act3/BeastMirror.gd")
 
 	func test_choice_bear():
 		watch_signals(globals.player)
@@ -215,7 +215,7 @@ class TestBeastMirror:
 class TestExperience:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act3/Experience.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act3/Experience.gd")
 
 	func test_disabled_choices():
 		var secondary_choices = begin_nce_with_choices(nce)
@@ -293,7 +293,7 @@ class TestExperience:
 class TestMultipleProgress:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act3/MultipleProgress.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act3/MultipleProgress.gd")
 
 	func test_secret_relic():
 		for card in globals.player.deck.cards:
@@ -347,7 +347,7 @@ class TestMultipleProgress:
 class TestCockroaches:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act3/Cockroaches.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act3/Cockroaches.gd")
 
 	func test_ignore():
 		globals.player.damage = 50
@@ -374,7 +374,7 @@ class TestCockroaches:
 class TestCake:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act3/TheCake.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act3/TheCake.gd")
 
 	func test_disabled_choices():
 		var secondary_choices = begin_nce_with_choices(nce)
@@ -466,7 +466,7 @@ class TestCake:
 class TestCucumbers:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act3/Cucumbers.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act3/Cucumbers.gd")
 
 
 	func test_choice_stand():

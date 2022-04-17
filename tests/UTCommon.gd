@@ -3,9 +3,9 @@ extends "res://addons/gut/test.gd"
 
 signal card_scripts_executed
 
-const MAIN_SCENE = preload("res://src/dreamscape/Main.tscn")
+var MAIN_SCENE = load("res://src/dreamscape/Main.tscn")
 var BOARD_SCENE = load("res://src/dreamscape/Board.tscn")
-var JOURNAL_SCENE = preload("res://src/dreamscape/Overworld/Journal.tscn")
+var JOURNAL_SCENE = load("res://src/dreamscape/Overworld/Journal.tscn")
 
 const MOUSE_SPEED := {
 	"fast": [10,0.3],

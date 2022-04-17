@@ -1,7 +1,7 @@
 extends "res://tests/HUTCommon_Journal.gd"
 
-const CE := preload("res://src/dreamscape/Run/EnemiesEncounter.gd")
-const JOURNAL_ENCOUNTER_CHOICE_SCENE = preload("res://src/dreamscape/Overworld/JournalEncounterChoiceScene.tscn")
+var CE := load("res://src/dreamscape/Run/EnemiesEncounter.gd")
+var JOURNAL_ENCOUNTER_CHOICE_SCENE = load("res://src/dreamscape/Overworld/JournalEncounterChoiceScene.tscn")
 
 var gut_enemy_definition = {
 	"journal_description":\

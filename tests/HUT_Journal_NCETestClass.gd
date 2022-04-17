@@ -1,6 +1,6 @@
 extends "res://tests/HUTCommon_Journal.gd"
 
-const JOURNAL_ENCOUNTER_CHOICE_SCENE = preload("res://src/dreamscape/Overworld/JournalEncounterChoiceScene.tscn")
+var JOURNAL_ENCOUNTER_CHOICE_SCENE = load("res://src/dreamscape/Overworld/JournalEncounterChoiceScene.tscn")
 
 var testing_nce_script: Script
 var nce: NonCombatEncounter
