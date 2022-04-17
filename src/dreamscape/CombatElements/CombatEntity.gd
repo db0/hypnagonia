@@ -99,8 +99,8 @@ func _map_nodes() -> void:
 	health_bar = $HealthBar
 	active_effects = $ActiveEffects
 
-func _set_texture(node: Node, stream: StreamTexture) -> void:
-		node.texture = CFUtils.convert_texture_to_image(stream, true)
+func _set_texture(node: Node, texture) -> void:
+		node.texture = CFUtils.convert_texture_to_image(texture, true)
 
 
 func _process(delta: float) -> void:

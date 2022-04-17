@@ -569,7 +569,7 @@ func _input(event):
 #			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
 			preload("res://src/dreamscape/Run/NCE/AllActs/EpicUpgrade.gd").new(),
 			preload("res://src/dreamscape/Run/NCE/Act3/Experience.gd").new(),
-			preload("res://src/dreamscape/Run/NCE/Act2/Subconscious.gd").new(),
+			preload("res://src/dreamscape/Run/NCE/Act2/Griftlands.gd").new(),
 			preload("res://src/dreamscape/Run/NCE/Act1/Spider.gd").new(),
 #			preload("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
 #			BossEncounter.new(Act2.BOSSES["Surreality"]),
@@ -619,4 +619,5 @@ func _on_playerinfo_popup_opened(popup_node: Popup) -> void:
 	popups_active = true
 	if popup_node.is_connected("popup_hide", self, "_on_playerinfo_popup_hidden"):
 		return
+	# warning-ignore:return_value_discarded
 	popup_node.connect("popup_hide", self, "_on_playerinfo_popup_hidden", [], CONNECT_DEFERRED)

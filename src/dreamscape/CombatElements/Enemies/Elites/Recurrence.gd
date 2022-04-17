@@ -14,9 +14,9 @@ const PROPERTIES := {
 	"_health_variability": 8,
 }
 const ART := {
-	"easy": preload("res://assets/journal/nce/recurrence1.jpeg"),
-	"medium": preload("res://assets/journal/nce/recurrence2.jpeg"),
-	"hard": preload("res://assets/journal/nce/recurrence3.jpeg"),
+	"easy": "res://assets/journal/nce/recurrence1.jpeg",
+	"medium": "res://assets/journal/nce/recurrence2.jpeg",
+	"hard": "res://assets/journal/nce/recurrence3.jpeg",
 }
 
 var countermeasures = globals.encounters.run_changes.store.get("Recurrence", [])
@@ -34,7 +34,7 @@ var cards_played := 0
 
 func setup_advanced(difficulty: String = "medium") -> void:
 	.setup_advanced(difficulty)
-	_properties['_texture'] = ART[difficulty]
+	_properties['_texture'] = load(ART[difficulty])
 
 func _ready() -> void:
 	if not cfc.NMAP.board.dreamer:

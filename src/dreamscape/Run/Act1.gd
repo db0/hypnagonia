@@ -558,20 +558,20 @@ const BOSSES := {
 
 const NCE := {
 	"easy": {
-		"MonsterTrain": preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd"),
-		"SlayTheSpire": preload("res://src/dreamscape/Run/NCE/Act1/SlayTheSpire.gd"),
-		"SleepOfOblivion": preload("res://src/dreamscape/Run/NCE/Act1/SleepOfOblivion.gd"),
-		"MultipleOptions": preload("res://src/dreamscape/Run/NCE/Act1/MultipleOptions.gd"),
-		"PathosForAnxiety": preload("res://src/dreamscape/Run/NCE/Act1/PathosForAnxiety.gd"),
-		"Dollmaker": preload("res://src/dreamscape/Run/NCE/Act1/Dollmaker.gd"),
-		"Greed": preload("res://src/dreamscape/Run/NCE/Act1/Greed.gd"),
-		"PopPsychologist1": preload("res://src/dreamscape/Run/NCE/Act1/PopPsychologist1.gd"),
+		"MonsterTrain": "res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd",
+		"SlayTheSpire": "res://src/dreamscape/Run/NCE/Act1/SlayTheSpire.gd",
+		"SleepOfOblivion": "res://src/dreamscape/Run/NCE/Act1/SleepOfOblivion.gd",
+		"MultipleOptions": "res://src/dreamscape/Run/NCE/Act1/MultipleOptions.gd",
+		"PathosForAnxiety": "res://src/dreamscape/Run/NCE/Act1/PathosForAnxiety.gd",
+		"Dollmaker": "res://src/dreamscape/Run/NCE/Act1/Dollmaker.gd",
+		"Greed": "res://src/dreamscape/Run/NCE/Act1/Greed.gd",
+		"PopPsychologist1": "res://src/dreamscape/Run/NCE/Act1/PopPsychologist1.gd",
 	},
 	"risky": {
-		"Highwire": preload("res://src/dreamscape/Run/NCE/Act1/Highwire.gd"),
-		"Spider": preload("res://src/dreamscape/Run/NCE/Act1/Spider.gd"),
+		"Highwire": "res://src/dreamscape/Run/NCE/Act1/Highwire.gd",
+		"Spider": "res://src/dreamscape/Run/NCE/Act1/Spider.gd",
 		# Recurrence appears in Act1, but if it's not encountered, it stays locked
-		"Recurrence1": preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd"),
+		"Recurrence1": "res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd",
 	}
 }
 

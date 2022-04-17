@@ -517,23 +517,23 @@ const BOSSES := {
 
 const NCE := {
 	"easy": {
-		"ArtifactReward": preload("res://src/dreamscape/Run/NCE/Act3/ArtifactReward.gd"),
-		"BeastMirror": preload("res://src/dreamscape/Run/NCE/Act3/BeastMirror.gd"),
-		"Experience": preload("res://src/dreamscape/Run/NCE/Act3/Experience.gd"),
-		"MultipleProgress": preload("res://src/dreamscape/Run/NCE/Act3/MultipleProgress.gd"),
-		"Cockroaches": preload("res://src/dreamscape/Run/NCE/Act3/Cockroaches.gd"),
-		"TheCake": preload("res://src/dreamscape/Run/NCE/Act3/TheCake.gd"),
-		"Cucumbers": preload("res://src/dreamscape/Run/NCE/Act3/Cucumbers.gd"),
+		"ArtifactReward": "res://src/dreamscape/Run/NCE/Act3/ArtifactReward.gd",
+		"BeastMirror": "res://src/dreamscape/Run/NCE/Act3/BeastMirror.gd",
+		"Experience": "res://src/dreamscape/Run/NCE/Act3/Experience.gd",
+		"MultipleProgress": "res://src/dreamscape/Run/NCE/Act3/MultipleProgress.gd",
+		"Cockroaches": "res://src/dreamscape/Run/NCE/Act3/Cockroaches.gd",
+		"TheCake": "res://src/dreamscape/Run/NCE/Act3/TheCake.gd",
+		"Cucumbers": "res://src/dreamscape/Run/NCE/Act3/Cucumbers.gd",
 	},
 	"risky": {
-		"MultipleDestroys": preload("res://src/dreamscape/Run/NCE/Act3/MultipleDestroys.gd"),
-		"UnderwaterCave": preload("res://src/dreamscape/Run/NCE/Act3/UnderwaterCave.gd"),
+		"MultipleDestroys": "res://src/dreamscape/Run/NCE/Act3/MultipleDestroys.gd",
+		"UnderwaterCave": "res://src/dreamscape/Run/NCE/Act3/UnderwaterCave.gd",
 	}
 }
 
 const LOCKED_NCE := {
 	"Recurrence3": {
-		"nce": preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd"),
+		"nce": "res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd",
 		"chance_multiplier": 4,
 	},
 }

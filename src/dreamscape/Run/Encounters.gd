@@ -173,6 +173,8 @@ func _get_next_nce() -> NonCombatEncounter:
 	if remaining_nce[nce_type].empty():
 		_prepare_remaining_nce(nce_type)
 	var next_nce = remaining_nce[nce_type].pop_back()
+	if typeof(next_nce) == TYPE_STRING:
+		next_nce = load(next_nce)
 	# Even though we do a pop, we also erase any other copies of the same NCE in the list
 	# as we might have multiple NCEs of the same name, to increase their chances of appearing
 	while next_nce in remaining_nce[nce_type]:
