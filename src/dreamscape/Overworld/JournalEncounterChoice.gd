@@ -34,9 +34,9 @@ func _on_mouse_entered() -> void:
 
 func _display_journal_art() -> void:
 	var journal_illustration = encounter.journal_art
-	if journal_illustration as ImageTexture:
+	if journal_illustration is ImageTexture:
 		journal.set_illustration(journal_illustration)
-	elif journal_illustration as Shader:
+	elif journal_illustration is Shader:
 		journal.set_shader(journal_illustration, encounter.shader_params)
 
 

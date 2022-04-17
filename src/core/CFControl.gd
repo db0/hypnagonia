@@ -101,15 +101,20 @@ var curr_scale: float
 var script_load_thread : Thread
 var scripts_loading := true
 
-onready var load_start_time := OS.get_ticks_msec()
+var load_start_time := OS.get_ticks_msec()
 
 func _ready() -> void:
-# warning-ignore:return_value_discarded
+	var load_end_time = OS.get_ticks_msec()
+	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+		print_debug("DEBUG INFO:CFControl: instance time = %sms" % [str(load_end_time - load_start_time)])
+	
+	# warning-ignore:return_value_discarded
 	connect("all_nodes_mapped", self, "_on_all_nodes_mapped")
-# warning-ignore:return_value_discarded
+	# warning-ignore:return_value_discarded
 	get_viewport().connect("size_changed", self, '_on_viewport_resized')
 	_on_viewport_resized()
 	_setup()
+
 
 func _setup() -> void:
 	init_settings_from_file()

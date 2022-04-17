@@ -52,7 +52,7 @@ const Administration = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/torments/administration.jpeg"),
+	"journal_art": "res://assets/journal/torments/administration.jpeg",
 }
 const Life_Paths = {
 	"journal_description":\
@@ -164,7 +164,7 @@ const Life_Paths = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/torments/life_path.jpeg"),
+	"journal_art": "res://assets/journal/torments/life_path.jpeg",
 }
 
 const Cringelord = {
@@ -172,7 +172,7 @@ const Cringelord = {
 		'I think I had seen [url={torment_tag1}]this creature before[/url]. Did it always have so many eyes?',
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
-	"journal_art": preload("res://assets/journal/torments/cringelord.jpeg"),
+	"journal_art": "res://assets/journal/torments/cringelord.jpeg",
 	"enemies": {
 		"easy": [
 			{
@@ -221,7 +221,7 @@ const Nightmare = {
 				+ "Whatever I was watching last night must have affected me more than I think.",
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
-	"journal_art": preload("res://assets/journal/torments/nightmare.jpeg"),
+	"journal_art": "res://assets/journal/torments/nightmare.jpeg",
 	"enemies": {
 		"easy": [
 			{
@@ -269,7 +269,7 @@ const Submerged = {
 		"I had gone too deep. [url={torment_tag1}]The blue surrounded me[/url] and I was running out of air.",
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
-	"journal_art": preload("res://assets/journal/torments/submerged.jpg"),
+	"journal_art": "res://assets/journal/torments/submerged.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -312,7 +312,7 @@ const HandsyAunt = {
 				+  "I heard the dreaded call from inside: [i]Come, come, let me take a good look at you![/i].",
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
-	"journal_art": preload("res://assets/journal/torments/handsy_aunt.jpeg"),
+	"journal_art": "res://assets/journal/torments/handsy_aunt.jpeg",
 	"enemies": {
 		"easy": [
 			{
@@ -405,7 +405,7 @@ const Circular_Arguments = {
 			},
 		],
 	},
-#	"journal_art": preload("res://assets/journal/torments/life_path.jpeg"),
+#	"journal_art": "res://assets/journal/torments/life_path.jpeg"),
 }
 const Influencer = {
 	"journal_description":\
@@ -413,7 +413,7 @@ const Influencer = {
 				+  "Was I even really dreaming?",
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
-#	"journal_art": preload("res://assets/journal/torments/handsy_aunt.jpeg"),
+#	"journal_art": "res://assets/journal/torments/handsy_aunt.jpeg"),
 	"enemies": {
 		"easy": [
 			{
@@ -479,7 +479,7 @@ const TheGatherer = {
 		+ "doing things almost randomly.",
 	"journal_reward":\
 		'Finally I put my thoughts in order.',
-	'journal_art': preload("res://assets/journal/advanced/the_gatherer.jpeg"),
+	'journal_art': "res://assets/journal/advanced/the_gatherer.jpeg",
 }
 
 const TheatrePlay = {
@@ -490,7 +490,7 @@ const TheatrePlay = {
 		+ "It was my first show, I had a protagonist role, and nothing was ready.",
 	"journal_reward":\
 		"I don't know how we pulled it through, but as the curtain fell, I felt relieved.",
-	'journal_art': preload("res://assets/journal/advanced/theatre.jpeg"),
+	'journal_art': "res://assets/journal/advanced/theatre.jpeg",
 }
 
 const ELITES = [
@@ -507,7 +507,7 @@ const FearAndPhobia = {
 		"I barely dare to even recall what I dreamt next. Imagine your worst phobia in the scene of your greatest fear...",
 	"journal_reward":\
 		"That was finally it! When I opened my eyes, I felt the most relieved I've ever been.",
-	'journal_art': preload("res://assets/journal/advanced/phobia.jpeg"),
+	'journal_art': "res://assets/journal/advanced/phobia.jpeg",
 }
 
 const BOSSES := {

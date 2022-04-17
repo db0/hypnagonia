@@ -378,7 +378,7 @@ func _on_viewport_resized() -> void:
 
 
 func _on_BackToMain_pressed() -> void:
-# warning-ignore:return_value_discarded
+	# warning-ignore:return_value_discarded
 	get_tree().change_scene(CFConst.PATH_CUSTOM + "MainMenu/MainMenu.tscn")
 	globals.reset()
 	cfc.NMAP.clear()

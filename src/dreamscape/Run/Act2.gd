@@ -55,7 +55,7 @@ const TrafficJam = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/torments/traffic_jam.jpeg"),
+	"journal_art": "res://assets/journal/torments/traffic_jam.jpeg",
 }
 
 # Inspiration taken from StS mods developed by https://github.com/modargo
@@ -104,7 +104,7 @@ const Mouse = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/torments/mouse.jpeg"),
+	"journal_art": "res://assets/journal/torments/mouse.jpeg",
 }
 
 # Inspiration taken from StS mods developed by https://github.com/modargo
@@ -154,7 +154,7 @@ const TheExam = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/torments/exam.jpeg"),
+	"journal_art": "res://assets/journal/torments/exam.jpeg",
 }
 
 # Inspiration taken from StS mods developed by https://github.com/modargo
@@ -203,7 +203,7 @@ const TheVictim = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/torments/the_victim.jpeg"),
+	"journal_art": "res://assets/journal/torments/the_victim.jpeg",
 }
 # Inspiration taken from StS mods developed by https://github.com/modargo
 const StuffedToy = {
@@ -251,7 +251,7 @@ const StuffedToy = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/torments/stuffed_toy.jpeg"),
+	"journal_art": "res://assets/journal/torments/stuffed_toy.jpeg",
 }
 
 const ImpossibleConstruction = {
@@ -325,7 +325,7 @@ const ImpossibleConstruction = {
 			},
 		],
 	},
-#	"journal_art": preload("res://assets/journal/torments/stuffed_toy.jpeg"),
+#	"journal_art": "res://assets/journal/torments/stuffed_toy.jpeg"),
 }
 
 const ClownShow = {
@@ -380,7 +380,7 @@ const ClownShow = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/torments/pialephant.jpg"),
+	"journal_art": "res://assets/journal/torments/pialephant.jpg",
 }
 const GuiltyTreatment = {
 	"journal_description":\
@@ -421,7 +421,7 @@ const GuiltyTreatment = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/torments/silent_treatment.jpeg"),
+	"journal_art": "res://assets/journal/torments/silent_treatment.jpeg",
 }
 const Void = {
 	"journal_description":\
@@ -468,7 +468,7 @@ const Void = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/torments/void.jpeg"),
+	"journal_art": "res://assets/journal/torments/void.jpeg",
 }
 const ENEMIES = [
 	TrafficJam,
