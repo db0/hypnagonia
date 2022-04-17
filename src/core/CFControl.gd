@@ -157,7 +157,14 @@ func _setup() -> void:
 	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
 		print_debug("DEBUG INFO:CFControl: card scripts load time = %sms" % [str(scripts_load_end_time - load_start_time)])	
 
-
+func _setup_testing() -> void:
+	flush_cache()
+	NMAP = {}
+	are_all_nodes_mapped = false
+	card_drag_ongoing = null
+	ut = true
+	_debug = true
+	
 # Run when all necessary nodes (Board, CardContainers etc) for the game
 # have been initialized. Allows them to proceed with their ready() functions.
 func _on_all_nodes_mapped() -> void:
