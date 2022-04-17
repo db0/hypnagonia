@@ -3,7 +3,6 @@
 extends NonCombatEncounter
 
 const JOURNAL_CUSTOM_ENTRY = preload("res://src/dreamscape/Overworld/CustomEntries/CustomDraft.tscn")
-const JOURNAL_DRAFT_SCRIPT = preload("res://src/dreamscape/Overworld/CustomEntries/NCE_SubconsciousProcessing.gd")
 const DAMAGES := {
 	'comment': 0,
 	'debug': 7,
@@ -14,6 +13,7 @@ const DRAFTS := {
 	'debug': 2,
 	'refactor': 3,
 }
+var journal_draft_script = load("res://src/dreamscape/Overworld/CustomEntries/NCE_SubconsciousProcessing.gd")
 
 # TODO: Fluff
 var secondary_choices := {
@@ -47,7 +47,7 @@ func begin() -> void:
 
 func continue_encounter(key) -> void:
 	var draft_scene = JOURNAL_CUSTOM_ENTRY.instance()
-	draft_scene.script = JOURNAL_DRAFT_SCRIPT
+	draft_scene.script = journal_draft_script
 	draft_scene.description_text = nce_result_fluff[key]
 	globals.player.damage += DAMAGES[key]
 	draft_scene.draft_amount = DRAFTS[key]

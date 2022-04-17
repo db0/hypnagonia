@@ -3,7 +3,7 @@ extends SurpriseEncounter
 const PATHOS = Terms.RUN_ACCUMULATION_NAMES.nce
 const RELEASED_PATHOS_AVG_MULTIPLIER = 7
 const JOURNAL_CUSTOM_ENTRY = preload("res://src/dreamscape/Overworld/CustomEntries/CustomDraft.tscn")
-const JOURNAL_DRAFT_SCRIPT = preload("res://src/dreamscape/Overworld/CustomEntries/NCE_UnderwaterCave.gd")
+var journal_draft_script = load("res://src/dreamscape/Overworld/CustomEntries/NCE_UnderwaterCave.gd")
 const ADVANCED_COMBAT_ENCOUNTER_DEFINITION = {
 	"basic_enemies": [
 		{
@@ -38,7 +38,7 @@ var artifact_prep: ArtifactPrep
 
 func _init():
 	description = "I was deep diving and came upon the edge of an underwater cave. The sign warned people not to try and recover the Curio within due to danger of drowning. I had to have it!"
-	prepare_journal_art(preload("res://assets/journal/nce/underwater_cave.jpeg"))
+	prepare_journal_art(load("res://assets/journal/nce/underwater_cave.jpeg"))
 
 
 func begin() -> void:
@@ -80,7 +80,7 @@ func end() -> void:
 	artifact_prep = ArtifactPrep.new(100, 0, 1)
 	globals.player.add_artifact(artifact_prep.selected_artifacts[0].canonical_name)
 	var draft_scene = JOURNAL_CUSTOM_ENTRY.instance()
-	draft_scene.script = JOURNAL_DRAFT_SCRIPT
+	draft_scene.script = journal_draft_script
 	draft_scene.description_text = "This Thalassophobia made me realize some things."
 	draft_scene.draft_amount = 1
 	globals.journal.add_custom_entry(draft_scene)

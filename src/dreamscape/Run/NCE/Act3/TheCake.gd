@@ -22,7 +22,7 @@ func _init():
 			+ '"It\'s not good enough!" she yelled, not at me, but at the situation.\n'\
 			+ "The maps on her desk showed that this part of the ground should have kept her cupcake warm, but it was cold.\n"\
 			+ "Why on Earth was I here? I'm just the tech support."
-	prepare_journal_art(preload("res://assets/journal/nce/cake.jpeg"))
+	prepare_journal_art(load("res://assets/journal/nce/cake.jpeg"))
 
 func begin() -> void:
 	.begin()

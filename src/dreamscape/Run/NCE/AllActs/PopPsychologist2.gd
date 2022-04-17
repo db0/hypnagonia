@@ -2,7 +2,7 @@
 
 extends NonCombatEncounter
 
-const SHADER := preload("res://shaders/Roscharch.shader")
+var shader := load("res://shaders/Roscharch.shader")
 
 var secondary_choices := {
 		'passion fruit': '[A Passion Fruit]: Gain some {released_artifact}.',
@@ -37,7 +37,7 @@ func begin() -> void:
 		'tint': HUtils.rnd_color(true, 255),
 		'time_offset': CFUtils.randf_range(0, 10000)
 	}
-	prepare_shader_art(SHADER, _shader_params)
+	prepare_shader_art(shader, _shader_params)
 	_prepare_secondary_choices(secondary_choices, {})
 
 func continue_encounter(key) -> void:

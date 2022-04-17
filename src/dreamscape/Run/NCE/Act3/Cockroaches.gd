@@ -21,7 +21,7 @@ func _init():
 			+ "old coasters suddenly become new. "\
 			+ "The ear always is confused as the tick-tocking sound shouldn't move, the clock is on the wall, "\
 			+ "but now I hear it down the sides of the cupboards... "
-	prepare_journal_art(preload("res://assets/journal/nce/cockroach.jpeg"))
+	prepare_journal_art(load("res://assets/journal/nce/cockroach.jpeg"))
 	
 func begin() -> void:
 	.begin()

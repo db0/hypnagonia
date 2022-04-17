@@ -3,12 +3,12 @@ extends Act
 
 const NCE := {
 	"easy": {
-		"TheCandyman": preload("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd"),
-		"PottedPlant": preload("res://src/dreamscape/Run/NCE/AllActs/PottedPlant.gd"),
+		"TheCandyman": "res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd",
+		"PottedPlant": "res://src/dreamscape/Run/NCE/AllActs/PottedPlant.gd",
 	},
 	"risky": {
-		"EpicUpgrade": preload("res://src/dreamscape/Run/NCE/AllActs/EpicUpgrade.gd"),
-		"OstrichEggs": preload("res://src/dreamscape/Run/NCE/AllActs/OstrichEggs.gd"),
+		"EpicUpgrade": "res://src/dreamscape/Run/NCE/AllActs/EpicUpgrade.gd",
+		"OstrichEggs": "res://src/dreamscape/Run/NCE/AllActs/OstrichEggs.gd",
 	}
 }
 
@@ -19,15 +19,15 @@ const NCE := {
 # more than 1, and its increasing its chances to be encountered.
 const LOCKED_NCE := {
 	"DollPickup": {
-		"nce": preload("res://src/dreamscape/Run/NCE/AllActs/DollPickup.gd"),
+		"nce": "res://src/dreamscape/Run/NCE/AllActs/DollPickup.gd",
 		"chance_multiplier": 2,
 	},
 	"PopPsychologist2": {
-		"nce": preload("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist2.gd"),
+		"nce": "res://src/dreamscape/Run/NCE/AllActs/PopPsychologist2.gd",
 		"chance_multiplier": 2,
 	},
 	"PopPsychologist3": {
-		"nce": preload("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist3.gd"),
+		"nce": "res://src/dreamscape/Run/NCE/AllActs/PopPsychologist3.gd",
 		"chance_multiplier": 3,
 	},
 }
