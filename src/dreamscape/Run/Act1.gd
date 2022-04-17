@@ -67,7 +67,7 @@ const TheLaughingOnes = {
 			}
 		],
 	},
-	"journal_art": preload("res://assets/journal/torments/the_laughing_one.jpeg"),
+	"journal_art": "res://assets/journal/torments/the_laughing_one.jpeg",
 }
 
 
@@ -76,7 +76,7 @@ const Fearmonger = {
 		'Was that [url={torment_tag1}]a curious owl with three eyes[/url] staring at me?',
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
-	"journal_art": preload("res://assets/journal/torments/fearmonger.jpeg"),
+	"journal_art": "res://assets/journal/torments/fearmonger.jpeg",
 	"enemies": {
 		"easy": [
 			{
@@ -128,7 +128,7 @@ const Gaslighter = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/enemies/gaslighter.png"),
+	"journal_art": "res://assets/enemies/gaslighter.png",
 }
 
 
@@ -168,7 +168,7 @@ const Murmurs = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/torments/murmurs.jpeg"),
+	"journal_art": "res://assets/journal/torments/murmurs.jpeg",
 }
 
 
@@ -213,7 +213,7 @@ const TheCritic = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/enemies/the_critic.png"),
+	"journal_art": "res://assets/enemies/the_critic.png",
 }
 
 
@@ -247,7 +247,7 @@ const Clown = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/torments/clown.jpeg"),
+	"journal_art": "res://assets/journal/torments/clown.jpeg",
 }
 
 
@@ -281,7 +281,7 @@ const Butterfly = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/torments/butterfly.jpeg"),
+	"journal_art": "res://assets/journal/torments/butterfly.jpeg",
 }
 
 
@@ -326,7 +326,7 @@ const BrokenMirrors = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/torments/broken_mirror.jpg"),
+	"journal_art": "res://assets/journal/torments/broken_mirror.jpg",
 }
 
 const Pialephant = {
@@ -366,7 +366,7 @@ const Pialephant = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/torments/pialephant.jpg"),
+	"journal_art": "res://assets/journal/torments/pialephant.jpg",
 }
 const TheLightCalling = {
 	"journal_description":\
@@ -399,7 +399,7 @@ const TheLightCalling = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/torments/the_light_calling.jpeg"),
+	"journal_art": "res://assets/journal/torments/the_light_calling.jpeg",
 }
 const Squirrel = {
 	"journal_description":\
@@ -437,7 +437,7 @@ const Squirrel = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/torments/squirrel.jpg"),
+	"journal_art": "res://assets/journal/torments/squirrel.jpg",
 }
 const Baby = {
 	"journal_description":\
@@ -466,7 +466,7 @@ const Baby = {
 			},
 		],
 	},
-	"journal_art": preload("res://assets/journal/torments/baby.jpeg"),
+	"journal_art": "res://assets/journal/torments/baby.jpeg",
 }
 #	{
 #		"journal_description":\
@@ -496,7 +496,7 @@ const Baby = {
 #				"definition": EnemyDefinitions.GASLIGHTER,
 #			},
 #		],
-#		"journal_art": preload("res://assets/journal/gaslighter.jpeg"),
+#		"journal_art": "res://assets/journal/gaslighter.jpeg"),
 #	},
 
 
@@ -523,7 +523,7 @@ const RushElite = {
 		'I remember walls enclosing me and no obvious way out...',
 	"journal_reward":\
 		'I finally understood what these infinite twists and turns represented.',
-	'journal_art': preload("res://assets/journal/advanced/labyrinth.jpeg"),
+	'journal_art': "res://assets/journal/advanced/labyrinth.jpeg",
 }
 const Bully = {
 	"name": "Bully",
@@ -532,7 +532,7 @@ const Bully = {
 		'My mind took me back to uncomfortable memories of schoolyard bullying.',
 	"journal_reward":\
 		'This time, I fortunately knew how to respond.',
-	'journal_art': preload("res://assets/journal/advanced/bully.jpeg"),
+	'journal_art': "res://assets/journal/advanced/bully.jpeg",
 }
 
 const ELITES = [
@@ -548,7 +548,7 @@ const Narcissus = {
 	"journal_reward":\
 		'Through the many lies and denials, [url=boss_card_draft]I cornered the truth out of them.[/url]'\
 		+ 'and for once felt like [url=boss_artifact]I was getting somewhere[/url].',
-	'journal_art': preload("res://assets/journal/advanced/narcissus.jpeg"),
+	'journal_art': "res://assets/journal/advanced/narcissus.jpeg",
 }
 
 const BOSSES := {

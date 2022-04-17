@@ -190,7 +190,6 @@ func custom_script(script: ScriptObject) -> void:
 				break
 		"Recurrence", "+ Recurrence +", "++ Recurrence ++":
 			var all_intents = cfc.get_tree().get_nodes_in_group("SingleIntents")
-			var owning_entity = null
 			var stress := 0
 			var perplex := 0
 			var debuff := 0
@@ -309,6 +308,7 @@ func custom_script(script: ScriptObject) -> void:
 #			print_debug(card_text)
 #			print_debug(card_script)
 			var bbcode = Terms.get_bbcode_formats()
+			# warning-ignore:return_value_discarded
 			card.modify_property("Abilities", card_text.format(bbcode))
 			card.scripts = { "manual": { "hand": card_script }}
 			var cost := 0
@@ -325,6 +325,7 @@ func custom_script(script: ScriptObject) -> void:
 			if other > 4:
 				cost += 1
 #			print_debug([stress + perplex, debuff + buff, cost])
+			# warning-ignore:return_value_discarded
 			card.modify_property("Cost", cost)
 			card.refresh_card_front()
 

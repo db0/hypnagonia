@@ -29,18 +29,14 @@ func game_over() -> void:
 
 
 func prepare_journal_art(value) -> void:
-	var tex: StreamTexture
+	var tex
 	match typeof(value):
 		TYPE_DICTIONARY:
 			tex = value.get("journal_art")
-		TYPE_STRING:
-			tex = load(value)
 		_:
 			tex = value
 	if tex:
-		journal_art = ImageTexture.new();
-		var image = tex.get_data()
-		journal_art.create_from_image(image)
+		journal_art = CFUtils.convert_texture_to_image(tex, true);
 
 
 func prepare_shader_art(shader: Shader, _shader_params: Dictionary) -> void:

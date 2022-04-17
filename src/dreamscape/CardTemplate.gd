@@ -105,7 +105,7 @@ func setup() -> void:
 		card_art_file = ImageLibrary.CARD_IMAGES.get(card_upgrade_parent_name)
 	else:
 		card_art_file = ImageLibrary.CARD_IMAGES.get(canonical_name)
-	if card_art_file as StreamTexture:
+	if card_art_file:
 		card_front.set_card_art(card_art_file)
 	if deck_card_entry:
 		if deck_card_entry.is_scarred():
