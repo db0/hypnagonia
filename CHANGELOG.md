@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.49.0](https://github.com/db0/hypnagonia/tree/v0.49.0) (2022-04-16)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.48.1...v0.49.0)
+
+**Merged pull requests:**
+
+- Reworked Main Menu design and added pathos description popups in journal text. [\#294](https://github.com/db0/hypnagonia/pull/294) ([db0](https://github.com/db0))
+
 ## [v0.48.1](https://github.com/db0/hypnagonia/tree/v0.48.1) (2022-04-14)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.48.0...v0.48.1)
