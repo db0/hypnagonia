@@ -90,11 +90,11 @@ func generate_journal_choices() -> Array:
 					difficulty = "hard"
 				journal_options.append(EnemyEncounter.new(next_enemy, difficulty))
 			Terms.RUN_ACCUMULATION_NAMES.rest:
-				journal_options.append(preload("res://src/dreamscape/Run/NCE/Rest.gd").new())
+				journal_options.append(load("res://src/dreamscape/Run/NCE/Rest.gd").new())
 			Terms.RUN_ACCUMULATION_NAMES.shop:
-				journal_options.append(preload("res://src/dreamscape/Run/NCE/Shop.gd").new())
+				journal_options.append(load("res://src/dreamscape/Run/NCE/Shop.gd").new())
 			Terms.RUN_ACCUMULATION_NAMES.artifact:
-				journal_options.append(preload("res://src/dreamscape/Run/NCE/Artifact.gd").new())
+				journal_options.append(load("res://src/dreamscape/Run/NCE/Artifact.gd").new())
 			Terms.RUN_ACCUMULATION_NAMES.nce:
 				journal_options.append(_get_next_nce())
 			Terms.RUN_ACCUMULATION_NAMES.elite:

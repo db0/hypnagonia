@@ -24,7 +24,7 @@ The rays of energy surrounded me as I was swimming in the void.
 Each of them passesed right above my head, pressing me to make a choice for better or for worse.
 I struggled to concentrate as the soft and electrifying colors dance around me within the darkness while I tasted their power dancing across my soul.
 """
-#	prepare_journal_art(preload("res://assets/journal/nce/potted_plant.jpeg"))
+#	prepare_journal_art(load("res://assets/journal/nce/potted_plant.jpeg"))
 
 func begin() -> void:
 	.begin()

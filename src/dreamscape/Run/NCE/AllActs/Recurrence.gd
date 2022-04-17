@@ -1,11 +1,5 @@
 extends SurpriseEncounter
 
-const JOURNAL_ART := {
-	"Act1": preload("res://assets/journal/nce/recurrence1.jpeg"),
-	"Act2": preload("res://assets/journal/nce/recurrence2.jpeg"),
-	"Act3": preload("res://assets/journal/nce/recurrence3.jpeg"),
-}
-
 const RECURRENCE_TAKEOVERS := [
 	"Not so fast!",
 	"There is only one choice...",
@@ -15,11 +9,11 @@ const RECURRENCE_TAKEOVERS := [
 	"Where do you think you're going.",
 ]
 
-const RECURRENCE_ELITE = {
-	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")]
+var recurrence_elite = {
+	"scenes": [load("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")]
 }
 
-const RECURRENCE_SURPRISE = preload("res://src/dreamscape/Run/NCE/AllActs/RecurrenceCombatEncounter.gd")
+var recurrence_surprise = load("res://src/dreamscape/Run/NCE/AllActs/RecurrenceCombatEncounter.gd")
 
 var difficulties := {
 	# Can't refer to the act class, Otherwise we get a cyclic reference
@@ -35,9 +29,9 @@ var descriptions := {
 }
 
 var journal_arts := {
-	1: JOURNAL_ART.Act1,
-	2: JOURNAL_ART.Act2,
-	3: JOURNAL_ART.Act3,
+	1: load("res://assets/journal/nce/recurrence1.jpeg"),
+	2: load("res://assets/journal/nce/recurrence2.jpeg"),
+	3: load("res://assets/journal/nce/recurrence3.jpeg"),
 }
 
 var memory_upgrades := {
@@ -62,8 +56,8 @@ func _init():
 
 func begin() -> void:
 	.begin()
-	surprise_combat_encounter = RECURRENCE_SURPRISE.new(
-			RECURRENCE_ELITE,
+	surprise_combat_encounter = recurrence_surprise.new(
+			recurrence_elite,
 			difficulties[globals.encounters.current_act.get_act_number()],
 			self)
 	surprise_combat_encounter.start_ordeal()

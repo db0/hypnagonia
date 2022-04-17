@@ -525,7 +525,7 @@ func _input(event):
 func _debug_advanced_enemy() -> void:
 	pass
 	var advanced_entity: EnemyEntity =\
-			preload("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn").instance()
+			load("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn").instance()
 #	var advanced_entity: EnemyEntity =\
 #			preload("res://src/dreamscape/CombatElements/Enemies/Bosses/Narcissus.tscn").instance()
 #	var advanced_entity: EnemyEntity =\

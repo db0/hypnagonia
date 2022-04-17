@@ -17,7 +17,7 @@ var nce_result_fluff := {
 func _init():
 	description = "I found a peculiar mirror that appeared to show me in various animal forms."\
 			+ "The longer I looked at myself, the more I forgot what I really looked like."
-	prepare_journal_art(preload("res://assets/journal/nce/beast_mirror.jpeg"))
+	prepare_journal_art(load("res://assets/journal/nce/beast_mirror.jpeg"))
 	
 func begin() -> void:
 	.begin()

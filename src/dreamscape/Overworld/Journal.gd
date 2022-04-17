@@ -566,19 +566,19 @@ func _input(event):
 			EnemyEncounter.new(Act1.TheLaughingOnes, "hard"),
 			EnemyEncounter.new(Act2.TrafficJam, "easy"),
 			EnemyEncounter.new(Act3.HandsyAunt, "hard"),
-#			preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
-			preload("res://src/dreamscape/Run/NCE/AllActs/EpicUpgrade.gd").new(),
-			preload("res://src/dreamscape/Run/NCE/Act3/Experience.gd").new(),
-			preload("res://src/dreamscape/Run/NCE/Act2/Griftlands.gd").new(),
-			preload("res://src/dreamscape/Run/NCE/Act1/Spider.gd").new(),
-#			preload("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
+#			load("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
+			load("res://src/dreamscape/Run/NCE/AllActs/EpicUpgrade.gd").new(),
+			load("res://src/dreamscape/Run/NCE/Act3/Experience.gd").new(),
+			load("res://src/dreamscape/Run/NCE/Act2/Griftlands.gd").new(),
+			load("res://src/dreamscape/Run/NCE/Act1/Spider.gd").new(),
+#			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
 #			BossEncounter.new(Act2.BOSSES["Surreality"]),
 #			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
 #			EliteEncounter.new(Act1.Bully, "medium"),
 #			EliteEncounter.new(Act2.Jumbletron, "medium"),
 #			EliteEncounter.new(Act3.TheatrePlay, "medium"),
-#			preload("res://src/dreamscape/Run/NCE/Shop.gd").new()
-#			preload("res://src/dreamscape/Run/NCE/Rest.gd").new()
+#			load("res://src/dreamscape/Run/NCE/Shop.gd").new()
+#			load("res://src/dreamscape/Run/NCE/Rest.gd").new()
 		]
 		for encounter in debug_encounters:
 			var journal_choice_scene = JOURNAL_ENCOUNTER_CHOICE_SCENE.instance()

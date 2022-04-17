@@ -16,7 +16,7 @@ var nce_result_fluff := {
 
 func _init():
 	description = "A spider was looking at me with a thousand eyes. Its intentions are unfathomable."
-	prepare_journal_art(preload("res://assets/journal/nce/spider.jpeg"))
+	prepare_journal_art(load("res://assets/journal/nce/spider.jpeg"))
 
 func begin() -> void:
 	.begin()

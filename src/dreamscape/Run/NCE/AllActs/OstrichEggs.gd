@@ -17,7 +17,7 @@ var existing_memory
 
 func _init():
 	description = "I was hungry but all I had was giant Ostrich eggs. I could not decide how to cook them."
-	prepare_journal_art(preload("res://assets/journal/nce/ostrich_eggs.jpeg"))
+	prepare_journal_art(load("res://assets/journal/nce/ostrich_eggs.jpeg"))
 
 func begin() -> void:
 	.begin()
