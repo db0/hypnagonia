@@ -534,33 +534,33 @@ const BOSSES := {
 
 const NCE := {
 	"easy": {
-		"Griftlands": preload("res://src/dreamscape/Run/NCE/Act2/Griftlands.gd"),
-		"BannersOfRuin": preload("res://src/dreamscape/Run/NCE/Act2/BannersOfRuin.gd"),
-		"MiniShop": preload("res://src/dreamscape/Run/NCE/Act2/MiniShop.gd"),
-		"Subconscious": preload("res://src/dreamscape/Run/NCE/Act2/Subconscious.gd"),
-		"AlphaKappaOmega": preload("res://src/dreamscape/Run/NCE/Act2/AlphaKappaOmega.gd"),
-		"MultipleScriptMods": preload("res://src/dreamscape/Run/NCE/Act2/MultipleScriptMods.gd"),
-		"LoseRandomCurio": preload("res://src/dreamscape/Run/NCE/Act2/LoseRandomCurio.gd"),
-		"HangingOn": preload("res://src/dreamscape/Run/NCE/Act2/HangingOn.gd"),
-		"Blanket": preload("res://src/dreamscape/Run/NCE/Act2/Blanket.gd"),
+		"Griftlands": "res://src/dreamscape/Run/NCE/Act2/Griftlands.gd",
+		"BannersOfRuin": "res://src/dreamscape/Run/NCE/Act2/BannersOfRuin.gd",
+		"MiniShop": "res://src/dreamscape/Run/NCE/Act2/MiniShop.gd",
+		"Subconscious": "res://src/dreamscape/Run/NCE/Act2/Subconscious.gd",
+		"AlphaKappaOmega": "res://src/dreamscape/Run/NCE/Act2/AlphaKappaOmega.gd",
+		"MultipleScriptMods": "res://src/dreamscape/Run/NCE/Act2/MultipleScriptMods.gd",
+		"LoseRandomCurio": "res://src/dreamscape/Run/NCE/Act2/LoseRandomCurio.gd",
+		"HangingOn": "res://src/dreamscape/Run/NCE/Act2/HangingOn.gd",
+		"Blanket": "res://src/dreamscape/Run/NCE/Act2/Blanket.gd",
 	},
 	"risky": {
-		"RiskyEvent3": preload("res://src/dreamscape/Run/NCE/Act2/RiskyEvent3.gd"),
-		"RiskyEvent4": preload("res://src/dreamscape/Run/NCE/Act2/RiskyEvent4.gd"),
+		"RiskyEvent3": "res://src/dreamscape/Run/NCE/Act2/RiskyEvent3.gd",
+		"RiskyEvent4": "res://src/dreamscape/Run/NCE/Act2/RiskyEvent4.gd",
 	}
 }
 
 const LOCKED_NCE := {
 	"Griftlands2": {
-		"nce": preload("res://src/dreamscape/Run/NCE/Act2/Griftlands2.gd"),
+		"nce": "res://src/dreamscape/Run/NCE/Act2/Griftlands2.gd",
 		"chance_multiplier": 1,
 	},
 	"Griftlands3": {
-		"nce": preload("res://src/dreamscape/Run/NCE/Act2/Griftlands3.gd"),
+		"nce": "res://src/dreamscape/Run/NCE/Act2/Griftlands3.gd",
 		"chance_multiplier": 1,
 	},
 	"Recurrence2": {
-		"nce": preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd"),
+		"nce": "res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd",
 		"chance_multiplier": 4,
 	},
 }

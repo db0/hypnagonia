@@ -28,7 +28,7 @@ const GASLIGHTER:= {
 	"_health_variability": 3,
 	"_texture_size_x": "200",
 	"_texture_size_y": "200",
-	"_texture": preload("res://assets/enemies/gaslighter.png"),
+	"_texture": "res://assets/enemies/gaslighter.png",
 	"_character_art": "A. Mc Leod",
 }
 const FEARMONGER:= {
@@ -105,7 +105,7 @@ const THE_CRITIC:= {
 	"_health_variability": 4,
 	"_texture_size_x": "150",
 	"_texture_size_y": "150",
-	"_texture": preload("res://assets/enemies/the_critic.png"),
+	"_texture": "res://assets/enemies/the_critic.png",
 	"_character_art": "A. Mc Leod",
 	"_description": "The critic loves pointing our where you go wrong as a character. "\
 			+ "They seem to be able to detect your largest flaws with ease and would delve into depths on why you're failing as a human."
@@ -135,7 +135,7 @@ const CLOWN:= {
 	"_health_variability": 3,
 	"_texture_size_x": "160",
 	"_texture_size_y": "160",
-	"_texture": preload("res://assets/enemies/clown_amc.png"),
+	"_texture": "res://assets/enemies/clown_amc.png",
 	"_character_art": "A. Mc Leod",
 }
 const BUTTERFLY:= {
@@ -159,7 +159,7 @@ const BUTTERFLY:= {
 	"_health_variability": 8,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/journal/torments/butterfly.jpeg"),
+	"_texture": "res://assets/journal/torments/butterfly.jpeg",
 	"_character_art": "Artbreeder.com",
 		}
 const MURMURS := {
@@ -183,7 +183,7 @@ const MURMURS := {
 	"_health_variability": 4,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/journal/torments/murmurs.jpeg"),
+	"_texture": "res://assets/journal/torments/murmurs.jpeg",
 	"_character_art": "Artbreeder.com"
 }
 const BROKEN_MIRROR:= {
@@ -208,7 +208,7 @@ const BROKEN_MIRROR:= {
 	"_health_variability": 2,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/journal/torments/broken_mirror.jpg"),
+	"_texture": "res://assets/journal/torments/broken_mirror.jpg",
 	"_character_art": "Artbreeder.com"
 }
 const PIALEPHANT:= {
@@ -229,7 +229,7 @@ const PIALEPHANT:= {
 	"_health_variability": 10,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/journal/torments/pialephant.jpg"),
+	"_texture": "res://assets/journal/torments/pialephant.jpg",
 	"_character_art": "David Revoy"
 }
 const THE_LIGHT_CALLING := {
@@ -253,7 +253,7 @@ const THE_LIGHT_CALLING := {
 	"_health_variability": 8,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/cards/The Light Calling.jpg"),
+	"_texture": "res://assets/cards/The Light Calling.jpg",
 	"_character_art": "David Revoy"
 }
 const SQUIRREL := {
@@ -283,7 +283,7 @@ const SQUIRREL := {
 	"_health_variability": 3,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/cards/Squirrel.jpg"),
+	"_texture": "res://assets/cards/Squirrel.jpg",
 	"_character_art": "David Revoy"
 }
 const BABY := {
@@ -316,7 +316,7 @@ const BABY := {
 	"_health_variability": 2,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/journal/torments/baby.jpeg"),
+	"_texture": "res://assets/journal/torments/baby.jpeg",
 	"_character_art": "Artbreeder.com"
 }
 
@@ -342,7 +342,7 @@ const TRAFFICJAM := {
 	"_health_variability": 8,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/journal/torments/traffic_jam.jpeg"),
+	"_texture": "res://assets/journal/torments/traffic_jam.jpeg",
 	"_character_art": "Artbreeder.com"
 }
 const STUFFEDTOY := {
@@ -363,7 +363,7 @@ const STUFFEDTOY := {
 	"_health_variability": 3,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/journal/torments/stuffed_toy.jpeg"),
+	"_texture": "res://assets/journal/torments/stuffed_toy.jpeg",
 	"_character_art": "Artbreeder.com"
 }
 const MOUSE := {
@@ -390,7 +390,7 @@ const MOUSE := {
 	"_health_variability": 4,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/journal/torments/mouse.jpeg"),
+	"_texture": "res://assets/journal/torments/mouse.jpeg",
 	"_character_art": "Artbreeder.com"
 }
 const THE_EXAM := {
@@ -425,7 +425,7 @@ const THE_EXAM := {
 	"_health_variability": 6,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/journal/torments/exam.jpeg"),
+	"_texture": "res://assets/journal/torments/exam.jpeg",
 	"_character_art": "Artbreeder.com"
 }
 const THE_VICTIM := {
@@ -459,7 +459,7 @@ const THE_VICTIM := {
 	"_health_variability": 2,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/journal/torments/the_victim.jpeg"),
+	"_texture": "res://assets/journal/torments/the_victim.jpeg",
 	"_character_art": "Artbreeder.com"
 }
 const IMPOSSIBLE_CONSTRUCTION := {
@@ -490,7 +490,7 @@ const IMPOSSIBLE_CONSTRUCTION := {
 	"_health_variability": 1,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/cards/Impossible_Construction.jpg"),
+	"_texture": "res://assets/cards/Impossible_Construction.jpg",
 	"_character_art": "Miikka Veijola"
 }
 const SILENT_TREATMENT := {
@@ -525,7 +525,7 @@ const SILENT_TREATMENT := {
 	"_health_variability": 4,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/journal/torments/silent_treatment.jpeg"),
+	"_texture": "res://assets/journal/torments/silent_treatment.jpeg",
 	"_character_art": "Artbreeder.com"
 }
 const GUILT := {
@@ -549,7 +549,7 @@ const GUILT := {
 	"_health_variability": 1,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/journal/torments/guilt.jpeg"),
+	"_texture": "res://assets/journal/torments/guilt.jpeg",
 	"_character_art": "Artbreeder.com"
 }
 const VOID := {
@@ -575,7 +575,7 @@ const VOID := {
 	"_health_variability": 8,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/journal/torments/void.jpeg"),
+	"_texture": "res://assets/journal/torments/void.jpeg",
 	"_character_art": "Artbreeder.com"
 }
 const ADMINISTRATION := {
@@ -601,7 +601,7 @@ const ADMINISTRATION := {
 	"_health_variability": 4,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-#	"_texture": preload("res://assets/enemies/slavery-whip.png"),
+#	"_texture": "res://assets/enemies/slavery-whip.png",
 	"_character_art": "Nobody",
 	"_description": "Administration is cruel when profit is involved. "\
 			+ "They meticulously dissect productivity and efficiency to command obedience, and mandatory overtime is never out of the question."
@@ -625,7 +625,7 @@ const OVERWORKED_SERVUS := {
 	"_health_variability": 4,
 	"_texture_size_x": "60",
 	"_texture_size_y": "60",
-#	"_texture": preload("res://assets/enemies/slavery-whip.png"),
+#	"_texture": "res://assets/enemies/slavery-whip.png",
 	"_character_art": "Nobody",
 	"_description": "Hapless individuals who have already been confined to the constriction of Administration. "\
 			+ "Pent-up frustration creates a toxic and unhealthy environment full of despair, and those under Administration are affected accordingly."
@@ -648,7 +648,7 @@ const OVERCHARGED_SERVUS := {
 	"_health_variability": 2,
 	"_texture_size_x": "60",
 	"_texture_size_y": "60",
-#	"_texture": preload("res://assets/enemies/slavery-whip.png"),
+#	"_texture": "res://assets/enemies/slavery-whip.png",
 	"_character_art": "Nobody",
 	"_description": "Determined individuals confined by Administration whose capabilities are flourishing. "\
 			+ "Aggressive promotion and training causes their spawning, and they grow more hostile to their peers."
@@ -675,7 +675,7 @@ const LIFE_PATH := {
 	"_health_variability": 5,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/journal/torments/life_path.jpeg"),
+	"_texture": "res://assets/journal/torments/life_path.jpeg",
 	"_character_art": "Artbreeder.com"
 }
 const CRINGELORD:= {
@@ -700,7 +700,7 @@ const CRINGELORD:= {
 	"_health_variability": 5,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/journal/torments/cringelord.jpeg"),
+	"_texture": "res://assets/journal/torments/cringelord.jpeg",
 	"_character_art": "Artbreeder.com",
 }
 const NIGHTMARE:= {
@@ -724,7 +724,7 @@ const NIGHTMARE:= {
 	"_health_variability": 5,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/journal/torments/nightmare.jpeg"),
+	"_texture": "res://assets/journal/torments/nightmare.jpeg",
 	"_character_art": "Artbreeder.com",
 }
 const THEATRE_ACT := {
@@ -749,7 +749,7 @@ const THEATRE_ACT := {
 	"_health_variability": 0,
 	"_texture_size_x": "60",
 	"_texture_size_y": "60",
-	"_texture": preload("res://assets/enemies/theater-curtains.png"),
+	"_texture": "res://assets/enemies/theater-curtains.png",
 	"_character_art": "Delapouite"
 }
 
@@ -772,7 +772,7 @@ const SUBMERGED := {
 	"_health_variability": 5,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/journal/torments/submerged.jpg"),
+	"_texture": "res://assets/journal/torments/submerged.jpg",
 	"_character_art": "Artbreeder.com"
 }
 
@@ -807,7 +807,7 @@ const HANDSY_AUNT := {
 	"_health_variability": 10,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": preload("res://assets/journal/torments/handsy_aunt.jpeg"),
+	"_texture": "res://assets/journal/torments/handsy_aunt.jpeg",
 	"_character_art": "Artbreeder.com"
 }
 
@@ -840,7 +840,7 @@ const CIRCULAR_ARGUMENTS := {
 	"_health_variability": 15,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-#	"_texture": preload("res://assets/journal/torments/handsy_aunt.jpeg"),
+#	"_texture": "res://assets/journal/torments/handsy_aunt.jpeg",
 	"_character_art": "Nobody"
 }
 const INFLUENCER := {
@@ -869,6 +869,6 @@ const INFLUENCER := {
 	"_health_variability": 8,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-#	"_texture": preload("res://assets/journal/torments/handsy_aunt.jpeg"),
+#	"_texture": "res://assets/journal/torments/handsy_aunt.jpeg",
 	"_character_art": "Nobody"
 }

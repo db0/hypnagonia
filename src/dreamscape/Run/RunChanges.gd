@@ -32,6 +32,8 @@ func unlock_nce(nce_name: String, nce_type: String, is_immediate := true) -> voi
 				if not unlocked_nce[nce_type].has(act_name):
 					unlocked_nce[nce_type][act_name] = []
 				var unl_nce = act["LOCKED_NCE"][nce_name]
+				if typeof(unl_nce) == TYPE_STRING:
+					unl_nce = load(unl_nce)
 				if not _is_nce_unlocked(unl_nce.nce):
 					unlocked_nce[nce_type][act_name].append(unl_nce)
 					emit_signal("nce_unlocked", unl_nce)
