@@ -3,7 +3,7 @@ extends "res://tests/HUT_Journal_NCETestClass.gd"
 class TestTheCandyman:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd")
 
 	func test_selecting_with_starting_deck():
 		cfc.game_rng_seed = CFUtils.generate_random_seed()
@@ -35,7 +35,7 @@ class TestTheCandyman:
 class TestPopPsychologist2:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist2.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist2.gd")
 
 	func test_choice_passion_fruit():
 		watch_signals(globals.encounters.run_changes)
@@ -45,7 +45,7 @@ class TestPopPsychologist2:
 		activate_secondary_choice_by_key("passion fruit")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.artifact)
-		assert_nce_unlocked(preload("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist3.gd"))
+		assert_nce_unlocked(load("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist3.gd"))
 	func test_choice_orange():
 		watch_signals(globals.encounters.run_changes)
 		begin_nce_with_choices(nce)
@@ -54,7 +54,7 @@ class TestPopPsychologist2:
 		activate_secondary_choice_by_key("orange")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.elite)
-		assert_nce_unlocked(preload("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist3.gd"))
+		assert_nce_unlocked(load("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist3.gd"))
 	func test_choice_bananal():
 		watch_signals(globals.encounters.run_changes)
 		begin_nce_with_choices(nce)
@@ -63,12 +63,12 @@ class TestPopPsychologist2:
 		activate_secondary_choice_by_key("banana")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.rest)
-		assert_nce_unlocked(preload("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist3.gd"))
+		assert_nce_unlocked(load("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist3.gd"))
 
 class TestPopPsychologist3:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist3.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist3.gd")
 		dreamer_starting_damage = 70
 
 	func test_choice_death():
@@ -93,7 +93,7 @@ class TestPopPsychologist3:
 class TestDollPickup:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/AllActs/DollPickup.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/AllActs/DollPickup.gd")
 		dreamer_starting_damage = 70
 
 	func test_random_choice():
@@ -113,7 +113,7 @@ class TestDollPickup:
 class TestEpicUpgrade:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/AllActs/EpicUpgrade.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/AllActs/EpicUpgrade.gd")
 
 	func test_choice_epic():
 		begin_nce_with_choices(nce)
@@ -165,7 +165,7 @@ class TestOstrichEggs:
 		CardFilter.new('Type', 'Control'),
 	]
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/AllActs/OstrichEggs.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/AllActs/OstrichEggs.gd")
 
 	func test_choice_scramble():
 		begin_nce_with_choices(nce)

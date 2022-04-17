@@ -3,7 +3,7 @@ extends "res://tests/UTCommon.gd"
 
 class TestActiveEffects:
 	extends "res://tests/UTCommon.gd"
-	const AE = preload("res://src/dreamscape/CombatElements/ActiveEffects.tscn")
+	const AE = load("res://src/dreamscape/CombatElements/ActiveEffects.tscn")
 
 	func test_scene():
 		var doubled_scene = double(AE).instance()
@@ -28,7 +28,7 @@ class TestActiveEffects:
 
 class TestMethods:
 	extends "res://tests/UTCommon.gd"
-	const CE = preload("res://src/dreamscape/CombatElements/CombatEntity.tscn")
+	const CE = load("res://src/dreamscape/CombatElements/CombatEntity.tscn")
 	var ce: CombatEntity
 	var ae: ActiveEffects
 	var test_effect = Terms.ACTIVE_EFFECTS.rebalance.name
@@ -173,7 +173,7 @@ class TestMethods:
 
 class TestOpposites:
 	extends "res://tests/UTCommon.gd"
-	const CE = preload("res://src/dreamscape/CombatElements/CombatEntity.tscn")
+	const CE = load("res://src/dreamscape/CombatElements/CombatEntity.tscn")
 	var ce: CombatEntity
 	var ae: ActiveEffects
 	var test_effect = Terms.ACTIVE_EFFECTS.empower.name
@@ -225,7 +225,7 @@ class TestOpposites:
 
 class TestMultipleEffectsMethods:
 	extends "res://tests/UTCommon.gd"
-	const CE = preload("res://src/dreamscape/CombatElements/CombatEntity.tscn")
+	const CE = load("res://src/dreamscape/CombatElements/CombatEntity.tscn")
 	var ce: CombatEntity
 	var ae: ActiveEffects
 	var test_effect = Terms.ACTIVE_EFFECTS.rebalance.name

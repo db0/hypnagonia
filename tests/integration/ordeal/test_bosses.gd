@@ -6,7 +6,7 @@ class TestSurrealBoss:
 
 
 	func _init() -> void:
-		advanced_torment_scene = preload("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn")
+		advanced_torment_scene = load("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn")
 		test_card_names = [
 			"Interpretation",
 			"Confidence",
@@ -47,7 +47,7 @@ class TestNarcissus:
 
 
 	func _init() -> void:
-		advanced_torment_scene = preload("res://src/dreamscape/CombatElements/Enemies/Bosses/Narcissus.tscn")
+		advanced_torment_scene = load("res://src/dreamscape/CombatElements/Enemies/Bosses/Narcissus.tscn")
 		test_card_names = [
 			"Interpretation",
 			"Confidence",
@@ -75,8 +75,8 @@ class TestFearAndPhobia:
 
 	func _init() -> void:
 		advanced_torment_scenes = [
-			preload("res://src/dreamscape/CombatElements/Enemies/Bosses/FearBoss.tscn"),
-			preload("res://src/dreamscape/CombatElements/Enemies/Bosses/PhobiaBoss.tscn"),
+			load("res://src/dreamscape/CombatElements/Enemies/Bosses/FearBoss.tscn"),
+			load("res://src/dreamscape/CombatElements/Enemies/Bosses/PhobiaBoss.tscn"),
 		]
 		test_card_names = [
 			"Interpretation",

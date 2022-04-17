@@ -3,7 +3,7 @@ extends "res://tests/HUT_Journal_NCETestClass.gd"
 class TestDollmaker:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act1/Dollmaker.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act1/Dollmaker.gd")
 
 	func test_choice_leave():
 		watch_signals(globals.encounters.run_changes)
@@ -13,7 +13,7 @@ class TestDollmaker:
 # warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("leave")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
-		assert_nce_unlocked(preload("res://src/dreamscape/Run/NCE/AllActs/DollPickup.gd"))
+		assert_nce_unlocked(load("res://src/dreamscape/Run/NCE/AllActs/DollPickup.gd"))
 		assert_signal_emitted(globals.player.pathos, "pathos_repressed")
 
 	func test_choice_destroy():
@@ -25,12 +25,12 @@ class TestDollmaker:
 		activate_secondary_choice_by_key("destroy")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_emitted(globals.player.pathos, "released_pathos_gained")
-		assert_nce_not_unlocked(preload("res://src/dreamscape/Run/NCE/AllActs/DollPickup.gd"))
+		assert_nce_not_unlocked(load("res://src/dreamscape/Run/NCE/AllActs/DollPickup.gd"))
 
 class TestGreed:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act1/Greed.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act1/Greed.gd")
 
 	func test_choice_accept():
 		watch_signals(globals.player.deck)
@@ -60,7 +60,7 @@ class TestGreed:
 class TestMonsterTrain:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd")
 
 	func test_choice_lead_success():
 		nce.testing_rng = 60
@@ -112,7 +112,7 @@ class TestMonsterTrain:
 class TestMultipleOptions:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act1/MultipleOptions.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act1/MultipleOptions.gd")
 
 	func test_choice_progress():
 		var porg := set_random_pathos_org("released")
@@ -166,7 +166,7 @@ class TestMultipleOptions:
 class TestPathosForAnxiety:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act1/PathosForAnxiety.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act1/PathosForAnxiety.gd")
 
 	func test_choice_calm():
 		begin_nce_with_choices(nce)
@@ -200,7 +200,7 @@ class TestPathosForAnxiety:
 class TestPopPsychologist1:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act1/PopPsychologist1.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act1/PopPsychologist1.gd")
 
 	func test_choice_tiger():
 		watch_signals(globals.encounters.run_changes)
@@ -211,7 +211,7 @@ class TestPopPsychologist1:
 		activate_secondary_choice_by_key("tiger")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.nce)
-		assert_nce_unlocked(preload("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist2.gd"))
+		assert_nce_unlocked(load("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist2.gd"))
 	func test_choice_snake():
 		watch_signals(globals.encounters.run_changes)
 		begin_nce_with_choices(nce)
@@ -221,7 +221,7 @@ class TestPopPsychologist1:
 		activate_secondary_choice_by_key("snake")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.enemy)
-		assert_nce_unlocked(preload("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist2.gd"))
+		assert_nce_unlocked(load("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist2.gd"))
 	func test_choice_owl():
 		watch_signals(globals.encounters.run_changes)
 		begin_nce_with_choices(nce)
@@ -231,13 +231,13 @@ class TestPopPsychologist1:
 		activate_secondary_choice_by_key("owl")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.shop)
-		assert_nce_unlocked(preload("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist2.gd"))
+		assert_nce_unlocked(load("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist2.gd"))
 
 
 class TestHighwire:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act1/Highwire.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act1/Highwire.gd")
 
 	func test_choice_accept_failure():
 		watch_signals(globals.player)
@@ -281,7 +281,7 @@ class TestHighwire:
 class TestSlayTheSpire:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act1/SlayTheSpire.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act1/SlayTheSpire.gd")
 
 	func test_choice_slay():
 		begin_nce_with_choices(nce)
@@ -308,7 +308,7 @@ class TestSlayTheSpire:
 class TestSleepOfOblivion:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act1/SleepOfOblivion.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act1/SleepOfOblivion.gd")
 
 	func test_choice_slay():
 # warning-ignore:return_value_discarded
@@ -353,7 +353,7 @@ class TestSleepOfOblivion:
 class TestSpider:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = preload("res://src/dreamscape/Run/NCE/Act1/Spider.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act1/Spider.gd")
 		dreamer_starting_damage = 30
 
 	func test_choice_eat():

@@ -13,6 +13,8 @@ signal scripts_loaded
 # Sent when a new Card node is instanced
 signal new_card_instanced(card)
 
+var load_start_time := OS.get_ticks_msec()
+
 #-----------------------------------------------------------------------------
 # BEGIN Unit Testing Variables
 #-----------------------------------------------------------------------------
@@ -101,7 +103,6 @@ var curr_scale: float
 var script_load_thread : Thread
 var scripts_loading := true
 
-var load_start_time := OS.get_ticks_msec()
 
 func _ready() -> void:
 	var load_end_time = OS.get_ticks_msec()

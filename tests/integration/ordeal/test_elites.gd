@@ -6,7 +6,7 @@ class TestBully:
 
 
 	func _init() -> void:
-		advanced_torment_scene = preload("res://src/dreamscape/CombatElements/Enemies/Elites/Bully.tscn")
+		advanced_torment_scene = load("res://src/dreamscape/CombatElements/Enemies/Elites/Bully.tscn")
 		test_card_names = [
 			"Confidence",
 		]
@@ -39,7 +39,7 @@ class TestIndescribableAbsurdity:
 
 
 	func _init() -> void:
-		advanced_torment_scene = preload("res://src/dreamscape/CombatElements/Enemies/Elites/IndescribableAbsurdity.tscn")
+		advanced_torment_scene = load("res://src/dreamscape/CombatElements/Enemies/Elites/IndescribableAbsurdity.tscn")
 		test_card_names = [
 			"Confidence",
 		]
@@ -121,7 +121,7 @@ class TestTheatrePlay:
 
 
 	func _init() -> void:
-		advanced_torment_scene = preload("res://src/dreamscape/CombatElements/Enemies/Elites/TheatrePlay.tscn")
+		advanced_torment_scene = load("res://src/dreamscape/CombatElements/Enemies/Elites/TheatrePlay.tscn")
 		test_card_names = [
 			"Interpretation",
 		]

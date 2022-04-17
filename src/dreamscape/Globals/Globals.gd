@@ -4,6 +4,8 @@ const PLAYER_COMBAT_ENTITY_SIZE = Vector2(120,120)
 
 signal encounter_selected(encounter)
 
+var load_start_time := OS.get_ticks_msec()
+
 var player: Player
 var encounters: SingleRun
 var current_encounter: SingleEncounter setget set_current_encounter
@@ -45,6 +47,10 @@ var test_flags := {
 
 # Test setup. This should happen at game start
 func _ready() -> void:
+	var load_end_time = OS.get_ticks_msec()
+	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+		print_debug("DEBUG INFO:Globals: instance time = %sms" % [str(load_end_time - load_start_time)])
+		
 	difficulty = Difficulty.new()
 	music = Music.new()
 	player = Player.new()
