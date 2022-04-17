@@ -3,7 +3,7 @@ extends "res://tests/UTCommon.gd"
 
 class TestCombatEntity:
 	extends "res://tests/UTCommon.gd"
-	const CE = load("res://src/dreamscape/CombatElements/CombatEntity.tscn")
+	var CE = load("res://src/dreamscape/CombatElements/CombatEntity.tscn")
 
 	func test_scene():
 		var doubled_scene = double(CE).instance()
@@ -82,7 +82,7 @@ class TestCombatEntity:
 		
 class TestHealth:
 	extends "res://tests/UTCommon.gd"
-	const CE = load("res://src/dreamscape/CombatElements/CombatEntity.tscn")
+	var CE = load("res://src/dreamscape/CombatElements/CombatEntity.tscn")
 	var ce: CombatEntity
 
 	func before_each() -> void:
@@ -287,7 +287,7 @@ class TestHealth:
 
 class TestTurnTriggers:
 	extends "res://tests/UTCommon.gd"
-	const CE = load("res://src/dreamscape/CombatElements/CombatEntity.tscn")
+	var CE = load("res://src/dreamscape/CombatElements/CombatEntity.tscn")
 	var ce: CombatEntity
 
 	func before_each() -> void:
@@ -334,7 +334,7 @@ class TestTurnTriggers:
 
 class TestOther:
 	extends "res://tests/UTCommon.gd"
-	const CE = load("res://src/dreamscape/CombatElements/CombatEntity.tscn")
+	var CE = load("res://src/dreamscape/CombatElements/CombatEntity.tscn")
 	var ce: CombatEntity
 
 

@@ -142,11 +142,11 @@ class TestNCE:
 
 class TestCounterMeasureCalculations:
 	extends "res://tests/HUTCommon.gd"
-	const NCE = load("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd")
-	const RECURRENCE_ELITE = {
+	var NCE = load("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd")
+	var RECURRENCE_ELITE = {
 		"scenes": [load("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")]
 	}
-	const RECURRENCE_SURPRISE = load("res://src/dreamscape/Run/NCE/AllActs/RecurrenceCombatEncounter.gd")
+	var RECURRENCE_SURPRISE = load("res://src/dreamscape/Run/NCE/AllActs/RecurrenceCombatEncounter.gd")
 
 	func test_recurrence_cm_high_defences():
 		var sce = RECURRENCE_SURPRISE.new(

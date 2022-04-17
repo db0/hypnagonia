@@ -3,9 +3,9 @@ extends "res://addons/gut/test.gd"
 
 signal card_scripts_executed
 
-var MAIN_SCENE = load("res://src/dreamscape/Main.tscn")
-var BOARD_SCENE = load("res://src/dreamscape/Board.tscn")
-var JOURNAL_SCENE = load("res://src/dreamscape/Overworld/Journal.tscn")
+var main_scene = load("res://src/dreamscape/Main.tscn")
+var board_scene = load("res://src/dreamscape/Board.tscn")
+var journal_scene = load("res://src/dreamscape/Overworld/Journal.tscn")
 
 const MOUSE_SPEED := {
 	"fast": [10,0.3],
@@ -47,7 +47,7 @@ func setup_cfc() -> void:
 	pass
 
 func setup_main() -> void:
-	main = autoqfree(MAIN_SCENE.instance())
+	main = autoqfree(main_scene.instance())
 	get_tree().get_root().add_child(main)
 	if not cfc.are_all_nodes_mapped:
 		yield(cfc, "all_nodes_mapped")
@@ -63,7 +63,7 @@ func setup_main() -> void:
 
 
 func setup_board() -> void:
-	board = add_child_autofree(BOARD_SCENE.instance())
+	board = add_child_autofree(board_scene.instance())
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # Always reveal the mouseon unclick
 	if not cfc.are_all_nodes_mapped:
 		yield(cfc, "all_nodes_mapped")
@@ -76,7 +76,7 @@ func setup_board() -> void:
 	player_info = board.player_info
 	
 func setup_journal() -> void:
-	journal_container = add_child_autofree(JOURNAL_SCENE.instance())
+	journal_container = add_child_autofree(journal_scene.instance())
 #	yield(yield_to(journal_container, "ready", 1), YIELD)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # Always reveal the mouseon unclick
 	journal = globals.journal
