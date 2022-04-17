@@ -141,14 +141,20 @@ func _setup() -> void:
 		# Initialize the game random seed
 		set_seed(game_rng_seed)
 	card_definitions = load_card_definitions()
+	var defs_load_end_time = OS.get_ticks_msec()
+	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+		print_debug("DEBUG INFO:CFControl: card definitions load time = %sms" % [str(defs_load_end_time - load_start_time)])	
 	# Removed threading since I optimized this loading function
-	load_script_definitions()
+#	load_script_definitions()
 	# We're loading the script definitions in a thread to avoid delaying game load too much
-#	if OS.get_name() == "HTML5":
-#		load_script_definitions()
-#	else:
-#		script_load_thread = Thread.new()
-#		script_load_thread.start(self, "load_script_definitions")
+	if OS.get_name() == "HTML5":
+		load_script_definitions()
+	else:
+		script_load_thread = Thread.new()
+		script_load_thread.start(self, "load_script_definitions")
+	var scripts_load_end_time = OS.get_ticks_msec()
+	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+		print_debug("DEBUG INFO:CFControl: card scripts load time = %sms" % [str(scripts_load_end_time - load_start_time)])	
 
 
 # Run when all necessary nodes (Board, CardContainers etc) for the game
@@ -260,10 +266,6 @@ func load_script_definitions() -> void:
 		for scripts_obj in loaded_script_definitions:
 			if combined_scripts.get(card_name):
 				break
-			# scripts are not defined as constants, as we want to be
-			# able to refer specific variables inside them
-			# such as cfc.deck etc. Instead they contain a
-			# method which returns the script for the requested card name
 			var card_script = scripts_obj.get_scripts(card_name)
 			var unmodified_card_script = scripts_obj.get_scripts(card_name, false)
 #			print(unmodified_card_script)
