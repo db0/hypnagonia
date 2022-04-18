@@ -72,10 +72,12 @@ func record_nce_used(nce: GDScript) -> void:
 		used_nce.append(nce)
 
 
-func _is_nce_unlocked(nce: GDScript) -> bool:
+func _is_nce_unlocked(nce) -> bool:
 	for nce_type in unlocked_nce.values():
 		for unlnce_list in nce_type.values():
 			for unl_nce in unlnce_list:
-				if unl_nce.nce == nce:
+				if typeof(nce) == TYPE_STRING and unl_nce.nce == nce:
+					return(true)
+				if nce is GDScript and unl_nce.nce == nce.resource_path:
 					return(true)
 	return(false)

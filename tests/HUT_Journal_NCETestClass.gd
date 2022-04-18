@@ -138,7 +138,7 @@ func assert_nce_unlocked(nce_script: GDScript) -> void:
 	assert_not_null(signal_details, "NCE Unlocked")
 	if not signal_details:
 		return
-	assert_eq(signal_details[0].nce, nce_script, "Expected NCE Unlocked")
+	assert_eq(signal_details[0].nce, nce_script.resource_path, "Expected NCE Unlocked")
 	assert_true(globals.encounters.run_changes._is_nce_unlocked(nce_script))
 
 func assert_nce_not_unlocked(nce_script: GDScript) -> void:
