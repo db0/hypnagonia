@@ -88,6 +88,9 @@ class TestThinCardDraw:
 		yield(yield_for(0.2), YIELD)
 		for c in deck.get_all_cards():
 			c.queue_free()
+		assert_eq(hand.get_card_count(), 5)
+		if hand.get_card_count() != 5:
+			return
 		card = hand.get_all_cards()[0]
 		card.move_to(deck)
 		yield(yield_for(0.2), YIELD)

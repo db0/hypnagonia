@@ -164,11 +164,17 @@ func _input(event):
 					ordered_list.append(_process_card_export(upgrade_name))
 		var library_export = File.new()
 		library_export.open("user://library.json",File.WRITE)
-		library_export.store_line(to_json(ordered_list))
+		library_export.store_string(JSON.print(ordered_list, '\t'))
+		library_export.close()
 		library_export.open("user://cards_names_without_art.json",File.WRITE)
-		library_export.store_line(to_json(card_names_for_art_export))
+		library_export.store_string(JSON.print(card_names_for_art_export, '\t'))
+		library_export.close()
 		library_export.open("user://torments_export.json",File.WRITE)
-		library_export.store_line(to_json(_export_torments()))
+		library_export.store_string(JSON.print(_export_torments(), '\t'))
+		library_export.close()
+		library_export.open("user://memories_export.json",File.WRITE)
+		library_export.store_string(JSON.print(_export_memories(), '\t'))
+		library_export.close()
 
 func _process_card_export(card_name: String) -> Dictionary:
 	var card_entry = cfc.card_definitions[card_name].duplicate(true)
@@ -224,3 +230,9 @@ func _export_torments() -> Dictionary:
 				tdict['Bosses'][enemy]['Journal Description'] = act.BOSSES[enemy].journal_description
 
 	return(tdict)
+
+func _export_memories() -> Array:
+	var mret: Array = []
+	for mem in MemoryDefinitions.get_complete_memories_array():
+		mret.append(mem.name)
+	return(mret)

@@ -1445,7 +1445,6 @@ func execute_scripts(
 		# We consider the whole cost dry run unsuccesful
 		if not confirm_return:
 			state_scripts = []
-
 	# If the state_scripts return a dictionary entry
 	# it means it's a multiple choice between two scripts
 	if typeof(state_scripts) == TYPE_DICTIONARY:

@@ -121,7 +121,7 @@ func teardown_hypnagonia_testing() -> void:
 	globals.reset()
 
 
-func after_all():
+func _init():
 	globals.test_flags.clear()
 
 
