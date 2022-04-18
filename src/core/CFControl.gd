@@ -164,6 +164,7 @@ func _setup_testing() -> void:
 	card_drag_ongoing = null
 	ut = true
 	_debug = true
+	game_paused = false
 	
 # Run when all necessary nodes (Board, CardContainers etc) for the game
 # have been initialized. Allows them to proceed with their ready() functions.
