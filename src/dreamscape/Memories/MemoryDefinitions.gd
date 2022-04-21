@@ -43,7 +43,7 @@ const DamageAll := {
 	"name": "The Big Fight",
 	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
 			+ "to {damage} all torments for {damage_amount}",
-	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"icon": "res://assets/icons/memories/the_big_fight.png",
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
 	"pathos_threshold_multiplier": 2,
@@ -59,7 +59,7 @@ const HealSelf := {
 	"name": "Mother's Comfort",
 	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
 			+ "to reduce your {anxiety} by {heal_amount}",
-	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"icon": "res://assets/icons/memories/mothers_comfort.png",
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.rest,
 	"pathos_threshold_multiplier": 3,
@@ -75,7 +75,7 @@ const BossFaster := {
 	"name": "A Sense of Closure",
 	"description": "{memory_name} ({upgrades}): Recall this memory during the Dream Journal "\
 			+ "to increased your repressed %s by {pathos_amount}" % [Terms.RUN_ACCUMULATION_NAMES.boss],
-	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"icon": "res://assets/icons/memories/a_sense_of_closure.png",
 	"context": EffectContext.OVERWORLD,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
 	"pathos_threshold_multiplier": 1,
