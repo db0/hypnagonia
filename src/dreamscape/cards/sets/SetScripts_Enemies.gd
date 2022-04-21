@@ -983,6 +983,12 @@ const scripts := {
 						"value_key": "defence_amount"
 					},
 				},
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": "forgotten",
+					"tags": ["Played", "Card"],
+				},
 			],
 		},
 	},
