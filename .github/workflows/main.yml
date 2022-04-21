@@ -81,16 +81,22 @@ jobs:
         create_release: false
         archive_export_output: true
         export_debug: true
-    - name: "🛠 Prepare files for upload to itch.io"
+    - name: "🛠 Prepare files for publishing"
       if: ${{ steps.release.outputs.version != '' }}
       shell: bash
       run: |
           cp -v /home/runner/.local/share/godot/dist/* .
+          mkdir -p build/StandaloneWindows64
+          mkdir -p build/StandaloneLinux64
+          mkdir -p build/StandaloneMacOS
           cp '/home/runner/.local/share/godot/builds/LinuxX11/Hypnagonia_Linux.x86_64' .
+          cp '/home/runner/.local/share/godot/builds/LinuxX11/Hypnagonia_Linux.x86_64' build/StandaloneLinux64/
           cp '/home/runner/.local/share/godot/builds/LinuxX11 Lite/Hypnagonia_Linux_Lite.x86_64' .
           cp '/home/runner/.local/share/godot/builds/Windows Desktop/Hypnagonia_Windows.exe' .
+          cp '/home/runner/.local/share/godot/builds/Windows Desktop/Hypnagonia_Windows.exe' build/StandaloneWindows64/
           cp '/home/runner/.local/share/godot/builds/Windows Desktop Lite/Hypnagonia_Windows_Lite.exe' .
           cp '/home/runner/.local/share/godot/builds/Mac OSX/Hypnagonia_MacOSX.zip' .
+          cp '/home/runner/.local/share/godot/builds/Mac OSX/Hypnagonia_MacOSX.zip' build/StandaloneMacOS/
           ls -larth
     - name: "🚀 Upload HTML5 version to itch.io"
       if: ${{ steps.release.outputs.version != '' }}
@@ -160,3 +166,18 @@ jobs:
         message: "New Release Available: [${{ steps.release.outputs.version }}](https://github.com/db0/hypnagonia/blob/main/CHANGELOG.md)"
         server: "matrix.org"
       if: ${{ steps.release.outputs.version != '' }}
+    - name: "🔧 Publish all versions with Steamworks"
+      uses: game-ci/steam-deploy@v1
+      with:
+        username: ${{ secrets.STEAM_USERNAME }}
+        password: ${{ secrets.STEAM_PASSWORD }}
+        configVdf: ${{ secrets.STEAM_CONFIG_VDF}}
+        ssfnFileName: ${{ secrets.STEAM_SSFN_FILE_NAME }}
+        ssfnFileContents: ${{ secrets.STEAM_SSFN_FILE_CONTENTS }}
+        appId: 1962610
+        buildDescription: "${{ steps.release.outputs.version }}"
+        rootPath: build
+        depot1Path: StandaloneWindows64
+        depot2Path: StandaloneLinux64
+        depot3Path: StandaloneMacOS
+        releaseBranch: prerelease
