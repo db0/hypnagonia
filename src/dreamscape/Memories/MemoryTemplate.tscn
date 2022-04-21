@@ -54,6 +54,7 @@ margin_top = 7.0
 margin_right = 37.0
 margin_bottom = 37.0
 texture = ExtResource( 3 )
+stretch_mode = 6
 
 [node name="Shader" type="ColorRect" parent="Signifier" index="4"]
 visible = false
