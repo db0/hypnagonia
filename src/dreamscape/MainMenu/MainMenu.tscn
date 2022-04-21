@@ -5,7 +5,7 @@
 [ext_resource path="res://src/dreamscape/MainMenu/MainMenu.gd" type="Script" id=3]
 [ext_resource path="res://themes/darktheme/fonts/Bangers/Bangers-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://src/dreamscape/MainMenu/NewGame.tscn" type="PackedScene" id=5]
-[ext_resource path="res://fonts/MainMenuTitle.tres" type="DynamicFont" id=6]
+[ext_resource path="res://assets/main_menu/hypnagonia-white.png" type="Texture" id=6]
 [ext_resource path="res://src/dreamscape/MainMenu/SettingsContainer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/main_menu/card_library_button_pressed.png" type="Texture" id=8]
 [ext_resource path="res://assets/backgrounds/dark/6dd4ba414af241de43bb89a489fb_hires.jpeg" type="Texture" id=9]
@@ -179,17 +179,18 @@ margin_right = 1455.0
 margin_bottom = 249.0
 mouse_filter = 2
 
-[node name="Title" type="Label" parent="MainMenu/VBox/Margin/VBoxContainer"]
+[node name="Title" type="TextureRect" parent="MainMenu/VBox/Margin/VBoxContainer"]
 margin_right = 1455.0
-margin_bottom = 101.0
-custom_fonts/font = ExtResource( 6 )
-text = "Hypnagonia"
-align = 1
+margin_bottom = 150.0
+rect_min_size = Vector2( 1455, 150 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 6
 
 [node name="Subtitle" type="Label" parent="MainMenu/VBox/Margin/VBoxContainer"]
-margin_top = 104.0
+margin_top = 153.0
 margin_right = 1455.0
-margin_bottom = 159.0
+margin_bottom = 208.0
 custom_fonts/font = SubResource( 3 )
 text = "Therapy through Nightmares"
 align = 1

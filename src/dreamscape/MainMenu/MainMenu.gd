@@ -35,6 +35,7 @@ onready var bg_tween := $BGTween
 onready var _subtitle := $MainMenu/VBox/Margin/VBoxContainer/Subtitle
 onready var _version := $MainMenu/CornerElements/RightSide/Version
 onready var _bg_shader := $Shader
+onready var _title := $MainMenu/VBox/Margin/VBoxContainer/Title
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -58,6 +59,7 @@ func _ready() -> void:
 	_subtitle.text = SUBTITLES[0]
 	_version.text = CFConst.GAME_VERSION
 	globals.music.switch_scene_music('main')
+	_title.texture = CFUtils.convert_texture_to_image(_title.texture)
 
 
 func on_button_pressed(_button_name : String) -> void:
