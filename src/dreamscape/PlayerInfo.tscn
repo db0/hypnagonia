@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/icons/GUI/cog.png" type="Texture" id=1]
 [ext_resource path="res://src/dreamscape/PlayerInfo.gd" type="Script" id=2]
@@ -12,6 +12,12 @@
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=10]
 [ext_resource path="res://assets/icons/GUI/info.png" type="Texture" id=11]
 [ext_resource path="res://src/dreamscape/Tutorials/Tutorial.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/icons/GUI/InfoPanel.png" type="Texture" id=13]
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 13 )
+region_rect = Rect2( 0, 0, 800, 51 )
+axis_stretch_horizontal = 1
 
 [sub_resource type="DynamicFontData" id=5]
 font_path = "res://fonts/Amarante-Regular.ttf"
@@ -35,22 +41,21 @@ bg_color = Color( 0.211765, 0.211765, 0.211765, 1 )
 [node name="PlayerInfo" type="PanelContainer" groups=["player_info"]]
 margin_right = 1455.0
 margin_bottom = 49.0
+custom_styles/panel = SubResource( 9 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBC" type="HBoxContainer" parent="."]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 1448.0
-margin_bottom = 42.0
+margin_right = 1455.0
+margin_bottom = 49.0
 rect_min_size = Vector2( 0, 35 )
 
 [node name="HealthIcon" type="TextureRect" parent="HBC"]
 modulate = Color( 1, 0.72549, 0, 1 )
 margin_right = 35.0
-margin_bottom = 35.0
+margin_bottom = 49.0
 rect_min_size = Vector2( 35, 35 )
 texture = ExtResource( 5 )
 expand = true
@@ -58,9 +63,9 @@ stretch_mode = 5
 
 [node name="Health" type="Label" parent="HBC"]
 margin_left = 39.0
-margin_top = 3.0
+margin_top = 10.0
 margin_right = 92.0
-margin_bottom = 31.0
+margin_bottom = 38.0
 custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "0/90"
@@ -68,96 +73,101 @@ text = "0/90"
 [node name="Curios" type="Button" parent="HBC"]
 margin_left = 96.0
 margin_right = 131.0
-margin_bottom = 35.0
+margin_bottom = 49.0
 rect_min_size = Vector2( 35, 0 )
 custom_fonts/font = SubResource( 3 )
 icon = ExtResource( 4 )
+flat = true
 expand_icon = true
 
 [node name="Memories" type="HBoxContainer" parent="HBC"]
 margin_left = 135.0
 margin_right = 135.0
-margin_bottom = 35.0
+margin_bottom = 49.0
 custom_constants/separation = 15
 
 [node name="Push" type="Control" parent="HBC"]
 margin_left = 139.0
-margin_right = 512.0
-margin_bottom = 35.0
+margin_right = 519.0
+margin_bottom = 49.0
 size_flags_horizontal = 3
 
 [node name="Encounter" type="Label" parent="HBC"]
-margin_left = 516.0
-margin_top = 3.0
-margin_right = 812.0
-margin_bottom = 31.0
+margin_left = 523.0
+margin_top = 10.0
+margin_right = 819.0
+margin_bottom = 38.0
 custom_fonts/font = ExtResource( 3 )
 text = "Early Night, Encounter 1"
 
 [node name="DifficultyIcon" type="TextureRect" parent="HBC"]
-margin_left = 816.0
-margin_right = 851.0
-margin_bottom = 35.0
+margin_left = 823.0
+margin_right = 858.0
+margin_bottom = 49.0
 rect_min_size = Vector2( 35, 35 )
 texture = ExtResource( 7 )
 expand = true
 stretch_mode = 6
 
 [node name="Difficulty" type="Label" parent="HBC"]
-margin_left = 855.0
-margin_top = 3.0
-margin_right = 869.0
-margin_bottom = 31.0
+margin_left = 862.0
+margin_top = 10.0
+margin_right = 876.0
+margin_bottom = 38.0
 custom_fonts/font = ExtResource( 3 )
 text = "0"
 
 [node name="Push2" type="Control" parent="HBC"]
-margin_left = 873.0
-margin_right = 1246.0
-margin_bottom = 35.0
+margin_left = 880.0
+margin_right = 1260.0
+margin_bottom = 49.0
 size_flags_horizontal = 3
 
 [node name="Pathos" type="Button" parent="HBC"]
-margin_left = 1250.0
-margin_right = 1285.0
-margin_bottom = 35.0
+margin_left = 1264.0
+margin_right = 1299.0
+margin_bottom = 49.0
 rect_min_size = Vector2( 35, 0 )
 custom_fonts/font = SubResource( 3 )
 icon = ExtResource( 8 )
+flat = true
 expand_icon = true
 
 [node name="Deck" type="Button" parent="HBC"]
-margin_left = 1289.0
-margin_right = 1359.0
-margin_bottom = 35.0
+margin_left = 1303.0
+margin_right = 1373.0
+margin_bottom = 49.0
 rect_min_size = Vector2( 70, 0 )
 custom_fonts/font = SubResource( 3 )
 text = "10"
 icon = ExtResource( 6 )
+flat = true
 expand_icon = true
 
 [node name="Help" type="Button" parent="HBC"]
-margin_left = 1363.0
-margin_right = 1398.0
-margin_bottom = 35.0
+margin_left = 1377.0
+margin_right = 1412.0
+margin_bottom = 49.0
 rect_min_size = Vector2( 35, 0 )
 custom_fonts/font = SubResource( 3 )
 icon = ExtResource( 11 )
+flat = true
 expand_icon = true
 
 [node name="Settings" type="Button" parent="HBC"]
-margin_left = 1402.0
-margin_right = 1437.0
-margin_bottom = 35.0
+margin_left = 1416.0
+margin_right = 1451.0
+margin_bottom = 49.0
 rect_min_size = Vector2( 35, 0 )
 icon = ExtResource( 1 )
+flat = true
 expand_icon = true
 
 [node name="Version" type="Label" parent="HBC"]
-margin_left = 1441.0
-margin_top = 10.0
-margin_right = 1441.0
-margin_bottom = 24.0
+margin_left = 1455.0
+margin_top = 17.0
+margin_right = 1455.0
+margin_bottom = 31.0
 
 [node name="DeckPreview" type="PopupPanel" parent="."]
 margin_left = 7.0
