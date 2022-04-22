@@ -38,6 +38,8 @@ Typically you want these numbers to be higher for powerful memories lower for we
 In general, you want to aim for a memory to refill every 3-6 encounters
 """
 
+const DEFAULT_ICON = "res://assets/icons/memories/portrait.png"
+
 const DamageAll := {
 	"canonical_name": "DamageAll",
 	"name": "The Big Fight",
@@ -91,7 +93,7 @@ const ProgressRandom := {
 	"name": "University Life",
 	"description": "{memory_name} ({upgrades}): Recall this memory during the Dream Journal "\
 			+ "to progress a random card by {progress_amount}",
-	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"icon": DEFAULT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.shop,
 	"pathos_threshold_multiplier": 1.5,
@@ -107,7 +109,7 @@ const SpikeEnemy := {
 	"name": "Childhood Curiosity",
 	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
 			+ "to {damage} one torment for {damage_amount}",
-	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.nce,
 	"pathos_threshold_multiplier": 3,
@@ -123,7 +125,7 @@ const FortifySelf := {
 	"name": "Stand Against a Bully",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal "\
 			+ "to gain {effect_stacks} {fortify}",
-	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
 	"pathos_threshold_multiplier": 2,
@@ -140,7 +142,7 @@ const DefendSelf := {
 	"name": "The Staredown",
 	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
 			+ "to gain {defence_amount} {defence}",
-	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
 	"pathos_threshold_multiplier": 2,
@@ -156,7 +158,7 @@ const QuickenSelf := {
 	"name": "Philosophy Lessons",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal "\
 			+ "to gain {effect_stacks} {quicken}",
-	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.nce,
 	"pathos_threshold_multiplier": 1,
@@ -173,7 +175,7 @@ const StrengthenSelf := {
 	"name": "Meditation Lessons",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal "\
 			+ "to gain {effect_stacks} {strengthen}",
-	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.rest,
 	"pathos_threshold_multiplier": 1,
@@ -190,7 +192,7 @@ const RandomChaos := {
 	"name": "The Playground",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal "\
 			+ "to play the top {draw_amount} cards from your deck.",
-	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.shop,
 	"pathos_threshold_multiplier": 3.5,
@@ -207,7 +209,7 @@ const ReshuffleHand := {
 	"name": "The Absolute Cringe",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal "\
 			+ "to reshuffle your hand into your deck and draw the same amount of cards",
-	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
 	"pathos_threshold_multiplier": 1.7,
@@ -223,7 +225,7 @@ const PoisonEnemy := {
 	"name": "Debating Competition",
 	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
 			+ "to apply {effect_stacks} {poison} to one Torment",
-	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
 	"pathos_threshold_multiplier": 2,
@@ -239,7 +241,7 @@ const DisempowerEnemy := {
 	"name": "Pun Jokes",
 	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
 			+ "to apply {effect_stacks} {disempower} to one Torment",
-	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
 	"pathos_threshold_multiplier": 2,
@@ -255,7 +257,7 @@ const ImperviousSelf := {
 	"name": "Skydiving Lessons",
 	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
 			+ "to gain {effect_stacks} {impervious}",
-	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
 	"pathos_threshold_multiplier": 2,
@@ -271,7 +273,7 @@ const ImmerseSelf := {
 	"name": "LSD Trip",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal "\
 			+ "to gain {immersion_amount} {immersion}",
-	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.artifact,
 	"pathos_threshold_multiplier": 2,
@@ -288,7 +290,7 @@ const CardDraw := {
 	"name": "CardDraw",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal "\
 			+ "to draw {draw_amount} cards",
-	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.artifact,
 	"pathos_threshold_multiplier": 2,
@@ -305,7 +307,7 @@ const ExertRecovery := {
 	"name": "The Courting Days",
 	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
 			+ "to recover all {anxiety} you took during your own turn, this turn.",
-	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
 	"pathos_threshold_multiplier": 3,
@@ -321,7 +323,7 @@ const ExertSelf := {
 	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
 			+ "to gain {exert_amount} {anxiety}, {repeat_amount} times.\n"\
 			+ "For every 2 points of anxiety taken, remove one random debuff stack applied to you.",
-	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
 	"pathos_threshold_multiplier": 1,
@@ -340,7 +342,7 @@ const RegenerateSelf := {
 			+ "At the end of the next {turns_amount} turns, "\
 			+ "{relax} for {heal_amount}.\n"\
 			+ "If you have {untouchable}, {relax} {heal_amount} extra.",
-	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
 	"pathos_threshold_multiplier": 4,
@@ -358,7 +360,7 @@ const BufferSelf := {
 	"name": "Frog Dissection Day",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal "\
 			+ "to gain {effect_stacks} {buffer}",
-	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
 	"pathos_threshold_multiplier": 2,
@@ -375,7 +377,7 @@ const RerollDraft := {
 	"name": "Jumbled Fragments",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory when a Card Draft is active "\
 			+ "to reroll the card draft.",
-	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"icon": DEFAULT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.nce,
 	"pathos_threshold_multiplier": 3.5,
@@ -391,7 +393,7 @@ const RemovePerturbation := {
 	"name": "That Lazy Afternoon",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during the Dream Journal "\
 			+ "to {release} a random {perturbation} from your deck.",
-	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"icon": DEFAULT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.rest,
 	"pathos_threshold_multiplier": 5.3,
@@ -407,7 +409,7 @@ const RerollShop := {
 	"name": "Rapid Flashes",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory inside the Shop "\
 			+ "to reroll all the options.",
-	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"icon": DEFAULT_ICON,
 	"context": EffectContext.SHOP,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.artifact,
 	"pathos_threshold_multiplier": 4.5,
@@ -423,7 +425,7 @@ const GainMaxHealth := {
 	"name": "Birthday Party",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during the Dream Journal "\
 			+ "to permanently increase your max {anxiety} {anxiety_amount}.",
-	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"icon": DEFAULT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.shop,
 	"pathos_threshold_multiplier": 4,
@@ -440,7 +442,7 @@ const ProtectSelf := {
 	"name": "ProtectSelf",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal "\
 			+ "to gain {effect_stacks} {protection}",
-	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.shop,
 	"pathos_threshold_multiplier": 3,
@@ -457,7 +459,7 @@ const RemoveDebuff := {
 	"name": "The Poison Ivy Incident",
 	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
 			+ "to gain {defence_amount} {defence} and remove {stacks_amount} stacks of your highest debuff.",
-	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.shop,
 	"pathos_threshold_multiplier": 1.8,
@@ -474,7 +476,7 @@ const ActivateStartups := {
 	"name": "First Kiss",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal "\
 			+ "to gain the effects of all {startup} cards in your forgotten pile.",
-	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.artifact,
 	"pathos_threshold_multiplier": 2.5,
@@ -490,7 +492,7 @@ const ThornsSelf := {
 	"name": "Bullied",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal "\
 			+ "to gain {effect_stacks} {thorns}",
-	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
 	"pathos_threshold_multiplier": 2.3,
@@ -507,7 +509,7 @@ const FreezeCard := {
 	"name": "First Love",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal "\
 			+ "to give a card in your hand {frozen}",
-	"icon": preload("res://assets/icons/memories/portrait.png"),
+	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
 	"pathos_threshold_multiplier": 3,
