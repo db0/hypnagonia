@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://shaders/invert.shader" type="Shader" id=1]
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/EnemyIntents.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/dreamscape/CombatElements/CombatEntity.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/Elites/Jumbletron.gd" type="Script" id=4]
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/Elites/JumbletronIntents.gd" type="Script" id=5]
+[ext_resource path="res://assets/journal/advanced/jumbletron.jpeg" type="Texture" id=6]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -13,14 +14,15 @@ shader_param/is_active = false
 
 [node name="Jumbletron" groups=["BossEntities", "EnemyEntities"] instance=ExtResource( 3 )]
 script = ExtResource( 4 )
+character_art_texture = ExtResource( 6 )
 
-[node name="CenterContainer" parent="." index="0"]
-rect_min_size = Vector2( 0, 36 )
+[node name="Push" parent="." index="0"]
+margin_bottom = 0.0
 
 [node name="Intents" parent="." index="1" instance=ExtResource( 2 )]
-margin_top = 40.0
+margin_top = 4.0
 margin_right = 69.0
-margin_bottom = 83.0
+margin_bottom = 47.0
 rect_min_size = Vector2( 0, 43 )
 
 [node name="IntentBackground" parent="Intents" index="0"]
@@ -36,29 +38,34 @@ margin_right = 59.0
 margin_bottom = 18.0
 script = ExtResource( 5 )
 
-[node name="Art" parent="." index="2"]
-margin_top = 87.0
+[node name="CenterContainer" parent="." index="2"]
+margin_top = 51.0
 margin_bottom = 87.0
+rect_min_size = Vector2( 0, 36 )
+
+[node name="Art" parent="." index="3"]
+margin_top = 91.0
+margin_bottom = 91.0
 
 [node name="Texture" parent="Art" index="0"]
 material = SubResource( 1 )
 
-[node name="Name" parent="." index="3"]
+[node name="Name" parent="." index="4"]
 margin_top = 91.0
 margin_bottom = 121.0
 rect_min_size = Vector2( 0, 30 )
 
-[node name="HealthBar" parent="." index="4"]
-margin_top = 125.0
-margin_bottom = 133.0
+[node name="HealthBar" parent="." index="5"]
+margin_top = 95.0
+margin_bottom = 103.0
 
-[node name="HBC" parent="." index="5"]
-margin_top = 137.0
-margin_bottom = 173.0
+[node name="HBC" parent="." index="6"]
+margin_top = 107.0
+margin_bottom = 143.0
 rect_min_size = Vector2( 0, 15 )
 
-[node name="ActiveEffects" parent="." index="6"]
-margin_top = 177.0
-margin_bottom = 213.0
+[node name="ActiveEffects" parent="." index="7"]
+margin_top = 147.0
+margin_bottom = 183.0
 
 [editable path="Intents"]
