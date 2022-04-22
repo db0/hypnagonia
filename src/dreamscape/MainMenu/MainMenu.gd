@@ -136,6 +136,8 @@ func _on_Menu_resized() -> void:
 					tab.rect_position.x = -get_viewport().size.x
 			elif tab.rect_position.x > 0.0:
 					tab.rect_position.x = get_viewport().size.x
+			if tab == main_menu:
+				print_debug([tab.rect_size,get_viewport().size])
 
 
 func _input(event):

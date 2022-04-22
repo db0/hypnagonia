@@ -182,7 +182,7 @@ mouse_filter = 2
 [node name="Title" type="TextureRect" parent="MainMenu/VBox/Margin/VBoxContainer"]
 margin_right = 1455.0
 margin_bottom = 150.0
-rect_min_size = Vector2( 1455, 150 )
+rect_min_size = Vector2( 0, 150 )
 texture = ExtResource( 6 )
 expand = true
 stretch_mode = 6
