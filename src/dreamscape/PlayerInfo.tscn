@@ -15,6 +15,7 @@
 [ext_resource path="res://assets/icons/GUI/InfoPanel.png" type="Texture" id=13]
 
 [sub_resource type="StyleBoxTexture" id=9]
+content_margin_bottom = 10.0
 texture = ExtResource( 13 )
 region_rect = Rect2( 0, 0, 800, 51 )
 axis_stretch_horizontal = 1
@@ -49,13 +50,13 @@ __meta__ = {
 
 [node name="HBC" type="HBoxContainer" parent="."]
 margin_right = 1455.0
-margin_bottom = 49.0
+margin_bottom = 39.0
 rect_min_size = Vector2( 0, 35 )
 
 [node name="HealthIcon" type="TextureRect" parent="HBC"]
 modulate = Color( 1, 0.72549, 0, 1 )
 margin_right = 35.0
-margin_bottom = 49.0
+margin_bottom = 39.0
 rect_min_size = Vector2( 35, 35 )
 texture = ExtResource( 5 )
 expand = true
@@ -63,9 +64,9 @@ stretch_mode = 5
 
 [node name="Health" type="Label" parent="HBC"]
 margin_left = 39.0
-margin_top = 10.0
+margin_top = 5.0
 margin_right = 92.0
-margin_bottom = 38.0
+margin_bottom = 33.0
 custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "0/90"
@@ -73,7 +74,7 @@ text = "0/90"
 [node name="Curios" type="Button" parent="HBC"]
 margin_left = 96.0
 margin_right = 131.0
-margin_bottom = 49.0
+margin_bottom = 39.0
 rect_min_size = Vector2( 35, 0 )
 custom_fonts/font = SubResource( 3 )
 icon = ExtResource( 4 )
@@ -83,27 +84,27 @@ expand_icon = true
 [node name="Memories" type="HBoxContainer" parent="HBC"]
 margin_left = 135.0
 margin_right = 135.0
-margin_bottom = 49.0
+margin_bottom = 39.0
 custom_constants/separation = 15
 
 [node name="Push" type="Control" parent="HBC"]
 margin_left = 139.0
 margin_right = 519.0
-margin_bottom = 49.0
+margin_bottom = 39.0
 size_flags_horizontal = 3
 
 [node name="Encounter" type="Label" parent="HBC"]
 margin_left = 523.0
-margin_top = 10.0
+margin_top = 5.0
 margin_right = 819.0
-margin_bottom = 38.0
+margin_bottom = 33.0
 custom_fonts/font = ExtResource( 3 )
 text = "Early Night, Encounter 1"
 
 [node name="DifficultyIcon" type="TextureRect" parent="HBC"]
 margin_left = 823.0
 margin_right = 858.0
-margin_bottom = 49.0
+margin_bottom = 39.0
 rect_min_size = Vector2( 35, 35 )
 texture = ExtResource( 7 )
 expand = true
@@ -111,22 +112,22 @@ stretch_mode = 6
 
 [node name="Difficulty" type="Label" parent="HBC"]
 margin_left = 862.0
-margin_top = 10.0
+margin_top = 5.0
 margin_right = 876.0
-margin_bottom = 38.0
+margin_bottom = 33.0
 custom_fonts/font = ExtResource( 3 )
 text = "0"
 
 [node name="Push2" type="Control" parent="HBC"]
 margin_left = 880.0
 margin_right = 1260.0
-margin_bottom = 49.0
+margin_bottom = 39.0
 size_flags_horizontal = 3
 
 [node name="Pathos" type="Button" parent="HBC"]
 margin_left = 1264.0
 margin_right = 1299.0
-margin_bottom = 49.0
+margin_bottom = 39.0
 rect_min_size = Vector2( 35, 0 )
 custom_fonts/font = SubResource( 3 )
 icon = ExtResource( 8 )
@@ -136,7 +137,7 @@ expand_icon = true
 [node name="Deck" type="Button" parent="HBC"]
 margin_left = 1303.0
 margin_right = 1373.0
-margin_bottom = 49.0
+margin_bottom = 39.0
 rect_min_size = Vector2( 70, 0 )
 custom_fonts/font = SubResource( 3 )
 text = "10"
@@ -147,7 +148,7 @@ expand_icon = true
 [node name="Help" type="Button" parent="HBC"]
 margin_left = 1377.0
 margin_right = 1412.0
-margin_bottom = 49.0
+margin_bottom = 39.0
 rect_min_size = Vector2( 35, 0 )
 custom_fonts/font = SubResource( 3 )
 icon = ExtResource( 11 )
@@ -157,7 +158,7 @@ expand_icon = true
 [node name="Settings" type="Button" parent="HBC"]
 margin_left = 1416.0
 margin_right = 1451.0
-margin_bottom = 49.0
+margin_bottom = 39.0
 rect_min_size = Vector2( 35, 0 )
 icon = ExtResource( 1 )
 flat = true
@@ -165,9 +166,9 @@ expand_icon = true
 
 [node name="Version" type="Label" parent="HBC"]
 margin_left = 1455.0
-margin_top = 17.0
+margin_top = 12.0
 margin_right = 1455.0
-margin_bottom = 31.0
+margin_bottom = 26.0
 
 [node name="DeckPreview" type="PopupPanel" parent="."]
 margin_left = 7.0
