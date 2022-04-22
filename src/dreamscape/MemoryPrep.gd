@@ -60,7 +60,7 @@ func _add_memory(current_memory: Dictionary) -> void:
 	# This key is used when the artifact is being displayed in-line in the
 	# artifact NCE
 	current_memory["bbformat"] = {
-		"icon": current_memory.icon.resource_path,
+		"icon": current_memory.icon,
 		"description": current_memory.description.format(bbcode_formats).format(memory_format)
 	}
 	selected_memories.append(current_memory)

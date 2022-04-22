@@ -168,7 +168,7 @@ size_flags_horizontal = 3
 
 [node name="Margin" type="MarginContainer" parent="MainMenu/VBox"]
 margin_right = 1455.0
-margin_bottom = 249.0
+margin_bottom = 307.0
 mouse_filter = 2
 size_flags_horizontal = 3
 custom_constants/margin_top = 90
@@ -176,7 +176,7 @@ custom_constants/margin_top = 90
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/VBox/Margin"]
 margin_top = 90.0
 margin_right = 1455.0
-margin_bottom = 249.0
+margin_bottom = 307.0
 mouse_filter = 2
 
 [node name="Title" type="TextureRect" parent="MainMenu/VBox/Margin/VBoxContainer"]
@@ -190,13 +190,13 @@ stretch_mode = 6
 [node name="Subtitle" type="Label" parent="MainMenu/VBox/Margin/VBoxContainer"]
 margin_top = 153.0
 margin_right = 1455.0
-margin_bottom = 208.0
+margin_bottom = 217.0
 custom_fonts/font = SubResource( 3 )
 text = "Therapy through Nightmares"
 align = 1
 
 [node name="Center" type="CenterContainer" parent="MainMenu/VBox"]
-margin_top = 252.0
+margin_top = 310.0
 margin_right = 1455.0
 margin_bottom = 900.0
 mouse_filter = 2
@@ -205,9 +205,9 @@ size_flags_vertical = 3
 
 [node name="VButtons" type="VBoxContainer" parent="MainMenu/VBox/Center"]
 margin_left = 577.0
-margin_top = 129.0
+margin_top = 100.0
 margin_right = 877.0
-margin_bottom = 519.0
+margin_bottom = 490.0
 rect_min_size = Vector2( 192, 0 )
 custom_constants/separation = 30
 
