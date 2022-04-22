@@ -82,6 +82,7 @@ __meta__ = {
 }
 
 [node name="PlayerInfo" parent="VBC" instance=ExtResource( 7 )]
+margin_bottom = 45.0
 context = 1
 
 [node name="DebugWarning" type="Label" parent="VBC"]
@@ -95,7 +96,7 @@ align = 1
 valign = 1
 
 [node name="CombatArena" type="HBoxContainer" parent="VBC"]
-margin_top = 53.0
+margin_top = 49.0
 margin_right = 1455.0
 margin_bottom = 526.0
 mouse_filter = 2
@@ -104,15 +105,15 @@ theme = ExtResource( 12 )
 
 [node name="EnemyArea" type="CenterContainer" parent="VBC/CombatArena"]
 margin_right = 1455.0
-margin_bottom = 473.0
+margin_bottom = 477.0
 mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="Enemies" type="HBoxContainer" parent="VBC/CombatArena/EnemyArea"]
 margin_left = 727.0
-margin_top = 236.0
+margin_top = 238.0
 margin_right = 727.0
-margin_bottom = 236.0
+margin_bottom = 238.0
 mouse_filter = 2
 custom_constants/separation = 150
 

@@ -489,7 +489,7 @@ const IndescribableAbsurdity = {
 		'I remember dreaming something indescribable.',
 	"journal_reward":\
 		'In the end, I simply dreamed of something more sane.',
-	'journal_art': preload("res://assets/journal/advanced/absurdity.jpeg"),
+	'journal_art': "res://assets/journal/advanced/absurdity.jpeg",
 }
 const Dentist = {
 	"name": "Dentist",
@@ -498,7 +498,7 @@ const Dentist = {
 		'I was strapped-in, in a strangely familiar place. White. Sterile. The sound of a rapidly spinning machine started echoing behind me...',
 	"journal_reward":\
 		'I swear, I will never forget flossing again!',
-	'journal_art': preload("res://assets/journal/advanced/dentist.jpeg"),
+	'journal_art': "res://assets/journal/advanced/dentist.jpeg",
 }
 const Jumbletron = {
 	"name": "Jumbletron",
@@ -508,7 +508,7 @@ const Jumbletron = {
 		+ "I couldn't find the exit anymore.",
 	"journal_reward":\
 		'Somehow I figured out the correct organization to make it out.',
-#	'journal_art': preload("res://assets/journal/advanced/dentist.jpeg"),
+	'journal_art': "res://assets/journal/advanced/jumbletron.jpeg",
 }
 
 const ELITES = [
@@ -524,7 +524,7 @@ const SurrealBoss = {
 	"journal_reward":\
 		"I don't claim to understand what I was seeing, [url=boss_card_draft]but eventually that vision faded.[/url]"\
 		+ "but my mind was open to [url=boss_artifact]many new possibilities[/url].",
-	'journal_art': preload("res://assets/journal/advanced/surreality.jpeg"),
+	'journal_art': "res://assets/journal/advanced/surreality.jpeg",
 }
 
 const BOSSES := {
