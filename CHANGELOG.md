@@ -1,5 +1,14 @@
 # Changelog
 
+## [v0.49.1](https://github.com/db0/hypnagonia/tree/v0.49.1) (2022-04-22)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.49.0...v0.49.1)
+
+**Merged pull requests:**
+
+- New Journal background design [\#298](https://github.com/db0/hypnagonia/pull/298) ([db0](https://github.com/db0))
+- Improved Game Startup times and Added Logo [\#295](https://github.com/db0/hypnagonia/pull/295) ([db0](https://github.com/db0))
+
 ## [v0.49.0](https://github.com/db0/hypnagonia/tree/v0.49.0) (2022-04-16)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.48.1...v0.49.0)
