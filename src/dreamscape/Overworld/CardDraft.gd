@@ -57,6 +57,7 @@ func populate_draft_cards() -> void:
 		var card_name: String = draft_card_choices[index]
 		var draft_card_object = CARD_DRAFT_SCENE.instance()
 		add_child(draft_card_object)
+		draft_card_object.set_owner(self)
 		draft_card_object.setup(card_name)
 		draft_card_object.index = index
 		draft_card_object.connect("card_selected", self, "_on_card_draft_selected", [draft_card_object])

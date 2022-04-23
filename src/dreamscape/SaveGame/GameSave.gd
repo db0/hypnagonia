@@ -1,9 +1,9 @@
 class_name GameSave
 extends Reference
 
-const SAVE_PATH := "user://game_save.json"
+const SAVE_PATH := "user://game_save.dat"
 const GAME_LOADING_SCENE := "res://src/dreamscape/SaveGame/GameLoading.tscn"
-
+	
 func save_state() -> void:
 	var file = File.new()
 	file.open(SAVE_PATH, File.WRITE)
@@ -16,9 +16,10 @@ func save_state() -> void:
 		"encounters": _extract_encounters(),
 		"current_encounter": _extract_current_encounter(),
 		"unused_journal_texts": globals.unused_journal_texts,
-		"difficulty": _extract_difficulty(),
+		"difficulty":  _extract_difficulty(),
 	}
-	file.store_string(JSON.print(state, '\t'))
+	file.store_var(state)
+#	file.store_string(JSON.print(state, '\t'))
 	file.close()
 
 func load_state() -> void:
@@ -26,11 +27,11 @@ func load_state() -> void:
 	if not file.file_exists(SAVE_PATH):
 		return
 	file.open(SAVE_PATH, File.READ)
-	var data = parse_json(file.get_as_text())
+	var data = file.get_var()
 	file.close()
 	if typeof(data) != TYPE_DICTIONARY:
 		return
-# warning-ignore:return_value_discarded
+	# warning-ignore:return_value_discarded
 	cfc.get_tree().change_scene(GAME_LOADING_SCENE)
 	cfc.quit_game()
 	globals.reset()
@@ -42,14 +43,11 @@ func load_state() -> void:
 	cfc.game_rng_seed = data.starting_seed
 	cfc.game_rng.seed = data.current_seed
 	cfc.game_rng.state = data.seed_state
+	# Load the PackedScene resource
 	cfc.get_tree().change_scene(CFConst.PATH_CUSTOM + 'Overworld/Journal.tscn')
 
 func _extract_player() -> Dictionary:
 	return(globals.player.extract_save_state())
-
-
-func _extract_deck() -> Array:
-	return(globals.player.deck.extract_save_state())
 
 
 func _extract_encounters() -> Dictionary:
@@ -66,3 +64,5 @@ func _extract_current_encounter():
 		current_encounter = globals.current_encounter.get_script().get_path()
 	return(current_encounter)
 
+func get_class_name() -> String:
+	return("GameSave")
