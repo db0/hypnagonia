@@ -40,6 +40,7 @@ margin_top = 0.0
 margin_right = 120.0
 margin_bottom = 120.0
 rect_min_size = Vector2( 120, 120 )
+stretch_mode = 6
 
 [node name="BackBufferCopy" type="BackBufferCopy" parent="." index="3"]
 visible = false

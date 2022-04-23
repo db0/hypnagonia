@@ -26,10 +26,11 @@ margin_right = 1455.0
 margin_bottom = 900.0
 
 [node name="PlayerInfo" parent="VBC" instance=ExtResource( 3 )]
+margin_bottom = 45.0
 context = 2
 
 [node name="VBC" type="VBoxContainer" parent="VBC"]
-margin_top = 53.0
+margin_top = 49.0
 margin_right = 1455.0
 margin_bottom = 900.0
 size_flags_vertical = 3
@@ -74,37 +75,37 @@ custom_styles/panel = SubResource( 2 )
 [node name="HBC" type="HBoxContainer" parent="VBC/VBC"]
 margin_top = 76.0
 margin_right = 1455.0
-margin_bottom = 847.0
+margin_bottom = 851.0
 size_flags_vertical = 3
 
 [node name="MarginLeft" type="Control" parent="VBC/VBC/HBC"]
 margin_right = 50.0
-margin_bottom = 771.0
+margin_bottom = 775.0
 rect_min_size = Vector2( 50, 0 )
 
 [node name="MainArea" type="HBoxContainer" parent="VBC/VBC/HBC"]
 margin_left = 53.0
 margin_right = 1239.0
-margin_bottom = 771.0
+margin_bottom = 775.0
 size_flags_horizontal = 3
 
 [node name="VBC" type="VBoxContainer" parent="VBC/VBC/HBC/MainArea"]
 margin_right = 591.0
-margin_bottom = 771.0
+margin_bottom = 775.0
 size_flags_horizontal = 3
 
 [node name="SpecialCards" type="GridContainer" parent="VBC/VBC/HBC/MainArea/VBC"]
 margin_right = 591.0
-margin_bottom = 384.0
+margin_bottom = 386.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/hseparation = 75
 columns = 3
 
 [node name="Memories" type="GridContainer" parent="VBC/VBC/HBC/MainArea/VBC"]
-margin_top = 387.0
+margin_top = 389.0
 margin_right = 591.0
-margin_bottom = 771.0
+margin_bottom = 775.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/vseparation = 30
@@ -114,15 +115,15 @@ columns = 3
 [node name="ArtifactCC" type="CenterContainer" parent="VBC/VBC/HBC/MainArea"]
 margin_left = 594.0
 margin_right = 1186.0
-margin_bottom = 771.0
+margin_bottom = 775.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Artifacts" type="GridContainer" parent="VBC/VBC/HBC/MainArea/ArtifactCC"]
 margin_left = 296.0
-margin_top = 385.0
+margin_top = 387.0
 margin_right = 296.0
-margin_bottom = 385.0
+margin_bottom = 387.0
 custom_constants/vseparation = 30
 custom_constants/hseparation = 30
 columns = 2
@@ -130,52 +131,52 @@ columns = 2
 [node name="Buttons" type="VBoxContainer" parent="VBC/VBC/HBC"]
 margin_left = 1242.0
 margin_right = 1402.0
-margin_bottom = 771.0
+margin_bottom = 775.0
 
 [node name="MarginUp" type="Control" parent="VBC/VBC/HBC/Buttons"]
 margin_right = 160.0
-margin_bottom = 130.0
+margin_bottom = 131.0
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Remove" type="Button" parent="VBC/VBC/HBC/Buttons"]
-margin_top = 133.0
+margin_top = 134.0
 margin_right = 160.0
-margin_bottom = 293.0
+margin_bottom = 294.0
 rect_min_size = Vector2( 160, 160 )
 text = "Remove Card"
 
 [node name="RemoveCost" type="Label" parent="VBC/VBC/HBC/Buttons"]
-margin_top = 296.0
+margin_top = 297.0
 margin_right = 160.0
-margin_bottom = 317.0
+margin_bottom = 318.0
 align = 1
 
 [node name="Push" type="Control" parent="VBC/VBC/HBC/Buttons"]
-margin_top = 320.0
+margin_top = 321.0
 margin_right = 160.0
-margin_bottom = 450.0
+margin_bottom = 453.0
 size_flags_vertical = 3
 
 [node name="Progress" type="Button" parent="VBC/VBC/HBC/Buttons"]
-margin_top = 453.0
+margin_top = 456.0
 margin_right = 160.0
-margin_bottom = 613.0
+margin_bottom = 616.0
 rect_min_size = Vector2( 160, 160 )
 text = "Progress Card"
 
 [node name="ProgressCost" type="Label" parent="VBC/VBC/HBC/Buttons"]
-margin_top = 616.0
+margin_top = 619.0
 margin_right = 160.0
-margin_bottom = 637.0
+margin_bottom = 640.0
 align = 1
 
 [node name="MarginDown" type="Control" parent="VBC/VBC/HBC/Buttons"]
-margin_top = 640.0
+margin_top = 643.0
 margin_right = 160.0
-margin_bottom = 771.0
+margin_bottom = 775.0
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -184,7 +185,7 @@ __meta__ = {
 [node name="MarginRight" type="Control" parent="VBC/VBC/HBC"]
 margin_left = 1405.0
 margin_right = 1455.0
-margin_bottom = 771.0
+margin_bottom = 775.0
 rect_min_size = Vector2( 50, 0 )
 
 [node name="Deck" parent="." instance=ExtResource( 4 )]
