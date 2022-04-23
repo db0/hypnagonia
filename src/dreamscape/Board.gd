@@ -415,7 +415,7 @@ func _recalculate_predictions() -> void:
 	if end_turn.disabled:
 		return
 	yield(get_tree(), "idle_frame")
-	var snapshot_id = CFUtils.randi_range(1,100000)
+	var snapshot_id = int(rand_range(1,100000))
 	get_tree().call_group_flags(get_tree().GROUP_CALL_REALTIME, "combat_effects", "take_snapshot", snapshot_id)
 	# I want the enemies to be predicted serially
 	for enemy in get_tree().get_nodes_in_group("EnemyEntities"):
