@@ -233,5 +233,4 @@ func extract_save_state() -> Dictionary:
 	
 func restore_save_state(save_state: Dictionary) -> void:
 	for key in save_state:
-		set(key, difficulties[key])
-	recalculate_total_difficulty()
+		set(key, save_state[key])

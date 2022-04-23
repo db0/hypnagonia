@@ -432,7 +432,7 @@ func _input(event):
 #		globals.player.deck_groups[Terms.CARD_GROUP_TERMS.item] = "Laser Cannon"
 #		globals.player.deck.deck_groups[Terms.CARD_GROUP_TERMS.item] = "Laser Cannon"
 #		var bgm_tracks = SoundManagerClass.get_sound_files_in_dir("res://assets/music/ordeal/")
-#		CFUtils.shuffle_array(bgm_tracks)
+#		CFUtils.shuffle_array(bgm_tracks, true)
 #		SoundManager.play_bgm(bgm_tracks[0])
 #		SoundManager.fade_in(bgm_tracks[0])
 		# warning-ignore:unused_variable
