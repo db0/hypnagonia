@@ -442,7 +442,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "GameSave",
 "language": "GDScript",
-"path": "res://src/dreamscape/GameSave.gd"
+"path": "res://src/dreamscape/SaveGame/GameSave.gd"
 }, {
 "base": "Reference",
 "class": "GameStats",

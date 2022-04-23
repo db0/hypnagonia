@@ -85,7 +85,20 @@ func _is_nce_unlocked(nce) -> bool:
 func extract_save_state() -> Dictionary:
 	var run_dict := {
 		"unlocked_nce": unlocked_nce,
-		"used_nce": used_nce,
+		"used_nce": [],
 		"store" : store,
 	}
+	for un in used_nce:
+		run_dict["used_nce"].append(un.get_path())
 	return(run_dict)
+
+func restore_save_state(save_state: Dictionary) -> void:
+	var run_dict := {
+		"unlocked_nce": unlocked_nce,
+		"used_nce": [],
+		"store" : store,
+	}
+	unlocked_nce = save_state.unlocked_nce
+	store = save_state.store
+	for un in save_state.used_nce:
+		used_nce.append(load(un))

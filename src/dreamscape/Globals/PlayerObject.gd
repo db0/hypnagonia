@@ -291,6 +291,7 @@ func extract_save_state() -> Dictionary:
 		"deck": deck.extract_save_state(),
 		"artifacts": [],
 		"memories": [],
+		"pathos": pathos.extract_save_state(),
 	}
 	for group in deck_groups:
 		player_dict.deck_groups[group] = deck_groups[group]
@@ -299,3 +300,24 @@ func extract_save_state() -> Dictionary:
 	for mem in memories:
 		player_dict.memories.append(mem.extract_save_state())
 	return(player_dict)
+	
+	
+func restore_save_state(save_state: Dictionary) -> void:
+	health = save_state.health
+	damage = save_state.damage
+	pathos = Pathos.new()
+	pathos.restore_save_state(save_state.pathos)
+	for group in save_state.deck_groups:
+		deck_groups[group] = save_state.deck_groups[group]
+	deck = Deck.new(deck_groups)
+	deck.restore_save_state(save_state.deck)
+	for ar in save_state.artifacts:
+		var new_ar = add_artifact(ar.canonical_name, ar.modifiers)
+		new_ar.counter = ar.counter
+	for mem in save_state.memories:
+		var new_mem = add_memory(mem.canonical_name, mem.modifiers)
+		new_mem.is_ready = mem.is_ready
+		new_mem.pathos_threshold = mem.pathos_threshold
+		new_mem.pathos_accumulated = mem.pathos_accumulated
+		new_mem.upgrades_amount = mem.upgrades_amount
+

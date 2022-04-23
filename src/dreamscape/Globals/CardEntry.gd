@@ -318,3 +318,11 @@ func extract_save_state() -> Dictionary:
 		"property_modifications": property_modifications,
 	}
 	return(card_dict)
+
+func restore_save_state(save_state: Dictionary) -> void:
+	upgrade_progress = save_state.upgrade_progress
+	upgrade_threshold = save_state.upgrade_threshold
+	upgrade_options = save_state.upgrade_options
+	property_modifications = save_state.property_modifications
+	for mod in property_modifications:
+		modify_property(mod.property, mod.value, mod.is_enhancement, false)

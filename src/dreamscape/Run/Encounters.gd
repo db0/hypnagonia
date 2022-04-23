@@ -218,3 +218,19 @@ func extract_save_state() -> Dictionary:
 	for act in available_acts:
 		encounter_dict["available_acts"].append(act.get_act_number())
 	return(encounter_dict)
+
+func restore_save_state(save_dict: Dictionary) -> void:
+	available_acts.clear()
+	for act in [Act1, Act2, Act3]:
+		if act.get_act_number() in save_dict.available_acts:
+			available_acts.append(act)
+		if act.get_act_number() == save_dict.current_act:
+			current_act = act
+	remaining_enemies = save_dict.remaining_enemies
+	remaining_elites = save_dict.remaining_elites
+	remaining_nce = save_dict.remaining_nce
+	boss_name = save_dict.boss_name
+	deep_sleeps = save_dict.deep_sleeps
+	shop_deck_removals = save_dict.shop_deck_removals
+	encounter_number = save_dict.encounter_number
+	run_changes.restore_save_state(save_dict.run_changes)

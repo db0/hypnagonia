@@ -141,6 +141,8 @@ func _on_Menu_resized() -> void:
 
 
 func _input(event):
+	if event.is_action_pressed("debug"):
+		globals.game_save.load_state()
 	if event.is_action_pressed("init_debug_game"):
 		match OS.get_name():
 			"Windows":
