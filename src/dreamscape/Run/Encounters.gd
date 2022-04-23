@@ -18,7 +18,6 @@ var remaining_nce := {
 	"risky": [],
 }
 var boss_name : String
-var current_encounter_script: GDScript
 var deep_sleeps := 0
 var shop_deck_removals := 0
 var encounter_number := 0 setget set_encounter_number
@@ -37,8 +36,8 @@ func prepare_next_act(current_journal = null) -> void:
 	current_act = available_acts.pop_front()
 	if current_act != Act1:
 		globals.player.damage -= healing_done
-	remaining_enemies = current_act.ENEMIES.duplicate(true)
-	remaining_elites = current_act.ELITES.duplicate(true)
+	remaining_enemies = current_act.ENEMIES.keys()
+	remaining_elites = current_act.ELITES.keys()
 	for nce_type in remaining_nce:
 		_prepare_remaining_nce(nce_type)
 #	for nce in remaining_nce["easy"]:
@@ -56,10 +55,10 @@ func generate_journal_choices() -> Array:
 	# Until we have enough enemies to be able to provide enough different encounters
 	# for each torment encounter, we add this code to reshuffle the pile if we run out
 	if remaining_enemies.empty():
-		remaining_enemies = current_act.ENEMIES.duplicate(true)
+		remaining_enemies = current_act.ENEMIES.keys()
 		CFUtils.shuffle_array(remaining_enemies)
 	if remaining_elites.empty():
-		remaining_elites = current_act.ELITES.duplicate(true)
+		remaining_elites = current_act.ELITES.keys()
 		CFUtils.shuffle_array(remaining_elites)
 	var journal_options := []
 	if encounter_number != 1:
@@ -79,7 +78,7 @@ func generate_journal_choices() -> Array:
 	for option in new_options:
 		match option:
 			Terms.RUN_ACCUMULATION_NAMES.enemy:
-				var next_enemy = remaining_enemies.pop_back()
+				var next_enemy = current_act.ENEMIES[remaining_enemies.pop_back()]
 				if globals.player.pathos.repressed[option] < enemy_pathos_avg * 2\
 						and globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.boss] < boss_pathos_avg * 8:
 					difficulty = "easy"
@@ -98,7 +97,7 @@ func generate_journal_choices() -> Array:
 			Terms.RUN_ACCUMULATION_NAMES.nce:
 				journal_options.append(_get_next_nce())
 			Terms.RUN_ACCUMULATION_NAMES.elite:
-				var next_enemy = remaining_elites.pop_back()
+				var next_enemy = current_act.ELITES[remaining_elites.pop_back()]
 				if globals.player.pathos.repressed[option] < globals.player.pathos.get_threshold(option) + elite_pathos_avg\
 						and globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.boss] < boss_pathos_avg * 8:
 					difficulty = "easy"
@@ -202,3 +201,20 @@ func _prepare_remaining_nce(nce_type: String) -> void:
 			continue
 		remaining_nce[nce_type].append(nce_script)
 	CFUtils.shuffle_array(remaining_nce[nce_type])
+
+func extract_save_state() -> Dictionary:
+	var encounter_dict := {
+		"available_acts" : [],
+		"current_act": current_act.get_act_number(),
+		"remaining_enemies" : remaining_enemies,
+		"remaining_elites" : remaining_elites,
+		"remaining_nce": remaining_nce,
+		"boss_name" : boss_name,
+		"deep_sleeps": deep_sleeps,
+		"shop_deck_removals" : shop_deck_removals,
+		"encounter_number": encounter_number,
+		"run_changes" : run_changes.extract_save_state(),
+	}
+	for act in available_acts:
+		encounter_dict["available_acts"].append(act.get_act_number())
+	return(encounter_dict)

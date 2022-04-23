@@ -460,16 +460,16 @@ const Influencer = {
 	},
 }
 
-const ENEMIES = [
-	Administration,
-	Life_Paths,
-	Cringelord,
-	Nightmare,
-	Submerged,
-	HandsyAunt,
-	Circular_Arguments,
-	Influencer,
-]
+const ENEMIES = {
+	"Administration":Administration,
+	"Life_Paths":Life_Paths,
+	"Cringelord":Cringelord,
+	"Nightmare":Nightmare,
+	"Submerged":Submerged,
+	"HandsyAunt":HandsyAunt,
+	"Circular_Arguments":Circular_Arguments,
+	"Influencer":Influencer,
+}
 
 const TheGatherer = {
 	"name": "The Gatherer",
@@ -493,10 +493,10 @@ const TheatrePlay = {
 	'journal_art': "res://assets/journal/advanced/theatre.jpeg",
 }
 
-const ELITES = [
-	TheGatherer,
-	TheatrePlay,
-]
+const ELITES = {
+	"TheGatherer": TheGatherer,
+	"TheatrePlay": TheatrePlay,
+}
 
 const FearAndPhobia = {
 	"scenes": [

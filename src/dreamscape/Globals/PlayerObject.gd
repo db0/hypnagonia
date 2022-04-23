@@ -281,3 +281,21 @@ func get_archetype_perturbations() -> Array:
 	for arch in get_current_archetypes():
 		perturbations += Aspects.get_archetype_value(arch, "Perturbations")
 	return(perturbations)
+
+
+func extract_save_state() -> Dictionary:
+	var player_dict := {
+		"health": health,
+		"damage": damage,
+		"deck_groups": {},
+		"deck": deck.extract_save_state(),
+		"artifacts": [],
+		"memories": [],
+	}
+	for group in deck_groups:
+		player_dict.deck_groups[group] = deck_groups[group]
+	for ar in artifacts:
+		player_dict.artifacts.append(ar.extract_save_state())
+	for mem in memories:
+		player_dict.memories.append(mem.extract_save_state())
+	return(player_dict)

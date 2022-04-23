@@ -308,3 +308,13 @@ func duplicate():
 	new_entry.property_modifications = property_modifications.duplicate(true)
 	new_entry.upgrade_progress = upgrade_progress
 	return(new_entry)
+
+func extract_save_state() -> Dictionary:
+	var card_dict := {
+		"card_name": card_name,
+		"upgrade_progress": upgrade_progress,
+		"upgrade_threshold": upgrade_threshold,
+		"upgrade_options": upgrade_options,
+		"property_modifications": property_modifications,
+	}
+	return(card_dict)

@@ -501,20 +501,20 @@ const Baby = {
 
 
 
-const ENEMIES = [
-	TheLaughingOnes,
-	TheCritic,
-	Fearmonger,
-	Murmurs,
-	Clown,
-	Butterfly,
-	BrokenMirrors,
-	Pialephant,
-	TheLightCalling,
-	Baby,
-	Squirrel,
-	Gaslighter,
-]
+const ENEMIES = {
+	"TheLaughingOnes": TheLaughingOnes,
+	"TheCritic": TheCritic,
+	"Fearmonger": Fearmonger,
+	"Murmurs": Murmurs,
+	"Clown": Clown,
+	"Butterfly": Butterfly,
+	"BrokenMirrors": BrokenMirrors,
+	"Pialephant": Pialephant,
+	"TheLightCalling": TheLightCalling,
+	"Baby": Baby,
+	"Squirrel": Squirrel,
+	"Gaslighter": Gaslighter,
+}
 
 const RushElite = {
 	"name": "Labyrinth",
@@ -535,10 +535,10 @@ const Bully = {
 	'journal_art': "res://assets/journal/advanced/bully.jpeg",
 }
 
-const ELITES = [
-	RushElite,
-	Bully
-]
+const ELITES = {
+	"RushElite": RushElite,
+	"Bully": Bully
+}
 
 const Narcissus = {
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Bosses/Narcissus.tscn")],

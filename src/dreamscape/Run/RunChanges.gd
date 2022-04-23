@@ -81,3 +81,11 @@ func _is_nce_unlocked(nce) -> bool:
 				if nce is GDScript and unl_nce.nce == nce.resource_path:
 					return(true)
 	return(false)
+
+func extract_save_state() -> Dictionary:
+	var run_dict := {
+		"unlocked_nce": unlocked_nce,
+		"used_nce": used_nce,
+		"store" : store,
+	}
+	return(run_dict)

@@ -48,3 +48,11 @@ func instance_artifact() -> Artifact:
 
 func get_class() -> String:
 	return("ArtifactObject")
+
+func extract_save_state() -> Dictionary:
+	var artifact_dict:= {
+		"canonical_name": canonical_name,
+		"counter": counter,
+		"modifiers": modifiers,
+	}
+	return(artifact_dict)
