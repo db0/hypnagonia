@@ -219,9 +219,9 @@ func modify_property(property: String, value, is_enhancement := true, record := 
 func retrieve_scripts(trigger: String, card_properties = null) -> Dictionary:
 	var found_scripts: Dictionary = unmodified_scripts.duplicate(true)
 	if card_properties:
-		preload("res://src/dreamscape/cards/sets/SetScripts_Core.gd").lookup_script_property(found_scripts, card_name, card_properties)
+		CoreScripts.lookup_script_property(found_scripts, card_name, card_properties)
 	else:
-		preload("res://src/dreamscape/cards/sets/SetScripts_Core.gd").lookup_script_property(found_scripts, card_name, properties)
+		CoreScripts.lookup_script_property(found_scripts, card_name, properties)
 #	print(found_scripts.get(trigger,{}))
 	return(found_scripts.get(trigger,{}))
 

@@ -1,4 +1,5 @@
-extends "res://src/dreamscape/cards/sets/SetScripts_Core.gd"
+extends CoreScripts
+
 
 const Cannon = {
 	"manual": {
