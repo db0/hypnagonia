@@ -2,7 +2,6 @@ class_name HUtils
 extends Reference
 
 
-# Returns a Dictionary with the combined Script definitions of all set files
 static func grab_random_texture(specific_dir: String = '') -> ImageTexture:
 	# The higher the number, the more likely the textures in that directory
 	# to be chosen
@@ -17,10 +16,10 @@ static func grab_random_texture(specific_dir: String = '') -> ImageTexture:
 	for dir in directories:
 		for _iter in range(directories[dir]):
 			random_dir.append(dir)
-	var rng = CFUtils.randi_range(0,random_dir.size() - 1)
+	var rng = rand_range(0,random_dir.size() - 1)
 	var directory = random_dir[rng]
 	var textures := CFUtils.list_imported_in_directory(directory)
-	CFUtils.shuffle_array(textures)
+	CFUtils.shuffle_array(textures, true)
 	var new_texture := ImageTexture.new();
 	var tex = load(directory + textures[0])
 	var image = tex.get_data()
@@ -192,7 +191,7 @@ static func get_random_background(type := 'any') -> Dictionary:
 	if type != 'dark':
 		bright_backgrounds = CFUtils.list_imported_in_directory("res://assets/backgrounds/bright/")
 	var all_backgrounds := bright_backgrounds + dark_backgrounds
-	CFUtils.shuffle_array(all_backgrounds)
+	CFUtils.shuffle_array(all_backgrounds,true)
 	var selected_background :String = all_backgrounds[0]
 	var bpath: String
 	if selected_background in bright_backgrounds:

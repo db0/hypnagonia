@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=1]
 [ext_resource path="res://src/dreamscape/CardLibrary/CardLibrary.tscn" type="PackedScene" id=2]
@@ -19,6 +19,8 @@
 [ext_resource path="res://assets/main_menu/quickstart_button.png" type="Texture" id=17]
 [ext_resource path="res://assets/main_menu/quickstart_button_pressed.png" type="Texture" id=18]
 [ext_resource path="res://assets/main_menu/card_library_button.png" type="Texture" id=19]
+[ext_resource path="res://assets/main_menu/continue_button.png" type="Texture" id=20]
+[ext_resource path="res://assets/main_menu/continue_button_pressed.png" type="Texture" id=21]
 
 [sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 10 )
@@ -101,26 +103,26 @@ margin_right = 1455.0
 margin_bottom = 900.0
 
 [node name="LeftSide" type="VBoxContainer" parent="MainMenu/CornerElements"]
-margin_right = 100.0
+margin_right = 75.0
 margin_bottom = 900.0
 
 [node name="Readme" type="TextureButton" parent="MainMenu/CornerElements/LeftSide"]
-margin_right = 100.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
+margin_right = 75.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
 texture_normal = ExtResource( 14 )
 expand = true
 stretch_mode = 5
 
 [node name="Push" type="Control" parent="MainMenu/CornerElements/LeftSide"]
-margin_top = 103.0
-margin_right = 100.0
+margin_top = 78.0
+margin_right = 75.0
 margin_bottom = 817.0
 size_flags_vertical = 3
 
 [node name="Exit" type="TextureButton" parent="MainMenu/CornerElements/LeftSide"]
 margin_top = 820.0
-margin_right = 100.0
+margin_right = 75.0
 margin_bottom = 900.0
 rect_min_size = Vector2( 0, 80 )
 texture_normal = ExtResource( 16 )
@@ -129,33 +131,33 @@ expand = true
 stretch_mode = 5
 
 [node name="Push" type="Control" parent="MainMenu/CornerElements"]
-margin_left = 103.0
-margin_right = 1352.0
+margin_left = 78.0
+margin_right = 1377.0
 margin_bottom = 900.0
 size_flags_horizontal = 3
 
 [node name="RightSide" type="VBoxContainer" parent="MainMenu/CornerElements"]
-margin_left = 1355.0
+margin_left = 1380.0
 margin_right = 1455.0
 margin_bottom = 900.0
 
 [node name="Settings" type="TextureButton" parent="MainMenu/CornerElements/RightSide"]
-margin_right = 100.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
+margin_right = 75.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
 texture_normal = ExtResource( 13 )
 expand = true
 stretch_mode = 5
 
 [node name="Push" type="Control" parent="MainMenu/CornerElements/RightSide"]
-margin_top = 103.0
-margin_right = 100.0
+margin_top = 78.0
+margin_right = 75.0
 margin_bottom = 876.0
 size_flags_vertical = 3
 
 [node name="Version" type="Label" parent="MainMenu/CornerElements/RightSide"]
 margin_top = 879.0
-margin_right = 100.0
+margin_right = 75.0
 margin_bottom = 900.0
 text = "v0.14.0"
 align = 2
@@ -210,6 +212,16 @@ margin_right = 877.0
 margin_bottom = 490.0
 rect_min_size = Vector2( 192, 0 )
 custom_constants/separation = 30
+
+[node name="Continue" type="TextureButton" parent="MainMenu/VBox/Center/VButtons"]
+visible = false
+margin_right = 300.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 300, 130 )
+texture_normal = ExtResource( 20 )
+texture_pressed = ExtResource( 21 )
+expand = true
+stretch_mode = 5
 
 [node name="NewGame" type="TextureButton" parent="MainMenu/VBox/Center/VButtons"]
 margin_right = 300.0

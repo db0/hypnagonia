@@ -183,10 +183,11 @@ func display_empty_card_rewards() -> void:
 
 
 func end_dev_version() -> void:
+	globals.game_save.delete_save()
 	var victory_texts = JournalTexts.VICTORY_TEXTS.get(
 			globals.player.deck_groups[Terms.CARD_GROUP_TERMS.life_goal],
 			JournalTexts.VICTORY_TEXTS.generic)
-	CFUtils.shuffle_array(victory_texts)
+	CFUtils.shuffle_array(victory_texts, true)
 	proceed.bbcode_text = victory_texts[0] + "\n\n"\
 		+ "[b]Note from Developer:[/b]\nThanks for playing this early version of Hypnagonia and we hope that you enjoyed the experience. "\
 		+ "Keep playing to see all the game has to offer and the various playstyles. Each run is completely different!\n\n"\
@@ -205,6 +206,7 @@ func proceed_to_next_act() -> void:
 
 
 func display_loss() -> void:
+	globals.game_save.delete_save()
 	proceed.bbcode_text = "And at this point I woke up in cold sweat!!\n\n"\
 		+ "[b]Note from Developer:[/b]\nThanks for playing this early version of Hypnagonia."\
 		+ "There's still more to play. Can you reach and defeat the third act 'Boss'?\n\n"\
@@ -491,7 +493,7 @@ func _get_entry_texts(entries_key: String) -> String:
 	if not globals.unused_journal_texts.has(entries_key)\
 			or not globals.unused_journal_texts[entries_key].size():
 		globals.unused_journal_texts[entries_key] = JournalTexts[entries_key].duplicate()
-		CFUtils.shuffle_array(globals.unused_journal_texts[entries_key])
+		CFUtils.shuffle_array(globals.unused_journal_texts[entries_key], true)
 	return(globals.unused_journal_texts[entries_key].pop_back())
 
 

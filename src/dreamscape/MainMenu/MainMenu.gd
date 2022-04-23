@@ -23,6 +23,7 @@ onready var v_buttons := $MainMenu/VBox/Center/VButtons
 onready var readme_button := $MainMenu/CornerElements/LeftSide/Readme
 onready var settings_button := $MainMenu/CornerElements/RightSide/Settings
 onready var exit_button := $MainMenu/CornerElements/LeftSide/Exit
+onready var continue_button := $MainMenu/VBox/Center/VButtons/Continue
 onready var main_menu := $MainMenu
 #onready var settings_menu := $SettingsMenu
 onready var card_library := $CardLibrary
@@ -56,6 +57,7 @@ func _ready() -> void:
 	randomize()
 	cfc.game_rng_seed = CFUtils.generate_random_seed()
 	SUBTITLES.shuffle()
+	continue_button.visible = globals.game_save.save_file_exists()
 	_subtitle.text = SUBTITLES[0]
 	_version.text = CFConst.GAME_VERSION
 	globals.music.switch_scene_music('main')
@@ -68,7 +70,8 @@ func on_button_pressed(_button_name : String) -> void:
 			_switch_bg(HUtils.get_random_background('dark').image)
 			SoundManager.play_se('click')
 			switch_to_tab(new_game)
-#			get_tree().change_scene(CFConst.PATH_CUSTOM + 'Main.tscn')
+		"Continue":
+			_load_game()
 		"QuickStart":
 			SoundManager.play_se(Sounds.get_randomize_sound())
 			new_game.randomize_aspect_choices()
@@ -138,6 +141,17 @@ func _on_Menu_resized() -> void:
 					tab.rect_position.x = get_viewport().size.x
 			if tab == main_menu:
 				print_debug([tab.rect_size,get_viewport().size])
+
+func _load_game() -> void:
+	SoundManager.play_se('button_click')
+	menu_tween.interpolate_property($FadeToBlack,
+			'modulate:a', 0, 1, 1,
+			Tween.TRANS_SINE, Tween.EASE_IN)
+	menu_tween.start()
+	yield(menu_tween, "tween_all_completed")
+	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+		print("DEBUG INFO:Main: Loading game.")
+	globals.game_save.load_state()
 
 
 func _input(event):

@@ -3,10 +3,11 @@ extends Reference
 
 const SAVE_PATH := "user://game_save.dat"
 const GAME_LOADING_SCENE := "res://src/dreamscape/SaveGame/GameLoading.tscn"
-	
+
+var savefile = File.new()
+
 func save_state() -> void:
-	var file = File.new()
-	file.open(SAVE_PATH, File.WRITE)
+	savefile.open(SAVE_PATH, File.WRITE)
 	var state = {
 		"starting_seed": cfc.game_rng_seed,
 		"current_seed": cfc.game_rng.seed,
@@ -15,20 +16,19 @@ func save_state() -> void:
 		"player": _extract_player(),
 		"encounters": _extract_encounters(),
 		"current_encounter": _extract_current_encounter(),
-		"unused_journal_texts": globals.unused_journal_texts,
 		"difficulty":  _extract_difficulty(),
 	}
-	file.store_var(state)
+	savefile.store_var(state)
 #	file.store_string(JSON.print(state, '\t'))
-	file.close()
+	savefile.close()
+
 
 func load_state() -> void:
-	var file = File.new()
-	if not file.file_exists(SAVE_PATH):
+	if not save_file_exists():
 		return
-	file.open(SAVE_PATH, File.READ)
-	var data = file.get_var()
-	file.close()
+	savefile.open(SAVE_PATH, File.READ)
+	var data = savefile.get_var()
+	savefile.close()
 	if typeof(data) != TYPE_DICTIONARY:
 		return
 	# warning-ignore:return_value_discarded
@@ -37,14 +37,30 @@ func load_state() -> void:
 	globals.reset()
 	globals.player.restore_save_state(data.player)
 	globals.encounters.restore_save_state(data.encounters)
+	globals.difficulty.restore_save_state(data.difficulty)
 	# warning-ignore:return_value_discarded
 	globals.card_back_texture_selection = data.card_back_texture_selection
-	globals.unused_journal_texts = data.unused_journal_texts
 	cfc.game_rng_seed = data.starting_seed
 	cfc.game_rng.seed = data.current_seed
 	cfc.game_rng.state = data.seed_state
 	# Load the PackedScene resource
 	cfc.get_tree().change_scene(CFConst.PATH_CUSTOM + 'Overworld/Journal.tscn')
+
+
+func get_class_name() -> String:
+	return("GameSave")
+
+
+func save_file_exists() -> bool:
+	return(savefile.file_exists(SAVE_PATH))
+
+
+func delete_save() -> void:
+	if not save_file_exists():
+		return
+	var dir = Directory.new()
+	dir.remove(SAVE_PATH)
+		
 
 func _extract_player() -> Dictionary:
 	return(globals.player.extract_save_state())
@@ -63,6 +79,3 @@ func _extract_current_encounter():
 	if globals.current_encounter:
 		current_encounter = globals.current_encounter.get_script().get_path()
 	return(current_encounter)
-
-func get_class_name() -> String:
-	return("GameSave")
