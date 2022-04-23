@@ -218,3 +218,20 @@ func _get_percentage_value(difficulty_key: String, value) -> float:
 func _finalize_value(difficulty_key: String, value) -> void:
 	recalculate_total_difficulty()
 	store_difficulty_to_file(difficulty_key, value)
+
+func extract_save_state() -> Dictionary:
+	# We load the difficulties from the file, as they're already converted to a dict
+	var difficulty_dict := {}
+	var file = File.new()
+	if file.file_exists(DIFFICULTY_FILE):
+		file.open(DIFFICULTY_FILE, File.READ)
+		var data = parse_json(file.get_as_text())
+		file.close()
+		if typeof(data) == TYPE_DICTIONARY:
+			difficulty_dict = data.duplicate()
+	return(difficulty_dict)
+	
+func restore_save_state(save_state: Dictionary) -> void:
+	for key in save_state:
+		set(key, difficulties[key])
+	recalculate_total_difficulty()

@@ -341,3 +341,21 @@ func calculate_chance_for_encounter(entry: String, include_next_progression := t
 func get_boss_threshold() -> float:
 	return(thresholds[Terms.RUN_ACCUMULATION_NAMES.boss]
 			* get_progression_average(Terms.RUN_ACCUMULATION_NAMES.boss))
+
+func extract_save_state() -> Dictionary:
+	var pathos_dict := {
+		"repressed": repressed,
+		"released": released,
+	}
+
+	return(pathos_dict)
+	
+
+func restore_save_state(save_state: Dictionary) -> void:
+	var pathos_dict := {
+		"repressed": repressed,
+		"released": released,
+	}
+	repressed = save_state.repressed
+	released = save_state.released
+	

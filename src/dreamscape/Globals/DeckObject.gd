@@ -237,3 +237,11 @@ func extract_save_state() -> Array:
 	for ce in cards:
 		deck_array.append(ce.extract_save_state())
 	return(deck_array)
+
+func restore_save_state(saved_cards: Array) -> void:
+	for ce_dict in saved_cards:
+		restore_card_entry(ce_dict)
+		
+func restore_card_entry(saved_entry: Dictionary) -> void:
+	var new_card = add_new_card(saved_entry.card_name)
+	new_card.restore_save_state(saved_entry)
