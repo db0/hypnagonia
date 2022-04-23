@@ -8,6 +8,7 @@ signal memory_selection_started(memory_selection_node)
 signal choice_entry_added(choice_entry)
 signal secondary_entry_added(choice_entry)
 signal encounter_start(encounter)
+signal page_turned()
 signal selection_deck_spawned(selection_deck)
 signal entry_displayed(entry)
 
@@ -58,6 +59,7 @@ onready var player_info := $"../PlayerInfo"
 onready var journal_cover := $"../../FadeToBlack"
 
 
+# We split this
 func _ready() -> void:
 	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
 		print("DEBUG INFO:Journal: Entering Journal")
@@ -73,12 +75,17 @@ func _ready() -> void:
 	player_info.owner_node = self
 	# warning-ignore:return_value_discarded
 	player_info.connect("popup_opened", self, "_on_playerinfo_popup_opened")
+	_setup()
+
+# This is split from ready() so that it can be extended in RestoredJournal
+func _setup() -> void:
 	journal_intro.bbcode_text = _get_intro()
 	_reveal_entry(journal_intro)
 	if not globals.test_flags.get("no_journal_fade"):
 		yield(_tween, "tween_all_completed")
 	var encounter_choices: Array
 	globals.encounters.encounter_number += 1
+	journal_choices.set_owner(self)
 	encounter_choices = globals.encounters.generate_journal_choices()
 	for encounter in encounter_choices:
 		var journal_choice_scene = JOURNAL_ENCOUNTER_CHOICE_SCENE.instance()
@@ -97,10 +104,8 @@ func _ready() -> void:
 		player_info._on_Help_pressed()
 		cfc.set_setting('first_journal_tutorial_done', true)
 	globals.music.switch_scene_music('journal')
-
 	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
 		print("DEBUG INFO:Journal: Journal Loaded")
-
 
 func display_nce_rewards(reward_text: String, add_draft_type = null) -> void:
 	# This catches the player losing in an NCE
@@ -245,11 +250,14 @@ func add_nested_choices(nested_choices: Dictionary, disabled_choices := [], foll
 		else:
 			choices_selection_vbc = VBoxContainer.new()
 			entries_list.add_child_below_node(follow_up_node, choices_selection_vbc)
+			entries_list.set_owner(choices_selection_vbc)
 		choices_selection_vbc.rect_size = journal_choices.rect_size
 		choices_selection_vbc.add_child(nested_choices_scene)
+		nested_choices_scene.set_owner(choices_selection_vbc)
 		nested_choices_scene.calling_node = follow_up_node
 	else:
 		journal_choices.add_child(nested_choices_scene)
+		nested_choices_scene.set_owner(journal_choices)
 	nested_choices_scene.call_deferred("populate_choices", nested_choices, self, disabled_choices)
 	emit_signal("secondary_entry_added", nested_choices_scene)
 
@@ -262,6 +270,7 @@ func spawn_selection_deck() -> SelectionDeck:
 		globals.current_encounter.current_shop.add_child(selection_deck)
 	else:
 		add_child(selection_deck)
+		selection_deck.set_owner(self)
 	emit_signal("selection_deck_spawned", selection_deck)
 	return(selection_deck)
 
@@ -269,6 +278,7 @@ func spawn_selection_deck() -> SelectionDeck:
 func prepare_popup_card(card) -> void:
 	var popup_card = CARD_PREVIEW_SCENE.instance()
 	card_storage.add_child(popup_card)
+	popup_card.set_owner(card_storage)
 	if typeof(card) == TYPE_STRING:
 		if not popup_cards.has(card):
 			popup_card.setup(card)
@@ -293,6 +303,7 @@ func grey_out_label(rt_label: RichTextLabel) -> void:
 
 func add_custom_entry(entry_scene: Control) -> void:
 	entries_list.add_child_below_node(custom_entries_pointer, entry_scene, true)
+	entry_scene.set_owner(entries_list)
 	emit_signal("choice_entry_added", entry_scene)
 
 
@@ -325,7 +336,7 @@ func _on_meta_hover_started(meta_text: String) -> void:
 				show_description_popup(WORD_DEFINITIONS[meta_tag["definition"]])
 			if pathos_descriptions.has(meta_tag["definition"]):
 				show_description_popup(pathos_descriptions[meta_tag["definition"]])
-			
+
 
 
 func _on_meta_hover_ended(meta_text: String) -> void:
@@ -460,8 +471,10 @@ func _on_rte_gui_input(event, rt_label: RichTextLabel, type = 'card_draft') -> v
 					popup.popup_centered_minsize()
 					reward_choices_unpreviewed.clear()
 					return
+				emit_signal("page_turned")
 				SoundManager.play_se(Sounds.get_next_journal_page_sound())
 				# warning-ignore:return_value_discarded
+				globals.game_save.save_state()
 				get_tree().change_scene(CFConst.PATH_CUSTOM + 'Overworld/Journal.tscn')
 
 
@@ -585,6 +598,7 @@ func _input(event):
 		for encounter in debug_encounters:
 			var journal_choice_scene = JOURNAL_ENCOUNTER_CHOICE_SCENE.instance()
 			journal_choices.add_child(journal_choice_scene)
+			journal_choice_scene.set_owner(journal_choices)
 			journal_choice_scene.setup(self, encounter)
 			journal_choice_scene.journal_choice.connect("pressed", self, "_on_choice_pressed", [encounter, journal_choice_scene])
 			_reveal_entry(journal_choice_scene.journal_choice)

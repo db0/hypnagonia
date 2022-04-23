@@ -1,0 +1,258 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://src/dreamscape/Overworld/RestoredJournal.gd" type="Script" id=1]
+[ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=2]
+[ext_resource path="res://src/dreamscape/Overworld/CardDraftSlide.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/dreamscape/PlayerInfo.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/dreamscape/Overworld/CardUpgrade.gd" type="Script" id=5]
+[ext_resource path="res://src/dreamscape/FadeToBlack.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/dreamscape/Overworld/ArtifactChoices.gd" type="Script" id=7]
+[ext_resource path="res://src/dreamscape/PathosChangeInfo.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/dreamscape/Overworld/MemoryChoice.gd" type="Script" id=9]
+[ext_resource path="res://assets/journal/gui/background.png" type="Texture" id=10]
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 5, 0, 0 )
+
+[sub_resource type="ShaderMaterial" id=1]
+
+[node name="RestoredJournalScene" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBC" type="VBoxContainer" parent="."]
+margin_right = 1455.0
+margin_bottom = 900.0
+size_flags_vertical = 3
+custom_constants/separation = 0
+
+[node name="PlayerInfo" parent="VBC" instance=ExtResource( 4 )]
+margin_bottom = 45.0
+
+[node name="Journal" type="PanelContainer" parent="VBC"]
+margin_top = 45.0
+margin_right = 1455.0
+margin_bottom = 900.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 2 )
+custom_styles/panel = SubResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBC" type="HBoxContainer" parent="VBC/Journal"]
+margin_right = 1455.0
+margin_bottom = 855.0
+custom_constants/separation = 15
+
+[node name="MC" type="MarginContainer" parent="VBC/Journal/HBC"]
+margin_right = 720.0
+margin_bottom = 855.0
+size_flags_horizontal = 3
+
+[node name="JournalPageIllustration" type="TextureRect" parent="VBC/Journal/HBC/MC"]
+margin_right = 720.0
+margin_bottom = 855.0
+size_flags_horizontal = 3
+expand = true
+stretch_mode = 5
+
+[node name="JournalPageShader" type="ColorRect" parent="VBC/Journal/HBC/MC"]
+visible = false
+material = SubResource( 1 )
+margin_right = 720.0
+margin_bottom = 855.0
+color = Color( 0.0862745, 0.0862745, 0.0862745, 1 )
+
+[node name="JournalEntry" type="ScrollContainer" parent="VBC/Journal/HBC"]
+margin_left = 735.0
+margin_right = 1455.0
+margin_bottom = 855.0
+size_flags_horizontal = 3
+
+[node name="VBC" type="VBoxContainer" parent="VBC/Journal/HBC/JournalEntry"]
+margin_right = 720.0
+margin_bottom = 855.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DayIntro" type="RichTextLabel" parent="VBC/Journal/HBC/JournalEntry/VBC"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 720.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+bbcode_enabled = true
+bbcode_text = "I had the strangest dream yesterday..."
+text = "I had the strangest dream yesterday..."
+
+[node name="JournalChoices" type="VBoxContainer" parent="VBC/Journal/HBC/JournalEntry/VBC"]
+margin_top = 53.0
+margin_right = 720.0
+margin_bottom = 53.0
+
+[node name="RewardJournal" type="RichTextLabel" parent="VBC/Journal/HBC/JournalEntry/VBC"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 56.0
+margin_right = 720.0
+margin_bottom = 106.0
+rect_min_size = Vector2( 0, 50 )
+bbcode_enabled = true
+bbcode_text = "Reward Description"
+text = "Reward Description"
+fit_content_height = true
+
+[node name="CardDraftSlide" parent="VBC/Journal/HBC/JournalEntry/VBC" instance=ExtResource( 3 )]
+margin_right = 720.0
+
+[node name="UpgradeJournal" type="RichTextLabel" parent="VBC/Journal/HBC/JournalEntry/VBC"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 56.0
+margin_right = 720.0
+margin_bottom = 106.0
+rect_min_size = Vector2( 0, 50 )
+bbcode_enabled = true
+bbcode_text = "[Upgrade Cards] The act of repeating made me more creative"
+text = "[Upgrade Cards] The act of repeating made me more creative"
+fit_content_height = true
+
+[node name="UgradeSlide" type="ScrollContainer" parent="VBC/Journal/HBC/JournalEntry/VBC"]
+margin_top = 59.0
+margin_right = 720.0
+margin_bottom = 59.0
+
+[node name="CardUpgrade" type="HBoxContainer" parent="VBC/Journal/HBC/JournalEntry/VBC/UgradeSlide" groups=["card_upgrade"]]
+custom_constants/separation = 0
+script = ExtResource( 5 )
+
+[node name="Tween" type="Tween" parent="VBC/Journal/HBC/JournalEntry/VBC/UgradeSlide/CardUpgrade"]
+
+[node name="ArtifactJournal" type="RichTextLabel" parent="VBC/Journal/HBC/JournalEntry/VBC"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 56.0
+margin_right = 720.0
+margin_bottom = 106.0
+rect_min_size = Vector2( 0, 50 )
+bbcode_enabled = true
+bbcode_text = "[Curio] What a curious thing. Did I always have it with me..?"
+text = "[Curio] What a curious thing. Did I always have it with me..?"
+fit_content_height = true
+
+[node name="ArtifactSlide" type="ScrollContainer" parent="VBC/Journal/HBC/JournalEntry/VBC"]
+margin_top = 62.0
+margin_right = 720.0
+margin_bottom = 62.0
+
+[node name="ArtifactChoice" type="HBoxContainer" parent="VBC/Journal/HBC/JournalEntry/VBC/ArtifactSlide" groups=["artifact_selection"]]
+script = ExtResource( 7 )
+
+[node name="Tween" type="Tween" parent="VBC/Journal/HBC/JournalEntry/VBC/ArtifactSlide/ArtifactChoice"]
+
+[node name="MemoryJournal" type="RichTextLabel" parent="VBC/Journal/HBC/JournalEntry/VBC"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 56.0
+margin_right = 720.0
+margin_bottom = 106.0
+rect_min_size = Vector2( 0, 50 )
+bbcode_enabled = true
+bbcode_text = "[Memory] Something clicked in me, and memories started flooding in."
+text = "[Memory] Something clicked in me, and memories started flooding in."
+fit_content_height = true
+
+[node name="MemorySlide" type="ScrollContainer" parent="VBC/Journal/HBC/JournalEntry/VBC"]
+margin_top = 65.0
+margin_right = 720.0
+margin_bottom = 65.0
+
+[node name="MemoryChoice" type="HBoxContainer" parent="VBC/Journal/HBC/JournalEntry/VBC/MemorySlide" groups=["memory_selection"]]
+script = ExtResource( 9 )
+
+[node name="Tween" type="Tween" parent="VBC/Journal/HBC/JournalEntry/VBC/MemorySlide/MemoryChoice"]
+
+[node name="CustomEntriesPointer" type="Control" parent="VBC/Journal/HBC/JournalEntry/VBC"]
+margin_top = 68.0
+margin_right = 720.0
+margin_bottom = 68.0
+
+[node name="Push" type="Control" parent="VBC/Journal/HBC/JournalEntry/VBC"]
+visible = false
+margin_top = 59.0
+margin_right = 720.0
+margin_bottom = 892.0
+size_flags_vertical = 3
+
+[node name="Proceed" type="RichTextLabel" parent="VBC/Journal/HBC/JournalEntry/VBC"]
+visible = false
+margin_top = 842.0
+margin_right = 720.0
+margin_bottom = 892.0
+rect_min_size = Vector2( 0, 50 )
+bbcode_enabled = true
+bbcode_text = "Let me think if I can remember what happened next..."
+text = "Let me think if I can remember what happened next..."
+fit_content_height = true
+
+[node name="EnemyCardStorage" type="Control" parent="VBC/Journal"]
+visible = false
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1448.0
+margin_bottom = 893.0
+
+[node name="Tween" type="Tween" parent="VBC/Journal"]
+
+[node name="MetaDescription" type="PopupPanel" parent="VBC/Journal" groups=["info_popup"]]
+margin_right = 4.0
+margin_bottom = 4.0
+
+[node name="Label" type="RichTextLabel" parent="VBC/Journal/MetaDescription"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 302.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 300, 0 )
+bbcode_enabled = true
+fit_content_height = true
+scroll_active = false
+
+[node name="PathosDetails" type="PopupPanel" parent="VBC/Journal"]
+margin_right = 4.0
+margin_bottom = 4.0
+mouse_filter = 2
+
+[node name="VBC" type="VBoxContainer" parent="VBC/Journal/PathosDetails"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 528.0
+margin_bottom = 46.0
+mouse_filter = 2
+
+[node name="Description" type="RichTextLabel" parent="VBC/Journal/PathosDetails/VBC"]
+margin_right = 395.0
+margin_bottom = 21.0
+rect_min_size = Vector2( 300, 0 )
+mouse_filter = 2
+fit_content_height = true
+scroll_active = false
+
+[node name="Header" parent="VBC/Journal/PathosDetails/VBC" instance=ExtResource( 8 )]
+mouse_filter = 2
+
+[node name="FadeToBlack" parent="." instance=ExtResource( 6 )]
+visible = false
+
+[connection signal="meta_clicked" from="VBC/Journal/HBC/JournalEntry/VBC/RewardJournal" to="VBC/Journal" method="_on_RewardJournal_meta_clicked"]
+[connection signal="meta_hover_ended" from="VBC/Journal/HBC/JournalEntry/VBC/RewardJournal" to="VBC/Journal" method="_on_meta_hover_ended"]
+[connection signal="meta_hover_started" from="VBC/Journal/HBC/JournalEntry/VBC/RewardJournal" to="VBC/Journal" method="_on_meta_hover_started"]
+[connection signal="meta_clicked" from="VBC/Journal/HBC/JournalEntry/VBC/UpgradeJournal" to="VBC/Journal" method="_on_UpgradeJournal_meta_clicked"]
+[connection signal="meta_clicked" from="VBC/Journal/HBC/JournalEntry/VBC/ArtifactJournal" to="VBC/Journal" method="_on_ArtifactJournal_meta_clicked"]
+[connection signal="meta_clicked" from="VBC/Journal/HBC/JournalEntry/VBC/MemoryJournal" to="VBC/Journal" method="_on_MemoryJournal_meta_clicked"]
