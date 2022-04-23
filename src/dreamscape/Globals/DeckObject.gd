@@ -231,3 +231,9 @@ func get_random_card(card_list = cards) -> CardEntry:
 	var rng_array = card_list.duplicate()
 	CFUtils.shuffle_array(rng_array)
 	return(rng_array.back())
+
+func extract_save_state() -> Array:
+	var deck_array := []
+	for ce in cards:
+		deck_array.append(ce.extract_save_state())
+	return(deck_array)

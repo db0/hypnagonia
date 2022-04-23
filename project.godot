@@ -440,6 +440,11 @@ _global_script_classes=[ {
 "path": "res://src/dreamscape/CombatElements/Enemies/EnemyIntents.gd"
 }, {
 "base": "Reference",
+"class": "GameSave",
+"language": "GDScript",
+"path": "res://src/dreamscape/GameSave.gd"
+}, {
+"base": "Reference",
 "class": "GameStats",
 "language": "GDScript",
 "path": "res://src/core/GameStats.gd"
@@ -886,6 +891,7 @@ _global_script_class_icons={
 "EnemyEncounter": "",
 "EnemyEntity": "",
 "EnemyIntents": "",
+"GameSave": "",
 "GameStats": "",
 "HConst": "",
 "HUtils": "",

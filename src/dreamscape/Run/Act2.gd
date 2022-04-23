@@ -470,17 +470,17 @@ const Void = {
 	},
 	"journal_art": "res://assets/journal/torments/void.jpeg",
 }
-const ENEMIES = [
-	TrafficJam,
-	Mouse,
-	TheExam,
-	TheVictim,
-	ClownShow,
-	StuffedToy,
-	ImpossibleConstruction,
-	GuiltyTreatment,
-	Void,
-]
+const ENEMIES = {
+	"TrafficJam": TrafficJam,
+	"Mouse": Mouse,
+	"TheExam":TheExam,
+	"TheVictim":TheVictim,
+	"ClownShow":ClownShow,
+	"StuffedToy":StuffedToy,
+	"ImpossibleConstruction":ImpossibleConstruction,
+	"GuiltyTreatment":GuiltyTreatment,
+	"Void":Void,
+}
 
 const IndescribableAbsurdity = {
 	"name": "Indescribable Absurdity",
@@ -511,11 +511,11 @@ const Jumbletron = {
 	'journal_art': "res://assets/journal/advanced/jumbletron.jpeg",
 }
 
-const ELITES = [
-	IndescribableAbsurdity,
-	Dentist,
-	Jumbletron,
-]
+const ELITES = {
+	"IndescribableAbsurdity":IndescribableAbsurdity,
+	"Dentist":Dentist,
+	"Jumbletron":Jumbletron,
+}
 
 const SurrealBoss = {
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn")],

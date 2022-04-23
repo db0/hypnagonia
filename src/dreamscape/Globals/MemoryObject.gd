@@ -193,3 +193,15 @@ func _calculate_threshold() -> void:
 
 func get_class() -> String:
 	return("MemoryObject")
+
+
+func extract_save_state() -> Dictionary:
+	var memory_dict := {
+		"canonical_name": canonical_name,
+		"is_ready": is_ready,
+		"pathos_threshold": pathos_threshold,
+		"pathos_accumulated": pathos_accumulated,
+		"upgrades_amount" : upgrades_amount,
+		"modifiers": modifiers,
+	}
+	return(memory_dict)

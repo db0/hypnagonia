@@ -527,6 +527,8 @@ func show_pathos_popup(description_text: String, pathos_dict: Dictionary) -> voi
 
 func _input(event):
 	### Debug ###
+	if event.is_action_pressed("debug"):
+		globals.game_save.save_state()
 	if event.is_action_pressed("init_debug_game"):
 		# Upgrade cards debug
 #		for c in globals.player.deck.get_progressing_cards():
