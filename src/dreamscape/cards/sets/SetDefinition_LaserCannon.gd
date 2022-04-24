@@ -1316,7 +1316,7 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Special",
-		"_keywords": ["fuse"],
+		"_keywords": ["fuse", "forget"],
 		"_amounts": {
 			"damage_amount": 30,
 		},
@@ -1332,7 +1332,7 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Special",
-		"_keywords": ["fuse"],
+		"_keywords": ["fuse", "forget"],
 		"_amounts": {
 			"damage_amount": 40,
 		},
