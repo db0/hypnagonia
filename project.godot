@@ -329,6 +329,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/core/Counters.gd"
 }, {
+"base": "RichTextLabel",
+"class": "CreditsLabel",
+"language": "GDScript",
+"path": "res://src/dreamscape/MainMenu/CreditLabel.gd"
+}, {
 "base": "Reference",
 "class": "CustomScripts",
 "language": "GDScript",
@@ -869,6 +874,7 @@ _global_script_class_icons={
 "CoreScripts": "",
 "CostDiscount": "",
 "Counters": "",
+"CreditsLabel": "",
 "CustomScripts": "",
 "DBDeckCardObject": "",
 "DBDeckSummaries": "",

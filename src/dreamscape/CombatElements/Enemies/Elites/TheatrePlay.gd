@@ -35,6 +35,7 @@ func _ready() -> void:
 func _on_enemy_spawned(torment: CombatEntity) -> void:
 	if not torment.canonical_name == 'Theatre Act':
 		return
+	# warning-ignore:return_value_discarded
 	torment.connect("entity_killed", self, "_on_theatre_act_overcome")
 
 func _on_theatre_act_overcome(final_damage: int, final_health: int) -> void:

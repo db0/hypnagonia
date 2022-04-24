@@ -47,6 +47,7 @@ var attempts_to_escape := 0
 func _init():
 	# In GUT it will not exist
 	if is_instance_valid(globals.journal):
+		# warning-ignore:return_value_discarded
 		globals.journal.connect("choice_entry_added", self, "_takeover_journal_entry")
 	for existing_entry in globals.get_tree().get_nodes_in_group("JournalEncounterChoiceScene"):
 		_takeover_journal_entry(existing_entry)

@@ -21,6 +21,7 @@ const menu_switch_time = 0.35
 
 onready var v_buttons := $MainMenu/VBox/Center/VButtons
 onready var readme_button := $MainMenu/CornerElements/LeftSide/Readme
+onready var credits_button := $MainMenu/CornerElements/LeftSide/Credits
 onready var settings_button := $MainMenu/CornerElements/RightSide/Settings
 onready var exit_button := $MainMenu/CornerElements/LeftSide/Exit
 onready var continue_button := $MainMenu/VBox/Center/VButtons/Continue
@@ -31,6 +32,8 @@ onready var settings := $Settings
 onready var new_game := $NewGame
 onready var _readme_label := $ReadMe/Label
 onready var _readme_popup := $ReadMe
+onready var _credits_label := $Credits/CreditsLabel
+onready var _credits_popup := $Credits
 onready var menu_tween := $MenuTween
 onready var bg_tween := $BGTween
 onready var _subtitle := $MainMenu/VBox/Margin/VBoxContainer/Subtitle
@@ -41,7 +44,8 @@ onready var _title := $MainMenu/VBox/Margin/VBoxContainer/Title
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("Hypnagonia Version: " + CFConst.GAME_VERSION)
-	for option_button in v_buttons.get_children() + [settings_button, readme_button, exit_button]:
+	for option_button in v_buttons.get_children()\
+			+ [settings_button, readme_button, credits_button, exit_button]:
 		if option_button.has_signal('pressed'):
 			option_button.connect('pressed', self, 'on_button_pressed', [option_button.name])
 	new_game.rect_position.x = get_viewport().size.x
@@ -80,6 +84,10 @@ func on_button_pressed(_button_name : String) -> void:
 			SoundManager.play_se('click')
 			_readme_popup.rect_size = _readme_label.rect_size
 			_readme_popup.popup_centered_minsize()
+		"Credits":
+			SoundManager.play_se('click')
+			_credits_popup.rect_size = _readme_label.rect_size
+			_credits_popup.popup_centered_minsize()
 		"CardLibrary":
 			_switch_bg(HUtils.get_random_background('dark').image)
 			SoundManager.play_se(Sounds.get_shove_sound())
@@ -256,3 +264,7 @@ func _export_memories() -> Array:
 	for mem in MemoryDefinitions.get_complete_memories_array():
 		mret.append(mem.name)
 	return(mret)
+
+
+func _on_Credits_pressed() -> void:
+	print_debug("name")
