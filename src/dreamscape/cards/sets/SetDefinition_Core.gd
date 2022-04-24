@@ -133,7 +133,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
 		"Abilities": "Gain {effect_stacks} {impervious}.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
@@ -152,7 +152,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
 		"Abilities": "Gain {effect_stacks} {impervious}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
@@ -167,7 +167,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
 		"Abilities": "Gain {effect_stacks} {impervious}.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
@@ -182,7 +182,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.risky.name],
 		"Abilities": "Gain {effect_stacks} {shaken}\nGain {effect_stacks2} {advantage}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Common",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.PLAYER,
@@ -208,7 +208,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.risky.name],
 		"Abilities": "Gain {effect_stacks} {shaken}\nGain {effect_stacks2} {advantage}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Common",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.PLAYER,
@@ -230,7 +230,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.risky.name],
 		"Abilities": "Gain {effect_stacks} {shaken}\nGain {effect_stacks2} {advantage}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Common",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.PLAYER,
@@ -252,7 +252,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.relax.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "{relax} for {healing_amount}. {forget}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -270,7 +270,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.relax.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "{relax} for {healing_amount}. {forget}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -283,7 +283,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.relax.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "{relax} for {healing_amount}. {forget}.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -296,7 +296,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
 		"Abilities": "{relax} for {healing_amount}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Uncommon",
 		"_keywords": [],
 		"_amounts": {
@@ -310,7 +310,7 @@ const CARDS := {
 		"Abilities": "Gain 1 {immersion} at the start of each turn.\n"\
 			+ " Increase all {stress} taken from Torment intents by 2.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Basic",
 		"_keywords": ["stress"],
 		"_upgrade_threshold_modifier": +3,
@@ -325,7 +325,7 @@ const CARDS := {
 		"Abilities": "Gain 1 {immersion} at the start of each turn.\n"\
 			+ " Increase all {stress} taken from Torment intents by 2.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Basic",
 		"_keywords": ["stress"],
 		"_is_upgrade": true,
@@ -336,7 +336,7 @@ const CARDS := {
 		"Abilities": "Gain 1 {immersion} at the start of each turn.\n"\
 			+ " Increase all {stress} taken from Torment intents by 1.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Basic",
 		"_keywords": ["stress"],
 		"_is_upgrade": true,
@@ -346,7 +346,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "Gain {defence_amount} {confidence}\nApply {effect_stacks} {confusion} to target Torment.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -367,7 +367,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "Gain {defence_amount} {confidence}\nApply {effect_stacks} {confusion} to target Torment.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -384,7 +384,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "Gain {defence_amount} {confidence}\nApply {effect_stacks} {confusion} to target Torment.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
