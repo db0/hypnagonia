@@ -10,7 +10,7 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Basic",
-		"_keywords": [],
+		"_keywords": ['forget'],
 		"_amounts": {
 			"beneficial_integer": 1,
 		},
@@ -27,7 +27,7 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Basic",
-		"_keywords": [],
+		"_keywords": ['forget'],
 		"_amounts": {
 			"beneficial_integer": 2,
 		},
@@ -40,7 +40,7 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Basic",
-		"_keywords": [],
+		"_keywords": ['forget'],
 		"_amounts": {
 			"beneficial_integer": 1,
 		},
@@ -592,7 +592,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_keywords": [],
+		"_keywords": ['forget'],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
 		},
@@ -1001,7 +1001,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
-		"_keywords": [],
+		"_keywords": ['forget'],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
 		},
@@ -1022,7 +1022,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
-		"_keywords": [],
+		"_keywords": ['forget'],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
 		},
@@ -1039,7 +1039,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
-		"_keywords": [],
+		"_keywords": ['forget'],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
 		},
