@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=1]
 [ext_resource path="res://src/dreamscape/CardLibrary/CardLibrary.tscn" type="PackedScene" id=2]
@@ -21,12 +21,18 @@
 [ext_resource path="res://assets/main_menu/card_library_button.png" type="Texture" id=19]
 [ext_resource path="res://assets/main_menu/continue_button.png" type="Texture" id=20]
 [ext_resource path="res://assets/main_menu/continue_button_pressed.png" type="Texture" id=21]
+[ext_resource path="res://src/dreamscape/MainMenu/CreditLabel.gd" type="Script" id=22]
+[ext_resource path="res://assets/icons/GUI/price-tag.png" type="Texture" id=23]
+[ext_resource path="res://src/dreamscape/GUI/ghost_rtl_effect.gd" type="Script" id=24]
 
 [sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 10 )
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+
+[sub_resource type="RichTextEffect" id=6]
+script = ExtResource( 24 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 50
@@ -91,6 +97,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Credits" type="PopupPanel" parent="."]
+margin_right = 4.0
+margin_bottom = 4.0
+
+[node name="CreditsLabel" type="RichTextLabel" parent="Credits"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 502.0
+margin_bottom = 502.0
+rect_min_size = Vector2( 500, 500 )
+bbcode_enabled = true
+custom_effects = [ SubResource( 6 ) ]
+script = ExtResource( 22 )
+
 [node name="MainMenu" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -114,8 +134,17 @@ texture_normal = ExtResource( 14 )
 expand = true
 stretch_mode = 5
 
-[node name="Push" type="Control" parent="MainMenu/CornerElements/LeftSide"]
+[node name="Credits" type="TextureButton" parent="MainMenu/CornerElements/LeftSide"]
 margin_top = 78.0
+margin_right = 75.0
+margin_bottom = 153.0
+rect_min_size = Vector2( 75, 75 )
+texture_normal = ExtResource( 23 )
+expand = true
+stretch_mode = 5
+
+[node name="Push" type="Control" parent="MainMenu/CornerElements/LeftSide"]
+margin_top = 156.0
 margin_right = 75.0
 margin_bottom = 817.0
 size_flags_vertical = 3
@@ -185,6 +214,7 @@ mouse_filter = 2
 margin_right = 1455.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 0, 150 )
+mouse_filter = 2
 texture = ExtResource( 6 )
 expand = true
 stretch_mode = 6

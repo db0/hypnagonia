@@ -872,3 +872,4 @@ const INFLUENCER := {
 #	"_texture": "res://assets/journal/torments/handsy_aunt.jpeg",
 	"_character_art": "Nobody"
 }
+
