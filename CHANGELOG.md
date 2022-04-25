@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.50.1](https://github.com/db0/hypnagonia/tree/v0.50.1) (2022-04-25)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.0...v0.50.1)
+
+**Merged pull requests:**
+
+- Added Credits and GUI Tweaks [\#305](https://github.com/db0/hypnagonia/pull/305) ([db0](https://github.com/db0))
+
 ## [v0.50.0](https://github.com/db0/hypnagonia/tree/v0.50.0) (2022-04-23)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.49.2...v0.50.0)
@@ -261,7 +269,7 @@
 
 ## [v0.39.0](https://github.com/db0/hypnagonia/tree/v0.39.0) (2022-03-17)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.37.0...v0.39.0)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.38.0...v0.39.0)
 
 **Closed issues:**
 
@@ -272,13 +280,13 @@
 
 - Enhancements and Scars can now affect more properties [\#244](https://github.com/db0/hypnagonia/pull/244) ([db0](https://github.com/db0))
 
-## [v0.37.0](https://github.com/db0/hypnagonia/tree/v0.37.0) (2022-03-16)
-
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.38.0...v0.37.0)
-
 ## [v0.38.0](https://github.com/db0/hypnagonia/tree/v0.38.0) (2022-03-16)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.36.0...v0.38.0)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.37.0...v0.38.0)
+
+## [v0.37.0](https://github.com/db0/hypnagonia/tree/v0.37.0) (2022-03-16)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.36.0...v0.37.0)
 
 **Closed issues:**
 
