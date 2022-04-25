@@ -401,7 +401,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "{damage} for {damage_amount}.\nApply {effect_stacks} {confusion}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -424,7 +424,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "{damage} for {damage_amount}.\nApply {effect_stacks} {confusion}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -441,7 +441,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "{damage} for {damage_amount}.\nApply {effect_stacks} {confusion}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -458,7 +458,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "{damage} for {damage_amount}.\nApply {effect_stacks} {confusion}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -475,7 +475,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "{damage} for {damage_amount}.\nApply {effect_stacks} {confusion}\n{release}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
