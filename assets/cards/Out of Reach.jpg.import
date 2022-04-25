@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Safety of Air.png-e9a6ec9c6ac936632db617942049b0d5.stex"
+path="res://.import/Out of Reach.jpg-f38999c0db005d397b8316acb9f22d25.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/Safety of Air.png"
-dest_files=[ "res://.import/Safety of Air.png-e9a6ec9c6ac936632db617942049b0d5.stex" ]
+source_file="res://assets/cards/Out of Reach.jpg"
+dest_files=[ "res://.import/Out of Reach.jpg-f38999c0db005d397b8316acb9f22d25.stex" ]
 
 [params]
 

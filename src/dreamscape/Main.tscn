@@ -34,4 +34,4 @@ size = Vector2( 400, 520 )
 margin_top = 524.0
 margin_right = 400.0
 margin_bottom = 524.0
-custom_constants/separation = -1
+custom_constants/separation = 5

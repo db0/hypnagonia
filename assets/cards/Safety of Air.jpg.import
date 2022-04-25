@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Noisy Whip.png-21c0463bac9a04a5f2ec7d8ddc5dff8e.stex"
+path="res://.import/Safety of Air.jpg-862dca119609d510da94690f20c3178e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/Noisy Whip.png"
-dest_files=[ "res://.import/Noisy Whip.png-21c0463bac9a04a5f2ec7d8ddc5dff8e.stex" ]
+source_file="res://assets/cards/Safety of Air.jpg"
+dest_files=[ "res://.import/Safety of Air.jpg-862dca119609d510da94690f20c3178e.stex" ]
 
 [params]
 

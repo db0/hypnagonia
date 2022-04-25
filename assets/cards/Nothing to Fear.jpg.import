@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Dive-in.png-c7a5213694b744645371bb377cb87a70.stex"
+path="res://.import/Nothing to Fear.jpg-5efdcfd82984640c625305a538f0fea9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/Dive-in.png"
-dest_files=[ "res://.import/Dive-in.png-c7a5213694b744645371bb377cb87a70.stex" ]
+source_file="res://assets/cards/Nothing to Fear.jpg"
+dest_files=[ "res://.import/Nothing to Fear.jpg-5efdcfd82984640c625305a538f0fea9.stex" ]
 
 [params]
 
