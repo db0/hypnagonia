@@ -2,8 +2,8 @@ shader_type canvas_item;
 // Using code from
 
 
-// thiagoborn for the Dreambox shader
-// https://www.shadertoy.com/view/WsBGDm
+//  bogz for the  2D Misty Shader
+// https://www.shadertoy.com/view/7lfXRB
 // Ported to Godot and customized for FragmentForge by Db0
 
 // Licence: Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License
