@@ -158,15 +158,8 @@ jobs:
         ITCH_USER: dbzer0
         PACKAGE: Hypnagonia_MacOSX.zip
         VERSION: "${{ steps.release.outputs.version }}"
-    - name: 📨 Notify Matrix General Chat
-      uses: s3krit/matrix-message-action@v0.0.3
-      with:
-        room_id: ${{ secrets.MATRIX_ROOM_ID }}
-        access_token: ${{ secrets.MATRIX_TOKEN }}
-        message: "New Release Available: [${{ steps.release.outputs.version }}](https://github.com/db0/hypnagonia/blob/main/CHANGELOG.md)"
-        server: "matrix.org"
-      if: ${{ steps.release.outputs.version != '' }}
     - name: "🔧 Publish all versions with Steamworks"
+      if: ${{ steps.release.outputs.version != '' }}
       uses: game-ci/steam-deploy@v1
       with:
         username: ${{ secrets.STEAM_USERNAME }}
@@ -181,3 +174,11 @@ jobs:
         depot2Path: StandaloneLinux64
         depot3Path: StandaloneMacOS
         releaseBranch: prerelease
+    - name: 📨 Notify Matrix General Chat
+      uses: s3krit/matrix-message-action@v0.0.3
+      with:
+        room_id: ${{ secrets.MATRIX_ROOM_ID }}
+        access_token: ${{ secrets.MATRIX_TOKEN }}
+        message: "New Release Available: [${{ steps.release.outputs.version }}](https://github.com/db0/hypnagonia/blob/main/CHANGELOG.md)"
+        server: "matrix.org"
+      if: ${{ steps.release.outputs.version != '' }}
