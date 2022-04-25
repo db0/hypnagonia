@@ -1,6 +1,7 @@
 shader_type canvas_item;
 // Using code from
 
+
 // thiagoborn for the Dreambox shader
 // https://www.shadertoy.com/view/WsBGDm
 // Ported to Godot and customized for FragmentForge by Db0
@@ -66,5 +67,7 @@ void fragment()
     
     final /= 5.0f;
 //	fragColor = vec4(mix(vec3(-0.3f), vec3(0.45, 0.4f, 0.6f) + vec3(0.6f), final), 1);
-	COLOR = vec4(mix(vec3(-0.3f), vec3(0.45, 0.4f, 0.6f) + vec3(0.6f), final), 1);
+	vec4 final_color = vec4(mix(vec3(-0.3f), vec3(0.45, 0.4f, 0.6f) + vec3(0.6f), final), 1);
+	
+	COLOR = final_color;
 }
