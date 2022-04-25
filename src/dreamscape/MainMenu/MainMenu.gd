@@ -41,6 +41,12 @@ onready var _version := $MainMenu/CornerElements/RightSide/Version
 onready var _bg_shader := $Shader
 onready var _title := $MainMenu/VBox/Margin/VBoxContainer/Title
 
+
+
+
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("Hypnagonia Version: " + CFConst.GAME_VERSION)
@@ -215,26 +221,42 @@ func _process_card_export(card_name: String) -> Dictionary:
 	card_entry['archetypes'] = Aspects.get_card_archetypes(card_name)
 	return(card_entry)
 
+
+
+
+
+
 func _switch_bg(bg_image: ImageTexture) -> void:
 	var shader_self_modulate = Color(0.26, 0.15, 0.5, 0.7)
 	bg_tween.remove_all()
 	bg_tween.interpolate_property(self,'self_modulate',
-			self_modulate, Color(0,0,0), 0.3,
+			self_modulate, Color(0,0,0), 0.5,
 			Tween.TRANS_QUAD, Tween.EASE_IN)
+			
 	bg_tween.interpolate_property(_bg_shader,'self_modulate:a',
 			_bg_shader.self_modulate.a, 0, 0.3,
 			Tween.TRANS_QUAD, Tween.EASE_IN)
 	bg_tween.start()
+	
+	
 	yield(bg_tween, "tween_all_completed")
 	texture = bg_image
 	self_modulate = Color(0,0,0)
 	bg_tween.interpolate_property(self,'self_modulate',
-			self_modulate, Color(1,1,1), 1.0,
+			self_modulate, Color(1,1,1,0.6), 1.0,
 			Tween.TRANS_SINE, Tween.EASE_OUT)
+			
 	bg_tween.interpolate_property(_bg_shader,'self_modulate:a',
-			_bg_shader.self_modulate.a, 0.7, 1.0,
+			_bg_shader.self_modulate.a, 0.5, 0.8,
 			Tween.TRANS_QUAD, Tween.EASE_OUT)
 	bg_tween.start()
+
+
+
+
+
+
+
 
 func _export_torments() -> Dictionary:
 	var tdict: Dictionary = {
