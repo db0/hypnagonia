@@ -20,6 +20,7 @@ const URLS := {
 	"Silberfarben": "https://www.artbreeder.com/silberfarben",
 	"Lorenzo Andreozzi": "https://tornioduva.itch.io",
 	"SkylarkGSH": "https://www.youtube.com/channel/UCQgd41luGM6QDKozglEjfVQ",
+	"axilirate": "https://www.instagram.com/axilirate/",
 }
 const BBCODE_TEXT = """
 [center]
@@ -80,7 +81,7 @@ var developers := {
 }
 var gui_designers := {
 	"Db0": "Lead UX Design",
-	"Lorenzo Andreozzi": "Card Design",
+	"axilirate": "GUI Design",
 	"Marco Thiltgen": "Game Logo",
 	"SkylarkGSH": "Asset Creation",
 }

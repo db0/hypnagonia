@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=1]
 [ext_resource path="res://src/dreamscape/CardLibrary/CardLibrary.tscn" type="PackedScene" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://src/dreamscape/MainMenu/CreditLabel.gd" type="Script" id=22]
 [ext_resource path="res://assets/icons/GUI/price-tag.png" type="Texture" id=23]
 [ext_resource path="res://src/dreamscape/GUI/ghost_rtl_effect.gd" type="Script" id=24]
+[ext_resource path="res://themes/darktheme/StyleBox/Opaque.tres" type="StyleBox" id=25]
 
 [sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 10 )
@@ -56,7 +57,7 @@ __meta__ = {
 }
 
 [node name="Shader" type="ColorRect" parent="."]
-self_modulate = Color( 1, 1, 1, 0.294118 )
+self_modulate = Color( 0.258824, 0.14902, 0.501961, 0.705882 )
 material = SubResource( 5 )
 margin_right = 1455.0
 margin_bottom = 900.0
@@ -100,6 +101,7 @@ __meta__ = {
 [node name="Credits" type="PopupPanel" parent="."]
 margin_right = 4.0
 margin_bottom = 4.0
+custom_styles/panel = ExtResource( 25 )
 
 [node name="CreditsLabel" type="RichTextLabel" parent="Credits"]
 margin_left = 2.0
