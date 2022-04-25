@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Confounding Movements.png-f3070a85c4cf0343fad3fd9ae87155ca.stex"
+path="res://.import/Noisy Whip.jpg-c62266f46654d3d89674a6230d6421fc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/Confounding Movements.png"
-dest_files=[ "res://.import/Confounding Movements.png-f3070a85c4cf0343fad3fd9ae87155ca.stex" ]
+source_file="res://assets/cards/Noisy Whip.jpg"
+dest_files=[ "res://.import/Noisy Whip.jpg-c62266f46654d3d89674a6230d6421fc.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Nothing to Fear.png-304e36316df9fee7f948f131348c7653.stex"
+path="res://.import/Confounding Movements.jpg-e80cde9fb7e6d5c6b3b91aaeb85deb75.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/Nothing to Fear.png"
-dest_files=[ "res://.import/Nothing to Fear.png-304e36316df9fee7f948f131348c7653.stex" ]
+source_file="res://assets/cards/Confounding Movements.jpg"
+dest_files=[ "res://.import/Confounding Movements.jpg-e80cde9fb7e6d5c6b3b91aaeb85deb75.stex" ]
 
 [params]
 
