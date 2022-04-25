@@ -43,6 +43,7 @@ const CARD_IMAGES := {
 	"Nothing to Fear": "res://assets/cards/Nothing to Fear.png",
 	"Out of Reach": "res://assets/cards/Out of Reach.png",
 	"Confounding Movements": "res://assets/cards/Confounding Movements.png",
+	"Noisy Whip": "res://assets/cards/Noisy Whip.png",
 	
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Stuffed Toy": "res://assets/journal/torments/stuffed_toy.jpeg",

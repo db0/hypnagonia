@@ -57,7 +57,7 @@ __meta__ = {
 }
 
 [node name="Shader" type="ColorRect" parent="."]
-self_modulate = Color( 0.258824, 0.14902, 0.501961, 0.705882 )
+self_modulate = Color( 0.498039, 0.294118, 0.933333, 0.509804 )
 material = SubResource( 5 )
 margin_right = 1455.0
 margin_bottom = 900.0
