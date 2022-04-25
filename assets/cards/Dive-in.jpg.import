@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Out of Reach.png-72bdade0c25151f9eaeaba4fb90dbac9.stex"
+path="res://.import/Dive-in.jpg-2b65f3970527d247078d3e272f5295d9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/Out of Reach.png"
-dest_files=[ "res://.import/Out of Reach.png-72bdade0c25151f9eaeaba4fb90dbac9.stex" ]
+source_file="res://assets/cards/Dive-in.jpg"
+dest_files=[ "res://.import/Dive-in.jpg-2b65f3970527d247078d3e272f5295d9.stex" ]
 
 [params]
 
