@@ -63,6 +63,7 @@ margin_right = 1455.0
 margin_bottom = 900.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -116,17 +117,24 @@ script = ExtResource( 22 )
 [node name="MainMenu" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_constants/margin_right = 30
+custom_constants/margin_top = 30
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 30
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CornerElements" type="HBoxContainer" parent="MainMenu"]
-margin_right = 1455.0
-margin_bottom = 900.0
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 1425.0
+margin_bottom = 870.0
 
 [node name="LeftSide" type="VBoxContainer" parent="MainMenu/CornerElements"]
 margin_right = 75.0
-margin_bottom = 900.0
+margin_bottom = 840.0
+custom_constants/separation = 30
 
 [node name="Readme" type="TextureButton" parent="MainMenu/CornerElements/LeftSide"]
 margin_right = 75.0
@@ -137,24 +145,24 @@ expand = true
 stretch_mode = 5
 
 [node name="Credits" type="TextureButton" parent="MainMenu/CornerElements/LeftSide"]
-margin_top = 78.0
+margin_top = 105.0
 margin_right = 75.0
-margin_bottom = 153.0
+margin_bottom = 180.0
 rect_min_size = Vector2( 75, 75 )
 texture_normal = ExtResource( 23 )
 expand = true
 stretch_mode = 5
 
 [node name="Push" type="Control" parent="MainMenu/CornerElements/LeftSide"]
-margin_top = 156.0
+margin_top = 210.0
 margin_right = 75.0
-margin_bottom = 817.0
+margin_bottom = 730.0
 size_flags_vertical = 3
 
 [node name="Exit" type="TextureButton" parent="MainMenu/CornerElements/LeftSide"]
-margin_top = 820.0
+margin_top = 760.0
 margin_right = 75.0
-margin_bottom = 900.0
+margin_bottom = 840.0
 rect_min_size = Vector2( 0, 80 )
 texture_normal = ExtResource( 16 )
 texture_pressed = ExtResource( 15 )
@@ -163,14 +171,14 @@ stretch_mode = 5
 
 [node name="Push" type="Control" parent="MainMenu/CornerElements"]
 margin_left = 78.0
-margin_right = 1377.0
-margin_bottom = 900.0
+margin_right = 1317.0
+margin_bottom = 840.0
 size_flags_horizontal = 3
 
 [node name="RightSide" type="VBoxContainer" parent="MainMenu/CornerElements"]
-margin_left = 1380.0
-margin_right = 1455.0
-margin_bottom = 900.0
+margin_left = 1320.0
+margin_right = 1395.0
+margin_bottom = 840.0
 
 [node name="Settings" type="TextureButton" parent="MainMenu/CornerElements/RightSide"]
 margin_right = 75.0
@@ -183,24 +191,26 @@ stretch_mode = 5
 [node name="Push" type="Control" parent="MainMenu/CornerElements/RightSide"]
 margin_top = 78.0
 margin_right = 75.0
-margin_bottom = 876.0
+margin_bottom = 816.0
 size_flags_vertical = 3
 
 [node name="Version" type="Label" parent="MainMenu/CornerElements/RightSide"]
-margin_top = 879.0
+margin_top = 819.0
 margin_right = 75.0
-margin_bottom = 900.0
+margin_bottom = 840.0
 text = "v0.14.0"
 align = 2
 
 [node name="VBox" type="VBoxContainer" parent="MainMenu"]
-margin_right = 1455.0
-margin_bottom = 900.0
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 1425.0
+margin_bottom = 870.0
 mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="Margin" type="MarginContainer" parent="MainMenu/VBox"]
-margin_right = 1455.0
+margin_right = 1395.0
 margin_bottom = 307.0
 mouse_filter = 2
 size_flags_horizontal = 3
@@ -208,12 +218,12 @@ custom_constants/margin_top = 90
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/VBox/Margin"]
 margin_top = 90.0
-margin_right = 1455.0
+margin_right = 1395.0
 margin_bottom = 307.0
 mouse_filter = 2
 
 [node name="Title" type="TextureRect" parent="MainMenu/VBox/Margin/VBoxContainer"]
-margin_right = 1455.0
+margin_right = 1395.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 0, 150 )
 mouse_filter = 2
@@ -223,7 +233,7 @@ stretch_mode = 6
 
 [node name="Subtitle" type="Label" parent="MainMenu/VBox/Margin/VBoxContainer"]
 margin_top = 153.0
-margin_right = 1455.0
+margin_right = 1395.0
 margin_bottom = 217.0
 custom_fonts/font = SubResource( 3 )
 text = "Therapy through Nightmares"
@@ -231,17 +241,17 @@ align = 1
 
 [node name="Center" type="CenterContainer" parent="MainMenu/VBox"]
 margin_top = 310.0
-margin_right = 1455.0
-margin_bottom = 900.0
+margin_right = 1395.0
+margin_bottom = 840.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="VButtons" type="VBoxContainer" parent="MainMenu/VBox/Center"]
-margin_left = 577.0
-margin_top = 100.0
-margin_right = 877.0
-margin_bottom = 490.0
+margin_left = 547.0
+margin_top = 70.0
+margin_right = 847.0
+margin_bottom = 460.0
 rect_min_size = Vector2( 192, 0 )
 custom_constants/separation = 30
 
@@ -293,6 +303,7 @@ anchor_bottom = 1.0
 mouse_filter = 2
 custom_styles/panel = SubResource( 4 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
