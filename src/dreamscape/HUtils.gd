@@ -157,7 +157,11 @@ static func get_all_card_variants(card_name: String) -> Array:
 	if cfc.card_definitions[card_name].has("_upgrades"):
 		all_variants += cfc.card_definitions[card_name]["_upgrades"]
 	elif cfc.card_definitions[card_name].get("_is_upgrade", false):
-		all_variants.append(find_upgrade_parent(card_name))
+		var upgrade_parent = find_upgrade_parent(card_name)
+		all_variants.append(upgrade_parent)
+		for variant in get_all_card_variants(upgrade_parent):
+			if not all_variants.has(variant):
+				all_variants.append(variant)
 	return(all_variants)
 
 

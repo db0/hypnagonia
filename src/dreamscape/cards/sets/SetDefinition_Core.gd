@@ -4518,7 +4518,7 @@ const CARDS := {
 	},
 	"I'll Show Them All": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.swift.name],
+		"Tags": [Terms.GENERIC_TAGS.once_off.name, Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Remove all {buffer}: Gain that much {immersion} "\
 				+ "and draw that many cards + {draw_amount}.",
 		"Cost": 0,
@@ -4540,7 +4540,7 @@ const CARDS := {
 	},
 	"! I'll Show Them All !": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.swift.name],
+		"Tags": [Terms.GENERIC_TAGS.once_off.name, Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Remove all {buffer}: Gain that much {immersion} "\
 				+ "and draw that many cards + {draw_amount}.",
 		"Cost": 0,
@@ -4558,7 +4558,7 @@ const CARDS := {
 	},
 	"@ I'll Show Them All @": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.swift.name],
+		"Tags": [Terms.GENERIC_TAGS.once_off.name, Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Remove all {buffer}: Gain that much {immersion} + {immersion_amount} "\
 				+ "and draw that many cards + 1.",
 		"Cost": 0,

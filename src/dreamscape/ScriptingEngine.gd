@@ -748,6 +748,7 @@ func confirm_play(script: ScriptTask) -> int:
 				cfc.NMAP.board.dreamer.upgrades_increased += 1
 		# warning-ignore:return_value_discarded
 		TurnEventMessage.new("cards_played", +1)
+		TurnRecordCardPlayMessage.new(script.owner.canonical_name)
 		var card_type_event = script.owner.get_property("Type") + "_played"
 		# warning-ignore:return_value_discarded
 		TurnEventMessage.new(card_type_event, +1)
