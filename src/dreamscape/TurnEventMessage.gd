@@ -3,8 +3,6 @@
 class_name TurnEventMessage
 extends Reference
 
-# We're kinda cheating here by using a static function which relies on a global.
-# Hopefully won't crash on testing
 func _init(event_name: String, modification: int, is_delayed := false) -> void:
 	# TODO: Add recording for run events
 	# E.g. Total amount of damage taken during whole run etc.

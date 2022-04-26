@@ -433,6 +433,10 @@ func check_play_costs() -> Color:
 	if properties.get("Tags", []).has(Terms.GENERIC_TAGS.init.name)\
 			and cfc.NMAP.board.turn.turn_event_count.get("cards_played", 0) > 0:
 		ret = CFConst.CostsState.IMPOSSIBLE
+	if properties.get("Tags", []).has(Terms.GENERIC_TAGS.once_off.name):
+		for variant in HUtils.get_all_card_variants(canonical_name):
+			if cfc.NMAP.board.turn.turn_cards_played.get(variant, 0) > 0:
+				ret = CFConst.CostsState.IMPOSSIBLE
 	# Distracted Perturbation
 	if typeof(properties.get("Cost")) == TYPE_INT\
 			and immersion_cost >= 2\

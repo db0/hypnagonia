@@ -33,6 +33,10 @@ var turn_event_count := {}
 # Tracks how many event of any type have happened throughout the game
 # These events do not reset turn to turn, but only between encounters
 var encounter_event_count := {}
+# Tracks the card names of cards played and the amount of times in this turn
+var turn_cards_played := {}
+# Tracks the card names of cards played and the amount of times in this ordeal
+var encounter_cards_played := {}
 # Tracks whose turn it currently is, the player's, or the enemies.
 var current_turn : int = Turns.PLAYER_TURN
 
@@ -82,6 +86,7 @@ func end_enemy_turn() -> void:
 func _reset_turn() -> void:
 	firsts.clear()
 	turn_event_count.clear()
+	turn_cards_played.clear()
 	applied_effects.clear()
 
 func _on_deck_shuffled(_deck) -> void:

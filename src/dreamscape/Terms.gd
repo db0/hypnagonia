@@ -832,6 +832,11 @@ const GENERIC_TAGS := {
 		"icon": preload("res://assets/icons/star-pupil.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/star-pupil.png",
 		"generic_description": "{effect_name} ({effect_icon}): This card has an effect which is triggered as soon as an Ordeal starts"},
+	"once_off": {
+		"name": "Burnout",
+		"icon": preload("res://assets/icons/burning-passion.png"),
+		"rich_text_icon": "res://fonts/rich_text_icons/burning-passion.png",
+		"generic_description": "[color=#A020F0]{effect_name} ({effect_icon}): This card cannot be played, if another card with the same name (including upgrades) has been played this turn.[/color]"},
 }
 
 
