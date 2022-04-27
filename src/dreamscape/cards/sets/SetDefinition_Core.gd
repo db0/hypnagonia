@@ -489,7 +489,7 @@ const CARDS := {
 	},
 	"Inner Justice": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.purpose.name],
+		"Tags": [Terms.GENERIC_TAGS.once_off.name, Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.purpose.name],
 		"Abilities": "Gain {immersion_amount} {immersion}. Take {exert_amount} {anxiety}",
 		"Cost": 3,
 		"_illustration": "Cabbage",
@@ -507,7 +507,7 @@ const CARDS := {
 	},
 	"@ Inner Justice @": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.purpose.name],
+		"Tags": [Terms.GENERIC_TAGS.once_off.name, Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.purpose.name],
 		"Abilities": "Gain {immersion_amount} {immersion}. Take {exert_amount} {anxiety}",
 		"Cost": 2,
 		"_illustration": "Nobody",
@@ -520,7 +520,7 @@ const CARDS := {
 	},
 	"+ Inner Justice +": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.purpose.name],
+		"Tags": [Terms.GENERIC_TAGS.once_off.name, Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.purpose.name],
 		"Abilities": "Gain {immersion_amount} {immersion}. Take {exert_amount} {anxiety}",
 		"Cost": 4,
 		"_illustration": "Nobody",
@@ -533,7 +533,7 @@ const CARDS := {
 	},
 	"~ Inner Justice ~": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.slumber.name],
+		"Tags": [Terms.GENERIC_TAGS.once_off.name, Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {immersion_amount} {immersion}. Take {exert_amount} {anxiety}\n{forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
