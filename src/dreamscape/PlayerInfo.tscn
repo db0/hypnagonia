@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/icons/GUI/cog.png" type="Texture" id=1]
 [ext_resource path="res://src/dreamscape/PlayerInfo.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://assets/icons/GUI/info.png" type="Texture" id=11]
 [ext_resource path="res://src/dreamscape/Tutorials/Tutorial.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/icons/GUI/InfoPanel.png" type="Texture" id=13]
+[ext_resource path="res://themes/darktheme/StyleBox/Opaque.tres" type="StyleBox" id=14]
 
 [sub_resource type="StyleBoxTexture" id=9]
 content_margin_bottom = 10.0
@@ -192,6 +193,7 @@ margin_top = 7.0
 margin_right = 310.0
 margin_bottom = 56.0
 theme = ExtResource( 10 )
+custom_styles/panel = ExtResource( 14 )
 
 [node name="VBC" type="VBoxContainer" parent="PathosDetails"]
 margin_left = 2.0

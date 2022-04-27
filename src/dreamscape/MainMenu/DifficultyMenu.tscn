@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/dreamscape/MainMenu/DifficultyMenu.gd" type="Script" id=2]
+[ext_resource path="res://themes/darktheme/StyleBox/Opaque.tres" type="StyleBox" id=3]
 [ext_resource path="res://src/dreamscape/MainMenu/DifficultyCheckbox.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/dreamscape/MainMenu/DifficultySlider.tscn" type="PackedScene" id=5]
 
@@ -28,23 +29,23 @@ __meta__ = {
 }
 
 [node name="PC" type="PanelContainer" parent="."]
-self_modulate = Color( 1, 1, 1, 0.690196 )
 margin_left = 502.0
-margin_top = 119.0
+margin_top = 124.0
 margin_right = 952.0
-margin_bottom = 780.0
+margin_bottom = 775.0
 rect_min_size = Vector2( 450, 0 )
+custom_styles/panel = ExtResource( 3 )
 
 [node name="VBC" type="VBoxContainer" parent="PC"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 443.0
-margin_bottom = 654.0
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 448.0
+margin_bottom = 649.0
 size_flags_horizontal = 3
 custom_constants/separation = 20
 
 [node name="TotalDifficulty" type="Label" parent="PC/VBC"]
-margin_right = 436.0
+margin_right = 446.0
 margin_bottom = 35.0
 custom_fonts/font = SubResource( 4 )
 text = "Difficulty: 0"
@@ -53,7 +54,7 @@ align = 1
 [node name="PreventCardBasicRelease" parent="PC/VBC" instance=ExtResource( 4 )]
 modulate = Color( 1, 0.403922, 0.403922, 1 )
 margin_top = 55.0
-margin_right = 436.0
+margin_right = 446.0
 margin_bottom = 81.0
 difficulty_key = "prevent_basic_cards_release"
 
@@ -64,7 +65,7 @@ text = "Basic cards lose release upgrade"
 [node name="DesireCuriosGivePerturbation" parent="PC/VBC" instance=ExtResource( 4 )]
 modulate = Color( 1, 0.403922, 0.403922, 1 )
 margin_top = 101.0
-margin_right = 436.0
+margin_right = 446.0
 margin_bottom = 127.0
 difficulty_key = "desire_curios_give_perturbation"
 
@@ -75,7 +76,7 @@ text = "Desire curios might give perturbations"
 [node name="LowerUpgradedDraftChance" parent="PC/VBC" instance=ExtResource( 4 )]
 modulate = Color( 1, 0.403922, 0.403922, 1 )
 margin_top = 147.0
-margin_right = 436.0
+margin_right = 446.0
 margin_bottom = 173.0
 difficulty_key = "lower_upgraded_draft_chance"
 
@@ -86,7 +87,7 @@ text = "Reduced chance to find upgraded cards"
 [node name="UnremovablePerturbation" parent="PC/VBC" instance=ExtResource( 4 )]
 modulate = Color( 1, 0.403922, 0.403922, 1 )
 margin_top = 193.0
-margin_right = 436.0
+margin_right = 446.0
 margin_bottom = 219.0
 difficulty_key = "unremovable_perturbation"
 
@@ -97,7 +98,7 @@ text = "Add Special Perturbation"
 [node name="PermanentDefence" parent="PC/VBC" instance=ExtResource( 4 )]
 modulate = Color( 0.403922, 1, 0.509804, 1 )
 margin_top = 239.0
-margin_right = 436.0
+margin_right = 446.0
 margin_bottom = 265.0
 difficulty_key = "permanent_defence"
 
@@ -108,7 +109,7 @@ text = "Permanent Confidence"
 [node name="PermanentImmersion" parent="PC/VBC" instance=ExtResource( 4 )]
 modulate = Color( 0.403922, 1, 0.509804, 1 )
 margin_top = 285.0
-margin_right = 436.0
+margin_right = 446.0
 margin_bottom = 311.0
 difficulty_key = "permanent_immersion"
 
@@ -119,7 +120,7 @@ text = "Permanent Immersion"
 [node name="StartingPerturbations" parent="PC/VBC" instance=ExtResource( 5 )]
 modulate = Color( 1, 0.403922, 0.403922, 1 )
 margin_top = 331.0
-margin_right = 436.0
+margin_right = 446.0
 margin_bottom = 349.0
 difficulty_key = "starting_perturbations"
 
@@ -127,16 +128,16 @@ difficulty_key = "starting_perturbations"
 text = "Starting perturbations"
 
 [node name="Slider" parent="PC/VBC/StartingPerturbations" index="1"]
-margin_right = 377.0
+margin_right = 387.0
 
 [node name="Result" parent="PC/VBC/StartingPerturbations" index="2"]
-margin_left = 381.0
-margin_right = 436.0
+margin_left = 391.0
+margin_right = 446.0
 
 [node name="IncreaseProgressReq" parent="PC/VBC" instance=ExtResource( 5 )]
 modulate = Color( 1, 0.403922, 0.403922, 1 )
 margin_top = 369.0
-margin_right = 436.0
+margin_right = 446.0
 margin_bottom = 387.0
 difficulty_key = "progress_increase"
 
@@ -144,17 +145,17 @@ difficulty_key = "progress_increase"
 text = "Increase progress req."
 
 [node name="Slider" parent="PC/VBC/IncreaseProgressReq" index="1"]
-margin_right = 377.0
+margin_right = 387.0
 max_value = 12.0
 step = 4.0
 
 [node name="Result" parent="PC/VBC/IncreaseProgressReq" index="2"]
-margin_left = 381.0
-margin_right = 436.0
+margin_left = 391.0
+margin_right = 446.0
 
 [node name="ActHealing" parent="PC/VBC" instance=ExtResource( 5 )]
 margin_top = 407.0
-margin_right = 436.0
+margin_right = 446.0
 margin_bottom = 425.0
 difficulty_key = "act_healing"
 result_type = 1
@@ -163,17 +164,17 @@ result_type = 1
 text = "End-of-act relaxation"
 
 [node name="Slider" parent="PC/VBC/ActHealing" index="1"]
-margin_right = 377.0
+margin_right = 387.0
 min_value = -1.0
 max_value = 2.0
 
 [node name="Result" parent="PC/VBC/ActHealing" index="2"]
-margin_left = 381.0
-margin_right = 436.0
+margin_left = 391.0
+margin_right = 446.0
 
 [node name="ShopPrices" parent="PC/VBC" instance=ExtResource( 5 )]
 margin_top = 445.0
-margin_right = 436.0
+margin_right = 446.0
 margin_bottom = 463.0
 difficulty_key = "shop_prices"
 result_type = 1
@@ -182,18 +183,18 @@ result_type = 1
 text = "Shop prices"
 
 [node name="Slider" parent="PC/VBC/ShopPrices" index="1"]
-margin_right = 377.0
+margin_right = 387.0
 min_value = -1.0
 max_value = 1.0
 tick_count = 3
 
 [node name="Result" parent="PC/VBC/ShopPrices" index="2"]
-margin_left = 381.0
-margin_right = 436.0
+margin_left = 391.0
+margin_right = 446.0
 
 [node name="MaxAnxiety" parent="PC/VBC" instance=ExtResource( 5 )]
 margin_top = 483.0
-margin_right = 436.0
+margin_right = 446.0
 margin_bottom = 501.0
 difficulty_key = "max_health"
 result_type = 1
@@ -202,19 +203,19 @@ result_type = 1
 text = "Max anxiety"
 
 [node name="Slider" parent="PC/VBC/MaxAnxiety" index="1"]
-margin_right = 377.0
+margin_right = 387.0
 min_value = -3.0
 max_value = 2.0
 tick_count = 6
 
 [node name="Result" parent="PC/VBC/MaxAnxiety" index="2"]
-margin_left = 381.0
-margin_right = 436.0
+margin_left = 391.0
+margin_right = 446.0
 
 [node name="StartingAnxiety" parent="PC/VBC" instance=ExtResource( 5 )]
 modulate = Color( 1, 0.403922, 0.403922, 1 )
 margin_top = 521.0
-margin_right = 436.0
+margin_right = 446.0
 margin_bottom = 539.0
 difficulty_key = "starting_damage"
 result_type = 1
@@ -223,17 +224,17 @@ result_type = 1
 text = "Starting anxiety"
 
 [node name="Slider" parent="PC/VBC/StartingAnxiety" index="1"]
-margin_right = 377.0
+margin_right = 387.0
 max_value = 4.0
 tick_count = 5
 
 [node name="Result" parent="PC/VBC/StartingAnxiety" index="2"]
-margin_left = 381.0
-margin_right = 436.0
+margin_left = 391.0
+margin_right = 446.0
 
 [node name="EncounterDifficulty" parent="PC/VBC" instance=ExtResource( 5 )]
 margin_top = 559.0
-margin_right = 436.0
+margin_right = 446.0
 margin_bottom = 577.0
 difficulty_key = "encounter_difficulty"
 result_type = 2
@@ -242,17 +243,17 @@ result_type = 2
 text = "Encounter Difficulty"
 
 [node name="Slider" parent="PC/VBC/EncounterDifficulty" index="1"]
-margin_right = 377.0
+margin_right = 387.0
 min_value = -2.0
 tick_count = 6
 
 [node name="Result" parent="PC/VBC/EncounterDifficulty" index="2"]
-margin_left = 381.0
-margin_right = 436.0
+margin_left = 391.0
+margin_right = 446.0
 
 [node name="Back" type="Button" parent="PC/VBC"]
 margin_top = 597.0
-margin_right = 436.0
+margin_right = 446.0
 margin_bottom = 647.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3

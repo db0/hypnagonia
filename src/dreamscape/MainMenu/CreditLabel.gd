@@ -74,6 +74,7 @@ Made using the [url=Godot]Godot Engine[/url] and the [url=CGF]Card Game Framewor
 var game_designers := {
 	"Db0": "Lead Game Design",
 	"DioBal": "Game Design",
+	"Questlion": "Archetype Design",
 	"SkylarkGSH": "Archetype Design",
 }
 var developers := {
