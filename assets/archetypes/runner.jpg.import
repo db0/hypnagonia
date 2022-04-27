@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/flyer.png-9ae93a7e80e53f1f9deb7a9affefc40b.stex"
+path="res://.import/runner.jpg-5671652b715ae556ff6fe09355c7f1b0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/archetypes/flyer.png"
-dest_files=[ "res://.import/flyer.png-9ae93a7e80e53f1f9deb7a9affefc40b.stex" ]
+source_file="res://assets/archetypes/runner.jpg"
+dest_files=[ "res://.import/runner.jpg-5671652b715ae556ff6fe09355c7f1b0.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

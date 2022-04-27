@@ -9,7 +9,7 @@ extends Reference
 
 const FLYER:= {
 	"Anxiety": 5,
-	"Icon": preload("res://assets/archetypes/flyer.png"),
+	"Icon": preload("res://assets/archetypes/flyer.jpg"),
 	"Tags": [
 		Terms.ACTIVE_EFFECTS.impervious.name,
 		Terms.GENERIC_TAGS.relax.name,
@@ -58,6 +58,7 @@ const FLYER:= {
 
 const MAD_SCIENTIST := {
 #	"Icon": preload("res://icon.png"),
+	"Icon": preload("res://assets/archetypes/Mad Scientist.jpg"),
 	"Tags": [
 		Terms.GENERIC_TAGS.spark.name,
 		Terms.ACTIVE_EFFECTS.buffer.name,
