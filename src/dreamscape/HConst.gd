@@ -103,6 +103,7 @@ const DETRIMENTAL_TAGS := [
 	Terms.GENERIC_TAGS.omega.name,
 	Terms.GENERIC_TAGS.end_turn.name,
 	Terms.GENERIC_TAGS.init.name,
+	Terms.GENERIC_TAGS.once_off.name,
 ]
 const SPECIAL_MODS := {
 	"scar": [
