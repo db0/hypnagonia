@@ -4,7 +4,7 @@ const COUNTER_DESCRIPTIONS := {
 	"immersion": {
 		"CounterTitle": "Immersion: ",
 		"Description": "Immersion: Each card you play costs some. "\
-				+ "You cannot play cards which cost more Immersion that you have available",
+				+ "You cannot play cards which cost more Immersion than you have available",
 		"Value": 0},
 	}
 
