@@ -3012,7 +3012,7 @@ const CARDS := {
 		"Abilities": "Gain {immersion_amount} {immersion}\nGain {effect_stacks} {drain}\n{forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
-		"_rarity": "Uncommon",
+		"_rarity": "Common",
 		"_keywords": ["forget"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.drain.name: Terms.PLAYER
@@ -3033,7 +3033,7 @@ const CARDS := {
 		"Abilities": "Gain {immersion_amount} {immersion}\nDraw {draw_amount} card\nGain {effect_stacks} {drain}\n{forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
-		"_rarity": "Uncommon",
+		"_rarity": "Common",
 		"_keywords": ["forget"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.drain.name: Terms.PLAYER
@@ -3051,7 +3051,7 @@ const CARDS := {
 		"Abilities": "Gain {immersion_amount} {immersion}\nGain {effect_stacks} {drain}\n{forget}",
 		"Cost": 0,
 		"_illustration": "Nobody",
-		"_rarity": "Uncommon",
+		"_rarity": "Common",
 		"_keywords": ["forget"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.drain.name: Terms.PLAYER
@@ -3252,12 +3252,12 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "Take {exert_amount} {anxiety}\nGain {defence_amount} {defence}",
-		"Cost": 1,
+		"Cost": 0,
 		"_illustration": "Cabbage",
 		"_rarity": "Common",
 		"_keywords": ["confidence", "anxiety"],
 		"_amounts": {
-			"exert_amount": 2,
+			"exert_amount": 3,
 			"defence_amount": 14
 		},
 		"_upgrade_threshold_modifier": 0,
@@ -3270,12 +3270,12 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "Take {exert_amount} {anxiety}\nGain {defence_amount} {defence}",
-		"Cost": 1,
+		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": ["confidence", "anxiety"],
 		"_amounts": {
-			"exert_amount": 2,
+			"exert_amount": 3,
 			"defence_amount": 17
 		},
 		"_is_upgrade": true,
@@ -3284,12 +3284,12 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "Take {exert_amount} {anxiety}\nGain {defence_amount} {defence}",
-		"Cost": 1,
+		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": ["confidence", "anxiety"],
 		"_amounts": {
-			"exert_amount": 1,
+			"exert_amount": 3,
 			"defence_amount": 15
 		},
 		"_is_upgrade": true,
@@ -3298,7 +3298,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "Take {exert_amount} {anxiety}\n{damage} for {damage_amount}.",
-		"Cost": 1,
+		"Cost": 0,
 		"_illustration": "Cabbage",
 		"_rarity": "Common",
 		"_keywords": ["interpretation", "anxiety"],
@@ -3316,7 +3316,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "Take {exert_amount} {anxiety}\n{damage} for {damage_amount}.",
-		"Cost": 1,
+		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": ["interpretation", "anxiety"],
@@ -3330,7 +3330,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "Take {exert_amount} {anxiety}\n{damage} for {damage_amount}.",
-		"Cost": 1,
+		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": ["interpretation", "anxiety"],
@@ -3352,7 +3352,7 @@ const CARDS := {
 		},
 		"_rarity": "Rare",
 		"_amounts": {
-			"concentration_stacks": 1,
+			"concentration_stacks": 2,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -3372,7 +3372,7 @@ const CARDS := {
 		},
 		"_rarity": "Rare",
 		"_amounts": {
-			"concentration_stacks": 1,
+			"concentration_stacks": 2,
 		},
 		"_is_upgrade": true,
 	},
@@ -3388,7 +3388,7 @@ const CARDS := {
 		},
 		"_rarity": "Rare",
 		"_amounts": {
-			"concentration_stacks": 1,
+			"concentration_stacks": 2,
 		},
 		"_is_upgrade": true,
 	},
@@ -3513,13 +3513,13 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "{damage} all Torments by the amount of {anxiety} you've taken during your turn.",
+				+ "{damage} all Torments by the amount of {anxiety} you've taken in your turn during this ordeal.",
 		"Cost": 1,
 		"_illustration": "Cabbage",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "anxiety"],
 		"_amounts": {
-			"damage_amount": 6,
+			"damage_amount": 8,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -3531,20 +3531,20 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "{damage} all Torments by the amount of {anxiety} you've taken during your turn.",
+				+ "{damage} all Torments by the amount of {anxiety} you've taken in your turn during this ordeal.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "anxiety"],
 		"_amounts": {
-			"damage_amount": 9,
+			"damage_amount": 11,
 		},
 		"_is_upgrade": true,
 	},
 	"Justified Rancor": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
-		"Abilities": "{damage} all Torments by triple the amount of {anxiety} you've taken during your turn.",
+		"Abilities": "{damage} all Torments by triple the amount of {anxiety} you've taken in your turn during this ordeal.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -3554,7 +3554,7 @@ const CARDS := {
 	"Lash-out": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "After you take {anxiety} during your turn, {damage} a random Torment for the same amount.",
+		"Abilities": "After you take {anxiety} during your turn, {damage} a random Torment for triple that amount.",
 		"Cost": 1,
 		"_illustration": "Cabbage",
 		"_keywords": ["interpretation", "anxiety"],
@@ -3569,7 +3569,7 @@ const CARDS := {
 	"@ Lash-out @": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "After you take {anxiety} during your turn, {damage} a random Torment for the same amount.",
+		"Abilities": "After you take {anxiety} during your turn, {damage} a random Torment for triple that amount.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_keywords": ["interpretation", "anxiety"],
@@ -3579,7 +3579,7 @@ const CARDS := {
 	"^ Lash-out ^": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.alpha.name],
-		"Abilities": "After you take {anxiety} during your turn, {damage} a random Torment for the same amount.",
+		"Abilities": "After you take {anxiety} during your turn, {damage} a random Torment for triple that amount.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_keywords": ["interpretation", "anxiety"],
@@ -3589,7 +3589,7 @@ const CARDS := {
 	"Frustrated Lash-out": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.alpha.name],
-		"Abilities": "After you take {anxiety} during your turn, {damage} a random Torment for double that amount.",
+		"Abilities": "After you take {anxiety} during your turn, {damage} a random Torment for quintuple that amount.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_keywords": ["interpretation", "anxiety"],
@@ -3647,16 +3647,18 @@ const CARDS := {
 	},
 	"Is it my fault?": {
 		"Type": "Action",
-		"Tags": [Terms.GENERIC_TAGS.exert.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.protection.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "You may take {exert_amount} {anxiety} to {pierce}",
+				+ "If you've taken at least {anxiety_taken} on your turn during this ordeal "\
+				+ "{pierce} and gain {effect_stacks} {protection}",
 		"Cost": 1,
 		"_illustration": "Cabbage",
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "pierce", "anxiety"],
 		"_amounts": {
 			"damage_amount": 11,
-			"exert_amount": 3,
+			"anxiety_taken": 5,
+			"effect_stacks": 1,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -3666,31 +3668,35 @@ const CARDS := {
 	},
 	"+ Is it my fault? +": {
 		"Type": "Action",
-		"Tags": [Terms.GENERIC_TAGS.exert.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.protection.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "You may take {exert_amount} {anxiety} to {pierce}",
+				+ "If you've taken at least {anxiety_taken} on your turn during this ordeal "\
+				+ "{pierce} and gain {effect_stacks} {protection}",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "pierce", "anxiety"],
 		"_amounts": {
 			"damage_amount": 14,
-			"exert_amount": 3,
+			"anxiety_taken": 5,
+			"effect_stacks": 1,
 		},
 		"_is_upgrade": true,
 	},
 	"% Is it my fault? %": {
 		"Type": "Action",
-		"Tags": [Terms.GENERIC_TAGS.exert.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.protection.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "You may take {exert_amount} {anxiety} to {pierce}",
+				+ "If you've taken at least {anxiety_taken} on your turn during this ordeal "\
+				+ "{pierce} and gain {effect_stacks} {protection}",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_rarity": "Common",
+		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "pierce", "anxiety"],
 		"_amounts": {
 			"damage_amount": 12,
-			"exert_amount": 1,
+			"anxiety_taken": 2,
+			"effect_stacks": 1,
 		},
 		"_is_upgrade": true,
 	},
@@ -3919,7 +3925,7 @@ const CARDS := {
 		"_rarity": "Rare",
 		"_keywords": ["forget", "anxiety"],
 		"_amounts": {
-			"healing_amount": 5,
+			"healing_amount": 10,
 			"health_percent": 70,
 			"anxiety_taken": 10,
 		},
@@ -3940,7 +3946,7 @@ const CARDS := {
 		"_rarity": "Rare",
 		"_keywords": ["forget", "anxiety"],
 		"_amounts": {
-			"healing_amount": 7,
+			"healing_amount": 15,
 			"health_percent": 70,
 			"anxiety_taken": 10,
 		},
@@ -3957,7 +3963,7 @@ const CARDS := {
 		"_rarity": "Rare",
 		"_keywords": ["forget", "anxiety"],
 		"_amounts": {
-			"healing_amount": 5,
+			"healing_amount": 12,
 			"health_percent": 60,
 			"anxiety_taken": 8,
 		},
@@ -4035,7 +4041,7 @@ const CARDS := {
 		"_keywords": ["confidence", "anxiety"],
 		"_amounts": {
 			"immersion_amount": 1,
-			"defence_amount": 12,
+			"defence_amount": 14,
 			"health_percent": 70,
 		},
 		"_upgrade_threshold_modifier": 0,
@@ -4056,7 +4062,7 @@ const CARDS := {
 		"_keywords": ["confidence", "anxiety"],
 		"_amounts": {
 			"immersion_amount": 1,
-			"defence_amount": 16,
+			"defence_amount": 18,
 			"health_percent": 70,
 		},
 		"_is_upgrade": true,
@@ -4072,7 +4078,7 @@ const CARDS := {
 		"_keywords": ["confidence", "anxiety"],
 		"_amounts": {
 			"immersion_amount": 1,
-			"defence_amount": 13,
+			"defence_amount": 17,
 			"health_percent": 60,
 		},
 		"_is_upgrade": true,
@@ -4088,7 +4094,7 @@ const CARDS := {
 		"_keywords": ["confidence", "anxiety"],
 		"_amounts": {
 			"immersion_amount": 2,
-			"defence_amount": 13,
+			"defence_amount": 17,
 			"health_percent": 80,
 		},
 		"_is_upgrade": true,

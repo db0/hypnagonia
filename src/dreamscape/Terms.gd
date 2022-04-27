@@ -737,6 +737,11 @@ const GENERIC_TAGS := {
 		"icon": preload("res://assets/icons/magnifying-glass.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/magnifying-glass.png",
 		"generic_description": "{effect_name} ({effect_icon}): Increases {damage} on Torments"},
+	"player_health": {
+		"name": "Anxiety",
+		"icon": preload("res://assets/icons/heart-beats.png"),
+		"rich_text_icon": "res://fonts/rich_text_icons/heart-beats.png",
+		"generic_description": "{effect_name} ({effect_icon}): When full, the dreamer wakes up and you lose the game."},
 	"risky": {
 		"name": "Risky",
 		"icon": preload("res://assets/icons/tightrope.png"),

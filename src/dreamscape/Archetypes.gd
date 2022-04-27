@@ -386,6 +386,7 @@ const ABUSIVE_RELATIONSHIP := {
 	"Artifacts": [
 		ArtifactDefinitions.IncreaseImmersionGain,
 		ArtifactDefinitions.DecreaseExertStacks,
+		ArtifactDefinitions.LimitMaxExert,
 	],
 	"Memories": [
 		MemoryDefinitions.ExertRecovery,
@@ -407,12 +408,12 @@ const ABUSIVE_RELATIONSHIP := {
 		"Could Be Worse",
 		"Dismissal",
 		"It's not about me",
-		"Is it my fault?",
+		"Perseverance",
 	],
 	"Uncommon": [
+		"Is it my fault?",
 		"It's The Small Things",
 		"That too, shall pass",
-		"Perseverance",
 		"Flashbacks",
 		"Enough is enough!",
 		"Grit",

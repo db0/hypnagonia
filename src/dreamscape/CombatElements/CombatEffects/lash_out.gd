@@ -9,9 +9,9 @@ func _on_entity_damaged(_entity, amount, _trigger: Node, _tags: Array) -> void:
 		return
 	if entity_type != Terms.PLAYER:
 		return
-	var multiplier := 1
+	var multiplier := 3
 	if upgrade == "frustrated":
-		multiplier = 2
+		multiplier = 5
 	var all_enemies := get_tree().get_nodes_in_group("EnemyEntities")
 	CFUtils.shuffle_array(all_enemies)
 	var lash_out = [{

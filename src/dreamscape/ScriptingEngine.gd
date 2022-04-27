@@ -67,6 +67,8 @@ func _predict_script_amount(hardcoded_previous_subjects := []) -> void:
 					prediction_icon = Terms.get_term_value(script.get_property("effect_name"), "icon")
 				elif script.script_name == "assign_defence":
 					prediction_icon = Terms.get_term_value("Confidence", "icon")
+				elif script.get_property(SP.KEY_TAGS).has('Exert'):
+					prediction_icon = Terms.get_term_value("Anxiety", "icon")
 				entity.show_predictions(amount, prediction_icon)
 				var snapshot_method = "snapshot_" + script.script_name
 				# We use the "skip_sceng_snapshot" to avoid taking snapshots of predictions for followup scripts
