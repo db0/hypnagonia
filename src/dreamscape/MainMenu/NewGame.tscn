@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/dreamscape/MainMenu/NewGame.gd" type="Script" id=1]
 [ext_resource path="res://src/dreamscape/MainMenu/Archetype.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://src/dreamscape/MainMenu/DifficultyMenu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/icons/GUI/fire.png" type="Texture" id=7]
 [ext_resource path="res://assets/backgrounds/dark/6dd4ba414af241de43bb89a489fb_hires.jpeg" type="Texture" id=8]
+[ext_resource path="res://themes/darktheme/StyleBox/Opaque.tres" type="StyleBox" id=9]
 
 [node name="NewGame" type="PanelContainer"]
 self_modulate = Color( 1, 1, 1, 0 )
@@ -259,6 +260,7 @@ margin_left = 7.0
 margin_top = 7.0
 margin_right = 1448.0
 margin_bottom = 893.0
+custom_styles/panel = ExtResource( 9 )
 
 [node name="CC" type="CenterContainer" parent="ChoicePopup"]
 anchor_right = 1.0
@@ -291,11 +293,14 @@ margin_right = 800.0
 margin_bottom = 98.0
 
 [node name="Curios" parent="ChoicePopup/CC/VBC" instance=ExtResource( 5 )]
-
-[node name="CC" type="CenterContainer" parent="ChoicePopup/CC/VBC"]
 margin_top = 102.0
 margin_right = 800.0
-margin_bottom = 492.0
+margin_bottom = 182.0
+
+[node name="CC" type="CenterContainer" parent="ChoicePopup/CC/VBC"]
+margin_top = 186.0
+margin_right = 800.0
+margin_bottom = 576.0
 
 [node name="ChoiceContainer" type="GridContainer" parent="ChoicePopup/CC/VBC/CC"]
 margin_left = 265.0
@@ -308,16 +313,16 @@ columns = 5
 [node name="Archetype" parent="ChoicePopup/CC/VBC/CC/ChoiceContainer" instance=ExtResource( 2 )]
 
 [node name="StartingCardsLabel" type="Label" parent="ChoicePopup/CC/VBC"]
-margin_top = 496.0
+margin_top = 580.0
 margin_right = 800.0
-margin_bottom = 510.0
+margin_bottom = 594.0
 text = "Starting Cards"
 align = 1
 
 [node name="StartginCardsDisplay" parent="ChoicePopup/CC/VBC" instance=ExtResource( 3 )]
-margin_top = 514.0
+margin_top = 598.0
 margin_right = 800.0
-margin_bottom = 794.0
+margin_bottom = 878.0
 rect_min_size = Vector2( 800, 280 )
 
 [node name="StartingCardsPopup" type="PopupPanel" parent="."]
