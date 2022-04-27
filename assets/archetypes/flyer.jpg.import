@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/clarvoyant.png-6c4788faf375b1de1933874f224a5b32.stex"
+path="res://.import/flyer.jpg-7fd21bcc8470c6b9cae8c8ab4f994664.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/archetypes/clarvoyant.png"
-dest_files=[ "res://.import/clarvoyant.png-6c4788faf375b1de1933874f224a5b32.stex" ]
+source_file="res://assets/archetypes/flyer.jpg"
+dest_files=[ "res://.import/flyer.jpg-7fd21bcc8470c6b9cae8c8ab4f994664.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

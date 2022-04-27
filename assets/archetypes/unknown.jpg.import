@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/unknown.png-30d2e14346388fd9486ef076d44b6fb1.stex"
+path="res://.import/unknown.jpg-f52ff32fb7c12f1fab0d79931df36c45.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/archetypes/unknown.png"
-dest_files=[ "res://.import/unknown.png-30d2e14346388fd9486ef076d44b6fb1.stex" ]
+source_file="res://assets/archetypes/unknown.jpg"
+dest_files=[ "res://.import/unknown.jpg-f52ff32fb7c12f1fab0d79931df36c45.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
