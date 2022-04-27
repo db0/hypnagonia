@@ -472,7 +472,7 @@ func _input(event):
 		dreamer.health = 910
 		dreamer.damage = 56
 		# warning-ignore:return_value_discarded
-		globals.player.add_artifact(ArtifactDefinitions.ImproveImpervious.canonical_name)
+		globals.player.add_artifact(ArtifactDefinitions.LimitMaxExert.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.PurpleWave.canonical_name)
 		# warning-ignore:return_value_discarded
 #		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
@@ -480,7 +480,7 @@ func _input(event):
 		globals.player.add_memory(MemoryDefinitions.RandomChaos.canonical_name)
 		# warning-ignore:return_value_discarded
 #		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.fortify.name, 6)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 6)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 6)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.absurdity_unleashed.name, 1)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.creative_block.name, 1)
@@ -497,9 +497,14 @@ func _input(event):
 #			"Prejudice",
 #			"Self-Deception",
 #			"The Whippy-Flippy",
-			"I'll Show Them All",
-			"! I'll Show Them All !",
-			"@ I'll Show Them All @",
+			"Is it my fault?",
+			"Dismissal",
+			"Dismissal",
+			"Dismissal",
+			"Dismissal",
+			"Dismissal",
+			"Dismissal",
+			"Dismissal",
 		]:
 			var ce = CardEntry.new(c)
 			var card = ce.instance_self()

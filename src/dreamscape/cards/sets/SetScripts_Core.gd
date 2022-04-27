@@ -2090,9 +2090,9 @@ const Rancor = {
 			{
 				"name": "modify_damage",
 				"subject": "boardseek",
-				"amount": "per_turn_event_count",
+				"amount": "per_encounter_event_count",
 				"tags": ["Attack", "Card"],
-				"per_turn_event_count": {
+				"per_encounter_event_count": {
 					"event_name": "player_total_damage_own_turn",
 				},
 				"subject_count": "all",
@@ -2109,9 +2109,9 @@ const JustifiedRancor = {
 			{
 				"name": "modify_damage",
 				"subject": "boardseek",
-				"amount": "per_turn_event_count",
+				"amount": "per_encounter_event_count",
 				"tags": ["Attack", "Card"],
-				"per_turn_event_count": {
+				"per_encounter_event_count": {
 					"multiplier": 3,
 					"event_name": "player_total_damage_own_turn",
 				},
@@ -2123,7 +2123,7 @@ const JustifiedRancor = {
 		],
 	},
 }
-const LastOut = {
+const LashOut = {
 	"manual": {
 		"hand": [
 			{
@@ -2136,7 +2136,7 @@ const LastOut = {
 		],
 	},
 }
-const FrustratedLastOut = {
+const FrustratedLashOut = {
 	"manual": {
 		"hand": [
 			{
@@ -2152,47 +2152,71 @@ const FrustratedLastOut = {
 }
 const IsItMyFault = {
 	"manual": {
-		"hand": {
-			"Take Anxiety to interpret single Torment bypassing perplexity": [
-				{
-					"name": "modify_damage",
-					"subject": "dreamer",
-					"amount": {
-					"lookup_property": "_amounts",
-						"value_key": "exert_amount"
-					},
-					"tags": ["Exert", "Card"],
+		"hand": [
+			{
+				"name": "modify_damage",
+				"subject": "target",
+				"needs_subject": true,
+				"amount": {
+				"lookup_property": "_amounts",
+					"value_key": "damage_amount"
 				},
-				{
-					"name": "modify_damage",
-					"subject": "target",
-					"needs_subject": true,
-					"amount": {
-					"lookup_property": "_amounts",
-						"value_key": "damage_amount"
+				"tags": ["Attack", "Unblockable", "Card"],
+				"filter_state_subject": [{
+					"filter_group": "EnemyEntities",
+				},],
+				"filter_encounter_event_count": {
+					"event": "player_total_damage_own_turn",
+					"filter_count": {
+						"lookup_property": "_amounts",
+						"value_key": "anxiety_taken",
+						"default": 0,
 					},
-					"tags": ["Attack", "Unblockable", "Card"],
-					"filter_state_subject": [{
-						"filter_group": "EnemyEntities",
-					},],
+					"comparison": "ge",
 				},
-			],
-			"Interpret single Torment": [
-				{
-					"name": "modify_damage",
-					"subject": "target",
-					"needs_subject": true,
-					"amount": {
+			},
+			{
+				"name": "apply_effect",
+				"tags": ["Card"],
+				"effect_name": Terms.ACTIVE_EFFECTS.protection.name,
+				"subject": "dreamer",
+				"modification":  {
 					"lookup_property": "_amounts",
-						"value_key": "damage_amount"
-					},
-					"tags": ["Attack", "Card"],
-					"filter_state_subject": [{
-						"filter_group": "EnemyEntities",
-					},],
+					"value_key": "effect_stacks",
 				},
-			],
-		}
+				"filter_encounter_event_count": {
+					"event": "player_total_damage_own_turn",
+					"filter_count": {
+						"lookup_property": "_amounts",
+						"value_key": "anxiety_taken",
+						"default": 0,
+					},
+					"comparison": "ge",
+				},
+			},
+			{
+				"name": "modify_damage",
+				"subject": "target",
+				"needs_subject": true,
+				"amount": {
+				"lookup_property": "_amounts",
+					"value_key": "damage_amount"
+				},
+				"tags": ["Attack", "Card"],
+				"filter_state_subject": [{
+					"filter_group": "EnemyEntities",
+				},],
+				"filter_encounter_event_count": {
+					"event": "player_total_damage_own_turn",
+					"filter_count": {
+						"lookup_property": "_amounts",
+						"value_key": "anxiety_taken",
+						"default": 0,
+					},
+					"comparison": "lt",
+				},
+			},
+		]
 	},
 }
 const EnoughIsEnough = {
@@ -2395,10 +2419,10 @@ const Catatonia = {
 				"filter_encounter_event_count": {
 					"event": "player_total_damage_own_turn",
 					"filter_count": {
-					"lookup_property": "_amounts",
-					"value_key": "anxiety_taken",
-					"default": 0,
-				},
+						"lookup_property": "_amounts",
+						"value_key": "anxiety_taken",
+						"default": 0,
+					},
 					"comparison": "ge",
 				},
 			},
@@ -3656,8 +3680,8 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 		"It's not about me": ItsNotAboutMe,
 		"Rancor": Rancor,
 		"Justified Rancor": JustifiedRancor,
-		"Lash-out": LastOut,
-		"Frustrated Lash-out": FrustratedLastOut,
+		"Lash-out": LashOut,
+		"Frustrated Lash-out": FrustratedLashOut,
 		"Is it my fault?": IsItMyFault,
 		"Enough is enough!": EnoughIsEnough,
 		"Grit": Grit,

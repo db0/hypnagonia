@@ -842,6 +842,20 @@ const BirdHouse := {
 		"progress_amount": 10,
 	},
 }
+
+const LimitMaxExert := {
+	"canonical_name": "LimitMaxExert",
+	"name": "Limit Maximum Rationalization",
+	"description": "{artifact_name}: If you've taken at least {exert_amount} during your turn, {exert} cards do not give {anxiety} anymore.",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.BATTLE,
+	"rarity": "Uncommon",
+	"amounts": {
+		"exert_amount": 10,
+	},
+}
+
+
 ## TODO: Artifact which increases chance to find Fusion cards
 ## TODO. Scipt base doesn't exist yet
 #const DoubleMemory := {
@@ -915,6 +929,7 @@ const ARCHETYPE := [
 	IncreaseBufferStacks,
 	IncreasePoisonStacks,
 	DecreaseExertStacks,
+	LimitMaxExert,
 	DoubleFirstStartup,
 ]
 
