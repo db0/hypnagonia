@@ -783,7 +783,7 @@ const ReduceCurioRerollPerturbChance := { # TODO: Tests
 const IncreaseUpgradedDraftChance := { # TODO: Tests
 	"canonical_name": "IncreaseUpgradedDraftChance",
 	"name": "Ancient Literature",
-	"description": "{artifact_name}: Increases the chance to find an upgraded chance when drafting cards.",
+	"description": "{artifact_name}: Increases the chance to find an upgraded card when drafting cards.",
 	"icon": preload("res://assets/icons/artifacts/classical-knowledge.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",

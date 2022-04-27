@@ -867,6 +867,9 @@ const CARDS := {
 			"detriment_stacks": 1,
 			"concentration_amount": 1,
 		},
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER,
+		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ Mouse @",
@@ -888,6 +891,9 @@ const CARDS := {
 			"concentration_amount": 2,
 			"detriment_stacks": 1,
 		},
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER,
+		},
 		"_is_upgrade": true,
 	},
 	"^ Mouse ^": {
@@ -904,6 +910,9 @@ const CARDS := {
 			"immersion_amount": 1,
 			"concentration_amount": 2,
 			"detriment_stacks": 1,
+		},
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER,
 		},
 		"_is_upgrade": true,
 	},
