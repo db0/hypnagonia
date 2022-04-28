@@ -1,5 +1,29 @@
 # Changelog
 
+## [v0.50.4](https://github.com/db0/hypnagonia/tree/v0.50.4) (2022-04-28)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.3...v0.50.4)
+
+**Merged pull requests:**
+
+- fix: Rest upgrade should only do 5 steps [\#312](https://github.com/db0/hypnagonia/pull/312) ([db0](https://github.com/db0))
+- content\(art\): More Flyercards from @SkylarkHYP [\#311](https://github.com/db0/hypnagonia/pull/311) ([db0](https://github.com/db0))
+
+## [v0.50.3](https://github.com/db0/hypnagonia/tree/v0.50.3) (2022-04-27)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.2...v0.50.3)
+
+## [v0.50.2](https://github.com/db0/hypnagonia/tree/v0.50.2) (2022-04-27)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.1...v0.50.2)
+
+**Merged pull requests:**
+
+- Buffed Rationalizations and Mad Scientist Archetype image [\#310](https://github.com/db0/hypnagonia/pull/310) ([db0](https://github.com/db0))
+- gui: changed main screen buttons to text [\#308](https://github.com/db0/hypnagonia/pull/308) ([axilirate](https://github.com/axilirate))
+- GUI Improvements to Info Panels [\#307](https://github.com/db0/hypnagonia/pull/307) ([db0](https://github.com/db0))
+- gui: Better ui spacing in the main menu [\#306](https://github.com/db0/hypnagonia/pull/306) ([axilirate](https://github.com/axilirate))
+
 ## [v0.50.1](https://github.com/db0/hypnagonia/tree/v0.50.1) (2022-04-25)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.0...v0.50.1)
