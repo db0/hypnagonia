@@ -45,6 +45,8 @@ const CARD_IMAGES := {
 	"Confounding Movements": "res://assets/cards/Confounding Movements.jpg",
 	"Noisy Whip": "res://assets/cards/Noisy Whip.jpg",
 	"Keep in Mind": "res://assets/cards/Keep in Mind.jpg",
+	"Whirlwind": "res://assets/cards/whirlwind.jpg",
+	"Overview": "res://assets/cards/overview.jpg",
 	
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Stuffed Toy": "res://assets/journal/torments/stuffed_toy.jpeg",

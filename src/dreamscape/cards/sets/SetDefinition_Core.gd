@@ -549,7 +549,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -567,7 +567,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -581,7 +581,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -595,7 +595,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Remove all {defence} from target Torment.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Common",
 		"_keywords": ["perplexity"],
 		"_upgrade_threshold_modifier": 0,
@@ -609,7 +609,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.omega.name],
 		"Abilities": "Remove all {defence} from target Torment.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Common",
 		"_keywords": ["perplexity"],
 		"_is_upgrade": true,
@@ -619,7 +619,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name],
 		"Abilities": "Remove all {defence} from target Torment and apply {effect_stacks} Shaken",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Common",
 		"_keywords": ["perplexity"],
 		"_amounts": {
