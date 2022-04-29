@@ -1632,9 +1632,18 @@ const Flashbacks = {
 		],
 	},
 }
-const SustainedFlashbacks = {
+const PainfulFlashbacks = {
 	"manual": {
 		"hand": [
+			{
+				"name": "modify_damage",
+				"subject": "dreamer",
+				"amount": {
+					"lookup_property": "_amounts",
+					"value_key": "exert_amount"
+				},
+				"tags": ["Exert", "Card"],
+			},
 			{
 				"name": "draw_cards",
 				"tags": ["Card"],
@@ -3662,7 +3671,7 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 		"It's alive!": Itsalive,
 		"Detect Weaknesses": DetectWeaknesses,
 		"Flashbacks": Flashbacks,
-		"Sustained Flashbacks": SustainedFlashbacks,
+		"Painful Flashbacks": PainfulFlashbacks,
 		"Perseverance": Perseverance,
 		"Improved Perseverance": ImprovedPerseverance,
 		"It's The Small Things": ItsTheSmallThings,

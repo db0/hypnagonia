@@ -2977,13 +2977,13 @@ const CARDS := {
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"! Flashbacks !",
-			"Sustained Flashbacks",
+			"Painful Flashbacks",
 		],
 	},
 	"! Flashbacks !": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.swift.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Draw {draw_amount} card. It costs 0 {immersion} until played. {forget}",
+		"Abilities": "Draw {draw_amount} cards. They costs 0 {immersion} until played. {forget}",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -2993,16 +2993,16 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Sustained Flashbacks": {
+	"Painful Flashbacks": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.swift.name],
-		"Abilities": "Draw {draw_amount} card. It costs 0 {immersion} until played.",
+		"Tags": [Terms.GENERIC_TAGS.swift.name,Terms.GENERIC_TAGS.exert.name],
+		"Abilities": "Take {exert_amount} {anxiety}.\nDraw {draw_amount} card. It costs 0 {immersion} until played.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
-		"_avoid_normal_discard": true,
 		"_amounts": {
 			"draw_amount": 1,
+			"exert_amount": 3,
 		},
 		"_is_upgrade": true,
 	},
