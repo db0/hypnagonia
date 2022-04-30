@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/progress_bar/EmptyBar.png" type="Texture" id=1]
 [ext_resource path="res://assets/enemies/godot-sprite.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://src/dreamscape/CombatElements/Highlight2.gd" type="Script" id=6]
 [ext_resource path="res://shaders/invert.shader" type="Shader" id=7]
 [ext_resource path="res://assets/progress_bar/GreenBar.png" type="Texture" id=8]
+[ext_resource path="res://themes/darktheme/StyleBox/InfoPanel.tres" type="StyleBox" id=9]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -42,13 +43,13 @@ defence_texture = ExtResource( 5 )
 
 [node name="Push" type="Control" parent="."]
 margin_right = 69.0
-margin_bottom = 5.0
+margin_bottom = 4.0
 size_flags_vertical = 3
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-margin_top = 9.0
+margin_top = 8.0
 margin_right = 69.0
-margin_bottom = 45.0
+margin_bottom = 44.0
 mouse_filter = 1
 
 [node name="Incoming" type="GridContainer" parent="CenterContainer"]
@@ -59,9 +60,9 @@ rect_min_size = Vector2( 0, 36 )
 columns = 3
 
 [node name="Art" type="MarginContainer" parent="."]
-margin_top = 49.0
+margin_top = 48.0
 margin_right = 69.0
-margin_bottom = 49.0
+margin_bottom = 48.0
 mouse_filter = 1
 
 [node name="Texture" type="TextureRect" parent="Art"]
@@ -96,7 +97,7 @@ align = 1
 autowrap = true
 
 [node name="HealthBar" type="TextureProgress" parent="."]
-margin_top = 53.0
+margin_top = 52.0
 margin_right = 69.0
 margin_bottom = 61.0
 rect_min_size = Vector2( 0, 8 )
@@ -104,6 +105,10 @@ size_flags_horizontal = 3
 texture_under = ExtResource( 1 )
 texture_progress = ExtResource( 8 )
 nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 5
+stretch_margin_right = 10
+stretch_margin_bottom = 4
 
 [node name="HBC" type="HBoxContainer" parent="."]
 margin_top = 65.0
@@ -156,13 +161,16 @@ custom_constants/hseparation = 20
 [node name="Description" type="PopupPanel" parent="."]
 margin_right = 8.0
 margin_bottom = 8.0
+mouse_filter = 2
+custom_styles/panel = ExtResource( 9 )
 
 [node name="Label" type="RichTextLabel" parent="Description"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 304.0
-margin_bottom = 19.0
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 312.0
+margin_bottom = 27.0
 rect_min_size = Vector2( 300, 0 )
+mouse_filter = 2
 bbcode_enabled = true
 fit_content_height = true
 scroll_active = false
