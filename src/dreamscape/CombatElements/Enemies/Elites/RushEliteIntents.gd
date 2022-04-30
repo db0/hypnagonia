@@ -2,6 +2,11 @@ extends BossIntents
 
 const INTENTS := [
 	{
+		"intent_scripts": ["Lost"],
+		"reshuffle": true,
+		"max_uses": 1,
+	},
+	{
 		"intent_scripts": ["Wandering"],
 		"reshuffle": false,
 	},
@@ -19,26 +24,8 @@ const INTENTS := [
 	},
 ]
 
-var _add_starting_intent:= true
-
 func _ready() -> void:
 	all_intents = INTENTS.duplicate(true)
-
-func prepare_intents(_starting_index = null, _is_second_try := false) -> Dictionary:
-	if not unused_intents.size():
-		reshuffle_intents()
-	if _add_starting_intent:
-		var lost_intent = {
-			"intent_scripts": ["Lost"],
-			"reshuffle": true,
-		}
-		unused_intents.push_front(lost_intent)
-		_add_starting_intent = false
-	var new_intents : Dictionary = unused_intents.pop_front().duplicate(true)
-	if new_intents.reshuffle:
-		reshuffle_intents()
-	_display_intents(new_intents)
-	return(new_intents)
 
 
 func _get_intent_scripts(intent_name: String) -> Array:
@@ -62,8 +49,8 @@ func _get_elite_scripts(intent_name: String) -> Array:
 				"tags": ["Intent"],
 				"subject": "self",
 				"modification": enraged_stacks,
-				"icon": all_intent_scripts.ICON_BUFF,
-				"description": "How did I get here? How do I get out..?"
+				"icon": all_intent_scripts.ICON_SPECIAL,
+				"description": "Lost: [i]How did I get here? How do I get out..?[/i]"
 			}
 		],
 		"Wandering": [
@@ -73,7 +60,7 @@ func _get_elite_scripts(intent_name: String) -> Array:
 				"subject": "dreamer",
 				"amount": 14,
 				"icon": all_intent_scripts.ICON_ATTACK,
-				"description": "I'll never get out!"
+				"description": "Wandering: [i]I'll never get out![/i]"
 			},
 		],
 		"Despair": [
@@ -84,7 +71,7 @@ func _get_elite_scripts(intent_name: String) -> Array:
 				"subject": "self",
 				"modification": 2,
 				"icon": all_intent_scripts.ICON_BUFF,
-				"description": "Did I pass here before?"
+				"description": "Despair: [i]Did I pass here before?[/i]"
 			},
 			{
 				"name": "modify_damage",
@@ -92,7 +79,7 @@ func _get_elite_scripts(intent_name: String) -> Array:
 				"subject": "dreamer",
 				"amount": 6,
 				"icon": all_intent_scripts.ICON_ATTACK,
-				"description": "I'll never get out!"
+				"description": "Despair: [i]I'll never get out![/i]"
 			},
 		],
 	}

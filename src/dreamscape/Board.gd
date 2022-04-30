@@ -533,7 +533,7 @@ func _debug_advanced_enemy() -> void:
 #	var advanced_entity: EnemyEntity =\
 #			load("res://src/dreamscape/CombatElements/Enemies/Bosses/Narcissus.tscn").instance()
 	var advanced_entity: EnemyEntity =\
-			load("res://src/dreamscape/CombatElements/Enemies/Elites/InfiniteCorridor.tscn").instance()
+			load("res://src/dreamscape/CombatElements/Enemies/Elites/RushElite.tscn").instance()
 	advanced_entity.setup_advanced("hard")
 	_enemy_area.add_child(advanced_entity)
 #	advanced_entity.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.self_cleaning.name, 1)
