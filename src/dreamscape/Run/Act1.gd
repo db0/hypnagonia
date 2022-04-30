@@ -340,9 +340,18 @@ const BrokenMirrors = {
 
 const Pialephant = {
 	"journal_description":\
-		'I heard piano music but its source [url={torment_tag1}]made no sense[/url]!',
+"""I felt a feeling of excitement wash over me, as I heard a rumble in the clouds under my feet. 
+I had thought it was a storm at first, but I had realized it was the circus coming straight towards me with great surprise! 
+The drums boomed while the music and laughter blared louder as they were getting closer. 
+My anticipation was met with concern, as I noticed they were not slowing down. 
+In the distance I could hear the hastened sliding of piano keys evoking the sound of thunder as [url={torment_tag1}]a behemoth was charging straight towards me[/url]. 
+This was no orchestra I wanted to be overrun by!
+""",
 	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+"""Instead of letting my shock overtake me, I had to make some notes for a balloon as the gargantuan beast punted me through the clouds in the sound of a sonata. 
+Hopefully it didn’t play something sharp, or else my balloon would become a corny pop song! 
+Luckily, I had just found I was able to catch myself in the music, because I’d B-flat on the ground otherwise.
+""",
 	"enemies": {
 		"easy": [
 			{
