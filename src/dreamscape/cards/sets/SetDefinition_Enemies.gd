@@ -373,7 +373,7 @@ const CARDS := {
 	},
 	"^ Clown ^": {
 		"Type": "Understanding",
-		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.GENERIC_TAGS.alpha.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.GENERIC_TAGS.alpha.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Apply {effect_stacks} {confusion} to all Torments. {forget}",
 		"Cost": 0,
 		"_illustration": "Db0 via Artbreeder.com",
