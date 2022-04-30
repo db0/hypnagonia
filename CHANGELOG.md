@@ -1,5 +1,22 @@
 # Changelog
 
+## [v0.50.5](https://github.com/db0/hypnagonia/tree/v0.50.5) (2022-04-30)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.4...v0.50.5)
+
+**Implemented enhancements:**
+
+- Instead of Swift cards discarding themselves before drawing, they should not count for hand size while executing [\#313](https://github.com/db0/hypnagonia/issues/313)
+
+**Fixed bugs:**
+
+- BUG: Self-deception's no anxiety upgrade, draws more than 2 cards [\#314](https://github.com/db0/hypnagonia/issues/314)
+
+**Merged pull requests:**
+
+- ci: workaround for broken test with gut 3.7.0 [\#317](https://github.com/db0/hypnagonia/pull/317) ([db0](https://github.com/db0))
+- Currently executing cards with draw effects now cannot draw themselves. [\#316](https://github.com/db0/hypnagonia/pull/316) ([db0](https://github.com/db0))
+
 ## [v0.50.4](https://github.com/db0/hypnagonia/tree/v0.50.4) (2022-04-28)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.3...v0.50.4)
@@ -293,7 +310,7 @@
 
 ## [v0.39.0](https://github.com/db0/hypnagonia/tree/v0.39.0) (2022-03-17)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.38.0...v0.39.0)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.37.0...v0.39.0)
 
 **Closed issues:**
 
@@ -304,13 +321,13 @@
 
 - Enhancements and Scars can now affect more properties [\#244](https://github.com/db0/hypnagonia/pull/244) ([db0](https://github.com/db0))
 
-## [v0.38.0](https://github.com/db0/hypnagonia/tree/v0.38.0) (2022-03-16)
-
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.37.0...v0.38.0)
-
 ## [v0.37.0](https://github.com/db0/hypnagonia/tree/v0.37.0) (2022-03-16)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.36.0...v0.37.0)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.38.0...v0.37.0)
+
+## [v0.38.0](https://github.com/db0/hypnagonia/tree/v0.38.0) (2022-03-16)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.36.0...v0.38.0)
 
 **Closed issues:**
 
