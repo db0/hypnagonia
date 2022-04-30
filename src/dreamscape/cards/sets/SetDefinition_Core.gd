@@ -4693,7 +4693,7 @@ const CARDS := {
 		"_rarity": "Rare",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"defence_amount": 13,
+			"defence_amount": 12,
 			"card_amount": 1,
 		},
 		"_upgrade_threshold_modifier": 0,
@@ -4706,13 +4706,13 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
-				+ "Shuffle {card_amount} random card from the forgotten pile into the draw pile.",
+				+ "Shuffle up to {card_amount} random cards from the forgotten pile into the draw pile.",
 		"Cost": 2,
 		"_illustration": "Miikka Veijola",
 		"_rarity": "Rare",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"defence_amount": 11,
+			"defence_amount": 9,
 			"card_amount": 2,
 		},
 		"_is_upgrade": true,
