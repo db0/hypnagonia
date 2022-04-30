@@ -2544,7 +2544,7 @@ const CARDS := {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.alpha.name],
 		"Abilities": "Whenever you {shuffle} your draw pile, gain {concentration_defence} {confidence}.",
-		"Cost": 0,
+		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
