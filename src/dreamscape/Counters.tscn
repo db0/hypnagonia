@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/dreamscape/Counters.gd" type="Script" id=1]
 [ext_resource path="res://src/dreamscape/Counter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://themes/darktheme/StyleBox/InfoPanel.tres" type="StyleBox" id=3]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -22,6 +23,7 @@ margin_bottom = 14.0
 [node name="DescriptionPanel" type="PopupPanel" parent="."]
 margin_right = 14.0
 margin_bottom = 22.0
+custom_styles/panel = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="DescriptionPanel"]
 margin_left = 4.0
