@@ -22,4 +22,4 @@ func _ready() -> void:
 			stacks = 2
 		"hard":
 			stacks = 3
-	active_effects.mod_effect(Terms.ACTIVE_EFFECTS.self_cleaning.name, stacks, false, false, ["Init"])
+	active_effects.call_deferred("mod_effect", Terms.ACTIVE_EFFECTS.self_cleaning.name, stacks, false, false, ["Init"])

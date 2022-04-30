@@ -164,10 +164,10 @@ func spawn_basic_enemy(enemy_entry: Dictionary) -> EnemyEntity:
 		for effect in enemy_entry['starting_effects']:
 			new_enemy.active_effects.mod_effect(
 					effect["name"],
-					effect["stacks"], 
-					false, 
-					false, 
-					['Init'], 
+					effect["stacks"],
+					false,
+					false,
+					['Init'],
 					effect.get("upgrade", ''))
 	if enemy_entry.has('rebalancing'):
 		new_enemy.intents.rebalancing = enemy_entry['rebalancing']
@@ -357,7 +357,7 @@ func complete_battle() -> void:
 func game_over() -> void:
 	battle_ended = true
 	_fade_to_transparent()
-	if _tween.is_active():	
+	if _tween.is_active():
 		yield(_tween, "tween_all_completed")
 	emit_signal("game_over")
 #	cfc.game_paused = true
@@ -452,9 +452,9 @@ func _input(event):
 			_torment1.health = 600
 			_torment1.damage = 15
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS["void"].name, 1)
-			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
+			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 5)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.effect_resistance.name, 1, false, false, ["Init"], Terms.ACTIVE_EFFECTS.poison.name)
-			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
+			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 4)
 		if _torment2:
 			_torment2.health = 450
 			_torment2.damage = 10
@@ -480,7 +480,7 @@ func _input(event):
 		globals.player.add_memory(MemoryDefinitions.RandomChaos.canonical_name)
 		# warning-ignore:return_value_discarded
 #		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 6)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 6)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 6)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.absurdity_unleashed.name, 1)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.creative_block.name, 1)
@@ -526,19 +526,22 @@ func _input(event):
 #	if event.is_action_pressed("lose_battle"):
 #		game_over()
 
-func _debug_advanced_enemy() -> void:
+func _debug_advanced_enemy():
 	pass
 #	var advanced_entity: EnemyEntity =\
 #			load("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn").instance()
 #	var advanced_entity: EnemyEntity =\
 #			load("res://src/dreamscape/CombatElements/Enemies/Bosses/Narcissus.tscn").instance()
 	var advanced_entity: EnemyEntity =\
-			load("res://src/dreamscape/CombatElements/Enemies/Elites/RushElite.tscn").instance()
+			load("res://src/dreamscape/CombatElements/Enemies/Elites/IndescribableAbsurdity.tscn").instance()
 	advanced_entity.setup_advanced("hard")
 	_enemy_area.add_child(advanced_entity)
-#	advanced_entity.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.self_cleaning.name, 1)
-	# warning-ignore:return_value_discarded
 	advanced_entity.connect("finished_activation", self, "_on_finished_enemy_activation")
+	emit_signal("enemy_spawned", advanced_entity)
+#	advanced_entity.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.self_cleaning.name, 3)
+	advanced_entity.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 11)
+	# warning-ignore:return_value_discarded
+
 
 
 func _on_Debug_pressed() -> void:
@@ -553,7 +556,8 @@ func _on_Debug_pressed() -> void:
 		entity.damage = 1
 	for c in [
 #		"Grit"
-#			"Universal Component",
+#			"Confident Slap",
+#			"Confident Slap",
 #			"A Thousand Squeaks",
 	]:
 		var card = cfc.instance_card(c)
@@ -578,7 +582,7 @@ func _on_Debug_pressed() -> void:
 		cfc.NMAP.deck.add_child(card)
 		#card.set_is_faceup(false,true)
 		card._determine_idle_state()
-		
+
 
 
 func _on_EnemyTurnStuckTimer_timeout() -> void:
