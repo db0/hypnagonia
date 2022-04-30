@@ -332,15 +332,6 @@ const scripts := {
 						"value_key": "defence_amount",
 					},
 				},
-				# I need to put this discard here, to prevent the player
-				# reusing the card again while waiting for the deck
-				# to reshuffle
-				{
-					"name": "move_card_to_container",
-					"dest_container": "discard",
-					"subject": "self",
-					"tags": ["Played", "Card"],
-				},
 				{
 					"name": "nested_script",
 					"nested_tasks": [
@@ -1010,12 +1001,6 @@ const scripts := {
 	"Guilt": {
 		"manual": {
 			"hand": [
-				{
-					"name": "move_card_to_container",
-					"dest_container": "discard",
-					"subject": "self",
-					"tags": ["Played", "Card"],
-				},
 				{
 					"name": "modify_damage",
 					"subject": "target",

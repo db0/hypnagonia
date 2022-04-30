@@ -495,10 +495,10 @@ func _input(event):
 #			"Fowl Language",
 #			"A Thousand Squeaks",
 #			"Prejudice",
-#			"Self-Deception",
-#			"The Whippy-Flippy",
-			"% Self-Deception %",
-			"% Self-Deception %",
+			"! Wild Inspiration !",
+			"! Wild Inspiration !",
+			"! Wild Inspiration !",
+			"! Wild Inspiration !",
 		]:
 			var ce = CardEntry.new(c)
 			var card = ce.instance_self()
