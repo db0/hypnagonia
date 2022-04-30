@@ -153,7 +153,7 @@ static func get_amounts_format(properties_dict: Dictionary, printed_properties_d
 	return(amounts_format)
 
 static func get_all_card_variants(card_name: String) -> Array:
-	var all_variants := []
+	var all_variants := [card_name]
 	if cfc.card_definitions[card_name].has("_upgrades"):
 		all_variants += cfc.card_definitions[card_name]["_upgrades"]
 	elif cfc.card_definitions[card_name].get("_is_upgrade", false):
