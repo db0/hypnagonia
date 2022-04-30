@@ -551,7 +551,7 @@ func _input(event):
 #			if c.card_name == "Noisy Whip":
 #				globals.player.deck.remove_card(c)
 #		_reveal_entry(upgrade_journal, true)
-#		globals.player.deck.add_new_card("+ Noisy Whip +")
+		globals.player.deck.add_new_card("Catatonia")
 #		globals.player.add_artifact(ArtifactDefinitions.IncreaseConfusionStacks.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.IncreaseRandomDamage.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.BirdHouse.canonical_name)
@@ -586,7 +586,7 @@ func _input(event):
 #			load("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
 			load("res://src/dreamscape/Run/NCE/AllActs/EpicUpgrade.gd").new(),
 			load("res://src/dreamscape/Run/NCE/Act3/Experience.gd").new(),
-			load("res://src/dreamscape/Run/NCE/Act2/Griftlands.gd").new(),
+			load("res://src/dreamscape/Run/NCE/Act2/Blanket.gd").new(),
 			load("res://src/dreamscape/Run/NCE/Act1/Spider.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
 #			BossEncounter.new(Act2.BOSSES["Surreality"]),
