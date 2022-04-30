@@ -3431,15 +3431,15 @@ const CARDS := {
 	"% Self-Deception %": {
 		"Type": "Control",
 		"Tags": [],
-		"Abilities": "Draw {draw_amount} {exert} cards.",
+		"Abilities": "Draw {draw_amount2} {exert} cards.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["anxiety"],
 		"_amounts": {
 			"exert_amount": 0,
-			"draw_amount": 2,
-			"draw_amount2": 0,
+			"draw_amount": 0,
+			"draw_amount2": 2,
 		},
 		"_is_upgrade": true,
 	},
