@@ -109,10 +109,10 @@ class TestMonsterTrain:
 		assert_signal_not_emitted(globals.player, "artifact_added")
 		assert_eq(globals.player.damage, 0, "Player took no damage")
 
-class TestMultipleOptions:
+class TestCrystalShattering:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
 	func _init() -> void:
-		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act1/MultipleOptions.gd")
+		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act1/CrystalShattering.gd")
 
 	func test_choice_progress():
 		var porg := set_random_pathos_org("released")

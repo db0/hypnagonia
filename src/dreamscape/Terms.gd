@@ -721,6 +721,12 @@ const ACTIVE_EFFECTS := {
 		"icon": preload("res://assets/icons/pincers.png"),
 		"description": "{effect_name}: Any time the {enemy} gains {immersion} during their turn, this {entity} gains 10 {defence} per {immersion} gained, and {amount} {focus}",
 	},
+	"infinite_tedium": {
+		"name": "Infinite Tedium",
+		"type": "Special",
+		"icon": preload("res://assets/icons/over-infinity.png"),
+		"description": "{effect_name}: You cannot play a non-Basic card (or its upgrades) with the same name in the same turn.",
+	},
 }
 
 
