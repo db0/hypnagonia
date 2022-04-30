@@ -2929,8 +2929,9 @@ const Excogitate = {
 					"lookup_property": "_amounts",
 					"value_key": "card_amount"
 				},
-				"subject": "index",
-				"subject_index": "random",
+				"subject": "tutor",
+				"sort_by": "random",
+				"up_to": true,
 			},
 			{
 				"name": "shuffle_container",

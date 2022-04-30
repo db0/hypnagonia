@@ -497,11 +497,15 @@ func _input(event):
 #			"Prejudice",
 #			"Self-Deception",
 #			"The Whippy-Flippy",
-			"I'll Show Them All",
-			"I'll Show Them All",
-			"I'll Show Them All",
-			"Mania",
-			"Mania",
+			"! Excogitate !",
+			"! Excogitate !",
+			"! Excogitate !",
+			"Butterfly",
+			"Butterfly",
+			"The Critic",
+			"The Laughing One",
+			"The Laughing One",
+			"The Critic",
 		]:
 			var ce = CardEntry.new(c)
 			var card = ce.instance_self()

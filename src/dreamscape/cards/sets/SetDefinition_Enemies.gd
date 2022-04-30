@@ -442,7 +442,7 @@ const CARDS := {
 	},
 	"Sustained Butterfly": {
 		"Type": "Understanding",
-		"Tags": [Terms.ACTIVE_EFFECTS.strengthen.name, Terms.GENERIC_TAGS.slumber.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.strengthen.name],
 		"Abilities": "Gain {effect_stacks} {strengthen}",
 		"Cost": 0,
 		"_illustration": "Db0 via Artbreeder.com",
