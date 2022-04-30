@@ -455,6 +455,11 @@ _global_script_classes=[ {
 "path": "res://src/core/GameStats.gd"
 }, {
 "base": "Reference",
+"class": "GutHookScript",
+"language": "GDScript",
+"path": "res://addons/gut/hook_script.gd"
+}, {
+"base": "Reference",
 "class": "HConst",
 "language": "GDScript",
 "path": "res://src/dreamscape/HConst.gd"
@@ -904,6 +909,7 @@ _global_script_class_icons={
 "EnemyIntents": "",
 "GameSave": "",
 "GameStats": "",
+"GutHookScript": "",
 "HConst": "",
 "HUtils": "",
 "Hand": "",

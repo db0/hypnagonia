@@ -3,15 +3,19 @@
 extends NonCombatEncounter
 
 var secondary_choices := {
-		'progress': '[Progress]: Lose {lowest_pathos_cost} {lowest_pathos}. Progress the least progressed card by 4.',
-		'upgrade': '[Upgrade]: Lose {middle_pathos_cost} {middle_pathos}. Upgrade the most progressed card.',
-		'remove': '[Remove]: Lose {highest_pathos_cost} {highest_pathos}. Remove a card from your deck.',
-		'leave': '[Leave]: Nothing Happens.',
+		'progress': '[Ermbaraz]: Lose {lowest_pathos_cost} {lowest_pathos}. Progress the least progressed card by 4.',
+		'upgrade': '[Feelyne]: Lose {middle_pathos_cost} {middle_pathos}. Upgrade the most progressed card.',
+		'remove': '[Depressium]: Lose {highest_pathos_cost} {highest_pathos}. Remove a card from your deck.',
+		'leave': '[Stop]: Nothing Happens.',
 	}
 var pathos_choice_payments := {}
 
 func _init():
-	description = "<Multiple Options - Story Fluff to be Done>. Select one Option...."
+	description =\
+"""I remember mysel breaking apart the Crystalized snapshots of myself with heavy strikes of my pick.
+It took an immense amount of feeling to make each blow, but the resulting release made me feel wiser. 
+I grabbed the tool, ready to strike another blow at the next crystal. It's been a long time coming...
+"""
 
 func begin() -> void:
 	.begin()
