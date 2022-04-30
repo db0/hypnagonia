@@ -207,6 +207,22 @@ func modify_property(property: String, value, is_enhancement := true, record := 
 		else:
 			if not tag in properties[property]:
 				properties[property].append(tag)
+		# Some tags need some modification in the text, for the player to remember
+		# what the card is doing better.
+		if tag == Terms.GENERIC_TAGS.slumber.name\
+				and not get_property("_is_concentration"):
+			var forget_task := {
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": "forgotten",
+					"tags": ["Played", "Card"],
+			}
+			add_scripts(forget_task, 'hand', "\n{forget}")
+		if tag ==  Terms.GENERIC_TAGS.end_turn.name:
+			var end_turn_task := {
+					"name": "end_turn"
+			}
+			add_scripts(end_turn_task, 'hand', "\n{end_turn}")
 	emit_signal("card_entry_modified", self)
 
 
@@ -272,23 +288,7 @@ func is_enhanced():
 # Randomly reduces the effectiveness of this card.
 func scar() -> void:
 	var applicable_mods = CardModifications.check_mod_applicability(properties)
-	# No need to check the size of the array as there's going to always be at least one element
-	if typeof(applicable_mods[0].value) == TYPE_STRING\
-			and applicable_mods[0].value == Terms.GENERIC_TAGS.slumber.name\
-			and not get_property("_is_concentration"):
-		var forget_task := {
-				"name": "move_card_to_container",
-				"subject": "self",
-				"dest_container": "forgotten",
-				"tags": ["Played", "Card"],
-		}
-		add_scripts(forget_task, 'hand', "\n{forget}")
-	if typeof(applicable_mods[0].value) == TYPE_STRING\
-			and applicable_mods[0].value == Terms.GENERIC_TAGS.end_turn.name:
-		var forget_task := {
-				"name": "end_turn"
-		}
-		add_scripts(forget_task, 'hand', "\n{end_turn}")
+
 	modify_property(applicable_mods[0].property, applicable_mods[0].value, false)
 
 
