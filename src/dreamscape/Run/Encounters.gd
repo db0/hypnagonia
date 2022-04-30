@@ -26,15 +26,15 @@ var run_changes := RunChanges.new(self)
 
 # Loads the next act from the list and prepares the encounters for it
 func prepare_next_act(current_journal = null) -> void:
-	# Changing acts, heals the player a bit
-	var healing_done = globals.player.health * globals.difficulty.act_healing
-	if healing_done > globals.player.damage:
-		healing_done = globals.player.damage
 	if not available_acts.size():
 		globals.journal.end_dev_version()
 		return
 	current_act = available_acts.pop_front()
+	# Changing acts, heals the player a bit
 	if current_act != Act1:
+		var healing_done = globals.player.health * globals.difficulty.act_healing
+		if healing_done > globals.player.damage:
+			healing_done = globals.player.damage
 		globals.player.damage -= healing_done
 	remaining_enemies = current_act.ENEMIES.keys()
 	remaining_elites = current_act.ELITES.keys()

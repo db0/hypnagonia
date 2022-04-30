@@ -58,29 +58,40 @@ func get_unlocked_nces(act: String, nce_type: String) -> Array:
 	return(ret_nces)
 
 
+# Expects either the GDscript of the nce, or the string path
 # Returns true is a NCE has been used during this run
 # Else returns false
-func is_nce_used(nce: GDScript) -> bool:
-	if nce in used_nce:
+func is_nce_used(nce) -> bool:
+	if _get_nce_script_path(nce) in used_nce:
 		return(true)
 	return(false)
 
 
 # Marks an NCE as used during this run
-func record_nce_used(nce: GDScript) -> void:
-	if not nce in used_nce and not nce in AllActs.REPEATING_NCE:
-		used_nce.append(nce)
+# Expects either the GDscript of the nce, or the string path
+func record_nce_used(nce) -> void:
+	var script_path := _get_nce_script_path(nce)
+	if not script_path in used_nce and not script_path in AllActs.REPEATING_NCE:
+		used_nce.append(script_path)
+
+
+func _get_nce_script_path(nce) -> String:
+	var script_path: String
+	if nce is GDScript:
+		script_path = nce.get_path()
+	else:
+		script_path = nce
+	return(script_path)
 
 
 func _is_nce_unlocked(nce) -> bool:
 	for nce_type in unlocked_nce.values():
 		for unlnce_list in nce_type.values():
 			for unl_nce in unlnce_list:
-				if typeof(nce) == TYPE_STRING and unl_nce.nce == nce:
-					return(true)
-				if nce is GDScript and unl_nce.nce == nce.resource_path:
+				if unl_nce.nce == _get_nce_script_path(nce):
 					return(true)
 	return(false)
+
 
 func extract_save_state() -> Dictionary:
 	var run_dict := {
@@ -89,7 +100,7 @@ func extract_save_state() -> Dictionary:
 		"store" : store,
 	}
 	for un in used_nce:
-		run_dict["used_nce"].append(un.get_path())
+		run_dict["used_nce"].append(un)
 	return(run_dict)
 
 func restore_save_state(save_state: Dictionary) -> void:
@@ -101,4 +112,4 @@ func restore_save_state(save_state: Dictionary) -> void:
 	unlocked_nce = save_state.unlocked_nce
 	store = save_state.store
 	for un in save_state.used_nce:
-		used_nce.append(load(un))
+		used_nce.append(un)

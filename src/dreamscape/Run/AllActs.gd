@@ -38,5 +38,5 @@ static func get_act_name() -> String:
 # These NCEs never go to the Used NCEs
 # As such, they can reapper once per act
 const REPEATING_NCE := [
-	preload("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd"),
+	"res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd",
 ]
