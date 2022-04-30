@@ -18,7 +18,6 @@ var game_save: GameSave
 var unused_journal_texts := {}
 #var utils := DeckbuilderUtils.new()
 var card_back_texture_selection := 0
-var run_unlocks := {}
 # For Unit Testing
 var test_flags := {
 	### REFERENCES ###
