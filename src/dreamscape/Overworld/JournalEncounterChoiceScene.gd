@@ -11,6 +11,8 @@ func setup(_journal, encounter: SingleEncounter) -> void:
 	add_child(journal_choice)
 	# In the future maybe we'll have one icon per pathos type
 	pathos_icon.texture = CFUtils.convert_texture_to_image("res://assets/icons/GUI/drama-masks.png")
+	if encounter is BossEncounter:
+		pathos_icon.self_modulate = Color(1,0,0)
 
 func _on_PathosIcon_mouse_entered() -> void:
 	var pathos_desc := "Choosing this encounter, will release %s %s.\n\n"\
