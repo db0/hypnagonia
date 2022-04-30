@@ -90,7 +90,7 @@ func _get_elite_scripts(intent_name: String) -> Array:
 					"card_name": "Lacuna",
 					"object_count": difficulty,
 					"dest_container": pert_destination,
-					"icon": all_intent_scripts.ICON_SPECIAL,
+					"icon": all_intent_scripts.ICON_SPAWN_CARD,
 					"description": "Stage Fright: [i]I can't do this![/i]"
 				}
 			intent_scripts.append(script)

@@ -178,7 +178,7 @@ const ACTIVE_EFFECTS := {
 				+ " then remove all stacks of {effect_icon}."
 	},
 	"drain":  {
-		"name": "Apathy",
+		"name": "Disinterest",
 		"type": "Debuff",
 		# This effect only works when assigned to the Dreamer
 		"is_dreamer_only": true,
@@ -725,7 +725,7 @@ const ACTIVE_EFFECTS := {
 		"name": "Infinite Tedium",
 		"type": "Special",
 		"icon": preload("res://assets/icons/over-infinity.png"),
-		"description": "{effect_name}: You cannot play a non-Basic card (or its upgrades) with the same name in the same turn.",
+		"description": "{effect_name}: You cannot play the same non-Basic card (or its upgrades) in the same turn.",
 	},
 }
 

@@ -184,6 +184,7 @@ const FistOfCandies = {
 					"src_container": "hand",
 					"subject": "tutor",
 					"subject_count": "all",
+					"modifier": 1,
 					"multiplier": {
 						"lookup_property": "_amounts",
 						"value_key": "damage_amount"
@@ -210,6 +211,7 @@ const HandofGrudge = {
 					"src_container": "hand",
 					"subject": "tutor",
 					"subject_count": "all",
+					"modifier": 1,
 					"multiplier": {
 						"lookup_property": "_amounts",
 						"value_key": "effect_stacks"
