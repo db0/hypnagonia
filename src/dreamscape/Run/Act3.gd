@@ -493,9 +493,22 @@ const TheatrePlay = {
 	'journal_art': "res://assets/journal/advanced/theatre.jpeg",
 }
 
+const InfiniteCorridor = {
+	"name": "Infinite Corridor",
+	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/InfiniteCorridor.tscn")],
+	"journal_description":\
+		"'Was it an office, or a tight tunnel? I can't quite rememeber. "\
+		+ "But what stuck with me is how I could never seem to reach the end."\
+		+ "Every light at the end, was just a corner. Every exit found, inpassable.",
+	"journal_reward":\
+		"Did I find the exit, or just walked out. I can't quite remember.",
+#	'journal_art': "res://assets/journal/advanced/theatre.jpeg",
+}
+
 const ELITES = {
 	"TheGatherer": TheGatherer,
 	"TheatrePlay": TheatrePlay,
+	"Infinite Corridor": InfiniteCorridor,
 }
 
 const FearAndPhobia = {

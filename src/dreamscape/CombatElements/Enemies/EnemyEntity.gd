@@ -43,7 +43,10 @@ func _ready() -> void:
 		entity_texture.material = null
 		highlight.entity_art = art_scene
 	# warning-ignore:return_value_discarded
-	intents.prepare_intents()
+	if _properties.has('starting_intent'):
+		intents.prepare_intents(_properties.starting_intent)
+	else:
+		intents.prepare_intents()
 
 
 func setup(entity_name: String, properties: Dictionary) -> void:
