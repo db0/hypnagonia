@@ -194,10 +194,13 @@ func clear_snapshot(id: int) -> void:
 	# warning-ignore:return_value_discarded
 	snapshot_stacks.erase(id)
 
+
+# This is connected in the BoardSignalConnector class
 func _on_player_turn_ended(_turn: Turn) -> void:
 	if entity_type == Terms.PLAYER and self_decreasing == Terms.SELF_DECREASE.TURN_END:
 		_decrease_stacks()
 
+# This is connected in the BoardSignalConnector class
 func _on_player_turn_started(_turn: Turn) -> void:
 	if entity_type == Terms.PLAYER and self_decreasing == Terms.SELF_DECREASE.TURN_START:
 		if is_delayed:
@@ -207,13 +210,17 @@ func _on_player_turn_started(_turn: Turn) -> void:
 	elif is_delayed:
 		is_delayed = false
 
+# This is connected in the BoardSignalConnector class
 func _on_enemy_turn_ended(_turn: Turn) -> void:
+	if canonical_name == "Confusion":
+		pass
 	if entity_type == Terms.ENEMY and self_decreasing == Terms.SELF_DECREASE.TURN_END:
 		if is_delayed:
 			is_delayed = false
 		else:
 			_decrease_stacks()
 
+# This is connected in the BoardSignalConnector class
 func _on_enemy_turn_started(_turn: Turn) -> void:
 	if entity_type == Terms.ENEMY and self_decreasing == Terms.SELF_DECREASE.TURN_START:
 		_decrease_stacks()
