@@ -12,13 +12,19 @@ jobs:
     name: Unit & Integration Tests
     steps:
     - name: "✔️ Checkout"
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         fetch-depth: 0
-    - name: ⚙ Run Tests
-      uses: croconut/godot-tester@v2.5
+    - name: Check out personal godot-tester repository
+      uses: actions/checkout@v3
       with:
-        version: 3.4
+        repository: db0/godot-tester
+        path: ./.github/actions/godot-tester
+      # Runs a single command using the runners shell
+    - name: ⚙ Run Tests
+      uses: ./.github/actions/godot-tester
+      with:
+        version: 3.4.4
         # should be long enough for asset import files to get generated
         import-time: 300
         assert-check: true
