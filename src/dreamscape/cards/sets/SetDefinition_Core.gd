@@ -3289,8 +3289,8 @@ const CARDS := {
 		"_rarity": "Common",
 		"_keywords": ["confidence", "anxiety"],
 		"_amounts": {
-			"exert_amount": 3,
-			"defence_amount": 15
+			"exert_amount": 6,
+			"defence_amount": 25
 		},
 		"_is_upgrade": true,
 	},
