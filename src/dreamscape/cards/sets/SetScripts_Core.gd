@@ -418,14 +418,6 @@ const FindWeakness = {
 const CockyRetort = {
 	"manual": {
 		"hand": [
-			# We have a function to discard manually to ensure
-			# it's not counted for checking if the hand is full
-			{
-				"name": "move_card_to_container",
-				"dest_container": "discard",
-				"subject": "self",
-				"tags": ["Played", "Card"],
-			},
 			{
 				"name": "assign_defence",
 				"tags": ["Card"],
@@ -802,12 +794,6 @@ const HighMorale = {
 	"manual": {
 		"hand": [
 			{
-				"name": "move_card_to_container",
-				"dest_container": "discard",
-				"subject": "self",
-				"tags": ["Played", "Card"],
-			},
-			{
 				"name": "modify_damage",
 				"subject": "target",
 				"needs_subject": true,
@@ -926,12 +912,6 @@ const DragandDrop = {
 const RunningStart = {
 	"manual": {
 		"hand": [
-			{
-				"name": "move_card_to_container",
-				"dest_container": "discard",
-				"subject": "self",
-				"tags": ["Played", "Card"],
-			},
 			{
 				"name": "modify_damage",
 				"subject": "target",
@@ -1102,12 +1082,6 @@ const UtterlyRidiculous = {
 const Ventriloquism = {
 	"manual": {
 		"hand": [
-			{
-				"name": "move_card_to_container",
-				"dest_container": "discard",
-				"subject": "self",
-				"tags": ["Played", "Card"],
-			},
 			{
 				"name": "modify_damage",
 				"subject": "target",
@@ -1384,14 +1358,6 @@ const InspiredEureka = {
 const RapidTheorizing = {
 	"manual": {
 		"hand": [
-			# We have a function to discard manually to ensure
-			# it's not counted for checking if the hand is full
-			{
-				"name": "move_card_to_container",
-				"dest_container": "discard",
-				"subject": "self",
-				"tags": ["Played", "Card"],
-			},
 			{
 				"name": "assign_defence",
 				"tags": ["Card"],
@@ -1434,12 +1400,6 @@ const RapidTheorizing = {
 const WildInspiration = {
 	"manual": {
 		"hand": [
-			{
-				"name": "move_card_to_container",
-				"dest_container": "discard",
-				"subject": "self",
-				"tags": ["Played", "Card"],
-			},
 			{
 				"name": "move_card_to_container",
 				"tags": ["Card"],
@@ -1933,14 +1893,6 @@ const TheHappyPlace = {
 const SelfDeception = {
 	"manual": {
 		"hand": [
-			# We have a function to discard manually to ensure
-			# it's not counted for checking if the hand is full
-			{
-				"name": "move_card_to_container",
-				"dest_container": "discard",
-				"subject": "self",
-				"tags": ["Played", "Card"],
-			},
 			{
 				"name": "modify_damage",
 				"subject": "dreamer",
@@ -2793,12 +2745,6 @@ const EndlessPosibilities = {
 const IllShowThemAll = {
 	"manual": {
 		"hand": [
-			{
-				"name": "move_card_to_container",
-				"dest_container": "discard",
-				"subject": "self",
-				"tags": ["Played", "Card"],
-			},
 			{
 				"name": "apply_effect",
 				"tags": ["Card"],

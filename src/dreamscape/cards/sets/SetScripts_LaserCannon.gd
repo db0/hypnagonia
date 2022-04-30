@@ -644,12 +644,6 @@ const Brooding = {
 		"hand": [
 			{
 				"name": "move_card_to_container",
-				"dest_container": "discard",
-				"subject": "self",
-				"tags": ["Played", "Card"],
-			},
-			{
-				"name": "move_card_to_container",
 				"tags": ["Card"],
 				"is_cost": false,
 				"subject": "index",

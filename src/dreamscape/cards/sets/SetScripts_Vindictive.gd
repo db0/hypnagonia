@@ -145,12 +145,6 @@ const MovingOn = {
 	"manual": {
 		"hand": [
 			{
-				"name": "move_card_to_container",
-				"dest_container": "discard",
-				"subject": "self",
-				"tags": ["Played", "Card"],
-			},
-			{
 				"name": "draw_cards",
 				"tags": ["Card"],
 				"card_count": {
@@ -491,12 +485,6 @@ const UnstoppableVengeance = {
 const Planning = {
 	"manual": {
 		"hand": [
-			{
-				"name": "move_card_to_container",
-				"dest_container": "discard",
-				"subject": "self",
-				"tags": ["Played", "Card"],
-			},
 			{
 				"name": "modify_damage",
 				"subject": "target",

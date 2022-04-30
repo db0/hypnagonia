@@ -162,7 +162,6 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": [],
-		"_avoid_normal_discard": true,
 		"_amounts": {
 			"draw_amount": 3,
 			"discard_amount": 1,
@@ -182,7 +181,6 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Common",
 		"_keywords": [],
-		"_avoid_normal_discard": true,
 		"_amounts": {
 			"draw_amount": 4,
 			"discard_amount": 1,
@@ -197,7 +195,6 @@ const CARDS := {
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
-		"_avoid_normal_discard": true,
 		"_keywords": ["interpretation"],
 		"_amounts": {
 			"draw_amount": 7,

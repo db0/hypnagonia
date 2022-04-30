@@ -1239,7 +1239,6 @@ const CARDS := {
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Received",
-		"_avoid_normal_discard": true,
 		"_keywords": ["interpretation"],
 		"_amounts": {
 			"damage_amount": 4,
@@ -1259,7 +1258,6 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Received",
 		"_keywords": ["interpretation"],
-		"_avoid_normal_discard": true,
 		"_amounts": {
 			"damage_amount": 7,
 			"draw_amount": 1,
@@ -1274,7 +1272,6 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Received",
 		"_keywords": ["interpretation"],
-		"_avoid_normal_discard": true,
 		"_amounts": {
 			"damage_amount": 4,
 			"draw_amount": 2,
