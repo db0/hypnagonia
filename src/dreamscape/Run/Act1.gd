@@ -579,7 +579,7 @@ const NCE := {
 		"MonsterTrain": "res://src/dreamscape/Run/NCE/Act1/MonsterTrain.gd",
 		"SlayTheSpire": "res://src/dreamscape/Run/NCE/Act1/SlayTheSpire.gd",
 		"SleepOfOblivion": "res://src/dreamscape/Run/NCE/Act1/SleepOfOblivion.gd",
-		"MultipleOptions": "res://src/dreamscape/Run/NCE/Act1/MultipleOptions.gd",
+		"CrystalShattering": "res://src/dreamscape/Run/NCE/Act1/CrystalShattering.gd",
 		"PathosForAnxiety": "res://src/dreamscape/Run/NCE/Act1/PathosForAnxiety.gd",
 		"Dollmaker": "res://src/dreamscape/Run/NCE/Act1/Dollmaker.gd",
 		"Greed": "res://src/dreamscape/Run/NCE/Act1/Greed.gd",
