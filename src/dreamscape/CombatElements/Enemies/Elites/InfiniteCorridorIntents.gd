@@ -1,7 +1,5 @@
 extends BossIntents
 
-var init_intents := true
-
 const INTENTS := [
 	{
 		"intent_scripts": ["Infinite"],

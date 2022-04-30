@@ -10,6 +10,7 @@ const PROPERTIES := {
 	"_character_art": 'Artbreeder.com',
 	"_is_ordered": false,
 	"_health_variability": 3,
+	"starting_intent": 0,
 }
 
 func _on_Art_mouse_exited() -> void:
