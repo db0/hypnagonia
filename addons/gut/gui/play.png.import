@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-91b084043b8aaf2f1c906e7b9fa92969.stex"
+path="res://.import/play.png-5c90e88e8136487a183a099d67a7de24.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/gut/icon.png"
-dest_files=[ "res://.import/icon.png-91b084043b8aaf2f1c906e7b9fa92969.stex" ]
+source_file="res://addons/gut/gui/play.png"
+dest_files=[ "res://.import/play.png-5c90e88e8136487a183a099d67a7de24.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true
