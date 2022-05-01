@@ -1,8 +1,8 @@
 extends NonCombatEncounter
 
 var secondary_choices := {
-		'slay': '[Slay]: Take 10 anxiety. Gain {slay_amount} {repressed_enemy}. Gain some {released_nce}',
-		'leave': '[Leave]: Gain {leave_amount} {repressed_nce}. Lose some {released_enemy}.',
+		'slay': '[Slay]: {bcolor:+10 {anxiety_up}:}. Gain {bcolor:{slay_amount} {repressed_enemy}:}. Gain some {gcolor:{released_nce}:}',
+		'leave': '[Leave]: Gain {bcolor:{leave_amount} {repressed_nce}:}. Lose some {bcolor:{released_enemy}:}.',
 	}
 	
 var nce_result_fluff := {

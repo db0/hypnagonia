@@ -3,7 +3,7 @@
 extends NonCombatEncounter
 
 var secondary_choices := {
-		'accept': '[Accept]: Gain {lowest_pathos_amount} {lowest_pathos}. Become {perturbation}.',
+		'accept': '[Accept]: Gain {gcolor{lowest_pathos_amount} {lowest_pathos}:}. {bcolor:Become {perturbation}:}.',
 		'decline': '[Decline]: Nothing Happens.',
 	}
 var pathos_choice_payments := {}

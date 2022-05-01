@@ -3,7 +3,7 @@
 extends NonCombatEncounter
 
 var secondary_choices := {
-		'fall_in': '[Fall in]: Take 3 anxiety. Remove all perturbations from your deck.',
+		'fall_in': '[Fall in]: {bcolor:+3 {anxiety_up}:}. {gcolor:Remove all perturbations from your deck:}.',
 		'leave': '[Leave]: Nothing happens.',
 	}
 var nce_resul_fluff := {

@@ -3,9 +3,9 @@
 extends NonCombatEncounter
 
 var secondary_choices := {
-		'calm': '[Songbird]: Gain {calm_random_pathos_amount} {calm_random_pathos}.',
-		'stress': '[Peacock]: Take {stress_amount} anxiety. Gain {stress_random_pathos_amount} {stress_random_pathos}.',
-		'fear': '[Lion]: Take {fear_amount} anxiety. Gain {fear_random_pathos_amount} {fear_random_pathos}.',
+		'calm': '[Songbird]: Gain {gcolor{calm_random_pathos_amount} {calm_random_pathos}:}.',
+		'stress': '[Peacock]: {bcolor:+{stress_amount}:} {anxiety_up}. Gain {gcolor:{stress_random_pathos_amount} {stress_random_pathos}:}.',
+		'fear': '[Lion]: {bcolor:+{fear_amount} {anxiety_up}:}. Gain {gcolor{fear_random_pathos_amount} {fear_random_pathos}:}.',
 	}
 	
 var nce_result_fluff := {
