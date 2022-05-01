@@ -6,8 +6,8 @@ const PATHOS_TYPE = Terms.RUN_ACCUMULATION_NAMES.shop
 var pathos_gained : float
 
 var secondary_choices := {
-		'sleep': '[Sleep]: Choose and [url={"definition": "scar","meta_type": "definition"}]Scar[/url] a card then create a copy of it.',
-		'throw': '[Throw it off]: Gain {pathos_amount} {repressed_{pathos_type}}',
+		'sleep': '[Sleep]: Choose and {bcolor:[url={"definition": "scar","meta_type": "definition"}]Scar[/url] a card:} then {gcolor:create a copy of it:}.',
+		'throw': '[Throw it off]: Gain {bcolor:{pathos_amount} {repressed_{pathos_type}}:}',
 	}
 
 var nce_result_fluff := {

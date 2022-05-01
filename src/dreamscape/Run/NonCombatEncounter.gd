@@ -65,7 +65,6 @@ func _prepare_secondary_choices(secondary_choices: Dictionary, scformat: Diction
 			for res in result:
 				var col = res.get_string("color")
 				var txt = res.get_string("text")
-				print_debug([col,txt])
 				custom_fmt["%s:%s:" % [col,txt]] = "[color=%s]%s[/color]" % [color_coding[col], txt]
 		secondary_choices[c] = secondary_choices[c]\
 				.format(custom_fmt)\
@@ -73,5 +72,6 @@ func _prepare_secondary_choices(secondary_choices: Dictionary, scformat: Diction
 				.format(Terms.get_bbcode_formats(18))\
 				.format(Terms.get_pathos_descriptions_bbcode())
 	for choice in disabled_choices:
-		secondary_choices[choice] = "[color=red]" + secondary_choices[choice] + "[/color]"	
+		secondary_choices[choice] = "[color=black]" + secondary_choices[choice] + "[/color]"	
 	globals.journal.add_nested_choices(secondary_choices, disabled_choices)
+

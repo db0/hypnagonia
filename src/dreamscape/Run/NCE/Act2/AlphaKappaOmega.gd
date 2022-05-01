@@ -3,9 +3,9 @@
 extends NonCombatEncounter
 
 var secondary_choices := {
-		'omega': '[omega]: {omega} Lose {lowest_pathos_cost} {lowest_pathos}. {omega_desc}',
-		'kappa': '[kappa]: {frozen} Lose {highest_pathos_cost} {highest_pathos}. {kappa_desc}',
-		'alpha': '[alpha]: {alpha} Lose {middle_pathos_cost} {middle_pathos}. {alpha_desc}',
+		'omega': '[omega]: {omega} Lose {bcolor:{lowest_pathos_cost} {lowest_pathos}:}. {gcolor:{omega_desc}:}',
+		'kappa': '[kappa]: {frozen} Lose {bcolor:{highest_pathos_cost} {highest_pathos}:}. {gcolor:{kappa_desc}:}',
+		'alpha': '[alpha]: {alpha} Lose {bcolor:{middle_pathos_cost} {middle_pathos}:}. {gcolor:{alpha_desc}:}',
 		'leave': '[Leave]: Nothing Happens.',
 	}
 var pathos_choice_payments := {}
@@ -58,7 +58,6 @@ func begin() -> void:
 		secondary_choices[type] = secondary_choices[type].format(scformat)
 		if globals.player.pathos.released[pathos_choice_payments[type]["pathos"]]\
 				< pathos_choice_payments[type]["cost"]:
-			secondary_choices[type] = "[color=red]" + secondary_choices[type] + "[/color]"
 			disabled_choices.append(type)
 	_prepare_secondary_choices(secondary_choices, scformat, disabled_choices)
 

@@ -30,16 +30,23 @@ func _init(_journal: Node) -> void:
 
 func _on_mouse_entered() -> void:
 #	bbcode_text = "[color=yellow]" + formated_description + "[/color]"
+	# This means the choice is disabled
+	if self_modulate == Color(0.1,0.1,0.1):
+		return
 	self_modulate = Color(3,3,0)
 
 
 func _on_mouse_exited() -> void:
+	if self_modulate == Color(0.1,0.1,0.1):
+		return
 #	bbcode_text = formated_description
 	self_modulate = Color(1,1,1)
 
 
 func _on_gui_input(event) -> void:
 	if event.is_pressed() and event.get_button_index() == 1:
+		if self_modulate == Color(0.1,0.1,0.1):
+			return
 		if journal.popups_active:
 			return
 		emit_signal("pressed")

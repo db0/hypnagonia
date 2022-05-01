@@ -10,10 +10,10 @@ var amounts := {
 }
 
 var secondary_choices := {
-		'emotions': '[Emotions]: Reduce your max {anxiety} threshold by {emotions}. Gain a large amount of a random released pathos.',
-		'knowledge': '[Knowledge]: Reduce your max {anxiety} threshold by {knowledge}. Gain a random {understanding} card fully progressed.',
-		'memories': '[Memories]: Reduce your max {anxiety} threshold by {memories}. Upgrade a random memory.',
-		'bliss': '[Bliss]: Reduce your max {anxiety} threshold by {bliss} and exit loop.',
+		'emotions': '[Emotions]: {bcolor:-{emotions} max {anxiety}:}. Gain a large amount of a random {gcolor:released pathos:}.',
+		'knowledge': '[Knowledge]: {bcolor:-{knowledge} max {anxiety}:}. Gain {gcolor:a random {understanding} card:} fully progressed.',
+		'memories': '[Memories]: {bcolor:-{memories} max {anxiety}:}. {gcolor:Upgrade a random memory:}.',
+		'bliss': '[Bliss]: {bcolor:-{bliss} max {anxiety}:} and exit loop.',
 	}
 
 var nce_result_fluff := "It was better to try and forget the whole thing."
@@ -37,8 +37,7 @@ func repeat_choices() -> void:
 	var disabled_choices = []
 	if globals.player.memories.size() == 0: 
 		disabled_choices.append('memories')
-		secondary_choices['memories'] = "[color=red]" + secondary_choices['memories'] + "[/color]"
-	globals.journal.add_nested_choices(secondary_choices_dupe, disabled_choices)
+	_prepare_secondary_choices(secondary_choices_dupe, {}, disabled_choices)
 	
 func continue_encounter(key) -> void:
 	var reduction = amounts[key]

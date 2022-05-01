@@ -1,7 +1,7 @@
 extends NonCombatEncounter
 
 var secondary_choices := {
-		'allow': '[Allow]: Lose a random curio. Gain a {special_curio}',
+		'allow': '[Allow]: {bcolor:Lose a random curio:}. {gcolor:Gain a {special_curio}:}',
 		'deny': '[Deny]: Deny their request. Nothing Happens. ',
 	}
 

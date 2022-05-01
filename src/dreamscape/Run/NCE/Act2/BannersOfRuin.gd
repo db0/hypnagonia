@@ -1,9 +1,9 @@
 extends NonCombatEncounter
 
 var secondary_choices := {
-		'mouse': '[Mouse]: Lose 10% max {anxiety}. Find {curio}.',
-		'bear': '[Bear]: Gain 10% max {anxiety}.',
-		'hyena': '[Hyena]: Gain a {hyena}.',
+		'mouse': '[Mouse]: {bcolor:-10% max {anxiety}:}. {gcolor:Find {curio}:}.',
+		'bear': '[Bear]: {gcolor:+10% max {anxiety}:}.',
+		'hyena': '[Hyena]: Gain {gcolor:a {hyena}:}.',
 	}
 
 var nce_result_fluff := {

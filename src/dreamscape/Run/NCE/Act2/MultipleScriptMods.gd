@@ -7,11 +7,11 @@ var amounts := {
 }
 var secondary_choices := {
 		'scold': '[Scold them for misbehaving]: Choose one card which provides {defence}. '\
-				+ 'Increase that value by [color=yellow]1[/color].',
+				+ '{gcolor:Increase that value:} by [color=yellow]1[/color].',
 		'flail': '[Flail them wildly]: Choose one card which provides {damage}. '\
-				+ 'Increase that value by [color=yellow]1[/color].',
+				+ '{gcolor:Increase that value:} by [color=yellow]1[/color].',
 		'ignore': '[Ignore them]: Choose one card which draws cards. '\
-				+ 'Increase the amount drawn value by [color=yellow]1[/color].',
+				+ '{gcolor:Increase the amount drawn value:} by [color=yellow]1[/color].',
 	}
 
 var nce_result_fluff := {
