@@ -2,8 +2,8 @@ extends NonCombatEncounter
 
 var secondary_choices := {
 		'lay_low': '[Lay Low]: Gain 1 random Common card from your Injustice card pool.',
-		'clear_name': '[Clear your Name]: 7 Anxiety. Gain 1 random Uncommon card from your Injustice card pool.',
-		'revenge': '[Take Revenge]: 15 Anxiety. Gain 1 random Rare card from your Injustice card pool.',
+		'clear_name': '[Clear your Name]: [color=red]+7[/color] {anxiety_up}. Gain 1 random Uncommon card from your Injustice card pool.',
+		'revenge': '[Take Revenge]: [color=red]+15[/color] {anxiety_up}. Gain 1 random Rare card from your Injustice card pool.',
 	}
 
 
@@ -22,7 +22,7 @@ func _init():
 
 func begin() -> void:
 	.begin()
-	globals.journal.add_nested_choices(secondary_choices)
+	_prepare_secondary_choices(secondary_choices, {})
 
 func continue_encounter(key) -> void:
 	var ego = globals.player.deck_groups[Terms.CARD_GROUP_TERMS.life_goal]
@@ -41,4 +41,5 @@ func continue_encounter(key) -> void:
 	# warning-ignore:return_value_discarded
 	globals.player.deck.add_new_card(cards[0])
 	end()
+	nce_result_fluff[key] += "\nCard Gained: " + _prepare_card_popup_bbcode(cards[0], cards[0])
 	globals.journal.display_nce_rewards(nce_result_fluff[key])
