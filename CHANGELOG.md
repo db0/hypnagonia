@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.50.6](https://github.com/db0/hypnagonia/tree/v0.50.6) (2022-05-01)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.5...v0.50.6)
+
+**Merged pull requests:**
+
+- Colour Coded the Bad/Good effects in the journal [\#318](https://github.com/db0/hypnagonia/pull/318) ([db0](https://github.com/db0))
+
 ## [v0.50.5](https://github.com/db0/hypnagonia/tree/v0.50.5) (2022-04-30)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.4...v0.50.5)
