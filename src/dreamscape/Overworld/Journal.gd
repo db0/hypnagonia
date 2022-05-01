@@ -586,13 +586,15 @@ func _input(event):
 #			load("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
 			load("res://src/dreamscape/Run/NCE/AllActs/EpicUpgrade.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act3/Experience.gd").new(),
-#			load("res://src/dreamscape/Run/NCE/Act2/Blanket.gd").new(),
+			load("res://src/dreamscape/Run/NCE/Act2/Griftlands.gd").new(),
+			load("res://src/dreamscape/Run/NCE/Act2/Griftlands2.gd").new(),
+			load("res://src/dreamscape/Run/NCE/Act2/Griftlands3.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act1/CrystalShattering.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
 #			BossEncounter.new(Act2.BOSSES["Surreality"]),
 #			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
 #			EliteEncounter.new(Act1.Bully, "medium"),
-			EliteEncounter.new(Act2.IndescribableAbsurdity, "medium"),
+#			EliteEncounter.new(Act2.IndescribableAbsurdity, "medium"),
 #			EliteEncounter.new(Act3.TheatrePlay, "medium"),
 #			load("res://src/dreamscape/Run/NCE/Shop.gd").new()
 #			load("res://src/dreamscape/Run/NCE/Rest.gd").new()

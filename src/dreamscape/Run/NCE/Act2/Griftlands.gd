@@ -2,8 +2,8 @@ extends NonCombatEncounter
 
 var secondary_choices := {
 		'spy': '[Spy]: Gain 1 random Common card from your Ego card pool.',
-		'double-cross': '[double-cross]: 7 Anxiety. Gain 1 random Uncommon card from your Ego card pool.',
-		'triple-cross': '[triple-cross]: 15 Anxiety. Gain 1 random Rare card from your Ego card pool.',
+		'double-cross': '[double-cross]: [color=red]+7[/color] {anxiety_up}. Gain 1 random Uncommon card from your Ego card pool.',
+		'triple-cross': '[triple-cross]: [color=red]+15[/color] {anxiety_up}. Gain 1 random Rare card from your Ego card pool.',
 	}
 	
 var nce_result_fluff := {
@@ -23,7 +23,7 @@ func _init():
 
 func begin() -> void:
 	.begin()
-	globals.journal.add_nested_choices(secondary_choices)
+	_prepare_secondary_choices(secondary_choices, {})
 
 func continue_encounter(key) -> void:
 	var ego = globals.player.deck_groups[Terms.CARD_GROUP_TERMS.class]
@@ -44,4 +44,5 @@ func continue_encounter(key) -> void:
 	globals.encounters.run_changes.unlock_nce("Griftlands2", "easy")
 	globals.encounters.run_changes.unlock_nce("Griftlands3", "easy")
 	end()
+	nce_result_fluff[key] += "\nCard Gained: " + _prepare_card_popup_bbcode(cards[0], cards[0])
 	globals.journal.display_nce_rewards(nce_result_fluff[key])

@@ -876,6 +876,14 @@ const GENERIC_CARD_BBCODE := {
 		"name": "Anxiety",
 		"rich_text_icon": "res://fonts/rich_text_icons/heart-beats.png",
 	},
+	"damage_up": {
+		"name": "anxiety_up",
+		"rich_text_icon": "res://fonts/rich_text_icons/anxiety_up.png",
+	},
+	"damage_down": {
+		"name": "anxiety_down",
+		"rich_text_icon": "res://fonts/rich_text_icons/anxiety_down.png",
+	},
 	"scry": {
 		"name": "Scry",
 		"rich_text_icon": "res://fonts/rich_text_icons/crystal-ball.png",
