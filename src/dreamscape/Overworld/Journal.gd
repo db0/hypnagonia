@@ -22,6 +22,9 @@ const PATHOS_INFO_SCENE = preload("res://src/dreamscape/PathosChangeInfo.tscn")
 const WORD_DEFINITIONS := {
 	"scar": "Will permanently degrade a card in a random manner",
 	"enhance": "Will permanently improve a card in a random manner",
+	"anxiety_up": "Will increase the dreamer's Anxiety. If this reaches the max, the dreamer will wake up and the game is over.",
+	"anxiety_down": "Will decrease the anxiety. This helps from losing the game.",
+	"anxiety": "Anxiety: When full, the dreamer wakes up and you lose the game.",
 }
 
 var pathos_infos := {}
@@ -586,8 +589,8 @@ func _input(event):
 #			load("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
 			load("res://src/dreamscape/Run/NCE/AllActs/EpicUpgrade.gd").new(),
 			load("res://src/dreamscape/Run/NCE/Act3/UnderwaterCave.gd").new(),
-#			load("res://src/dreamscape/Run/NCE/Act2/RiskyEvent4.gd").new(),
-#			load("res://src/dreamscape/Run/NCE/Act1/Spider.gd").new(),
+			load("res://src/dreamscape/Run/NCE/Act2/RiskyEvent4.gd").new(),
+			load("res://src/dreamscape/Run/NCE/Act1/Spider.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
 #			BossEncounter.new(Act2.BOSSES["Surreality"]),
 #			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
