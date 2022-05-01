@@ -1,9 +1,9 @@
 extends NonCombatEncounter
 
 var secondary_choices := {
-		'lay_low': '[Lay Low]: Gain 1 random Common card from your Injustice card pool.',
-		'clear_name': '[Clear your Name]: [color=red]+7[/color] {anxiety_up}. Gain 1 random Uncommon card from your Injustice card pool.',
-		'revenge': '[Take Revenge]: [color=red]+15[/color] {anxiety_up}. Gain 1 random Rare card from your Injustice card pool.',
+		'lay_low': '[Lay Low]: Gain {gcolor:1 random Common card:} from your Injustice card pool.',
+		'clear_name': '[Clear your Name]: {bcolor:+7:} {anxiety_up}. Gain {gcolor:1 random Uncommon card:} from your Injustice card pool.',
+		'revenge': '[Take Revenge]: {bcolor:+15:} {anxiety_up}. Gain {gcolor:1 random Rare card:} from your Injustice card pool.',
 	}
 
 

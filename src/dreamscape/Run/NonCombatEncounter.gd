@@ -52,8 +52,23 @@ func _prepare_artifact_popup_bbcode(artifact_name: String, url_text: String) -> 
 	return(url_bbcode)
  
 func _prepare_secondary_choices(secondary_choices: Dictionary, scformat: Dictionary, disabled_choices := []) -> void:
+	var color_coding := {
+		"bcolor": "#FF3333",
+		"gcolor":  "#33FF33",
+	}
 	for c in secondary_choices:
+		var custom_fmt := {}
+		var regex = RegEx.new()
+		regex.compile("{(?<color>bcolor|gcolor):(?<text>.*?):}")
+		var result = regex.search_all(secondary_choices[c])
+		if result:
+			for res in result:
+				var col = res.get_string("color")
+				var txt = res.get_string("text")
+				print_debug([col,txt])
+				custom_fmt["%s:%s:" % [col,txt]] = "[color=%s]%s[/color]" % [color_coding[col], txt]
 		secondary_choices[c] = secondary_choices[c]\
+				.format(custom_fmt)\
 				.format(scformat)\
 				.format(Terms.get_bbcode_formats(18))\
 				.format(Terms.get_pathos_descriptions_bbcode())

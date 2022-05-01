@@ -3,9 +3,9 @@
 extends NonCombatEncounter
 
 var secondary_choices := {
-		'progress': '[Ermbaraz]: Lose {lowest_pathos_cost} {lowest_pathos}. Progress the least progressed card by 4.',
-		'upgrade': '[Feelyne]: Lose {middle_pathos_cost} {middle_pathos}. Upgrade the most progressed card.',
-		'remove': '[Depressium]: Lose {highest_pathos_cost} {highest_pathos}. Remove a card from your deck.',
+		'progress': '[Ermbaraz]: Lose {bcolor:{lowest_pathos_cost} {lowest_pathos}:}. {gcolor:Progress the least progressed card by 4:}.',
+		'upgrade': '[Feelyne]: Lose {bcolor:{middle_pathos_cost} {middle_pathos}:}. {gcolor:Upgrade the most progressed card:}.',
+		'remove': '[Depressium]: Lose {bcolor:{highest_pathos_cost} {highest_pathos}:}. {gcolor:Remove a card from your deck:}.',
 		'leave': '[Stop]: Nothing Happens.',
 	}
 var pathos_choice_payments := {}
@@ -24,9 +24,9 @@ func begin() -> void:
 	var highest_pathos = pathos_org["highest_pathos"]["selected"]
 	var lowest_pathos = pathos_org["lowest_pathos"]["selected"]
 	var middle_pathos = pathos_org["middle_pathos"]["selected"]
-	var lowest_pathos_cost = globals.player.pathos.get_progression_average(lowest_pathos) * 2
-	var middle_pathos_cost = globals.player.pathos.get_progression_average(middle_pathos) * 3
-	var highest_pathos_cost = globals.player.pathos.get_progression_average(highest_pathos) * 3
+	var lowest_pathos_cost = round(globals.player.pathos.get_progression_average(lowest_pathos) * 2)
+	var middle_pathos_cost = round(globals.player.pathos.get_progression_average(middle_pathos) * 3)
+	var highest_pathos_cost = round(globals.player.pathos.get_progression_average(highest_pathos) * 3)
 	var scformat = {
 		"lowest_pathos": '{released_%s}' % [lowest_pathos],
 		"lowest_pathos_cost":  lowest_pathos_cost,

@@ -4,9 +4,9 @@ var artifact_prep : ArtifactPrep
 var testing_rng := 0
 
 var secondary_choices := {
-		'lead': '[Lead]: Take 15 anxiety. 60% chance to gain a random curio.',
-		'follow': '[Follow]: Take 7 anxiety. Gain {follow_amount} {released_shop}.',
-		'abort': '[Abort]: Gain {abort_amount} {repressed_elite}.',
+		'lead': '[Lead]: {bcolor:+15:} {anxiety_up}. 60% chance to {gcolor:gain a random curio:}.',
+		'follow': '[Follow]: {bcolor:+7:} {anxiety_up}. Gain {gcolor:{follow_amount} {released_shop}:}.',
+		'abort': '[Abort]: Gain {bcolor:{abort_amount} {repressed_elite}:} .',
 	}
 
 var nce_result_fluff := {
@@ -30,10 +30,10 @@ func begin() -> void:
 	# warning-ignore:return_value_discarded
 	.begin()
 	var scformat := Terms.RUN_ACCUMULATION_NAMES.duplicate()
-	scformat["follow_amount"] = globals.player.pathos.get_progression_average(
-			Terms.RUN_ACCUMULATION_NAMES.shop) * 3
-	scformat["abort_amount"] = globals.player.pathos.get_progression_average(
-			Terms.RUN_ACCUMULATION_NAMES.elite) * 2
+	scformat["follow_amount"] = round(globals.player.pathos.get_progression_average(
+			Terms.RUN_ACCUMULATION_NAMES.shop) * 3)
+	scformat["abort_amount"] = round(globals.player.pathos.get_progression_average(
+			Terms.RUN_ACCUMULATION_NAMES.elite) * 2)
 	_prepare_secondary_choices(secondary_choices, scformat)
 
 func continue_encounter(key) -> void:

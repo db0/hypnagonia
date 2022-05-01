@@ -6,8 +6,8 @@ const PATHOS_USED = Terms.RUN_ACCUMULATION_NAMES.artifact
 var artifact_prep: ArtifactPrep
 
 var secondary_choices := {
-		'accept': '[Accept]: 40% chance to gain a random curio. Become {perturbation}.',
-		'decline': '[Decline]: Gain 10 {anxiety}. Lose some {repressed_pathos}.',
+		'accept': '[Accept]: 40% chance to gain a random curio. [color=#FF3333]Become {perturbation}[/color].',
+		'decline': '[Decline]: [color=#FF3333]+10[/color] {anxiety_up}. [color=#FF3333]Lose some {repressed_pathos}.',
 	}
 
 var nce_result_fluff := {
