@@ -1,9 +1,9 @@
 extends NonCombatEncounter
 
 var secondary_choices := {
-		'drink': '[Drown your sorrows]: Gain 1 random Common card from your Disposition card pool.',
-		'gamble': '[Gamble your inheritance]: [color=red]+7[/color] {anxiety_up}. Gain 1 random Uncommon card from your Disposition card pool.',
-		'investigate': '[Investigate]: [color=red]+15[/color] {anxiety_up}. Gain 1 random Rare card from your Disposition card pool.',
+		'drink': '[Drown your sorrows]: Gain {gcolor:1 random Common card:} from your Disposition card pool.',
+		'gamble': '[Gamble your inheritance]: {bcolor:+7:} {anxiety_up}. Gain {gcolor:1 random Uncommon card:} from your Disposition card pool.',
+		'investigate': '[Investigate]: {bcolor:+15:} {anxiety_up}. Gain {gcolor:1 random Rare card:} from your Disposition card pool.',
 	}
 
 

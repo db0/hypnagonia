@@ -1,9 +1,9 @@
 extends NonCombatEncounter
 
 var secondary_choices := {
-		'spy': '[Spy]: Gain 1 random Common card from your Ego card pool.',
-		'double-cross': '[double-cross]: [color=red]+7[/color] {anxiety_up}. Gain 1 random Uncommon card from your Ego card pool.',
-		'triple-cross': '[triple-cross]: [color=red]+15[/color] {anxiety_up}. Gain 1 random Rare card from your Ego card pool.',
+		'spy': '[Spy]: Gain {gcolor:1 random Common card:}  from your Ego card pool.',
+		'double-cross': '[Double-cross]: {bcolor:+7:} {anxiety_up}. Gain {gcolor:1 random Uncommon card:} from your Ego card pool.',
+		'triple-cross': '[Triple-cross]: {bcolor:+15:} {anxiety_up}. Gain {gcolor:1 random Rare card:} from your Ego card pool.',
 	}
 	
 var nce_result_fluff := {
