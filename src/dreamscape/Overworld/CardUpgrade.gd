@@ -50,7 +50,10 @@ func _on_card_upgrade_selected(option: int, draft_card_object) -> void:
 		if select_return is GDScriptFunctionState: # Still working.
 			select_return = yield(select_return, "completed")
 	if typeof(select_return) == TYPE_ARRAY:
-		draft_card_object.disconnect("card_selected", self, "_on_card_upgrade_selected")
-		draft_card_object.display_card.card_front.apply_shader("res://shaders/grayscale.shader")
+		draft_card_object.queue_free()
 		upgradable_cards[option].upgrade(select_return[0])
 		emit_signal("card_upgraded", upgradable_cards[option])
+		var upgraded_card_object = CARD_UPGRADE_SCENE.instance()
+		add_child(upgraded_card_object)
+		upgraded_card_object.setup(upgradable_cards[option].instance_self(true))
+		upgraded_card_object.display_card.card_front.apply_shader("res://shaders/grayscale.shader")
