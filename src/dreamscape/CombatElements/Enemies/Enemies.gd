@@ -377,12 +377,12 @@ const MOUSE := {
 			"max_uses": 1,
 		},
 		{
-			"intent_scripts": ["Stress:20"],
+			"intent_scripts": ["Stress:24"],
 			"reshuffle": false,
 			"max_in_a_row": 1,
 		},
 		{
-			"intent_scripts": ["Unfocus", "Perplex:10"],
+			"intent_scripts": ["Unfocus", "Perplex:12"],
 			"reshuffle": true,
 			"max_in_a_row": 1,
 		},
