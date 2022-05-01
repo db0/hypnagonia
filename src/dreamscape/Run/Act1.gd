@@ -55,15 +55,19 @@ const TheLaughingOnes = {
 		"hard": [
 			{
 				"definition": EnemyDefinitions.THE_LAUGHING_ONE,
+				"health_modifier": -7,
 			},
 			{
 				"definition": EnemyDefinitions.THE_LAUGHING_ONE,
+				"health_modifier": -5,
 			},
 			{
 				"definition": EnemyDefinitions.THE_LAUGHING_ONE,
+				"health_modifier": -5,
 			},
 			{
 				"definition": EnemyDefinitions.THE_LAUGHING_ONE,
+				"health_modifier": -8,
 			}
 		],
 	},
@@ -326,12 +330,10 @@ const BrokenMirrors = {
 			{
 				"definition": EnemyDefinitions.BROKEN_MIRROR,
 				"starting_defence": +10,
-				"health_modifier": +10,
 			},
 			{
 				"definition": EnemyDefinitions.BROKEN_MIRROR,
 				"starting_defence": +10,
-				"health_modifier": +10,
 			},
 		],
 	},
