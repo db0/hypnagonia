@@ -574,10 +574,10 @@ func _input(event):
 		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.elite, 30)
 		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, 15)
 		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.rest, 20)
-		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 50)
-		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, 49)
+		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, -1000)
+		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, -1000)
 		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.rest, 49)
-		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, 48)
+		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, -1000)
 #		globals.player.damage = 85
 		var debug_encounters = [
 #			EnemyEncounter.new(Act1.Pialephant, "hard"),
@@ -586,7 +586,7 @@ func _input(event):
 #			load("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
 			load("res://src/dreamscape/Run/NCE/AllActs/EpicUpgrade.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act3/Experience.gd").new(),
-			load("res://src/dreamscape/Run/NCE/Act2/Griftlands.gd").new(),
+			load("res://src/dreamscape/Run/NCE/Act2/RiskyEvent4.gd").new(),
 			load("res://src/dreamscape/Run/NCE/Act1/Spider.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
 #			BossEncounter.new(Act2.BOSSES["Surreality"]),

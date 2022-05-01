@@ -33,6 +33,8 @@ func populate_choices(nested_choices: Dictionary, _journal, disabled_choices := 
 						self, 
 						"_on_choice_pressed", 
 						[secondary_choice, choice_key])
+			else:
+				secondary_choice.self_modulate = Color(0.1,0.1,0.1)
 	call_deferred("display")
 
 

@@ -7,8 +7,8 @@ var highest_pathos: String
 var ignore_pathos : String = Terms.RUN_ACCUMULATION_NAMES.enemy
 
 var secondary_choices := {
-		'help': '[Help]: Pay all your {pathos} ({amount}). Gain a random curio.',
-		'ignore': '[Ignore]: Gain {ignore_amount} {ignore_pathos}. Gain a random curio. Become {perturbation}.',
+		'help': '[Help]: Pay {bcolor:all your {pathos} ({amount}):}. {gcolor:Gain a random curio:}.',
+		'ignore': '[Ignore]: Gain {bcolor:{ignore_amount} {ignore_pathos}:}. {gcolor:Gain a random curio:}. {bcolor:Become {perturbation}:}.',
 	}
 
 # TODO Result fluff

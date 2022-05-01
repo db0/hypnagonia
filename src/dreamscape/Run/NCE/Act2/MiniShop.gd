@@ -3,9 +3,9 @@
 extends NonCombatEncounter
 
 var secondary_choices := {
-		'remove': '[Remove]: Pay {remove} {remove_pathos}. Remove a card from your deck.',
-		'progress': '[Progress]: Pay {progress} {progress_pathos}. Progress a card in your deck 4 times.',
-		'upgrade': '[Upgrade]: Pay {upgrade} {upgrade_pathos}. Upgrade a random memory 2 times.',
+		'remove': '[Remove]: Pay {bcolor:{remove} {remove_pathos}:}. {gcolor:Remove a card:} from your deck.',
+		'progress': '[Progress]: Pay {bcolor:{progress} {progress_pathos}:}. {gcolor:Progress a card:} in your deck 4 times.',
+		'upgrade': '[Upgrade]: Pay {bcolor:{upgrade} {upgrade_pathos}:}. {gcolor:Upgrade a random memory:} 2 times.',
 		'leave': '[Leave]: Nothing Happens.'
 	}
 

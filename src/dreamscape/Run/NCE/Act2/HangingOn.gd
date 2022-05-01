@@ -1,9 +1,9 @@
 extends NonCombatEncounter
 
 var secondary_choices := {
-		'swing': '[Swing For It]: 50% chance to take 5 {anxiety}. Transform one {control} card to a random {action}.',
-		'shout': '[Shout for Help]: 30% chance to take 7 {anxiety}. Transform one {control} card to a random {control}.',
-		'hang': '[Hang Tighter]: 50% change to lose 4 max {anxiety}. 50% chance to gain a {chasm}',
+		'swing': '[Swing For It]: 50% chance for {bcolor:+5 {anxiety_up}:}. {gcolor:Choose and transform:} one {control} card to a random {action}.',
+		'shout': '[Shout for Help]: 30% chance for {bcolor:+7 {anxiety_up}:}. {gcolor:Choose and transform:} one {control} card to a random {control}.',
+		'hang': '[Hang Tighter]: 50% chance for {bcolor:-4 max {anxiety}:}. 50% chance to {gcolor:gain a {chasm}:}',
 	}
 
 var nce_result_fluff := {

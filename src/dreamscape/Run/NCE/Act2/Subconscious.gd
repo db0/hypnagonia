@@ -5,8 +5,8 @@ extends NonCombatEncounter
 const DAMAGE_AMOUNT := 7
 
 var secondary_choices := {
-		'intrerpret': '[intrerpret]: Take {damage_amount} {anxiety}. Gain {subconscious}',
-		'avoid': '[avoid]: Gain {lowest_pathos_amount} {lowest_pathos}.',
+		'intrerpret': '[intrerpret]: {bcolor:+{damage_amount} {anxiety_up}:}. {gcolor:Gain {subconscious}:}',
+		'avoid': '[avoid]: Gain {gcolor:{lowest_pathos_amount} {lowest_pathos}:}.',
 	}
 	
 var nce_result_fluff := {
