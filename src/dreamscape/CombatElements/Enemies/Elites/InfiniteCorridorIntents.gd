@@ -8,8 +8,7 @@ const INTENTS := [
 	},
 	{
 		"intent_scripts": ["Unending"],
-		"reshuffle": true,
-		"max_in_a_row": 2,
+		"reshuffle": false,
 	},
 	{
 		"intent_scripts": ["Boring"],
@@ -17,7 +16,8 @@ const INTENTS := [
 	},
 	{
 		"intent_scripts": ["So Many Doors"],
-		"reshuffle": false,
+		"reshuffle": true,
+		"max_in_a_row": 2,
 	},
 ]
 
@@ -66,7 +66,7 @@ func _get_elite_scripts(intent_name: String) -> Array:
 				"name": "modify_damage",
 				"tags": ["Attack", "Intent"],
 				"subject": "dreamer",
-				"amount": 18 + difficulty * 5,
+				"amount": 18 + difficulty * 4,
 				"icon": all_intent_scripts.ICON_ATTACK,
 				"description": "Stress: Will cause the dreamer to take the specified amount of {anxiety}.\n"\
 						+ "[i]This way and that way, but never an end.[/i]"
