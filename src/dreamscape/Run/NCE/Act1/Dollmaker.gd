@@ -3,8 +3,8 @@ extends NonCombatEncounter
 
 
 var secondary_choices := {
-		'destroy': '[Destroy the workshop]: [color=#33FF33]Gain {destroy_amount} {released_boss}[/color].',
-		'leave': '[Leave the alone]: [color=#FF3333]Gain {leave_amount} {repressed_elite}[/color].',
+		'destroy': '[Destroy the workshop]: Gain {gcolor:{destroy_amount} {released_boss}:}.',
+		'leave': '[Leave the alone]: Gain {bcolor:{leave_amount} {repressed_elite}:}.',
 	}
 
 	

@@ -3,9 +3,9 @@
 extends NonCombatEncounter
 
 var secondary_choices := {
-		'eat': '[Eat the spider]: Recover 10 {anxiety}. Gain {boss_amount} {boss_pathos}',
-		'wave': '[Wave at the spider]: Gain 10 max {anxiety}. Gain {boss_amount} {boss_pathos}. Gain {elite_amount} {elite_pathos}',
-		'offer': '[Offer yourself to the spider]: Take 10 {anxiety}.',
+		'eat': '[Eat the spider]: {gcolor:-10 {anxiety_down}:}. Gain {bcolor:{boss_amount} {boss_pathos}:}',
+		'wave': '[Wave at the spider]: {gcolor:+10 max {anxiety}:}. Gain {bcolor:{boss_amount} {boss_pathos}:}. Gain {bcolor:{elite_amount} {elite_pathos}:}',
+		'offer': '[Offer yourself to the spider]: {bcolor:+10 {anxiety_up}:}.',
 	}
 
 var nce_result_fluff := {

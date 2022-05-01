@@ -29,11 +29,13 @@ func _init(_journal: Node) -> void:
 
 
 func _on_mouse_entered() -> void:
-	bbcode_text = "[color=yellow]" + formated_description + "[/color]"
+#	bbcode_text = "[color=yellow]" + formated_description + "[/color]"
+	self_modulate = Color(3,3,0)
 
 
 func _on_mouse_exited() -> void:
-	bbcode_text = formated_description
+#	bbcode_text = formated_description
+	self_modulate = Color(1,1,1)
 
 
 func _on_gui_input(event) -> void:
@@ -41,7 +43,8 @@ func _on_gui_input(event) -> void:
 		if journal.popups_active:
 			return
 		emit_signal("pressed")
-		bbcode_text = "[color=grey]" + formated_description + "[/color]"
+		self_modulate = Color(0.6,0.6,0.6)
+#		bbcode_text = "[color=grey]" + formated_description + "[/color]"
 		disconnect("mouse_entered", self, "_on_mouse_entered")
 		disconnect("mouse_exited", self, "_on_mouse_exited")
 		disconnect("gui_input", self, "_on_gui_input")
