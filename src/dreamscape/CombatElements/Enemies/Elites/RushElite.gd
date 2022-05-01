@@ -7,7 +7,7 @@ const PROPERTIES := {
 	"Damage": 0,
 	"_texture_size_x": 180,
 	"_texture_size_y": 180,
-	"_character_art": 'Artbreeder.com',
+	"_character_art": 'Lorc',
 	"_is_ordered": false,
 	"_health_variability": 3,
 	"starting_intent": 0,

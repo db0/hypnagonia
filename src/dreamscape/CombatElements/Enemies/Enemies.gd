@@ -160,7 +160,7 @@ const BUTTERFLY:= {
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
 	"_texture": "res://assets/journal/torments/butterfly.jpeg",
-	"_character_art": "Artbreeder.com",
+	"_character_art": "Db0 via Artbreeder.com",
 		}
 const MURMURS := {
 	"Name": "Murmurs",
@@ -184,7 +184,7 @@ const MURMURS := {
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
 	"_texture": "res://assets/journal/torments/murmurs.jpeg",
-	"_character_art": "Artbreeder.com"
+	"_character_art": "Silberfarben via Artbreeder.com"
 }
 const BROKEN_MIRROR:= {
 	"Name": "Broken Mirror",
@@ -209,7 +209,7 @@ const BROKEN_MIRROR:= {
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
 	"_texture": "res://assets/journal/torments/broken_mirror.jpg",
-	"_character_art": "Artbreeder.com"
+	"_character_art": "Db0 via Artbreeder.com"
 }
 const PIALEPHANT:= {
 	"Name": "Pialephant",
@@ -317,7 +317,7 @@ const BABY := {
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
 	"_texture": "res://assets/journal/torments/baby.jpeg",
-	"_character_art": "Artbreeder.com"
+	"_character_art": "Db0 via Artbreeder.com"
 }
 
 ## ACT 2
@@ -343,7 +343,7 @@ const TRAFFICJAM := {
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
 	"_texture": "res://assets/journal/torments/traffic_jam.jpeg",
-	"_character_art": "Artbreeder.com"
+	"_character_art": "Silberfarben via Artbreeder.com"
 }
 const STUFFEDTOY := {
 	"Name": "Stuffed Toy",
@@ -364,7 +364,7 @@ const STUFFEDTOY := {
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
 	"_texture": "res://assets/journal/torments/stuffed_toy.jpeg",
-	"_character_art": "Artbreeder.com"
+	"_character_art": "Silberfarben via Artbreeder.com"
 }
 const MOUSE := {
 	"Name": "Mouse",
@@ -391,7 +391,7 @@ const MOUSE := {
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
 	"_texture": "res://assets/journal/torments/mouse.jpeg",
-	"_character_art": "Artbreeder.com"
+	"_character_art": "Silberfarben via Artbreeder.com"
 }
 const THE_EXAM := {
 	"Name": "The Exam",
@@ -426,7 +426,7 @@ const THE_EXAM := {
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
 	"_texture": "res://assets/journal/torments/exam.jpeg",
-	"_character_art": "Artbreeder.com"
+	"_character_art": "Silberfarben via Artbreeder.com"
 }
 const THE_VICTIM := {
 	"Name": "The Victim",
@@ -460,7 +460,7 @@ const THE_VICTIM := {
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
 	"_texture": "res://assets/journal/torments/the_victim.jpeg",
-	"_character_art": "Artbreeder.com"
+	"_character_art": "Silberfarben via Artbreeder.com"
 }
 const IMPOSSIBLE_CONSTRUCTION := {
 	"Name": "Impossible Construction",
@@ -576,7 +576,7 @@ const VOID := {
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
 	"_texture": "res://assets/journal/torments/void.jpeg",
-	"_character_art": "Artbreeder.com"
+	"_character_art": "Silberfarben via Artbreeder.com"
 }
 const ADMINISTRATION := {
 	"Name": "Administration",
@@ -602,7 +602,7 @@ const ADMINISTRATION := {
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
 #	"_texture": "res://assets/enemies/slavery-whip.png",
-	"_character_art": "Nobody",
+	"_character_art": "Silberfarben via Artbreeder.com",
 	"_description": "Administration is cruel when profit is involved. "\
 			+ "They meticulously dissect productivity and efficiency to command obedience, and mandatory overtime is never out of the question."
 
@@ -676,7 +676,7 @@ const LIFE_PATH := {
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
 	"_texture": "res://assets/journal/torments/life_path.jpeg",
-	"_character_art": "Artbreeder.com"
+	"_character_art": "Silberfarben via Artbreeder.com"
 }
 const CRINGELORD:= {
 	"Name": "Cringelord",
@@ -701,7 +701,7 @@ const CRINGELORD:= {
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
 	"_texture": "res://assets/journal/torments/cringelord.jpeg",
-	"_character_art": "Artbreeder.com",
+	"_character_art": "Db0 via Artbreeder.com",
 }
 const NIGHTMARE:= {
 	"Name": "Nightmare",
@@ -808,7 +808,7 @@ const HANDSY_AUNT := {
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
 	"_texture": "res://assets/journal/torments/handsy_aunt.jpeg",
-	"_character_art": "Artbreeder.com"
+	"_character_art": "Db0 via Artbreeder.com"
 }
 
 const CIRCULAR_ARGUMENTS := {

@@ -57,15 +57,15 @@ rect_min_size = Vector2( 0, 30 )
 
 [node name="HealthBar" parent="." index="5"]
 margin_top = 95.0
-margin_bottom = 103.0
+margin_bottom = 104.0
 
 [node name="HBC" parent="." index="6"]
-margin_top = 107.0
-margin_bottom = 143.0
+margin_top = 108.0
+margin_bottom = 144.0
 rect_min_size = Vector2( 0, 15 )
 
 [node name="ActiveEffects" parent="." index="7"]
-margin_top = 147.0
-margin_bottom = 183.0
+margin_top = 148.0
+margin_bottom = 184.0
 
 [editable path="Intents"]

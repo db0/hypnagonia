@@ -21,6 +21,9 @@ const URLS := {
 	"Lorenzo Andreozzi": "https://tornioduva.itch.io",
 	"SkylarkGSH": "https://www.youtube.com/channel/UCQgd41luGM6QDKozglEjfVQ",
 	"axilirate": "https://www.instagram.com/axilirate/",
+	"Lorc": "https://lorcblog.blogspot.com/",
+	"Delapouite": "https://delapouite.com/",
+	"Caravaggio": "https://en.wikipedia.org/wiki/Caravaggio",
 }
 const BBCODE_TEXT = """
 [center]
@@ -75,7 +78,7 @@ var game_designers := {
 	"Db0": "Lead Game Design",
 	"DioBal": "Game Design",
 	"Questlion": "Archetype Design",
-	"SkylarkGSH": "Archetype Design",
+#	"SkylarkGSH": "Archetype Design",
 }
 var developers := {
 	"Db0": "Programming Lead"
@@ -108,6 +111,7 @@ var playtesters := {
 }
 
 func _ready() -> void:
+	# warning-ignore:return_value_discarded
 	connect("meta_clicked",self, "_on_url_clicked")
 	var label_fmt = {
 		"game_designers": "",
@@ -162,15 +166,7 @@ func _gather_card_illustrators() -> Array:
 	var found_illustrators := []
 	for c in cfc.card_definitions:
 		var card : Dictionary =  cfc.card_definitions[c]
-		var illustrator : String = card["_illustration"]
-		if "Artbreeder" in illustrator and not found_illustrators.has("Artbreeder.com"):
-			found_illustrators.append("Artbreeder.com")
-		illustrator = illustrator.replace(" via Artbreeder.com", "")
-		if illustrator == "Nobody":
-			continue
-		if found_illustrators.has(illustrator):
-			continue
-		found_illustrators.append(illustrator)
+		_parse_illustrator(found_illustrators, card["_illustration"])
 	return(found_illustrators)
 
 func _gather_icon_illustrators() -> Array:
@@ -191,9 +187,27 @@ func _gather_character_artists() -> Array:
 	var found_illustrators := []
 	for ename in EnemyDefinitions.get_script_constant_map():
 		var illustrator : String = EnemyDefinitions[ename].get("_character_art", "Nobody")
-		if illustrator == "Nobody":
-			continue
-		if found_illustrators.has(illustrator):
-			continue
-		found_illustrators.append(illustrator)
+		_parse_illustrator(found_illustrators, illustrator)
+	for act in [Act1, Act2, Act3]:
+		for advanced in act.ELITES.values() + act.BOSSES.values():
+			for s in advanced.scenes:
+				var scene = s.instance()
+				var illustrator: String = scene.get_script().PROPERTIES.get("_character_art", "Nobody")
+				_parse_illustrator(found_illustrators, illustrator)
+				scene.queue_free()
+	for ename in CFUtils.list_files_in_directory("res://src/dreamscape/CombatElements/Enemies/Elites/", '', true):
+		if ename.ends_with(".gd") and not ename.ends_with("Intents.gd"):
+			pass
 	return(found_illustrators)
+
+# Takes a list of previously parsed illustrators and the currently processed illustrator string
+# Parses the current string and adds it to the list if not already there.
+func _parse_illustrator(existing_illustrators: Array, illustrator: String) -> void:
+	if "Artbreeder" in illustrator and not existing_illustrators.has("Artbreeder.com"):
+		existing_illustrators.append("Artbreeder.com")
+	illustrator = illustrator.replace(" via Artbreeder.com", "")
+	if illustrator == "Nobody":
+		return
+	if existing_illustrators.has(illustrator):
+		return
+	existing_illustrators.append(illustrator)
