@@ -3,9 +3,9 @@ extends NonCombatEncounter
 const COST_REDUCTION := 1
 
 var secondary_choices := {
-		'recipe': '[Troubleshoot recipe]: Remove an upgraded card. Gain a random uncommon or rare card fully progressed.',
-		'map': '[Troubleshoot map]: Remove an upgraded card. Choose a card in your deck and gain an extra copy.',
-		'ground': '[Troubleshoot ground]: Remove an upgraded card. Choose a card in your deck and reduce its cost by {cost_reduction}.',
+		'recipe': '[Troubleshoot recipe]: {bcolor:Remove an upgraded card:}. {gcolor:Gain a random uncommon or rare card:} fully progressed.',
+		'map': '[Troubleshoot map]: {bcolor:Remove an upgraded card:}. Choose a card in your deck and {gcolor:gain an extra copy:}.',
+		'ground': '[Troubleshoot ground]: {bcolor:Remove an upgraded card:}. Choose a card in your deck and {gcolor:reduce its cost by {cost_reduction}:}.',
 		'support': '[Leave]: Nothing happens.',
 	}
 

@@ -28,8 +28,8 @@ const ADVANCED_COMBAT_ENCOUNTER_DEFINITION = {
 }
 
 var secondary_choices := {
-		'explore': '[Explore the Cave]: Gain 1 rare Curio. Gain/Upgrade a memory. Draft a card. Gain some released {pathos}.',
-		'leave': '[Leave]: Lose all released {pathos}.',
+		'explore': '[Explore the Cave]: {gcolor:Gain 1 rare Curio. Gain/Upgrade a memory. Draft a card. Gain some {pathos}:}.',
+		'leave': '[Leave]: Lose {bcolor:all {pathos}:}.',
 	}
 
 var memory_prep: MemoryPrep
@@ -44,11 +44,9 @@ func _init():
 func begin() -> void:
 	.begin()
 	var scformat = {
-		"pathos": PATHOS,
+		"pathos": '{released_%s}' % [PATHOS],
 	}
-	for c in secondary_choices:
-		secondary_choices[c] = secondary_choices[c].format(scformat).format(Terms.get_bbcode_formats(18))
-	globals.journal.add_nested_choices(secondary_choices)
+	_prepare_secondary_choices(secondary_choices,scformat)
 
 func continue_encounter(key) -> void:
 	if key == 'explore':

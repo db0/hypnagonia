@@ -7,8 +7,8 @@ const SPECIAL_ARTIFACT:= "StartingDisempower"
 
 # TODO: Fluff
 var secondary_choices := {
-		'receive': '[Receive Curio]: Spend all {highest_pathos}. Gain {special_curio}.',
-		'use': '[Use Curio]: use {special_curio}. Gain {lowest_pathos_amount} {lowest_pathos}.',
+		'receive': '[Receive Curio]: Spend {all {bcolor:highest_pathos}:}. {gcolor:Gain {special_curio}:}.',
+		'use': '[Use Curio]: use {special_curio}. Gain {gcolor:{lowest_pathos_amount} {lowest_pathos}:}.',
 		'ignore': '[Ignore]: Nothing happens.',
 	}
 

@@ -17,9 +17,9 @@ var journal_draft_script = load("res://src/dreamscape/Overworld/CustomEntries/NC
 
 # TODO: Fluff
 var secondary_choices := {
-		'comment': '[Comment out]: draft {draft_amount} {understanding} card.',
-		'debug': '[Debug]: draft {draft_amount} {understanding} cards. Gain {dmg_amount} {anxiety}',
-		'refactor': '[Refactor]: draft {draft_amount} {understanding} cards. Gain {dmg_amount} {anxiety}',
+		'comment': '[Comment out]: {gcolor:draft {draft_amount} {understanding} card:}.',
+		'debug': '[Debug]: {gcolor:draft {draft_amount} {understanding} cards:}. {bcolor:+{dmg_amount} {anxiety_up}:}',
+		'refactor': '[Refactor]: {gcolor:draft {draft_amount} {understanding} cards:}. {bcolor:+{dmg_amount} {anxiety_up}:}',
 	}
 
 var nce_result_fluff := {
@@ -43,7 +43,7 @@ func begin() -> void:
 			"draft_amount": DRAFTS[type]
 		}
 		secondary_choices[type] = secondary_choices[type].format(Terms.get_bbcode_formats(18)).format(scformat)
-	globals.journal.add_nested_choices(secondary_choices)
+	_prepare_secondary_choices(secondary_choices, {})
 
 func continue_encounter(key) -> void:
 	var draft_scene = JOURNAL_CUSTOM_ENTRY.instance()

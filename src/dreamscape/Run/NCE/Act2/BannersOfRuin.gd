@@ -25,9 +25,7 @@ func begin() -> void:
 		"hyena": _prepare_card_popup_bbcode("Hyena", "a special card"),
 		"curio": _prepare_artifact_popup_bbcode("BetterRareChance", "some interesting cheese")
 	}
-	for c in secondary_choices:
-		secondary_choices[c] = secondary_choices[c].format(scformat).format(Terms.get_bbcode_formats(18))
-	globals.journal.add_nested_choices(secondary_choices)
+	_prepare_secondary_choices(secondary_choices,scformat)
 
 func continue_encounter(key) -> void:
 	match key:
