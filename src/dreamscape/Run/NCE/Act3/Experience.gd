@@ -7,10 +7,10 @@ const REPRESSED_PATHOS_AVG_MULTIPLIER = 1
 const CARD_PROGRESS = 3
 
 var secondary_choices := {
-		'card': '[Card]: Remove an upgraded card. Upgrade a card.',
-		'memory': '[Memory]: Remove an upgraded card. Upgrade a random Memory {memory_progress} times.',
-		'pathos': '[Pathos]: Remove an upgraded card. Gain {released_pathos_amount} released {released_pathos}.',
-		'progress': '[Progress]: Gain {repressed_pathos_amount} {repressed_pathos}. Progress a random card by {progress}',
+		'card': '[Card]: {bcolor:Remove an upgraded card:}. {gcolor:Upgrade a card:}.',
+		'memory': '[Memory]: {bcolor:Remove an upgraded card:}. {gcolor:Upgrade a random Memory:} {memory_progress} times.',
+		'pathos': '[Pathos]: {bcolor:Remove an upgraded card:}. Gain {gcolor:{released_pathos_amount} released {released_pathos}:}.',
+		'progress': '[Progress]: Gain {bcolor:{repressed_pathos_amount} {repressed_pathos}:}. {gcolor:Progress a random card:} by {progress}',
 	}
 
 # TODO: Fluff

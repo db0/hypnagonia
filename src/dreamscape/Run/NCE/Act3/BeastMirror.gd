@@ -3,7 +3,7 @@ extends NonCombatEncounter
 const CONTINUE_HEALTH_LOSS = -25
 
 var secondary_choices := {
-		'continue': '[Continue looking]: Lose {loss_amount} max {anxiety}. Gain {beast}.',
+		'continue': '[Continue looking]: {bcolor:-{loss_amount} max {anxiety}:}. {gcolor:Gain {beast}:}.',
 		#TODO: Add another option to exchange a special curio for the card, if the player has it
 		'leave': '[Leave]: Nothing Happens.',
 	}
@@ -25,9 +25,7 @@ func begin() -> void:
 		"beast": _prepare_card_popup_bbcode("Beast Mode", "a special card"),
 		"loss_amount": abs(CONTINUE_HEALTH_LOSS),
 	}
-	for c in secondary_choices:
-		secondary_choices[c] = secondary_choices[c].format(scformat).format(Terms.get_bbcode_formats(18))
-	globals.journal.add_nested_choices(secondary_choices)
+	_prepare_secondary_choices(secondary_choices,scformat)
 
 func continue_encounter(key) -> void:
 	match key:

@@ -3,8 +3,8 @@ extends NonCombatEncounter
 const RELAX_AMOUNT := 20
 
 var secondary_choices := {
-		'jump': '[Jump]: Scar a random card. {relax} for {relax_amount}.',
-		'stand': '[Stand]: Scar a random card. Remove a card.',
+		'jump': '[Jump]: {bcolor:Scar a random card.:} {gcolor:{relax} for {relax_amount}:}.',
+		'stand': '[Stand]: {bcolor:Scar a random card:}. {gcolor:Remove a card:}.',
 	}
 
 var nce_result_fluff := {

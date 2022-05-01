@@ -4,10 +4,10 @@ extends NonCombatEncounter
 
 # TODO: Fluff
 var secondary_choices := {
-		'Action': '[choice1]: {release} a random {action}.',
-		'Control': '[choice2]: {release} a random {control}.',
-		'Concentration': '[choice3]: {release} a random {concentration}.',
-		'Understanding': '[choice4]: {release} a random {understanding}.',
+		'Action': '[choice1]: {bcolor:{release} a random {action}:}.',
+		'Control': '[choice2]: {bcolor:{release} a random {control}:}.',
+		'Concentration': '[choice3]: {bcolor:{release} a random {concentration}:}.',
+		'Understanding': '[choice4]: {bcolor:{release} a random {understanding}:}.',
 	}
 
 # TODO: Fluff
@@ -26,9 +26,8 @@ func begin() -> void:
 		secondary_choices[type] = secondary_choices[type].format(Terms.get_bbcode_formats(18))
 		cards_per_type[type] = globals.player.deck.filter_cards(CardFilter.new('Type', type))
 		if cards_per_type[type].size() == 0:
-			secondary_choices[type] = "[color=red]" + secondary_choices[type] + "[/color]"
 			disabled_choices.append(type)
-	globals.journal.add_nested_choices(secondary_choices, disabled_choices)
+	_prepare_secondary_choices(secondary_choices, {}, disabled_choices)
 
 func continue_encounter(key) -> void:
 	CFUtils.shuffle_array(cards_per_type[key])
