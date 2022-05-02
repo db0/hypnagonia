@@ -3,9 +3,9 @@ extends NonCombatEncounter
 const HUNGRY_AMOUNT = 2
 
 var secondary_choices := {
-		'scramble': "[Scrambled]: Enhance all basic {action} cards. Scar all basic {control} cards (Enhancing randomly improves a card. Scarring randomly degrades a card.)",
-		'omelette': "[Omelette]: Enhance all basic {control} cards. Scar all basic {action} cards",
-		'hungry': "[Hungry]: Scar {hungry_amount} random cards.",
+		'scramble': '[Scrambled]: {gcolor:[url={"definition": "enhance","meta_type": "definition"}]Enhance[/url]:} all basic {action} cards. {bcolor:[url={"definition": "scar","meta_type": "definition"}]Scar[/url]:} all basic {control} cards',
+		'omelette': '[Omelette]: {gcolor:[url={"definition": "enhance","meta_type": "definition"}]Enhance[/url]:} all basic {control} cards. {bcolor:[url={"definition": "scar","meta_type": "definition"}]Scar[/url]:} all basic {action} cards',
+		'hungry': '[Hungry]: {bcolor:[url={"definition": "scar","meta_type": "definition"}]Scar[/url]:} {hungry_amount} random cards.',
 	}
 
 var nce_result_fluff := {

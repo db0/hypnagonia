@@ -6,8 +6,8 @@ const MEMORY_UPGRADE := 3
 
 var secondary_choices := {
 		'remembered': "[Remembered]: Nothing happens.",
-		'forgot': "[Forgot]: Become {special_perturbation}. Upgrade your {existing_memory}.",
-		'what': "[Huh?]: Become {special_perturbation}. Gain {special_memory}.",
+		'forgot': "[Forgot]: Become {bcolor:{special_perturbation}:}. {gcolor:Upgrade:} your {existing_memory}.",
+		'what': "[Huh?]: Become {bcolor:{special_perturbation}:}. {gcolor:Gain {special_memory}:}.",
 	}
 
 var nce_result_fluff := {
