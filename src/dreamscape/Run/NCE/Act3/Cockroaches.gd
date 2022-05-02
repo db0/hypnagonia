@@ -6,7 +6,7 @@ const STOMP_DAMAGE := 3
 
 var secondary_choices := {
 		'ignore': '[Ignore]:{gcolor:{relax} for {pct}% of your max {anxiety}:}. {bcolor:Become {infested}:}.',
-		'stomp': '[Stomp]: {bcolor:+{damage_amount} {anxiety_up}}.',
+		'stomp': '[Stomp]: {bcolor:+{damage_amount} {anxiety_up}:}.',
 	}
 
 var nce_result_fluff := {
