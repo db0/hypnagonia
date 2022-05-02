@@ -480,7 +480,7 @@ func _input(event):
 		globals.player.add_memory(MemoryDefinitions.RandomChaos.canonical_name)
 		# warning-ignore:return_value_discarded
 #		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
-#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 6)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.quicken.name, 6)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 6)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.absurdity_unleashed.name, 1)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.creative_block.name, 1)
@@ -495,7 +495,7 @@ func _input(event):
 #			"Fowl Language",
 #			"A Thousand Squeaks",
 #			"Prejudice",
-			"Prepared",
+			"Overview",
 		]:
 			var ce = CardEntry.new(c)
 			var card = ce.instance_self()
@@ -547,7 +547,7 @@ func _on_Debug_pressed() -> void:
 		entity.damage = 1
 	for c in [
 #		"Grit"
-#			"Confident Slap",
+			"Overview",
 #			"Confident Slap",
 #			"A Thousand Squeaks",
 	]:
