@@ -644,7 +644,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "At the start of your turn, {damage} a random Torment with {confusion} for {concentration_damage}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -665,7 +665,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "At the start of your turn, {damage} a random Torment with {confusion} for {concentration_damage}.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -681,7 +681,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "At the start of your turn, {damage} a random Torment with {confusion} for {concentration_damage}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -697,7 +697,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "At the start of your turn, {damage} all Torments with {confusion} for {concentration_damage}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
