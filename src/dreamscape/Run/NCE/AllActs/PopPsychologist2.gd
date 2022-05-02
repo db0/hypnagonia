@@ -5,9 +5,9 @@ extends NonCombatEncounter
 var shader := load("res://shaders/Roscharch.shader")
 
 var secondary_choices := {
-		'passion fruit': '[A Passion Fruit]: Gain some {released_artifact}.',
-		'orange': '[An Orange]:  Gain some {released_elite}.',
-		'banana': '[A Banana]: Gain some {released_rest}.',
+		'passion fruit': '[A Passion Fruit]: Gain some {gcolor:{released_artifact}:}.',
+		'orange': '[An Orange]:  Gain some {gcolor:{released_elite}:}.',
+		'banana': '[A Banana]: Gain some {gcolor:{released_rest}:}.',
 	}
 
 var nce_resul_fluff := "[i]I understand. You're {adjective} your {noun}.[/i]"

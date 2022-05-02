@@ -23,8 +23,8 @@ const WORD_DEFINITIONS := {
 	"scar": "Will permanently degrade a card in a random manner",
 	"enhance": "Will permanently improve a card in a random manner",
 	"anxiety_up": "Will increase the dreamer's Anxiety. If this reaches the max, the dreamer will wake up and the game is over.",
-	"anxiety_down": "Will decrease the anxiety. This helps from losing the game.",
-	"anxiety": "Anxiety: When full, the dreamer wakes up and you lose the game.",
+	"anxiety_down": "Will decrease the anxiety. This avoids losing the game.",
+	"anxiety": "Max Anxiety: When your anxiety reaches this threshold, the dreamer wakes up and you lose the game.",
 }
 
 var pathos_infos := {}
@@ -587,7 +587,7 @@ func _input(event):
 #			EnemyEncounter.new(Act2.TrafficJam, "easy"),
 #			EnemyEncounter.new(Act3.HandsyAunt, "hard"),
 #			load("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
-			load("res://src/dreamscape/Run/NCE/AllActs/EpicUpgrade.gd").new(),
+			load("res://src/dreamscape/Run/NCE/AllActs/OstrichEggs.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act3/UnderwaterCave.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act2/RiskyEvent4.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act1/Spider.gd").new(),
@@ -598,7 +598,7 @@ func _input(event):
 #			EliteEncounter.new(Act2.IndescribableAbsurdity, "medium"),
 #			EliteEncounter.new(Act3.TheatrePlay, "medium"),
 #			load("res://src/dreamscape/Run/NCE/Shop.gd").new()
-#			load("res://src/dreamscape/Run/NCE/Rest.gd").new()
+			load("res://src/dreamscape/Run/NCE/Rest.gd").new()
 		]
 		for encounter in debug_encounters:
 			var journal_choice_scene = JOURNAL_ENCOUNTER_CHOICE_SCENE.instance()

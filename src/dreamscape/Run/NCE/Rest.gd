@@ -6,16 +6,16 @@ var rest_amount : float = 0.25
 var progress_amount := 5
 
 var secondary_choices := {
-		'rest': '[Rest] Releases {anxiety} anxiety equal to 25% of the max ({healing_done}), from the Dreamer.',
-		'progress': '[Think] Choose and progress a card {progress_amount} times',
+		'rest': '[Rest] {gcolor:-{healing_done} {anxiety_down}:}.',
+		'progress': '[Think] {gcolor:Choose and progress a card:} {progress_amount} times',
 		'resist': '[Resist] Nothing happens.',
 	}
 
 var unlockable_choices := {
-	"strengthen_up": '[%s] Increase starting {strengthen} by 1.' % [ArtifactDefinitions.StrengthenUp.name],
-	"quicken_up": '[%s] Increase starting {quicken} by 1.' % [ArtifactDefinitions.QuickenUp.name],
-	"enhance": '[%s] [url={"definition": "enhance","meta_type": "definition"}]Enhance[/url] one card.' % [ArtifactDefinitions.EnhanceOnRest.name],
-	"upgrade_memories": '[%s] Upgrade all Memories.' % [ArtifactDefinitions.UpgradeMemoryOnRest.name],
+	"strengthen_up": '[%s] {gcolor:Increase starting {strengthen}:} by 1.' % [ArtifactDefinitions.StrengthenUp.name],
+	"quicken_up": '[%s] {gcolor:Increase starting {quicken}:} by 1.' % [ArtifactDefinitions.QuickenUp.name],
+	"enhance": '[%s] {gcolor:[url={"definition": "enhance","meta_type": "definition"}]Enhance[/url]:} one card.' % [ArtifactDefinitions.EnhanceOnRest.name],
+	"upgrade_memories": '[%s] {gcolor:Upgrade:} all Memories.' % [ArtifactDefinitions.UpgradeMemoryOnRest.name],
 }
 
 var reward_texts := {
