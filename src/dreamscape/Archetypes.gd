@@ -274,7 +274,7 @@ const COWARD := {
 
 
 const RUBBER_CHICKEN := {
-#	"Icon": preload("res://icon.png"),
+	"Icon": preload("res://assets/archetypes/Rubber Chicken.jpg"),
 	"Tags": [
 		Terms.ACTIVE_EFFECTS.disempower.name,
 		Terms.ACTIVE_EFFECTS.buffer.name,
