@@ -61,6 +61,7 @@ const KeepInMind = {
 				},
 				"sort_by": "random",
 				"src_container": "hand",
+				"up_to": true,
 			},
 			{
 				"name": "move_card_to_container",
