@@ -1,5 +1,20 @@
 # Changelog
 
+## [v0.51.0](https://github.com/db0/hypnagonia/tree/v0.51.0) (2022-05-02)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.6...v0.51.0)
+
+**Fixed bugs:**
+
+- NCEs colored text is occasionally broken on some of the choices [\#324](https://github.com/db0/hypnagonia/issues/324)
+- "fading" on "prepared" doesn't work correctly [\#322](https://github.com/db0/hypnagonia/issues/322)
+- Overview is giving glitched perplexity to torments [\#321](https://github.com/db0/hypnagonia/issues/321)
+- + Keep in Mind + cannot be played if there's only one valid target [\#319](https://github.com/db0/hypnagonia/issues/319)
+
+**Merged pull requests:**
+
+- Fixed various colouring bugs [\#327](https://github.com/db0/hypnagonia/pull/327) ([db0](https://github.com/db0))
+
 ## [v0.50.6](https://github.com/db0/hypnagonia/tree/v0.50.6) (2022-05-01)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.5...v0.50.6)
@@ -318,7 +333,7 @@
 
 ## [v0.39.0](https://github.com/db0/hypnagonia/tree/v0.39.0) (2022-03-17)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.37.0...v0.39.0)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.38.0...v0.39.0)
 
 **Closed issues:**
 
@@ -329,13 +344,13 @@
 
 - Enhancements and Scars can now affect more properties [\#244](https://github.com/db0/hypnagonia/pull/244) ([db0](https://github.com/db0))
 
-## [v0.37.0](https://github.com/db0/hypnagonia/tree/v0.37.0) (2022-03-16)
-
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.38.0...v0.37.0)
-
 ## [v0.38.0](https://github.com/db0/hypnagonia/tree/v0.38.0) (2022-03-16)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.36.0...v0.38.0)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.37.0...v0.38.0)
+
+## [v0.37.0](https://github.com/db0/hypnagonia/tree/v0.37.0) (2022-03-16)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.36.0...v0.37.0)
 
 **Closed issues:**
 
