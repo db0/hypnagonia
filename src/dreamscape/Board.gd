@@ -495,16 +495,7 @@ func _input(event):
 #			"Fowl Language",
 #			"A Thousand Squeaks",
 #			"Prejudice",
-			"Dodge",
-			"Dodge",
-			"Dodge",
-			"Dodge",
-			"Dodge",
-			"Dodge",
-			"Dodge",
-			"Dodge",
-			"Hand of Grudge",
-			"Hand of Grudge",
+			"Dancing Dodge",
 		]:
 			var ce = CardEntry.new(c)
 			var card = ce.instance_self()
