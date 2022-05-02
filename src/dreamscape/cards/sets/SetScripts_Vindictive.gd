@@ -652,7 +652,7 @@ const Prepared = {
 			},
 		],
 	},
-	"on_player_turn_ended": {
+	"player_turn_ended": {
 		"hand": [
 			{
 				"name": "move_card_to_container",
