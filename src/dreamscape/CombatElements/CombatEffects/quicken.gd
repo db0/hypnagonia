@@ -9,9 +9,14 @@ func get_effect_alteration(
 		_sceng, 
 		is_source := false, 
 		_dry_run := true,
-		_subject: Node = null) -> int:
-	if not script.script_name == 'assign_defence'\
-			or not is_source or is_delayed:
+		subject: Node = null) -> int:
+	if not script.script_name == 'assign_defence':
+		return(0)
+	if not is_source:
+		return(0)
+	if subject != owning_entity:
+		return(0)
+	if is_delayed:
 		return(0)
 	var new_value = value + stacks
 	var alteration = new_value - value

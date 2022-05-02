@@ -186,7 +186,7 @@ class TestQuicken:
 		test_torment.intents.refresh_intents()
 		spawn_effect(test_torment, effect, -10, '')		
 		cfc.call_deferred("flush_cache")
-		yield(yield_to(cfc, "cache_cleared", 0.2), YIELD)
+		yield(yield_to(cfc, "cache_cleared", 2.2), YIELD)
 		var intents = test_torment.intents.get_children()
 		for iindex in range(intents.size()):
 			assert_eq(intents[iindex].signifier_amount.text, "0", "Perplex intent should be 0")
@@ -202,3 +202,15 @@ class TestQuicken:
 		spawn_effect(dreamer, effect, +10, '')
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 7,
 				"%s stacks reversed" % [effect])
+				
+	func test_quicken_overview():
+		var overview = add_single_card("Overview", hand)
+		if not card.targeting_arrow.is_targeting:
+			yield(yield_to(card.targeting_arrow, "initiated_targeting", 1), YIELD)		
+		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.quicken.name, 2)
+		var sceng = overview.execute_scripts()
+		assert_eq(test_torment.incoming.get_child_count(), 1,
+				"Torment should have 1 incoming displayed")
+		for prediction in test_torment.incoming.get_children():
+			assert_eq(prediction.signifier_amount.text, str(0), "Defence should be shown as 0")
+		overview.targeting_arrow.call_deferred("preselect_target", test_torment)
