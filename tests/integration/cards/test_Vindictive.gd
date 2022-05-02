@@ -54,6 +54,36 @@ class TestKeepInMind:
 				found_frozen += 1
 		assert_eq(found_frozen, 2, "One random card got frozen tag")
 
+class TestKeepInMindPlus:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	func _init() -> void:
+		testing_card_name = "+ Keep in Mind +"
+		globals.test_flags["test_initial_hand"] = true
+		globals.test_flags["no_refill"] = false
+		expected_amount_keys = [
+			"beneficial_integer",
+		]
+		test_card_names = [
+		]
+
+	func test_card_results():
+		var hcards = hand.get_all_cards()
+		var other_cards := []
+		for iter in hand.get_card_count():
+			if hcards[iter].canonical_name != testing_card_name:
+				other_cards.append(hcards[iter])
+			if iter < 5:
+				hcards[iter].modify_property("Tags", Terms.GENERIC_TAGS.frozen.name)
+		var sceng = execute_with_yield(card)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		var found_frozen := 0
+		for sel_card in other_cards:
+			if sel_card.properties.Tags.has(Terms.GENERIC_TAGS.frozen.name):
+				found_frozen += 1
+		assert_eq(found_frozen, 5, "All random cards got frozen tag")
+		assert_eq(card.get_parent(), forgotten, "Card Played")
+
 class TestAngerMemento:
 	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.burn.name
