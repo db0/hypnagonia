@@ -1775,6 +1775,31 @@ const Dodge = {
 		],
 	},
 }
+const DancingDodge = {
+	"manual": {
+		"hand": [
+			{
+				"name": "apply_effect",
+				"tags": ["Card"],
+				"is_cost": true,
+				"effect_name": Terms.ACTIVE_EFFECTS.impervious.name,
+				"subject": "dreamer",
+				"modification": {
+					"lookup_property": "_amounts",
+					"value_key": "effect_stacks"
+				},
+			},
+			{
+				"name": "draw_cards",
+				"tags": ["Card"],
+				"card_count": {
+					"lookup_property": "_amounts",
+					"value_key": "draw_amount"
+				},
+			},
+		],
+	},
+}
 const Introspection = {
 	"manual": {
 		"hand": [
@@ -3624,6 +3649,7 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 		"It's The Small Things": ItsTheSmallThings,
 		"Confrontation": Confrontation,
 		"Dodge": Dodge,
+		"Dancing Dodge": DancingDodge,
 		"Introspection": Introspection,
 		"Light Introspection": LightIntrospection,
 		"Deep Introspection": DeepIntrospection,

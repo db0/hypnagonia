@@ -3160,14 +3160,14 @@ const CARDS := {
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
-			"% Dodge %",
+			"Dancing Dodge",
 			"* Dodge *",
 		],
 	},
-	"% Dodge %": {
+	"Dancing Dodge": {
 		"Type": "Control",
-		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
-		"Abilities": "Gain {effect_stacks} {untouchable}",
+		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name,Terms.GENERIC_TAGS.swift.name],
+		"Abilities": "Gain {effect_stacks} {untouchable}. Draw {draw_amount} card.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -3176,6 +3176,7 @@ const CARDS := {
 		"_rarity": "Common",
 		"_amounts": {
 			"effect_stacks": 1,
+			"draw_amount": 1,
 		},
 		"_is_upgrade": true,
 	},
