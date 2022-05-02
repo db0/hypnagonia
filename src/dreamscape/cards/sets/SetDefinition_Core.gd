@@ -794,7 +794,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Increase your {damage} by {concentration_damage} for each stack of {confusion} on the Torment.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "axilirate",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -814,7 +814,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Increase your {damage} by {concentration_damage} for each stack of {confusion} on the Torment.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "axilirate",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -830,7 +830,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Increase your {damage} by {concentration_damage} for each stack of {confusion} on the Torment.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "axilirate",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -1238,7 +1238,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} equal to your current {confidence}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Common",
 		"_keywords": ["confidence", "interpretation"],
 		"_upgrade_threshold_modifier": 0,
@@ -1257,7 +1257,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} equal to your current {confidence}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Common",
 		"_keywords": ["confidence", "interpretation"],
 		"_is_upgrade": true,
@@ -1272,7 +1272,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} equal to your current {confidence} + {damage_amount}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Common",
 		"_keywords": ["confidence", "interpretation"],
 		"_amounts": {
