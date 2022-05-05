@@ -495,7 +495,7 @@ func _input(event):
 #			"Fowl Language",
 #			"A Thousand Squeaks",
 #			"Prejudice",
-			"Overview",
+			"Nunclucks",
 		]:
 			var ce = CardEntry.new(c)
 			var card = ce.instance_self()
@@ -547,7 +547,7 @@ func _on_Debug_pressed() -> void:
 		entity.damage = 1
 	for c in [
 #		"Grit"
-			"Overview",
+			"Nunclucks",
 #			"Confident Slap",
 #			"A Thousand Squeaks",
 	]:
