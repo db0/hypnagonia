@@ -26,7 +26,6 @@ var owner_node: Control
 onready var _deck_preview_popup := $DeckPreview
 onready var _deck_preview_scroll := $DeckPreview/ScrollContainer/
 onready var _deck_preview_grid := $DeckPreview/ScrollContainer/GridContainer
-onready var _player_health_label := $HBC/Health
 onready var _encounter_label := $HBC/Encounter
 onready var _deck_button := $HBC/Deck
 onready var _artifact_popup := $ArtifactsPopup
@@ -46,6 +45,7 @@ onready var _memories := $HBC/Memories
 onready var _version := $HBC/Version
 onready var _difficulty := $HBC/Difficulty
 onready var _difficulty_icon := $HBC/DifficultyIcon
+onready var health_icon := $HBC/HealthIcon
 
 func _ready() -> void:
 	$PathosDetails/VBC/Header.description = _pathos_description
@@ -70,8 +70,6 @@ func _ready() -> void:
 	_version.text = CFConst.GAME_VERSION
 	# warning-ignore:return_value_discarded
 	get_viewport().connect("size_changed",self,"_on_Viewport_size_changed")
-	# warning-ignore:return_value_discarded
-	globals.player.connect("health_changed", self, "_update_health_label")
 	# Using a conditional for debugging purposes
 	if globals.player.deck:
 		# warning-ignore:return_value_discarded
@@ -88,7 +86,6 @@ func _ready() -> void:
 		globals.encounters.connect("encounter_changed", self, "_update_encounter_label")
 		if globals.encounters.current_act:
 			_update_encounter_label(globals.encounters.current_act.get_act_name(), globals.encounters.encounter_number)
-	_update_health_label()
 #	cfc.game_settings['show_artifacts'] = cfc.game_settings.get('show_artifacts', false)
 #	_artifact_button.pressed = cfc.game_settings.show_artifacts
 #	_on_ArtifactsShowButton_toggled(_artifact_button.pressed, false)
@@ -165,23 +162,6 @@ func get_ordered_artifacts(ordered_effects: Dictionary) -> Dictionary:
 			Artifact.PRIORITY.SET:
 				ordered_effects.setters.append(artifact)
 	return(ordered_effects)
-
-
-func connect_dreamer_signals(dreamer: PlayerEntity) -> void:
-	# warning-ignore:return_value_discarded
-	dreamer.connect("entity_damaged", self, "_on_player_health_changed")
-	# warning-ignore:return_value_discarded
-	dreamer.connect("entity_healed", self, "_on_player_health_changed")
-	# warning-ignore:return_value_discarded
-	dreamer.connect("entity_health_modified", self, "_on_player_health_changed")
-
-
-func _on_player_health_changed(entity, _amount, _trigger, _tags) -> void:
-	_update_health_label(entity.damage, entity.health)
-
-
-func _update_health_label(current := globals.player.damage, total := globals.player.health) -> void:
-	_player_health_label.text = str(current) + '/' + str(total)
 
 
 func _update_encounter_label(act_name, encounter_number) -> void:
