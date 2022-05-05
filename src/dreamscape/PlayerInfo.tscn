@@ -25,6 +25,7 @@ axis_stretch_horizontal = 1
 [sub_resource type="Animation" id=10]
 resource_name = "Beating"
 loop = true
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_scale")
 tracks/0/interp = 1
@@ -32,8 +33,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.7, 1 ),
-"transitions": PoolRealArray( 1, 3.86374, 8.57418, 3.86374, 3.86374 ),
+"times": PoolRealArray( 0, 0.25, 0.4, 0.6, 1 ),
+"transitions": PoolRealArray( 1, 11.7127, 1.07177, 0.196146, 3.86374 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 1, 1.1 ), Vector2( 1, 1 ), Vector2( 1.15, 1.15 ), Vector2( 1, 1 ) ]
 }
@@ -81,7 +82,6 @@ modulate = Color( 1, 0.72549, 0, 1 )
 margin_right = 35.0
 margin_bottom = 39.0
 rect_min_size = Vector2( 35, 35 )
-rect_scale = Vector2( 1.1475, 1.1475 )
 rect_pivot_offset = Vector2( 17.5, 17.5 )
 texture = ExtResource( 5 )
 expand = true
