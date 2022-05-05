@@ -38,6 +38,7 @@ onready var cost_container_background := $CostContainer/CostIcon
 onready var scarred := $Scarred
 onready var enhanced := $Enhanced
 onready var text_style : StyleBoxFlat = text_background.get("custom_styles/panel/StyleBoxFlat")
+onready var placeholder := $Placeholder
 
 func _ready() -> void:
 #	text_expansion_multiplier = {
@@ -119,12 +120,13 @@ func apply_shader(shader_path: String) -> void:
 	shader_effect.material.shader = load(shader_path)
 
 
-func set_card_art(filename) -> void:
+func set_card_art(filename, is_placeholder := false) -> void:
 	var new_texture = CFUtils.convert_texture_to_image(filename)
 	art.texture = new_texture
 	art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 	# In case the generic art has been modulated, se switch it back to normal colour
 	art.self_modulate = Color(1,1,1)
+	placeholder.visible = is_placeholder
 	
 
 func _get_bbcode_format(font_size = null) -> Dictionary:
