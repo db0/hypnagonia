@@ -79,7 +79,7 @@ func _ready() -> void:
 	_on_viewport_resized()
 # warning-ignore:return_value_discarded
 	cfc.connect("cache_cleared", self, '_recalculate_predictions')
-	player_info.connect_dreamer_signals(dreamer)
+	player_info.health_icon.connect_dreamer_signals(dreamer)
 #	begin_encounter()
 	# warning-ignore:return_value_discarded
 	connect("battle_begun", cfc.signal_propagator, "_on_signal_received", [self, "battle_begun", {}])

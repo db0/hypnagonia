@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/icons/GUI/cog.png" type="Texture" id=1]
 [ext_resource path="res://src/dreamscape/PlayerInfo.gd" type="Script" id=2]
@@ -14,12 +14,29 @@
 [ext_resource path="res://src/dreamscape/Tutorials/Tutorial.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/icons/GUI/InfoPanel.png" type="Texture" id=13]
 [ext_resource path="res://themes/darktheme/StyleBox/Opaque.tres" type="StyleBox" id=14]
+[ext_resource path="res://src/dreamscape/HealthIcon.gd" type="Script" id=15]
 
 [sub_resource type="StyleBoxTexture" id=9]
 content_margin_bottom = 10.0
 texture = ExtResource( 13 )
 region_rect = Rect2( 0, 0, 800, 51 )
 axis_stretch_horizontal = 1
+
+[sub_resource type="Animation" id=10]
+resource_name = "Beating"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 3.86374, 8.57418, 3.86374, 3.86374 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1.1 ), Vector2( 1, 1 ), Vector2( 1.15, 1.15 ), Vector2( 1, 1 ) ]
+}
 
 [sub_resource type="DynamicFontData" id=5]
 font_path = "res://fonts/Amarante-Regular.ttf"
@@ -54,16 +71,23 @@ margin_right = 1455.0
 margin_bottom = 39.0
 rect_min_size = Vector2( 0, 35 )
 
-[node name="HealthIcon" type="TextureRect" parent="HBC"]
+[node name="HealthIcon" type="HBoxContainer" parent="HBC"]
+margin_right = 92.0
+margin_bottom = 39.0
+script = ExtResource( 15 )
+
+[node name="Texture" type="TextureRect" parent="HBC/HealthIcon"]
 modulate = Color( 1, 0.72549, 0, 1 )
 margin_right = 35.0
 margin_bottom = 39.0
 rect_min_size = Vector2( 35, 35 )
+rect_scale = Vector2( 1.1475, 1.1475 )
+rect_pivot_offset = Vector2( 17.5, 17.5 )
 texture = ExtResource( 5 )
 expand = true
 stretch_mode = 5
 
-[node name="Health" type="Label" parent="HBC"]
+[node name="Label" type="Label" parent="HBC/HealthIcon"]
 margin_left = 39.0
 margin_top = 5.0
 margin_right = 92.0
@@ -71,6 +95,10 @@ margin_bottom = 33.0
 custom_colors/font_color = Color( 1, 0.72549, 0, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "0/90"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBC/HealthIcon"]
+root_node = NodePath("../Texture")
+anims/Beating = SubResource( 10 )
 
 [node name="Curios" type="Button" parent="HBC"]
 margin_left = 96.0
