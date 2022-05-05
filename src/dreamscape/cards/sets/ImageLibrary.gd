@@ -4,7 +4,16 @@
 class_name ImageLibrary
 extends Reference
 
-const CARD_IMAGES := {
+const FINAL_IMAGES := {
+	"The Whippy-Flippy": "res://assets/cards/The Whippy-Flippy.jpg",
+	"Nunclucks": "res://assets/cards/Nunclucks.jpg",
+	"Keep in Mind": "res://assets/cards/Keep in Mind.jpg",
+	"Pialephant": "res://assets/cards/pialephant.jpg",
+	"Broken Mirror": "res://assets/cards/broken_mirror.jpg",
+	"The Light Calling": "res://assets/cards/The Light Calling.jpg",
+	"A Squirrel": "res://assets/cards/Squirrel.jpg",
+}
+const BETA_IMAGES := {
 	"Catatonia": "res://assets/cards/Catatonia.jpg",
 	"Could Be Worse": "res://assets/cards/Could Be Worse.jpg",
 	"Dismissal": "res://assets/cards/Dismissal.jpg",
@@ -24,14 +33,9 @@ const CARD_IMAGES := {
 	"Change of Mind": "res://assets/cards/Change of Mind.jpg",
 	"Misunderstood": "res://assets/cards/Misunderstood.jpg",
 	"Mania": "res://assets/cards/Mania.jpg",
-	"The Whippy-Flippy": "res://assets/cards/The Whippy-Flippy.jpg",
 	"Terror": "res://assets/cards/beta_eyeball.jpg",
 	"Discombobulation": "res://assets/cards/beta_hands.jpg",
 	"The Laughing One": "res://assets/cards/beta_smiler.jpg",
-	"Broken Mirror": "res://assets/cards/broken_mirror.jpg",
-	"Pialephant": "res://assets/cards/pialephant.jpg",
-	"The Light Calling": "res://assets/cards/The Light Calling.jpg",
-	"A Squirrel": "res://assets/cards/Squirrel.jpg",
 	"Confidence": "res://assets/cards/confidence.jpg",
 	"Lacuna": "res://assets/cards/doodle2.jpg",
 	"Unease": "res://assets/cards/doodle1.jpg",
@@ -44,12 +48,10 @@ const CARD_IMAGES := {
 	"Out of Reach": "res://assets/cards/Out of Reach.jpg",
 	"Confounding Movements": "res://assets/cards/Confounding Movements.jpg",
 	"Noisy Whip": "res://assets/cards/Noisy Whip.jpg",
-	"Keep in Mind": "res://assets/cards/Keep in Mind.jpg",
 	"Whirlwind": "res://assets/cards/whirlwind.jpg",
 	"Overview": "res://assets/cards/overview.jpg",
 	"Rubber Eggs": "res://assets/cards/Rubber Eggs.jpg",
 	"Towering Presence": "res://assets/cards/Towering Presence.jpg",
-	"Nunclucks": "res://assets/cards/Nunclucks.jpg",
 	
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Stuffed Toy": "res://assets/journal/torments/stuffed_toy.jpeg",

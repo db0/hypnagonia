@@ -99,14 +99,20 @@ func setup() -> void:
 		card_front.set_tag_icon(get_property("Tags"))
 	if printed_properties.empty():
 		printed_properties = properties.duplicate()
-	var card_art_file
+	var card_art
+	var beta_art
 	if get_property("_is_upgrade"):
 		var card_upgrade_parent_name =  find_upgrade_parent()
-		card_art_file = ImageLibrary.CARD_IMAGES.get(card_upgrade_parent_name)
+		beta_art = ImageLibrary.BETA_IMAGES.get(card_upgrade_parent_name)
+		card_art = ImageLibrary.FINAL_IMAGES.get(card_upgrade_parent_name, beta_art)
 	else:
-		card_art_file = ImageLibrary.CARD_IMAGES.get(canonical_name)
-	if card_art_file:
-		card_front.set_card_art(card_art_file)
+		beta_art = ImageLibrary.BETA_IMAGES.get(canonical_name)
+		card_art = ImageLibrary.FINAL_IMAGES.get(canonical_name, beta_art)
+	var is_placeholder = false
+	if card_art == beta_art:
+		is_placeholder = true
+	if card_art:
+		card_front.set_card_art(card_art, is_placeholder)
 	if deck_card_entry:
 		if deck_card_entry.is_scarred():
 			card_front.scarred.visible = true
