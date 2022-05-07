@@ -23,6 +23,13 @@ var enemies_at_start_of_turn = []
 var _debug_enemies_at_end_of_turn
 var _debug_enemies_started_activation := []
 var _debug_enemy_states := {}
+# The damage total damage predicted by the current intents displayed on the torments
+var snapshot_dmg_predictions := {}
+# If this is true, the game will recalculate predictions for anxiety taken by the dreamer based
+# on torment intents
+var needs_prediction_recalculation := false
+# This handles how often we refresh the predictions for the dreamer based on the torment intents
+var predictions_delta_wait := 0
 
 onready var turn = $Turn
 onready var bottom_gui := $VBC/HBC
@@ -78,7 +85,7 @@ func _ready() -> void:
 	dreamer.rect_position = Vector2(100,100)
 	_on_viewport_resized()
 # warning-ignore:return_value_discarded
-	cfc.connect("cache_cleared", self, '_recalculate_predictions')
+	cfc.connect("cache_cleared", self, '_spool_recalc_predictions')
 	player_info.health_icon.connect_dreamer_signals(dreamer)
 #	begin_encounter()
 	# warning-ignore:return_value_discarded
@@ -87,6 +94,15 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if cfc.game_paused and cfc.NMAP.has("main") and cfc.NMAP.main._current_focus_source:
 		cfc.NMAP.main.unfocus_all()
+	if needs_prediction_recalculation:
+		# To avoid the game clearing and resetting the prediction icons too many times
+		# in the same tick, we spool all the requests to clear predictions, then set them
+		# only one time
+		predictions_delta_wait += 1
+		if predictions_delta_wait >= 5:
+			needs_prediction_recalculation = false
+			predictions_delta_wait = 0
+			recalculate_predictions()
 	if _debug_warning.visible:
 		if _debug_timer.time_left > 0:
 			_debug_warning.text = "The enemy turn appears to be stuck. Force unsticking in: " + str(round(_debug_timer.time_left))
@@ -409,12 +425,20 @@ func _fade_to_transparent() -> void:
 		_tween.start()
 
 
-func _recalculate_predictions() -> void:
+func _spool_recalc_predictions() -> void:
+	needs_prediction_recalculation = true
+
+
+# Show the amount of damage the enemies are going to do to the player
+# and also totals it all together and shows the total anxiety to be 
+# taken, as a tally on the player incoming signifiers.
+func recalculate_predictions() -> void:
 	# We do not want to recalculate for every card discard and refill
 	# rather we'll recalculate once, once the player's turn starts again
 	if end_turn.disabled:
 		return
-	yield(get_tree(), "idle_frame")
+	for entity in cfc.get_tree().get_nodes_in_group("CombatEntities"):
+		entity.clear_predictions()
 	var snapshot_id = int(rand_range(1,100000))
 	get_tree().call_group_flags(get_tree().GROUP_CALL_REALTIME, "combat_effects", "take_snapshot", snapshot_id)
 	# I want the enemies to be predicted serially
@@ -424,6 +448,8 @@ func _recalculate_predictions() -> void:
 #		print_debug("Activating Intents: " + enemy.canonical_name)
 			enemy.intents.predict_intents(snapshot_id)
 			yield(enemy.intents, "intents_predicted")
+	if snapshot_dmg_predictions.has(snapshot_id):
+		dreamer.show_turn_dmg_prediction(snapshot_dmg_predictions[snapshot_id])
 
 
 func _input(event):
@@ -436,17 +462,18 @@ func _input(event):
 #		SoundManager.play_bgm(bgm_tracks[0])
 #		SoundManager.fade_in(bgm_tracks[0])
 		# warning-ignore:unused_variable
-		_debug_advanced_enemy()
+#		_debug_advanced_enemy()
 		var _torment1
 		var _torment2
 		var _torment3
-#		_torment1 = spawn_enemy(EnemyDefinitions.BROKEN_MIRROR)
+		_torment1 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment1 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 #		_torment1 = spawn_enemy(EnemyDefinitions.VOID)
+		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment2 = spawn_enemy(EnemyDefinitions.BROKEN_MIRROR)
 #		_torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
 #		_torment3 = spawn_enemy(EnemyDefinitions.GASLIGHTER)
-#		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 		if _torment1:
 			_torment1.health = 600
@@ -537,7 +564,7 @@ func _debug_advanced_enemy():
 
 func _on_Debug_pressed() -> void:
 	# warning-ignore:return_value_discarded
-	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.fortify.name, 1)
+	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 3)
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.vulnerable.name, 2)
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.drain.name, 5)
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.introspection.name, 6)

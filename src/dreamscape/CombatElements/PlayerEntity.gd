@@ -31,6 +31,22 @@ func stop_upgrades() -> void:
 	active_effects.mod_effect(
 		Terms.ACTIVE_EFFECTS.creative_block.name, 1, true, false, ["Core"])
 
+
+func show_turn_dmg_prediction(dmg_from_intents := 0) -> void:
+	var taken_anxiety : int = dmg_from_intents + active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.burn.name) - defence
+	if taken_anxiety < 0: 
+		return
+	var poison_stacks = active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.poison.name)
+	# Because poison will never kill the dreamer, we want to avoid showing it causing anxiety
+	# when it would be causing pathos burn
+	if poison_stacks > 0 and damage + taken_anxiety + poison_stacks > health:
+		poison_stacks = health - damage - taken_anxiety - 1
+		if poison_stacks < 0:
+			poison_stacks = 0
+	taken_anxiety += poison_stacks
+	show_predictions(taken_anxiety, Terms.get_term_value("Anxiety", "icon"))
+
+
 # We store how many times the player has been damaged during their own turn
 # We also store the cumulative amount of damage the player has taken during their turn.
 func _on_player_damaged(_pl, amount, _trigger, _tags) -> void:
