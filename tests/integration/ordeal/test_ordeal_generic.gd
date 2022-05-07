@@ -25,9 +25,9 @@ class TestInit:
 		assert_eq(get_tree().get_nodes_in_group("PlayerEntities").size(), 1, "Dreamer added to Groups")
 		assert_connected(dreamer, board, "entity_killed", "_dreamer_died")
 		assert_connected(cfc, board, "cache_cleared", "_recalculate_predictions")
-		assert_connected(dreamer, player_info, "entity_damaged", "_on_player_health_changed")
-		assert_connected(dreamer, player_info, "entity_healed", "_on_player_health_changed")
-		assert_connected(dreamer, player_info, "entity_health_modified", "_on_player_health_changed")
+		assert_connected(dreamer, player_info.health_icon, "entity_damaged", "_on_player_health_changed")
+		assert_connected(dreamer, player_info.health_icon, "entity_healed", "_on_player_health_changed")
+		assert_connected(dreamer, player_info.health_icon, "entity_health_modified", "_on_player_health_changed")
 		for turn_signal in turn.ALL_SIGNALS:
 			assert_connected(turn, board, turn_signal, "_on_" + turn_signal)
 			assert_connected(turn, cfc.signal_propagator, turn_signal, "_on_signal_received")
