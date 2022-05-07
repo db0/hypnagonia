@@ -85,7 +85,7 @@ func _ready() -> void:
 	dreamer.rect_position = Vector2(100,100)
 	_on_viewport_resized()
 # warning-ignore:return_value_discarded
-	cfc.connect("cache_cleared", self, '_spool_recalc_predictions')
+	cfc.connect("cache_cleared", self, 'spool_recalc_predictions')
 	player_info.health_icon.connect_dreamer_signals(dreamer)
 #	begin_encounter()
 	# warning-ignore:return_value_discarded
@@ -425,7 +425,7 @@ func _fade_to_transparent() -> void:
 		_tween.start()
 
 
-func _spool_recalc_predictions() -> void:
+func spool_recalc_predictions() -> void:
 	needs_prediction_recalculation = true
 
 
