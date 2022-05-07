@@ -8,6 +8,9 @@ func complete_targeting() -> void:
 	if len(_potential_targets) and is_targeting:
 		target_object = _potential_targets.back()
 	emit_signal("target_selected",target_object)
+	# We ensure the board will refresh predictions afterwards
+	# This is to avoid a cancelled targeting, from leaving a stale prediction on torments
+	cfc.NMAP.board.spool_recalc_predictions()
 	is_targeting = false
 	clear_points()
 	$ArrowHead.visible = false
