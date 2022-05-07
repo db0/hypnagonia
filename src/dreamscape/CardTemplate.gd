@@ -351,8 +351,6 @@ func execute_scripts(
 		only_cost_check)
 	if sceng is GDScriptFunctionState: # Still working.
 		sceng = yield(sceng, "completed")
-	for entity in cfc.get_tree().get_nodes_in_group("CombatEntities"):
-		entity.clear_predictions()
 
 
 func get_state_exec() -> String:

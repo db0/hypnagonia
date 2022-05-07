@@ -153,6 +153,10 @@ func predict_intent_amount(_snapshot_id: int) -> int:
 					total_amount += amount
 				# If there's multiple targets, we calculate the amount only for a single of them
 				break
+			if script.script_name == "modify_damage":
+				if not cfc.NMAP.board.snapshot_dmg_predictions.has(snapshot_id):
+					cfc.NMAP.board.snapshot_dmg_predictions[snapshot_id] = 0
+				cfc.NMAP.board.snapshot_dmg_predictions[snapshot_id] += total_amount
 		else:
 			if not script.is_skipped and has_method(prediction_method):
 				var amount = call(prediction_method, script)
