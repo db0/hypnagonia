@@ -174,7 +174,7 @@ class TestSelfCentered:
 		
 	func test_card_results():
 		assert_has_amounts()
-		add_single_card(testing_card_name, deck)
+#		add_single_card(testing_card_name, deck)
 		spawn_effect(test_torment, Terms.ACTIVE_EFFECTS.poison.name, 14, '')
 		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.thorns.name, 9, '')
 		var intents_to_test = [
