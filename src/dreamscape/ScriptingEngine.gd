@@ -63,13 +63,17 @@ func _predict_script_amount(hardcoded_previous_subjects := []) -> void:
 				if amount is GDScriptFunctionState:
 					amount = yield(amount, "completed")
 				var prediction_icon = null
+				var prediction_type: String
 				if script.script_name == "apply_effect":
 					prediction_icon = Terms.get_term_value(script.get_property("effect_name"), "icon")
+					prediction_type = script.get_property("effect_name")
 				elif script.script_name == "assign_defence":
 					prediction_icon = Terms.get_term_value("Confidence", "icon")
+					prediction_type = "Defence"
 				elif script.get_property(SP.KEY_TAGS).has('Exert'):
 					prediction_icon = Terms.get_term_value("Anxiety", "icon")
-				entity.show_predictions(amount, prediction_icon)
+					prediction_type = "Damage"
+				entity.show_predictions(amount, prediction_icon, prediction_type)
 				var snapshot_method = "snapshot_" + script.script_name
 				# We use the "skip_sceng_snapshot" to avoid taking snapshots of predictions for followup scripts
 				# Some scripts, like Reckoning Time do not work well with this, because active_effects.get_effect_stacks()
