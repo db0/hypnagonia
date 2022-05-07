@@ -583,8 +583,8 @@ func _input(event):
 		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, -1000)
 #		globals.player.damage = 85
 		var debug_encounters = [
-#			EnemyEncounter.new(Act1.TheLaughingOnes, "hard"),
-			EnemyEncounter.new(Act2.TrafficJam, "easy"),
+			EnemyEncounter.new(Act1.Gaslighter, "hard"),
+#			EnemyEncounter.new(Act2.TrafficJam, "easy"),
 #			EnemyEncounter.new(Act3.HandsyAunt, "hard"),
 #			load("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
 			load("res://src/dreamscape/Run/NCE/AllActs/OstrichEggs.gd").new(),

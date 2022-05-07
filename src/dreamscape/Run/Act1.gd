@@ -109,18 +109,13 @@ const Fearmonger = {
 
 const Gaslighter = {
 	"journal_description":\
-		"It was dark, with only an eerie hue of green shining across the place.\n"\
-		+ "I was standing in an open field, scattered with unidentifiable brush and weeds. A light flickered in the dark, filling my body with suspense, as I wondered what it was coming from. I could recall more green embers in the dark that popped into existence and they danced around me in spiraling circles.\n"\
-		+ "I heard a faint chant from them, as they sang a morbid song about how \"I had got it all wrong\", and \"how I'm not thinking straight.\" I've heard it once before, and the cryptic tune continued to eat away at me as it got louder and louder.\n"\
-		+ "I had shouted at the top of my lungs for them to stop, and in an instance they had vaporized into smoke, which eventually had thickened into a fog.\n"\
-		+ "Asserting myself felt good, but the smoke had hurt my lungs, so I tried to waft away the smoke in hopes it would clear."\
-		+ "I remember In the distance I could see a grotesque spherical entity move towards me. At first I couldn't tell what it was, but as it came closer I could faintly see what it looked like, the green flame flickered from the lamp attached to its bodyless head illuminating the multitude of faces it possessed.\n"\
-		+ "My mind told me to run, but the echoing sound of a whisper in my ear told me that I couldn't, it told me that I shouldn't, and that I didn't.\n"\
-		+ "As the whispers became screams, my conscience and esteem was overtaken by this corrupt entity, and there was nothing to do but watch it's ugly green faces come closer, as the screaming became louder and the words became angrier and angrier. I started to doubt myself, everything that I stood for was slowly burning away inside of me, and pleaded for it to stop.\n"\
-		+ "I tried to reassure myself that I was not the horrible thing it said I was, and the things that It told me that I had did, but in the end, I couldn't shake it away.\n"\
-		+ "The dark field I was standing in had erupted into green flames as I came face to face with [url={torment_tag1}]the two-faced abomination[/url].",
+"""It was dark as I was standing in an open field. A light flickered in the dark, filling my body with suspense as I wondered what it was coming from. 
+I remember In the distance I could see a grotesque entity move towards me, the green flame flickered from the lamp attached to its strange head-body hybrid, illuminating the grueling faces it possessed. 
+It started to tell me what I was and had become. I began to doubt myself and I felt like everything that I stood for was slowly burning away inside of me. 
+I pleaded for it to go away, but I knew I couldn't shake it. The dark field I was standing in had erupted into green flames and in the light I was now face-to-face with the two-faced abomination.
+""",
 	"journal_reward":\
-		"In the end, I had learned to overcome the doubt, as the smoke cleared, and the sun began to rise. I wouldn't let them gaslight me anymore, since I knew deep in my heart, that I am who I say I am, and no one can tell me otherwise. I could see the ugly entity shriveled and crippled on the ground breathing out exasperated puffs of smoke. The flame that had once burnt me before had nearly gone out, but something didn't feel right. The flame sparked to life, fortunately I had not been met by hostility though. the entity ascended to the ground, looked me dead in the eyes, and screamed at me in sheer exasperation, as it flew away. I knew that that was not the last time I was going to have to confront them. But lets just hope that next time, my reality is solid as I know it is.",
+		"In the end, I had learned to overcome the doubt. I wouldn't let them gaslight me anymore. The ugly entity was crippled on the ground breathing out puffs of smoke as I pondered at my triumph. The entity ascended upwards and screamed at me in sheer exasperation and embarassment as it flew away. I knew that that was not the last time I was going to have to confront them. But now, I won't let anyone question my reality.",
 	"enemies": {
 		"easy": [
 			{
