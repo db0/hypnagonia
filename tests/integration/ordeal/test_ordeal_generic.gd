@@ -24,7 +24,7 @@ class TestInit:
 		assert_eq(get_tree().get_nodes_in_group("EnemyEntities").size(), 1, "All Torments added to Groups")
 		assert_eq(get_tree().get_nodes_in_group("PlayerEntities").size(), 1, "Dreamer added to Groups")
 		assert_connected(dreamer, board, "entity_killed", "_dreamer_died")
-		assert_connected(cfc, board, "cache_cleared", "_recalculate_predictions")
+		assert_connected(cfc, board, "cache_cleared", "_spool_recalc_predictions")
 		assert_connected(dreamer, player_info.health_icon, "entity_damaged", "_on_player_health_changed")
 		assert_connected(dreamer, player_info.health_icon, "entity_healed", "_on_player_health_changed")
 		assert_connected(dreamer, player_info.health_icon, "entity_health_modified", "_on_player_health_changed")

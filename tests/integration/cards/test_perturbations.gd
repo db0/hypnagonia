@@ -174,6 +174,7 @@ class TestSelfCentered:
 		
 	func test_card_results():
 		assert_has_amounts()
+		add_single_card(testing_card_name, deck)
 		spawn_effect(test_torment, Terms.ACTIVE_EFFECTS.poison.name, 14, '')
 		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.thorns.name, 9, '')
 		var intents_to_test = [
@@ -186,6 +187,7 @@ class TestSelfCentered:
 		test_torment.intents.refresh_intents()
 		cards[1].scripts = BIG_ATTACK_SCRIPT
 		var torment_added_damage = DMG*5 - get_amount("detrimental_integer")
+		yield(yield_for(0.2), YIELD)
 		var sceng = cards[1].execute_scripts()
 		if not cards[1].targeting_arrow.is_targeting:
 			yield(yield_to(cards[1].targeting_arrow, "initiated_targeting", 1), YIELD)
