@@ -110,7 +110,7 @@ const Fearmonger = {
 const Gaslighter = {
 	"journal_description":\
 """It was dark as I was standing in an open field. A light flickered in the dark, filling my body with suspense as I wondered what it was coming from. 
-I remember In the distance I could see a grotesque entity move towards me, the green flame flickered from the lamp attached to its strange head-body hybrid, illuminating the grueling faces it possessed. 
+I remember In the distance I could see [url={torment_tag1}]a grotesque entity move towards me[/url], the green flame flickered from the lamp attached to its strange head-body hybrid, illuminating the grueling faces it possessed. 
 It started to tell me what I was and had become. I began to doubt myself and I felt like everything that I stood for was slowly burning away inside of me. 
 I pleaded for it to go away, but I knew I couldn't shake it. The dark field I was standing in had erupted into green flames and in the light I was now face-to-face with the two-faced abomination.
 """,
@@ -142,9 +142,13 @@ I pleaded for it to go away, but I knew I couldn't shake it. The dark field I wa
 
 const Murmurs = {
 	"journal_description":\
-		'I thought I heard [url={torment_tag1}]murmurs on the wind[/url]. Were they talking about that time..?',
+"""I thought I heard [url={torment_tag1}]murmurs in the wind[/url]. Were they talking about [i]that[/i] time..? 
+By the minute, I was getting more certain that they were talking about me, and this had only left me more upset. 
+Their whispers lingered in the air, getting more acerbic by the second.
+""",
 	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+"""Their blame and resentment had me at my breaking point. Yet I stood firm them and reinforced my self-esteem. At this point, I had learned life is too short to keep grudges.
+""",
 	"enemies": {
 		"easy": [
 			{
