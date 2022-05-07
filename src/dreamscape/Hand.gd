@@ -58,23 +58,6 @@ func draw_card(pile : Pile = cfc.NMAP.deck) -> Card:
 		_check_for_fusion(card)
 	return card
 
-# Override to ignore executing cards
-func get_all_cards() -> Array:
-	var cardsArray := []
-	for obj in get_children():
-		# We want dragged cards to not be taken into account
-		# when reorganizing the hand (so that their gap closes immediately)
-		if not obj is Card:
-			continue
-		if not is_instance_valid(obj):
-			continue
-		if obj == cfc.card_drag_ongoing:
-			continue
-		if obj.is_executing_scripts:
-			continue
-		cardsArray.append(obj)
-	return cardsArray
-
 func _on_player_turn_started(_turn: Turn) -> void:
 	pass
 
@@ -154,3 +137,11 @@ func _check_for_fusion(card) -> void:
 				{}
 		)
 		TurnEventMessage.new("card_fused", +1)
+
+func _get_modified_card_count() -> int:
+	var cardsArray := []
+	for obj in get_all_cards():
+		if obj == cfc.card_drag_ongoing:
+			continue
+		cardsArray.append(obj)
+	return(cardsArray.size())
