@@ -17,7 +17,7 @@ func _init():
 
 func begin() -> void:
 	.begin()
-	globals.journal.add_nested_choices(secondary_choices)
+	_prepare_secondary_choices(secondary_choices, {})
 
 func continue_encounter(key) -> void:
 	match key:
