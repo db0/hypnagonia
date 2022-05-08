@@ -1,14 +1,31 @@
 # Changelog
 
-## [Unreleased](https://github.com/db0/hypnagonia/tree/HEAD)
+## [v0.52.2](https://github.com/db0/hypnagonia/tree/v0.52.2) (2022-05-08)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.52.0...HEAD)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.52.1...v0.52.2)
+
+**Fixed bugs:**
+
+- BIG ISSUE: Blown up cards leading to unplayability! [\#330](https://github.com/db0/hypnagonia/issues/330)
+
+**Merged pull requests:**
+
+- fix: flickering intent [\#333](https://github.com/db0/hypnagonia/pull/333) ([db0](https://github.com/db0))
+- fix: Reverted to scale [\#332](https://github.com/db0/hypnagonia/pull/332) ([db0](https://github.com/db0))
+
+## [v0.52.1](https://github.com/db0/hypnagonia/tree/v0.52.1) (2022-05-08)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.52.0...v0.52.1)
 
 **Implemented enhancements:**
 
 - Animate Anxiety Icon on the PlayerInfo panel  [\#328](https://github.com/db0/hypnagonia/issues/328)
 - Make journal anxiety UI change colors when in  a certain range of numbers.  [\#297](https://github.com/db0/hypnagonia/issues/297)
 - Show the total amount the dreamer is about to receive this turn somehow [\#290](https://github.com/db0/hypnagonia/issues/290)
+
+**Merged pull requests:**
+
+- fix: back to resize scaling for a bit [\#331](https://github.com/db0/hypnagonia/pull/331) ([db0](https://github.com/db0))
 
 ## [v0.52.0](https://github.com/db0/hypnagonia/tree/v0.52.0) (2022-05-08)
 
