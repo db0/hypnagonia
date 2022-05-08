@@ -118,3 +118,5 @@ func _on_card_selected(operation_details: Dictionary, key: String) -> void:
 	var chosen_card: CardEntry = operation_details.card_entry
 	if key == "enhance":
 		chosen_card.enhance()
+	if key == "progress" and globals.player.deck.count_upgradeable_cards() > 0:
+		globals.journal._reveal_entry(globals.journal.upgrade_journal, true)
