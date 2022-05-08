@@ -399,15 +399,7 @@ func _update_remove_cost() -> void:
 	remove_cost = (prog_avg * CFUtils.randf_range(2.5, 3.2))\
 			+ (prog_avg * globals.encounters.shop_deck_removals)
 	remove_cost = round(remove_cost * globals.difficulty.shop_prices)
-	var remove_text_format = {
-		"cost": str(remove_cost),
-		"pathos": card_removal_cost_type.capitalize(),
-		"uses_avail": str(remove_uses),
-		"uses_max": str(remove_max_usage),
-	}
-	if _deck_preview_popup.operation == "remove":
-		_deck_preview_popup.operation_cost = remove_cost
-		_set_remove_cost_text()
+	_set_remove_cost_text()
 	if remove_cost > globals.player.pathos.released[card_removal_cost_type]:
 		if _deck_preview_popup.operation == "remove":
 			_deck_preview_popup.update_color(Color(1,0,0))
@@ -425,8 +417,10 @@ func _set_remove_cost_text() -> void:
 		"uses_max": str(remove_max_usage),
 	}
 	_remove_cost.text = "{cost} {pathos}\n({uses_avail}/{uses_max} uses)".format(remove_text_format)
-	_deck_preview_popup.update_header(
-			"{cost} {pathos} ({uses_avail}/{uses_max} uses)".format(remove_text_format))
+	if _deck_preview_popup.operation == "remove":
+		_deck_preview_popup.operation_cost = remove_cost
+		_deck_preview_popup.update_header(
+				"{cost} {pathos} ({uses_avail}/{uses_max} uses)".format(remove_text_format))
 
 func _on_deck_operation_performed(operation_details: Dictionary) -> void:
 	if operation_details["operation"] == "remove":
