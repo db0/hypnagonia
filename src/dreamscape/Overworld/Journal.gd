@@ -571,26 +571,26 @@ func _input(event):
 #		globals.player.deck.add_new_card("Prejudice")
 #		globals.player.damage += 20
 #		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.boss, 95)
-		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 50)
-		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.enemy, 50)
-		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, 20)
-		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.elite, 30)
-		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, 15)
-		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.rest, 20)
-		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, -1000)
-		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, -1000)
-		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.rest, 49)
-		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, -1000)
+#		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 50)
+#		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.enemy, 50)
+#		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, 20)
+#		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.elite, 30)
+#		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, 15)
+#		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.rest, 20)
+#		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, -1000)
+#		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, -1000)
+#		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.rest, 49)
+#		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, -1000)
 #		globals.player.damage = 85
 		var debug_encounters = [
 			EnemyEncounter.new(Act1.Murmurs, "hard"),
 #			EnemyEncounter.new(Act2.TrafficJam, "easy"),
 #			EnemyEncounter.new(Act3.HandsyAunt, "hard"),
 #			load("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
-			load("res://src/dreamscape/Run/NCE/AllActs/OstrichEggs.gd").new(),
+#			load("res://src/dreamscape/Run/NCE/AllActs/OstrichEggs.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act3/UnderwaterCave.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act2/RiskyEvent4.gd").new(),
-#			load("res://src/dreamscape/Run/NCE/Act1/Spider.gd").new(),
+			load("res://src/dreamscape/Run/NCE/Act1/Dollmaker.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
 #			BossEncounter.new(Act2.BOSSES["Surreality"]),
 #			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
