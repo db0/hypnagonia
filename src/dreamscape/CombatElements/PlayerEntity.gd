@@ -5,6 +5,7 @@ var upgrades_increased := 0 setget set_upgrades_increased
 
 # This variable will point to the scene which controls the targeting arrow
 onready var targeting_arrow = $TargetLine
+onready var incoming_background = $CenterContainer/IncomingBackground
 
 func _ready() -> void:
 	entity_type = "dreamer"
@@ -17,6 +18,8 @@ func _map_nodes() -> void:
 	defence_icon = $HBC/Defence/Icon
 	defence_label = $HBC/Defence/Amount
 	health_bar = $HBC/MC/HealthBar
+	health_temp = $HBC/MC/HealthTemp
+	health_incoming = $HBC/MC/HealthIncoming
 	active_effects = $HBC2/ActiveEffects
 
 func set_upgrades_increased(value) -> void:
@@ -45,8 +48,12 @@ func show_turn_dmg_prediction(dmg_from_intents := 0) -> void:
 			poison_stacks = 0
 	taken_anxiety += poison_stacks
 	show_predictions(taken_anxiety, Terms.get_term_value("Anxiety", "icon"))
+	health_incoming.max_value = health
+	health_incoming.value = damage + taken_anxiety
 
 
+
+	
 # We store how many times the player has been damaged during their own turn
 # We also store the cumulative amount of damage the player has taken during their turn.
 func _on_player_damaged(_pl, amount, _trigger, _tags) -> void:
@@ -65,3 +72,11 @@ func _input(event) -> void:
 	if event is InputEventMouseButton and not event.is_pressed():
 		if targeting_arrow.is_targeting:
 			targeting_arrow.complete_targeting()
+
+
+
+func _on_Incoming_resized():
+	incoming_background.rect_min_size = incoming.rect_size
+	incoming_background.rect_min_size.x += 10
+	incoming_background.rect_min_size.y -= 5
+	

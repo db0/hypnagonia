@@ -466,24 +466,24 @@ func _input(event):
 		var _torment1
 		var _torment2
 		var _torment3
-		_torment1 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+#		_torment1 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment1 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
-#		_torment1 = spawn_enemy(EnemyDefinitions.VOID)
-		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
-#		_torment2 = spawn_enemy(EnemyDefinitions.BROKEN_MIRROR)
+		_torment1 = spawn_enemy(EnemyDefinitions.VOID)
+#		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+		_torment2 = spawn_enemy(EnemyDefinitions.BROKEN_MIRROR)
 #		_torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
-#		_torment3 = spawn_enemy(EnemyDefinitions.GASLIGHTER)
-		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+		_torment3 = spawn_enemy(EnemyDefinitions.GASLIGHTER)
+#		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 		if _torment1:
-			_torment1.health = 600
+			_torment1.health = 300
 			_torment1.damage = 15
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS["void"].name, 1)
 			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 5)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.effect_resistance.name, 1, false, false, ["Init"], Terms.ACTIVE_EFFECTS.poison.name)
 			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 4)
 		if _torment2:
-			_torment2.health = 450
+			_torment2.health = 300
 			_torment2.damage = 10
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.marked.name, 1)
@@ -491,12 +491,12 @@ func _input(event):
 			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.marked.name, 4)
 #			_torment2.defence = 10
 		if _torment3:
-			_torment3.health = 1000
+			_torment3.health = 300
 			_torment3.damage = 0
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 1)
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 3)
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
-		dreamer.health = 910
+		dreamer.health = 70
 		dreamer.damage = 56
 		# warning-ignore:return_value_discarded
 		globals.player.add_artifact(ArtifactDefinitions.LimitMaxExert.canonical_name)
@@ -546,12 +546,12 @@ func _input(event):
 
 func _debug_advanced_enemy():
 	pass
-#	var advanced_entity: EnemyEntity =\
-#			load("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn").instance()
+	var advanced_entity: EnemyEntity =\
+			load("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn").instance()
 #	var advanced_entity: EnemyEntity =\
 #			load("res://src/dreamscape/CombatElements/Enemies/Bosses/Narcissus.tscn").instance()
-	var advanced_entity: EnemyEntity =\
-			load("res://src/dreamscape/CombatElements/Enemies/Elites/IndescribableAbsurdity.tscn").instance()
+#	var advanced_entity: EnemyEntity =\
+#			load("res://src/dreamscape/CombatElements/Enemies/Elites/IndescribableAbsurdity.tscn").instance()
 	advanced_entity.setup_advanced("hard")
 	_enemy_area.add_child(advanced_entity)
 	advanced_entity.connect("finished_activation", self, "_on_finished_enemy_activation")
