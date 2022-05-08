@@ -32,6 +32,8 @@ var health_label : Label
 var defence_icon : TextureRect
 var defence_label : Label
 var health_bar : TextureProgress
+var health_temp : TextureProgress
+var health_incoming : TextureProgress
 var active_effects
 
 
@@ -96,7 +98,9 @@ func _map_nodes() -> void:
 	health_label  = $HBC/Health
 	defence_icon  = $HBC/Defence/Icon
 	defence_label = $HBC/Defence/Amount
-	health_bar = $HealthBar
+	health_bar = $HP/HealthBar
+	health_temp = $HP/HealthTemp
+	health_incoming = $HP/HealthIncoming
 	active_effects = $ActiveEffects
 
 func _set_texture(node: Node, texture) -> void:
@@ -258,7 +262,11 @@ func _update_health_label() -> void:
 	health_label.text = str(damage) + '/' + str(health)
 	defence_label.text = str(defence)
 	health_bar.max_value = health
-	health_bar.value = damage
+	health_temp.max_value = health
+	health_temp.value = damage
+	var _tween :Tween= health_bar.get_node('Tween')
+	_tween.interpolate_property(health_bar, 'value', health_bar.value, damage, 0.5, Tween.TRANS_SINE, Tween.EASE_IN)
+	_tween.start()
 
 
 func get_property(property_name: String):

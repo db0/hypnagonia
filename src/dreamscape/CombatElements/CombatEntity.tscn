@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/progress_bar/EmptyBar.png" type="Texture" id=1]
 [ext_resource path="res://assets/enemies/godot-sprite.png" type="Texture" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://shaders/invert.shader" type="Shader" id=7]
 [ext_resource path="res://assets/progress_bar/GreenBar.png" type="Texture" id=8]
 [ext_resource path="res://themes/darktheme/StyleBox/InfoPanel.tres" type="StyleBox" id=9]
+[ext_resource path="res://assets/progress_bar/BlueBar.png" type="Texture" id=10]
+[ext_resource path="res://assets/progress_bar/OverBar.png" type="Texture" id=11]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -96,19 +98,51 @@ text = "Gaslighter"
 align = 1
 autowrap = true
 
-[node name="HealthBar" type="TextureProgress" parent="."]
+[node name="HP" type="MarginContainer" parent="."]
 margin_top = 52.0
 margin_right = 69.0
 margin_bottom = 61.0
+
+[node name="HealthIncoming" type="TextureProgress" parent="HP"]
+margin_right = 69.0
+margin_bottom = 9.0
 rect_min_size = Vector2( 0, 8 )
 size_flags_horizontal = 3
 texture_under = ExtResource( 1 )
+texture_progress = ExtResource( 8 )
+tint_progress = Color( 0.313726, 0.294118, 0, 1 )
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 5
+stretch_margin_right = 10
+stretch_margin_bottom = 4
+
+[node name="HealthTemp" type="TextureProgress" parent="HP"]
+margin_right = 69.0
+margin_bottom = 9.0
+rect_min_size = Vector2( 0, 8 )
+size_flags_horizontal = 3
+texture_progress = ExtResource( 10 )
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 5
+stretch_margin_right = 10
+stretch_margin_bottom = 4
+
+[node name="HealthBar" type="TextureProgress" parent="HP"]
+margin_right = 69.0
+margin_bottom = 9.0
+rect_min_size = Vector2( 0, 8 )
+size_flags_horizontal = 3
+texture_over = ExtResource( 11 )
 texture_progress = ExtResource( 8 )
 nine_patch_stretch = true
 stretch_margin_left = 10
 stretch_margin_top = 5
 stretch_margin_right = 10
 stretch_margin_bottom = 4
+
+[node name="Tween" type="Tween" parent="HP/HealthBar"]
 
 [node name="HBC" type="HBoxContainer" parent="."]
 margin_top = 65.0
@@ -177,8 +211,12 @@ scroll_active = false
 
 [connection signal="mouse_entered" from="Art" to="." method="_on_Art_mouse_entered"]
 [connection signal="mouse_exited" from="Art" to="." method="_on_Art_mouse_exited"]
-[connection signal="mouse_entered" from="HealthBar" to="." method="_on_Health_mouse_entered"]
-[connection signal="mouse_exited" from="HealthBar" to="." method="_on_Description_mouse_exited"]
+[connection signal="mouse_entered" from="HP/HealthIncoming" to="." method="_on_Health_mouse_entered"]
+[connection signal="mouse_exited" from="HP/HealthIncoming" to="." method="_on_Description_mouse_exited"]
+[connection signal="mouse_entered" from="HP/HealthTemp" to="." method="_on_Health_mouse_entered"]
+[connection signal="mouse_exited" from="HP/HealthTemp" to="." method="_on_Description_mouse_exited"]
+[connection signal="mouse_entered" from="HP/HealthBar" to="." method="_on_Health_mouse_entered"]
+[connection signal="mouse_exited" from="HP/HealthBar" to="." method="_on_Description_mouse_exited"]
 [connection signal="mouse_entered" from="HBC/Defence" to="." method="_on_Defence_mouse_entered"]
 [connection signal="mouse_exited" from="HBC/Defence" to="." method="_on_Description_mouse_exited"]
 [connection signal="mouse_entered" from="HBC/Health" to="." method="_on_Health_mouse_entered"]
