@@ -1,27 +1,39 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://fonts/CounterFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/card_front/cost_container.png" type="Texture" id=2]
+[ext_resource path="res://assets/icons/GUI/immersion.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFontData" id=5]
 font_path = "res://fonts/Amarante-Regular.ttf"
 
 [sub_resource type="DynamicFont" id=2]
 size = 35
+outline_color = Color( 0.960784, 0.286275, 0.321569, 1 )
 use_filter = true
 font_data = SubResource( 5 )
 
 [node name="Counter" type="CenterContainer"]
-margin_right = 139.0
-margin_bottom = 20.0
+margin_right = 140.0
+margin_bottom = 80.0
 mouse_filter = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ImmersionIcon" type="TextureRect" parent="."]
+margin_left = 30.0
+margin_right = 110.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+
 [node name="CounterIcon" type="TextureRect" parent="."]
-margin_left = 29.0
-margin_right = 109.0
+visible = false
+margin_left = 30.0
+margin_right = 110.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 80, 80 )
 mouse_filter = 2
@@ -30,20 +42,21 @@ expand = true
 
 [node name="CounterTitle" type="Label" parent="."]
 visible = false
-margin_left = 13.0
+margin_left = 14.0
 margin_top = 30.0
-margin_right = 125.0
+margin_right = 126.0
 margin_bottom = 50.0
 custom_fonts/font = ExtResource( 1 )
 text = "Counter Title:"
 
 [node name="Value" type="Label" parent="."]
-margin_left = 29.0
-margin_right = 109.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 80, 80 )
+margin_left = 50.0
+margin_top = 17.0
+margin_right = 90.0
+margin_bottom = 62.0
+rect_min_size = Vector2( 40, 40 )
 size_flags_horizontal = 3
-custom_colors/font_color = Color( 0.921569, 0.733333, 0.0117647, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "0"
 align = 1
