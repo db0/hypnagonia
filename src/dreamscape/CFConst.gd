@@ -61,7 +61,7 @@ const FOCUS_STYLE = CFInt.FocusStyle.BOTH
 # If set to resize, will resize the card's viewport dupe's dimentions.
 # This prevent blurry text, but needs more setup in the
 # card's front and card back scripts.
-const VIEWPORT_FOCUS_ZOOM_TYPE = "resize"
+const VIEWPORT_FOCUS_ZOOM_TYPE = "scale"
 # If set to true, the hand will be presented in the form of an oval shape
 # If set to false, the hand will be presented with all cards
 # horizontally aligned
