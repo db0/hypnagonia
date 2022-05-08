@@ -47,6 +47,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="EnemyCardStorage" type="Control" parent="VBC/Journal"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 1455.0
+margin_bottom = 855.0
+
 [node name="HBC" type="HBoxContainer" parent="VBC/Journal"]
 margin_right = 1455.0
 margin_bottom = 855.0
@@ -201,13 +206,6 @@ bbcode_enabled = true
 bbcode_text = "Let me think if I can remember what happened next..."
 text = "Let me think if I can remember what happened next..."
 fit_content_height = true
-
-[node name="EnemyCardStorage" type="Control" parent="VBC/Journal"]
-visible = false
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 1448.0
-margin_bottom = 893.0
 
 [node name="Tween" type="Tween" parent="VBC/Journal"]
 
