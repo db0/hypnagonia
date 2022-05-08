@@ -292,7 +292,6 @@ func prepare_popup_card(card) -> void:
 		if not popup_cards.has(card.get_instance_id()):
 			popup_card.setup(card.instance_self(true))
 			popup_cards[card.get_instance_id()] = popup_card
-			print_debug(popup_cards)
 
 
 func prepare_popup_artifact(artifact_name: String) -> void:
