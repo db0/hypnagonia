@@ -1,5 +1,27 @@
 # Changelog
 
+## [Unreleased](https://github.com/db0/hypnagonia/tree/HEAD)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.52.0...HEAD)
+
+**Implemented enhancements:**
+
+- Animate Anxiety Icon on the PlayerInfo panel  [\#328](https://github.com/db0/hypnagonia/issues/328)
+- Make journal anxiety UI change colors when in  a certain range of numbers.  [\#297](https://github.com/db0/hypnagonia/issues/297)
+- Show the total amount the dreamer is about to receive this turn somehow [\#290](https://github.com/db0/hypnagonia/issues/290)
+
+## [v0.52.0](https://github.com/db0/hypnagonia/tree/v0.52.0) (2022-05-08)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.51.0...v0.52.0)
+
+**Fixed bugs:**
+
+- Store in mind's select mechanic is broken [\#320](https://github.com/db0/hypnagonia/issues/320)
+
+**Merged pull requests:**
+
+- More GUI improvements [\#329](https://github.com/db0/hypnagonia/pull/329) ([db0](https://github.com/db0))
+
 ## [v0.51.0](https://github.com/db0/hypnagonia/tree/v0.51.0) (2022-05-02)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.6...v0.51.0)
