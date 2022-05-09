@@ -78,17 +78,19 @@ const BossFaster := {
 	"canonical_name": "BossFaster",
 	"name": "A Sense of Closure",
 	"description": "{memory_name} ({upgrades}): Recall this memory during the Dream Journal "\
-			+ "to increased your repressed %s by {pathos_amount}" % [Terms.RUN_ACCUMULATION_NAMES.boss],
+			+ "to increased your repressed %s by {pathos_amount}\n" % [Terms.RUN_ACCUMULATION_NAMES.boss]\
+			+ "While this memory is charging, you have an increased chance for rarer cards and curios",
 	"icon": "res://assets/icons/memories/a_sense_of_closure.png",
 	"illustration": "SkylarkGSH",
 	"context": EffectContext.OVERWORLD,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
 	"pathos_threshold_multiplier": 1,
-	"pathos_accumulation_divider": 2,
-	"keys_modified_by_upgrade": ["pathos_amount"],
+	"pathos_accumulation_divider": 5,
+	"keys_modified_by_upgrade": ["pathos_accumulation_divider"],
 	"amounts": {
 		"pathos_amount": 5,
-		"upgrade_multiplier": 2
+		"upgrade_multiplier": 2,
+		"rare_multiplier": 2,
 	},
 }
 const ProgressRandom := {
