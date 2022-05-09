@@ -297,7 +297,7 @@ func _show_description_popup(description_text: String, popup_anchor: Node) -> vo
 	description_label.bbcode_text = description_text.format(format).format(Terms.get_bbcode_formats(18))
 	description_popup.visible = true
 	description_popup.rect_size = Vector2(0,0)
-	description_popup.rect_global_position = popup_anchor.rect_global_position + Vector2(20,-description_label.rect_size.y)
+	description_popup.rect_global_position = popup_anchor.rect_global_position + Vector2(20,-description_popup.rect_size.y)
 
 
 func _on_CombatSingifier_mouse_exited() -> void:
