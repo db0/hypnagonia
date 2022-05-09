@@ -48,9 +48,9 @@ const CARD_SIZE := Vector2(200,280)
 # based on the percentage of difference between the two resolutions in absolute pixel number.
 const DESIGN_RESOLUTION := Vector2(1455,900)
 # Switch this off to disable fancy movement of cards during draw/discard
-const FANCY_MOVEMENT := true
+const FANCY_MOVEMENT := false
 # The focus style selected for this game. See enum `FocusStyle`
-const FOCUS_STYLE = CFInt.FocusStyle.BOTH
+const FOCUS_STYLE = CFInt.FocusStyle.BOTH_INFO_PANELS_ONLY
 # Controls how the card will be magnified in the focus viewport.
 # Set to either "resize" or "scale"
 #

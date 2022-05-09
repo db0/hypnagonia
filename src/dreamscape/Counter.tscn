@@ -17,9 +17,6 @@ font_data = SubResource( 5 )
 margin_right = 140.0
 margin_bottom = 80.0
 mouse_filter = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ImmersionIcon" type="TextureRect" parent="."]
 margin_left = 30.0
@@ -50,11 +47,11 @@ custom_fonts/font = ExtResource( 1 )
 text = "Counter Title:"
 
 [node name="Value" type="Label" parent="."]
-margin_left = 50.0
+margin_left = 47.0
 margin_top = 17.0
-margin_right = 90.0
+margin_right = 92.0
 margin_bottom = 62.0
-rect_min_size = Vector2( 40, 40 )
+rect_min_size = Vector2( 45, 40 )
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
