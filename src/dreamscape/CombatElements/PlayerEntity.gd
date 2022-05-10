@@ -6,11 +6,14 @@ var upgrades_increased := 0 setget set_upgrades_increased
 # This variable will point to the scene which controls the targeting arrow
 onready var targeting_arrow = $TargetLine
 onready var incoming_background = $CenterContainer/IncomingBackground
+onready var damaged_shader := $HBC/MC/DamagedShader
+onready var blocked_shader := $HBC/Defence/BlockedShader
 
 func _ready() -> void:
 	entity_type = "dreamer"
 # warning-ignore:return_value_discarded
 	connect("entity_damaged", self, "_on_player_damaged")
+	connect("entity_damage_blocked", self, "_on_entity_damage_blocked")
 
 func _map_nodes() -> void:
 	_health_stats = $HBC/MC/HBC
@@ -66,7 +69,14 @@ func _on_player_damaged(_pl, amount, _trigger, _tags) -> void:
 		TurnEventMessage.new("player_damaged_own_turn", +1)
 		# warning-ignore:return_value_discarded
 		TurnEventMessage.new("player_total_damage_own_turn", amount)
-
+	damaged_shader.visible = true
+	yield(get_tree().create_timer(0.1), "timeout")
+	damaged_shader.visible = false
+	
+func _on_entity_damage_blocked(_pl, amount, _trigger, _tags) -> void:
+	blocked_shader.visible = true
+	yield(get_tree().create_timer(0.1), "timeout")
+	blocked_shader.visible = false
 
 func _input(event) -> void:
 	if event is InputEventMouseButton and not event.is_pressed():
