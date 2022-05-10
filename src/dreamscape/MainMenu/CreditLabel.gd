@@ -24,6 +24,7 @@ const URLS := {
 	"Lorc": "https://lorcblog.blogspot.com/",
 	"Delapouite": "https://delapouite.com/",
 	"Caravaggio": "https://en.wikipedia.org/wiki/Caravaggio",
+	"RPicster": "https://github.com/RPicster",
 }
 const BBCODE_TEXT = """
 [center]
@@ -88,6 +89,7 @@ var gui_designers := {
 	"axilirate": "GUI Design",
 	"Marco Thiltgen": "Game Logo",
 	"SkylarkGSH": "Asset Creation",
+	"RPicster": "Particle Assets",
 }
 var writers := {
 	"Db0": "Lead Writer",

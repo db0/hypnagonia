@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/particles/difficulty_particles_canvas.tres" type="Material" id=1]
+[ext_resource path="res://assets/particles/spritesheets/floaty_32.png" type="Texture" id=2]
+[ext_resource path="res://assets/particles/difficulty_particles.tres" type="Material" id=3]
+[ext_resource path="res://assets/icons/GUI/difficulty_3.png" type="Texture" id=4]
+[ext_resource path="res://assets/PlayerInfo/DifficultyIcon.gd" type="Script" id=5]
+
+[node name="DifficultyIcon" type="TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1420.0
+margin_bottom = -865.0
+rect_min_size = Vector2( 35, 35 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Particles2D" type="Particles2D" parent="."]
+material = ExtResource( 1 )
+position = Vector2( 17, 28 )
+amount = 3
+lifetime = 0.75
+explosiveness = 0.04
+visibility_rect = Rect2( -18.7084, -52.6685, 37.5445, 55.5433 )
+process_material = ExtResource( 3 )
+texture = ExtResource( 2 )

@@ -1,0 +1,1 @@
+All particle textures have been taken from https://github.com/RPicster/Godot-particle-and-vfx-textures and are CC0
