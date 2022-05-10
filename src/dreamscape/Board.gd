@@ -496,7 +496,7 @@ func _input(event):
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 1)
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 3)
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
-		dreamer.health = 100
+		dreamer.health = 500
 		dreamer.damage = 11
 		# warning-ignore:return_value_discarded
 		globals.player.add_artifact(ArtifactDefinitions.LimitMaxExert.canonical_name)
@@ -507,7 +507,7 @@ func _input(event):
 		globals.player.add_memory(MemoryDefinitions.RandomChaos.canonical_name)
 		# warning-ignore:return_value_discarded
 #		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.quicken.name, 6)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 6)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 6)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.absurdity_unleashed.name, 1)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.creative_block.name, 1)
