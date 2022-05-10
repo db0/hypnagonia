@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cost_container.png-5d469b1a50a6876a435ec849e6b2510f.stex"
+path="res://.import/spotlight_4.png-e8d01f0fc198f6052db1518c38374df5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/card_front/cost_container.png"
-dest_files=[ "res://.import/cost_container.png-5d469b1a50a6876a435ec849e6b2510f.stex" ]
+source_file="res://assets/particles/textures/spotlight_4.png"
+dest_files=[ "res://.import/spotlight_4.png-e8d01f0fc198f6052db1518c38374df5.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

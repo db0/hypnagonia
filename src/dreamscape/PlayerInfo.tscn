@@ -6,7 +6,7 @@
 [ext_resource path="res://assets/icons/GUI/glowing-artifact.png" type="Texture" id=4]
 [ext_resource path="res://assets/icons/heart-beats.png" type="Texture" id=5]
 [ext_resource path="res://assets/icons/GUI/book-pile.png" type="Texture" id=6]
-[ext_resource path="res://assets/icons/GUI/fire.png" type="Texture" id=7]
+[ext_resource path="res://assets/PlayerInfo/DifficultyIcon.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/icons/GUI/drama-masks.png" type="Texture" id=8]
 [ext_resource path="res://src/dreamscape/PathosEntryInfo.tscn" type="PackedScene" id=9]
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=10]
@@ -63,9 +63,6 @@ margin_right = 1455.0
 margin_bottom = 49.0
 custom_styles/panel = SubResource( 9 )
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="HBC" type="HBoxContainer" parent="."]
 margin_right = 1455.0
@@ -130,14 +127,15 @@ margin_bottom = 33.0
 custom_fonts/font = ExtResource( 3 )
 text = "Early Night, Encounter 1"
 
-[node name="DifficultyIcon" type="TextureRect" parent="HBC"]
+[node name="DifficultyIcon" parent="HBC" instance=ExtResource( 7 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 823.0
 margin_right = 858.0
 margin_bottom = 39.0
-rect_min_size = Vector2( 35, 35 )
-texture = ExtResource( 7 )
-expand = true
-stretch_mode = 6
+
+[node name="Particles2D" parent="HBC/DifficultyIcon" index="0"]
+position = Vector2( 17, 29 )
 
 [node name="Difficulty" type="Label" parent="HBC"]
 margin_left = 862.0
@@ -313,4 +311,5 @@ custom_styles/normal = SubResource( 8 )
 [connection signal="pressed" from="HBC/Help" to="." method="_on_Help_pressed"]
 [connection signal="pressed" from="HBC/Settings" to="." method="_on_Settings_pressed"]
 
+[editable path="HBC/DifficultyIcon"]
 [editable path="PathosDetails/VBC/Header"]
