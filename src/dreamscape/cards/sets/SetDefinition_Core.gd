@@ -714,7 +714,7 @@ const CARDS := {
 		"Abilities": "Target a Torment. If it doesn't have {confusion} Apply {effect_stacks} {confusion}"\
 			+ " If it has {confusion}, {damage} for {damage_amount}.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -738,7 +738,7 @@ const CARDS := {
 		"Abilities": "Target a Torment. If it doesn't have {confusion} Apply {effect_stacks} {confusion}"\
 			+ " If it has {confusion}, {damage} for {damage_amount}.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -757,7 +757,7 @@ const CARDS := {
 		"Abilities": "Target a Torment. If it doesn't have {confusion} Apply {effect_stacks} {confusion}"\
 			+ " If it has {confusion}, {damage} for {damage_amount}.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -776,7 +776,7 @@ const CARDS := {
 		"Abilities": "Target a Torment. If it doesn't have {confusion} Apply {effect_stacks} {confusion}"\
 			+ " If it has {confusion}, {damage} for {damage_amount}.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},

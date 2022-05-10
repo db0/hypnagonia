@@ -52,6 +52,7 @@ const BETA_IMAGES := {
 	"Overview": "res://assets/cards/overview.jpg",
 	"Rubber Eggs": "res://assets/cards/Rubber Eggs.jpg",
 	"Towering Presence": "res://assets/cards/Towering Presence.jpg",
+	"The Joke": "res://assets/cards/The Joke.jpg",
 	
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Stuffed Toy": "res://assets/journal/torments/stuffed_toy.jpeg",
