@@ -9,6 +9,7 @@ onready var intents: EnemyIntents = $Intents/MC/EnemyIntents
 
 var animated_art
 var is_activating
+onready var texture_anim := $Art/AnimationPlayer
 
 func _process(_delta: float) -> void:
 	if is_dead:
@@ -64,6 +65,8 @@ func activate() -> void:
 #	print_debug(damage, is_dead, health)
 	if animated_art:
 		animated_art.act(intents.animation_name)
+	else:
+		texture_anim.play("act")
 	var sceng = intents.execute_scripts()
 	if sceng is GDScriptFunctionState:
 		# Yielding for anything when the entity is about to deinstance is not a good idea
@@ -73,7 +76,15 @@ func activate() -> void:
 	# I don't want to be waiting too long for the animation to finish
 	# so I give it at most 1.5 seconds to run before I proceed to the next enemy
 	while animated_art and animated_art.animation_player.is_playing():
-		# If we wait while the torment is dead, the instance mit disappear by the time we return
+		# If we wait while the torment is dead, the instance might disappear by the time we return
+		if is_dead:
+			break
+		yield(get_tree().create_timer(0.5), "timeout")
+		wait_for_anim += 1
+		if wait_for_anim > 2: 
+			break
+	while not animated_art and texture_anim.is_playing():
+		# If we wait while the torment is dead, the instance might disappear by the time we return
 		if is_dead:
 			break
 		yield(get_tree().create_timer(0.5), "timeout")

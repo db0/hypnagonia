@@ -466,14 +466,14 @@ func _input(event):
 		var _torment1
 		var _torment2
 		var _torment3
-		_torment1 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
-#		_torment1 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
+#		_torment1 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+		_torment1 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 #		_torment1 = spawn_enemy(EnemyDefinitions.VOID)
-		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
-#		_torment2 = spawn_enemy(EnemyDefinitions.BROKEN_MIRROR)
+#		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+		_torment2 = spawn_enemy(EnemyDefinitions.BROKEN_MIRROR)
 #		_torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
 #		_torment3 = spawn_enemy(EnemyDefinitions.GASLIGHTER)
-		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+#		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 		if _torment1:
 			_torment1.health = 30
@@ -570,11 +570,12 @@ func _on_Debug_pressed() -> void:
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.introspection.name, 6)
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.nunclucks.name, 1)
 	dreamer.defence += 30
+	dreamer.damage = 0
 	for entity in get_tree().get_nodes_in_group("EnemyEntities"):
 		entity.damage = 1
 	for c in [
 #		"Grit"
-			"Nunclucks",
+#			"Nunclucks",
 #			"Confident Slap",
 #			"A Thousand Squeaks",
 	]:
@@ -587,7 +588,7 @@ func _on_Debug_pressed() -> void:
 #		cfc.NMAP.hand.draw_card(cfc.NMAP.deck)
 	# Deck cards
 	for c in [
-		"Life Path",
+#		"Life Path",
 #		"Butterfly",
 #		"Cannon",
 #		"Cannon",

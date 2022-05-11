@@ -14,13 +14,13 @@ shader_param/is_active = false
 [node name="SurrealBoss" groups=["BossEntities", "EnemyEntities"] instance=ExtResource( 2 )]
 script = ExtResource( 4 )
 
-[node name="CenterContainer" parent="." index="0"]
-rect_min_size = Vector2( 0, 36 )
+[node name="Push" parent="." index="0"]
+margin_bottom = 0.0
 
 [node name="Intents" parent="." index="1" instance=ExtResource( 1 )]
-margin_top = 40.0
+margin_top = 4.0
 margin_right = 69.0
-margin_bottom = 83.0
+margin_bottom = 47.0
 rect_min_size = Vector2( 0, 43 )
 
 [node name="IntentBackground" parent="Intents" index="0"]
@@ -36,29 +36,34 @@ margin_right = 59.0
 margin_bottom = 18.0
 script = ExtResource( 3 )
 
-[node name="Art" parent="." index="2"]
-margin_top = 87.0
+[node name="CenterContainer" parent="." index="2"]
+margin_top = 51.0
 margin_bottom = 87.0
+rect_min_size = Vector2( 0, 36 )
+
+[node name="Art" parent="." index="3"]
+margin_top = 91.0
+margin_bottom = 91.0
 
 [node name="Texture" parent="Art" index="0"]
 material = SubResource( 1 )
 
-[node name="Name" parent="." index="3"]
+[node name="Name" parent="." index="4"]
 margin_top = 91.0
 margin_bottom = 121.0
 rect_min_size = Vector2( 0, 30 )
 
-[node name="HealthBar" parent="." index="4"]
-margin_top = 125.0
-margin_bottom = 133.0
+[node name="HP" parent="." index="5"]
+margin_top = 95.0
+margin_bottom = 104.0
 
-[node name="HBC" parent="." index="5"]
-margin_top = 137.0
-margin_bottom = 173.0
+[node name="HBC" parent="." index="6"]
+margin_top = 108.0
+margin_bottom = 144.0
 rect_min_size = Vector2( 0, 15 )
 
-[node name="ActiveEffects" parent="." index="6"]
-margin_top = 177.0
-margin_bottom = 213.0
+[node name="ActiveEffects" parent="." index="7"]
+margin_top = 148.0
+margin_bottom = 184.0
 
 [editable path="Intents"]
