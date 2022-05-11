@@ -10,6 +10,7 @@ var discard_at_turn_end := true
 var cards_in_fusion := []
 
 func _ready() -> void:
+# warning-ignore:return_value_discarded
 	connect("cards_fused", cfc.signal_propagator, "_on_signal_received")
 
 func empty_hand() -> void:
@@ -136,6 +137,7 @@ func _check_for_fusion(card) -> void:
 				"cards_fused",
 				{}
 		)
+		# warning-ignore:return_value_discarded
 		TurnEventMessage.new("card_fused", +1)
 
 func _get_modified_card_count() -> int:

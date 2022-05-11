@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/progress_bar/EmptyBar.png" type="Texture" id=1]
 [ext_resource path="res://assets/enemies/godot-sprite.png" type="Texture" id=2]
@@ -31,6 +31,21 @@ func get_combat_entity() -> Node:
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 32, 32 )
 
+[sub_resource type="Animation" id=4]
+resource_name = "act"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Art/Texture:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 4.14106, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 2, 2, 2, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
 [node name="CombatEntity" type="VBoxContainer" groups=["CombatEntities"]]
 margin_top = -30.4889
 margin_right = 69.0
@@ -38,8 +53,7 @@ margin_bottom = 111.511
 grow_vertical = 0
 script = ExtResource( 3 )
 __meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
+"_edit_group_": true
 }
 defence_texture = ExtResource( 5 )
 
@@ -88,6 +102,10 @@ script = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Art/Area2D"]
 shape = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Art"]
+root_node = NodePath("../..")
+anims/act = SubResource( 4 )
 
 [node name="Name" type="Label" parent="."]
 visible = false

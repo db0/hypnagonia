@@ -43,15 +43,15 @@ margin_top = 83.0
 margin_bottom = 113.0
 rect_min_size = Vector2( 0, 30 )
 
-[node name="HealthBar" parent="." index="5"]
+[node name="HP" parent="." index="5"]
 margin_top = 87.0
-margin_bottom = 95.0
+margin_bottom = 96.0
 
 [node name="HBC" parent="." index="6"]
-margin_top = 99.0
-margin_bottom = 135.0
+margin_top = 100.0
+margin_bottom = 136.0
 rect_min_size = Vector2( 0, 15 )
 
 [node name="ActiveEffects" parent="." index="7"]
-margin_top = 139.0
-margin_bottom = 175.0
+margin_top = 140.0
+margin_bottom = 176.0
