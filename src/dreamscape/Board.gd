@@ -466,11 +466,11 @@ func _input(event):
 		var _torment1
 		var _torment2
 		var _torment3
-#		_torment1 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
-		_torment1 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
+		_torment1 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+#		_torment1 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 #		_torment1 = spawn_enemy(EnemyDefinitions.VOID)
-#		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
-		_torment2 = spawn_enemy(EnemyDefinitions.BROKEN_MIRROR)
+		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+#		_torment2 = spawn_enemy(EnemyDefinitions.BROKEN_MIRROR)
 #		_torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
 #		_torment3 = spawn_enemy(EnemyDefinitions.GASLIGHTER)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
@@ -507,7 +507,7 @@ func _input(event):
 		globals.player.add_memory(MemoryDefinitions.RandomChaos.canonical_name)
 		# warning-ignore:return_value_discarded
 #		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 6)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.impervious.name, 4)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 6)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.absurdity_unleashed.name, 1)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.creative_block.name, 1)

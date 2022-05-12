@@ -65,7 +65,7 @@ func activate() -> void:
 #	print_debug(damage, is_dead, health)
 	if animated_art:
 		animated_art.act(intents.animation_name)
-	else:
+	elif not globals.test_flags.get("no_ordeal_anims", false):
 		texture_anim.play("act")
 	var sceng = intents.execute_scripts()
 	if sceng is GDScriptFunctionState:

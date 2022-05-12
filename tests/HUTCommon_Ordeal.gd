@@ -47,6 +47,8 @@ func before_each():
 	# We can override flags from test inner classer
 	if not globals.test_flags.has("no_refill"):
 		globals.test_flags["no_refill"] = true
+	if not globals.test_flags.has("no_ordeal_anims"):
+		globals.test_flags["no_ordeal_anims"] = true
 	if globals.test_flags.get("start_ordeal_before_each", true):
 		board.begin_encounter()
 	dreamer = cfc.NMAP.board.dreamer
