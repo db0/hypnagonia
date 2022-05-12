@@ -1,8 +1,47 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://fonts/CounterFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/icons/GUI/cost_container.png" type="Texture" id=2]
 [ext_resource path="res://assets/icons/GUI/immersion.png" type="Texture" id=3]
+[ext_resource path="res://src/dreamscape/Counter.gd" type="Script" id=4]
+[ext_resource path="res://assets/particles/spritesheets/floaty_32.png" type="Texture" id=5]
+[ext_resource path="res://src/dreamscape/ImmersionParticles.tres" type="Material" id=6]
+
+[sub_resource type="CanvasItemMaterial" id=6]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 7
+particles_anim_v_frames = 7
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0, 0.534162, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+
+[sub_resource type="Curve" id=9]
+max_value = 2.0
+_data = [ Vector2( 0, 0.174372 ), 0.0, -0.185858, 0, 0, Vector2( 1, 2 ), 6.43246, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=10]
+curve = SubResource( 9 )
+
+[sub_resource type="ParticlesMaterial" id=11]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 28, 50, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.3
+orbit_velocity = 0.12
+orbit_velocity_random = 0.0
+linear_accel = 15.69
+damping = 10.0
+damping_random = 1.0
+scale = 0.3
+scale_curve = SubResource( 10 )
+color_ramp = SubResource( 8 )
 
 [sub_resource type="DynamicFontData" id=5]
 font_path = "res://fonts/Amarante-Regular.ttf"
@@ -17,15 +56,31 @@ font_data = SubResource( 5 )
 margin_right = 140.0
 margin_bottom = 80.0
 mouse_filter = 1
+script = ExtResource( 4 )
 
 [node name="ImmersionIcon" type="TextureRect" parent="."]
 margin_left = 30.0
 margin_right = 110.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 80, 80 )
+rect_pivot_offset = Vector2( 40, 40 )
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 4
+
+[node name="ParticlesRight" type="Particles2D" parent="ImmersionIcon"]
+material = SubResource( 6 )
+position = Vector2( 78, -15 )
+amount = 40
+process_material = ExtResource( 6 )
+texture = ExtResource( 5 )
+
+[node name="ParticlesLeft" type="Particles2D" parent="ImmersionIcon"]
+material = SubResource( 6 )
+position = Vector2( -2, 95 )
+amount = 15
+process_material = SubResource( 11 )
+texture = ExtResource( 5 )
 
 [node name="CounterIcon" type="TextureRect" parent="."]
 visible = false
@@ -58,3 +113,5 @@ custom_fonts/font = SubResource( 2 )
 text = "0"
 align = 1
 valign = 1
+
+[node name="Tween" type="Tween" parent="."]

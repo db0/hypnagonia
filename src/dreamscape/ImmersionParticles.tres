@@ -1,0 +1,30 @@
+[gd_resource type="ParticlesMaterial" load_steps=5 format=2]
+
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0, 0.534162, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+
+[sub_resource type="Curve" id=9]
+max_value = 2.0
+_data = [ Vector2( 0, 0.174372 ), 0.0, -0.185858, 0, 0, Vector2( 1, 2 ), 6.43246, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=10]
+curve = SubResource( 9 )
+
+[resource]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( -28, -50, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.3
+orbit_velocity = 0.12
+orbit_velocity_random = 0.0
+linear_accel = 15.69
+damping = 10.0
+damping_random = 1.0
+scale = 0.3
+scale_curve = SubResource( 10 )
+color_ramp = SubResource( 8 )

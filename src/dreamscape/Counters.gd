@@ -10,6 +10,7 @@ const COUNTER_DESCRIPTIONS := {
 
 onready var _description_popup := $DescriptionPanel
 onready var _description_label := $DescriptionPanel/Label
+onready var immersion_scene
 
 # * The `counters_container` has to point to the scene path, relative to your
 #	counters scene, where each counter will be placed.
@@ -31,6 +32,12 @@ func _ready() -> void:
 	for counter in all_counters:
 		counter.connect("mouse_entered", self, "_on_counter_enterred", [counter])
 		counter.connect("mouse_exited", self, "_on_counter_exited")
+
+
+func spawn_needed_counters() -> Array:
+	var all_counters = .spawn_needed_counters()
+	immersion_scene = all_counters[0]
+	return(all_counters)
 
 
 # We need to extend this function so that we can capture counter increases
@@ -79,11 +86,11 @@ func _on_player_turn_started(turn: Turn) -> void:
 	var immersion_to_add := 3
 	if globals.difficulty.permanent_immersion and get_counter("immersion") + immersion_to_add > 10:
 		immersion_to_add = 10 - get_counter("immersion")
-		if immersion_to_add < 0: 
+		if immersion_to_add < 0:
 			immersion_to_add = 0
 	# warning-ignore:return_value_discarded
 	mod_counter("immersion", immersion_to_add, false, false, turn, ["New Turn"])
-		
+
 
 func _on_counter_enterred(counter_node: Control) -> void:
 	var description_text : String = needed_counters[counter_node.name]["Description"]
@@ -95,3 +102,9 @@ func _on_counter_enterred(counter_node: Control) -> void:
 
 func _on_counter_exited() -> void:
 	_description_popup.hide()
+
+
+# Overridable function to update the various counters.
+func _set_counter(counter_name: String, value) -> void:
+	._set_counter(counter_name, value)
+	immersion_scene.set_rotation_speed(value)
