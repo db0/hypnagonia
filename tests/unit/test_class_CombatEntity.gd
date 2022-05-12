@@ -96,7 +96,7 @@ class TestHealth:
 
 	func test_die():
 		ce.damage += 100
-		yield(yield_to(ce, "entity killed", 0.1), YIELD)
+		yield(yield_to(ce, "entity killed", 0.2), YIELD)
 		assert_true(ce.is_dead, "entity killed")
 		assert_signal_emitted_with_parameters(ce, "entity_killed", [100, 100])
 
