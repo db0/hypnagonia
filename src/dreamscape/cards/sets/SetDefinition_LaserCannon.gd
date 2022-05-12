@@ -98,7 +98,7 @@ const CARDS := {
 		"_rarity": "Special",
 		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
-			"damage_amount": 16,
+			"damage_amount": 20,
 			"effect_stacks": 2,
 			"fuse_amount": 2,
 		},
@@ -120,7 +120,7 @@ const CARDS := {
 		"_rarity": "Special",
 		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
-			"damage_amount": 20,
+			"damage_amount": 24,
 			"effect_stacks": 2,
 			"fuse_amount": 2,
 		},
@@ -139,7 +139,7 @@ const CARDS := {
 		"_rarity": "Special",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 21,
+			"damage_amount": 25,
 			"effect_stacks": 4,
 		},
 		"_effects_info": {
@@ -158,7 +158,7 @@ const CARDS := {
 		"_rarity": "Special",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 26,
+			"damage_amount": 30,
 			"effect_stacks": 4,
 		},
 		"_effects_info": {
@@ -382,12 +382,12 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "Gain {defence_amount} {confidence}\nGain {effect_stacks} {fortify}\n"\
 				+ "Fuse {fuse_amount} -> Plasma Shield",
-		"Cost": 2,
+		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Special",
 		"_keywords": ["confidence", "fuse"],
 		"_amounts": {
-			"defence_amount": 15,
+			"defence_amount": 10,
 			"effect_stacks": 1,
 			"fuse_amount": 2,
 		},
@@ -405,12 +405,12 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "Gain {defence_amount} {confidence}\nGain {effect_stacks} {fortify}\n"\
 				+ "Fuse {fuse_amount} -> Plasma Shield",
-		"Cost": 2,
+		"Cost": 1,
 		"_illustration": "Nobody",
 			"_rarity": "Special",
 		"_keywords": ["confidence", "fuse"],
 		"_amounts": {
-			"defence_amount": 18,
+			"defence_amount": 14,
 			"effect_stacks": 1,
 			"fuse_amount": 2,
 		},
@@ -424,12 +424,12 @@ const CARDS := {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "Gain {defence_amount} {confidence}\nGain {effect_stacks} {fortify}",
-		"Cost": 2,
+		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Special",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"defence_amount": 22,
+			"defence_amount": 15,
 			"effect_stacks": 3,
 		},
 		"_effects_info": {
@@ -449,7 +449,7 @@ const CARDS := {
 		"_rarity": "Special",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"defence_amount": 27,
+			"defence_amount": 20,
 			"effect_stacks": 3,
 		},
 		"_effects_info": {
