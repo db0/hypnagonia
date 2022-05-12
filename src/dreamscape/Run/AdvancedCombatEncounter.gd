@@ -28,7 +28,6 @@ func begin() -> void:
 
 
 func _on_board_instanced() -> void:
-	cfc.disconnect("all_nodes_mapped", self, "_on_board_instanced")
 	enemy_entities = cfc.NMAP.board.spawn_advanced_enemy(self)
 	globals.music.switch_scene_music('boss')
 	._on_board_instanced()
