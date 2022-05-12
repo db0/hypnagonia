@@ -29,6 +29,8 @@ var test_flags := {
 #	"disable_starting_artifacts": false, 
 #	# prevents delay at end of turn
 #	"no_end_turn_delay": true, 
+#	# prevents torment animations
+#	"no_ordeal_anims": true, 
 #	# disables random board background
 #	"disable_board_background": true, 
 #	# disables board journal fade out
