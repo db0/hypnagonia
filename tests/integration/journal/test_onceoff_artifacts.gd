@@ -18,9 +18,11 @@ class TestMaxHealth:
 class TestAccumulateEnemy:
 	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
 	func _init() -> void:
+		dreamer_starting_damage = 60
 		testing_artifact_name = "AccumulateEnemy"
 		expected_amount_keys = [
-			"pathos_amount"
+			"pathos_amount",
+			"relax_amount"
 		]
 
 	func test_artifact_results():
@@ -28,6 +30,7 @@ class TestAccumulateEnemy:
 			return
 		assert_eq(globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.enemy], float(get_amount("pathos_amount")),
 				"%s increased repressed pathos" % [artifact.canonical_name])
+		assert_eq(globals.player.damage, dreamer_starting_damage - get_amount("relax_amount"))
 
 
 class TestAccumulateRest:
@@ -50,7 +53,8 @@ class TestAccumulateNCE:
 	func _init() -> void:
 		testing_artifact_name = "AccumulateNCE"
 		expected_amount_keys = [
-			"pathos_amount"
+			"pathos_amount",
+			"anxiety_amount"
 		]
 
 	func test_artifact_results():
@@ -58,7 +62,7 @@ class TestAccumulateNCE:
 			return
 		assert_eq(globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.nce], float(get_amount("pathos_amount")),
 				"%s increased repressed pathos" % [artifact.canonical_name])
-
+		assert_eq(globals.player.health, PLAYER_HEALTH + get_amount("anxiety_amount"))
 
 class TestAccumulateShop:
 	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
@@ -79,7 +83,8 @@ class TestAccumulateElite:
 	func _init() -> void:
 		testing_artifact_name = "AccumulateElite"
 		expected_amount_keys = [
-			"pathos_amount"
+			"pathos_amount",
+			"anxiety_amount",
 		]
 
 	func test_artifact_results():
@@ -87,6 +92,7 @@ class TestAccumulateElite:
 			return
 		assert_eq(globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.elite], float(get_amount("pathos_amount")),
 				"%s increased repressed pathos" % [artifact.canonical_name])
+		assert_eq(globals.player.health, PLAYER_HEALTH + get_amount("anxiety_amount"))
 
 class TestAccumulateArtifact:
 	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"

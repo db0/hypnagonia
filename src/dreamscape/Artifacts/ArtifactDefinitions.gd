@@ -345,12 +345,13 @@ const ThickExplosion := {
 const AccumulateEnemy := {
 	"canonical_name": "AccumulateEnemy",
 	"name": "Repressed Frustration",
-	"description": "{artifact_name}: Increase your repressed Frustration by {pathos_amount}",
+	"description": "{artifact_name}: Increase your repressed Frustration by {pathos_amount}. {relax} for {relax_amount}",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"amounts": {
-		"pathos_amount": 60
+		"pathos_amount": 60,
+		"relax_amount": 30
 	},
 }
 const AccumulateRest := {
@@ -367,12 +368,14 @@ const AccumulateRest := {
 const AccumulateNCE := {
 	"canonical_name": "AccumulateNCE",
 	"name": "Repressed Curiosity",
-	"description": "{artifact_name}: Increase your repressed Curiosity by {pathos_amount}",
+	"description": "{artifact_name}: Increase your repressed Curiosity by {pathos_amount}"\
+			+ "Increase max {anxiety} by {anxiety_amount}",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"amounts": {
-		"pathos_amount": 35
+		"pathos_amount": 35,
+		"anxiety_amount": 3,
 	},
 }
 const AccumulateShop := {
@@ -389,12 +392,14 @@ const AccumulateShop := {
 const AccumulateElite := {
 	"canonical_name": "AccumulateElite",
 	"name": "Repressed Foreboding",
-	"description": "{artifact_name}: Increase your repressed Foreboding by {pathos_amount}",
+	"description": "{artifact_name}: Increase your repressed Foreboding by {pathos_amount}. "\
+			+ "Increase max {anxiety} by {anxiety_amount}",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"amounts": {
-		"pathos_amount": 30
+		"pathos_amount": 30,
+		"anxiety_amount": 7
 	},
 }
 const AccumulateArtifact := {
