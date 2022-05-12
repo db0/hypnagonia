@@ -54,7 +54,6 @@ func _ready() -> void:
 	_board_cover.visible = true
 	counters = $VBC/HBC/Counters
 	end_turn = $VBC/HBC/EndTurn
-	cfc.map_node(self)
 #	print_debug("Board All Nodes Mapped:" + str(OS.get_ticks_msec() - load_start_time) + 'ms')
 	# warning-ignore:return_value_discarded
 	get_viewport().connect("size_changed",self,"_on_viewport_resized")
@@ -90,6 +89,7 @@ func _ready() -> void:
 #	begin_encounter()
 	# warning-ignore:return_value_discarded
 	connect("battle_begun", cfc.signal_propagator, "_on_signal_received", [self, "battle_begun", {}])
+	cfc.map_node(self)
 #
 func _process(_delta: float) -> void:
 	if cfc.game_paused and cfc.NMAP.has("main") and cfc.NMAP.main._current_focus_source:

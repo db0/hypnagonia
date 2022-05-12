@@ -13,6 +13,8 @@ func before_each():
 	.before_each()
 	if not globals.test_flags.has("no_journal_fade"):
 		globals.test_flags["no_journal_fade"] = true
+	if not globals.test_flags.has("no_ordeal_anims"):
+		globals.test_flags["no_ordeal_anims"] = true
 	# warning-ignore:void_assignment
 	var confirm_return = setup_journal()
 	if confirm_return is GDScriptFunctionState: # Still working.
