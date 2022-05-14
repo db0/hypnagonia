@@ -1613,7 +1613,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "Apply {effect_stacks} {doubt} to target Torment.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "axilirate",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
 		},
@@ -1632,7 +1632,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "Apply {effect_stacks} {doubt} to target Torment.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "axilirate",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
 		},
@@ -1647,7 +1647,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "Apply {effect_stacks} {doubt} to target Torment.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "axilirate",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
 		},
