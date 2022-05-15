@@ -44,7 +44,7 @@ const DamageAll := {
 	"canonical_name": "DamageAll",
 	"name": "The Big Fight",
 	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
-			+ "to {damage} all torments for {damage_amount}",
+			+ "to {attack} all torments for {damage_amount}",
 	"icon": "res://assets/icons/memories/the_big_fight.png",
 	"illustration": "SkylarkGSH",
 	"context": EffectContext.BATTLE,
@@ -56,12 +56,15 @@ const DamageAll := {
 		"damage_amount": 10,
 		"upgrade_multiplier": 1
 	},
+	"linked_terms": [
+		"{attack}",
+	],
 }
 const HealSelf := {
 	"canonical_name": "HealSelf",
 	"name": "Mother's Comfort",
 	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
-			+ "to reduce your {anxiety} by {heal_amount}",
+			+ "to {relax} by {heal_amount}",
 	"icon": "res://assets/icons/memories/mothers_comfort.png",
 	"illustration": "SkylarkGSH",
 	"context": EffectContext.BATTLE,
@@ -73,6 +76,9 @@ const HealSelf := {
 		"heal_amount": 5,
 		"upgrade_multiplier": 1
 	},
+	"linked_terms": [
+		"relax",
+	],
 }
 const BossFaster := {
 	"canonical_name": "BossFaster",
@@ -113,7 +119,7 @@ const SpikeEnemy := {
 	"canonical_name": "SpikeEnemy",
 	"name": "Childhood Curiosity",
 	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
-			+ "to {damage} one torment for {damage_amount}",
+			+ "to {attack} one torment for {damage_amount}",
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.nce,
@@ -124,6 +130,9 @@ const SpikeEnemy := {
 		"damage_amount": 20,
 		"upgrade_multiplier": 1
 	},
+	"linked_terms": [
+		"attack",
+	],
 }
 const FortifySelf := {
 	"canonical_name": "FortifySelf",
@@ -141,6 +150,9 @@ const FortifySelf := {
 		"upgrade_multiplier": 0.1,
 		"max_upgrades": 5,
 	},
+	"linked_terms": [
+		"fortify",
+	],
 }
 const DefendSelf := {
 	"canonical_name": "DefendSelf",
@@ -157,6 +169,9 @@ const DefendSelf := {
 		"defence_amount": 12,
 		"upgrade_multiplier": 2
 	},
+	"linked_terms": [
+		"defence",
+	],
 }
 const QuickenSelf := {
 	"canonical_name": "QuickenSelf",
@@ -174,6 +189,9 @@ const QuickenSelf := {
 		"upgrade_multiplier": 1,
 		"max_upgrades": 20,
 	},
+	"linked_terms": [
+		"quicken",
+	],
 }
 const StrengthenSelf := {
 	"canonical_name": "StrengthenSelf",
@@ -191,6 +209,9 @@ const StrengthenSelf := {
 		"upgrade_multiplier": 1,
 		"max_upgrades": 20,
 	},
+	"linked_terms": [
+		"strengthen",
+	],
 }
 const RandomChaos := {
 	"canonical_name": "RandomChaos",
@@ -240,6 +261,9 @@ const PoisonEnemy := {
 		"effect_stacks": 5,
 		"upgrade_multiplier": 1
 	},
+	"linked_terms": [
+		"poison",
+	],
 }
 const DisempowerEnemy := {
 	"canonical_name": "DisempowerEnemy",
@@ -256,6 +280,9 @@ const DisempowerEnemy := {
 		"effect_stacks": 2,
 		"upgrade_multiplier": 1
 	},
+	"linked_terms": [
+		"disempower",
+	],
 }
 const ImperviousSelf := {
 	"canonical_name": "ImperviousSelf",
@@ -272,12 +299,15 @@ const ImperviousSelf := {
 		"effect_stacks": 2,
 		"upgrade_multiplier": 1
 	},
+	"linked_terms": [
+		"impervious",
+	],
 }
 const ImmerseSelf := {
 	"canonical_name": "ImmerseSelf",
 	"name": "LSD Trip",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal "\
-			+ "to gain {immersion_amount} {immersion}",
+			+ "to gain {immersion_amount} {energy}",
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.artifact,
@@ -289,6 +319,9 @@ const ImmerseSelf := {
 		"upgrade_multiplier": 1,
 		"max_upgrades": 5,
 	},
+	"linked_terms": [
+		"energy",
+	],
 }
 const CardDraw := {
 	"canonical_name": "CardDraw",
@@ -311,7 +344,7 @@ const ExertRecovery := {
 	"canonical_name": "ExertRecovery",
 	"name": "The Courting Days",
 	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
-			+ "to recover all {anxiety} you took during your own turn, this turn.",
+			+ "to recover all {player_health} you took during your own turn, this turn.",
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
@@ -321,13 +354,16 @@ const ExertRecovery := {
 	"amounts": {
 		"upgrade_multiplier": 1
 	},
+	"linked_terms": [
+		"player_health",
+	],
 }
 const ExertSelf := {
 	"canonical_name": "ExertSelf",
 	"name": "The Bad Days",
 	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
-			+ "to gain {exert_amount} {anxiety}, {repeat_amount} times.\n"\
-			+ "For every 2 points of anxiety taken, remove one random debuff stack applied to you.",
+			+ "to gain {exert_amount} {player_health}, {repeat_amount} times.\n"\
+			+ "For every 2 points of {player_health} taken, remove one random debuff stack applied to you.",
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
@@ -339,6 +375,9 @@ const ExertSelf := {
 		"repeat_amount": 5,
 		"upgrade_multiplier": 1,
 	},
+	"linked_terms": [
+		"player_health",
+	],
 }
 const RegenerateSelf := {
 	"canonical_name": "RegenerateSelf",
@@ -346,7 +385,7 @@ const RegenerateSelf := {
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal.\n"\
 			+ "At the end of the next {turns_amount} turns, "\
 			+ "{relax} for {heal_amount}.\n"\
-			+ "If you have {untouchable}, {relax} {heal_amount} extra.",
+			+ "If you have {impervious}, {relax} {heal_amount} extra.",
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
@@ -359,6 +398,10 @@ const RegenerateSelf := {
 		"upgrade_multiplier": 1,
 		"max_upgrades": 5,
 	},
+	"linked_terms": [
+		"relax",
+		"impervious",
+	],
 }
 const BufferSelf := {
 	"canonical_name": "BufferSelf",
@@ -376,6 +419,9 @@ const BufferSelf := {
 		"upgrade_multiplier": 1,
 		"max_upgrades": 15,
 	},
+	"linked_terms": [
+		"buffer",
+	],
 }
 const RerollDraft := {
 	"canonical_name": "RerollDraft",
@@ -397,7 +443,7 @@ const RemovePerturbation := {
 	"canonical_name": "RemovePerturbation",
 	"name": "That Lazy Afternoon",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during the Dream Journal "\
-			+ "to {release} a random {perturbation} from your deck.",
+			+ "to {release} a random {condition_card} from your deck.",
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.rest,
@@ -408,6 +454,9 @@ const RemovePerturbation := {
 		"upgrade_multiplier": 2,
 		"max_upgrades": 10,
 	},
+	"linked_terms": [
+		"release",
+	],
 }
 const RerollShop := {
 	"canonical_name": "RerollShop",
@@ -429,7 +478,7 @@ const GainMaxHealth := {
 	"canonical_name": "GainMaxHealth",
 	"name": "Birthday Party",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during the Dream Journal "\
-			+ "to permanently increase your max {anxiety} {anxiety_amount}.",
+			+ "to permanently increase your max {player_health} {anxiety_amount}.",
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.shop,
@@ -441,6 +490,9 @@ const GainMaxHealth := {
 		"upgrade_multiplier": 1,
 		"max_upgrades": 10,
 	},
+	"linked_terms": [
+		"player_health",
+	],
 }
 const ProtectSelf := {
 	"canonical_name": "ProtectSelf",
@@ -458,6 +510,9 @@ const ProtectSelf := {
 		"upgrade_multiplier": 1,
 		"max_upgrades": 10,
 	},
+	"linked_terms": [
+		"protection",
+	],
 }
 const RemoveDebuff := {
 	"canonical_name": "RemoveDebuff",
@@ -475,6 +530,9 @@ const RemoveDebuff := {
 		"stacks_amount": 3,
 		"upgrade_multiplier": 1
 	},
+	"linked_terms": [
+		"defence",
+	],
 }
 const ActivateStartups := {
 	"canonical_name": "ActivateStartups",
@@ -491,6 +549,9 @@ const ActivateStartups := {
 		"upgrade_multiplier": 1,
 		"max_upgrades": 5,
 	},
+	"linked_terms": [
+		"startup",
+	],
 }
 const ThornsSelf := {
 	"canonical_name": "ThornsSelf",
@@ -508,6 +569,9 @@ const ThornsSelf := {
 		"upgrade_multiplier": 1,
 		"max_upgrades": 8,
 	},
+	"linked_terms": [
+		"thorns",
+	],
 }
 const FreezeCard := {
 	"canonical_name": "FreezeCard",
@@ -524,6 +588,9 @@ const FreezeCard := {
 		"upgrade_multiplier": 1,
 		"max_upgrades": 5,
 	},
+	"linked_terms": [
+		"frozen",
+	],
 }
 
 # Generic memories which have a chance to appear in any playthrough

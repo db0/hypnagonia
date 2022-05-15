@@ -23,7 +23,7 @@ func _on_reshuffle(_pile: Pile):
 	if not drawn_cards.has(top_card):
 		drawn_cards[top_card] = 0
 	drawn_cards[top_card] += 1
-	if drawn_cards[top_card] >= 3:
+	if drawn_cards[top_card] >= 2:
 		_activate()
 		return
 	var script = [{

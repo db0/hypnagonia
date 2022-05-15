@@ -153,7 +153,14 @@ func _set_current_description() -> void:
 			format(format).\
 			format(Terms.get_bbcode_formats(18)).\
 			format(artifact_object.definition.get("amounts", {}))
-
+	if artifact_object.definition.get("linked_terms"):
+			var linked_terms = {
+				"already_added": [],
+				"dreamer": [],
+				"torment": [],
+			}
+			linked_terms['dreamer'] = artifact_object.definition.get("linked_terms")
+			cfc.ov_utils.add_linked_terms(focus_info, linked_terms)
 
 # Function to overwrite from extended classes to add extra description format keys
 func _add_extra_description_format(_format_dict: Dictionary) -> void:

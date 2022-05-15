@@ -30,6 +30,9 @@ const MaxHealth := {
 	"amounts": {
 		"health_amount": 10
 	},
+	"linked_terms": [
+		"player_health",
+	],
 }
 
 const StartingHeal := {
@@ -42,6 +45,9 @@ const StartingHeal := {
 	"amounts": {
 		"heal_amount": 2
 	},
+	"linked_terms": [
+		"relax",
+	],
 }
 
 const EndingHeal := {
@@ -54,18 +60,24 @@ const EndingHeal := {
 	"amounts": {
 		"heal_amount": 6
 	},
+	"linked_terms": [
+		"relax",
+	],
 }
 
 const FirstPowerAttack := {
 	"canonical_name": "FirstPowerAttack",
 	"name": "Rosetta Stone",
-	"description": "{artifact_name}: Your first {damage} each encounter is increased by {effect_amount}",
+	"description": "{artifact_name}: Your first {attack} each encounter is increased by {effect_amount}",
 	"icon": preload("res://assets/icons/artifacts/stone-tablet.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Common",
 	"amounts": {
 		"effect_amount": 8
 	},
+	"linked_terms": [
+		"attack",
+	],
 }
 
 
@@ -79,7 +91,6 @@ const StartingCards := {
 	"amounts": {
 		"draw_amount": 2
 	},
-
 }
 
 
@@ -95,19 +106,25 @@ const RepressedEnemyBuff := {
 		"effect_stacks": 1,
 		"pathos_amount": 40
 	},
+	"linked_terms": [
+		"buffer",
+	],
 }
 
 
 const StartingImmersion := {
 	"canonical_name": "StartingImmersion",
 	"name": "Tiny Coala Friend",
-	"description": "{artifact_name}: At the start of each Ordeal, gain {immersion_amount} {immersion}.",
+	"description": "{artifact_name}: At the start of each Ordeal, gain {immersion_amount} {energy}.",
 	"icon": preload("res://assets/icons/artifacts/koala.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Common",
 	"amounts": {
 		"immersion_amount": 1
 	},
+	"linked_terms": [
+		"energy",
+	],
 }
 
 
@@ -121,6 +138,9 @@ const StartingStrength := {
 	"amounts": {
 		"effect_stacks": 1
 	},
+	"linked_terms": [
+		"strengthen",
+	],
 }
 
 
@@ -134,26 +154,32 @@ const StartingThorns := {
 	"amounts": {
 		"effect_stacks": 4
 	},
+	"linked_terms": [
+		"thorns",
+	],
 }
 
 
 const StartingConfidence := {
 	"canonical_name": "StartingConfidence",
 	"name": "Epic Mustache",
-	"description": "{artifact_name}: At the start of each Ordeal, gain {defence_amount} {confidence}.",
+	"description": "{artifact_name}: At the start of each Ordeal, gain {defence_amount} {defence}.",
 	"icon": preload("res://assets/icons/artifacts/mustache.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Common",
 	"amounts": {
 		"defence_amount": 10
 	},
+	"linked_terms": [
+		"defence",
+	],
 }
 
 
 const ThickImmersion := {
 	"canonical_name": "ThickImmersion",
 	"name": "Weighted Blanket",
-	"description": "{artifact_name}: At that start of each Ordeal turn, gain {immersion_amount} {immersion}. "\
+	"description": "{artifact_name}: At that start of each Ordeal turn, gain {immersion_amount} {energy}. "\
 		+ "This effects ends when your deck is reshuffled and you gain {effect_stacks} {vulnerable}.",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.BATTLE,
@@ -162,6 +188,10 @@ const ThickImmersion := {
 		"immersion_amount": 1,
 		"effect_stacks": 3
 	},
+	"linked_terms": [
+		"energy",
+		"vulnerable",
+	],
 }
 
 
@@ -176,6 +206,9 @@ const ThickStrength := {
 	"amounts": {
 		"effect_stacks": 1
 	},
+	"linked_terms": [
+		"strengthen",
+	],
 }
 
 
@@ -235,7 +268,7 @@ const ThinCardDraw := {
 	"canonical_name": "ThinCardDraw",
 	"name": "Light Backpack",
 	"description": "{artifact_name}: Every time you reshuffle the deck, draw {draw_amount} card.\n"\
-			+ "This effect stops for the turn after you draw the same card three times.",
+			+ "This effect stops for the turn after you draw the same card two times.",
 	"icon": preload("res://assets/icons/artifacts/light-backpack.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
@@ -252,6 +285,9 @@ const ResistDisempower := {
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.BATTLE,
 	"rarity": "Rare",
+	"linked_terms": [
+		"disempower",
+	],
 }
 
 
@@ -265,6 +301,9 @@ const ResistPoison := {
 	"amounts": {
 		"alteration_amount": 1
 	},
+	"linked_terms": [
+		"poison",
+	],
 }
 
 
@@ -278,6 +317,9 @@ const ResistBurn := {
 	"amounts": {
 		"alteration_amount": 1
 	},
+	"linked_terms": [
+		"burn",
+	],
 }
 
 
@@ -288,7 +330,9 @@ const ResistVulnerable := {
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.BATTLE,
 	"rarity": "Rare",
-
+	"linked_terms": [
+		"vulnerable",
+	],
 }
 
 
@@ -302,6 +346,9 @@ const ImproveThorns := {
 	"amounts": {
 		"alteration_amount": 1
 	},
+	"linked_terms": [
+		"thorns",
+	],
 }
 
 
@@ -315,6 +362,9 @@ const ImprovePoison := {
 	"amounts": {
 		"alteration_amount": 1
 	},
+	"linked_terms": [
+		"poison",
+	],
 }
 
 
@@ -328,6 +378,9 @@ const ImproveBurn := {
 	"amounts": {
 		"alteration_amount": 1
 	},
+	"linked_terms": [
+		"burn",
+	],
 }
 
 
@@ -335,10 +388,13 @@ const ThickExplosion := {
 	"canonical_name": "ThickExplosion",
 	"name": "ThickExplosion",
 	"description": "{artifact_name}: The first time you reshuffle your deck because it run out of cards, "\
-		+ "deal damage to all enemies equal to your discard pile.",
+		+ "{attack} to all enemies for an amount equal to your discard pile size.",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.BATTLE,
 	"rarity": "Rare",
+	"linked_terms": [
+		"attack",
+	],
 }
 
 
@@ -353,6 +409,9 @@ const AccumulateEnemy := {
 		"pathos_amount": 60,
 		"relax_amount": 30
 	},
+	"linked_terms": [
+		"relax",
+	],
 }
 const AccumulateRest := {
 	"canonical_name": "AccumulateRest",
@@ -417,25 +476,31 @@ const AccumulateArtifact := {
 const PowerHeal := {
 	"canonical_name": "PowerHeal",
 	"name": "Concentrated Rest",
-	"description": "{artifact_name}: Whenever you play a concentration, {relax} for {healing_amount}.",
+	"description": "{artifact_name}: Whenever you play a {power_card}, {relax} for {healing_amount}.",
 	"icon": preload("res://assets/icons/artifacts/nested-hearts.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Rare",
 	"amounts": {
 		"healing_amount": 2
 	},
+	"linked_terms": [
+		"relax",
+	],
 }
 
 const PerturbationHeal := {
 	"canonical_name": "PerturbationHeal",
 	"name": "A taste for liquorice",
-	"description": "{artifact_name}: At the start of each Ordeal, {relax} for {heal_amount} per Perturbation in your deck.",
+	"description": "{artifact_name}: At the start of each Ordeal, {relax} for {heal_amount} per {condition_card} in your draw pile.",
 	"icon": preload("res://assets/icons/artifacts/pretzel.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Common",
 	"amounts": {
 		"heal_amount": 1
 	},
+	"linked_terms": [
+		"relax",
+	],
 }
 
 const ImproveImpervious := {
@@ -448,6 +513,9 @@ const ImproveImpervious := {
 	"amounts": {
 		"per_stack_modifier": 0.03
 	},
+	"linked_terms": [
+		"impervious",
+	],
 }
 
 const ImproveFortify := {
@@ -457,6 +525,10 @@ const ImproveFortify := {
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
+	"linked_terms": [
+		"fortify",
+		"armor",
+	],
 }
 
 const PorcelainDoll := {
@@ -479,12 +551,15 @@ const RedWave := {
 		"threshold": 4,
 		"defence_amount": 8
 	},
+	"linked_terms": [
+		"defence",
+	],
 }
 
 const BlueWave := {
 	"canonical_name": "BlueWave",
 	"name": "Cool Vibes",
-	"description": "{artifact_name}: At the start of your turn, if your hand has {threshold}+ {skill_card} cards, deal {damage_amount} {damage} to all Torments.",
+	"description": "{artifact_name}: At the start of your turn, if your hand has {threshold}+ {skill_card} cards, {attack} all Torments for {damage_amount}.",
 	"icon": preload("res://assets/icons/artifacts/waves_blue.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Common",
@@ -492,6 +567,9 @@ const BlueWave := {
 		"threshold": 4,
 		"damage_amount": 5
 	},
+	"linked_terms": [
+		"attack",
+	],
 }
 
 const PurpleWave := {
@@ -505,12 +583,15 @@ const PurpleWave := {
 		"threshold": 3,
 		"heal_amount": 4,
 	},
+	"linked_terms": [
+		"relax",
+	],
 }
 
 const ProgressiveImmersion := {
 	"canonical_name": "ProgressiveImmersion",
 	"name": "Progressive Immersion",
-	"description": "{artifact_name}: You have {immersion_amount} extra {immersion} per turn.\n"\
+	"description": "{artifact_name}: You have {immersion_amount} extra {energy} per turn.\n"\
 			+ "You cannot progress cards by playing them during ordeals anymore.",
 	"icon": GENERIC_BOSS_ARTIFACT_ICON,
 	"context": EffectContext.BATTLE,
@@ -518,6 +599,9 @@ const ProgressiveImmersion := {
 	"amounts": {
 		"immersion_amount": 1,
 	},
+	"linked_terms": [
+		"energy",
+	],
 }
 
 const BossCardDraw := {
@@ -535,7 +619,7 @@ const BossCardDraw := {
 const RandomUpgrades := {
 	"canonical_name": "RandomUpgrades",
 	"name": "20-sided die",
-	"description": "{artifact_name}: You have {immersion_amount} extra {immersion} per turn.\n"\
+	"description": "{artifact_name}: You have {immersion_amount} extra {energy} per turn.\n"\
 			+ "Your card upgrades are chosen randomly.",
 	"icon": preload("res://assets/icons/artifacts/dice-twenty-faces-twenty.png"),
 	"context": EffectContext.BATTLE,
@@ -543,6 +627,9 @@ const RandomUpgrades := {
 	"amounts": {
 		"immersion_amount": 1,
 	},
+	"linked_terms": [
+		"energy",
+	],
 }
 
 const BetterRareChance := {
@@ -574,46 +661,61 @@ const BossDraft := {
 const FreeCard := {
 	"canonical_name": "FreeCard",
 	"name": "A Nice Warm Meal",
-	"description": "{artifact_name}: A random card in your deck, costing 1 or more immersion, becomes free.",
+	"description": "{artifact_name}: A random card in your deck, costing 1 or more {energy}, becomes free.",
 	"icon": preload("res://assets/icons/artifacts/camp-cooking-pot.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
+	"linked_terms": [
+		"energy",
+	],
 }
 
 const AddAlphaTag := {
 	"canonical_name": "AddAlphaTag",
 	"name": "Crystal Ball",
-	"description": "{artifact_name}: Choose a card in your deck. It gains the {alpha} tag, so always starts at the top of the deck.",
+	"description": "{artifact_name}: Choose a card in your deck. It gains {alpha}.",
 	"icon": preload("res://assets/icons/artifacts/crystal-ball.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
+	"linked_terms": [
+		"alpha",
+	],
 }
 
 const AddOmegaTag := {
 	"canonical_name": "AddOmegaTag",
 	"name": "Jigsaw Piece",
-	"description": "{artifact_name}: Choose a card in your deck. It gains the {omega} tag, so always starts at the bottom of the deck.",
+	"description": "{artifact_name}: Choose a card in your deck. It gains {omega}.",
 	"icon": preload("res://assets/icons/artifacts/jigsaw-piece.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
+	"linked_terms": [
+		"omega",
+	],
 }
 
 const AddFrozenTag := {
 	"canonical_name": "AddFrozenTag",
 	"name": "Earworm",
-	"description": "{artifact_name}: Choose a card in your deck. It gains the {frozen} tag, so it isn't discarded from your hand.",
+	"description": "{artifact_name}: Choose a card in your deck. It gains {frozen}.",
 	"icon": preload("res://assets/icons/artifacts/leeching-worm.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Rare",
+	"linked_terms": [
+		"frozen",
+	],
 }
 
 const IncreaseRandomDamage := {
 	"canonical_name": "IncreaseRandomDamage",
 	"name": "Masterwork Looking Glass",
-	"description": "{artifact_name}: A random card dealing {damage} in your deck, will increase its {damage} by 1.",
+	"description": "{artifact_name}: A random card doing {attack} in your deck, will increase its {attack} by 1.",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
+	"linked_terms": [
+		"attack",
+	],
 }
 
 const IncreaseRandomDefence := {
@@ -623,6 +725,9 @@ const IncreaseRandomDefence := {
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
+	"linked_terms": [
+		"defence",
+	],
 }
 
 const IncreaseConfusionStacks := {
@@ -632,15 +737,21 @@ const IncreaseConfusionStacks := {
 	"icon": preload("res://assets/icons/artifacts/smoke-bomb.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
+	"linked_terms": [
+		"disempower",
+	],
 }
 
 const IncreaseImmersionGain := {
 	"canonical_name": "IncreaseImmersionGain",
 	"name": "Bookmark",
-	"description": "{artifact_name}: Choose an {immersion} card in your deck. Increase the amount of {immersion} it is providing by 1.",
+	"description": "{artifact_name}: Choose an {energy} card in your deck. Increase the amount of {energy} it is providing by 1.",
 	"icon": preload("res://assets/icons/artifacts/bookmark.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Rare",
+	"linked_terms": [
+		"energy",
+	],
 }
 
 const BetterArtifactChance := {
@@ -667,6 +778,9 @@ const StartingDisempower := {
 	"amounts": {
 		"effect_stacks": 1
 	},
+	"linked_terms": [
+		"disempower",
+	],
 }
 
 const StartingVulnerable := {
@@ -679,6 +793,9 @@ const StartingVulnerable := {
 	"amounts": {
 		"effect_stacks": 2
 	},
+	"linked_terms": [
+		"vulnerable",
+	],
 }
 
 const ProgressEverything := {
@@ -700,6 +817,9 @@ const IncreaseBufferStacks := {
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
+	"linked_terms": [
+		"buffer",
+	],
 }
 
 const IncreasePoisonStacks := {
@@ -709,15 +829,21 @@ const IncreasePoisonStacks := {
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
+	"linked_terms": [
+		"poison",
+	],
 }
 
 const DecreaseExertStacks := {
 	"canonical_name": "DecreaseExertStacks",
 	"name": "Decrease Rationalization Stacks",
-	"description": "{artifact_name}: Choose a {exert} card in your deck. Decrease the amount of {anxiety} it is giving by 2.",
+	"description": "{artifact_name}: Choose a {exert} card in your deck. Decrease the amount of {player_health} it is giving by 2.",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
+	"linked_terms": [
+		"player_health",
+	],
 }
 
 const DoubleFirstStartup := {
@@ -727,6 +853,9 @@ const DoubleFirstStartup := {
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
+	"linked_terms": [
+		"startup",
+	],
 }
 
 const StrengthenUp := {
@@ -738,6 +867,9 @@ const StrengthenUp := {
 	"rarity": "Rare",
 	"amount": 0,
 	"max_uses": 3,
+	"linked_terms": [
+		"strengthen",
+	],
 }
 
 const QuickenUp := {
@@ -749,6 +881,9 @@ const QuickenUp := {
 	"rarity": "Rare",
 	"amount": 0,
 	"max_uses": 3,
+	"linked_terms": [
+		"quicken",
+	],
 }
 
 const EnhanceOnRest := {
@@ -760,6 +895,9 @@ const EnhanceOnRest := {
 	"rarity": "Rare",
 	"amount": 0,
 	"max_uses": 3,
+	"linked_terms": [
+		"enhance",
+	],
 }
 
 const UpgradeMemoryOnRest := {
@@ -776,7 +914,7 @@ const UpgradeMemoryOnRest := {
 const ReduceCurioRerollPerturbChance := { # TODO: Tests
 	"canonical_name": "ReduceCurioRerollPerturbChance",
 	"name": "Shamrock",
-	"description": "{artifact_name}: Reduces the chance to get a perturbation when rerolling a desire curio.",
+	"description": "{artifact_name}: Reduces the chance to get a {condition_card} when rerolling a Desire curio.",
 	"icon": preload("res://assets/icons/artifacts/shamrock.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
@@ -800,7 +938,7 @@ const IncreaseUpgradedDraftChance := { # TODO: Tests
 const NoRest := {
 	"canonical_name": "NoRest",
 	"name": "Moka Pot",
-	"description": "{artifact_name}: You have {immersion_amount} extra {immersion} per turn.\n"\
+	"description": "{artifact_name}: You have {immersion_amount} extra {energy} per turn.\n"\
 			+ "You cannot rest during deep torpor anymore.",
 	"icon": preload("res://assets/icons/artifacts/moka-pot.png"),
 	"context": EffectContext.BATTLE,
@@ -808,6 +946,9 @@ const NoRest := {
 	"amounts": {
 		"immersion_amount": 1,
 	},
+	"linked_terms": [
+		"energy",
+	],
 }
 
 const SmallerDrafts := {
@@ -822,6 +963,9 @@ const SmallerDrafts := {
 		"immersion_amount": 1,
 		"card_draft_modifier": -2,
 	},
+	"linked_terms": [
+		"energy",
+	],
 }
 
 
