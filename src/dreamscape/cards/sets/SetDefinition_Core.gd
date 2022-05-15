@@ -4925,7 +4925,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "{damage} for {damage_amount}. "\
-				+ "If the target has {confusion}, Gain {effect_stacks} and {defence_amount} {confidence}.",
+				+ "If the target has {confusion}, Gain {effect_stacks} {buffer} and {defence_amount} {confidence}.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
