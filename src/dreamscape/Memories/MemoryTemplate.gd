@@ -48,7 +48,14 @@ func _set_current_description() -> void:
 			format(format).\
 			format(Terms.get_bbcode_formats(18)).\
 			format(MemoryDefinitions.get_memory_bbcode_format(artifact_object.definition, artifact_object.upgrades_amount))
-
+	if artifact_object.definition.get("linked_terms"):
+			var linked_terms = {
+				"already_added": [],
+				"dreamer": [],
+				"torment": [],
+			}
+			linked_terms['dreamer'] = artifact_object.definition.get("linked_terms")
+			cfc.ov_utils.add_linked_terms(focus_info, linked_terms)
 
 func _use():
 	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):

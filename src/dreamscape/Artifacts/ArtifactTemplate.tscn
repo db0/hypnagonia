@@ -35,11 +35,8 @@ margin_top = 5.0
 margin_right = 35.0
 margin_bottom = 35.0
 
-[node name="Label" parent="Description" index="0"]
-margin_left = 2.0
-margin_top = 2.0
-margin_right = 302.0
-margin_bottom = 22.0
+[node name="VBC" parent="Description" index="0"]
+margin_bottom = 35.0
 
 [node name="Amount" parent="MC" index="0"]
 margin_right = 39.0
