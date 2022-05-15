@@ -29,7 +29,14 @@ func setup(signifier_details: Dictionary, signifier_name: String) -> void:
 			format(MemoryDefinitions.get_memory_bbcode_format(signifier_details, upgrades))
 	updated_detail["description"] = updated_detail.bbdescription + memory_cost_info
 	.setup(updated_detail, signifier_name)
-
+	if updated_detail.get("linked_terms"):
+			var linked_terms = {
+				"already_added": [],
+				"dreamer": [],
+				"torment": [],
+			}
+			linked_terms['dreamer'] = updated_detail.get("linked_terms")
+			cfc.ov_utils.add_linked_terms(focus_info, linked_terms)
 
 func apply_shader(shader_path: String) -> void:
 	bbc.visible = true
