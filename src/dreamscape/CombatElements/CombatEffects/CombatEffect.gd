@@ -111,9 +111,10 @@ func _set_current_description() -> void:
 	if effect_entry.get("linked_terms"):
 		var linked_terms = {
 			"already_added": [],
-			"dreamer": effect_entry.get("linked_terms"),
+			"dreamer": [],
 			"torment": [],
 		}
+		linked_terms[entity_type] = effect_entry.get("linked_terms")
 		cfc.ov_utils.add_linked_terms(focus_info, linked_terms)
 
 func _get_effect_description() -> String:
