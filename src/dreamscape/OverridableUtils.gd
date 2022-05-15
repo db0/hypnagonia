@@ -14,6 +14,7 @@ func get_subjects(subject_request, _stored_integer: int = 0) -> Array:
 # Populates the info panels under the card, when it is shown in the
 # viewport focus or deckbuilder
 func populate_info_panels(card: Card, focus_info: DetailPanels) -> void:
+	focus_info.hide_all_info()
 	var linked_terms = {
 		"already_added": [],
 		"dreamer": [],
