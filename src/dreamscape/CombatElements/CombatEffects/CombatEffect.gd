@@ -68,13 +68,13 @@ func set_stacks(value: int, tags := ["Manual"], can_go_negative := false) -> voi
 	emit_signal("stacks_modified", value)
 
 # To override. This is called by the scripting engine
-# Is source is telling this script whether we're checking for alterants affecting the 
+# Is source is telling this script whether we're checking for alterants affecting the
 # entity applying this effect, or the antity receiving this effect.
 func get_effect_alteration(
-		_script: ScriptTask, 
-		_value: int, 
-		_sceng, 
-		_is_source: bool, 
+		_script: ScriptTask,
+		_value: int,
+		_sceng,
+		_is_source: bool,
 		_dry_run:= true,
 		_subject: Node = null) -> int:
 	return(0)
@@ -106,9 +106,15 @@ func _set_current_description() -> void:
 	if stacks < 0:
 		format["increased"] = "decreased"
 		format["amount"] = str(abs(stacks))
-	
 	decription_label.bbcode_text = _get_effect_description().\
 			format(format).format(Terms.get_bbcode_formats(18))
+	if effect_entry.get("linked_terms"):
+		var linked_terms = {
+			"already_added": [],
+			"dreamer": effect_entry.get("linked_terms"),
+			"torment": [],
+		}
+		cfc.ov_utils.add_linked_terms(focus_info, linked_terms)
 
 func _get_effect_description() -> String:
 	var effect_entry : Dictionary = Terms.ACTIVE_EFFECTS[_get_template_name()]
@@ -126,7 +132,7 @@ func _get_effect_description() -> String:
 			# while it's using the card text as its string, it nevertheless, replaces one format key of the
 			# card description with the {amount} key, which will be replaced with the amount of stacks
 			# on this condition. This is typically used on conditions which apply multiple stacks
-			# If concentration_stacks is used in the description, it is also assumed we want to 
+			# If concentration_stacks is used in the description, it is also assumed we want to
 			# replace it with the stack amount
 			var repl_key = effect_entry.get('format_key_to_replace_with_amount', "concentration_stacks")
 			if repl_key:
@@ -141,7 +147,7 @@ func _get_effect_description() -> String:
 func get_effect_name() -> String:
 	return(name)
 
-# Returns the "generic" name of this effect as found in Terms 
+# Returns the "generic" name of this effect as found in Terms
 # E.g. if the poison effect has been renamed doubt
 # This method will return 'poison'
 func _get_template_name() -> String:

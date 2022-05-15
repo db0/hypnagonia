@@ -88,14 +88,14 @@ func populate_info_panels(card: Card, focus_info: DetailPanels) -> void:
 	var card_keywords = card.get_property("_keywords")
 	if card_keywords:
 		linked_terms.dreamer += card_keywords
-	_added_linked_terms(focus_info, linked_terms)
+	add_linked_terms(focus_info, linked_terms)
 	var card_illustration = card.get_property("_illustration")
 	if card_illustration and card_illustration != "Nobody":
 		focus_info.show_illustration("Illustration by: " + card_illustration)
 	else:
 		focus_info.hide_illustration()
 
-func _added_linked_terms(focus_info: DetailPanels, linked_terms: Dictionary) -> void:
+func add_linked_terms(focus_info: DetailPanels, linked_terms: Dictionary) -> void:
 	var bbcode_format := Terms.get_bbcode_formats(18)
 	for entity_type in Terms.COMMON_FORMATS.keys():
 		var format = Terms.COMMON_FORMATS[entity_type].duplicate()
@@ -116,7 +116,7 @@ func _added_linked_terms(focus_info: DetailPanels, linked_terms: Dictionary) -> 
 					var more_linked_terms = CardConfig.LINKED_TERMS.get(final_term.to_lower(), [])
 					if more_linked_terms:
 						linked_terms[entity_type] += more_linked_terms
-						_added_linked_terms(focus_info,linked_terms)
+						add_linked_terms(focus_info,linked_terms)
 				continue
 			format["effect_name"] = term_entry.name
 			format["effect_icon"] = "[img=18x18]" + term_entry.rich_text_icon + "[/img]"
@@ -136,7 +136,7 @@ func _added_linked_terms(focus_info: DetailPanels, linked_terms: Dictionary) -> 
 			var more_linked_terms = term_entry.get("linked_terms", [])
 			if more_linked_terms:
 				linked_terms[entity_type] += term_entry.get("linked_terms", [])
-				_added_linked_terms(focus_info,linked_terms)
+				add_linked_terms(focus_info,linked_terms)
 
 
 

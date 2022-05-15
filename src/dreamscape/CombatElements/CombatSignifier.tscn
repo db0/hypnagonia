@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/dreamscape/CombatElements/CombatSignifier.gd" type="Script" id=1]
 [ext_resource path="res://assets/icons/shield.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://assets/icons/GUI/ring.png" type="Texture" id=4]
 [ext_resource path="res://assets/card_front/tag_container.png" type="Texture" id=5]
 [ext_resource path="res://themes/darktheme/StyleBox/InfoPanel.tres" type="StyleBox" id=6]
+[ext_resource path="res://src/core/DetailPanels.gd" type="Script" id=7]
+[ext_resource path="res://src/dreamscape/InfoPanel.tscn" type="PackedScene" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 outline_size = 1
@@ -76,7 +78,13 @@ margin_right = 33.0
 margin_bottom = 14.0
 custom_styles/panel = ExtResource( 6 )
 
-[node name="Label" type="RichTextLabel" parent="Description"]
+[node name="VBC" type="VBoxContainer" parent="Description"]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 312.0
+margin_bottom = 31.0
+
+[node name="Label" type="RichTextLabel" parent="Description/VBC"]
 margin_left = 12.0
 margin_top = 12.0
 margin_right = 312.0
@@ -86,6 +94,14 @@ mouse_filter = 2
 bbcode_enabled = true
 fit_content_height = true
 scroll_active = false
+
+[node name="DetailPanels" type="GridContainer" parent="Description/VBC"]
+margin_right = 40.0
+margin_bottom = 40.0
+custom_constants/vseparation = 10
+custom_constants/hseparation = 10
+script = ExtResource( 7 )
+info_panel_scene = ExtResource( 8 )
 
 [node name="MC" type="MarginContainer" parent="."]
 margin_right = 22.0
