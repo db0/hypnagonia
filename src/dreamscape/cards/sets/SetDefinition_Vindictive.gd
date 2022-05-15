@@ -821,13 +821,13 @@ const CARDS := {
 	},
 	"Schadenfreude": {
 		"Type": "Concentration",
-		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.armor.name],
 		"Abilities": "At the start of each turn, gain {concentration_stacks} {armor} "\
-		 		+ "for every {concentration_divider} {damage} all Torments received during their own turn.",
+		 		+ "for every {concentration_divider} {enemy_health} all Torments received during their own turn.",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
-		"_keywords": [],
+		"_keywords": ['enemy_health'],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER,
 		},
@@ -843,13 +843,13 @@ const CARDS := {
 	},
 	"@ Schadenfreude @": {
 		"Type": "Concentration",
-		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.armor.name],
 		"Abilities": "At the start of each turn, gain {concentration_stacks} {armor} "\
-		 		+ "for every {concentration_divider} {damage} all Torments received during their own turn.",
+		 		+ "for every {concentration_divider} {enemy_health} all Torments received during their own turn.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
-		"_keywords": [],
+		"_keywords": ['enemy_health'],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER,
 		},
@@ -861,13 +861,13 @@ const CARDS := {
 	},
 	"Bitter Schadenfreude": {
 		"Type": "Concentration",
-		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.armor.name],
 		"Abilities": "At the start of each turn, gain {concentration_stacks} {armor} "\
-		 		+ "for every {concentration_divider} {damage} all Torments received during their own turn.",
+		 		+ "for every {concentration_divider} {enemy_health} all Torments received during their own turn.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
-		"_keywords": [],
+		"_keywords": ['enemy_health'],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER,
 		},

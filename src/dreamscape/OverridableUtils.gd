@@ -14,7 +14,11 @@ func get_subjects(subject_request, _stored_integer: int = 0) -> Array:
 # Populates the info panels under the card, when it is shown in the
 # viewport focus or deckbuilder
 func populate_info_panels(card: Card, focus_info: DetailPanels) -> void:
-	.populate_info_panels(card, focus_info)
+	var linked_terms = {
+		"already_added": [],
+		"dreamer": [],
+		"torment": [],
+	}
 	if card.deck_card_entry:
 		if card.deck_card_entry.upgrade_threshold > 0:
 			var upgrade_format := {
@@ -27,6 +31,7 @@ func populate_info_panels(card: Card, focus_info: DetailPanels) -> void:
 					preload("res://src/dreamscape/InfoPanel.tscn"),
 					true)
 		if card.deck_card_entry.is_scarred():
+			linked_terms.already_added.append("Scarred")
 			focus_info.add_info(
 					"Scarred",
 					"Scarred ([img=24x24]res://assets/card_front/scar-wound.png[/img]): "\
@@ -35,6 +40,7 @@ func populate_info_panels(card: Card, focus_info: DetailPanels) -> void:
 					preload("res://src/dreamscape/InfoPanel.tscn"),
 					true)
 		if card.deck_card_entry.is_enhanced():
+			linked_terms.already_added.append("Enhanced")
 			focus_info.add_info(
 					"Enhanced",
 					"Enhanced ([img=24x24]res://assets/card_front/sun.png[/img]): "\
@@ -63,18 +69,76 @@ func populate_info_panels(card: Card, focus_info: DetailPanels) -> void:
 			format["triple_amount"] = "3"
 			format["half_amount"] = "0.5"
 			format["imp_mark_pct"] = "25% per stack"
+			linked_terms[entity_type] += effect_entry.get("linked_terms", [])
 			focus_info.add_info(
 					effect_entry.name,
 					effect_description.format(format).\
 						format(bbcode_format), preload("res://src/dreamscape/EffectInfoPanel.tscn"))
+	linked_terms.already_added += added_effects
 	var tags : Array = card.get_property("Tags")
 	for tag in tags:
 		if tag in added_effects:
 			continue
+		linked_terms.already_added.append(tag)
 		var tag_entry : Dictionary = Terms.get_term_entry(tag, 'generic_description')
+		linked_terms.dreamer += tag_entry.get("linked_terms", [])
 		focus_info.add_info(
 				tag_entry.name,
 				tag_entry.generic_description.format(bbcode_format), preload("res://src/dreamscape/InfoPanel.tscn"))
+	var card_keywords = card.get_property("_keywords")
+	if card_keywords:
+		linked_terms.dreamer += card_keywords
+	_added_linked_terms(focus_info, linked_terms)
+	var card_illustration = card.get_property("_illustration")
+	if card_illustration and card_illustration != "Nobody":
+		focus_info.show_illustration("Illustration by: " + card_illustration)
+	else:
+		focus_info.hide_illustration()
+
+func _added_linked_terms(focus_info: DetailPanels, linked_terms: Dictionary) -> void:
+	var bbcode_format := Terms.get_bbcode_formats(18)
+	for entity_type in Terms.COMMON_FORMATS.keys():
+		var format = Terms.COMMON_FORMATS[entity_type].duplicate()
+		for term in linked_terms[entity_type].duplicate():
+			var final_term : String = Terms.get_term_thematic_name(term)
+			if not final_term:
+				final_term = term.format(format).lstrip('{').rstrip('}').capitalize()
+			if final_term in linked_terms.already_added:
+				continue
+			var term_entry = Terms.get_term_entry(final_term, 'description')
+			if term_entry.size() == 0:
+				var cc_description = CardConfig.EXPLANATIONS.get(final_term.to_lower())
+				if not cc_description:
+					print_debug("Warning: linked entry %s defined but no term found for it" % [term])
+				else:
+					focus_info.add_info(final_term, cc_description)
+					linked_terms.already_added.append(final_term)
+					var more_linked_terms = CardConfig.LINKED_TERMS.get(final_term.to_lower(), [])
+					if more_linked_terms:
+						linked_terms[entity_type] += more_linked_terms
+						_added_linked_terms(focus_info,linked_terms)
+				continue
+			format["effect_name"] = term_entry.name
+			format["effect_icon"] = "[img=18x18]" + term_entry.rich_text_icon + "[/img]"
+			format["amount"] = "1"
+			format["double_amount"] = "2"
+			format["triple_amount"] = "3"
+			format["half_amount"] = "0.5"
+			format["imp_mark_pct"] = "25% per stack"
+			var effect_description : String = term_entry.get('description', '')
+			if effect_description == '':
+				effect_description = term_entry.get('generic_description', '')
+			focus_info.add_info(
+					term_entry.name,
+					effect_description.format(format).\
+						format(bbcode_format), preload("res://src/dreamscape/InfoPanel.tscn"))
+			linked_terms.already_added.append(final_term)
+			var more_linked_terms = term_entry.get("linked_terms", [])
+			if more_linked_terms:
+				linked_terms[entity_type] += term_entry.get("linked_terms", [])
+				_added_linked_terms(focus_info,linked_terms)
+
+
 
 func select_card(
 		card_list: Array,
