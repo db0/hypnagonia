@@ -379,7 +379,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/core/CardViewer/DeckBuilder/DeckNameRandomizer.gd"
 }, {
-"base": "VBoxContainer",
+"base": "GridContainer",
 "class": "DetailPanels",
 "language": "GDScript",
 "path": "res://src/core/DetailPanels.gd"

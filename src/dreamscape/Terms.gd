@@ -89,7 +89,7 @@ const RUN_ACCUMULATION_TYPES := {
 # in rich text labels
 const PLAYER_HEALTH := "{anxiety}"
 const PLAYER_DAMAGE_DONE := "done"
-const ENEMY_HEALTH := "{interpretation}"
+const ENEMY_HEALTH := "{comprehension}"
 const ENEMY_DAMAGE_DONE := "inflicted"
 const PLAYER_ACTIONS := "Cards"
 const PLAYER_ACTIONS_VERB := "played"
@@ -154,7 +154,7 @@ const ACTIVE_EFFECTS := {
 		"type": "Buff",
 		"self_decreasing": SELF_DECREASE.FALSE,
 		"icon": preload("res://assets/icons/crow-dive.png"),
-		"generic_description": "{effect_name}: Doubles damage done by Interpretations.",
+		"generic_description": "{effect_name}: Doubles {interpretation} done.",
 		"rich_text_icon": "res://fonts/rich_text_icons/crow-dive.png",
 		"description": "{effect_name} ({effect_icon}): The next {amount} "\
 				+ "actions doing {damage} by this {entity} are doubled.",
@@ -162,6 +162,9 @@ const ACTIVE_EFFECTS := {
 			"powerful": "{effect_name}: The next {amount} "\
 				+ "actions doing {damage} by this {entity} are tripled.",
 		},
+		"linked_terms": [
+			"{damage}",
+		],
 	},
 	"buffer":  {
 		"name": "Fascination",
@@ -172,10 +175,13 @@ const ACTIVE_EFFECTS := {
 		"self_decreasing": SELF_DECREASE.TURN_START,
 		"decrease_type": DECREASE_TYPE.ZERO,
 		"icon": preload("res://assets/icons/star-struck.png"),
-		"generic_description": "{effect_name}: Provides delayed Immersion.",
+		"generic_description": "{effect_name}: Provides delayed {immersion}.",
 		"rich_text_icon": "res://fonts/rich_text_icons/star-struck.png",
 		"description": "{effect_name} ({effect_icon}): At the start of your turn gain 1 {energy} per stack."\
-				+ " then remove all stacks of {effect_icon}."
+				+ " then remove all stacks of {effect_icon}.",
+		"linked_terms": [
+			"energy",
+		],
 	},
 	"drain":  {
 		"name": "Disinterest",
@@ -186,10 +192,13 @@ const ACTIVE_EFFECTS := {
 		"self_decreasing": SELF_DECREASE.TURN_START,
 		"decrease_type": DECREASE_TYPE.ZERO,
 		"icon": preload("res://assets/icons/shrug.png"),
-		"generic_description": "{effect_name}: Delayed Immersion loss.",
+		"generic_description": "{effect_name}: Delayed {immersion} loss.",
 		"rich_text_icon": "res://fonts/rich_text_icons/shrug.png",
 		"description": "{effect_name} ({effect_icon}): At the start of your turn lose 1 {energy} per stack."\
-				+ " then remove all stacks of {effect_icon}."
+				+ " then remove all stacks of {effect_icon}.",
+		"linked_terms": [
+			"energy",
+		],
 	},
 	"disempower": {
 		"name": "Confusion",
@@ -202,6 +211,9 @@ const ACTIVE_EFFECTS := {
 		"generic_description": "{effect_name}: Reduces {stress} dealt by Torments by percentage.",
 		"description": "{effect_name} ({effect_icon}): {attack} {damage_verb} by this {entity} is reduced by 25%.\n"\
 				+ "Reduce these stacks by 1 at the end of the turn.",
+		"linked_terms": [
+			"{attack}",
+		],
 	},
 	"empower": {
 		"name": "Clarity",
@@ -213,7 +225,10 @@ const ACTIVE_EFFECTS := {
 		"generic_description": "{effect_name}: Increases interpretation dealt by percentage.",
 		"rich_text_icon": "res://fonts/rich_text_icons/extra-lucid.png",
 		"description": "{effect_name} ({effect_icon}): {attack} {damage_verb} by this {entity} is increased by 25%.\n"\
-				+ "Reduce these stacks by 1 at the end of the turn."
+				+ "Reduce these stacks by 1 at the end of the turn.",
+		"linked_terms": [
+			"{attack}",
+		],
 	},
 	"strengthen": {
 		"name": "Focus",
@@ -226,6 +241,9 @@ const ACTIVE_EFFECTS := {
 		"upgraded_descriptions": {
 			"thick": "{effect_name} ({effect_icon}): {attack} {damage_verb} by this {entity} is adjusted by {amount} (1 per stack). Remove all stacks when you reshuffle your deck\n",
 		},
+		"linked_terms": [
+			"{attack}",
+		],
 		"can_go_negative": true,
 	},
 	"quicken": {
@@ -236,6 +254,9 @@ const ACTIVE_EFFECTS := {
 		"generic_description": "{effect_name}: Adjusts confidence gained by exact amount.",
 		"rich_text_icon": "res://fonts/rich_text_icons/white-tower.png",
 		"description": "{effect_name} ({effect_icon}): {defence} gained by this {entity} is adjusted by {amount} (1 per stack).\n",
+		"linked_terms": [
+			"{defence}",
+		],
 		"can_go_negative": true,
 	},
 	"fortify": {
@@ -254,7 +275,10 @@ const ACTIVE_EFFECTS := {
 				true: "{effect_name} ({effect_icon}): {defence} is increased 10% for each stack at the start of turn.\n"\
 				+ "Halve (rounded down) the amount of these stacks at the start of the turn.",
 			}
-		}
+		},
+		"linked_terms": [
+			"{defence}",
+		],
 	},
 	"impervious": {
 		"name": "Untouchable",
@@ -267,7 +291,10 @@ const ACTIVE_EFFECTS := {
 		"rich_text_icon": "res://fonts/rich_text_icons/dodging.png",
 		"description": "{effect_name} ({effect_icon}): The next {opponent_attack} is reduced by {imp_mark_pct}.\n"\
 				+ "Halve (rounded down) the amount of these stacks at the start of the turn.\n"\
-				+ "(Each stack increases reduction by 25% to a max of 75%. Each {opponent_attack} removes one stack. )"
+				+ "(Each stack increases reduction by 25% to a max of 75%. Each {opponent_attack} removes one stack. )",
+		"linked_terms": [
+			"{opponent_attack}",
+		],
 	},
 	"marked": {
 		"name": "Prominent",
@@ -280,7 +307,10 @@ const ACTIVE_EFFECTS := {
 		"rich_text_icon": "res://fonts/rich_text_icons/light-projector.png",
 		"description": "{effect_name} ({effect_icon}): The next {opponent_attack} on this {entity} is increased by {imp_mark_pct}.\n"\
 				+ "Halve (rounded down) the amount of these stacks at the start of the turn.\n"\
-				+ "(Each stack increases {opponent_attack} by 25% to a max of 75%. Each {opponent_attack} removes one stack.)"
+				+ "(Each stack increases {opponent_attack} by 25% to a max of 75%. Each {opponent_attack} removes one stack.)",
+		"linked_terms": [
+			"{opponent_attack}",
+		],
 	},
 	"poison": {
 		"name": "Doubt",
@@ -291,11 +321,15 @@ const ACTIVE_EFFECTS := {
 		"icon": preload("res://assets/icons/coma.png"),
 		"generic_description": "{effect_name}: Automatically adds unpreventable interpretation each turn.",
 		"rich_text_icon": "res://fonts/rich_text_icons/coma.png",
-		"description": "{effect_name} ({effect_icon}): At the start of this {entity}'s turn it receives"\
+		"description": "{effect_name} ({effect_icon}): At the start of this {entity}'s turn it takes"\
 				+ " {amount} {health} (1 per stack), then reduce these stacks by 1. "\
 				+ "({effect_icon} bypasses {defence})",
 		"extra_dreamer_description": "\nOn the dreamer, {effect_icon} leaves them at 1 {anxiety} "\
-				+ "but starts burning released pathos"
+				+ "but starts burning released pathos",
+		"linked_terms": [
+			"{health}",
+			"{defence}",
+		],
 	},
 	"burn": {
 		"name": "Envy",
@@ -308,7 +342,11 @@ const ACTIVE_EFFECTS := {
 		"rich_text_icon": "res://fonts/rich_text_icons/wrapped-heart.png",
 		"description": "{effect_name} ({effect_icon}): At the end of this {entity}'s turn it receives"\
 				+ " {amount} {health} (1 per stack), then reduce these stacks by 1."\
-				+ "\n({defence} can prevent {effect_icon})"
+				+ "\n({defence} can prevent {effect_icon})",
+		"linked_terms": [
+			"{health}",
+			"{defence}",
+		],
 	},
 	"vulnerable": {
 		"name": "Shaken",
@@ -320,7 +358,10 @@ const ACTIVE_EFFECTS := {
 		"generic_description": "{effect_name}: Reduces amount of Perplexity on Torments.",
 		"rich_text_icon": "res://fonts/rich_text_icons/cracked-shield.png",
 		"description": "{effect_name} ({effect_icon}): {defence} added to this {entity} is reduced by 25%.\n" \
-				+ "Reduce these stacks by 1 at the end of the turn."
+				+ "Reduce these stacks by 1 at the end of the turn.",
+		"linked_terms": [
+			"{defence}",
+		],
 	},
 	"thorns": {
 		"name": "Grudge",
@@ -333,7 +374,12 @@ const ACTIVE_EFFECTS := {
 		"description": "{effect_name} ({effect_icon}): After an {opponent_attack} on this {entity}, "\
 				+ "it automatically {attack} for {amount}.\n"\
 				+ "Reduce these stacks by 1 at the start of the turn."\
-				+ "\n({defence} can prevent {effect_icon})"
+				+ "\n({defence} can prevent {effect_icon})",
+		"linked_terms": [
+			"{opponent_attack}",
+			"{attack}",
+			"{defence}",
+		],
 	},
 	"armor": {
 		"name": "Contentment",
@@ -348,6 +394,10 @@ const ACTIVE_EFFECTS := {
 				+ "by {amount}, then reduce these stacks by 1.\n"\
 				+ "(This reduction happens before {defence})\n"\
 				+ "Reduce these stacks by 1 at the start of the turn.",
+		"linked_terms": [
+			"{opponent_attack}",
+			"{defence}",
+		],
 	},
 	"delighted": {
 		"name": "Delighted",
@@ -384,6 +434,9 @@ const ACTIVE_EFFECTS := {
 		"rich_text_icon": "res://fonts/rich_text_icons/dead-eye.png",
 		"description": "{effect_name} ({effect_icon}): This torment will be automatically overcome after {amount} turns  (1 per stack). "\
 				+ "A Torment overcome in this way, will not provide an {understanding} card as a draft reward.",
+		"linked_terms": [
+			"overcome",
+		],
 	},
 	# TODO Idea
 	"boon": {
@@ -443,36 +496,60 @@ const ACTIVE_EFFECTS := {
 		"type": "Concentration",
 		"is_card_reference": true,
 		"icon": preload("res://assets/icons/delighted.png"),
+		"linked_terms": [
+			"poison",
+			"stress",
+		],
 	},
 	"nothing_to_fear":  {
 		"name": "Nothing to Fear",
 		"type": "Concentration",
 		"is_card_reference": true,
 		"icon": preload("res://assets/icons/one-eyed.png"),
+		"linked_terms": [
+			"{energy}",
+			"stress",
+		],
 	},
 	"rubber_eggs":  {
 		"name": "Rubber Eggs",
 		"type": "Concentration",
 		"is_card_reference": true,
 		"icon": preload("res://assets/icons/egg-defense.png"),
+		"linked_terms": [
+			"disempower",
+			"damage",
+		],
 	},
 	"nunclucks":  {
 		"name": "Nunclucks",
 		"type": "Concentration",
 		"is_card_reference": true,
 		"icon": preload("res://assets/icons/nunchaku.png"),
+		"linked_terms": [
+			"disempower",
+			"damage",
+		],
 	},
 	"unassailable":  {
 		"name": "Unassailable",
 		"type": "Concentration",
 		"is_card_reference": true,
 		"icon": preload("res://assets/icons/psychic-waves.png"),
+		"linked_terms": [
+			"poison",
+			"defence",
+		],
 	},
 	"master_of_skies":  {
 		"name": "Master of Skies",
 		"type": "Concentration",
 		"is_card_reference": true,
 		"icon": preload("res://assets/icons/wing-cloak.png"),
+		"linked_terms": [
+			"impervious",
+			"buffer",
+		],
 	},
 	"zen_of_flight":  {
 		"name": "Zen of Flight",
@@ -480,6 +557,10 @@ const ACTIVE_EFFECTS := {
 		"is_card_reference": true,
 		"format_key_to_replace_with_amount": "turns_amount",
 		"icon": preload("res://assets/icons/windy-stripes.png"),
+		"linked_terms": [
+			"impervious",
+			"relax",
+		],
 	},
 	"introspection":  {
 		"name": "Introspection",
@@ -487,18 +568,28 @@ const ACTIVE_EFFECTS := {
 		"is_card_reference": true,
 		"format_key_to_replace_with_amount": "turns_amount",
 		"icon": preload("res://assets/icons/inner-self.png"),
+		"linked_terms": [
+			"relax",
+		],
 	},
 	"absurdity_unleashed":  {
 		"name": "Absurdity Unleashed",
 		"type": "Concentration",
 		"is_card_reference": true,
 		"icon": preload("res://assets/icons/absurdity-unleashed.png"),
+		"linked_terms": [
+			"disempower",
+			"damage",
+		],
 	},
 	"brilliance":  {
 		"name": "Brilliance",
 		"type": "Concentration",
 		"is_card_reference": true,
 		"icon": preload("res://assets/icons/mad-scientist.png"),
+		"linked_terms": [
+			"defence",
+		],
 	},
 	"recall":  {
 		"name": "Recall",
@@ -511,18 +602,29 @@ const ACTIVE_EFFECTS := {
 		"type": "Concentration",
 		"is_card_reference": true,
 		"icon": preload("res://assets/icons/wisdom.png"),
+		"linked_terms": [
+			"buffer",
+		],
 	},
 	"the_happy_place":  {
 		"name": "The Happy Place",
 		"type": "Concentration",
 		"is_card_reference": true,
 		"icon": preload("res://assets/icons/oasis.png"),
+		"linked_terms": [
+			"player_health",
+			"armor",
+		],
 	},
 	"lash_out":  {
 		"name": "Lash-out",
 		"type": "Concentration",
 		"is_card_reference": true,
 		"icon": preload("res://assets/icons/whiplash.png"),
+		"linked_terms": [
+			"damage",
+			"player_health",
+		],
 	},
 	"excuses":  {
 		"name": "Excuses",
@@ -530,12 +632,18 @@ const ACTIVE_EFFECTS := {
 		"is_card_reference": true,
 		"alterant_priority": ALTERANT_PRIORITY.SET,
 		"icon": preload("res://assets/icons/chained-heart.png"),
+		"linked_terms": [
+			"player_health",
+		],
 	},
 	"tolerance":  {
 		"name": "Tolerance",
 		"type": "Concentration",
 		"is_card_reference": true,
 		"icon": preload("res://assets/icons/defibrilate.png"),
+		"linked_terms": [
+			"player_health",
+		],
 	},
 	"unconventional":  {
 		"name": "Unconventional",
@@ -547,67 +655,97 @@ const ACTIVE_EFFECTS := {
 		"name": "Sneaky-Beaky",
 		"type": "Concentration",
 		"icon": preload("res://assets/icons/kenku-head.png"),
-		"is_card_reference": true
+		"is_card_reference": true,
+		"linked_terms": [
+			"damage",
+		],
 	},
 	"tenacity":  {
 		"name": "Tenacity",
 		"type": "Concentration",
 		"icon": preload("res://assets/icons/eyepatch.png"),
-		"is_card_reference": true
+		"is_card_reference": true,
+		"linked_terms": [
+			"defence",
+		],
 	},
 	"panicked_takeoff":  {
 		"name": "Panicked Takeoff",
 		"type": "Concentration",
 		"icon": preload("res://assets/icons/flying-trout.png"),
-		"is_card_reference": true
+		"is_card_reference": true,
+		"linked_terms": [
+			"player_health",
+			"impervious",
+		],
 	},
 	"spare_lens":  {
 		"name": "Spare Lens",
 		"type": "Concentration",
 		"icon": preload("res://assets/icons/microscope-lens.png"),
-		"is_card_reference": true
+		"is_card_reference": true,
 	},
 	"heat_venting":  {
 		"name": "Heat Venting",
 		"type": "Concentration",
 		"icon": preload("res://assets/icons/heat-haze.png"),
-		"is_card_reference": true
+		"is_card_reference": true,
+		"linked_terms": [
+			"defence",
+		],
 	},
 	"streamlining":  {
 		"name": "Streamlining",
 		"type": "Concentration",
 		"icon": preload("res://assets/icons/abstract-070.png"),
-		"is_card_reference": true
+		"is_card_reference": true,
 	},
 	"focus_calibration":  {
 		"name": "Focus Calibration",
 		"type": "Concentration",
 		"icon": preload("res://assets/icons/double-diaphragm.png"),
-		"is_card_reference": true
+		"is_card_reference": true,
+		"linked_terms": [
+			"energy",
+			"forget",
+		],
 	},
 	"vestige_of_warmth":  {
 		"name": "Vestige of Warmth",
 		"type": "Concentration",
 		"icon": preload("res://assets/icons/incubator.png"),
-		"is_card_reference": true
+		"is_card_reference": true,
+		"linked_terms": [
+			"defence",
+		],
 	},
 	"nothing_forgotten":  {
 		"name": "Nothing Forgotten",
 		"type": "Concentration",
 		"icon": preload("res://assets/icons/elephant.png"),
-		"is_card_reference": true
+		"is_card_reference": true,
+		"linked_terms": [
+			"frozen",
+		],
 	},
 	"note_taking":  {
 		"name": "Note-Taking",
 		"type": "Concentration",
 		"icon": preload("res://assets/icons/notebook.png"),
-		"is_card_reference": true
+		"is_card_reference": true,
+		"linked_terms": [
+			"thorns",
+		],
 	},
 	"schadenfreude":  {
 		"name": "Schadenfreude",
 		"type": "Concentration",
 		"icon": preload("res://assets/icons/imp-laugh.png"),
-		"is_card_reference": true
+		"is_card_reference": true,
+		"linked_terms": [
+			"armor",
+			"damage",
+		],
 	},
 	# These effects are usually starting on top of special enemies
 	# but might also be given to the player as Understanding concentrations
@@ -624,21 +762,33 @@ const ACTIVE_EFFECTS := {
 		"description": "{effect_name}: After every {damage_taken} {damage_taken_verb} on this {entity} through {opponent_attack}, "\
 				+ "it gains {amount} {defence}. The amount gained increases by 1 after each {damage_taken}.\n"\
 				+ "This resets to 0 at the start of the turn\n",
+		"linked_terms": [
+			"opponent_attack",
+			"defence",
+		],
 	},
 	"mouse": {
 		"name": "Mouse Debate Skills",
 		"type": "Concentration",
 		"icon": preload("res://assets/icons/seated-mouse.png"),
-		"description": "{effect_name}: Gain 1 {immersion} per turn. "\
+		"description": "{effect_name}: Gain 1 {energy} per turn. "\
 				+ "Lose 2 {focus} every time you shuffle your deck",
 		"blocked_by_protection": true,
+		"linked_terms": [
+			"energy",
+			"strengthen",
+		],
 	},
 	"the_exam": {
 		"name": "Exam Time",
 		"type": "Concentration",
 		"icon": preload("res://assets/icons/pencil.png"),
-		"description": "{effect_name}: Every time you {forget} a card, take {amount} {anxiety}.",
+		"description": "{effect_name}: Every time you {forget} a card, take {amount} {player_health}.",
 		"blocked_by_protection": true,
+		"linked_terms": [
+			"forget",
+			"player_health",
+		],
 	},
 	"the_victim": {
 		"name": "Discern",
@@ -647,6 +797,10 @@ const ACTIVE_EFFECTS := {
 		"description": "{effect_name}: The first time each turn this {entity} takes "\
 				+ "9 or more {damage} from one source, reduce its {focus} by {amount} for this turn.",
 		"blocked_by_protection": true,
+		"linked_terms": [
+			"damage",
+			"strengthen",
+		],
 	},
 	# Effect doesn't do anything. The scripting happens in the boss
 	# Assigning this to any torment won't help
@@ -655,9 +809,14 @@ const ACTIVE_EFFECTS := {
 		"type": "Special",
 		"icon": preload("res://assets/icons/abstract-053.png"),
 		"noscript": true,
-		"description": "{effect_name}: Whenever this {entity}'s {stress} does not increase anxiety it gains 1 {focus}.\n"\
-				+ "The first time each turn this {entity}'s is {opponent_attack} for 12+ from one source, it gains 1 {focus}.\n"\
-				+ "When this {entity} has 7+ focus, it performs a powerful {stress}, then resets its {focus} to 0.",
+		"description": "{effect_name}: Whenever this {entity}'s {stress} does not increase anxiety it gains 1 {strengthen}.\n"\
+				+ "The first time each turn this {entity}'s is {opponent_attack} for 12+ from one source, it gains 1 {strengthen}.\n"\
+				+ "When this {entity} has 7+ focus, it performs a powerful {stress}, then resets its {strengthen} to 0.",
+		"linked_terms": [
+			"attack",
+			"strengthen",
+			"opponent_attack",
+		],
 	},
 	"self_cleaning": {
 		"name": "Self Cleaning",
@@ -670,6 +829,9 @@ const ACTIVE_EFFECTS := {
 		"type": "Special",
 		"icon": preload("res://assets/icons/abstract-024.png"),
 		"description": "{effect_name}: Any time an {understanding} card is played, it is permanently scarred.",
+		"linked_terms": [
+			"scar",
+		],
 	},
 	# If I put just 'void', it breaks Godot...
 	"void": {
@@ -690,6 +852,9 @@ const ACTIVE_EFFECTS := {
 		"type": "Special",
 		"icon": preload("res://assets/icons/pirate-coat.png"),
 		"description": "{effect_name}: After {opponent_attack} on this torment. add 1 Cringeworthy Memory to your deck.",
+		"linked_terms": [
+			"opponent_attack",
+		],
 	},
 	"disruption": {
 		"name": "Torpor",
@@ -708,18 +873,31 @@ const ACTIVE_EFFECTS := {
 				+ "At the end of those turns, the dreamer will take {attack} based on the remaining interpretation on this Torment.\n\n"\
 				+ "This torment only receives 1 {opponent_attack} per {opponent_attack}.\n\n"\
 				+ "When this torment is {overcome} through {opponent_attack}, the Theatre Play {opponent_attack} is increased.",
+		"linked_terms": [
+			"attack",
+			"opponent_attack",
+			"overcome",
+		],
 	},
 	"clawing_for_air": {
 		"name": "Clawing for Air",
 		"type": "Special",
 		"icon": preload("res://assets/icons/drowning.png"),
 		"description": "{effect_name}: At the end of its turn, this Torment gains {amount} {strengthen}.",
+		"linked_terms": [
+			"strengthen",
+		],
 	},
 	"cheek_pinching": {
 		"name": "Cheek Pinching",
 		"type": "Special",
 		"icon": preload("res://assets/icons/pincers.png"),
-		"description": "{effect_name}: Any time the {enemy} gains {immersion} during their turn, this {entity} gains 10 {defence} per {immersion} gained, and {amount} {focus}",
+		"description": "{effect_name}: Any time the {enemy} gains {immersion} during their turn, this {entity} gains 10 {defence} per {energy} gained, and {amount} {strengthen}",
+		"linked_terms": [
+			"strengthen",
+			"energy",
+			"defence",
+		],
 	},
 	"infinite_tedium": {
 		"name": "Infinite Tedium",
@@ -733,121 +911,175 @@ const ACTIVE_EFFECTS := {
 # A way to map generic names to thematic names, so that I can perform
 # a rename later if needed
 const GENERIC_TAGS := {
+	"energy": {
+		"name": "Immersion",
+		"icon": preload("res://assets/icons/concentration-orb.png"),
+		"rich_text_icon": "res://fonts/rich_text_icons/concentration-orb.png",
+		"generic_description": "{effect_name} ({effect_icon}): Required cost to play most cards.",
+	},
 	"defence": {
 		"name": "Confidence",
 		"icon": preload("res://assets/icons/shield.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/shield.png",
-		"generic_description": "{effect_name} ({effect_icon}): Prevents Dreamer from taking {anxiety} from {stress}."},
+		"generic_description": "{effect_name} ({effect_icon}): Prevents Dreamer from taking {anxiety} from {stress}.",
+		"linked_terms": [
+			"player_health",
+			"stress",
+		],
+	},
 	"attack": {
 		"name": "Interpretation",
 		"icon": preload("res://assets/icons/magnifying-glass.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/magnifying-glass.png",
-		"generic_description": "{effect_name} ({effect_icon}): Increases {damage} on Torments"},
+		"generic_description": "{effect_name} ({effect_icon}): Increases {enemy_health} on Torments",
+		"linked_terms": [
+			"enemy_health",
+		],
+	},
 	"player_health": {
 		"name": "Anxiety",
 		"icon": preload("res://assets/icons/heart-beats.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/heart-beats.png",
-		"generic_description": "{effect_name} ({effect_icon}): When full, the dreamer wakes up and you lose the game."},
+		"generic_description": "{effect_name} ({effect_icon}): When full, the dreamer wakes up and you lose the game.",
+	},
+	"enemy_health": {
+		"name": "Comprehension",
+		"icon": preload("res://assets/icons/inspiration.png"),
+		"rich_text_icon": "res://fonts/rich_text_icons/inspiration.png",
+		"generic_description": "{effect_name} ({effect_icon}): When full, the Torment's is overcome and removed from the ordeal.",
+	},
 	"risky": {
 		"name": "Risky",
 		"icon": preload("res://assets/icons/tightrope.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/tightrope.png",
-		"generic_description": "{effect_name} ({effect_icon}): Increases {anxiety} taken by Dreamer."},
+		"generic_description": "{effect_name} ({effect_icon}): Increases {anxiety} taken by Dreamer.",
+		"linked_terms": [
+			"player_health",
+		],
+	},
 	"relax":  {
 		"name": "Relax",
 		"icon": preload("res://assets/icons/meditation.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/meditation.png",
-		"generic_description": "{effect_name} ({effect_icon}): Reduces Dreamer {anxiety}."},
+		"generic_description": "{effect_name} ({effect_icon}): Reduces Dreamer {anxiety}.",
+		"linked_terms": [
+			"player_health",
+		],
+	},
 	"purpose": {
 		"name": "Immersion",
 		"icon": preload("res://assets/icons/concentration-orb.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/concentration-orb.png",
-		"generic_description": "{effect_name} ({effect_icon}): Used for playing cards."},
+		"generic_description": "{effect_name} ({effect_icon}): Used for playing cards.",
+	},
 	"chain": {
 		"name": "Chain",
 		"icon": preload("res://assets/icons/crossed-chains.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/crossed-chains.png",
-		"generic_description": "{effect_name} ({effect_icon}): Repeatable card effects."},
+		"generic_description": "{effect_name} ({effect_icon}): Repeatable card effects.",
+	},
 	"swift": {
 		"name": "Swift",
 		"icon": preload("res://assets/icons/windy-stripes.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/windy-stripes.png",
-		"generic_description": "{effect_name} ({effect_icon}): Provides card draw."},
+		"generic_description": "{effect_name} ({effect_icon}): Provides card draw.",
+	},
 	"slumber": {
 		"name": "Slumber",
 		"icon": preload("res://assets/icons/sleepy.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/sleepy.png",
-		"generic_description": "{effect_name} ({effect_icon}): A phase of deep sleep which typically causes forgetfulness."},
+		"generic_description": "{effect_name} ({effect_icon}): A phase of deep sleep which typically causes forgetfulness.",
+	},
 	"insomnia": {
 		"name": "Insomnia",
 		"icon": preload("res://assets/icons/spikeball.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/spikeball.png",
-		"generic_description": "{effect_name} ({effect_icon}): Difficult sleeping leads to card discarding."},
+		"generic_description": "{effect_name} ({effect_icon}): Difficult sleeping leads to card discarding.",
+	},
 	"fading": {
 		"name": "Fading",
 		"icon": preload("res://assets/icons/empty-hourglass.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/empty-hourglass.png",
-		"generic_description": "[color=#A020F0]{effect_name} ({effect_icon}): If still in the hand at the end of the turn, it is forgotten.[/color]"},
+		"generic_description": "[color=#A020F0]{effect_name} ({effect_icon}): If still in the hand at the end of the turn, it is forgotten.[/color]",
+		"linked_terms": [
+			"Forget",
+		],
+	},
 	"spark": {
 		"name": "Spark",
 		"icon": preload("res://assets/icons/idea.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/idea.png",
-		"generic_description": "{effect_name} ({effect_icon}): Reshuffles the deck."},
+		"generic_description": "{effect_name} ({effect_icon}): Reshuffles the deck.",
+	},
 	"scry": {
 		"name": "Scry",
 		"icon": preload("res://assets/icons/crystal-ball.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/crystal-ball.png",
-		"generic_description": "{effect_name} ({effect_icon}): Looks into the top X cards of the draw pile."},
+		"generic_description": "{effect_name} ({effect_icon}): Looks into the top X cards of the draw pile.",
+	},
 	"alpha": {
 		"name": "Intuition",
 		"icon": preload("res://assets/icons/light-bulb.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/light-bulb.png",
-		"generic_description": "[color=#A020F0]{effect_name} ({effect_icon}): This card will always be in the starting hand.[/color]"},
+		"generic_description": "[color=#A020F0]{effect_name} ({effect_icon}): This card will always be in the starting hand.[/color]",
+	},
 	"omega": {
 		"name": "Enigma",
 		"icon": preload("res://assets/icons/omega.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/omega.png",
-		"generic_description": "[color=#A020F0]{effect_name} ({effect_icon}): This card will always start at the bottom of the deck.[/color]"},
+		"generic_description": "[color=#A020F0]{effect_name} ({effect_icon}): This card will always start at the bottom of the deck.[/color]",
+	},
 	"frozen": {
 		"name": "Cherish",
 		"icon": preload("res://assets/icons/wind-hole.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/wind-hole.png",
-		"generic_description": "[color=#A020F0]{effect_name} ({effect_icon}): This card will not be discarded from hand at the end of the turn.[/color]"},
+		"generic_description": "[color=#A020F0]{effect_name} ({effect_icon}): This card will not be discarded from hand at the end of the turn.[/color]",
+	},
 	"exert": {
 		"name": "Rationalizations",
 		"icon": preload("res://assets/icons/skills.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/skills.png",
-		"generic_description": "{effect_name} ({effect_icon}): Increases {anxiety} when played."},
+		"generic_description": "{effect_name} ({effect_icon}): Increases {anxiety} when played.",
+		"linked_terms": [
+			"player_health",
+		],
+	},
 	"pathos": {
 		"name": "Pathos",
 		"icon": preload("res://assets/icons/drama-masks.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/drama-masks.png",
-		"generic_description": "{effect_name} ({effect_icon}): Modifies Pathos when played."},
+		"generic_description": "{effect_name} ({effect_icon}): Modifies Pathos when played.",
+	},
 	"fusion": {
 		"name": "Fusion",
 		"icon": preload("res://assets/icons/molecule.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/molecule.png",
-		"generic_description": "{effect_name} ({effect_icon}): Cards which combine into a stronger card."},
+		"generic_description": "{effect_name} ({effect_icon}): Cards which combine into a stronger card.",
+	},
 	"init": {
 		"name": "Init",
 		"icon": preload("res://assets/icons/power-button.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/power-button.png",
-		"generic_description": "[color=#A020F0]{effect_name} ({effect_icon}): This card can only be played as the first one in the turn.[/color]"},
+		"generic_description": "[color=#A020F0]{effect_name} ({effect_icon}): This card can only be played as the first one in the turn.[/color]",
+	},
 	"end_turn": {
 		"name": "Close",
 		"icon": preload("res://assets/icons/stop-sign.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/stop-sign.png",
-		"generic_description": "[color=#A020F0]{effect_name} ({effect_icon}): After this card is played, your turn immediately ends.[/color]"},
+		"generic_description": "[color=#A020F0]{effect_name} ({effect_icon}): After this card is played, your turn immediately ends.[/color]",
+	},
 	"startup": {
 		"name": "Vivification",
 		"icon": preload("res://assets/icons/star-pupil.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/star-pupil.png",
-		"generic_description": "{effect_name} ({effect_icon}): This card has an effect which is triggered as soon as an Ordeal starts"},
+		"generic_description": "{effect_name} ({effect_icon}): This card has an effect which is triggered as soon as an Ordeal starts",
+	},
 	"once_off": {
 		"name": "Burnout",
 		"icon": preload("res://assets/icons/burning-passion.png"),
 		"rich_text_icon": "res://fonts/rich_text_icons/burning-passion.png",
-		"generic_description": "[color=#A020F0]{effect_name} ({effect_icon}): This card cannot be played, if another card with the same name (including upgrades) has been played this turn.[/color]"},
+		"generic_description": "[color=#A020F0]{effect_name} ({effect_icon}): This card cannot be played, if another card with the same name (including upgrades) has been played this turn.[/color]",
+	},
 }
 
 
@@ -952,26 +1184,35 @@ static func get_effect_key(thematic_effect_name: String) -> String:
 	return('')
 
 
-# Returns the dictionary describing an effect based on its thematic name
-static func get_effect_entry(thematic_effect_name: String) -> Dictionary:
-	return(ACTIVE_EFFECTS.get(get_effect_key(thematic_effect_name), {}))
+# Returns the dictionary describing an effect based on its mechanical or thematic name
+static func get_effect_entry(effect_name: String) -> Dictionary:
+	var effect_entry: Dictionary
+	if ACTIVE_EFFECTS.has(effect_name):
+		effect_entry = ACTIVE_EFFECTS[effect_name]
+	else:
+		effect_entry = ACTIVE_EFFECTS.get(get_effect_key(effect_name), {})
+	return(effect_entry)
 
 
-# Returns the dictionary describing a generic based on its thematic name
-static func get_tag_entry(thematic_tag_name: String) -> Dictionary:
-	for tag in GENERIC_TAGS:
-		if GENERIC_TAGS[tag].name == thematic_tag_name:
-			return(GENERIC_TAGS[tag])
-	return({})
+# Returns the dictionary describing a generic based on its mechanical or thematic name
+static func get_tag_entry(tag_name: String) -> Dictionary:
+	var tag_entry := {}
+	if GENERIC_TAGS.has(tag_name):
+		tag_entry = GENERIC_TAGS[tag_name]
+	else:
+		for tag in GENERIC_TAGS:
+			if GENERIC_TAGS[tag].name == tag_name:
+				tag_entry = GENERIC_TAGS[tag]
+	return(tag_entry)
 
 
-# Returns the dictionary describing an effect or tag based on its thematic name
-static func get_term_entry(thematic_tag_name: String, key: String, no_icon := false) -> Dictionary:
-	var entry := get_effect_entry(thematic_tag_name)
+# Returns the dictionary describing an effect or tag based on its mechanical or thematic name
+static func get_term_entry(term_name: String, key: String, no_icon := false) -> Dictionary:
+	var entry := get_effect_entry(term_name)
 	if not entry.size():
-		entry = get_tag_entry(thematic_tag_name).duplicate(true)
+		entry = get_tag_entry(term_name).duplicate(true)
 	if key == "generic_description":
-		var generic_format = {"effect_name": thematic_tag_name}
+		var generic_format = {"effect_name": term_name}
 		if entry.has("rich_text_icon"):
 			# I use the no_icon boolean, when the player is explicitly mousing over the icon anyway
 			# This way I avoid having to add another RTL
@@ -999,6 +1240,10 @@ static func get_all_effect_types(effect_type: String, exclude_dreamer_only:= fal
 static func get_term_value(thematic_tag_name: String, key: String, no_icon := false):
 	var entry := get_term_entry(thematic_tag_name, key, no_icon)
 	return(entry.get(key))
+
+static func get_term_thematic_name(term_mechanical_name: String) -> String:
+	var entry := get_term_entry(term_mechanical_name, '')
+	return(entry.get("name", ''))
 
 
 # Returns an array containing all the names that can be set as tags

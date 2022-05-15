@@ -2861,6 +2861,9 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.ENEMY
+		},
 		"_amounts": {
 			"damage_amount": 9,
 			"effect_stacks": 2,
@@ -2880,6 +2883,9 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.ENEMY
+		},
 		"_amounts": {
 			"damage_amount": 13,
 			"effect_stacks": 2,
@@ -2895,6 +2901,9 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.ENEMY
+		},
 		"_amounts": {
 			"damage_amount": 10,
 			"effect_stacks": 3,
@@ -3338,7 +3347,7 @@ const CARDS := {
 		"Abilities": "Whenever you take {anxiety} during your turn, gain {concentration_stacks} {armor}",
 		"Cost": 1,
 		"_illustration": "Cabbage",
-		"_keywords": ["anxiety"],
+		"_keywords": ["Anxiety"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER
 		},
@@ -3358,7 +3367,7 @@ const CARDS := {
 		"Abilities": "Whenever you take {anxiety} during your turn, gain {concentration_stacks} {armor}",
 		"Cost": 0,
 		"_illustration": "Nobody",
-		"_keywords": ["anxiety"],
+		"_keywords": ["Anxiety"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER
 		},
@@ -3374,7 +3383,7 @@ const CARDS := {
 		"Abilities": "Whenever you take {anxiety} during your turn, gain {concentration_stacks} {armor}",
 		"Cost": 1,
 		"_illustration": "Nobody",
-		"_keywords": ["anxiety"],
+		"_keywords": ["Anxiety"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER
 		},
@@ -5123,7 +5132,7 @@ const CARDS := {
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
-		"_keywords": ["interpretation", "Sneaky-Beaky"],
+		"_keywords": ["interpretation", "sneakybeaky"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY,
 		},
@@ -5144,7 +5153,7 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
-		"_keywords": ["interpretation", "Sneaky-Beaky"],
+		"_keywords": ["interpretation", "sneakybeaky"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY,
 		},
@@ -5161,7 +5170,7 @@ const CARDS := {
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
-		"_keywords": ["interpretation", "Sneaky-Beaky"],
+		"_keywords": ["interpretation", "sneakybeaky"],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY,
 		},

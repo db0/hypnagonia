@@ -43,41 +43,53 @@ const TYPES_TO_HIDE_IN_CARDVIEWER := ["Token"]
 # displayed in the cardviwer
 const BOOL_PROPERTY_TO_HIDE_IN_CARDVIEWER := "_is_upgrade"
 const EXPLANATIONS = {
-	"interpretation": "Interpretation ([img=24x24]res://fonts/rich_text_icons/magnifying-glass.png[/img]): "\
-			+ "Increases interpretation on Torments by the specified amount.\n"\
-			+ "When this exceeds the Torment's max, it is overcome and removed from the encounter.",
-	"stress": "Stress ([img=24x24]res://fonts/rich_text_icons/terror.png[/img]): "\
-			+ "Increases [img=24x24]res://fonts/rich_text_icons/heart-beats.png[/img] on the Dreamer by the specified amount.\n"\
-			+ "When this exceeds the Dreamer's max, they wake up from their dream.",
-	"confidence": "Confidence ([img=24x24]res://fonts/rich_text_icons/shield.png[/img]): "\
-			+ "[img=24x24]res://fonts/rich_text_icons/terror.png[/img] from Torment intents reduces confidence "\
-			+ "before increasing the dreamer's [img=24x24]res://fonts/rich_text_icons/heart-beats.png[/img].\n",
-	"anxiety": "Anxiety ([img=24x24]res://fonts/rich_text_icons/heart-beats.png[/img]): "\
-			+ "Anxiety increases during the dream, typically through Torment [img=24x24]res://fonts/rich_text_icons/terror.png[/img]. "\
+	"interpretation": "Interpretation ([img=18x18]res://fonts/rich_text_icons/magnifying-glass.png[/img]): "\
+			+ "Increases [img=18x18]res://fonts/rich_text_icons/inspiration.png[/img] on Torments by the specified amount.",
+	"comprehension": "Comprehension ([img=18x18]res://fonts/rich_text_icons/inspiration.png[/img]): "\
+			+ "Determines how difficult the Torment is to overcome.\n"\
+			+ "When [img=18x18]res://fonts/rich_text_icons/magnifying-glass.png[/img] increases it to be equal or higher to the Torment's max, it is overcome and removed from the encounter.",
+	"stress": "Stress ([img=18x18]res://fonts/rich_text_icons/terror.png[/img]): "\
+			+ "Increases [img=18x18]res://fonts/rich_text_icons/heart-beats.png[/img] on the Dreamer by the specified amount.",
+	"confidence": "Confidence ([img=18x18]res://fonts/rich_text_icons/shield.png[/img]): "\
+			+ "[img=18x18]res://fonts/rich_text_icons/terror.png[/img] from Torment intents reduces confidence "\
+			+ "before increasing the dreamer's [img=18x18]res://fonts/rich_text_icons/heart-beats.png[/img].\n",
+	"Anxiety": "Anxiety ([img=18x18]res://fonts/rich_text_icons/heart-beats.png[/img]): "\
+			+ "Anxiety increases during the dream, typically through Torment [img=18x18]res://fonts/rich_text_icons/terror.png[/img]. "\
 			+ "When this reaches the Dreamer's max, they wake up and the game is over.\n",
-	"perplexity": "Perplexity ([img=24x24]res://fonts/rich_text_icons/shield.png[/img]): "\
-			+ "[img=24x24]res://fonts/rich_text_icons/magnifying-glass.png[/img] done by the Dreamer reduces perplexity "\
+	"perplexity": "Perplexity ([img=18x18]res://fonts/rich_text_icons/shield.png[/img]): "\
+			+ "[img=18x18]res://fonts/rich_text_icons/magnifying-glass.png[/img] done by the Dreamer reduces perplexity "\
 			+ "before affecting the Torments.",
-	"immersion": "Immersion ([img=24x24]res://fonts/rich_text_icons/concentration-orb.png[/img]): "\
-			+ "Required to play most cards.",
-	"overcome": "Overcoming: Once the dreamer has interpreted a Torment enough "\
+	"immersion": "Immersion ([img=18x18]res://fonts/rich_text_icons/concentration-orb.png[/img]): "\
+			+ "Required cost to play most cards.",
+	"overcome": "Overcoming: Once the dreamer has interpreted a Torment so that its "\
+			+ " [img=18x18]res://fonts/rich_text_icons/inspiration.png[/img] is higher than its max "\
 			+ "it is removed from the encounter.",
 	"forget": "[color=teal]Forget[/color]: This card is removed from this encounter and will not be reshuffled into the deck.",
 	"release": "[color=teal]Release[/color]: This card is removed permanently from the Dreamer's deck.",
-	"pierce": "[color=teal]Pierce[/color]: This effect bypasses [img=24x24]res://fonts/rich_text_icons/shield.png[/img]",
+	"pierce": "[color=teal]Pierce[/color]: This effect bypasses [img=18x18]res://fonts/rich_text_icons/shield.png[/img]",
 	"perturbation": "[color=white]Perturbation[/color]: Cards that tend to clutter your deck, and may have extra negative effects.",
 	"delayed": "[color=yellow]Delayed[/color]: This effect will become active at the start of your next turn only.",
 
-	'Sneaky-Beaky': "Note: This effect will not trigger from combat effects such as "\
-			+ "[img=24x24]res://fonts/rich_text_icons/coma.png[/img] or [img=24x24]res://fonts/rich_text_icons/wrapped-heart.png[/img].",
-	"scar": "Scar ([img=24x24]res://assets/card_front/scar-wound.png[/img]): "\
+	'sneakybeaky': "Note: This effect will not trigger from combat effects such as "\
+			+ "[img=18x18]res://fonts/rich_text_icons/coma.png[/img] or [img=18x18]res://fonts/rich_text_icons/wrapped-heart.png[/img].",
+	"scar": "Scar ([img=18x18]res://assets/card_front/scar-wound.png[/img]): "\
 			+ "The affected card will be permanently degraded in a random manner",
-	"enhance": "Enhance ([img=24x24]res://assets/card_front/sun.png[/img]): "\
+	"enhance": "Enhance ([img=18x18]res://assets/card_front/sun.png[/img]): "\
 			+ "The affected card will be permanently improved in a random manner",
-	"fuse": "Fuse ([img=24x24]%s[/img]): " % [Terms.GENERIC_TAGS.fusion.rich_text_icon]\
+	"fuse": "Fuse ([img=18x18]%s[/img]): " % [Terms.GENERIC_TAGS.fusion.rich_text_icon]\
 			+ "Fusion occurs when two cards with fusion are drawn into the same hand",
-	"frozen": "Cherish ([img=24x24]%s[/img]): " % [Terms.GENERIC_TAGS.frozen.rich_text_icon]\
+	"frozen": "Cherish ([img=18x18]%s[/img]): " % [Terms.GENERIC_TAGS.frozen.rich_text_icon]\
 			+ "A cherised card is not discarded at the end of the turn.",
+}
+const LINKED_TERMS = {
+	"interpretation": ["comprehension"],
+	"comprehension": ["interpretation"],
+	"stress": ["anxiety"],
+	"confidence": ["interpretation"],
+	"anxiety": ["stress"],
+	"perplexity": ["interpretation"],
+	"overcome": ["interpretation", "comprehension"],
+	"pierce": ["perplexity"],
 }
 # Allows the Card object and Card Viewer to replace specific entries during display.
 # For example, you can mark that a cost of 'U' is displayed as an empty string ('').

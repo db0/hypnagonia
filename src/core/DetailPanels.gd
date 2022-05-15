@@ -4,7 +4,7 @@
 # After adding this node, adjust the info_panel_scene in its details
 # and have it point to your custom info scene.
 class_name DetailPanels
-extends VBoxContainer
+extends GridContainer
 
 var info_panel_scene
 
@@ -70,6 +70,10 @@ func add_info(
 			label.text = text
 		add_child(new_info_panel)
 		existing_details[id] = new_info_panel
+	var child_count := get_child_count()
+	if not existing_details["illustration"].visible: child_count -= 1
+	columns = 1 + floor(child_count / 6)
+	existing_details["illustration"].raise()
 
 
 # Getter for visible_details
