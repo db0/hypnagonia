@@ -11,7 +11,8 @@ onready var signifier_icon_container := $Signifier/IconContainer
 onready var signifier_extra_container := $Signifier/ExtraContainer
 onready var signifier_amount := $MC/Amount
 onready var decription_popup := $Description
-onready var decription_label := $Description/Label
+onready var decription_label := $Description/VBC/Label
+onready var focus_info := $Description/VBC/DetailPanels
 
 var canonical_name: String
 
