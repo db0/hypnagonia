@@ -97,7 +97,7 @@ func populate_info_panels(card: Card, focus_info: DetailPanels) -> void:
 		focus_info.hide_illustration()
 
 func add_linked_terms(focus_info: DetailPanels, linked_terms: Dictionary) -> void:
-	if not cfc.game_settings['expand_linked_terms']:
+	if not cfc.game_settings.get('expand_linked_terms', true):
 		return
 	var bbcode_format := Terms.get_bbcode_formats(18)
 	for entity_type in Terms.COMMON_FORMATS.keys():

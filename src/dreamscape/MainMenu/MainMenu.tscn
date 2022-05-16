@@ -46,9 +46,6 @@ texture = ExtResource( 9 )
 expand = true
 stretch_mode = 7
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Shader" type="ColorRect" parent="."]
 self_modulate = Color( 0.498039, 0.294118, 0.933333, 0.392157 )
