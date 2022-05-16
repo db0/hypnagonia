@@ -1,16 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://fonts/Amarante-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/dreamscape/MainMenu/SettingsMenu.gd" type="Script" id=2]
-[ext_resource path="res://src/dreamscape/MainMenu/SettingsMenuFont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=4]
-
-[sub_resource type="DynamicFont" id=4]
-size = 12
-outline_size = 2
-outline_color = Color( 0, 0, 0, 1 )
-use_filter = true
-font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 25
@@ -34,143 +26,136 @@ script = ExtResource( 2 )
 
 [node name="PC" type="PanelContainer" parent="."]
 self_modulate = Color( 1, 1, 1, 0.690196 )
-margin_left = 510.0
-margin_top = 310.0
-margin_right = 945.0
-margin_bottom = 589.0
+margin_left = 511.0
+margin_top = 283.0
+margin_right = 943.0
+margin_bottom = 617.0
 
 [node name="VBC" type="VBoxContainer" parent="PC"]
 margin_left = 2.0
 margin_top = 2.0
-margin_right = 433.0
-margin_bottom = 277.0
+margin_right = 430.0
+margin_bottom = 332.0
+custom_constants/separation = 5
 
 [node name="HBC" type="HBoxContainer" parent="PC/VBC"]
-margin_right = 431.0
-margin_bottom = 169.0
+margin_right = 428.0
+margin_bottom = 220.0
+custom_constants/separation = 20
 
 [node name="VBC2" type="VBoxContainer" parent="PC/VBC/HBC"]
-margin_right = 246.0
-margin_bottom = 169.0
+margin_right = 231.0
+margin_bottom = 220.0
+custom_constants/separation = 20
 
 [node name="InfoPanels" type="Label" parent="PC/VBC/HBC/VBC2"]
-margin_right = 246.0
-margin_bottom = 18.0
-custom_fonts/font = ExtResource( 3 )
+margin_right = 231.0
+margin_bottom = 21.0
 text = "Info Panels"
 align = 1
 
 [node name="InfoPanelMC" type="MarginContainer" parent="PC/VBC/HBC/VBC2"]
-margin_top = 21.0
-margin_right = 246.0
-margin_bottom = 66.0
+margin_top = 41.0
+margin_right = 231.0
+margin_bottom = 90.0
 custom_constants/margin_right = 10
 custom_constants/margin_left = 10
 
 [node name="VBC" type="VBoxContainer" parent="PC/VBC/HBC/VBC2/InfoPanelMC"]
 margin_left = 10.0
-margin_right = 236.0
-margin_bottom = 45.0
+margin_right = 221.0
+margin_bottom = 49.0
 
 [node name="FocusStyle" type="OptionButton" parent="PC/VBC/HBC/VBC2/InfoPanelMC/VBC"]
-margin_right = 226.0
-margin_bottom = 22.0
-custom_fonts/font = ExtResource( 3 )
+margin_right = 211.0
+margin_bottom = 25.0
 text = "Large Card Preview"
 items = [ "Large Card Preview", null, false, 2, null, "Info Panels Only", null, false, 3, null, "Hand Card Zoom", null, false, 0, null ]
 selected = 0
 
 [node name="ExpandLinkedTerms" type="CheckButton" parent="PC/VBC/HBC/VBC2/InfoPanelMC/VBC"]
-margin_top = 25.0
-margin_right = 226.0
-margin_bottom = 45.0
-custom_fonts/font = SubResource( 4 )
-text = "Expand Nested Term Info"
+margin_top = 28.0
+margin_right = 211.0
+margin_bottom = 49.0
+text = "Expand Linked Terms"
 
 [node name="Performance" type="Label" parent="PC/VBC/HBC/VBC2"]
-margin_top = 69.0
-margin_right = 246.0
-margin_bottom = 87.0
-custom_fonts/font = ExtResource( 3 )
+margin_top = 110.0
+margin_right = 231.0
+margin_bottom = 131.0
 text = "Performance"
 align = 1
 
 [node name="PerformanceMC" type="MarginContainer" parent="PC/VBC/HBC/VBC2"]
-margin_top = 90.0
-margin_right = 246.0
-margin_bottom = 156.0
+margin_top = 151.0
+margin_right = 231.0
+margin_bottom = 220.0
 custom_constants/margin_right = 10
 custom_constants/margin_left = 10
 
 [node name="VBC" type="VBoxContainer" parent="PC/VBC/HBC/VBC2/PerformanceMC"]
 margin_left = 10.0
-margin_right = 236.0
-margin_bottom = 66.0
+margin_right = 221.0
+margin_bottom = 69.0
 
 [node name="FancyAnimations" type="CheckButton" parent="PC/VBC/HBC/VBC2/PerformanceMC/VBC"]
-margin_right = 226.0
-margin_bottom = 20.0
-custom_fonts/font = ExtResource( 3 )
+margin_right = 211.0
+margin_bottom = 21.0
 text = "Fancy Animations"
 
 [node name="AnimatedTextBackgrounds" type="CheckButton" parent="PC/VBC/HBC/VBC2/PerformanceMC/VBC"]
-margin_top = 23.0
-margin_right = 226.0
-margin_bottom = 43.0
-custom_fonts/font = ExtResource( 3 )
+margin_top = 24.0
+margin_right = 211.0
+margin_bottom = 45.0
 text = "Anim. Text Background"
 
 [node name="EnableGlow" type="CheckButton" parent="PC/VBC/HBC/VBC2/PerformanceMC/VBC"]
-margin_top = 46.0
-margin_right = 226.0
-margin_bottom = 66.0
-custom_fonts/font = ExtResource( 3 )
+margin_top = 48.0
+margin_right = 211.0
+margin_bottom = 69.0
 text = "Enable Glow"
 
 [node name="VBC" type="VBoxContainer" parent="PC/VBC/HBC"]
-margin_left = 249.0
-margin_right = 431.0
-margin_bottom = 169.0
+margin_left = 251.0
+margin_right = 428.0
+margin_bottom = 220.0
 size_flags_horizontal = 3
 custom_constants/separation = 20
 
-[node name="Sound" type="Label" parent="PC/VBC/HBC/VBC"]
-margin_right = 182.0
-margin_bottom = 18.0
-custom_fonts/font = ExtResource( 3 )
+[node name="SoundMusic" type="Label" parent="PC/VBC/HBC/VBC"]
+margin_right = 177.0
+margin_bottom = 21.0
 text = "Sound / Music"
 align = 1
 
 [node name="SoundMC" type="MarginContainer" parent="PC/VBC/HBC/VBC"]
-margin_top = 38.0
-margin_right = 182.0
-margin_bottom = 169.0
+margin_top = 41.0
+margin_right = 177.0
+margin_bottom = 182.0
 custom_constants/margin_right = 10
 custom_constants/margin_left = 10
 
 [node name="VBC" type="VBoxContainer" parent="PC/VBC/HBC/VBC/SoundMC"]
 margin_left = 10.0
-margin_right = 172.0
-margin_bottom = 131.0
+margin_right = 167.0
+margin_bottom = 141.0
 
 [node name="InterruptMusic" type="CheckButton" parent="PC/VBC/HBC/VBC/SoundMC/VBC"]
-margin_right = 162.0
-margin_bottom = 20.0
-custom_fonts/font = ExtResource( 3 )
+margin_right = 157.0
+margin_bottom = 21.0
 pressed = true
 text = "Interrupt Music"
 
 [node name="MainVol" type="Label" parent="PC/VBC/HBC/VBC/SoundMC/VBC"]
-margin_top = 23.0
-margin_right = 162.0
-margin_bottom = 41.0
-custom_fonts/font = ExtResource( 3 )
+margin_top = 24.0
+margin_right = 157.0
+margin_bottom = 45.0
 text = "Main Volume"
 
 [node name="MainVolSlider" type="HSlider" parent="PC/VBC/HBC/VBC/SoundMC/VBC"]
-margin_top = 44.0
-margin_right = 162.0
-margin_bottom = 57.0
+margin_top = 48.0
+margin_right = 157.0
+margin_bottom = 61.0
 size_flags_horizontal = 3
 min_value = -80.0
 max_value = 23.0
@@ -179,16 +164,15 @@ __meta__ = {
 }
 
 [node name="MusicVol" type="Label" parent="PC/VBC/HBC/VBC/SoundMC/VBC"]
-margin_top = 60.0
-margin_right = 162.0
-margin_bottom = 78.0
-custom_fonts/font = ExtResource( 3 )
+margin_top = 64.0
+margin_right = 157.0
+margin_bottom = 85.0
 text = "Music Volume"
 
 [node name="MusicVolSlider" type="HSlider" parent="PC/VBC/HBC/VBC/SoundMC/VBC"]
-margin_top = 81.0
-margin_right = 162.0
-margin_bottom = 94.0
+margin_top = 88.0
+margin_right = 157.0
+margin_bottom = 101.0
 size_flags_horizontal = 3
 min_value = -80.0
 max_value = 10.0
@@ -197,16 +181,15 @@ __meta__ = {
 }
 
 [node name="SoundVol" type="Label" parent="PC/VBC/HBC/VBC/SoundMC/VBC"]
-margin_top = 97.0
-margin_right = 162.0
-margin_bottom = 115.0
-custom_fonts/font = ExtResource( 3 )
+margin_top = 104.0
+margin_right = 157.0
+margin_bottom = 125.0
 text = "Effects Volume"
 
 [node name="SoundVolSlider" type="HSlider" parent="PC/VBC/HBC/VBC/SoundMC/VBC"]
-margin_top = 118.0
-margin_right = 162.0
-margin_bottom = 131.0
+margin_top = 128.0
+margin_right = 157.0
+margin_bottom = 141.0
 size_flags_horizontal = 3
 min_value = -80.0
 max_value = 10.0
@@ -215,21 +198,21 @@ __meta__ = {
 }
 
 [node name="ExitToMain" type="Button" parent="PC/VBC"]
-margin_top = 172.0
-margin_right = 431.0
-margin_bottom = 222.0
+margin_top = 225.0
+margin_right = 428.0
+margin_bottom = 275.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 2 )
 text = "Exit To Main Menu"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PC/VBC"]
-margin_top = 225.0
-margin_right = 431.0
-margin_bottom = 275.0
+margin_top = 280.0
+margin_right = 428.0
+margin_bottom = 330.0
 
 [node name="Back" type="Button" parent="PC/VBC/HBoxContainer"]
-margin_right = 431.0
+margin_right = 428.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
