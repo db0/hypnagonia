@@ -1014,8 +1014,26 @@ const ConstantImpervious := {
 	"amounts": {
 		"effect_stacks": 1,
 	},
+	"linked_terms": [
+		"impervious",
+	],
 }
 
+
+const StartingFortify := {
+	"canonical_name": "StartingFortify",
+	"name": "Epic Beard",
+	"description": "{artifact_name}: At the start of each ordeal, gain {effect_stacks} {fortify}.",
+	"icon": "res://assets/icons/artifacts/beard.png",
+	"context": EffectContext.BATTLE,
+	"rarity": "Common",
+	"amounts": {
+		"effect_stacks": 1,
+	},
+	"linked_terms": [
+		"fortify",
+	],
+}
 
 ## TODO: Artifact which increases chance to find Fusion cards
 ## TODO. Scipt base doesn't exist yet
@@ -1092,7 +1110,8 @@ const ARCHETYPE := [
 	DecreaseExertStacks,
 	LimitMaxExert,
 	DoubleFirstStartup,
-	ConstantImpervious
+	ConstantImpervious,
+	StartingFortify,
 ]
 
 # These artifacts are only found in non-combat encounters

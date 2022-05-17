@@ -554,7 +554,7 @@ func _input(event):
 #				globals.player.deck.remove_card(c)
 #		_reveal_entry(upgrade_journal, true)
 		globals.player.deck.add_new_card("Catatonia")
-#		globals.player.add_artifact(ArtifactDefinitions.DoubleFirstStartup.canonical_name)
+		globals.player.add_artifact(ArtifactDefinitions.StartingFortify.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.EnhanceOnRest.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.IncreaseRandomDamage.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.BirdHouse.canonical_name)

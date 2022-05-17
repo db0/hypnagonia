@@ -16,6 +16,10 @@ signal entity_damage_blocked(entity, amount, trigger, tags)
 signal entity_killed(final_damage, health)
 signal entity_health_modified(entity, amount, trigger, tags)
 signal death_animation_finished(entity)
+# This signal is sent when this entity has property started its turn (after all defence removal)
+signal entity_turn_started(entity)
+# This signal is sent when this entity has property ended its turn
+signal entity_turn_ended(entity)
 
 
 onready var name_label : Label = $Name
@@ -334,10 +338,12 @@ func _on_player_turn_started(_turn: Turn) -> void:
 			fortify.set_stacks(fortify.stacks / 2, ["Turn Decrease"])
 		elif not globals.difficulty.permanent_defence:
 			set_defence(0)
+		emit_signal("entity_turn_started")
 
 
 func _on_player_turn_ended(_turn: Turn) -> void:
-	pass
+	if entity_type == Terms.PLAYER:
+		emit_signal("entity_turn_ended")
 
 
 func _on_enemy_turn_started(_turn: Turn) -> void:
@@ -349,10 +355,12 @@ func _on_enemy_turn_started(_turn: Turn) -> void:
 			fortify.set_stacks(fortify.stacks / 2, ["Turn Decrease"])
 		elif not globals.difficulty.permanent_defence:
 			set_defence(0)
+		emit_signal("entity_turn_started")
 
 
 func _on_enemy_turn_ended(_turn: Turn) -> void:
-	pass
+	if entity_type == Terms.ENEMY:
+		emit_signal("entity_turn_ended")
 
 
 func _set_entity_size() -> void:

@@ -282,3 +282,21 @@ class TestQuickenUp2Counters:
 	func extra_hypnagonia_setup() -> void:
 		var curio = globals.player.find_artifact(ArtifactDefinitions.QuickenUp.canonical_name)
 		curio.counter = 2
+
+
+class TestStartingFortify:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.StartingFortify.canonical_name
+		pre_init_artifacts.append(ArtifactDefinitions.StartingFortify.canonical_name)
+		expected_amount_keys = [
+			"effect_stacks",
+		]
+		
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.fortify.name), get_amount("effect_stacks"))
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.fortify.name), 0)
