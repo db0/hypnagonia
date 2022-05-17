@@ -711,3 +711,23 @@ class TestSmallerDrafts:
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion per turn")
 
+class TestConstantImpervious:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.ConstantImpervious.canonical_name
+		pre_init_artifacts.append(ArtifactDefinitions.ConstantImpervious.canonical_name)
+		expected_amount_keys = [
+			"effect_stacks",
+		]
+
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.impervious.name),
+				get_amount("effect_stacks"),
+				"%s gives Dreamer +1 %s on first turn" % [artifact.name, Terms.ACTIVE_EFFECTS.impervious.name])
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.impervious.name),
+				get_amount("effect_stacks"),
+				"%s gives Dreamer +1 %s on every turn" % [artifact.name, Terms.ACTIVE_EFFECTS.impervious.name])
