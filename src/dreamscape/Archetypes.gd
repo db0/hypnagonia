@@ -168,6 +168,7 @@ const FEARLESS:= {
 		ArtifactDefinitions.ImprovePoison,
 		ArtifactDefinitions.ImproveFortify,
 		ArtifactDefinitions.IncreasePoisonStacks,
+		ArtifactDefinitions.StartingFortify,
 	],
 	"Memories": [
 		MemoryDefinitions.PoisonEnemy,
