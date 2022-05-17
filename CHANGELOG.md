@@ -1,12 +1,16 @@
 # Changelog
 
-## [Unreleased](https://github.com/db0/hypnagonia/tree/HEAD)
+## [v0.54.1](https://github.com/db0/hypnagonia/tree/v0.54.1) (2022-05-17)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.54.0...HEAD)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.54.0...v0.54.1)
 
 **Fixed bugs:**
 
 - Card fonts are randomly drawn too small or too large [\#326](https://github.com/db0/hypnagonia/issues/326)
+
+**Merged pull requests:**
+
+- Fixed Progress Count not appearring [\#339](https://github.com/db0/hypnagonia/pull/339) ([db0](https://github.com/db0))
 
 ## [v0.54.0](https://github.com/db0/hypnagonia/tree/v0.54.0) (2022-05-16)
 
@@ -109,20 +113,20 @@
 
 ## [v0.50.4](https://github.com/db0/hypnagonia/tree/v0.50.4) (2022-04-28)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.3...v0.50.4)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.2...v0.50.4)
 
 **Merged pull requests:**
 
 - fix: Rest upgrade should only do 5 steps [\#312](https://github.com/db0/hypnagonia/pull/312) ([db0](https://github.com/db0))
 - content\(art\): More Flyercards from @SkylarkHYP [\#311](https://github.com/db0/hypnagonia/pull/311) ([db0](https://github.com/db0))
 
-## [v0.50.3](https://github.com/db0/hypnagonia/tree/v0.50.3) (2022-04-27)
-
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.2...v0.50.3)
-
 ## [v0.50.2](https://github.com/db0/hypnagonia/tree/v0.50.2) (2022-04-27)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.1...v0.50.2)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.3...v0.50.2)
+
+## [v0.50.3](https://github.com/db0/hypnagonia/tree/v0.50.3) (2022-04-27)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.1...v0.50.3)
 
 **Merged pull requests:**
 
