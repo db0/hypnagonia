@@ -15,7 +15,8 @@ const FLYER:= {
 		Terms.GENERIC_TAGS.relax.name,
 	],
 	"Artifacts": [
-		ArtifactDefinitions.ImproveImpervious
+		ArtifactDefinitions.ImproveImpervious,
+		ArtifactDefinitions.ConstantImpervious
 	],
 	"Memories": [
 		MemoryDefinitions.ImperviousSelf,

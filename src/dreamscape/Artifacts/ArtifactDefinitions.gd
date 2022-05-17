@@ -1004,6 +1004,18 @@ const LimitMaxExert := {
 	},
 }
 
+const ConstantImpervious := {
+	"canonical_name": "ConstantImpervious",
+	"name": "Golden Feather",
+	"description": "{artifact_name}: At the start of each turn, gain {effect_stacks} {impervious}",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.BATTLE,
+	"rarity": "Rare",
+	"amounts": {
+		"effect_stacks": 1,
+	},
+}
+
 
 ## TODO: Artifact which increases chance to find Fusion cards
 ## TODO. Scipt base doesn't exist yet
@@ -1080,6 +1092,7 @@ const ARCHETYPE := [
 	DecreaseExertStacks,
 	LimitMaxExert,
 	DoubleFirstStartup,
+	ConstantImpervious
 ]
 
 # These artifacts are only found in non-combat encounters
