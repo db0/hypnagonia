@@ -634,8 +634,8 @@ const CARDS := {
 		"_rarity": "Received",
 		"_keywords": ["forget", "confidence", "interpretation"],
 		"_amounts": {
-			"defence_amount": 11,
-			"damage_amount": 11,
+			"defence_amount": 15,
+			"damage_amount": 15,
 			"exert_amount": 7
 		},
 		"_upgrade_threshold_modifier": 0,
@@ -655,8 +655,8 @@ const CARDS := {
 		"_rarity": "Received",
 		"_keywords": ["forget", "confidence", "interpretation"],
 		"_amounts": {
-			"defence_amount": 14,
-			"damage_amount": 14,
+			"defence_amount": 20,
+			"damage_amount": 20,
 			"exert_amount": 7
 		},
 		"_is_upgrade": true,
@@ -672,8 +672,8 @@ const CARDS := {
 		"_rarity": "Received",
 		"_keywords": ["forget", "confidence", "interpretation"],
 		"_amounts": {
-			"defence_amount": 11,
-			"damage_amount": 11,
+			"defence_amount": 15,
+			"damage_amount": 15,
 			"exert_amount": 3
 		},
 		"_is_upgrade": true,
