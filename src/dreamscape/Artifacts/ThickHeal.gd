@@ -17,7 +17,6 @@ func _on_player_turn_started(_turn: Turn = null) -> void:
 		},
 	]
 	execute_script(script)
-	_send_trigger_signal()
 
 
 func _on_battle_start() -> void:

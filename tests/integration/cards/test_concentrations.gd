@@ -6,7 +6,7 @@ class TestExcuses:
 	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.excuses.name
 	var amount := 1
-	var modified_dmg = 11
+	var modified_dmg = 15
 	func _init() -> void:
 		torments_amount = 1
 		test_card_names = [
@@ -39,7 +39,7 @@ class TestExcuses:
 
 	func test_excuses_and_dots():
 		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.poison.name, 5, '')
-		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.burn.name, 16, '')
+		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.burn.name, 20, '')
 		var sceng = snipexecute(card, test_torment)
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")

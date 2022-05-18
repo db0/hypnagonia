@@ -7,6 +7,7 @@ signal card_removed(card)
 signal card_entry_upgraded(card_entry)
 signal card_entry_modified(card_entry)
 signal card_entry_progressed(card_entry, amount)
+signal card_entry_used(card_entry)
 
 var cards: Array
 var deck_groups : Dictionary
@@ -52,6 +53,8 @@ func add_new_card(card_name: String, progress := 0) -> CardEntry:
 	new_card.connect("card_entry_upgraded", self, "signal_card_entry_upgraded")
 	# warning-ignore:return_value_discarded
 	new_card.connect("card_entry_progressed", self, "signal_card_entry_progressed")
+	# warning-ignore:return_value_discarded
+	new_card.connect("card_entry_used", self, "signal_card_entry_used")
 	new_card.upgrade_progress = progress
 	cards.append(new_card)
 	emit_signal("card_added", new_card)
@@ -88,6 +91,9 @@ func signal_card_entry_modified(card_entry: CardEntry) -> void:
 
 func signal_card_entry_progressed(card_entry: CardEntry, amount: int) -> void:
 	emit_signal("card_entry_progressed", card_entry, amount)
+
+func signal_card_entry_used(card_entry: CardEntry) -> void:
+	emit_signal("card_entry_used", card_entry)
 
 
 func list_all_cards(sorted:= false) -> Array:

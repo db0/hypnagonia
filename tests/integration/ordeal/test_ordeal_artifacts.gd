@@ -759,3 +759,34 @@ class TestThickHeal:
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.damage, 10)
 		
+
+class TestDoubleProgressFail:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.DoubleProgress.canonical_name
+		dreamer_starting_damage = 10
+		expected_amount_keys = [
+		]
+		test_card_names = [
+			"Confidence",
+			"Confidence",
+		]
+		
+	func test_artifact_effect_succeed():
+		if not assert_has_amounts():
+			return
+		for iter in 13:
+			globals.player.deck.add_new_card("Interpretation")
+		var sceng = card.execute_scripts()
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(card.deck_card_entry.upgrade_progress, 2, "Thick Deck Card Progress Doubled")
+		
+	func test_artifact_effect_fail():
+		if not assert_has_amounts():
+			return
+		var sceng = card.execute_scripts()
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(card.deck_card_entry.upgrade_progress, 1, "Thin Deck Card Progress Not Doubled")
+		

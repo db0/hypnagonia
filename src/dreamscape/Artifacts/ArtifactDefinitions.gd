@@ -1052,6 +1052,18 @@ const ThickHeal := {
 	],
 }
 
+const DoubleProgress := {
+	"canonical_name": "DoubleProgress",
+	"name": "Search Engine",
+	"description": "{artifact_name}: If your deck has {card_amount} or more cards, your card progression in ordeals is doubled.",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.BATTLE,
+	"rarity": "Common",
+	"amounts": {
+		"card_amount": 25,
+	},
+}
+
 ## TODO: Artifact which increases chance to find Fusion cards
 ## TODO. Scipt base doesn't exist yet
 #const DoubleMemory := {
@@ -1109,6 +1121,7 @@ const GENERIC := [
 	ReduceCurioRerollPerturbChance,
 	IncreaseUpgradedDraftChance,
 	ThickHeal,
+	DoubleProgress,
 ]
 
 # Archetype-specific artifacts which only appear in runs in which
