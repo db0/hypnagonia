@@ -1064,6 +1064,21 @@ const DoubleProgress := {
 	},
 }
 
+
+const ThickDeckRareChance := {
+	"canonical_name": "ThickDeckRareChance",
+	"name": "Muumuu",
+	"description": "{artifact_name}: If your deck has {card_amount} or more cards, your chance of finding Rare cards is doubled.",
+	"icon": preload("res://assets/icons/artifacts/cheese-wedge.png"),
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Common",
+	"amounts": {
+		"rare_multiplier": 2,
+		"card_amount": 25,
+	},
+}
+
+
 ## TODO: Artifact which increases chance to find Fusion cards
 ## TODO. Scipt base doesn't exist yet
 #const DoubleMemory := {
@@ -1122,6 +1137,7 @@ const GENERIC := [
 	IncreaseUpgradedDraftChance,
 	ThickHeal,
 	DoubleProgress,
+	ThickDeckRareChance,
 ]
 
 # Archetype-specific artifacts which only appear in runs in which

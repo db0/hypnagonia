@@ -766,6 +766,7 @@ class TestDoubleProgressFail:
 		testing_artifact_name = ArtifactDefinitions.DoubleProgress.canonical_name
 		dreamer_starting_damage = 10
 		expected_amount_keys = [
+			"card_amount",
 		]
 		test_card_names = [
 			"Confidence",

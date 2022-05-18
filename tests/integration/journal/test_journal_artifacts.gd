@@ -302,3 +302,46 @@ class TestBirdHouse:
 		if not assert_has_amounts():
 			return
 		pending("test BirdHouse Stuff")
+
+
+class TestThickDeckRareChance:
+	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
+	var uncommon_chance : float = 25.0/100
+	var rare_chance : float = 5.0/100
+
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.ThickDeckRareChance.canonical_name
+		expected_amount_keys = [
+			"rare_multiplier",
+			"card_amount",
+		]
+
+	func test_artifact_results_success():
+		if not assert_has_amounts():
+			return
+		for iter in 13:
+			globals.player.deck.add_new_card("Interpretation")
+		assert_eq(get_rare_chance(), rare_chance * get_amount("rare_multiplier"), "rare chance multiplied")
+		assert_eq(get_uncommon_chance(), uncommon_chance, "uncommon chance stayed the same")
+
+	func test_artifact_results_fail():
+		if not assert_has_amounts():
+			return
+		assert_eq(get_rare_chance(), rare_chance, "rare chance stayed the same")
+		assert_eq(get_uncommon_chance(), uncommon_chance, "uncommon chance stayed the same")
+
+	func get_uncommon_chance() -> float:
+		var value := uncommon_chance
+		for artifact in cfc.get_tree().get_nodes_in_group("artifacts"):
+			var multiplier = artifact.get_global_alterant(value, HConst.AlterantTypes.CARD_UNCOMMON_CHANCE)
+			if multiplier:
+				value *= multiplier
+		return(value)
+
+	func get_rare_chance() -> float:
+		var value := rare_chance
+		for artifact in cfc.get_tree().get_nodes_in_group("artifacts"):
+			var multiplier = artifact.get_global_alterant(value, HConst.AlterantTypes.CARD_RARE_CHANCE)
+			if multiplier:
+				value *= multiplier
+		return(value)
