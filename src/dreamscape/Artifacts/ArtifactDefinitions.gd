@@ -1035,6 +1035,23 @@ const StartingFortify := {
 	],
 }
 
+const ThickHeal := {
+	"canonical_name": "ThickHeal",
+	"name": "Power Naps",
+	"description": "{artifact_name}: Every turn, {relax} for {heal_amount}. Every time you reshuffle your deck, take {exert_amount} {player_health}.",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.BATTLE,
+	"rarity": "Uncommon",
+	"amounts": {
+		"heal_amount": 1,
+		"exert_amount": 3,
+	},
+	"linked_terms": [
+		"relax",
+		"player_health",
+	],
+}
+
 ## TODO: Artifact which increases chance to find Fusion cards
 ## TODO. Scipt base doesn't exist yet
 #const DoubleMemory := {
@@ -1091,6 +1108,7 @@ const GENERIC := [
 	UpgradeMemoryOnRest,
 	ReduceCurioRerollPerturbChance,
 	IncreaseUpgradedDraftChance,
+	ThickHeal,
 ]
 
 # Archetype-specific artifacts which only appear in runs in which

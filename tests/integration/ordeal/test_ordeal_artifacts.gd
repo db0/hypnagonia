@@ -731,3 +731,31 @@ class TestConstantImpervious:
 		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.impervious.name),
 				get_amount("effect_stacks"),
 				"%s gives Dreamer +1 %s on every turn" % [artifact.name, Terms.ACTIVE_EFFECTS.impervious.name])
+
+
+class TestThickHeal:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.ThickHeal.canonical_name
+		pre_init_artifacts.append(ArtifactDefinitions.ThickHeal.canonical_name)
+		globals.test_flags["test_initial_hand"] = true
+		dreamer_starting_damage = 10
+		expected_amount_keys = [
+			"heal_amount",
+			"exert_amount",
+		]
+
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		assert_eq(dreamer.damage, 9)
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		assert_eq(dreamer.damage, 8)
+		deck.shuffle_cards()
+		yield(yield_to(deck, "shuffle_completed", 0.5), YIELD)
+		assert_eq(dreamer.damage, 11)
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		assert_eq(dreamer.damage, 10)
+		
