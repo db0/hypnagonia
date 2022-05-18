@@ -5,6 +5,8 @@ extends Reference
 signal card_entry_upgraded(card_entry)
 signal card_entry_modified(card_entry)
 signal card_entry_progressed(card_entry, amount)
+# Sent 
+signal card_entry_used(card_entry)
 
 # The baseline threshold which all cards needs to upgrade
 const UPGRADE_THRESHOLD_BASELINE = 6
@@ -46,6 +48,8 @@ var unmodified_scripts : Dictionary
 # Each entry is a dictionary. Each dictionary has a property and a value.
 # These changes are re-applied to the card, when it's upgraded
 var property_modifications := []
+# The amount of times this card has been played during this run
+var uses_count := 0 setget set_uses_count
 
 func _init(_card_name: String) -> void:
 	_setup_card_entry(_card_name)
@@ -105,13 +109,14 @@ func upgrade(upgrade_name: String) -> void:
 # Returns true is progrss towards an upgrade happened
 # Else returns false
 func record_use() -> bool:
+	set_uses_count(uses_count + 1)
 	if upgrade_progress < upgrade_threshold:
 		set_upgrade_progress(upgrade_progress + 1)
 		return(true)
 	return(false)
 
 
-func set_upgrade_progress(amount) -> void:
+func set_upgrade_progress(amount: int, avoid_signal := false) -> void:
 	# If the card upgrade progress is -1 it means it's not upgradable
 	if upgrade_threshold < 0:
 		return
@@ -121,8 +126,15 @@ func set_upgrade_progress(amount) -> void:
 	elif amount < 0:
 		amount = 0
 	upgrade_progress = amount
-	if pre_upgrade != amount:
+	if pre_upgrade != amount and not avoid_signal:
 		emit_signal("card_entry_progressed", self, amount - pre_upgrade)
+
+
+func set_uses_count(amount: int) -> void:
+	# If the card upgrade progress is -1 it means it's not upgradable
+	uses_count = amount
+	emit_signal("card_entry_used", self)
+
 
 
 func can_be_upgraded() -> bool:
