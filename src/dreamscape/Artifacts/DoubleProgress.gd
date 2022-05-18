@@ -6,7 +6,7 @@ func _ready() -> void:
 
 
 func _on_card_entry_progressed(card_entry: CardEntry, amount: int) -> void:
-	if globals.player.deck.count_cards() < 25:
+	if globals.player.deck.count_cards() < ArtifactDefinitions.DoubleProgress.amounts.card_amount:
 		return
 	# We need to avoid resending the upgrade_signal again, or we'll create a loop
 	# until the card upgrades are maxed out
