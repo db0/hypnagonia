@@ -1024,7 +1024,7 @@ const StartingFortify := {
 	"canonical_name": "StartingFortify",
 	"name": "Epic Beard",
 	"description": "{artifact_name}: At the start of each ordeal, gain {effect_stacks} {fortify}.",
-	"icon": "res://assets/icons/artifacts/beard.png",
+	"icon": preload("res://assets/icons/artifacts/beard.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Common",
 	"amounts": {
