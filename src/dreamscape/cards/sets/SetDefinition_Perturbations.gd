@@ -85,10 +85,7 @@ const CARDS := {
 		"Cost": 'U',
 		"_illustration": "Nobody",
 		"_rarity": "Perturbation",
-		"_keywords": ["fading"],
-		"_effects_info": {
-			Terms.ACTIVE_EFFECTS.burn.name: Terms.PLAYER
-		},
+		"_keywords": ["fading", "immersion"],
 		"_amounts": {
 			"immersion_amount": -1,
 		},
