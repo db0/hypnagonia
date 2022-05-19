@@ -936,6 +936,15 @@ const GENERIC_TAGS := {
 			"enemy_health",
 		],
 	},
+	"enemy_attack": {
+		"name": "Stress",
+		"icon": preload("res://assets/icons/terror.png"),
+		"rich_text_icon": "res://fonts/rich_text_icons/terror.png",
+		"generic_description": "{effect_name} ({effect_icon}): Increases {player_health} on the Dreamer by the specified amount.",
+		"linked_terms": [
+			"player_health",
+		],
+	},
 	"player_health": {
 		"name": "Anxiety",
 		"icon": preload("res://assets/icons/heart-beats.png"),

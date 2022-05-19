@@ -6,6 +6,7 @@ var owning_entity
 func setup(signifier_details: Dictionary, signifier_name: String) -> void:
 	.setup(signifier_details, signifier_name)
 	intent_script = signifier_details.duplicate(true)
+	intent_script["starting_position_node"] = self
 #	recalculate_amount()
 # warning-ignore:return_value_discarded
 #	cfc.connect("cache_cleared", self, 'recalculate_amount')

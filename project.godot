@@ -490,6 +490,11 @@ _global_script_classes=[ {
 "path": "res://src/dreamscape/CardBack.gd"
 }, {
 "base": "Reference",
+"class": "IconAnimMessage",
+"language": "GDScript",
+"path": "res://src/dreamscape/IconAnimMessage.gd"
+}, {
+"base": "Reference",
 "class": "ImageLibrary",
 "language": "GDScript",
 "path": "res://src/dreamscape/cards/sets/ImageLibrary.gd"
@@ -921,6 +926,7 @@ _global_script_class_icons={
 "Hand": "",
 "Highlight": "",
 "HypnagoniaCardBack": "",
+"IconAnimMessage": "",
 "ImageLibrary": "",
 "IntegerLineEdit": "",
 "IntentScripts": "",
