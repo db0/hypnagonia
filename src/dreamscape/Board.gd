@@ -44,6 +44,7 @@ onready var _tween := $Tween
 onready var player_info := $VBC/PlayerInfo
 onready var _debug_timer := $EnemyTurnStuckTimer
 onready var _debug_warning := $VBC/DebugWarning
+onready var icon_anims := $IconAnims
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -469,21 +470,21 @@ func _input(event):
 		_torment1 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment1 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 #		_torment1 = spawn_enemy(EnemyDefinitions.VOID)
-		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+		_torment2 = spawn_enemy(EnemyDefinitions.TRAFFICJAM)
 #		_torment2 = spawn_enemy(EnemyDefinitions.BROKEN_MIRROR)
 #		_torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
 #		_torment3 = spawn_enemy(EnemyDefinitions.GASLIGHTER)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 		if _torment1:
-			_torment1.health = 30
+			_torment1.health = 300
 			_torment1.damage = 15
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS["void"].name, 1)
 			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 5)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.effect_resistance.name, 1, false, false, ["Init"], Terms.ACTIVE_EFFECTS.poison.name)
 			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 4)
 		if _torment2:
-			_torment2.health = 30
+			_torment2.health = 300
 			_torment2.damage = 10
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.marked.name, 1)

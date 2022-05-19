@@ -150,6 +150,7 @@ func set_health(value: int) -> void:
 		_update_health_label()
 
 
+# Self-Explanatory
 func die() -> void:
 	# We add a two frame wait and another check, in case there's an effect which will
 	# revive this entity when it triggers its death
@@ -164,6 +165,7 @@ func die() -> void:
 			entity_texture.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
 
 
+# Blocks as much damage as possible, the takes as much damage as left.
 func modify_damage(amount: int, dry_run := false, tags := ["Manual"], trigger = null) -> int:
 	var retcode : int = CFConst.ReturnCode.CHANGED
 	if damage + defence + amount < 0 and dry_run:
@@ -192,6 +194,19 @@ func modify_damage(amount: int, dry_run := false, tags := ["Manual"], trigger = 
 	return(retcode)
 
 
+# Returns false if any portion of the incoming damage cannot be blocked
+# Else returns true
+func blocks_all_damage(amount: int, tags: Array) -> bool:
+	if "Unblockable" in tags:
+		return(false)
+	if not "Attack" in tags and not "Blockable" in tags:
+		return(false)
+	if amount > defence:
+		return(false)
+	return(true)
+
+
+# Add defence to the combat entity
 func modify_defence(
 			amount: int,
 			set_to_mod := false,

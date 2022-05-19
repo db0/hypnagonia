@@ -165,6 +165,8 @@ func execute_script(
 		trigger_details: Dictionary = {},
 		only_cost_check := false):
 	var sceng = null
+	for task in script:
+		task["starting_position_node"] = self
 	sceng = cfc.scripting_engine.new(
 			script,
 			get_parent().combat_entity,
