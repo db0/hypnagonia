@@ -8,7 +8,7 @@ func execute_memory_effect():
 			"subject": "boardseek",
 			"amount": MemoryDefinitions.DamageAll.amounts.damage_amount + upgrades,
 			"subject_count": "all",
-			"tags": ["Memory", "Blockable"],
+			"tags": ["Memory", "Attack"],
 			"filter_state_seek": [{
 				"filter_group": "EnemyEntities",
 			},],
