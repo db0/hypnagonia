@@ -22,7 +22,7 @@ func send_icon_to_texturerect(icon: ImageTexture, start_pos: Vector2, end_pos: V
 	# warning-ignore:return_value_discarded
 	tween.connect("tween_all_completed",self,"_anim_completed", [tween, sprite])
 	# warning-ignore:return_value_discarded
-	tween.interpolate_property(sprite,"rect_global_position", start_pos, end_pos, 0.5,Tween.TRANS_SINE, Tween.EASE_IN)
+	tween.interpolate_property(sprite,"rect_global_position", start_pos, end_pos, 0.5,Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 	# warning-ignore:return_value_discarded
 	tween.start()
 
