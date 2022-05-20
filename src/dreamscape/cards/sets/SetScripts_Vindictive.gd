@@ -44,7 +44,6 @@ const KeepInMind = {
 				"name": "modify_properties",
 				"tags": ["Card"],
 				"set_properties": {"Tags": Terms.GENERIC_TAGS.frozen.name},
-				"needs_subject": true,
 				"subject": "tutor",
 				"filter_state_tutor": [{
 					"filter_cardfilters": [
@@ -79,7 +78,6 @@ const StoreInMind = {
 				"name": "modify_properties",
 				"tags": ["Card"],
 				"set_properties": {"Tags": Terms.GENERIC_TAGS.frozen.name},
-				"needs_subject": true,
 				"subject": "tutor",
 				"filter_state_tutor": [{
 					"filter_cardfilters": [
