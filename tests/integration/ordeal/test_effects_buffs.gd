@@ -386,12 +386,13 @@ class TestThorns:
 				"reshuffle": true,
 			},
 		]
-		test_torment.health = 35
+		test_torment.health = 37
 		test_torment.intents.replace_intents(intents_to_test)
 		test_torment.intents.refresh_intents()
 		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
-		assert_true(test_torment.is_dead, "Test torment dies due to thorns")
+		if is_instance_valid(test_torment):
+			assert_true(test_torment.is_dead, "Test torment dies due to thorns")
 		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.disempower.name), 0,
 				"Dreamer did not receive %s stacks due to torment intents interrupted" % [Terms.ACTIVE_EFFECTS.disempower.name])
 		assert_eq(dreamer.damage, 6, "Dreamer damage interrupted due to torment dying to %s" % [effect])

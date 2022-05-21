@@ -101,7 +101,7 @@ func execute(_run_type := CFInt.RunType.NORMAL) -> void:
 	var prev_subjects := []
 	for task in scripts_queue:
 		# Failsafe for GUT tearing down while Sceng is running
-		if not is_instance_valid(cfc.NMAP.board): return
+		if not cfc.NMAP.has("board") or not is_instance_valid(cfc.NMAP.board): return
 		# We put it into another variable to allow Static Typing benefits
 		var script: ScriptTask = task
 		if ((run_type == CFInt.RunType.COST_CHECK and not script.is_cost and not script.needs_subject)

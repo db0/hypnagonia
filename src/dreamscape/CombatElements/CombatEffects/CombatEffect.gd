@@ -221,8 +221,6 @@ func _on_player_turn_started(_turn: Turn) -> void:
 
 # This is connected in the BoardSignalConnector class
 func _on_enemy_turn_ended(_turn: Turn) -> void:
-	if canonical_name == "Confusion":
-		pass
 	if entity_type == Terms.ENEMY and self_decreasing == Terms.SELF_DECREASE.TURN_END:
 		if is_delayed:
 			is_delayed = false

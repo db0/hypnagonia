@@ -18,6 +18,8 @@ class TestStress:
 class TestPerplex:
 	extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"
 	func _init() -> void:
+		# We need to avoid the turn start defence wipe going after defence gain intent
+		globals.test_flags["no_end_turn_delay"] = false
 		intents_to_test = [
 			{
 				"intent_scripts": ["Perplex:10"],

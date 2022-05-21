@@ -13,10 +13,10 @@ func _combat_entity_added(entity) -> void:
 	_connect_turn_signals(entity)
 	entity.active_effects.connect("effect_added", self, "_connect_turn_signals")
 	
-func _connect_turn_signals(script) -> void:
+func _connect_turn_signals(entity) -> void:
 #	print_debug("Connecting: " + script.name)
 	var turn: Turn = board.turn
 	for turn_signal in Turn.ALL_SIGNALS:
 		# warning-ignore:return_value_discarded
-		turn.connect(turn_signal, script, "_on_" + turn_signal)
+		turn.connect(turn_signal, entity, "_on_" + turn_signal)
 	
