@@ -88,6 +88,7 @@ func teardown_board() -> void:
 
 func setup_hypnagonia_testing() -> void:
 	# warning-ignore:return_value_discarded
+	cfc.is_testing = true
 	cfc.game_rng_seed = "GUT"
 	cfc.restore_rng_state()
 #	gut.p(cfc.rng_saved_state)

@@ -27,7 +27,7 @@ func _init(
 	extra_classification = _extra_classification
 	async = _async
 	# For testing, we want to go fast always
-	if cfc.get_tree().get_root().has_node('Gut'):
+	if cfc.is_testing:
 		async = true
 	_set_icon()
 	_set_start_pos()

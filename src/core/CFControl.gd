@@ -102,11 +102,13 @@ var curr_scale: float
 
 var script_load_thread : Thread
 var scripts_loading := true
+# This is set to true when tests are running
+var is_testing := false
 
 
 func _ready() -> void:
 	var load_end_time = OS.get_ticks_msec()
-	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+	if OS.has_feature("debug") and not cfc.is_testing:
 		print_debug("DEBUG INFO:CFControl: instance time = %sms" % [str(load_end_time - load_start_time)])
 	
 	# warning-ignore:return_value_discarded
@@ -143,7 +145,7 @@ func _setup() -> void:
 		set_seed(game_rng_seed)
 	card_definitions = load_card_definitions()
 	var defs_load_end_time = OS.get_ticks_msec()
-	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+	if OS.has_feature("debug") and not cfc.is_testing:
 		print_debug("DEBUG INFO:CFControl: card definitions load time = %sms" % [str(defs_load_end_time - load_start_time)])	
 	# Removed threading since I optimized this loading function
 #	load_script_definitions()
@@ -154,7 +156,7 @@ func _setup() -> void:
 		script_load_thread = Thread.new()
 		script_load_thread.start(self, "load_script_definitions")
 	var scripts_load_end_time = OS.get_ticks_msec()
-	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+	if OS.has_feature("debug") and not cfc.is_testing:
 		print_debug("DEBUG INFO:CFControl: card scripts load time = %sms" % [str(scripts_load_end_time - load_start_time)])	
 
 func _setup_testing() -> void:
