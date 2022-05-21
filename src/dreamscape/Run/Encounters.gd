@@ -109,7 +109,7 @@ func generate_journal_choices() -> Array:
 				journal_options.append(EliteEncounter.new(next_enemy, difficulty))
 			Terms.RUN_ACCUMULATION_NAMES.boss:
 				journal_options.append(BossEncounter.new(current_act.BOSSES[boss_name]))
-	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+	if OS.has_feature("debug") and not cfc.is_testing:
 		var _debug_encounter_paths := []
 		var _debug_enemies := []
 		for e in journal_options:
@@ -188,7 +188,7 @@ func set_encounter_number(value) -> void:
 
 
 func _prepare_remaining_nce(nce_type: String) -> void:
-	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+	if OS.has_feature("debug") and not cfc.is_testing:
 		print("DEBUG INFO:Encounters: Reshuffling %s NCE" % [nce_type])
 	remaining_nce[nce_type].clear()
 	for nce_script in current_act.NCE[nce_type].values():

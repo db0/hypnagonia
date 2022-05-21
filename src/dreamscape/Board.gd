@@ -49,7 +49,7 @@ onready var icon_anims := $IconAnims
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 #	print_debug("Board Enter Ready:" + str(OS.get_ticks_msec() - load_start_time) + 'ms')
-	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+	if OS.has_feature("debug") and not cfc.is_testing:
 		print("DEBUG INFO:Board: Entering Ordeal")
 	player_info.owner_node = self
 	_board_cover.visible = true
@@ -132,7 +132,7 @@ func begin_encounter() -> void:
 		player_info._on_Help_pressed()
 		cfc.set_setting('first_ordeal_tutorial_done', true)
 	get_tree().call_group("enemy_intents", "_connect_signals")
-	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+	if OS.has_feature("debug") and not cfc.is_testing:
 			print("DEBUG INFO:Board: Ordeal Encounter Loaded")
 
 
@@ -168,7 +168,7 @@ func spawn_enemy_encounter(encounter: EnemyEncounter) -> void:
 
 # Creates the enemy entity out of an Act definition
 func spawn_basic_enemy(enemy_entry: Dictionary) -> EnemyEntity:
-	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+	if OS.has_feature("debug") and not cfc.is_testing:
 		print("DEBUG INFO:Board: Spawning Basic Enemy: " + enemy_entry['definition'].get("Name"))
 	var new_enemy = spawn_enemy(enemy_entry['definition'])
 	new_enemy.add_to_group("BasicEnemyEntities")
@@ -215,7 +215,7 @@ func spawn_advanced_enemy(encounter: AdvancedCombatEncounter) -> Array:
 	for enemy_entry in encounter.basic_enemies:
 		spawn_basic_enemy(enemy_entry)
 	for scene in encounter.enemy_scenes:
-		if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+		if OS.has_feature("debug") and not cfc.is_testing:
 			print("DEBUG INFO:Board: Spawning Advanced Enemy: " + scene.get_path())
 		var advanced_entity: EnemyEntity = scene.instance()
 		advanced_entity.add_to_group("AdvancedEnemyEntities")
@@ -655,7 +655,7 @@ func _on_EnemyTurnStuckTimer_timeout() -> void:
 
 
 func _exit_tree():
-	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+	if OS.has_feature("debug") and not cfc.is_testing:
 		print("DEBUG INFO:Board: Exiting Ordeal")
 
 func _store_debug_enemy_states() -> void:

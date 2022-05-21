@@ -44,7 +44,7 @@ func instance_cards() -> Array:
 # Adds a new card to the deck,
 # and optionally starts it with some ugprade progress
 func add_new_card(card_name: String, progress := 0) -> CardEntry:
-	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+	if OS.has_feature("debug") and not cfc.is_testing:
 		print("DEBUG INFO:Deck: Adding new card:" + card_name)
 	var new_card := CardEntry.new(card_name)
 	# warning-ignore:return_value_discarded
@@ -62,7 +62,7 @@ func add_new_card(card_name: String, progress := 0) -> CardEntry:
 
 
 func remove_card(card_entry: CardEntry) -> void:
-	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+	if OS.has_feature("debug") and not cfc.is_testing:
 		print("DEBUG INFO:Deck: Removing card:" + card_entry.card_name)
 	if card_entry.properties.get("_is_unremovable", false):
 		return
@@ -73,7 +73,7 @@ func remove_card(card_entry: CardEntry) -> void:
 		card_entry.disconnect("card_entry_progressed", self, "signal_card_entry_progressed")
 		cards.erase(card_entry)
 		emit_signal("card_removed", card_entry)
-	elif OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+	elif OS.has_feature("debug") and not cfc.is_testing:
 		print("DEBUG INFO:Deck: Card Removal Block because: Last card in deck")
 
 func duplicate_card(card_entry: CardEntry) -> CardEntry:

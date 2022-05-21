@@ -163,7 +163,7 @@ func _load_game() -> void:
 			Tween.TRANS_SINE, Tween.EASE_IN)
 	menu_tween.start()
 	yield(menu_tween, "tween_all_completed")
-	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+	if OS.has_feature("debug") and not cfc.is_testing:
 		print("DEBUG INFO:Main: Loading game.")
 	globals.game_save.load_state()
 

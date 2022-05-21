@@ -28,7 +28,7 @@ var context: int
 var modifiers := {}
 
 func _init(memory_name: String, _mods := {}) -> void:
-	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+	if OS.has_feature("debug") and not cfc.is_testing:
 		print("DEBUG INFO:Memory: Adding Memory: " + memory_name)
 	memory_scene = MEMORY_SCENE
 	if globals.test_flags.get("memory_defintions", {}).has(memory_name):

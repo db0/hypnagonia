@@ -64,7 +64,7 @@ onready var journal_cover := $"../../FadeToBlack"
 
 # We split this
 func _ready() -> void:
-	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+	if OS.has_feature("debug") and not cfc.is_testing:
 		print("DEBUG INFO:Journal: Entering Journal")
 	if globals.player.pathos:
 		for entry in globals.player.pathos.repressed:
@@ -107,7 +107,7 @@ func _setup() -> void:
 		player_info._on_Help_pressed()
 		cfc.set_setting('first_journal_tutorial_done', true)
 	globals.music.switch_scene_music('journal')
-	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+	if OS.has_feature("debug") and not cfc.is_testing:
 		print("DEBUG INFO:Journal: Journal Loaded")
 
 func display_nce_rewards(reward_text: String, add_draft_type = null) -> void:
@@ -629,7 +629,7 @@ func card_upgrade_started(card_upgrade_node) -> void:
 
 
 func _exit_tree():
-	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+	if OS.has_feature("debug") and not cfc.is_testing:
 		print("DEBUG INFO:Journal: Exiting/Changing Journal")
 
 

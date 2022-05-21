@@ -41,7 +41,7 @@ func get_unique_enemies() -> Array:
 
 
 func begin() -> void:
-	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+	if OS.has_feature("debug") and not cfc.is_testing:
 		var _debug_enemies := []
 		for t in enemies:
 			_debug_enemies.append(t.definition.Name)

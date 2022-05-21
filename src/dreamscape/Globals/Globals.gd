@@ -50,7 +50,7 @@ var test_flags := {
 # Test setup. This should happen at game start
 func _ready() -> void:
 	var load_end_time = OS.get_ticks_msec()
-	if OS.has_feature("debug") and not cfc.get_tree().get_root().has_node('Gut'):
+	if OS.has_feature("debug") and not cfc.is_testing:
 		print_debug("DEBUG INFO:Globals: instance time = %sms" % [str(load_end_time - load_start_time)])
 		
 	difficulty = Difficulty.new()
