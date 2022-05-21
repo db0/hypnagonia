@@ -69,14 +69,10 @@ func _on_player_damaged(_pl, amount, _trigger, _tags) -> void:
 		TurnEventMessage.new("player_damaged_own_turn", +1)
 		# warning-ignore:return_value_discarded
 		TurnEventMessage.new("player_total_damage_own_turn", amount)
-	damaged_shader.visible = true
-	yield(get_tree().create_timer(0.1), "timeout")
-	damaged_shader.visible = false
+	damaged_shader.take_damage()
 	
 func _on_entity_damage_blocked(_pl, amount, _trigger, _tags) -> void:
-	blocked_shader.visible = true
-	yield(get_tree().create_timer(0.1), "timeout")
-	blocked_shader.visible = false
+	blocked_shader.take_damage()
 
 func _input(event) -> void:
 	if event is InputEventMouseButton and not event.is_pressed():

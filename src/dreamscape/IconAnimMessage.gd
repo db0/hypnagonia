@@ -5,30 +5,37 @@ var icon: ImageTexture
 var start_pos: Vector2
 var end_pos: Vector2
 var thing: String
-var type
+var extra_classification
 var originator
 var target
 var tags: Array
 var starting_position_node
+var executor: ScEngExecutor
 
-func _init(_thing: String, _type, _originator, _target, _tags: Array, _starting_position_node = null) -> void:
-	thing = _thing
-	type = _type
-	originator = _originator
-	target = _target
-	tags = _tags
-	starting_position_node = _starting_position_node
+func _init(_executor: ScEngExecutor, _extra_classification) -> void:
+	executor = _executor
+	thing = executor.task_name
+	originator = executor.owner
+	tags = executor.tags
+	starting_position_node = executor.script_task.get_property("starting_position_node")
+	extra_classification = _extra_classification
 	_set_icon()
 	_set_start_pos()
 	_set_end_pos()
 	cfc.NMAP.board.icon_anims.effects_queue.append(self)
 	
 
+# Called when the animation finishes playing
+# If an animation is waiting to deploy it's payload, we call it now
+func exec_payload() -> void:
+	executor.exec()
+
 
 func _set_icon() -> void:
 	var texture = "res://icon.png"
 	match thing:
 		"modify_damage":
+			target = executor.combat_entity
 			if "Attack" in tags:
 				if originator is Card:
 					texture = Terms.get_term_value("attack", "icon")
@@ -47,14 +54,17 @@ func _set_icon() -> void:
 			else:
 				texture = Terms.get_term_value("player_health", "icon")
 		"assign_defence":
+			target = executor.combat_entity
 			texture = Terms.get_term_value("defence", "icon")
 		"apply_effect":
-			texture = Terms.get_term_value(type, "icon")
+			target = executor.combat_entity
+			texture = Terms.get_term_value(extra_classification, "icon")
 		"modify_pathos":
 			texture = Terms.get_term_value('Pathos', "icon")
 		"mod_counter":
 			texture = Terms.get_term_value('energy', "icon")
 		"modify_health":
+			target = executor.combat_entity
 			if target is EnemyEntity:
 				texture = Terms.get_term_value("enemy_health", "icon")
 			else:
@@ -77,7 +87,7 @@ func _set_start_pos() -> void:
 
 func _set_end_pos() -> void:
 	if thing == "modify_damage":
-		if type == "Unblocked":
+		if extra_classification == "Unblocked":
 			end_pos = target.health_bar.rect_global_position + target.health_bar.rect_size / 2
 		else:
 			end_pos = target.defence_icon.rect_global_position 
