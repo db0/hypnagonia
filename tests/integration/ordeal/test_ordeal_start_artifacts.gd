@@ -128,6 +128,9 @@ class TestStartingConfidence:
 		if not assert_has_amounts():
 			return
 		assert_eq(dreamer.defence, get_amount("defence_amount"))
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		assert_eq(dreamer.defence, 0, "no extra defence on next turn")
 
 class TestPerturbationHeal:
 	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"

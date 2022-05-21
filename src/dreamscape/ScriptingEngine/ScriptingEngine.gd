@@ -246,7 +246,7 @@ func modify_damage(script_task: ScriptTask) -> int:
 			if not executor.has_executed:
 				yield(executor, "executed")
 			# To allow effects like advantage to despawn
-			yield(cfc.get_tree(), "idle_frame")
+			yield(script_task.owner.get_tree(), "idle_frame")
 			retcode = executor.rc
 		else:
 			retcode = executor.exec(true)
@@ -906,6 +906,9 @@ func _check_for_x(script: ScriptTask, final_amount: int) -> int:
 # Extendable function to perform extra checks on the script
 # according to game logic
 func _pre_task_exec(script: ScriptTask) -> void:
+	if not is_instance_valid(script.owner):
+		script.is_valid = false
+		return
 	if script.owner is CombatEntity and script.owner.is_dead:
 		script.is_valid = false
 

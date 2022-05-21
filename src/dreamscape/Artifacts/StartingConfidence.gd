@@ -4,10 +4,12 @@ func _ready() -> void:
 	if is_active and effect_context == ArtifactDefinitions.EffectContext.BATTLE:
 		if not cfc.are_all_nodes_mapped:
 			yield(cfc, "all_nodes_mapped")
-		cfc.NMAP.board.connect("battle_begun", self, "_on_battle_start")
+		cfc.NMAP.board.dreamer.connect("entity_turn_started", self, "_on_entity_turn_started")
 
 
-func _on_battle_start():
+# We're not using the more appropriate battle_begun signal because the 
+# turn-start defence will clear the starting defence
+func _on_entity_turn_started():
 	if not _activate():
 		return
 	var script = [
