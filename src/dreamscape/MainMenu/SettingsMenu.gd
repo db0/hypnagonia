@@ -3,6 +3,8 @@ extends CenterContainer
 onready var back_button = find_node('Back')
 onready var focus_style = find_node('FocusStyle')
 onready var expand_linked_terms = find_node('ExpandLinkedTerms')
+onready var fast_icon_speed = find_node('FastIconSpeed')
+onready var async_icon_animations = find_node('AsyncIconAnimations')
 onready var fancy_movement = find_node('FancyAnimations')
 onready var animated_text_backgrounds = find_node('AnimatedTextBackgrounds')
 onready var enable_glow = find_node('EnableGlow')
@@ -24,6 +26,8 @@ func _ready() -> void:
 	cfc.game_settings['sounds_volume'] = cfc.game_settings.get('sounds_volume', 0)
 	cfc.game_settings['interrupt_music'] = cfc.game_settings.get('interrupt_music', true)
 	cfc.game_settings['expand_linked_terms'] = cfc.game_settings.get('expand_linked_terms', true)
+	cfc.game_settings['fast_icon_speed'] = cfc.game_settings.get('fast_icon_speed', false)
+	cfc.game_settings['async_icon_animations'] = cfc.game_settings.get('async_icon_animations', false)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), cfc.game_settings.main_volume)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("bgm"), cfc.game_settings.music_volume)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("se"), cfc.game_settings.sounds_volume)
@@ -31,6 +35,8 @@ func _ready() -> void:
 	focus_style.selected = focus_style.get_item_index(cfc.game_settings.focus_style)
 	fancy_movement.pressed = cfc.game_settings.fancy_movement
 	expand_linked_terms.pressed = cfc.game_settings.expand_linked_terms
+	fast_icon_speed.pressed = cfc.game_settings.fast_icon_speed
+	async_icon_animations.pressed = cfc.game_settings.async_icon_animations
 	animated_text_backgrounds.pressed = cfc.game_settings.anim_text_backgrounds
 	enable_glow.pressed = cfc.game_settings.glow_enabled
 	interrupt_music.pressed = cfc.game_settings.interrupt_music
@@ -118,6 +124,24 @@ func _on_EnableGlow_toggled(button_pressed: bool) -> void:
 
 func _on_ExpandLinkedTerms_toggled(button_pressed: bool):
 	cfc.set_setting('expand_linked_terms',button_pressed)
+	if sound_effect_enabled:
+		if button_pressed:
+			SoundManager.play_se('setting_toggle_on')
+		else:
+			SoundManager.play_se('setting_toggle_off')
+
+
+func _on_FastIconSpeed_toggled(button_pressed: bool):
+	cfc.set_setting('fast_icon_speed',button_pressed)
+	if sound_effect_enabled:
+		if button_pressed:
+			SoundManager.play_se('setting_toggle_on')
+		else:
+			SoundManager.play_se('setting_toggle_off')
+
+
+func _on_AsyncIcons_toggled(button_pressed: bool):
+	cfc.set_setting('async_icon_animations',button_pressed)
 	if sound_effect_enabled:
 		if button_pressed:
 			SoundManager.play_se('setting_toggle_on')

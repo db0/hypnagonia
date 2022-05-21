@@ -597,8 +597,8 @@ func _input(event):
 #			EliteEncounter.new(Act1.Bully, "medium"),
 #			EliteEncounter.new(Act2.IndescribableAbsurdity, "medium"),
 #			EliteEncounter.new(Act3.TheatrePlay, "medium"),
-#			load("res://src/dreamscape/Run/NCE/Shop.gd").new()
-			load("res://src/dreamscape/Run/NCE/Rest.gd").new()
+			load("res://src/dreamscape/Run/NCE/Shop.gd").new()
+#			load("res://src/dreamscape/Run/NCE/Rest.gd").new()
 		]
 		for encounter in debug_encounters:
 			var journal_choice_scene = JOURNAL_ENCOUNTER_CHOICE_SCENE.instance()

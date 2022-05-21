@@ -3,6 +3,10 @@
 extends Timer
 
 var effects_queue: Array
+var fast_icon_speed := {
+	false: 0.5,
+	true: 0.2,
+}
 
 func _ready():
 	connect("timeout",self,"_next_icon_animation")
@@ -22,11 +26,12 @@ func send_icon_to_texturerect(next_anim_msg: IconAnimMessage) -> void:
 	# warning-ignore:return_value_discarded
 	tween.connect("tween_all_completed",self,"_anim_completed", [tween, sprite, next_anim_msg])
 	# warning-ignore:return_value_discarded
+	var icon_speed = fast_icon_speed[cfc.game_settings.get('fast_icon_speed', false)]
 	tween.interpolate_property(
 			sprite,"rect_global_position", 
 			next_anim_msg.start_pos, 
 			next_anim_msg.end_pos, 
-			0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+			icon_speed, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 	# warning-ignore:return_value_discarded
 	tween.start()
 
@@ -35,7 +40,7 @@ func send_icon_to_texturerect(next_anim_msg: IconAnimMessage) -> void:
 func _anim_completed(tween: Tween, sprite, next_anim_msg: IconAnimMessage) -> void:
 	tween.call_deferred("queue_free")
 	sprite.call_deferred("queue_free")
-	next_anim_msg.exec_payload()
+	next_anim_msg.animation_finished()
 
 
 # Triggers every timer timeout. Extracts the next icon from the message and initiates animation

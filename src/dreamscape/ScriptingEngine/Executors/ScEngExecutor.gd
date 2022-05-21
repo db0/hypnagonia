@@ -9,6 +9,8 @@
 class_name ScEngExecutor
 extends Reference
 
+signal executed(dry_run)
+
 # Each script task has a unique name, such as "flip_card"
 var task_name := "script_executor"
 # The return code of this object
@@ -26,6 +28,12 @@ var tags: Array
 var owner
 # We also store the complete task object along, just in case it needs to be used further
 var script_task: ScriptTask
+# The snapshot_id of the current ScEng execution which generated this Executor
+# This is sent as part of the payload when doing dry runs, to simulate how the game state
+# Would be modified by each task in the script.
+var snapshot_id
+# This is set to true, the first time this executor delivers it payload without a dry-run
+var has_executed := false
 
 
 # We only expect the ScriptTask object as an argument
@@ -34,9 +42,14 @@ func _init(_script_task: ScriptTask):
 	script_task = _script_task
 	owner = script_task.owner
 	tags = ["Scripted"] + script_task.get_property(SP.KEY_TAGS)
+	connect("executed", self, "_when_finished_executing")
 
 
 # If _dry_run is false, attempts to modify the game state as instructed and sets the rc
 # If _dry_run is true, simply sets the rc but does not change the game state.
 func exec(_dry_run:= false) -> int:
 	return(rc)
+
+func _when_finished_executing(dry_run: bool) -> void:
+	if not dry_run:
+		has_executed = true

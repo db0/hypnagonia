@@ -27,25 +27,25 @@ script = ExtResource( 2 )
 [node name="PC" type="PanelContainer" parent="."]
 self_modulate = Color( 1, 1, 1, 0.690196 )
 margin_left = 511.0
-margin_top = 283.0
+margin_top = 259.0
 margin_right = 943.0
-margin_bottom = 617.0
+margin_bottom = 641.0
 
 [node name="VBC" type="VBoxContainer" parent="PC"]
 margin_left = 2.0
 margin_top = 2.0
 margin_right = 430.0
-margin_bottom = 332.0
+margin_bottom = 380.0
 custom_constants/separation = 5
 
 [node name="HBC" type="HBoxContainer" parent="PC/VBC"]
 margin_right = 428.0
-margin_bottom = 220.0
+margin_bottom = 268.0
 custom_constants/separation = 20
 
 [node name="VBC2" type="VBoxContainer" parent="PC/VBC/HBC"]
 margin_right = 231.0
-margin_bottom = 220.0
+margin_bottom = 268.0
 custom_constants/separation = 20
 
 [node name="InfoPanels" type="Label" parent="PC/VBC/HBC/VBC2"]
@@ -89,14 +89,14 @@ align = 1
 [node name="PerformanceMC" type="MarginContainer" parent="PC/VBC/HBC/VBC2"]
 margin_top = 151.0
 margin_right = 231.0
-margin_bottom = 220.0
+margin_bottom = 268.0
 custom_constants/margin_right = 10
 custom_constants/margin_left = 10
 
 [node name="VBC" type="VBoxContainer" parent="PC/VBC/HBC/VBC2/PerformanceMC"]
 margin_left = 10.0
 margin_right = 221.0
-margin_bottom = 69.0
+margin_bottom = 117.0
 
 [node name="FancyAnimations" type="CheckButton" parent="PC/VBC/HBC/VBC2/PerformanceMC/VBC"]
 margin_right = 211.0
@@ -115,10 +115,22 @@ margin_right = 211.0
 margin_bottom = 69.0
 text = "Enable Glow"
 
+[node name="FastIconSpeed" type="CheckButton" parent="PC/VBC/HBC/VBC2/PerformanceMC/VBC"]
+margin_top = 72.0
+margin_right = 211.0
+margin_bottom = 93.0
+text = "Fast Icon Speed"
+
+[node name="AsyncIconAnimations" type="CheckButton" parent="PC/VBC/HBC/VBC2/PerformanceMC/VBC"]
+margin_top = 96.0
+margin_right = 211.0
+margin_bottom = 117.0
+text = "Async Icon Animations"
+
 [node name="VBC" type="VBoxContainer" parent="PC/VBC/HBC"]
 margin_left = 251.0
 margin_right = 428.0
-margin_bottom = 220.0
+margin_bottom = 268.0
 size_flags_horizontal = 3
 custom_constants/separation = 20
 
@@ -198,18 +210,18 @@ __meta__ = {
 }
 
 [node name="ExitToMain" type="Button" parent="PC/VBC"]
-margin_top = 225.0
+margin_top = 273.0
 margin_right = 428.0
-margin_bottom = 275.0
+margin_bottom = 323.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 2 )
 text = "Exit To Main Menu"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PC/VBC"]
-margin_top = 280.0
+margin_top = 328.0
 margin_right = 428.0
-margin_bottom = 330.0
+margin_bottom = 378.0
 
 [node name="Back" type="Button" parent="PC/VBC/HBoxContainer"]
 margin_right = 428.0
@@ -224,6 +236,8 @@ text = "BACK"
 [connection signal="toggled" from="PC/VBC/HBC/VBC2/PerformanceMC/VBC/FancyAnimations" to="." method="_on_FancAnimations_toggled"]
 [connection signal="toggled" from="PC/VBC/HBC/VBC2/PerformanceMC/VBC/AnimatedTextBackgrounds" to="." method="_on_AnimatedTextBackgrounds_toggled"]
 [connection signal="toggled" from="PC/VBC/HBC/VBC2/PerformanceMC/VBC/EnableGlow" to="." method="_on_EnableGlow_toggled"]
+[connection signal="toggled" from="PC/VBC/HBC/VBC2/PerformanceMC/VBC/FastIconSpeed" to="." method="_on_FastIconSpeed_toggled"]
+[connection signal="toggled" from="PC/VBC/HBC/VBC2/PerformanceMC/VBC/AsyncIconAnimations" to="." method="_on_AsyncIcons_toggled"]
 [connection signal="toggled" from="PC/VBC/HBC/VBC/SoundMC/VBC/InterruptMusic" to="." method="_on_InterruptMusic_toggled"]
 [connection signal="value_changed" from="PC/VBC/HBC/VBC/SoundMC/VBC/MainVolSlider" to="." method="_on_MainVolSlider_value_changed"]
 [connection signal="value_changed" from="PC/VBC/HBC/VBC/SoundMC/VBC/MusicVolSlider" to="." method="_on_MusicVolSlider_value_changed"]

@@ -51,6 +51,7 @@ var entity_size : Vector2
 var character_art: String
 var is_dead := false
 var shader_progress := 0.0
+var snapshot_state: Dictionary
 
 # Holding all the details from the CombatEntity, in case
 # we need to retrieve some extra ones, depending on the type
@@ -187,6 +188,7 @@ func modify_damage(amount: int, dry_run := false, tags := ["Manual"], trigger = 
 				emit_signal("entity_damage_blocked", self, amount, trigger, tags)
 				amount = 0
 		set_damage(damage + amount)
+		cfc.flush_cache()
 		if amount > 0:
 			emit_signal("entity_damaged", self, amount, trigger, tags)
 		elif amount < 0:
@@ -228,6 +230,7 @@ func modify_defence(
 			if set_to_mod:
 				amount = amount - defence
 			set_defence(defence + amount)
+			cfc.flush_cache()
 			emit_signal("entity_defence_modified", self, amount, trigger, tags)
 	return(retcode)
 
@@ -252,6 +255,7 @@ func modify_health(
 			if set_to_mod:
 				amount = amount - health
 			set_health(health + amount)
+			cfc.flush_cache()
 			emit_signal("entity_health_modified", self, amount, trigger, tags)
 	return(retcode)
 
@@ -273,6 +277,19 @@ func clear_predictions() -> void:
 	for node in incoming.get_children():
 		node.queue_free()
 	active_effects.sceng_snapshot_modifiers.clear()
+
+
+func take_snapshot(snapshot_id: float) -> void:
+	snapshot_state[snapshot_id] = {
+		"health": health,
+		"damage": damage,
+		"defence": defence,
+		"is_dead": is_dead,
+	}
+
+func clear_snapshot(snapshot_id: float) -> void:
+	# warning-ignore:return_value_discarded
+	snapshot_state.erase(snapshot_id)
 
 
 # The entities do not have starting health which decreases as they take damage

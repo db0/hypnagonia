@@ -428,6 +428,10 @@ func _fade_to_transparent() -> void:
 
 func spool_recalc_predictions() -> void:
 	needs_prediction_recalculation = true
+	# Every time the game state changes, we also reset the stuck timer
+	# As now the enemy animations might delay the end turn a bit
+	if not _debug_timer.is_stopped():
+		_debug_timer.start()
 
 
 # Show the amount of damage the enemies are going to do to the player
@@ -440,8 +444,7 @@ func recalculate_predictions() -> void:
 		return
 	for entity in cfc.get_tree().get_nodes_in_group("CombatEntities"):
 		entity.clear_predictions()
-	var snapshot_id = int(rand_range(1,100000))
-	get_tree().call_group_flags(get_tree().GROUP_CALL_REALTIME, "combat_effects", "take_snapshot", snapshot_id)
+	var snapshot_id := globals.take_state_snapshot()
 	# I want the enemies to be predicted serially
 	for enemy in get_tree().get_nodes_in_group("EnemyEntities"):
 		# It might have died of poison in the meantime
@@ -451,6 +454,7 @@ func recalculate_predictions() -> void:
 			yield(enemy.intents, "intents_predicted")
 	if snapshot_dmg_predictions.has(snapshot_id):
 		dreamer.show_turn_dmg_prediction(snapshot_dmg_predictions[snapshot_id])
+	globals.clear_state_snapshot(snapshot_id)
 
 
 func _input(event):
@@ -467,14 +471,14 @@ func _input(event):
 		var _torment1
 		var _torment2
 		var _torment3
-		_torment1 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+		_torment1 = spawn_enemy(EnemyDefinitions.TRAFFICJAM)
 #		_torment1 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 #		_torment1 = spawn_enemy(EnemyDefinitions.VOID)
-		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+		_torment2 = spawn_enemy(EnemyDefinitions.TRAFFICJAM)
 #		_torment2 = spawn_enemy(EnemyDefinitions.BROKEN_MIRROR)
 #		_torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
 #		_torment3 = spawn_enemy(EnemyDefinitions.GASLIGHTER)
-		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+#		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 		if _torment1:
 			_torment1.health = 300

@@ -181,7 +181,7 @@ func execute_scripts(
 	return(sceng)
 
 
-func predict_intents(snapshot_id: int) -> void:
+func predict_intents(snapshot_id: float) -> void:
 	yield(get_tree(), "idle_frame")
 	for intent in get_children():
 		intent.recalculate_amount(snapshot_id)
