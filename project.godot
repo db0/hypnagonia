@@ -444,6 +444,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/CombatElements/Enemies/EnemyIntents.gd"
 }, {
+"base": "ScEngExecutor",
+"class": "ExecModifyDamage",
+"language": "GDScript",
+"path": "res://src/dreamscape/ScriptingEngine/Executors/ExecModifyDamage.gd"
+}, {
 "base": "Reference",
 "class": "GameSave",
 "language": "GDScript",
@@ -658,6 +663,11 @@ _global_script_classes=[ {
 "class": "SP",
 "language": "GDScript",
 "path": "res://src/dreamscape/SP.gd"
+}, {
+"base": "Reference",
+"class": "ScEngExecutor",
+"language": "GDScript",
+"path": "res://src/dreamscape/ScriptingEngine/Executors/ScEngExecutor.gd"
 }, {
 "base": "ScriptObject",
 "class": "ScriptAlter",
@@ -912,6 +922,7 @@ _global_script_class_icons={
 "EnemyEncounter": "",
 "EnemyEntity": "",
 "EnemyIntents": "",
+"ExecModifyDamage": "",
 "GameSave": "",
 "GameStats": "",
 "GutHookScript": "",
@@ -955,6 +966,7 @@ _global_script_class_icons={
 "RichTextGhost": "",
 "RunChanges": "",
 "SP": "",
+"ScEngExecutor": "",
 "ScriptAlter": "",
 "ScriptObject": "",
 "ScriptPer": "",

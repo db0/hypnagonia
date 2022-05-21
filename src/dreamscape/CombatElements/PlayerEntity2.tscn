@@ -9,7 +9,7 @@
 [ext_resource path="res://assets/progress_bar/OverBar.png" type="Texture" id=7]
 [ext_resource path="res://assets/progress_bar/RedBar.png" type="Texture" id=8]
 [ext_resource path="res://src/dreamscape/TargetingArrow.tscn" type="PackedScene" id=9]
-[ext_resource path="res://shaders/glitch.tres" type="Material" id=10]
+[ext_resource path="res://src/dreamscape/CombatElements/DamagedShader.tscn" type="PackedScene" id=11]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 1 )
@@ -105,12 +105,7 @@ stretch_margin_bottom = 20
 
 [node name="Tween" type="Tween" parent="HBC/MC/HealthBar"]
 
-[node name="DamagedShader" type="ColorRect" parent="HBC/MC"]
-visible = false
-material = ExtResource( 10 )
-margin_right = 346.0
-margin_bottom = 36.0
-mouse_filter = 2
+[node name="DamagedShader" parent="HBC/MC" instance=ExtResource( 11 )]
 
 [node name="HBC" type="HBoxContainer" parent="HBC/MC"]
 margin_right = 346.0
@@ -174,13 +169,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BlockedShader" type="ColorRect" parent="HBC/Defence"]
-visible = false
-material = ExtResource( 10 )
+[node name="BlockedShader" parent="HBC/Defence" instance=ExtResource( 11 )]
 margin_right = 50.0
-margin_bottom = 36.0
 rect_min_size = Vector2( 50, 36 )
-mouse_filter = 2
 
 [node name="Name" type="Label" parent="."]
 visible = false

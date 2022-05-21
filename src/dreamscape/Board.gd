@@ -470,11 +470,11 @@ func _input(event):
 		_torment1 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment1 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 #		_torment1 = spawn_enemy(EnemyDefinitions.VOID)
-		_torment2 = spawn_enemy(EnemyDefinitions.TRAFFICJAM)
+		_torment2 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment2 = spawn_enemy(EnemyDefinitions.BROKEN_MIRROR)
 #		_torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
 #		_torment3 = spawn_enemy(EnemyDefinitions.GASLIGHTER)
-#		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
+		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 		if _torment1:
 			_torment1.health = 300
