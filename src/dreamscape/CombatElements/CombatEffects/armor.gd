@@ -5,18 +5,21 @@ func get_effect_alteration(
 		value: int, 
 		sceng, 
 		is_source := false, 
-		_dry_run := true,
+		dry_run := true,
 		_subject: Node = null) -> int:
 	var stacks_amount = snapshot_stacks.get(sceng.snapshot_id, stacks)
-	if stacks_amount == 0\
-			or not script.script_name == 'modify_damage'\
-			or not "Attack" in script.get_property(SP.KEY_TAGS)\
-			or is_source:
+	if stacks_amount == 0:
+		return(0)
+	if not script.script_name == 'modify_damage':
+		return(0)
+	if not "Attack" in script.get_property(SP.KEY_TAGS):
+		return(0)
+	if is_source:
 		return(0)
 	var new_value = value - stacks_amount
 	if new_value < 0:
 		new_value = 0
-	if sceng.snapshot_id > 0:
+	if dry_run and sceng.snapshot_id > 0:
 		# This can only happen if this effect was spawned as part of playing the card
 		# but it was not yet there when taking the snapshot.
 		# So we're using this as a failsafe

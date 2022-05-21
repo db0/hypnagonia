@@ -13,7 +13,7 @@ func setup(signifier_details: Dictionary, signifier_name: String) -> void:
 	signifier_icon_container.visible = false
 	signifier_extra_container.visible = false
 
-func recalculate_amount(snapshot_id: int) -> void:
+func recalculate_amount(snapshot_id: float) -> void:
 	var sceng = cfc.scripting_engine.new(
 		[intent_script],
 		get_parent().combat_entity,

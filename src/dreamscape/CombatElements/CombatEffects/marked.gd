@@ -10,7 +10,7 @@ func get_effect_alteration(
 		value: int, 
 		sceng, 
 		is_source := false, 
-		_dry_run := true,
+		dry_run := true,
 		_subject: Node = null) -> int:
 	if not script.script_name == 'modify_damage':
 		return(0)
@@ -21,7 +21,7 @@ func get_effect_alteration(
 	if is_delayed:
 		return(0)
 	var increase : float
-	if sceng.snapshot_id > 0:
+	if dry_run and sceng.snapshot_id > 0:
 		# This can only happen if this effect was spawned as part of playing the card
 		# but it was not yet there when taking the snapshot.
 		# So we're using this as a failsafe

@@ -196,12 +196,12 @@ func execute_script(
 	emit_signal("scripting_finished", sceng)
 	return(sceng)
 
-func take_snapshot(id: int) -> void:
-	snapshot_stacks[id] = stacks
+func take_snapshot(snapshot_id: float) -> void:
+	snapshot_stacks[snapshot_id] = stacks
 
-func clear_snapshot(id: int) -> void:
+func clear_snapshot(snapshot_id: int) -> void:
 	# warning-ignore:return_value_discarded
-	snapshot_stacks.erase(id)
+	snapshot_stacks.erase(snapshot_id)
 
 
 # This is connected in the BoardSignalConnector class

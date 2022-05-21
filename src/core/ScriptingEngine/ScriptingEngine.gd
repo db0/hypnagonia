@@ -30,6 +30,11 @@ var all_tasks_completed := false
 # Stores the inputed integer from the ask_integer task
 var stored_integer: int
 var scripts_queue: Array
+# Each ScriptingEngine execution gets an ID.
+# This can be used by games to be able to take a "snapshot" of the changes
+# in the board state as the script would execute and therefore know what the 
+# state of the board would be mid-execution, even during dry-runs
+var snapshot_id : float = 0
 
 
 # Simply initiates the [run_next_script()](#run_next_script) loop
@@ -88,6 +93,7 @@ func costs_dry_run() -> bool:
 # then turns each array element into a [ScriptTask] object and
 # send it to the appropriate tasks.
 func execute(_run_type := CFInt.RunType.NORMAL) -> void:
+	snapshot_id = rand_range(1,10000000)
 	all_tasks_completed = false
 	run_type = _run_type
 	var prev_subjects := []

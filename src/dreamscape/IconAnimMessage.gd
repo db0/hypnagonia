@@ -1,6 +1,8 @@
 class_name IconAnimMessage
 extends Reference
 
+signal payload_executed
+
 var icon: ImageTexture
 var start_pos: Vector2
 var end_pos: Vector2
@@ -11,24 +13,40 @@ var target
 var tags: Array
 var starting_position_node
 var executor: ScEngExecutor
+var async: bool
 
-func _init(_executor: ScEngExecutor, _extra_classification) -> void:
+func _init(
+		_executor: ScEngExecutor, 
+		_extra_classification := '', 
+		_async := cfc.game_settings.get('async_icon_animations', false)) -> void:
 	executor = _executor
 	thing = executor.task_name
 	originator = executor.owner
 	tags = executor.tags
 	starting_position_node = executor.script_task.get_property("starting_position_node")
 	extra_classification = _extra_classification
+	async = _async
+	# For testing, we want to go fast always
+	if cfc.get_tree().get_root().has_node('Gut'):
+		async = true
 	_set_icon()
 	_set_start_pos()
 	_set_end_pos()
 	cfc.NMAP.board.icon_anims.effects_queue.append(self)
-	
+	if async:
+		exec_payload()
+
+
+func animation_finished() -> void:
+	if not async:
+		exec_payload()
+
 
 # Called when the animation finishes playing
 # If an animation is waiting to deploy it's payload, we call it now
 func exec_payload() -> void:
 	executor.exec()
+	emit_signal("payload_executed")
 
 
 func _set_icon() -> void:
@@ -58,7 +76,7 @@ func _set_icon() -> void:
 			texture = Terms.get_term_value("defence", "icon")
 		"apply_effect":
 			target = executor.combat_entity
-			texture = Terms.get_term_value(extra_classification, "icon")
+			texture = Terms.get_term_value(executor.effect_name, "icon")
 		"modify_pathos":
 			texture = Terms.get_term_value('Pathos', "icon")
 		"mod_counter":

@@ -93,3 +93,29 @@ func _notification(what):
 
 func _exit_tree():
 	print("Hypnagonia Exited Gracefully.")
+
+func take_state_snapshot() -> float:
+	var snapshot_id = rand_range(1,10000000)
+	get_tree().call_group_flags(
+			get_tree().GROUP_CALL_REALTIME, 
+			"combat_effects", 
+			"take_snapshot", 
+			snapshot_id)
+	get_tree().call_group_flags(
+			get_tree().GROUP_CALL_REALTIME, 
+			"CombatEntities", 
+			"take_snapshot", 
+			snapshot_id)
+	return(snapshot_id)
+
+func clear_state_snapshot(snapshot_id) -> void:
+	get_tree().call_group_flags(
+			get_tree().GROUP_CALL_REALTIME, 
+			"combat_effects", 
+			"clear_snapshot", 
+			snapshot_id)
+	get_tree().call_group_flags(
+			get_tree().GROUP_CALL_REALTIME, 
+			"CombatEntities", 
+			"clear_snapshot", 
+			snapshot_id)

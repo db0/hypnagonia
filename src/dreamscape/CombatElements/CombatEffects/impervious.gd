@@ -7,7 +7,7 @@ func get_effect_alteration(
 		value: int,
 		sceng,
 		is_source := false,
-		_dry_run := true,
+		dry_run := true,
 		subject: Node = null) -> int:
 	var pct_decrease := PCT_DECREASE
 	var stacks_amount = snapshot_stacks.get(sceng.snapshot_id, stacks)
@@ -22,7 +22,7 @@ func get_effect_alteration(
 	if subject.entity_type == Terms.PLAYER and globals.player.find_artifact(ArtifactDefinitions.ImproveImpervious.canonical_name):
 		pct_decrease += ArtifactDefinitions.ImproveImpervious.amounts.per_stack_modifier
 	var reduction : float
-	if sceng.snapshot_id > 0:
+	if dry_run and sceng.snapshot_id > 0:
 		# This can only happen if this effect was spawned as part of playing the card
 		# but it was not yet there when taking the snapshot.
 		# So we're using this as a failsafe
