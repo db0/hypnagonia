@@ -544,16 +544,16 @@ func show_pathos_popup(description_text: String, pathos_dict: Dictionary) -> voi
 
 func _input(event):
 	### Debug ###
-	if event.is_action_pressed("debug"):
-		globals.game_save.save_state()
 	if event.is_action_pressed("init_debug_game"):
+		globals.player.deck.add_new_card("Guilt")
 		# Upgrade cards debug
-#		for c in globals.player.deck.get_progressing_cards():
-#			c.upgrade_progress = c.upgrade_threshold
+		for c in globals.player.deck.get_progressing_cards():
+			c.upgrade_progress = c.upgrade_threshold
 #			if c.card_name == "Noisy Whip":
 #				globals.player.deck.remove_card(c)
 #		_reveal_entry(upgrade_journal, true)
-		globals.player.deck.add_new_card("Catatonia")
+		globals.player.deck.add_new_card("Guilt")
+#		globals.player.deck.add_new_card("Catatonia")
 		globals.player.add_artifact(ArtifactDefinitions.StartingFortify.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.EnhanceOnRest.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.IncreaseRandomDamage.canonical_name)
