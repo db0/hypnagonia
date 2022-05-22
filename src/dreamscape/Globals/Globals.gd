@@ -100,7 +100,7 @@ func take_state_snapshot() -> float:
 	var snapshot_id = round(rand_range(1,10000000))
 	get_tree().call_group_flags(
 			get_tree().GROUP_CALL_REALTIME, 
-			"combat_effects", 
+			"CombatEffects", 
 			"take_snapshot", 
 			snapshot_id)
 	get_tree().call_group_flags(
@@ -113,7 +113,7 @@ func take_state_snapshot() -> float:
 func clear_state_snapshot(snapshot_id) -> void:
 	get_tree().call_group_flags(
 			get_tree().GROUP_CALL_REALTIME, 
-			"combat_effects", 
+			"CombatEffects", 
 			"clear_snapshot", 
 			snapshot_id)
 	get_tree().call_group_flags(
