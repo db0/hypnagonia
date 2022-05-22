@@ -13,6 +13,7 @@ onready var signifier_amount := $MC/Amount
 onready var decription_popup := $Description
 onready var decription_label := $Description/VBC/Label
 onready var focus_info := $Description/VBC/DetailPanels
+onready var anims = $AnimationPlayer
 
 var canonical_name: String
 
@@ -63,3 +64,15 @@ func update_amount(value) -> void:
 		return
 	amount = value
 	signifier_amount.text = str(value)
+
+func update_amount_animated(value, increase := true) -> void:
+	if typeof(value) == TYPE_STRING:
+		return
+	var animation = "Increased"
+	if not increase:
+		animation = "Decreased"
+	amount = value
+	anims.play(animation)
+
+func set_amount_from_int() -> void:
+	signifier_amount.text = str(amount)
