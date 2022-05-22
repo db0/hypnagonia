@@ -56,7 +56,8 @@ func set_stacks(value: int, tags := ["Manual"], can_go_negative := false) -> voi
 		# immediately.
 		if "Delayed" in tags and stacks == 0:
 			is_delayed = true
-		signifier_amount.text = str(value)
+#		signifier_amount.text = str(value)
+		update_amount_animated(value, stacks < value)
 		stacks = value
 		# If it's an effect that can go to negative values, then we make the icon red
 		# when it is negative
