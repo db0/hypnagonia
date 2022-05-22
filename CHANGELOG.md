@@ -1,5 +1,34 @@
 # Changelog
 
+## [Unreleased](https://github.com/db0/hypnagonia/tree/HEAD)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.56.0...HEAD)
+
+**Implemented enhancements:**
+
+- Confidence shredding torment | Shred elves [\#343](https://github.com/db0/hypnagonia/issues/343)
+
+## [v0.56.0](https://github.com/db0/hypnagonia/tree/v0.56.0) (2022-05-22)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.55.0...v0.56.0)
+
+**Implemented enhancements:**
+
+- Change menu button text to make it more readable + hover animation [\#302](https://github.com/db0/hypnagonia/issues/302)
+
+**Fixed bugs:**
+
+- Store in mind seems bugged with an enhancement for +1 card [\#266](https://github.com/db0/hypnagonia/issues/266)
+
+**Closed issues:**
+
+- Influencer needs journal and encounter art [\#342](https://github.com/db0/hypnagonia/issues/342)
+- Influencer needs journal and encounter art [\#341](https://github.com/db0/hypnagonia/issues/341)
+
+**Merged pull requests:**
+
+- Flying icons now synced to their effect and animation added for their changes [\#344](https://github.com/db0/hypnagonia/pull/344) ([db0](https://github.com/db0))
+
 ## [v0.55.0](https://github.com/db0/hypnagonia/tree/v0.55.0) (2022-05-19)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.54.1...v0.55.0)
