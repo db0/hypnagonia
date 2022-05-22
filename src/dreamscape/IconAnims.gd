@@ -47,4 +47,5 @@ func _anim_completed(tween: Tween, sprite, next_anim_msg: IconAnimMessage) -> vo
 func _next_icon_animation() -> void:
 	if effects_queue.size():
 		var next_anim_msg: IconAnimMessage = effects_queue.pop_front()
+		next_anim_msg.animation_started()
 		send_icon_to_texturerect(next_anim_msg)
