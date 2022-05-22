@@ -102,7 +102,7 @@ func _process(_delta: float) -> void:
 		# in the same tick, we spool all the requests to clear predictions, then set them
 		# only one time
 		predictions_delta_wait += 1
-		if predictions_delta_wait >= 5:
+		if predictions_delta_wait >= 2:
 			needs_prediction_recalculation = false
 			predictions_delta_wait = 0
 			recalculate_predictions()

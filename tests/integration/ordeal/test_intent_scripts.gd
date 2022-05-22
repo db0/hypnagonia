@@ -417,3 +417,38 @@ class TestAwkwardCompliments:
 		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started",3), YIELD)
 		assert_eq(dreamer.damage, 3 * 6, "Dreamer should take damage")
+
+class TestCheckBrowserHistory:
+	extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"
+	var dmg = 7
+	func _init() -> void:
+		torments_amount = 3
+		intents_to_test = [
+			{
+				"intent_scripts": ["Stress:" + str(dmg), "Check browser history"],
+				"reshuffle": true,
+			},
+		]
+
+	func test_intent():
+		assert_eq(dreamer.damage, dmg, "Dreamer should take damage")
+		var t_health := {}
+		for t in test_torments:
+			t_health[t] = t.health
+			t.intents.replace_intents(intents_to_test)
+			t.intents.refresh_intents()
+		dreamer.defence = dmg * 2 + 15
+		if not dreamer.incoming_dmg_signifier:
+			yield(yield_to(dreamer,"incoming_signifier_set", 0.2), YIELD)
+		assert_not_null(dreamer.incoming_dmg_signifier)
+		if not dreamer.incoming_dmg_signifier:
+			return
+		yield(yield_for(0.2), YIELD)
+		assert_eq(dreamer.incoming_dmg_signifier.signifier_amount.text, str(2))
+		TurnEventMessage.new("new_turn", 3)
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3), YIELD)
+		assert_eq(dreamer.damage, dmg + 2, "Dreamer should take a bit of damage")
+		assert_eq(test_torments[0].health, t_health[test_torments[0]] + 10, "First Torment should increase its health")
+		assert_eq(test_torments[1].health, t_health[test_torments[1]], "Second Torment should not increase its health")
+		assert_eq(test_torments[2].health, t_health[test_torments[2]], "Third Torment should not increase its health")

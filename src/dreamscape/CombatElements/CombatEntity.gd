@@ -40,7 +40,6 @@ var health_temp : TextureProgress
 var health_incoming : TextureProgress
 var active_effects
 
-
 var damage : int setget set_damage
 var health : int setget set_health
 var defence : int setget set_defence
@@ -264,13 +263,14 @@ func get_class() -> String:
 	return("CombatEntity")
 
 
-func show_predictions(value: int, image = null, type := '') -> void:
+func show_predictions(value: int, image = null, prediction_type := '') -> Control:
 	var incoming_node = INCOMING_SIGNIFIER_SCENE.instance()
-	incoming_node.type = type
+	incoming_node.type = prediction_type
 	if image:
 		incoming_node.icon_texture = image
 	incoming.add_child(incoming_node)
 	incoming_node.get_node("Label").text = str(value)
+	return(incoming_node)
 
 
 func clear_predictions() -> void:
@@ -301,7 +301,9 @@ func _update_health_label() -> void:
 	health_temp.max_value = health
 	health_temp.value = damage
 	var _tween :Tween= health_bar.get_node('Tween')
+	# warning-ignore:return_value_discarded
 	_tween.interpolate_property(health_bar, 'value', health_bar.value, damage, 0.5, Tween.TRANS_SINE, Tween.EASE_IN)
+	# warning-ignore:return_value_discarded
 	_tween.start()
 
 
