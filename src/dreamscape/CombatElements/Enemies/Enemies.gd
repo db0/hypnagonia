@@ -872,4 +872,43 @@ const INFLUENCER := {
 	"_texture": "res://assets/journal/torments/influencer.jpg",
 	"_character_art": "SkylarkGSH"
 }
+const SHAMELING := {
+	"Name": "Shameling",
+	"Type": "Abuse",
+	"Health": 30,
+	"Intents": [
+		{
+			"intent_scripts": ["Stress: 2", "Piercing Stress:2"],
+			"reshuffle": false,
+			"max_in_a_row": 1,
+		},
+		{
+			"id": "check_browser_history",
+			"intent_scripts": ["Stress:5", "Check browser history"],
+			"reshuffle": true,
+			"max_in_a_row": 2,
+		},
+		{
+			"id": "check_underwear_drawer",
+			"intent_scripts": ["Check underwear drawer", "Perplex:15"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Debuff:1:poison","Debuff:1:vulnerable", "Perplex:10", "Buff:1:fortify"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Debuff:1:poison","Debuff:1:vulnerable", "Perplex:10", "Buff:1:fortify"],
+			"reshuffle": false,
+		},
+	],
+	"_unlock_triggers": {
+		"entity_killed": ["check_underwear_drawer"]
+	},
+	"_health_variability": 8,
+	"_texture_size_x": "120",
+	"_texture_size_y": "120",
+	"_texture": "res://assets/journal/torments/shameling.jpg",
+	"_character_art": "SkylarkGSH"
+}
 

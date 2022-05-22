@@ -459,6 +459,69 @@ const Influencer = {
 		],
 	},
 }
+const Shamelings = {
+	"journal_description":\
+		"They were all over my bedroom, going through all my stuff and laughing to each other cruely about all my secrets. "\
+				+  "[url={torment_tag1}]Too many to stop![/url].",
+	"journal_reward":\
+		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/shameling.jpg",
+	"enemies": {
+		"easy": [
+			{
+				"definition": EnemyDefinitions.SHAMELING,
+			},
+			{
+				"definition": EnemyDefinitions.SHAMELING,
+			},
+			{
+				"definition": EnemyDefinitions.SHAMELING,
+			},
+			{
+				"definition": EnemyDefinitions.SHAMELING,
+			},
+		],
+		"medium": [
+			{
+				"definition": EnemyDefinitions.SHAMELING,
+			},
+			{
+				"definition": EnemyDefinitions.SHAMELING,
+			},
+			{
+				"definition": EnemyDefinitions.SHAMELING,
+			},
+			{
+				"definition": EnemyDefinitions.SHAMELING,
+			},
+			{
+				"definition": EnemyDefinitions.SHAMELING,
+			},
+		],
+		"hard": [
+			{
+				"definition": EnemyDefinitions.SHAMELING,
+				"starting_defence": +15,
+			},
+			{
+				"definition": EnemyDefinitions.SHAMELING,
+				"starting_defence": +15,
+			},
+			{
+				"definition": EnemyDefinitions.SHAMELING,
+				"starting_defence": +15,
+			},
+			{
+				"definition": EnemyDefinitions.SHAMELING,
+				"starting_defence": +15,
+			},
+			{
+				"definition": EnemyDefinitions.SHAMELING,
+				"starting_defence": +15,
+			},
+		],
+	},
+}
 
 const ENEMIES = {
 	"Administration":Administration,

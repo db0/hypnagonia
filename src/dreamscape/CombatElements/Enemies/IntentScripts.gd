@@ -51,6 +51,16 @@ const STRESS := [
 		"description": "Stress: Will cause the dreamer to take the specified amount of {anxiety}."
 	}
 ]
+const PIERCING_STRESS := [
+	{
+		"name": "modify_damage",
+		"tags": ["Attack", "Intent", "Piercing"],
+		"subject": "dreamer",
+		"amount": null,
+		"icon": "icon_pierce",
+		"description": "Piercing Stress: Will cause the dreamer to take the specified amount of {anxiety} which is not prevented by {confidence}."
+	}
+]
 const PERPLEX := [
 	{
 		"name": "assign_defence",
@@ -353,6 +363,26 @@ const CONSPICUOUS_CONSUMPTION := [
 	}
 ]
 
+const CHECK_BROWSER_HISTORY := [
+	{
+		"name": "custom_script",
+		"subject": "dreamer",
+		"icon": "icon_special",
+		"description": "Oh no, they're checking the browser history!",
+		"intent_id": "check_browser_history",
+	}
+]
+
+const CHECK_UNDERWEAR_DRAWER := [
+	{
+		"name": "custom_script",
+		"subject": "dreamer",
+		"icon": "icon_special",
+		"description": "Get out of the underwear drawer, right now!",
+		"intent_id": "check_underwear_drawer",
+	}
+]
+
 const GUT := [
 	{
 		"name": "null_script",
@@ -365,6 +395,7 @@ const GUT := [
 func get_scripts(intent_name: String) -> Dictionary:
 	var scripts := {
 		"Stress": STRESS,
+		"Piercing Stress": PIERCING_STRESS,
 		"Perplex": PERPLEX,
 		"PerplexGroup": PERPLEX_GROUP,
 		"Debuff": DEBUFF,
@@ -388,6 +419,8 @@ func get_scripts(intent_name: String) -> Dictionary:
 		"Act It Out": ACT_IT_OUT,
 		"Awkward Compliments": AWKWARD_COMPLIMENTS,
 		"Conspicuous Consumption": CONSPICUOUS_CONSUMPTION,
+		"Check browser history": CHECK_BROWSER_HISTORY,
+		"Check underwear drawer": CHECK_UNDERWEAR_DRAWER,
 		# Unit Testing #
 		"GUT": GUT,
 	}

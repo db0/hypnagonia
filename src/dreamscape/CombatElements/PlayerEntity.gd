@@ -38,8 +38,12 @@ func stop_upgrades() -> void:
 		Terms.ACTIVE_EFFECTS.creative_block.name, 1, true, false, ["Core"])
 
 
-func show_turn_dmg_prediction(dmg_from_intents := 0) -> void:
-	var taken_anxiety : int = dmg_from_intents + active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.burn.name) - defence
+func show_turn_dmg_prediction(dmg_from_intents := 0, removed_defence := 0) -> void:
+	var taken_anxiety : int = (
+			dmg_from_intents
+			+ active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.burn.name)
+			- defence
+			+ removed_defence)
 	if taken_anxiety < 0: 
 		return
 	var poison_stacks = active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.poison.name)

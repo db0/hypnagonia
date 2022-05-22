@@ -130,7 +130,7 @@ func predict_intent_amount(_snapshot_id: float) -> int:
 			# This class contains the customly defined scripts for each
 			# card.
 			var custom := CustomScripts.new(costs_dry_run())
-			custom.custom_script(script)
+			custom.custom_script(script, snapshot_id)
 		var prediction_method = "calculate_" + script.script_name
 		if script.get_property(SP.KEY_SUBJECT):
 			for entity in script.subjects:
@@ -159,6 +159,8 @@ func predict_intent_amount(_snapshot_id: float) -> int:
 			if script.script_name == "modify_damage" and script.get_property(SP.KEY_SUBJECT) == "dreamer":
 				if not cfc.NMAP.board.snapshot_dmg_predictions.has(snapshot_id):
 					cfc.NMAP.board.snapshot_dmg_predictions[snapshot_id] = 0
+				if not cfc.NMAP.board.snapshot_lost_defence_predictions.has(snapshot_id):
+					cfc.NMAP.board.snapshot_lost_defence_predictions[snapshot_id] = 0
 				cfc.NMAP.board.snapshot_dmg_predictions[snapshot_id] += total_amount
 		else:
 			if not script.is_skipped and has_method(prediction_method):
@@ -242,7 +244,7 @@ func modify_damage(script_task: ScriptTask) -> int:
 		var previous_damage = combat_entity.damage
 		var executor = ExecModifyDamage.new(combat_entity, modification, script_task)
 		if not costs_dry_run():
-			IconAnimMessage.new(executor, extra_classification)
+			var _anim = IconAnimMessage.new(executor, extra_classification)
 			if not executor.has_executed:
 				yield(executor, "executed")
 			# To allow effects like advantage to despawn
@@ -289,7 +291,6 @@ func calculate_assign_defence(subject: CombatEntity, script: ScriptTask) -> int:
 
 func assign_defence(script_task: ScriptTask) -> int:
 	var retcode: int
-	var tags: Array = ["Scripted"] + script_task.get_property(SP.KEY_TAGS)
 	var set_to_mod: bool = script_task.get_property(SP.KEY_SET_TO_MOD)
 	for combat_entity in script_task.subjects:
 		if combat_entity.is_dead:
@@ -298,7 +299,7 @@ func assign_defence(script_task: ScriptTask) -> int:
 		var previous_defence = combat_entity.defence
 		var executor = ExecAssignDefence.new(combat_entity, defence, set_to_mod, script_task)
 		if not costs_dry_run():
-			IconAnimMessage.new(executor)
+			var _anim = IconAnimMessage.new(executor)
 			if not executor.has_executed:
 				yield(executor, "executed")
 			retcode = executor.rc
@@ -348,7 +349,6 @@ func apply_effect(script_task: ScriptTask) -> int:
 	var effect_name: String = script_task.get_property(SP.KEY_EFFECT)
 	var upgrade_name: String = script_task.get_property(SP.KEY_UPGRADE_NAME, '')
 	# We inject the tags from the script into the tags sent by the signal
-	var tags: Array = ["Scripted"] + script_task.get_property(SP.KEY_TAGS)
 	var set_to_mod: bool = script_task.get_property(SP.KEY_SET_TO_MOD)
 	var stacks_diff := 0
 	for e in script_task.subjects:
@@ -381,7 +381,7 @@ func apply_effect(script_task: ScriptTask) -> int:
 				upgrade_name,
 				script_task)
 		if not costs_dry_run():
-			IconAnimMessage.new(executor)
+			var _anim = IconAnimMessage.new(executor)
 			if not executor.has_executed:
 				yield(executor, "executed")
 			retcode = executor.rc
@@ -662,6 +662,7 @@ func torment_special(script: ScriptTask) -> int:
 		retcode = yield(retcode, "completed")
 	return(retcode)
 
+
 func calculate_modify_pathos(script: ScriptTask) -> float:
 	var modification: float
 	var alteration = 0
@@ -685,6 +686,7 @@ func calculate_modify_pathos(script: ScriptTask) -> float:
 		modification = script.get_property(SP.KEY_AMOUNT, 0.0)
 	# warning-ignore:narrowing_conversion
 	modification = _check_for_x(script, modification)
+	# warning-ignore:narrowing_conversion
 	alteration = _check_for_effect_alterants(script, modification, cfc.NMAP.board.dreamer, self)
 	if alteration is GDScriptFunctionState:
 		alteration = yield(alteration, "completed")
@@ -694,7 +696,6 @@ func calculate_modify_pathos(script: ScriptTask) -> float:
 
 func modify_pathos(script_task: ScriptTask) -> int:
 	var retcode: int
-	var tags: Array = ["Scripted"] + script_task.get_property(SP.KEY_TAGS)
 	var type = script_task.get_property("pathos_type", "released")
 	var is_convertion = script_task.get_property("is_convertion", false)
 	var pathos = script_task.get_property("pathos", Terms.RUN_ACCUMULATION_NAMES.enemy)
@@ -706,7 +707,7 @@ func modify_pathos(script_task: ScriptTask) -> int:
 			type,
 			script_task)
 	if not costs_dry_run():
-		IconAnimMessage.new(executor, '', true)
+		var _anim = IconAnimMessage.new(executor, '', true)
 		if not executor.has_executed:
 			yield(executor, "executed")
 		retcode = executor.rc
@@ -746,15 +747,13 @@ func calculate_modify_health(subject: CombatEntity, script: ScriptTask) -> int:
 
 func modify_health(script_task: ScriptTask) -> int:
 	var retcode: int
-	var tags: Array = ["Scripted"] + script_task.get_property(SP.KEY_TAGS)
-	var set_to_mod: bool = script_task.get_property(SP.KEY_SET_TO_MOD)
 	for combat_entity in script_task.subjects:
 		if combat_entity.is_dead:
 			continue
 		var modification = calculate_modify_health(combat_entity, script_task)
 		var executor = ExecModifyHealth.new(combat_entity, modification, script_task)
 		if not costs_dry_run():
-			IconAnimMessage.new(executor)
+			var _anim = IconAnimMessage.new(executor)
 			if not executor.has_executed:
 				yield(executor, "executed")
 			retcode = executor.rc
@@ -772,6 +771,7 @@ func confirm_play(script: ScriptTask) -> int:
 				cfc.NMAP.board.dreamer.upgrades_increased += 1
 		# warning-ignore:return_value_discarded
 		TurnEventMessage.new("cards_played", +1)
+		# warning-ignore:return_value_discarded
 		TurnRecordCardPlayMessage.new(script.owner.canonical_name)
 		var card_type_event = script.owner.get_property("Type") + "_played"
 		# warning-ignore:return_value_discarded
@@ -782,7 +782,7 @@ func confirm_play(script: ScriptTask) -> int:
 	return(retcode)
 
 
-func end_turn(script: ScriptTask) -> int:
+func end_turn(_script_task: ScriptTask) -> int:
 	var retcode: int = CFConst.ReturnCode.CHANGED
 	if not costs_dry_run():
 		cfc.NMAP.board.turn.end_player_turn()
@@ -798,8 +798,6 @@ func end_turn(script: ScriptTask) -> int:
 #   * [KEY_AMOUNT_PURPOSE](SP#KEY_AMOUNT_PURPOSE)
 func modify_amount(script: ScriptTask) -> int:
 	var retcode: int = CFConst.ReturnCode.CHANGED
-	# We inject the tags from the script into the tags sent by the signal
-	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
 	for card in script.subjects:
 		var amount_key = script.get_property(SP.KEY_AMOUNT_KEY)
 		var value = script.get_property(SP.KEY_AMOUNT_VALUE)
@@ -812,7 +810,7 @@ func mod_counter(script_task: ScriptTask) -> int:
 	if not "PlayCost" in script_task.get_property(SP.KEY_TAGS) and not costs_dry_run():
 		var executor = ExecModCounter.new('', 0, script_task)
 		if not costs_dry_run():
-			IconAnimMessage.new(executor, '', true)
+			var _anim = IconAnimMessage.new(executor, '', true)
 	return(.mod_counter(script_task))
 	
 # Initiates a seek through the owner and target combat entity to see if there's any effects

@@ -1859,8 +1859,29 @@ const CARDS := {
 		"Cost": 1,
 		"_illustration": "SkylarkGSH",
 		"_rarity": "Received",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.burn.name: Terms.ENEMY
+		},
+		"_keywords": ['release'],
 		"_amounts": {
 			"effect_stacks": 12,
+		},
+		"_upgrade_threshold_modifier": -50,
+		"_upgrades": [],
+	},
+	"Shameling": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
+		"Abilities": "Apply {effect_stacks} {fortify}\n{release}.",
+		"Cost": 1,
+		"_illustration": "SkylarkGSH",
+		"_rarity": "Received",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
+		},
+		"_keywords": ['release'],
+		"_amounts": {
+			"effect_stacks": 20,
 		},
 		"_upgrade_threshold_modifier": -50,
 		"_upgrades": [],

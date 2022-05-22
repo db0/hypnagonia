@@ -5,6 +5,7 @@ class_name CustomScripts
 extends Reference
 
 var costs_dry_run := false
+var snapshot_id : float = 0
 
 func _init(_dry_run) -> void:
 	costs_dry_run = _dry_run
@@ -15,21 +16,25 @@ func _init(_dry_run) -> void:
 # And to have a self-reference in case it affects itself
 #
 # You can pass a predefined subject, but it's optional.
-func custom_script(script: ScriptObject) -> void:
-	var card: DreamCard = script.owner
+func custom_script(script: ScriptObject, _snapshot_id:= 0) -> void:
+	snapshot_id = _snapshot_id
+	var owner = script.owner
+	if owner as EnemyEntity:
+		custom_intents(script)
+		return
 	var subjects: Array = script.subjects
 	# I don't like the extra indent caused by this if,
 	# But not all object will be Card
 	# So I can't be certain the "canonical_name" var will exist
-	match card.canonical_name:
+	match owner.canonical_name:
 		"The Joke", "* The Joke *", "= The Joke =", "+ The Joke +":
 			# No demo cost-based custom scripts
 			if not costs_dry_run:
 				if subjects.size() and subjects[0] as EnemyEntity:
 					var enemy_entity: EnemyEntity = subjects[0]
-					var damage_amount = cfc.card_definitions[card.canonical_name]\
+					var damage_amount = cfc.card_definitions[owner.canonical_name]\
 								.get("_amounts",{}).get("damage_amount")
-					var effect_stacks = cfc.card_definitions[card.canonical_name]\
+					var effect_stacks = cfc.card_definitions[owner.canonical_name]\
 								.get("_amounts",{}).get("effect_stacks")
 					if enemy_entity.active_effects.get_effect(Terms.ACTIVE_EFFECTS.disempower.name):
 						var the_joke = [{
@@ -38,7 +43,7 @@ func custom_script(script: ScriptObject) -> void:
 							"amount": damage_amount,
 							"tags": ["Attack", "Card"],
 						}]
-						execute_script(the_joke, script.owner, enemy_entity)
+						execute_script(the_joke, owner, enemy_entity)
 					else:
 						var the_joke = [{
 							"name": "apply_effect",
@@ -47,13 +52,13 @@ func custom_script(script: ScriptObject) -> void:
 							"subject": "trigger",
 							"modification": effect_stacks,
 						}]
-						execute_script(the_joke, script.owner, enemy_entity)
+						execute_script(the_joke, owner, enemy_entity)
 		"Barrel Through", "+ Barrel Through +", "= Barrel Through =":
 			if not costs_dry_run:
 				if subjects.size() and subjects[0] as EnemyEntity:
 					var enemy_entity: EnemyEntity = subjects[0]
 					if enemy_entity.active_effects.get_effect(Terms.ACTIVE_EFFECTS.vulnerable.name):
-						var damage_amount = cfc.card_definitions[card.canonical_name]\
+						var damage_amount = cfc.card_definitions[owner.canonical_name]\
 									.get("_amounts",{}).get("damage_amount")
 						var barrel_through = [{
 								"name": "modify_damage",
@@ -66,7 +71,7 @@ func custom_script(script: ScriptObject) -> void:
 									"filter_not_enemy": enemy_entity,
 								}],
 						}]
-						execute_script(barrel_through, script.owner, enemy_entity)
+						execute_script(barrel_through, owner, enemy_entity)
 		"Drag and Drop", "+ Drag and Drop +", "@ Drag and Drop @":
 			if not costs_dry_run:
 				if subjects.size():
@@ -78,7 +83,7 @@ func custom_script(script: ScriptObject) -> void:
 							and dead_enemy.damage < dead_enemy.health)
 							or not dead_enemy in cfc.get_tree().get_nodes_in_group("EnemyEntities")):
 						return
-					var effect_stacks = cfc.card_definitions[card.canonical_name]\
+					var effect_stacks = cfc.card_definitions[owner.canonical_name]\
 								.get("_amounts",{}).get("effect_stacks")
 					var fly_away = [{
 						"name": "apply_effect",
@@ -87,20 +92,20 @@ func custom_script(script: ScriptObject) -> void:
 						"subject": "dreamer",
 						"modification": effect_stacks,
 					}]
-					execute_script(fly_away, script.owner, script.trigger_object)
+					execute_script(fly_away, owner, script.trigger_object)
 		"Fowl Language","@ Fowl Language @","* Fowl Language *","% Fowl Language %":
 			if not costs_dry_run:
 				for subject in subjects:
 					var dstacks = subject.active_effects.get_effect_stacks(
 							Terms.ACTIVE_EFFECTS.disempower.name)
-					if card.canonical_name == "% Fowl Language %":
+					if owner.canonical_name == "% Fowl Language %":
 						dstacks += 1
 					var multiplier : int
-					if card.deck_card_entry:
-						multiplier = card.deck_card_entry\
+					if owner.deck_card_entry:
+						multiplier = owner.deck_card_entry\
 								.get_property("_amounts").get("multiplier_amount")
 					else:
-						multiplier = cfc.card_definitions[card.canonical_name]\
+						multiplier = cfc.card_definitions[owner.canonical_name]\
 								.get("_amounts",{}).get("multiplier_amount")
 					var card_script := [{
 							"name": "apply_effect",
@@ -109,12 +114,12 @@ func custom_script(script: ScriptObject) -> void:
 							"subject": "trigger",
 							"modification": dstacks * multiplier,
 						}]
-					execute_script(card_script, script.owner, subject)
+					execute_script(card_script, owner, subject)
 		"Alertness":
 			if not costs_dry_run:
 				if cfc.NMAP.board.counters.get_counter("immersion") == 0:
 					yield(cfc.NMAP.board.counters,"counter_modified")
-				var decrease = cfc.card_definitions[card.canonical_name]\
+				var decrease = cfc.card_definitions[owner.canonical_name]\
 						.get("_amounts",{}).get("immersion_amount")
 				var card_script := [{
 					"name": "mod_counter",
@@ -122,10 +127,10 @@ func custom_script(script: ScriptObject) -> void:
 					"counter_name": "immersion",
 					"modification": decrease,
 				}]
-				execute_script(card_script, script.owner, script.trigger_object)
+				execute_script(card_script, owner, script.trigger_object)
 		"Apathy":
-			if not costs_dry_run and card.get_parent() == cfc.NMAP.deck:
-				cfc.NMAP.deck.move_card_to_top(card)
+			if not costs_dry_run and owner.get_parent() == cfc.NMAP.deck:
+				cfc.NMAP.deck.move_card_to_top(owner)
 		"Hyena", "+ Hyena +", "Ω Hyena Ω", "* Hyena *":
 			if not costs_dry_run:
 				if subjects.size() and subjects[0] as EnemyEntity:
@@ -133,7 +138,7 @@ func custom_script(script: ScriptObject) -> void:
 					var buff = enemy_entity.active_effects.get_effect_with_most_stacks("Buff")
 					if buff:
 						var current_stacks = enemy_entity.active_effects.get_effect_stacks(buff)
-						var modification = cfc.card_definitions[card.canonical_name]\
+						var modification = cfc.card_definitions[owner.canonical_name]\
 								.get("_amounts",{}).get("steal_amount", 2)
 						if modification > current_stacks:
 							modification = current_stacks
@@ -153,18 +158,18 @@ func custom_script(script: ScriptObject) -> void:
 								"modification": modification,
 							}
 						]
-						execute_script(card_script, script.owner, enemy_entity)
+						execute_script(card_script, owner, enemy_entity)
 		"Subconscious", "= Subconscious =", "% Subconscious %":
 			if not costs_dry_run:
 #				print_debug(subjects[0].is_dead)
 				if subjects.size() and subjects[0].is_dead:
-					var increase_amount = cfc.card_definitions[card.canonical_name]\
+					var increase_amount = cfc.card_definitions[owner.canonical_name]\
 								.get("_amounts",{}).get("increase_amount", 3)
 					var payload := {
 						"amount_key": "damage_amount",
 						"amount_value": '+' + str(increase_amount),
 					}
-					card.deck_card_entry.modify_property("_amounts", payload)
+					owner.deck_card_entry.modify_property("_amounts", payload)
 		"Lethe":
 			var rnd_memory = globals.player.get_random_memory()
 			rnd_memory.lose_pathos(rnd_memory.pathos_threshold / 10.0)
@@ -201,11 +206,11 @@ func custom_script(script: ScriptObject) -> void:
 			var stress_perplex_divider = 2.5
 			var effect_divider = 2.0
 			var special_multiplier = 1.0
-			if card.canonical_name == "+ Recurrence +":
+			if owner.canonical_name == "+ Recurrence +":
 				stress_perplex_divider -= 0.5
 				effect_divider -= 0.5
 				special_multiplier += 0.5
-			if card.canonical_name == "++ Recurrence ++":
+			if owner.canonical_name == "++ Recurrence ++":
 				stress_perplex_divider -= 1
 				effect_divider -= 1
 				special_multiplier += 1
@@ -309,8 +314,8 @@ func custom_script(script: ScriptObject) -> void:
 #			print_debug(card_script)
 			var bbcode = Terms.get_bbcode_formats()
 			# warning-ignore:return_value_discarded
-			card.modify_property("Abilities", card_text.format(bbcode))
-			card.scripts = { "manual": { "hand": card_script }}
+			owner.modify_property("Abilities", card_text.format(bbcode))
+			owner.scripts = { "manual": { "hand": card_script }}
 			var cost := 0
 			if stress + perplex > 21:
 				cost += 1
@@ -326,8 +331,85 @@ func custom_script(script: ScriptObject) -> void:
 				cost += 1
 #			print_debug([stress + perplex, debuff + buff, cost])
 			# warning-ignore:return_value_discarded
-			card.modify_property("Cost", cost)
-			card.refresh_card_front()
+			owner.modify_property("Cost", cost)
+			owner.refresh_card_front()
+
+func custom_intents(script_task: ScriptObject) -> void:
+	# warning-ignore:unused_variable
+	var owner = script_task.owner
+	var subjects: Array = script_task.subjects
+	# I don't like the extra indent caused by th	
+	match script_task.get_property("intent_id"):
+		"check_browser_history":
+			# In order to correctly predict how much damage these are going to do to the dreamer
+			# We need to predict both their damage and the amount of drawined defence
+			var current_damage_taken = cfc.NMAP.board.snapshot_dmg_predictions.get(snapshot_id, 0) 
+			var current_used_defence = 0 
+			if snapshot_id > 0:
+				current_used_defence = cfc.NMAP.board.snapshot_lost_defence_predictions.get(snapshot_id, 0)
+			if subjects[0].defence - current_damage_taken - current_used_defence >= 10:
+				cfc.NMAP.board.snapshot_lost_defence_predictions[snapshot_id] = current_used_defence + 10
+				var executor = load("res://src/dreamscape/ScriptingEngine/Executors/Custom/ExecCheckBrowserHistory.gd")\
+						.new(subjects[0], script_task)
+				if not costs_dry_run:
+					script_task.script_definition["starting_position_node"] = subjects[0].defence_icon
+					IconAnimMessage.new(executor, "check_browser_history")
+					if not executor.has_executed:
+						yield(executor, "executed")
+		"check_underwear_drawer":
+			var found_effect = null
+			if subjects[0].active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.fortify.name):
+				found_effect = subjects[0].active_effects.get_effect(Terms.ACTIVE_EFFECTS.fortify.name)
+			elif subjects[0].active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.quicken.name):
+				found_effect = subjects[0].active_effects.get_effect(Terms.ACTIVE_EFFECTS.quicken.name)
+			var script_list := []
+			var task : Dictionary
+			if found_effect:
+				task = {
+					"name": "apply_effect",
+					"tags": ["Intent"],
+					"effect_name": found_effect.name,
+					"subject": "dreamer",
+					"modification": -1,
+				}
+				script_list.append(task)
+				var existing_torments = cfc.get_tree().get_nodes_in_group("EnemyEntities")
+				if existing_torments.size() < 5:
+					task = {
+						"name": "spawn_enemy",
+						"enemy": EnemyDefinitions.SHAMELING,
+						"tags": ["Intent"],
+					}
+					script_list.append(task)
+				else:
+					task = {
+						"name": "apply_effect",
+						"tags": ["Intent"],
+						"effect_name": Terms.ACTIVE_EFFECTS.quicken.name,
+						"subject": "self",
+						"modification": found_effect.stacks,
+					}
+					script_list.append(task)
+			else:
+				task = {
+					"name": "apply_effect",
+					"tags": ["Intent"],
+					"effect_name": Terms.ACTIVE_EFFECTS.fortify.name,
+					"subject": "self",
+					"modification": 2,
+				}
+				script_list.append(task)
+			if not costs_dry_run:
+				execute_script(script_list, owner, owner)
+			# When I make incoming predictions also show reduced combat effects
+			# I can activate this part too
+#			elif snapshot_id > 0:
+#				var sceng = cfc.scripting_engine.new(
+#					script_list,
+#					owner,
+#					owner,
+#					{})
+#				var adjusted_amount = sceng.predict_intent_amount(snapshot_id)
 
 # warning-ignore:unused_argument
 func custom_alterants(script: ScriptObject) -> int:
