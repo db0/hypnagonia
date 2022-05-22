@@ -156,7 +156,7 @@ func predict_intent_amount(_snapshot_id: float) -> int:
 					total_amount += amount
 				# If there's multiple targets, we calculate the amount only for a single of them
 				break
-			if script.script_name == "modify_damage":
+			if script.script_name == "modify_damage" and script.get_property(SP.KEY_SUBJECT) == "dreamer":
 				if not cfc.NMAP.board.snapshot_dmg_predictions.has(snapshot_id):
 					cfc.NMAP.board.snapshot_dmg_predictions[snapshot_id] = 0
 				cfc.NMAP.board.snapshot_dmg_predictions[snapshot_id] += total_amount
