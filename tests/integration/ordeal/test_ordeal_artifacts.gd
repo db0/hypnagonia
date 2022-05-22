@@ -407,7 +407,7 @@ class TestThickExplosion:
 					"%s did no damage due to simple shuffles" % [artifact.name])
 		var discard_size = discard.get_card_count()
 		discard.reshuffle_in_deck()
-		yield(yield_to(discard, "discard_reshuffled_into_deck", 1.5), YIELD)
+		yield(yield_to(test_torments[2], "entity_damaged", 1.5), YIELD)
 		for t in test_torments:
 			assert_eq(t.damage, tdamage(discard_size),
 					"%s did damage equal to discard pile" % [artifact.name])
