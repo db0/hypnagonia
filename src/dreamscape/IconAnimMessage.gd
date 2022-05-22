@@ -37,6 +37,11 @@ func _init(
 		exec_payload()
 
 
+func animation_started() -> void:
+	if "Intent" in tags and starting_position_node:
+		starting_position_node.modulate.a = 0
+
+
 func animation_finished() -> void:
 	if not async:
 		exec_payload()
@@ -47,6 +52,8 @@ func animation_finished() -> void:
 func exec_payload() -> void:
 	executor.exec()
 	emit_signal("payload_executed")
+
+
 
 
 func _set_icon() -> void:

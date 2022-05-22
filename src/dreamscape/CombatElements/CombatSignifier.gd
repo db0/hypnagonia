@@ -44,6 +44,7 @@ func setup(signifier_details: Dictionary, signifier_name: String) -> void:
 		decription_label.bbcode_text = signifier_details.description.format(Terms.get_bbcode_formats(18))
 	else:
 		decription_label.text = signifier_name
+	anims.play("Spawned")
 
 
 func _on_CombatSingifier_mouse_entered() -> void:
