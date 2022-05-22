@@ -445,10 +445,39 @@ class TestCheckBrowserHistory:
 			return
 		yield(yield_for(0.2), YIELD)
 		assert_eq(dreamer.incoming_dmg_signifier.signifier_amount.text, str(2))
-		TurnEventMessage.new("new_turn", 3)
 		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started",3), YIELD)
 		assert_eq(dreamer.damage, dmg + 2, "Dreamer should take a bit of damage")
 		assert_eq(test_torments[0].health, t_health[test_torments[0]] + 10, "First Torment should increase its health")
 		assert_eq(test_torments[1].health, t_health[test_torments[1]], "Second Torment should not increase its health")
 		assert_eq(test_torments[2].health, t_health[test_torments[2]], "Third Torment should not increase its health")
+
+class TestCheckUnderwearDrawer:
+	extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"
+	var dmg = 7
+	func _init() -> void:
+		torments_amount = 4
+		intents_to_test = [
+			{
+				"intent_scripts": ["Check underwear drawer"],
+				"reshuffle": true,
+			},
+		]
+
+	func test_intent():
+		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.fortify.name), 2)
+		for t in test_torments:
+			t.intents.replace_intents(intents_to_test)
+			t.intents.refresh_intents()
+		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.fortify.name, 2,  '')
+		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.quicken.name, 4,  '')
+		yield(yield_for(0.2), YIELD)
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3), YIELD)
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.fortify.name), 0)
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.quicken.name), 2)
+		assert_eq(test_torments[0].active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.quicken.name), 0)
+		assert_eq(test_torments[1].active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.quicken.name), 1)
+		assert_eq(test_torments[2].active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.quicken.name), 4)
+		assert_eq(test_torments[3].active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.quicken.name), 3)
+		assert_eq(cfc.get_tree().get_nodes_in_group("EnemyEntities").size(), 5)
