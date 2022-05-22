@@ -73,6 +73,8 @@ func update_amount_animated(value, increase := true) -> void:
 	if not increase:
 		animation = "Decreased"
 	amount = value
+	if anims.current_animation == "Spawned":
+		return
 	anims.play(animation)
 
 func set_amount_from_int() -> void:
