@@ -246,7 +246,7 @@ func modify_damage(script_task: ScriptTask) -> int:
 			if not executor.has_executed:
 				yield(executor, "executed")
 			# To allow effects like advantage to despawn
-			yield(script_task.owner.get_tree(), "idle_frame")
+			yield(cfc.get_tree().create_timer(0.05), "timeout")
 			retcode = executor.rc
 		else:
 			retcode = executor.exec(true)
