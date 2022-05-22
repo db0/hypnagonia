@@ -5,3 +5,4 @@
 
 [node name="SingleIntent" groups=["SingleIntents"] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+signifier_type = 2

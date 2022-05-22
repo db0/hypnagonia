@@ -8,7 +8,7 @@ func get_effect_alteration(
 		dry_run := true,
 		_subject: Node = null) -> int:
 	var stacks_amount = snapshot_stacks.get(sceng.snapshot_id, stacks)
-	if stacks_amount == 0:
+	if stacks_amount < 1:
 		return(0)
 	if not script.script_name == 'modify_damage':
 		return(0)

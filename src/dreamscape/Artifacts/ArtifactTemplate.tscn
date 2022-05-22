@@ -9,31 +9,12 @@ theme = ExtResource( 3 )
 script = ExtResource( 2 )
 icon_container_texture = null
 icon_extra_container_texture = null
-
-[node name="Label" parent="Signifier" index="0"]
-margin_left = 2.0
-margin_top = 2.0
-margin_right = 38.0
-margin_bottom = 38.0
-
-[node name="IconContainer" parent="Signifier" index="1"]
-margin_left = 0.0
-margin_top = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
+signifier_type = 3
+priority = 0
+effect_context = 0
 
 [node name="ExtraContainer" parent="Signifier" index="2"]
 visible = false
-margin_left = -3.0
-margin_top = -3.0
-margin_right = 42.0
-margin_bottom = 42.0
-
-[node name="Icon" parent="Signifier" index="3"]
-margin_left = 5.0
-margin_top = 5.0
-margin_right = 35.0
-margin_bottom = 35.0
 
 [node name="VBC" parent="Description" index="0"]
 margin_bottom = 35.0

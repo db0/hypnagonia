@@ -1,8 +1,17 @@
 class_name CombatSignifier
 extends Control
 
+enum SIGNIFIER_TYPES {
+	NONE
+	COMBAT_EFFECT
+	INTENT
+	ARTIFACT
+	MEMORY
+}
+
 export(StreamTexture) var icon_container_texture :StreamTexture
 export(StreamTexture) var icon_extra_container_texture :StreamTexture
+export(SIGNIFIER_TYPES) var signifier_type: int
 var amount : int setget update_amount
 
 onready var signifier_label := $Signifier/Label
@@ -79,3 +88,13 @@ func update_amount_animated(value, increase := true) -> void:
 
 func set_amount_from_int() -> void:
 	signifier_amount.text = str(amount)
+
+func queue_free() -> void:
+	if signifier_type == SIGNIFIER_TYPES.INTENT:
+		.queue_free()
+		return
+	# First thing we do, is we remove all further scripting while the animations are playing
+	var anim_player = anims
+	anim_player.play("Despawned")
+	yield(anim_player,"animation_finished")
+	.queue_free()

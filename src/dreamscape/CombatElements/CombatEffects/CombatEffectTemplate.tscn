@@ -5,3 +5,4 @@
 
 [node name="CombatEffect" groups=["combat_effects"] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+signifier_type = 1

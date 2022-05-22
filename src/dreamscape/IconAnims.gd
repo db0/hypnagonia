@@ -23,6 +23,7 @@ func send_icon_to_texturerect(next_anim_msg: IconAnimMessage) -> void:
 	sprite.expand = true
 	add_child(tween)
 	add_child(sprite)
+	sprite.rect_global_position = next_anim_msg.start_pos
 	# warning-ignore:return_value_discarded
 	tween.connect("tween_all_completed",self,"_anim_completed", [tween, sprite, next_anim_msg])
 	# warning-ignore:return_value_discarded
