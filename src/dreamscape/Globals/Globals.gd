@@ -97,7 +97,7 @@ func _exit_tree():
 	print("Hypnagonia Exited Gracefully.")
 
 func take_state_snapshot() -> float:
-	var snapshot_id = rand_range(1,10000000)
+	var snapshot_id = round(rand_range(1,10000000))
 	get_tree().call_group_flags(
 			get_tree().GROUP_CALL_REALTIME, 
 			"combat_effects", 

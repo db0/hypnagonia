@@ -114,6 +114,27 @@ const Influencer = {
 		],
 	},
 }
+const Shameling = {
+	"manual": {
+		"hand": [
+			{
+				"name": "apply_effect",
+				"tags": ["Card"],
+				"effect_name": Terms.ACTIVE_EFFECTS.fortify.name,
+				"subject": "dreamer",
+				"modification":  {
+					"lookup_property": "_amounts",
+					"value_key": "effect_stacks",
+				},
+			},
+			{
+				"name": "remove_card_from_deck",
+				"subject": "self",
+				"tags": ["Played", "Card"],
+			}
+		],
+	},
+}
 const Recurrence = {
 	"manual": {
 		"hand": [
@@ -1766,6 +1787,7 @@ const scripts := {
 	"Circular Arguments": Circular_Arguments,
 	"Recurrence": Recurrence,
 	"Influencer": Influencer,
+	"Shameling": Shameling,
 }
 
 # This fuction returns all the scripts of the specified card name.

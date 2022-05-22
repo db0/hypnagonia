@@ -16,8 +16,8 @@ var executor: ScEngExecutor
 var async: bool
 
 func _init(
-		_executor: ScEngExecutor, 
-		_extra_classification := '', 
+		_executor: ScEngExecutor,
+		_extra_classification := '',
 		_async := cfc.game_settings.get('async_icon_animations', false)) -> void:
 	executor = _executor
 	thing = executor.task_name
@@ -87,6 +87,11 @@ func _set_icon() -> void:
 				texture = Terms.get_term_value("enemy_health", "icon")
 			else:
 				texture = Terms.get_term_value("player_health", "icon")
+		"custom_script":
+			if originator is EnemyEntity:
+				match extra_classification:
+					"check_browser_history":
+						texture = Terms.get_term_value("defence", "icon")
 	if not texture:
 		texture = "res://icon.png"
 	icon = CFUtils.convert_texture_to_image(texture)
@@ -98,24 +103,33 @@ func _set_start_pos() -> void:
 	elif originator is DreamCard:
 		start_pos = originator.global_position
 	elif originator is EnemyEntity:
-		start_pos = originator.art.rect_global_position
+		match extra_classification:
+			_:
+				start_pos = originator.art.rect_global_position
 	else:
 		start_pos = originator.rect_global_position
 
 
 func _set_end_pos() -> void:
-	if thing == "modify_damage":
-		if extra_classification == "Unblocked":
+	match thing:
+		"modify_damage":
+			if extra_classification == "Unblocked":
+				end_pos = target.health_bar.rect_global_position + target.health_bar.rect_size / 2
+			else:
+				end_pos = target.defence_icon.rect_global_position
+		"modify_health":
 			end_pos = target.health_bar.rect_global_position + target.health_bar.rect_size / 2
-		else:
-			end_pos = target.defence_icon.rect_global_position 
-	if thing == "modify_health":
-		end_pos = target.health_bar.rect_global_position + target.health_bar.rect_size / 2
-	if thing == "assign_defence":
-		end_pos = target.defence_icon.rect_global_position 
-	if thing == "apply_effect":
-		end_pos = target.active_effects.rect_global_position 
-	if thing == "modify_pathos":
-		end_pos = cfc.NMAP.board.player_info._pathos_button.rect_global_position 
-	if thing == "mod_counter":
-		end_pos = cfc.NMAP.board.counters.rect_global_position 
+		"assign_defence":
+			end_pos = target.defence_icon.rect_global_position
+		"apply_effect":
+			end_pos = target.active_effects.rect_global_position
+		"modify_pathos":
+			end_pos = cfc.NMAP.board.player_info._pathos_button.rect_global_position
+		"mod_counter":
+			end_pos = cfc.NMAP.board.counters.rect_global_position
+		"custom_script":
+			if originator is EnemyEntity:
+				match extra_classification:
+					"check_browser_history":
+						end_pos = originator.health_bar.rect_global_position + originator.health_bar.rect_size / 2
+			
