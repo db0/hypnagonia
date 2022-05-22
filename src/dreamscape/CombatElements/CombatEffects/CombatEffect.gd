@@ -48,6 +48,7 @@ func set_stacks(value: int, tags := ["Manual"], can_go_negative := false) -> voi
 				SP.TRIGGER_NEW_COUNT: value,
 				"tags": tags})
 	if value == 0:
+		stacks = 0
 		queue_free()
 	else:
 		# if the script had a delayed tag, it will not become active
