@@ -235,6 +235,7 @@ func refresh_intents(specific_index = null) -> void:
 		intent.queue_free()
 	# warning-ignore:return_value_discarded
 	prepare_intents(specific_index)
+	cfc.flush_cache()
 
 # We have this externally to allow to override it if needed (e.g. for boss intents)
 func _get_intent_scripts(_intent_name: String) -> Array:

@@ -1,7 +1,11 @@
 class_name PlayerEntity
 extends CombatEntity
 
+signal incoming_signifier_set(signifier)
+
 var upgrades_increased := 0 setget set_upgrades_increased
+# Holds the node which shows how much damage is incoming to the player
+var incoming_dmg_signifier : Control = null
 
 # This variable will point to the scene which controls the targeting arrow
 onready var targeting_arrow = $TargetLine
@@ -54,7 +58,11 @@ func show_turn_dmg_prediction(dmg_from_intents := 0, removed_defence := 0) -> vo
 		if poison_stacks < 0:
 			poison_stacks = 0
 	taken_anxiety += poison_stacks
-	show_predictions(taken_anxiety, Terms.get_term_value("Anxiety", "icon"))
+	var new_dmg_signifier = show_predictions(taken_anxiety, Terms.get_term_value("Anxiety", "icon"))
+	if is_instance_valid(incoming_dmg_signifier):
+		incoming_dmg_signifier.call_deferred("queue_free")
+	incoming_dmg_signifier = new_dmg_signifier
+	emit_signal("incoming_signifier_set",new_dmg_signifier)
 	health_incoming.max_value = health
 	health_incoming.value = damage + taken_anxiety
 
