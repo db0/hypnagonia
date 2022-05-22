@@ -878,13 +878,13 @@ const SHAMELING := {
 	"Health": 30,
 	"Intents": [
 		{
-			"intent_scripts": ["Stress: 2", "Piercing Stress:2"],
+			"intent_scripts": ["Stress: 3", "Piercing Stress:2"],
 			"reshuffle": false,
 			"max_in_a_row": 1,
 		},
 		{
 			"id": "check_browser_history",
-			"intent_scripts": ["Stress:5", "Check browser history"],
+			"intent_scripts": ["Stress:7", "Check browser history"],
 			"reshuffle": true,
 			"max_in_a_row": 2,
 		},

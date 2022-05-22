@@ -14,6 +14,23 @@ class TestStress:
 		assert_eq(dreamer.damage, 10, "Dreamer should take damage")
 		assert_eq(test_torment.damage, 30, "Torment should not take damage")
 
+class TestPiercingStress:
+	extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"
+	func _init() -> void:
+		intents_to_test = [
+			{
+				"intent_scripts": ["Piercing Stress:10"],
+				"reshuffle": true,
+			},
+		]
+
+	func test_stress():
+		assert_eq(dreamer.damage, 10, "Dreamer should take damage")
+		assert_eq(test_torment.damage, 30, "Torment should not take damage")
+
+	func extra_board_setup():
+		dreamer.defence = 0
+
 
 class TestPerplex:
 	extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"

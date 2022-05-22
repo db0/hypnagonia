@@ -23,6 +23,8 @@ var load_start_time := OS.get_ticks_msec()
 var ut := false
 var _ut_tokens_only_on_board := CFConst.TOKENS_ONLY_ON_BOARD
 var _ut_show_token_buttons := CFConst.SHOW_TOKEN_BUTTONS
+# This is set to true when tests are running
+var is_testing := false
 
 #-----------------------------------------------------------------------------
 # END Unit Testing Variables
@@ -102,9 +104,6 @@ var curr_scale: float
 
 var script_load_thread : Thread
 var scripts_loading := true
-# This is set to true when tests are running
-var is_testing := false
-
 
 func _ready() -> void:
 	var load_end_time = OS.get_ticks_msec()
@@ -137,7 +136,7 @@ func _setup() -> void:
 	are_all_nodes_mapped = false
 	card_drag_ongoing = null
 	# The below takes care that we adjust some settings when testing via Gut
-	if get_tree().get_root().has_node('Gut'):
+	if is_testing:
 		ut = true
 		_debug = true
 	else:
