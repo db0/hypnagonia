@@ -38,7 +38,7 @@ func _init(
 
 
 func animation_started() -> void:
-	if "Intent" in tags and starting_position_node:
+	if "Intent" in tags and is_instance_valid(starting_position_node):
 		starting_position_node.modulate.a = 0
 
 

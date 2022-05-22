@@ -64,13 +64,13 @@ size_flags_vertical = 3
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 margin_top = 8.0
-margin_right = 69.0
+margin_right = 75.0
 margin_bottom = 44.0
 mouse_filter = 1
 
 [node name="Incoming" type="GridContainer" parent="CenterContainer"]
-margin_left = 34.0
-margin_right = 34.0
+margin_left = 37.0
+margin_right = 37.0
 margin_bottom = 36.0
 rect_min_size = Vector2( 0, 36 )
 columns = 3
