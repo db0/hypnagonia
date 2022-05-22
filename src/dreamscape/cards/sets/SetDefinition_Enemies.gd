@@ -1857,7 +1857,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Apply {effect_stacks} {burn}\n{release}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Received",
 		"_amounts": {
 			"effect_stacks": 12,
