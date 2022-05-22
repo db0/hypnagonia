@@ -56,7 +56,7 @@ class TestMethods:
 			"tags": ["Manual"]
 		}
 		assert_signal_emitted_with_parameters(ce, "effect_modified", [ce,"effect_modified", expected_signal_params])
-		assert_eq(ae.get_child_count(), 1)
+		assert_eq(ae.get_all_effects_nodes().size(), 1)
 		assert_eq(ae.get_effect_stacks(test_effect), 1)
 		assert_ret_changed(ae.mod_effect(test_effect))
 		expected_signal_params[SP.TRIGGER_PREV_COUNT] = 1
@@ -64,14 +64,14 @@ class TestMethods:
 		assert_signal_emitted_with_parameters(ce, "effect_modified", [ce,"effect_modified", expected_signal_params])
 		assert_signal_emit_count(ce, "effect_modified", 2)
 		assert_eq(ae.get_effect_stacks(test_effect), 2)
-		assert_eq(ae.get_child_count(), 1)
+		assert_eq(ae.get_all_effects_nodes().size(), 1)
 		assert_ret_changed(ae.mod_effect(test_effect, -2))
 		assert_signal_emit_count(ce, "effect_modified", 3)
 		expected_signal_params[SP.TRIGGER_PREV_COUNT] = 2
 		expected_signal_params[SP.TRIGGER_NEW_COUNT] = 0
 		assert_signal_emitted_with_parameters(ce, "effect_modified", [ce,"effect_modified", expected_signal_params])
 		yield(get_tree(), "idle_frame")
-		assert_eq(ae.get_child_count(), 0)
+		assert_eq(ae.get_all_effects_nodes().size(), 0)
 		assert_eq(ae.get_effect_stacks(test_effect), 0)
 
 
@@ -148,7 +148,7 @@ class TestMethods:
 		ae.snapshot_effect(test_effect, 5, false, [])
 		assert_signal_not_emitted(ae, "effect_added")
 		assert_eq(ae.get_effect_stacks(test_effect), 5)
-		assert_eq(ae.get_child_count(), 0)
+		assert_eq(ae.get_all_effects_nodes().size(), 0)
 		assert_eq_shallow(ae.sceng_snapshot_modifiers, {"Rebalance":5})
 
 	func test_snapshot_effect_existing() -> void:
@@ -157,7 +157,7 @@ class TestMethods:
 		ae.snapshot_effect(test_effect, 5, false, [])
 		assert_signal_emit_count(ae, "effect_added", 1)
 		assert_eq(ae.get_effect_stacks(test_effect), 6)
-		assert_eq(ae.get_child_count(), 1)
+		assert_eq(ae.get_all_effects_nodes().size(), 1)
 		assert_eq_shallow(ae.sceng_snapshot_modifiers, {"Rebalance":6})
 
 	func test_effect_with_noscript() -> void:
@@ -190,7 +190,7 @@ class TestOpposites:
 		assert_ret_changed(ae.mod_effect(test_opposite, 2))
 		assert_signal_emit_count(ce, "effect_modified", 2)
 		yield(get_tree(), "idle_frame")
-		assert_eq(ae.get_child_count(), 0)
+		assert_eq(ae.get_all_effects_nodes().size(), 0)
 		assert_eq(ae.get_effect_stacks(test_effect), 0)
 		assert_eq(ae.get_effect_stacks(test_opposite), 0)
 
@@ -199,7 +199,7 @@ class TestOpposites:
 		assert_ret_changed(ae.mod_effect(test_opposite,6))
 		assert_signal_emit_count(ce, "effect_modified", 3)
 		yield(get_tree(), "idle_frame")
-		assert_eq(ae.get_child_count(), 1)
+		assert_eq(ae.get_all_effects_nodes().size(), 1)
 		assert_eq(ae.get_effect_stacks(test_effect), 0)
 		assert_eq(ae.get_effect_stacks(test_opposite), 3)
 
@@ -208,7 +208,7 @@ class TestOpposites:
 		assert_ret_changed(ae.mod_effect(test_opposite,3))
 		assert_signal_emit_count(ce, "effect_modified", 2)
 		yield(get_tree(), "idle_frame")
-		assert_eq(ae.get_child_count(), 1)
+		assert_eq(ae.get_all_effects_nodes().size(), 1)
 		assert_eq(ae.get_effect_stacks(test_effect), 3)
 		assert_eq(ae.get_effect_stacks(test_opposite), 0)
 
@@ -217,7 +217,7 @@ class TestOpposites:
 		assert_ret_changed(ae.mod_effect(test_opposite,3, true))
 		assert_signal_emit_count(ce, "effect_modified", 3)
 		yield(get_tree(), "idle_frame")
-		assert_eq(ae.get_child_count(), 1)
+		assert_eq(ae.get_all_effects_nodes().size(), 1)
 		assert_eq(ae.get_effect_stacks(test_effect), 0)
 		assert_eq(ae.get_effect_stacks(test_opposite), 3)
 

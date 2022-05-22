@@ -70,8 +70,8 @@ func mod_effect(
 							opposite.set_stacks(0, tags)
 							mod = 0
 						else:
-							opposite.set_stacks(0, tags)
 							mod -= opposite.stacks
+							opposite.set_stacks(0, tags)
 						if mod == 0:
 							return(CFConst.ReturnCode.CHANGED)
 				effect = EFFECT_TEMPLATE.instance()
