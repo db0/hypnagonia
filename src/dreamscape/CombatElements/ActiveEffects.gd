@@ -118,7 +118,11 @@ func get_all_effects() -> Dictionary:
 
 
 func get_all_effects_nodes() -> Array:
-	return(get_children())
+	var all_active_effect := []
+	for effect in get_children():
+		if is_instance_valid(effect) and effect.stacks != 0:
+			all_active_effect.append(effect)
+	return(all_active_effect)
 
 
 func get_ordered_effects(ordered_effects:= {}) -> Dictionary:
@@ -128,7 +132,7 @@ func get_ordered_effects(ordered_effects:= {}) -> Dictionary:
 			"multipliers" : [],
 			"setters" : [],
 		}
-	for effect in get_children():
+	for effect in get_all_effects_nodes():
 		match effect.priority:
 			Terms.ALTERANT_PRIORITY.ADD:
 				# We do not want the same exact instance of an effect

@@ -27,6 +27,9 @@ border_color = Color( 0.247059, 0.396078, 0.192157, 1 )
 
 [node name="MemoryTemplate" groups=["memories"] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+signifier_type = 4
+priority = 0
+effect_context = 0
 
 [node name="Label" parent="Signifier" index="0"]
 margin_left = 4.0

@@ -16,6 +16,8 @@ func get_effect_alteration(
 		return(0)
 	if subject != owning_entity:
 		return(0)
+	if stacks < 1:
+		return(0)
 	if dry_run and sceng.snapshot_id > 0:
 		# This can only happen if this effect was spawned as part of playing the card
 		# but it was not yet there when taking the snapshot.

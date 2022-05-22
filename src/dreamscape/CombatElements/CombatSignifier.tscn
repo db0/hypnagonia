@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/dreamscape/CombatElements/CombatSignifier.gd" type="Script" id=1]
 [ext_resource path="res://assets/icons/shield.png" type="Texture" id=2]
@@ -65,6 +65,34 @@ tracks/3/keys = {
 "args": [  ],
 "method": "set_amount_from_int"
 } ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Despawned"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 6.27666 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MC/Amount:self_modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -323,6 +351,7 @@ text = "0"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Decreased = SubResource( 4 )
+anims/Despawned = SubResource( 6 )
 anims/Increased = SubResource( 2 )
 anims/RESET = SubResource( 3 )
 anims/Spawned = SubResource( 5 )

@@ -10,9 +10,14 @@ func get_effect_alteration(
 		is_source := false, 
 		_dry_run := true,
 		_subject: Node = null) -> int:
-	if not script.script_name == 'modify_damage'\
-			or not "Attack" in script.get_property(SP.KEY_TAGS)\
-			or not is_source:
+	if not script.script_name == 'modify_damage':
+		return(0)
+	if not "Attack" in script.get_property(SP.KEY_TAGS):
+		return(0)
+	if not is_source:
+		return(0)
+	# This can happen when this in the process of despawning
+	if stacks < 1:
 		return(0)
 	var new_value = round(value * 1.25)
 	var alteration = new_value - value
