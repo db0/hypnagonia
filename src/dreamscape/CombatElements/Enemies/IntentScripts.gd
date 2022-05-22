@@ -54,7 +54,7 @@ const STRESS := [
 const PIERCING_STRESS := [
 	{
 		"name": "modify_damage",
-		"tags": ["Attack", "Intent", "Piercing"],
+		"tags": ["Attack", "Intent","Piercing"],
 		"subject": "dreamer",
 		"amount": null,
 		"icon": "icon_pierce",

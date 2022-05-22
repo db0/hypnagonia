@@ -64,6 +64,11 @@ func before_each():
 		while board.counters.counters.immersion == 0:
 			yield(yield_to(board.turn, "player_turn_started", 1), YIELD)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), -80)
+	extra_board_setup()
+
+# To override for extra stuff
+func extra_board_setup() -> void:
+	pass
 
 func after_each():
 	.teardown_hypnagonia_testing()
