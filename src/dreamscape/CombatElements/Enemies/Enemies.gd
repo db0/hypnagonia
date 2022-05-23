@@ -531,7 +531,7 @@ const SILENT_TREATMENT := {
 const GUILT := {
 	"Name": "Guilt",
 	"Type": "Abuse",
-	"Health": 10,
+	"Health": 100,
 	"Intents": [
 		{
 			"intent_scripts": ["Stress:15"],

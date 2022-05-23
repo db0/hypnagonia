@@ -524,6 +524,8 @@ func _input(event):
 			if pathos != Terms.RUN_ACCUMULATION_NAMES.boss:
 				globals.player.pathos.modify_released_pathos(pathos, globals.player.pathos.get_threshold(pathos))
 		# Hand Cards
+#		for iter in 20:
+#			var c = "Interpretation"
 		for c in [
 			# Need to look into these two later
 #			"Fowl Language",
@@ -531,7 +533,8 @@ func _input(event):
 #			"Prejudice",
 			"Nunclucks",
 		]:
-			var ce = CardEntry.new(c)
+			var ce = globals.player.deck.add_new_card(c)
+#			var ce = CardEntry.new(c)
 			var card = ce.instance_self()
 			cfc.NMAP.hand.add_child(card)
 			#card.set_is_faceup(false,true)

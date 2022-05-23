@@ -856,7 +856,7 @@ const CARDS := {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.purpose.name],
 		"Abilities": "Gain {immersion_amount} {immersion} per turn.\nLose {detriment_stacks} {focus}\n"\
-				+ "Every time you shuffle your deck, lose {concentration_amount} {focus}.",
+				+ "Every time you shuffle your deck, lose {concentration_effect} {focus}.",
 		"Cost": 3,
 		"_is_concentration": true,
 		"_illustration": "Silberfarben via Artbreeder.com",
@@ -865,7 +865,7 @@ const CARDS := {
 		"_amounts": {
 			"immersion_amount": 1,
 			"detriment_stacks": 1,
-			"concentration_amount": 1,
+			"concentration_effect": 1,
 		},
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER,
@@ -880,7 +880,7 @@ const CARDS := {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.purpose.name],
 		"Abilities": "Gain {immersion_amount} {immersion} per turn.\nLose {detriment_stacks} {focus}\n"\
-				+ "Every time you shuffle your deck, lose {concentration_amount} {focus}.",
+				+ "Every time you shuffle your deck, lose {concentration_effect} {focus}.",
 		"Cost": 2,
 		"_is_concentration": true,
 		"_illustration": "Silberfarben via Artbreeder.com",
@@ -888,7 +888,7 @@ const CARDS := {
 		"_keywords": [],
 		"_amounts": {
 			"immersion_amount": 1,
-			"concentration_amount": 2,
+			"concentration_effect": 1,
 			"detriment_stacks": 1,
 		},
 		"_effects_info": {
@@ -900,7 +900,7 @@ const CARDS := {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.alpha.name, Terms.GENERIC_TAGS.purpose.name],
 		"Abilities": "Gain {immersion_amount} {immersion} per turn.\nLose {detriment_stacks} {focus}\n"\
-				+ "Every time you shuffle your deck, lose {concentration_amount} {focus}.",
+				+ "Every time you shuffle your deck, lose {concentration_effect} {focus}.",
 		"Cost": 3,
 		"_is_concentration": true,
 		"_illustration": "Silberfarben via Artbreeder.com",
@@ -908,7 +908,7 @@ const CARDS := {
 		"_keywords": [],
 		"_amounts": {
 			"immersion_amount": 1,
-			"concentration_amount": 2,
+			"concentration_effect": 1,
 			"detriment_stacks": 1,
 		},
 		"_effects_info": {

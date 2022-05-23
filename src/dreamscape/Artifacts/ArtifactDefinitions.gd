@@ -1069,7 +1069,7 @@ const ThickDeckRareChance := {
 	"canonical_name": "ThickDeckRareChance",
 	"name": "Muumuu",
 	"description": "{artifact_name}: If your deck has {card_amount} or more cards, your chance of finding Rare cards is doubled.",
-	"icon": preload("res://assets/icons/artifacts/cheese-wedge.png"),
+	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"amounts": {
