@@ -44,7 +44,11 @@ var upgrades: Dictionary
 var upgrade_options : Array
 var properties := {}
 var printed_properties := {}
+# The scrips as loaded from the definitions, using the dictionary templates fro amounts
 var unmodified_scripts : Dictionary
+# The various scripts as calculated last time, based on the has of the card properties as the key
+# This avoids having to do the heavy operation of recalculating the scripts from the amount templates each time
+var cached_scripts : Dictionary
 # Each entry is a dictionary. Each dictionary has a property and a value.
 # These changes are re-applied to the card, when it's upgraded
 var property_modifications := []
@@ -245,12 +249,21 @@ func modify_property(property: String, value, is_enhancement := true, record := 
 # CardEntry properties might not be affected
 # When the card_properties is sent, it is therefore utilized.
 func retrieve_scripts(trigger: String, card_properties = null) -> Dictionary:
-	var found_scripts: Dictionary = unmodified_scripts.duplicate(true)
+	var properties_hash
 	if card_properties:
-		CoreScripts.lookup_script_property(found_scripts, card_name, card_properties)
+		properties_hash = card_properties.hash()
 	else:
-		CoreScripts.lookup_script_property(found_scripts, card_name, properties)
-#	print(found_scripts.get(trigger,{}))
+		properties_hash = properties.hash()
+	var found_scripts: Dictionary = unmodified_scripts.duplicate(true)
+	if cached_scripts.has(properties_hash):
+		found_scripts = cached_scripts[properties_hash]
+	else:
+		if card_properties:
+			CoreScripts.lookup_script_property(found_scripts, card_name, card_properties)
+		else:
+			CoreScripts.lookup_script_property(found_scripts, card_name, properties)
+	#	print(found_scripts.get(trigger,{}))
+		cached_scripts[properties_hash] = found_scripts
 	return(found_scripts.get(trigger,{}))
 
 

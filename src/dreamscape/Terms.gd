@@ -157,10 +157,10 @@ const ACTIVE_EFFECTS := {
 		"generic_description": "{effect_name}: Doubles {interpretation} done.",
 		"rich_text_icon": "res://fonts/rich_text_icons/crow-dive.png",
 		"description": "{effect_name} ({effect_icon}): The next {amount} "\
-				+ "actions doing {damage} by this {entity} are doubled.",
+				+ "actions doing {attack} by this {entity} are doubled.",
 		"upgraded_descriptions": {
 			"powerful": "{effect_name}: The next {amount} "\
-				+ "actions doing {damage} by this {entity} are tripled.",
+				+ "actions doing {attack} by this {entity} are tripled.",
 		},
 		"linked_terms": [
 			"{damage}",
