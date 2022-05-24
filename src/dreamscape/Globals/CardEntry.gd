@@ -250,20 +250,21 @@ func modify_property(property: String, value, is_enhancement := true, record := 
 # When the card_properties is sent, it is therefore utilized.
 func retrieve_scripts(trigger: String, card_properties = null) -> Dictionary:
 	var properties_hash
-	if card_properties:
+	var unmodified_script_hash := unmodified_scripts.hash()
+	if card_properties: 
 		properties_hash = card_properties.hash()
 	else:
 		properties_hash = properties.hash()
 	var found_scripts: Dictionary = unmodified_scripts.duplicate(true)
-	if cached_scripts.has(properties_hash):
-		found_scripts = cached_scripts[properties_hash]
+	if cached_scripts.has(properties_hash + unmodified_script_hash):
+		found_scripts = cached_scripts[properties_hash + unmodified_script_hash].duplicate(true)
 	else:
 		if card_properties:
 			CoreScripts.lookup_script_property(found_scripts, card_name, card_properties)
 		else:
 			CoreScripts.lookup_script_property(found_scripts, card_name, properties)
 	#	print(found_scripts.get(trigger,{}))
-		cached_scripts[properties_hash] = found_scripts
+		cached_scripts[properties_hash + unmodified_script_hash] = found_scripts.duplicate(true)
 	return(found_scripts.get(trigger,{}))
 
 
