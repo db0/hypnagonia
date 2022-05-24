@@ -235,7 +235,6 @@ func refresh_intents(specific_index = null) -> void:
 		intent.queue_free()
 	# warning-ignore:return_value_discarded
 	prepare_intents(specific_index)
-	cfc.flush_cache()
 
 # We have this externally to allow to override it if needed (e.g. for boss intents)
 func _get_intent_scripts(_intent_name: String) -> Array:
@@ -247,6 +246,7 @@ func _display_intents(new_intents: Dictionary) -> void:
 	for intent in get_children():
 		intent.queue_free()
 	intents_displayed = false
+	# To allow previous intents to queue_freed
 	yield(get_tree().create_timer(0.01), "timeout")
 	for intent in new_intents.intent_scripts:
 		# Some intents can use a generic format of "Intent Name: Value"
@@ -292,6 +292,7 @@ func _display_intents(new_intents: Dictionary) -> void:
 				add_child(new_intent)
 				new_intent.setup(single_intent, intent_name)
 	intents_displayed = true
+	cfc.flush_cache()
 	emit_signal("intents_displayed")
 
 

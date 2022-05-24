@@ -145,7 +145,8 @@ func _get_elite_scripts(intent_name: String) -> Array:
 				"icon": preload("res://assets/icons/alien-egg.png"),
 				"description": "What's the matter, gonna cry?",
 				"torment_special": "Call Buddy",
-				"predict_as": true
+				"predict_as": true,
+				"add_to_dreamer_damage_prediction": true,
 			},
 		],
 		"Gather Crowd": [
@@ -157,7 +158,8 @@ func _get_elite_scripts(intent_name: String) -> Array:
 				"icon": preload("res://assets/icons/alien-egg.png"),
 				"description": "You're never gonna have any friends here...",
 				"torment_special": "Gather Crowd",
-				"predict_as": true
+				"predict_as": true,
+				"add_to_dreamer_damage_prediction": true,
 			},
 			{
 				"name": "torment_special",
@@ -167,7 +169,8 @@ func _get_elite_scripts(intent_name: String) -> Array:
 				"icon": preload("res://assets/icons/alien-egg.png"),
 				"description": "...am I right, everyone?",
 				"torment_special": "Gather Crowd",
-				"predict_as": true
+				"predict_as": true,
+				"add_to_dreamer_damage_prediction": true,
 			},
 		],
 	}
