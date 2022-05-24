@@ -121,3 +121,5 @@ func clear_state_snapshot(snapshot_id) -> void:
 			"CombatEntities", 
 			"clear_snapshot", 
 			snapshot_id)
+	cfc.NMAP.board.snapshot_dmg_predictions.clear()
+	cfc.NMAP.board.snapshot_lost_defence_predictions.clear()
