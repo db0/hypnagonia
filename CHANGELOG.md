@@ -1,12 +1,16 @@
 # Changelog
 
-## [Unreleased](https://github.com/db0/hypnagonia/tree/HEAD)
+## [v0.56.1](https://github.com/db0/hypnagonia/tree/v0.56.1) (2022-05-24)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.56.0...HEAD)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.56.0...v0.56.1)
 
 **Implemented enhancements:**
 
 - Confidence shredding torment | Shred elves [\#343](https://github.com/db0/hypnagonia/issues/343)
+
+**Merged pull requests:**
+
+- Fix slowdown when having a big deck [\#345](https://github.com/db0/hypnagonia/pull/345) ([db0](https://github.com/db0))
 
 ## [v0.56.0](https://github.com/db0/hypnagonia/tree/v0.56.0) (2022-05-22)
 
