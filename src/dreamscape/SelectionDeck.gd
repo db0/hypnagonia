@@ -38,7 +38,7 @@ onready var _progress_cost := $"../VBC/VBC/HBC/Buttons/ProgressCost"
 
 
 # Initiates an operation for card removal
-func initiate_card_removal(cost: int = 0, cost_type: String = Terms.RUN_ACCUMULATION_NAMES.enemy) -> void:
+func initiate_card_removal(cost: int = 0, cost_type: String = 'generic') -> void:
 	operation_cost = cost
 	operation_cost_type = cost_type
 	if operation != "remove":
@@ -49,7 +49,7 @@ func initiate_card_removal(cost: int = 0, cost_type: String = Terms.RUN_ACCUMULA
 
 
 # Initiates an operation for card progress.
-func initiate_card_progress(cost: int = 0, cost_type: String = Terms.RUN_ACCUMULATION_NAMES.enemy, amount := 1) -> void:
+func initiate_card_progress(cost: int = 0, cost_type: String = 'generic', amount := 1) -> void:
 	progress_amount = amount
 	operation_cost = cost
 	operation_cost_type = cost_type
@@ -60,7 +60,7 @@ func initiate_card_progress(cost: int = 0, cost_type: String = Terms.RUN_ACCUMUL
 	_display()
 
 # Initiates an operation for card selection
-func initiate_card_selection(cost: int = 0, cost_type: String = Terms.RUN_ACCUMULATION_NAMES.enemy) -> void:
+func initiate_card_selection(cost: int = 0, cost_type: String = 'generic') -> void:
 	operation_cost = cost
 	operation_cost_type = cost_type
 	if operation != "selection":
@@ -135,7 +135,9 @@ func _populate_preview_cards() -> void:
 # Triggers the operation requested on the selected card, if the player has enough
 # pathos
 func _on_deck_card_selected(card_entry: CardEntry, deck_card_object) -> void:
-	if not operation_cost <= globals.player.pathos.released[operation_cost_type]:
+	if operation_cost_type == 'generic' and not operation_cost <= globals.player.pathos.convert_to_shop():
+		return
+	elif operation_cost_type != 'generic' and not operation_cost <= globals.player.pathos.released[operation_cost_type]:
 		return
 	# We store that to send with the signal
 	var signal_payload := {
@@ -144,7 +146,7 @@ func _on_deck_card_selected(card_entry: CardEntry, deck_card_object) -> void:
 		"upgraded": card_entry.is_upgraded(),
 		"progress": card_entry.upgrade_progress,
 	}
-	globals.player.pathos.released[operation_cost_type] -= operation_cost
+	globals.player.pathos.spend_generic_pathos(operation_cost)
 	if operation == "remove":
 		globals.player.deck.remove_card(card_entry)
 		deck_card_object.queue_free()

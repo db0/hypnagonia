@@ -13,6 +13,10 @@ signal repressed_pathos_lost(pathos, amount)
 signal released_pathos_lost(pathos, amount)
 # Sent when released pathos is increased
 signal released_pathos_gained(pathos, amount)
+# Generic signal for any time released pathos is modified
+# The amount in this signal can be negative
+signal released_pathos_modified(pathos, amount)
+signal generic_pathos_spent(amount)
 
 var repressed := {
 	Terms.RUN_ACCUMULATION_NAMES.enemy: 25.0,
@@ -24,6 +28,8 @@ var repressed := {
 	Terms.RUN_ACCUMULATION_NAMES.boss: 0.0,
 }
 
+# This is used as the baseline for cost of cards in the shop
+var baseline = Terms.RUN_ACCUMULATION_NAMES.enemy
 
 # How much each repressed pathos can increase per journal page
 var progressions := {
@@ -65,6 +71,7 @@ var release_adjustments := {
 	Terms.RUN_ACCUMULATION_NAMES.nce: 1.5,
 	Terms.RUN_ACCUMULATION_NAMES.shop: 1.5,
 }
+
 
 var released := {}
 
@@ -158,6 +165,7 @@ func modify_released_pathos(entry: String, amount: float, is_lost := false) -> v
 		emit_signal("released_pathos_lost", entry, -amount)
 	else:
 		emit_signal("pathos_spent", entry, -amount)
+	emit_signal("released_pathos_modified", entry, amount)
 
 
 # reduces the specified released pathos by a given amount
@@ -188,6 +196,7 @@ func lose_released_pathos(entry: String, amount: float) -> void:
 # Grabbing the number via a fuction, rather than directly from the var
 # allows us to modify this via artifacts during runtime
 func get_progression(entry: String) -> float:
+	if entry == 'generic': entry = baseline
 	var rand_array : Array = progressions[entry].duplicate()
 	CFUtils.shuffle_array(rand_array)
 	return(float(rand_array[0]))
@@ -195,6 +204,7 @@ func get_progression(entry: String) -> float:
 
 # Returns the average value of the progression specified
 func get_progression_average(entry: String) -> float:
+	if entry == 'generic': entry = baseline
 	var total: float = 0
 	for p in progressions[entry]:
 		total += p
@@ -203,6 +213,7 @@ func get_progression_average(entry: String) -> float:
 
 # Returns the threshold required to encounter events of this pathos
 func get_threshold(entry: String) -> float:
+	if entry == 'generic': entry = baseline
 #	print_debug(entry, get_progression_average(entry))
 	return(get_progression_average(entry) * float(thresholds[entry]))
 
@@ -342,6 +353,7 @@ func get_boss_threshold() -> float:
 	return(thresholds[Terms.RUN_ACCUMULATION_NAMES.boss]
 			* get_progression_average(Terms.RUN_ACCUMULATION_NAMES.boss))
 
+
 func extract_save_state() -> Dictionary:
 	var pathos_dict := {
 		"repressed": repressed,
@@ -349,7 +361,7 @@ func extract_save_state() -> Dictionary:
 	}
 
 	return(pathos_dict)
-	
+
 
 func restore_save_state(save_state: Dictionary) -> void:
 	var pathos_dict := {
@@ -358,4 +370,44 @@ func restore_save_state(save_state: Dictionary) -> void:
 	}
 	repressed = save_state.repressed
 	released = save_state.released
-	
+
+
+func convert_to_shop() -> int:
+	var total : float = 0
+	var baseline : float = 5 # I.e. we're going to normalize each pathos type, as if we're earning 5 of it per turn
+	for pathos_type in repressed.keys():
+		var adjustment = baseline / get_progression_average(pathos_type)
+		total += released.get(pathos_type,0) * adjustment
+#	print_debug([total, adjustments])
+	return(int(ceil(total)))
+
+
+# Spends pathos as generic currency, then distributes the exact amount spent to the various
+# types proportionally
+func spend_generic_pathos(amount: float) -> void:
+	if amount <= 0:
+		printerr("ERROR: spend_pathos() only takes a positive integer")
+		return
+	var total : float
+	for pathos_type in repressed.keys():
+		total += released.get(pathos_type,0)
+	# To avoid div/0
+	if total <= 0:
+		return
+	var baseline : float = 5 # I.e. we're going to normalize each pathos type, as if we're earning 5 of it per turn
+	for pathos_type in repressed.keys():
+		var adjustment = baseline / get_progression_average(pathos_type)
+		var percentage = released.get(pathos_type,0) / total
+		released[pathos_type] -= amount * percentage / adjustment
+#	print_debug([amount,released])
+	emit_signal("generic_pathos_spent", amount)
+
+func get_shop_baseline_average() -> float:
+	var total : float = 0
+	var baseline : float = 6 # I.e. we're going to normalize each pathos type, as if we're earning 5 of it per turn
+	for pathos_type in Terms.RUN_ACCUMULATION_NAMES.values():
+		if pathos_type == Terms.RUN_ACCUMULATION_NAMES.boss:
+			continue
+#		baseline := get_progression_average(pathos_type) # Trying a standard baseline instead
+		total += baseline
+	return(total)

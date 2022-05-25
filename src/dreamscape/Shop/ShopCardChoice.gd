@@ -3,11 +3,16 @@ extends VBoxContainer
 var cost: int setget set_cost
 var cost_type: String = Terms.RUN_ACCUMULATION_NAMES.nce
 
-onready var shop_card_display := $ChoiceCardObject
-onready var shop_card_cost := $Cost
+onready var shop_card_display := find_node('ChoiceCardObject')
+onready var shop_card_cost := find_node('Cost')
+onready var shop_cost_icon := find_node('CostIcon')
 
-func _process(_delta: float) -> void:
-	if cost > globals.player.pathos.released[cost_type]:
+func _ready():
+	globals.player.pathos.connect("generic_pathos_spent", self, "_on_generic_pathos_spent")
+	shop_cost_icon.texture = CFUtils.convert_texture_to_image(shop_cost_icon.texture)
+
+func _update_cost() -> void:
+	if cost > globals.player.pathos.convert_to_shop():
 		shop_card_cost.add_color_override("font_color", Color(1,0,0))
 	else:
 		shop_card_cost.add_color_override("font_color", Color(1,1,0))
@@ -15,11 +20,13 @@ func _process(_delta: float) -> void:
 
 func set_cost(value) -> void:
 	cost = value
-	shop_card_cost.text = str(value) + ' ' + cost_type.capitalize()
-
+	shop_card_cost.text = str(value)
+	_update_cost()
 
 func disable() -> void:
 	modulate.a = 0
 	shop_card_display.is_disabled = true
 	shop_card_display._on_GridCardObject_mouse_exited()
 	
+func _on_generic_pathos_spent(_amount) -> void:
+	_update_cost()

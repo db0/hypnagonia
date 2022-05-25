@@ -115,14 +115,14 @@ custom_constants/separation = 15
 
 [node name="Push" type="Control" parent="HBC"]
 margin_left = 139.0
-margin_right = 519.0
+margin_right = 496.0
 margin_bottom = 39.0
 size_flags_horizontal = 3
 
 [node name="Encounter" type="Label" parent="HBC"]
-margin_left = 523.0
+margin_left = 500.0
 margin_top = 5.0
-margin_right = 819.0
+margin_right = 796.0
 margin_bottom = 33.0
 custom_fonts/font = ExtResource( 3 )
 text = "Early Night, Encounter 1"
@@ -130,33 +130,34 @@ text = "Early Night, Encounter 1"
 [node name="DifficultyIcon" parent="HBC" instance=ExtResource( 7 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 823.0
-margin_right = 858.0
+margin_left = 800.0
+margin_right = 835.0
 margin_bottom = 39.0
 
 [node name="Particles2D" parent="HBC/DifficultyIcon" index="0"]
 position = Vector2( 17, 29 )
 
 [node name="Difficulty" type="Label" parent="HBC"]
-margin_left = 862.0
+margin_left = 839.0
 margin_top = 5.0
-margin_right = 876.0
+margin_right = 853.0
 margin_bottom = 33.0
 custom_fonts/font = ExtResource( 3 )
 text = "0"
 
 [node name="Push2" type="Control" parent="HBC"]
-margin_left = 880.0
-margin_right = 1260.0
+margin_left = 857.0
+margin_right = 1215.0
 margin_bottom = 39.0
 size_flags_horizontal = 3
 
 [node name="Pathos" type="Button" parent="HBC"]
-margin_left = 1264.0
+margin_left = 1219.0
 margin_right = 1299.0
 margin_bottom = 39.0
-rect_min_size = Vector2( 35, 0 )
+rect_min_size = Vector2( 80, 0 )
 custom_fonts/font = SubResource( 3 )
+text = "0000"
 icon = ExtResource( 8 )
 flat = true
 expand_icon = true

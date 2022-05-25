@@ -11,7 +11,7 @@ var rarity_price_multipliers := {
 }
 # Artifacts tend to be more expensive based on their pathos average
 # So we multiply their cost a bit further
-var artifact_cost_multiplier := 1.5
+var artifact_cost_multiplier := 2.5
 var memory_cost_multiplier := 3
 
 var uncommon_chance := 25
@@ -38,14 +38,14 @@ var remove_max_usage: int = 1
 # These variables are the type of pathos that we use to purchase the various
 # Things in the shop. By specifying the variables here, I can tweak
 # them easily later, or change them via an artifact
-var card_removal_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.enemy
-var card_progress_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.rest
-var card_pool_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.nce
-var special_cards_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.artifact
+var card_removal_cost_type : String = 'generic'
+var card_progress_cost_type : String = 'generic'
+var card_pool_cost_type : String = 'generic'
+var special_cards_cost_type : String = 'generic'
 # We want one of the card choices to use a different currency
-var card_pool_secondary_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.enemy
-var artifact_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.elite
-var memory_cost_type : String = Terms.RUN_ACCUMULATION_NAMES.shop
+var card_pool_secondary_cost_type : String = 'generic'
+var artifact_cost_type : String = 'generic'
+var memory_cost_type : String = 'generic'
 
 onready var card_pool_shop := $VBC/VBC/CC/CardPoolShop
 onready var special_cards_shop := $VBC/VBC/HBC/MainArea/VBC/SpecialCards
@@ -53,10 +53,10 @@ onready var memories_shop := $VBC/VBC/HBC/MainArea/VBC/Memories
 onready var artifact_shop := $VBC/VBC/HBC/MainArea/ArtifactCC/Artifacts
 onready var _deck_button := $VBC/VBC/HBC/Buttons/Remove
 onready var _deck_preview_popup := $Deck
-onready var _progress_cost := $VBC/VBC/HBC/Buttons/ProgressCost
-onready var _progress_button := $VBC/VBC/HBC/Buttons/Progress
-onready var _remove_cost := $VBC/VBC/HBC/Buttons/RemoveCost
-onready var _remove_button := $VBC/VBC/HBC/Buttons/Remove
+onready var _progress_cost := find_node("ProgressCost")
+onready var _progress_button := find_node("Progress")
+onready var _remove_cost := find_node("RemoveCost")
+onready var _remove_button := find_node("Remove")
 # This button is connected to the event code.
 onready var back_button := $VBC/VBC/HBoxContainer/Back
 onready var player_info := $VBC/PlayerInfo
@@ -81,11 +81,11 @@ func _ready() -> void:
 		globals.player.deck.add_new_card("+ Confidence +")
 		# warning-ignore:return_value_discarded
 		globals.player.deck.add_new_card("+ Confidence +")
-		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.nce] = 160
+		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.nce] = 60
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.rest] = 20
-		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.elite] = 400
-		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.enemy] = 400
-		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.artifact] = 400
+		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.elite] = 100
+		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.enemy] = 100
+		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.artifact] = 50
 		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.shop] = 11
 # warning-ignore:return_value_discarded
 		globals.player.add_memory(MemoryDefinitions.RerollShop.canonical_name)
@@ -99,14 +99,20 @@ func _ready() -> void:
 		globals.player.deck.connect("card_removed", player_info, "_update_deck_count")
 		player_info._on_Settings_pressed()
 		yield(get_tree().create_timer(0.1), "timeout")
-		player_info._on_Settings_hide()		
+		player_info._on_Settings_hide()
+		globals.player.pathos.connect("released_pathos_modified", player_info, "_update_released_pathos")
+		globals.player.pathos.connect("generic_pathos_spent", player_info, "_update_released_pathos")
+		player_info._pathos_button.text = str(globals.player.pathos.convert_to_shop())
 	## END DEBUG ##
 	player_info.owner_node = self
 	globals.music.switch_scene_music('shop')
 	# warning-ignore:return_value_discarded
 	_deck_preview_popup.connect("operation_performed", self, "_on_deck_operation_performed")
+	globals.player.pathos.connect("generic_pathos_spent", self, "_on_generic_pathos_spent")
 	_update_progress_cost()
 	_update_remove_cost()
+	for t in [find_node("ProgressIcon"), find_node("RemoveIcon")]:
+		t.texture = CFUtils.convert_texture_to_image(t.texture)
 	reroll_shop()
 	if not cfc.game_settings.get('first_shop_tutorial_done'):
 		player_info._on_Help_pressed()
@@ -137,8 +143,7 @@ func populate_shop_cards() -> void:
 			# I want at least one card to use frustration for cost
 			if card_number == 5:
 				cost_type = card_pool_secondary_cost_type
-			var prog_avg : float = globals.player.pathos.get_progression_average(
-						cost_type)
+			var prog_avg : float = globals.player.pathos.get_shop_baseline_average()
 			var card_cost =\
 					round(prog_avg * rarity_price_multipliers[rarity])\
 					+ (CFUtils.randi_range(
@@ -172,8 +177,7 @@ func populate_shop_artifacts() -> void:
 		# By separating the cost_type like this, I can theoretically
 		# randomize the cost_type per card.
 		var cost_type : String = artifact_cost_type
-		var prog_avg : float = globals.player.pathos.get_progression_average(
-					cost_type)
+		var prog_avg : float = globals.player.pathos.get_shop_baseline_average()
 		var artifact_cost =\
 				(round(prog_avg * rarity_price_multipliers[rarity] * artifact_cost_multiplier))\
 				+ (CFUtils.randi_range(
@@ -205,8 +209,7 @@ func populate_shop_memories() -> void:
 		# By separating the cost_type like this, I can theoretically
 		# randomize the cost_type per card.
 		var cost_type : String = memory_cost_type
-		var prog_avg : float = globals.player.pathos.get_progression_average(
-					cost_type)
+		var prog_avg : float = globals.player.pathos.get_shop_baseline_average()
 		var memory_cost =\
 				(round(prog_avg * memory_cost_multiplier)) + (CFUtils.randi_range(-3, 3))
 		memory_cost = round(memory_cost * globals.difficulty.shop_prices)
@@ -249,8 +252,7 @@ func populate_special_cards() -> void:
 		# By separating the cost_type like this, I can theoretically
 		# randomize the cost_type per card.
 		var cost_type : String = special_cards_cost_type
-		var prog_avg : float = globals.player.pathos.get_progression_average(
-					cost_type)
+		var prog_avg : float = globals.player.pathos.get_shop_baseline_average()
 		var card_cost =\
 				(prog_avg * rarity_price_multipliers[rarity])\
 				+ (CFUtils.randi_range(
@@ -312,9 +314,9 @@ func _get_shop_choice(choices_list: Array) -> String:
 
 func _on_shop_card_selected(index: int, shop_card_object, containing_array := all_card_pool_choices) -> void:
 	var pathos : String = containing_array[index].cost_type
-	if globals.player.pathos.released[pathos] < containing_array[index].cost:
+	if globals.player.pathos.convert_to_shop() < containing_array[index].cost:
 		return
-	globals.player.pathos.spend_pathos(pathos, containing_array[index].cost)
+	globals.player.pathos.spend_generic_pathos(containing_array[index].cost)
 	# warning-ignore:return_value_discarded
 	globals.player.deck.add_new_card(containing_array[index].card_name)
 	shop_card_object.disable()
@@ -323,9 +325,9 @@ func _on_shop_card_selected(index: int, shop_card_object, containing_array := al
 
 func _on_shop_artifact_selected(index: int, shop_artifact_object) -> void:
 	var pathos : String = all_artifact_choices[index].cost_type
-	if globals.player.pathos.released[pathos] < all_artifact_choices[index].cost:
+	if globals.player.pathos.convert_to_shop() < all_artifact_choices[index].cost:
 		return
-	globals.player.pathos.spend_pathos(pathos, all_artifact_choices[index].cost)
+	globals.player.pathos.spend_generic_pathos(all_artifact_choices[index].cost)
 # warning-ignore:return_value_discarded
 	globals.player.add_artifact(shop_artifact_object.shop_artifact_display.canonical_name)
 	shop_artifact_object.modulate.a = 0
@@ -333,9 +335,9 @@ func _on_shop_artifact_selected(index: int, shop_artifact_object) -> void:
 
 func _on_shop_memory_selected(index: int, shop_memory_object) -> void:
 	var pathos : String = all_memory_choices[index].cost_type
-	if globals.player.pathos.released[pathos] < all_memory_choices[index].cost:
+	if globals.player.pathos.convert_to_shop() < all_memory_choices[index].cost:
 		return
-	globals.player.pathos.spend_pathos(pathos, all_memory_choices[index].cost)
+	globals.player.pathos.spend_generic_pathos(all_memory_choices[index].cost)
 	if shop_memory_object.is_upgrade:
 		var existing_memory = globals.player.find_memory(shop_memory_object.shop_artifact_display.canonical_name)
 		existing_memory.upgrade()
@@ -362,25 +364,25 @@ func _on_ProgressCards_pressed() -> void:
 func _update_progress_cost() -> void:
 	# warning-ignore:narrowing_conversion
 	progress_cost = round(
-			globals.player.pathos.get_progression_average(
-				card_progress_cost_type)
+			globals.player.pathos.get_shop_baseline_average()
 			* globals.player.deck.get_upgrade_percentage()
 			* 3
 			* globals.difficulty.shop_prices)
-	if progress_cost <= 2 * globals.difficulty.shop_prices:
-		progress_cost = round(3 * globals.difficulty.shop_prices)
+	if progress_cost <= 10 * globals.difficulty.shop_prices:
+		progress_cost = round(10 * globals.difficulty.shop_prices)
 	var progress_text_format = {
 		"cost": str(progress_cost),
 		"pathos": card_progress_cost_type.capitalize(),
 		"uses_avail": str(progress_uses),
 		"uses_max": str(progress_max_usage),
 	}
-	_progress_cost.text = "{cost} {pathos}\n({uses_avail}/{uses_max} uses)".format(progress_text_format)
+	_progress_cost.text = "{cost}".format(progress_text_format)
+	find_node("ProgressCostUses").text = "({uses_avail}/{uses_max} uses)".format(progress_text_format)
 	if _deck_preview_popup.operation == "progress":
 		_deck_preview_popup.operation_cost = progress_cost
 		_deck_preview_popup.update_header(
-				"{cost} {pathos} ({uses_avail}/{uses_max} uses)".format(progress_text_format))
-	if progress_cost > globals.player.pathos.released[card_progress_cost_type]:
+				"{cost} Released Pathos ({uses_avail}/{uses_max} uses)".format(progress_text_format))
+	if progress_cost > globals.player.pathos.convert_to_shop():
 		if _deck_preview_popup.operation == "progress":
 			_deck_preview_popup.update_color(Color(1,0,0))
 		_progress_cost.add_color_override("font_color", Color(1,0,0))
@@ -394,13 +396,12 @@ func _update_progress_cost() -> void:
 # + 25 for every card already removed from the deck.
 func _update_remove_cost() -> void:
 	# warning-ignore:narrowing_conversion
-	var prog_avg : float = round(globals.player.pathos.get_progression_average(
-			card_removal_cost_type))
+	var prog_avg : float = round(globals.player.pathos.get_shop_baseline_average())
 	remove_cost = (prog_avg * CFUtils.randf_range(2.5, 3.2))\
 			+ (prog_avg * globals.encounters.shop_deck_removals)
 	remove_cost = round(remove_cost * globals.difficulty.shop_prices)
 	_set_remove_cost_text()
-	if remove_cost > globals.player.pathos.released[card_removal_cost_type]:
+	if remove_cost > globals.player.pathos.convert_to_shop():
 		if _deck_preview_popup.operation == "remove":
 			_deck_preview_popup.update_color(Color(1,0,0))
 		_remove_cost.add_color_override("font_color", Color(1,0,0))
@@ -416,11 +417,12 @@ func _set_remove_cost_text() -> void:
 		"uses_avail": str(remove_uses),
 		"uses_max": str(remove_max_usage),
 	}
-	_remove_cost.text = "{cost} {pathos}\n({uses_avail}/{uses_max} uses)".format(remove_text_format)
+	_remove_cost.text = "{cost}".format(remove_text_format)
+	find_node("RemoveCostUses").text = "({uses_avail}/{uses_max} uses)".format(remove_text_format)
 	if _deck_preview_popup.operation == "remove":
 		_deck_preview_popup.operation_cost = remove_cost
 		_deck_preview_popup.update_header(
-				"{cost} {pathos} ({uses_avail}/{uses_max} uses)".format(remove_text_format))
+				"{cost} Released Pathos ({uses_avail}/{uses_max} uses)".format(remove_text_format))
 
 func _on_deck_operation_performed(operation_details: Dictionary) -> void:
 	if operation_details["operation"] == "remove":
@@ -444,3 +446,7 @@ func _on_deck_operation_performed(operation_details: Dictionary) -> void:
 func _exit_tree():
 	if OS.has_feature("debug") and not cfc.is_testing:
 		print("DEBUG INFO:Shop: Exiting Shop")
+
+func _on_generic_pathos_spent(_amount) -> void:
+	_update_progress_cost()
+	_update_remove_cost()
