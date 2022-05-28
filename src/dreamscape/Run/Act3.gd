@@ -532,6 +532,7 @@ const ENEMIES = {
 	"HandsyAunt":HandsyAunt,
 	"Circular_Arguments":Circular_Arguments,
 	"Influencer":Influencer,
+	"Shamelings":Shamelings,
 }
 
 const TheGatherer = {
