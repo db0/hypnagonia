@@ -752,11 +752,12 @@ func calculate_modify_health(subject: CombatEntity, script: ScriptTask) -> int:
 
 func modify_health(script_task: ScriptTask) -> int:
 	var retcode: int
+	var set_to_mod = script_task.get_property(SP.KEY_SET_TO_MOD)
 	for combat_entity in script_task.subjects:
 		if combat_entity.is_dead:
 			continue
 		var modification = calculate_modify_health(combat_entity, script_task)
-		var executor = ExecModifyHealth.new(combat_entity, modification, script_task)
+		var executor = ExecModifyHealth.new(combat_entity, modification, set_to_mod, script_task)
 		if not costs_dry_run():
 			var _anim = IconAnimMessage.new(executor)
 			if not executor.has_executed:

@@ -148,7 +148,7 @@ class TestCockroachInfestation:
 		test_card_names = [
 			"Cockroach Infestation",
 			"Cockroach Infestation",
-		]		
+		]
 
 	func test_card_results():
 		watch_signals(globals.player.deck)
@@ -171,7 +171,7 @@ class TestSelfCentered:
 		expected_amount_keys = [
 			"detrimental_integer"
 		]
-		
+
 	func test_card_results():
 		assert_has_amounts()
 #		add_single_card(testing_card_name, deck)
@@ -205,3 +205,21 @@ class TestSelfCentered:
 		assert_eq(dreamer.damage, 10, "Dreamer should take damage from intents")
 		assert_eq(test_torment.damage, tdamage(torment_added_damage + 4), "Torment should take reducted damage from poison")
 
+
+class TestDubiousPainkillers:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	func _init() -> void:
+		test_card_names = [
+			"Dubious Painkillers",
+		]
+		expected_amount_keys = [
+			"exert_amount",
+			"health_amount",
+		]
+
+	func test_card_results():
+		var sceng = execute_with_yield(card)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		assert_eq(dreamer.health, 100 + get_amount("health_amount"))
+		assert_eq(dreamer.damage, get_amount("exert_amount"))
