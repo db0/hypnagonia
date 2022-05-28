@@ -256,7 +256,7 @@ const StuffedToy = {
 
 const ImpossibleConstruction = {
 	"journal_description":\
-		"I climbing the staircase somewhere, but somehow "\
+		"I was climbing a staircase somewhere, but somehow "\
 			+ "[url={torment_tag1}]I always ended up on the ground floor again.[/url]",
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
