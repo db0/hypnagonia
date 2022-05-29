@@ -85,7 +85,7 @@ var released_needed_for_level := {
 	Terms.RUN_ACCUMULATION_NAMES.boss: 0.2,
 }
 
-var levels := {
+var masteries := {
 	Terms.RUN_ACCUMULATION_NAMES.enemy: 0,
 	Terms.RUN_ACCUMULATION_NAMES.rest: 0,
 	Terms.RUN_ACCUMULATION_NAMES.nce: 0,
@@ -101,7 +101,7 @@ var advancements_per_level := {
 	Terms.RUN_ACCUMULATION_NAMES.boss: 4.0,
 }
 
-var available_advancements := 0 setget set_available_advancements
+var available_masteries := 0 setget set_available_masteries
 
 func _init() -> void:
 	for accumulation_name in Terms.RUN_ACCUMULATION_NAMES.values():
@@ -116,8 +116,8 @@ func _init() -> void:
 #			round(get_progression_average(grab_random_pathos())* CFUtils.randf_range(3,5))
 
 
-func set_available_advancements(value: int) -> void:
-	available_advancements = value
+func set_available_masteries(value: int) -> void:
+	available_masteries = value
 	emit_signal("advancements_modified", value)
 
 
@@ -205,10 +205,10 @@ func check_for_level_up(entry: String) -> bool:
 	while released[entry] > get_progression_average(entry) * released_needed_for_level[entry]:
 		print_debug([released[entry],get_progression_average(entry), released_needed_for_level[entry],get_progression_average(entry) * released_needed_for_level[entry]])
 		released[entry] -= get_progression_average(entry) * released_needed_for_level[entry]
-		levels[entry] += 1
-		set_available_advancements(available_advancements + advancements_per_level.get(entry,1))
+		masteries[entry] += 1
+		set_available_masteries(available_masteries + advancements_per_level.get(entry,1))
 		leveled_up = true
-		emit_signal("pathos_leveled", entry, levels[entry])
+		emit_signal("pathos_leveled", entry, masteries[entry])
 	return(leveled_up)
 
 func get_entry_progress_pct(entry: String) -> float:

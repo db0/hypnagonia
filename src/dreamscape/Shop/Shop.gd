@@ -117,10 +117,10 @@ func _ready() -> void:
 		player_info._on_Settings_hide()
 # warning-ignore:return_value_discarded
 		globals.player.pathos.connect("advancements_modified",player_info, "_on_pathos_advancements_modified")
-# warning-ignore:return_value_discarded
-		globals.player.pathos.connect("advancements_modified",self, "_on_pathos_advancements_modified")
-		player_info._pathos_button.text = str(globals.player.pathos.available_advancements)
+		player_info._pathos_button.text = str(globals.player.pathos.available_masteries)
 	## END DEBUG ##
+	# warning-ignore:return_value_discarded
+	globals.player.pathos.connect("advancements_modified",self, "_on_pathos_advancements_modified")
 	player_info.owner_node = self
 	globals.music.switch_scene_music('shop')
 	# warning-ignore:return_value_discarded
@@ -310,9 +310,9 @@ func _get_shop_choice(choices_list: Array) -> String:
 func _on_shop_card_selected(index: int, shop_card_object, containing_array := all_card_pool_choices) -> void:
 # warning-ignore:unused_variable
 	var pathos : String = containing_array[index].cost_type
-	if globals.player.pathos.available_advancements < containing_array[index].cost:
+	if globals.player.pathos.available_masteries < containing_array[index].cost:
 		return
-	globals.player.pathos.available_advancements -= containing_array[index].cost
+	globals.player.pathos.available_masteries -= containing_array[index].cost
 	# warning-ignore:return_value_discarded
 	globals.player.deck.add_new_card(containing_array[index].card_name)
 	shop_card_object.disable()
@@ -322,9 +322,9 @@ func _on_shop_card_selected(index: int, shop_card_object, containing_array := al
 func _on_shop_artifact_selected(index: int, shop_artifact_object) -> void:
 # warning-ignore:unused_variable
 	var pathos : String = all_artifact_choices[index].cost_type
-	if globals.player.pathos.available_advancements < all_artifact_choices[index].cost:
+	if globals.player.pathos.available_masteries < all_artifact_choices[index].cost:
 		return
-	globals.player.pathos.available_advancements -= all_artifact_choices[index].cost
+	globals.player.pathos.available_masteries -= all_artifact_choices[index].cost
 # warning-ignore:return_value_discarded
 	globals.player.add_artifact(shop_artifact_object.shop_artifact_display.canonical_name)
 	shop_artifact_object.modulate.a = 0
@@ -333,9 +333,9 @@ func _on_shop_artifact_selected(index: int, shop_artifact_object) -> void:
 func _on_shop_memory_selected(index: int, shop_memory_object) -> void:
 # warning-ignore:unused_variable
 	var pathos : String = all_memory_choices[index].cost_type
-	if globals.player.pathos.available_advancements < all_memory_choices[index].cost:
+	if globals.player.pathos.available_masteries < all_memory_choices[index].cost:
 		return
-	globals.player.pathos.available_advancements -= all_memory_choices[index].cost
+	globals.player.pathos.available_masteries -= all_memory_choices[index].cost
 	if shop_memory_object.is_upgrade:
 		var existing_memory = globals.player.find_memory(shop_memory_object.shop_artifact_display.canonical_name)
 		existing_memory.upgrade()
@@ -374,7 +374,7 @@ func _update_progress_cost() -> void:
 		_deck_preview_popup.operation_cost = progress_cost
 		_deck_preview_popup.update_header(
 				"{cost} Mastered Pathos ({uses_avail}/{uses_max} uses)".format(progress_text_format))
-	if progress_cost > globals.player.pathos.available_advancements:
+	if progress_cost > globals.player.pathos.available_masteries:
 		if _deck_preview_popup.operation == "progress":
 			_deck_preview_popup.update_color(Color(1,0,0))
 		_progress_cost.add_color_override("font_color", Color(1,0,0))
@@ -390,7 +390,7 @@ func _update_remove_cost() -> void:
 # warning-ignore:narrowing_conversion
 	remove_cost = floor(remove_cost_multiplier + (globals.encounters.shop_deck_removals / 2.0))
 	_set_remove_cost_text()
-	if remove_cost > globals.player.pathos.available_advancements:
+	if remove_cost > globals.player.pathos.available_masteries:
 		if _deck_preview_popup.operation == "remove":
 			_deck_preview_popup.update_color(Color(1,0,0))
 		_remove_cost.add_color_override("font_color", Color(1,0,0))

@@ -12,7 +12,7 @@ func _ready():
 	shop_cost_icon.texture = CFUtils.convert_texture_to_image(shop_cost_icon.texture)
 
 func _update_cost() -> void:
-	if cost > globals.player.pathos.available_advancements:
+	if cost > globals.player.pathos.available_masteries:
 		shop_card_cost.add_color_override("font_color", Color(1,0,0))
 	else:
 		shop_card_cost.add_color_override("font_color", Color(1,1,0))

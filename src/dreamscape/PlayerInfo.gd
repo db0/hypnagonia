@@ -52,7 +52,7 @@ func _ready() -> void:
 	_difficulty.text = str(globals.difficulty.total_difficulty)
 	_difficulty_icon.texture = CFUtils.convert_texture_to_image(_difficulty_icon.texture)
 	if globals.player.pathos:
-		_pathos_button.text = str(globals.player.pathos.available_advancements)
+		_pathos_button.text = str(globals.player.pathos.available_masteries)
 		# warning-ignore:return_value_discarded
 		globals.player.pathos.connect("advancements_modified",self, "_on_pathos_advancements_modified")
 		for entry in globals.player.pathos.repressed:

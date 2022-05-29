@@ -252,13 +252,13 @@ text = "Name"
 
 [node name="Chance" parent="PathosDetails/VBC/Header/HBC" index="1"]
 visible = true
-text = "Progress"
+text = "Released"
 
 [node name="ProgressBar" parent="PathosDetails/VBC/Header/HBC" index="2"]
 visible = false
 
-[node name="Level" parent="PathosDetails/VBC/Header/HBC" index="3"]
-text = "Level"
+[node name="Mastery" parent="PathosDetails/VBC/Header/HBC" index="3"]
+text = "Mastery"
 
 [node name="Description" type="Label" parent="PathosDetails/VBC"]
 visible = false

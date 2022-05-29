@@ -45,34 +45,34 @@ const PATHOS_DESCRIPTIONS := {
 	RUN_ACCUMULATION_NAMES.enemy: {
 		"repressed": "Increases the chance that Torments will appear as encounters. "\
 			+ "If the repressed pathos gets too high, it also makes their ordeals harder",
-		"released": "Can be used to buy or remove Archetype cards in the shop."
+		"released": "Fill the bar to receive a a pathos mastery to use in the shop."
 	},
 	RUN_ACCUMULATION_NAMES.nce: {
 		"repressed": "Increases the chance that Non-Ordeal encounters will appear. "\
 			+ "If the repressed pathos gets too high, more risky  encounters will be chosen",
-		"released": "Can be used to buy Archetype cards to your deck in the shop."
+		"released": "Fill the bar to receive a a pathos mastery to use in the shop."
 	},
 	RUN_ACCUMULATION_NAMES.shop: {
 		"repressed": "Increases the chance that the Shop encounter will appear",
-		"released": "Can be used to buy Memories in the shop."
+		"released": "Fill the bar to receive a a pathos mastery to use in the shop."
 	},
 	RUN_ACCUMULATION_NAMES.elite: {
 		"repressed": "Increases the chance that Elite Torment will appear as encounters. "\
 			+ "If the repressed pathos gets too high, it also makes their ordeals harder",
-		"released": "Can be used to buy Curios in the shop."
+		"released": "Fill the bar to receive a a pathos mastery to use in the shop."
 	},
 	RUN_ACCUMULATION_NAMES.artifact: {
 		"repressed": "Increases the chance that Curios will appear as encounters. "\
 			+ "If the repressed pathos gets too high, there is a better chance for higher rarity curio",
-		"released": "Can be used to buy Understanding cards in the shop."
+		"released": "Fill the bar to receive a a pathos mastery to use in the shop."
 	},
 	RUN_ACCUMULATION_NAMES.rest: {
 		"repressed": "Increases the chance that Rest encounters will appear.",
-		"released": "Can be used to progress your cards in the shop."
+		"released": "Fill the bar to receive a a pathos mastery to use in the shop."
 	},
 	RUN_ACCUMULATION_NAMES.boss: {
-		"repressed": "When this reaches {boss_threshold}+, you will encounter this Act's adversary.",
-		"released": "Unknown..."
+		"repressed": "When this is repressed enough, you will encounter this Act's adversary.",
+		"released": "Fill the bar to receive a a pathos mastery to use in the shop."
 	},
 }
 

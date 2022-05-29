@@ -135,7 +135,7 @@ func _populate_preview_cards() -> void:
 # Triggers the operation requested on the selected card, if the player has enough
 # pathos
 func _on_deck_card_selected(card_entry: CardEntry, deck_card_object) -> void:
-	if operation_cost_type == 'mastery' and not operation_cost <= globals.player.pathos.available_advancements:
+	if operation_cost_type == 'mastery' and not operation_cost <= globals.player.pathos.available_masteries:
 		return
 	elif operation_cost_type != 'mastery' and not operation_cost <= globals.player.pathos.released[operation_cost_type]:
 		return
@@ -146,7 +146,7 @@ func _on_deck_card_selected(card_entry: CardEntry, deck_card_object) -> void:
 		"upgraded": card_entry.is_upgraded(),
 		"progress": card_entry.upgrade_progress,
 	}
-	globals.player.pathos.available_advancements -= operation_cost
+	globals.player.pathos.available_masteries -= operation_cost
 	if operation == "remove":
 		globals.player.deck.remove_card(card_entry)
 		deck_card_object.queue_free()

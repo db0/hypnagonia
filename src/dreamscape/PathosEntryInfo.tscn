@@ -41,9 +41,10 @@ margin_left = 134.0
 margin_right = 234.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 100, 0 )
+mouse_filter = 2
 step = 1.0
 
-[node name="Level" type="Label" parent="HBC"]
+[node name="Mastery" type="Label" parent="HBC"]
 margin_left = 238.0
 margin_right = 246.0
 margin_bottom = 14.0
