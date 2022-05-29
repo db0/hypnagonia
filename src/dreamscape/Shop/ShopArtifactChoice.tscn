@@ -1,19 +1,35 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/dreamscape/Shop/ShopArtifactChoice.gd" type="Script" id=1]
 [ext_resource path="res://src/dreamscape/ArtifactChoiceObject.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/icons/GUI/drama-masks.png" type="Texture" id=3]
 
 [node name="ShopArtifactChoice" type="VBoxContainer"]
 margin_bottom = 14.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ArtifactChoiceObject" parent="." instance=ExtResource( 2 )]
 
-[node name="Cost" type="Label" parent="."]
+[node name="CC" type="CenterContainer" parent="."]
 margin_top = 124.0
 margin_right = 120.0
-margin_bottom = 138.0
+margin_bottom = 144.0
+
+[node name="HBC" type="HBoxContainer" parent="CC"]
+margin_left = 48.0
+margin_right = 72.0
+margin_bottom = 20.0
+
+[node name="Cost" type="Label" parent="CC/HBC"]
+margin_top = 3.0
+margin_bottom = 17.0
 align = 1
+
+[node name="CostIcon" type="TextureRect" parent="CC/HBC"]
+margin_left = 4.0
+margin_right = 24.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6

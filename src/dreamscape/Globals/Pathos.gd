@@ -27,6 +27,8 @@ var repressed := {
 	Terms.RUN_ACCUMULATION_NAMES.boss: 0.0,
 }
 
+# This is used as the baseline for cost of cards in the shop
+var baseline = Terms.RUN_ACCUMULATION_NAMES.enemy
 
 # How much each repressed pathos can increase per journal page
 var progressions := {
@@ -69,17 +71,18 @@ var release_adjustments := {
 	Terms.RUN_ACCUMULATION_NAMES.shop: 1.5,
 }
 
+
 var released := {}
 
 # How many of the average multiples is needed to level up that pathos
 var released_needed_for_level := {
-	Terms.RUN_ACCUMULATION_NAMES.enemy: 4.0,
-	Terms.RUN_ACCUMULATION_NAMES.rest: 25.0,
-	Terms.RUN_ACCUMULATION_NAMES.nce: 15.0,
-	Terms.RUN_ACCUMULATION_NAMES.shop: 20.0,
-	Terms.RUN_ACCUMULATION_NAMES.elite: 5.0,
-	Terms.RUN_ACCUMULATION_NAMES.artifact: 25.0,
-	Terms.RUN_ACCUMULATION_NAMES.boss: 1.0,
+	Terms.RUN_ACCUMULATION_NAMES.enemy: 3.0,
+	Terms.RUN_ACCUMULATION_NAMES.rest: 20.0,
+	Terms.RUN_ACCUMULATION_NAMES.nce: 10.0,
+	Terms.RUN_ACCUMULATION_NAMES.shop: 15.0,
+	Terms.RUN_ACCUMULATION_NAMES.elite: 4.0,
+	Terms.RUN_ACCUMULATION_NAMES.artifact: 20.0,
+	Terms.RUN_ACCUMULATION_NAMES.boss: 0.2,
 }
 
 var levels := {
@@ -198,14 +201,15 @@ func modify_released_pathos(entry: String, amount: float, is_lost := false) -> v
 	check_for_level_up(entry)
 
 func check_for_level_up(entry: String) -> bool:
-	if released[entry] > get_progression_average(entry) * released_needed_for_level[entry]:
+	var leveled_up := false
+	while released[entry] > get_progression_average(entry) * released_needed_for_level[entry]:
 		print_debug([released[entry],get_progression_average(entry), released_needed_for_level[entry],get_progression_average(entry) * released_needed_for_level[entry]])
 		released[entry] -= get_progression_average(entry) * released_needed_for_level[entry]
 		levels[entry] += 1
 		set_available_advancements(available_advancements + advancements_per_level.get(entry,1))
-		return(true)
+		leveled_up = true
 		emit_signal("pathos_leveled", entry, levels[entry])
-	return(false)
+	return(leveled_up)
 
 func get_entry_progress_pct(entry: String) -> float:
 	print_debug([entry,released[entry],get_progression_average(entry) * released_needed_for_level[entry],released[entry] / (get_progression_average(entry) * released_needed_for_level[entry])])
@@ -240,6 +244,7 @@ func lose_released_pathos(entry: String, amount: float) -> void:
 # Grabbing the number via a fuction, rather than directly from the var
 # allows us to modify this via artifacts during runtime
 func get_progression(entry: String) -> float:
+	if entry == 'generic': entry = baseline
 	var rand_array : Array = progressions[entry].duplicate()
 	CFUtils.shuffle_array(rand_array)
 	return(float(rand_array[0]))
@@ -247,6 +252,7 @@ func get_progression(entry: String) -> float:
 
 # Returns the average value of the progression specified
 func get_progression_average(entry: String) -> float:
+	if entry == 'generic': entry = baseline
 	var total: float = 0
 	for p in progressions[entry]:
 		total += p
@@ -255,6 +261,7 @@ func get_progression_average(entry: String) -> float:
 
 # Returns the threshold required to encounter events of this pathos
 func get_threshold(entry: String) -> float:
+	if entry == 'generic': entry = baseline
 #	print_debug(entry, get_progression_average(entry))
 	return(get_progression_average(entry) * float(thresholds[entry]))
 
@@ -394,6 +401,7 @@ func get_boss_threshold() -> float:
 	return(thresholds[Terms.RUN_ACCUMULATION_NAMES.boss]
 			* get_progression_average(Terms.RUN_ACCUMULATION_NAMES.boss))
 
+
 func extract_save_state() -> Dictionary:
 	var pathos_dict := {
 		"repressed": repressed,
@@ -401,7 +409,7 @@ func extract_save_state() -> Dictionary:
 	}
 
 	return(pathos_dict)
-	
+
 
 func restore_save_state(save_state: Dictionary) -> void:
 	var pathos_dict := {
@@ -410,4 +418,44 @@ func restore_save_state(save_state: Dictionary) -> void:
 	}
 	repressed = save_state.repressed
 	released = save_state.released
-	
+
+
+func convert_to_shop() -> int:
+	var total : float = 0
+	var baseline : float = 5 # I.e. we're going to normalize each pathos type, as if we're earning 5 of it per turn
+	for pathos_type in repressed.keys():
+		var adjustment = baseline / get_progression_average(pathos_type)
+		total += released.get(pathos_type,0) * adjustment
+#	print_debug([total, adjustments])
+	return(int(ceil(total)))
+
+
+# Spends pathos as generic currency, then distributes the exact amount spent to the various
+# types proportionally
+func spend_generic_pathos(amount: float) -> void:
+	if amount <= 0:
+		printerr("ERROR: spend_pathos() only takes a positive integer")
+		return
+	var total : float
+	for pathos_type in repressed.keys():
+		total += released.get(pathos_type,0)
+	# To avoid div/0
+	if total <= 0:
+		return
+	var baseline : float = 5 # I.e. we're going to normalize each pathos type, as if we're earning 5 of it per turn
+	for pathos_type in repressed.keys():
+		var adjustment = baseline / get_progression_average(pathos_type)
+		var percentage = released.get(pathos_type,0) / total
+		released[pathos_type] -= amount * percentage / adjustment
+#	print_debug([amount,released])
+	emit_signal("generic_pathos_spent", amount)
+
+func get_shop_baseline_average() -> float:
+	var total : float = 0
+	var baseline : float = 6 # I.e. we're going to normalize each pathos type, as if we're earning 5 of it per turn
+	for pathos_type in Terms.RUN_ACCUMULATION_NAMES.values():
+		if pathos_type == Terms.RUN_ACCUMULATION_NAMES.boss:
+			continue
+#		baseline := get_progression_average(pathos_type) # Trying a standard baseline instead
+		total += baseline
+	return(total)
