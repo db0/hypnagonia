@@ -52,6 +52,9 @@ func _ready() -> void:
 	_difficulty.text = str(globals.difficulty.total_difficulty)
 	_difficulty_icon.texture = CFUtils.convert_texture_to_image(_difficulty_icon.texture)
 	if globals.player.pathos:
+		_pathos_button.text = str(globals.player.pathos.available_advancements)
+		# warning-ignore:return_value_discarded
+		globals.player.pathos.connect("advancements_modified",self, "_on_pathos_advancements_modified")
 		for entry in globals.player.pathos.repressed:
 			var pinfo = PATHOS_INFO_SCENE.instance()
 #			_pathos_details_list.add_child(pinfo)
@@ -270,3 +273,6 @@ func _on_button_mouse_exited(_button: Button) -> void:
 
 func _clear_decklist_cache(_card_entry) -> void:
 	current_decklist_cache.clear()
+
+func _on_pathos_advancements_modified(value: int) -> void:
+	_pathos_button.text = str(value)

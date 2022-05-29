@@ -4,15 +4,15 @@ const CARD_SHOP_SCENE = preload("res://src/dreamscape/Shop/ShopCardChoice.tscn")
 const ARTIFACT_SHOP_SCENE = preload("res://src/dreamscape/Shop/ShopArtifactChoice.tscn")
 
 var rarity_price_multipliers := {
-	"Common": 3,
-	"Uncommon": 5,
-	"Rare": 10,
-	"Understanding": 10,
+	"Common": 1,
+	"Uncommon": 2,
+	"Rare": 3,
+	"Understanding": 3,
 }
 # Artifacts tend to be more expensive based on their pathos average
 # So we multiply their cost a bit further
-var artifact_cost_multiplier := 1.5
-var memory_cost_multiplier := 3
+var artifact_cost_multiplier := 1
+var memory_cost_multiplier := 2
 
 var uncommon_chance := 25
 var rare_chance := 5

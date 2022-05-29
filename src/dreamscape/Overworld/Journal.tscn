@@ -232,7 +232,7 @@ mouse_filter = 2
 [node name="VBC" type="VBoxContainer" parent="VBC/Journal/PathosDetails"]
 margin_left = 2.0
 margin_top = 2.0
-margin_right = 528.0
+margin_right = 359.0
 margin_bottom = 46.0
 mouse_filter = 2
 

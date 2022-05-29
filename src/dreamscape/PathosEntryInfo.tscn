@@ -7,9 +7,6 @@ margin_top = 18.0
 margin_right = 216.0
 margin_bottom = 32.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="HBC" type="HBoxContainer" parent="."]
 margin_right = 246.0
@@ -28,7 +25,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Represed" type="Label" parent="HBC"]
+[node name="Chance" type="Label" parent="HBC"]
+visible = false
 margin_left = 134.0
 margin_right = 234.0
 margin_bottom = 14.0
@@ -38,7 +36,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Released" type="Label" parent="HBC"]
+[node name="ProgressBar" type="ProgressBar" parent="HBC"]
+margin_left = 134.0
+margin_right = 234.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 100, 0 )
+step = 1.0
+
+[node name="Level" type="Label" parent="HBC"]
 margin_left = 238.0
 margin_right = 246.0
 margin_bottom = 14.0

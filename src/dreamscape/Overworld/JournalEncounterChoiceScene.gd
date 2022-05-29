@@ -15,8 +15,8 @@ func setup(_journal, encounter: SingleEncounter) -> void:
 		pathos_icon.self_modulate = Color(1,0,0)
 
 func _on_PathosIcon_mouse_entered() -> void:
-	var pathos_desc := "Choosing this encounter, will release %s %s.\n\n"\
-			% [globals.player.pathos.get_final_release_amount(pathos_released), pathos_released]\
+	var pathos_desc := "Choosing this encounter, will release %s.\n\n"\
+			% [pathos_released]\
 			+ "Next journal entry's encounter will be adjusted as follows:"
 	var pathos_dict := { 
 		pathos_released: {

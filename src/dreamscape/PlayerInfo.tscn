@@ -115,14 +115,14 @@ custom_constants/separation = 15
 
 [node name="Push" type="Control" parent="HBC"]
 margin_left = 139.0
-margin_right = 519.0
+margin_right = 509.0
 margin_bottom = 39.0
 size_flags_horizontal = 3
 
 [node name="Encounter" type="Label" parent="HBC"]
-margin_left = 523.0
+margin_left = 513.0
 margin_top = 5.0
-margin_right = 819.0
+margin_right = 809.0
 margin_bottom = 33.0
 custom_fonts/font = ExtResource( 3 )
 text = "Early Night, Encounter 1"
@@ -130,33 +130,34 @@ text = "Early Night, Encounter 1"
 [node name="DifficultyIcon" parent="HBC" instance=ExtResource( 7 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 823.0
-margin_right = 858.0
+margin_left = 813.0
+margin_right = 848.0
 margin_bottom = 39.0
 
 [node name="Particles2D" parent="HBC/DifficultyIcon" index="0"]
 position = Vector2( 17, 29 )
 
 [node name="Difficulty" type="Label" parent="HBC"]
-margin_left = 862.0
+margin_left = 852.0
 margin_top = 5.0
-margin_right = 876.0
+margin_right = 866.0
 margin_bottom = 33.0
 custom_fonts/font = ExtResource( 3 )
 text = "0"
 
 [node name="Push2" type="Control" parent="HBC"]
-margin_left = 880.0
-margin_right = 1260.0
+margin_left = 870.0
+margin_right = 1240.0
 margin_bottom = 39.0
 size_flags_horizontal = 3
 
 [node name="Pathos" type="Button" parent="HBC"]
-margin_left = 1264.0
+margin_left = 1244.0
 margin_right = 1299.0
 margin_bottom = 39.0
-rect_min_size = Vector2( 35, 0 )
+rect_min_size = Vector2( 55, 0 )
 custom_fonts/font = SubResource( 3 )
+text = "0"
 icon = ExtResource( 8 )
 flat = true
 expand_icon = true
@@ -249,17 +250,15 @@ margin_bottom = 21.0
 margin_bottom = 21.0
 text = "Name"
 
-[node name="Represed" parent="PathosDetails/VBC/Header/HBC" index="1"]
-margin_left = 133.0
-margin_right = 233.0
-margin_bottom = 21.0
-text = "Repressed"
+[node name="Chance" parent="PathosDetails/VBC/Header/HBC" index="1"]
+visible = true
+text = "Progress"
 
-[node name="Released" parent="PathosDetails/VBC/Header/HBC" index="2"]
-margin_left = 236.0
-margin_right = 299.0
-margin_bottom = 21.0
-text = "Released"
+[node name="ProgressBar" parent="PathosDetails/VBC/Header/HBC" index="2"]
+visible = false
+
+[node name="Level" parent="PathosDetails/VBC/Header/HBC" index="3"]
+text = "Level"
 
 [node name="Description" type="Label" parent="PathosDetails/VBC"]
 visible = false

@@ -13,6 +13,9 @@ signal repressed_pathos_lost(pathos, amount)
 signal released_pathos_lost(pathos, amount)
 # Sent when released pathos is increased
 signal released_pathos_gained(pathos, amount)
+# Send when a pathos levels up
+signal pathos_leveled(pathos, level)
+signal advancements_modified(new_value)
 
 var repressed := {
 	Terms.RUN_ACCUMULATION_NAMES.enemy: 25.0,
@@ -68,6 +71,35 @@ var release_adjustments := {
 
 var released := {}
 
+# How many of the average multiples is needed to level up that pathos
+var released_needed_for_level := {
+	Terms.RUN_ACCUMULATION_NAMES.enemy: 4.0,
+	Terms.RUN_ACCUMULATION_NAMES.rest: 25.0,
+	Terms.RUN_ACCUMULATION_NAMES.nce: 15.0,
+	Terms.RUN_ACCUMULATION_NAMES.shop: 20.0,
+	Terms.RUN_ACCUMULATION_NAMES.elite: 5.0,
+	Terms.RUN_ACCUMULATION_NAMES.artifact: 25.0,
+	Terms.RUN_ACCUMULATION_NAMES.boss: 1.0,
+}
+
+var levels := {
+	Terms.RUN_ACCUMULATION_NAMES.enemy: 0,
+	Terms.RUN_ACCUMULATION_NAMES.rest: 0,
+	Terms.RUN_ACCUMULATION_NAMES.nce: 0,
+	Terms.RUN_ACCUMULATION_NAMES.shop: 0,
+	Terms.RUN_ACCUMULATION_NAMES.elite: 0,
+	Terms.RUN_ACCUMULATION_NAMES.artifact: 0,
+	Terms.RUN_ACCUMULATION_NAMES.boss: 0,
+}
+
+# Everything not defined == 1
+var advancements_per_level := {
+	Terms.RUN_ACCUMULATION_NAMES.elite: 2.0,
+	Terms.RUN_ACCUMULATION_NAMES.boss: 4.0,
+}
+
+var available_advancements := 0 setget set_available_advancements
+
 func _init() -> void:
 	for accumulation_name in Terms.RUN_ACCUMULATION_NAMES.values():
 		released[accumulation_name] = 0
@@ -79,6 +111,11 @@ func _init() -> void:
 #			round(get_progression_average(grab_random_pathos())* CFUtils.randf_range(3,5))
 #	released[grab_random_pathos()] +=\
 #			round(get_progression_average(grab_random_pathos())* CFUtils.randf_range(3,5))
+
+
+func set_available_advancements(value: int) -> void:
+	available_advancements = value
+	emit_signal("advancements_modified", value)
 
 
 # Increases the specified repressed pathos by the standard amount
@@ -158,6 +195,21 @@ func modify_released_pathos(entry: String, amount: float, is_lost := false) -> v
 		emit_signal("released_pathos_lost", entry, -amount)
 	else:
 		emit_signal("pathos_spent", entry, -amount)
+	check_for_level_up(entry)
+
+func check_for_level_up(entry: String) -> bool:
+	if released[entry] > get_progression_average(entry) * released_needed_for_level[entry]:
+		print_debug([released[entry],get_progression_average(entry), released_needed_for_level[entry],get_progression_average(entry) * released_needed_for_level[entry]])
+		released[entry] -= get_progression_average(entry) * released_needed_for_level[entry]
+		levels[entry] += 1
+		set_available_advancements(available_advancements + advancements_per_level.get(entry,1))
+		return(true)
+		emit_signal("pathos_leveled", entry, levels[entry])
+	return(false)
+
+func get_entry_progress_pct(entry: String) -> float:
+	print_debug([entry,released[entry],get_progression_average(entry) * released_needed_for_level[entry],released[entry] / (get_progression_average(entry) * released_needed_for_level[entry])])
+	return(released[entry] / (get_progression_average(entry) * released_needed_for_level[entry]))
 
 
 # reduces the specified released pathos by a given amount

@@ -6,9 +6,6 @@
 [node name="ShopCardChoice" type="VBoxContainer"]
 margin_bottom = 14.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ChoiceCardObject" parent="." instance=ExtResource( 2 )]
 

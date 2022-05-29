@@ -28,8 +28,9 @@ const pathos_descriptions := {
 var description: Label
 
 onready var name_label := $HBC/Name
-onready var repressed_label := $HBC/Represed
-onready var released_label := $HBC/Released
+onready var chance_label := $HBC/Chance
+onready var progress_bar := $HBC/ProgressBar
+onready var level_label := $HBC/Level
 #onready var description := $Popup/Description
 #onready var description_popup := $Popup
 
@@ -40,8 +41,10 @@ func setup(_name: String, pathos_description: Label) -> void:
 	update_labels()
 	
 func update_labels() -> void:
-	repressed_label.text = str(floor(globals.player.pathos.repressed[name]))
-	released_label.text = str(floor(globals.player.pathos.released[name]))
+	var chance : int = globals.player.pathos.calculate_chance_for_encounter(name)
+	chance_label.text = str(chance) + '%'
+	progress_bar.value = globals.player.pathos.get_entry_progress_pct(name) * 100
+	level_label.text = str(globals.player.pathos.levels[name])
 
 
 func _on_PathosEntryInfo_mouse_entered() -> void:
