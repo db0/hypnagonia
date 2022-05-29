@@ -75,14 +75,14 @@ var release_adjustments := {
 var released := {}
 
 # How many of the average multiples is needed to level up that pathos
-var released_needed_for_level := {
+var released_needed_for_mastery := {
 	Terms.RUN_ACCUMULATION_NAMES.enemy: 3.0,
 	Terms.RUN_ACCUMULATION_NAMES.rest: 20.0,
 	Terms.RUN_ACCUMULATION_NAMES.nce: 10.0,
 	Terms.RUN_ACCUMULATION_NAMES.shop: 15.0,
 	Terms.RUN_ACCUMULATION_NAMES.elite: 4.0,
 	Terms.RUN_ACCUMULATION_NAMES.artifact: 20.0,
-	Terms.RUN_ACCUMULATION_NAMES.boss: 0.2,
+	Terms.RUN_ACCUMULATION_NAMES.boss: 17.0,
 }
 
 var masteries := {
@@ -96,9 +96,9 @@ var masteries := {
 }
 
 # Everything not defined == 1
-var advancements_per_level := {
+var masterier_per_level := {
 	Terms.RUN_ACCUMULATION_NAMES.elite: 2.0,
-	Terms.RUN_ACCUMULATION_NAMES.boss: 4.0,
+	Terms.RUN_ACCUMULATION_NAMES.boss: 5.0,
 }
 
 var available_masteries := 0 setget set_available_masteries
@@ -202,19 +202,21 @@ func modify_released_pathos(entry: String, amount: float, is_lost := false) -> v
 
 func check_for_level_up(entry: String) -> bool:
 	var leveled_up := false
-	while released[entry] > get_progression_average(entry) * released_needed_for_level[entry]:
-		print_debug([released[entry],get_progression_average(entry), released_needed_for_level[entry],get_progression_average(entry) * released_needed_for_level[entry]])
-		released[entry] -= get_progression_average(entry) * released_needed_for_level[entry]
+	while released[entry] > get_mastery_requirement(entry):
+		released[entry] -= get_mastery_requirement(entry)
 		masteries[entry] += 1
-		set_available_masteries(available_masteries + advancements_per_level.get(entry,1))
+		set_available_masteries(available_masteries + masterier_per_level.get(entry,1))
 		leveled_up = true
 		emit_signal("pathos_leveled", entry, masteries[entry])
 	return(leveled_up)
 
-func get_entry_progress_pct(entry: String) -> float:
-	print_debug([entry,released[entry],get_progression_average(entry) * released_needed_for_level[entry],released[entry] / (get_progression_average(entry) * released_needed_for_level[entry])])
-	return(released[entry] / (get_progression_average(entry) * released_needed_for_level[entry]))
 
+func get_entry_progress_pct(entry: String) -> float:
+	return(released[entry] / (get_progression_average(entry) * released_needed_for_mastery[entry]))
+
+
+func get_mastery_requirement(entry: String) -> float:
+	return(get_progression_average(entry) * released_needed_for_mastery[entry])
 
 # reduces the specified released pathos by a given amount
 func spend_pathos(entry: String, amount: float) -> void:
