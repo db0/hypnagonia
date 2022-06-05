@@ -209,13 +209,17 @@ func check_for_level_up(entry: String) -> bool:
 	var leveled_up := false
 	while released[entry] > get_mastery_requirement(entry):
 		released[entry] -= get_mastery_requirement(entry)
-		masteries[entry] += 1
-		set_available_masteries(available_masteries + masterier_per_level.get(entry,1))
 		leveled_up = true
-		# When a level up happens, any temp modifications are removed
-		temp_modification_for_next_mastery[entry] = 0.0
-		emit_signal("pathos_leveled", entry, masteries[entry])
+		level_up(entry)
 	return(leveled_up)
+
+
+func level_up(entry: String) -> void:
+	masteries[entry] += 1
+	set_available_masteries(available_masteries + masterier_per_level.get(entry,1))
+	# When a level up happens, any temp modifications are removed
+	temp_modification_for_next_mastery[entry] = 0.0
+	emit_signal("pathos_leveled", entry, masteries[entry])
 
 
 func get_entry_progress_pct(entry: String) -> float:

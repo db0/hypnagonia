@@ -64,6 +64,8 @@ func set_lowest_pathos(type := "repressed") -> String:
 	var pdict: Dictionary
 	if type == "repressed":
 		pdict = globals.player.pathos.repressed
+	if type == "masteries":
+		pdict = globals.player.pathos.masteries
 	else:
 		pdict = globals.player.pathos.released
 	for p in pdict:

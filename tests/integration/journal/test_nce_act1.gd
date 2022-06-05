@@ -34,15 +34,15 @@ class TestGreed:
 
 	func test_choice_accept():
 		watch_signals(globals.player.deck)
-		var lpathos = set_lowest_pathos("released")
+		var lpathos = set_lowest_pathos("masteries")
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
 # warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("accept")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
-		assert_gt(globals.player.pathos.released[lpathos], 50)
-		assert_pathos_signaled("released_pathos_gained", lpathos)
+		assert_gt(globals.player.pathos.masteries[lpathos], 0)
+		assert_pathos_signaled("pathos_leveled", lpathos)
 # warning-ignore:return_value_discarded
 		assert_deck_signaled("card_added", "card_name", "Discombobulation")
 
@@ -50,7 +50,7 @@ class TestGreed:
 	func test_choice_leave():
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
-		var lpathos = set_lowest_pathos("released")
+		var lpathos = set_lowest_pathos("masteries")
 		watch_signals(globals.player.pathos)
 # warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("decline")
