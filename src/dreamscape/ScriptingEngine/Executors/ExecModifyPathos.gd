@@ -24,7 +24,9 @@ func _init(
 
 func exec(dry_run:= false) -> int:
 	rc = CFConst.ReturnCode.CHANGED
-	if type == "released":
+	if type == "temp":
+		globals.player.pathos.temp_modify_requirements_for_mastery(pathos, modification)
+	elif type == "released":
 		var is_cost = script_task.get_property(SP.KEY_IS_COST)
 		if is_convertion:
 			#We do not use .release_pathos() as we need to keep track of the final modification

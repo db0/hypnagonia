@@ -240,7 +240,6 @@ class TestDisheartenNegative:
 class TestDisheartenPositive:
 	extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"
 	func _init() -> void:
-		set_released_pathos[Terms.RUN_ACCUMULATION_NAMES.enemy] = 37
 		intents_to_test = [
 			{
 				"intent_scripts": ["Dishearten:20"],
@@ -249,12 +248,18 @@ class TestDisheartenPositive:
 		]
 
 	func test_dishearten():
-		assert_eq(globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.enemy], 57,
-				"Frustration should decrease")
+		# Apparently a delay is needed here
+		yield(yield_for(0.2), YIELD)
+		assert_eq(globals.player.pathos.temp_modification_for_next_mastery.get(Terms.RUN_ACCUMULATION_NAMES.enemy, 0.0), 30.0,
+				"Frustration requirements should increase")
+		assert_eq(globals.player.pathos.get_mastery_requirement(Terms.RUN_ACCUMULATION_NAMES.enemy), 75.0,
+				"Mastery Requirements increased")
 		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
-		assert_eq(globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.enemy], 77,
-				"Frustration should decrease to 0")
+		assert_eq(globals.player.pathos.temp_modification_for_next_mastery.get(Terms.RUN_ACCUMULATION_NAMES.enemy, 0.0), 60.0,
+				"Frustration requirements should increase")
+		assert_eq(globals.player.pathos.get_mastery_requirement(Terms.RUN_ACCUMULATION_NAMES.enemy), 105.0,
+				"Mastery Requirements increased")
 
 
 class TestUnfocus:

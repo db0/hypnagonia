@@ -15,7 +15,7 @@
  "hide_orphans": false,
  "ignore_pause": true,
  "include_subdirs": false,
- "inner_class": "TestDubiousPainkillers",
+ "inner_class": "TestPoison",
  "junit_xml_file": "",
  "junit_xml_timestamp": false,
  "log_level": 3,
@@ -23,7 +23,7 @@
  "post_run_script": "",
  "pre_run_script": "",
  "prefix": "test_",
- "selected": "test_perturbations.gd",
+ "selected": "test_effects_debuffs.gd",
  "should_exit": false,
  "should_exit_on_success": false,
  "should_maximize": true,
@@ -33,7 +33,7 @@
  "tests": [
 
  ],
- "unit_test_name": "test_card_results",
+ "unit_test_name": "test_poison_not_deadly",
  "gut_on_top": true,
  "panel_options": {
   "font_name": "CourierPrime",

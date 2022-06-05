@@ -12,26 +12,14 @@ func _decrease_stacks() -> void:
 		poison_damage = owning_entity.health - owning_entity.damage - 1
 		var pathos_org = globals.player.pathos.get_pathos_org()
 		var pathos = pathos_org.highest_pathos.selected
-		var amount : float = (stacks - poison_damage) * -5
-		var mid_pathos: String
-		var mid_amount: float
+		var amount : float = (stacks - poison_damage) * 5
 		script = [{
 				"name": "modify_pathos",
 				"tags": ["Poison", "Combat Effect", "Debuff"],
 				"pathos": pathos,
-				"pathos_type": "released",
+				"pathos_type": "temp",
 				"amount": amount,
 			}]
-		if globals.player.pathos.released[pathos] + amount < 0:
-			mid_pathos = pathos_org.middle_pathos.selected
-			mid_amount = globals.player.pathos.released[pathos] + amount
-			script.append({
-					"name": "modify_pathos",
-					"tags": ["Poison", "Combat Effect", "Debuff"],
-					"pathos": mid_pathos,
-					"pathos_type": "released",
-					"amount": mid_amount,
-				})
 		if poison_damage > 0:
 			script.append({
 				"name": "modify_damage",
@@ -40,11 +28,8 @@ func _decrease_stacks() -> void:
 				"tags": ["Poison", "Combat Effect", "Debuff"],
 			})
 		if OS.has_feature("debug") and not cfc.is_testing:
-			print("DEBUG INFO:Effect: Player losing %s released %s instead of taking %s anxiety due to poison."\
-					% [amount, pathos, stacks - poison_damage])
-			if mid_amount < 0:
-				print("DEBUG INFO:Effect: Player is also losing %s released %s to poison as they didn't have enough %s."\
-						% [mid_amount, mid_pathos, pathos])
+			print("DEBUG INFO:Effect: Player increasing %s mastery requirements by %s instead of taking %s anxiety due to poison."\
+					% [pathos, amount, stacks - poison_damage])
 					
 	else:
 		script = [{

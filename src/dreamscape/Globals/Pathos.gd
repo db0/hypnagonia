@@ -85,6 +85,10 @@ var released_needed_for_mastery := {
 	Terms.RUN_ACCUMULATION_NAMES.boss: 17.0,
 }
 
+# If any effect makes the next mastery take longer, this is stored here
+# and wiped when the next mastery is achieved
+var temp_modification_for_next_mastery := {}
+
 var masteries := {
 	Terms.RUN_ACCUMULATION_NAMES.enemy: 0,
 	Terms.RUN_ACCUMULATION_NAMES.rest: 0,
@@ -200,6 +204,7 @@ func modify_released_pathos(entry: String, amount: float, is_lost := false) -> v
 		emit_signal("pathos_spent", entry, -amount)
 	check_for_level_up(entry)
 
+
 func check_for_level_up(entry: String) -> bool:
 	var leveled_up := false
 	while released[entry] > get_mastery_requirement(entry):
@@ -207,16 +212,35 @@ func check_for_level_up(entry: String) -> bool:
 		masteries[entry] += 1
 		set_available_masteries(available_masteries + masterier_per_level.get(entry,1))
 		leveled_up = true
+		# When a level up happens, any temp modifications are removed
+		temp_modification_for_next_mastery[entry] = 0.0
 		emit_signal("pathos_leveled", entry, masteries[entry])
 	return(leveled_up)
 
 
 func get_entry_progress_pct(entry: String) -> float:
-	return(released[entry] / (get_progression_average(entry) * released_needed_for_mastery[entry]))
+	return(
+			(released[entry] / (get_progression_average(entry) * released_needed_for_mastery[entry]))
+			+ temp_modification_for_next_mastery.get(entry, 0.0)
+	)
 
 
 func get_mastery_requirement(entry: String) -> float:
-	return(get_progression_average(entry) * released_needed_for_mastery[entry])
+	return(
+			(get_progression_average(entry) * released_needed_for_mastery[entry])
+			+ temp_modification_for_next_mastery.get(entry,0.0)
+	)
+
+
+func temp_modify_requirements_for_mastery(entry: String, amount: int) -> void:
+	# The amount we is an integer, and we want to normalize it based on how fast
+	# each pathos type progresses. 
+	# I.e. the same temp modifier for a pathos that is gained faster
+	# will be higher than for a pathos that is gained slower.
+	var normalized = 1.0 / (10.0 / get_progression_average(entry))
+	temp_modification_for_next_mastery[entry] =\
+			temp_modification_for_next_mastery.get(entry, 0.0) + normalized * amount
+	
 
 # reduces the specified released pathos by a given amount
 func spend_pathos(entry: String, amount: float) -> void:
@@ -279,7 +303,7 @@ func grab_random_pathos() -> String:
 # If include_zeroes == false, It excludes those pathos which are at 0, unless there's not
 # enough non-0 options to fill all three options (high, mid, low).
 # If include_zeroes is true, then zero-pathos will not be excluded from being lowest.
-func get_pathos_org(type := "released", include_zeroes := false) -> Dictionary:
+func get_pathos_org(type := "pct_to_mastery", include_zeroes := false) -> Dictionary:
 	var results_dict := {
 		"highest_pathos": {
 			"found":[],
@@ -297,7 +321,13 @@ func get_pathos_org(type := "released", include_zeroes := false) -> Dictionary:
 		},
 	}
 	var zero_pathos:= []
-	var pathos_dict : Dictionary = get(type)
+	var pathos_dict : Dictionary
+	if type == "pct_to_mastery":
+		for p in Terms.RUN_ACCUMULATION_NAMES.values():
+			pathos_dict[p] = get_entry_progress_pct(p)
+		print_debug(pathos_dict)
+	else: 
+		pathos_dict = get(type)
 	for pathos in pathos_dict:
 		if pathos_dict[pathos] == 0:
 			zero_pathos.append(pathos)
