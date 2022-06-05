@@ -554,7 +554,7 @@ class TestSubconscious:
 		assert_signal_not_emitted(globals.player.pathos, "released_pathos_gained")
 
 	func test_choice_avoid():
-		var porg := set_random_pathos_org("released", true)
+		var porg := set_random_pathos_org("masteries", true)
 		begin_nce_with_choices(nce)
 		watch_signals(globals.player.deck)
 		watch_signals(globals.player.pathos)

@@ -61,6 +61,8 @@ func _prepare_secondary_choices(secondary_choices: Dictionary, scformat: Diction
 			"anxiety": '[url={"definition": "anxiety","meta_type": "definition"}]{anxiety}[/url]',
 			"anxiety_up": '[url={"definition": "anxiety_up","meta_type": "definition"}]{anxiety_up}[/url]',
 			"anxiety_down": '[url={"definition": "anxiety_down","meta_type": "definition"}]{anxiety_down}[/url]',
+			"masteries": '[url={"definition": "masteries","meta_type": "definition"}]masteries[/url]',
+			"mastery": '[url={"definition": "masteries","meta_type": "definition"}]masteries[/url]',
 		}			
 		var custom_fmt := {}
 		var regex = RegEx.new()

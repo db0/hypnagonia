@@ -22,13 +22,13 @@ func _init():
 
 func begin() -> void:
 	.begin()
-	var pathos_org = globals.player.pathos.get_pathos_org("released", true)
+	var pathos_org = globals.player.pathos.get_pathos_org("masteries", true)
 	lowest_pathos = pathos_org["lowest_pathos"]["selected"]
 	lowest_pathos_amount = round(globals.player.pathos.get_progression_average(lowest_pathos)\
 			* 9 * CFUtils.randf_range(0.8,1.2))
 	var scformat = {
 		"lowest_pathos": '{released_%s}' % [lowest_pathos],
-		"lowest_pathos_amount":  lowest_pathos_amount,
+		"lowest_pathos_amount":  "a large amount",
 		"damage_amount":  DAMAGE_AMOUNT,
 		"subconscious": _prepare_card_popup_bbcode("Subconscious", " an insight into your own mind."),
 	}

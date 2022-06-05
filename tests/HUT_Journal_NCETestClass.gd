@@ -64,7 +64,7 @@ func set_lowest_pathos(type := "repressed") -> String:
 	var pdict: Dictionary
 	if type == "repressed":
 		pdict = globals.player.pathos.repressed
-	if type == "masteries":
+	elif type == "masteries":
 		pdict = globals.player.pathos.masteries
 	else:
 		pdict = globals.player.pathos.released
@@ -80,6 +80,8 @@ func set_highest_pathos(type := "repressed") -> String:
 	var pdict: Dictionary
 	if type == "repressed":
 		pdict = globals.player.pathos.repressed
+	elif type == "masteries":
+		pdict = globals.player.pathos.masteries
 	else:
 		pdict = globals.player.pathos.released
 	for p in pdict:
@@ -93,6 +95,8 @@ func set_random_pathos_org(type := "repressed", include_zeroes := false) -> Dict
 	var pdict: Dictionary
 	if type == "repressed":
 		pdict = globals.player.pathos.repressed
+	elif type == "masteries":
+		pdict = globals.player.pathos.masteries
 	else:
 		pdict = globals.player.pathos.released
 	var hpathos = globals.player.pathos.grab_random_pathos()

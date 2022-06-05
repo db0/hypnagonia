@@ -4,11 +4,12 @@ extends NonCombatEncounter
 
 # The artifact used by this event.
 const SPECIAL_ARTIFACT:= "StartingDisempower"
+const MASTERY_AMOUNT := 2
 
 # TODO: Fluff
 var secondary_choices := {
-		'receive': '[Receive Curio]: Spend {all {bcolor:highest_pathos}:}. {gcolor:Gain {special_curio}:}.',
-		'use': '[Use Curio]: use {special_curio}. Gain {gcolor:{lowest_pathos_amount} {lowest_pathos}:}.',
+		'receive': '[Receive Curio]: {bcolor:Spend all {masteries}:}. {gcolor:Gain {special_curio}:}.',
+		'use': '[Use Curio]: use {special_curio}. Gain {gcolor:{masteries_amount} {lowest_pathos} {mastery}:}.',
 		'ignore': '[Ignore]: Nothing happens.',
 	}
 
@@ -22,16 +23,13 @@ func _init():
 
 func begin() -> void:
 	.begin()
-	var pathos_org = globals.player.pathos.get_pathos_org("released", true)
+	var pathos_org = globals.player.pathos.get_pathos_org("masteries", true)
 #	print_debug(pathos_org)
 	lowest_pathos = pathos_org["lowest_pathos"]["selected"]
 	highest_pathos = pathos_org["highest_pathos"]["selected"]
-	lowest_pathos_amount = round(globals.player.pathos.get_progression_average(lowest_pathos)\
-			* 8 * CFUtils.randf_range(0.8,1.2))
 	var scformat = {
-		"highest_pathos": '{released_%s}' % [highest_pathos],
-		"lowest_pathos": '{released_%s}' % [lowest_pathos],
-		"lowest_pathos_amount":  lowest_pathos_amount,
+		"lowest_pathos": lowest_pathos,
+		"masteries_amount":  MASTERY_AMOUNT,
 		"special_curio": _prepare_artifact_popup_bbcode(SPECIAL_ARTIFACT, SPECIAL_ARTIFACT)
 	}
 	var disabled_choices := []
@@ -46,9 +44,10 @@ func continue_encounter(key) -> void:
 	match key:
 		"receive":
 			globals.player.add_artifact(SPECIAL_ARTIFACT)
-			globals.player.pathos.spend_pathos(highest_pathos, globals.player.pathos.released[highest_pathos])
+			globals.player.pathos.available_masteries = 0
 		"use":
-			globals.player.pathos.modify_released_pathos(lowest_pathos, lowest_pathos_amount)
+			for iter in MASTERY_AMOUNT:
+				globals.player.pathos.level_up(lowest_pathos)
 			globals.player.remove_artifact(SPECIAL_ARTIFACT)
 	globals.journal.display_nce_rewards('')
 	end()

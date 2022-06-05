@@ -25,6 +25,7 @@ const WORD_DEFINITIONS := {
 	"anxiety_up": "Will increase the dreamer's Anxiety. If this reaches the max, the dreamer will wake up and the game is over.",
 	"anxiety_down": "Will decrease the anxiety. This avoids losing the game.",
 	"anxiety": "Max Anxiety: When your anxiety reaches this threshold, the dreamer wakes up and you lose the game.",
+	"masteries": "You use masteries to purchase different things in the shop.",
 }
 
 var pathos_infos := {}
@@ -547,8 +548,8 @@ func _input(event):
 	if event.is_action_pressed("init_debug_game"):
 		globals.player.deck.add_new_card("Guilt")
 		# Upgrade cards debug
-		for c in globals.player.deck.get_progressing_cards():
-			c.upgrade_progress = c.upgrade_threshold
+#		for c in globals.player.deck.get_progressing_cards():
+#			c.upgrade_progress = c.upgrade_threshold
 #			if c.card_name == "Noisy Whip":
 #				globals.player.deck.remove_card(c)
 #		_reveal_entry(upgrade_journal, true)
@@ -588,7 +589,7 @@ func _input(event):
 			EnemyEncounter.new(Act3.Shamelings, "hard"),
 #			load("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/AllActs/OstrichEggs.gd").new(),
-#			load("res://src/dreamscape/Run/NCE/Act3/UnderwaterCave.gd").new(),
+			load("res://src/dreamscape/Run/NCE/Act3/ArtifactReward.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act2/RiskyEvent4.gd").new(),
 			load("res://src/dreamscape/Run/NCE/Act1/Greed.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
