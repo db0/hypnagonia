@@ -147,7 +147,7 @@ func _ready() -> void:
 		label_fmt["musicians"] += _get_url_format(peep, musicians[peep]) + '\n'
 	for peep in playtesters:
 		label_fmt["playtesters"] += _get_url_format(peep, playtesters[peep]) + '\n'
-	
+
 	bbcode_text = BBCODE_TEXT.format(label_fmt)
 
 func _get_url_format(unformated_string: String, title := '') -> String:
@@ -184,7 +184,7 @@ func _gather_icon_illustrators() -> Array:
 			continue
 		found_illustrators.append(illustrator)
 	return(found_illustrators)
-	
+
 func _gather_character_artists() -> Array:
 	var found_illustrators := []
 	for ename in EnemyDefinitions.get_script_constant_map():
@@ -196,7 +196,7 @@ func _gather_character_artists() -> Array:
 				var scene = s.instance()
 				var illustrator: String = scene.get_script().PROPERTIES.get("_character_art", "Nobody")
 				_parse_illustrator(found_illustrators, illustrator)
-				scene.queue_free()
+				scene.call_deferred("queue_free")
 	for ename in CFUtils.list_files_in_directory("res://src/dreamscape/CombatElements/Enemies/Elites/", '', true):
 		if ename.ends_with(".gd") and not ename.ends_with("Intents.gd"):
 			pass

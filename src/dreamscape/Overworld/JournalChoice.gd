@@ -51,7 +51,7 @@ func _on_gui_input(event) -> void:
 			return
 		emit_signal("pressed")
 		self_modulate = Color(0.6,0.6,0.6)
-#		bbcode_text = "[color=grey]" + formated_description + "[/color]"
+		bbcode_text = "[color=grey]" + formated_description + "[/color]"
 		disconnect("mouse_entered", self, "_on_mouse_entered")
 		disconnect("mouse_exited", self, "_on_mouse_exited")
 		disconnect("gui_input", self, "_on_gui_input")
