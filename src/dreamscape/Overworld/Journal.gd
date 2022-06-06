@@ -563,7 +563,7 @@ func _input(event):
 #		globals.player.add_memory(MemoryDefinitions.HealSelf.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.FreezeCard.canonical_name)
 		var card_entry = globals.player.deck.add_new_card("Towering Presence")
-#		card_entry.upgrade_progress = card_entry.upgrade_threshold
+		card_entry.upgrade_progress = card_entry.upgrade_threshold - 1
 #		var new_card = globals.player.deck.add_new_card("Store in Mind")
 #		new_card.modify_property("_amounts", {"amount_key": "beneficial_integer", "amount_value": "+1"})
 #		globals.player.deck.add_new_card("A Fine Specimen")

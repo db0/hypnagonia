@@ -353,6 +353,7 @@ func custom_intents(script_task: ScriptObject) -> void:
 						.new(subjects[0], script_task)
 				if not costs_dry_run:
 					script_task.script_definition["starting_position_node"] = subjects[0].defence_icon
+					# warning-ignore:return_value_discarded
 					IconAnimMessage.new(executor, "check_browser_history")
 					if not executor.has_executed:
 						yield(executor, "executed")

@@ -130,6 +130,7 @@ func predict_intent_amount(_snapshot_id: float) -> int:
 			# This class contains the customly defined scripts for each
 			# card.
 			var custom := CustomScripts.new(costs_dry_run())
+			# warning-ignore:narrowing_conversion
 			custom.custom_script(script, snapshot_id)
 		var prediction_method = "calculate_" + script.script_name
 		if script.get_property(SP.KEY_SUBJECT):

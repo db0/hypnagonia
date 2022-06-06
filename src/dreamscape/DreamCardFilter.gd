@@ -11,6 +11,7 @@ func _init(
 
 func custom_check(card_properties: Dictionary) -> bool:
 	var card_matches = false
+	# warning-ignore:unused_variable
 	var prop_value = card_properties.get(property)
 	if custom_filter == 'discover_purpose':
 		var amount_keys : Array = HUtils.get_amount_key_by_purpose(filter, card_properties)

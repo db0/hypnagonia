@@ -32,13 +32,13 @@ func exec(dry_run:= false) -> int:
 		if is_convertion:
 			#We do not use .release_pathos() as we need to keep track of the final modification
 			if pathos_type.repressed < modification:
-				modification = pathos_type.repressed
+				modification = int(pathos_type.repressed)
 			pathos_type.modify_repressed(-modification, !is_cost)
 		pathos_type.modify_released(modification, !is_cost)
 	else:
 		if is_convertion:
 			if pathos_type.released < modification:
-				modification = pathos_type.released
+				modification = int(pathos_type.released)
 			pathos_type.modify_released(-modification)
 		pathos_type.modify_repressed(modification)
 	emit_signal("executed", dry_run)

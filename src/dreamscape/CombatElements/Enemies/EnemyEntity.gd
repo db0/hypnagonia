@@ -47,6 +47,7 @@ func _ready() -> void:
 	if _properties.has('starting_intent'):
 		intents.prepare_intents(_properties.starting_intent)
 	else:
+		# warning-ignore:return_value_discarded
 		intents.prepare_intents()
 
 

@@ -317,6 +317,7 @@ func _ready() -> void:
 	setup()
 	# warning-ignore:return_value_discarded
 	$Control.connect("gui_input", self, "_on_Card_gui_input")
+	# warning-ignore:return_value_discarded
 	$Control.connect("tree_exiting", self, "_on_tree_exiting")
 	cfc.signal_propagator.connect_new_card(self)
 

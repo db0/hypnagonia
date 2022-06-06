@@ -17,6 +17,7 @@ func _ready() -> void:
 	entity_type = "dreamer"
 # warning-ignore:return_value_discarded
 	connect("entity_damaged", self, "_on_player_damaged")
+# warning-ignore:return_value_discarded
 	connect("entity_damage_blocked", self, "_on_entity_damage_blocked")
 
 func _map_nodes() -> void:
@@ -48,7 +49,7 @@ func show_turn_dmg_prediction(dmg_from_intents := 0, removed_defence := 0) -> vo
 			+ active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.burn.name)
 			- defence
 			+ removed_defence)
-	if taken_anxiety < 0: 
+	if taken_anxiety < 0:
 		return
 	var poison_stacks = active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.poison.name)
 	# Because poison will never kill the dreamer, we want to avoid showing it causing anxiety
@@ -68,7 +69,7 @@ func show_turn_dmg_prediction(dmg_from_intents := 0, removed_defence := 0) -> vo
 
 
 
-	
+
 # We store how many times the player has been damaged during their own turn
 # We also store the cumulative amount of damage the player has taken during their turn.
 func _on_player_damaged(_pl, amount, _trigger, _tags) -> void:
@@ -82,9 +83,11 @@ func _on_player_damaged(_pl, amount, _trigger, _tags) -> void:
 		# warning-ignore:return_value_discarded
 		TurnEventMessage.new("player_total_damage_own_turn", amount)
 	damaged_shader.take_damage()
-	
-func _on_entity_damage_blocked(_pl, amount, _trigger, _tags) -> void:
+
+
+func _on_entity_damage_blocked(_pl, _amount, _trigger, _tags) -> void:
 	blocked_shader.take_damage()
+
 
 func _input(event) -> void:
 	if event is InputEventMouseButton and not event.is_pressed():
@@ -97,4 +100,4 @@ func _on_Incoming_resized():
 	incoming_background.rect_min_size = incoming.rect_size
 	incoming_background.rect_min_size.x += 10
 	incoming_background.rect_min_size.y -= 5
-	
+

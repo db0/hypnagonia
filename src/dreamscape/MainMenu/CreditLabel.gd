@@ -139,8 +139,8 @@ func _ready() -> void:
 		label_fmt["card_illustrators"] += _get_url_format(peep) + '\n'
 	for peep in _gather_icon_illustrators():
 		label_fmt["curio_memory_designers"] += _get_url_format(peep) + '\n'
-	for peep in _gather_character_artists():
-		label_fmt["character_artists"] += _get_url_format(peep) + '\n'
+#	for peep in _gather_character_artists():
+#		label_fmt["character_artists"] += _get_url_format(peep) + '\n'
 	for peep in sound_designers:
 		label_fmt["sound_designers"] += _get_url_format(peep, sound_designers[peep]) + '\n'
 	for peep in musicians:

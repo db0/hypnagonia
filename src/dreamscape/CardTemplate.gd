@@ -30,8 +30,9 @@ var printed_properties := {}
 func _ready() -> void:
 	# warning-ignore:return_value_discarded
 	connect("card_played", cfc.signal_propagator, "_on_signal_received")
+	# warning-ignore:return_value_discarded
 	connect("card_removed", cfc.signal_propagator, "_on_signal_received")
-# warning-ignore:return_value_discarded
+	# warning-ignore:return_value_discarded
 	connect("state_changed", self, "_on_state_changed")
 
 

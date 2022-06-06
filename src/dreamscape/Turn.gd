@@ -65,6 +65,7 @@ func start_player_turn() -> void:
 	_reset_turn()
 	current_turn = Turns.PLAYER_TURN
 	cfc.flush_cache()
+	# warning-ignore:return_value_discarded
 	TurnEventMessage.new("new_turn", 1)
 	emit_signal("player_turn_started", self)
 	
