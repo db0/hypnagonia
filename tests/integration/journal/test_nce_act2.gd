@@ -218,7 +218,7 @@ class TestMiniShop:
 		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act2/MiniShop.gd")
 
 	func test_choice_remove():
-		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.artifact] = 100
+		globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.artifact].released = 100
 		watch_signals(globals.player.deck)
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
@@ -234,7 +234,7 @@ class TestMiniShop:
 		assert_signal_emitted(globals.player.deck, "card_removed")
 
 	func test_choice_progress():
-		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.shop] = 100
+		globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.shop].released = 100
 		watch_signals(globals.player.deck)
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
@@ -250,7 +250,7 @@ class TestMiniShop:
 		assert_signal_emit_count(globals.player.deck, "card_entry_progressed", 2)
 
 	func test_choice_upgrade():
-		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.nce] = 100
+		globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.nce].released = 100
 		var memory := globals.player.add_memory('DamageAll')
 		watch_signals(memory)
 		watch_signals(globals.player)
@@ -347,7 +347,7 @@ class TestMultipleTags:
 			return
 		selection_deck._deck_preview_grid.get_children()[0].select_card()
 		assert_deck_signaled("card_entry_modified", "Tags", Terms.GENERIC_TAGS.alpha.name)
-		assert_pathos_signaled("pathos_spent", porg.mid)
+		assert_pathos_signaled("pathos_spent", porg.mid.name)
 
 	func test_choice_kappa():
 		var porg := set_random_pathos_org("released")
@@ -362,7 +362,7 @@ class TestMultipleTags:
 			return
 		selection_deck._deck_preview_grid.get_children()[0].select_card()
 		assert_deck_signaled("card_entry_modified", "Tags", Terms.GENERIC_TAGS.frozen.name)
-		assert_pathos_signaled("pathos_spent", porg.high)
+		assert_pathos_signaled("pathos_spent", porg.high.name)
 
 	func test_choice_omega():
 		var porg := set_random_pathos_org("released")
@@ -377,7 +377,7 @@ class TestMultipleTags:
 			return
 		selection_deck._deck_preview_grid.get_children()[0].select_card()
 		assert_deck_signaled("card_entry_modified", "Tags", Terms.GENERIC_TAGS.omega.name)
-		assert_pathos_signaled("pathos_spent", porg.low)
+		assert_pathos_signaled("pathos_spent", porg.low.name)
 
 	func test_choice_leave():
 		var secondary_choices = begin_nce_with_choices(nce)
@@ -520,8 +520,8 @@ class TestRiskyEvent4:
 		activate_secondary_choice_by_key("help")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_emitted(globals.player, "artifact_added")
-		assert_pathos_signaled("pathos_spent", porg.high)
-		assert_eq(globals.player.pathos.released[porg.high], 0, "All specified pathos spent")
+		assert_pathos_signaled("pathos_spent", porg.high.name)
+		assert_eq(porg.high.released, 0, "All specified pathos spent")
 
 	func test_choice_ignore():
 		var porg := set_random_pathos_org("released")
@@ -554,7 +554,7 @@ class TestSubconscious:
 		assert_signal_not_emitted(globals.player.pathos, "released_pathos_gained")
 
 	func test_choice_avoid():
-		var porg := set_random_pathos_org("masteries", true)
+		var porg := set_random_pathos_org("level", true)
 		begin_nce_with_choices(nce)
 		watch_signals(globals.player.deck)
 		watch_signals(globals.player.pathos)
@@ -563,7 +563,7 @@ class TestSubconscious:
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_not_emitted(globals.player.deck, "card_added")
 		assert_eq(globals.player.damage, 0)
-		assert_pathos_signaled("released_pathos_gained", porg.low)
+		assert_pathos_signaled("released_pathos_gained", porg.low.name)
 
 
 class TestHangingOn:

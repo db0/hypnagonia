@@ -28,7 +28,7 @@ class TestAccumulateEnemy:
 	func test_artifact_results():
 		if not assert_has_amounts():
 			return
-		assert_eq(globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.enemy], float(get_amount("pathos_amount")),
+		assert_eq(globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy].repressed, float(get_amount("pathos_amount")),
 				"%s increased repressed pathos" % [artifact.canonical_name])
 		assert_eq(globals.player.damage, dreamer_starting_damage - get_amount("relax_amount"))
 
@@ -44,7 +44,7 @@ class TestAccumulateRest:
 	func test_artifact_results():
 		if not assert_has_amounts():
 			return
-		assert_eq(globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.rest], float(get_amount("pathos_amount")),
+		assert_eq(globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.rest].repressed, float(get_amount("pathos_amount")),
 				"%s increased repressed pathos" % [artifact.canonical_name])
 
 
@@ -60,7 +60,7 @@ class TestAccumulateNCE:
 	func test_artifact_results():
 		if not assert_has_amounts():
 			return
-		assert_eq(globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.nce], float(get_amount("pathos_amount")),
+		assert_eq(globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.nce].repressed, float(get_amount("pathos_amount")),
 				"%s increased repressed pathos" % [artifact.canonical_name])
 		assert_eq(globals.player.health, PLAYER_HEALTH + get_amount("anxiety_amount"))
 
@@ -75,7 +75,7 @@ class TestAccumulateShop:
 	func test_artifact_results():
 		if not assert_has_amounts():
 			return
-		assert_eq(globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.shop], float(get_amount("pathos_amount")),
+		assert_eq(globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.shop].repressed, float(get_amount("pathos_amount")),
 				"%s increased repressed pathos" % [artifact.canonical_name])
 
 class TestAccumulateElite:
@@ -90,7 +90,7 @@ class TestAccumulateElite:
 	func test_artifact_results():
 		if not assert_has_amounts():
 			return
-		assert_eq(globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.elite], float(get_amount("pathos_amount")),
+		assert_eq(globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.elite].repressed, float(get_amount("pathos_amount")),
 				"%s increased repressed pathos" % [artifact.canonical_name])
 		assert_eq(globals.player.health, PLAYER_HEALTH + get_amount("anxiety_amount"))
 
@@ -105,7 +105,7 @@ class TestAccumulateArtifact:
 	func test_artifact_results():
 		if not assert_has_amounts():
 			return
-		assert_eq(globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.artifact], float(get_amount("pathos_amount")),
+		assert_eq(globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.artifact].repressed, float(get_amount("pathos_amount")),
 				"%s increased repressed pathos" % [artifact.canonical_name])
 
 class TestBossDraft:

@@ -74,7 +74,7 @@ class TestArtifactReward:
 
 	func test_use():
 		globals.player.add_artifact(nce.SPECIAL_ARTIFACT)
-		var porg := set_random_pathos_org("masteries", true)
+		var porg := set_random_pathos_org("level", true)
 		watch_signals(globals.player)
 		watch_signals(globals.player.pathos)
 		var secondary_choices = begin_nce_with_choices(nce)
@@ -92,7 +92,7 @@ class TestArtifactReward:
 		activate_secondary_choice_by_key("use")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_not_emitted(globals.player, "artifact_added")
-		assert_pathos_signaled("pathos_leveled", porg.low)
+		assert_pathos_signaled("pathos_leveled", porg.low.name)
 
 
 class TestSubconsciousProcessing:

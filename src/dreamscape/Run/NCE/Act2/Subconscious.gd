@@ -23,9 +23,9 @@ func _init():
 
 func begin() -> void:
 	.begin()
-	var pathos_org = globals.player.pathos.get_pathos_org("masteries", true)
-	lowest_pathos = pathos_org["lowest_pathos"]["selected"]
-	pathos_type_lowest = globals.player.pathos.pathi[lowest_pathos]
+	var pathos_org = globals.player.pathos.get_pathos_org("level", true)
+	pathos_type_lowest = pathos_org["lowest_pathos"]["selected"]
+	lowest_pathos = pathos_type_lowest.name
 	lowest_pathos_amount = round(pathos_type_lowest.get_progression_average()\
 			* 9 * CFUtils.randf_range(0.8,1.2))
 	var scformat = {

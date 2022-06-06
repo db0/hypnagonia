@@ -62,43 +62,24 @@ func activate_secondary_choice_by_key(key) -> JournalNestedChoice:
 func set_lowest_pathos(type := "repressed") -> String:
 	var pathos = globals.player.pathos.grab_random_pathos()
 	var pdict: Dictionary
-	if type == "repressed":
-		pdict = globals.player.pathos.repressed
-	elif type == "masteries":
-		pdict = globals.player.pathos.masteries
-	else:
-		pdict = globals.player.pathos.released
-	for p in pdict:
+	for p in globals.player.pathos.pathi.values():
 		if p != pathos:
-			pdict[p] = 100
+			p.set(type,100)
 		else:
-			pdict[p] = 50
+			p.set(type,50)
 	return(pathos)
 
 func set_highest_pathos(type := "repressed") -> String:
 	var pathos = globals.player.pathos.grab_random_pathos()
 	var pdict: Dictionary
-	if type == "repressed":
-		pdict = globals.player.pathos.repressed
-	elif type == "masteries":
-		pdict = globals.player.pathos.masteries
-	else:
-		pdict = globals.player.pathos.released
-	for p in pdict:
+	for p in globals.player.pathos.pathi.values():
 		if p != pathos:
-			pdict[p] = 50
+			p.set(type,50)
 		else:
-			pdict[p] = 100
+			p.set(type,100)
 	return(pathos)
 
 func set_random_pathos_org(type := "repressed", include_zeroes := false) -> Dictionary:
-	var pdict: Dictionary
-	if type == "repressed":
-		pdict = globals.player.pathos.repressed
-	elif type == "masteries":
-		pdict = globals.player.pathos.masteries
-	else:
-		pdict = globals.player.pathos.released
 	var hpathos = globals.player.pathos.grab_random_pathos()
 	var lpathos = globals.player.pathos.grab_random_pathos()
 	while lpathos == hpathos:
@@ -106,21 +87,21 @@ func set_random_pathos_org(type := "repressed", include_zeroes := false) -> Dict
 	var mpathos = globals.player.pathos.grab_random_pathos()
 	while mpathos in [lpathos, hpathos]:
 		mpathos = globals.player.pathos.grab_random_pathos()
-	for p in pdict:
+	for p in globals.player.pathos.pathi.values():
 		match p:
 			hpathos:
-				pdict[p] = 300
+				p.set(type,300)
 			mpathos:
-				pdict[p] = 200
+				p.set(type,200)
 			lpathos:
 				# If the game is looking for 0-pathos as well
 				# Then we need to set the lowest pathos to 0
 				# and everything else to higher than that
 				# to ensure we grab the lowest pathos
 				if include_zeroes:
-					pdict[p] = 0
+					p.set(type,0)
 				else:
-					pdict[p] = 100
+					p.set(type,100)
 			_:
 				# If we do not include zeroes, we set all other pathos
 				# to 0, to exclude them. This way we ensure the tests
@@ -128,9 +109,9 @@ func set_random_pathos_org(type := "repressed", include_zeroes := false) -> Dict
 				# If zeroed pathos are included, then
 				# WE CANNOT ENSURE THE MID PATHOS IS KNOWN FOR THE TESTS.
 				if include_zeroes:
-					pdict[p] = 100
+					p.set(type,100)
 				else:
-					pdict[p] = 0
+					p.set(type,0)
 	var ret_dict := {
 		"high": hpathos,
 		"mid": mpathos,

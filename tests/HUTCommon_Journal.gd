@@ -21,14 +21,14 @@ func before_each():
 		confirm_return = yield(confirm_return, "completed")
 	for pathos_name in Terms.RUN_ACCUMULATION_NAMES.values():
 		if set_repressed_pathos.has(pathos_name):
-			globals.player.pathos.repressed[pathos_name] = set_repressed_pathos[pathos_name]
+			globals.player.pathos.pathi[pathos_name].repressed = set_repressed_pathos[pathos_name]
 		else:
-			globals.player.pathos.repressed[pathos_name] = 0
+			globals.player.pathos.pathi[pathos_name].repressed = 0
 	for pathos_name in Terms.RUN_ACCUMULATION_NAMES.values():
 		if set_released_pathos.has(pathos_name):
-			globals.player.pathos.released[pathos_name] = set_released_pathos[pathos_name]
+			globals.player.pathos.pathi[pathos_name].released = set_released_pathos[pathos_name]
 		else:
-			globals.player.pathos.released[pathos_name] = 0
+			globals.player.pathos.pathi[pathos_name].released = 0
 	cards = setup_deck_cards(test_card_names)
 	artifacts = setup_test_artifacts(test_artifact_names)
 	memories = setup_test_memories(test_memories_names)

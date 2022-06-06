@@ -23,7 +23,7 @@ func _init():
 
 func begin() -> void:
 	.begin()
-	var pathos_org = globals.player.pathos.get_pathos_org("masteries", true)
+	var pathos_org = globals.player.pathos.get_pathos_org("level", true)
 #	print_debug(pathos_org)
 	lowest_pathos = pathos_org["lowest_pathos"]["selected"]
 	highest_pathos = pathos_org["highest_pathos"]["selected"]

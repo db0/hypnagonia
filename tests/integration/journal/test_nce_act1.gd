@@ -124,7 +124,7 @@ class TestCrystalShattering:
 		activate_secondary_choice_by_key("progress")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_emitted(globals.player.deck, "card_entry_progressed")
-		assert_pathos_signaled("pathos_spent", porg.low)
+		assert_pathos_signaled("pathos_spent", porg.low.name)
 
 	func test_choice_upgrade():
 		var porg := set_random_pathos_org("released")
@@ -136,7 +136,7 @@ class TestCrystalShattering:
 		activate_secondary_choice_by_key("upgrade")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_emitted(globals.player.deck, "card_entry_progressed")
-		assert_pathos_signaled("pathos_spent", porg.mid)
+		assert_pathos_signaled("pathos_spent", porg.mid.name)
 
 	func test_choice_remove():
 		var porg := set_random_pathos_org("released")
@@ -151,7 +151,7 @@ class TestCrystalShattering:
 		watch_signals(globals.player.deck)
 		selection_deck._deck_preview_grid.get_children()[0].select_card()
 		assert_signal_emitted(globals.player.deck, "card_removed")
-		assert_pathos_signaled("pathos_spent", porg.high)
+		assert_pathos_signaled("pathos_spent", porg.high.name)
 
 	func test_choice_leave():
 		begin_nce_with_choices(nce)
