@@ -32,7 +32,8 @@ func begin() -> void:
 func continue_encounter(key) -> void:
 	if key == "accept":
 		for iter in MASTERY_AMOUNT:
-			globals.player.pathos.level_up(pathos_choice_payments[key]["pathos"])
+			var pathos_type: PathosType = globals.player.pathos.pathi[pathos_choice_payments[key]["pathos"]]
+			pathos_type.level_up()
 		# warning-ignore:return_value_discarded
 		globals.player.deck.add_new_card("Discombobulation")
 	end()

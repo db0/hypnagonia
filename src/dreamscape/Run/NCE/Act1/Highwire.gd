@@ -39,7 +39,8 @@ func continue_encounter(key) -> void:
 		if _testing_rng >= 0:
 			rngesus = _testing_rng
 		if rngesus <= 40:
-			var accumulated = globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.nce] / 4
+			var pathos_type: PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.nce]
+			var accumulated = pathos_type.repressed / 4
 			artifact_prep = ArtifactPrep.new(accumulated/2, accumulated, 1)
 # warning-ignore:return_value_discarded
 			globals.player.add_artifact(artifact_prep.selected_artifacts[0].canonical_name)

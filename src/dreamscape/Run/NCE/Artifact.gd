@@ -8,6 +8,7 @@ var accumulated := 0
 var randomized_artifacts := []
 var artifact_prep : ArtifactPrep
 var perturbation_chance := 0.6
+var pathos_type: PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.artifact]
 
 var secondary_choices := {
 		'grab': '',
@@ -24,7 +25,7 @@ func begin() -> void:
 	var luck_up = globals.player.find_artifact(ArtifactDefinitions.ReduceCurioRerollPerturbChance.canonical_name)
 	if luck_up:
 		perturbation_chance *= ArtifactDefinitions.ReduceCurioRerollPerturbChance.amounts.chance_multiplier
-	accumulated = globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.artifact]
+	accumulated = pathos_type.repressed
 	# The rarity of artifact found is based on the accumulated pathos
 	# warning-ignore:integer_division
 	artifact_prep = ArtifactPrep.new(accumulated/2, accumulated, 2)

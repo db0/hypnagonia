@@ -26,6 +26,7 @@ const pathos_descriptions := {
 }
 
 var description: Label
+var pathos_type: PathosType
 
 onready var name_label := $HBC/Name
 onready var chance_label := $HBC/Chance
@@ -37,14 +38,15 @@ onready var mastery_label := $HBC/Mastery
 func setup(_name: String, pathos_description: Label) -> void:
 	name_label.text = _name.capitalize()
 	name = _name
+	pathos_type = globals.player.pathos.pathi[name]
 	description = pathos_description
 	update_labels()
 	
 func update_labels() -> void:
 	var chance : int = globals.player.pathos.calculate_chance_for_encounter(name)
 	chance_label.text = str(chance) + '%'
-	progress_bar.value = globals.player.pathos.get_entry_progress_pct(name) * 100
-	mastery_label.text = str(globals.player.pathos.masteries[name])
+	progress_bar.value = pathos_type.get_progress_pct() * 100
+	mastery_label.text = str(pathos_type.level)
 
 
 func _on_PathosEntryInfo_mouse_entered() -> void:

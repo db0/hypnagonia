@@ -22,23 +22,23 @@ var card_back_texture_selection := 0
 var test_flags := {
 	### REFERENCES ###
 #	# Loads the initial player deck to he board deck
-#	"test_initial_hand": false, 
+#	"test_initial_hand": false,
 #	# prevents initial hand being drawn
-#	"no_refill": true, 
+#	"no_refill": true,
 #	# prevents starting artifacts being added
-#	"disable_starting_artifacts": false, 
+#	"disable_starting_artifacts": false,
 #	# prevents delay at end of turn
-#	"no_end_turn_delay": true, 
+#	"no_end_turn_delay": true,
 #	# prevents torment animations
-#	"no_ordeal_anims": true, 
+#	"no_ordeal_anims": true,
 #	# disables random board background
-#	"disable_board_background": true, 
+#	"disable_board_background": true,
 #	# disables board journal fade out
-#	"no_journal_fade": true, 
+#	"no_journal_fade": true,
 #	# Custom curio definitions for testing
-#	"artifact_defintions": {}, 
+#	"artifact_defintions": {},
 #	# Custom memory definitions for testing
-#	"memory_defintions": {}, 
+#	"memory_defintions": {},
 #   # Preselected random choice for use during testing
 #   "test_rng_ndex": 0,
 #   # Prevents the ordeal from starting during before_each()
@@ -52,7 +52,7 @@ func _ready() -> void:
 	var load_end_time = OS.get_ticks_msec()
 	if OS.has_feature("debug") and not cfc.is_testing:
 		print_debug("DEBUG INFO:Globals: instance time = %sms" % [str(load_end_time - load_start_time)])
-		
+
 	difficulty = Difficulty.new()
 	music = Music.new()
 	player = Player.new()
@@ -71,8 +71,8 @@ func reset() -> void:
 func quit_to_main() -> void:
 # warning-ignore:return_value_discarded
 	get_tree().change_scene(CFConst.PATH_CUSTOM + 'MainMenu/MainMenu.tscn')
-	if "current_shop" in current_encounter:
-		current_encounter.current_shop.queue_free()	
+	if current_encounter and "current_shop" in current_encounter:
+		current_encounter.current_shop.queue_free()
 	cfc.quit_game()
 	reset()
 
@@ -99,27 +99,27 @@ func _exit_tree():
 func take_state_snapshot() -> float:
 	var snapshot_id = round(rand_range(1,10000000))
 	get_tree().call_group_flags(
-			get_tree().GROUP_CALL_REALTIME, 
-			"CombatEffects", 
-			"take_snapshot", 
+			get_tree().GROUP_CALL_REALTIME,
+			"CombatEffects",
+			"take_snapshot",
 			snapshot_id)
 	get_tree().call_group_flags(
-			get_tree().GROUP_CALL_REALTIME, 
-			"CombatEntities", 
-			"take_snapshot", 
+			get_tree().GROUP_CALL_REALTIME,
+			"CombatEntities",
+			"take_snapshot",
 			snapshot_id)
 	return(snapshot_id)
 
 func clear_state_snapshot(snapshot_id) -> void:
 	get_tree().call_group_flags(
-			get_tree().GROUP_CALL_REALTIME, 
-			"CombatEffects", 
-			"clear_snapshot", 
+			get_tree().GROUP_CALL_REALTIME,
+			"CombatEffects",
+			"clear_snapshot",
 			snapshot_id)
 	get_tree().call_group_flags(
-			get_tree().GROUP_CALL_REALTIME, 
-			"CombatEntities", 
-			"clear_snapshot", 
+			get_tree().GROUP_CALL_REALTIME,
+			"CombatEntities",
+			"clear_snapshot",
 			snapshot_id)
 	cfc.NMAP.board.snapshot_dmg_predictions.clear()
 	cfc.NMAP.board.snapshot_lost_defence_predictions.clear()

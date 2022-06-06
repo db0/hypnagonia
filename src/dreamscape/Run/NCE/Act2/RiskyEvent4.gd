@@ -28,8 +28,8 @@ func _init():
 func begin() -> void:
 	.begin()
 	var pathos_org = globals.player.pathos.get_pathos_org()
-	highest_pathos = pathos_org["highest_pathos"]["selected"]
-	pathos_type_highest =  globals.player.pathos.pathi[highest_pathos]
+	pathos_type_highest =  pathos_org["highest_pathos"]["selected"]
+	highest_pathos = pathos_type_highest.name
 	var scformat = {
 		"perturbation": _prepare_card_popup_bbcode("Apathy", "apathetic"),
 		"pathos": '{released_%s}' % [highest_pathos],

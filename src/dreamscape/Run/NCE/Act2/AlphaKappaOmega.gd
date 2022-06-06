@@ -24,12 +24,12 @@ func begin() -> void:
 	.begin()
 	var pathos_org = globals.player.pathos.get_pathos_org()
 #	print_debug(pathos_org)
-	var highest_pathos = pathos_org["highest_pathos"]["selected"]
-	var lowest_pathos = pathos_org["lowest_pathos"]["selected"]
-	var middle_pathos = pathos_org["middle_pathos"]["selected"]
-	var pathos_type_lowest: PathosType = globals.player.pathos.pathi[lowest_pathos]
-	var pathos_type_middle: PathosType = globals.player.pathos.pathi[middle_pathos]
-	var pathos_type_highest: PathosType = globals.player.pathos.pathi[highest_pathos]
+	var pathos_type_lowest : PathosType = pathos_org["lowest_pathos"]["selected"]
+	var pathos_type_middle : PathosType  = pathos_org["middle_pathos"]["selected"]
+	var pathos_type_highest : PathosType  = pathos_org["highest_pathos"]["selected"]
+	var lowest_pathos = pathos_type_lowest.name
+	var middle_pathos = pathos_type_middle.name
+	var highest_pathos = pathos_type_highest.name
 	var lowest_pathos_cost = pathos_type_lowest.get_progression_average() * 2
 	var middle_pathos_cost = pathos_type_middle.get_progression_average() * 5
 	var highest_pathos_cost = pathos_type_highest.get_progression_average() * 7

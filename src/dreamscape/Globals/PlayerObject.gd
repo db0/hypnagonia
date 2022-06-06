@@ -202,7 +202,7 @@ func get_random_memory():
 func does_memory_type_exist(memory_name) -> bool:
 	var definition = MemoryDefinitions.find_memory_from_canonical_name(memory_name)
 	for memory in memories:
-		if definition.pathos == memory.pathos_used:
+		if definition.pathos == memory.pathos_used.name:
 			return(true)
 	return(false)
 

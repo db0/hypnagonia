@@ -48,6 +48,9 @@ var masterier_per_level := 1
 
 func _init(pathos) -> void:
 	for signal_def in get_signal_list():
+		# warning-ignore:return_value_discarded
+		if signal_def.name in ["script_changed"]:
+			continue
 		connect(signal_def.name, pathos, "_on_pathos_signaled", [signal_def.name])
 
 
@@ -82,6 +85,7 @@ func modify_released(value: float, is_lost := false) -> void:
 		emit_signal("released_pathos_lost", name, -value)
 	else:
 		emit_signal("pathos_spent", name, -value)
+# warning-ignore:return_value_discarded
 	check_for_level_up()
 
 
@@ -176,7 +180,10 @@ func spend_pathos(amount: float) -> void:
 
 # reduces the specified released pathos by a given amount
 func lose_repressed_pathos(amount: float) -> void:
-	pass
+	if amount <= 0:
+		printerr("ERROR: lose_repressed_pathos() only takes a positive integer")
+		return
+	modify_repressed(-amount, true)
 
 
 # reduces the specified released pathos by a given amount
@@ -206,7 +213,7 @@ func get_progression_average() -> float:
 
 # Returns the threshold required to encounter events of this pathos
 func get_threshold() -> float:
-	return(get_progression_average() * float(threshold))
+	return(get_progression_average() * threshold)
 
 # Adds an initial amount of released pathos during startup
 func add_startup_rng_release() -> void:

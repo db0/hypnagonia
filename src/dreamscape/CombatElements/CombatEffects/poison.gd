@@ -11,12 +11,12 @@ func _decrease_stacks() -> void:
 	if owning_entity.type == Terms.PLAYER and owning_entity.damage + stacks > owning_entity.health:
 		poison_damage = owning_entity.health - owning_entity.damage - 1
 		var pathos_org = globals.player.pathos.get_pathos_org()
-		var pathos = pathos_org.highest_pathos.selected
+		var pathos_type: PathosType = pathos_org.highest_pathos.selected
 		var amount : float = (stacks - poison_damage) * 5
 		script = [{
 				"name": "modify_pathos",
 				"tags": ["Poison", "Combat Effect", "Debuff"],
-				"pathos": pathos,
+				"pathos": pathos_type.name,
 				"pathos_type": "temp",
 				"amount": amount,
 			}]
@@ -29,7 +29,7 @@ func _decrease_stacks() -> void:
 			})
 		if OS.has_feature("debug") and not cfc.is_testing:
 			print("DEBUG INFO:Effect: Player increasing %s mastery requirements by %s instead of taking %s anxiety due to poison."\
-					% [pathos, amount, stacks - poison_damage])
+					% [pathos_type.name, amount, stacks - poison_damage])
 					
 	else:
 		script = [{
