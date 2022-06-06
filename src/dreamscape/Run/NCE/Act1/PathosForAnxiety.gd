@@ -68,7 +68,7 @@ func begin() -> void:
 	_prepare_secondary_choices(secondary_choices, scformat)
 
 func continue_encounter(key) -> void:
-	var pathos_type = globals.player.pathos.pathi[choices[key]["pathos"]]
+	var pathos_type = choices[key]["pathos"]
 	pathos_type.released += choices[key]["reward"]
 	globals.player.damage += choices[key]["anxiety"]
 	end()

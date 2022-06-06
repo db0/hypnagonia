@@ -53,7 +53,7 @@ func continue_encounter(key) -> void:
 			globals.player.damage += 7
 			var pathos_type : PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.shop]
 			# warning-ignore:narrowing_conversion
-			pathos_type.released += pathos_type.get_mastery_requirement() / 2.0
+			pathos_type.released += pathos_type.get_level_requirement() / 2.0
 		"abort":
 			# warning-ignore:narrowing_conversion
 			var pathos_type : PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.elite]

@@ -13,7 +13,6 @@ var secondary_choices := {
 		'ignore': '[Ignore]: Nothing happens.',
 	}
 
-var highest_pathos
 var lowest_pathos 
 var lowest_pathos_amount 
 
@@ -26,9 +25,8 @@ func begin() -> void:
 	var pathos_org = globals.player.pathos.get_pathos_org("level", true)
 #	print_debug(pathos_org)
 	lowest_pathos = pathos_org["lowest_pathos"]["selected"]
-	highest_pathos = pathos_org["highest_pathos"]["selected"]
 	var scformat = {
-		"lowest_pathos": lowest_pathos,
+		"lowest_pathos": lowest_pathos.name,
 		"masteries_amount":  MASTERY_AMOUNT,
 		"special_curio": _prepare_artifact_popup_bbcode(SPECIAL_ARTIFACT, SPECIAL_ARTIFACT)
 	}
@@ -47,7 +45,7 @@ func continue_encounter(key) -> void:
 			globals.player.pathos.available_masteries = 0
 		"use":
 			for iter in MASTERY_AMOUNT:
-				globals.player.pathos.level_up(lowest_pathos)
+				lowest_pathos.level_up()
 			globals.player.remove_artifact(SPECIAL_ARTIFACT)
 	globals.journal.display_nce_rewards('')
 	end()

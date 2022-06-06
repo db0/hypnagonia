@@ -62,8 +62,7 @@ func begin() -> void:
 	var disabled_choices := []
 	for type in ['alpha', 'kappa', 'omega']:
 		secondary_choices[type] = secondary_choices[type].format(scformat)
-		if globals.player.pathos.released[pathos_choice_payments[type]["pathos"]]\
-				< pathos_choice_payments[type]["cost"]:
+		if pathos_choice_payments[type]["pathos_type"].released < pathos_choice_payments[type]["cost"]:
 			disabled_choices.append(type)
 	_prepare_secondary_choices(secondary_choices, scformat, disabled_choices)
 

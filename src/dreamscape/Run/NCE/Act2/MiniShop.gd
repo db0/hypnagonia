@@ -32,7 +32,7 @@ func begin() -> void:
 	amounts["progress"] = round(pathos_types["progress"].get_progression_average() * 5)
 	amounts["upgrade"] = round(pathos_types["upgrade"].get_progression_average() * 3)
 	var scformat := {}
-	for key in pathos_types["remove"]:
+	for key in pathos_types:
 		scformat[key] = amounts[key]
 		scformat[key + "_pathos"] = '{released_%s}' % [pathos_types[key].name]
 	var disabled_choices = []
