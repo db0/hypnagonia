@@ -25,21 +25,18 @@ They pointed the cameras directly at me. It was time to let out the inner animal
 
 func begin() -> void:
 	.begin()
-	var calm_choice = globals.player.pathos.grab_random_pathos()
-	var stress_choice = globals.player.pathos.grab_random_pathos()
-	var fear_choice = globals.player.pathos.grab_random_pathos()
+	var calm_choice: PathosType = globals.player.pathos.grab_random_pathos()
+	var stress_choice: PathosType = globals.player.pathos.grab_random_pathos()
+	var fear_choice: PathosType = globals.player.pathos.grab_random_pathos()
 #	print_debug(pathos_org)
 	var calm_choice_amount = round(
-			globals.player.pathos.get_progression_average(calm_choice)
-			* 2 * CFUtils.randf_range(0.9,1.1)
+			calm_choice.get_progression_average() * 2 * CFUtils.randf_range(0.9,1.1)
 		)
 	var stress_choice_amount =  round(
-			globals.player.pathos.get_progression_average(stress_choice)
-			* 3 * CFUtils.randf_range(0.9,1.1)
+			stress_choice.get_progression_average() * 3 * CFUtils.randf_range(0.9,1.1)
 		)
 	var fear_choice_amount = round(
-				globals.player.pathos.get_progression_average(fear_choice)
-				* 5 * CFUtils.randf_range(0.9,1.1)
+				fear_choice.get_progression_average() * 5 * CFUtils.randf_range(0.9,1.1)
 			)
 	var stress_amount = CFUtils.randi_range(9,11)
 	var fear_amount = CFUtils.randi_range(18,22)
@@ -71,7 +68,8 @@ func begin() -> void:
 	_prepare_secondary_choices(secondary_choices, scformat)
 
 func continue_encounter(key) -> void:
-	globals.player.pathos.modify_released_pathos(choices[key]["pathos"], choices[key]["reward"])
+	var pathos_type = globals.player.pathos.pathi[choices[key]["pathos"]]
+	pathos_type.released += choices[key]["reward"]
 	globals.player.damage += choices[key]["anxiety"]
 	end()
 	globals.journal.display_nce_rewards(nce_result_fluff[key])

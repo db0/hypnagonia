@@ -4,7 +4,9 @@ extends NonCombatEncounter
 
 var artifact_prep: ArtifactPrep
 var highest_pathos: String
+var pathos_type_highest: PathosType
 var ignore_pathos : String = Terms.RUN_ACCUMULATION_NAMES.enemy
+var pathos_type_ignored: PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy]
 
 var secondary_choices := {
 		'help': '[Help]: Pay {bcolor:all your {pathos} ({amount}):}. {gcolor:Gain a random curio:}.',
@@ -27,38 +29,33 @@ func begin() -> void:
 	.begin()
 	var pathos_org = globals.player.pathos.get_pathos_org()
 	highest_pathos = pathos_org["highest_pathos"]["selected"]
+	pathos_type_highest =  globals.player.pathos.pathi[highest_pathos]
 	var scformat = {
 		"perturbation": _prepare_card_popup_bbcode("Apathy", "apathetic"),
 		"pathos": '{released_%s}' % [highest_pathos],
-		"amount": floor(globals.player.pathos.released[highest_pathos]),
+		"amount": floor(pathos_type_highest.released),
 		"ignore_pathos": '{repressed_%s}' % [ignore_pathos],
-		"ignore_amount": globals.player.pathos.get_progression_average(ignore_pathos) * 2,
+		"ignore_amount": pathos_type_ignored.get_progression_average() * 2,
 	}
 	var disabled_choices = []
-	if floor(globals.player.pathos.released[highest_pathos]) == 0:
+	if floor(pathos_type_highest.released) == 0:
 		disabled_choices.append('help')
 	_prepare_secondary_choices(secondary_choices, scformat, disabled_choices)
 
 func continue_encounter(key) -> void:
 	if key == "help":
-		var amount = globals.player.pathos.released[highest_pathos]
+		var amount = pathos_type_highest.released
 		# Encounters Needed To Accumulate Amount
-		var entam = amount / globals.player.pathos.get_progression_average(highest_pathos)
+		var entam = amount / pathos_type_highest.get_progression_average()
 		artifact_prep = ArtifactPrep.new(entam * 2, entam * 4, 1)
 		# warning-ignore:return_value_discarded
 		globals.player.add_artifact(artifact_prep.selected_artifacts[0].canonical_name)
-		globals.player.pathos.modify_released_pathos(
-				highest_pathos,
-				-globals.player.pathos.released[highest_pathos],
-				false)
+		pathos_type_highest.spend_pathos(pathos_type_highest.released)
 	else:
 		artifact_prep = ArtifactPrep.new(1, 5, 1)
 		# warning-ignore:return_value_discarded
 		globals.player.add_artifact(artifact_prep.selected_artifacts[0].canonical_name)
-		globals.player.pathos.modify_repressed_pathos(
-				ignore_pathos,
-				globals.player.pathos.get_progression_average(ignore_pathos) * 2,
-				true)
+		pathos_type_ignored.modify_repressed(pathos_type_ignored.get_progression_average() * 2, true)
 		# warning-ignore:return_value_discarded
 		globals.player.deck.add_new_card("Apathy")
 	end()

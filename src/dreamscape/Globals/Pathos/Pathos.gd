@@ -17,6 +17,56 @@ signal released_pathos_gained(pathos, amount)
 signal pathos_leveled(pathos, level)
 signal advancements_modified(new_value)
 
+var pathos_setup := {
+	Terms.RUN_ACCUMULATION_NAMES.enemy: {
+		"repressed": 25.0,
+		"progression": range(11,20),
+		"threshold": 1.3 - globals.difficulty.encounter_difficulty * 0.1,
+		"release_adjustment": 3.0,
+		"released_needed_for_level": 3.0,
+	},
+	Terms.RUN_ACCUMULATION_NAMES.rest: {
+		"repressed": 5.0,
+		"progression": range(3,5),
+		"threshold": 5.0 + globals.difficulty.encounter_difficulty * 0.5,
+		"release_adjustment": 2.0,
+		"released_needed_for_level": 20.0,
+	},
+	Terms.RUN_ACCUMULATION_NAMES.nce: {
+		"repressed": 10.0,
+		"progression": range(7,11),
+		"threshold": 3.0 + globals.difficulty.encounter_difficulty * 0.5,
+		"release_adjustment": 1.5,
+		"released_needed_for_level": 10.0,
+	},
+	Terms.RUN_ACCUMULATION_NAMES.shop: {
+		"repressed": 10.0,
+		"progression": range(5,7),
+		"threshold": 4.0 + globals.difficulty.encounter_difficulty * 0.5,
+		"release_adjustment": 1.5,
+		"released_needed_for_level": 15.0,
+	},
+	Terms.RUN_ACCUMULATION_NAMES.elite: {
+		"progression": range(5,9),
+		"threshold": 5.3 - globals.difficulty.encounter_difficulty * 0.5,
+		"released_needed_for_level": 4.0,
+		"masterier_per_level": 2.0,
+	},
+	Terms.RUN_ACCUMULATION_NAMES.artifact: {
+		"progression": range(2,5),
+		"threshold": 6.0 + globals.difficulty.encounter_difficulty * 0.5,
+		"released_needed_for_level": 20.0,
+	},
+	Terms.RUN_ACCUMULATION_NAMES.boss: {
+		"progression": range(6,7),
+		"threshold": 17.0 - globals.difficulty.encounter_difficulty * 1,
+		"released_needed_for_level": 17.0,
+		"masterier_per_level": 5.0,
+	},
+}
+
+var pathi := {}
+
 var repressed := {
 	Terms.RUN_ACCUMULATION_NAMES.enemy: 25.0,
 	Terms.RUN_ACCUMULATION_NAMES.rest: 5.0,
@@ -75,7 +125,7 @@ var release_adjustments := {
 var released := {}
 
 # How many of the average multiples is needed to level up that pathos
-var released_needed_for_mastery := {
+var released_needed_for_level := {
 	Terms.RUN_ACCUMULATION_NAMES.enemy: 3.0,
 	Terms.RUN_ACCUMULATION_NAMES.rest: 20.0,
 	Terms.RUN_ACCUMULATION_NAMES.nce: 10.0,
@@ -108,16 +158,13 @@ var masterier_per_level := {
 var available_masteries := 0 setget set_available_masteries
 
 func _init() -> void:
-	for accumulation_name in Terms.RUN_ACCUMULATION_NAMES.values():
-		released[accumulation_name] = 0
-	var random_pathos =  grab_random_pathos()
+	for pathos_type in pathos_setup:
+		pathi[pathos_type] = PathosType.new(self)
+		for key in pathos_setup[pathos_type]:
+			pathi[pathos_type][key] = pathos_setup[pathos_type][key]
+	var random_pathos :=  grab_random_pathos()
 	# Every run, starts the player with a bunch of released pathos on a random one.
-	released[random_pathos] +=\
-			round(get_progression_average(random_pathos)* CFUtils.randf_range(3,5))
-#	released[grab_random_pathos()] +=\
-#			round(get_progression_average(grab_random_pathos())* CFUtils.randf_range(3,5))
-#	released[grab_random_pathos()] +=\
-#			round(get_progression_average(grab_random_pathos())* CFUtils.randf_range(3,5))
+	random_pathos.add_startup_rng_release()
 
 
 func set_available_masteries(value: int) -> void:
@@ -127,179 +174,74 @@ func set_available_masteries(value: int) -> void:
 
 # Increases the specified repressed pathos by the standard amount
 func repress(pathos_to_ignore := []) -> void:
-	for entry in repressed:
-		if not entry in pathos_to_ignore:
-			var amount = get_progression(entry)
-			repressed[entry] += amount
-			emit_signal("pathos_repressed", entry, amount)
+	for pathos_type in pathi:
+		if not pathos_type.name in pathos_to_ignore:
+			pathos_type.repress()
 
+# TO REPLACE CALLS IN-GAME
+func modify_repressed_pathos(entry, amount, aoaa = false) -> void:
+	pass
 
-# modifies the specified repressed pathos by a given amount
-func modify_repressed_pathos(entry: String, amount: float, is_lost := false) -> void:
-	repressed[entry] += amount
-	if repressed[entry] < 0:
-		repressed[entry] = 0
-	if amount > 0:
-		emit_signal("pathos_repressed", entry, amount)
-	elif is_lost:
-		emit_signal("repressed_pathos_lost", entry, -amount)
-
-
-# Increases the specified repressed pathos by the given amount
+# TO REPLACE CALLS IN-GAME
 func repress_pathos(entry: String, amount: float) -> void:
-	if amount <= 0:
-		printerr("ERROR: repress_pathos() only takes a positive integer")
-		return
-	modify_repressed_pathos(entry, amount)
+	pass
 
 
-# reduces the specified repressed pathos by a given amount
-# and increases the released pathos by the same amount
+# TO REPLACE CALLS IN-GAME
 func release_pathos(entry: String, amount: float) -> void:
-	if amount <= 0:
-		printerr("ERROR: release_pathos() only takes a positive integer")
-		return
-	# if we try to repress more than we have, we repress only as much as we have
-	if amount > repressed[entry]:
-		amount = repressed[entry]
-	modify_repressed_pathos(entry, -amount)
-	modify_released_pathos(entry, amount)
-	emit_signal("pathos_released", entry, amount)
+	pass
 
 
-# Releases the standard amount for the given pathos
-func release(entry: String) -> int:
+func release(pathos_name: String) -> int:
 	var retcode : int = CFConst.ReturnCode.CHANGED
-	if repressed[entry] == 0:
+	var pathos_type :PathosType = pathi[pathos_name]
+	if pathos_type.repressed == 0:
 		retcode = CFConst.ReturnCode.OK
-	var release_amount = get_release_amount(entry)
-	release_pathos(entry, release_amount)
+	var release_amount = pathos_type.get_release_amount()
+	pathos_type.release(release_amount)
 	return(retcode)
 
 
-func get_release_amount(entry: String) -> float:
-	var release_amount := get_threshold(entry)
-#	print_debug([release_amount, release_adjustments.get(entry,1.0), release_amount * release_adjustments.get(entry,1.0)])
-	release_amount *= release_adjustments.get(entry,1.3)
-	return(release_amount)
+# TO REPLACE CALLS IN-GAME
+func modify_released_pathos(entry: String, amount: float, c := false) -> void:
+	pass
 
 
-func get_final_release_amount(entry: String) -> int:
-	var release_amount = get_release_amount(entry)
-	if release_amount > repressed[entry]:
-		release_amount = repressed[entry]
-	return(int(round(release_amount)))
-
-
-# modifies the specified released pathos by a given amount
-func modify_released_pathos(entry: String, amount: float, is_lost := false) -> void:
-	released[entry] += amount
-	if released[entry] < 0:
-		released[entry] = 0.0
-	if amount > 0:
-		emit_signal("released_pathos_gained", entry, amount)
-	elif is_lost:
-		emit_signal("released_pathos_lost", entry, -amount)
-	else:
-		emit_signal("pathos_spent", entry, -amount)
-	check_for_level_up(entry)
-
-
-func check_for_level_up(entry: String) -> bool:
-	var leveled_up := false
-	while released[entry] > get_mastery_requirement(entry):
-		released[entry] -= get_mastery_requirement(entry)
-		leveled_up = true
-		level_up(entry)
-	return(leveled_up)
-
-
-func level_up(entry: String) -> void:
-	masteries[entry] += 1
-	set_available_masteries(available_masteries + masterier_per_level.get(entry,1))
-	# When a level up happens, any temp modifications are removed
-	temp_modification_for_next_mastery[entry] = 0.0
-	emit_signal("pathos_leveled", entry, masteries[entry])
-
-
-func get_entry_progress_pct(entry: String) -> float:
-	return(
-			(released[entry] / (get_progression_average(entry) * released_needed_for_mastery[entry]))
-			+ temp_modification_for_next_mastery.get(entry, 0.0)
-	)
-
-
-func get_mastery_requirement(entry: String) -> float:
-	return(
-			(get_progression_average(entry) * released_needed_for_mastery[entry])
-			+ temp_modification_for_next_mastery.get(entry,0.0)
-	)
-
-
-func temp_modify_requirements_for_mastery(entry: String, amount: int) -> void:
-	# The amount we is an integer, and we want to normalize it based on how fast
-	# each pathos type progresses. 
-	# I.e. the same temp modifier for a pathos that is gained faster
-	# will be higher than for a pathos that is gained slower.
-	var normalized = 1.0 / (10.0 / get_progression_average(entry))
-	temp_modification_for_next_mastery[entry] =\
-			temp_modification_for_next_mastery.get(entry, 0.0) + normalized * amount
-	
-
-# reduces the specified released pathos by a given amount
+# TO REPLACE CALLS IN-GAME
 func spend_pathos(entry: String, amount: float) -> void:
-	if amount <= 0:
-		printerr("ERROR: spend_pathos() only takes a positive integer")
-		return
-	modify_released_pathos(entry, -amount)
+	pass
 
 
-# reduces the specified released pathos by a given amount
+# TO REPLACE CALLS IN-GAME
 func lose_repressed_pathos(entry: String, amount: float) -> void:
-	if amount <= 0:
-		printerr("ERROR: lose_repressed_pathos() only takes a positive integer")
-		return
-	modify_repressed_pathos(entry, -amount, true)
+	pass
 
 
-# reduces the specified released pathos by a given amount
+# TO REPLACE CALLS IN-GAME
 func lose_released_pathos(entry: String, amount: float) -> void:
-	if amount <= 0:
-		printerr("ERROR: lose_released_pathos() only takes a positive integer")
-		return
-	modify_released_pathos(entry, -amount, true)
+	pass
 
 
 # Returns one random possible progression from the range
 # Grabbing the number via a fuction, rather than directly from the var
 # allows us to modify this via artifacts during runtime
 func get_progression(entry: String) -> float:
-	if entry == 'generic': entry = baseline
-	var rand_array : Array = progressions[entry].duplicate()
-	CFUtils.shuffle_array(rand_array)
-	return(float(rand_array[0]))
+	return(0.0)
 
 
 # Returns the average value of the progression specified
 func get_progression_average(entry: String) -> float:
-	if entry == 'generic': entry = baseline
-	var total: float = 0
-	for p in progressions[entry]:
-		total += p
-	return(total / progressions[entry].size())
+	return(0.0)
 
 
 # Returns the threshold required to encounter events of this pathos
 func get_threshold(entry: String) -> float:
-	if entry == 'generic': entry = baseline
-#	print_debug(entry, get_progression_average(entry))
-	return(get_progression_average(entry) * float(thresholds[entry]))
+	return(0.0)
 
-
-func grab_random_pathos() -> String:
+func grab_random_pathos() -> PathosType:
 	var all_pathos = Terms.RUN_ACCUMULATION_NAMES.values()
 	CFUtils.shuffle_array(all_pathos)
-	return(all_pathos[0])
+	return(pathi[all_pathos[0]])
 
 
 # Returns a dictionary with the highest pathos, the lowest pathos
@@ -328,9 +270,9 @@ func get_pathos_org(type := "pct_to_mastery", include_zeroes := false) -> Dictio
 	var pathos_dict : Dictionary
 	if type == "pct_to_mastery":
 		for p in Terms.RUN_ACCUMULATION_NAMES.values():
-			pathos_dict[p] = get_entry_progress_pct(p)
-		print_debug(pathos_dict)
-	else: 
+			pass
+			# pathos_dict[p] = get_entry_progress_pct(p)
+	else:
 		pathos_dict = get(type)
 	for pathos in pathos_dict:
 		if pathos_dict[pathos] == 0:
@@ -456,42 +398,6 @@ func restore_save_state(save_state: Dictionary) -> void:
 	released = save_state.released
 
 
-func convert_to_shop() -> int:
-	var total : float = 0
-	var baseline : float = 5 # I.e. we're going to normalize each pathos type, as if we're earning 5 of it per turn
-	for pathos_type in repressed.keys():
-		var adjustment = baseline / get_progression_average(pathos_type)
-		total += released.get(pathos_type,0) * adjustment
-#	print_debug([total, adjustments])
-	return(int(ceil(total)))
-
-
-# Spends pathos as generic currency, then distributes the exact amount spent to the various
-# types proportionally
-func spend_generic_pathos(amount: float) -> void:
-	if amount <= 0:
-		printerr("ERROR: spend_pathos() only takes a positive integer")
-		return
-	var total : float
-	for pathos_type in repressed.keys():
-		total += released.get(pathos_type,0)
-	# To avoid div/0
-	if total <= 0:
-		return
-	var baseline : float = 5 # I.e. we're going to normalize each pathos type, as if we're earning 5 of it per turn
-	for pathos_type in repressed.keys():
-		var adjustment = baseline / get_progression_average(pathos_type)
-		var percentage = released.get(pathos_type,0) / total
-		released[pathos_type] -= amount * percentage / adjustment
-#	print_debug([amount,released])
-	emit_signal("generic_pathos_spent", amount)
-
-func get_shop_baseline_average() -> float:
-	var total : float = 0
-	var baseline : float = 6 # I.e. we're going to normalize each pathos type, as if we're earning 5 of it per turn
-	for pathos_type in Terms.RUN_ACCUMULATION_NAMES.values():
-		if pathos_type == Terms.RUN_ACCUMULATION_NAMES.boss:
-			continue
-#		baseline := get_progression_average(pathos_type) # Trying a standard baseline instead
-		total += baseline
-	return(total)
+# This class also acts like a signal bus for each pathos type.
+func _on_pathos_signaled(pathos_type: String, payload, signal_name: String) -> void:
+	emit_signal(signal_name,pathos_type,payload)

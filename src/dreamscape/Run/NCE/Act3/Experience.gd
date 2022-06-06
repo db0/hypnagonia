@@ -23,6 +23,7 @@ var nce_result_fluff := {
 
 var repressed_pathos_amount: int
 var released_pathos_amount: int
+var pathos_type : PathosType = globals.player.pathos.pathi[PATHOS]
 
 func _init():
 	# TODO: Fluff
@@ -30,9 +31,9 @@ func _init():
 
 func begin() -> void:
 	.begin()
-	released_pathos_amount = round(globals.player.pathos.get_progression_average(PATHOS)
+	released_pathos_amount = round(pathos_type.get_progression_average()
 			 * RELEASED_PATHOS_AVG_MULTIPLIER * CFUtils.randf_range(0.8,1.2))
-	repressed_pathos_amount = round(globals.player.pathos.get_progression_average(PATHOS)
+	repressed_pathos_amount = round(pathos_type.get_progression_average()
 			 * REPRESSED_PATHOS_AVG_MULTIPLIER * CFUtils.randf_range(0.8,1.2))
 	var scformat = {
 		"memory_progress": MEMORY_PROGRESS,
@@ -67,7 +68,7 @@ func continue_encounter(key) -> void:
 		selection_deck.initiate_card_selection(0)
 		selection_deck.update_color(Color(0,1,0))
 	elif globals.player.deck.count_progressing_cards() > 0:
-			globals.player.pathos.repress_pathos(PATHOS, repressed_pathos_amount)
+			pathos_type.repressed +=  repressed_pathos_amount
 			var cards = globals.player.deck.get_progressing_cards()
 			CFUtils.shuffle_array(cards)
 			var card: CardEntry = cards[0]
@@ -91,7 +92,7 @@ func _on_upgraded_card_selected(operation_details: Dictionary, key: String) -> v
 			if existing_memory:
 				existing_memory.upgrades_amount += MEMORY_PROGRESS
 		"pathos":
-			globals.player.pathos.modify_released_pathos(PATHOS, released_pathos_amount)
+			pathos_type.released += released_pathos_amount
 
 func _on_card_selected(operation_details: Dictionary) -> void:
 	if operation_details.operation == "progress":

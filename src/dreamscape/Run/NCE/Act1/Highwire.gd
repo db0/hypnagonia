@@ -50,9 +50,8 @@ func continue_encounter(key) -> void:
 	else:
 		result = nce_result_fluff['decline']
 		globals.player.damage += 10
-		var amount_lost =\
-				globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.artifact)\
-				* CFUtils.randf_range(0.8,1.2)
-		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, -amount_lost, true)
+		var pathos_type: PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.artifact]
+		var amount_lost = pathos_type.get_progression_average() * CFUtils.randf_range(0.8,1.2)
+		pathos_type.modify_repressed(-amount_lost, true)
 	end()
 	globals.journal.display_nce_rewards(result)

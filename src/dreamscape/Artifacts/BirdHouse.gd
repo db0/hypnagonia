@@ -8,10 +8,10 @@ func _on_artifact_added() -> void:
 	var custom_journal_entry = JOURNAL_CUSTOM_ENTRY.instance()
 	custom_journal_entry.script = JOURNAL_DRAFT_SCRIPT
 	globals.journal.add_custom_entry(custom_journal_entry)
-	var rng_pathos = globals.player.pathos.grab_random_pathos()
-	var pathos_amount = globals.player.pathos.get_progression_average(rng_pathos)\
+	var rng_pathos : PathosType = globals.player.pathos.grab_random_pathos()
+	var pathos_amount = rng_pathos.get_progression_average()\
 			* ArtifactDefinitions.BirdHouse.amounts.pathos_avg_multiplier
-	globals.player.pathos.modify_released_pathos(rng_pathos, pathos_amount)
+	rng_pathos.released += pathos_amount
 	var memory_prep = MemoryPrep.new(ArtifactDefinitions.BirdHouse.amounts.memory_amount, true)
 	for memory in memory_prep.selected_memories:
 		var existing_memory = globals.player.find_memory(memory.canonical_name)

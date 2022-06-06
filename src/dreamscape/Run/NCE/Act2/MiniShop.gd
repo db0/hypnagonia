@@ -10,10 +10,10 @@ var secondary_choices := {
 	}
 
 var amounts := {}
-var pathos := {
-	"remove": Terms.RUN_ACCUMULATION_NAMES.artifact,
-	"progress": Terms.RUN_ACCUMULATION_NAMES.shop,
-	"upgrade": Terms.RUN_ACCUMULATION_NAMES.nce,
+var pathos_types := {
+	"remove": globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.artifact],
+	"progress": globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.shop],
+	"upgrade": globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.nce],
 }
 
 var nce_result_fluff := {
@@ -28,28 +28,27 @@ func _init():
 
 func begin() -> void:
 	.begin()
-	amounts["remove"] = round(globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.artifact) * 4)
-	amounts["progress"] = round(
-			globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.shop)
-			* 5)
-	amounts["upgrade"] = round(globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.nce) * 3)
+	amounts["remove"] = round(pathos_types["remove"].get_progression_average() * 4)
+	amounts["progress"] = round(pathos_types["progress"].get_progression_average() * 5)
+	amounts["upgrade"] = round(pathos_types["upgrade"].get_progression_average() * 3)
 	var scformat := {}
-	for key in pathos:
+	for key in pathos_types["remove"]:
 		scformat[key] = amounts[key]
-		scformat[key + "_pathos"] = '{released_%s}' % [pathos[key]]
+		scformat[key + "_pathos"] = '{released_%s}' % [pathos_types[key].name]
 	var disabled_choices = []
 	if globals.player.memories.size() == 0:
 		disabled_choices.append('upgrade')
 	if globals.player.deck.get_progressing_cards().size() == 0:
 		disabled_choices.append('progress')
-	for type in pathos:
-		if globals.player.pathos.released[pathos[type]] < amounts[type]:
+	for type in pathos_types:
+		if pathos_types[type].released < amounts[type]:
 			disabled_choices.append(type)
 	_prepare_secondary_choices(secondary_choices, scformat, disabled_choices)
 
 func continue_encounter(key) -> void:
-	if key in pathos:
-		globals.player.pathos.modify_released_pathos(pathos[key], -amounts[key])
+	if key in pathos_types:
+		var pathos_type : PathosType = pathos_types[key]
+		pathos_type.spend_pathos(amounts[key])
 	match key:
 		"remove":
 			var selection_deck = globals.journal.spawn_selection_deck()

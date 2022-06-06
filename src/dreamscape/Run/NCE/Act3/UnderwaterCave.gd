@@ -59,14 +59,15 @@ func continue_encounter(key) -> void:
 		.end()
 		var reward_text = 'I decide to take heed of this warning.'
 		globals.journal.display_nce_rewards(reward_text)
-		globals.player.pathos.lose_released_pathos(PATHOS, globals.player.pathos.released[PATHOS])
+		var pathos_type : PathosType = globals.player.pathos.pathi[PATHOS]
+		pathos_type.lose_released_pathos(pathos_type.released)
 
 
 func end() -> void:
 	.end()
-	var released_pathos_amount = round(globals.player.pathos.get_progression_average(PATHOS)
-			 * RELEASED_PATHOS_AVG_MULTIPLIER * CFUtils.randf_range(0.9,1.3))
-	globals.player.pathos.modify_released_pathos(PATHOS, released_pathos_amount)
+	var pathos_type : PathosType = globals.player.pathos.pathi[PATHOS]
+	pathos_type.released += pathos_type.get_progression_average()\
+			* RELEASED_PATHOS_AVG_MULTIPLIER * CFUtils.randf_range(0.9,1.3)
 	memory_prep = MemoryPrep.new(1, true)
 	for memory in memory_prep.selected_memories:
 		var existing_memory = globals.player.find_memory(memory.canonical_name)

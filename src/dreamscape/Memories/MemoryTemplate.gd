@@ -87,10 +87,6 @@ func _on_MemoryTemplate_gui_input(event: InputEvent) -> void:
 			_use()
 	## DEBUG
 	elif OS.has_feature("debug") and event.is_pressed() and event.get_button_index() == 3:
-#		globals.player.pathos.repress_pathos(artifact_object.pathos_used, 30)
-		# warning-ignore:return_value_discarded
-#		globals.player.pathos.release(artifact_object.pathos_used)
-#		artifact_object._on_encounter_changed('', 1)
 		artifact_object.upgrade()
 		artifact_object.ready()
 		_set_current_description()

@@ -71,19 +71,22 @@ func generate_journal_choices() -> Array:
 #	var new_options := _get_journal_options(1)
 #	print_debug(globals.player.pathos.repressed, new_options)
 	# We use these to be able to adjust the amount of pathos increments in one place (Pathos class)
-	var enemy_pathos_avg = globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.enemy)
-	var elite_pathos_avg = globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.elite)
-	var boss_pathos_avg = globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.boss)
+	var pathos_type_enemy: PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy]
+	var pathos_type_elite: PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.elite]
+	var pathos_type_boss: PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.boss]
+	var enemy_pathos_avg = pathos_type_enemy.get_progression_average()
+	var elite_pathos_avg = pathos_type_elite.get_progression_average()
+	var boss_pathos_avg = pathos_type_boss.get_progression_average()
 	var difficulty : String
 	for option in new_options:
 		match option:
 			Terms.RUN_ACCUMULATION_NAMES.enemy:
 				var next_enemy = current_act.ENEMIES[remaining_enemies.pop_back()]
-				if globals.player.pathos.repressed[option] < enemy_pathos_avg * 2\
-						and globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.boss] < boss_pathos_avg * 8:
+				if pathos_type_enemy.repressed < enemy_pathos_avg * 2\
+						and pathos_type_boss.repressed < boss_pathos_avg * 8:
 					difficulty = "easy"
-				elif globals.player.pathos.repressed[option] < enemy_pathos_avg * 2\
-						or globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.boss] < boss_pathos_avg * 8:
+				elif pathos_type_enemy.repressed < enemy_pathos_avg * 2\
+						or pathos_type_boss.repressed < boss_pathos_avg * 8:
 					difficulty = "medium"
 				else:
 					difficulty = "hard"
@@ -98,11 +101,11 @@ func generate_journal_choices() -> Array:
 				journal_options.append(_get_next_nce())
 			Terms.RUN_ACCUMULATION_NAMES.elite:
 				var next_enemy = current_act.ELITES[remaining_elites.pop_back()]
-				if globals.player.pathos.repressed[option] < globals.player.pathos.get_threshold(option) + elite_pathos_avg\
-						and globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.boss] < boss_pathos_avg * 8:
+				if pathos_type_elite.repressed < pathos_type_elite.get_threshold() + elite_pathos_avg\
+						and pathos_type_boss.repressed < boss_pathos_avg * 8:
 					difficulty = "easy"
-				elif globals.player.pathos.repressed[option] < globals.player.pathos.get_threshold(option) + elite_pathos_avg\
-						or globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.boss] < boss_pathos_avg * 8:
+				elif pathos_type_elite.repressed < pathos_type_elite.get_threshold() + elite_pathos_avg\
+						or pathos_type_boss.repressed < boss_pathos_avg * 8:
 					difficulty = "medium"
 				else:
 					difficulty = "hard"
@@ -131,17 +134,17 @@ func _get_journal_options(requested_options := 3) -> Array:
 	var selected_options := []
 	var pathos : Pathos = globals.player.pathos
 	# If boss accumulation is >= 100, then it becomes the only option
-	var boss_threshold = globals.player.pathos.thresholds[Terms.RUN_ACCUMULATION_NAMES.boss]\
-		* globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.boss)
-	if pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.boss] >= boss_threshold:
+	var pathos_type_boss: PathosType = pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.boss]
+	var boss_threshold = pathos_type_boss.threshold * pathos_type_boss.get_progression_average()
+	if pathos_type_boss.repressed >= boss_threshold:
 		selected_options.append(Terms.RUN_ACCUMULATION_NAMES.boss)
 	else:
-		for acc in pathos.repressed:
-			if acc == Terms.RUN_ACCUMULATION_NAMES.boss:
+		for pathos_type in pathos.pathi.values():
+			if pathos_type.name == Terms.RUN_ACCUMULATION_NAMES.boss:
 				continue
-			if pathos.repressed[acc] > pathos.get_threshold(acc):
-				for _iter in range(pathos.repressed[acc]):
-					journal_choices_list.append(acc)
+			if pathos_type.repressed > pathos_type.get_threshold():
+				for _iter in range(pathos_type.repressed):
+					journal_choices_list.append(pathos_type.name)
 #			else:
 #				print_debug(pathos.repressed[acc], acc, pathos.get_threshold(acc))
 		CFUtils.shuffle_array(journal_choices_list)
@@ -159,9 +162,10 @@ func _get_journal_options(requested_options := 3) -> Array:
 
 func _get_next_nce() -> NonCombatEncounter:
 	var nce_type = "easy"
-	var nce_pathos_avg = globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.nce)
-	var current_nce_level = globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.nce]
-	var nce_pathos_threshold = globals.player.pathos.get_threshold(Terms.RUN_ACCUMULATION_NAMES.nce)
+	var pathos_type_nce: PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.nce]
+	var nce_pathos_avg := pathos_type_nce.get_progression_average()
+	var current_nce_level := pathos_type_nce.repressed
+	var nce_pathos_threshold := pathos_type_nce.get_threshold()
 	if  not remaining_nce["risky"].empty() and current_nce_level > nce_pathos_threshold + (nce_pathos_avg * 2):
 		nce_type = "risky"
 	if OS.has_feature("debug"):

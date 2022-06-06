@@ -19,6 +19,16 @@ enum ALTERANT_PRIORITY {
 	SET
 }
 
+enum EncounterTypes {
+	ENEMY
+	REST
+	NCE
+	SHOP
+	ELITE
+	ARTIFACT
+	BOSS
+}
+
 
 const PLAYER = "dreamer"
 const ENEMY = "torment"

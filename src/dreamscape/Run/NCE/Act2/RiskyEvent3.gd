@@ -45,9 +45,8 @@ func continue_encounter(key) -> void:
 	amounts[key] += 1
 	match key:
 		"emotions":
-			var pathos = globals.player.pathos.grab_random_pathos() 
-			var pathos_amount = globals.player.pathos.get_progression_average(pathos) * 6
-			globals.player.pathos.modify_released_pathos(pathos, pathos_amount)
+			var pathos_type : PathosType = globals.player.pathos.grab_random_pathos() 
+			pathos_type.released += pathos_type.get_progression_average() * 6
 			repeat_choices()
 		"knowledge":
 			var card_entry = globals.player.deck.add_new_card(Understanding.get_random_understanding())

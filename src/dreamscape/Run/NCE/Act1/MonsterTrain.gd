@@ -51,16 +51,12 @@ func continue_encounter(key) -> void:
 						+ "The forces of Order soon overwhelmed your band."
 		"follow":
 			globals.player.damage += 7
+			var pathos_type : PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.shop]
 			# warning-ignore:narrowing_conversion
-			globals.player.pathos.modify_released_pathos(
-				Terms.RUN_ACCUMULATION_NAMES.shop,
-				globals.player.pathos.get_mastery_requirement(
-					Terms.RUN_ACCUMULATION_NAMES.shop) / 2.0)
+			pathos_type.released += pathos_type.get_mastery_requirement() / 2.0
 		"abort":
 			# warning-ignore:narrowing_conversion
-			globals.player.pathos.repress_pathos(
-					Terms.RUN_ACCUMULATION_NAMES.elite,
-					globals.player.pathos.get_progression_average(
-						Terms.RUN_ACCUMULATION_NAMES.elite) * 2)
+			var pathos_type : PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.elite]
+			pathos_type.repressed += pathos_type.get_progression_average() * 2.0
 	end()
 	globals.journal.display_nce_rewards(nce_result_fluff[key])

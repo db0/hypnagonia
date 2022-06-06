@@ -17,6 +17,8 @@ var nce_result_fluff := {
 
 var amounts := {}
 
+var pathos_type_destroy = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.boss]
+var pathos_type_leave = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.elite]
 
 func _init():
 	description = "I was standing on top of a dollmaker cowering on the floor.\n\n" \
@@ -27,10 +29,10 @@ func _init():
 func begin() -> void:
 	.begin()
 	amounts["destroy_amount"] = round(
-					globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.boss)
+					pathos_type_destroy.get_progression_average()
 					* 3 * CFUtils.randf_range(0.8,1.2))
 	amounts["leave_amount"] = round(
-					globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.elite)
+					pathos_type_leave.get_progression_average()
 					* 4 * CFUtils.randf_range(0.8,1.2))
 	var scformat := {}
 	scformat["destroy_amount"] = amounts["destroy_amount"]
@@ -40,13 +42,9 @@ func begin() -> void:
 func continue_encounter(key) -> void:
 	match key:
 		"destroy":
-			globals.player.pathos.modify_released_pathos(
-					Terms.RUN_ACCUMULATION_NAMES.boss, 
-					amounts["destroy_amount"])
+			pathos_type_destroy.released += amounts["destroy_amount"]
 		"leave":
-			globals.player.pathos.repress_pathos(
-					Terms.RUN_ACCUMULATION_NAMES.elite, 
-					amounts["leave_amount"])
+			pathos_type_leave.repressed += amounts["leave_amount"]
 			globals.encounters.run_changes.unlock_nce("DollPickup", "easy")
 	end()
 	globals.journal.display_nce_rewards(nce_result_fluff[key])

@@ -27,9 +27,12 @@ func begin() -> void:
 	var highest_pathos = pathos_org["highest_pathos"]["selected"]
 	var lowest_pathos = pathos_org["lowest_pathos"]["selected"]
 	var middle_pathos = pathos_org["middle_pathos"]["selected"]
-	var lowest_pathos_cost = globals.player.pathos.get_progression_average(lowest_pathos) * 2
-	var middle_pathos_cost = globals.player.pathos.get_progression_average(middle_pathos) * 5
-	var highest_pathos_cost = globals.player.pathos.get_progression_average(highest_pathos) * 7
+	var pathos_type_lowest: PathosType = globals.player.pathos.pathi[lowest_pathos]
+	var pathos_type_middle: PathosType = globals.player.pathos.pathi[middle_pathos]
+	var pathos_type_highest: PathosType = globals.player.pathos.pathi[highest_pathos]
+	var lowest_pathos_cost = pathos_type_lowest.get_progression_average() * 2
+	var middle_pathos_cost = pathos_type_middle.get_progression_average() * 5
+	var highest_pathos_cost = pathos_type_highest.get_progression_average() * 7
 	var scformat = {
 		"lowest_pathos": '{released_%s}' % [lowest_pathos],
 		"lowest_pathos_cost":  lowest_pathos_cost,
@@ -43,14 +46,17 @@ func begin() -> void:
 	}
 	pathos_choice_payments["omega"]  = {
 		"pathos": lowest_pathos,
+		"pathos_type": pathos_type_lowest,
 		"cost": lowest_pathos_cost
 	}
 	pathos_choice_payments["alpha"] = {
 		"pathos": middle_pathos,
+		"pathos_type": pathos_type_middle,
 		"cost": middle_pathos_cost
 	}
 	pathos_choice_payments["kappa"] = {
 		"pathos": highest_pathos,
+		"pathos_type": pathos_type_highest,
 		"cost": highest_pathos_cost
 	}
 	var disabled_choices := []
@@ -87,8 +93,8 @@ func continue_encounter(key) -> void:
 		selection_deck.update_header(card_choice_description\
 				.format(Terms.get_bbcode_formats(18)))
 		selection_deck.update_color(Color(0,1,0))
-		globals.player.pathos.modify_released_pathos(pathos_choice_payments[key]["pathos"],
-				-pathos_choice_payments[key]["cost"])
+		var pathos_type : PathosType = pathos_choice_payments[key]["pathos_type"]
+		pathos_type.lose_released_pathos(pathos_choice_payments[key]["cost"])
 	end()
 	globals.journal.display_nce_rewards('')
 
