@@ -41,7 +41,7 @@ class TestGreed:
 # warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("accept")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
-		assert_gt(globals.player.pathos.masteries[lpathos], 0)
+		assert_gt(globals.player.pathos.pathi[lpathos].level, 0)
 		assert_pathos_signaled("pathos_leveled", lpathos)
 # warning-ignore:return_value_discarded
 		assert_deck_signaled("card_added", "card_name", "Discombobulation")
@@ -55,7 +55,7 @@ class TestGreed:
 # warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("decline")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
-		assert_eq(globals.player.pathos.released[lpathos], 50)
+		assert_eq(globals.player.pathos.pathi[lpathos].released, 50)
 
 class TestMonsterTrain:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"

@@ -36,7 +36,7 @@ class TestBossFaster:
 		if not assert_has_amounts():
 			return
 		memory._use()
-		assert_eq(globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.boss], float(get_amount("pathos_amount")),
+		assert_eq(globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.boss].repressed, float(get_amount("pathos_amount")),
 				"%s increased repressed pathos" % [memory.canonical_name])
 
 

@@ -212,7 +212,7 @@ class TestFrustrate:
 		]
 
 	func test_frustrate():
-		assert_eq(globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.enemy], 20,
+		assert_eq(globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy].repressed, 20,
 				"Frustration should increase")
 
 
@@ -229,11 +229,11 @@ class TestDisheartenNegative:
 
 	func test_dishearten():
 		yield(yield_to(get_tree(), "idle_frame", 0.1), YIELD)
-		assert_eq(globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.enemy], 17,
+		assert_eq(globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy].released, 17,
 				"Frustration should decrease")
 		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
-		assert_eq(globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.enemy], 0,
+		assert_eq(globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy].released, 0,
 				"Frustration should decrease to 0")
 
 
@@ -250,15 +250,15 @@ class TestDisheartenPositive:
 	func test_dishearten():
 		# Apparently a delay is needed here
 		yield(yield_for(0.2), YIELD)
-		assert_eq(globals.player.pathos.temp_modification_for_next_mastery.get(Terms.RUN_ACCUMULATION_NAMES.enemy, 0.0), 30.0,
+		assert_eq(globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy].temp_modification_for_next_level, 30.0,
 				"Frustration requirements should increase")
-		assert_eq(globals.player.pathos.get_mastery_requirement(Terms.RUN_ACCUMULATION_NAMES.enemy), 75.0,
+		assert_eq(globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy].get_level_requirement(), 75.0,
 				"Mastery Requirements increased")
 		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
-		assert_eq(globals.player.pathos.temp_modification_for_next_mastery.get(Terms.RUN_ACCUMULATION_NAMES.enemy, 0.0), 60.0,
+		assert_eq(globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy].temp_modification_for_next_level, 60.0,
 				"Frustration requirements should increase")
-		assert_eq(globals.player.pathos.get_mastery_requirement(Terms.RUN_ACCUMULATION_NAMES.enemy), 105.0,
+		assert_eq(globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy].get_level_requirement(), 105.0,
 				"Mastery Requirements increased")
 
 

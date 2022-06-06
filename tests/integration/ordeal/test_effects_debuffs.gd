@@ -135,7 +135,7 @@ class TestPoison:
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.damage, dreamer.health - 1,
 				"%s left the dreamer at 1 HP" % [effect])
-		assert_eq(globals.player.pathos.get_mastery_requirement(Terms.RUN_ACCUMULATION_NAMES.enemy), 532.5,
+		assert_eq(globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy].get_level_requirement(), 532.5,
 				"Mastery Requirements increased")
 
 
