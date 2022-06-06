@@ -54,11 +54,19 @@ func _init(pathos) -> void:
 		connect(signal_def.name, pathos, "_on_pathos_signaled", [signal_def.name])
 
 
-func _set_repressed(value: float) -> void:
+func _set_repressed(value: float, restore = false) -> void:
+	# If send with the restore flag, we don't want to send any signals
+	if restore:
+		repressed = value
+		return
 	modify_repressed(value - repressed)
 
 
-func _set_released(value: float) -> void:
+func _set_released(value: float, restore = false) -> void:
+	# If send with the restore flag, we don't want to send any signals
+	if restore:
+		released = value
+		return
 	modify_released(value - released)
 
 
@@ -140,9 +148,8 @@ func level_up() -> void:
 
 
 func get_progress_pct() -> float:
-	return(
-			(released / (get_progression_average() * released_needed_for_level))
-			+ temp_modification_for_next_level
+	return(released / ((get_progression_average() * released_needed_for_level)
+			+ temp_modification_for_next_level)
 	)
 
 
@@ -214,6 +221,7 @@ func get_progression_average() -> float:
 # Returns the threshold required to encounter events of this pathos
 func get_threshold() -> float:
 	return(get_progression_average() * threshold)
+
 
 # Adds an initial amount of released pathos during startup
 func add_startup_rng_release() -> void:

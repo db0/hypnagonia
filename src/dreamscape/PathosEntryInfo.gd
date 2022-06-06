@@ -45,7 +45,7 @@ func setup(_name: String, pathos_description: Label) -> void:
 func update_labels() -> void:
 	var chance : int = globals.player.pathos.calculate_chance_for_encounter(name)
 	chance_label.text = str(chance) + '%'
-	progress_bar.value = pathos_type.get_progress_pct() * 100
+	progress_bar.value = floor(pathos_type.get_progress_pct() * 100)
 	mastery_label.text = str(pathos_type.level)
 
 

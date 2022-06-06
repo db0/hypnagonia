@@ -68,7 +68,7 @@ func _ready() -> void:
 	if OS.has_feature("debug") and not cfc.is_testing:
 		print("DEBUG INFO:Journal: Entering Journal")
 	if globals.player.pathos:
-		for entry in globals.player.pathos.repressed:
+		for entry in Terms.RUN_ACCUMULATION_NAMES.values():
 			var pinfo = PATHOS_INFO_SCENE.instance()
 			_pathos_details_list.add_child_below_node($PathosDetails/VBC/Header, pinfo)
 			pathos_infos[entry] = pinfo

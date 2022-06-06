@@ -69,7 +69,6 @@ func generate_journal_choices() -> Array:
 	CFUtils.shuffle_array(cc)
 	var new_options := _get_journal_options(cc[0])
 #	var new_options := _get_journal_options(1)
-#	print_debug(globals.player.pathos.repressed, new_options)
 	# We use these to be able to adjust the amount of pathos increments in one place (Pathos class)
 	var pathos_type_enemy: PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy]
 	var pathos_type_elite: PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.elite]

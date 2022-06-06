@@ -55,7 +55,7 @@ func _ready() -> void:
 		_pathos_button.text = str(globals.player.pathos.available_masteries)
 		# warning-ignore:return_value_discarded
 		globals.player.pathos.connect("advancements_modified",self, "_on_pathos_advancements_modified")
-		for entry in globals.player.pathos.repressed:
+		for entry in Terms.RUN_ACCUMULATION_NAMES.values():
 			var pinfo = PATHOS_INFO_SCENE.instance()
 #			_pathos_details_list.add_child(pinfo)
 			_pathos_details_list.add_child_below_node($PathosDetails/VBC/Header, pinfo)
