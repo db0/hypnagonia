@@ -22,7 +22,7 @@ signal released_pathos_gained(pathos, amount)
 # Send when a pathos levels up
 # warning-ignore:unused_signal
 signal pathos_leveled(pathos, level)
-signal advancements_modified(new_value)
+signal advancements_modified(new_value, old_value)
 
 var pathos_setup := {
 	Terms.RUN_ACCUMULATION_NAMES.enemy: {
@@ -93,8 +93,9 @@ func _init() -> void:
 
 
 func set_available_masteries(value: int) -> void:
+	var old_value = available_masteries
 	available_masteries = value
-	emit_signal("advancements_modified", value)
+	emit_signal("advancements_modified", value, old_value)
 
 
 # Increases the specified repressed pathos by the standard amount

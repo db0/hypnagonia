@@ -2,10 +2,10 @@
 
 extends NonCombatEncounter
 
-const MASTERY_AMOUNT := 2
+const LEVEL_AMOUNT := 4
 
 var secondary_choices := {
-		'accept': '[Accept]: Gain {gcolor:{mastery_amount} {lowest_pathos} {masteries}:}. {bcolor:Become {perturbation}:}.',
+		'accept': '[Accept]: Gain {gcolor:{levels} {lowest_pathos} {masteries}:}. {bcolor:Become {perturbation}:}.',
 		'decline': '[Decline]: Nothing Happens.',
 	}
 var pathos_choice_payments := {}
@@ -21,7 +21,7 @@ func begin() -> void:
 	var lowest_pathos = pathos_org["lowest_pathos"]["selected"]
 	var scformat = {
 		"lowest_pathos": lowest_pathos,
-		"mastery_amount": MASTERY_AMOUNT,
+		"levels": LEVEL_AMOUNT,
 		"perturbation": _prepare_card_popup_bbcode("Discombobulation", "discombobulated")
 	}
 	pathos_choice_payments["accept"]  = {
@@ -31,7 +31,7 @@ func begin() -> void:
 
 func continue_encounter(key) -> void:
 	if key == "accept":
-		for iter in MASTERY_AMOUNT:
+		for iter in LEVEL_AMOUNT:
 			var pathos_type: PathosType = pathos_choice_payments[key]["pathos"]
 			pathos_type.level_up()
 		# warning-ignore:return_value_discarded

@@ -218,15 +218,22 @@ class TestMiniShop:
 		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act2/MiniShop.gd")
 
 	func test_choice_remove():
-		globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.artifact].released = 100
+		globals.player.pathos.available_masteries = testing_nce_script.COSTS["remove"]
 		watch_signals(globals.player.deck)
-		begin_nce_with_choices(nce)
+		var secondary_choices = begin_nce_with_choices(nce)
+		if secondary_choices as GDScriptFunctionState:
+			secondary_choices = yield(secondary_choices, "completed")
+		if not secondary_choices:
+			return
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
+		for selected_choice in get_tree().get_nodes_in_group("secondary_choices"):
+			if selected_choice.choice_key in ["progress", "upgrade"]:
+				assert_not_connected(selected_choice, secondary_choices, "pressed", "_on_choice_pressed")
 		activate_secondary_choice_by_key("remove")
 		yield(yield_to(journal, "selection_deck_spawned", 0.2), YIELD)
 		# warning-ignore:return_value_discarded
-		assert_pathos_signaled("pathos_spent", Terms.RUN_ACCUMULATION_NAMES.artifact)
+		assert_signal_emitted_with_parameters(globals.player.pathos, "advancements_modified", [0,1])
 		var selection_deck = assert_selection_deck_spawned()
 		if not selection_deck:
 			return
@@ -234,7 +241,7 @@ class TestMiniShop:
 		assert_signal_emitted(globals.player.deck, "card_removed")
 
 	func test_choice_progress():
-		globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.shop].released = 100
+		globals.player.pathos.available_masteries = testing_nce_script.COSTS["progress"]
 		watch_signals(globals.player.deck)
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
@@ -242,16 +249,17 @@ class TestMiniShop:
 		activate_secondary_choice_by_key("progress")
 		yield(yield_to(journal, "selection_deck_spawned", 0.2), YIELD)
 		# warning-ignore:return_value_discarded
-		assert_pathos_signaled("pathos_spent", Terms.RUN_ACCUMULATION_NAMES.shop)
+		assert_signal_emitted_with_parameters(globals.player.pathos, "advancements_modified", [0,2])
 		var selection_deck = assert_selection_deck_spawned()
 		if not selection_deck:
 			return
 		selection_deck._deck_preview_grid.get_children()[0].select_card()
 		assert_signal_emit_count(globals.player.deck, "card_entry_progressed", 2)
 
+
 	func test_choice_upgrade():
-		globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.nce].released = 100
-		var memory := globals.player.add_memory('DamageAll')
+		globals.player.pathos.available_masteries = 10
+		var memory : MemoryObject = globals.player.add_memory('DamageAll')
 		watch_signals(memory)
 		watch_signals(globals.player)
 		begin_nce_with_choices(nce)
@@ -260,8 +268,12 @@ class TestMiniShop:
 		activate_secondary_choice_by_key("upgrade")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		# warning-ignore:return_value_discarded
-		assert_pathos_signaled("pathos_spent", Terms.RUN_ACCUMULATION_NAMES.nce)
+		assert_signal_emitted_with_parameters(
+				globals.player.pathos, 
+				"advancements_modified", 
+				[10 - testing_nce_script.COSTS["upgrade"],10])
 		assert_signal_emit_count(memory, "memory_upgraded", 1)
+		assert_eq(memory.upgrades_amount, testing_nce_script.MEMORY_PROGRESS)
 
 	func test_choice_leave():
 		watch_signals(globals.player.deck)

@@ -34,7 +34,7 @@ class TestGreed:
 
 	func test_choice_accept():
 		watch_signals(globals.player.deck)
-		var lpathos = set_lowest_pathos("masteries")
+		var lpathos = set_lowest_pathos("level")
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
@@ -55,7 +55,6 @@ class TestGreed:
 # warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("decline")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
-		assert_eq(lpathos.released, 50)
 
 class TestMonsterTrain:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
