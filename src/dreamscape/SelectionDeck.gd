@@ -135,9 +135,11 @@ func _populate_preview_cards() -> void:
 # Triggers the operation requested on the selected card, if the player has enough
 # pathos
 func _on_deck_card_selected(card_entry: CardEntry, deck_card_object) -> void:
-	if operation_cost_type == 'mastery' and not operation_cost <= globals.player.pathos.available_masteries:
+	if operation_cost_type == 'mastery' and not\
+			operation_cost <= globals.player.pathos.available_masteries:
 		return
-	elif operation_cost_type != 'mastery' and not operation_cost <= globals.player.pathos.released[operation_cost_type]:
+	elif operation_cost_type != 'mastery' and\
+			operation_cost > globals.player.pathos.pathi[operation_cost_type].released:
 		return
 	# We store that to send with the signal
 	var signal_payload := {

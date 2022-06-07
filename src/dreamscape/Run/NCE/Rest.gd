@@ -83,7 +83,7 @@ func continue_encounter(key) -> void:
 			# warning-ignore:return_value_discarded
 			selection_deck.connect("operation_performed", self, "_on_card_selected", [key])
 			selection_deck.auto_close = true
-			selection_deck.initiate_card_progress(0,Terms.RUN_ACCUMULATION_NAMES.enemy, progress_amount)
+			selection_deck.initiate_card_progress(0, 'mastery', progress_amount)
 			selection_deck.update_color(Color(0,1,0))
 		"strengthen_up":
 			var strengthen_up = globals.player.find_artifact(ArtifactDefinitions.StrengthenUp.canonical_name)

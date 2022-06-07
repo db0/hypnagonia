@@ -15,7 +15,7 @@
  "hide_orphans": false,
  "ignore_pause": true,
  "include_subdirs": false,
- "inner_class": "TestMultipleTags",
+ "inner_class": "TestProgress",
  "junit_xml_file": "",
  "junit_xml_timestamp": false,
  "log_level": 3,
@@ -23,7 +23,7 @@
  "post_run_script": "",
  "pre_run_script": "",
  "prefix": "test_",
- "selected": "test_nce_act2.gd",
+ "selected": "test_rest.gd",
  "should_exit": false,
  "should_exit_on_success": false,
  "should_maximize": true,
@@ -33,7 +33,7 @@
  "tests": [
 
  ],
- "unit_test_name": null,
+ "unit_test_name": "test_option_progress",
  "gut_on_top": true,
  "panel_options": {
   "font_name": "CourierPrime",
