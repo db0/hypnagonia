@@ -216,28 +216,7 @@ class TestFrustrate:
 				"Frustration should increase")
 
 
-class TestDisheartenNegative:
-	extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"
-	func _init() -> void:
-		set_released_pathos[Terms.RUN_ACCUMULATION_NAMES.enemy] = 37
-		intents_to_test = [
-			{
-				"intent_scripts": ["Dishearten:-20"],
-				"reshuffle": true,
-			},
-		]
-
-	func test_dishearten():
-		yield(yield_to(get_tree(), "idle_frame", 0.1), YIELD)
-		assert_eq(globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy].released, 17,
-				"Frustration should decrease")
-		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
-		assert_eq(globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy].released, 0,
-				"Frustration should decrease to 0")
-
-
-class TestDisheartenPositive:
+class TestDishearten:
 	extends "res://tests/HUT_Ordeal_IntentScriptsTestClass.gd"
 	func _init() -> void:
 		intents_to_test = [

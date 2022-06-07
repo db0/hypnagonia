@@ -98,13 +98,13 @@ const RepressedEnemyBuff := {
 	"canonical_name": "RepressedEnemyBuff",
 	"name": "Fruscination",
 	"description": "{artifact_name}: At the start of each Ordeal,"\
-		+ " Gain {effect_stacks} {buffer} for each {pathos_amount} Released Frustration you have.",
+		+ " Gain {effect_stacks} {buffer} for each {mastery_amount} Frustration Mastery you have.",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
 	"amounts": {
 		"effect_stacks": 1,
-		"pathos_amount": 40
+		"mastery_amount": 3
 	},
 	"linked_terms": [
 		"buffer",

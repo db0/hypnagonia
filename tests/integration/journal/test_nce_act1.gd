@@ -120,7 +120,7 @@ class TestCrystalShattering:
 		watch_signals(globals.player.deck)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
-# warning-ignore:return_value_discarded
+		# warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("progress")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_emitted(globals.player.deck, "card_entry_progressed")

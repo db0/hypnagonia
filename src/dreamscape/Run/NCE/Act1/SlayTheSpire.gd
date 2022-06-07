@@ -17,8 +17,8 @@ func _init():
 	description = "I dreamt of a long spire, disappearing into the pregnant clouds above. "\
 			+ "I realized I was now holding a weapon and could feel the need to slay whatever is within..."
 
-var pathos_type_nce : PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.nce]
 var pathos_type_enemy : PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy]
+var pathos_type_nce : PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.nce]
 
 func begin() -> void:
 	.begin()
@@ -41,6 +41,6 @@ func continue_encounter(key) -> void:
 					pathos_type_enemy.get_progression_average() * 3 * CFUtils.randf_range(0.5,1.5)
 				)
 			pathos_type_enemy.lose_released_pathos(released_penaly)
-			pathos_type_enemy.repressed += pathos_type_enemy.get_progression_average() * 2
+			pathos_type_nce.repressed += pathos_type_enemy.get_progression_average() * 2
 	end()
 	globals.journal.display_nce_rewards(nce_result_fluff[key])

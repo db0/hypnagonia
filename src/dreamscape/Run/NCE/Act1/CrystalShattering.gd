@@ -2,10 +2,16 @@
 
 extends NonCombatEncounter
 
+const PATHOS_PCT_MINIMUMS := {
+	"progress": 0.1,
+	"upgrade": 0.3,
+	"remove": 0.6,
+}
+
 var secondary_choices := {
-		'progress': '[Ermbaraz]: Lose {bcolor:{lowest_pathos_cost}% {lowest_pathos}:}. {gcolor:Progress the least progressed card by 4:}.',
-		'upgrade': '[Feelyne]: Lose {bcolor:{middle_pathos_cost}% {middle_pathos}:}. {gcolor:Upgrade the most progressed card:}.',
-		'remove': '[Depressium]: Lose {bcolor:{highest_pathos_cost}% {highest_pathos}:}. {gcolor:Remove a card from your deck:}.',
+		'progress': '[Ermbaraz]: Lose {bcolor:all released (min {lowest_pathos_cost}%) {lowest_pathos}:}. {gcolor:Progress the least progressed card by 4:}.',
+		'upgrade': '[Feelyne]: Lose {bcolor:all released (min {middle_pathos_cost}%) {middle_pathos}:}. {gcolor:Upgrade the most progressed card:}.',
+		'remove': '[Depressium]: Lose {bcolor:all released (min {highest_pathos_cost}%) {highest_pathos}:}. {gcolor:Remove a card from your deck:}.',
 		'leave': '[Stop]: Nothing Happens.',
 	}
 var pathos_choice_payments := {}
@@ -27,39 +33,30 @@ func begin() -> void:
 	var lowest_pathos = pathos_type_lowest.name
 	var middle_pathos = pathos_type_middle.name
 	var highest_pathos = pathos_type_highest.name
-	var lowest_pathos_cost = pathos_type_lowest.get_progression_average() * 2
-	var middle_pathos_cost = pathos_type_middle.get_progression_average() * 3
-	var highest_pathos_cost = pathos_type_highest.get_progression_average() * 4
 	var scformat = {
 		"lowest_pathos": '{released_%s}' % [lowest_pathos],
-		"lowest_pathos_cost":  round(pathos_type_lowest.convert_released_num_to_pct(
-				lowest_pathos_cost) * 100),
+		"lowest_pathos_cost": PATHOS_PCT_MINIMUMS["progress"] * 100,
 		"middle_pathos": '{released_%s}' % [middle_pathos],
-		"middle_pathos_cost":  round(pathos_type_middle.convert_released_num_to_pct(
-				middle_pathos_cost) * 100),
+		"middle_pathos_cost": PATHOS_PCT_MINIMUMS["upgrade"] * 100,
 		"highest_pathos": '{released_%s}' % [highest_pathos],
-		"highest_pathos_cost":  round(pathos_type_highest.convert_released_num_to_pct(
-				highest_pathos_cost) * 100),
+		"highest_pathos_cost": PATHOS_PCT_MINIMUMS["remove"] * 100,
 	}
 	pathos_choice_payments["progress"]  = {
 		"pathos": lowest_pathos,
 		"pathos_type": pathos_type_lowest,
-		"cost": lowest_pathos_cost
 	}
 	pathos_choice_payments["upgrade"] = {
 		"pathos": middle_pathos,
 		"pathos_type": pathos_type_middle,
-		"cost": middle_pathos_cost
 	}
 	pathos_choice_payments["remove"] = {
 		"pathos": highest_pathos,
 		"pathos_type": pathos_type_highest,
-		"cost": highest_pathos_cost
 	}
 	var disabled_choices := []
 	for type in ['progress', 'upgrade', 'remove']:
 		secondary_choices[type] = secondary_choices[type].format(scformat)
-		if pathos_choice_payments[type]["pathos_type"].released < pathos_choice_payments[type]["cost"]:
+		if pathos_choice_payments[type]["pathos_type"].get_progress_pct() < PATHOS_PCT_MINIMUMS[type]:
 			secondary_choices[type] = "[color=red]" + secondary_choices[type] + "[/color]"
 			disabled_choices.append(type)
 	var option_card
@@ -93,6 +90,6 @@ func continue_encounter(key) -> void:
 			selection_deck.update_color(Color(0,1,0))
 	if key != "leave":
 		var pathos_type : PathosType = pathos_choice_payments[key]["pathos_type"]
-		pathos_type.lose_released_pathos(pathos_choice_payments[key]["cost"])
+		pathos_type.spend_pathos(pathos_type.released)
 	end()
 	globals.journal.display_nce_rewards('')
