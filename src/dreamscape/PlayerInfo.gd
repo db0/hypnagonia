@@ -274,5 +274,5 @@ func _on_button_mouse_exited(_button: Button) -> void:
 func _clear_decklist_cache(_card_entry) -> void:
 	current_decklist_cache.clear()
 
-func _on_pathos_advancements_modified(value: int) -> void:
+func _on_pathos_advancements_modified(value: int, _old_value: int) -> void:
 	_pathos_button.text = str(value)

@@ -347,7 +347,7 @@ class TestMultipleTags:
 		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act2/AlphaKappaOmega.gd")
 
 	func test_choice_alpha():
-		var porg := set_random_pathos_org("released")
+		globals.player.pathos.available_masteries = testing_nce_script.COSTS["alpha"]
 		begin_nce_with_choices(nce)
 		watch_signals(globals.player.deck)
 		watch_signals(globals.player.pathos)
@@ -359,10 +359,13 @@ class TestMultipleTags:
 			return
 		selection_deck._deck_preview_grid.get_children()[0].select_card()
 		assert_deck_signaled("card_entry_modified", "Tags", Terms.GENERIC_TAGS.alpha.name)
-		assert_pathos_signaled("pathos_spent", porg.mid.name)
+		assert_signal_emitted_with_parameters(
+				globals.player.pathos, 
+				"advancements_modified", 
+				[0,testing_nce_script.COSTS["alpha"]])
 
 	func test_choice_kappa():
-		var porg := set_random_pathos_org("released")
+		globals.player.pathos.available_masteries = testing_nce_script.COSTS["kappa"]
 		begin_nce_with_choices(nce)
 		watch_signals(globals.player.deck)
 		watch_signals(globals.player.pathos)
@@ -374,10 +377,13 @@ class TestMultipleTags:
 			return
 		selection_deck._deck_preview_grid.get_children()[0].select_card()
 		assert_deck_signaled("card_entry_modified", "Tags", Terms.GENERIC_TAGS.frozen.name)
-		assert_pathos_signaled("pathos_spent", porg.high.name)
+		assert_signal_emitted_with_parameters(
+				globals.player.pathos, 
+				"advancements_modified", 
+				[0,testing_nce_script.COSTS["kappa"]])
 
 	func test_choice_omega():
-		var porg := set_random_pathos_org("released")
+		globals.player.pathos.available_masteries = testing_nce_script.COSTS["omega"]
 		begin_nce_with_choices(nce)
 		watch_signals(globals.player.deck)
 		watch_signals(globals.player.pathos)
@@ -389,7 +395,10 @@ class TestMultipleTags:
 			return
 		selection_deck._deck_preview_grid.get_children()[0].select_card()
 		assert_deck_signaled("card_entry_modified", "Tags", Terms.GENERIC_TAGS.omega.name)
-		assert_pathos_signaled("pathos_spent", porg.low.name)
+		assert_signal_emitted_with_parameters(
+				globals.player.pathos, 
+				"advancements_modified", 
+				[0,testing_nce_script.COSTS["omega"]])
 
 	func test_choice_leave():
 		var secondary_choices = begin_nce_with_choices(nce)

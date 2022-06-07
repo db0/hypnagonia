@@ -95,7 +95,8 @@ func _init() -> void:
 func set_available_masteries(value: int) -> void:
 	var old_value = available_masteries
 	available_masteries = value
-	emit_signal("advancements_modified", value, old_value)
+	if value != old_value:
+		emit_signal("advancements_modified", value, old_value)
 
 
 # Increases the specified repressed pathos by the standard amount

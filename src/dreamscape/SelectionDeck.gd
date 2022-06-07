@@ -146,7 +146,8 @@ func _on_deck_card_selected(card_entry: CardEntry, deck_card_object) -> void:
 		"upgraded": card_entry.is_upgraded(),
 		"progress": card_entry.upgrade_progress,
 	}
-	globals.player.pathos.available_masteries -= operation_cost
+	if operation_cost != 0:
+		globals.player.pathos.available_masteries -= operation_cost
 	if operation == "remove":
 		globals.player.deck.remove_card(card_entry)
 		deck_card_object.queue_free()

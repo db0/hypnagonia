@@ -583,6 +583,7 @@ func _input(event):
 #		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.rest, 49)
 #		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, -1000)
 #		globals.player.damage = 85
+		globals.player.pathos.available_masteries += 6
 		var debug_encounters = [
 #			EnemyEncounter.new(Act1.Squirrel, "hard"),
 #			EnemyEncounter.new(Act2.TrafficJam, "easy"),
@@ -590,7 +591,7 @@ func _input(event):
 #			load("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/AllActs/OstrichEggs.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act3/ArtifactReward.gd").new(),
-#			load("res://src/dreamscape/Run/NCE/Act2/RiskyEvent4.gd").new(),
+			load("res://src/dreamscape/Run/NCE/Act2/AlphaKappaOmega.gd").new(),
 			load("res://src/dreamscape/Run/NCE/Act1/CrystalShattering.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
 #			BossEncounter.new(Act2.BOSSES["Surreality"]),
