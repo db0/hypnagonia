@@ -26,9 +26,9 @@ func begin() -> void:
 	.begin()
 	var scformat = {
 		"boss_pathos": '{repressed_%s}' % [Terms.RUN_ACCUMULATION_NAMES.boss],
-		"boss_amount": round(pathos_type_boss.get_progression_average() * 2),
+		"boss_amount": "some",
 		"elite_pathos": '{repressed_%s}' % [Terms.RUN_ACCUMULATION_NAMES.elite],
-		"elite_amount": round(pathos_type_boss.get_progression_average() * 2),
+		"elite_amount": "some",
 	}
 	_prepare_secondary_choices(secondary_choices, scformat)
 

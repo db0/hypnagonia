@@ -592,7 +592,7 @@ func _input(event):
 #			load("res://src/dreamscape/Run/NCE/AllActs/OstrichEggs.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act3/ArtifactReward.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act2/AlphaKappaOmega.gd").new(),
-			load("res://src/dreamscape/Run/NCE/Act1/PathosForAnxiety.gd").new(),
+			load("res://src/dreamscape/Run/NCE/Act1/Spider.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
 #			BossEncounter.new(Act2.BOSSES["Surreality"]),
 #			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
