@@ -29,7 +29,7 @@ func begin() -> void:
 	pathos_gained = ceil(pathos_type.get_progression_average()\
 			* PATHOS_AVG_MULTIPLIER * CFUtils.randf_range(0.8,1.2))
 	var scformat = {
-		"pathos_amount": pathos_gained,
+		"pathos_amount": "some",
 		"pathos_type": PATHOS_TYPE,
 	}
 	_prepare_secondary_choices(secondary_choices, scformat)

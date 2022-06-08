@@ -10,7 +10,7 @@ var amounts := {
 }
 
 var secondary_choices := {
-		'emotions': '[Emotions]: {bcolor:-{emotions} max {anxiety}:}. Gain a large amount of a random {gcolor:released pathos:}.',
+		'emotions': '[Emotions]: {bcolor:-{emotions} max {anxiety}:}. {gcolor:Gain 2 masteries:} for a random pathos.',
 		'knowledge': '[Knowledge]: {bcolor:-{knowledge} max {anxiety}:}. Gain {gcolor:a random {understanding} card:} fully progressed.',
 		'memories': '[Memories]: {bcolor:-{memories} max {anxiety}:}. {gcolor:Upgrade a random memory:}.',
 		'bliss': '[Bliss]: {bcolor:-{bliss} max {anxiety}:} and exit loop.',
@@ -35,6 +35,10 @@ func repeat_choices() -> void:
 				amounts[key] = 5
 		secondary_choices_dupe[key] = secondary_choices[key].format(amounts).format(Terms.get_bbcode_formats(18))
 	var disabled_choices = []
+	if globals.player.health < 10:
+		for key in secondary_choices:
+			if key =="bliss": continue
+			disabled_choices.append(key)
 	if globals.player.memories.size() == 0: 
 		disabled_choices.append('memories')
 	_prepare_secondary_choices(secondary_choices_dupe, {}, disabled_choices)
@@ -46,7 +50,8 @@ func continue_encounter(key) -> void:
 	match key:
 		"emotions":
 			var pathos_type : PathosType = globals.player.pathos.grab_random_pathos() 
-			pathos_type.released += pathos_type.get_progression_average() * 6
+			pathos_type.level_up()
+			pathos_type.level_up()
 			repeat_choices()
 		"knowledge":
 			var card_entry = globals.player.deck.add_new_card(Understanding.get_random_understanding())
