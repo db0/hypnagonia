@@ -43,14 +43,18 @@ func begin() -> void:
 
 func continue_encounter(key) -> void:
 	var pathos_type : PathosType
+	var multiplier: int
 	match key:
 		"tiger":
 			pathos_type = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.nce]
+			multiplier = 5
 		"snake":
 			pathos_type = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy]
+			multiplier = 3
 		"owl":
 			pathos_type = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.shop]
-	pathos_type.released += pathos_type.get_progression_average() * 3 * CFUtils.randf_range(0.8,1.2)
+			multiplier = 8
+	pathos_type.released += pathos_type.get_progression_average() * multiplier * CFUtils.randf_range(0.8,1.2)
 	CFUtils.shuffle_array(mad_lib_adjectives)
 	CFUtils.shuffle_array(mad_lib_nouns)
 	var adlib_format = {

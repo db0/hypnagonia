@@ -46,13 +46,13 @@ func continue_encounter(key) -> void:
 	match key:
 		"passion fruit":
 			pathos_type = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.artifact]
-			multiplier = 5
+			multiplier = 8
 		"orange":
 			pathos_type = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.elite]
-			multiplier = 3
+			multiplier = 2
 		"banana":
 			pathos_type = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.rest]
-			multiplier = 5
+			multiplier = 8
 	pathos_type.released += pathos_type.get_progression_average() * multiplier * CFUtils.randf_range(0.8,1.2)
 	CFUtils.shuffle_array(mad_lib_adjectives)
 	CFUtils.shuffle_array(mad_lib_nouns)

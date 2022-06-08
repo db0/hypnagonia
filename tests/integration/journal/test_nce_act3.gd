@@ -277,7 +277,7 @@ class TestExperience:
 			return
 		selection_deck._deck_preview_grid.get_children()[0].select_card()
 		assert_signal_emitted(globals.player.deck, "card_removed")
-		assert_pathos_signaled("released_pathos_gained", nce.PATHOS)
+		assert_pathos_signaled("pathos_leveled", nce.PATHOS)
 
 	func test_choice_progress():
 		begin_nce_with_choices(nce)

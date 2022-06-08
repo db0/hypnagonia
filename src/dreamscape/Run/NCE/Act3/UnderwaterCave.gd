@@ -1,7 +1,7 @@
 extends SurpriseEncounter
 
 const PATHOS = Terms.RUN_ACCUMULATION_NAMES.nce
-const RELEASED_PATHOS_AVG_MULTIPLIER = 7
+const RELEASED_PATHOS_AVG_MULTIPLIER = 10
 const JOURNAL_CUSTOM_ENTRY = preload("res://src/dreamscape/Overworld/CustomEntries/CustomDraft.tscn")
 var journal_draft_script = load("res://src/dreamscape/Overworld/CustomEntries/NCE_UnderwaterCave.gd")
 const ADVANCED_COMBAT_ENCOUNTER_DEFINITION = {
@@ -28,7 +28,7 @@ const ADVANCED_COMBAT_ENCOUNTER_DEFINITION = {
 }
 
 var secondary_choices := {
-		'explore': '[Explore the Cave]: {gcolor:Gain 1 rare Curio. Gain/Upgrade a memory. Draft a card. Gain some {pathos}:}.',
+		'explore': '[Explore the Cave]: {gcolor:Gain 1 rare Curio. Gain/Upgrade a memory. Draft a card. Increase {pathos}:}.',
 		'leave': '[Leave]: Lose {bcolor:all {pathos}:}.',
 	}
 
