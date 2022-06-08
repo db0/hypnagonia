@@ -21,14 +21,15 @@ class TestAccumulateEnemy:
 		dreamer_starting_damage = 60
 		testing_artifact_name = "AccumulateEnemy"
 		expected_amount_keys = [
-			"pathos_amount",
+			"pathos_avg_multiplier",
 			"relax_amount"
 		]
 
 	func test_artifact_results():
 		if not assert_has_amounts():
 			return
-		assert_eq(globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy].repressed, float(get_amount("pathos_amount")),
+		var ptype = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy]
+		assert_eq(ptype.repressed, float(ptype.get_progression_average() * get_amount("pathos_avg_multiplier")),
 				"%s increased repressed pathos" % [artifact.canonical_name])
 		assert_eq(globals.player.damage, dreamer_starting_damage - get_amount("relax_amount"))
 
@@ -38,13 +39,14 @@ class TestAccumulateRest:
 	func _init() -> void:
 		testing_artifact_name = "AccumulateRest"
 		expected_amount_keys = [
-			"pathos_amount"
+			"pathos_avg_multiplier"
 		]
 
 	func test_artifact_results():
 		if not assert_has_amounts():
 			return
-		assert_eq(globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.rest].repressed, float(get_amount("pathos_amount")),
+		var ptype = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.rest]
+		assert_eq(ptype.repressed, float(ptype.get_progression_average() * get_amount("pathos_avg_multiplier")),
 				"%s increased repressed pathos" % [artifact.canonical_name])
 
 
@@ -53,14 +55,15 @@ class TestAccumulateNCE:
 	func _init() -> void:
 		testing_artifact_name = "AccumulateNCE"
 		expected_amount_keys = [
-			"pathos_amount",
+			"pathos_avg_multiplier",
 			"anxiety_amount"
 		]
 
 	func test_artifact_results():
 		if not assert_has_amounts():
 			return
-		assert_eq(globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.nce].repressed, float(get_amount("pathos_amount")),
+		var ptype = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.nce]
+		assert_eq(ptype.repressed, float(ptype.get_progression_average() * get_amount("pathos_avg_multiplier")),
 				"%s increased repressed pathos" % [artifact.canonical_name])
 		assert_eq(globals.player.health, PLAYER_HEALTH + get_amount("anxiety_amount"))
 
@@ -69,13 +72,14 @@ class TestAccumulateShop:
 	func _init() -> void:
 		testing_artifact_name = "AccumulateShop"
 		expected_amount_keys = [
-			"pathos_amount"
+			"pathos_avg_multiplier"
 		]
 
 	func test_artifact_results():
 		if not assert_has_amounts():
 			return
-		assert_eq(globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.shop].repressed, float(get_amount("pathos_amount")),
+		var ptype = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.shop]
+		assert_eq(ptype.repressed, float(ptype.get_progression_average() * get_amount("pathos_avg_multiplier")),
 				"%s increased repressed pathos" % [artifact.canonical_name])
 
 class TestAccumulateElite:
@@ -83,14 +87,15 @@ class TestAccumulateElite:
 	func _init() -> void:
 		testing_artifact_name = "AccumulateElite"
 		expected_amount_keys = [
-			"pathos_amount",
+			"pathos_avg_multiplier",
 			"anxiety_amount",
 		]
 
 	func test_artifact_results():
 		if not assert_has_amounts():
 			return
-		assert_eq(globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.elite].repressed, float(get_amount("pathos_amount")),
+		var ptype = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.elite]
+		assert_eq(ptype.repressed, float(ptype.get_progression_average() * get_amount("pathos_avg_multiplier")),
 				"%s increased repressed pathos" % [artifact.canonical_name])
 		assert_eq(globals.player.health, PLAYER_HEALTH + get_amount("anxiety_amount"))
 
@@ -99,13 +104,14 @@ class TestAccumulateArtifact:
 	func _init() -> void:
 		testing_artifact_name = "AccumulateArtifact"
 		expected_amount_keys = [
-			"pathos_amount"
+			"pathos_avg_multiplier"
 		]
 
 	func test_artifact_results():
 		if not assert_has_amounts():
 			return
-		assert_eq(globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.artifact].repressed, float(get_amount("pathos_amount")),
+		var ptype = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.artifact]
+		assert_eq(ptype.repressed, float(ptype.get_progression_average() * get_amount("pathos_avg_multiplier")),
 				"%s increased repressed pathos" % [artifact.canonical_name])
 
 class TestBossDraft:
