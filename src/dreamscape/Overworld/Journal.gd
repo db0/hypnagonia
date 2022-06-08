@@ -587,19 +587,19 @@ func _input(event):
 		var debug_encounters = [
 #			EnemyEncounter.new(Act1.Squirrel, "hard"),
 #			EnemyEncounter.new(Act2.TrafficJam, "easy"),
-			EnemyEncounter.new(Act3.Shamelings, "hard"),
+#			EnemyEncounter.new(Act3.Shamelings, "hard"),
 #			load("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/AllActs/OstrichEggs.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act3/ArtifactReward.gd").new(),
-			load("res://src/dreamscape/Run/NCE/Act2/AlphaKappaOmega.gd").new(),
-			load("res://src/dreamscape/Run/NCE/Act1/CrystalShattering.gd").new(),
+#			load("res://src/dreamscape/Run/NCE/Act2/AlphaKappaOmega.gd").new(),
+			load("res://src/dreamscape/Run/NCE/Act1/PathosForAnxiety.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
 #			BossEncounter.new(Act2.BOSSES["Surreality"]),
 #			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
 #			EliteEncounter.new(Act1.Bully, "medium"),
 #			EliteEncounter.new(Act2.IndescribableAbsurdity, "medium"),
 #			EliteEncounter.new(Act3.TheatrePlay, "medium"),
-			load("res://src/dreamscape/Run/NCE/Shop.gd").new()
+#			load("res://src/dreamscape/Run/NCE/Shop.gd").new()
 #			load("res://src/dreamscape/Run/NCE/Rest.gd").new()
 		]
 		for encounter in debug_encounters:

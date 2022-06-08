@@ -167,6 +167,11 @@ func get_level_requirement() -> float:
 	)
 
 
+func convert_pct_to_released(pct: float) -> float:
+	var total = (get_progression_average() * released_needed_for_level) + temp_modification_for_next_level
+	return(total * pct)
+
+
 func temp_modify_requirements_for_level(amount: int) -> void:
 	# The amount we is an integer, and we want to normalize it based on how fast
 	# each pathos type progresses. 
