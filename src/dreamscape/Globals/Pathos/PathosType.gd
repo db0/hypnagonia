@@ -42,7 +42,11 @@ var released_needed_for_level: float
 # If any effect makes the next mastery take longer, this is stored here
 # and wiped when the next mastery is achieved
 var temp_modification_for_next_level: float
+# If any effect makes the next mastery take longer or shorter time, this is stored here
+var perm_modification_for_next_level: float
+# How many times this pathos has been leveled up
 var level: int
+# How many masteries the player receives to spend in the shop per level gained.
 var masterier_per_level := 1
 
 
@@ -149,38 +153,52 @@ func level_up() -> void:
 
 func get_progress_pct() -> float:
 	return(released / ((get_progression_average() * released_needed_for_level)
-			+ temp_modification_for_next_level)
+			+ temp_modification_for_next_level + perm_modification_for_next_level)
 	)
 
 
 func convert_released_num_to_pct(amount: float) -> float:
 	return(
 			(amount / (get_progression_average() * released_needed_for_level))
-			+ temp_modification_for_next_level
+			+ temp_modification_for_next_level + perm_modification_for_next_level
 	)
 
 
 func get_level_requirement() -> float:
 	return(
 			(get_progression_average() * released_needed_for_level)
-			+ temp_modification_for_next_level
+			+ temp_modification_for_next_level + perm_modification_for_next_level
 	)
 
 
 func convert_pct_to_released(pct: float) -> float:
-	var total = (get_progression_average() * released_needed_for_level) + temp_modification_for_next_level
+	var total = (get_progression_average() * released_needed_for_level)\
+			+ temp_modification_for_next_level\
+			+ perm_modification_for_next_level
 	return(total * pct)
 
 
 func temp_modify_requirements_for_level(amount: int) -> void:
 	# The amount we is an integer, and we want to normalize it based on how fast
-	# each pathos type progresses. 
+	# each pathos type progresses.
 	# I.e. the same temp modifier for a pathos that is gained faster
 	# will be higher than for a pathos that is gained slower.
 	var normalized = 1.0 / (10.0 / get_progression_average())
 	temp_modification_for_next_level =\
 			temp_modification_for_next_level + normalized * amount
-	
+	check_for_level_up()
+
+
+func perm_modify_requirements_for_level(amount: int) -> void:
+	# The amount we is an integer, and we want to normalize it based on how fast
+	# each pathos type progresses.
+	# I.e. the same perm modifier for a pathos that is gained faster
+	# will be higher than for a pathos that is gained slower.
+	var normalized = 1.0 / (10.0 / get_progression_average())
+	perm_modification_for_next_level =\
+			perm_modification_for_next_level + normalized * amount
+	check_for_level_up()
+
 
 # reduces the specified released pathos by a given amount
 func spend_pathos(amount: float) -> void:

@@ -34,6 +34,7 @@ class TestAccumulateEnemy:
 		assert_eq(globals.player.damage, dreamer_starting_damage - get_amount("relax_amount"))
 
 
+
 class TestAccumulateRest:
 	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
 	func _init() -> void:
@@ -480,3 +481,48 @@ class TestDecreaseExertStacks:
 			return
 		assert_eq(card_entry.properties._amounts.exert_amount,  card_entry.printed_properties._amounts.exert_amount - 2,
 				"exert_amount increased by 1")
+
+
+class TestFasterRestLevelUp:
+	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.FasterRestLevelUp.canonical_name
+		expected_amount_keys = [
+			"level_req_amount",
+		]
+
+	func test_artifact_results():
+		if not assert_has_amounts():
+			return
+		var ptype : PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.rest]
+		assert_ne(ptype.perm_modification_for_next_level, 0)
+
+
+class TestFasterArtifactLevelUp:
+	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.FasterArtifactLevelUp.canonical_name
+		expected_amount_keys = [
+			"level_req_amount",
+		]
+
+	func test_artifact_results():
+		if not assert_has_amounts():
+			return
+		var ptype : PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.artifact]
+		assert_ne(ptype.perm_modification_for_next_level, 0)
+
+class TestFasterShopLevelUp:
+	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.FasterShopLevelUp.canonical_name
+		expected_amount_keys = [
+			"level_req_amount",
+		]
+
+	func test_artifact_results():
+		if not assert_has_amounts():
+			return
+		var ptype : PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.shop]
+		assert_ne(ptype.perm_modification_for_next_level, 0)
+

@@ -1078,6 +1078,43 @@ const ThickDeckRareChance := {
 	},
 }
 
+const FasterShopLevelUp := {
+	"canonical_name": "FasterShopLevelUp",
+	"name": "Passionate Loneliness",
+	"description": "{artifact_name}: Increase the rate in which you gain masteries from released Loneliness.",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Common",
+	"amounts": {
+		"level_req_amount": -30,
+	},
+}
+
+
+const FasterArtifactLevelUp := {
+	"canonical_name": "FasterArtifactLevelUp",
+	"name": "Passionate Desire",
+	"description": "{artifact_name}: Increase the rate in which you gain masteries from released Desire.",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Common",
+	"amounts": {
+		"level_req_amount": -40,
+	},
+}
+
+const FasterRestLevelUp := {
+	"canonical_name": "FasterRestLevelUp",
+	"name": "Passionate Desire",
+	"description": "{artifact_name}: Increase the rate in which you gain masteries from released Lethargy.",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Common",
+	"amounts": {
+		"level_req_amount": -40,
+	},
+}
+
 
 ## TODO: Artifact which increases chance to find Fusion cards
 ## TODO. Scipt base doesn't exist yet
@@ -1138,6 +1175,9 @@ const GENERIC := [
 	ThickHeal,
 	DoubleProgress,
 	ThickDeckRareChance,
+	FasterShopLevelUp,
+	FasterArtifactLevelUp,
+	FasterRestLevelUp,
 ]
 
 # Archetype-specific artifacts which only appear in runs in which

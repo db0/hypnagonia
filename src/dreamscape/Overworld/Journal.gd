@@ -555,7 +555,7 @@ func _input(event):
 #		_reveal_entry(upgrade_journal, true)
 		globals.player.deck.add_new_card("Guilt")
 #		globals.player.deck.add_new_card("Catatonia")
-		globals.player.add_artifact(ArtifactDefinitions.StartingFortify.canonical_name)
+		globals.player.add_artifact(ArtifactDefinitions.FasterShopLevelUp.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.EnhanceOnRest.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.IncreaseRandomDamage.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.BirdHouse.canonical_name)
@@ -571,17 +571,7 @@ func _input(event):
 #		globals.player.deck.add_new_card("Chasm")
 #		globals.player.deck.add_new_card("Prejudice")
 #		globals.player.damage += 20
-#		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.boss, 95)
-#		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 50)
-#		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.enemy, 50)
-#		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, 20)
-#		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.elite, 30)
-#		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, 15)
-#		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.rest, 20)
-#		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, -1000)
-#		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, -1000)
-#		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.rest, 49)
-#		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, -1000)
+		globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.shop].released = 100
 #		globals.player.damage = 85
 		globals.player.pathos.available_masteries += 6
 		var debug_encounters = [
