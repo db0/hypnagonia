@@ -53,7 +53,7 @@ func get_state_exec() -> String:
 
 
 
-func _on_signal_received(trigger_card, trigger, details) -> void:
+func _on_signal_received(trigger_card, trigger, _details) -> void:
 	if not trigger == "card_played":
 		return
 	var card_matches = true
@@ -66,7 +66,7 @@ func _on_signal_received(trigger_card, trigger, details) -> void:
 		_remove_discounter()
 
 
-func _enemy_turn_started(turn) -> void:
+func _enemy_turn_started(_turn) -> void:
 	_remove_discounter()
 
 func execute_scripts(_trigger_card,_trigger,_details) -> void:

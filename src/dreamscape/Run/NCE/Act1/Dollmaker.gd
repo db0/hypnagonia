@@ -1,10 +1,11 @@
 # Description TBD
 extends NonCombatEncounter
 
+const DESTROY_PCT  := 0.5
 
 var secondary_choices := {
-		'destroy': '[Destroy the workshop]: Gain {gcolor:{destroy_amount} {released_boss}:}.',
-		'leave': '[Leave the alone]: Gain {bcolor:{leave_amount} {repressed_elite}:}.',
+		'destroy': '[Destroy the workshop]: Gain {gcolor:{destroy_amount}% {released_shop}:}.',
+		'leave': '[Leave the alone]: {bcolor:Increase {repressed_elite}:}.',
 	}
 
 	
@@ -15,8 +16,9 @@ var nce_result_fluff := {
 		'leave': 'With difficulty, I swallowed my rage and moved on. Would there be consequences...',
 	}
 
-var amounts := {}
 
+var pathos_type_destroy = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.shop]
+var pathos_type_leave = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.elite]
 
 func _init():
 	description = "I was standing on top of a dollmaker cowering on the floor.\n\n" \
@@ -26,27 +28,18 @@ func _init():
 
 func begin() -> void:
 	.begin()
-	amounts["destroy_amount"] = round(
-					globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.boss)
-					* 3 * CFUtils.randf_range(0.8,1.2))
-	amounts["leave_amount"] = round(
-					globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.elite)
-					* 4 * CFUtils.randf_range(0.8,1.2))
 	var scformat := {}
-	scformat["destroy_amount"] = amounts["destroy_amount"]
-	scformat["leave_amount"] = amounts["leave_amount"]
+	scformat["destroy_amount"] = floor(DESTROY_PCT * 100)
 	_prepare_secondary_choices(secondary_choices, scformat)
 
 func continue_encounter(key) -> void:
 	match key:
 		"destroy":
-			globals.player.pathos.modify_released_pathos(
-					Terms.RUN_ACCUMULATION_NAMES.boss, 
-					amounts["destroy_amount"])
+			pathos_type_destroy.released += pathos_type_destroy.convert_pct_to_released(DESTROY_PCT)
 		"leave":
-			globals.player.pathos.repress_pathos(
-					Terms.RUN_ACCUMULATION_NAMES.elite, 
-					amounts["leave_amount"])
+			pathos_type_leave.repressed += round(
+					pathos_type_leave.get_progression_average()
+					* 4 * CFUtils.randf_range(0.8,1.2))
 			globals.encounters.run_changes.unlock_nce("DollPickup", "easy")
 	end()
 	globals.journal.display_nce_rewards(nce_result_fluff[key])

@@ -4,6 +4,7 @@ const PATHOS_AVG_MULTIPLIER = 2.0
 const PATHOS_TYPE = Terms.RUN_ACCUMULATION_NAMES.shop
 
 var pathos_gained : float
+var pathos_type = globals.player.pathos.pathi[PATHOS_TYPE]
 
 var secondary_choices := {
 		'sleep': '[Sleep]: Choose and {bcolor:[url={"definition": "scar","meta_type": "definition"}]Scar[/url] a card:} then {gcolor:create a copy of it:}.',
@@ -25,10 +26,10 @@ Today, I felt the heat stifling me.
 
 func begin() -> void:
 	.begin()
-	pathos_gained = ceil(globals.player.pathos.get_progression_average(PATHOS_TYPE)\
+	pathos_gained = ceil(pathos_type.get_progression_average()\
 			* PATHOS_AVG_MULTIPLIER * CFUtils.randf_range(0.8,1.2))
 	var scformat = {
-		"pathos_amount": pathos_gained,
+		"pathos_amount": "some",
 		"pathos_type": PATHOS_TYPE,
 	}
 	_prepare_secondary_choices(secondary_choices, scformat)
@@ -45,7 +46,7 @@ func continue_encounter(key) -> void:
 			selection_deck.update_header("(Scar and Copy Card)")
 			selection_deck.update_color(Color(0,1,0))
 		"throw":
-			globals.player.pathos.repress_pathos(PATHOS_TYPE, pathos_gained)
+			pathos_type.repressed += pathos_gained
 	end()
 	globals.journal.display_nce_rewards(nce_result_fluff[key])
 

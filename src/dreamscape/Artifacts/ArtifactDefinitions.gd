@@ -98,13 +98,13 @@ const RepressedEnemyBuff := {
 	"canonical_name": "RepressedEnemyBuff",
 	"name": "Fruscination",
 	"description": "{artifact_name}: At the start of each Ordeal,"\
-		+ " Gain {effect_stacks} {buffer} for each {pathos_amount} Released Frustration you have.",
+		+ " Gain {effect_stacks} {buffer} for each {mastery_amount} Frustration Mastery you have.",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
 	"amounts": {
 		"effect_stacks": 1,
-		"pathos_amount": 40
+		"mastery_amount": 3
 	},
 	"linked_terms": [
 		"buffer",
@@ -401,12 +401,12 @@ const ThickExplosion := {
 const AccumulateEnemy := {
 	"canonical_name": "AccumulateEnemy",
 	"name": "Repressed Frustration",
-	"description": "{artifact_name}: Increase your repressed Frustration by {pathos_amount}. {relax} for {relax_amount}",
+	"description": "{artifact_name}: Increase your repressed Frustration. {relax} for {relax_amount}",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"amounts": {
-		"pathos_amount": 60,
+		"pathos_avg_multiplier": 4,
 		"relax_amount": 30
 	},
 	"linked_terms": [
@@ -416,60 +416,60 @@ const AccumulateEnemy := {
 const AccumulateRest := {
 	"canonical_name": "AccumulateRest",
 	"name": "Repressed Lethargy",
-	"description": "{artifact_name}: Increase your repressed Lethargy by {pathos_amount}",
+	"description": "{artifact_name}: Increase your repressed Lethargy",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"amounts": {
-		"pathos_amount": 30
+		"pathos_avg_multiplier": 4
 	},
 }
 const AccumulateNCE := {
 	"canonical_name": "AccumulateNCE",
 	"name": "Repressed Curiosity",
-	"description": "{artifact_name}: Increase your repressed Curiosity by {pathos_amount}"\
+	"description": "{artifact_name}: Increase your repressed Curiosity"\
 			+ "Increase max {anxiety} by {anxiety_amount}",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"amounts": {
-		"pathos_amount": 35,
+		"pathos_avg_multiplier": 4,
 		"anxiety_amount": 3,
 	},
 }
 const AccumulateShop := {
 	"canonical_name": "AccumulateShop",
 	"name": "Repress Loneliness",
-	"description": "{artifact_name}: Increase your repressed Loneliness by {pathos_amount}",
+	"description": "{artifact_name}: Increase your repressed Loneliness",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"amounts": {
-		"pathos_amount": 15
+		"pathos_avg_multiplier": 4,
 	},
 }
 const AccumulateElite := {
 	"canonical_name": "AccumulateElite",
 	"name": "Repressed Foreboding",
-	"description": "{artifact_name}: Increase your repressed Foreboding by {pathos_amount}. "\
+	"description": "{artifact_name}: Increase your repressed Foreboding."\
 			+ "Increase max {anxiety} by {anxiety_amount}",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"amounts": {
-		"pathos_amount": 30,
+		"pathos_avg_multiplier": 4,
 		"anxiety_amount": 7
 	},
 }
 const AccumulateArtifact := {
 	"canonical_name": "AccumulateArtifact",
 	"name": "Repressed Desire",
-	"description": "{artifact_name}: Increase your repressed Desire by {pathos_amount}",
+	"description": "{artifact_name}: Increase your repressed Desire",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"amounts": {
-		"pathos_amount": 10
+		"pathos_avg_multiplier": 4,
 	},
 }
 
@@ -1078,6 +1078,43 @@ const ThickDeckRareChance := {
 	},
 }
 
+const FasterShopLevelUp := {
+	"canonical_name": "FasterShopLevelUp",
+	"name": "Passionate Loneliness",
+	"description": "{artifact_name}: Increase the rate in which you gain masteries from released Loneliness.",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Common",
+	"amounts": {
+		"level_req_amount": -30,
+	},
+}
+
+
+const FasterArtifactLevelUp := {
+	"canonical_name": "FasterArtifactLevelUp",
+	"name": "Passionate Desire",
+	"description": "{artifact_name}: Increase the rate in which you gain masteries from released Desire.",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Common",
+	"amounts": {
+		"level_req_amount": -40,
+	},
+}
+
+const FasterRestLevelUp := {
+	"canonical_name": "FasterRestLevelUp",
+	"name": "Passionate Desire",
+	"description": "{artifact_name}: Increase the rate in which you gain masteries from released Lethargy.",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Common",
+	"amounts": {
+		"level_req_amount": -40,
+	},
+}
+
 
 ## TODO: Artifact which increases chance to find Fusion cards
 ## TODO. Scipt base doesn't exist yet
@@ -1138,6 +1175,9 @@ const GENERIC := [
 	ThickHeal,
 	DoubleProgress,
 	ThickDeckRareChance,
+	FasterShopLevelUp,
+	FasterArtifactLevelUp,
+	FasterRestLevelUp,
 ]
 
 # Archetype-specific artifacts which only appear in runs in which

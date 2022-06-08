@@ -39,7 +39,8 @@ func continue_encounter(key) -> void:
 		if _testing_rng >= 0:
 			rngesus = _testing_rng
 		if rngesus <= 40:
-			var accumulated = globals.player.pathos.repressed[Terms.RUN_ACCUMULATION_NAMES.nce] / 4
+			var pathos_type: PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.nce]
+			var accumulated = pathos_type.repressed / 4
 			artifact_prep = ArtifactPrep.new(accumulated/2, accumulated, 1)
 # warning-ignore:return_value_discarded
 			globals.player.add_artifact(artifact_prep.selected_artifacts[0].canonical_name)
@@ -50,9 +51,8 @@ func continue_encounter(key) -> void:
 	else:
 		result = nce_result_fluff['decline']
 		globals.player.damage += 10
-		var amount_lost =\
-				globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.artifact)\
-				* CFUtils.randf_range(0.8,1.2)
-		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, -amount_lost, true)
+		var pathos_type: PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.artifact]
+		var amount_lost = pathos_type.get_progression_average() * 2 * CFUtils.randf_range(0.8,1.2)
+		pathos_type.modify_repressed(-amount_lost, true)
 	end()
 	globals.journal.display_nce_rewards(result)

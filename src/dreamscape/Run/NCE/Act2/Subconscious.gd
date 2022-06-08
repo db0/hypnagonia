@@ -16,19 +16,21 @@ var nce_result_fluff := {
 
 var lowest_pathos: String
 var lowest_pathos_amount: float
+var pathos_type_lowest : PathosType
 
 func _init():
 	description = "<Subconscious - Story Fluff to be Done>. Select one Option...."
 
 func begin() -> void:
 	.begin()
-	var pathos_org = globals.player.pathos.get_pathos_org("released", true)
-	lowest_pathos = pathos_org["lowest_pathos"]["selected"]
-	lowest_pathos_amount = round(globals.player.pathos.get_progression_average(lowest_pathos)\
+	var pathos_org = globals.player.pathos.get_pathos_org("level", true)
+	pathos_type_lowest = pathos_org["lowest_pathos"]["selected"]
+	lowest_pathos = pathos_type_lowest.name
+	lowest_pathos_amount = round(pathos_type_lowest.get_progression_average()\
 			* 9 * CFUtils.randf_range(0.8,1.2))
 	var scformat = {
 		"lowest_pathos": '{released_%s}' % [lowest_pathos],
-		"lowest_pathos_amount":  lowest_pathos_amount,
+		"lowest_pathos_amount":  "a large amount",
 		"damage_amount":  DAMAGE_AMOUNT,
 		"subconscious": _prepare_card_popup_bbcode("Subconscious", " an insight into your own mind."),
 	}
@@ -37,7 +39,7 @@ func begin() -> void:
 func continue_encounter(key) -> void:
 	match key:
 		"avoid":
-			globals.player.pathos.modify_released_pathos(lowest_pathos, lowest_pathos_amount)
+			pathos_type_lowest.released += lowest_pathos_amount
 		"intrerpret":
 			# warning-ignore:return_value_discarded
 			globals.player.damage += DAMAGE_AMOUNT

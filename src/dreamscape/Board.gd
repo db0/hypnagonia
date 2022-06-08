@@ -522,7 +522,8 @@ func _input(event):
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.heat_venting.name, 1, false, false, ['Debug'], 'high')
 		for pathos in Terms.RUN_ACCUMULATION_NAMES.values():
 			if pathos != Terms.RUN_ACCUMULATION_NAMES.boss:
-				globals.player.pathos.modify_released_pathos(pathos, globals.player.pathos.get_threshold(pathos))
+				var pathos_type : PathosType = globals.player.pathos.pathi[pathos]
+				pathos_type.released += pathos_type.get_threshold()
 		# Hand Cards
 #		for iter in 20:
 #			var c = "Interpretation"

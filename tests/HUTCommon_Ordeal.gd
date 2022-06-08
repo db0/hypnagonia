@@ -25,6 +25,7 @@ var test_torment_starting_effects := [
 ### Pathos
 var set_repressed_pathos := {}
 var set_released_pathos := {}
+var set_pathos_level := {}
 var card: DreamCard
 var test_scripts := {}
 
@@ -36,14 +37,15 @@ func before_each():
 	yield(yield_for(0.1), YIELD)
 	for pathos_name in Terms.RUN_ACCUMULATION_NAMES.values():
 		if set_repressed_pathos.has(pathos_name):
-			globals.player.pathos.repressed[pathos_name] = set_repressed_pathos[pathos_name]
+			globals.player.pathos.pathi[pathos_name].repressed = set_repressed_pathos[pathos_name]
 		else:
-			globals.player.pathos.repressed[pathos_name] = 0
-	for pathos_name in Terms.RUN_ACCUMULATION_NAMES.values():
+			globals.player.pathos.pathi[pathos_name].repressed = 0
 		if set_released_pathos.has(pathos_name):
-			globals.player.pathos.released[pathos_name] = set_released_pathos[pathos_name]
+			globals.player.pathos.pathi[pathos_name].released = set_released_pathos[pathos_name]
 		else:
-			globals.player.pathos.released[pathos_name] = 0
+			globals.player.pathos.pathi[pathos_name].released = 0
+		if set_pathos_level.has(pathos_name):
+			globals.player.pathos.pathi[pathos_name].level = set_pathos_level[pathos_name]
 	# We can override flags from test inner classer
 	if not globals.test_flags.has("no_refill"):
 		globals.test_flags["no_refill"] = true

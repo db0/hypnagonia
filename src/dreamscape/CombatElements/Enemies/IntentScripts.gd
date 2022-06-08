@@ -207,10 +207,10 @@ const DISHEARTEN := [
 		"name": "modify_pathos",
 		"tags": ["Intent"],
 		"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
-		"pathos_type": "released",
+		"pathos_type": "temp",
 		"amount": null,
 		"icon": preload("res://assets/icons/traffic-cone.png"),
-		"description": "Dishearten: This will decrease the dreamer's released frustration by the shown amount.\n"\
+		"description": "Dishearten: This will increase the requirements to get the dreamer's next frustration mastery.\n"\
 				+ "[i]I'll never make it in time...[/i]"
 	}
 ]

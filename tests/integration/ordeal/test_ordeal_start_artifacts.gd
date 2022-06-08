@@ -168,15 +168,15 @@ class TestRepressedEnemyBuff:
 		pre_init_artifacts.append(ArtifactDefinitions.RepressedEnemyBuff.canonical_name)
 		expected_amount_keys = [
 			"effect_stacks",
-			"pathos_amount",
+			"mastery_amount",
 		]
-		set_released_pathos[Terms.RUN_ACCUMULATION_NAMES.enemy] = 100
+		set_pathos_level[Terms.RUN_ACCUMULATION_NAMES.enemy] = 7
 		
 	func test_artifact_effect():
 		if not assert_has_amounts():
 			return
-		var stacks = set_released_pathos[Terms.RUN_ACCUMULATION_NAMES.enemy]\
-				/ get_amount("pathos_amount") * get_amount("effect_stacks")
+		var stacks = set_pathos_level[Terms.RUN_ACCUMULATION_NAMES.enemy]\
+				/ get_amount("mastery_amount") * get_amount("effect_stacks")
 		yield(yield_for(0.2), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.buffer.name), stacks)
 

@@ -21,8 +21,8 @@ func update_labels(pathos_dict: Dictionary) -> int:
 	var chance_before : int = globals.player.pathos.calculate_chance_for_encounter(name, true, {})
 	name_label.text = "%s (%s)" % [name.capitalize(), Terms.RUN_ACCUMULATION_TYPES[name]]
 	chance_label.text = "%s%%" % [chance]
-	repressed_label.text = str(floor(globals.player.pathos.repressed[name] + repress_mod))
-	released_label.text = str(floor(globals.player.pathos.released[name] + release_mod ))
+	repressed_label.text = str(floor(globals.player.pathos.pathi[name].repressed + repress_mod))
+	released_label.text = str(floor(globals.player.pathos.pathi[name].released + release_mod ))
 	if chance > chance_before:
 		chance_label.add_color_override("font_color", Color(0,1,0))
 	elif chance < chance_before:

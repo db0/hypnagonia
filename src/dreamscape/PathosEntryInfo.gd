@@ -26,22 +26,27 @@ const pathos_descriptions := {
 }
 
 var description: Label
+var pathos_type: PathosType
 
 onready var name_label := $HBC/Name
-onready var repressed_label := $HBC/Represed
-onready var released_label := $HBC/Released
+onready var chance_label := $HBC/Chance
+onready var progress_bar := $HBC/ProgressBar
+onready var mastery_label := $HBC/Mastery
 #onready var description := $Popup/Description
 #onready var description_popup := $Popup
 
 func setup(_name: String, pathos_description: Label) -> void:
 	name_label.text = _name.capitalize()
 	name = _name
+	pathos_type = globals.player.pathos.pathi[name]
 	description = pathos_description
 	update_labels()
 	
 func update_labels() -> void:
-	repressed_label.text = str(floor(globals.player.pathos.repressed[name]))
-	released_label.text = str(floor(globals.player.pathos.released[name]))
+	var chance : int = globals.player.pathos.calculate_chance_for_encounter(name)
+	chance_label.text = str(chance) + '%'
+	progress_bar.value = floor(pathos_type.get_progress_pct() * 100)
+	mastery_label.text = str(pathos_type.level)
 
 
 func _on_PathosEntryInfo_mouse_entered() -> void:

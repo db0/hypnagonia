@@ -14,6 +14,10 @@ var nce_result_fluff := {
 		'offer': 'As soon as I bowed to the spider, my hand sprouted a million eyes and scuttled away. I can still feel my heart thundering.',
 	}
 
+
+var pathos_type_boss: PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.boss]
+var pathos_type_elite: PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.elite]
+
 func _init():
 	description = "A spider was looking at me with a thousand eyes. Its intentions are unfathomable."
 	prepare_journal_art(load("res://assets/journal/nce/spider.jpeg"))
@@ -22,25 +26,20 @@ func begin() -> void:
 	.begin()
 	var scformat = {
 		"boss_pathos": '{repressed_%s}' % [Terms.RUN_ACCUMULATION_NAMES.boss],
-		"boss_amount": round(globals.player.pathos.get_progression_average(
-				Terms.RUN_ACCUMULATION_NAMES.boss) * 2),
+		"boss_amount": "some",
 		"elite_pathos": '{repressed_%s}' % [Terms.RUN_ACCUMULATION_NAMES.elite],
-		"elite_amount": round(globals.player.pathos.get_progression_average(
-		Terms.RUN_ACCUMULATION_NAMES.elite) * 2),
+		"elite_amount": "some",
 	}
 	_prepare_secondary_choices(secondary_choices, scformat)
 
 func continue_encounter(key) -> void:
 	if key == "eat":
 		globals.player.damage -= 10
-		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.boss, round(globals.player.pathos.get_progression_average(
-		Terms.RUN_ACCUMULATION_NAMES.boss) * 2)) 
+		pathos_type_boss.modify_repressed(pathos_type_boss.get_progression_average() * 2)
 	elif key == "wave":
 		globals.player.health += 10
-		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.boss, round(globals.player.pathos.get_progression_average(
-		Terms.RUN_ACCUMULATION_NAMES.boss) * 2)) 
-		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.elite, round(globals.player.pathos.get_progression_average(
-		Terms.RUN_ACCUMULATION_NAMES.elite) * 2)) 
+		pathos_type_boss.modify_repressed(pathos_type_boss.get_progression_average() * 2)
+		pathos_type_elite.modify_repressed(pathos_type_elite.get_progression_average() * 2) 
 	elif key == "offer":
 		globals.player.damage += 10
 	end()

@@ -18,7 +18,6 @@ const LAST_RESORT_ENHANCEMENT := {
 
 static func check_mod_applicability(card_properties: Dictionary, type := 'scar') -> Array:
 	var applicable_mods := []
-	var mods: Array
 	var last_resort_mod : Dictionary
 	var filters: Array
 	for mod in HConst.ALL_MODIFIERS + HConst.SPECIAL_MODS[type]:
@@ -42,7 +41,7 @@ static func check_mod_applicability(card_properties: Dictionary, type := 'scar')
 	return(applicable_mods)
 
 static func _get_enhancement_filters(modification: String) -> Array:
-	var filters: Array
+	var filters := []
 	if modification in HConst.ALL_NUMERICALS:
 		filters.append(DreamCardFilter.new('_amounts', modification, 'eq'))
 	# If it's not a numerical, it's a tag

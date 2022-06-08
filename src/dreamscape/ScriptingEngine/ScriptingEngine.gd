@@ -130,6 +130,7 @@ func predict_intent_amount(_snapshot_id: float) -> int:
 			# This class contains the customly defined scripts for each
 			# card.
 			var custom := CustomScripts.new(costs_dry_run())
+			# warning-ignore:narrowing_conversion
 			custom.custom_script(script, snapshot_id)
 		var prediction_method = "calculate_" + script.script_name
 		if script.get_property(SP.KEY_SUBJECT):
@@ -701,7 +702,7 @@ func calculate_modify_pathos(script: ScriptTask) -> float:
 
 func modify_pathos(script_task: ScriptTask) -> int:
 	var retcode: int
-	var type = script_task.get_property("pathos_type", "released")
+	var type = script_task.get_property("pathos_type", "temp")
 	var is_convertion = script_task.get_property("is_convertion", false)
 	var pathos = script_task.get_property("pathos", Terms.RUN_ACCUMULATION_NAMES.enemy)
 	var modification = calculate_modify_pathos(script_task)

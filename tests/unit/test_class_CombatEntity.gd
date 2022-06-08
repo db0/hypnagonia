@@ -199,7 +199,7 @@ class TestHealth:
 	func test_die_through_defence():
 		ce.defence = 50
 		assert_ret_changed(ce.modify_damage(150, false, ["Attack"]))
-		yield(yield_to(ce, "entity killed", 0.1), YIELD)
+		yield(yield_to(ce, "entity killed", 0.2), YIELD)
 		assert_true(ce.is_dead, "entity killed")
 		assert_signal_emitted_with_parameters(ce, "entity_killed", [100, 100])
 		assert_signal_emitted_with_parameters(ce, "entity_damaged", [ce, 100, null, ["Attack"]])

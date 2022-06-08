@@ -2,10 +2,16 @@
 
 extends NonCombatEncounter
 
+const PATHOS_PCT_MINIMUMS := {
+	"progress": 0.1,
+	"upgrade": 0.3,
+	"remove": 0.6,
+}
+
 var secondary_choices := {
-		'progress': '[Ermbaraz]: Lose {bcolor:{lowest_pathos_cost} {lowest_pathos}:}. {gcolor:Progress the least progressed card by 4:}.',
-		'upgrade': '[Feelyne]: Lose {bcolor:{middle_pathos_cost} {middle_pathos}:}. {gcolor:Upgrade the most progressed card:}.',
-		'remove': '[Depressium]: Lose {bcolor:{highest_pathos_cost} {highest_pathos}:}. {gcolor:Remove a card from your deck:}.',
+		'progress': '[Ermbaraz]: Lose {bcolor:all released (min {lowest_pathos_cost}%) {lowest_pathos}:}. {gcolor:Progress the least progressed card by 4:}.',
+		'upgrade': '[Feelyne]: Lose {bcolor:all released (min {middle_pathos_cost}%) {middle_pathos}:}. {gcolor:Upgrade the most progressed card:}.',
+		'remove': '[Depressium]: Lose {bcolor:all released (min {highest_pathos_cost}%) {highest_pathos}:}. {gcolor:Remove a card from your deck:}.',
 		'leave': '[Stop]: Nothing Happens.',
 	}
 var pathos_choice_payments := {}
@@ -21,37 +27,36 @@ func begin() -> void:
 	.begin()
 	var pathos_org = globals.player.pathos.get_pathos_org()
 #	print_debug(pathos_org)
-	var highest_pathos = pathos_org["highest_pathos"]["selected"]
-	var lowest_pathos = pathos_org["lowest_pathos"]["selected"]
-	var middle_pathos = pathos_org["middle_pathos"]["selected"]
-	var lowest_pathos_cost = round(globals.player.pathos.get_progression_average(lowest_pathos) * 2)
-	var middle_pathos_cost = round(globals.player.pathos.get_progression_average(middle_pathos) * 3)
-	var highest_pathos_cost = round(globals.player.pathos.get_progression_average(highest_pathos) * 3)
+	var pathos_type_lowest : PathosType = pathos_org["lowest_pathos"]["selected"]
+	var pathos_type_middle : PathosType  = pathos_org["middle_pathos"]["selected"]
+	var pathos_type_highest : PathosType  = pathos_org["highest_pathos"]["selected"]
+	var lowest_pathos = pathos_type_lowest.name
+	var middle_pathos = pathos_type_middle.name
+	var highest_pathos = pathos_type_highest.name
 	var scformat = {
 		"lowest_pathos": '{released_%s}' % [lowest_pathos],
-		"lowest_pathos_cost":  lowest_pathos_cost,
+		"lowest_pathos_cost": PATHOS_PCT_MINIMUMS["progress"] * 100,
 		"middle_pathos": '{released_%s}' % [middle_pathos],
-		"middle_pathos_cost":  middle_pathos_cost,
+		"middle_pathos_cost": PATHOS_PCT_MINIMUMS["upgrade"] * 100,
 		"highest_pathos": '{released_%s}' % [highest_pathos],
-		"highest_pathos_cost":  highest_pathos_cost,
+		"highest_pathos_cost": PATHOS_PCT_MINIMUMS["remove"] * 100,
 	}
 	pathos_choice_payments["progress"]  = {
 		"pathos": lowest_pathos,
-		"cost": lowest_pathos_cost
+		"pathos_type": pathos_type_lowest,
 	}
 	pathos_choice_payments["upgrade"] = {
 		"pathos": middle_pathos,
-		"cost": middle_pathos_cost
+		"pathos_type": pathos_type_middle,
 	}
 	pathos_choice_payments["remove"] = {
 		"pathos": highest_pathos,
-		"cost": highest_pathos_cost
+		"pathos_type": pathos_type_highest,
 	}
 	var disabled_choices := []
 	for type in ['progress', 'upgrade', 'remove']:
 		secondary_choices[type] = secondary_choices[type].format(scformat)
-		if globals.player.pathos.released[pathos_choice_payments[type]["pathos"]]\
-				< pathos_choice_payments[type]["cost"]:
+		if pathos_choice_payments[type]["pathos_type"].get_progress_pct() < PATHOS_PCT_MINIMUMS[type]:
 			secondary_choices[type] = "[color=red]" + secondary_choices[type] + "[/color]"
 			disabled_choices.append(type)
 	var option_card
@@ -70,7 +75,6 @@ func begin() -> void:
 func continue_encounter(key) -> void:
 	match key:
 		"progress":
-			globals.player.pathos.modify_released_pathos(pathos_choice_payments[key]["pathos"], pathos_choice_payments[key]["cost"])
 			var card_entry : CardEntry = globals.player.deck.get_upgradable_card_type("least_progress")
 			if card_entry:
 				card_entry.upgrade_progress += 4
@@ -85,7 +89,7 @@ func continue_encounter(key) -> void:
 			selection_deck.update_header("(Free Removal)")
 			selection_deck.update_color(Color(0,1,0))
 	if key != "leave":
-		globals.player.pathos.modify_released_pathos(pathos_choice_payments[key]["pathos"], 
-				-pathos_choice_payments[key]["cost"])
+		var pathos_type : PathosType = pathos_choice_payments[key]["pathos_type"]
+		pathos_type.spend_pathos(pathos_type.released)
 	end()
 	globals.journal.display_nce_rewards('')

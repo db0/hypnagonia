@@ -5,8 +5,8 @@ var testing_rng := 0
 
 var secondary_choices := {
 		'lead': '[Lead]: {bcolor:+15:} {anxiety_up}. 60% chance to {gcolor:gain a random curio:}.',
-		'follow': '[Follow]: {bcolor:+7:} {anxiety_up}. Gain {gcolor:{follow_amount} {released_shop}:}.',
-		'abort': '[Abort]: Gain {bcolor:{abort_amount} {repressed_elite}:} .',
+		'follow': '[Follow]: {bcolor:+7:} {anxiety_up}. {gcolor:+50% {released_shop}:}.',
+		'abort': '[Abort]: Gain {bcolor:moderate {repressed_elite}:} .',
 	}
 
 var nce_result_fluff := {
@@ -30,10 +30,6 @@ func begin() -> void:
 	# warning-ignore:return_value_discarded
 	.begin()
 	var scformat := Terms.RUN_ACCUMULATION_NAMES.duplicate()
-	scformat["follow_amount"] = round(globals.player.pathos.get_progression_average(
-			Terms.RUN_ACCUMULATION_NAMES.shop) * 3)
-	scformat["abort_amount"] = round(globals.player.pathos.get_progression_average(
-			Terms.RUN_ACCUMULATION_NAMES.elite) * 2)
 	_prepare_secondary_choices(secondary_choices, scformat)
 
 func continue_encounter(key) -> void:
@@ -55,16 +51,12 @@ func continue_encounter(key) -> void:
 						+ "The forces of Order soon overwhelmed your band."
 		"follow":
 			globals.player.damage += 7
+			var pathos_type : PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.shop]
 			# warning-ignore:narrowing_conversion
-			globals.player.pathos.modify_released_pathos(
-				Terms.RUN_ACCUMULATION_NAMES.shop,
-				globals.player.pathos.get_progression_average(
-					Terms.RUN_ACCUMULATION_NAMES.shop) * 3)
+			pathos_type.released += pathos_type.convert_pct_to_released(0.5)
 		"abort":
 			# warning-ignore:narrowing_conversion
-			globals.player.pathos.repress_pathos(
-					Terms.RUN_ACCUMULATION_NAMES.elite,
-					globals.player.pathos.get_progression_average(
-						Terms.RUN_ACCUMULATION_NAMES.elite) * 2)
+			var pathos_type : PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.elite]
+			pathos_type.repressed += pathos_type.get_progression_average() * 2.0
 	end()
 	globals.journal.display_nce_rewards(nce_result_fluff[key])

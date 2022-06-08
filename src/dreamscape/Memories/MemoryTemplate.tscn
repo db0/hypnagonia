@@ -28,34 +28,14 @@ border_color = Color( 0.247059, 0.396078, 0.192157, 1 )
 [node name="MemoryTemplate" groups=["memories"] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 signifier_type = 4
-priority = 0
-effect_context = 0
 
 [node name="Label" parent="Signifier" index="0"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 40.0
-margin_bottom = 40.0
 text = ""
-
-[node name="IconContainer" parent="Signifier" index="1"]
-margin_left = 2.0
-margin_top = 2.0
-margin_right = 42.0
-margin_bottom = 42.0
 
 [node name="ExtraContainer" parent="Signifier" index="2"]
 visible = true
-margin_left = 0.0
-margin_top = 0.0
-margin_right = 45.0
-margin_bottom = 45.0
 
 [node name="Icon" parent="Signifier" index="3"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 37.0
-margin_bottom = 37.0
 texture = ExtResource( 3 )
 stretch_mode = 6
 

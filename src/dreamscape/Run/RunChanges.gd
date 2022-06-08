@@ -104,11 +104,6 @@ func extract_save_state() -> Dictionary:
 	return(run_dict)
 
 func restore_save_state(save_state: Dictionary) -> void:
-	var run_dict := {
-		"unlocked_nce": unlocked_nce,
-		"used_nce": [],
-		"store" : store,
-	}
 	unlocked_nce = save_state.unlocked_nce
 	store = save_state.store
 	for un in save_state.used_nce:

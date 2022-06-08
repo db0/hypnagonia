@@ -9,6 +9,7 @@
 class_name ScEngExecutor
 extends Reference
 
+# warning-ignore:unused_signal
 signal executed(dry_run)
 
 # Each script task has a unique name, such as "flip_card"
@@ -42,6 +43,7 @@ func _init(_script_task: ScriptTask):
 	script_task = _script_task
 	owner = script_task.owner
 	tags = ["Scripted"] + script_task.get_property(SP.KEY_TAGS)
+	# warning-ignore:return_value_discarded
 	connect("executed", self, "_when_finished_executing")
 
 

@@ -25,6 +25,7 @@ const WORD_DEFINITIONS := {
 	"anxiety_up": "Will increase the dreamer's Anxiety. If this reaches the max, the dreamer will wake up and the game is over.",
 	"anxiety_down": "Will decrease the anxiety. This avoids losing the game.",
 	"anxiety": "Max Anxiety: When your anxiety reaches this threshold, the dreamer wakes up and you lose the game.",
+	"masteries": "You use masteries to purchase different things in the shop.",
 }
 
 var pathos_infos := {}
@@ -67,7 +68,7 @@ func _ready() -> void:
 	if OS.has_feature("debug") and not cfc.is_testing:
 		print("DEBUG INFO:Journal: Entering Journal")
 	if globals.player.pathos:
-		for entry in globals.player.pathos.repressed:
+		for entry in Terms.RUN_ACCUMULATION_NAMES.values():
 			var pinfo = PATHOS_INFO_SCENE.instance()
 			_pathos_details_list.add_child_below_node($PathosDetails/VBC/Header, pinfo)
 			pathos_infos[entry] = pinfo
@@ -547,14 +548,14 @@ func _input(event):
 	if event.is_action_pressed("init_debug_game"):
 		globals.player.deck.add_new_card("Guilt")
 		# Upgrade cards debug
-		for c in globals.player.deck.get_progressing_cards():
-			c.upgrade_progress = c.upgrade_threshold
+#		for c in globals.player.deck.get_progressing_cards():
+#			c.upgrade_progress = c.upgrade_threshold
 #			if c.card_name == "Noisy Whip":
 #				globals.player.deck.remove_card(c)
 #		_reveal_entry(upgrade_journal, true)
 		globals.player.deck.add_new_card("Guilt")
 #		globals.player.deck.add_new_card("Catatonia")
-		globals.player.add_artifact(ArtifactDefinitions.StartingFortify.canonical_name)
+		globals.player.add_artifact(ArtifactDefinitions.FasterShopLevelUp.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.EnhanceOnRest.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.IncreaseRandomDamage.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.BirdHouse.canonical_name)
@@ -562,7 +563,7 @@ func _input(event):
 #		globals.player.add_memory(MemoryDefinitions.HealSelf.canonical_name)
 		globals.player.add_memory(MemoryDefinitions.FreezeCard.canonical_name)
 		var card_entry = globals.player.deck.add_new_card("Towering Presence")
-#		card_entry.upgrade_progress = card_entry.upgrade_threshold
+		card_entry.upgrade_progress = card_entry.upgrade_threshold - 1
 #		var new_card = globals.player.deck.add_new_card("Store in Mind")
 #		new_card.modify_property("_amounts", {"amount_key": "beneficial_integer", "amount_value": "+1"})
 #		globals.player.deck.add_new_card("A Fine Specimen")
@@ -570,34 +571,25 @@ func _input(event):
 #		globals.player.deck.add_new_card("Chasm")
 #		globals.player.deck.add_new_card("Prejudice")
 #		globals.player.damage += 20
-#		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.boss, 95)
-#		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, 50)
-#		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.enemy, 50)
-#		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, 20)
-#		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.elite, 30)
-#		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, 15)
-#		globals.player.pathos.modify_repressed_pathos(Terms.RUN_ACCUMULATION_NAMES.rest, 20)
-#		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, -1000)
-#		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, -1000)
-#		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.rest, 49)
-#		globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.artifact, -1000)
+		globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.shop].released = 100
 #		globals.player.damage = 85
+		globals.player.pathos.available_masteries += 6
 		var debug_encounters = [
 #			EnemyEncounter.new(Act1.Squirrel, "hard"),
 #			EnemyEncounter.new(Act2.TrafficJam, "easy"),
-			EnemyEncounter.new(Act3.Shamelings, "hard"),
+#			EnemyEncounter.new(Act3.Shamelings, "hard"),
 #			load("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/AllActs/OstrichEggs.gd").new(),
-#			load("res://src/dreamscape/Run/NCE/Act3/UnderwaterCave.gd").new(),
+			load("res://src/dreamscape/Run/NCE/Act3/UnderwaterCave.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act2/RiskyEvent4.gd").new(),
-			load("res://src/dreamscape/Run/NCE/Act1/Dollmaker.gd").new(),
+#			load("res://src/dreamscape/Run/NCE/Act1/Spider.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
 #			BossEncounter.new(Act2.BOSSES["Surreality"]),
 #			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
 #			EliteEncounter.new(Act1.Bully, "medium"),
 #			EliteEncounter.new(Act2.IndescribableAbsurdity, "medium"),
 #			EliteEncounter.new(Act3.TheatrePlay, "medium"),
-			load("res://src/dreamscape/Run/NCE/Shop.gd").new()
+#			load("res://src/dreamscape/Run/NCE/Shop.gd").new()
 #			load("res://src/dreamscape/Run/NCE/Rest.gd").new()
 		]
 		for encounter in debug_encounters:

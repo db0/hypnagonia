@@ -2,17 +2,23 @@
 
 extends NonCombatEncounter
 
+const COSTS := {
+	"omega": 1,
+	"alpha": 2,
+	"kappa": 4,
+}
+
 var secondary_choices := {
-		'omega': '[omega]: {omega} Lose {bcolor:{lowest_pathos_cost} {lowest_pathos}:}. {gcolor:{omega_desc}:}',
-		'kappa': '[kappa]: {frozen} Lose {bcolor:{highest_pathos_cost} {highest_pathos}:}. {gcolor:{kappa_desc}:}',
-		'alpha': '[alpha]: {alpha} Lose {bcolor:{middle_pathos_cost} {middle_pathos}:}. {gcolor:{alpha_desc}:}',
+		'omega': '[omega]: {omega} Lose {bcolor:{omega_cost} {masteries}:}. {gcolor:{omega_desc}:}',
+		'alpha': '[alpha]: {alpha} Lose {bcolor:{alpha_cost} {masteries}:}. {gcolor:{alpha_desc}:}',
+		'kappa': '[kappa]: {frozen} Lose {bcolor:{kappa_cost} {masteries}:}. {gcolor:{kappa_desc}:}',
 		'leave': '[Leave]: Nothing Happens.',
 	}
-var pathos_choice_payments := {}
+
 var card_choice_descriptions := {
+		'omega': 'Choose a card which always starts at the bottom of your deck.',
 		'alpha': 'Choose a card which always starts at the top of your deck.',
 		'kappa': 'Choose a card which is not discarded at the end of your turn.',
-		'omega': 'Choose a card which always starts at the bottom of your deck.',
 }
 
 func _init():
@@ -22,42 +28,17 @@ func _init():
 
 func begin() -> void:
 	.begin()
-	var pathos_org = globals.player.pathos.get_pathos_org()
-#	print_debug(pathos_org)
-	var highest_pathos = pathos_org["highest_pathos"]["selected"]
-	var lowest_pathos = pathos_org["lowest_pathos"]["selected"]
-	var middle_pathos = pathos_org["middle_pathos"]["selected"]
-	var lowest_pathos_cost = globals.player.pathos.get_progression_average(lowest_pathos) * 2
-	var middle_pathos_cost = globals.player.pathos.get_progression_average(middle_pathos) * 5
-	var highest_pathos_cost = globals.player.pathos.get_progression_average(highest_pathos) * 7
 	var scformat = {
-		"lowest_pathos": '{released_%s}' % [lowest_pathos],
-		"lowest_pathos_cost":  lowest_pathos_cost,
-		"middle_pathos": '{released_%s}' % [middle_pathos],
-		"middle_pathos_cost":  middle_pathos_cost,
-		"highest_pathos": '{released_%s}' % [highest_pathos],
-		"highest_pathos_cost":  highest_pathos_cost,
+		"omega_cost": COSTS["omega"],
+		"alpha_cost": COSTS["alpha"],
+		"kappa_cost": COSTS["kappa"],
+		"omega_desc": card_choice_descriptions.omega,
 		"alpha_desc": card_choice_descriptions.alpha,
 		"kappa_desc": card_choice_descriptions.kappa,
-		"omega_desc": card_choice_descriptions.omega,
-	}
-	pathos_choice_payments["omega"]  = {
-		"pathos": lowest_pathos,
-		"cost": lowest_pathos_cost
-	}
-	pathos_choice_payments["alpha"] = {
-		"pathos": middle_pathos,
-		"cost": middle_pathos_cost
-	}
-	pathos_choice_payments["kappa"] = {
-		"pathos": highest_pathos,
-		"cost": highest_pathos_cost
 	}
 	var disabled_choices := []
 	for type in ['alpha', 'kappa', 'omega']:
-		secondary_choices[type] = secondary_choices[type].format(scformat)
-		if globals.player.pathos.released[pathos_choice_payments[type]["pathos"]]\
-				< pathos_choice_payments[type]["cost"]:
+		if globals.player.pathos.available_masteries < COSTS[type]:
 			disabled_choices.append(type)
 	_prepare_secondary_choices(secondary_choices, scformat, disabled_choices)
 
@@ -87,8 +68,7 @@ func continue_encounter(key) -> void:
 		selection_deck.update_header(card_choice_description\
 				.format(Terms.get_bbcode_formats(18)))
 		selection_deck.update_color(Color(0,1,0))
-		globals.player.pathos.modify_released_pathos(pathos_choice_payments[key]["pathos"],
-				-pathos_choice_payments[key]["cost"])
+		globals.player.pathos.available_masteries -= COSTS[key]
 	end()
 	globals.journal.display_nce_rewards('')
 

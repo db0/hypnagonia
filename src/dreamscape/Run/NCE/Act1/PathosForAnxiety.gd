@@ -3,9 +3,9 @@
 extends NonCombatEncounter
 
 var secondary_choices := {
-		'calm': '[Songbird]: Gain {gcolor:{calm_random_pathos_amount} {calm_random_pathos}:}.',
-		'stress': '[Peacock]: {bcolor:+{stress_amount}:} {anxiety_up}. Gain {gcolor:{stress_random_pathos_amount} {stress_random_pathos}:}.',
-		'fear': '[Lion]: {bcolor:+{fear_amount} {anxiety_up}:}. Gain {gcolor:{fear_random_pathos_amount} {fear_random_pathos}:}.',
+		'calm': '[Songbird]: Increase {gcolor:{calm_random_pathos} by {calm_random_pathos_amount}%:}.',
+		'stress': '[Peacock]: {bcolor:+{stress_amount}:} {anxiety_up}. Increase {gcolor:{stress_random_pathos} by {stress_random_pathos_amount}%:}.',
+		'fear': '[Lion]: {bcolor:+{fear_amount} {anxiety_up}:}. Increase {gcolor:{fear_random_pathos} by {fear_random_pathos_amount}%:}.',
 	}
 	
 var nce_result_fluff := {
@@ -25,32 +25,23 @@ They pointed the cameras directly at me. It was time to let out the inner animal
 
 func begin() -> void:
 	.begin()
-	var calm_choice = globals.player.pathos.grab_random_pathos()
-	var stress_choice = globals.player.pathos.grab_random_pathos()
-	var fear_choice = globals.player.pathos.grab_random_pathos()
+	var calm_choice: PathosType = globals.player.pathos.grab_random_pathos()
+	var stress_choice: PathosType = globals.player.pathos.grab_random_pathos()
+	var fear_choice: PathosType = globals.player.pathos.grab_random_pathos()
 #	print_debug(pathos_org)
-	var calm_choice_amount = round(
-			globals.player.pathos.get_progression_average(calm_choice)
-			* 2 * CFUtils.randf_range(0.9,1.1)
-		)
-	var stress_choice_amount =  round(
-			globals.player.pathos.get_progression_average(stress_choice)
-			* 3 * CFUtils.randf_range(0.9,1.1)
-		)
-	var fear_choice_amount = round(
-				globals.player.pathos.get_progression_average(fear_choice)
-				* 5 * CFUtils.randf_range(0.9,1.1)
-			)
+	var calm_choice_amount = CFUtils.randf_range(0.2,0.25)
+	var stress_choice_amount =  CFUtils.randf_range(0.6,0.7)
+	var fear_choice_amount = CFUtils.randf_range(0.8,0.95)
 	var stress_amount = CFUtils.randi_range(9,11)
 	var fear_amount = CFUtils.randi_range(18,22)
 	var scformat = {
-		"calm_random_pathos": '{released_%s}' % [calm_choice],
-		"calm_random_pathos_amount":  calm_choice_amount,
-		"stress_random_pathos": '{released_%s}' % [stress_choice],
-		"stress_random_pathos_amount":  stress_choice_amount,
+		"calm_random_pathos": '{released_%s}' % [calm_choice.name],
+		"calm_random_pathos_amount":  round(calm_choice_amount * 100),
+		"stress_random_pathos": '{released_%s}' % [stress_choice.name],
+		"stress_random_pathos_amount":  round(stress_choice_amount * 100),
 		"stress_amount":  stress_amount,
-		"fear_random_pathos": '{released_%s}' % [fear_choice],
-		"fear_random_pathos_amount":  fear_choice_amount,
+		"fear_random_pathos": '{released_%s}' % [fear_choice.name],
+		"fear_random_pathos_amount":  round(fear_choice_amount * 100),
 		"fear_amount":  fear_amount,
 	}
 	choices["calm"]  = {
@@ -71,7 +62,8 @@ func begin() -> void:
 	_prepare_secondary_choices(secondary_choices, scformat)
 
 func continue_encounter(key) -> void:
-	globals.player.pathos.modify_released_pathos(choices[key]["pathos"], choices[key]["reward"])
+	var pathos_type :PathosType = choices[key]["pathos"]
+	pathos_type.released += pathos_type.convert_pct_to_released(choices[key]["reward"])
 	globals.player.damage += choices[key]["anxiety"]
 	end()
 	globals.journal.display_nce_rewards(nce_result_fluff[key])

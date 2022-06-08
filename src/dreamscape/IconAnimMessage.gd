@@ -50,6 +50,7 @@ func animation_finished() -> void:
 # Called when the animation finishes playing
 # If an animation is waiting to deploy it's payload, we call it now
 func exec_payload() -> void:
+	# warning-ignore:return_value_discarded
 	executor.exec()
 	emit_signal("payload_executed")
 

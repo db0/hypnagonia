@@ -82,6 +82,7 @@ class TestPoison:
 	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.poison.name
 	func _init() -> void:
+		set_released_pathos[Terms.RUN_ACCUMULATION_NAMES.enemy] = 30
 		torments_amount = 2
 		test_card_names = [
 			"Interpretation",
@@ -134,7 +135,8 @@ class TestPoison:
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.damage, dreamer.health - 1,
 				"%s left the dreamer at 1 HP" % [effect])
-		assert_signal_emitted(globals.player.pathos, "released_pathos_lost")
+		assert_eq(globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy].get_level_requirement(), 532.5,
+				"Mastery Requirements increased")
 
 
 class TestBurn:

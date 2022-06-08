@@ -10,8 +10,8 @@ func _ready() -> void:
 func _on_battle_start():
 	if not _activate():
 		return
-	var repr_frustration = globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.enemy]
-	var multiplier = repr_frustration / ArtifactDefinitions.RepressedEnemyBuff.amounts.pathos_amount
+	var frustration_level = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy].level
+	var multiplier = frustration_level / ArtifactDefinitions.RepressedEnemyBuff.amounts.mastery_amount
 	var script = [
 		{
 			"name": "apply_effect",

@@ -637,7 +637,12 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "Pathos",
 "language": "GDScript",
-"path": "res://src/dreamscape/Globals/Pathos.gd"
+"path": "res://src/dreamscape/Globals/Pathos/Pathos.gd"
+}, {
+"base": "Reference",
+"class": "PathosType",
+"language": "GDScript",
+"path": "res://src/dreamscape/Globals/Pathos/PathosType.gd"
 }, {
 "base": "Reference",
 "class": "Perturbations",
@@ -986,6 +991,7 @@ _global_script_class_icons={
 "OVUtils": "",
 "ObjectInfoList": "",
 "Pathos": "",
+"PathosType": "",
 "Perturbations": "",
 "Pile": "",
 "Player": "",

@@ -40,8 +40,13 @@ script = ExtResource( 4 )
 
 [node name="CenterContainer" parent="." index="2"]
 margin_top = 51.0
+margin_right = 69.0
 margin_bottom = 87.0
 rect_min_size = Vector2( 0, 36 )
+
+[node name="Incoming" parent="CenterContainer" index="0"]
+margin_left = 34.0
+margin_right = 34.0
 
 [node name="Art" parent="." index="3"]
 margin_top = 91.0
@@ -55,17 +60,17 @@ margin_top = 91.0
 margin_bottom = 121.0
 rect_min_size = Vector2( 0, 30 )
 
-[node name="HealthBar" parent="." index="5"]
+[node name="HP" parent="." index="5"]
 margin_top = 95.0
-margin_bottom = 103.0
+margin_bottom = 104.0
 
 [node name="HBC" parent="." index="6"]
-margin_top = 107.0
-margin_bottom = 143.0
+margin_top = 108.0
+margin_bottom = 144.0
 rect_min_size = Vector2( 0, 15 )
 
 [node name="ActiveEffects" parent="." index="7"]
-margin_top = 147.0
-margin_bottom = 183.0
+margin_top = 148.0
+margin_bottom = 184.0
 
 [editable path="Intents"]

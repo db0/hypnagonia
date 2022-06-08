@@ -7,12 +7,9 @@ margin_top = 18.0
 margin_right = 216.0
 margin_bottom = 32.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="HBC" type="HBoxContainer" parent="."]
-margin_right = 520.0
+margin_right = 354.0
 margin_bottom = 14.0
 mouse_filter = 2
 __meta__ = {
@@ -36,6 +33,7 @@ rect_min_size = Vector2( 50, 0 )
 text = "Chance"
 
 [node name="Represed" type="Label" parent="HBC"]
+visible = false
 margin_left = 358.0
 margin_right = 458.0
 margin_bottom = 14.0
@@ -46,8 +44,9 @@ __meta__ = {
 }
 
 [node name="Released" type="Label" parent="HBC"]
-margin_left = 462.0
-margin_right = 520.0
+visible = false
+margin_left = 358.0
+margin_right = 416.0
 margin_bottom = 14.0
 text = "Released"
 __meta__ = {

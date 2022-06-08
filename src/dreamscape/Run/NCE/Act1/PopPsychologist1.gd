@@ -42,25 +42,19 @@ func begin() -> void:
 	_prepare_secondary_choices(secondary_choices, {})
 
 func continue_encounter(key) -> void:
+	var pathos_type : PathosType
+	var multiplier: int
 	match key:
 		"tiger":
-			var released_reward = round(
-					globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.nce)
-					* 3 * CFUtils.randf_range(0.8,1.2)
-				)
-			globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.nce, released_reward)
+			pathos_type = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.nce]
+			multiplier = 5
 		"snake":
-			var released_reward = round(
-					globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.enemy)
-					* 3 * CFUtils.randf_range(0.8,1.2)
-				)
-			globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.enemy, released_reward)
+			pathos_type = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy]
+			multiplier = 3
 		"owl":
-			var released_reward = round(
-					globals.player.pathos.get_progression_average(Terms.RUN_ACCUMULATION_NAMES.shop)
-					* 3 * CFUtils.randf_range(0.8,1.2)
-				)
-			globals.player.pathos.modify_released_pathos(Terms.RUN_ACCUMULATION_NAMES.shop, released_reward)
+			pathos_type = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.shop]
+			multiplier = 8
+	pathos_type.released += pathos_type.get_progression_average() * multiplier * CFUtils.randf_range(0.8,1.2)
 	CFUtils.shuffle_array(mad_lib_adjectives)
 	CFUtils.shuffle_array(mad_lib_nouns)
 	var adlib_format = {

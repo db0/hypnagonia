@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/dreamscape/Shop/Shop.gd" type="Script" id=1]
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=2]
 [ext_resource path="res://src/dreamscape/PlayerInfo.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/dreamscape/SelectionDeck.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/icons/GUI/return-arrow.png" type="Texture" id=5]
+[ext_resource path="res://assets/icons/GUI/drama-masks.png" type="Texture" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0588235, 0.0588235, 0.0588235, 1 )
@@ -132,46 +133,102 @@ margin_bottom = 775.0
 
 [node name="MarginUp" type="Control" parent="VBC/VBC/HBC/Buttons"]
 margin_right = 160.0
-margin_bottom = 131.0
+margin_bottom = 115.0
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Remove" type="Button" parent="VBC/VBC/HBC/Buttons"]
-margin_top = 134.0
+margin_top = 118.0
 margin_right = 160.0
-margin_bottom = 294.0
+margin_bottom = 278.0
 rect_min_size = Vector2( 160, 160 )
 text = "Remove Card"
 
-[node name="RemoveCost" type="Label" parent="VBC/VBC/HBC/Buttons"]
-margin_top = 297.0
+[node name="CC" type="CenterContainer" parent="VBC/VBC/HBC/Buttons"]
+margin_top = 281.0
 margin_right = 160.0
-margin_bottom = 318.0
+margin_bottom = 302.0
+
+[node name="VBC" type="VBoxContainer" parent="VBC/VBC/HBC/Buttons/CC"]
+margin_left = 65.0
+margin_right = 94.0
+margin_bottom = 21.0
+
+[node name="HBC" type="HBoxContainer" parent="VBC/VBC/HBC/Buttons/CC/VBC"]
+margin_right = 29.0
+margin_bottom = 21.0
+
+[node name="RemoveCost" type="Label" parent="VBC/VBC/HBC/Buttons/CC/VBC/HBC"]
+margin_right = 6.0
+margin_bottom = 21.0
+align = 1
+
+[node name="RemoveIcon" type="TextureRect" parent="VBC/VBC/HBC/Buttons/CC/VBC/HBC"]
+margin_left = 9.0
+margin_right = 29.0
+margin_bottom = 21.0
+rect_min_size = Vector2( 20, 20 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 6
+
+[node name="RemoveCostUses" type="Label" parent="VBC/VBC/HBC/Buttons"]
+margin_top = 305.0
+margin_right = 160.0
+margin_bottom = 326.0
 align = 1
 
 [node name="Push" type="Control" parent="VBC/VBC/HBC/Buttons"]
-margin_top = 321.0
+margin_top = 329.0
 margin_right = 160.0
-margin_bottom = 453.0
+margin_bottom = 445.0
 size_flags_vertical = 3
 
 [node name="Progress" type="Button" parent="VBC/VBC/HBC/Buttons"]
-margin_top = 456.0
+margin_top = 448.0
 margin_right = 160.0
-margin_bottom = 616.0
+margin_bottom = 608.0
 rect_min_size = Vector2( 160, 160 )
 text = "Progress Card"
 
-[node name="ProgressCost" type="Label" parent="VBC/VBC/HBC/Buttons"]
-margin_top = 619.0
+[node name="CC2" type="CenterContainer" parent="VBC/VBC/HBC/Buttons"]
+margin_top = 611.0
 margin_right = 160.0
-margin_bottom = 640.0
+margin_bottom = 632.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBC/VBC/HBC/Buttons/CC2"]
+margin_left = 65.0
+margin_right = 94.0
+margin_bottom = 21.0
+
+[node name="HBC" type="HBoxContainer" parent="VBC/VBC/HBC/Buttons/CC2/VBoxContainer"]
+margin_right = 29.0
+margin_bottom = 21.0
+
+[node name="ProgressCost" type="Label" parent="VBC/VBC/HBC/Buttons/CC2/VBoxContainer/HBC"]
+margin_right = 6.0
+margin_bottom = 21.0
+align = 1
+
+[node name="ProgressIcon" type="TextureRect" parent="VBC/VBC/HBC/Buttons/CC2/VBoxContainer/HBC"]
+margin_left = 9.0
+margin_right = 29.0
+margin_bottom = 21.0
+rect_min_size = Vector2( 20, 20 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 6
+
+[node name="ProgressCostUses" type="Label" parent="VBC/VBC/HBC/Buttons"]
+margin_top = 635.0
+margin_right = 160.0
+margin_bottom = 656.0
 align = 1
 
 [node name="MarginDown" type="Control" parent="VBC/VBC/HBC/Buttons"]
-margin_top = 643.0
+margin_top = 659.0
 margin_right = 160.0
 margin_bottom = 775.0
 size_flags_vertical = 3

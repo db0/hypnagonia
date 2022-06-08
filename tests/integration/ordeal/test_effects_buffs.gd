@@ -288,6 +288,7 @@ class TestImpervious:
 			torment.intents.refresh_intents()
 		cfc.call_deferred("flush_cache")
 		yield(yield_to(cfc, "cache_cleared", 0.2), YIELD)
+		yield(yield_for(0.1), YIELD)
 		assert_eq(test_torments.size(), 3)
 		for index in range(test_torments.size()):
 			var intents = test_torments[index].intents.get_children()
@@ -435,6 +436,7 @@ class TestArmor:
 
 		cfc.flush_cache()
 		yield(yield_to(cfc, "cache_cleared", 0.2), YIELD)
+		yield(yield_for(0.1), YIELD)
 		remaining_armor = amount
 		var iter := 0
 		for torment in test_torments:
