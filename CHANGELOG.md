@@ -1,5 +1,17 @@
 # Changelog
 
+## [v0.57.0](https://github.com/db0/hypnagonia/tree/v0.57.0) (2022-06-08)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.56.2...v0.57.0)
+
+**Implemented enhancements:**
+
+- Redesigning the shop system [\#347](https://github.com/db0/hypnagonia/issues/347)
+
+**Merged pull requests:**
+
+- Refactored the shop currency [\#357](https://github.com/db0/hypnagonia/pull/357) ([db0](https://github.com/db0))
+
 ## [v0.56.2](https://github.com/db0/hypnagonia/tree/v0.56.2) (2022-05-28)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.56.1...v0.56.2)
