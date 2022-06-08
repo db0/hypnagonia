@@ -591,7 +591,7 @@ func _input(event):
 #			load("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/AllActs/OstrichEggs.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act3/ArtifactReward.gd").new(),
-			load("res://src/dreamscape/Run/NCE/Act2/RiskyEvent3.gd").new(),
+			load("res://src/dreamscape/Run/NCE/Act2/RiskyEvent4.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act1/Spider.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
 #			BossEncounter.new(Act2.BOSSES["Surreality"]),

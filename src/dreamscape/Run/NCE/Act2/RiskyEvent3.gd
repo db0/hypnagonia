@@ -3,7 +3,7 @@
 extends NonCombatEncounter
 
 var amounts := {
-	"emotions": 0.09,
+	"emotions": 0.07,
 	"knowledge": 0.09,
 	"memories": 0.04,
 	"bliss": 0.1,

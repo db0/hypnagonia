@@ -541,8 +541,7 @@ class TestRiskyEvent4:
 		activate_secondary_choice_by_key("help")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_emitted(globals.player, "artifact_added")
-		assert_pathos_signaled("pathos_spent", porg.high.name)
-		assert_eq(porg.high.released, 0, "All specified pathos spent")
+		assert_signal_emitted(globals.player.pathos, "advancements_modified")
 
 	func test_choice_ignore():
 		var porg := set_random_pathos_org("released")
@@ -554,7 +553,7 @@ class TestRiskyEvent4:
 		activate_secondary_choice_by_key("ignore")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_emitted(globals.player, "artifact_added")
-		assert_pathos_signaled("pathos_repressed", nce.ignore_pathos)
+		assert_pathos_signaled("pathos_leveled", nce.ignore_pathos)
 		assert_deck_signaled("card_added", "card_name", "Apathy")
 
 
