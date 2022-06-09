@@ -345,3 +345,24 @@ class TestThickDeckRareChance:
 			if multiplier:
 				value *= multiplier
 		return(value)
+
+
+class TestDoubleFusion:
+	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.DoubleFusion.canonical_name
+
+	func test_artifact_results():
+		var new_card = globals.player.deck.add_new_card("Interpretation")
+		EventBus.emit_signal("card_drafted", new_card)
+		assert_signal_not_emitted(artifact, "artifact_triggered", "Artifact not triggered")
+		new_card = globals.player.deck.add_new_card("Cannon")
+		EventBus.emit_signal("card_drafted", new_card)
+		assert_signal_emit_count(artifact, "artifact_triggered", 1, "Artifact triggered correct amount of times")
+		assert_eq(
+			globals.player.deck.filter_cards(DreamCardFilter.new('_name', "Cannon")).size(),
+			2,
+			"Fusion Draft Card multiplied"
+		)
+
+

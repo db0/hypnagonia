@@ -20,7 +20,7 @@ func begin() -> void:
 #	print_debug(pathos_org)
 	var lowest_pathos = pathos_org["lowest_pathos"]["selected"]
 	var scformat = {
-		"lowest_pathos": lowest_pathos,
+		"lowest_pathos": lowest_pathos.name,
 		"levels": LEVEL_AMOUNT,
 		"perturbation": _prepare_card_popup_bbcode("Discombobulation", "discombobulated")
 	}

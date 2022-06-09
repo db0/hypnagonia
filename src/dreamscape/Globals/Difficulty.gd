@@ -25,7 +25,7 @@ const TOTAL_DIFFICULTY_MAPS := {
 		0.75: 0,
 		1.0: -1,
 	},
-	"shop_prices": {
+	"mastery_difficulties": {
 		1.25: 1,
 		1.0: 0,
 		0.75: -1,
@@ -53,7 +53,7 @@ const DESCRIPTIONS := {
 	"starting_perturbations": "Your starting deck will get the specified amounr of random Perturbations",
 	"progress_increase": "The progress required to upgrade each card will be increased by this amount",
 	"act_healing": "At the end of each act the dreamer will release anxiety equal to this percent of their max anxiety.",
-	"shop_prices": "The shop prices are modified by this percentage.",
+	"mastery_difficulties": "The released pathos required to gain a mastery is modified by this percentage.",
 	"max_health": "The dreamer starting max anxiety is modified by this percentage.",
 	"starting_damage": "The dreamer starts with a prexisting amount of anxiety.",
 	"prevent_basic_cards_release": "Basic (AKA Starting) cards cannot receive an upgrade which removes them permanently from the deck.",
@@ -72,7 +72,7 @@ var total_difficulty := 0
 var starting_perturbations := 0 setget set_starting_perturbations
 var progress_increase := 0 setget set_progress_increase
 var act_healing := 0.75 setget set_act_healing
-var shop_prices := 1.0 setget set_shop_prices
+var mastery_difficulties := 1.0 setget set_mastery_difficulties
 var max_health := 1.0 setget set_max_health
 var starting_damage := 0.0 setget set_starting_damage
 var prevent_basic_cards_release := false setget set_prevent_basic_cards_release
@@ -98,9 +98,9 @@ func set_act_healing(value) -> void:
 	act_healing = _get_percentage_value("act_healing", value)
 	_finalize_value("act_healing", act_healing)
 
-func set_shop_prices(value) -> void:
-	shop_prices = _get_percentage_value("shop_prices", value)
-	_finalize_value("shop_prices", shop_prices)
+func set_mastery_difficulties(value) -> void:
+	mastery_difficulties = _get_percentage_value("mastery_difficulties", value)
+	_finalize_value("mastery_difficulties", mastery_difficulties)
 
 func set_max_health(value) -> void:
 	max_health = _get_percentage_value("max_health", value)
@@ -168,7 +168,7 @@ func recalculate_total_difficulty() -> void:
 	total_difficulty += starting_perturbations
 	total_difficulty += progress_increase / DIFFICULTY_STEPS.progress_increase
 	total_difficulty += TOTAL_DIFFICULTY_MAPS.act_healing[act_healing]
-	total_difficulty += TOTAL_DIFFICULTY_MAPS.shop_prices[shop_prices]
+	total_difficulty += TOTAL_DIFFICULTY_MAPS.mastery_difficulties[mastery_difficulties]
 	total_difficulty += TOTAL_DIFFICULTY_MAPS.max_health[max_health]
 	total_difficulty += TOTAL_DIFFICULTY_MAPS.starting_damage[starting_damage]
 	total_difficulty += calc_boolean_difficulty(prevent_basic_cards_release)

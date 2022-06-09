@@ -91,6 +91,7 @@ func _on_card_draft_selected(option: int, draft_card_object) -> void:
 			child.queue_free()
 	selected_draft = globals.player.deck.add_new_card(draft_card_choices[option])
 	emit_signal("card_drafted", selected_draft)
+	EventBus.emit_signal("card_drafted", selected_draft)
 
 
 func retrieve_draft_cards() -> void:

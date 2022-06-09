@@ -758,7 +758,7 @@ class TestThickHeal:
 		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.damage, 10)
-		
+
 
 class TestDoubleProgressFail:
 	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
@@ -772,7 +772,7 @@ class TestDoubleProgressFail:
 			"Confidence",
 			"Confidence",
 		]
-		
+
 	func test_artifact_effect_succeed():
 		if not assert_has_amounts():
 			return
@@ -782,7 +782,7 @@ class TestDoubleProgressFail:
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
 		assert_eq(card.deck_card_entry.upgrade_progress, 2, "Thick Deck Card Progress Doubled")
-		
+
 	func test_artifact_effect_fail():
 		if not assert_has_amounts():
 			return
@@ -790,4 +790,20 @@ class TestDoubleProgressFail:
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
 		assert_eq(card.deck_card_entry.upgrade_progress, 1, "Thin Deck Card Progress Not Doubled")
-		
+
+
+class TestLightningMarble:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	var dmg = ArtifactDefinitions.LightningMarble.amounts.damage_amount
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.LightningMarble.canonical_name
+		expected_amount_keys = [
+			"damage_amount",
+		]
+
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		assert_eq(test_torment.damage, tdamage(dmg), "Torment Damaged at end of turn")

@@ -28,5 +28,5 @@ func disable() -> void:
 	shop_card_display.is_disabled = true
 	shop_card_display._on_GridCardObject_mouse_exited()
 	
-func _on_advancements_modified(_amount) -> void:
+func _on_advancements_modified(_amount, _old_value) -> void:
 	_update_cost()

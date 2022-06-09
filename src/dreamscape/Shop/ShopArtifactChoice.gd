@@ -11,16 +11,20 @@ onready var shop_cost_icon := find_node('CostIcon')
 
 
 func _ready():
+	# warning-ignore:return_value_discarded
 	globals.player.pathos.connect("advancements_modified", self, "_on_advancements_modified")
 	shop_cost_icon.texture = CFUtils.convert_texture_to_image(shop_cost_icon.texture)
 	
 func _update_cost() -> void:
 	if cost > globals.player.pathos.available_masteries:
 		shop_artifact_cost.add_color_override("font_color", Color(1,0,0))
+		shop_artifact_display.disabled = true
 	elif is_upgrade:
 		shop_artifact_cost.add_color_override("font_color", Color(0,0.386,0.92))
+		shop_artifact_display.disabled = false
 	else:
 		shop_artifact_cost.add_color_override("font_color", Color(1,1,0))
+		shop_artifact_display.disabled = false
 	
 
 func set_cost(value, _is_upgrade := false) -> void:
@@ -32,5 +36,5 @@ func set_cost(value, _is_upgrade := false) -> void:
 		shop_artifact_cost.text = "%s" % [value]
 	_update_cost()
 	
-func _on_advancements_modified(_amount) -> void:
+func _on_advancements_modified(_amount, _old_value) -> void:
 	_update_cost()	

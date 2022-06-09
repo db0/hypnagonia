@@ -555,12 +555,13 @@ func _input(event):
 #		_reveal_entry(upgrade_journal, true)
 		globals.player.deck.add_new_card("Guilt")
 #		globals.player.deck.add_new_card("Catatonia")
-		globals.player.add_artifact(ArtifactDefinitions.FasterShopLevelUp.canonical_name)
+		globals.player.add_artifact(ArtifactDefinitions.DoubleFusion.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.EnhanceOnRest.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.IncreaseRandomDamage.canonical_name)
-#		globals.player.add_artifact(ArtifactDefinitions.BirdHouse.canonical_name)
+#		globals.player.add_artifact(ArtifactDefinitions.BossDraft.canonical_name)
 #		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
 #		globals.player.add_memory(MemoryDefinitions.HealSelf.canonical_name)
+		# warning-ignore:return_value_discarded
 		globals.player.add_memory(MemoryDefinitions.FreezeCard.canonical_name)
 		var card_entry = globals.player.deck.add_new_card("Towering Presence")
 		card_entry.upgrade_progress = card_entry.upgrade_threshold - 1

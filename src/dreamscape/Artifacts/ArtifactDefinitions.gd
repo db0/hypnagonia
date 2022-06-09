@@ -1115,6 +1115,28 @@ const FasterRestLevelUp := {
 	},
 }
 
+const LightningMarble := {
+	"canonical_name": "LightningMarble",
+	"name": "Lightning Marble",
+	"description": "{artifact_name}: At the end of each turn turn, {attack} one random Torment for {damage_amount}.",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.BATTLE,
+	"rarity": "Uncommon",
+	"amounts": {
+		"damage_amount": 3,
+	},
+}
+
+
+const DoubleFusion := {
+	"canonical_name": "DoubleFusion",
+	"name": "Replicator",
+	"description": "{artifact_name}: Whenever you draft a fusion card, gain an extra copy.",
+	"icon": preload("res://assets/icons/artifacts/tumor.png"),
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Rare",
+}
+
 
 ## TODO: Artifact which increases chance to find Fusion cards
 ## TODO. Scipt base doesn't exist yet
@@ -1178,6 +1200,7 @@ const GENERIC := [
 	FasterShopLevelUp,
 	FasterArtifactLevelUp,
 	FasterRestLevelUp,
+	LightningMarble,
 ]
 
 # Archetype-specific artifacts which only appear in runs in which
@@ -1199,6 +1222,7 @@ const ARCHETYPE := [
 	DoubleFirstStartup,
 	ConstantImpervious,
 	StartingFortify,
+	DoubleFusion,
 ]
 
 # These artifacts are only found in non-combat encounters

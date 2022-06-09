@@ -84,22 +84,7 @@ func _ready() -> void:
 #		globals.player.deck.add_new_card("+ Confidence +")
 #		# warning-ignore:return_value_discarded
 #		globals.player.deck.add_new_card("+ Confidence +")
-		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.nce] = 60
-# warning-ignore:return_value_discarded
-		globals.player.pathos.check_for_level_up(Terms.RUN_ACCUMULATION_NAMES.nce)
-		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.rest] = 20
-# warning-ignore:return_value_discarded
-		globals.player.pathos.check_for_level_up(Terms.RUN_ACCUMULATION_NAMES.rest)
-		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.elite] = 1000
-# warning-ignore:return_value_discarded
-		globals.player.pathos.check_for_level_up(Terms.RUN_ACCUMULATION_NAMES.elite)
-		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.enemy] = 100
-# warning-ignore:return_value_discarded
-		globals.player.pathos.check_for_level_up(Terms.RUN_ACCUMULATION_NAMES.enemy)
-		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.artifact] = 100
-# warning-ignore:return_value_discarded
-		globals.player.pathos.check_for_level_up(Terms.RUN_ACCUMULATION_NAMES.artifact)
-		globals.player.pathos.released[Terms.RUN_ACCUMULATION_NAMES.shop] = 11
+		globals.player.pathos.available_masteries = 10
 		# warning-ignore:return_value_discarded
 		var newmem1 = globals.player.add_memory(MemoryDefinitions.RerollShop.canonical_name)
 		newmem1.upgrades_amount = 6
@@ -436,6 +421,6 @@ func _exit_tree():
 	if OS.has_feature("debug") and not cfc.is_testing:
 		print("DEBUG INFO:Shop: Exiting Shop")
 
-func _on_pathos_advancements_modified(_amount) -> void:
+func _on_pathos_advancements_modified(_amount, _old_value) -> void:
 	_update_progress_cost()
 	_update_remove_cost()
