@@ -18,10 +18,13 @@ func _ready():
 func _update_cost() -> void:
 	if cost > globals.player.pathos.available_masteries:
 		shop_artifact_cost.add_color_override("font_color", Color(1,0,0))
+		shop_artifact_display.disabled = true
 	elif is_upgrade:
 		shop_artifact_cost.add_color_override("font_color", Color(0,0.386,0.92))
+		shop_artifact_display.disabled = false
 	else:
 		shop_artifact_cost.add_color_override("font_color", Color(1,1,0))
+		shop_artifact_display.disabled = false
 	
 
 func set_cost(value, _is_upgrade := false) -> void:

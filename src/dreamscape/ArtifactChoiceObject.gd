@@ -3,6 +3,7 @@ extends CombatSignifier
 signal artifact_selected(option)
 var index: int
 var selected := false
+var disabled := false
 
 onready var shader_effect := $ShaderEffect
 onready var bbc := $BackBufferCopy
@@ -50,6 +51,8 @@ func _on_JournalArtifactChoice_gui_input(event: InputEvent) -> void:
 
 func select_self() -> void:
 	if selected: 
+		return
+	if disabled:
 		return
 	selected = true
 	disconnect("gui_input", self, "_on_JournalArtifactChoice_gui_input")
