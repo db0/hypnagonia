@@ -1001,7 +1001,7 @@ const CARDS := {
 	},
 	"* The Victim *": {
 		"Type": "Understanding",
-		"Tags": [Terms.GENERIC_TAGS.alpha.name],
+		"Tags": [],
 		"Abilities": "The first time each turn target torment gets at least {concentration_requirements} {damage} "\
 				+ "from one source, reduce its {focus} by {effect_stacks} for this turn.",
 		"Cost": 0,
