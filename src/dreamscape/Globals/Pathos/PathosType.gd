@@ -186,6 +186,7 @@ func temp_modify_requirements_for_level(amount: int) -> void:
 	var normalized = 1.0 / (10.0 / get_progression_average())
 	temp_modification_for_next_level =\
 			temp_modification_for_next_level + normalized * amount
+	# warning-ignore:return_value_discarded
 	check_for_level_up()
 
 
@@ -197,6 +198,7 @@ func perm_modify_requirements_for_level(amount: int) -> void:
 	var normalized = 1.0 / (10.0 / get_progression_average())
 	perm_modification_for_next_level =\
 			perm_modification_for_next_level + normalized * amount
+	# warning-ignore:return_value_discarded
 	check_for_level_up()
 
 

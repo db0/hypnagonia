@@ -561,6 +561,7 @@ func _input(event):
 		globals.player.add_artifact(ArtifactDefinitions.BossDraft.canonical_name)
 #		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
 #		globals.player.add_memory(MemoryDefinitions.HealSelf.canonical_name)
+		# warning-ignore:return_value_discarded
 		globals.player.add_memory(MemoryDefinitions.FreezeCard.canonical_name)
 		var card_entry = globals.player.deck.add_new_card("Towering Presence")
 		card_entry.upgrade_progress = card_entry.upgrade_threshold - 1
