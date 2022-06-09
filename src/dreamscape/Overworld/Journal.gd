@@ -558,7 +558,7 @@ func _input(event):
 		globals.player.add_artifact(ArtifactDefinitions.DoubleFusion.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.EnhanceOnRest.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.IncreaseRandomDamage.canonical_name)
-		globals.player.add_artifact(ArtifactDefinitions.BossDraft.canonical_name)
+#		globals.player.add_artifact(ArtifactDefinitions.BossDraft.canonical_name)
 #		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
 #		globals.player.add_memory(MemoryDefinitions.HealSelf.canonical_name)
 		# warning-ignore:return_value_discarded

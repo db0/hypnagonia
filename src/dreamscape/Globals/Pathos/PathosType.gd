@@ -152,30 +152,27 @@ func level_up() -> void:
 
 
 func get_progress_pct() -> float:
-	return(released / ((get_progression_average() * released_needed_for_level)
-			+ temp_modification_for_next_level + perm_modification_for_next_level)
-	)
+	return(released / get_level_requirement())
 
 
 func convert_released_num_to_pct(amount: float) -> float:
-	return(
-			(amount / (get_progression_average() * released_needed_for_level))
-			+ temp_modification_for_next_level + perm_modification_for_next_level
-	)
+	return(amount / get_level_requirement())
 
 
 func get_level_requirement() -> float:
 	return(
-			(get_progression_average() * released_needed_for_level)
-			+ temp_modification_for_next_level + perm_modification_for_next_level
+			(
+				get_progression_average()
+				* released_needed_for_level
+				* globals.difficulty.mastery_difficulties
+			)
+			+ temp_modification_for_next_level\
+			+ perm_modification_for_next_level
 	)
 
 
 func convert_pct_to_released(pct: float) -> float:
-	var total = (get_progression_average() * released_needed_for_level)\
-			+ temp_modification_for_next_level\
-			+ perm_modification_for_next_level
-	return(total * pct)
+	return(get_level_requirement() * pct)
 
 
 func temp_modify_requirements_for_level(amount: int) -> void:
