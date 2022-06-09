@@ -1050,6 +1050,7 @@ config/icon="res://icon.png"
 cfc="*res://src/core/CFControl.gd"
 globals="*res://src/dreamscape/Globals/Globals.gd"
 SoundManager="*res://addons/sound_manager/module/SoundManager.tscn"
+EventBus="*res://src/dreamscape/Globals/EventBus.gd"
 
 [display]
 

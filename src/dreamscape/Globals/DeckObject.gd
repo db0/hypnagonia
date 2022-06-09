@@ -86,11 +86,14 @@ func duplicate_card(card_entry: CardEntry) -> CardEntry:
 func signal_card_entry_upgraded(card_entry: CardEntry) -> void:
 	emit_signal("card_entry_upgraded", card_entry)
 
+
 func signal_card_entry_modified(card_entry: CardEntry) -> void:
 	emit_signal("card_entry_modified", card_entry)
 
+
 func signal_card_entry_progressed(card_entry: CardEntry, amount: int) -> void:
 	emit_signal("card_entry_progressed", card_entry, amount)
+
 
 func signal_card_entry_used(card_entry: CardEntry) -> void:
 	emit_signal("card_entry_used", card_entry)
@@ -136,6 +139,7 @@ func get_progressing_cards() -> Array:
 			progressing_cards.append(card_entry)
 	return(progressing_cards)
 
+
 func get_card_needing_most_progress() -> CardEntry:
 	var selected_card: CardEntry
 	var most_progress_needed := 0
@@ -147,6 +151,7 @@ func get_card_needing_most_progress() -> CardEntry:
 			selected_card = card_entry
 			most_progress_needed = card_entry.upgrade_threshold - card_entry.upgrade_progress
 	return(selected_card)
+
 
 func count_progressing_cards() -> int:
 	return(get_progressing_cards().size())
@@ -238,16 +243,19 @@ func get_random_card(card_list = cards) -> CardEntry:
 	CFUtils.shuffle_array(rng_array)
 	return(rng_array.back())
 
+
 func extract_save_state() -> Array:
 	var deck_array := []
 	for ce in cards:
 		deck_array.append(ce.extract_save_state())
 	return(deck_array)
 
+
 func restore_save_state(saved_cards: Array) -> void:
 	for ce_dict in saved_cards:
 		restore_card_entry(ce_dict)
-		
+
+
 func restore_card_entry(saved_entry: Dictionary) -> void:
 	var new_card = add_new_card(saved_entry.card_name)
 	new_card.restore_save_state(saved_entry)
