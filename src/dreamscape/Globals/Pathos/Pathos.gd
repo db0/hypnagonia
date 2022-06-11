@@ -265,6 +265,8 @@ func extract_save_state() -> Dictionary:
 		pathos_dict[pathos_type.name]["repressed"] = pathos_type.repressed
 		pathos_dict[pathos_type.name]["released"] = pathos_type.released
 		pathos_dict[pathos_type.name]["level"] = pathos_type.level
+		pathos_dict[pathos_type.name]["temp_modification_for_next_level"] = pathos_type.temp_modification_for_next_level
+		pathos_dict[pathos_type.name]["perm_modification_for_next_level"] = pathos_type.perm_modification_for_next_level
 		
 	return(pathos_dict)
 
@@ -274,6 +276,8 @@ func restore_save_state(save_state: Dictionary) -> void:
 		pathos_type._set_repressed(save_state[pathos_type.name].repressed, true)
 		pathos_type._set_released(save_state[pathos_type.name].released, true)
 		pathos_type.level = save_state[pathos_type.name].level
+		pathos_type.temp_modification_for_next_level = save_state[pathos_type.name].temp_modification_for_next_level
+		pathos_type.perm_modification_for_next_level = save_state[pathos_type.name].perm_modification_for_next_level
 	available_masteries = save_state.available_masteries
 
 
