@@ -112,9 +112,10 @@ func retrieve_draft_cards() -> void:
 		CFUtils.shuffle_array(card_names)
 		if card_names.size():
 			for card_name in card_names:
-				if not _card_draft_choice_exists(card_name):
-					_add_draft_choice(card_name)
-					break
+				if _card_draft_choice_exists(card_name):
+					continue
+				_add_draft_choice(card_name)
+				break
 	# Normally this should always exist, but might not, in GUT
 	if globals.current_encounter:
 		draft_card_choices += globals.current_encounter.return_extra_draft_cards()

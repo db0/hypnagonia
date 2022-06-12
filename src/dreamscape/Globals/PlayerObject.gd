@@ -88,6 +88,13 @@ func compile_rarity_cards(rarity: String, aspect_limit = null) -> Array:
 		if aspect_limit and key != aspect_limit:
 			continue
 		rarity_cards += Aspects[key.to_upper()][deck_groups[key]][rarity]
+		for card_name in rarity_cards.duplicate():
+			var difficulty_ban: Dictionary = cfc.card_definitions[card_name].get("_difficulty_ban", {})
+			for difficulty_setting in difficulty_ban:
+				if globals.difficulty.get(difficulty_setting) == difficulty_ban[difficulty_setting]:
+					rarity_cards.erase(card_name)
+#					print_debug("Ignoring %s due to %s == %s" % [card_name, difficulty_setting, difficulty_ban[difficulty_setting]])
+					break
 	return(rarity_cards)
 
 
