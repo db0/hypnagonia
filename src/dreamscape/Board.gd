@@ -1,9 +1,6 @@
 class_name DreamBoard
 extends Board
 
-signal battle_begun
-signal battle_ended
-signal game_over
 signal enemy_spawned(entity)
 signal player_added(entity)
 
@@ -90,8 +87,6 @@ func _ready() -> void:
 	cfc.connect("cache_cleared", self, 'spool_recalc_predictions')
 	player_info.health_icon.connect_dreamer_signals(dreamer)
 #	begin_encounter()
-	# warning-ignore:return_value_discarded
-	connect("battle_begun", cfc.signal_propagator, "_on_signal_received", [self, "battle_begun", {}])
 	cfc.map_node(self)
 #
 func _process(_delta: float) -> void:
@@ -128,7 +123,7 @@ func begin_encounter() -> void:
 		while not cfc.NMAP.hand.is_hand_refilled:
 			yield(cfc.NMAP.hand, "hand_refilled")
 	turn.encounter_event_count.clear()
-	emit_signal("battle_begun")
+	EventBus.emit_signal("battle_begun")
 	turn.start_player_turn()
 	if not cfc.game_settings.get('first_ordeal_tutorial_done'):
 		player_info._on_Help_pressed()
@@ -364,7 +359,7 @@ func complete_battle() -> void:
 	_fade_to_transparent()
 	if _tween.is_active():
 		yield(_tween, "tween_all_completed")
-	emit_signal("battle_ended")
+	EventBus.emit_signal("battle_ended")
 #	cfc.game_paused = true
 #	mouse_pointer.forget_focus()
 #	end_turn.disabled = true
@@ -378,7 +373,7 @@ func game_over() -> void:
 	_fade_to_transparent()
 	if _tween.is_active():
 		yield(_tween, "tween_all_completed")
-	emit_signal("game_over")
+	EventBus.emit_signal("game_over")
 #	cfc.game_paused = true
 #	mouse_pointer.forget_focus()
 #	end_turn.disabled = true

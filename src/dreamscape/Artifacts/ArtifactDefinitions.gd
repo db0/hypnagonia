@@ -1138,6 +1138,24 @@ const DoubleFusion := {
 }
 
 
+const ThickThorns := {
+	"canonical_name": "ThickThorns",
+	"name": "Black Rose",
+	"description": "{artifact_name}: At that start of each Ordeal turn, gain {effect_stacks} {thorns}. "\
+		+ "Lose {detrimental_integer} {thorns} whenever your deck is reshuffled.",
+	"icon": preload("res://assets/icons/artifacts/black_rose.png"),
+	"context": EffectContext.BATTLE,
+	"rarity": "Rare",
+	"amounts": {
+		"effect_stacks": 2,
+		"detrimental_integer": 4,
+	},
+	"linked_terms": [
+		Terms.ACTIVE_EFFECTS.thorns.name,
+	],
+}
+
+
 ## TODO: Artifact which increases chance to find Fusion cards
 ## TODO. Scipt base doesn't exist yet
 #const DoubleMemory := {
@@ -1201,6 +1219,7 @@ const GENERIC := [
 	FasterArtifactLevelUp,
 	FasterRestLevelUp,
 	LightningMarble,
+	ThickThorns,
 ]
 
 # Archetype-specific artifacts which only appear in runs in which

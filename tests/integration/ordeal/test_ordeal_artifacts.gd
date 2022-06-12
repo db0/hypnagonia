@@ -844,3 +844,47 @@ class TestLimitMaxExert:
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
 		assert_eq(dreamer.damage, 10)
+
+class TestThickThorns:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.ThickThorns.canonical_name
+		pre_init_artifacts.append(ArtifactDefinitions.ThickThorns.canonical_name)
+		expected_amount_keys = [
+			"effect_stacks",
+			"detrimental_integer",
+		]
+		globals.test_flags["test_initial_hand"] = true
+
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		for iter in range(10):
+			add_single_card('Confidence', deck)
+		var effect_name = Terms.ACTIVE_EFFECTS.thorns.name
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect_name),
+				get_amount("effect_stacks"),
+				"%s gives %s first turn" % [artifact.name, effect_name])
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect_name),
+				get_amount("effect_stacks") * 2 - 1,
+				"%s gives %s every turn" % [artifact.name, effect_name])
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect_name),
+				get_amount("effect_stacks") * 3 - 2,
+				"%s gives %s every turn" % [artifact.name, effect_name])
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect_name),
+				get_amount("effect_stacks") * 4 - 3,
+				"%s gives %s every turn" % [artifact.name, effect_name])
+		deck.shuffle_cards()
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(deck, "shuffle_completed", 0.5), YIELD)
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect_name),
+				0,
+				"%s removed $s %s stacks after reshuffle" % [artifact.name, get_amount("detrimental_integer"), ])
+		assert_true(artifact.is_active, "Artifact should be disabled after shuffling")
+

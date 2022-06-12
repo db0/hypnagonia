@@ -38,7 +38,7 @@ func setup_advanced(difficulty: String = "medium") -> void:
 
 func _ready() -> void:
 	if not cfc.NMAP.board.dreamer:
-		yield(cfc.NMAP.board, "battle_begun")
+		yield(EventBus, "battle_begun")
 	cfc.NMAP.board.dreamer.connect("effect_modified", self, "_on_dreamer_effect_modified")
 	cfc.NMAP.board.dreamer.connect("entity_defence_modified", self, "_on_dreamer_defended")
 	cfc.NMAP.board.dreamer.connect("entity_healed", self, "_on_dreamer_healed")
