@@ -12,6 +12,6 @@ class TestEndingHeal:
 	func test_artifact_effect():
 		if not assert_has_amounts():
 			return
-		board.complete_battle()
-		yield(yield_to(EventBus, "battle_ended", 0.2), YIELD)
+		board.call_deferred("complete_battle")
+		yield(yield_to(EventBus, "battle_ended", 4.2), YIELD)
 		assert_eq(globals.player.damage, dreamer_starting_damage - get_amount("heal_amount"))

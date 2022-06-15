@@ -591,7 +591,8 @@ func spawn_card_to_container(script: ScriptTask) -> void:
 			card.set_to_idle()
 		# We set the drawn cards as the subjects, so that they can be
 		# used by other followup scripts
-		yield(cfc.get_tree().create_timer(0.2), "timeout")
+		var yield_time = script.get_property(SP.KEY_YIELD_TIME)
+		yield(cfc.get_tree().create_timer(yield_time), "timeout")
 		spawned_cards.append(card)
 	script.subjects = spawned_cards
 

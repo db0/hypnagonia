@@ -198,7 +198,7 @@ class TestTorments:
 			},
 		]
 		for t in test_torments:
-			t.die()
+			t.call_deferred("die")
 			yield(yield_for(0.2), YIELD)
 		yield(yield_to(EventBus,"battle_ended", 2.1), YIELD)
 		assert_signal_emit_count(EventBus, "battle_ended", 1)

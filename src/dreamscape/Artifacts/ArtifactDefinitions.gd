@@ -1156,6 +1156,23 @@ const ThickThorns := {
 }
 
 
+const ThickBoss := {
+	"canonical_name": "ThickBoss",
+	"name": "Buddha Figurine",
+	"description": "{artifact_name}: You have {immersion_amount} extra {energy} per turn.\n"\
+			+ "At the start of each ordeal, add a number of Perturbations in your discard pile until your deck size is {min_deck_size}",
+	"icon": GENERIC_BOSS_ARTIFACT_ICON,
+	"context": EffectContext.BATTLE,
+	"rarity": "Boss",
+	"amounts": {
+		"min_deck_size": 30,
+		"immersion_amount": 1,
+	},
+	"linked_terms": [
+		"energy",
+	],
+}
+
 ## TODO: Artifact which increases chance to find Fusion cards
 ## TODO. Scipt base doesn't exist yet
 #const DoubleMemory := {
@@ -1262,6 +1279,7 @@ const BOSS := [
 	NoRest,
 	SmallerDrafts,
 	BirdHouse,
+	ThickBoss,
 ]
 
 
