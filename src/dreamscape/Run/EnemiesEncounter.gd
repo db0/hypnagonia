@@ -58,7 +58,9 @@ func _on_board_instanced() -> void:
 
 func end() -> void:
 	.end()
-	globals.journal.display_enemy_rewards(reward_description)
+	# We're doing an if-clause to avoid failing during fast testing teradown
+	if is_instance_valid(globals.journal):
+		globals.journal.display_enemy_rewards(reward_description)
 
 
 func return_extra_draft_cards() -> Array:
