@@ -1174,7 +1174,7 @@ const ThickBoss := {
 }
 
 
-const NoChoice := {
+const NoChoice := { # TODO: Tests
 	"canonical_name": "NoChoice",
 	"name": "Funky Compass",
 	"description": "{artifact_name}: You have {immersion_amount} extra {energy} per turn.\n"\
@@ -1208,7 +1208,7 @@ const CostlyUpgrades := {
 	],
 }
 
-const NoSmith := {
+const NoSmith := { # TODO: Tests
 	"canonical_name": "NoSmith",
 	"name": "Espresso Machine",
 	"description": "{artifact_name}: You have {immersion_amount} extra {energy} per turn.\n"\
@@ -1218,6 +1218,23 @@ const NoSmith := {
 	"rarity": "Boss",
 	"amounts": {
 		"immersion_amount": 1,
+	},
+	"linked_terms": [
+		"energy",
+	],
+}
+
+const CursedCurios := { # TODO: Tests
+	"canonical_name": "CursedCurios",
+	"name": "Disturbing Curios",
+	"description": "{artifact_name}: You have {immersion_amount} extra {energy} per turn.\n"\
+			+ "All recalled curios, always give 1 extra {perturbation}",
+	"icon": GENERIC_BOSS_ARTIFACT_ICON,
+	"context": EffectContext.BATTLE,
+	"rarity": "Boss",
+	"amounts": {
+		"immersion_amount": 1,
+		"chance_multiplier": 2,
 	},
 	"linked_terms": [
 		"energy",
@@ -1334,6 +1351,7 @@ const BOSS := [
 	NoChoice,
 	CostlyUpgrades,
 	NoSmith,
+	CursedCurios,
 ]
 
 
