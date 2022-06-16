@@ -1,5 +1,18 @@
 # Changelog
 
+## [v0.58.0](https://github.com/db0/hypnagonia/tree/v0.58.0) (2022-06-16)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.57.1...v0.58.0)
+
+**Fixed bugs:**
+
+- Limit maximum rationalizations might be preventing all rationalizations anxiety [\#360](https://github.com/db0/hypnagonia/issues/360)
+- Hyperfocus breaks the game when Permanent Immersion is active [\#359](https://github.com/db0/hypnagonia/issues/359)
+
+**Merged pull requests:**
+
+- Added extra Boss Curios [\#361](https://github.com/db0/hypnagonia/pull/361) ([db0](https://github.com/db0))
+
 ## [v0.57.1](https://github.com/db0/hypnagonia/tree/v0.57.1) (2022-06-09)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.57.0...v0.57.1)
@@ -187,20 +200,20 @@
 
 ## [v0.50.4](https://github.com/db0/hypnagonia/tree/v0.50.4) (2022-04-28)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.2...v0.50.4)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.3...v0.50.4)
 
 **Merged pull requests:**
 
 - fix: Rest upgrade should only do 5 steps [\#312](https://github.com/db0/hypnagonia/pull/312) ([db0](https://github.com/db0))
 - content\(art\): More Flyercards from @SkylarkHYP [\#311](https://github.com/db0/hypnagonia/pull/311) ([db0](https://github.com/db0))
 
-## [v0.50.2](https://github.com/db0/hypnagonia/tree/v0.50.2) (2022-04-27)
-
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.3...v0.50.2)
-
 ## [v0.50.3](https://github.com/db0/hypnagonia/tree/v0.50.3) (2022-04-27)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.1...v0.50.3)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.2...v0.50.3)
+
+## [v0.50.2](https://github.com/db0/hypnagonia/tree/v0.50.2) (2022-04-27)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.1...v0.50.2)
 
 **Merged pull requests:**
 
