@@ -67,7 +67,7 @@ class TestStartingCards:
 		expected_amount_keys = [
 			"draw_amount",
 		]
-		
+
 	func test_artifact_effect():
 		if not assert_has_amounts():
 			return
@@ -81,7 +81,7 @@ class TestStartingImmersion:
 		expected_amount_keys = [
 			"immersion_amount",
 		]
-		
+
 	func test_artifact_effect():
 		if not assert_has_amounts():
 			return
@@ -95,7 +95,7 @@ class TestStartingStrength:
 		expected_amount_keys = [
 			"effect_stacks",
 		]
-		
+
 	func test_artifact_effect():
 		if not assert_has_amounts():
 			return
@@ -109,7 +109,7 @@ class TestStartingThorns:
 		expected_amount_keys = [
 			"effect_stacks",
 		]
-		
+
 	func test_artifact_effect():
 		if not assert_has_amounts():
 			return
@@ -123,7 +123,7 @@ class TestStartingConfidence:
 		expected_amount_keys = [
 			"defence_amount",
 		]
-		
+
 	func test_artifact_effect():
 		if not assert_has_amounts():
 			return
@@ -141,7 +141,7 @@ class TestPerturbationHeal:
 		expected_amount_keys = [
 			"heal_amount",
 		]
-		
+
 	func test_artifact_effect():
 		if not assert_has_amounts():
 			return
@@ -171,7 +171,7 @@ class TestRepressedEnemyBuff:
 			"mastery_amount",
 		]
 		set_pathos_level[Terms.RUN_ACCUMULATION_NAMES.enemy] = 7
-		
+
 	func test_artifact_effect():
 		if not assert_has_amounts():
 			return
@@ -189,14 +189,14 @@ class TestStartingDisempower:
 		expected_amount_keys = [
 			"effect_stacks",
 		]
-		
+
 	func test_artifact_effect():
 		if not assert_has_amounts():
 			return
 		board.call_deferred("begin_encounter")
 		yield(yield_to(artifact, "artifact_triggered", 1), YIELD)
 		for torment in test_torments:
-			assert_eq(torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.disempower.name), 
+			assert_eq(torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.disempower.name),
 					get_amount("effect_stacks"),
 					"All Torments should have received disempower")
 
@@ -209,14 +209,14 @@ class TestStartingVulnerable:
 		expected_amount_keys = [
 			"effect_stacks",
 		]
-		
+
 	func test_artifact_effect():
 		if not assert_has_amounts():
 			return
 		board.call_deferred("begin_encounter")
 		yield(yield_to(artifact, "artifact_triggered", 1), YIELD)
 		for torment in test_torments:
-			assert_eq(torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.vulnerable.name), 
+			assert_eq(torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.vulnerable.name),
 					get_amount("effect_stacks"),
 					"All Torments should have received vulnerable")
 
@@ -229,14 +229,14 @@ class TestDoubleFirstStartup:
 			"Precision",
 			"Precision",
 		]
-		
+
 	func test_artifact_effect():
 		if not assert_has_amounts():
 			return
 		board.call_deferred("begin_encounter")
 		yield(yield_to(artifact, "artifact_triggered", 1), YIELD)
 		for torment in test_torments:
-			assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 
+			assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name),
 					6, "One startup effect triggered twice")
 
 
@@ -295,7 +295,7 @@ class TestStartingFortify:
 		expected_amount_keys = [
 			"effect_stacks",
 		]
-		
+
 	func test_artifact_effect():
 		if not assert_has_amounts():
 			return
@@ -303,3 +303,43 @@ class TestStartingFortify:
 		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.fortify.name), 0)
+
+
+class TestThickBoss:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.ThickBoss.canonical_name
+		pre_init_artifacts.append(ArtifactDefinitions.ThickBoss.canonical_name)
+		expected_amount_keys = [
+			"min_deck_size",
+			"immersion_amount",
+		]
+
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		yield(yield_for(2), YIELD)
+		assert_eq(counters.get_counter("immersion"), 4)
+		assert_eq(discard.get_card_count(), get_amount("min_deck_size") - globals.player.deck.count_cards())
+
+class TestThickBossFullDeck:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.ThickBoss.canonical_name
+		pre_init_artifacts.append(ArtifactDefinitions.ThickBoss.canonical_name)
+		expected_amount_keys = [
+			"min_deck_size",
+			"immersion_amount",
+		]
+		
+	func test_full_deck():
+		if not assert_has_amounts():
+			return
+		yield(yield_for(2), YIELD)
+		assert_eq(counters.get_counter("immersion"), 4)
+		assert_eq(discard.get_card_count(), 0)
+
+	# To override for extra stuff
+	func extra_hypnagonia_setup():
+		for iter in ArtifactDefinitions.ThickBoss.amounts.min_deck_size - globals.player.deck.count_cards():
+			var ce = globals.player.deck.add_new_card("Interpretation")

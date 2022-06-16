@@ -24,7 +24,9 @@ func end() -> void:
 
 func game_over() -> void:
 	cfc.quit_game()
-	globals.journal.display_loss()
+	# We're doing an if-clause to avoid failing during fast testing teradown
+	if is_instance_valid(globals.journal):
+		globals.journal.display_loss()
 	emit_signal("encounter_end", self)
 
 

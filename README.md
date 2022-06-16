@@ -54,9 +54,10 @@ See the issue tracker for progress and more ideas and feel free to suggest more.
 ## Done
 
 * Three unique acts with different encounters and torments in each.
-* 5 initial card groups
-* Curios
-* Memories
+* 200+ cards
+* 7 card pool groups
+* 50+ Curios
+* 25+ Memories
 * Shop
 * Non-ordeal encounters
 * Elite Torments

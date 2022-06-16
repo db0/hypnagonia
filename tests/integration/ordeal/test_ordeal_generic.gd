@@ -49,7 +49,7 @@ class TestGeneric:
 		dreamer.health = 70
 		board.complete_battle()
 		assert_true(board.battle_ended)
-		assert_signal_emit_count(board, "battle_ended", 1)
+		assert_signal_emit_count(EventBus, "battle_ended", 1)
 		assert_eq(globals.player.damage, 50, "Player damage synced back to globals")
 		assert_eq(globals.player.health, 70, "Player health synced back to globals")
 
@@ -57,8 +57,7 @@ class TestGeneric:
 		watch_signals(board)
 		board.game_over()
 		assert_true(board.battle_ended)
-		assert_true(board.battle_ended)
-		assert_signal_emit_count(board, "game_over", 1)
+		assert_signal_emit_count(EventBus, "game_over", 1)
 
 class TestRounds:
 	extends "res://tests/HUT_Ordeal_GenericTestClass.gd"
@@ -198,10 +197,10 @@ class TestTorments:
 			},
 		]
 		for t in test_torments:
-			t.die()
+			t.call_deferred("die")
 			yield(yield_for(0.2), YIELD)
-		yield(yield_to(board,"battle_ended", 2.1), YIELD)
-		assert_signal_emit_count(board, "battle_ended", 1)
+		yield(yield_to(EventBus,"battle_ended", 2.1), YIELD)
+		assert_signal_emit_count(EventBus, "battle_ended", 1)
 
 	func test_overcome_during_own_turn():
 		watch_signals(board)

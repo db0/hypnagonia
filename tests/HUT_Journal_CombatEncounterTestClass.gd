@@ -64,7 +64,7 @@ func begin_enemy_encounter() -> void:
 	assert_has(cfc.NMAP, "board")
 	if not cfc.NMAP.has("board"):
 		return
-	yield(yield_to(cfc.NMAP.board, "battle_begun", 2), YIELD)
+	yield(yield_to(EventBus, "battle_begun", 2), YIELD)
 	test_torments = get_tree().get_nodes_in_group("EnemyEntities")
 	if test_torments.size() > 0:
 		test_torment = get_tree().get_nodes_in_group("EnemyEntities")[0]

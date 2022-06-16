@@ -65,7 +65,8 @@ func begin() -> void:
 		secondary_choices['upgrade_memories'] = unlockable_choices['upgrade_memories']
 		if upgrade_memories.counter >= ArtifactDefinitions.EnhanceOnRest.max_uses:
 			disabled_choices.append('upgrade_memories')
-	if globals.player.deck.count_progressing_cards() < 1:
+	var no_smith = globals.player.find_artifact(ArtifactDefinitions.NoSmith.canonical_name)
+	if globals.player.deck.count_progressing_cards() < 1 or no_smith:
 		disabled_choices.append('progress')
 	var no_rest = globals.player.find_artifact(ArtifactDefinitions.NoRest.canonical_name)
 	if no_rest:

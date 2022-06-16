@@ -1246,10 +1246,8 @@ const CARDS := {
 			"@ Towering Presence @",
 			"Overwhelming Presence",
 		],
-		"_difficulty_cost_adjustment": {
-			"permanent_defence": {
-				true: 3
-			}
+		"_difficulty_ban": {
+			"permanent_defence": true
 		}
 	},
 	"@ Towering Presence @": {
@@ -1261,11 +1259,6 @@ const CARDS := {
 		"_rarity": "Common",
 		"_keywords": ["confidence", "interpretation"],
 		"_is_upgrade": true,
-		"_difficulty_cost_adjustment": {
-			"permanent_defence": {
-				true: 3
-			}
-		}
 	},
 	"Overwhelming Presence": {
 		"Type": "Action",
@@ -1279,11 +1272,6 @@ const CARDS := {
 			"damage_amount": 6,
 		},
 		"_is_upgrade": true,
-		"_difficulty_cost_adjustment": {
-			"permanent_defence": {
-				true: 3
-			}
-		}
 	},
 	"Unassailable": {
 		"Type": "Concentration",
@@ -4178,6 +4166,9 @@ const CARDS := {
 			"+ Hyperfocus +",
 			"* Hyperfocus *",
 		],
+		"_difficulty_ban": {
+			"permanent_immersion": true
+		}
 	},
 	"+ Hyperfocus +": {
 		"Type": "Control",

@@ -555,7 +555,7 @@ func _input(event):
 #		_reveal_entry(upgrade_journal, true)
 		globals.player.deck.add_new_card("Guilt")
 #		globals.player.deck.add_new_card("Catatonia")
-		globals.player.add_artifact(ArtifactDefinitions.DoubleFusion.canonical_name)
+		globals.player.add_artifact(ArtifactDefinitions.CursedCurios.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.EnhanceOnRest.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.IncreaseRandomDamage.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.BossDraft.canonical_name)
@@ -573,6 +573,7 @@ func _input(event):
 #		globals.player.deck.add_new_card("Prejudice")
 #		globals.player.damage += 20
 		globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.shop].released = 100
+#		globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.artifact].repressed = 100
 #		globals.player.damage = 85
 		globals.player.pathos.available_masteries += 6
 		var debug_encounters = [
@@ -584,7 +585,7 @@ func _input(event):
 			load("res://src/dreamscape/Run/NCE/Act3/UnderwaterCave.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act2/RiskyEvent4.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act1/Spider.gd").new(),
-#			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
+			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
 #			BossEncounter.new(Act2.BOSSES["Surreality"]),
 #			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
 #			EliteEncounter.new(Act1.Bully, "medium"),

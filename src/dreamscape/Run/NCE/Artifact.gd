@@ -25,6 +25,7 @@ func begin() -> void:
 	var luck_up = globals.player.find_artifact(ArtifactDefinitions.ReduceCurioRerollPerturbChance.canonical_name)
 	if luck_up:
 		perturbation_chance *= ArtifactDefinitions.ReduceCurioRerollPerturbChance.amounts.chance_multiplier
+	# warning-ignore:narrowing_conversion
 	accumulated = pathos_type.repressed
 	# The rarity of artifact found is based on the accumulated pathos
 	# warning-ignore:integer_division
@@ -55,6 +56,15 @@ func continue_encounter(key) -> void:
 						"perturbation_text": _prepare_card_popup_bbcode(new_card.card_name, "created an unstable state for myself"),
 					}
 					reward_text = "Making these waves {perturbation_text}".format(ptformat)
+			var cursed_curios = globals.player.find_artifact(ArtifactDefinitions.CursedCurios.canonical_name)
+			if cursed_curios:
+				var new_card = globals.player.deck.add_new_card(Perturbations.get_random_perturbation(
+						globals.player.get_archetype_perturbations()))
+				var ptformat = {
+					"cursed_perturbation": _prepare_card_popup_bbcode(new_card.card_name, "made things even worse"),
+					"cursed_curios_name": cursed_curios.definition.name,
+				}
+				reward_text += "\n{cursed_curios_name}: {cursed_perturbation}".format(ptformat)
 			end()
 			globals.journal.display_nce_rewards(reward_text)
 		"grab_second":
@@ -62,7 +72,7 @@ func continue_encounter(key) -> void:
 			globals.player.add_artifact(artifact_prep.selected_artifacts[1].canonical_name)
 			# warning-ignore:return_value_discarded
 			var ptformat = {
-				"perturbation_text": '',
+				"perturbation_text": 'left me unshaken',
 				"perturbation_text2": '',
 			}
 			var perturb_rng = CFUtils.randf_range(0.0, 1.0)
@@ -80,6 +90,15 @@ func continue_encounter(key) -> void:
 					else:
 						ptformat["perturbation_text2"] = _prepare_card_popup_bbcode(new_card2.card_name, " and shook something loose")
 			var reward_text = "I dug deeper into my own throughts to retrieve it. The experience {perturbation_text}{perturbation_text2}.".format(ptformat)
+			var cursed_curios = globals.player.find_artifact(ArtifactDefinitions.CursedCurios.canonical_name)
+			if cursed_curios:
+				var new_card = globals.player.deck.add_new_card(Perturbations.get_random_perturbation(
+						globals.player.get_archetype_perturbations()))
+				var cformat = {
+					"cursed_perturbation": _prepare_card_popup_bbcode(new_card.card_name, "made things even worse"),
+					"cursed_curios_name": cursed_curios.definition.name,
+				}
+				reward_text += "\n{cursed_curios_name} {cursed_perturbation}.".format(cformat)
 			end()
 			globals.journal.display_nce_rewards(reward_text)
 		"avoid":

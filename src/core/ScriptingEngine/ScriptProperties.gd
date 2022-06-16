@@ -347,6 +347,12 @@ const KEY_STORE_INTEGER := "store_integer"
 #
 # specified how many of the "thing" done by the task, to perform.
 const KEY_OBJECT_COUNT := "object_count"
+# Value Type: Float (Default = 0.2).
+#
+# Specifies how long some scripts should take between iterations
+#
+# used in spawn_card_to_container
+const KEY_YIELD_TIME:= "yield_time"
 # Value Type: String
 #
 # Used in conjunction with the following tasks
@@ -1278,6 +1284,8 @@ static func get_default(property: String):
 			default = "manual"
 		KEY_SORT_BY:
 			default = "node_index"
+		KEY_YIELD_TIME:
+			default = 0.2
 		_:
 			default = null
 	return(default)

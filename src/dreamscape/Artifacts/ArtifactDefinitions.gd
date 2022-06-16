@@ -1138,6 +1138,109 @@ const DoubleFusion := {
 }
 
 
+const ThickThorns := {
+	"canonical_name": "ThickThorns",
+	"name": "Black Rose",
+	"description": "{artifact_name}: At that start of each Ordeal turn, gain {effect_stacks} {thorns}. "\
+		+ "Lose {detrimental_integer} {thorns} whenever your deck is reshuffled.",
+	"icon": preload("res://assets/icons/artifacts/black_rose.png"),
+	"context": EffectContext.BATTLE,
+	"rarity": "Rare",
+	"amounts": {
+		"effect_stacks": 2,
+		"detrimental_integer": 4,
+	},
+	"linked_terms": [
+		Terms.ACTIVE_EFFECTS.thorns.name,
+	],
+}
+
+
+const ThickBoss := {
+	"canonical_name": "ThickBoss",
+	"name": "Buddha Figurine",
+	"description": "{artifact_name}: You have {immersion_amount} extra {energy} per turn.\n"\
+			+ "At the start of each ordeal, add a number of Perturbations in your discard pile until your deck size is {min_deck_size}",
+	"icon": GENERIC_BOSS_ARTIFACT_ICON,
+	"context": EffectContext.BATTLE,
+	"rarity": "Boss",
+	"amounts": {
+		"min_deck_size": 30,
+		"immersion_amount": 1,
+	},
+	"linked_terms": [
+		"energy",
+	],
+}
+
+
+const NoChoice := { # TODO: Tests
+	"canonical_name": "NoChoice",
+	"name": "Funky Compass",
+	"description": "{artifact_name}: You have {immersion_amount} extra {energy} per turn.\n"\
+			+ "You only ever get 1 choice for each journal page",
+	"icon": GENERIC_BOSS_ARTIFACT_ICON,
+	"context": EffectContext.BATTLE,
+	"rarity": "Boss",
+	"amounts": {
+		"immersion_amount": 1,
+	},
+	"linked_terms": [
+		"energy",
+	],
+}
+
+
+const CostlyUpgrades := {
+	"canonical_name": "CostlyUpgrades",
+	"name": "Costly Upgrades",
+	"description": "{artifact_name}: You have {immersion_amount} extra {energy} per turn.\n"\
+			+ "Massively increase the time needed to gain {pathos} masteries.",
+	"icon": GENERIC_BOSS_ARTIFACT_ICON,
+	"context": EffectContext.BATTLE,
+	"rarity": "Boss",
+	"amounts": {
+		"immersion_amount": 1,
+		"pathos_req_increase": 100,
+	},
+	"linked_terms": [
+		"energy",
+	],
+}
+
+const NoSmith := { # TODO: Tests
+	"canonical_name": "NoSmith",
+	"name": "Espresso Machine",
+	"description": "{artifact_name}: You have {immersion_amount} extra {energy} per turn.\n"\
+			+ "You cannot progress cards during deep torpor anymore.",
+	"icon": preload("res://assets/icons/artifacts/moka-pot.png"),
+	"context": EffectContext.BATTLE,
+	"rarity": "Boss",
+	"amounts": {
+		"immersion_amount": 1,
+	},
+	"linked_terms": [
+		"energy",
+	],
+}
+
+const CursedCurios := { # TODO: Tests
+	"canonical_name": "CursedCurios",
+	"name": "Disturbing Curios",
+	"description": "{artifact_name}: You have {immersion_amount} extra {energy} per turn.\n"\
+			+ "All recalled curios, always give 1 extra {perturbation}",
+	"icon": GENERIC_BOSS_ARTIFACT_ICON,
+	"context": EffectContext.BATTLE,
+	"rarity": "Boss",
+	"amounts": {
+		"immersion_amount": 1,
+		"chance_multiplier": 2,
+	},
+	"linked_terms": [
+		"energy",
+	],
+}
+
 ## TODO: Artifact which increases chance to find Fusion cards
 ## TODO. Scipt base doesn't exist yet
 #const DoubleMemory := {
@@ -1201,6 +1304,7 @@ const GENERIC := [
 	FasterArtifactLevelUp,
 	FasterRestLevelUp,
 	LightningMarble,
+	ThickThorns,
 ]
 
 # Archetype-specific artifacts which only appear in runs in which
@@ -1243,6 +1347,11 @@ const BOSS := [
 	NoRest,
 	SmallerDrafts,
 	BirdHouse,
+	ThickBoss,
+	NoChoice,
+	CostlyUpgrades,
+	NoSmith,
+	CursedCurios,
 ]
 
 

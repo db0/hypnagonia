@@ -526,3 +526,20 @@ class TestFasterShopLevelUp:
 		var ptype : PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.shop]
 		assert_ne(ptype.perm_modification_for_next_level, 0)
 
+
+class TestCostlyUpgrades:
+	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.CostlyUpgrades.canonical_name
+		expected_amount_keys = [
+			"pathos_req_increase",
+			"immersion_amount",
+		]
+
+	func test_artifact_results():
+		if not assert_has_amounts():
+			return
+		for p in globals.player.pathos.pathi.values():
+			var ptype : PathosType = p
+			assert_ne(ptype.perm_modification_for_next_level, 0)
+
