@@ -73,11 +73,11 @@ func extra_board_setup() -> void:
 	pass
 
 func after_each():
+	yield(yield_for(0.1), YIELD)
 	.teardown_hypnagonia_testing()
 	card = null
 	test_scripts.clear()
 	test_torments.clear()
-	yield(yield_for(0.1), YIELD)
 
 
 func spawn_test_torments() -> void:
