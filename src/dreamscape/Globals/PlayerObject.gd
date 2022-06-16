@@ -161,7 +161,7 @@ func get_random_artifact():
 		return(rnd_array[0])
 
 
-# Returns the MemoryObject with that name,
+# Returns the ArtifactObject with that name,
 # else returns null if it doesn't exist.
 func find_artifact(artifact_name: String):
 	for artifact in artifacts:

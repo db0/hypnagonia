@@ -1173,6 +1173,23 @@ const ThickBoss := {
 	],
 }
 
+
+const NoChoice := {
+	"canonical_name": "NoChoice",
+	"name": "Funky Compass",
+	"description": "{artifact_name}: You have {immersion_amount} extra {energy} per turn.\n"\
+			+ "You only ever get 1 choice for each journal page",
+	"icon": GENERIC_BOSS_ARTIFACT_ICON,
+	"context": EffectContext.BATTLE,
+	"rarity": "Boss",
+	"amounts": {
+		"immersion_amount": 1,
+	},
+	"linked_terms": [
+		"energy",
+	],
+}
+
 ## TODO: Artifact which increases chance to find Fusion cards
 ## TODO. Scipt base doesn't exist yet
 #const DoubleMemory := {

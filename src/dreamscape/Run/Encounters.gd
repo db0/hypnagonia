@@ -4,7 +4,7 @@ extends Reference
 signal encounter_changed(act_name, encounter_number)
 
 # The chance to get this many choices for the next encounter
-const choices_chances = [3,2,2,2,2,2,1,1,1,1,1]
+const choices_chances = [3,2,2,2,2,2,2,1,1,1,1]
 # If none of the pathos have reached the threshold to select them as an encounter
 # fallback to this one only.
 const fallback_encounter = Terms.RUN_ACCUMULATION_NAMES.enemy
@@ -65,9 +65,14 @@ func generate_journal_choices() -> Array:
 		globals.player.pathos.repress()
 	# Every journal page should have 1-3 options
 	# The change to get 3 or 2 options is less than getting only 1 option
-	var cc := choices_chances.duplicate()
-	CFUtils.shuffle_array(cc)
-	var new_options := _get_journal_options(cc[0])
+	var options_amount : int
+	if globals.player.find_artifact(ArtifactDefinitions.NoChoice.canonical_name):
+		options_amount = 1
+	else:
+		var cc := choices_chances.duplicate()
+		CFUtils.shuffle_array(cc)
+		options_amount = cc[0]
+	var new_options := _get_journal_options(options_amount)
 #	var new_options := _get_journal_options(1)
 	# We use these to be able to adjust the amount of pathos increments in one place (Pathos class)
 	var pathos_type_enemy: PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy]
