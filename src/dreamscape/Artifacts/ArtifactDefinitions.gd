@@ -1208,6 +1208,22 @@ const CostlyUpgrades := {
 	],
 }
 
+const NoSmith := {
+	"canonical_name": "NoSmith",
+	"name": "Espresso Machine",
+	"description": "{artifact_name}: You have {immersion_amount} extra {energy} per turn.\n"\
+			+ "You cannot progress cards during deep torpor anymore.",
+	"icon": preload("res://assets/icons/artifacts/moka-pot.png"),
+	"context": EffectContext.BATTLE,
+	"rarity": "Boss",
+	"amounts": {
+		"immersion_amount": 1,
+	},
+	"linked_terms": [
+		"energy",
+	],
+}
+
 ## TODO: Artifact which increases chance to find Fusion cards
 ## TODO. Scipt base doesn't exist yet
 #const DoubleMemory := {
@@ -1317,6 +1333,7 @@ const BOSS := [
 	ThickBoss,
 	NoChoice,
 	CostlyUpgrades,
+	NoSmith,
 ]
 
 
