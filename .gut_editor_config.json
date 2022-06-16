@@ -33,7 +33,7 @@
  "tests": [
 
  ],
- "unit_test_name": "test_win",
+ "unit_test_name": "test_lose",
  "gut_on_top": true,
  "panel_options": {
   "font_name": "CourierPrime",

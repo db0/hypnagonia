@@ -884,7 +884,7 @@ class TestThickThorns:
 		turn.call_deferred("end_player_turn")
 		yield(yield_to(deck, "shuffle_completed", 0.5), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect_name),
-				0,
-				"%s removed $s %s stacks after reshuffle" % [artifact.name, get_amount("detrimental_integer"), ])
+				1,
+				"%s removed %s stacks after reshuffle" % [artifact.name, get_amount("detrimental_integer"), ])
 		assert_true(artifact.is_active, "Artifact should be disabled after shuffling")
 

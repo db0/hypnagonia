@@ -57,7 +57,6 @@ class TestGeneric:
 		watch_signals(board)
 		board.game_over()
 		assert_true(board.battle_ended)
-		assert_true(board.battle_ended)
 		assert_signal_emit_count(EventBus, "game_over", 1)
 
 class TestRounds:
