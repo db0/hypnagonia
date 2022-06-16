@@ -1190,6 +1190,24 @@ const NoChoice := {
 	],
 }
 
+
+const CostlyUpgrades := {
+	"canonical_name": "CostlyUpgrades",
+	"name": "Costly Upgrades",
+	"description": "{artifact_name}: You have {immersion_amount} extra {energy} per turn.\n"\
+			+ "Massively increase the time needed to gain {pathos} masteries.",
+	"icon": GENERIC_BOSS_ARTIFACT_ICON,
+	"context": EffectContext.BATTLE,
+	"rarity": "Boss",
+	"amounts": {
+		"immersion_amount": 1,
+		"pathos_req_increase": 100,
+	},
+	"linked_terms": [
+		"energy",
+	],
+}
+
 ## TODO: Artifact which increases chance to find Fusion cards
 ## TODO. Scipt base doesn't exist yet
 #const DoubleMemory := {
@@ -1297,6 +1315,8 @@ const BOSS := [
 	SmallerDrafts,
 	BirdHouse,
 	ThickBoss,
+	NoChoice,
+	CostlyUpgrades,
 ]
 
 

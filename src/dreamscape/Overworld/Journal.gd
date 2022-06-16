@@ -555,7 +555,7 @@ func _input(event):
 #		_reveal_entry(upgrade_journal, true)
 		globals.player.deck.add_new_card("Guilt")
 #		globals.player.deck.add_new_card("Catatonia")
-		globals.player.add_artifact(ArtifactDefinitions.NoChoice.canonical_name)
+		globals.player.add_artifact(ArtifactDefinitions.CostlyUpgrades.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.EnhanceOnRest.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.IncreaseRandomDamage.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.BossDraft.canonical_name)
