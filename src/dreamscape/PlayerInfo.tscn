@@ -225,7 +225,7 @@ custom_styles/panel = ExtResource( 14 )
 [node name="VBC" type="VBoxContainer" parent="PathosDetails"]
 margin_left = 2.0
 margin_top = 2.0
-margin_right = 301.0
+margin_right = 364.0
 margin_bottom = 47.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -251,13 +251,17 @@ margin_bottom = 21.0
 text = "Name"
 
 [node name="Chance" parent="PathosDetails/VBC/Header/HBC" index="1"]
-visible = true
+text = "Repressed"
+
+[node name="Released" type="Label" parent="PathosDetails/VBC/Header/HBC" index="2"]
+margin_right = 63.0
+margin_bottom = 21.0
 text = "Released"
 
-[node name="ProgressBar" parent="PathosDetails/VBC/Header/HBC" index="2"]
+[node name="ProgressBar" parent="PathosDetails/VBC/Header/HBC" index="3"]
 visible = false
 
-[node name="Mastery" parent="PathosDetails/VBC/Header/HBC" index="3"]
+[node name="Mastery" parent="PathosDetails/VBC/Header/HBC" index="4"]
 text = "Mastery"
 
 [node name="Description" type="Label" parent="PathosDetails/VBC"]

@@ -55,7 +55,7 @@ const PATHOS_DESCRIPTIONS := {
 	RUN_ACCUMULATION_NAMES.enemy: {
 		"repressed": "Increases the chance that Torments will appear as encounters. "\
 			+ "If the repressed pathos gets too high, it also makes their ordeals harder",
-		"released": "Fill the bar to receive a pathos mastery to use in the shop."
+		"released": "Fill the bar to receive 2 pathos masteries to use in the shop."
 	},
 	RUN_ACCUMULATION_NAMES.nce: {
 		"repressed": "Increases the chance that Non-Ordeal encounters will appear. "\
@@ -69,7 +69,7 @@ const PATHOS_DESCRIPTIONS := {
 	RUN_ACCUMULATION_NAMES.elite: {
 		"repressed": "Increases the chance that Elite Torment will appear as encounters. "\
 			+ "If the repressed pathos gets too high, it also makes their ordeals harder",
-		"released": "Fill the bar to receive 2 pathos masteries to use in the shop."
+		"released": "Fill the bar to receive 3 pathos masteries to use in the shop."
 	},
 	RUN_ACCUMULATION_NAMES.artifact: {
 		"repressed": "Increases the chance that Curios will appear as encounters. "\
