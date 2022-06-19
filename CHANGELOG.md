@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.58.1](https://github.com/db0/hypnagonia/tree/v0.58.1) (2022-06-19)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.58.0...v0.58.1)
+
+**Merged pull requests:**
+
+- Increase masteries received [\#362](https://github.com/db0/hypnagonia/pull/362) ([db0](https://github.com/db0))
+
 ## [v0.58.0](https://github.com/db0/hypnagonia/tree/v0.58.0) (2022-06-16)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.57.1...v0.58.0)
