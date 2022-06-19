@@ -479,6 +479,10 @@ func autoplay_card(script: ScriptTask) -> int:
 			# before cleaning out the temp properties/counters
 			if sceng is GDScriptFunctionState:
 				sceng = yield(sceng, "completed")
+			# If the card had a clause which prevents from being played (such as Utterly Ridiculous)
+			# We still want to discard it
+			if card.state == card.ExtendedCardState.AUTOPLAY_DISPLAY:
+				card.move_to(cfc.NMAP.discard, -1, null, ["scripted"])
 	return(retcode)
 
 

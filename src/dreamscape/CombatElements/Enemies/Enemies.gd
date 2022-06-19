@@ -148,7 +148,7 @@ const BUTTERFLY:= {
 			"reshuffle": false,
 		},
 		{
-			"intent_scripts": ["Stress:1","Stress:1", "Buff:2:armor"],
+			"intent_scripts": ["Stress:1","Stress:1", "Buff:3:armor"],
 			"reshuffle": true,
 		},
 		{
