@@ -22,3 +22,7 @@ func end() -> void:
 	# Surprise Ordeals end via their parent NCE
 	finish_surpise_ordeal()
 	owner_nce.end()
+	# Because the NCE refers to this script, and this script refers to the NCE
+	# This causes a loop which prevents either reference from being freed
+	# By setting this to null, we allow both of them to be freed.
+	owner_nce = null
