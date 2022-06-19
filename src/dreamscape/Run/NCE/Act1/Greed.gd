@@ -12,7 +12,7 @@ var pathos_choice_payments := {}
 
 func _init():
 	# TODO: Add story
-	description = "<Mastery for Perturbation - Story Fluff to be Done>. Select one Option...."
+	description = "<Greed - Story Fluff to be Done>. Select one Option...."
 
 func begin() -> void:
 	.begin()
