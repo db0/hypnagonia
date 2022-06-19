@@ -346,7 +346,9 @@ func _on_ProgressCards_pressed() -> void:
 # further upgrade cards
 func _update_progress_cost() -> void:
 	# warning-ignore:narrowing_conversion
-	progress_cost = floor(progress_cost_multiplier + (globals.player.deck.get_upgrade_percentage() * 4.0))
+	progress_cost = floor(
+		progress_cost_multiplier
+		+ (globals.player.deck.get_upgrade_percentage() * 2.0))
 	var progress_text_format = {
 		"cost": str(progress_cost),
 		"pathos": card_progress_cost_type.capitalize(),
