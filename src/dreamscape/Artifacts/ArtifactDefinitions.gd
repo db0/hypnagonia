@@ -1078,38 +1078,74 @@ const ThickDeckRareChance := {
 	},
 }
 
-const FasterShopLevelUp := {
-	"canonical_name": "FasterShopLevelUp",
+const MoreShopMasteries := {
+	"canonical_name": "MoreShopMasteries",
 	"name": "Passionate Loneliness",
 	"description": "{artifact_name}: Whenever you visit the shop, gain {masteries_amount} {pathos} mastery.",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
-	"rarity": "Common",
+	"rarity": "Encounter",
 	"amounts": {
-		"masteries_amount": 1,
+		"masteries_amount": 2,
 	},
 }
 
 
-const FasterArtifactLevelUp := {
-	"canonical_name": "FasterArtifactLevelUp",
+const MoreArtifactMasteries := {
+	"canonical_name": "MoreArtifactMasteries",
 	"name": "Passionate Desire",
 	"description": "{artifact_name}: Whenever you find a curio, gain {masteries_amount} {pathos} mastery.",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
-	"rarity": "Common",
+	"rarity": "Encounter",
 	"amounts": {
-		"masteries_amount": 1,
+		"masteries_amount": 3,
 	},
 }
 
-const FasterRestLevelUp := {
-	"canonical_name": "FasterRestLevelUp",
+const MoreRestMasteries := {
+	"canonical_name": "MoreRestMasteries",
 	"name": "Passionate Desire",
 	"description": "{artifact_name}: Whenever you fall in deep torpor, gain {masteries_amount} {pathos} mastery.",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
-	"rarity": "Common",
+	"rarity": "Encounter",
+	"amounts": {
+		"masteries_amount": 2,
+	},
+}
+
+const MoreEliteMasteries := {
+	"canonical_name": "MoreEliteMasteries",
+	"name": "Passionate Foreboding",
+	"description": "{artifact_name}: Whenever you encounter an elite torment, gain {masteries_amount} {pathos} mastery.",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Encounter",
+	"amounts": {
+		"masteries_amount": 6,
+	},
+}
+
+const MoreNCEMasteries := {
+	"canonical_name": "MoreNCEMasteries",
+	"name": "Passionate Curiosity",
+	"description": "{artifact_name}: Whenever you encounter a non-ordeal encounter, gain {masteries_amount} {pathos} mastery.",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Encounter",
+	"amounts": {
+		"masteries_amount": 3,
+	},
+}
+
+const MoreEnemyMasteries := {
+	"canonical_name": "MoreEnemyMasteries",
+	"name": "Passionate Frustration",
+	"description": "{artifact_name}: Whenever you encounter a normal torment encounter, gain {masteries_amount} {pathos} mastery.",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Encounter",
 	"amounts": {
 		"masteries_amount": 1,
 	},
@@ -1300,9 +1336,6 @@ const GENERIC := [
 	ThickHeal,
 	DoubleProgress,
 	ThickDeckRareChance,
-	FasterShopLevelUp,
-	FasterArtifactLevelUp,
-	FasterRestLevelUp,
 	LightningMarble,
 	ThickThorns,
 ]
@@ -1337,6 +1370,12 @@ const ENCOUNTER := [
 	PerturbationHeal,
 	StartingDisempower,
 	ProgressEverything,
+	MoreShopMasteries,
+	MoreArtifactMasteries,
+	MoreRestMasteries,
+	MoreEnemyMasteries,
+	MoreEliteMasteries,
+	MoreNCEMasteries,
 ]
 
 const BOSS := [

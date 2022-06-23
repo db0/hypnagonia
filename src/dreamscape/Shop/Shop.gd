@@ -11,10 +11,10 @@ var rarity_price_multipliers := {
 }
 # Artifacts tend to be more expensive based on their pathos average
 # So we multiply their cost a bit further
-var card_cost_multiplier := 2.0
-var artifact_cost_multiplier := 3.0
-var memory_cost_multiplier := 3.0
-var remove_cost_multiplier := 2.0
+var card_cost_multiplier := 6.0
+var artifact_cost_multiplier := 10.0
+var memory_cost_multiplier := 7.0
+var remove_cost_multiplier := 5.0
 var progress_cost_multiplier := 1.0
 
 var uncommon_chance := 25
@@ -336,7 +336,7 @@ func _on_Remove_pressed() -> void:
 
 
 func _on_ProgressCards_pressed() -> void:
-	_deck_preview_popup.initiate_card_progress(progress_cost, card_progress_cost_type, 2)
+	_deck_preview_popup.initiate_card_progress(progress_cost, card_progress_cost_type, 1)
 	_update_progress_cost()
 
 

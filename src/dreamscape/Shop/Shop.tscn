@@ -18,9 +18,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBC" type="VBoxContainer" parent="."]
 margin_right = 1455.0

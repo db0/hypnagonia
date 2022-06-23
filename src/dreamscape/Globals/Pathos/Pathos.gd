@@ -28,7 +28,7 @@ signal pathos_selected(pathos)
 signal pathos_ignored(pathos)
 signal advancements_modified(new_value, old_value)
 
-const STARTING_MASTERIES = 3
+const STARTING_MASTERIES = 10
 
 var pathos_setup := {
 	Terms.RUN_ACCUMULATION_NAMES.enemy: {
@@ -36,7 +36,7 @@ var pathos_setup := {
 		"progression": range(11,20),
 		"threshold": 1.3 - globals.difficulty.encounter_difficulty * 0.1,
 		"released_needed_for_level": 4.0,
-		"masteries_when_chosen": 1,
+		"masteries_when_chosen": 3,
 	},
 	Terms.RUN_ACCUMULATION_NAMES.rest: {
 		"repressed": 5.0,
@@ -60,7 +60,7 @@ var pathos_setup := {
 		"progression": range(5,9),
 		"threshold": 5.3 - globals.difficulty.encounter_difficulty * 0.5,
 		"released_needed_for_level": 5.0,
-		"masteries_when_chosen": 3,
+		"masteries_when_chosen": 8,
 	},
 	Terms.RUN_ACCUMULATION_NAMES.artifact: {
 		"progression": range(2,5),
@@ -71,7 +71,7 @@ var pathos_setup := {
 		"progression": range(6,7),
 		"threshold": 17.0 - globals.difficulty.encounter_difficulty * 1.0,
 		"released_needed_for_level": 16.0,
-		"masteries_when_chosen": 5,
+		"masteries_when_chosen": 15,
 	},
 }
 
