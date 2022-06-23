@@ -26,6 +26,7 @@ const WORD_DEFINITIONS := {
 	"anxiety_down": "Will decrease the anxiety. This avoids losing the game.",
 	"anxiety": "Max Anxiety: When your anxiety reaches this threshold, the dreamer wakes up and you lose the game.",
 	"masteries": "You use masteries to purchase different things in the shop.",
+	"mastery": "You use masteries to purchase different things in the shop.",
 }
 
 var pathos_infos := {}
@@ -574,7 +575,6 @@ func _input(event):
 #		globals.player.deck.add_new_card("Chasm")
 #		globals.player.deck.add_new_card("Prejudice")
 #		globals.player.damage += 20
-#		globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.shop].released = 100
 #		globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.artifact].repressed = 100
 #		globals.player.damage = 85
 #		globals.player.pathos.available_masteries += 6
@@ -586,7 +586,7 @@ func _input(event):
 #			load("res://src/dreamscape/Run/NCE/AllActs/OstrichEggs.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act3/UnderwaterCave.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act2/RiskyEvent4.gd").new(),
-#			load("res://src/dreamscape/Run/NCE/Act1/Spider.gd").new(),
+			load("res://src/dreamscape/Run/NCE/Act1/SlayTheSpire.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
 			load("res://src/dreamscape/Run/NCE/Rest.gd").new(),
 #			BossEncounter.new(Act2.BOSSES["Surreality"]),

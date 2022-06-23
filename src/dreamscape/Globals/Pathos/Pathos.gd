@@ -28,6 +28,8 @@ signal pathos_selected(pathos)
 signal pathos_ignored(pathos)
 signal advancements_modified(new_value, old_value)
 
+const STARTING_MASTERIES = 3
+
 var pathos_setup := {
 	Terms.RUN_ACCUMULATION_NAMES.enemy: {
 		"repressed": 25.0,
@@ -89,7 +91,7 @@ func _init() -> void:
 	# warning-ignore:return_value_discarded
 	connect("pathos_selected",self,"_on_pathos_selected")
 	# Every run, starts the player with a bunch of pathos masteries
-	available_masteries = 3 * globals.difficulty.starting_masteries
+	available_masteries = STARTING_MASTERIES * globals.difficulty.starting_masteries
 
 
 func set_available_masteries(value: int) -> void:

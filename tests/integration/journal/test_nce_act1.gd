@@ -289,7 +289,7 @@ class TestSlayTheSpire:
 # warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("slay")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
-		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.nce)
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES + nce.SLAY_MASTERIES)
 		assert_pathos_signaled("pathos_repressed", Terms.RUN_ACCUMULATION_NAMES.enemy)
 		assert_eq(globals.player.damage, 10, "Player took damage")
 		
@@ -300,7 +300,7 @@ class TestSlayTheSpire:
 # warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("leave")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
-		assert_pathos_signaled("released_pathos_lost", Terms.RUN_ACCUMULATION_NAMES.enemy)
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES - nce.LEAVE_MASTERIES)
 		assert_pathos_signaled("pathos_repressed", Terms.RUN_ACCUMULATION_NAMES.nce)
 		assert_eq(globals.player.damage, 0, "Player took no damage")
 
