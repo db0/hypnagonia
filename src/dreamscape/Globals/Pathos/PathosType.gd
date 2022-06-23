@@ -1,22 +1,11 @@
 class_name PathosType
 extends Reference
 
-# Sent when repressed pathos is increased
-signal pathos_repressed(pathos, amount)
-# Sent then repressed pathos is decreased and released is increased
-signal pathos_released(pathos, amount)
-# Sent when released pathos is decreased without a special flag
-signal pathos_spent(pathos, amount)
-# Sent when repressed pathos is decreased with a special flag
-signal repressed_pathos_lost(pathos, amount)
-# Sent when released pathos is decreased with a special flag
-signal released_pathos_lost(pathos, amount)
-# Sent when released pathos is increased
-signal released_pathos_gained(pathos, amount)
-# Send when a pathos levels up
-signal pathos_leveled(pathos, level)
 
-
+# The main pathos object. 
+# This acts as an EventBus for the signals of this class.
+var pathos
+# The thematic name of this type
 var name: String
 var type
 var repressed: float setget _set_repressed
@@ -47,16 +36,12 @@ var perm_modification_for_next_level: float
 # How many times this pathos has been leveled up
 var level: int
 # How many masteries the player receives to spend in the shop per level gained.
-var masterier_per_level := 1
+var masteries_when_chosen := 0
 var skipped: int
 
 
-func _init(pathos) -> void:
-	for signal_def in get_signal_list():
-		# warning-ignore:return_value_discarded
-		if signal_def.name in ["script_changed"]:
-			continue
-		connect(signal_def.name, pathos, "_on_pathos_signaled", [signal_def.name])
+func _init(_pathos) -> void:
+	pathos = _pathos
 
 
 func _set_repressed(value: float, restore = false) -> void:
@@ -81,9 +66,9 @@ func modify_repressed(value: float, is_lost := false) -> void:
 	if repressed < 0:
 		repressed = 0
 	if value > 0:
-		emit_signal("pathos_repressed", name, value)
+		pathos.emit_signal("pathos_repressed", name, value)
 	elif is_lost:
-		emit_signal("repressed_pathos_lost", name, -value)
+		pathos.emit_signal("repressed_pathos_lost", name, -value)
 
 
 # reduces the repression by a given amount
@@ -93,11 +78,11 @@ func modify_released(value: float, is_lost := false) -> void:
 	if released < 0:
 		released = 0.0
 	if value > 0:
-		emit_signal("released_pathos_gained", name, value)
+		pathos.emit_signal("released_pathos_gained", name, value)
 	elif is_lost:
-		emit_signal("released_pathos_lost", name, -value)
+		pathos.emit_signal("released_pathos_lost", name, -value)
 	else:
-		emit_signal("pathos_spent", name, -value)
+		pathos.emit_signal("pathos_spent", name, -value)
 # warning-ignore:return_value_discarded
 	check_for_level_up()
 
@@ -120,7 +105,7 @@ func release(amount: float) -> void:
 		amount = repressed
 	modify_repressed(-amount)
 	modify_released(amount)
-	emit_signal("pathos_released", name, amount)
+	pathos.emit_signal("pathos_released", name, amount)
 
 
 func get_release_amount() -> float:
@@ -142,6 +127,8 @@ func select() -> void:
 	var release_amount = get_final_release_amount()
 	release(release_amount)
 	skipped = 0
+	pathos.emit_signal("pathos_selected", name)
+
 
 # Used when this choice is ignore when it exists
 # The amount of pathos in the threshold is converted into lost 
@@ -150,6 +137,8 @@ func ignore() -> void:
 	var release_amount = get_final_release_amount()
 	modify_repressed(-release_amount)
 	skipped += 1
+	pathos.emit_signal("pathos_ignored", name)
+
 
 func check_for_level_up() -> bool:
 	var leveled_up := false
@@ -164,7 +153,7 @@ func level_up() -> void:
 	level += 1
 	# When a level up happens, any temp modifications are removed
 	temp_modification_for_next_level = 0.0
-	emit_signal("pathos_leveled", name, level)
+	pathos.emit_signal("pathos_leveled", name, level)
 
 
 func get_progress_pct() -> float:
