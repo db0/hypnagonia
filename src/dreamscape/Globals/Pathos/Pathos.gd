@@ -89,7 +89,7 @@ func _init() -> void:
 	# warning-ignore:return_value_discarded
 	connect("pathos_selected",self,"_on_pathos_selected")
 	# Every run, starts the player with a bunch of pathos masteries
-	available_masteries = CFUtils.randi_range(2,4)
+	available_masteries = 3 * globals.difficulty.starting_masteries
 
 
 func set_available_masteries(value: int) -> void:

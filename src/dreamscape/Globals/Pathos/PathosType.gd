@@ -164,7 +164,6 @@ func get_level_requirement() -> float:
 			(
 				get_progression_average()
 				* released_needed_for_level
-				* globals.difficulty.mastery_difficulties
 			)
 			+ temp_modification_for_next_level\
 			+ perm_modification_for_next_level

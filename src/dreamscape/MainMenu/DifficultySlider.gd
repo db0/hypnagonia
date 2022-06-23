@@ -17,7 +17,7 @@ func _ready() -> void:
 		ResultTypes.NUMERICAL:
 			slider.value = globals.difficulty[difficulty_key]
 		ResultTypes.PERCENTAGE:
-			slider.value = globals.difficulty.TOTAL_DIFFICULTY_MAPS[difficulty_key][globals.difficulty[difficulty_key]]
+			slider.value = globals.difficulty.TOTAL_DIFFICULTY_MAPS[difficulty_key].get(globals.difficulty[difficulty_key],0)
 		ResultTypes.STRING_DESCRIPTION:
 			slider.value = globals.difficulty[difficulty_key]
 	_set_result_from_difficulty()
