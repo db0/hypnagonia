@@ -16,16 +16,7 @@ var progression: Array
 # before that encounter is an option as an encounter.
 # Effectively ~on average~ is limits a type of encounter to appearing
 # every X times.
-# They are also used to determine how much of a pathos is released every time
-# that encounter is selected (see release_adjustments below).
 var threshold: float
-# Adjusts the amount of pathos released when the encounter is selected.
-# This ensures that when that type of encounter is skipped one or more times,
-# then selecting it will keep decreasing more than it's increasing.
-# Default is 1.3 for pathos not listed below, which means every time they are
-# selected, they will transfer as much from represed to released equal to
-# their accumulation average * threshold
-var release_adjustment: float = 1.3
 # How many of the average multiples is needed to level up that pathos
 var released_needed_for_level: float
 # If any effect makes the next mastery take longer, this is stored here
@@ -110,7 +101,6 @@ func release(amount: float) -> void:
 
 func get_release_amount() -> float:
 	var release_amount := get_threshold()
-	release_amount *= release_adjustment
 	return(release_amount)
 
 
