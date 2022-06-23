@@ -1081,7 +1081,7 @@ const ThickDeckRareChance := {
 const MoreShopMasteries := {
 	"canonical_name": "MoreShopMasteries",
 	"name": "Passionate Loneliness",
-	"description": "{artifact_name}: Whenever you visit the shop, gain {masteries_amount} {pathos} mastery.",
+	"description": "{artifact_name}: Whenever you visit the shop, gain {masteries_amount} {pathos} masteries.",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Encounter",
@@ -1094,7 +1094,7 @@ const MoreShopMasteries := {
 const MoreArtifactMasteries := {
 	"canonical_name": "MoreArtifactMasteries",
 	"name": "Passionate Desire",
-	"description": "{artifact_name}: Whenever you find a curio, gain {masteries_amount} {pathos} mastery.",
+	"description": "{artifact_name}: Whenever you find a curio, gain {masteries_amount} {pathos} masteries.",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Encounter",
@@ -1106,7 +1106,7 @@ const MoreArtifactMasteries := {
 const MoreRestMasteries := {
 	"canonical_name": "MoreRestMasteries",
 	"name": "Passionate Desire",
-	"description": "{artifact_name}: Whenever you fall in deep torpor, gain {masteries_amount} {pathos} mastery.",
+	"description": "{artifact_name}: Whenever you fall in deep torpor, gain {masteries_amount} {pathos} masteries.",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Encounter",
@@ -1118,7 +1118,7 @@ const MoreRestMasteries := {
 const MoreEliteMasteries := {
 	"canonical_name": "MoreEliteMasteries",
 	"name": "Passionate Foreboding",
-	"description": "{artifact_name}: Whenever you encounter an elite torment, gain {masteries_amount} {pathos} mastery.",
+	"description": "{artifact_name}: Whenever you encounter an elite torment, gain {masteries_amount} {pathos} masteries.",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Encounter",
@@ -1130,7 +1130,7 @@ const MoreEliteMasteries := {
 const MoreNCEMasteries := {
 	"canonical_name": "MoreNCEMasteries",
 	"name": "Passionate Curiosity",
-	"description": "{artifact_name}: Whenever you encounter a non-ordeal encounter, gain {masteries_amount} {pathos} mastery.",
+	"description": "{artifact_name}: Whenever you encounter a non-ordeal encounter, gain {masteries_amount} {pathos} masteries.",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Encounter",
