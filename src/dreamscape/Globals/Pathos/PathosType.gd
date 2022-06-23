@@ -17,6 +17,11 @@ var progression: Array
 # Effectively ~on average~ is limits a type of encounter to appearing
 # every X times.
 var threshold: float
+# Modifies the amount of progression gained per journal page
+var progression_modifier: float = 1.0 setget ,get_progression_modifier
+# Holds objects which dynamically modify how much repression this pathos gais per turn
+# Each object in this array needs to have the get_pathos_progression_modifier() function
+var progression_modifying_objects := []
 # How many of the average multiples is needed to level up that pathos
 var released_needed_for_level: float
 # If any effect makes the next mastery take longer, this is stored here
@@ -225,7 +230,10 @@ func lose_released_pathos(amount: float) -> void:
 func get_progression() -> float:
 	var rand_array : Array = progression.duplicate()
 	CFUtils.shuffle_array(rand_array)
-	return(float(rand_array[0]))
+	var rng_progression :float = rand_array[0] * get_progression_modifier()
+	if name == "frustration":
+		print_debug([rng_progression,rand_array[0],get_progression_modifier()])
+	return(rng_progression)
 
 
 # Returns the average value of the progression specified
@@ -244,3 +252,10 @@ func get_threshold() -> float:
 # Adds an initial amount of released pathos during startup
 func add_startup_rng_release() -> void:
 	released += get_progression_average() * CFUtils.randf_range(3,5)
+
+
+func get_progression_modifier() -> float:
+	var updated_modifiers: float = 0.0
+	for object in progression_modifying_objects:
+		updated_modifiers += object.get_pathos_progression_modifier()
+	return(progression_modifier + updated_modifiers)

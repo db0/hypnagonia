@@ -324,7 +324,7 @@ func restore_save_state(save_state: Dictionary) -> void:
 	for mem in save_state.memories:
 		var new_mem = add_memory(mem.canonical_name, mem.modifiers)
 		new_mem.is_ready = mem.is_ready
-		new_mem.pathos_threshold = mem.pathos_threshold
-		new_mem.pathos_accumulated = mem.pathos_accumulated
+		new_mem.recharge_time = mem.recharge_time
+		new_mem.current_charge = mem.current_charge
 		new_mem.upgrades_amount = mem.upgrades_amount
 

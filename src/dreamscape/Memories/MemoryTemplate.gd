@@ -33,9 +33,13 @@ func _set_current_description() -> void:
 	var bbcolor = 'red'
 	if artifact_object.is_ready:
 		bbcolor = 'green'
-	artifact_description += '\n[color=%s]This memory is %s%% ready to recall[/color]' % [bbcolor,
-			round(float(artifact_object.pathos_accumulated)/float(artifact_object.pathos_threshold) * 100)]
-	artifact_description += "\n\n[i]This memory uses released [color=#FF7E00]{pathos}[/color] to recall.{delay_pct_explanation}[/i]."\
+	var pages_needed = artifact_object.recharge_time - artifact_object.current_charge
+	if pages_needed > 0:
+		artifact_description += '\n[color=%s]This memory needs %s more journal encounters to recall[/color]' % [
+				bbcolor,artifact_object.recharge_time - artifact_object.current_charge]
+	else:
+		artifact_description += '\n[color=%s]This memory is ready to recall[/color]' % [bbcolor]
+	artifact_description += "\n\n[i]{pathos_description}.{delay_pct_explanation}[/i]."\
 			.format(artifact_object.get_cost_format(canonical_name, artifact_object.upgrades_amount))
 	format["amount"] = str(amount)
 	format["double_amount"] = str(2*amount)
