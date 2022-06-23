@@ -975,7 +975,7 @@ const BirdHouse := {
 	"name": "Bird House",
 	"description": "{artifact_name}: Gain or upgrade one random memory\n"\
 			+ "Gain {draft_amount} card\n"\
-			+ "Gain a good amount of a random released pathos\n"\
+			+ "Gain {pathos_masteries} pathos masteries\n"\
 			+ "Gain {health_amount} max {anxiety}\n"\
 			+ "Progress the card requiring the most progress by {progress_amount}\n",
 	"icon": preload("res://assets/icons/artifacts/bird-house.png"),
@@ -984,7 +984,7 @@ const BirdHouse := {
 	"amounts": {
 		"draft_amount": 1,
 		"draft_choices": 5,
-		"pathos_avg_multiplier": 5,
+		"pathos_masteries": 5,
 		"memory_amount": 1,
 		"memory_upgrade_amount": 2,
 		"health_amount": 5,
@@ -1081,12 +1081,12 @@ const ThickDeckRareChance := {
 const FasterShopLevelUp := {
 	"canonical_name": "FasterShopLevelUp",
 	"name": "Passionate Loneliness",
-	"description": "{artifact_name}: Increase the rate in which you gain masteries from released Loneliness.",
+	"description": "{artifact_name}: Whenever you visit the shop, gain {masteries_amount} {pathos} mastery.",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"amounts": {
-		"level_req_amount": -30,
+		"masteries_amount": 1,
 	},
 }
 
@@ -1094,24 +1094,24 @@ const FasterShopLevelUp := {
 const FasterArtifactLevelUp := {
 	"canonical_name": "FasterArtifactLevelUp",
 	"name": "Passionate Desire",
-	"description": "{artifact_name}: Increase the rate in which you gain masteries from released Desire.",
+	"description": "{artifact_name}: Whenever you find a curio, gain {masteries_amount} {pathos} mastery.",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"amounts": {
-		"level_req_amount": -40,
+		"masteries_amount": 1,
 	},
 }
 
 const FasterRestLevelUp := {
 	"canonical_name": "FasterRestLevelUp",
 	"name": "Passionate Desire",
-	"description": "{artifact_name}: Increase the rate in which you gain masteries from released Lethargy.",
+	"description": "{artifact_name}: Whenever you fall in deep torpor, gain {masteries_amount} {pathos} mastery.",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"amounts": {
-		"level_req_amount": -40,
+		"masteries_amount": 1,
 	},
 }
 

@@ -2,6 +2,5 @@ extends Artifact
 
 func _on_artifact_added() -> void:
 	var pathos_type : PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.rest]
-	pathos_type.perm_modify_requirements_for_level(
-			ArtifactDefinitions.FasterRestLevelUp.amounts.level_req_amount)
+	pathos_type.masteries_when_chosen +=  ArtifactDefinitions.FasterRestLevelUp.amounts.masteries_amount
 	_send_trigger_signal()

@@ -88,9 +88,8 @@ func _init() -> void:
 #			print([pathos_name,key,pathi[pathos_name].get(key)])
 	# warning-ignore:return_value_discarded
 	connect("pathos_selected",self,"_on_pathos_selected")
-	var random_pathos :=  grab_random_pathos()
-	# Every run, starts the player with a bunch of released pathos on a random one.
-	random_pathos.add_startup_rng_release()
+	# Every run, starts the player with a bunch of pathos masteries
+	available_masteries = CFUtils.randi_range(2,4)
 
 
 func set_available_masteries(value: int) -> void:
