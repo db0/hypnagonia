@@ -48,6 +48,7 @@ var perm_modification_for_next_level: float
 var level: int
 # How many masteries the player receives to spend in the shop per level gained.
 var masterier_per_level := 1
+var skipped: int
 
 
 func _init(pathos) -> void:
@@ -135,6 +136,21 @@ func get_final_release_amount() -> int:
 	return(int(round(release_amount)))
 
 
+# Used when this choice is selected. 
+# The amount of pathos in the threshold is converted into released
+func select() -> void:
+	var release_amount = get_final_release_amount()
+	release(release_amount)
+	skipped = 0
+
+# Used when this choice is ignore when it exists
+# The amount of pathos in the threshold is converted into lost 
+# and skipped is incremente by 1
+func ignore() -> void:
+	var release_amount = get_final_release_amount()
+	modify_repressed(-release_amount)
+	skipped += 1
+
 func check_for_level_up() -> bool:
 	var leveled_up := false
 	while released > get_level_requirement():
@@ -213,6 +229,7 @@ func lose_repressed_pathos(amount: float) -> void:
 		printerr("ERROR: lose_repressed_pathos() only takes a positive integer")
 		return
 	modify_repressed(-amount, true)
+	
 
 
 # reduces the specified released pathos by a given amount

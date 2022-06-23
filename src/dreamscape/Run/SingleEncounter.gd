@@ -8,15 +8,23 @@ var description: String
 var journal_art
 var shader_params: Dictionary
 var pathos_released: String
+# Stores how many times this encounter type was skipped until now
+var skipped: int = 0
 
 func begin() -> void:
 	if OS.has_feature("debug") and not cfc.is_testing:
 		print("DEBUG INFO:Encounter: Entering Encounter: " + get_script().get_path())
 	globals.current_encounter = self
+	# We store it now, because it will be cleared in the pathos on select()
+	skipped = _get_pathos_type().skipped
 	# warning-ignore:return_value_discarded
-	globals.player.pathos.release(pathos_released)
+	_get_pathos_type().select()
 	emit_signal("encounter_begin", self)
 
+
+# Used when this choice is not selected when it appears in the encounter
+func ignore() -> void:
+	_get_pathos_type().ignore()
 
 func end() -> void:
 	emit_signal("encounter_end", self)
@@ -44,3 +52,6 @@ func prepare_journal_art(value) -> void:
 func prepare_shader_art(shader: Shader, _shader_params: Dictionary) -> void:
 	shader_params = _shader_params
 	journal_art = shader
+
+func _get_pathos_type() -> PathosType:
+	return(globals.player.pathos.pathi[pathos_released])

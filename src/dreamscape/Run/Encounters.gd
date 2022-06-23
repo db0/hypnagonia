@@ -4,7 +4,7 @@ extends Reference
 signal encounter_changed(act_name, encounter_number)
 
 # The chance to get this many choices for the next encounter
-const choices_chances = [3,2,2,2,2,2,2,1,1,1,1]
+const choices_chances = [3,3,2,2,2,2,2,2,2,1,1]
 # If none of the pathos have reached the threshold to select them as an encounter
 # fallback to this one only.
 const fallback_encounter = Terms.RUN_ACCUMULATION_NAMES.enemy
@@ -86,10 +86,10 @@ func generate_journal_choices() -> Array:
 		match option:
 			Terms.RUN_ACCUMULATION_NAMES.enemy:
 				var next_enemy = current_act.ENEMIES[remaining_enemies.pop_back()]
-				if pathos_type_enemy.repressed < enemy_pathos_avg * 2\
+				if pathos_type_enemy.skipped < 3\
 						and pathos_type_boss.repressed < boss_pathos_avg * 8:
 					difficulty = "easy"
-				elif pathos_type_enemy.repressed < enemy_pathos_avg * 2\
+				elif pathos_type_enemy.repressed < 3\
 						or pathos_type_boss.repressed < boss_pathos_avg * 8:
 					difficulty = "medium"
 				else:
@@ -105,10 +105,10 @@ func generate_journal_choices() -> Array:
 				journal_options.append(_get_next_nce())
 			Terms.RUN_ACCUMULATION_NAMES.elite:
 				var next_enemy = current_act.ELITES[remaining_elites.pop_back()]
-				if pathos_type_elite.repressed < pathos_type_elite.get_threshold() + elite_pathos_avg\
+				if pathos_type_elite.skipped < 2\
 						and pathos_type_boss.repressed < boss_pathos_avg * 8:
 					difficulty = "easy"
-				elif pathos_type_elite.repressed < pathos_type_elite.get_threshold() + elite_pathos_avg\
+				elif pathos_type_elite.skipped < 2\
 						or pathos_type_boss.repressed < boss_pathos_avg * 8:
 					difficulty = "medium"
 				else:

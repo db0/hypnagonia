@@ -112,8 +112,7 @@ func release(pathos_name: String) -> int:
 	var pathos_type :PathosType = pathi[pathos_name]
 	if pathos_type.repressed == 0:
 		retcode = CFConst.ReturnCode.OK
-	var release_amount = pathos_type.get_release_amount()
-	pathos_type.release(release_amount)
+	pathos_type.release_for_selection()
 	return(retcode)
 
 

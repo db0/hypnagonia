@@ -374,6 +374,7 @@ func _on_choice_pressed(encounter: SingleEncounter, rich_text_choice) -> void:
 	for choice in journal_choices.get_children():
 		if choice != rich_text_choice:
 			choice.visible = false
+			choice.journal_choice.encounter.ignore()
 		elif choice.has_method("disable_mouse_inputs"):
 			choice.disable_mouse_inputs()
 	# To ensure card previews are hidden in case the player is too fast.
@@ -581,12 +582,13 @@ func _input(event):
 #			EnemyEncounter.new(Act1.Squirrel, "hard"),
 #			EnemyEncounter.new(Act2.TrafficJam, "easy"),
 #			EnemyEncounter.new(Act3.Shamelings, "hard"),
-			load("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
+#			load("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/AllActs/OstrichEggs.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act3/UnderwaterCave.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act2/RiskyEvent4.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act1/Spider.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
+			load("res://src/dreamscape/Run/NCE/Rest.gd").new(),
 #			BossEncounter.new(Act2.BOSSES["Surreality"]),
 #			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
 #			EliteEncounter.new(Act1.Bully, "medium"),

@@ -1,10 +1,6 @@
 class_name ArtifactEncounter
 extends NonCombatEncounter
 
-# This variable is set equal to the player's artifact pathos,
-# and stores it until the random seleciton is made
-# The higher this value, the higher the chance for a rarer artifact.
-var accumulated := 0
 var randomized_artifacts := []
 var artifact_prep : ArtifactPrep
 var perturbation_chance := 0.6
@@ -25,11 +21,11 @@ func begin() -> void:
 	var luck_up = globals.player.find_artifact(ArtifactDefinitions.ReduceCurioRerollPerturbChance.canonical_name)
 	if luck_up:
 		perturbation_chance *= ArtifactDefinitions.ReduceCurioRerollPerturbChance.amounts.chance_multiplier
-	# warning-ignore:narrowing_conversion
-	accumulated = pathos_type.repressed
+	var rare_chance = 5 * skipped
+	var uncommon_chance = 5 * skipped
 	# The rarity of artifact found is based on the accumulated pathos
 	# warning-ignore:integer_division
-	artifact_prep = ArtifactPrep.new(accumulated/2, accumulated, 2)
+	artifact_prep = ArtifactPrep.new(rare_chance, uncommon_chance, 2)
 	.begin()
 #	globals.journal.display_nce_rewards('')
 	var bbformat = artifact_prep.selected_artifacts[0]["bbformat"]
