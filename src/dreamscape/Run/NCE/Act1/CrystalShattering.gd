@@ -3,7 +3,7 @@ extends NonCombatEncounter
 const MASTERIES_AMOUNT := {
 	"progress": round(Pathos.MASTERY_BASELINE * 0.3),
 	"upgrade": round(Pathos.MASTERY_BASELINE * 0.6),
-	"remove": round(Pathos.MASTERY_BASELINE),
+	"remove": round(Pathos.MASTERY_BASELINE * 1.5),
 	"leave": 0,
 }
 

@@ -1,19 +1,17 @@
-# Gives three choices, paid with released pathos to get some rewards
-
 extends NonCombatEncounter
 
-const COSTS := {
-	"remove": 1,
-	"progress": 2,
-	"upgrade": 3,
+const MASTERIES_AMOUNT := {
+	"remove": round(Pathos.MASTERY_BASELINE),
+	"progress": round(Pathos.MASTERY_BASELINE * 1.5),
+	"upgrade": round(Pathos.MASTERY_BASELINE * 2),
 }
 const MEMORY_PROGRESS = 5
 const CARD_PROGRESS = 6
 
 var secondary_choices := {
-		'remove': '[Remove]: Pay {bcolor:{remove} {masteries}:}. {gcolor:Remove a card:} from your deck.',
-		'progress': '[Progress]: Pay {bcolor:{progress} {masteries}:}. {gcolor:Progress a card:} in your deck {card_progress} times.',
-		'upgrade': '[Upgrade]: Pay {bcolor:{upgrade} {masteries}:}. {gcolor:Upgrade a random memory:} {memory_progress} times.',
+		'remove': '[Remove]: Spend {bcolor:{remove} {masteries}:}. {gcolor:Remove a card:} from your deck.',
+		'progress': '[Progress]: Spend {bcolor:{progress} {masteries}:}. {gcolor:Progress a card:} in your deck {card_progress} times.',
+		'upgrade': '[Upgrade]: Spend {bcolor:{upgrade} {masteries}:}. {gcolor:Upgrade a random memory:} {memory_progress} times.',
 		'leave': '[Leave]: Nothing Happens.'
 	}
 
@@ -33,21 +31,21 @@ func begin() -> void:
 		"card_progress": CARD_PROGRESS,
 		"memory_progress": MEMORY_PROGRESS,
 	}
-	for key in COSTS:
-		scformat[key] = COSTS[key]
+	for key in MASTERIES_AMOUNT:
+		scformat[key] = MASTERIES_AMOUNT[key]
 	var disabled_choices = []
 	if globals.player.memories.size() == 0:
 		disabled_choices.append('upgrade')
 	if globals.player.deck.get_progressing_cards().size() == 0:
 		disabled_choices.append('progress')
-	for type in COSTS:
-		if globals.player.pathos.available_masteries < COSTS[type]:
+	for type in MASTERIES_AMOUNT:
+		if globals.player.pathos.available_masteries < MASTERIES_AMOUNT[type]:
 			disabled_choices.append(type)
 	_prepare_secondary_choices(secondary_choices, scformat, disabled_choices)
 
 func continue_encounter(key) -> void:
-	if key in COSTS:
-		globals.player.pathos.available_masteries -= COSTS[key]
+	if key in MASTERIES_AMOUNT:
+		globals.player.pathos.available_masteries -= MASTERIES_AMOUNT[key]
 	match key:
 		"remove":
 			var selection_deck = globals.journal.spawn_selection_deck()

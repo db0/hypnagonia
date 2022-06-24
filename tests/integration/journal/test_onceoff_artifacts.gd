@@ -495,7 +495,7 @@ class TestMoreRestMasteries:
 		if not assert_has_amounts():
 			return
 		var ptype : PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.rest]
-		assert_ne(ptype.masteries_when_chosen, get_amount("masteries_amount"))
+		assert_eq(ptype.masteries_when_chosen, get_amount("masteries_amount"))
 
 
 class TestMoreArtifactMasteries:

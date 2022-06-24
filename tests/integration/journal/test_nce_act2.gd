@@ -218,7 +218,7 @@ class TestMiniShop:
 		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act2/MiniShop.gd")
 
 	func test_choice_remove():
-		globals.player.pathos.available_masteries = testing_nce_script.COSTS["remove"]
+		globals.player.pathos.available_masteries = testing_nce_script.MASTERIES_AMOUNT["remove"]
 		watch_signals(globals.player.deck)
 		var secondary_choices = begin_nce_with_choices(nce)
 		if secondary_choices as GDScriptFunctionState:
@@ -233,7 +233,7 @@ class TestMiniShop:
 		activate_secondary_choice_by_key("remove")
 		yield(yield_to(journal, "selection_deck_spawned", 0.2), YIELD)
 		# warning-ignore:return_value_discarded
-		assert_signal_emitted_with_parameters(globals.player.pathos, "advancements_modified", [0,1])
+		assert_eq(globals.player.pathos.available_masteries,0)
 		var selection_deck = assert_selection_deck_spawned()
 		if not selection_deck:
 			return
@@ -241,7 +241,7 @@ class TestMiniShop:
 		assert_signal_emitted(globals.player.deck, "card_removed")
 
 	func test_choice_progress():
-		globals.player.pathos.available_masteries = testing_nce_script.COSTS["progress"]
+		globals.player.pathos.available_masteries = testing_nce_script.MASTERIES_AMOUNT["progress"]
 		watch_signals(globals.player.deck)
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
@@ -249,7 +249,7 @@ class TestMiniShop:
 		activate_secondary_choice_by_key("progress")
 		yield(yield_to(journal, "selection_deck_spawned", 0.2), YIELD)
 		# warning-ignore:return_value_discarded
-		assert_signal_emitted_with_parameters(globals.player.pathos, "advancements_modified", [0,2])
+		assert_eq(globals.player.pathos.available_masteries, 0)
 		var selection_deck = assert_selection_deck_spawned()
 		if not selection_deck:
 			return
@@ -268,14 +268,12 @@ class TestMiniShop:
 		activate_secondary_choice_by_key("upgrade")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		# warning-ignore:return_value_discarded
-		assert_signal_emitted_with_parameters(
-				globals.player.pathos, 
-				"advancements_modified", 
-				[10 - testing_nce_script.COSTS["upgrade"],10])
+		assert_eq(globals.player.pathos.available_masteries, 10 - testing_nce_script.MASTERIES_AMOUNT["upgrade"])
 		assert_signal_emit_count(memory, "memory_upgraded", 1)
 		assert_eq(memory.upgrades_amount, testing_nce_script.MEMORY_PROGRESS)
 
 	func test_choice_leave():
+		globals.player.pathos.available_masteries = 0
 		watch_signals(globals.player.deck)
 		var secondary_choices = begin_nce_with_choices(nce)
 		if secondary_choices as GDScriptFunctionState:

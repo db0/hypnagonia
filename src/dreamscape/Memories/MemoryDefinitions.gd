@@ -44,7 +44,7 @@ const DamageAll := {
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
 	"pathos_progress_multiplier": 0.2,
-	"recharge_time": 3,
+	"recharge_time": 4,
 	"keys_modified_by_upgrade": ["damage_amount"],
 	"amounts": {
 		"damage_amount": 10,
@@ -64,7 +64,7 @@ const HealSelf := {
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.rest,
 	"pathos_progress_multiplier": -0.3,
-	"recharge_time": 5,
+	"recharge_time": 6,
 	"keys_modified_by_upgrade": ["heal_amount"],
 	"amounts": {
 		"heal_amount": 5,
@@ -85,7 +85,7 @@ const BossFaster := {
 	"context": EffectContext.OVERWORLD,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
 	"pathos_progress_multiplier": 0.0,
-	"recharge_time": 5,
+	"recharge_time": 6,
 	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"pathos_amount": 5,
@@ -102,7 +102,7 @@ const ProgressRandom := {
 	"context": EffectContext.OVERWORLD,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.shop,
 	"pathos_progress_multiplier": -0.2,
-	"recharge_time": 3,
+	"recharge_time": 4,
 	"keys_modified_by_upgrade": ["progress_amount"],
 	"amounts": {
 		"progress_amount": 2,
@@ -118,7 +118,7 @@ const SpikeEnemy := {
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.nce,
 	"pathos_progress_multiplier": -0.3,
-	"recharge_time": 2,
+	"recharge_time": 3,
 	"keys_modified_by_upgrade": ["damage_amount"],
 	"amounts": {
 		"damage_amount": 20,
@@ -137,7 +137,7 @@ const FortifySelf := {
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
 	"pathos_progress_multiplier": 0.2,
-	"recharge_time": 3,
+	"recharge_time": 4,
 	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"effect_stacks": 1,
@@ -157,7 +157,7 @@ const DefendSelf := {
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
 	"pathos_progress_multiplier": 0.2,
-	"recharge_time": 2,
+	"recharge_time": 3,
 	"keys_modified_by_upgrade": ["defence_amount"],
 	"amounts": {
 		"defence_amount": 12,
@@ -176,7 +176,7 @@ const QuickenSelf := {
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.nce,
 	"pathos_progress_multiplier": -0.1,
-	"recharge_time": 4,
+	"recharge_time": 5,
 	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"effect_stacks": 2,
@@ -196,7 +196,7 @@ const StrengthenSelf := {
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.rest,
 	"pathos_progress_multiplier": -0.2,
-	"recharge_time": 4,
+	"recharge_time": 5,
 	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"effect_stacks": 2,
@@ -216,7 +216,7 @@ const RandomChaos := {
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.shop,
 	"pathos_progress_multiplier": -0.35,
-	"recharge_time": 2,
+	"recharge_time": 3,
 	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"draw_amount": 2,
@@ -233,7 +233,7 @@ const ReshuffleHand := {
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
 	"pathos_progress_multiplier": 0.2,
-	"recharge_time": 3,
+	"recharge_time": 4,
 	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"upgrade_multiplier": -5,
@@ -249,7 +249,7 @@ const PoisonEnemy := {
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
 	"pathos_progress_multiplier": 0.2,
-	"recharge_time": 3,
+	"recharge_time": 4,
 	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"effect_stacks": 5,
@@ -268,7 +268,7 @@ const DisempowerEnemy := {
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
 	"pathos_progress_multiplier": 0.1,
-	"recharge_time": 3,
+	"recharge_time": 4,
 	"keys_modified_by_upgrade": ["effect_stacks"],
 	"amounts": {
 		"effect_stacks": 2,
@@ -287,7 +287,7 @@ const ImperviousSelf := {
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
 	"pathos_progress_multiplier": 0.2,
-	"recharge_time": 2,
+	"recharge_time": 3,
 	"keys_modified_by_upgrade": ["effect_stacks"],
 	"amounts": {
 		"effect_stacks": 2,
@@ -306,7 +306,7 @@ const ImmerseSelf := {
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.artifact,
 	"pathos_progress_multiplier": -0.2,
-	"recharge_time": 2,
+	"recharge_time": 3,
 	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"immersion_amount": 2,
@@ -326,7 +326,7 @@ const CardDraw := {
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.artifact,
 	"pathos_progress_multiplier": -0.2,
-	"recharge_time": 2,
+	"recharge_time": 3,
 	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"draw_amount": 3,
@@ -343,7 +343,7 @@ const ExertRecovery := {
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
 	"pathos_progress_multiplier": 0.3,
-	"recharge_time": 2,
+	"recharge_time": 3,
 	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"upgrade_multiplier": -5
@@ -362,7 +362,7 @@ const ExertSelf := {
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
 	"pathos_progress_multiplier": 0.1,
-	"recharge_time": 2,
+	"recharge_time": 3,
 	"keys_modified_by_upgrade": ["repeat_amount"],
 	"amounts": {
 		"exert_amount": 1,
@@ -384,7 +384,7 @@ const RegenerateSelf := {
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
 	"pathos_progress_multiplier": 0.3,
-	"recharge_time": 4,
+	"recharge_time": 5,
 	"keys_modified_by_upgrade": ["turns_amount"],
 	"amounts": {
 		"heal_amount": 1,
@@ -406,7 +406,7 @@ const BufferSelf := {
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
 	"pathos_progress_multiplier": 0.2,
-	"recharge_time": 2,
+	"recharge_time": 3,
 	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"effect_stacks": 3,
@@ -426,7 +426,7 @@ const RerollDraft := {
 	"context": EffectContext.OVERWORLD,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.nce,
 	"pathos_progress_multiplier": -0.35,
-	"recharge_time": 3,
+	"recharge_time": 4,
 	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"upgrade_multiplier": 5,
@@ -442,7 +442,7 @@ const RemovePerturbation := {
 	"context": EffectContext.OVERWORLD,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.rest,
 	"pathos_progress_multiplier": -0.4,
-	"recharge_time": 5,
+	"recharge_time": 6,
 	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"upgrade_multiplier": 5,
@@ -461,7 +461,7 @@ const RerollShop := {
 	"context": EffectContext.SHOP,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.artifact,
 	"pathos_progress_multiplier": -0.25,
-	"recharge_time": 5,
+	"recharge_time": 6,
 	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"upgrade_multiplier": 5,
@@ -477,7 +477,7 @@ const GainMaxHealth := {
 	"context": EffectContext.OVERWORLD,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.shop,
 	"pathos_progress_multiplier": -0.4,
-	"recharge_time": 6,
+	"recharge_time": 7,
 	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"anxiety_amount": 5,
@@ -497,7 +497,7 @@ const ProtectSelf := {
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.shop,
 	"pathos_progress_multiplier": -0.3,
-	"recharge_time": 3,
+	"recharge_time": 4,
 	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"effect_stacks": 1,
@@ -517,7 +517,7 @@ const RemoveDebuff := {
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.shop,
 	"pathos_progress_multiplier": -0.2,
-	"recharge_time": 4,
+	"recharge_time": 5,
 	"keys_modified_by_upgrade": ["defence_amount"],
 	"amounts": {
 		"defence_amount": 5,
@@ -537,7 +537,7 @@ const ActivateStartups := {
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.artifact,
 	"pathos_progress_multiplier": -0.25,
-	"recharge_time": 4,
+	"recharge_time": 5,
 	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"upgrade_multiplier": 5,
@@ -556,7 +556,7 @@ const ThornsSelf := {
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
 	"pathos_progress_multiplier": 0.23,
-	"recharge_time": 2,
+	"recharge_time": 3,
 	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"effect_stacks": 3,
@@ -576,7 +576,7 @@ const FreezeCard := {
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
 	"pathos_progress_multiplier": 0.2,
-	"recharge_time": 3,
+	"recharge_time": 4,
 	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"upgrade_multiplier": -5,
