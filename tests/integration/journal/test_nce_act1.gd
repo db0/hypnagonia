@@ -42,7 +42,7 @@ class TestGreed:
 		activate_secondary_choice_by_key("accept")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_gt(lpathos.level, 0)
-		assert_pathos_signaled("pathos_leveled", lpathos.name)
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES + nce.MASTERIES_AMOUNT)
 # warning-ignore:return_value_discarded
 		assert_deck_signaled("card_added", "card_name", "Discombobulation")
 
@@ -360,7 +360,6 @@ class TestSleepOfOblivion:
 # warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("leave")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
-		assert_pathos_not_signaled("released_pathos_lost")
 		assert_pathos_not_signaled("pathos_repressed")
 		assert_signal_emit_count(globals.player.deck, "card_removed", 0)
 		assert_eq(globals.player.damage, 0, "Player took no damage")
