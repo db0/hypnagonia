@@ -174,7 +174,7 @@ class TestPathosForAnxiety:
 # warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("calm")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
-		assert_signal_emitted(globals.player.pathos, "released_pathos_gained")
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES + nce.MASTERY_AMOUNTS['calm'])
 
 	func test_choice_stress():
 		begin_nce_with_choices(nce)
@@ -183,7 +183,7 @@ class TestPathosForAnxiety:
 # warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("stress")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
-		assert_signal_emitted(globals.player.pathos, "released_pathos_gained")
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES + nce.MASTERY_AMOUNTS['stress'])
 		assert_between(globals.player.damage, 9, 11, "Player took damage")
 		
 	func test_choice_fear():
@@ -193,8 +193,8 @@ class TestPathosForAnxiety:
 # warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("fear")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
-		assert_signal_emitted(globals.player.pathos, "released_pathos_gained")
 		assert_between(globals.player.damage, 18, 22, "Player took damage")
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES + nce.MASTERY_AMOUNTS['fear'])
 
 class TestPopPsychologist1:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
