@@ -206,31 +206,50 @@ class TestPopPsychologist1:
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
 		watch_signals(globals.player.pathos)
+		watch_signals(globals.player)
 # warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("tiger")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
-		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.nce)
+		assert_signal_emitted(globals.player, "artifact_added")
+		var added_artifact_signal = get_signal_parameters(globals.player, "artifact_added")
+		if not added_artifact_signal or added_artifact_signal.size() == 0:
+			return
+		var added_artifact: ArtifactObject = added_artifact_signal[0]
+		assert_eq(added_artifact.canonical_name, nce.CURIOS['tiger'].canonical_name)
+		assert_nce_unlocked(load("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist2.gd"))
+		
 		assert_nce_unlocked(load("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist2.gd"))
 	func test_choice_snake():
 		watch_signals(globals.encounters.run_changes)
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
-		watch_signals(globals.player.pathos)
+		watch_signals(globals.player)
 # warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("snake")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
-		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.enemy)
 		assert_nce_unlocked(load("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist2.gd"))
+		assert_signal_emitted(globals.player, "artifact_added")
+		var added_artifact_signal = get_signal_parameters(globals.player, "artifact_added")
+		if not added_artifact_signal or added_artifact_signal.size() == 0:
+			return
+		var added_artifact: ArtifactObject = added_artifact_signal[0]
+		assert_eq(added_artifact.canonical_name, nce.CURIOS['snake'].canonical_name)
+
 	func test_choice_owl():
 		watch_signals(globals.encounters.run_changes)
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
-		watch_signals(globals.player.pathos)
+		watch_signals(globals.player)
 # warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("owl")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
-		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.shop)
 		assert_nce_unlocked(load("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist2.gd"))
+		assert_signal_emitted(globals.player, "artifact_added")
+		var added_artifact_signal = get_signal_parameters(globals.player, "artifact_added")
+		if not added_artifact_signal or added_artifact_signal.size() == 0:
+			return
+		var added_artifact: ArtifactObject = added_artifact_signal[0]
+		assert_eq(added_artifact.canonical_name, nce.CURIOS['owl'].canonical_name)
 
 
 class TestHighwire:
