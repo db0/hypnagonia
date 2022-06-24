@@ -345,7 +345,7 @@ class TestMultipleTags:
 		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act2/AlphaKappaOmega.gd")
 
 	func test_choice_alpha():
-		globals.player.pathos.available_masteries = testing_nce_script.COSTS["alpha"]
+		globals.player.pathos.available_masteries = testing_nce_script.MASTERIES_AMOUNT["alpha"]
 		begin_nce_with_choices(nce)
 		watch_signals(globals.player.deck)
 		watch_signals(globals.player.pathos)
@@ -357,13 +357,10 @@ class TestMultipleTags:
 			return
 		selection_deck._deck_preview_grid.get_children()[0].select_card()
 		assert_deck_signaled("card_entry_modified", "Tags", Terms.GENERIC_TAGS.alpha.name)
-		assert_signal_emitted_with_parameters(
-				globals.player.pathos, 
-				"advancements_modified", 
-				[0,testing_nce_script.COSTS["alpha"]])
+		assert_eq(globals.player.pathos.available_masteries, 0)
 
 	func test_choice_kappa():
-		globals.player.pathos.available_masteries = testing_nce_script.COSTS["kappa"]
+		globals.player.pathos.available_masteries = testing_nce_script.MASTERIES_AMOUNT["kappa"]
 		begin_nce_with_choices(nce)
 		watch_signals(globals.player.deck)
 		watch_signals(globals.player.pathos)
@@ -375,13 +372,10 @@ class TestMultipleTags:
 			return
 		selection_deck._deck_preview_grid.get_children()[0].select_card()
 		assert_deck_signaled("card_entry_modified", "Tags", Terms.GENERIC_TAGS.frozen.name)
-		assert_signal_emitted_with_parameters(
-				globals.player.pathos, 
-				"advancements_modified", 
-				[0,testing_nce_script.COSTS["kappa"]])
+		assert_eq(globals.player.pathos.available_masteries, 0)
 
 	func test_choice_omega():
-		globals.player.pathos.available_masteries = testing_nce_script.COSTS["omega"]
+		globals.player.pathos.available_masteries = testing_nce_script.MASTERIES_AMOUNT["omega"]
 		begin_nce_with_choices(nce)
 		watch_signals(globals.player.deck)
 		watch_signals(globals.player.pathos)
@@ -393,10 +387,7 @@ class TestMultipleTags:
 			return
 		selection_deck._deck_preview_grid.get_children()[0].select_card()
 		assert_deck_signaled("card_entry_modified", "Tags", Terms.GENERIC_TAGS.omega.name)
-		assert_signal_emitted_with_parameters(
-				globals.player.pathos, 
-				"advancements_modified", 
-				[0,testing_nce_script.COSTS["omega"]])
+		assert_eq(globals.player.pathos.available_masteries, 0)
 
 	func test_choice_leave():
 		var secondary_choices = begin_nce_with_choices(nce)
@@ -411,7 +402,6 @@ class TestMultipleTags:
 		for selected_choice in get_tree().get_nodes_in_group("secondary_choices"):
 			if selected_choice.choice_key != "leave":
 				assert_not_connected(selected_choice, secondary_choices, "pressed", "_on_choice_pressed")
-		assert_signal_not_emitted(globals.player.pathos, "pathos_spent")
 
 class TestRiskyEvent3:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"

@@ -1,11 +1,9 @@
-# Gives three choices, paid with released pathos to get some rewards
-
 extends NonCombatEncounter
 
-const COSTS := {
-	"omega": 1,
-	"alpha": 2,
-	"kappa": 4,
+const MASTERIES_AMOUNT := {
+	"omega": round(Pathos.MASTERY_BASELINE),
+	"alpha": round(Pathos.MASTERY_BASELINE * 2),
+	"kappa": round(Pathos.MASTERY_BASELINE * 4),
 }
 
 var secondary_choices := {
@@ -29,16 +27,16 @@ func _init():
 func begin() -> void:
 	.begin()
 	var scformat = {
-		"omega_cost": COSTS["omega"],
-		"alpha_cost": COSTS["alpha"],
-		"kappa_cost": COSTS["kappa"],
+		"omega_cost": MASTERIES_AMOUNT["omega"],
+		"alpha_cost": MASTERIES_AMOUNT["alpha"],
+		"kappa_cost": MASTERIES_AMOUNT["kappa"],
 		"omega_desc": card_choice_descriptions.omega,
 		"alpha_desc": card_choice_descriptions.alpha,
 		"kappa_desc": card_choice_descriptions.kappa,
 	}
 	var disabled_choices := []
 	for type in ['alpha', 'kappa', 'omega']:
-		if globals.player.pathos.available_masteries < COSTS[type]:
+		if globals.player.pathos.available_masteries < MASTERIES_AMOUNT[type]:
 			disabled_choices.append(type)
 	_prepare_secondary_choices(secondary_choices, scformat, disabled_choices)
 
@@ -68,7 +66,7 @@ func continue_encounter(key) -> void:
 		selection_deck.update_header(card_choice_description\
 				.format(Terms.get_bbcode_formats(18)))
 		selection_deck.update_color(Color(0,1,0))
-		globals.player.pathos.available_masteries -= COSTS[key]
+		globals.player.pathos.available_masteries -= MASTERIES_AMOUNT[key]
 	end()
 	globals.journal.display_nce_rewards('')
 
