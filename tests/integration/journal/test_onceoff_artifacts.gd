@@ -540,7 +540,7 @@ class TestMoreEliteMasteries:
 		if not assert_has_amounts():
 			return
 		var ptype : PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.elite]
-		assert_eq(ptype.masteries_when_chosen, 8 + get_amount("masteries_amount"))
+		assert_eq(ptype.masteries_when_chosen, floor(Pathos.MASTERY_BASELINE * 2.5) + get_amount("masteries_amount"))
 
 
 class TestMoreNCEMasteries:

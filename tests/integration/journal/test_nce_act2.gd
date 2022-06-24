@@ -540,6 +540,7 @@ class TestRiskyEvent4:
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_emitted(globals.player, "artifact_added")
 		assert_signal_emitted(globals.player.pathos, "advancements_modified")
+		assert_eq(globals.player.pathos.available_masteries, 0)
 
 	func test_choice_ignore():
 		var porg := set_random_pathos_org("released")
@@ -551,8 +552,8 @@ class TestRiskyEvent4:
 		activate_secondary_choice_by_key("ignore")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_emitted(globals.player, "artifact_added")
-		assert_pathos_signaled("pathos_leveled", nce.ignore_pathos)
 		assert_deck_signaled("card_added", "card_name", "Apathy")
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES + nce.MASTERIES_AMOUNT)
 
 
 class TestSubconscious:
