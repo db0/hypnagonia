@@ -725,6 +725,52 @@ func modify_pathos(script_task: ScriptTask) -> int:
 		retcode = executor.exec(true)
 	return(retcode)
 
+func calculate_modify_masteries(script: ScriptTask) -> float:
+	var modification: float
+	var alteration = 0
+	if str(script.get_property(SP.KEY_AMOUNT)) == SP.VALUE_RETRIEVE_INTEGER:
+		# If the modification is requested, is only applies to stored integers
+		# so we flip the stored_integer's value.
+		modification = stored_integer
+		if script.get_property(SP.KEY_IS_INVERTED):
+			modification *= -1
+		modification += script.get_property(SP.KEY_ADJUST_RETRIEVED_INTEGER)
+	elif SP.VALUE_PER in str(script.get_property(SP.KEY_AMOUNT)):
+		var per_msg = perMessage.new(
+				script.get_property(SP.KEY_AMOUNT),
+				script.owner,
+				script.get_property(script.get_property(SP.KEY_AMOUNT)),
+				null,
+				script.subjects,
+				script.prev_subjects)
+		modification = per_msg.found_things
+	else:
+		modification = script.get_property(SP.KEY_AMOUNT, 0)
+	# warning-ignore:narrowing_conversion
+	modification = _check_for_x(script, modification)
+	# warning-ignore:narrowing_conversion
+	alteration = _check_for_effect_alterants(script, modification, cfc.NMAP.board.dreamer, self)
+	if alteration is GDScriptFunctionState:
+		alteration = yield(alteration, "completed")
+	var final_result = modification + alteration
+	return(final_result)
+
+
+func modify_masteries(script_task: ScriptTask) -> int:
+	var retcode: int
+	var modification = calculate_modify_masteries(script_task)
+	var executor = ExecModifyMasteries.new(
+			modification,
+			script_task)
+	if not costs_dry_run():
+		var _anim = IconAnimMessage.new(executor, '', true)
+		if not executor.has_executed:
+			yield(executor, "executed")
+		retcode = executor.rc
+	else:
+		retcode = executor.exec(true)
+	return(retcode)
+
 
 func calculate_modify_health(subject: CombatEntity, script: ScriptTask) -> int:
 	var modification: int

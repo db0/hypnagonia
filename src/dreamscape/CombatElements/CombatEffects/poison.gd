@@ -10,7 +10,7 @@ func _decrease_stacks() -> void:
 	# pathos masteries equal to 1 for every 5 damage (min 1)
 	if owning_entity.type == Terms.PLAYER and owning_entity.damage + stacks > owning_entity.health:
 		poison_damage = owning_entity.health - owning_entity.damage - 1
-		var amount : float = ceil(stacks - poison_damage) / 5
+		var amount : float = ceil((stacks - poison_damage) / 3)
 		globals.player.pathos.available_masteries -= amount
 		if poison_damage > 0:
 			script.append({

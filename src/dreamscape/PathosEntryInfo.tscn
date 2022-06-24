@@ -9,7 +9,7 @@ margin_bottom = 32.0
 script = ExtResource( 1 )
 
 [node name="HBC" type="HBoxContainer" parent="."]
-margin_right = 350.0
+margin_right = 246.0
 margin_bottom = 14.0
 mouse_filter = 2
 __meta__ = {
@@ -36,6 +36,7 @@ __meta__ = {
 }
 
 [node name="ProgressBar" type="ProgressBar" parent="HBC"]
+visible = false
 margin_left = 238.0
 margin_right = 338.0
 margin_bottom = 14.0
@@ -44,8 +45,8 @@ mouse_filter = 2
 step = 1.0
 
 [node name="Mastery" type="Label" parent="HBC"]
-margin_left = 342.0
-margin_right = 350.0
+margin_left = 238.0
+margin_right = 246.0
 margin_bottom = 14.0
 text = "0"
 __meta__ = {

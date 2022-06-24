@@ -331,11 +331,11 @@ const TRAFFICJAM := {
 			"reshuffle": true,
 		},
 		{
-			"intent_scripts": ["Stress:10", "Dishearten:-5"],
+			"intent_scripts": ["Stress:10", "Dishearten:-1"],
 			"reshuffle": false,
 		},
 		{
-			"intent_scripts": ["Perplex:12", "Dishearten:-3", "Frustrate:3"],
+			"intent_scripts": ["Perplex:12", "Dishearten:-2", "Frustrate:5"],
 			"reshuffle": false,
 		},
 	],

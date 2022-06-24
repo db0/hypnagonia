@@ -30,7 +30,7 @@ signal advancements_modified(new_value, old_value)
 
 # As a baseline for rewards/costs, we use the amount a normal enemy gives when defeated
 const MASTERY_BASELINE = 3
-const STARTING_MASTERIES = MASTERY_BASELINE * 3 + 1
+const STARTING_MASTERIES = round(MASTERY_BASELINE * 1.5)
 
 var pathos_setup := {
 	Terms.RUN_ACCUMULATION_NAMES.enemy: {

@@ -129,14 +129,15 @@ class TestPoison:
 
 	func test_poison_not_deadly():
 		dreamer.damage = 60
+		globals.player.pathos.available_masteries += 20
 		spawn_effect(dreamer, effect, 100, '')
 		watch_signals(globals.player.pathos)
 		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.damage, dreamer.health - 1,
 				"%s left the dreamer at 1 HP" % [effect])
-		assert_eq(globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy].get_level_requirement(), 532.5,
-				"Mastery Requirements increased")
+		assert_eq(globals.player.pathos.available_masteries, 4,
+				"Masteries lost")
 
 
 class TestBurn:

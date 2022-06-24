@@ -231,8 +231,6 @@ func get_progression() -> float:
 	var rand_array : Array = progression.duplicate()
 	CFUtils.shuffle_array(rand_array)
 	var rng_progression :float = rand_array[0] * get_progression_modifier()
-	if name == "frustration":
-		print_debug([rng_progression,rand_array[0],get_progression_modifier()])
 	return(rng_progression)
 
 

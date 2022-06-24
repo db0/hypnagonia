@@ -81,20 +81,21 @@ func generate_journal_choices() -> Array:
 	var enemy_pathos_avg = pathos_type_enemy.get_progression_average()
 	var elite_pathos_avg = pathos_type_elite.get_progression_average()
 	var boss_pathos_avg = pathos_type_boss.get_progression_average()
-	var difficulty : String
+	var normal_difficulty := 'N/A'
+	var elite_difficulty := 'N/A'
 	for option in new_options:
 		match option:
 			Terms.RUN_ACCUMULATION_NAMES.enemy:
 				var next_enemy = current_act.ENEMIES[remaining_enemies.pop_back()]
-				if pathos_type_enemy.skipped < 3\
+				if pathos_type_enemy.skipped < 2\
 						and pathos_type_boss.repressed < boss_pathos_avg * 8:
-					difficulty = "easy"
-				elif pathos_type_enemy.repressed < 3\
+					normal_difficulty = "easy"
+				elif pathos_type_enemy.skipped < 2\
 						or pathos_type_boss.repressed < boss_pathos_avg * 8:
-					difficulty = "medium"
+					normal_difficulty = "medium"
 				else:
-					difficulty = "hard"
-				journal_options.append(EnemyEncounter.new(next_enemy, difficulty))
+					normal_difficulty = "hard"
+				journal_options.append(EnemyEncounter.new(next_enemy, normal_difficulty))
 			Terms.RUN_ACCUMULATION_NAMES.rest:
 				journal_options.append(load("res://src/dreamscape/Run/NCE/Rest.gd").new())
 			Terms.RUN_ACCUMULATION_NAMES.shop:
@@ -105,15 +106,15 @@ func generate_journal_choices() -> Array:
 				journal_options.append(_get_next_nce())
 			Terms.RUN_ACCUMULATION_NAMES.elite:
 				var next_enemy = current_act.ELITES[remaining_elites.pop_back()]
-				if pathos_type_elite.skipped < 2\
+				if pathos_type_elite.skipped < 1\
 						and pathos_type_boss.repressed < boss_pathos_avg * 8:
-					difficulty = "easy"
-				elif pathos_type_elite.skipped < 2\
+					elite_difficulty = "easy"
+				elif pathos_type_elite.skipped < 1\
 						or pathos_type_boss.repressed < boss_pathos_avg * 8:
-					difficulty = "medium"
+					elite_difficulty = "medium"
 				else:
-					difficulty = "hard"
-				journal_options.append(EliteEncounter.new(next_enemy, difficulty))
+					elite_difficulty = "hard"
+				journal_options.append(EliteEncounter.new(next_enemy, elite_difficulty))
 			Terms.RUN_ACCUMULATION_NAMES.boss:
 				journal_options.append(BossEncounter.new(current_act.BOSSES[boss_name]))
 	if OS.has_feature("debug") and not cfc.is_testing:
@@ -129,7 +130,8 @@ func generate_journal_choices() -> Array:
 					_debug_enemies.append(scene.get_path())
 		print("DEBUG INFO:Encounters: Encounter choices selected: ", _debug_encounter_paths)
 		if _debug_enemies.size() > 0:
-			print("DEBUG INFO:Encounters: %s enemies choices available: %s" % [difficulty.capitalize(), _debug_enemies])
+			print("DEBUG INFO:Encounters: (Normal Difficulty: %s/ Elite Difficulty: %s) enemies choices available: %s"\
+					% [normal_difficulty.capitalize(), elite_difficulty.capitalize(), _debug_enemies])
 	return(journal_options)
 
 
@@ -167,13 +169,10 @@ func _get_journal_options(requested_options := 3) -> Array:
 func _get_next_nce() -> NonCombatEncounter:
 	var nce_type = "easy"
 	var pathos_type_nce: PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.nce]
-	var nce_pathos_avg := pathos_type_nce.get_progression_average()
-	var current_nce_level := pathos_type_nce.repressed
-	var nce_pathos_threshold := pathos_type_nce.get_threshold()
-	if  not remaining_nce["risky"].empty() and current_nce_level > nce_pathos_threshold + (nce_pathos_avg * 2):
+	if  not remaining_nce["risky"].empty() and pathos_type_nce.skipped >= 1:
 		nce_type = "risky"
 	if OS.has_feature("debug"):
-		print_debug("Current NCE Level: %s. Risky Threshold %s. Chosen: %s" % [current_nce_level, nce_pathos_threshold + nce_pathos_avg * 2, nce_type])
+		print_debug("Current NCE skipped: %s. Chosen: %s" % [pathos_type_nce.skipped, nce_type])
 	# In full release, I should not need to do this, as I should have enough NCE to never run out
 	# In development version, we only reshuffle the easy NCE to avoid having the player eat
 	# the fewer risky ones all the time.

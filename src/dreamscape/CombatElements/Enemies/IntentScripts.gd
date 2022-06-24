@@ -204,13 +204,11 @@ const FRUSTRATE := [
 ]
 const DISHEARTEN := [
 	{
-		"name": "modify_pathos",
+		"name": "modify_masteries",
 		"tags": ["Intent"],
-		"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
-		"pathos_type": "temp",
 		"amount": null,
 		"icon": preload("res://assets/icons/traffic-cone.png"),
-		"description": "Dishearten: This will increase the requirements to get the dreamer's next frustration mastery.\n"\
+		"description": "Dishearten: This will decrease the dreamer's available masteries.\n"\
 				+ "[i]I'll never make it in time...[/i]"
 	}
 ]

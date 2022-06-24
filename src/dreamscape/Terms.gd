@@ -54,12 +54,12 @@ const RUN_ACCUMULATION_NAMES := {
 const PATHOS_DESCRIPTIONS := {
 	RUN_ACCUMULATION_NAMES.enemy: {
 		"repressed": "Increases the chance that Torments will appear as encounters. "\
-			+ "If the repressed pathos gets too high, it also makes their ordeals harder",
+			+ "If this is skipped two or more times, it also makes their ordeals harder",
 		"released": "Fill the bar to receive 2 pathos masteries to use in the shop."
 	},
 	RUN_ACCUMULATION_NAMES.nce: {
 		"repressed": "Increases the chance that Non-Ordeal encounters will appear. "\
-			+ "If the repressed pathos gets too high, more risky  encounters will be chosen",
+			+ "If this is skipped, more risky encounters will be appear",
 		"released": "Fill the bar to receive a pathos mastery to use in the shop."
 	},
 	RUN_ACCUMULATION_NAMES.shop: {
@@ -68,16 +68,17 @@ const PATHOS_DESCRIPTIONS := {
 	},
 	RUN_ACCUMULATION_NAMES.elite: {
 		"repressed": "Increases the chance that Elite Torment will appear as encounters. "\
-			+ "If the repressed pathos gets too high, it also makes their ordeals harder",
+			+ "If this is skipped, it also makes their ordeals harder",
 		"released": "Fill the bar to receive 3 pathos masteries to use in the shop."
 	},
 	RUN_ACCUMULATION_NAMES.artifact: {
 		"repressed": "Increases the chance that Curios will appear as encounters. "\
-			+ "If the repressed pathos gets too high, there is a better chance for higher rarity curio",
+			+ "The more this is skipped, the better chance for higher rarity curio",
 		"released": "Fill the bar to receive a pathos mastery to use in the shop."
 	},
 	RUN_ACCUMULATION_NAMES.rest: {
-		"repressed": "Increases the chance that Rest encounters will appear.",
+		"repressed": "Increases the chance that Rest encounters will appear. "\
+			+ "If this is skipped, you gain slightly better results.",
 		"released": "Fill the bar to receive a pathos mastery to use in the shop."
 	},
 	RUN_ACCUMULATION_NAMES.boss: {

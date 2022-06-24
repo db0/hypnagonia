@@ -221,24 +221,20 @@ class TestDishearten:
 	func _init() -> void:
 		intents_to_test = [
 			{
-				"intent_scripts": ["Dishearten:20"],
+				"intent_scripts": ["Dishearten:-2"],
 				"reshuffle": true,
 			},
 		]
 
 	func test_dishearten():
 		# Apparently a delay is needed here
-		yield(yield_for(0.2), YIELD)
-		assert_eq(globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy].temp_modification_for_next_level, 30.0,
-				"Frustration requirements should increase")
-		assert_eq(globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy].get_level_requirement(), 75.0,
-				"Mastery Requirements increased")
+		yield(yield_for(0.4), YIELD)
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES - 2,
+				"Available masteries should decrease")
 		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
-		assert_eq(globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy].temp_modification_for_next_level, 60.0,
-				"Frustration requirements should increase")
-		assert_eq(globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy].get_level_requirement(), 105.0,
-				"Mastery Requirements increased")
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES - 4,
+				"Available masteries should decrease")
 
 
 class TestUnfocus:

@@ -421,25 +421,25 @@ class TestRiskyEvent3:
 			return
 		activate_secondary_choice_by_key(key)
 		yield(yield_to(secondary_choices, "secondary_choice_selected", 0.2), YIELD)
-		assert_signal_emit_count(globals.player.pathos, "pathos_leveled", 2)
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES + nce.MASTERIES_AMOUNT)
 		assert_almost_eq(globals.player.health, expected_player_health, 0.2)
 		reduction = nce.amounts[key]
 		expected_player_health = expected_player_health - reduction
 		activate_secondary_choice_by_key(key)
 		yield(yield_to(secondary_choices, "secondary_choice_selected", 0.2), YIELD)
-		assert_signal_emit_count(globals.player.pathos, "pathos_leveled", 4)
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES + nce.MASTERIES_AMOUNT * 2)
 		assert_almost_eq(globals.player.health, expected_player_health, 0.2)
 		reduction = nce.amounts[key]
 		expected_player_health = expected_player_health - reduction
 		activate_secondary_choice_by_key(key)
 		yield(yield_to(secondary_choices, "secondary_choice_selected", 0.2), YIELD)
-		assert_signal_emit_count(globals.player.pathos, "pathos_leveled", 6)
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES + nce.MASTERIES_AMOUNT * 3)
 		assert_almost_eq(globals.player.health, expected_player_health, 0.2)
 		reduction = nce.amounts["bliss"]
 		expected_player_health = expected_player_health - reduction
 		activate_secondary_choice_by_key("bliss")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
-		assert_signal_emit_count(globals.player.pathos, "pathos_leveled", 6)
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES + nce.MASTERIES_AMOUNT * 3)
 		assert_almost_eq(globals.player.health, expected_player_health, 0.2)
 		assert_signal_emitted(nce, "encounter_end")
 
