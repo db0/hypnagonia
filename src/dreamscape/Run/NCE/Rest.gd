@@ -37,7 +37,7 @@ func _init():
 
 func begin() -> void:
 	.begin()
-	var healing_done = (globals.player.health * rest_amount) + skipped * 2
+	var healing_done = round(globals.player.health * rest_amount) + skipped * 2
 	if healing_done > globals.player.damage:
 		healing_done = globals.player.damage	
 	var scformat = {
@@ -77,7 +77,7 @@ func begin() -> void:
 func continue_encounter(key) -> void:
 	match key:
 		"rest":
-			globals.player.damage -= int(globals.player.health * rest_amount) + skipped * 2
+			globals.player.damage -= round(globals.player.health * rest_amount) + skipped * 2
 		"progress":
 			var selection_deck : SelectionDeck = globals.journal.spawn_selection_deck()
 			selection_deck.popup_exclusive = true

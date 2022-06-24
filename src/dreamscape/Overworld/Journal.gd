@@ -64,7 +64,6 @@ onready var player_info := $"../PlayerInfo"
 onready var journal_cover := $"../../FadeToBlack"
 
 
-# We split this
 func _ready() -> void:
 	if OS.has_feature("debug") and not cfc.is_testing:
 		print("DEBUG INFO:Journal: Entering Journal")
@@ -528,6 +527,10 @@ func show_description_popup(description_text: String) -> void:
 
 func show_pathos_popup(description_text: String, pathos_dict: Dictionary) -> void:
 	_pathos_description.bbcode_text = description_text
+	for child in journal_choices.get_children():
+		if pathos_dict[child.pathos_released]["repress_mod"] == 0:
+			var pathos_type: PathosType = globals.player.pathos.pathi[child.pathos_released]
+			pathos_dict[child.pathos_released]["repress_mod"] = -pathos_type.get_final_release_amount()
 	var highest_chance: int
 	for entry in pathos_infos:
 		var chance = pathos_infos[entry].update_labels(pathos_dict)

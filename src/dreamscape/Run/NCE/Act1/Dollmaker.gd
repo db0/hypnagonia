@@ -2,7 +2,7 @@
 extends NonCombatEncounter
 
 const DESTROY_PCT  := 0.5
-const MASTERIES_AMOUNT := 4
+const MASTERIES_AMOUNT := round(Pathos.MASTERY_BASELINE * 1.8)
 
 var secondary_choices := {
 		'destroy': '[Destroy the workshop]: Gain {gcolor:{destroy_amount} {masteries}:}.',
@@ -29,7 +29,7 @@ func _init():
 func begin() -> void:
 	.begin()
 	var scformat := {}
-	scformat["destroy_amount"] = floor(DESTROY_PCT * 100)
+	scformat["destroy_amount"] = MASTERIES_AMOUNT
 	_prepare_secondary_choices(secondary_choices, scformat)
 
 func continue_encounter(key) -> void:
