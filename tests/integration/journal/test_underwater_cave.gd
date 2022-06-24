@@ -24,7 +24,7 @@ class TestNCE:
 		end_surprise_encounter()
 		assert_signal_emit_count(globals.player, "memory_added", 1)
 		assert_signal_emit_count(globals.player, "artifact_added", 1)
-		assert_pathos_signaled('released_pathos_gained', nce.PATHOS)
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES + nce.MASTERIES_AMOUNT)
 		var new_choice = journal.entries_list.get_node("CustomDraft")
 		watch_signals(globals.player.deck)
 		if new_choice:
@@ -52,7 +52,6 @@ class TestLeave:
 		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act3/UnderwaterCave.gd")
 
 	func test_choice_leave():
-		globals.player.pathos.pathi[nce.PATHOS].released = 500
 		begin_nce_with_choices(nce)
 		watch_signals(globals.player.deck)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
@@ -60,5 +59,4 @@ class TestLeave:
 # warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("leave")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
-		assert_pathos_signaled("released_pathos_lost", nce.PATHOS)
-		assert_eq(globals.player.pathos.pathi[nce.PATHOS].released, 0)
+		assert_eq(globals.player.pathos.available_masteries, 0)
