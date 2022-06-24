@@ -1086,7 +1086,7 @@ const MoreShopMasteries := {
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Encounter",
 	"amounts": {
-		"masteries_amount": 2,
+		"masteries_amount": round(Pathos.MASTERY_BASELINE * 0.6),
 	},
 }
 
@@ -1099,7 +1099,7 @@ const MoreArtifactMasteries := {
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Encounter",
 	"amounts": {
-		"masteries_amount": 3,
+		"masteries_amount": round(Pathos.MASTERY_BASELINE),
 	},
 }
 
@@ -1111,7 +1111,7 @@ const MoreRestMasteries := {
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Encounter",
 	"amounts": {
-		"masteries_amount": 2,
+		"masteries_amount": round(Pathos.MASTERY_BASELINE * 0.6),
 	},
 }
 
@@ -1123,7 +1123,7 @@ const MoreEliteMasteries := {
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Encounter",
 	"amounts": {
-		"masteries_amount": 6,
+		"masteries_amount": round(Pathos.MASTERY_BASELINE * 2),
 	},
 }
 
@@ -1135,7 +1135,7 @@ const MoreNCEMasteries := {
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Encounter",
 	"amounts": {
-		"masteries_amount": 3,
+		"masteries_amount": round(Pathos.MASTERY_BASELINE),
 	},
 }
 
@@ -1147,7 +1147,7 @@ const MoreEnemyMasteries := {
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Encounter",
 	"amounts": {
-		"masteries_amount": 1,
+		"masteries_amount": round(Pathos.MASTERY_BASELINE * 0.3),
 	},
 }
 
@@ -1231,13 +1231,13 @@ const CostlyUpgrades := {
 	"canonical_name": "CostlyUpgrades",
 	"name": "Costly Upgrades",
 	"description": "{artifact_name}: You have {immersion_amount} extra {energy} per turn.\n"\
-			+ "Massively increase the time needed to gain {pathos} masteries.",
+			+ "Reduce the amount of masteries gained from torment encounters by 30%",
 	"icon": GENERIC_BOSS_ARTIFACT_ICON,
 	"context": EffectContext.BATTLE,
 	"rarity": "Boss",
 	"amounts": {
 		"immersion_amount": 1,
-		"pathos_req_increase": 100,
+		"masteries_modifier": -0.3,
 	},
 	"linked_terms": [
 		"energy",

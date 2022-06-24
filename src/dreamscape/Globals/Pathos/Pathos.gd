@@ -285,4 +285,4 @@ func restore_save_state(save_state: Dictionary) -> void:
 
 
 func _on_pathos_selected(pathos_name: String) -> void:
-	set_available_masteries(available_masteries + pathi[pathos_name].masteries_when_chosen)
+	set_available_masteries(available_masteries + pathi[pathos_name].get_masteries_per_selection())

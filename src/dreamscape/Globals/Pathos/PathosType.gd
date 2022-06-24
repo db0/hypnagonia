@@ -33,6 +33,7 @@ var perm_modification_for_next_level: float
 var level: int
 # How many masteries the player receives to spend in the shop per level gained.
 var masteries_when_chosen := 0
+var masteries_modifiers := 1.0
 var skipped: int
 
 
@@ -258,3 +259,8 @@ func get_progression_modifier() -> float:
 	for object in progression_modifying_objects:
 		updated_modifiers += object.get_pathos_progression_modifier()
 	return(progression_modifier + updated_modifiers)
+
+
+func get_masteries_per_selection() -> int:
+	var masteries_ret = int(round(masteries_when_chosen * masteries_modifiers))
+	return(masteries_ret)

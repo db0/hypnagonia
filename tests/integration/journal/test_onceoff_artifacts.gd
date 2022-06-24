@@ -578,7 +578,7 @@ class TestCostlyUpgrades:
 	func _init() -> void:
 		testing_artifact_name = ArtifactDefinitions.CostlyUpgrades.canonical_name
 		expected_amount_keys = [
-			"pathos_req_increase",
+			"masteries_modifier",
 			"immersion_amount",
 		]
 
@@ -587,5 +587,5 @@ class TestCostlyUpgrades:
 			return
 		for p in globals.player.pathos.pathi.values():
 			var ptype : PathosType = p
-			assert_eq(ptype.perm_modification_for_next_level, 0)
+			assert_eq(ptype.masteries_modifiers, 0.7)
 

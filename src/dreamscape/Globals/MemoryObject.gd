@@ -4,7 +4,7 @@ extends Reference
 const MEMORY_SCENE = preload("res://src/dreamscape/Memories/MemoryTemplate.tscn")
 
 signal removed
-signal pathos_accumulated(memory, amount)
+signal memory_charging(memory, amount)
 signal memory_ready(memory)
 signal memory_unready(memory)
 signal memory_used(memory)
@@ -43,7 +43,7 @@ func _init(memory_name: String, _mods := {}) -> void:
 	# First use is free
 	current_charge = recharge_time
 	is_ready = true
-#	emit_signal("pathos_accumulated", self, 0)
+	emit_signal("memory_charging", self, 0)
 	modifiers = _mods
 	if globals.encounters:
 		# warning-ignore:return_value_discarded
@@ -111,6 +111,8 @@ func get_pathos_progression_modifier() -> float:
 
 
 func _on_encounter_changed(_act_name, _encounter_number) -> void:
+	if current_charge < recharge_time:
+		emit_signal("memory_charging", self, 1)
 	current_charge += 1
 	if current_charge >= recharge_time:
 		ready()

@@ -10,7 +10,7 @@ onready var inactive_highlight := $Signifier/InactiveHighlight
 
 func _ready() -> void:
 	if not artifact_object.is_ready:
-		_on_pathos_accumulated(artifact_object, 0)
+		_on_memory_charging(artifact_object, 0)
 	else:
 		_on_memory_ready(artifact_object)
 	if not is_active:
@@ -21,7 +21,7 @@ func setup_artifact(memory_object, _is_active: bool, new_addition: bool) -> void
 	.setup_artifact(memory_object, _is_active, new_addition)
 	# We do that in _ready() as well, but to avoid errors in the console before that, we set it now as well
 	canonical_name = memory_object.canonical_name
-	memory_object.connect("pathos_accumulated", self, "_on_pathos_accumulated")
+	memory_object.connect("memory_charging", self, "_on_memory_charging")
 	memory_object.connect("memory_ready", self, "_on_memory_ready")
 	memory_object.connect("memory_unready", self, "_on_memory_unready")
 	memory_object.connect("memory_used", self, "_on_memory_used")
@@ -96,10 +96,10 @@ func _on_MemoryTemplate_gui_input(event: InputEvent) -> void:
 		_set_current_description()
 	## END DEBUG
 
-func _on_pathos_accumulated(memory: Reference, _amount) -> void:
+func _on_memory_charging(memory: Reference, _amount) -> void:
 	if not memory.is_ready:
 		shader_node.material.set_shader_param('percentage',
-				float(artifact_object.pathos_accumulated)/float(artifact_object.pathos_threshold))
+				float(artifact_object.current_charge)/float(artifact_object.recharge_time))
 
 
 func _on_memory_ready(_memory: Reference) -> void:
