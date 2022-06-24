@@ -569,7 +569,7 @@ class TestSubconscious:
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_deck_signaled("card_added", "card_name", "Subconscious")
 		assert_eq(globals.player.damage, nce.DAMAGE_AMOUNT)
-		assert_signal_not_emitted(globals.player.pathos, "released_pathos_gained")
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES)
 
 	func test_choice_avoid():
 		var porg := set_random_pathos_org("level", true)
@@ -581,8 +581,7 @@ class TestSubconscious:
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_not_emitted(globals.player.deck, "card_added")
 		assert_eq(globals.player.damage, 0)
-		assert_pathos_signaled("released_pathos_gained", porg.low.name)
-
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES + nce.MASTERIES_AMOUNT)
 
 class TestHangingOn:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
