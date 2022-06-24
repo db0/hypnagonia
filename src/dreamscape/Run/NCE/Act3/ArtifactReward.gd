@@ -2,12 +2,12 @@ extends NonCombatEncounter
 
 # The artifact used by this event.
 const SPECIAL_ARTIFACT:= "StartingDisempower"
-const MASTERY_AMOUNT := 2
+const MASTERIES_AMOUNT := round(Pathos.MASTERY_BASELINE * 4)
 
 # TODO: Fluff
 var secondary_choices := {
 		'receive': '[Receive Curio]: {bcolor:Spend all {masteries}:}. {gcolor:Gain {special_curio}:}.',
-		'use': '[Use Curio]: use {special_curio}. Gain {gcolor:{masteries_amount} {lowest_pathos} {mastery}:}.',
+		'use': '[Use Curio]: use {special_curio}. Gain {gcolor:{masteries_amount} {masteries}:}.',
 		'ignore': '[Ignore]: Nothing happens.',
 	}
 
@@ -20,12 +20,8 @@ func _init():
 
 func begin() -> void:
 	.begin()
-	var pathos_org = globals.player.pathos.get_pathos_org("level", true)
-#	print_debug(pathos_org)
-	lowest_pathos = pathos_org["lowest_pathos"]["selected"]
 	var scformat = {
-		"lowest_pathos": lowest_pathos.name,
-		"masteries_amount":  MASTERY_AMOUNT,
+		"masteries_amount":  MASTERIES_AMOUNT,
 		"special_curio": _prepare_artifact_popup_bbcode(SPECIAL_ARTIFACT, SPECIAL_ARTIFACT)
 	}
 	var disabled_choices := []
@@ -42,8 +38,7 @@ func continue_encounter(key) -> void:
 			globals.player.add_artifact(SPECIAL_ARTIFACT)
 			globals.player.pathos.available_masteries = 0
 		"use":
-			for iter in MASTERY_AMOUNT:
-				lowest_pathos.level_up()
+			globals.player.pathos.available_masteries += MASTERIES_AMOUNT
 			globals.player.remove_artifact(SPECIAL_ARTIFACT)
 	globals.journal.display_nce_rewards('')
 	end()
