@@ -114,7 +114,6 @@ class TestCrystalShattering:
 		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act1/CrystalShattering.gd")
 
 	func test_choice_progress():
-		var porg := set_random_pathos_org("released")
 		begin_nce_with_choices(nce)
 		watch_signals(globals.player.deck)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
@@ -123,10 +122,9 @@ class TestCrystalShattering:
 		activate_secondary_choice_by_key("progress")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_emitted(globals.player.deck, "card_entry_progressed")
-		assert_pathos_signaled("pathos_spent", porg.low.name)
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES - nce.MASTERIES_AMOUNT["progress"])
 
 	func test_choice_upgrade():
-		var porg := set_random_pathos_org("released")
 		begin_nce_with_choices(nce)
 		watch_signals(globals.player.deck)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
@@ -135,10 +133,9 @@ class TestCrystalShattering:
 		activate_secondary_choice_by_key("upgrade")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_emitted(globals.player.deck, "card_entry_progressed")
-		assert_pathos_signaled("pathos_spent", porg.mid.name)
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES - nce.MASTERIES_AMOUNT["upgrade"])
 
 	func test_choice_remove():
-		var porg := set_random_pathos_org("released")
 		begin_nce_with_choices(nce)
 		watch_signals(globals.player.deck)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
@@ -150,7 +147,7 @@ class TestCrystalShattering:
 		watch_signals(globals.player.deck)
 		selection_deck._deck_preview_grid.get_children()[0].select_card()
 		assert_signal_emitted(globals.player.deck, "card_removed")
-		assert_pathos_signaled("pathos_spent", porg.high.name)
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES - nce.MASTERIES_AMOUNT["remove"])
 
 	func test_choice_leave():
 		begin_nce_with_choices(nce)
@@ -160,7 +157,7 @@ class TestCrystalShattering:
 # warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("leave")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
-		assert_pathos_not_signaled("pathos_spent")
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES)
 
 class TestPathosForAnxiety:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"

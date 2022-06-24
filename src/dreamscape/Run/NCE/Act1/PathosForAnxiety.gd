@@ -3,15 +3,15 @@
 extends NonCombatEncounter
 
 const MASTERY_AMOUNTS := {
-	"calm": 2,
-	"stress": 4,
-	"fear": 6,
+	"calm": round(Pathos.MASTERY_BASELINE * 0.6),
+	"stress": round(Pathos.MASTERY_BASELINE * 1.3),
+	"fear": round(Pathos.MASTERY_BASELINE * 2.5),
 }
 
 var secondary_choices := {
 		'calm': '[Songbird]: Gain {gcolor:{calm_mastery_amount} {mastery}:}.',
-		'stress': '[Peacock]: {bcolor:+{stress_amount}:} {anxiety_up}. Gain {gcolor:{stress_mastery_amount} {masteries}%:}.',
-		'fear': '[Lion]: {bcolor:+{fear_amount} {anxiety_up}:}. Gain {gcolor:{fear_mastery_amount} {masteries}%:}.',
+		'stress': '[Peacock]: {bcolor:+{stress_amount}:} {anxiety_up}. Gain {gcolor:{stress_mastery_amount} {masteries}:}.',
+		'fear': '[Lion]: {bcolor:+{fear_amount} {anxiety_up}:}. Gain {gcolor:{fear_mastery_amount} {masteries}:}.',
 	}
 	
 var nce_result_fluff := {
