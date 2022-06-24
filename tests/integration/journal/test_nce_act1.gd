@@ -24,7 +24,7 @@ class TestDollmaker:
 # warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("destroy")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
-		assert_signal_emitted(globals.player.pathos, "released_pathos_gained")
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES + nce.MASTERIES_AMOUNT)
 		assert_nce_not_unlocked(load("res://src/dreamscape/Run/NCE/AllActs/DollPickup.gd"))
 
 class TestGreed:
