@@ -1,11 +1,14 @@
 extends NonCombatEncounter
 
+const MASTERIES_AMOUNT := 3
+
 var artifact_prep : ArtifactPrep
 var testing_rng := 0
 
+
 var secondary_choices := {
 		'lead': '[Lead]: {bcolor:+15:} {anxiety_up}. 60% chance to {gcolor:gain a random curio:}.',
-		'follow': '[Follow]: {bcolor:+7:} {anxiety_up}. {gcolor:+50% {released_shop}:}.',
+		'follow': '[Follow]: {bcolor:+7:} {anxiety_up}. {gcolor:{masteries_amount} {masteries}:}.',
 		'abort': '[Abort]: Gain {bcolor:moderate {repressed_elite}:} .',
 	}
 
@@ -30,6 +33,7 @@ func begin() -> void:
 	# warning-ignore:return_value_discarded
 	.begin()
 	var scformat := Terms.RUN_ACCUMULATION_NAMES.duplicate()
+	scformat["masteries_amount"] = MASTERIES_AMOUNT
 	_prepare_secondary_choices(secondary_choices, scformat)
 
 func continue_encounter(key) -> void:
@@ -51,9 +55,7 @@ func continue_encounter(key) -> void:
 						+ "The forces of Order soon overwhelmed your band."
 		"follow":
 			globals.player.damage += 7
-			var pathos_type : PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.shop]
-			# warning-ignore:narrowing_conversion
-			pathos_type.released += pathos_type.convert_pct_to_released(0.5)
+			globals.player.pathos.available_masteries += MASTERIES_AMOUNT
 		"abort":
 			# warning-ignore:narrowing_conversion
 			var pathos_type : PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.elite]

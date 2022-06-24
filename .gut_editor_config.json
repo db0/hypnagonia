@@ -15,7 +15,7 @@
  "hide_orphans": false,
  "ignore_pause": true,
  "include_subdirs": false,
- "inner_class": "TestPathosForAnxiety",
+ "inner_class": "TestMonsterTrain",
  "junit_xml_file": "",
  "junit_xml_timestamp": false,
  "log_level": 3,
@@ -33,7 +33,7 @@
  "tests": [
 
  ],
- "unit_test_name": "test_choice_fear",
+ "unit_test_name": "test_choice_follow",
  "gut_on_top": true,
  "panel_options": {
   "font_name": "CourierPrime",

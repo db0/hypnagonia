@@ -92,7 +92,7 @@ class TestMonsterTrain:
 # warning-ignore:return_value_discarded
 		activate_secondary_choice_by_key("follow")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
-		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.shop)
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES + nce.MASTERIES_AMOUNT)
 		assert_signal_not_emitted(globals.player, "artifact_added")
 		assert_eq(globals.player.damage, 7, "Player took damage")
 
