@@ -16,7 +16,9 @@ func get_effect_alteration(
 		return(0)
 	if not script.script_name == 'modify_damage':
 		return(0)
-	if  cfc.NMAP.board.turn.current_turn != cfc.NMAP.board.turn.Turns.PLAYER_TURN:
+	if cfc.NMAP.board.turn.current_turn != cfc.NMAP.board.turn.Turns.PLAYER_TURN:
+		return(0)
+	if "Intent" in script.get_property("tags"):
 		return(0)
 	if subject != owning_entity:
 		return(0)
