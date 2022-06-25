@@ -464,14 +464,14 @@ func _input(event):
 #		SoundManager.play_bgm(bgm_tracks[0])
 #		SoundManager.fade_in(bgm_tracks[0])
 		# warning-ignore:unused_variable
-#		_debug_advanced_enemy()
+		_debug_advanced_enemy()
 		var _torment1
 		var _torment2
 		var _torment3
-		_torment1 = spawn_enemy(EnemyDefinitions.SHAMELING)
+#		_torment1 = spawn_enemy(EnemyDefinitions.SHAMELING)
 #		_torment1 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 #		_torment1 = spawn_enemy(EnemyDefinitions.VOID)
-		_torment2 = spawn_enemy(EnemyDefinitions.SHAMELING)
+#		_torment2 = spawn_enemy(EnemyDefinitions.SHAMELING)
 #		_torment2 = spawn_enemy(EnemyDefinitions.BROKEN_MIRROR)
 #		_torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
 #		_torment3 = spawn_enemy(EnemyDefinitions.GASLIGHTER)
@@ -519,11 +519,20 @@ func _input(event):
 #		for iter in 20:
 #			var c = "Interpretation"
 		for c in [
+			"- Interpretation -",
+			"- Interpretation -",
+			"- Interpretation -",
+			"- Interpretation -",
+			"- Interpretation -",
+			"- Interpretation -",
+			"- Interpretation -",
+			"- Interpretation -",
+			"- Interpretation -",
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
 #			"Prejudice",
-			"Nunclucks",
+#			"Nunclucks",
 		]:
 			var ce = globals.player.deck.add_new_card(c)
 #			var ce = CardEntry.new(c)

@@ -821,7 +821,7 @@ const ACTIVE_EFFECTS := {
 		"icon": preload("res://assets/icons/abstract-053.png"),
 		"noscript": true,
 		"description": "{effect_name}: Whenever this {entity}'s {stress} does not increase anxiety it gains 1 {strengthen}.\n"\
-				+ "The first time each turn this {entity}'s is {opponent_attack} for 12+ from one source, it gains 1 {strengthen}.\n"\
+				+ "The first time each turn this {entity}'s is {opponent_attack} for 10+ from one source, it gains 1 {strengthen}.\n"\
 				+ "When this {entity} has 7+ focus, it performs a powerful {stress}, then resets its {strengthen} to 0.",
 		"linked_terms": [
 			"attack",
