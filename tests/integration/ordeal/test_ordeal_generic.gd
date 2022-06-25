@@ -127,7 +127,6 @@ class TestTurnEventRecording:
 			sceng = execute_with_yield(exec_card)
 			if sceng is GDScriptFunctionState and sceng.is_valid():
 				sceng = yield(sceng, "completed")
-		yield(yield_for(0.2), YIELD)
 		var first_turn_event_count = {
 			"Chain":1,
 			"Clarity":1,
@@ -153,7 +152,6 @@ class TestTurnEventRecording:
 			sceng = execute_with_yield(cards[index])
 			if sceng is GDScriptFunctionState and sceng.is_valid():
 				sceng = yield(sceng, "completed")
-		yield(yield_for(0.2), YIELD)
 		var second_turn_event_count =  {
 			"Chain":1,
 			"Clarity":1,

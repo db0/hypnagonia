@@ -167,10 +167,10 @@ func recalculate_total_difficulty() -> void:
 	total_difficulty = 0
 	total_difficulty += starting_perturbations
 	total_difficulty += progress_increase / DIFFICULTY_STEPS.progress_increase
-	total_difficulty += TOTAL_DIFFICULTY_MAPS.act_healing.get(act_healing,0)
-	total_difficulty += TOTAL_DIFFICULTY_MAPS.starting_masteries.get(starting_masteries,0)
-	total_difficulty += TOTAL_DIFFICULTY_MAPS.max_health.get(max_health,0)
-	total_difficulty += TOTAL_DIFFICULTY_MAPS.starting_damage.get(starting_damage,0)
+	total_difficulty += TOTAL_DIFFICULTY_MAPS.act_healing[act_healing]
+	total_difficulty += TOTAL_DIFFICULTY_MAPS.starting_masteries[starting_masteries]
+	total_difficulty += TOTAL_DIFFICULTY_MAPS.max_health[max_health]
+	total_difficulty += TOTAL_DIFFICULTY_MAPS.starting_damage[starting_damage]
 	total_difficulty += calc_boolean_difficulty(prevent_basic_cards_release)
 	total_difficulty += calc_boolean_difficulty(desire_curios_give_perturbation) * DIFFICULTY_MULTIPLIERS.desire_curios_give_perturbation
 	total_difficulty += calc_boolean_difficulty(lower_upgraded_draft_chance)
