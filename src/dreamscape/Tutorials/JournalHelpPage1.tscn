@@ -22,20 +22,19 @@ margin_bottom = 24.0
 text = "Dream Journal Reference"
 
 [node name="Deck_Immersion" type="TextureRect" parent="."]
-margin_left = 49.8967
-margin_top = 61.6129
-margin_right = 773.897
-margin_bottom = 114.613
+margin_left = 34.0
+margin_top = 82.0
+margin_right = 829.0
+margin_bottom = 112.0
 texture = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+expand = true
+stretch_mode = 5
 
 [node name="InfoPanel" type="PanelContainer" parent="."]
-margin_left = 12.621
-margin_top = 8.85657
-margin_right = 86.621
-margin_bottom = 36.8566
+margin_left = -1.46342
+margin_top = 8.97683
+margin_right = 72.5366
+margin_bottom = 36.9769
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -54,19 +53,18 @@ __meta__ = {
 [node name="Pointer" type="Line2D" parent="InfoPanel"]
 position = Vector2( 57.5571, -30.2381 )
 scale = Vector2( 0.685019, 1 )
-points = PoolVector2Array( 36.6263, 94.6278, -30.6317, 57.5447 )
+points = PoolVector2Array( 0.333649, 103.445, -30.6317, 57.5447 )
 width = 1.0
 default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
 antialiased = true
 
 [node name="InfoPanel2" type="PanelContainer" parent="."]
-margin_left = 156.107
-margin_top = 8.11649
-margin_right = 230.107
-margin_bottom = 36.1165
+margin_left = 77.0117
+margin_top = 34.3369
+margin_right = 151.012
+margin_bottom = 62.3369
 __meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
+"_edit_group_": true
 }
 
 [node name="Label" type="Label" parent="InfoPanel2"]
@@ -82,27 +80,61 @@ __meta__ = {
 [node name="Pointer" type="Line2D" parent="InfoPanel2"]
 position = Vector2( 57.5571, -30.2381 )
 scale = Vector2( 0.685019, 1 )
-points = PoolVector2Array( -49.6831, 97.3388, -30.6317, 57.5447 )
+points = PoolVector2Array( -50.7952, 80.3329, -30.6317, 57.5447 )
 width = 1.0
 default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
 antialiased = true
 
-[node name="Pointer2" type="Line2D" parent="InfoPanel2"]
+[node name="InfoPanel8" type="PanelContainer" parent="."]
+margin_left = 161.305
+margin_top = 10.8918
+margin_right = 237.305
+margin_bottom = 35.8918
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="InfoPanel8"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 74.0
+margin_bottom = 23.0
+text = "Memories"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel8"]
+position = Vector2( 60.684, -39.2741 )
+scale = Vector2( 0.710188, 1.1598 )
+points = PoolVector2Array( -139.389, 100.5, -33.0933, 57.4683 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="Pointer2" type="Line2D" parent="InfoPanel8"]
+position = Vector2( 56.8314, -31.8488 )
+scale = Vector2( 0.649532, 1.02849 )
+points = PoolVector2Array( -110.72, 106.84, -30.6317, 57.5447 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
+[node name="Pointer3" type="Line2D" parent="InfoPanel8"]
 position = Vector2( 57.5571, -30.2381 )
 scale = Vector2( 0.685019, 1 )
-points = PoolVector2Array( -21.4493, 97.3388, -30.6317, 57.5447 )
+points = PoolVector2Array( -76.5153, 106.025, -30.6317, 57.5447 )
 width = 1.0
 default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
 antialiased = true
 
 [node name="InfoPanel3" type="PanelContainer" parent="."]
-margin_left = 307.084
-margin_top = 10.444
-margin_right = 459.084
-margin_bottom = 38.444
+margin_left = 262.038
+margin_top = 13.867
+margin_right = 414.038
+margin_bottom = 41.867
 __meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
+"_edit_group_": true
 }
 
 [node name="Label" type="Label" parent="InfoPanel3"]
@@ -123,14 +155,40 @@ width = 1.0
 default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
 antialiased = true
 
+[node name="InfoPanel9" type="PanelContainer" parent="."]
+margin_left = 429.509
+margin_top = 13.4653
+margin_right = 504.509
+margin_bottom = 38.4653
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="InfoPanel9"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 73.0
+margin_bottom = 23.0
+text = "Difficulty"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pointer" type="Line2D" parent="InfoPanel9"]
+position = Vector2( 102.557, -30.2381 )
+scale = Vector2( 0.685019, 1 )
+points = PoolVector2Array( -39.5249, 102.586, -79.4534, 55.0175 )
+width = 1.0
+default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+antialiased = true
+
 [node name="InfoPanel4" type="PanelContainer" parent="."]
-margin_left = 531.144
+margin_left = 573.955
 margin_top = 9.50342
-margin_right = 600.144
+margin_right = 642.955
 margin_bottom = 37.5034
 __meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
+"_edit_group_": true
 }
 
 [node name="Label" type="Label" parent="InfoPanel4"]
@@ -146,19 +204,18 @@ __meta__ = {
 [node name="Pointer" type="Line2D" parent="InfoPanel4"]
 position = Vector2( 58.7105, -17.7125 )
 scale = Vector2( 0.419192, 0.778483 )
-points = PoolVector2Array( -30.5178, 99.5096, -30.6317, 57.5447 )
+points = PoolVector2Array( 142.648, 126.123, -30.6317, 57.5447 )
 width = 1.0
 default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
 antialiased = true
 
 [node name="InfoPanel5" type="PanelContainer" parent="."]
-margin_left = 616.144
+margin_left = 659.55
 margin_top = 9.50342
-margin_right = 668.144
+margin_right = 711.55
 margin_bottom = 37.5034
 __meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
+"_edit_group_": true
 }
 
 [node name="Label" type="Label" parent="InfoPanel5"]
@@ -174,16 +231,16 @@ __meta__ = {
 [node name="Pointer" type="Line2D" parent="InfoPanel5"]
 position = Vector2( 38.7104, -17.7125 )
 scale = Vector2( 0.419192, 0.778483 )
-points = PoolVector2Array( -30.5178, 99.5096, -30.6317, 57.5447 )
+points = PoolVector2Array( 79.787, 123.831, -30.6317, 57.5447 )
 width = 1.0
 default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
 antialiased = true
 
 [node name="InfoPanel6" type="PanelContainer" parent="."]
-margin_left = 671.144
-margin_top = 9.50342
-margin_right = 723.144
-margin_bottom = 37.5034
+margin_left = 722.28
+margin_top = 5.93581
+margin_right = 774.28
+margin_bottom = 33.9358
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -202,16 +259,16 @@ __meta__ = {
 [node name="Pointer" type="Line2D" parent="InfoPanel6"]
 position = Vector2( 38.7104, -17.7125 )
 scale = Vector2( 0.419192, 0.778483 )
-points = PoolVector2Array( -30.5178, 99.5096, -30.6317, 57.5447 )
+points = PoolVector2Array( 19.5051, 127.65, -30.6317, 57.5447 )
 width = 1.0
 default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
 antialiased = true
 
 [node name="InfoPanel7" type="PanelContainer" parent="."]
-margin_left = 730.144
-margin_top = 9.50342
-margin_right = 811.144
-margin_bottom = 37.5034
+margin_left = 784.847
+margin_top = 24.3685
+margin_right = 865.847
+margin_bottom = 52.3685
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -245,16 +302,15 @@ bbcode_text = "Each Dreamer you control is compelled to write about this weird e
 
 The top bar appears at every point and every encounter. it is a convenient way to keep track of the state of the dreamer.
 
-{anxiety} Anxiety shows how close the dreamer is to waking up due to stress from their dreams. If this ever reaches the threshold, this run will end. But you can always try again!
-Curios are things the dreamer imagines during their sleep. They may be items, insights or feelings and they all slightly change the rules of the game, usually to your advantage.
-Pathos/Deck/Help/Settings: Use these buttons to see more info about your run. They will be explained in details in the next pages."
+* {anxiety} Anxiety shows how close the dreamer is to waking up due to stress from their dreams. If this ever reaches the threshold, this run will end. But you can always try again!
+* Curios are things the dreamer imagines during their sleep. They may be items, insights or feelings and they all slightly change the rules of the game, usually to your advantage.
+* Memories are activated abilities that affect the type of encounters you will run into,
+* Pathos/Deck/Help/Settings: Use these buttons to see more info about your run. They will be explained in details in the next pages."
 text = "Each Dreamer you control is compelled to write about this weird experience in their dream journal. Throughout this night, the dreamer will encounter various types of dreams, each with their own effect on them. 
 
 The top bar appears at every point and every encounter. it is a convenient way to keep track of the state of the dreamer.
 
-{anxiety} Anxiety shows how close the dreamer is to waking up due to stress from their dreams. If this ever reaches the threshold, this run will end. But you can always try again!
-Curios are things the dreamer imagines during their sleep. They may be items, insights or feelings and they all slightly change the rules of the game, usually to your advantage.
-Pathos/Deck/Help/Settings: Use these buttons to see more info about your run. They will be explained in details in the next pages."
-__meta__ = {
-"_edit_use_anchors_": false
-}
+* {anxiety} Anxiety shows how close the dreamer is to waking up due to stress from their dreams. If this ever reaches the threshold, this run will end. But you can always try again!
+* Curios are things the dreamer imagines during their sleep. They may be items, insights or feelings and they all slightly change the rules of the game, usually to your advantage.
+* Memories are activated abilities that affect the type of encounters you will run into,
+* Pathos/Deck/Help/Settings: Use these buttons to see more info about your run. They will be explained in details in the next pages."

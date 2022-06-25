@@ -563,10 +563,10 @@ func _input(event):
 #		globals.player.deck.add_new_card("Catatonia")
 #		globals.player.add_artifact(ArtifactDefinitions.CursedCurios.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.EnhanceOnRest.canonical_name)
-#		globals.player.add_artifact(ArtifactDefinitions.IncreaseRandomDamage.canonical_name)
-		globals.player.add_artifact(ArtifactDefinitions.CostlyUpgrades.canonical_name)
-		globals.player.add_memory(MemoryDefinitions.ThornsSelf.canonical_name)
-#		globals.player.add_memory(MemoryDefinitions.HealSelf.canonical_name)
+#		globals.player.add_artifact(ArtifactDefinitions.PerturbationHeal.canonical_name)
+#		globals.player.add_artifact(ArtifactDefinitions.CostlyUpgrades.canonical_name)
+#		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
+#		globals.player.add_memory(MemoryDefinitions.BossFaster.canonical_name)
 		# warning-ignore:return_value_discarded
 #		globals.player.add_memory(MemoryDefinitions.FreezeCard.canonical_name)
 #		var card_entry = globals.player.deck.add_new_card("Towering Presence")
@@ -585,13 +585,14 @@ func _input(event):
 #			EnemyEncounter.new(Act1.Squirrel, "hard"),
 #			EnemyEncounter.new(Act2.TrafficJam, "easy"),
 #			EnemyEncounter.new(Act3.Shamelings, "hard"),
-#			load("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist2.gd").new(),
+			load("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/AllActs/OstrichEggs.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act3/UnderwaterCave.gd").new(),
-			load("res://src/dreamscape/Run/NCE/Act2/RiskyEvent3.gd").new(),
+#			load("res://src/dreamscape/Run/NCE/Act2/RiskyEvent3.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act1/PathosForAnxiety.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
-			load("res://src/dreamscape/Run/NCE/Rest.gd").new(),
+#			load("res://src/dreamscape/Run/NCE/Rest.gd").new(),
+			load("res://src/dreamscape/Run/NCE/Shop.gd").new(),
 #			BossEncounter.new(Act2.BOSSES["Surreality"]),
 #			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
 #			EliteEncounter.new(Act1.Bully, "medium"),
