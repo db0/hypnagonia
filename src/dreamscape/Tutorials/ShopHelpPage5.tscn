@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/tutorial/shop/memories.png" type="Texture" id=1]
+[ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=3]
+
+[node name="ShopHelpPage2" type="Control"]
+margin_left = 54.0
+margin_right = 932.0
+margin_bottom = 432.0
+rect_min_size = Vector2( 878, 432 )
+size_flags_horizontal = 3
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+visible = false
+margin_right = 145.0
+margin_bottom = 24.0
+text = "Shop Memories"
+
+[node name="Memories" type="TextureRect" parent="."]
+margin_left = 258.479
+margin_top = 33.3439
+margin_right = 959.479
+margin_bottom = 338.344
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tutorial" type="RichTextLabel" parent="."]
+margin_left = 121.162
+margin_top = 195.881
+margin_right = 760.162
+margin_bottom = 409.881
+bbcode_enabled = true
+bbcode_text = "You will also find memories available for purchanse and the shop is usually the primary place you can locate the one you need.
+
+Keep in mind, that you can never replace a memory you remembered. Once you have it, it stays with you forever. You do get a chance to  upgrade it in the shop however. The cost to upgrade a memory is significantly lower than purchasing a new one.
+
+"
+text = "You will also find memories available for purchanse and the shop is usually the primary place you can locate the one you need.
+
+Keep in mind, that you can never replace a memory you remembered. Once you have it, it stays with you forever. You do get a chance to  upgrade it in the shop however. The cost to upgrade a memory is significantly lower than purchasing a new one.
+
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/tutorial/journal/pathos.png" type="Texture" id=1]
+[ext_resource path="res://assets/tutorial/shop/masteries.png" type="Texture" id=1]
 [ext_resource path="res://assets/icons/GUI/drama-masks.png" type="Texture" id=2]
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=3]
 
@@ -23,42 +23,40 @@ margin_bottom = 24.0
 text = "Passionate Shopping"
 
 [node name="Pathos" type="TextureRect" parent="."]
-margin_left = 37.1688
-margin_top = 142.223
-margin_right = 362.169
-margin_bottom = 387.223
+margin_left = 133.326
+margin_top = 74.2151
+margin_right = 723.326
+margin_bottom = 125.215
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PathosIcon" type="TextureRect" parent="."]
-margin_left = 45.654
-margin_top = 40.3997
-margin_right = 195.654
-margin_bottom = 190.4
+visible = false
+margin_left = 46.0
+margin_top = 40.0
+margin_right = 130.0
+margin_bottom = 125.0
 texture = ExtResource( 2 )
 expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Tutorial" type="RichTextLabel" parent="."]
-margin_left = 390.989
-margin_top = 90.7353
-margin_right = 844.989
-margin_bottom = 303.735
+margin_left = 133.0
+margin_top = 124.0
+margin_right = 721.0
+margin_bottom = 324.0
 bbcode_enabled = true
-bbcode_text = "When pathos is released, it is not just lost. Instead it is released, and can be spent in the shop.
+bbcode_text = "Every time you encounter a Torment in an ordeal, you receive Pathos Masteries. These can be spent in the shop to convert them into useful tools for the rest of the Dream.
 
-There are various things to purchase, each of them costs a different type of released pathos. 
+There are various things to purchase, each of them costs different amounts.
 
-If you do not have enough, a new shop should appear soon enough."
-text = "When pathos is released, it is not just lost. Instead it is released, and can be spent in the shop.
+If you do not have enough masteries, a new shop should appear soon enough, but be careful, because the selection will always be different!"
+text = "Every time you encounter a Torment in an ordeal, you receive Pathos Masteries. These can be spent in the shop to convert them into useful tools for the rest of the Dream.
 
-There are various things to purchase, each of them costs a different type of released pathos. 
+There are various things to purchase, each of them costs different amounts.
 
-If you do not have enough, a new shop should appear soon enough."
+If you do not have enough masteries, a new shop should appear soon enough, but be careful, because the selection will always be different!"
 __meta__ = {
 "_edit_use_anchors_": false
 }

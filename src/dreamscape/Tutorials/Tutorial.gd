@@ -26,6 +26,8 @@ var tutorials := {
 		preload("res://src/dreamscape/Tutorials/ShopHelpPage2.tscn"),
 		preload("res://src/dreamscape/Tutorials/ShopHelpPage3.tscn"),
 		preload("res://src/dreamscape/Tutorials/ShopHelpPage4.tscn"),
+		preload("res://src/dreamscape/Tutorials/ShopHelpPage5.tscn"),
+		preload("res://src/dreamscape/Tutorials/ShopHelpPage6.tscn"),
 	]
 }
 
