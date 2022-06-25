@@ -1,5 +1,17 @@
 # Changelog
 
+## [v0.59.0](https://github.com/db0/hypnagonia/tree/v0.59.0) (2022-06-25)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.58.1...v0.59.0)
+
+**Closed issues:**
+
+- Shop tutorial needs an update to match the new pathos system [\#363](https://github.com/db0/hypnagonia/issues/363)
+
+**Merged pull requests:**
+
+- Reworked Pathos [\#365](https://github.com/db0/hypnagonia/pull/365) ([db0](https://github.com/db0))
+
 ## [v0.58.1](https://github.com/db0/hypnagonia/tree/v0.58.1) (2022-06-19)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.58.0...v0.58.1)
