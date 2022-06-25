@@ -2,12 +2,18 @@
 
 extends NonCombatEncounter
 
+const CURIOS := {
+	'passion fruit': ArtifactDefinitions.MoreEliteMasteries,
+	'orange': ArtifactDefinitions.MoreEnemyMasteries,
+	'banana': ArtifactDefinitions.MoreNCEMasteries,
+}
+
 var shader := load("res://shaders/Roscharch.shader")
 
 var secondary_choices := {
-		'passion fruit': '[A Passion Fruit]: Gain some {gcolor:{released_artifact}:}.',
-		'orange': '[An Orange]:  Gain some {gcolor:{released_elite}:}.',
-		'banana': '[A Banana]: Gain some {gcolor:{released_rest}:}.',
+		'passion fruit': '[A Passion Fruit]: Gain some {gcolor:Gain {passion fruit_curio}:}.',
+		'orange': '[An Orange]:  Gain some {gcolor:Gain {orange_curio}:}.',
+		'banana': '[A Banana]: Gain some {gcolor:Gain {banana_curio}:}.',
 	}
 
 var nce_resul_fluff := "[i]I understand. You're {adjective} your {noun}.[/i]"
@@ -37,23 +43,16 @@ func begin() -> void:
 		'tint': HUtils.rnd_color(true, 255),
 		'time_offset': CFUtils.randf_range(0, 10000)
 	}
+	var scformat := {}
+	for option in ['passion fruit', 'orange', 'banana']:
+		scformat[option+ '_curio'] = _prepare_artifact_popup_bbcode(CURIOS[option].canonical_name, CURIOS[option].name)
 	prepare_shader_art(shader, _shader_params)
-	_prepare_secondary_choices(secondary_choices, {})
+	_prepare_secondary_choices(secondary_choices, scformat)
 
 func continue_encounter(key) -> void:
 	var pathos_type : PathosType
 	var multiplier : float
-	match key:
-		"passion fruit":
-			pathos_type = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.artifact]
-			multiplier = 8
-		"orange":
-			pathos_type = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.elite]
-			multiplier = 2
-		"banana":
-			pathos_type = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.rest]
-			multiplier = 8
-	pathos_type.released += pathos_type.get_progression_average() * multiplier * CFUtils.randf_range(0.8,1.2)
+	globals.player.add_artifact(CURIOS[key].canonical_name)
 	CFUtils.shuffle_array(mad_lib_adjectives)
 	CFUtils.shuffle_array(mad_lib_nouns)
 	var adlib_format = {

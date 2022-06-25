@@ -2,9 +2,10 @@
 extends NonCombatEncounter
 
 const DESTROY_PCT  := 0.5
+const MASTERIES_AMOUNT := round(Pathos.MASTERY_BASELINE * 1.8)
 
 var secondary_choices := {
-		'destroy': '[Destroy the workshop]: Gain {gcolor:{destroy_amount}% {released_shop}:}.',
+		'destroy': '[Destroy the workshop]: Gain {gcolor:{destroy_amount} {masteries}:}.',
 		'leave': '[Leave the alone]: {bcolor:Increase {repressed_elite}:}.',
 	}
 
@@ -17,7 +18,6 @@ var nce_result_fluff := {
 	}
 
 
-var pathos_type_destroy = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.shop]
 var pathos_type_leave = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.elite]
 
 func _init():
@@ -29,13 +29,13 @@ func _init():
 func begin() -> void:
 	.begin()
 	var scformat := {}
-	scformat["destroy_amount"] = floor(DESTROY_PCT * 100)
+	scformat["destroy_amount"] = MASTERIES_AMOUNT
 	_prepare_secondary_choices(secondary_choices, scformat)
 
 func continue_encounter(key) -> void:
 	match key:
 		"destroy":
-			pathos_type_destroy.released += pathos_type_destroy.convert_pct_to_released(DESTROY_PCT)
+			globals.player.pathos.available_masteries += MASTERIES_AMOUNT
 		"leave":
 			pathos_type_leave.repressed += round(
 					pathos_type_leave.get_progression_average()

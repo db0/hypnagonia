@@ -22,7 +22,7 @@ func setup(signifier_details: Dictionary, signifier_name: String) -> void:
 		# of its upgraded version
 		if signifier_details.get("is_upgrade"):
 			upgrades += 1
-		memory_cost_info = "\n\n[i]This memory will consume released {pathos} to recall{delay_pct_explanation}[/i]"\
+		memory_cost_info = "\n\n[i]{pathos_description}{delay_pct_explanation}[/i]"\
 				.format(MemoryObject.get_cost_format(updated_detail.canonical_name, upgrades))
 		updated_detail["bbdescription"] =\
 			updated_detail.description.\

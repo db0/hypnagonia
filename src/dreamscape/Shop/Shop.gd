@@ -11,11 +11,11 @@ var rarity_price_multipliers := {
 }
 # Artifacts tend to be more expensive based on their pathos average
 # So we multiply their cost a bit further
-var card_cost_multiplier := 2.0
-var artifact_cost_multiplier := 3.0
-var memory_cost_multiplier := 3.0
-var remove_cost_multiplier := 2.0
-var progress_cost_multiplier := 1.0
+var card_cost_multiplier: float = Pathos.MASTERY_BASELINE * 1.5
+var artifact_cost_multiplier: float = Pathos.MASTERY_BASELINE * 3.5
+var memory_cost_multiplier: float = Pathos.MASTERY_BASELINE * 2.3
+var remove_cost_multiplier: float = Pathos.MASTERY_BASELINE * 3
+var progress_cost_multiplier : float = Pathos.MASTERY_BASELINE * 0.3
 
 var uncommon_chance := 25
 var rare_chance := 5
@@ -87,10 +87,10 @@ func _ready() -> void:
 		globals.player.pathos.available_masteries = 10
 		# warning-ignore:return_value_discarded
 		var newmem1 = globals.player.add_memory(MemoryDefinitions.RerollShop.canonical_name)
-		newmem1.upgrades_amount = 6
+#		newmem1.upgrades_amount = 6
 		# warning-ignore:return_value_discarded
-		var newmem2 = globals.player.add_memory(MemoryDefinitions.DefendSelf.canonical_name)
-		newmem2.upgrades_amount = 6
+		var newmem2 = globals.player.add_memory(MemoryDefinitions.ThornsSelf.canonical_name)
+#		newmem2.upgrades_amount = 6
 #		globals.player.find_memory(MemoryDefinitions.RerollShop.canonical_name).upgrades_amount += 5
 		# We're doing a connect here, because the globals.deck will not exist during its ready
 		# warning-ignore:return_value_discarded
@@ -223,7 +223,7 @@ func populate_shop_memories() -> void:
 			all_memory_choices[index]["cost"] = final_cost
 			shop_memory_object.set_cost(final_cost, true)
 		else:
-			shop_memory_object.cost = all_memory_choices[index].cost
+			shop_memory_object.cost = round(all_memory_choices[index].cost)
 		shop_memory_object.shop_artifact_display.setup(memory, memory.canonical_name)
 		shop_memory_object.shop_artifact_display.index = index
 		shop_memory_object.shop_artifact_display.connect("artifact_selected", self, "_on_shop_memory_selected", [shop_memory_object])
@@ -250,7 +250,7 @@ func populate_special_cards() -> void:
 		var shop_card_object = CARD_SHOP_SCENE.instance()
 		special_cards_shop.add_child(shop_card_object)
 		shop_card_object.cost_type = all_special_card_choices[index].cost_type
-		shop_card_object.cost = all_special_card_choices[index].cost
+		shop_card_object.cost = round(all_special_card_choices[index].cost)
 		shop_card_object.shop_card_display.setup(card_name)
 		shop_card_object.shop_card_display.index = index
 		shop_card_object.shop_card_display.connect(
@@ -336,7 +336,7 @@ func _on_Remove_pressed() -> void:
 
 
 func _on_ProgressCards_pressed() -> void:
-	_deck_preview_popup.initiate_card_progress(progress_cost, card_progress_cost_type, 2)
+	_deck_preview_popup.initiate_card_progress(progress_cost, card_progress_cost_type, 1)
 	_update_progress_cost()
 
 
@@ -346,7 +346,7 @@ func _on_ProgressCards_pressed() -> void:
 # further upgrade cards
 func _update_progress_cost() -> void:
 	# warning-ignore:narrowing_conversion
-	progress_cost = floor(
+	progress_cost = round(
 		progress_cost_multiplier
 		+ (globals.player.deck.get_upgrade_percentage() * 2.0))
 	var progress_text_format = {

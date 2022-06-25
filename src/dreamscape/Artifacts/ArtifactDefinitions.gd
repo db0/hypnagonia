@@ -975,7 +975,7 @@ const BirdHouse := {
 	"name": "Bird House",
 	"description": "{artifact_name}: Gain or upgrade one random memory\n"\
 			+ "Gain {draft_amount} card\n"\
-			+ "Gain a good amount of a random released pathos\n"\
+			+ "Gain {pathos_masteries} pathos masteries\n"\
 			+ "Gain {health_amount} max {anxiety}\n"\
 			+ "Progress the card requiring the most progress by {progress_amount}\n",
 	"icon": preload("res://assets/icons/artifacts/bird-house.png"),
@@ -984,7 +984,7 @@ const BirdHouse := {
 	"amounts": {
 		"draft_amount": 1,
 		"draft_choices": 5,
-		"pathos_avg_multiplier": 5,
+		"pathos_masteries": 5,
 		"memory_amount": 1,
 		"memory_upgrade_amount": 2,
 		"health_amount": 5,
@@ -1078,40 +1078,76 @@ const ThickDeckRareChance := {
 	},
 }
 
-const FasterShopLevelUp := {
-	"canonical_name": "FasterShopLevelUp",
+const MoreShopMasteries := {
+	"canonical_name": "MoreShopMasteries",
 	"name": "Passionate Loneliness",
-	"description": "{artifact_name}: Increase the rate in which you gain masteries from released Loneliness.",
+	"description": "{artifact_name}: Whenever you visit the shop, gain {masteries_amount} {pathos} masteries.",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
-	"rarity": "Common",
+	"rarity": "Encounter",
 	"amounts": {
-		"level_req_amount": -30,
+		"masteries_amount": round(Pathos.MASTERY_BASELINE * 0.6),
 	},
 }
 
 
-const FasterArtifactLevelUp := {
-	"canonical_name": "FasterArtifactLevelUp",
+const MoreArtifactMasteries := {
+	"canonical_name": "MoreArtifactMasteries",
 	"name": "Passionate Desire",
-	"description": "{artifact_name}: Increase the rate in which you gain masteries from released Desire.",
+	"description": "{artifact_name}: Whenever you find a curio, gain {masteries_amount} {pathos} masteries.",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
-	"rarity": "Common",
+	"rarity": "Encounter",
 	"amounts": {
-		"level_req_amount": -40,
+		"masteries_amount": round(Pathos.MASTERY_BASELINE),
 	},
 }
 
-const FasterRestLevelUp := {
-	"canonical_name": "FasterRestLevelUp",
+const MoreRestMasteries := {
+	"canonical_name": "MoreRestMasteries",
 	"name": "Passionate Desire",
-	"description": "{artifact_name}: Increase the rate in which you gain masteries from released Lethargy.",
+	"description": "{artifact_name}: Whenever you fall in deep torpor, gain {masteries_amount} {pathos} masteries.",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
-	"rarity": "Common",
+	"rarity": "Encounter",
 	"amounts": {
-		"level_req_amount": -40,
+		"masteries_amount": round(Pathos.MASTERY_BASELINE * 0.6),
+	},
+}
+
+const MoreEliteMasteries := {
+	"canonical_name": "MoreEliteMasteries",
+	"name": "Passionate Foreboding",
+	"description": "{artifact_name}: Whenever you encounter an elite torment, gain {masteries_amount} {pathos} masteries.",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Encounter",
+	"amounts": {
+		"masteries_amount": round(Pathos.MASTERY_BASELINE * 2),
+	},
+}
+
+const MoreNCEMasteries := {
+	"canonical_name": "MoreNCEMasteries",
+	"name": "Passionate Curiosity",
+	"description": "{artifact_name}: Whenever you encounter a non-ordeal encounter, gain {masteries_amount} {pathos} masteries.",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Encounter",
+	"amounts": {
+		"masteries_amount": round(Pathos.MASTERY_BASELINE),
+	},
+}
+
+const MoreEnemyMasteries := {
+	"canonical_name": "MoreEnemyMasteries",
+	"name": "Passionate Frustration",
+	"description": "{artifact_name}: Whenever you encounter a normal torment encounter, gain {masteries_amount} {pathos} mastery.",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Encounter",
+	"amounts": {
+		"masteries_amount": round(Pathos.MASTERY_BASELINE * 0.3),
 	},
 }
 
@@ -1195,13 +1231,13 @@ const CostlyUpgrades := {
 	"canonical_name": "CostlyUpgrades",
 	"name": "Costly Upgrades",
 	"description": "{artifact_name}: You have {immersion_amount} extra {energy} per turn.\n"\
-			+ "Massively increase the time needed to gain {pathos} masteries.",
+			+ "Reduce the amount of masteries gained from torment encounters by 30%",
 	"icon": GENERIC_BOSS_ARTIFACT_ICON,
 	"context": EffectContext.BATTLE,
 	"rarity": "Boss",
 	"amounts": {
 		"immersion_amount": 1,
-		"pathos_req_increase": 100,
+		"masteries_modifier": -0.3,
 	},
 	"linked_terms": [
 		"energy",
@@ -1300,9 +1336,6 @@ const GENERIC := [
 	ThickHeal,
 	DoubleProgress,
 	ThickDeckRareChance,
-	FasterShopLevelUp,
-	FasterArtifactLevelUp,
-	FasterRestLevelUp,
 	LightningMarble,
 	ThickThorns,
 ]
@@ -1337,6 +1370,12 @@ const ENCOUNTER := [
 	PerturbationHeal,
 	StartingDisempower,
 	ProgressEverything,
+	MoreShopMasteries,
+	MoreArtifactMasteries,
+	MoreRestMasteries,
+	MoreEnemyMasteries,
+	MoreEliteMasteries,
+	MoreNCEMasteries,
 ]
 
 const BOSS := [

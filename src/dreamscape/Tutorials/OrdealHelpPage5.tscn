@@ -21,11 +21,13 @@ margin_bottom = 24.0
 text = "Dreamer Layout"
 
 [node name="Dreamer" type="TextureRect" parent="."]
-margin_left = 201.296
-margin_top = 102.46
-margin_right = 342.296
-margin_bottom = 331.46
+margin_left = 247.463
+margin_top = 31.8081
+margin_right = 611.463
+margin_bottom = 195.808
 texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -33,21 +35,20 @@ __meta__ = {
 [node name="InfoPanel3" type="PanelContainer" parent="."]
 anchor_left = 0.000358755
 anchor_right = 0.000358755
-margin_left = 23.1791
-margin_top = 125.634
-margin_right = 128.179
-margin_bottom = 153.634
+margin_left = 46.9632
+margin_top = 53.0923
+margin_right = 151.963
+margin_bottom = 81.0923
 __meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
+"_edit_group_": true
 }
 
 [node name="Label" type="Label" parent="InfoPanel3"]
 margin_left = 2.0
 margin_top = 3.0
-margin_right = 103.0
+margin_right = 146.0
 margin_bottom = 24.0
-text = "1. Dreamer"
+text = "1. Incoming Anxiety"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -55,7 +56,7 @@ __meta__ = {
 [node name="Pointer" type="Line2D" parent="InfoPanel3"]
 position = Vector2( 319.713, -23.5303 )
 scale = Vector2( 1.53384, 0.842551 )
-points = PoolVector2Array( -133.104, 43.6034, -82.619, 43.603 )
+points = PoolVector2Array( -108.81, 43.8919, 33.0726, 58.0063 )
 width = 1.0
 default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
 antialiased = true
@@ -63,10 +64,10 @@ antialiased = true
 [node name="InfoPanel5" type="PanelContainer" parent="."]
 anchor_left = 0.000358755
 anchor_right = 0.000358755
-margin_left = 22.572
-margin_top = 190.465
-margin_right = 119.572
-margin_bottom = 218.465
+margin_left = 55.8699
+margin_top = 110.788
+margin_right = 152.87
+margin_bottom = 138.788
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -75,7 +76,7 @@ __meta__ = {
 [node name="Pointer" type="Line2D" parent="InfoPanel5"]
 position = Vector2( 352.101, -23.5303 )
 scale = Vector2( 1.92406, 0.842551 )
-points = PoolVector2Array( -133.104, 43.6034, -84.3249, 72.2461 )
+points = PoolVector2Array( -133.104, 43.6034, -36.5079, 26.2262 )
 width = 1.0
 default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
 antialiased = true
@@ -93,13 +94,12 @@ __meta__ = {
 [node name="InfoPanel6" type="PanelContainer" parent="."]
 anchor_left = 0.000358755
 anchor_right = 0.000358755
-margin_left = 22.572
-margin_top = 238.465
-margin_right = 151.572
-margin_bottom = 266.465
+margin_left = 649.284
+margin_top = 63.6515
+margin_right = 778.284
+margin_bottom = 91.6515
 __meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
+"_edit_group_": true
 }
 
 [node name="Label" type="Label" parent="InfoPanel6"]
@@ -115,7 +115,7 @@ __meta__ = {
 [node name="Pointer" type="Line2D" parent="InfoPanel6"]
 position = Vector2( 256.485, -23.5303 )
 scale = Vector2( 0.799297, 0.842551 )
-points = PoolVector2Array( -160.431, 44.0117, -78.9351, 44.4532 )
+points = PoolVector2Array( -321.298, 60.105, -381.869, 76.5256 )
 width = 1.0
 default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
 antialiased = true
@@ -123,13 +123,12 @@ antialiased = true
 [node name="InfoPanel7" type="PanelContainer" parent="."]
 anchor_left = 0.000358755
 anchor_right = 0.000358755
-margin_left = 22.572
-margin_top = 290.465
-margin_right = 171.572
-margin_bottom = 318.465
+margin_left = 650.474
+margin_top = 151.328
+margin_right = 799.474
+margin_bottom = 179.328
 __meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
+"_edit_group_": true
 }
 
 [node name="Label" type="Label" parent="InfoPanel7"]
@@ -145,39 +144,30 @@ __meta__ = {
 [node name="Pointer" type="Line2D" parent="InfoPanel7"]
 position = Vector2( 250.9, -23.5303 )
 scale = Vector2( 0.767364, 0.842551 )
-points = PoolVector2Array( -133.104, 43.6034, -82.619, 43.603 )
+points = PoolVector2Array( -549.084, 36.6437, -327.478, 47.9676 )
 width = 1.0
 default_color = Color( 0.537255, 0.537255, 0.537255, 1 )
 antialiased = true
 
 [node name="Tutorial" type="RichTextLabel" parent="."]
-margin_left = 377.0
-margin_top = 21.0
-margin_right = 840.0
-margin_bottom = 445.0
+margin_left = 31.0
+margin_top = 191.0
+margin_right = 845.0
+margin_bottom = 416.0
 bbcode_enabled = true
 bbcode_text = "During an Ordeal, the Dreamer will have to avoid receiving too much anxiety as that would make them wake up and end the run!
-Like with Torments, the Dreamer has some art and elements which describe their state.
+Like with Torments, the Dreamer has some elements which describe their state.
 As always, mousing over any element, will provide further information about it.
 
-1. The dreamer art.
-
+1. The incoming Anxiety from the Torments and the effects of the current card
 2. The current and remaining {anxiety} Anxiety. When this bar is filled, the Dreamer wakes up and the run ends.
-
 3. Each point of {defence} Confidence prevents 1 point of anxiety taken.
-
 4. The current buff and debuffs affecting the Dreamer."
 text = "During an Ordeal, the Dreamer will have to avoid receiving too much anxiety as that would make them wake up and end the run!
-Like with Torments, the Dreamer has some art and elements which describe their state.
+Like with Torments, the Dreamer has some elements which describe their state.
 As always, mousing over any element, will provide further information about it.
 
-1. The dreamer art.
-
+1. The incoming Anxiety from the Torments and the effects of the current card
 2. The current and remaining {anxiety} Anxiety. When this bar is filled, the Dreamer wakes up and the run ends.
-
 3. Each point of {defence} Confidence prevents 1 point of anxiety taken.
-
 4. The current buff and debuffs affecting the Dreamer."
-__meta__ = {
-"_edit_use_anchors_": false
-}

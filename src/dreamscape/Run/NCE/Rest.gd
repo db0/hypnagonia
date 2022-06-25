@@ -37,12 +37,12 @@ func _init():
 
 func begin() -> void:
 	.begin()
-	var healing_done = globals.player.health * rest_amount
+	var healing_done = round(globals.player.health * rest_amount) + skipped * 2
 	if healing_done > globals.player.damage:
 		healing_done = globals.player.damage	
 	var scformat = {
 		"healing_done": healing_done,
-		"progress_amount": progress_amount,
+		"progress_amount": progress_amount + skipped,
 	}
 	var disabled_choices := []
 	var strengthen_up = globals.player.find_artifact(ArtifactDefinitions.StrengthenUp.canonical_name)
@@ -77,14 +77,14 @@ func begin() -> void:
 func continue_encounter(key) -> void:
 	match key:
 		"rest":
-			globals.player.damage -= int(globals.player.health * rest_amount)
+			globals.player.damage -= round(globals.player.health * rest_amount) + skipped * 2
 		"progress":
 			var selection_deck : SelectionDeck = globals.journal.spawn_selection_deck()
 			selection_deck.popup_exclusive = true
 			# warning-ignore:return_value_discarded
 			selection_deck.connect("operation_performed", self, "_on_card_selected", [key])
 			selection_deck.auto_close = true
-			selection_deck.initiate_card_progress(0, 'mastery', progress_amount)
+			selection_deck.initiate_card_progress(0, 'mastery', progress_amount + skipped)
 			selection_deck.update_color(Color(0,1,0))
 		"strengthen_up":
 			var strengthen_up = globals.player.find_artifact(ArtifactDefinitions.StrengthenUp.canonical_name)

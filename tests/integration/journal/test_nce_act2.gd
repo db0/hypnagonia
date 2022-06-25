@@ -218,7 +218,7 @@ class TestMiniShop:
 		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act2/MiniShop.gd")
 
 	func test_choice_remove():
-		globals.player.pathos.available_masteries = testing_nce_script.COSTS["remove"]
+		globals.player.pathos.available_masteries = testing_nce_script.MASTERIES_AMOUNT["remove"]
 		watch_signals(globals.player.deck)
 		var secondary_choices = begin_nce_with_choices(nce)
 		if secondary_choices as GDScriptFunctionState:
@@ -233,7 +233,7 @@ class TestMiniShop:
 		activate_secondary_choice_by_key("remove")
 		yield(yield_to(journal, "selection_deck_spawned", 0.2), YIELD)
 		# warning-ignore:return_value_discarded
-		assert_signal_emitted_with_parameters(globals.player.pathos, "advancements_modified", [0,1])
+		assert_eq(globals.player.pathos.available_masteries,0)
 		var selection_deck = assert_selection_deck_spawned()
 		if not selection_deck:
 			return
@@ -241,7 +241,7 @@ class TestMiniShop:
 		assert_signal_emitted(globals.player.deck, "card_removed")
 
 	func test_choice_progress():
-		globals.player.pathos.available_masteries = testing_nce_script.COSTS["progress"]
+		globals.player.pathos.available_masteries = testing_nce_script.MASTERIES_AMOUNT["progress"]
 		watch_signals(globals.player.deck)
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
@@ -249,7 +249,7 @@ class TestMiniShop:
 		activate_secondary_choice_by_key("progress")
 		yield(yield_to(journal, "selection_deck_spawned", 0.2), YIELD)
 		# warning-ignore:return_value_discarded
-		assert_signal_emitted_with_parameters(globals.player.pathos, "advancements_modified", [0,2])
+		assert_eq(globals.player.pathos.available_masteries, 0)
 		var selection_deck = assert_selection_deck_spawned()
 		if not selection_deck:
 			return
@@ -268,14 +268,12 @@ class TestMiniShop:
 		activate_secondary_choice_by_key("upgrade")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		# warning-ignore:return_value_discarded
-		assert_signal_emitted_with_parameters(
-				globals.player.pathos, 
-				"advancements_modified", 
-				[10 - testing_nce_script.COSTS["upgrade"],10])
+		assert_eq(globals.player.pathos.available_masteries, 10 - testing_nce_script.MASTERIES_AMOUNT["upgrade"])
 		assert_signal_emit_count(memory, "memory_upgraded", 1)
 		assert_eq(memory.upgrades_amount, testing_nce_script.MEMORY_PROGRESS)
 
 	func test_choice_leave():
+		globals.player.pathos.available_masteries = 0
 		watch_signals(globals.player.deck)
 		var secondary_choices = begin_nce_with_choices(nce)
 		if secondary_choices as GDScriptFunctionState:
@@ -347,7 +345,7 @@ class TestMultipleTags:
 		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act2/AlphaKappaOmega.gd")
 
 	func test_choice_alpha():
-		globals.player.pathos.available_masteries = testing_nce_script.COSTS["alpha"]
+		globals.player.pathos.available_masteries = testing_nce_script.MASTERIES_AMOUNT["alpha"]
 		begin_nce_with_choices(nce)
 		watch_signals(globals.player.deck)
 		watch_signals(globals.player.pathos)
@@ -359,13 +357,10 @@ class TestMultipleTags:
 			return
 		selection_deck._deck_preview_grid.get_children()[0].select_card()
 		assert_deck_signaled("card_entry_modified", "Tags", Terms.GENERIC_TAGS.alpha.name)
-		assert_signal_emitted_with_parameters(
-				globals.player.pathos, 
-				"advancements_modified", 
-				[0,testing_nce_script.COSTS["alpha"]])
+		assert_eq(globals.player.pathos.available_masteries, 0)
 
 	func test_choice_kappa():
-		globals.player.pathos.available_masteries = testing_nce_script.COSTS["kappa"]
+		globals.player.pathos.available_masteries = testing_nce_script.MASTERIES_AMOUNT["kappa"]
 		begin_nce_with_choices(nce)
 		watch_signals(globals.player.deck)
 		watch_signals(globals.player.pathos)
@@ -377,13 +372,10 @@ class TestMultipleTags:
 			return
 		selection_deck._deck_preview_grid.get_children()[0].select_card()
 		assert_deck_signaled("card_entry_modified", "Tags", Terms.GENERIC_TAGS.frozen.name)
-		assert_signal_emitted_with_parameters(
-				globals.player.pathos, 
-				"advancements_modified", 
-				[0,testing_nce_script.COSTS["kappa"]])
+		assert_eq(globals.player.pathos.available_masteries, 0)
 
 	func test_choice_omega():
-		globals.player.pathos.available_masteries = testing_nce_script.COSTS["omega"]
+		globals.player.pathos.available_masteries = testing_nce_script.MASTERIES_AMOUNT["omega"]
 		begin_nce_with_choices(nce)
 		watch_signals(globals.player.deck)
 		watch_signals(globals.player.pathos)
@@ -395,10 +387,7 @@ class TestMultipleTags:
 			return
 		selection_deck._deck_preview_grid.get_children()[0].select_card()
 		assert_deck_signaled("card_entry_modified", "Tags", Terms.GENERIC_TAGS.omega.name)
-		assert_signal_emitted_with_parameters(
-				globals.player.pathos, 
-				"advancements_modified", 
-				[0,testing_nce_script.COSTS["omega"]])
+		assert_eq(globals.player.pathos.available_masteries, 0)
 
 	func test_choice_leave():
 		var secondary_choices = begin_nce_with_choices(nce)
@@ -413,7 +402,6 @@ class TestMultipleTags:
 		for selected_choice in get_tree().get_nodes_in_group("secondary_choices"):
 			if selected_choice.choice_key != "leave":
 				assert_not_connected(selected_choice, secondary_choices, "pressed", "_on_choice_pressed")
-		assert_signal_not_emitted(globals.player.pathos, "pathos_spent")
 
 class TestRiskyEvent3:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"
@@ -433,25 +421,25 @@ class TestRiskyEvent3:
 			return
 		activate_secondary_choice_by_key(key)
 		yield(yield_to(secondary_choices, "secondary_choice_selected", 0.2), YIELD)
-		assert_signal_emit_count(globals.player.pathos, "pathos_leveled", 2)
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES + nce.MASTERIES_AMOUNT)
 		assert_almost_eq(globals.player.health, expected_player_health, 0.2)
 		reduction = nce.amounts[key]
 		expected_player_health = expected_player_health - reduction
 		activate_secondary_choice_by_key(key)
 		yield(yield_to(secondary_choices, "secondary_choice_selected", 0.2), YIELD)
-		assert_signal_emit_count(globals.player.pathos, "pathos_leveled", 4)
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES + nce.MASTERIES_AMOUNT * 2)
 		assert_almost_eq(globals.player.health, expected_player_health, 0.2)
 		reduction = nce.amounts[key]
 		expected_player_health = expected_player_health - reduction
 		activate_secondary_choice_by_key(key)
 		yield(yield_to(secondary_choices, "secondary_choice_selected", 0.2), YIELD)
-		assert_signal_emit_count(globals.player.pathos, "pathos_leveled", 6)
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES + nce.MASTERIES_AMOUNT * 3)
 		assert_almost_eq(globals.player.health, expected_player_health, 0.2)
 		reduction = nce.amounts["bliss"]
 		expected_player_health = expected_player_health - reduction
 		activate_secondary_choice_by_key("bliss")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
-		assert_signal_emit_count(globals.player.pathos, "pathos_leveled", 6)
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES + nce.MASTERIES_AMOUNT * 3)
 		assert_almost_eq(globals.player.health, expected_player_health, 0.2)
 		assert_signal_emitted(nce, "encounter_end")
 
@@ -542,6 +530,7 @@ class TestRiskyEvent4:
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_emitted(globals.player, "artifact_added")
 		assert_signal_emitted(globals.player.pathos, "advancements_modified")
+		assert_eq(globals.player.pathos.available_masteries, 0)
 
 	func test_choice_ignore():
 		var porg := set_random_pathos_org("released")
@@ -553,8 +542,8 @@ class TestRiskyEvent4:
 		activate_secondary_choice_by_key("ignore")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_emitted(globals.player, "artifact_added")
-		assert_pathos_signaled("pathos_leveled", nce.ignore_pathos)
 		assert_deck_signaled("card_added", "card_name", "Apathy")
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES + nce.MASTERIES_AMOUNT)
 
 
 class TestSubconscious:
@@ -571,7 +560,7 @@ class TestSubconscious:
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_deck_signaled("card_added", "card_name", "Subconscious")
 		assert_eq(globals.player.damage, nce.DAMAGE_AMOUNT)
-		assert_signal_not_emitted(globals.player.pathos, "released_pathos_gained")
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES)
 
 	func test_choice_avoid():
 		var porg := set_random_pathos_org("level", true)
@@ -583,8 +572,7 @@ class TestSubconscious:
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_not_emitted(globals.player.deck, "card_added")
 		assert_eq(globals.player.damage, 0)
-		assert_pathos_signaled("released_pathos_gained", porg.low.name)
-
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES + nce.MASTERIES_AMOUNT)
 
 class TestHangingOn:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"

@@ -23,9 +23,6 @@ var nce_result_fluff := {
 		'secret': "",
 	}
 
-var repressed_pathos_amount: int
-var released_pathos_amount: int
-
 func _init():
 	# TODO: Fluff
 	description = "<Multiple Progress - Story Fluff to be Done>. Select one Option...."

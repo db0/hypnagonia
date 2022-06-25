@@ -1,5 +1,3 @@
-# Gives three choices, paid with released pathos to get some rewards
-
 extends NonCombatEncounter
 
 const PATHOS_USED = Terms.RUN_ACCUMULATION_NAMES.artifact

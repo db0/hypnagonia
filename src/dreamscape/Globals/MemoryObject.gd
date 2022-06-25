@@ -4,7 +4,7 @@ extends Reference
 const MEMORY_SCENE = preload("res://src/dreamscape/Memories/MemoryTemplate.tscn")
 
 signal removed
-signal pathos_accumulated(memory, amount)
+signal memory_charging(memory, amount)
 signal memory_ready(memory)
 signal memory_unready(memory)
 signal memory_used(memory)
@@ -13,8 +13,8 @@ signal memory_downgraded(memory, amount)
 
 var is_ready := false
 var pathos_used : PathosType
-var pathos_threshold : float
-var pathos_accumulated : float = 0
+var recharge_time : int
+var current_charge : int = 0
 var upgrades_amount := 0 setget set_upgrades_amount
 
 var memory_scene: PackedScene
@@ -38,11 +38,12 @@ func _init(memory_name: String, _mods := {}) -> void:
 	canonical_name = definition["canonical_name"]
 	context = definition["context"]
 	pathos_used = globals.player.pathos.pathi[definition["pathos"]]
-	_calculate_threshold()
+	pathos_used.progression_modifying_objects.append(self)
+	_calculate_recharge_time()
 	# First use is free
-	pathos_accumulated = pathos_threshold
+	current_charge = recharge_time
 	is_ready = true
-#	emit_signal("pathos_accumulated", self, 0)
+	emit_signal("memory_charging", self, 0)
 	modifiers = _mods
 	if globals.encounters:
 		# warning-ignore:return_value_discarded
@@ -53,31 +54,8 @@ func remove_self() -> void:
 	emit_signal("removed")
 
 
-func accumulate_pathos(value: float) -> void:
-	# The memory cannot withdraw more pathos than the player currently has
-	if value > pathos_used.released:
-		value = pathos_used.released
-	# The memory cannot withdraw more pathos then needed to reach its threshold
-	if pathos_accumulated + value > pathos_threshold:
-		value = pathos_threshold - pathos_accumulated
-	# Pathos send to a memory is considered spent
-	if value > 0:
-		pathos_accumulated += value
-		pathos_used.spend_pathos(value)
-		emit_signal("pathos_accumulated", self, value)
-	if pathos_accumulated >= pathos_threshold:
-		ready()
-
-func lose_pathos(value: float) -> void:
-	if pathos_accumulated - abs(value) < 0:
-		value = pathos_accumulated
-	pathos_accumulated -= value
-	if pathos_accumulated < pathos_threshold:
-		unready()
-
-
 func ready() -> void:
-	pathos_accumulated = pathos_threshold
+	current_charge = recharge_time
 	is_ready = true
 	emit_signal("memory_ready", self)
 
@@ -89,7 +67,7 @@ func unready() -> void:
 
 func use() -> void:
 	is_ready = false
-	pathos_accumulated = 0
+	current_charge = 0
 	emit_signal("memory_used", self)
 
 
@@ -107,7 +85,7 @@ func upgrade() -> void:
 	# -1 because the player sees starting level as 1 while we start with 0 upgrade count internally.
 	if upgrades_amount < definition.amounts.get("max_upgrades", 100) - 1:
 		upgrades_amount += 1
-		_calculate_threshold()
+		_calculate_recharge_time()
 		emit_signal("memory_upgraded", self, 1)
 
 
@@ -124,16 +102,20 @@ func set_upgrades_amount(value) -> void:
 		emit_signal("memory_downgraded", self, value - pre_upgrade)
 
 
+func get_pathos_progression_modifier() -> float:
+	var modifier : float = definition.get("pathos_progress_multiplier", 0.0)
+	if "pathos_progress_multiplier" in definition.get("keys_modified_by_upgrade", []):
+		modifier +=\
+				float(upgrades_amount) * float(definition.amounts["upgrade_multiplier"]) * 0.01
+	return(modifier)
+
 
 func _on_encounter_changed(_act_name, _encounter_number) -> void:
-	var accumulation_div : float = definition.get("pathos_accumulation_divider", 2)
-	if upgrades_amount and "pathos_accumulation_divider" in definition.get("keys_modified_by_upgrade", []):
-		accumulation_div -= float(upgrades_amount) * float(definition.amounts["upgrade_multiplier"] * 0.1)
-	# warning-ignore:integer_division
-	var amount : float = pathos_used.get_progression_average()
-	var acc := amount / accumulation_div
-#	print_debug("%s : %s : %s" % [amount, acc, accumulation_div])
-	accumulate_pathos(acc)
+	if current_charge < recharge_time:
+		emit_signal("memory_charging", self, 1)
+	current_charge += 1
+	if current_charge >= recharge_time:
+		ready()
 
 
 static func get_cost_format(memory_name: String, upgrades := 0) -> Dictionary:
@@ -141,55 +123,75 @@ static func get_cost_format(memory_name: String, upgrades := 0) -> Dictionary:
 	if not memory_definition:
 		print_debug("WARNING: Memory Definition '%s' could not be found!" % [memory_name])
 		return({})
-	var pathos_threshold_multiplier : float = memory_definition.get("pathos_threshold_multiplier", 2)
-	var pathos_accumulation_divider : float = memory_definition.get("pathos_accumulation_divider", 2)
+	var progress_modifier : float = memory_definition.get("pathos_progress_multiplier", 0.0)
+	var recharge_time : int = memory_definition.get("recharge_time", 2)
 	var pathos_type: PathosType = globals.player.pathos.pathi[memory_definition.pathos]
-	var progression_avg : float = pathos_type.get_progression_average()
 	var is_threshold_upgrade := false
-	var is_divider_upgrade := false
-	if "pathos_threshold_multiplier" in memory_definition.get("keys_modified_by_upgrade", []):
-		pathos_threshold_multiplier -= float(upgrades) * float(memory_definition.amounts["upgrade_multiplier"]) * 0.1
+	var is_recharge_upgrade := false
+	if "pathos_progress_multiplier" in memory_definition.get("keys_modified_by_upgrade", []):
+		progress_modifier += float(upgrades) * float(memory_definition.amounts["upgrade_multiplier"]) * 0.01
 		is_threshold_upgrade = true
-	if "pathos_accumulation_divider" in memory_definition.get("keys_modified_by_upgrade", []):
-		pathos_accumulation_divider -= upgrades * memory_definition.amounts["upgrade_multiplier"] * 0.1
-		is_divider_upgrade = true
-	var fill_cost = progression_avg * pathos_threshold_multiplier
-	var turns_needed = ceil(fill_cost / (progression_avg / pathos_accumulation_divider))
+	if "recharge_time" in memory_definition.get("keys_modified_by_upgrade", []):
+		recharge_time -= upgrades * memory_definition.amounts["upgrade_multiplier"]
+		is_recharge_upgrade = true
+	var pathos_desc_fmt: Dictionary
+	var turns_needed = recharge_time
+	var pathos_description:= "This memory {verb} chance of {encounter_type} encounters by {pct}%"
+	var decrease_bad: bool
+	match memory_definition.pathos:
+		Terms.RUN_ACCUMULATION_NAMES.enemy:
+			pathos_desc_fmt["encounter_type"] = "normal torment"
+			decrease_bad = false
+		Terms.RUN_ACCUMULATION_NAMES.elite:
+			pathos_desc_fmt["encounter_type"] = "elite torment"
+			decrease_bad = false
+		Terms.RUN_ACCUMULATION_NAMES.artifact:
+			pathos_desc_fmt["encounter_type"] = "curio"
+			decrease_bad = true
+		Terms.RUN_ACCUMULATION_NAMES.nce:
+			pathos_desc_fmt["encounter_type"] = "non-ordeal"
+			decrease_bad = true
+		Terms.RUN_ACCUMULATION_NAMES.shop:
+			pathos_desc_fmt["encounter_type"] = "shop"
+			decrease_bad = true
+		Terms.RUN_ACCUMULATION_NAMES.rest:
+			pathos_desc_fmt["encounter_type"] = "deep torpor"
+			decrease_bad = true
 #	print_debug((progression_avg / pathos_accumulation_divider))
-	var threshold_description = str(ceil(fill_cost))
+	if progress_modifier < 0:
+		if decrease_bad:
+			pathos_desc_fmt["verb"] = "[color=red]decreases[/color]"
+		else:
+			pathos_desc_fmt["verb"] = "[color=green]decreases[/color]"
+	elif progress_modifier > 0:
+		if decrease_bad:
+			pathos_desc_fmt["verb"] = "[color=green]increases[/color]"
+		else:
+			pathos_desc_fmt["verb"] = "[color=red]increases[/color]"
+	elif progress_modifier == 0:
+		pathos_description = ''
+	pathos_desc_fmt["pct"] = str(round(abs(progress_modifier) * 100))
 	if is_threshold_upgrade:
-		threshold_description = "[color=yellow]%s[/color]" % [threshold_description]
+		pathos_desc_fmt["pct"] = "[color=yellow]%s[/color]" % [pathos_desc_fmt["pct"]]
 	var cost_format := {
-		"pathos": memory_definition.pathos,
-		"fill_cost": threshold_description,
-		"delay_pct": round(2.0 / pathos_accumulation_divider * 100),
+		"pathos_description": pathos_description.format(pathos_desc_fmt),
 		"turns_needed": turns_needed,
-		"delay_pct_explanation": '\nIt takes approx %s Journal encounters to be ready' % [turns_needed],
+		"delay_pct_explanation": '\nIt takes %s Journal encounters to be ready' % [turns_needed],
 	}
-	var divider_description := ''
-	if cost_format["delay_pct"] > 100:
-		divider_description = " (%s%% faster)" % [cost_format["delay_pct"] - 100]
-	elif cost_format["delay_pct"] < 100:
-		divider_description = " (%s%% slower)" % [abs(cost_format["delay_pct"] - 100)]
-	if is_divider_upgrade:
-		divider_description = "[color=yellow]%s[/color]" % [divider_description]
-	cost_format["delay_pct_explanation"] += divider_description
 	return(cost_format)
 
 
 # Calculates how much pathos is needed to recall this memory, taking into account upgrades which
 # might reduce this cost
-func _calculate_threshold() -> void:
-	var threshold_multiplier := float(definition.get("pathos_threshold_multiplier", 2))
-	if upgrades_amount and "pathos_threshold_multiplier" in definition.get("keys_modified_by_upgrade", []):
-		threshold_multiplier -= float(upgrades_amount) * float(definition.amounts["upgrade_multiplier"]) * 0.1
-	pathos_threshold = pathos_used.get_progression_average() * threshold_multiplier
-	# Threshold can never be below 1
-	if pathos_threshold <= 1:
-		pathos_threshold = 1
+func _calculate_recharge_time() -> void:
+	recharge_time = definition.get("recharge_time", 2)
+	if upgrades_amount and "recharge_time" in definition.get("keys_modified_by_upgrade", []):
+		recharge_time += upgrades_amount * definition.amounts["upgrade_multiplier"]
+	if recharge_time <= 1:
+		recharge_time = 1
 	# To avoid showing the player that a memory is 120% ready etc.
-	if pathos_accumulated > pathos_threshold:
-		pathos_accumulated = pathos_threshold
+	if current_charge > recharge_time:
+		current_charge = recharge_time
 
 
 func get_class() -> String:
@@ -200,8 +202,8 @@ func extract_save_state() -> Dictionary:
 	var memory_dict := {
 		"canonical_name": canonical_name,
 		"is_ready": is_ready,
-		"pathos_threshold": pathos_threshold,
-		"pathos_accumulated": pathos_accumulated,
+		"recharge_time": recharge_time,
+		"current_charge": current_charge,
 		"upgrades_amount" : upgrades_amount,
 		"modifiers": modifiers,
 	}

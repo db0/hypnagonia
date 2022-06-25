@@ -1,7 +1,7 @@
 extends NonCombatEncounter
 
 const MEMORY_PROGRESS = 4
-const RELEASED_PATHOS_MASTERIES = 2
+const MASTERIES_AMOUNT = round(Pathos.MASTERY_BASELINE * 2)
 const PATHOS = Terms.RUN_ACCUMULATION_NAMES.elite
 const REPRESSED_PATHOS_AVG_MULTIPLIER = 1
 const CARD_PROGRESS = 3
@@ -9,7 +9,7 @@ const CARD_PROGRESS = 3
 var secondary_choices := {
 		'card': '[Card]: {bcolor:Remove an upgraded card:}. {gcolor:Upgrade a card:}.',
 		'memory': '[Memory]: {bcolor:Remove an upgraded card:}. {gcolor:Upgrade a random Memory:} {memory_progress} times.',
-		'pathos': '[Pathos]: {bcolor:Remove an upgraded card:}. Gain {gcolor:{masteries_amount} {mastery_pathos} masteries:}.',
+		'pathos': '[Pathos]: {bcolor:Remove an upgraded card:}. Gain {gcolor:{masteries_amount} {masteries}:}.',
 		'progress': '[Progress]: Gain {bcolor:{repressed_pathos_amount} {repressed_pathos}:}. {gcolor:Progress a random card:} by {progress}',
 	}
 
@@ -34,7 +34,7 @@ func begin() -> void:
 			 * REPRESSED_PATHOS_AVG_MULTIPLIER * CFUtils.randf_range(0.8,1.2))
 	var scformat = {
 		"memory_progress": MEMORY_PROGRESS,
-		"masteries_amount": RELEASED_PATHOS_MASTERIES,
+		"masteries_amount": MASTERIES_AMOUNT,
 		"repressed_pathos_amount": "some",
 		"repressed_pathos": '{repressed_%s}' % [PATHOS],
 		"mastery_pathos": PATHOS,
@@ -89,8 +89,7 @@ func _on_upgraded_card_selected(operation_details: Dictionary, key: String) -> v
 			if existing_memory:
 				existing_memory.upgrades_amount += MEMORY_PROGRESS
 		"pathos":
-			for iter in RELEASED_PATHOS_MASTERIES:
-				pathos_type.level_up()
+			globals.player.pathos.available_masteries += MASTERIES_AMOUNT
 
 func _on_card_selected(operation_details: Dictionary) -> void:
 	if operation_details.operation == "progress":

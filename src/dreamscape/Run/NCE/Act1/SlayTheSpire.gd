@@ -1,11 +1,11 @@
 extends NonCombatEncounter
 
-const SLAY_PCT := 0.6
-const LEAVE_PCT := 0.3
+const SLAY_MASTERIES := 3
+const LEAVE_MASTERIES := 1
 
 var secondary_choices := {
-		'slay': '[Slay]: {bcolor:+10 {anxiety_up}:}. Gain some {bcolor:{repressed_enemy}:}. Increase {gcolor:{released_nce} by {slay_amount}%:}',
-		'leave': '[Leave]: Gain some {bcolor:{repressed_nce}:}. Decrease {bcolor:{released_enemy} by {leave_amount}%:}.',
+		'slay': '[Slay]: {bcolor:+10 {anxiety_up}:}. Gain some {bcolor:{repressed_enemy}:}. {gcolor:Gain {slay_amount}:} {masteries}',
+		'leave': '[Leave]: Gain some {bcolor:{repressed_nce}:}. {bcolor:Lose {leave_amount}:} {mastery}.',
 	}
 
 var nce_result_fluff := {
@@ -26,18 +26,18 @@ var pathos_type_nce : PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMUL
 func begin() -> void:
 	.begin()
 	var scformat := Terms.RUN_ACCUMULATION_NAMES.duplicate()
-	scformat["slay_amount"] = SLAY_PCT * 100
-	scformat["leave_amount"] = LEAVE_PCT * 100
+	scformat["slay_amount"] = SLAY_MASTERIES
+	scformat["leave_amount"] = LEAVE_MASTERIES
 	_prepare_secondary_choices(secondary_choices, scformat)
 
 func continue_encounter(key) -> void:
 	match key:
 		"slay":
 			globals.player.damage += 10
-			pathos_type_nce.released += pathos_type_nce.convert_pct_to_released(SLAY_PCT)
+			globals.player.pathos.available_masteries += SLAY_MASTERIES
 			pathos_type_enemy.repressed += pathos_type_enemy.get_progression_average() * 2
 		"leave":
-			pathos_type_enemy.lose_released_pathos(pathos_type_nce.convert_pct_to_released(LEAVE_PCT))
+			globals.player.pathos.available_masteries -= LEAVE_MASTERIES
 			pathos_type_nce.repressed += pathos_type_enemy.get_progression_average() * 2
 	end()
 	globals.journal.display_nce_rewards(nce_result_fluff[key])

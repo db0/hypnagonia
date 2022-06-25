@@ -26,6 +26,7 @@ const WORD_DEFINITIONS := {
 	"anxiety_down": "Will decrease the anxiety. This avoids losing the game.",
 	"anxiety": "Max Anxiety: When your anxiety reaches this threshold, the dreamer wakes up and you lose the game.",
 	"masteries": "You use masteries to purchase different things in the shop.",
+	"mastery": "You use masteries to purchase different things in the shop.",
 }
 
 var pathos_infos := {}
@@ -63,7 +64,6 @@ onready var player_info := $"../PlayerInfo"
 onready var journal_cover := $"../../FadeToBlack"
 
 
-# We split this
 func _ready() -> void:
 	if OS.has_feature("debug") and not cfc.is_testing:
 		print("DEBUG INFO:Journal: Entering Journal")
@@ -374,6 +374,7 @@ func _on_choice_pressed(encounter: SingleEncounter, rich_text_choice) -> void:
 	for choice in journal_choices.get_children():
 		if choice != rich_text_choice:
 			choice.visible = false
+			choice.journal_choice.encounter.ignore()
 		elif choice.has_method("disable_mouse_inputs"):
 			choice.disable_mouse_inputs()
 	# To ensure card previews are hidden in case the player is too fast.
@@ -526,6 +527,10 @@ func show_description_popup(description_text: String) -> void:
 
 func show_pathos_popup(description_text: String, pathos_dict: Dictionary) -> void:
 	_pathos_description.bbcode_text = description_text
+	for child in journal_choices.get_children():
+		if pathos_dict[child.pathos_released]["repress_mod"] == 0:
+			var pathos_type: PathosType = globals.player.pathos.pathi[child.pathos_released]
+			pathos_dict[child.pathos_released]["repress_mod"] = -pathos_type.get_final_release_amount()
 	var highest_chance: int
 	for entry in pathos_infos:
 		var chance = pathos_infos[entry].update_labels(pathos_dict)
@@ -558,10 +563,10 @@ func _input(event):
 #		globals.player.deck.add_new_card("Catatonia")
 #		globals.player.add_artifact(ArtifactDefinitions.CursedCurios.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.EnhanceOnRest.canonical_name)
-#		globals.player.add_artifact(ArtifactDefinitions.IncreaseRandomDamage.canonical_name)
-#		globals.player.add_artifact(ArtifactDefinitions.BossDraft.canonical_name)
+#		globals.player.add_artifact(ArtifactDefinitions.PerturbationHeal.canonical_name)
+#		globals.player.add_artifact(ArtifactDefinitions.CostlyUpgrades.canonical_name)
 #		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
-#		globals.player.add_memory(MemoryDefinitions.HealSelf.canonical_name)
+#		globals.player.add_memory(MemoryDefinitions.BossFaster.canonical_name)
 		# warning-ignore:return_value_discarded
 #		globals.player.add_memory(MemoryDefinitions.FreezeCard.canonical_name)
 #		var card_entry = globals.player.deck.add_new_card("Towering Presence")
@@ -573,7 +578,6 @@ func _input(event):
 #		globals.player.deck.add_new_card("Chasm")
 #		globals.player.deck.add_new_card("Prejudice")
 #		globals.player.damage += 20
-#		globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.shop].released = 100
 #		globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.artifact].repressed = 100
 #		globals.player.damage = 85
 #		globals.player.pathos.available_masteries += 6
@@ -581,12 +585,14 @@ func _input(event):
 #			EnemyEncounter.new(Act1.Squirrel, "hard"),
 #			EnemyEncounter.new(Act2.TrafficJam, "easy"),
 #			EnemyEncounter.new(Act3.Shamelings, "hard"),
-			load("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
+			load("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/AllActs/OstrichEggs.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act3/UnderwaterCave.gd").new(),
-#			load("res://src/dreamscape/Run/NCE/Act2/RiskyEvent4.gd").new(),
-#			load("res://src/dreamscape/Run/NCE/Act1/Spider.gd").new(),
+#			load("res://src/dreamscape/Run/NCE/Act2/RiskyEvent3.gd").new(),
+#			load("res://src/dreamscape/Run/NCE/Act1/PathosForAnxiety.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
+#			load("res://src/dreamscape/Run/NCE/Rest.gd").new(),
+			load("res://src/dreamscape/Run/NCE/Shop.gd").new(),
 #			BossEncounter.new(Act2.BOSSES["Surreality"]),
 #			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
 #			EliteEncounter.new(Act1.Bully, "medium"),

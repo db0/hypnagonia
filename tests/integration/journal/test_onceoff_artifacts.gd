@@ -483,48 +483,94 @@ class TestDecreaseExertStacks:
 				"exert_amount increased by 1")
 
 
-class TestFasterRestLevelUp:
+class TestMoreRestMasteries:
 	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
 	func _init() -> void:
-		testing_artifact_name = ArtifactDefinitions.FasterRestLevelUp.canonical_name
+		testing_artifact_name = ArtifactDefinitions.MoreRestMasteries.canonical_name
 		expected_amount_keys = [
-			"level_req_amount",
+			"masteries_amount",
 		]
 
 	func test_artifact_results():
 		if not assert_has_amounts():
 			return
 		var ptype : PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.rest]
-		assert_ne(ptype.perm_modification_for_next_level, 0)
+		assert_eq(ptype.masteries_when_chosen, get_amount("masteries_amount"))
 
 
-class TestFasterArtifactLevelUp:
+class TestMoreArtifactMasteries:
 	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
 	func _init() -> void:
-		testing_artifact_name = ArtifactDefinitions.FasterArtifactLevelUp.canonical_name
+		testing_artifact_name = ArtifactDefinitions.MoreArtifactMasteries.canonical_name
 		expected_amount_keys = [
-			"level_req_amount",
+			"masteries_amount",
 		]
 
 	func test_artifact_results():
 		if not assert_has_amounts():
 			return
 		var ptype : PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.artifact]
-		assert_ne(ptype.perm_modification_for_next_level, 0)
+		assert_eq(ptype.masteries_when_chosen, get_amount("masteries_amount"))
 
-class TestFasterShopLevelUp:
+
+class TestMoreShopMasteries:
 	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
 	func _init() -> void:
-		testing_artifact_name = ArtifactDefinitions.FasterShopLevelUp.canonical_name
+		testing_artifact_name = ArtifactDefinitions.MoreShopMasteries.canonical_name
 		expected_amount_keys = [
-			"level_req_amount",
+			"masteries_amount",
 		]
 
 	func test_artifact_results():
 		if not assert_has_amounts():
 			return
 		var ptype : PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.shop]
-		assert_ne(ptype.perm_modification_for_next_level, 0)
+		assert_eq(ptype.masteries_when_chosen, get_amount("masteries_amount"))
+
+
+class TestMoreEliteMasteries:
+	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.MoreEliteMasteries.canonical_name
+		expected_amount_keys = [
+			"masteries_amount",
+		]
+
+	func test_artifact_results():
+		if not assert_has_amounts():
+			return
+		var ptype : PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.elite]
+		assert_eq(ptype.masteries_when_chosen, floor(Pathos.MASTERY_BASELINE * 2.5) + get_amount("masteries_amount"))
+
+
+class TestMoreNCEMasteries:
+	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.MoreNCEMasteries.canonical_name
+		expected_amount_keys = [
+			"masteries_amount",
+		]
+
+	func test_artifact_results():
+		if not assert_has_amounts():
+			return
+		var ptype : PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.nce]
+		assert_eq(ptype.masteries_when_chosen, get_amount("masteries_amount"))
+
+
+class TestMoreEnemyMasteries:
+	extends "res://tests/HUT_Journal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.MoreEnemyMasteries.canonical_name
+		expected_amount_keys = [
+			"masteries_amount",
+		]
+
+	func test_artifact_results():
+		if not assert_has_amounts():
+			return
+		var ptype : PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy]
+		assert_eq(ptype.masteries_when_chosen, 3 + get_amount("masteries_amount"))
 
 
 class TestCostlyUpgrades:
@@ -532,7 +578,7 @@ class TestCostlyUpgrades:
 	func _init() -> void:
 		testing_artifact_name = ArtifactDefinitions.CostlyUpgrades.canonical_name
 		expected_amount_keys = [
-			"pathos_req_increase",
+			"masteries_modifier",
 			"immersion_amount",
 		]
 
@@ -541,5 +587,5 @@ class TestCostlyUpgrades:
 			return
 		for p in globals.player.pathos.pathi.values():
 			var ptype : PathosType = p
-			assert_ne(ptype.perm_modification_for_next_level, 0)
+			assert_eq(ptype.masteries_modifiers, 0.7)
 

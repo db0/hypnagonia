@@ -1,5 +1,3 @@
-# Gives three choices, paid with released pathos to get some rewards
-
 extends NonCombatEncounter
 
 var secondary_choices := {

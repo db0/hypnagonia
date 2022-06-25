@@ -2,12 +2,17 @@
 
 extends NonCombatEncounter
 
+const CURIOS := {
+	'tiger': ArtifactDefinitions.MoreShopMasteries,
+	'snake': ArtifactDefinitions.MoreArtifactMasteries,
+	'owl': ArtifactDefinitions.MoreRestMasteries,
+}
 var shader := load("res://shaders/Roscharch.shader")
 
 var secondary_choices := {
-		'tiger': '[A Tiger]: Gain some {gcolor:{released_nce}:}.',
-		'snake': '[A Snake]:  Gain some {gcolor:{released_enemy}:}.',
-		'owl': '[An Owl]: Gain some {gcolor:{released_shop}:}.',
+		'tiger': '[A Tiger]: Gain some {gcolor:Gain {tiger_curio}:}.',
+		'snake': '[A Snake]:  Gain some {gcolor:Gain {snake_curio}:}.',
+		'owl': '[An Owl]: Gain some {gcolor:Gain {owl_curio}:}.',
 	}
 
 var nce_resul_fluff := "[i]I see. You're {adjective} your {noun}.[/i]"
@@ -38,23 +43,16 @@ func begin() -> void:
 		'tint': HUtils.rnd_color(true, 255),
 		'time_offset': CFUtils.randf_range(0, 10000)
 	}
+	var scformat := {}
+	for option in ['tiger', 'snake', 'owl']:
+		scformat[option+ '_curio'] = _prepare_artifact_popup_bbcode(CURIOS[option].canonical_name, CURIOS[option].name)
 	prepare_shader_art(shader, _shader_params)
-	_prepare_secondary_choices(secondary_choices, {})
+	_prepare_secondary_choices(secondary_choices, scformat)
 
 func continue_encounter(key) -> void:
 	var pathos_type : PathosType
 	var multiplier: int
-	match key:
-		"tiger":
-			pathos_type = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.nce]
-			multiplier = 5
-		"snake":
-			pathos_type = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy]
-			multiplier = 3
-		"owl":
-			pathos_type = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.shop]
-			multiplier = 8
-	pathos_type.released += pathos_type.get_progression_average() * multiplier * CFUtils.randf_range(0.8,1.2)
+	globals.player.add_artifact(CURIOS[key].canonical_name)
 	CFUtils.shuffle_array(mad_lib_adjectives)
 	CFUtils.shuffle_array(mad_lib_nouns)
 	var adlib_format = {

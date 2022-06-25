@@ -21,18 +21,12 @@ enum EffectContext {
 Keys:
 
 * pathos: Which pathos is used to fill up this memory
-* pathos_threshold_multiplier (default: 2): Normally the amount of pathos needed to fill up a memory is equal to
-	the average progression for that pathos. This multiplier multiplies the amount of pathos needed to
-	fill up that memory by this much. So e.g. with a multiplier of 2, frustration will go from needing 15 to fill up
-	to needing 30.
-* pathos_accumulation_divider (default: 2): If you want to increase the time taken to fill up a memory without increasing
-	how much pathos will be used to do so, use this value. If used, the amount "sucked"
-	from the memory any time pathos is released (typically the accumulation average), will be divided by this amount.
-	Careful: A value of 1, means no released pathos will be accumulated while this memory is empty!
+* pathos_progress_multiplier (default: 0.0): This fraction will be added to the pathos threshold needed
+* recharge_time (default: 2): The amount of journal encounters it takes for this memory to completely recharge
 * keys_modified_by_upgrade: This is used to let the code which displays the upgrades, to know which amounts
 	to modify with the upgrades, before showing them to the player.
 
-With a pathos_threshold_multiplier and a pathos_accumulation_divider of 2 each, on average
+With a pathos_progress_multiplier and a pathos_progress_multiplier of 2 each, on average
 A memory will fill up every 4 encounters, assuming the player had enough released pathos.
 Typically you want these numbers to be higher for powerful memories lower for weaker ones.
 In general, you want to aim for a memory to refill every 3-6 encounters
@@ -49,8 +43,8 @@ const DamageAll := {
 	"illustration": "SkylarkGSH",
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
-	"pathos_threshold_multiplier": 2,
-	"pathos_accumulation_divider": 1.8,
+	"pathos_progress_multiplier": 0.2,
+	"recharge_time": 4,
 	"keys_modified_by_upgrade": ["damage_amount"],
 	"amounts": {
 		"damage_amount": 10,
@@ -69,8 +63,8 @@ const HealSelf := {
 	"illustration": "SkylarkGSH",
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.rest,
-	"pathos_threshold_multiplier": 3,
-	"pathos_accumulation_divider": 2,
+	"pathos_progress_multiplier": -0.3,
+	"recharge_time": 6,
 	"keys_modified_by_upgrade": ["heal_amount"],
 	"amounts": {
 		"heal_amount": 5,
@@ -90,12 +84,12 @@ const BossFaster := {
 	"illustration": "SkylarkGSH",
 	"context": EffectContext.OVERWORLD,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
-	"pathos_threshold_multiplier": 1,
-	"pathos_accumulation_divider": 5,
-	"keys_modified_by_upgrade": ["pathos_accumulation_divider"],
+	"pathos_progress_multiplier": 0.0,
+	"recharge_time": 6,
+	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"pathos_amount": 5,
-		"upgrade_multiplier": 2,
+		"upgrade_multiplier": -5,
 		"rare_multiplier": 2,
 	},
 }
@@ -107,8 +101,8 @@ const ProgressRandom := {
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.shop,
-	"pathos_threshold_multiplier": 1.5,
-	"pathos_accumulation_divider": 1.5,
+	"pathos_progress_multiplier": -0.2,
+	"recharge_time": 4,
 	"keys_modified_by_upgrade": ["progress_amount"],
 	"amounts": {
 		"progress_amount": 2,
@@ -123,8 +117,8 @@ const SpikeEnemy := {
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.nce,
-	"pathos_threshold_multiplier": 3,
-	"pathos_accumulation_divider": 2,
+	"pathos_progress_multiplier": -0.3,
+	"recharge_time": 3,
 	"keys_modified_by_upgrade": ["damage_amount"],
 	"amounts": {
 		"damage_amount": 20,
@@ -142,12 +136,12 @@ const FortifySelf := {
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
-	"pathos_threshold_multiplier": 2,
-	"pathos_accumulation_divider": 2,
-	"keys_modified_by_upgrade": ["pathos_threshold_multiplier"],
+	"pathos_progress_multiplier": 0.2,
+	"recharge_time": 4,
+	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"effect_stacks": 1,
-		"upgrade_multiplier": 0.1,
+		"upgrade_multiplier": -5,
 		"max_upgrades": 5,
 	},
 	"linked_terms": [
@@ -162,8 +156,8 @@ const DefendSelf := {
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
-	"pathos_threshold_multiplier": 2,
-	"pathos_accumulation_divider": 1.5,
+	"pathos_progress_multiplier": 0.2,
+	"recharge_time": 3,
 	"keys_modified_by_upgrade": ["defence_amount"],
 	"amounts": {
 		"defence_amount": 12,
@@ -181,12 +175,12 @@ const QuickenSelf := {
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.nce,
-	"pathos_threshold_multiplier": 1,
-	"pathos_accumulation_divider": 4,
-	"keys_modified_by_upgrade": ["pathos_accumulation_divider"],
+	"pathos_progress_multiplier": -0.1,
+	"recharge_time": 5,
+	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"effect_stacks": 2,
-		"upgrade_multiplier": 1,
+		"upgrade_multiplier": 5,
 		"max_upgrades": 20,
 	},
 	"linked_terms": [
@@ -201,12 +195,12 @@ const StrengthenSelf := {
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.rest,
-	"pathos_threshold_multiplier": 1,
-	"pathos_accumulation_divider": 4,
-	"keys_modified_by_upgrade": ["pathos_accumulation_divider"],
+	"pathos_progress_multiplier": -0.2,
+	"recharge_time": 5,
+	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"effect_stacks": 2,
-		"upgrade_multiplier": 1,
+		"upgrade_multiplier": 5,
 		"max_upgrades": 20,
 	},
 	"linked_terms": [
@@ -221,12 +215,12 @@ const RandomChaos := {
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.shop,
-	"pathos_threshold_multiplier": 3.5,
-	"pathos_accumulation_divider": 1.5,
-	"keys_modified_by_upgrade": ["pathos_threshold_multiplier"],
+	"pathos_progress_multiplier": -0.35,
+	"recharge_time": 3,
+	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"draw_amount": 2,
-		"upgrade_multiplier": 1,
+		"upgrade_multiplier": 5,
 		"max_upgrades": 10,
 	},
 }
@@ -238,11 +232,11 @@ const ReshuffleHand := {
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
-	"pathos_threshold_multiplier": 1.7,
-	"pathos_accumulation_divider": 1.7,
-	"keys_modified_by_upgrade": ["pathos_threshold_multiplier"],
+	"pathos_progress_multiplier": 0.2,
+	"recharge_time": 4,
+	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
-		"upgrade_multiplier": 1,
+		"upgrade_multiplier": -5,
 		"max_upgrades": 5,
 	},
 }
@@ -254,12 +248,12 @@ const PoisonEnemy := {
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
-	"pathos_threshold_multiplier": 2,
-	"pathos_accumulation_divider": 3,
-	"keys_modified_by_upgrade": ["pathos_accumulation_divider"],
+	"pathos_progress_multiplier": 0.2,
+	"recharge_time": 4,
+	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"effect_stacks": 5,
-		"upgrade_multiplier": 1
+		"upgrade_multiplier": -5
 	},
 	"linked_terms": [
 		"poison",
@@ -273,8 +267,8 @@ const DisempowerEnemy := {
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
-	"pathos_threshold_multiplier": 2,
-	"pathos_accumulation_divider": 1.5,
+	"pathos_progress_multiplier": 0.1,
+	"recharge_time": 4,
 	"keys_modified_by_upgrade": ["effect_stacks"],
 	"amounts": {
 		"effect_stacks": 2,
@@ -292,9 +286,9 @@ const ImperviousSelf := {
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
-	"pathos_threshold_multiplier": 2,
-	"pathos_accumulation_divider": 3,
-	"keys_modified_by_upgrade": ["pathos_threshold_multiplier"],
+	"pathos_progress_multiplier": 0.2,
+	"recharge_time": 3,
+	"keys_modified_by_upgrade": ["effect_stacks"],
 	"amounts": {
 		"effect_stacks": 2,
 		"upgrade_multiplier": 1
@@ -311,12 +305,12 @@ const ImmerseSelf := {
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.artifact,
-	"pathos_threshold_multiplier": 2,
-	"pathos_accumulation_divider": 1.8,
-	"keys_modified_by_upgrade": ["pathos_threshold_multiplier"],
+	"pathos_progress_multiplier": -0.2,
+	"recharge_time": 3,
+	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"immersion_amount": 2,
-		"upgrade_multiplier": 1,
+		"upgrade_multiplier": 5,
 		"max_upgrades": 5,
 	},
 	"linked_terms": [
@@ -331,12 +325,12 @@ const CardDraw := {
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.artifact,
-	"pathos_threshold_multiplier": 2,
-	"pathos_accumulation_divider": 1.8,
-	"keys_modified_by_upgrade": ["pathos_threshold_multiplier"],
+	"pathos_progress_multiplier": -0.2,
+	"recharge_time": 3,
+	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"draw_amount": 3,
-		"upgrade_multiplier": 1,
+		"upgrade_multiplier": 5,
 		"max_upgrades": 5,
 	},
 }
@@ -348,11 +342,11 @@ const ExertRecovery := {
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
-	"pathos_threshold_multiplier": 3,
-	"pathos_accumulation_divider": 2,
-	"keys_modified_by_upgrade": ["pathos_accumulation_divider"],
+	"pathos_progress_multiplier": 0.3,
+	"recharge_time": 3,
+	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
-		"upgrade_multiplier": 1
+		"upgrade_multiplier": -5
 	},
 	"linked_terms": [
 		"player_health",
@@ -367,8 +361,8 @@ const ExertSelf := {
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
-	"pathos_threshold_multiplier": 1,
-	"pathos_accumulation_divider": 3,
+	"pathos_progress_multiplier": 0.1,
+	"recharge_time": 3,
 	"keys_modified_by_upgrade": ["repeat_amount"],
 	"amounts": {
 		"exert_amount": 1,
@@ -389,8 +383,8 @@ const RegenerateSelf := {
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
-	"pathos_threshold_multiplier": 4,
-	"pathos_accumulation_divider": 1.7,
+	"pathos_progress_multiplier": 0.3,
+	"recharge_time": 5,
 	"keys_modified_by_upgrade": ["turns_amount"],
 	"amounts": {
 		"heal_amount": 1,
@@ -411,12 +405,12 @@ const BufferSelf := {
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
-	"pathos_threshold_multiplier": 2,
-	"pathos_accumulation_divider": 3,
-	"keys_modified_by_upgrade": ["pathos_accumulation_divider"],
+	"pathos_progress_multiplier": 0.2,
+	"recharge_time": 3,
+	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"effect_stacks": 3,
-		"upgrade_multiplier": 1,
+		"upgrade_multiplier": -5,
 		"max_upgrades": 15,
 	},
 	"linked_terms": [
@@ -431,11 +425,11 @@ const RerollDraft := {
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.nce,
-	"pathos_threshold_multiplier": 3.5,
-	"pathos_accumulation_divider": 1.3,
-	"keys_modified_by_upgrade": ["pathos_threshold_multiplier"],
+	"pathos_progress_multiplier": -0.35,
+	"recharge_time": 4,
+	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
-		"upgrade_multiplier": 2,
+		"upgrade_multiplier": 5,
 		"max_upgrades": 10,
 	},
 }
@@ -447,11 +441,11 @@ const RemovePerturbation := {
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.rest,
-	"pathos_threshold_multiplier": 5.3,
-	"pathos_accumulation_divider": 2,
-	"keys_modified_by_upgrade": ["pathos_threshold_multiplier"],
+	"pathos_progress_multiplier": -0.4,
+	"recharge_time": 6,
+	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
-		"upgrade_multiplier": 2,
+		"upgrade_multiplier": 5,
 		"max_upgrades": 10,
 	},
 	"linked_terms": [
@@ -466,11 +460,11 @@ const RerollShop := {
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.SHOP,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.artifact,
-	"pathos_threshold_multiplier": 4.5,
-	"pathos_accumulation_divider": 1.3,
-	"keys_modified_by_upgrade": ["pathos_threshold_multiplier"],
+	"pathos_progress_multiplier": -0.25,
+	"recharge_time": 6,
+	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
-		"upgrade_multiplier": 3,
+		"upgrade_multiplier": 5,
 		"max_upgrades": 10,
 	},
 }
@@ -482,12 +476,12 @@ const GainMaxHealth := {
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.shop,
-	"pathos_threshold_multiplier": 4,
-	"pathos_accumulation_divider": 2.2,
-	"keys_modified_by_upgrade": ["pathos_accumulation_divider"],
+	"pathos_progress_multiplier": -0.4,
+	"recharge_time": 7,
+	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"anxiety_amount": 5,
-		"upgrade_multiplier": 1,
+		"upgrade_multiplier": 5,
 		"max_upgrades": 10,
 	},
 	"linked_terms": [
@@ -502,12 +496,12 @@ const ProtectSelf := {
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.shop,
-	"pathos_threshold_multiplier": 3,
-	"pathos_accumulation_divider": 3,
-	"keys_modified_by_upgrade": ["pathos_accumulation_divider"],
+	"pathos_progress_multiplier": -0.3,
+	"recharge_time": 4,
+	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"effect_stacks": 1,
-		"upgrade_multiplier": 1,
+		"upgrade_multiplier": 5,
 		"max_upgrades": 10,
 	},
 	"linked_terms": [
@@ -522,8 +516,8 @@ const RemoveDebuff := {
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.shop,
-	"pathos_threshold_multiplier": 1.8,
-	"pathos_accumulation_divider": 1.3,
+	"pathos_progress_multiplier": -0.2,
+	"recharge_time": 5,
 	"keys_modified_by_upgrade": ["defence_amount"],
 	"amounts": {
 		"defence_amount": 5,
@@ -542,11 +536,11 @@ const ActivateStartups := {
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.artifact,
-	"pathos_threshold_multiplier": 2.5,
-	"pathos_accumulation_divider": 1.3,
-	"keys_modified_by_upgrade": ["pathos_threshold_multiplier"],
+	"pathos_progress_multiplier": -0.25,
+	"recharge_time": 5,
+	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
-		"upgrade_multiplier": 1,
+		"upgrade_multiplier": 5,
 		"max_upgrades": 5,
 	},
 	"linked_terms": [
@@ -561,12 +555,12 @@ const ThornsSelf := {
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
-	"pathos_threshold_multiplier": 2.3,
-	"pathos_accumulation_divider": 2.3,
-	"keys_modified_by_upgrade": ["pathos_threshold_multiplier"],
+	"pathos_progress_multiplier": 0.23,
+	"recharge_time": 3,
+	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
 		"effect_stacks": 3,
-		"upgrade_multiplier": 1,
+		"upgrade_multiplier": -5,
 		"max_upgrades": 8,
 	},
 	"linked_terms": [
@@ -581,11 +575,11 @@ const FreezeCard := {
 	"icon": DEFAULT_ICON,
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
-	"pathos_threshold_multiplier": 3,
-	"pathos_accumulation_divider": 2,
-	"keys_modified_by_upgrade": ["pathos_accumulation_divider"],
+	"pathos_progress_multiplier": 0.2,
+	"recharge_time": 4,
+	"keys_modified_by_upgrade": ["pathos_progress_multiplier"],
 	"amounts": {
-		"upgrade_multiplier": 1,
+		"upgrade_multiplier": -5,
 		"max_upgrades": 5,
 	},
 	"linked_terms": [

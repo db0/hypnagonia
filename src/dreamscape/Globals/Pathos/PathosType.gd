@@ -1,22 +1,11 @@
 class_name PathosType
 extends Reference
 
-# Sent when repressed pathos is increased
-signal pathos_repressed(pathos, amount)
-# Sent then repressed pathos is decreased and released is increased
-signal pathos_released(pathos, amount)
-# Sent when released pathos is decreased without a special flag
-signal pathos_spent(pathos, amount)
-# Sent when repressed pathos is decreased with a special flag
-signal repressed_pathos_lost(pathos, amount)
-# Sent when released pathos is decreased with a special flag
-signal released_pathos_lost(pathos, amount)
-# Sent when released pathos is increased
-signal released_pathos_gained(pathos, amount)
-# Send when a pathos levels up
-signal pathos_leveled(pathos, level)
 
-
+# The main pathos object. 
+# This acts as an EventBus for the signals of this class.
+var pathos
+# The thematic name of this type
 var name: String
 var type
 var repressed: float setget _set_repressed
@@ -27,16 +16,12 @@ var progression: Array
 # before that encounter is an option as an encounter.
 # Effectively ~on average~ is limits a type of encounter to appearing
 # every X times.
-# They are also used to determine how much of a pathos is released every time
-# that encounter is selected (see release_adjustments below).
 var threshold: float
-# Adjusts the amount of pathos released when the encounter is selected.
-# This ensures that when that type of encounter is skipped one or more times,
-# then selecting it will keep decreasing more than it's increasing.
-# Default is 1.3 for pathos not listed below, which means every time they are
-# selected, they will transfer as much from represed to released equal to
-# their accumulation average * threshold
-var release_adjustment: float = 1.3
+# Modifies the amount of progression gained per journal page
+var progression_modifier: float = 1.0 setget ,get_progression_modifier
+# Holds objects which dynamically modify how much repression this pathos gais per turn
+# Each object in this array needs to have the get_pathos_progression_modifier() function
+var progression_modifying_objects := []
 # How many of the average multiples is needed to level up that pathos
 var released_needed_for_level: float
 # If any effect makes the next mastery take longer, this is stored here
@@ -47,15 +32,13 @@ var perm_modification_for_next_level: float
 # How many times this pathos has been leveled up
 var level: int
 # How many masteries the player receives to spend in the shop per level gained.
-var masterier_per_level := 1
+var masteries_when_chosen := 0
+var masteries_modifiers := 1.0
+var skipped: int
 
 
-func _init(pathos) -> void:
-	for signal_def in get_signal_list():
-		# warning-ignore:return_value_discarded
-		if signal_def.name in ["script_changed"]:
-			continue
-		connect(signal_def.name, pathos, "_on_pathos_signaled", [signal_def.name])
+func _init(_pathos) -> void:
+	pathos = _pathos
 
 
 func _set_repressed(value: float, restore = false) -> void:
@@ -80,9 +63,9 @@ func modify_repressed(value: float, is_lost := false) -> void:
 	if repressed < 0:
 		repressed = 0
 	if value > 0:
-		emit_signal("pathos_repressed", name, value)
+		pathos.emit_signal("pathos_repressed", name, value)
 	elif is_lost:
-		emit_signal("repressed_pathos_lost", name, -value)
+		pathos.emit_signal("repressed_pathos_lost", name, -value)
 
 
 # reduces the repression by a given amount
@@ -92,11 +75,11 @@ func modify_released(value: float, is_lost := false) -> void:
 	if released < 0:
 		released = 0.0
 	if value > 0:
-		emit_signal("released_pathos_gained", name, value)
+		pathos.emit_signal("released_pathos_gained", name, value)
 	elif is_lost:
-		emit_signal("released_pathos_lost", name, -value)
+		pathos.emit_signal("released_pathos_lost", name, -value)
 	else:
-		emit_signal("pathos_spent", name, -value)
+		pathos.emit_signal("pathos_spent", name, -value)
 # warning-ignore:return_value_discarded
 	check_for_level_up()
 
@@ -119,12 +102,11 @@ func release(amount: float) -> void:
 		amount = repressed
 	modify_repressed(-amount)
 	modify_released(amount)
-	emit_signal("pathos_released", name, amount)
+	pathos.emit_signal("pathos_released", name, amount)
 
 
 func get_release_amount() -> float:
 	var release_amount := get_threshold()
-	release_amount *= release_adjustment
 	return(release_amount)
 
 
@@ -133,6 +115,25 @@ func get_final_release_amount() -> int:
 	if release_amount > repressed:
 		release_amount = repressed
 	return(int(round(release_amount)))
+
+
+# Used when this choice is selected. 
+# The amount of pathos in the threshold is converted into released
+func select() -> void:
+	var release_amount = get_final_release_amount()
+	release(release_amount)
+	skipped = 0
+	pathos.emit_signal("pathos_selected", name)
+
+
+# Used when this choice is ignore when it exists
+# The amount of pathos in the threshold is converted into lost 
+# and skipped is incremente by 1
+func ignore() -> void:
+	var release_amount = get_final_release_amount()
+	modify_repressed(-release_amount)
+	skipped += 1
+	pathos.emit_signal("pathos_ignored", name)
 
 
 func check_for_level_up() -> bool:
@@ -148,7 +149,7 @@ func level_up() -> void:
 	level += 1
 	# When a level up happens, any temp modifications are removed
 	temp_modification_for_next_level = 0.0
-	emit_signal("pathos_leveled", name, level)
+	pathos.emit_signal("pathos_leveled", name, level)
 
 
 func get_progress_pct() -> float:
@@ -164,7 +165,6 @@ func get_level_requirement() -> float:
 			(
 				get_progression_average()
 				* released_needed_for_level
-				* globals.difficulty.mastery_difficulties
 			)
 			+ temp_modification_for_next_level\
 			+ perm_modification_for_next_level
@@ -213,6 +213,7 @@ func lose_repressed_pathos(amount: float) -> void:
 		printerr("ERROR: lose_repressed_pathos() only takes a positive integer")
 		return
 	modify_repressed(-amount, true)
+	
 
 
 # reduces the specified released pathos by a given amount
@@ -229,7 +230,8 @@ func lose_released_pathos(amount: float) -> void:
 func get_progression() -> float:
 	var rand_array : Array = progression.duplicate()
 	CFUtils.shuffle_array(rand_array)
-	return(float(rand_array[0]))
+	var rng_progression :float = rand_array[0] * get_progression_modifier()
+	return(rng_progression)
 
 
 # Returns the average value of the progression specified
@@ -248,3 +250,15 @@ func get_threshold() -> float:
 # Adds an initial amount of released pathos during startup
 func add_startup_rng_release() -> void:
 	released += get_progression_average() * CFUtils.randf_range(3,5)
+
+
+func get_progression_modifier() -> float:
+	var updated_modifiers: float = 0.0
+	for object in progression_modifying_objects:
+		updated_modifiers += object.get_pathos_progression_modifier()
+	return(progression_modifier + updated_modifiers)
+
+
+func get_masteries_per_selection() -> int:
+	var masteries_ret = int(round(masteries_when_chosen * masteries_modifiers))
+	return(masteries_ret)

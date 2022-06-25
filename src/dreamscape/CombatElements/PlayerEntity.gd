@@ -29,6 +29,7 @@ func _map_nodes() -> void:
 	health_temp = $HBC/MC/HealthTemp
 	health_incoming = $HBC/MC/HealthIncoming
 	active_effects = $HBC2/ActiveEffects
+	highlight = $HBC/Highlight
 
 func set_upgrades_increased(value) -> void:
 	upgrades_increased = value

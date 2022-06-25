@@ -22,43 +22,47 @@ signal released_pathos_gained(pathos, amount)
 # Send when a pathos levels up
 # warning-ignore:unused_signal
 signal pathos_leveled(pathos, level)
+# Send when a pathos is selected for an encounter
+signal pathos_selected(pathos)
+# Send when a pathos is not selected for an encounter
+signal pathos_ignored(pathos)
 signal advancements_modified(new_value, old_value)
+
+# As a baseline for rewards/costs, we use the amount a normal enemy gives when defeated
+const MASTERY_BASELINE = 3
+const STARTING_MASTERIES = round(MASTERY_BASELINE * 1.5)
 
 var pathos_setup := {
 	Terms.RUN_ACCUMULATION_NAMES.enemy: {
 		"repressed": 25.0,
 		"progression": range(11,20),
 		"threshold": 1.3 - globals.difficulty.encounter_difficulty * 0.1,
-		"release_adjustment": 3.0,
 		"released_needed_for_level": 4.0,
-		"masterier_per_level": 2,
+		"masteries_when_chosen": MASTERY_BASELINE,
 	},
 	Terms.RUN_ACCUMULATION_NAMES.rest: {
 		"repressed": 5.0,
 		"progression": range(3,5),
 		"threshold": 5.0 + globals.difficulty.encounter_difficulty * 0.5,
-		"release_adjustment": 2.0,
 		"released_needed_for_level": 15.0,
 	},
 	Terms.RUN_ACCUMULATION_NAMES.nce: {
 		"repressed": 10.0,
 		"progression": range(7,11),
 		"threshold": 3.0 + globals.difficulty.encounter_difficulty * 0.5,
-		"release_adjustment": 1.5,
 		"released_needed_for_level": 9.0,
 	},
 	Terms.RUN_ACCUMULATION_NAMES.shop: {
 		"repressed": 10.0,
 		"progression": range(5,7),
 		"threshold": 4.0 + globals.difficulty.encounter_difficulty * 0.5,
-		"release_adjustment": 1.5,
 		"released_needed_for_level": 13.0,
 	},
 	Terms.RUN_ACCUMULATION_NAMES.elite: {
 		"progression": range(5,9),
 		"threshold": 5.3 - globals.difficulty.encounter_difficulty * 0.5,
 		"released_needed_for_level": 5.0,
-		"masterier_per_level": 3,
+		"masteries_when_chosen": floor(MASTERY_BASELINE * 2.5),
 	},
 	Terms.RUN_ACCUMULATION_NAMES.artifact: {
 		"progression": range(2,5),
@@ -69,7 +73,7 @@ var pathos_setup := {
 		"progression": range(6,7),
 		"threshold": 17.0 - globals.difficulty.encounter_difficulty * 1.0,
 		"released_needed_for_level": 16.0,
-		"masterier_per_level": 5,
+		"masteries_when_chosen": MASTERY_BASELINE * 5,
 	},
 }
 
@@ -87,10 +91,9 @@ func _init() -> void:
 			pathi[pathos_name].set(key,pathos_setup[pathos_name][key])
 #			print([pathos_name,key,pathi[pathos_name].get(key)])
 	# warning-ignore:return_value_discarded
-	connect("pathos_leveled",self,"_on_pathos_leveled")
-	var random_pathos :=  grab_random_pathos()
-	# Every run, starts the player with a bunch of released pathos on a random one.
-	random_pathos.add_startup_rng_release()
+	connect("pathos_selected",self,"_on_pathos_selected")
+	# Every run, starts the player with a bunch of pathos masteries
+	available_masteries = STARTING_MASTERIES * globals.difficulty.starting_masteries
 
 
 func set_available_masteries(value: int) -> void:
@@ -112,8 +115,7 @@ func release(pathos_name: String) -> int:
 	var pathos_type :PathosType = pathi[pathos_name]
 	if pathos_type.repressed == 0:
 		retcode = CFConst.ReturnCode.OK
-	var release_amount = pathos_type.get_release_amount()
-	pathos_type.release(release_amount)
+	pathos_type.release_for_selection()
 	return(retcode)
 
 
@@ -265,9 +267,12 @@ func extract_save_state() -> Dictionary:
 		pathos_dict[pathos_type.name] = {}
 		pathos_dict[pathos_type.name]["repressed"] = pathos_type.repressed
 		pathos_dict[pathos_type.name]["released"] = pathos_type.released
-		pathos_dict[pathos_type.name]["level"] = pathos_type.level
-		pathos_dict[pathos_type.name]["temp_modification_for_next_level"] = pathos_type.temp_modification_for_next_level
-		pathos_dict[pathos_type.name]["perm_modification_for_next_level"] = pathos_type.perm_modification_for_next_level
+#		pathos_dict[pathos_type.name]["level"] = pathos_type.level
+#		pathos_dict[pathos_type.name]["temp_modification_for_next_level"] = pathos_type.temp_modification_for_next_level
+#		pathos_dict[pathos_type.name]["perm_modification_for_next_level"] = pathos_type.perm_modification_for_next_level
+		pathos_dict[pathos_type.name]["masteries_when_chosen"] = pathos_type.masteries_when_chosen
+		pathos_dict[pathos_type.name]["masteries_modifiers"] = pathos_type.masteries_modifiers
+		pathos_dict[pathos_type.name]["skipped"] = pathos_type.skipped
 		
 	return(pathos_dict)
 
@@ -276,16 +281,14 @@ func restore_save_state(save_state: Dictionary) -> void:
 	for pathos_type in pathi.values():
 		pathos_type._set_repressed(save_state[pathos_type.name].repressed, true)
 		pathos_type._set_released(save_state[pathos_type.name].released, true)
-		pathos_type.level = save_state[pathos_type.name].level
-		pathos_type.temp_modification_for_next_level = save_state[pathos_type.name].temp_modification_for_next_level
-		pathos_type.perm_modification_for_next_level = save_state[pathos_type.name].perm_modification_for_next_level
+#		pathos_type.level = save_state[pathos_type.name].level
+#		pathos_type.temp_modification_for_next_level = save_state[pathos_type.name].temp_modification_for_next_level
+#		pathos_type.perm_modification_for_next_level = save_state[pathos_type.name].perm_modification_for_next_level
+		pathos_type.masteries_when_chosen = save_state[pathos_type.name].masteries_when_chosen
+		pathos_type.masteries_modifiers = save_state[pathos_type.name].masteries_modifiers
+		pathos_type.skipped = save_state[pathos_type.name].skipped
 	available_masteries = save_state.available_masteries
 
 
-# This class also acts like a signal bus for each pathos type.
-func _on_pathos_signaled(pathos_name: String, payload, signal_name: String) -> void:
-	emit_signal(signal_name,pathos_name,payload)
-
-
-func _on_pathos_leveled(pathos_name: String, _level) -> void:
-	set_available_masteries(available_masteries + pathi[pathos_name].masterier_per_level)
+func _on_pathos_selected(pathos_name: String) -> void:
+	set_available_masteries(available_masteries + pathi[pathos_name].get_masteries_per_selection())

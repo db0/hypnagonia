@@ -1,11 +1,9 @@
-# Gives three choices, paid with released pathos to get some rewards
-
 extends NonCombatEncounter
 
-const LEVEL_AMOUNT := 4
+const MASTERIES_AMOUNT := round(Pathos.MASTERY_BASELINE * 7)
 
 var secondary_choices := {
-		'accept': '[Accept]: Gain {gcolor:{levels} {lowest_pathos} {masteries}:}. {bcolor:Become {perturbation}:}.',
+		'accept': '[Accept]: Gain {gcolor:{masteries_amount} {masteries}:}. {bcolor:Become {perturbation}:}.',
 		'decline': '[Decline]: Nothing Happens.',
 	}
 var pathos_choice_payments := {}
@@ -21,7 +19,7 @@ func begin() -> void:
 	var lowest_pathos = pathos_org["lowest_pathos"]["selected"]
 	var scformat = {
 		"lowest_pathos": lowest_pathos.name,
-		"levels": LEVEL_AMOUNT,
+		"masteries_amount": MASTERIES_AMOUNT,
 		"perturbation": _prepare_card_popup_bbcode("Discombobulation", "discombobulated")
 	}
 	pathos_choice_payments["accept"]  = {
@@ -31,9 +29,7 @@ func begin() -> void:
 
 func continue_encounter(key) -> void:
 	if key == "accept":
-		for iter in LEVEL_AMOUNT:
-			var pathos_type: PathosType = pathos_choice_payments[key]["pathos"]
-			pathos_type.level_up()
+		globals.player.pathos.available_masteries += MASTERIES_AMOUNT
 		# warning-ignore:return_value_discarded
 		globals.player.deck.add_new_card("Discombobulation")
 	end()

@@ -47,7 +47,6 @@ class TestArtifactReward:
 		testing_nce_script = load("res://src/dreamscape/Run/NCE/Act3/ArtifactReward.gd")
 
 	func test_receive():
-		var porg := set_random_pathos_org("released")
 		watch_signals(globals.player)
 		watch_signals(globals.player.pathos)
 		var secondary_choices = begin_nce_with_choices(nce)
@@ -71,6 +70,7 @@ class TestArtifactReward:
 		var added_artifact: ArtifactObject = added_artifact_signal[0]
 		assert_eq(added_artifact.canonical_name, nce.SPECIAL_ARTIFACT)
 		assert_signal_emitted(globals.player.pathos, "advancements_modified")
+		assert_eq(globals.player.pathos.available_masteries, 0)
 
 	func test_use():
 		globals.player.add_artifact(nce.SPECIAL_ARTIFACT)
@@ -92,7 +92,7 @@ class TestArtifactReward:
 		activate_secondary_choice_by_key("use")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_signal_not_emitted(globals.player, "artifact_added")
-		assert_pathos_signaled("pathos_leveled", porg.low.name)
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES + nce.MASTERIES_AMOUNT)
 
 
 class TestSubconsciousProcessing:
@@ -277,7 +277,7 @@ class TestExperience:
 			return
 		selection_deck._deck_preview_grid.get_children()[0].select_card()
 		assert_signal_emitted(globals.player.deck, "card_removed")
-		assert_pathos_signaled("pathos_leveled", nce.PATHOS)
+		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES + nce.MASTERIES_AMOUNT)
 
 	func test_choice_progress():
 		begin_nce_with_choices(nce)

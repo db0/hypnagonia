@@ -1,5 +1,3 @@
-# Gives three choices, paid with released pathos to get some rewards
-
 extends NonCombatEncounter
 
 const JOURNAL_CUSTOM_ENTRY = preload("res://src/dreamscape/Overworld/CustomEntries/CustomDraft.tscn")

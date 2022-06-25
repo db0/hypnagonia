@@ -51,18 +51,14 @@ margin_bottom = 400.373
 bbcode_enabled = true
 bbcode_text = "Pathos represents the dreamer's current state of emotion while dreaming. The more a repressed emotion they have, the more likely a dream encounter fitting that state might appear in their dream.
 
-Not only that but the further that pathos is repressed, by the dreamer avoiding it, the stronger its effects when they finally choose it.
+Sometimes you might get more than one option in a journal page, which will allow you to skip one or more of them. Be careful because the more you avoid it, the stronger its effects when they finally choose it!
 
-As soon as the dreamer chooses an encounter matching a certain pathos,a portion of it is released. Released pathos can be spent in the shop.
-
-What encounter each repressed pathos is likely to bring, is something better discovered on your own."
+You can mouse over each row in the pathos to see what encounter it represents and what the chances are to encounter it"
 text = "Pathos represents the dreamer's current state of emotion while dreaming. The more a repressed emotion they have, the more likely a dream encounter fitting that state might appear in their dream.
 
-Not only that but the further that pathos is repressed, by the dreamer avoiding it, the stronger its effects when they finally choose it.
+Sometimes you might get more than one option in a journal page, which will allow you to skip one or more of them. Be careful because the more you avoid it, the stronger its effects when they finally choose it!
 
-As soon as the dreamer chooses an encounter matching a certain pathos,a portion of it is released. Released pathos can be spent in the shop.
-
-What encounter each repressed pathos is likely to bring, is something better discovered on your own."
+You can mouse over each row in the pathos to see what encounter it represents and what the chances are to encounter it"
 __meta__ = {
 "_edit_use_anchors_": false
 }

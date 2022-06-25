@@ -1,16 +1,17 @@
-# Gives three choices, paid with released pathos to get some rewards
-
 extends NonCombatEncounter
 
+const MASTERIES_AMOUNT := round(Pathos.MASTERY_BASELINE * 3.3)
+
 var amounts := {
-	"emotions": 0.07,
+	"emotions": 0.06,
 	"knowledge": 0.09,
-	"memories": 0.04,
+	"memories": 0.03,
 	"bliss": 0.1,
+	"masteries_amount": MASTERIES_AMOUNT,
 }
 
 var secondary_choices := {
-		'emotions': '[Emotions]: {bcolor:-{emotions} max {anxiety}:}. {gcolor:Gain 2 masteries:} for a random pathos.',
+		'emotions': '[Emotions]: {bcolor:-{emotions} max {anxiety}:}. {gcolor:Gain {masteries_amount} masteries:}',
 		'knowledge': '[Knowledge]: {bcolor:-{knowledge} max {anxiety}:}. Gain {gcolor:a random {understanding} card:} fully progressed.',
 		'memories': '[Memories]: {bcolor:-{memories} max {anxiety}:}. {gcolor:Upgrade a random memory:}.',
 		'bliss': '[Bliss]: {bcolor:-{bliss} max {anxiety}:} and exit loop.',
@@ -49,9 +50,7 @@ func continue_encounter(key) -> void:
 	amounts[key] += 1
 	match key:
 		"emotions":
-			var pathos_type : PathosType = globals.player.pathos.grab_random_pathos() 
-			pathos_type.level_up()
-			pathos_type.level_up()
+			globals.player.pathos.available_masteries += MASTERIES_AMOUNT
 			repeat_choices()
 		"knowledge":
 			var card_entry = globals.player.deck.add_new_card(Understanding.get_random_understanding())

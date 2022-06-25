@@ -175,9 +175,9 @@ __meta__ = {
 [node name="Label" type="Label" parent="InfoPanel5"]
 margin_left = 2.0
 margin_top = 3.0
-margin_right = 123.0
+margin_right = 132.0
 margin_bottom = 24.0
-text = "5. Interpretation"
+text = "5. Comprehension"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -264,7 +264,7 @@ Mousing over any element, will provide further information about it.
 2. The results of this Torment's turn.
 3. The torment art.
 4. The blue highlight points the current target.
-5. The current and remaining interpretation. When this bar is filled, the Torment is overcome and removed.
+5. The current and remaining {comprehension} Comprehension. When this bar is filled, the Torment is overcome and removed.
 6. Each point of Perplexity prevents 1 point of interpretation of this Torment.
 7. The current buff and debuffs affecting this Torment."
 text = "During an Ordeal, the Dreamer will have to interpret and overcome their Torments. 
@@ -275,9 +275,6 @@ Mousing over any element, will provide further information about it.
 2. The results of this Torment's turn.
 3. The torment art.
 4. The blue highlight points the current target.
-5. The current and remaining interpretation. When this bar is filled, the Torment is overcome and removed.
+5. The current and remaining {comprehension} Comprehension. When this bar is filled, the Torment is overcome and removed.
 6. Each point of Perplexity prevents 1 point of interpretation of this Torment.
 7. The current buff and debuffs affecting this Torment."
-__meta__ = {
-"_edit_use_anchors_": false
-}

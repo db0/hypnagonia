@@ -783,16 +783,6 @@ const scripts := {
 					"name": "modify_pathos",
 					"tags": ["Card"],
 					"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
-					"pathos_type": "released",
-					"amount":  {
-						"lookup_property": "_amounts",
-						"value_key": "released_amount",
-					},
-				},
-				{
-					"name": "modify_pathos",
-					"tags": ["Card"],
-					"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
 					"pathos_type": "repressed",
 					"amount":  {
 						"lookup_property": "_amounts",

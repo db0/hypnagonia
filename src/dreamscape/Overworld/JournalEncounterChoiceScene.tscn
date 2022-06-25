@@ -8,9 +8,6 @@ margin_bottom = 40.0
 size_flags_horizontal = 3
 custom_constants/separation = 10
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="PathosIcon" type="TextureRect" parent="."]
 margin_right = 30.0

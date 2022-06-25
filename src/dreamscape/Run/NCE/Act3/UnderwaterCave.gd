@@ -1,7 +1,6 @@
 extends SurpriseEncounter
 
-const PATHOS = Terms.RUN_ACCUMULATION_NAMES.nce
-const RELEASED_PATHOS_AVG_MULTIPLIER = 10
+const MASTERIES_AMOUNT = round(Pathos.MASTERY_BASELINE * 10)
 const JOURNAL_CUSTOM_ENTRY = preload("res://src/dreamscape/Overworld/CustomEntries/CustomDraft.tscn")
 var journal_draft_script = load("res://src/dreamscape/Overworld/CustomEntries/NCE_UnderwaterCave.gd")
 const ADVANCED_COMBAT_ENCOUNTER_DEFINITION = {
@@ -28,8 +27,8 @@ const ADVANCED_COMBAT_ENCOUNTER_DEFINITION = {
 }
 
 var secondary_choices := {
-		'explore': '[Explore the Cave]: {gcolor:Gain 1 rare Curio. Gain/Upgrade a memory. Draft a card. Increase {pathos}:}.',
-		'leave': '[Leave]: Lose {bcolor:all {pathos}:}.',
+		'explore': '[Explore the Cave]: {gcolor:Gain 1 rare Curio. Gain/Upgrade a memory. Draft a card. Gain {masteries_amount} {masteries}:}.',
+		'leave': '[Leave]: Lose {bcolor:all {masteries}:}.',
 	}
 
 var memory_prep: MemoryPrep
@@ -44,7 +43,7 @@ func _init():
 func begin() -> void:
 	.begin()
 	var scformat = {
-		"pathos": '{released_%s}' % [PATHOS],
+		"masteries_amount": MASTERIES_AMOUNT,
 	}
 	_prepare_secondary_choices(secondary_choices,scformat)
 
@@ -59,15 +58,12 @@ func continue_encounter(key) -> void:
 		.end()
 		var reward_text = 'I decide to take heed of this warning.'
 		globals.journal.display_nce_rewards(reward_text)
-		var pathos_type : PathosType = globals.player.pathos.pathi[PATHOS]
-		pathos_type.lose_released_pathos(pathos_type.released)
+		globals.player.pathos.available_masteries = 0
 
 
 func end() -> void:
 	.end()
-	var pathos_type : PathosType = globals.player.pathos.pathi[PATHOS]
-	pathos_type.released += pathos_type.get_progression_average()\
-			* RELEASED_PATHOS_AVG_MULTIPLIER * CFUtils.randf_range(0.9,1.3)
+	globals.player.pathos.available_masteries += MASTERIES_AMOUNT
 	memory_prep = MemoryPrep.new(1, true)
 	for memory in memory_prep.selected_memories:
 		var existing_memory = globals.player.find_memory(memory.canonical_name)

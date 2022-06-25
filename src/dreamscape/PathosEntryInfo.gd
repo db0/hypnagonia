@@ -3,26 +3,26 @@ extends MarginContainer
 const pathos_descriptions := {
 	"Header": "Mouse over any pathos below to have it explained.",
 	Terms.RUN_ACCUMULATION_NAMES.enemy: "{pathos}\n"\
-			+ "Repressed: %s.\n" % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.enemy].repressed]\
-			+ "Released: %s." % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.enemy].released],
+			+ "Repressed: %s.\n" % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.enemy].repressed],
+#			+ "Released: %s." % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.enemy].released],
 	Terms.RUN_ACCUMULATION_NAMES.nce: "{pathos}\n"\
-			+ "Repressed: %s.\n" % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.nce].repressed]\
-			+ "Released: %s" % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.nce].released],
+			+ "Repressed: %s.\n" % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.nce].repressed],
+#			+ "Released: %s" % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.nce].released],
 	Terms.RUN_ACCUMULATION_NAMES.shop: "{pathos}\n"\
-			+ "Repressed: %s.\n" % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.shop].repressed]\
-			+ "Released: %s." % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.shop].released],
+			+ "Repressed: %s.\n" % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.shop].repressed],
+#			+ "Released: %s." % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.shop].released],
 	Terms.RUN_ACCUMULATION_NAMES.elite: "{pathos}\n"\
-			+ "Repressed: %s.\n" % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.elite].repressed]\
-			+ "Released: %s." % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.elite].released],
+			+ "Repressed: %s.\n" % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.elite].repressed],
+#			+ "Released: %s." % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.elite].released],
 	Terms.RUN_ACCUMULATION_NAMES.artifact: "{pathos}\n"\
-			+ "Repressed: %s.\n" % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.artifact].repressed]\
-			+ "Released: %s." % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.artifact].released],
+			+ "Repressed: %s.\n" % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.artifact].repressed],
+#			+ "Released: %s." % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.artifact].released],
 	Terms.RUN_ACCUMULATION_NAMES.rest: "{pathos}\n"\
-			+ "Repressed: %s.\n" % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.rest].repressed]\
-			+ "Released: %s." % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.rest].released],
+			+ "Repressed: %s.\n" % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.rest].repressed],
+#			+ "Released: %s." % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.rest].released],
 	Terms.RUN_ACCUMULATION_NAMES.boss: "{pathos}\n"\
-			+ "Repressed: %s\n" % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.boss].repressed]\
-			+ "Released: %s" % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.boss].released],
+			+ "Repressed: %s\n" % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.boss].repressed],
+#			+ "Released: %s" % [Terms.PATHOS_DESCRIPTIONS[Terms.RUN_ACCUMULATION_NAMES.boss].released],
 }
 
 var description: Label
@@ -53,7 +53,7 @@ func update_labels() -> void:
 		chance = globals.player.pathos.calculate_chance_for_encounter(name)
 	chance_label.text = str(chance) + '%'
 	progress_bar.value = floor(pathos_type.get_progress_pct() * 100)
-	mastery_label.text = str(pathos_type.level)
+	mastery_label.text = str(pathos_type.skipped)
 
 
 func _on_PathosEntryInfo_mouse_entered() -> void:

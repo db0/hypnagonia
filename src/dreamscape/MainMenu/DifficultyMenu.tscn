@@ -172,23 +172,23 @@ max_value = 2.0
 margin_left = 391.0
 margin_right = 446.0
 
-[node name="MasteryDifficulties" parent="PC/VBC" instance=ExtResource( 5 )]
+[node name="StartingMasteries" parent="PC/VBC" instance=ExtResource( 5 )]
 margin_top = 445.0
 margin_right = 446.0
 margin_bottom = 463.0
-difficulty_key = "mastery_difficulties"
+difficulty_key = "starting_masteries"
 result_type = 1
 
-[node name="Description" parent="PC/VBC/MasteryDifficulties" index="0"]
-text = "Mastery Difficulty"
+[node name="Description" parent="PC/VBC/StartingMasteries" index="0"]
+text = "Starting Masteries"
 
-[node name="Slider" parent="PC/VBC/MasteryDifficulties" index="1"]
+[node name="Slider" parent="PC/VBC/StartingMasteries" index="1"]
 margin_right = 387.0
 min_value = -1.0
 max_value = 1.0
 tick_count = 3
 
-[node name="Result" parent="PC/VBC/MasteryDifficulties" index="2"]
+[node name="Result" parent="PC/VBC/StartingMasteries" index="2"]
 margin_left = 391.0
 margin_right = 446.0
 
@@ -281,7 +281,7 @@ margin_bottom = 18.0
 [editable path="PC/VBC/StartingPerturbations"]
 [editable path="PC/VBC/IncreaseProgressReq"]
 [editable path="PC/VBC/ActHealing"]
-[editable path="PC/VBC/MasteryDifficulties"]
+[editable path="PC/VBC/StartingMasteries"]
 [editable path="PC/VBC/MaxAnxiety"]
 [editable path="PC/VBC/StartingAnxiety"]
 [editable path="PC/VBC/EncounterDifficulty"]

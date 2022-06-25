@@ -746,8 +746,7 @@ const CARDS := {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.pathos.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "{damage} for {damage_amount}.\n"\
-				+ "Gain {repressed_amount} repressed Frustration.\n"\
-				+ "Gain {released_amount} released Frustration\n"\
+				+ "Reduce repressed Frustration.\n"\
 				+ "{forget}",
 		"Cost": 0,
 		"_illustration": "Silberfarben via Artbreeder.com",
@@ -756,7 +755,6 @@ const CARDS := {
 		"_amounts": {
 			"damage_amount": 10,
 			"repressed_amount": 10,
-			"released_amount": 10,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [

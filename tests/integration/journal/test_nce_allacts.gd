@@ -41,29 +41,46 @@ class TestPopPsychologist2:
 		watch_signals(globals.encounters.run_changes)
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
-		watch_signals(globals.player.pathos)
+		watch_signals(globals.player)
 		activate_secondary_choice_by_key("passion fruit")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
-		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.artifact)
 		assert_nce_unlocked(load("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist3.gd"))
+		assert_signal_emitted(globals.player, "artifact_added")
+		var added_artifact_signal = get_signal_parameters(globals.player, "artifact_added")
+		if not added_artifact_signal or added_artifact_signal.size() == 0:
+			return
+		var added_artifact: ArtifactObject = added_artifact_signal[0]
+		assert_eq(added_artifact.canonical_name, nce.CURIOS['passion fruit'].canonical_name)
+
 	func test_choice_orange():
 		watch_signals(globals.encounters.run_changes)
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
-		watch_signals(globals.player.pathos)
+		watch_signals(globals.player)
 		activate_secondary_choice_by_key("orange")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
-		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.elite)
 		assert_nce_unlocked(load("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist3.gd"))
+		assert_signal_emitted(globals.player, "artifact_added")
+		var added_artifact_signal = get_signal_parameters(globals.player, "artifact_added")
+		if not added_artifact_signal or added_artifact_signal.size() == 0:
+			return
+		var added_artifact: ArtifactObject = added_artifact_signal[0]
+		assert_eq(added_artifact.canonical_name, nce.CURIOS['orange'].canonical_name)
+
 	func test_choice_bananal():
 		watch_signals(globals.encounters.run_changes)
 		begin_nce_with_choices(nce)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
-		watch_signals(globals.player.pathos)
+		watch_signals(globals.player)
 		activate_secondary_choice_by_key("banana")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
-		assert_pathos_signaled("released_pathos_gained", Terms.RUN_ACCUMULATION_NAMES.rest)
 		assert_nce_unlocked(load("res://src/dreamscape/Run/NCE/AllActs/PopPsychologist3.gd"))
+		assert_signal_emitted(globals.player, "artifact_added")
+		var added_artifact_signal = get_signal_parameters(globals.player, "artifact_added")
+		if not added_artifact_signal or added_artifact_signal.size() == 0:
+			return
+		var added_artifact: ArtifactObject = added_artifact_signal[0]
+		assert_eq(added_artifact.canonical_name, nce.CURIOS["banana"].canonical_name)
 
 class TestPopPsychologist3:
 	extends  "res://tests/HUT_Journal_NCETestClass.gd"

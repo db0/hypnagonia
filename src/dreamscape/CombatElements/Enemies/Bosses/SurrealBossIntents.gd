@@ -29,15 +29,17 @@ const SPECIAL_INTENTS := {
 
 var must_check_for_dreamer_anxiety_taken := false
 var pre_stress_dreamer_anxiety : int
+var strengthen_threshold := 7
 
 func _ready() -> void:
 	all_intents = INTENTS.duplicate(true)
 
 func prepare_intents(starting_index = null, _is_second_try := false) -> Dictionary:
 	var new_intents : Dictionary
-	if combat_entity.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name) >= 7:
+	if combat_entity.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name) >= strengthen_threshold:
 		new_intents = SPECIAL_INTENTS["Impossibility"]
 		times_last_intent_repeated = 0
+		strengthen_threshold += 3
 		_display_intents(new_intents)
 	else:
 		new_intents = .prepare_intents(starting_index)
@@ -96,7 +98,7 @@ func _get_boss_scripts(intent_name: String) -> Array:
 				"effect_name": Terms.ACTIVE_EFFECTS.armor.name,
 				"tags": ["Intent"],
 				"subject": "self",
-				"modification": 4,
+				"modification": 6,
 				"icon": all_intent_scripts.ICON_BUFF,
 				"description": "[i]I can't find its end...[/i]"
 			},
@@ -116,7 +118,7 @@ func _get_boss_scripts(intent_name: String) -> Array:
 				"effect_name": Terms.ACTIVE_EFFECTS.strengthen.name,
 				"tags": ["Intent"],
 				"subject": "self",
-				"modification": 2,
+				"modification": 3,
 				"icon": all_intent_scripts.ICON_BUFF,
 				"description": "[i]The deeper I look into it, the more details I see![/i]"
 			},
@@ -143,7 +145,7 @@ func _get_boss_scripts(intent_name: String) -> Array:
 				"effect_name": Terms.ACTIVE_EFFECTS.strengthen.name,
 				"tags": ["Intent"],
 				"subject": "self",
-				"modification": 0,
+				"modification": strengthen_threshold - 7,
 				"set_to_mod": true,
 				"icon": all_intent_scripts.ICON_DEBUFF,
 				"description": "[i]I may be getting a bit more used to this...[/i]"

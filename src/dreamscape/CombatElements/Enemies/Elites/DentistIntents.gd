@@ -81,6 +81,17 @@ func _get_elite_scripts(intent_name: String) -> Array:
 					"description": "Painkillers: [i]And here's something to take at home[/i]"
 				}
 				intent_scripts.append(script)
+			else:
+				script = {
+					"name": "modify_damage",
+					"tags": ["Attack", "Intent"],
+					"subject": "dreamer",
+					"amount": (difficulty + 1) * 3,
+					"icon": all_intent_scripts.ICON_ATTACK,
+					"description": "Stress: Will cause the dreamer to take the specified amount of {anxiety}.\n"\
+							+ "[i]This is taking longer than expected.[/i]"
+				}
+				intent_scripts.append(script)
 			script = {
 				"name": "apply_effect",
 				"effect_name": Terms.ACTIVE_EFFECTS.drain.name,
