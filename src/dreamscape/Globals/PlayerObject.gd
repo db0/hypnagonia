@@ -232,7 +232,7 @@ func get_all_memory_names() -> Array:
 func get_all_memory_pathos() -> Array:
 	var mpathos_list = []
 	for memory in memories:
-		mpathos_list.append(memory.pathos_used)
+		mpathos_list.append(memory.pathos_used.name)
 	return(mpathos_list)
 
 
