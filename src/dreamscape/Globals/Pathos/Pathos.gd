@@ -267,9 +267,9 @@ func extract_save_state() -> Dictionary:
 		pathos_dict[pathos_type.name] = {}
 		pathos_dict[pathos_type.name]["repressed"] = pathos_type.repressed
 		pathos_dict[pathos_type.name]["released"] = pathos_type.released
-		pathos_dict[pathos_type.name]["level"] = pathos_type.level
-		pathos_dict[pathos_type.name]["temp_momasteries_when_chosendification_for_next_level"] = pathos_type.temp_modification_for_next_level
-		pathos_dict[pathos_type.name]["perm_modification_for_next_level"] = pathos_type.perm_modification_for_next_level
+#		pathos_dict[pathos_type.name]["level"] = pathos_type.level
+#		pathos_dict[pathos_type.name]["temp_modification_for_next_level"] = pathos_type.temp_modification_for_next_level
+#		pathos_dict[pathos_type.name]["perm_modification_for_next_level"] = pathos_type.perm_modification_for_next_level
 		pathos_dict[pathos_type.name]["masteries_when_chosen"] = pathos_type.masteries_when_chosen
 		pathos_dict[pathos_type.name]["masteries_modifiers"] = pathos_type.masteries_modifiers
 		pathos_dict[pathos_type.name]["skipped"] = pathos_type.skipped
@@ -281,9 +281,9 @@ func restore_save_state(save_state: Dictionary) -> void:
 	for pathos_type in pathi.values():
 		pathos_type._set_repressed(save_state[pathos_type.name].repressed, true)
 		pathos_type._set_released(save_state[pathos_type.name].released, true)
-		pathos_type.level = save_state[pathos_type.name].level
-		pathos_type.temp_modification_for_next_level = save_state[pathos_type.name].temp_modification_for_next_level
-		pathos_type.perm_modification_for_next_level = save_state[pathos_type.name].perm_modification_for_next_level
+#		pathos_type.level = save_state[pathos_type.name].level
+#		pathos_type.temp_modification_for_next_level = save_state[pathos_type.name].temp_modification_for_next_level
+#		pathos_type.perm_modification_for_next_level = save_state[pathos_type.name].perm_modification_for_next_level
 		pathos_type.masteries_when_chosen = save_state[pathos_type.name].masteries_when_chosen
 		pathos_type.masteries_modifiers = save_state[pathos_type.name].masteries_modifiers
 		pathos_type.skipped = save_state[pathos_type.name].skipped
