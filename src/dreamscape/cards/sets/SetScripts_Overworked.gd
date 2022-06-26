@@ -16,6 +16,22 @@ const KeepEmComing = {
 		],
 	}
 }
+const KnowYourLimits = {
+	"manual": {
+		"hand": [
+			{
+				"name": "apply_effect",
+				"tags": ["Card"],
+				"effect_name": Terms.ACTIVE_EFFECTS.know_your_limits.name,
+				"subject": "dreamer",
+				"modification": {
+					"lookup_property": "_amounts",
+					"value_key": "concentration_stacks"
+				},
+			},
+		],
+	}
+}
 
 # This fuction returns all the scripts of the specified card name.
 #
@@ -24,5 +40,6 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 	# This format allows me to trace which script failed during load
 	var scripts := {
 		"Keep 'em Coming": KeepEmComing,
+		"Know Your Limits": KnowYourLimits,
 	}
 	return(_prepare_scripts(scripts, card_name, get_modified))

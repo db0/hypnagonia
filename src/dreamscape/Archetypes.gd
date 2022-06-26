@@ -457,6 +457,8 @@ const OVERWORKED := {
 	],
 	"Uncommon": [
 		"Prepared",
+		"Keep 'em Coming",
+		"Know Your Limits",
 	],
 	"Rare": [
 	]

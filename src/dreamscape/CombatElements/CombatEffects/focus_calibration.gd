@@ -12,7 +12,7 @@ func _on_player_turn_started(turn: Turn) -> void:
 	var script := [
 		{
 			"name": "move_card_to_container",
-			"tags": ["Card"],
+			"tags": ["Combat Effect", "Concentration"],
 			"src_container": "deck",
 			"dest_container": "forgotten",
 			"subject_count": forget_amount,

@@ -9,8 +9,10 @@ func _on_cfc_signal_received(trigger_card, trigger, details) -> void:
 	if details.destination.to_lower() != "forgotten":
 		return
 	var script = [{
-		"name": "draw_cards",
+		"name": "apply_effect",
 		"tags": ["Combat Effect", "Concentration"],
-		"card_count": stacks
-	},]
+		"effect_name": Terms.ACTIVE_EFFECTS.armor.name,
+		"subject": "dreamer",
+		"modification": stacks,
+	}]
 	execute_script(script)
