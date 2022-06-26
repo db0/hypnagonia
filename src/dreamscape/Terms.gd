@@ -758,6 +758,16 @@ const ACTIVE_EFFECTS := {
 			"damage",
 		],
 	},
+	"keep_em_coming":  {
+		"name": "Keep 'em Coming",
+		"type": "Concentration",
+		"icon": preload("res://assets/icons/open-palm.png"),
+		"is_card_reference": true,
+		"linked_terms": [
+			"release",
+		],
+	},
+	
 	# These effects are usually starting on top of special enemies
 	# but might also be given to the player as Understanding concentrations
 	"enraged": {

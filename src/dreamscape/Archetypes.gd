@@ -444,6 +444,7 @@ const OVERWORKED := {
 	"Memories": [
 	],
 	"Starting Artifacts": [
+		ArtifactDefinitions.SavedReleases
 	],
 	"Perturbations": [
 
@@ -455,6 +456,7 @@ const OVERWORKED := {
 	"Common": [
 	],
 	"Uncommon": [
+		"Prepared",
 	],
 	"Rare": [
 	]

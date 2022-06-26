@@ -521,6 +521,7 @@ func _input(event):
 		for c in [
 			"Unshakeable",
 			"Wild Inspiration",
+			"Keep 'em Coming",
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
