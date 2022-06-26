@@ -869,7 +869,7 @@ const INFLUENCER := {
 	"_health_variability": 8,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": "res://assets/journal/torments/influencer.jpg",
+	"_texture": "res://assets/enemies/influencer.jpg",
 	"_character_art": "SkylarkGSH"
 }
 const SHAMELING := {
