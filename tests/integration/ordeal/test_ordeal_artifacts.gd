@@ -888,3 +888,28 @@ class TestThickThorns:
 				"%s removed %s stacks after reshuffle" % [artifact.name, get_amount("detrimental_integer"), ])
 		assert_true(artifact.is_active, "Artifact should be disabled after shuffling")
 
+
+
+class TestSavedReleases:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.SavedReleases.canonical_name
+		expected_amount_keys = [
+		]
+		test_card_names = [
+			"Unshakeable",
+			"Unshakeable",
+		]
+
+	func test_artifact_effect():
+		for c in cards:
+			c.modify_property("Cost", 0)
+		if not assert_has_amounts():
+			return
+		cards[0].execute_scripts()
+		yield(yield_to(artifact, "artifact_triggered", 0.2), YIELD)
+		assert_eq(cards[0].get_parent(), discard)
+		cards[1].execute_scripts()
+		yield(yield_to(artifact, "artifact_triggered", 0.2), YIELD)
+		assert_eq(cards[1].get_parent(), forgotten)
+		assert_signal_emit_count(artifact, "artifact_triggered", 1)

@@ -8,7 +8,7 @@ class_name Archetypes
 extends Reference
 
 const FLYER:= {
-	"Anxiety": 5,
+	"Anxiety": +5,
 	"Icon": preload("res://assets/archetypes/flyer.jpg"),
 	"Tags": [
 		Terms.ACTIVE_EFFECTS.impervious.name,
@@ -158,7 +158,7 @@ const RUNNER := {
 
 
 const FEARLESS:= {
-	"Anxiety": 5,
+	"Anxiety": +5,
 #	"Icon": preload("res://icon.png"),
 	"Tags": [
 		Terms.ACTIVE_EFFECTS.poison.name,
@@ -209,7 +209,7 @@ const FEARLESS:= {
 	]
 }
 const VINDICTIVE:= {
-	"Anxiety": 2,
+	"Anxiety": +2,
 #	"Icon": preload("res://icon.png"),
 	"Tags": [
 		Terms.GENERIC_TAGS.frozen.name,
@@ -380,7 +380,7 @@ const LASER_CANNON := {
 
 
 const ABUSIVE_RELATIONSHIP := {
-	"Anxiety": -5,
+	"Anxiety": +5,
 #		"Icon": preload("res://icon.png"),
 	"Tags": [
 		Terms.GENERIC_TAGS.purpose.name,
@@ -431,5 +431,31 @@ const ABUSIVE_RELATIONSHIP := {
 		"Tolerance",
 		"Catatonia",
 		"Disengage"
+	]
+}
+const OVERWORKED := {
+	"Anxiety": -5,
+#		"Icon": preload("res://icon.png"),
+	"Tags": [
+		Terms.GENERIC_TAGS.slumber.name,
+	],
+	"Artifacts": [
+	],
+	"Memories": [
+	],
+	"Starting Artifacts": [
+	],
+	"Perturbations": [
+
+	],
+	"Basic": [
+		"Interpretation",
+		"Confidence",
+	],
+	"Common": [
+	],
+	"Uncommon": [
+	],
+	"Rare": [
 	]
 }
