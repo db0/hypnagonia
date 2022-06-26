@@ -601,8 +601,8 @@ const ADMINISTRATION := {
 	"_health_variability": 4,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-#	"_texture": "res://assets/enemies/slavery-whip.png",
-	"_character_art": "Silberfarben via Artbreeder.com",
+	"_texture": "res://assets/journal/torments/administration.jpg",
+	"_character_art": "SkylarkGSH",
 	"_description": "Administration is cruel when profit is involved. "\
 			+ "They meticulously dissect productivity and efficiency to command obedience, and mandatory overtime is never out of the question."
 

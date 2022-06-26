@@ -82,4 +82,5 @@ const BETA_IMAGES := {
 	"Handsy Aunt": "res://assets/journal/torments/handsy_aunt.jpeg",
 	"Influencer": "res://assets/journal/torments/influencer.jpg",
 	"Shameling": "res://assets/journal/torments/shameling.jpg",
+	"Administration": "res://assets/journal/torments/administration.jpg",
 }

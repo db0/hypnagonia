@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/administration.jpeg-790e175f5cabcd15d68f506281fd0e62.stex"
+path="res://.import/administration.jpg-9103fc9de0a6ad58272da8c20e82cf27.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/torments/administration.jpeg"
-dest_files=[ "res://.import/administration.jpeg-790e175f5cabcd15d68f506281fd0e62.stex" ]
+source_file="res://assets/journal/torments/administration.jpg"
+dest_files=[ "res://.import/administration.jpg-9103fc9de0a6ad58272da8c20e82cf27.stex" ]
 
 [params]
 
