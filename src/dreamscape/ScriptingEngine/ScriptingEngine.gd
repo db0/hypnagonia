@@ -428,6 +428,7 @@ func autoplay_card(script: ScriptTask) -> int:
 	var retcode : int = CFConst.ReturnCode.CHANGED
 	# If your subject is "self" make sure you know what you're doing
 	# or you might end up in an inifinite loop
+	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
 	for card in script.subjects:
 		if not costs_dry_run():
 			# We store this to send it later with a signal
@@ -453,9 +454,9 @@ func autoplay_card(script: ScriptTask) -> int:
 			var autoplay_exec : String = card.get_state_exec()
 			if not card_scripts.get("hand"):
 				if card.get_property("Type") == "Concentration" or card.get_property("_is_concentration"):
-					card_scripts[autoplay_exec] = card.generate_remove_from_deck_tasks()
+					card_scripts[autoplay_exec] = card.generate_remove_from_deck_tasks(false, tags)
 				else:
-					card_scripts[autoplay_exec] = card.generate_discard_tasks("board")
+					card_scripts[autoplay_exec] = card.generate_discard_tasks("board", tags)
 			else:
 				# We want to autoselect multiple choice cards, because cancelling them
 				# Will leave card on the table
@@ -465,9 +466,9 @@ func autoplay_card(script: ScriptTask) -> int:
 					card_scripts[autoplay_exec] = card_scripts[autoplay_exec][option_keys[0]]
 				card_scripts[autoplay_exec] = card_scripts["hand"]
 				if card.get_property("Type") == "Concentration" or card.get_property("_is_concentration"):
-					card_scripts[autoplay_exec] += card.generate_remove_from_deck_tasks()
+					card_scripts[autoplay_exec] += card.generate_remove_from_deck_tasks(false, tags)
 				else:
-					card_scripts[autoplay_exec] += card.generate_discard_tasks("board")
+					card_scripts[autoplay_exec] += card.generate_discard_tasks("board", tags)
 				card_scripts[autoplay_exec] += card.generate_play_confirm_scripts()
 				_adjust_autoplay_tasks(card_scripts[autoplay_exec])
 			card.scripts["autoplay"] = card_scripts

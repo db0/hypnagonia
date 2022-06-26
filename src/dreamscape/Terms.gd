@@ -764,7 +764,7 @@ const ACTIVE_EFFECTS := {
 		"icon": preload("res://assets/icons/open-palm.png"),
 		"is_card_reference": true,
 		"linked_terms": [
-			"release",
+			"forget",
 		],
 	},
 	"know_your_limits":  {
@@ -773,7 +773,16 @@ const ACTIVE_EFFECTS := {
 		"icon": preload("res://assets/icons/halt.png"),
 		"is_card_reference": true,
 		"linked_terms": [
-			"release",
+			"forget",
+		],
+	},
+	"exhaustion":  {
+		"name": "Exhaustion",
+		"type": "Concentration",
+		"icon": preload("res://assets/icons/oppression.png"),
+		"is_card_reference": true,
+		"linked_terms": [
+			"forget",
 		],
 	},
 	
@@ -1163,6 +1172,10 @@ const GENERIC_CARD_BBCODE := {
 		"name": "Forget",
 		"rich_text_color": "teal",
 	},
+	"exhausted": {
+		"name": "Forgotten",
+		"rich_text_color": "teal",
+	},
 	"shuffle": {
 		"name": "Shuffle",
 		"rich_text_color": "teal",
@@ -1173,6 +1186,10 @@ const GENERIC_CARD_BBCODE := {
 	},
 	"purge": {
 		"name": "Release",
+		"rich_text_color": "teal",
+	},
+	"purged": {
+		"name": "Released",
 		"rich_text_color": "teal",
 	},
 	"attack_card": {

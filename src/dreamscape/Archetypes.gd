@@ -452,6 +452,7 @@ const OVERWORKED := {
 	"Basic": [
 		"Interpretation",
 		"Confidence",
+		"Exhaustion",
 	],
 	"Common": [
 	],

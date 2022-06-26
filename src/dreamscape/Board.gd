@@ -519,9 +519,9 @@ func _input(event):
 #		for iter in 20:
 #			var c = "Interpretation"
 		for c in [
-			"Unshakeable",
-			"Wild Inspiration",
-			"Keep 'em Coming",
+			"Exhaustion",
+			"Exhaustion",
+			"Exhaustion",
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",

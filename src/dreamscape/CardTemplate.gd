@@ -277,13 +277,13 @@ func generate_play_costs_tasks() -> Array:
 # Uses a template to create task definitions for discarding a card
 # then returns it to the calling function to execute or insert it into
 # the cards existing scripts for its state.
-func generate_discard_tasks(specify_parent := "hand") -> Array:
+func generate_discard_tasks(specify_parent := "hand", tags := []) -> Array:
 	if properties.get("_avoid_normal_discard"):
 		return([])
 	var discard_script_template := {
 			"name": "move_card_to_container",
 			"subject": "self",
-			"tags": ["Played"],
+			"tags": tags + ["Played"],
 			"dest_container": cfc.NMAP.discard.name,
 		}
 	if specify_parent != '':
@@ -309,12 +309,12 @@ func generate_play_confirm_scripts() -> Array:
 # then returns it to the calling function to execute or insert it into
 # the cards existing scripts for its state.
 # If permanent is true, card will be removed for the whole run.
-func generate_remove_from_deck_tasks(permanent := false) -> Array:
+func generate_remove_from_deck_tasks(permanent := false, tags := []) -> Array:
 	var remove_script_template := {
 			"name": "remove_card_from_deck",
 			"subject": "self",
 			"is_permanent": permanent,
-			"tags": ["Played"]}
+			"tags": tags + ["Played"]}
 	var remove_tasks = [remove_script_template]
 	return(remove_tasks)
 
