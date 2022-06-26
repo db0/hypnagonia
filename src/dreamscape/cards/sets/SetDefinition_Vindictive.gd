@@ -60,7 +60,7 @@ const CARDS := {
 		},
 		"_amounts": {
 			"damage_amount": 8,
-			"effect_stacks": 2,
+			"effect_stacks": 3,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -82,7 +82,7 @@ const CARDS := {
 		},
 		"_amounts": {
 			"damage_amount": 11,
-			"effect_stacks": 2,
+			"effect_stacks": 3,
 		},
 		"_is_upgrade": true,
 	},
@@ -99,7 +99,7 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.burn.name: Terms.ENEMY,
 		},
 		"_amounts": {
-			"damage_amount": 7,
+			"damage_amount": 8,
 			"effect_stacks": 4,
 		},
 		"_is_upgrade": true,
@@ -114,7 +114,7 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence", "frozen"],
 		"_amounts": {
-			"defence_amount": 7,
+			"defence_amount": 8,
 			"defence_amount2": 3,
 		},
 		"_upgrade_threshold_modifier": 0,
@@ -133,7 +133,7 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence", "frozen"],
 		"_amounts": {
-			"defence_amount": 10,
+			"defence_amount": 11,
 			"defence_amount2": 3,
 		},
 		"_is_upgrade": true,
@@ -148,7 +148,7 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence", "frozen"],
 		"_amounts": {
-			"defence_amount": 5,
+			"defence_amount": 6,
 			"defence_amount2": 10,
 		},
 		"_is_upgrade": true,
@@ -247,8 +247,8 @@ const CARDS := {
 	},
 	"Hand of Grudge": {
 		"Type": "Control",
-		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Gain {effect_stacks} {thorns} for each card in hand (including self)\n{forget}",
+		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
+		"Abilities": "Gain {effect_stacks} {thorns} for each card in hand (including self)",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -267,8 +267,8 @@ const CARDS := {
 	},
 	"* Hand of Grudge *": {
 		"Type": "Control",
-		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Gain {effect_stacks} {thorns} for each card in hand (including self)\n{forget}",
+		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
+		"Abilities": "Gain {effect_stacks} {thorns} for each card in hand (including self)",
 		"Cost": 2,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -283,8 +283,8 @@ const CARDS := {
 	},
 	"% Hand of Grudge %": {
 		"Type": "Control",
-		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Gain {effect_stacks} {thorns} for each card in hand (including self)\n{forget}",
+		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
+		"Abilities": "Gain {effect_stacks} {thorns} for each card in hand (including self)",
 		"Cost": 3,
 		"_illustration": "Nobody",
 		"_rarity": "Common",
@@ -307,7 +307,7 @@ const CARDS := {
 		"_keywords": ["confidence"],
 		"_amounts": {
 			"concentration_stacks": 1,
-			"concentration_effect": 1.0,
+			"concentration_effect": 2.0,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -325,7 +325,7 @@ const CARDS := {
 		"_keywords": ["confidence"],
 		"_amounts": {
 			"concentration_stacks": 1,
-			"concentration_effect": 1.0,
+			"concentration_effect": 2.0,
 		},
 		"_is_upgrade": true,
 	},
@@ -339,7 +339,7 @@ const CARDS := {
 		"_keywords": ["confidence"],
 		"_amounts": {
 			"concentration_stacks": 1,
-			"concentration_effect": 1.3,
+			"concentration_effect": 2.5,
 		},
 		"_is_upgrade": true,
 	},
@@ -446,7 +446,7 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"defence_amount": 5,
+			"defence_amount": 8,
 			"increase_amount": 1,
 		},
 		"_upgrade_threshold_modifier": 0,
@@ -465,7 +465,7 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"defence_amount": 5,
+			"defence_amount": 8,
 			"increase_amount": 1,
 		},
 		"_is_upgrade": true,
@@ -480,7 +480,7 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
-			"defence_amount": 8,
+			"defence_amount": 11,
 			"increase_amount": 1,
 		},
 		"_is_upgrade": true,
@@ -715,7 +715,7 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 6,
+			"damage_amount": 8,
 			"draw_amount": 1,
 		},
 		"_upgrade_threshold_modifier": 0,
@@ -736,7 +736,7 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 10,
+			"damage_amount": 11,
 			"draw_amount": 1,
 		},
 		"_is_upgrade": true,
@@ -753,7 +753,7 @@ const CARDS := {
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
-			"damage_amount": 7,
+			"damage_amount": 9,
 			"draw_amount": 2,
 		},
 		"_is_upgrade": true,
@@ -824,7 +824,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.armor.name],
 		"Abilities": "At the start of each turn, gain {concentration_stacks} {armor} "\
 		 		+ "for every {concentration_divider} {enemy_health} all Torments received during their own turn.",
-		"Cost": 2,
+		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
 		"_keywords": ['enemy_health'],
@@ -846,7 +846,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.armor.name],
 		"Abilities": "At the start of each turn, gain {concentration_stacks} {armor} "\
 		 		+ "for every {concentration_divider} {enemy_health} all Torments received during their own turn.",
-		"Cost": 1,
+		"Cost": 0,
 		"_illustration": "Nobody",
 		"_rarity": "Rare",
 		"_keywords": ['enemy_health'],
@@ -891,7 +891,7 @@ const CARDS := {
 		},
 		"_amounts": {
 			"multiplier_amount": 2.0,
-			"detrimental_percentage": 0.4,
+			"detrimental_percentage": 0.3,
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
@@ -913,7 +913,7 @@ const CARDS := {
 		},
 		"_amounts": {
 			"multiplier_amount": 2.0,
-			"detrimental_percentage": 0.4,
+			"detrimental_percentage": 0.3,
 		},
 		"_is_upgrade": true,
 	},
@@ -931,7 +931,7 @@ const CARDS := {
 		},
 		"_amounts": {
 			"multiplier_amount": 2.5,
-			"detrimental_percentage": 0.3,
+			"detrimental_percentage": 0.2,
 		},
 		"_is_upgrade": true,
 	},
@@ -1003,7 +1003,7 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
 		},
 		"_amounts": {
-			"beneficial_percentage": 1.0,
+			"beneficial_percentage": 2.0,
 			"beneficial_float": 2.0,
 		},
 		"_upgrade_threshold_modifier": 0,
@@ -1024,7 +1024,7 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
 		},
 		"_amounts": {
-			"beneficial_percentage": 1.5,
+			"beneficial_percentage": 2.5,
 			"beneficial_float": 2.0,
 		},
 		"_is_upgrade": true,
@@ -1041,7 +1041,7 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER,
 		},
 		"_amounts": {
-			"beneficial_percentage": 1.0,
+			"beneficial_percentage": 2.0,
 			"beneficial_float": 3.0,
 		},
 		"_is_upgrade": true,
