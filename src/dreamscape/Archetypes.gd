@@ -433,7 +433,7 @@ const ABUSIVE_RELATIONSHIP := {
 		"Disengage"
 	]
 }
-const OVERWORKED := {
+const EXPLOITED := {
 	"Anxiety": -5,
 #		"Icon": preload("res://icon.png"),
 	"Tags": [

@@ -24,7 +24,7 @@ const INSTRUMENT := {
 
 const INJUSTICE := {
 	"Abusive Relationship": Archetypes.ABUSIVE_RELATIONSHIP,
-	"Overworked": Archetypes.OVERWORKED
+	"Exploited": Archetypes.EXPLOITED
 }
 
 const ALL_ASPECTS := [

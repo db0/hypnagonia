@@ -468,37 +468,37 @@ func _input(event):
 		var _torment1
 		var _torment2
 		var _torment3
-		_torment1 = spawn_enemy(EnemyDefinitions.SHAMELING)
-#		_torment1 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
+#		_torment1 = spawn_enemy(EnemyDefinitions.SHAMELING)
+		_torment1 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
 #		_torment1 = spawn_enemy(EnemyDefinitions.VOID)
-		_torment2 = spawn_enemy(EnemyDefinitions.SHAMELING)
-#		_torment2 = spawn_enemy(EnemyDefinitions.BROKEN_MIRROR)
+#		_torment2 = spawn_enemy(EnemyDefinitions.SHAMELING)
+		_torment2 = spawn_enemy(EnemyDefinitions.GASLIGHTER)
 #		_torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
-#		_torment3 = spawn_enemy(EnemyDefinitions.GASLIGHTER)
+		_torment3 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 		if _torment1:
-			_torment1.health = 300
+			_torment1.health = 60
 			_torment1.damage = 15
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS["void"].name, 1)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 5)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.effect_resistance.name, 1, false, false, ["Init"], Terms.ACTIVE_EFFECTS.poison.name)
 			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 4)
 		if _torment2:
-			_torment2.health = 300
+			_torment2.health = 50
 			_torment2.damage = 10
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.marked.name, 1)
-#			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
-			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.marked.name, 4)
+			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
+			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.marked.name, 1)
 #			_torment2.defence = 10
 		if _torment3:
-			_torment3.health = 30
+			_torment3.health = 79
 			_torment3.damage = 0
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 1)
-#			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 3)
+			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 3)
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
-		dreamer.health = 500
+		dreamer.health = 100
 		dreamer.damage = 11
 		# warning-ignore:return_value_discarded
 		globals.player.add_artifact(ArtifactDefinitions.SavedReleases.canonical_name)
@@ -509,11 +509,11 @@ func _input(event):
 		globals.player.add_memory(MemoryDefinitions.RandomChaos.canonical_name)
 		# warning-ignore:return_value_discarded
 #		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
-#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.impervious.name, 4)
-#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 6)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.impervious.name, 1)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 6)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.absurdity_unleashed.name, 1)
-#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.creative_block.name, 1)
-#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.laugh_at_danger.name, 1)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.creative_block.name, 1)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.laugh_at_danger.name, 1)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.heat_venting.name, 1, false, false, ['Debug'], 'high')
 		# Hand Cards
 #		for iter in 20:
