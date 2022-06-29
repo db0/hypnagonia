@@ -3763,8 +3763,8 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
 		},
 		"_amounts": {
-			"exert_amount": 4,
-			"defence_amount": 10,
+			"exert_amount": 3,
+			"defence_amount": 9,
 			"effect_stacks": 1,
 		},
 		"_upgrade_threshold_modifier": 0,
@@ -3786,8 +3786,8 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
 		},
 		"_amounts": {
-			"exert_amount": 4,
-			"defence_amount": 13,
+			"exert_amount": 3,
+			"defence_amount": 12,
 			"effect_stacks": 1,
 		},
 		"_is_upgrade": true,
@@ -3805,8 +3805,8 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
 		},
 		"_amounts": {
-			"exert_amount": 7,
-			"defence_amount": 14,
+			"exert_amount": 6,
+			"defence_amount": 13,
 			"effect_stacks": 2,
 		},
 		"_is_upgrade": true,
