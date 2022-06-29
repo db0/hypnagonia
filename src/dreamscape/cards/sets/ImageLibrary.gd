@@ -12,6 +12,9 @@ const FINAL_IMAGES := {
 	"Broken Mirror": "res://assets/cards/broken_mirror.jpg",
 	"The Light Calling": "res://assets/cards/The Light Calling.jpg",
 	"A Squirrel": "res://assets/cards/Squirrel.jpg",
+	"I'll Show Them All": "res://assets/cards/I\'ll Show Them All.jpg",
+	"Death Ray": "res://assets/cards/Death Ray.jpg",
+	"Dodge": "res://assets/cards/Dodge.jpg",
 }
 const BETA_IMAGES := {
 	"Catatonia": "res://assets/cards/Catatonia.jpg",
@@ -54,6 +57,10 @@ const BETA_IMAGES := {
 	"Towering Presence": "res://assets/cards/Towering Presence.jpg",
 	"The Joke": "res://assets/cards/The Joke.jpg",
 	"Confident Slap": "res://assets/cards/Confident Slap.jpg",
+	"Ventriloquism": "res://assets/cards/Ventriloquism.jpg",
+	"Exhaustion": "res://assets/cards/Exhaustion.jpg",
+	"Cockfighting": "res://assets/cards/cockfighting.jpg",
+	"Boast": "res://assets/cards/boast.jpg",
 	
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Stuffed Toy": "res://assets/journal/torments/stuffed_toy.jpeg",

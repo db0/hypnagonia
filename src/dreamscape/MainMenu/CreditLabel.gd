@@ -7,6 +7,7 @@ const URLS := {
 	"CGF": "http://dbzer0.com/projects/godot-card-game-framework/",
 	"DioBal": "https://www.deviantart.com/diobalt",
 	"Artbreeder.com": "https://Artbreeder.com",
+	"midjourney.com": "https://www.midjourney.com",
 	"game-icons.net": "https://game-icons.net",
 	"kenney": "https://kenney.nl",
 	"Eric Matyas": "https://soundimage.org",
@@ -207,7 +208,10 @@ func _gather_character_artists() -> Array:
 func _parse_illustrator(existing_illustrators: Array, illustrator: String) -> void:
 	if "Artbreeder" in illustrator and not existing_illustrators.has("Artbreeder.com"):
 		existing_illustrators.append("Artbreeder.com")
+	if "midjourney" in illustrator and not existing_illustrators.has("midjourney.com"):
+		existing_illustrators.append("midjourney.com")
 	illustrator = illustrator.replace(" via Artbreeder.com", "")
+	illustrator = illustrator.replace(" via midjourney.com", "")
 	if illustrator == "Nobody":
 		return
 	if existing_illustrators.has(illustrator):

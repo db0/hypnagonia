@@ -9,7 +9,7 @@ const CARDS := {
 		"Abilities": "The next {concentration_stacks} played card which goes in the discard pile "\
 				+ "is played again, then is {forgotten}.\n{end_turn}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Basic",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -29,7 +29,7 @@ const CARDS := {
 		"Abilities": "The next {concentration_stacks} played cards which go in the discard pile "\
 				+ "is played again, then is {forgotten}.\n{end_turn}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Basic",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -43,7 +43,7 @@ const CARDS := {
 		"Abilities": "The next {concentration_stacks} played card which goes in the discard pile "\
 				+ "is played again, then is {forgotten}.\n{end_turn}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Basic",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -57,7 +57,7 @@ const CARDS := {
 		"Abilities": "The next {concentration_stacks} played cards which go in the discard pile "\
 				+ "is played again, then is {forgotten}.\n{end_turn}. {release}.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Basic",
 		"_keywords": ["forget", "release"],
 		"_amounts": {
@@ -71,7 +71,7 @@ const CARDS := {
 		"Abilities": "The next {concentration_stacks} played card which goes in the discard pile "\
 				+ "is played again, then is {forgotten}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Basic",
 		"_keywords": ["forget"],
 		"_amounts": {
