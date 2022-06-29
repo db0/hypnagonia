@@ -17,7 +17,7 @@ func _ready() -> void:
 	connect("entity_damaged",self, "on_damage_taken")
 	
 func on_damage_taken(_entity, amount, _trigger, _tags):
-	if amount >= 10:
+	if amount >= 12:
 		active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1, false, false, ["Scripted"]) 
 
 func _on_enemy_turn_started(_turn: Turn) -> void:

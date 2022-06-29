@@ -413,7 +413,7 @@ const Influencer = {
 				+  "Was I even really dreaming?",
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
-#	"journal_art": "res://assets/journal/torments/handsy_aunt.jpeg"),
+	"journal_art": "res://assets/journal/torments/influencer.jpg",
 	"enemies": {
 		"easy": [
 			{

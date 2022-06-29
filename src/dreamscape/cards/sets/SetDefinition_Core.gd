@@ -1376,7 +1376,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Double your {confidence}\nRemove all {courage}\n{forget}.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Friendlyguy#3543",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
 		},
@@ -1394,7 +1394,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Double your {confidence}\nRemove all {courage}\n{forget}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Friendlyguy#3543",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
 		},
@@ -1407,7 +1407,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain 4 {confidence}\nDouble your {confidence}\nRemove all {courage}\n{forget}.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Friendlyguy#3543",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
 		},
@@ -1423,7 +1423,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Double your {confidence}\nRemove all {courage}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Friendlyguy#3543",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
 		},
@@ -2141,7 +2141,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {confusion} card.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -2163,7 +2163,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {confusion} card.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -2180,7 +2180,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {confusion} card.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -2197,7 +2197,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {confusion} cards.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -2340,7 +2340,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} all Torments for {damage_amount}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Friendlyguy#3543",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -2357,7 +2357,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} all Torments for {damage_amount}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Friendlyguy#3543",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -2370,7 +2370,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "{damage} all Torments for {damage_amount}.\n{forget}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Friendlyguy#3543",
 		"_rarity": "Common",
 		"_keywords": ["interpretation", "forget"],
 		"_amounts": {
@@ -3147,7 +3147,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
 		"Abilities": "Gain {effect_stacks} {untouchable}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Friendlyguy#3543",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
@@ -3166,7 +3166,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name,Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Gain {effect_stacks} {untouchable}. Draw {draw_amount} card.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Friendlyguy#3543",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
@@ -3182,7 +3182,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
 		"Abilities": "Gain {effect_stacks} {untouchable}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Friendlyguy#3543",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
@@ -3763,8 +3763,8 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
 		},
 		"_amounts": {
-			"exert_amount": 4,
-			"defence_amount": 10,
+			"exert_amount": 3,
+			"defence_amount": 9,
 			"effect_stacks": 1,
 		},
 		"_upgrade_threshold_modifier": 0,
@@ -3786,8 +3786,8 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
 		},
 		"_amounts": {
-			"exert_amount": 4,
-			"defence_amount": 13,
+			"exert_amount": 3,
+			"defence_amount": 12,
 			"effect_stacks": 1,
 		},
 		"_is_upgrade": true,
@@ -3805,8 +3805,8 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
 		},
 		"_amounts": {
-			"exert_amount": 7,
-			"defence_amount": 14,
+			"exert_amount": 6,
+			"defence_amount": 13,
 			"effect_stacks": 2,
 		},
 		"_is_upgrade": true,
@@ -4270,7 +4270,7 @@ const CARDS := {
 				+ "If your draw pile currently has at least {deck_size} cards, "\
 				+ "{damage} all Torments for {damage_amount2}",
 		"Cost": 3,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -4292,7 +4292,7 @@ const CARDS := {
 				+ "If your draw pile currently has at least {deck_size} cards, "\
 				+ "{damage} all Torments for {damage_amount2}",
 		"Cost": 3,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -4309,7 +4309,7 @@ const CARDS := {
 				+ "If your draw pile currently has at least {deck_size} cards, "\
 				+ "{damage} all Torments for {damage_amount2}",
 		"Cost": 3,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -4326,7 +4326,7 @@ const CARDS := {
 				+ "If your draw pile currently has at least {deck_size} cards, "\
 				+ "{damage} all Torments for {damage_amount2}",
 		"Cost": 3,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -4520,7 +4520,7 @@ const CARDS := {
 		"Abilities": "Remove all {buffer}: Gain that much {immersion} "\
 				+ "and draw that many cards + {draw_amount}.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": [],
 		"_effects_info": {
@@ -4541,7 +4541,7 @@ const CARDS := {
 		"Abilities": "Remove all {buffer}: Gain that much {immersion} "\
 				+ "and draw that many cards + {draw_amount}.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": [],
 		"_effects_info": {
@@ -4558,7 +4558,7 @@ const CARDS := {
 		"Abilities": "Remove all {buffer}: Gain that much {immersion} + {immersion_amount} "\
 				+ "and draw that many cards + 1.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": [],
 		"_effects_info": {

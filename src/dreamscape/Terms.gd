@@ -758,6 +758,34 @@ const ACTIVE_EFFECTS := {
 			"damage",
 		],
 	},
+	"keep_em_coming":  {
+		"name": "Keep 'em Coming",
+		"type": "Concentration",
+		"icon": preload("res://assets/icons/open-palm.png"),
+		"is_card_reference": true,
+		"linked_terms": [
+			"forget",
+		],
+	},
+	"know_your_limits":  {
+		"name": "Know Your Limits",
+		"type": "Concentration",
+		"icon": preload("res://assets/icons/halt.png"),
+		"is_card_reference": true,
+		"linked_terms": [
+			"forget",
+		],
+	},
+	"exhaustion":  {
+		"name": "Exhaustion",
+		"type": "Concentration",
+		"icon": preload("res://assets/icons/oppression.png"),
+		"is_card_reference": true,
+		"linked_terms": [
+			"forget",
+		],
+	},
+	
 	# These effects are usually starting on top of special enemies
 	# but might also be given to the player as Understanding concentrations
 	"enraged": {
@@ -821,7 +849,7 @@ const ACTIVE_EFFECTS := {
 		"icon": preload("res://assets/icons/abstract-053.png"),
 		"noscript": true,
 		"description": "{effect_name}: Whenever this {entity}'s {stress} does not increase anxiety it gains 1 {strengthen}.\n"\
-				+ "The first time each turn this {entity}'s is {opponent_attack} for 10+ from one source, it gains 1 {strengthen}.\n"\
+				+ "The first time each turn this {entity}'s is {opponent_attack} for 12+ from one source, it gains 1 {strengthen}.\n"\
 				+ "When this {entity} has 7+ focus, it performs a powerful {stress}, then resets its {strengthen} to 0.",
 		"linked_terms": [
 			"attack",
@@ -1144,6 +1172,10 @@ const GENERIC_CARD_BBCODE := {
 		"name": "Forget",
 		"rich_text_color": "teal",
 	},
+	"exhausted": {
+		"name": "Forgotten",
+		"rich_text_color": "teal",
+	},
 	"shuffle": {
 		"name": "Shuffle",
 		"rich_text_color": "teal",
@@ -1154,6 +1186,10 @@ const GENERIC_CARD_BBCODE := {
 	},
 	"purge": {
 		"name": "Release",
+		"rich_text_color": "teal",
+	},
+	"purged": {
+		"name": "Released",
 		"rich_text_color": "teal",
 	},
 	"attack_card": {

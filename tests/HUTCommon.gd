@@ -178,6 +178,19 @@ const SPAWN_CARD_SCRIPT := {
 	},
 }
 
+const FORGET_CARD_SCRIPT := {
+	"manual": {
+		"hand": [
+			{
+				"name": "move_card_to_container",
+				"subject": "self",
+				"dest_container": "forgotten",
+				"tags": ["GUT"],
+			},
+		],
+	},
+}
+
 func before_each():
 	cfc._setup_testing()
 	setup_hypnagonia_testing()

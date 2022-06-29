@@ -200,7 +200,9 @@ class TestVestigeOfWarmth:
 	func test_vestige():
 		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "enemy_turn_started",1), YIELD)
-		assert_eq(dreamer.defence, 5)
+		var amount = cfc.card_definitions[effect]\
+			.get("_amounts",{}).get("concentration_effect")
+		assert_eq(dreamer.defence, hand.get_card_count() * amount)
 
 
 class TestTheColdDish:
@@ -453,7 +455,7 @@ class TestReckoningTime:
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
 		assert_eq(test_torment.damage, tdamage(15 * get_amount("multiplier_amount")))
-		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 15 - 15 * get_amount("detrimental_percentage"),
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 15 - int(15 * get_amount("detrimental_percentage")),
 				"%s stacks on Dreamer decreased by correct amount" % [effect])
 
 

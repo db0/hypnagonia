@@ -584,7 +584,7 @@ func _input(event):
 		var debug_encounters = [
 #			EnemyEncounter.new(Act1.Squirrel, "hard"),
 #			EnemyEncounter.new(Act2.TrafficJam, "easy"),
-#			EnemyEncounter.new(Act3.Shamelings, "hard"),
+			EnemyEncounter.new(Act3.Influencer, "hard"),
 			load("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/AllActs/OstrichEggs.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act3/UnderwaterCave.gd").new(),

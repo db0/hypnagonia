@@ -1277,6 +1277,20 @@ const CursedCurios := { # TODO: Tests
 	],
 }
 
+const SavedReleases := {
+	"canonical_name": "SavedReleases",
+	"name": "Saved Releases",
+	"description": "{artifact_name}: The first time you {release} a card in an ordeal, \n"\
+			+ "it is discarded instead.",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.BATTLE,
+	"rarity": "Starting",
+	"amounts": {},
+	"linked_terms": [
+		"release",
+	],
+}
+
 ## TODO: Artifact which increases chance to find Fusion cards
 ## TODO. Scipt base doesn't exist yet
 #const DoubleMemory := {
@@ -1360,6 +1374,7 @@ const ARCHETYPE := [
 	ConstantImpervious,
 	StartingFortify,
 	DoubleFusion,
+	SavedReleases,
 ]
 
 # These artifacts are only found in non-combat encounters

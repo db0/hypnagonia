@@ -2,20 +2,20 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/administration.jpeg-790e175f5cabcd15d68f506281fd0e62.stex"
+path="res://.import/preview4.jpg-8308121b41f9a2af0a21dbe32a333b65.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/torments/administration.jpeg"
-dest_files=[ "res://.import/administration.jpeg-790e175f5cabcd15d68f506281fd0e62.stex" ]
+source_file="res://preview4.jpg"
+dest_files=[ "res://.import/preview4.jpg-8308121b41f9a2af0a21dbe32a333b65.stex" ]
 
 [params]
 
 compress/mode=1
-compress/lossy_quality=0.7
+compress/lossy_quality=0.1
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0

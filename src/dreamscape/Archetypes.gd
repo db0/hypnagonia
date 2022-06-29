@@ -8,7 +8,7 @@ class_name Archetypes
 extends Reference
 
 const FLYER:= {
-	"Anxiety": 5,
+	"Anxiety": +5,
 	"Icon": preload("res://assets/archetypes/flyer.jpg"),
 	"Tags": [
 		Terms.ACTIVE_EFFECTS.impervious.name,
@@ -58,7 +58,6 @@ const FLYER:= {
 }
 
 const MAD_SCIENTIST := {
-#	"Icon": preload("res://icon.png"),
 	"Icon": preload("res://assets/archetypes/Mad Scientist.jpg"),
 	"Tags": [
 		Terms.GENERIC_TAGS.spark.name,
@@ -158,8 +157,8 @@ const RUNNER := {
 
 
 const FEARLESS:= {
-	"Anxiety": 5,
-#	"Icon": preload("res://icon.png"),
+	"Anxiety": +5,
+	"Icon": preload("res://assets/archetypes/fearless.jpg"),
 	"Tags": [
 		Terms.ACTIVE_EFFECTS.poison.name,
 		Terms.ACTIVE_EFFECTS.fortify.name,
@@ -209,7 +208,7 @@ const FEARLESS:= {
 	]
 }
 const VINDICTIVE:= {
-	"Anxiety": 2,
+	"Anxiety": +2,
 #	"Icon": preload("res://icon.png"),
 	"Tags": [
 		Terms.GENERIC_TAGS.frozen.name,
@@ -380,8 +379,8 @@ const LASER_CANNON := {
 
 
 const ABUSIVE_RELATIONSHIP := {
-	"Anxiety": -5,
-#		"Icon": preload("res://icon.png"),
+	"Anxiety": +5,
+	"Icon": preload("res://assets/archetypes/Abusive Relationship.jpg"),
 	"Tags": [
 		Terms.GENERIC_TAGS.purpose.name,
 		Terms.GENERIC_TAGS.exert.name,
@@ -431,5 +430,36 @@ const ABUSIVE_RELATIONSHIP := {
 		"Tolerance",
 		"Catatonia",
 		"Disengage"
+	]
+}
+const EXPLOITED := {
+	"Anxiety": -5,
+#		"Icon": preload("res://icon.png"),
+	"Tags": [
+		Terms.GENERIC_TAGS.slumber.name,
+	],
+	"Artifacts": [
+	],
+	"Memories": [
+	],
+	"Starting Artifacts": [
+		ArtifactDefinitions.SavedReleases
+	],
+	"Perturbations": [
+
+	],
+	"Basic": [
+		"Interpretation",
+		"Confidence",
+		"Exhaustion",
+	],
+	"Common": [
+	],
+	"Uncommon": [
+		"Prepared",
+		"Keep 'em Coming",
+		"Know Your Limits",
+	],
+	"Rare": [
 	]
 }

@@ -195,3 +195,8 @@ func activate_quick_intent(intents_script: Array) -> void:
 	yield(yield_for(0.1), YIELD)
 	turn.call_deferred("end_player_turn")
 	yield(yield_to(turn, "player_turn_started", 3), YIELD)
+
+func set_all_cards_to_script(script_to_use: Dictionary, modify_cost := 0) -> void:
+	for c in cards:
+		c.scripts = script_to_use
+		c.modify_property("Cost", modify_cost)

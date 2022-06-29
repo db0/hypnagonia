@@ -215,12 +215,6 @@ const HandofGrudge = {
 					},
 				},
 			},
-			{
-				"name": "move_card_to_container",
-				"subject": "self",
-				"dest_container": "forgotten",
-				"tags": ["Played", "Card"],
-			},
 		],
 	},
 }
