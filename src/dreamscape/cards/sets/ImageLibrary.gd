@@ -15,6 +15,8 @@ const FINAL_IMAGES := {
 	"I'll Show Them All": "res://assets/cards/I\'ll Show Them All.jpg",
 	"Death Ray": "res://assets/cards/Death Ray.jpg",
 	"Dodge": "res://assets/cards/Dodge.jpg",
+	"Exhaustion": "res://assets/cards/Exhaustion.jpg",
+	"Murmurs": "res://assets/cards/murmurs.jpg",
 }
 const BETA_IMAGES := {
 	"Catatonia": "res://assets/cards/Catatonia.jpg",
@@ -58,7 +60,6 @@ const BETA_IMAGES := {
 	"The Joke": "res://assets/cards/The Joke.jpg",
 	"Confident Slap": "res://assets/cards/Confident Slap.jpg",
 	"Ventriloquism": "res://assets/cards/Ventriloquism.jpg",
-	"Exhaustion": "res://assets/cards/Exhaustion.jpg",
 	"Cockfighting": "res://assets/cards/cockfighting.jpg",
 	"Boast": "res://assets/cards/boast.jpg",
 	
@@ -72,7 +73,6 @@ const BETA_IMAGES := {
 	"Clown": "res://assets/journal/torments/clown.jpeg",
 	"Fearmonger": "res://assets/journal/torments/fearmonger.jpeg",
 	"Mouse": "res://assets/journal/torments/mouse.jpeg",
-	"Murmurs": "res://assets/cards/murmurs.jpg",
 	"The Critic": "res://assets/enemies/the_critic.png",
 	"The Victim": "res://assets/journal/torments/the_victim.jpeg",
 	"The Exam": "res://assets/journal/torments/exam.jpeg",
@@ -90,4 +90,11 @@ const BETA_IMAGES := {
 	"Influencer": "res://assets/enemies/influencer.jpg",
 	"Shameling": "res://assets/journal/torments/shameling.jpg",
 	"Administration": "res://assets/journal/torments/administration.jpg",
+	"Vulcan": "res://assets/cards/Vulcan.jpg",
+	"Vulcan2": "res://assets/cards/Vulcan2.jpg",
+	"Vulcan3": "res://assets/cards/Vulcan3.jpg",
+	"Universal Component": "res://assets/cards/Universal Component.jpg",
+	"Photon Shield": "res://assets/cards/Photon Shield.jpg",
+	"Lumen Shield": "res://assets/cards/Lumen Shield.jpg",
+	"Plasma Shield": "res://assets/cards/Plasma Shield.jpg",
 }
