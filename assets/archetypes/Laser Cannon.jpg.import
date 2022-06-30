@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/unknown.jpg-f52ff32fb7c12f1fab0d79931df36c45.stex"
+path="res://.import/Laser Cannon.jpg-ce2ebc44f2bc0d37994f8fd7b0a89331.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/archetypes/unknown.jpg"
-dest_files=[ "res://.import/unknown.jpg-f52ff32fb7c12f1fab0d79931df36c45.stex" ]
+source_file="res://assets/archetypes/Laser Cannon.jpg"
+dest_files=[ "res://.import/Laser Cannon.jpg-ce2ebc44f2bc0d37994f8fd7b0a89331.stex" ]
 
 [params]
 
