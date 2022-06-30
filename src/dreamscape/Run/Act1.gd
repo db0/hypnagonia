@@ -180,7 +180,7 @@ Their whispers lingered in the air, getting more acerbic by the second.
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/murmurs.jpeg",
+	"journal_art": "res://assets/journal/torments/Murmurs.jpg",
 }
 
 

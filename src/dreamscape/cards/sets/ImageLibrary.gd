@@ -72,7 +72,7 @@ const BETA_IMAGES := {
 	"Clown": "res://assets/journal/torments/clown.jpeg",
 	"Fearmonger": "res://assets/journal/torments/fearmonger.jpeg",
 	"Mouse": "res://assets/journal/torments/mouse.jpeg",
-	"Murmurs": "res://assets/journal/torments/murmurs.jpeg",
+	"Murmurs": "res://assets/cards/murmurs.jpg",
 	"The Critic": "res://assets/enemies/the_critic.png",
 	"The Victim": "res://assets/journal/torments/the_victim.jpeg",
 	"The Exam": "res://assets/journal/torments/exam.jpeg",
