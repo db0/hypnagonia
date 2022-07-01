@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cockfighting.jpg-2d1d15311eadcff15dc6b35decf6c09f.stex"
+path="res://.import/Light Jump.jpg-25f6ce0a767a2c7da367a3dfa0a66fd8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/Cockfighting.jpg"
-dest_files=[ "res://.import/Cockfighting.jpg-2d1d15311eadcff15dc6b35decf6c09f.stex" ]
+source_file="res://assets/cards/Light Jump.jpg"
+dest_files=[ "res://.import/Light Jump.jpg-25f6ce0a767a2c7da367a3dfa0a66fd8.stex" ]
 
 [params]
 

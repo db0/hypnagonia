@@ -957,7 +957,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name],
 		"Abilities": "Apply {effect_stacks} {shaken} to all Torments.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.ENEMY
 		},
@@ -976,7 +976,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name],
 		"Abilities": "Apply {effect_stacks} {shaken} to all Torments.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.ENEMY
 		},
@@ -991,7 +991,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name],
 		"Abilities": "Apply {effect_stacks} {shaken} to all Torments. {forget}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.ENEMY
 		},
@@ -1007,7 +1007,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\nIf the Torment has {shaken}, "\
 				+ "{damage} all other Torments for {damage_amount2}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.ENEMY
 		},
@@ -1029,7 +1029,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\nIf the Torment has {shaken}, "\
 				+ "{damage} all other Torments for {damage_amount2}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.ENEMY
 		},
@@ -1047,7 +1047,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\nIf the Torment has {shaken}, "\
 				+ "{damage} all other Torments for {damage_amount2}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.ENEMY
 		},

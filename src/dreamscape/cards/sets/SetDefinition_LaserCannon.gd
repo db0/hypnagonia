@@ -9,7 +9,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}. Apply {effect_stacks} {marked}\n"\
 				+ "Fuse {fuse_amount} -> HiCannon",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
@@ -34,7 +34,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}. Apply {effect_stacks} {marked}\n"\
 				+ "Fuse {fuse_amount} -> HiCannon",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
@@ -54,7 +54,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}. Apply {effect_stacks} {marked}\n"\
 				+ "Fuse {fuse_amount} -> HiCannon",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
@@ -74,7 +74,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}. Apply {effect_stacks} {marked}\n"\
 				+ "Fuse {fuse_amount} -> HiCannon",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
@@ -94,7 +94,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}. Apply {effect_stacks} {marked}\n"\
 				+ "Fuse {fuse_amount} -> MegaCannon",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Special",
 		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
@@ -116,7 +116,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}. Apply {effect_stacks} {marked}\n"\
 				+ "Fuse {fuse_amount} -> MegaCannon",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Special",
 		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
@@ -135,7 +135,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.marked.name],
 		"Abilities": "{damage} for {damage_amount}. Apply {effect_stacks} {marked}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Special",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -154,7 +154,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.marked.name],
 		"Abilities": "{damage} for {damage_amount}. Apply {effect_stacks} {marked}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Special",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -172,7 +172,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times.\n"\
 				+ "Fuse {fuse_amount} -> Vulcan2",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
@@ -194,7 +194,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times.\n"\
 				+ "Fuse {fuse_amount} -> Vulcan2",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
@@ -211,7 +211,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times.\n"\
 				+ "Fuse {fuse_amount} -> Vulcan2",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
@@ -228,7 +228,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times.\n"\
 				+ "Fuse {fuse_amount} -> Vulcan2",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
@@ -245,7 +245,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times.\n"\
 				+ "Fuse {fuse_amount} -> Vulcan3",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Special",
 		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
@@ -264,7 +264,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times.\n"\
 				+ "Fuse {fuse_amount} -> Vulcan3",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Special",
 		"_keywords": ["interpretation", "fuse"],
 		"_amounts": {
@@ -280,7 +280,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Special",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -298,7 +298,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}. Repeat {chain_amount} times.\n"\
 				+ "Fuse {fuse_amount} -> Vulcan3",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -314,7 +314,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "Fuse {fuse_amount} -> Lumen Shield",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["confidence", "fuse"],
 		"_amounts": {
@@ -335,7 +335,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "Fuse {fuse_amount} -> Lumen Shield",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["confidence", "fuse"],
 		"_amounts": {
@@ -351,7 +351,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "Fuse {fuse_amount} -> Lumen Shield",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["confidence", "fuse"],
 		"_amounts": {
@@ -367,7 +367,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "Fuse {fuse_amount} -> Lumen Shield",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["confidence", "fuse"],
 		"_amounts": {
@@ -383,7 +383,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\nGain {effect_stacks} {fortify}\n"\
 				+ "Fuse {fuse_amount} -> Plasma Shield",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Special",
 		"_keywords": ["confidence", "fuse"],
 		"_amounts": {
@@ -406,7 +406,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\nGain {effect_stacks} {fortify}\n"\
 				+ "Fuse {fuse_amount} -> Plasma Shield",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 			"_rarity": "Special",
 		"_keywords": ["confidence", "fuse"],
 		"_amounts": {
@@ -425,7 +425,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "Gain {defence_amount} {confidence}\nGain {effect_stacks} {fortify}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Special",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -445,7 +445,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "Gain {defence_amount} {confidence}\nGain {effect_stacks} {fortify}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Special",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -464,7 +464,7 @@ const CARDS := {
 				+ "The next {discount_uses} {control} card you play "\
 				+ "costs -{discount_amount} {immersion}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -486,7 +486,7 @@ const CARDS := {
 				+ "The next {discount_uses} {control} cards you play "\
 				+ "costs -{discount_amount} {immersion}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -503,7 +503,7 @@ const CARDS := {
 				+ "The next {discount_uses} {control} cards you play "\
 				+ "costs -{discount_amount} {immersion}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -520,7 +520,7 @@ const CARDS := {
 				+ "The next {discount_uses} {control} cards you play "\
 				+ "costs -{discount_amount} {immersion}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -1263,7 +1263,7 @@ const CARDS := {
 		"Abilities": "This card will fuse with any other available {fusion} card.\n"\
 				+ "Whenever this card fuses, draw {draw_amount} card and gain {immersion_amount} {immersion}.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["fuse"],
 		"_amounts": {
@@ -1283,7 +1283,7 @@ const CARDS := {
 		"Abilities": "This card will fuse with any other available {fusion} card.\n"\
 				+ "Whenever this card fuses, draw {draw_amount} card and gain {immersion_amount} {immersion}.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["fuse"],
 		"_amounts": {
@@ -1299,7 +1299,7 @@ const CARDS := {
 		"Abilities": "This card will fuse with any other available {fusion} card.\n"\
 				+ "Whenever this card fuses, draw {draw_amount} card and gain {immersion_amount} {immersion}.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["fuse"],
 		"_amounts": {
@@ -1344,7 +1344,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "Put {discard_amount} cards to the bottom of the draw pile.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Basic",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -1363,7 +1363,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "Put {discard_amount} cards to the bottom of the draw pile.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Basic",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -1378,7 +1378,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "Put {discard_amount} cards to the bottom of the draw pile.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Basic",
 		"_keywords": ["confidence"],
 		"_amounts": {
