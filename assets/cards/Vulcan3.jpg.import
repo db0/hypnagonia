@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cockfighting.jpg-2d1d15311eadcff15dc6b35decf6c09f.stex"
+path="res://.import/Vulcan3.jpg-e27c82d5f857f4ffac31b2cb55ae9159.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/Cockfighting.jpg"
-dest_files=[ "res://.import/Cockfighting.jpg-2d1d15311eadcff15dc6b35decf6c09f.stex" ]
+source_file="res://assets/cards/Vulcan3.jpg"
+dest_files=[ "res://.import/Vulcan3.jpg-e27c82d5f857f4ffac31b2cb55ae9159.stex" ]
 
 [params]
 

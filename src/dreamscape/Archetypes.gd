@@ -209,7 +209,7 @@ const FEARLESS:= {
 }
 const VINDICTIVE:= {
 	"Anxiety": +2,
-#	"Icon": preload("res://icon.png"),
+	"Icon": preload("res://assets/archetypes/Vindictive.jpg"),
 	"Tags": [
 		Terms.GENERIC_TAGS.frozen.name,
 		Terms.ACTIVE_EFFECTS.thorns.name,
@@ -321,7 +321,7 @@ const RUBBER_CHICKEN := {
 	]
 }
 const LASER_CANNON := {
-#	"Icon": preload("res://icon.png"),
+	"Icon": preload("res://assets/archetypes/Laser Cannon.jpg"),
 	"Tags": [
 		Terms.GENERIC_TAGS.fusion.name,
 		Terms.GENERIC_TAGS.startup.name,

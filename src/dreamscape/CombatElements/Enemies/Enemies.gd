@@ -183,8 +183,8 @@ const MURMURS := {
 	"_health_variability": 4,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": "res://assets/journal/torments/murmurs.jpeg",
-	"_character_art": "Silberfarben via Artbreeder.com"
+	"_texture": "res://assets/cards/murmurs.jpg",
+	"_character_art": "Db0 via midjourney.com"
 }
 const BROKEN_MIRROR:= {
 	"Name": "Broken Mirror",

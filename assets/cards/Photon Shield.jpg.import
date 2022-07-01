@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/runner.jpg-5671652b715ae556ff6fe09355c7f1b0.stex"
+path="res://.import/Photon Shield.jpg-d222479a1d15caca3942840a69158b35.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/archetypes/runner.jpg"
-dest_files=[ "res://.import/runner.jpg-5671652b715ae556ff6fe09355c7f1b0.stex" ]
+source_file="res://assets/cards/Photon Shield.jpg"
+dest_files=[ "res://.import/Photon Shield.jpg-d222479a1d15caca3942840a69158b35.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cockfighting.jpg-2d1d15311eadcff15dc6b35decf6c09f.stex"
+path="res://.import/MegaCannon.jpg-09dfc413fc617a78eaad504cdb433a52.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/Cockfighting.jpg"
-dest_files=[ "res://.import/Cockfighting.jpg-2d1d15311eadcff15dc6b35decf6c09f.stex" ]
+source_file="res://assets/cards/MegaCannon.jpg"
+dest_files=[ "res://.import/MegaCannon.jpg-09dfc413fc617a78eaad504cdb433a52.stex" ]
 
 [params]
 

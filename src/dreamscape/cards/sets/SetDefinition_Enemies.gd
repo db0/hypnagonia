@@ -461,7 +461,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {effect_stacks} {thorns}. {forget}",
 		"Cost": 0,
-		"_illustration": "Silberfarben via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER
@@ -482,7 +482,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {effect_stacks} {thorns}. {forget}",
 		"Cost": 0,
-		"_illustration": "Silberfarben via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER
@@ -498,7 +498,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.alpha.name],
 		"Abilities": "Gain {effect_stacks} {thorns}. {forget}",
 		"Cost": 0,
-		"_illustration": "Silberfarben via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER
@@ -514,7 +514,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
 		"Abilities": "Gain {effect_stacks} {thorns}",
 		"Cost": 0,
-		"_illustration": "Silberfarben via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER

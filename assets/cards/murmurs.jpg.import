@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cockfighting.jpg-2d1d15311eadcff15dc6b35decf6c09f.stex"
+path="res://.import/murmurs.jpg-724dc68850a101c6f0cab9bb1d8374f9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/Cockfighting.jpg"
-dest_files=[ "res://.import/Cockfighting.jpg-2d1d15311eadcff15dc6b35decf6c09f.stex" ]
+source_file="res://assets/cards/murmurs.jpg"
+dest_files=[ "res://.import/murmurs.jpg-724dc68850a101c6f0cab9bb1d8374f9.stex" ]
 
 [params]
 
