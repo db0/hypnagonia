@@ -76,6 +76,10 @@ const BETA_IMAGES := {
 	"Light Jump": "res://assets/cards/Light Jump.jpg",
 	"Rapid Encirclement": "res://assets/cards/Rapid Encirclement.jpg",
 	"Barrel Through": "res://assets/cards/Barrel Through.jpg",
+	"Find Weakness": "res://assets/cards/Find Weakness.jpg",
+	"Nano-Machines": "res://assets/cards/Nano-Machines.jpg",
+	"Photon Blade": "res://assets/cards/Photon Blade.jpg",
+	"Fusion Grenade": "res://assets/cards/Fusion Grenade.jpg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Stuffed Toy": "res://assets/journal/torments/stuffed_toy.jpeg",

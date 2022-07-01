@@ -925,7 +925,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}. Draw {draw_amount} cards."\
 				+ "Discard all drawn cards without {fusion}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -944,7 +944,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}. Draw {draw_amount} cards."\
 				+ "Discard all drawn cards without {fusion}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -959,7 +959,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}. Draw {draw_amount} cards."\
 				+ "Discard all drawn cards without {fusion}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -1314,7 +1314,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} all torments for {damage_amount}\n{forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Special",
 		"_keywords": ["fuse", "forget"],
 		"_amounts": {
@@ -1330,7 +1330,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} all torments for {damage_amount}\n{forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Special",
 		"_keywords": ["fuse", "forget"],
 		"_amounts": {

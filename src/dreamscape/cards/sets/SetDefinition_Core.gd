@@ -847,7 +847,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 			+ "Repeat this if no Torment is going to be inflicting more than {max_requirements_amount} {stress} this turn.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "stress"],
 		"_amounts": {
@@ -867,7 +867,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 			+ "Repeat this if no Torment is going to be inflicting more than {max_requirements_amount} {stress} this turn.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "stress"],
 		"_amounts": {
@@ -882,7 +882,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 			+ "Repeat this if no Torment is going to be inflicting more than {max_requirements_amount} {stress} this turn.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "stress"],
 		"_amounts": {
@@ -897,7 +897,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 			+ "Repeat this if no Torment is going to be inflicting more than {max_requirements_amount} {stress} this turn.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "stress"],
 		"_amounts": {
