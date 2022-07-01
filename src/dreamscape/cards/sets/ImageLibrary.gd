@@ -17,6 +17,7 @@ const FINAL_IMAGES := {
 	"Dodge": "res://assets/cards/Dodge.jpg",
 	"Exhaustion": "res://assets/cards/Exhaustion.jpg",
 	"Murmurs": "res://assets/cards/murmurs.jpg",
+	"Boast": "res://assets/cards/boast.jpg",
 }
 const BETA_IMAGES := {
 	"Catatonia": "res://assets/cards/Catatonia.jpg",
@@ -61,7 +62,6 @@ const BETA_IMAGES := {
 	"Confident Slap": "res://assets/cards/Confident Slap.jpg",
 	"Ventriloquism": "res://assets/cards/Ventriloquism.jpg",
 	"Cockfighting": "res://assets/cards/Cockfighting.jpg",
-	"Boast": "res://assets/cards/boast.jpg",
 	"Administration": "res://assets/journal/torments/administration.jpg",
 	"Vulcan": "res://assets/cards/Vulcan.jpg",
 	"Vulcan2": "res://assets/cards/Vulcan2.jpg",
