@@ -825,7 +825,7 @@ const CARDS := {
 		"Abilities": "At the start of each turn, gain {concentration_stacks} {armor} "\
 		 		+ "for every {concentration_divider} {enemy_health} all Torments received during their own turn.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ['enemy_health'],
 		"_effects_info": {
@@ -847,7 +847,7 @@ const CARDS := {
 		"Abilities": "At the start of each turn, gain {concentration_stacks} {armor} "\
 		 		+ "for every {concentration_divider} {enemy_health} all Torments received during their own turn.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ['enemy_health'],
 		"_effects_info": {
@@ -865,7 +865,7 @@ const CARDS := {
 		"Abilities": "At the start of each turn, gain {concentration_stacks} {armor} "\
 		 		+ "for every {concentration_divider} {enemy_health} all Torments received during their own turn.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ['enemy_health'],
 		"_effects_info": {
@@ -996,7 +996,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Take {anxiety} equal to your {thorns}/{beneficial_float}.\nIncrease your {thorns} by {beneficial_percentage}\n{forget}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ['forget'],
 		"_effects_info": {
@@ -1017,7 +1017,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Take {anxiety} equal to your {thorns}/{beneficial_float}.\nIncrease your {thorns} by {beneficial_percentage}\n{forget}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ['forget'],
 		"_effects_info": {
@@ -1034,7 +1034,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Take {anxiety} equal to your {thorns}/{beneficial_float}.\nIncrease your {thorns} by {beneficial_percentage}\n{forget}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ['forget'],
 		"_effects_info": {

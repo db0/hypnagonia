@@ -96,6 +96,8 @@ const BETA_IMAGES := {
 	"Streamlining": "res://assets/cards/Streamlining.jpg",
 	"That's Going in the Book": "res://assets/cards/That\'s Going in the Book.jpg",
 	"Note-Taking": "res://assets/cards/Note-Taking.jpg",
+	"Schadenfreude": "res://assets/cards/Schadenfreude.jpg",
+	"The Last Straw": "res://assets/cards/The Last Straw.jpg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Stuffed Toy": "res://assets/journal/torments/stuffed_toy.jpeg",
