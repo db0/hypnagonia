@@ -84,6 +84,16 @@ const BETA_IMAGES := {
 	"Quick Dash": "res://assets/cards/Quick Dash.jpg",
 	"Charged Shot": "res://assets/cards/Charged Shot.jpg",
 	"Blinding Flash": "res://assets/cards/Blinding Flash.jpg",
+	"Dark Approach": "res://assets/cards/Dark Approach.jpg",
+	"Dark Recovery": "res://assets/cards/Dark Recovery.jpg",
+	"Widebeam": "res://assets/cards/Widebeam.jpg",
+	"Spare Lens": "res://assets/cards/Spare Lens.jpg",
+	"Brooding": "res://assets/cards/Brooding.jpg",
+	"Recycling": "res://assets/cards/Recycling.jpg",
+	"Precision": "res://assets/cards/Precision.jpg",
+	"Focus Calibration": "res://assets/cards/Focus Calibration.jpg",
+	"Heat Venting": "res://assets/cards/Heat Venting.jpg",
+	"Streamlining": "res://assets/cards/Streamlining.jpg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Stuffed Toy": "res://assets/journal/torments/stuffed_toy.jpeg",

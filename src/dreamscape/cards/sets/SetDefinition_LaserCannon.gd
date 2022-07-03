@@ -674,7 +674,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.relax.name],
 		"Abilities": "{forget}\n{startup}: {relax} for {healing_amount}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -692,7 +692,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.relax.name],
 		"Abilities": "{forget}\n{startup}: {relax} for {healing_amount}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -705,7 +705,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.relax.name, Terms.GENERIC_TAGS.omega.name],
 		"Abilities": "{forget}\n{startup}: {relax} for {healing_amount}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -718,7 +718,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.startup.name,Terms.GENERIC_TAGS.relax.name],
 		"Abilities": "Draw {draw_amount} cards. {forget}\n{startup}: {relax} for {healing_amount}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -732,7 +732,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "{forget}\n{startup}: Draw {draw_amount} cards.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -750,7 +750,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "{forget}\n{startup}: Draw {draw_amount} cards.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -763,7 +763,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.swift.name, Terms.GENERIC_TAGS.omega.name],
 		"Abilities": "{forget}\n{startup}: Draw {draw_amount} cards.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -776,7 +776,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Draw {draw_amount2} cards. {forget}\n{startup}: Draw {draw_amount} cards.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -791,7 +791,7 @@ const CARDS := {
 		"Abilities": "{forget} the bottom {forget_amount} card of your draw pile. "\
 				+ "{damage} for {damage_amount}.\n",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "forget"],
 		"_amounts": {
@@ -811,7 +811,7 @@ const CARDS := {
 		"Abilities": "{forget} the last {forget_amount} card of your draw pile. "\
 				+ "{damage} for {damage_amount}.\n",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "forget"],
 		"_amounts": {
@@ -826,7 +826,7 @@ const CARDS := {
 		"Abilities": "{forget} the last {forget_amount} card of your draw pile. "\
 				+ "{damage} for {damage_amount}.\n",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "forget"],
 		"_amounts": {
@@ -841,7 +841,7 @@ const CARDS := {
 		"Abilities": "{forget} the last {forget_amount} card of your draw pile. "\
 				+ "{damage} for {damage_amount}.\n{forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "forget"],
 		"_amounts": {
@@ -855,7 +855,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.ACTIVE_EFFECTS.strengthen.name],
 		"Abilities": "{forget}\n{startup}: Gain {effect_stacks} {strengthen}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -876,7 +876,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.ACTIVE_EFFECTS.strengthen.name],
 		"Abilities": "{forget}\n{startup}: Gain {effect_stacks} {strengthen}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -892,7 +892,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.startup.name, Terms.ACTIVE_EFFECTS.strengthen.name, Terms.GENERIC_TAGS.omega.name],
 		"Abilities": "{forget}\n{startup}: Gain {effect_stacks} {strengthen}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -908,7 +908,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.startup.name],
 		"Abilities": "{forget}\n{startup}: Gain {effect_stacks} {strengthen}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -974,7 +974,7 @@ const CARDS := {
 		"Abilities": "At the end of the turn. add {concentration_stacks} random common {fusion} card "\
 				+ " to the top of the draw pile,",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": [],
 		"_amounts": {
@@ -993,7 +993,7 @@ const CARDS := {
 		"Abilities": "At the end of the turn. add {concentration_stacks} random common {fusion} card "\
 				+ " to the top of the draw pile,",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": [],
 		"_amounts": {
@@ -1007,7 +1007,7 @@ const CARDS := {
 		"Abilities": "At the end of the turn. add {concentration_stacks} random common {fusion} card "\
 				+ " to the top of the draw pile,",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": [],
 		"_amounts": {
@@ -1021,7 +1021,7 @@ const CARDS := {
 		"Abilities": "At the end of the turn. add {concentration_stacks} random common {fusion} card "\
 				+ " to the top of the draw pile,",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": [],
 		"_amounts": {
@@ -1034,7 +1034,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Gain {concentration_defence} {defence} whenever you fuse {fusion} cards.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence", "fuse"],
 		"_amounts": {
@@ -1053,7 +1053,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Gain {concentration_defence} {defence} whenever you fuse {fusion} cards.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence", "fuse"],
 		"_amounts": {
@@ -1067,7 +1067,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.alpha.name],
 		"Abilities": "Gain {concentration_defence} {defence} whenever you fuse {fusion} cards.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence", "fuse"],
 		"_amounts": {
@@ -1081,7 +1081,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Gain {concentration_defence} {defence} whenever you fuse {fusion} cards.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence", "fuse"],
 		"_amounts": {
@@ -1095,7 +1095,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Draw {concentration_stacks} cards whenever you fuse {fusion} cards.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["fuse"],
 		"_amounts": {
@@ -1113,7 +1113,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Draw {concentration_stacks} cards whenever you fuse {fusion} cards.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["fuse"],
 		"_amounts": {
@@ -1126,7 +1126,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.swift.name, Terms.GENERIC_TAGS.alpha.name],
 		"Abilities": "Draw {concentration_stacks} cards whenever you fuse {fusion} cards.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["fuse"],
 		"_amounts": {
@@ -1139,7 +1139,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Draw {concentration_stacks} cards whenever you fuse {fusion} cards.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["fuse"],
 		"_amounts": {
@@ -1152,7 +1152,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "{forget} {forget_amount} card. Draw {draw_amount} cards.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -1171,7 +1171,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "{forget} {forget_amount} card. Draw {draw_amount} cardss.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -1185,7 +1185,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.frozen.name],
 		"Abilities": "{forget} {forget_amount} card. Draw {draw_amount} cards.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -1199,7 +1199,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.frozen.name],
 		"Abilities": "{forget} {forget_amount} card. Draw {draw_amount} card.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -1214,7 +1214,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {defence}. Gain {defence_amount2} {defence},"\
 				+ " for each {fusion} fusion you've achieved this ordeal.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -1233,7 +1233,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {defence}. Gain {defence_amount2} {defence},"\
 				+ " for each {fusion} fusion you've achieved this ordeal.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -1248,7 +1248,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {defence}. Gain {defence_amount2} {defence},"\
 				+ " for each {fusion} fusion you've achieved this ordeal.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -1393,7 +1393,7 @@ const CARDS := {
 		"Abilities": "At the start of the next {concentration_stacks} turns gain {concentration_immersion} {immersion}\n"\
 				+ "and {forget} the bottom {concentration_forget} cards of your draw pile.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -1413,7 +1413,7 @@ const CARDS := {
 		"Abilities": "At the start of the next {concentration_stacks} turns gain {concentration_immersion} {immersion}\n"\
 				+ "and {forget} the bottom {concentration_forget} cards of your draw pile.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -1429,7 +1429,7 @@ const CARDS := {
 		"Abilities": "At the start of the next {concentration_stacks} turns gain {concentration_immersion} {immersion}\n"\
 				+ "and {forget} the bottom {concentration_forget} cards of your draw pile.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_amounts": {
