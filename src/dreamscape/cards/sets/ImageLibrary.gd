@@ -18,6 +18,7 @@ const FINAL_IMAGES := {
 	"Exhaustion": "res://assets/cards/Exhaustion.jpg",
 	"Murmurs": "res://assets/cards/murmurs.jpg",
 	"Boast": "res://assets/cards/boast.jpg",
+	"Tenacity": "res://assets/cards/Tenacity.jpg",
 }
 const BETA_IMAGES := {
 	"Catatonia": "res://assets/cards/Catatonia.jpg",
@@ -80,6 +81,9 @@ const BETA_IMAGES := {
 	"Nano-Machines": "res://assets/cards/Nano-Machines.jpg",
 	"Photon Blade": "res://assets/cards/Photon Blade.jpg",
 	"Fusion Grenade": "res://assets/cards/Fusion Grenade.jpg",
+	"Quick Dash": "res://assets/cards/Quick Dash.jpg",
+	"Charged Shot": "res://assets/cards/Charged Shot.jpg",
+	"Blinding Flash": "res://assets/cards/Blinding Flash.jpg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Stuffed Toy": "res://assets/journal/torments/stuffed_toy.jpeg",

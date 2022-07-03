@@ -537,7 +537,7 @@ const CARDS := {
 				+ "While in your hand, increase {interpretation} by {increase_amount} "\
 				+ "every time another card is played.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -558,7 +558,7 @@ const CARDS := {
 				+ "While in your hand, increase {interpretation} by {increase_amount} "\
 				+ "every time another card is played.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -574,7 +574,7 @@ const CARDS := {
 				+ "While in your hand, increase {interpretation} by {increase_amount} "\
 				+ "every time another card is played.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -590,7 +590,7 @@ const CARDS := {
 				+ "While in your hand, increase {interpretation} by {increase_amount} "\
 				+ "every time another card is played.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -604,7 +604,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.armor.name, Terms.GENERIC_TAGS.startup.name],
 		"Abilities": "{forget}\n{startup}: Gain {effect_stacks} {armor}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -625,7 +625,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.armor.name, Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "{forget}\n{startup}: Gain {effect_stacks} {armor}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -641,7 +641,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.armor.name, Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.omega.name],
 		"Abilities": "{forget}\n{startup}: Gain {effect_stacks} {armor}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -657,7 +657,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.armor.name, Terms.GENERIC_TAGS.startup.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Draw {draw_amount} cards. {forget}\n{startup}: Gain {effect_stacks} {armor}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -1445,7 +1445,7 @@ const CARDS := {
 		"Abilities": "{scry} {scry_amount}. Select any number to put to the bottom. "\
 				+ "Draw {draw_amount} card.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": [],
 		"_amounts": {
@@ -1464,7 +1464,7 @@ const CARDS := {
 		"Abilities": "{scry} {scry_amount}. Select any number to put to the bottom. "\
 				+ "Draw {draw_amount} cards.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": [],
 		"_amounts": {
@@ -1479,7 +1479,7 @@ const CARDS := {
 		"Abilities": "{scry} {scry_amount}. Select any number to put to the bottom. "\
 				+ "Draw {draw_amount} card.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": [],
 		"_amounts": {
