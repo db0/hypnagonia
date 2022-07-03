@@ -1,5 +1,17 @@
 # Changelog
 
+## [v0.59.3](https://github.com/db0/hypnagonia/tree/v0.59.3) (2022-07-03)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.59.2...v0.59.3)
+
+**Implemented enhancements:**
+
+- Build the Boss Shop [\#185](https://github.com/db0/hypnagonia/issues/185)
+
+**Merged pull requests:**
+
+- Finished populating all Laser Cannon cards with midjourney art [\#375](https://github.com/db0/hypnagonia/pull/375) ([db0](https://github.com/db0))
+
 ## [v0.59.2](https://github.com/db0/hypnagonia/tree/v0.59.2) (2022-07-01)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.59.1...v0.59.2)
@@ -543,7 +555,7 @@
 
 ## [v0.39.0](https://github.com/db0/hypnagonia/tree/v0.39.0) (2022-03-17)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.37.0...v0.39.0)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.38.0...v0.39.0)
 
 **Closed issues:**
 
@@ -554,13 +566,13 @@
 
 - Enhancements and Scars can now affect more properties [\#244](https://github.com/db0/hypnagonia/pull/244) ([db0](https://github.com/db0))
 
-## [v0.37.0](https://github.com/db0/hypnagonia/tree/v0.37.0) (2022-03-16)
-
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.38.0...v0.37.0)
-
 ## [v0.38.0](https://github.com/db0/hypnagonia/tree/v0.38.0) (2022-03-16)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.36.0...v0.38.0)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.37.0...v0.38.0)
+
+## [v0.37.0](https://github.com/db0/hypnagonia/tree/v0.37.0) (2022-03-16)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.36.0...v0.37.0)
 
 **Closed issues:**
 
