@@ -5386,7 +5386,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "At the end of each turn, gain {concentration_defence} {defence}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Friendlyguy#3543",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -5403,7 +5403,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "At the end of each turn, gain {concentration_defence} {defence}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Friendlyguy#3543",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -5416,7 +5416,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "At the end of each turn, gain {concentration_defence} {defence}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Friendlyguy#3543",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {

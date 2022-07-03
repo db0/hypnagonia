@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Boast.jpg-450ec33e1b512e62be9b68d6f2670e58.stex"
+path="res://.import/Blinding Flash.jpg-a2c3e4b953d14649d1f43577326e0927.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/Boast.jpg"
-dest_files=[ "res://.import/Boast.jpg-450ec33e1b512e62be9b68d6f2670e58.stex" ]
+source_file="res://assets/cards/Blinding Flash.jpg"
+dest_files=[ "res://.import/Blinding Flash.jpg-a2c3e4b953d14649d1f43577326e0927.stex" ]
 
 [params]
 

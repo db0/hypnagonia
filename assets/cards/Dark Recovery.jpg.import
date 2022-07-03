@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Boast.jpg-450ec33e1b512e62be9b68d6f2670e58.stex"
+path="res://.import/Dark Recovery.jpg-e253d69143b246c29287c8424bb40e8e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/Boast.jpg"
-dest_files=[ "res://.import/Boast.jpg-450ec33e1b512e62be9b68d6f2670e58.stex" ]
+source_file="res://assets/cards/Dark Recovery.jpg"
+dest_files=[ "res://.import/Dark Recovery.jpg-e253d69143b246c29287c8424bb40e8e.stex" ]
 
 [params]
 

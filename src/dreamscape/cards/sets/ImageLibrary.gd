@@ -17,6 +17,8 @@ const FINAL_IMAGES := {
 	"Dodge": "res://assets/cards/Dodge.jpg",
 	"Exhaustion": "res://assets/cards/Exhaustion.jpg",
 	"Murmurs": "res://assets/cards/murmurs.jpg",
+	"Boast": "res://assets/cards/boast.jpg",
+	"Tenacity": "res://assets/cards/Tenacity.jpg",
 }
 const BETA_IMAGES := {
 	"Catatonia": "res://assets/cards/Catatonia.jpg",
@@ -61,7 +63,6 @@ const BETA_IMAGES := {
 	"Confident Slap": "res://assets/cards/Confident Slap.jpg",
 	"Ventriloquism": "res://assets/cards/Ventriloquism.jpg",
 	"Cockfighting": "res://assets/cards/Cockfighting.jpg",
-	"Boast": "res://assets/cards/boast.jpg",
 	"Administration": "res://assets/journal/torments/administration.jpg",
 	"Vulcan": "res://assets/cards/Vulcan.jpg",
 	"Vulcan2": "res://assets/cards/Vulcan2.jpg",
@@ -80,6 +81,19 @@ const BETA_IMAGES := {
 	"Nano-Machines": "res://assets/cards/Nano-Machines.jpg",
 	"Photon Blade": "res://assets/cards/Photon Blade.jpg",
 	"Fusion Grenade": "res://assets/cards/Fusion Grenade.jpg",
+	"Quick Dash": "res://assets/cards/Quick Dash.jpg",
+	"Charged Shot": "res://assets/cards/Charged Shot.jpg",
+	"Blinding Flash": "res://assets/cards/Blinding Flash.jpg",
+	"Dark Approach": "res://assets/cards/Dark Approach.jpg",
+	"Dark Recovery": "res://assets/cards/Dark Recovery.jpg",
+	"Widebeam": "res://assets/cards/Widebeam.jpg",
+	"Spare Lens": "res://assets/cards/Spare Lens.jpg",
+	"Brooding": "res://assets/cards/Brooding.jpg",
+	"Recycling": "res://assets/cards/Recycling.jpg",
+	"Precision": "res://assets/cards/Precision.jpg",
+	"Focus Calibration": "res://assets/cards/Focus Calibration.jpg",
+	"Heat Venting": "res://assets/cards/Heat Venting.jpg",
+	"Streamlining": "res://assets/cards/Streamlining.jpg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Stuffed Toy": "res://assets/journal/torments/stuffed_toy.jpeg",

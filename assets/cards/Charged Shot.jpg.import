@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Boast.jpg-450ec33e1b512e62be9b68d6f2670e58.stex"
+path="res://.import/Charged Shot.jpg-1a7b24dd9486df7efca544735bffe16b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/Boast.jpg"
-dest_files=[ "res://.import/Boast.jpg-450ec33e1b512e62be9b68d6f2670e58.stex" ]
+source_file="res://assets/cards/Charged Shot.jpg"
+dest_files=[ "res://.import/Charged Shot.jpg-1a7b24dd9486df7efca544735bffe16b.stex" ]
 
 [params]
 

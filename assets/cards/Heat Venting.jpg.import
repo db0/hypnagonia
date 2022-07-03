@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Boast.jpg-450ec33e1b512e62be9b68d6f2670e58.stex"
+path="res://.import/Heat Venting.jpg-ea4d5521e5a586929d61b16a1386f230.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/Boast.jpg"
-dest_files=[ "res://.import/Boast.jpg-450ec33e1b512e62be9b68d6f2670e58.stex" ]
+source_file="res://assets/cards/Heat Venting.jpg"
+dest_files=[ "res://.import/Heat Venting.jpg-ea4d5521e5a586929d61b16a1386f230.stex" ]
 
 [params]
 

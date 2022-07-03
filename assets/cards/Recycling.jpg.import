@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Boast.jpg-450ec33e1b512e62be9b68d6f2670e58.stex"
+path="res://.import/Recycling.jpg-42547f7243512c477b3f010942e99d1e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/Boast.jpg"
-dest_files=[ "res://.import/Boast.jpg-450ec33e1b512e62be9b68d6f2670e58.stex" ]
+source_file="res://assets/cards/Recycling.jpg"
+dest_files=[ "res://.import/Recycling.jpg-42547f7243512c477b3f010942e99d1e.stex" ]
 
 [params]
 
