@@ -551,7 +551,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
 		"Abilities": "Gain {effect_stacks} {thorns}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": [],
 		"_effects_info": {
@@ -571,7 +571,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
 		"Abilities": "Gain {effect_stacks} {thorns}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": [],
 		"_effects_info": {
@@ -587,7 +587,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {effect_stacks} {thorns}\n{forget}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ['forget'],
 		"_effects_info": {
@@ -603,7 +603,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
 		"Abilities": "At the start of each turn, gain {concentration_stacks} {thorns}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": [],
 		"_effects_info": {
@@ -623,7 +623,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
 		"Abilities": "At the start of each turn, gain {concentration_stacks} {thorns}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": [],
 		"_effects_info": {
@@ -639,7 +639,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
 		"Abilities": "At the start of each turn, gain {concentration_stacks} {thorns}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": [],
 		"_effects_info": {

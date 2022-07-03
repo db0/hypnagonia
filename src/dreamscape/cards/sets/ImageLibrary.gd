@@ -94,6 +94,8 @@ const BETA_IMAGES := {
 	"Focus Calibration": "res://assets/cards/Focus Calibration.jpg",
 	"Heat Venting": "res://assets/cards/Heat Venting.jpg",
 	"Streamlining": "res://assets/cards/Streamlining.jpg",
+	"That's Going in the Book": "res://assets/cards/That\'s Going in the Book.jpg",
+	"Note-Taking": "res://assets/cards/Note-Taking.jpg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Stuffed Toy": "res://assets/journal/torments/stuffed_toy.jpeg",
