@@ -109,6 +109,10 @@ const BETA_IMAGES := {
 	"Nothing Forgotten": "res://assets/cards/Nothing Forgotten.jpg",
 	"Stewing": "res://assets/cards/Stewing.jpg",
 	"The Cold Dish": "res://assets/cards/The Cold Dish.jpg",
+	"Planning": "res://assets/cards/Planning.jpg",
+	"Saved for Later": "res://assets/cards/Saved for Later.jpg",
+	"Reckoning Time": "res://assets/cards/Reckoning Time.jpg",
+	"Prepared": "res://assets/cards/Prepared.jpg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Stuffed Toy": "res://assets/journal/torments/stuffed_toy.jpeg",

@@ -764,7 +764,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If you have {thorns}, gain {effect_stacks} {empower}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_effects_info": {
@@ -787,7 +787,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If you have {thorns}, gain {effect_stacks} {empower}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_effects_info": {
@@ -806,7 +806,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If you have {thorns}, gain {effect_stacks} {empower}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_effects_info": {
@@ -883,7 +883,7 @@ const CARDS := {
 		"Abilities": "{damage} all Torments as much as your {thorns} stacks * {multiplier_amount}.\n"\
 		 		+ "Decrease your {thorns} stacks by {detrimental_percentage}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": [],
 		"_effects_info": {
@@ -905,7 +905,7 @@ const CARDS := {
 		"Abilities": "{damage} all Torments as much as your {thorns} stacks * {multiplier_amount}.\n"\
 		 		+ "Decrease your {thorns} stacks by {detrimental_percentage}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": [],
 		"_effects_info": {
@@ -923,7 +923,7 @@ const CARDS := {
 		"Abilities": "{damage} all Torments as much as your {thorns} stacks * {multiplier_amount}.\n"\
 		 		+ "Decrease your {thorns} stacks by {detrimental_percentage}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": [],
 		"_effects_info": {
@@ -943,7 +943,7 @@ const CARDS := {
 		],
 		"Abilities": "Gain {defence_amount} {confidence}\n{forget}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_avoid_normal_discard": true,
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence", "forget"],
@@ -964,7 +964,7 @@ const CARDS := {
 		],
 		"Abilities": "Gain {defence_amount} {confidence}\n{forget}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_avoid_normal_discard": true,
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence", "forget"],
@@ -982,7 +982,7 @@ const CARDS := {
 		],
 		"Abilities": "Gain {defence_amount} {confidence}\n{forget}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_avoid_normal_discard": true,
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence", "forget"],
