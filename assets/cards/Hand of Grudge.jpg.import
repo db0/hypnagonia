@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/boast.jpg-de12eafd1cec952d287936433b89ae78.stex"
+path="res://.import/Hand of Grudge.jpg-db050c1d26da0bfc343702eafa5f9e74.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/boast.jpg"
-dest_files=[ "res://.import/boast.jpg-de12eafd1cec952d287936433b89ae78.stex" ]
+source_file="res://assets/cards/Hand of Grudge.jpg"
+dest_files=[ "res://.import/Hand of Grudge.jpg-db050c1d26da0bfc343702eafa5f9e74.stex" ]
 
 [params]
 

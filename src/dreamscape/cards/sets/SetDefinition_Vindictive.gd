@@ -52,7 +52,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "If {frozen}, also apply {effect_stacks} {burn}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "frozen"],
 		"_effects_info": {
@@ -74,7 +74,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "If {frozen}, also apply {effect_stacks} {burn}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "frozen"],
 		"_effects_info": {
@@ -92,7 +92,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "If {frozen}, also apply {effect_stacks} {burn}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "frozen"],
 		"_effects_info": {
@@ -110,7 +110,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If {frozen}, gain {defence_amount2} {defence}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence", "frozen"],
 		"_amounts": {
@@ -129,7 +129,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If {frozen}, gain {defence_amount2} {defence}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence", "frozen"],
 		"_amounts": {
@@ -144,7 +144,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If {frozen}, gain {defence_amount2} {defence}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence", "frozen"],
 		"_amounts": {
@@ -159,7 +159,7 @@ const CARDS := {
 		"Abilities": "Draw {draw_amount} cards.\n"\
 				+ "Discard {discard_amount} cards.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": [],
 		"_amounts": {
@@ -178,7 +178,7 @@ const CARDS := {
 		"Abilities": "Draw {draw_amount} cards.\n"\
 				+ "Discard {discard_amount} cards.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": [],
 		"_amounts": {
@@ -193,7 +193,7 @@ const CARDS := {
 		"Abilities": "Draw {draw_amount} cards.\n"\
 				+ "Discard {discard_amount} cards.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -207,7 +207,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount} for each card in hand (including self)",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -224,7 +224,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount} for each card in hand (including self)",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": [],
 		"_amounts": {
@@ -237,7 +237,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount} for each card in hand (including self)",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -250,7 +250,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
 		"Abilities": "Gain {effect_stacks} {thorns} for each card in hand (including self)",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["forget"],
 		"_effects_info": {
@@ -270,7 +270,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
 		"Abilities": "Gain {effect_stacks} {thorns} for each card in hand (including self)",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["forget"],
 		"_effects_info": {
@@ -286,7 +286,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
 		"Abilities": "Gain {effect_stacks} {thorns} for each card in hand (including self)",
 		"Cost": 3,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["forget"],
 		"_effects_info": {
@@ -302,7 +302,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "At the end of the turn, gain {concentration_effect} {defence} for each card in hand.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -320,7 +320,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "At the end of the turn, gain {concentration_effect} {defence} for each card in hand.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -334,7 +334,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "At the end of the turn, gain {concentration_effect} {defence} for each card in hand.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -349,7 +349,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "Every turn this card starts in your hand, reduce its cost by {beneficial_integer} until you play it.",
 		"Cost": 4,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -368,7 +368,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "Every turn this card starts in your hand, reduce its cost by {beneficial_integer} until you play it.",
 		"Cost": 3,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -383,7 +383,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "Every turn this card starts in your hand, reduce its cost by {beneficial_integer} until you play it.",
 		"Cost": 6,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -397,7 +397,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "At the start of the turn, {concentration_stacks} random card in your hand becomes {frozen}.",
 		"Cost": 3,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["frozen"],
 		"_amounts": {
@@ -415,7 +415,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "At the start of the turn, {concentration_stacks} random card in your hand becomes {frozen}.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["frozen"],
 		"_amounts": {
@@ -428,7 +428,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.alpha.name],
 		"Abilities": "At the start of the turn, {concentration_stacks} random card in your hand becomes {frozen}.",
 		"Cost": 3,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["frozen"],
 		"_amounts": {
@@ -442,7 +442,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {defence}."\
 				+ "Every turn this card starts in your hand, increase this amount by {increase_amount}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -461,7 +461,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {defence}."\
 				+ "Every turn this card starts in your hand, increase this amount by {increase_amount}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -476,7 +476,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {defence}."\
 				+ "Every turn this card starts in your hand, increase this amount by {increase_amount}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -491,7 +491,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "If the Torment intends to {stress} for {min_requirements_amount} or more, gain {effect_stacks} {thorns}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_effects_info": {
@@ -514,7 +514,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "If the Torment intends to {stress} for {min_requirements_amount} or more, gain {effect_stacks} {thorns}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_effects_info": {
@@ -533,7 +533,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "If the Torment intends to {stress} for {min_requirements_amount} or more, gain {effect_stacks} {thorns}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_effects_info": {
@@ -551,7 +551,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
 		"Abilities": "Gain {effect_stacks} {thorns}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": [],
 		"_effects_info": {
@@ -571,7 +571,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
 		"Abilities": "Gain {effect_stacks} {thorns}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": [],
 		"_effects_info": {
@@ -587,7 +587,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {effect_stacks} {thorns}\n{forget}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ['forget'],
 		"_effects_info": {
@@ -603,7 +603,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
 		"Abilities": "At the start of each turn, gain {concentration_stacks} {thorns}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": [],
 		"_effects_info": {
@@ -623,7 +623,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
 		"Abilities": "At the start of each turn, gain {concentration_stacks} {thorns}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": [],
 		"_effects_info": {
@@ -639,7 +639,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
 		"Abilities": "At the start of each turn, gain {concentration_stacks} {thorns}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": [],
 		"_effects_info": {
@@ -655,7 +655,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for as much as your {thorns} stacks + {beneficial_integer}. This bypasses {defence}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_effects_info": {
@@ -675,7 +675,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for as much as your {thorns} stacks + {beneficial_integer}. This bypasses {defence}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_effects_info": {
@@ -691,7 +691,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
 		"Abilities": "Gain {effect_stacks} {thorns}. {damage} for as much as your {thorns} stacks + {beneficial_integer}. This bypasses {defence}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_effects_info": {
@@ -708,7 +708,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {thorns} card.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER
 		},
@@ -729,7 +729,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {thorns} card.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER
 		},
@@ -746,7 +746,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {thorns} card.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER
 		},
@@ -764,7 +764,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If you have {thorns}, gain {effect_stacks} {empower}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_effects_info": {
@@ -787,7 +787,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If you have {thorns}, gain {effect_stacks} {empower}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_effects_info": {
@@ -806,7 +806,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If you have {thorns}, gain {effect_stacks} {empower}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_effects_info": {
@@ -825,7 +825,7 @@ const CARDS := {
 		"Abilities": "At the start of each turn, gain {concentration_stacks} {armor} "\
 		 		+ "for every {concentration_divider} {enemy_health} all Torments received during their own turn.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ['enemy_health'],
 		"_effects_info": {
@@ -847,7 +847,7 @@ const CARDS := {
 		"Abilities": "At the start of each turn, gain {concentration_stacks} {armor} "\
 		 		+ "for every {concentration_divider} {enemy_health} all Torments received during their own turn.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ['enemy_health'],
 		"_effects_info": {
@@ -865,7 +865,7 @@ const CARDS := {
 		"Abilities": "At the start of each turn, gain {concentration_stacks} {armor} "\
 		 		+ "for every {concentration_divider} {enemy_health} all Torments received during their own turn.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ['enemy_health'],
 		"_effects_info": {
@@ -883,7 +883,7 @@ const CARDS := {
 		"Abilities": "{damage} all Torments as much as your {thorns} stacks * {multiplier_amount}.\n"\
 		 		+ "Decrease your {thorns} stacks by {detrimental_percentage}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": [],
 		"_effects_info": {
@@ -905,7 +905,7 @@ const CARDS := {
 		"Abilities": "{damage} all Torments as much as your {thorns} stacks * {multiplier_amount}.\n"\
 		 		+ "Decrease your {thorns} stacks by {detrimental_percentage}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": [],
 		"_effects_info": {
@@ -923,7 +923,7 @@ const CARDS := {
 		"Abilities": "{damage} all Torments as much as your {thorns} stacks * {multiplier_amount}.\n"\
 		 		+ "Decrease your {thorns} stacks by {detrimental_percentage}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": [],
 		"_effects_info": {
@@ -943,7 +943,7 @@ const CARDS := {
 		],
 		"Abilities": "Gain {defence_amount} {confidence}\n{forget}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_avoid_normal_discard": true,
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence", "forget"],
@@ -964,7 +964,7 @@ const CARDS := {
 		],
 		"Abilities": "Gain {defence_amount} {confidence}\n{forget}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_avoid_normal_discard": true,
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence", "forget"],
@@ -982,7 +982,7 @@ const CARDS := {
 		],
 		"Abilities": "Gain {defence_amount} {confidence}\n{forget}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_avoid_normal_discard": true,
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence", "forget"],
@@ -996,7 +996,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Take {anxiety} equal to your {thorns}/{beneficial_float}.\nIncrease your {thorns} by {beneficial_percentage}\n{forget}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ['forget'],
 		"_effects_info": {
@@ -1017,7 +1017,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Take {anxiety} equal to your {thorns}/{beneficial_float}.\nIncrease your {thorns} by {beneficial_percentage}\n{forget}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ['forget'],
 		"_effects_info": {
@@ -1034,7 +1034,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Take {anxiety} equal to your {thorns}/{beneficial_float}.\nIncrease your {thorns} by {beneficial_percentage}\n{forget}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ['forget'],
 		"_effects_info": {

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/boast.jpg-de12eafd1cec952d287936433b89ae78.stex"
+path="res://.import/Memento of Safety.jpg-8cb1c5aa22106189e39537d067bc3379.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/boast.jpg"
-dest_files=[ "res://.import/boast.jpg-de12eafd1cec952d287936433b89ae78.stex" ]
+source_file="res://assets/cards/Memento of Safety.jpg"
+dest_files=[ "res://.import/Memento of Safety.jpg-8cb1c5aa22106189e39537d067bc3379.stex" ]
 
 [params]
 

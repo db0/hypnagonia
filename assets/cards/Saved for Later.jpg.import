@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/boast.jpg-de12eafd1cec952d287936433b89ae78.stex"
+path="res://.import/Saved for Later.jpg-f0a4c40cbc4c6a97109d35a8816f1899.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/boast.jpg"
-dest_files=[ "res://.import/boast.jpg-de12eafd1cec952d287936433b89ae78.stex" ]
+source_file="res://assets/cards/Saved for Later.jpg"
+dest_files=[ "res://.import/Saved for Later.jpg-f0a4c40cbc4c6a97109d35a8816f1899.stex" ]
 
 [params]
 
