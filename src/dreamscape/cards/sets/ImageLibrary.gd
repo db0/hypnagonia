@@ -103,6 +103,12 @@ const BETA_IMAGES := {
 	"Moving On": "res://assets/cards/Moving On.jpg",
 	"Vestige of Warmth": "res://assets/cards/Vestige of Warmth.jpg",
 	"Fist of Candies": "res://assets/cards/Fist of Candies.jpg",
+	"Hand of Grudge": "res://assets/cards/Hand of Grudge.jpg",
+	"Vengeance": "res://assets/cards/Vengeance.jpg",
+	"Reactionary": "res://assets/cards/Reactionary.jpg",
+	"Nothing Forgotten": "res://assets/cards/Nothing Forgotten.jpg",
+	"Stewing": "res://assets/cards/Stewing.jpg",
+	"The Cold Dish": "res://assets/cards/The Cold Dish.jpg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Stuffed Toy": "res://assets/journal/torments/stuffed_toy.jpeg",
