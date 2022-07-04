@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.59.4](https://github.com/db0/hypnagonia/tree/v0.59.4) (2022-07-04)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.59.3...v0.59.4)
+
+**Merged pull requests:**
+
+- Added Vindictive midjourney art [\#376](https://github.com/db0/hypnagonia/pull/376) ([db0](https://github.com/db0))
+
 ## [v0.59.3](https://github.com/db0/hypnagonia/tree/v0.59.3) (2022-07-03)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.59.2...v0.59.3)
