@@ -52,7 +52,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "If {frozen}, also apply {effect_stacks} {burn}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "frozen"],
 		"_effects_info": {
@@ -74,7 +74,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "If {frozen}, also apply {effect_stacks} {burn}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "frozen"],
 		"_effects_info": {
@@ -92,7 +92,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "If {frozen}, also apply {effect_stacks} {burn}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "frozen"],
 		"_effects_info": {
@@ -110,7 +110,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If {frozen}, gain {defence_amount2} {defence}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence", "frozen"],
 		"_amounts": {
@@ -129,7 +129,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If {frozen}, gain {defence_amount2} {defence}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence", "frozen"],
 		"_amounts": {
@@ -144,7 +144,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If {frozen}, gain {defence_amount2} {defence}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence", "frozen"],
 		"_amounts": {
@@ -159,7 +159,7 @@ const CARDS := {
 		"Abilities": "Draw {draw_amount} cards.\n"\
 				+ "Discard {discard_amount} cards.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": [],
 		"_amounts": {
@@ -178,7 +178,7 @@ const CARDS := {
 		"Abilities": "Draw {draw_amount} cards.\n"\
 				+ "Discard {discard_amount} cards.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": [],
 		"_amounts": {
@@ -193,7 +193,7 @@ const CARDS := {
 		"Abilities": "Draw {draw_amount} cards.\n"\
 				+ "Discard {discard_amount} cards.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -207,7 +207,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount} for each card in hand (including self)",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -224,7 +224,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount} for each card in hand (including self)",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": [],
 		"_amounts": {
@@ -237,7 +237,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount} for each card in hand (including self)",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -302,7 +302,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "At the end of the turn, gain {concentration_effect} {defence} for each card in hand.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -320,7 +320,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "At the end of the turn, gain {concentration_effect} {defence} for each card in hand.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -334,7 +334,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "At the end of the turn, gain {concentration_effect} {defence} for each card in hand.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
