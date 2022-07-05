@@ -113,6 +113,9 @@ const BETA_IMAGES := {
 	"Saved for Later": "res://assets/cards/Saved for Later.jpg",
 	"Reckoning Time": "res://assets/cards/Reckoning Time.jpg",
 	"Prepared": "res://assets/cards/Prepared.jpg",
+	"Sensuous": "res://assets/cards/Sensuous.jpg",
+	"A Strange Gaida": "res://assets/cards/A Strange Gaida.jpg",
+	"The Plot Chickens...": "res://assets/cards/The Plot Chickens.jpg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Stuffed Toy": "res://assets/journal/torments/stuffed_toy.jpeg",

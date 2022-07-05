@@ -401,7 +401,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "{damage} for {damage_amount}.\nApply {effect_stacks} {confusion}",
 		"Cost": 1,
-		"_illustration": "SkylarkGSH",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -424,7 +424,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "{damage} for {damage_amount}.\nApply {effect_stacks} {confusion}",
 		"Cost": 0,
-		"_illustration": "SkylarkGSH",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -441,7 +441,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "{damage} for {damage_amount}.\nApply {effect_stacks} {confusion}",
 		"Cost": 1,
-		"_illustration": "SkylarkGSH",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -458,7 +458,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "{damage} for {damage_amount}.\nApply {effect_stacks} {confusion}",
 		"Cost": 1,
-		"_illustration": "SkylarkGSH",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -475,7 +475,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "{damage} for {damage_amount}.\nApply {effect_stacks} {confusion}\n{release}",
 		"Cost": 1,
-		"_illustration": "SkylarkGSH",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -644,7 +644,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "At the start of your turn, {damage} a random Torment with {confusion} for {concentration_damage}.",
 		"Cost": 1,
-		"_illustration": "SkylarkGSH",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -665,7 +665,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "At the start of your turn, {damage} a random Torment with {confusion} for {concentration_damage}.",
 		"Cost": 0,
-		"_illustration": "SkylarkGSH",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -681,7 +681,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "At the start of your turn, {damage} a random Torment with {confusion} for {concentration_damage}.",
 		"Cost": 1,
-		"_illustration": "SkylarkGSH",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -697,7 +697,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "At the start of your turn, {damage} all Torments with {confusion} for {concentration_damage}.",
 		"Cost": 1,
-		"_illustration": "SkylarkGSH",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -4875,7 +4875,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}. "\
 				+ "If the target has {confusion}, Gain {effect_stacks} {buffer} and {defence_amount} {confidence}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "confidence"],
 		"_effects_info": {
@@ -4899,7 +4899,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}. "\
 				+ "If the target has {confusion}, Gain {effect_stacks} {buffer} and {defence_amount} {confidence}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "confidence"],
 		"_effects_info": {
@@ -4918,7 +4918,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}. "\
 				+ "If the target has {confusion}, Gain {effect_stacks} {buffer} and {defence_amount} {confidence}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "confidence"],
 		"_effects_info": {
@@ -4937,7 +4937,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}. "\
 				+ "If the target has {confusion}, Gain {defence_amount} {confidence}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "confidence"],
 		"_effects_info": {
@@ -4959,7 +4959,7 @@ const CARDS := {
 		],
 		"Abilities": "All Torments gain {effect_stacks} {confusion} and {effect_stacks2} {marked}. {forget}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["forget"],
 		"_effects_info": {
@@ -4990,7 +4990,7 @@ const CARDS := {
 
 		"Abilities": "All Torments gain {effect_stacks} {confusion} and {effect_stacks2} {marked}. {forget}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["forget"],
 		"_effects_info": {
@@ -5017,7 +5017,7 @@ const CARDS := {
 
 		"Abilities": "All Torments gain {effect_stacks} {confusion} and {effect_stacks2} {marked}. {forget}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["forget"],
 		"_effects_info": {
@@ -5176,7 +5176,7 @@ const CARDS := {
 		"Abilities": "Apply {effect_stacks} {confusion} to Target Torment, "\
 				+ "then gain {thorns} equal to the target's {confusion}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": [],
 		"_effects_info": {
@@ -5198,7 +5198,7 @@ const CARDS := {
 		"Abilities": "Apply {effect_stacks} {confusion} to Target Torment, "\
 				+ "then gain {thorns} equal to the target's {confusion}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": [],
 		"_effects_info": {
@@ -5216,7 +5216,7 @@ const CARDS := {
 		"Abilities": "Apply {effect_stacks} {confusion} to Target Torment, "\
 				+ "then gain {thorns} equal to the target's {confusion}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": [],
 		"_effects_info": {
