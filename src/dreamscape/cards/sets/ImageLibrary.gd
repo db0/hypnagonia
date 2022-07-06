@@ -63,7 +63,7 @@ const BETA_IMAGES := {
 	"The Joke": "res://assets/cards/The Joke.jpg",
 	"Confident Slap": "res://assets/cards/Confident Slap.jpg",
 	"Ventriloquism": "res://assets/cards/Ventriloquism.jpg",
-	"Cockfighting": "res://assets/cards/Cockfighting.jpg",
+	"Cockfighting": "res://assets/cards/cockfighting.jpg",
 	"Administration": "res://assets/journal/torments/administration.jpg",
 	"Vulcan": "res://assets/cards/Vulcan.jpg",
 	"Vulcan2": "res://assets/cards/Vulcan2.jpg",
