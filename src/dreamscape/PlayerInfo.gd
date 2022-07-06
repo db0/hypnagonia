@@ -189,6 +189,9 @@ func _on_Help_pressed() -> void:
 	SoundManager.play_se('click')
 	if context == ArtifactDefinitions.EffectContext.BATTLE:
 		cfc.game_paused = true
+	# If the player opens the help with H, we don't want to open the journal help when the ordeal is running
+	elif context == ArtifactDefinitions.EffectContext.OVERWORLD and cfc.NMAP.has("board"):
+		return
 	_tutorial.setup(context, _help)
 	_tutorial.rect_size = get_viewport().size
 	_help.popup_centered_minsize()
