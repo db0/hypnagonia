@@ -5288,7 +5288,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}. "\
 				+ "If the target has {poison}, {pierce}",
-		"Cost": 2,
+		"Cost": 1,
 		"_illustration": "Friendlyguy#3543",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation","pierce"],
@@ -5309,7 +5309,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}. "\
 				+ "If the target has {poison}, {pierce}",
-		"Cost": 2,
+		"Cost": 1,
 		"_illustration": "Friendlyguy#3543",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation","pierce"],
@@ -5326,7 +5326,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.omega.name],
 		"Abilities": "{damage} for {damage_amount}. "\
 				+ "If the target has {poison}, {pierce}",
-		"Cost": 2,
+		"Cost": 1,
 		"_illustration": "Friendlyguy#3543",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation","pierce"],
