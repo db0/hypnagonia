@@ -123,6 +123,10 @@ const BETA_IMAGES := {
 	"Fowl Language": "res://assets/cards/Fowl Language.jpg",
 	"Massive Eggression": "res://assets/cards/Massive Eggression.jpg",
 	"Utterly Ridiculous": "res://assets/cards/Utterly Ridiculous.jpg",
+	"It's alive!": "res://assets/cards/It\'s alive!.jpg",
+	"A Fine Specimen": "res://assets/cards/A Fine Specimen.jpg",
+	"Misplaced Research": "res://assets/cards/Misplaced Research.jpg",
+	"Vexing Concept": "res://assets/cards/Vexing Concept.jpg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Stuffed Toy": "res://assets/journal/torments/stuffed_toy.jpeg",

@@ -2453,7 +2453,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
 		"Abilities": "{damage} for {damage_amount}. {shuffle} this card into your draw pile.",
 		"Cost": 1,
-		"_illustration": "Maria Thoukydidou",
+		"_illustration": "Db0 via midjourney.com",
 		"_avoid_normal_discard": true,
 		"_rarity": "Basic",
 		"_keywords": ["interpretation"],
@@ -2471,7 +2471,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
 		"Abilities": "{damage} for {damage_amount}. {shuffle} this card into your draw pile.",
 		"Cost": 1,
-		"_illustration": "Maria Thoukydidou",
+		"_illustration": "Db0 via midjourney.com",
 		"_avoid_normal_discard": true,
 		"_rarity": "Basic",
 		"_keywords": ["interpretation"],
@@ -2485,7 +2485,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
 		"Abilities": "{damage} for {damage_amount}. {shuffle} this card into your draw pile.",
 		"Cost": 0,
-		"_illustration": "Maria Thoukydidou",
+		"_illustration": "Db0 via midjourney.com",
 		"_avoid_normal_discard": true,
 		"_rarity": "Basic",
 		"_keywords": ["interpretation"],
@@ -2617,7 +2617,6 @@ const CARDS := {
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
-		"_avoid_normal_discard": true,
 		"_amounts": {
 			"defence_amount": 6,
 			"defence_amount2": 11,
@@ -2751,7 +2750,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}. You may {discard} {discard_amount} cards from your hand "\
 				+ "to {shuffle} this card into your draw pile.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_amounts": {
 			"damage_amount": 9,
@@ -2769,7 +2768,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}. You may {discard} {discard_amount} cards from your hand "\
 				+ "to {shuffle} this card into your draw pile.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_amounts": {
 			"damage_amount": 12,
@@ -2783,7 +2782,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}. You may {discard} {discard_amount} card from your hand "\
 				+ "to {shuffle} this card into your draw pile.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_amounts": {
 			"damage_amount": 10,
@@ -2797,7 +2796,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "{damage} for {damage_amount2} for each time your draw pile was shuffled.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -2816,7 +2815,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "{damage} for {damage_amount2} for each time your draw pile was shuffled.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -2831,7 +2830,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "{damage} for {damage_amount2} for each time your draw pile was shuffled.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -4577,7 +4576,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "{damage} for {chain_amount} for every {detrimental_float} cards currently in your draw pile.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -4597,7 +4596,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "{damage} for {chain_amount} for every {detrimental_float} cards currently in your draw pile.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -4613,7 +4612,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "{damage} for {chain_amount} for every {detrimental_float} cards currently in your draw pile.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -4629,7 +4628,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "Shuffle the top {card_amount} card of the discard pile into the draw pile.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -4648,7 +4647,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "Shuffle the top {card_amount} card of the discard pile into the draw pile.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -4663,7 +4662,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "Shuffle the top {card_amount} cards of the discard pile into the draw pile.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
