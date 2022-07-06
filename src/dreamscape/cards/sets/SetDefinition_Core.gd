@@ -2061,7 +2061,7 @@ const CARDS := {
 		"Abilities": "Can only be played if there's a total of {filter_amount} or more {confusion} among Torments\n"\
 				+ "{damage} all Torments for {damage_amount}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -2082,7 +2082,7 @@ const CARDS := {
 		"Abilities": "Can only be played if there's a total of {filter_amount} or more {confusion} among Torments\n"\
 				+ "{damage} all Torments for {damage_amount}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -2097,7 +2097,7 @@ const CARDS := {
 		"Abilities": "Can only be played if there's a total of {filter_amount} or more {confusion} among Torments\n"\
 				+ "{damage} all Torments for {damage_amount}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -2112,7 +2112,7 @@ const CARDS := {
 		"Abilities": "Can only be played if there's a total of {filter_amount} or more {confusion} among Torments\n"\
 				+ "{damage} all Torments for {damage_amount}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -2127,7 +2127,7 @@ const CARDS := {
 		"Abilities": "Can only be played if there's a total of {filter_amount} or more {confusion} among Torments\n"\
 				+ "{damage} all Torments for {damage_amount}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -2271,7 +2271,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "Each Torment is applied {doubt} equals to its {confusion}x{multiplier_amount}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY,
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
@@ -2292,7 +2292,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "Each Torment is applied {doubt} equals to its {confusion}x{multiplier_amount}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY,
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
@@ -2308,7 +2308,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "Each Torment is applied {doubt} equals to its {confusion}x{multiplier_amount}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY,
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
@@ -2324,7 +2324,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "Each Torment is applied {doubt} equals to its ({confusion}+1)x{multiplier_amount}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY,
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
@@ -2383,7 +2383,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Whenever you apply {confusion} to a Torment, {damage} it for {concentration_damage}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -2404,7 +2404,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Whenever you apply {confusion} to a Torment, {damage} it for {concentration_damage}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -2420,7 +2420,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.alpha.name],
 		"Abilities": "Whenever you apply {confusion} to a Torment, {damage} it for {concentration_damage}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -2436,7 +2436,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Whenever you apply {confusion} to a Torment, {damage} it for {concentration_damage}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
 		},
@@ -5040,7 +5040,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "If you have {buffer}, gain {effect_stacks} {armor}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_effects_info": {
@@ -5064,7 +5064,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "If you have {buffer}, gain {effect_stacks} {armor}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_effects_info": {
@@ -5083,7 +5083,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "If you have {buffer}, gain {effect_stacks} {armor}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_effects_info": {
@@ -5102,7 +5102,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "If you have {buffer}, gain {effect_stacks} {armor}",
 		"Cost": 3,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_effects_info": {
@@ -5121,7 +5121,7 @@ const CARDS := {
 		"Abilities": "Whenever you succesfully {damage} a Torment with a card or memory effect, "\
 				+ "it gains it {concentration_stacks} {confusion}.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["interpretation", "sneakybeaky"],
 		"_effects_info": {
@@ -5142,7 +5142,7 @@ const CARDS := {
 		"Abilities": "Whenever you succesfully {damage} a Torment with a card or memory effect, "\
 				+ "it gains it {concentration_stacks} {confusion}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["interpretation", "sneakybeaky"],
 		"_effects_info": {
@@ -5159,7 +5159,7 @@ const CARDS := {
 		"Abilities": "Whenever you succesfully {damage} a Torment with a card or memory effect, "\
 				+ "it gains it {concentration_stacks} {confusion}.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["interpretation", "sneakybeaky"],
 		"_effects_info": {
@@ -5233,7 +5233,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}. Gain {effect_stacks} {confusion}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_effects_info": {
@@ -5254,7 +5254,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}. Gain {effect_stacks} {confusion}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_effects_info": {
@@ -5271,7 +5271,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}. Gain {effect_stacks} {confusion}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_effects_info": {
@@ -5289,7 +5289,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}. "\
 				+ "If the target has {poison}, {pierce}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Friendlyguy#3543",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation","pierce"],
 		"_effects_info": {
@@ -5310,7 +5310,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}. "\
 				+ "If the target has {poison}, {pierce}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Friendlyguy#3543",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation","pierce"],
 		"_effects_info": {
@@ -5327,7 +5327,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}. "\
 				+ "If the target has {poison}, {pierce}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Friendlyguy#3543",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation","pierce"],
 		"_effects_info": {

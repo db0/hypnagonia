@@ -19,6 +19,7 @@ const FINAL_IMAGES := {
 	"Murmurs": "res://assets/cards/murmurs.jpg",
 	"Boast": "res://assets/cards/boast.jpg",
 	"Tenacity": "res://assets/cards/Tenacity.jpg",
+	"Impugn": "res://assets/cards/Impugn.jpg",
 }
 const BETA_IMAGES := {
 	"Catatonia": "res://assets/cards/Catatonia.jpg",
@@ -116,6 +117,12 @@ const BETA_IMAGES := {
 	"Sensuous": "res://assets/cards/Sensuous.jpg",
 	"A Strange Gaida": "res://assets/cards/A Strange Gaida.jpg",
 	"The Plot Chickens...": "res://assets/cards/The Plot Chickens.jpg",
+	"Absurdity Unleashed": "res://assets/cards/Absurdity Unleashed.jpg",
+	"Sneaky-Beaky": "res://assets/cards/Sneaky-Beaky.jpg",
+	"One With The Poultry": "res://assets/cards/One With The Poultry.jpg",
+	"Fowl Language": "res://assets/cards/Fowl Language.jpg",
+	"Massive Eggression": "res://assets/cards/Massive Eggression.jpg",
+	"Utterly Ridiculous": "res://assets/cards/Utterly Ridiculous.jpg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Stuffed Toy": "res://assets/journal/torments/stuffed_toy.jpeg",
