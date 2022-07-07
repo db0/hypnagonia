@@ -2214,7 +2214,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "{shuffle} your discard pile into your draw pile.\nPlay {draw_amount} Random card from your draw pile. {forget}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -2232,7 +2232,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "{shuffle} your discard pile into your draw pile.\nPlay {draw_amount} Random card from your draw pile. {forget}.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -2245,7 +2245,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "{shuffle} your discard pile into your draw pile.\nPlay {draw_amount} Random card from your draw pile. {forget}.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -2258,7 +2258,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
 		"Abilities": "{shuffle} your discard pile into your draw pile.\nPlay {draw_amount} Random card from your draw pile.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": [],
 		"_amounts": {
@@ -2499,7 +2499,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Whenever you {shuffle} your draw pile, gain {concentration_defence} {confidence}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -2517,7 +2517,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Whenever you {shuffle} your draw pile, gain {concentration_defence} {confidence}.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -2530,7 +2530,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.alpha.name],
 		"Abilities": "Whenever you {shuffle} your draw pile, gain {concentration_defence} {confidence}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -2543,7 +2543,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Whenever you {shuffle} your draw pile, gain {concentration_defence} {confidence}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -2633,7 +2633,7 @@ const CARDS := {
 		],
 		"Abilities": "{forget} the top {forget_amount} card of the draw pile: Gain {immersion_amount} {immersion}. Draw {draw_amount} cards.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -2657,7 +2657,7 @@ const CARDS := {
 
 		"Abilities": "{forget} the top {forget_amount} card of the draw pile: Gain {immersion_amount} {immersion}. Draw {draw_amount} cards.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -2677,7 +2677,7 @@ const CARDS := {
 
 		"Abilities": "{forget} the top {forget_amount} card of the draw pile: Gain {immersion_amount} {immersion}. Draw {draw_amount} cards.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -2693,7 +2693,7 @@ const CARDS := {
 		"Abilities": "At the end of your turn, {shuffle} the top {concentration_cards} card "\
 				+ "from the discard pile into the draw pile.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_amounts": {
 			"concentration_cards": 1,
@@ -2711,7 +2711,7 @@ const CARDS := {
 		"Abilities": "At the end of your turn, {shuffle} the top {concentration_cards} card "\
 				+ "from the discard pile into the draw pile.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_amounts": {
 			"concentration_cards": 1,
@@ -2724,7 +2724,7 @@ const CARDS := {
 		"Abilities": "At the end of your turn, {shuffle} the top {concentration_cards} card "\
 				+ "from the discard pile into the draw pile.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_amounts": {
 			"concentration_cards": 1,
@@ -2737,7 +2737,7 @@ const CARDS := {
 		"Abilities": "At the end of your turn, {shuffle} the top {concentration_cards} cards "\
 				+ "from the discard pile into the draw pile.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_amounts": {
 			"concentration_cards": 2,
@@ -2845,7 +2845,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "If you've shuffled your draw pile this turn, apply {effect_stacks} {vulnerable}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_effects_info": {
@@ -2867,7 +2867,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "If you've shuffled your draw pile this turn, apply {effect_stacks} {vulnerable}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_effects_info": {
@@ -2885,7 +2885,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "If you've shuffled your draw pile this turn, apply {effect_stacks} {vulnerable}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_effects_info": {
@@ -4342,7 +4342,7 @@ const CARDS := {
 				+ "if your discard pile has at most {concentration_threshold} cards, "\
 				+ "gain {concentration_defence} {confidence}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_avoid_normal_discard": true,
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
@@ -4363,7 +4363,7 @@ const CARDS := {
 				+ "if your discard pile has at most {concentration_threshold} cards, "\
 				+ "gain {concentration_defence} {confidence}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_avoid_normal_discard": true,
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
@@ -4380,7 +4380,7 @@ const CARDS := {
 				+ "if your discard pile has at most {concentration_threshold} cards, "\
 				+ "gain {concentration_defence} {confidence}.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_avoid_normal_discard": true,
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
@@ -4401,7 +4401,7 @@ const CARDS := {
 				+ "If your draw pile currently has at least {deck_size} cards, "\
 				+ "shuffle this card back into the draw pile and gain {effect_stacks2} {buffer}.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.armor.name: Terms.PLAYER,
@@ -4435,7 +4435,7 @@ const CARDS := {
 				+ "If your draw pile currently has at least {deck_size} cards, "\
 				+ "shuffle this card back into the draw pile and gain {effect_stacks2} {buffer}.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_effects_info": {
@@ -4465,7 +4465,7 @@ const CARDS := {
 				+ "If your draw pile currently has at least {deck_size} cards, "\
 				+ "shuffle this card back into the draw pile and gain {effect_stacks2} {buffer}.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_effects_info": {
@@ -4495,7 +4495,7 @@ const CARDS := {
 				+ "If your draw pile currently has at least {deck_size} cards, "\
 				+ "shuffle this card back into the draw pile and gain {effect_stacks2} {buffer}.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_effects_info": {

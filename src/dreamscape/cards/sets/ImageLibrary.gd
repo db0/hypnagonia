@@ -127,6 +127,12 @@ const BETA_IMAGES := {
 	"A Fine Specimen": "res://assets/cards/A Fine Specimen.jpg",
 	"Misplaced Research": "res://assets/cards/Misplaced Research.jpg",
 	"Vexing Concept": "res://assets/cards/Vexing Concept.jpg",
+	"Detect Weaknesses": "res://assets/cards/Detect Weaknesses.jpg",
+	"Wild Inspiration": "res://assets/cards/Wild Inspiration.jpg",
+	"Brilliance": "res://assets/cards/Brilliance.jpg",
+	"Recall": "res://assets/cards/Recall.jpg",
+	"Unconventional": "res://assets/cards/Unconventional.jpg",
+	"Blind Trial": "res://assets/cards/Blind Trial.jpg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Stuffed Toy": "res://assets/journal/torments/stuffed_toy.jpeg",
