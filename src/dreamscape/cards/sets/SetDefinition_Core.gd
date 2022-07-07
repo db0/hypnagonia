@@ -310,7 +310,7 @@ const CARDS := {
 		"Abilities": "Gain 1 {immersion} at the start of each turn.\n"\
 			+ " Increase all {stress} taken from Torment intents by 2.",
 		"Cost": 1,
-		"_illustration": "SkylarkGSH",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Basic",
 		"_keywords": ["stress"],
 		"_upgrade_threshold_modifier": +3,
@@ -325,7 +325,7 @@ const CARDS := {
 		"Abilities": "Gain 1 {immersion} at the start of each turn.\n"\
 			+ " Increase all {stress} taken from Torment intents by 2.",
 		"Cost": 0,
-		"_illustration": "SkylarkGSH",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Basic",
 		"_keywords": ["stress"],
 		"_is_upgrade": true,
@@ -336,7 +336,7 @@ const CARDS := {
 		"Abilities": "Gain 1 {immersion} at the start of each turn.\n"\
 			+ " Increase all {stress} taken from Torment intents by 1.",
 		"Cost": 1,
-		"_illustration": "SkylarkGSH",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Basic",
 		"_keywords": ["stress"],
 		"_is_upgrade": true,
@@ -4418,9 +4418,9 @@ const CARDS := {
 		},
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
-			"+ Endless Posibilities +",
-			"* Endless Posibilities *",
-			"% Endless Posibilities %",
+			"+ Endless Possibilities +",
+			"* Endless Possibilities *",
+			"% Endless Possibilities %",
 		],
 	},
 	"+ Endless Possibilities +": {

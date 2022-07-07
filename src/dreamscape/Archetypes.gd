@@ -93,7 +93,7 @@ const MAD_SCIENTIST := {
 		"Detect Weaknesses",
 		"Death Ray",
 		"Unconventional",
-		"Endless Posibilities",
+		"Endless Possibilities",
 		"A Fine Specimen",
 		"Mania",
 	],
