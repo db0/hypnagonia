@@ -1,5 +1,18 @@
 # Changelog
 
+## [v0.59.5](https://github.com/db0/hypnagonia/tree/v0.59.5) (2022-07-07)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.59.4...v0.59.5)
+
+**Closed issues:**
+
+- Rapid theorizing exploit leads to unlimited confidence+draw [\#377](https://github.com/db0/hypnagonia/issues/377)
+- Opening help during a torment also opens it in the journal [\#368](https://github.com/db0/hypnagonia/issues/368)
+
+**Merged pull requests:**
+
+- Filled in all Mad Scientist art and added some Rubber Chicken ones [\#378](https://github.com/db0/hypnagonia/pull/378) ([db0](https://github.com/db0))
+
 ## [v0.59.4](https://github.com/db0/hypnagonia/tree/v0.59.4) (2022-07-04)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.59.3...v0.59.4)
