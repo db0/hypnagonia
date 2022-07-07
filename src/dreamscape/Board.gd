@@ -519,7 +519,7 @@ func _input(event):
 #		for iter in 20:
 #			var c = "Interpretation"
 		for c in [
-			"% Rapid Theorizing %",
+			"Endless Possibilities",
 			"% Rapid Theorizing %",
 			"Change of Mind",
 			# Need to look into these two later

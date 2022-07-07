@@ -2697,7 +2697,7 @@ const WeirdlyUnconventional = {
 		],
 	},
 }
-const EndlessPosibilities = {
+const EndlessPossibilities = {
 	"manual": {
 		"hand": [
 			{
@@ -3680,7 +3680,7 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 		"Death Ray": DeathRay,
 		"Unconventional": Unconventional,
 		"Weirdly Unconventional": WeirdlyUnconventional,
-		"Endless Posibilities": EndlessPosibilities,
+		"Endless Possibilities": EndlessPossibilities,
 		"I'll Show Them All": IllShowThemAll,
 		"A Fine Specimen": AFineSpecimen,
 		"Misplaced Research": MisplacedResearch,

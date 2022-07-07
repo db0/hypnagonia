@@ -133,6 +133,7 @@ const BETA_IMAGES := {
 	"Recall": "res://assets/cards/Recall.jpg",
 	"Unconventional": "res://assets/cards/Unconventional.jpg",
 	"Blind Trial": "res://assets/cards/Blind Trial.jpg",
+	"Endless Possibilities": "res://assets/cards/Endless Possibilities.jpg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Stuffed Toy": "res://assets/journal/torments/stuffed_toy.jpeg",

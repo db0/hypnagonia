@@ -4214,7 +4214,7 @@ const CARDS := {
 				+ "You may take {exert_amount} {anxiety} "\
 				+ "to {shuffle} this card into your draw pile.",
 		"Cost": 1,
-		"_illustration": "Maria Thoukydidou",
+		"_illustration": "Db0 via midjourney.com",
 		"_avoid_normal_discard": true,
 		"_rarity": "Common",
 		"_keywords": ["confidence"],
@@ -4235,7 +4235,7 @@ const CARDS := {
 				+ "You may take {exert_amount} {anxiety} "\
 				+ "to {shuffle} this card into your draw pile.",
 		"Cost": 1,
-		"_illustration": "Maria Thoukydidou",
+		"_illustration": "Db0 via midjourney.com",
 		"_avoid_normal_discard": true,
 		"_rarity": "Common",
 		"_keywords": ["confidence"],
@@ -4252,7 +4252,7 @@ const CARDS := {
 				+ "You may take {exert_amount} {anxiety} "\
 				+ "to {shuffle} this card into your draw pile.",
 		"Cost": 1,
-		"_illustration": "Maria Thoukydidou",
+		"_illustration": "Db0 via midjourney.com",
 		"_avoid_normal_discard": true,
 		"_rarity": "Common",
 		"_keywords": ["confidence"],
@@ -4390,7 +4390,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"Endless Posibilities": {
+	"Endless Possibilities": {
 		"Type": "Control",
 		"Tags": [
 			Terms.GENERIC_TAGS.spark.name, 
@@ -4423,7 +4423,7 @@ const CARDS := {
 			"% Endless Posibilities %",
 		],
 	},
-	"+ Endless Posibilities +": {
+	"+ Endless Possibilities +": {
 		"Type": "Control",
 		"Tags": [
 			Terms.GENERIC_TAGS.spark.name, 
@@ -4453,7 +4453,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"* Endless Posibilities *": {
+	"* Endless Possibilities *": {
 		"Type": "Control",
 		"Tags": [
 			Terms.GENERIC_TAGS.spark.name, 
@@ -4483,7 +4483,7 @@ const CARDS := {
 		},
 		"_is_upgrade": true,
 	},
-	"% Endless Posibilities %": {
+	"% Endless Possibilities %": {
 		"Type": "Control",
 		"Tags": [
 			Terms.GENERIC_TAGS.spark.name, 
