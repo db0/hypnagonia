@@ -20,6 +20,7 @@ const FINAL_IMAGES := {
 	"Boast": "res://assets/cards/boast.jpg",
 	"Tenacity": "res://assets/cards/Tenacity.jpg",
 	"Impugn": "res://assets/cards/Impugn.jpg",
+	"Bring It!": "res://assets/cards/Bring It!.jpg",
 }
 const BETA_IMAGES := {
 	"Catatonia": "res://assets/cards/Catatonia.jpg",

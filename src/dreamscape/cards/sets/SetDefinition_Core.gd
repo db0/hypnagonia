@@ -5490,7 +5490,7 @@ const CARDS := {
 		"Abilities": "{damage} all Torments for {damage_amount}.\n"\
 				+ "Give a random Torment {effect_stacks} {advantage}.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Friendlyguy#3543",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_effects_info": {
@@ -5512,7 +5512,7 @@ const CARDS := {
 		"Abilities": "{damage} all Torments for {damage_amount}.\n"\
 				+ "Give a random Torment {effect_stacks} {advantage}.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Friendlyguy#3543",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_effects_info": {
@@ -5530,7 +5530,7 @@ const CARDS := {
 		"Abilities": "{damage} all Torments for {damage_amount}.\n"\
 				+ "Give a random Torment {effect_stacks} {advantage}.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Friendlyguy#3543",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation"],
 		"_effects_info": {

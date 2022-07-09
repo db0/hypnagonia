@@ -2591,6 +2591,7 @@ func _process_card_state() -> void:
 					_flip_card(_card_back_container,_card_front_container, true)
 
 		CardState.PREVIEW:
+			pass
 			$Control.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			set_focus(false)
 			set_control_mouse_filters(false)
@@ -2607,6 +2608,7 @@ func _process_card_state() -> void:
 				card_front.scale_to(preview_scale * cfc.curr_scale)
 
 		CardState.DECKBUILDER_GRID:
+			pass
 			$Control.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			set_focus(false)
 			set_control_mouse_filters(false)
