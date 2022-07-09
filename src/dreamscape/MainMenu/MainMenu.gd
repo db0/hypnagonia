@@ -171,6 +171,8 @@ func _load_game() -> void:
 func _input(event):
 	if event.is_action_pressed("debug"):
 		globals.game_save.load_state()
+	if event.is_action_pressed("Show FPS"):
+		print(Engine.get_frames_per_second())
 	if event.is_action_pressed("init_debug_game"):
 		match OS.get_name():
 			"Windows":

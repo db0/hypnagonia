@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=1]
 [ext_resource path="res://src/dreamscape/CardLibrary/CardLibrary.tscn" type="PackedScene" id=2]
@@ -19,8 +19,21 @@
 [ext_resource path="res://src/dreamscape/GUI/ghost_rtl_effect.gd" type="Script" id=24]
 [ext_resource path="res://themes/darktheme/StyleBox/Opaque.tres" type="StyleBox" id=25]
 
+[sub_resource type="OpenSimplexNoise" id=7]
+
+[sub_resource type="NoiseTexture" id=8]
+seamless = true
+noise = SubResource( 7 )
+
 [sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 10 )
+shader_param/octaves = 4
+shader_param/starting_amplitude = 0.5
+shader_param/starting_frequency = 1.0
+shader_param/shift = -0.209
+shader_param/velocity = Vector2( 0.02, 0.01 )
+shader_param/fog_color = Color( 0.32549, 0, 0.592157, 1 )
+shader_param/noise = SubResource( 8 )
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.145098, 0.145098, 0.145098, 1 )
@@ -48,11 +61,9 @@ stretch_mode = 7
 script = ExtResource( 3 )
 
 [node name="Shader" type="ColorRect" parent="."]
-self_modulate = Color( 0.498039, 0.294118, 0.933333, 0.392157 )
 material = SubResource( 5 )
 margin_right = 1455.0
 margin_bottom = 900.0
-color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
