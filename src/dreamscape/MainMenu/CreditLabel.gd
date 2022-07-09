@@ -26,6 +26,7 @@ const URLS := {
 	"Delapouite": "https://delapouite.com/",
 	"Caravaggio": "https://en.wikipedia.org/wiki/Caravaggio",
 	"RPicster": "https://github.com/RPicster",
+	"Robert Paraguassu": "https://www.instagram.com/berto_billions/",
 }
 const BBCODE_TEXT = """
 [center]

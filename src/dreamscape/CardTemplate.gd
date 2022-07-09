@@ -503,28 +503,35 @@ func _get_formatted_text(value) -> String:
 
 func highlight_modified_properties() -> void:
 	# We don't check cards in deck to reduce operations
-	if state != CardState.IN_PILE and is_instance_valid(card_front):
-		for property in properties:
-			if property.begins_with("_"):
-				continue
-			var label_node = card_front.card_labels[property]
-			var current_property = get_property(property)
-			if property in CardConfig.PROPERTIES_NUMBERS:
-				var value_text := str(current_property)
-				# To catch comparing things like 'X' to 0
-				if str(current_property) != str(printed_properties.get(property))\
-						and value_text != label_node.text:
-					card_front.set_label_text(label_node,value_text)
-				elif value_text != label_node.text:
-					card_front.set_label_text(label_node,value_text)
-				if typeof(current_property) != typeof(printed_properties.get(property)):
-					label_node.modulate = Color(1,1,0)
-				elif current_property < printed_properties.get(property):
-					label_node.modulate = Color(0,1,0)
-				elif current_property > printed_properties.get(property):
-					label_node.modulate = Color(1,0,0)
-				else:
-					label_node.modulate = Color(1,1,1)
+	if state == CardState.IN_PILE:
+		return
+	if state == CardState.DECKBUILDER_GRID:
+		return
+	if state == CardState.PREVIEW:
+		return
+	if not is_instance_valid(card_front):
+		return
+	for property in properties:
+		if property.begins_with("_"):
+			continue
+		var label_node = card_front.card_labels[property]
+		var current_property = get_property(property)
+		if property in CardConfig.PROPERTIES_NUMBERS:
+			var value_text := str(current_property)
+			# To catch comparing things like 'X' to 0
+			if str(current_property) != str(printed_properties.get(property))\
+					and value_text != label_node.text:
+				card_front.set_label_text(label_node,value_text)
+			elif value_text != label_node.text:
+				card_front.set_label_text(label_node,value_text)
+			if typeof(current_property) != typeof(printed_properties.get(property)):
+				label_node.modulate = Color(1,1,0)
+			elif current_property < printed_properties.get(property):
+				label_node.modulate = Color(0,1,0)
+			elif current_property > printed_properties.get(property):
+				label_node.modulate = Color(1,0,0)
+			else:
+				label_node.modulate = Color(1,1,1)
 
 
 func find_upgrade_parent():
