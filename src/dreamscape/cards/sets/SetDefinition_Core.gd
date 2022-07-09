@@ -911,7 +911,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Gain {defence_amount} {confidence}\n Draw {draw_amount} card.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -929,7 +929,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Gain {defence_amount} {confidence}\n Draw {draw_amount} card.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -943,7 +943,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Gain {defence_amount} {confidence}\n Draw {draw_amount} cards.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -2955,7 +2955,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.swift.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Draw {draw_amount} card. It costs 0 {immersion} until played. {forget}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -2972,7 +2972,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.swift.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Draw {draw_amount} cards. They costs 0 {immersion} until played. {forget}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -2985,7 +2985,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.swift.name,Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "Take {exert_amount} {anxiety}.\nDraw {draw_amount} card. It costs 0 {immersion} until played.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_amounts": {
 			"draw_amount": 1,
@@ -2998,7 +2998,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {immersion_amount} {immersion}\nGain {effect_stacks} {drain}\n{forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["forget"],
 		"_effects_info": {
@@ -3019,7 +3019,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.swift.name],
 		"Abilities": "Gain {immersion_amount} {immersion}\nDraw {draw_amount} card\nGain {effect_stacks} {drain}\n{forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["forget"],
 		"_effects_info": {
@@ -3037,7 +3037,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.purpose.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {immersion_amount} {immersion}\nGain {effect_stacks} {drain}\n{forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["forget"],
 		"_effects_info": {
@@ -3102,7 +3102,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for X * {damage_amount}.",
 		"Cost": 'X',
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -3119,7 +3119,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for (X + 1) * {damage_amount}.",
 		"Cost": 'X',
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -3133,7 +3133,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for X * {damage_amount}.",
 		"Cost": 'X',
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -3694,7 +3694,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "You may take {exert_amount} {anxiety} to inflict {effect_stacks} {poison}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "anxiety"],
 		"_effects_info": {
@@ -3717,7 +3717,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "You may take {exert_amount} {anxiety} to inflict {effect_stacks} {poison}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "anxiety"],
 		"_effects_info": {
@@ -3736,7 +3736,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 				+ "You may take {exert_amount} {anxiety} to inflict {effect_stacks} {poison}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "anxiety"],
 		"_effects_info": {
@@ -3755,7 +3755,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {defence}\n"\
 				+ "You may take {exert_amount} {anxiety} to gain {effect_stacks} {fortify}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence", "anxiety"],
 		"_effects_info": {
@@ -3778,7 +3778,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {defence}\n"\
 				+ "You may take {exert_amount} {anxiety} to gain {effect_stacks} {fortify}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence", "anxiety"],
 		"_effects_info": {
@@ -3797,7 +3797,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {defence}\n"\
 				+ "You may take {exert_amount} {anxiety} to gain {effect_stacks} {fortify}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence", "anxiety"],
 		"_effects_info": {
@@ -3815,7 +3815,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "The first {concentration_threshold} time you take {anxiety} during your turn reduce it to 1.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["anxiety"],
 		"_amounts": {
@@ -3832,7 +3832,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "The first {concentration_threshold} time you take {anxiety} during your turn reduce it to 1.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["anxiety"],
 		"_amounts": {
@@ -3845,7 +3845,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "The first {concentration_threshold} times you take {anxiety} during your turn reduce it to 1.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["anxiety"],
 		"_amounts": {
@@ -3962,7 +3962,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}\nGain {defence_amount} {defence}",
 		"Cost": 4,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["interpretation","confidence"],
 		"_amounts": {
@@ -3981,7 +3981,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}\nGain {defence_amount} {defence}",
 		"Cost": 4,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["interpretation","confidence"],
 		"_amounts": {
@@ -3995,7 +3995,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}\nGain {defence_amount} {defence}\n{release}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["interpretation","confidence","release"],
 		"_amounts": {
@@ -4009,7 +4009,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}\nGain {defence_amount} {defence}",
 		"Cost": 5,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["interpretation","confidence"],
 		"_amounts": {
@@ -4024,7 +4024,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If your {anxiety} is at least {health_percent}% full, gain {immersion_amount} {immersion}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence", "anxiety"],
 		"_amounts": {
@@ -4045,7 +4045,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If your {anxiety} is at least {health_percent}% full, gain {immersion_amount} {immersion}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence", "anxiety"],
 		"_amounts": {
@@ -4061,7 +4061,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If your {anxiety} is at least {health_percent}% full, gain {immersion_amount} {immersion}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence", "anxiety"],
 		"_amounts": {
@@ -4077,7 +4077,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If your {anxiety} is at least {health_percent}% full, gain {immersion_amount} {immersion}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence", "anxiety"],
 		"_amounts": {

@@ -8,7 +8,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{release}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_avoid_normal_discard": true,
 		"_rarity": "Perturbation",
 		"_keywords": ["release"]
@@ -18,7 +18,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{release}",
 		"Cost": 4,
-		"_illustration": "DioBal",
+		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_avoid_normal_discard": true,
 		"_rarity": "Perturbation",
 		"_keywords": ["release"]
@@ -28,7 +28,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "If this card is in your hand at the end of the turn, gain {effect_stacks} {poison}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Perturbation",
 		"_amounts": {
 			"effect_stacks": 1
@@ -43,7 +43,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "If this card is in your hand at the end of the turn, gain {effect_stacks} {disempower}",
 		"Cost": 1,
-		"_illustration": "DioBal",
+		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Perturbation",
 		"_amounts": {
 			"effect_stacks": 1
@@ -58,7 +58,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{unplayable}",
 		"Cost": 'U',
-		"_illustration": "Nobody",
+		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Perturbation",
 		"_keywords": [],
 		"_is_unplayable": true,
@@ -201,7 +201,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "If in hand at the end of the turn, permanently scar one random card (in any location).",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Perturbation",
 		"_keywords": ['scar'],
 		"_upgrade_threshold_modifier": 1,

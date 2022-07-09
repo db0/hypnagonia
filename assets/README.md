@@ -6,7 +6,6 @@ Links to Artists can be found by clicking the credits button in the main menu
 
 # Other Licenses
 
-* [Midjourney](https://www.midjourney.com) - CC-BY-NC 4.0
 * [David Revoy](https://www.davidrevoy.com)
    * [Pialephant](https://www.davidrevoy.com/article203/elephant-dreams) - BY-CC-ND 4.0
    * [The Light Calling](https://www.davidrevoy.com/article42/nde-tunnel) - BY-CC-ND 4.0

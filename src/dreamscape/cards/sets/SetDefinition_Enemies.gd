@@ -1430,7 +1430,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}. Spawn {spawn_amount} special Torment.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Received",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -1448,7 +1448,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}. Spawn {spawn_amount} special Torment.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Received",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -1462,7 +1462,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}. Spawn {spawn_amount} special Torments.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Received",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -1598,7 +1598,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Apply -{detriment_stacks} {strengthen} to target Torment.\n{forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.ENEMY
@@ -1618,7 +1618,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Apply -{detriment_stacks} {strengthen} to target Torment.\n{forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.ENEMY
@@ -1634,7 +1634,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.alpha.name],
 		"Abilities": "Apply -{detriment_stacks} {strengthen} to target Torment.\n{forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via Artbreeder.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.ENEMY
