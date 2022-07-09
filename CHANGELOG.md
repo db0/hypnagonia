@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.59.6](https://github.com/db0/hypnagonia/tree/v0.59.6) (2022-07-09)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.59.5...v0.59.6)
+
+**Merged pull requests:**
+
+- More midjourney art [\#379](https://github.com/db0/hypnagonia/pull/379) ([db0](https://github.com/db0))
+
 ## [v0.59.5](https://github.com/db0/hypnagonia/tree/v0.59.5) (2022-07-07)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.59.4...v0.59.5)
