@@ -68,7 +68,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "If this card is in your hand at the end of the turn, gain {effect_stacks} {burn}",
 		"Cost": 1,
-		"_illustration": "Maria Thoukydidou",
+		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Perturbation",
 		"_amounts": {
 			"effect_stacks": 2
