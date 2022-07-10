@@ -4093,7 +4093,7 @@ const CARDS := {
 		"Abilities": "{damage} all Torments for X * {damage_amount}\n"\
 				+ "All Torments gain X {confusion}",
 		"Cost": 'X',
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_effects_info": {
@@ -4114,7 +4114,7 @@ const CARDS := {
 		"Abilities": "{damage} all Torments for X * {damage_amount}\n"\
 				+ "All Torments gain X {confusion}",
 		"Cost": 'X',
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_effects_info": {
@@ -4131,7 +4131,7 @@ const CARDS := {
 		"Abilities": "{damage} all Torments for (X + 1) * {damage_amount}\n"\
 				+ "All Torments gain (X + 1) {confusion}",
 		"Cost": 'X',
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["interpretation"],
 		"_effects_info": {
@@ -5806,7 +5806,7 @@ const CARDS := {
 			+ "If no Torment is going to be inflicting more than {max_requirements_amount} {stress}"\
 					 + "this turn, gain {effect_stacks} {fortify}.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER,
@@ -5824,7 +5824,7 @@ const CARDS := {
 		],
 	},
 	"+ A Chick of the Light +": {
-		"Type": "Control",
+		"Type": "Db0 via midjourney.com",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "Gain {defence_amount} {confidence}.\n"\
 			+ "If no Torment is going to be inflicting more than {max_requirements_amount} "\
@@ -5844,7 +5844,7 @@ const CARDS := {
 		"_is_upgrade": true,
 	},
 	"% A Chick of the Light %": {
-		"Type": "Control",
+		"Type": "Db0 via midjourney.com",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "Gain {defence_amount} {confidence}.\n"\
 			+ "If no Torment is going to be inflicting more than {max_requirements_amount} "\

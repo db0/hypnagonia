@@ -147,6 +147,8 @@ const BETA_IMAGES := {
 	"That too, shall pass": "res://assets/cards/That too, shall pass.jpg",
 	"It's The Small Things": "res://assets/cards/It\'s The Small Things.jpg",
 	"It's not about me": "res://assets/cards/It\'s not about me.jpg",
+	"A Thousand Squeaks": "res://assets/cards/A Thousand Squeaks.jpg",
+	"A Chick of the Light": "res://assets/cards/A Chick of the Light.jpg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Stuffed Toy": "res://assets/journal/torments/stuffed_toy.jpeg",
