@@ -149,6 +149,10 @@ const BETA_IMAGES := {
 	"It's not about me": "res://assets/cards/It\'s not about me.jpg",
 	"A Thousand Squeaks": "res://assets/cards/A Thousand Squeaks.jpg",
 	"A Chick of the Light": "res://assets/cards/A Chick of the Light.jpg",
+	"No Second Thoughts": "res://assets/cards/No Second Thoughts.jpg",
+	"The Finger": "res://assets/cards/The Finger.jpg",
+	"Audacity": "res://assets/cards/Audacity.jpg",
+	"Cheeky Approach": "res://assets/cards/Cheeky Approach.jpg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Stuffed Toy": "res://assets/journal/torments/stuffed_toy.jpeg",
