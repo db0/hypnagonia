@@ -153,6 +153,15 @@ const BETA_IMAGES := {
 	"The Finger": "res://assets/cards/The Finger.jpg",
 	"Audacity": "res://assets/cards/Audacity.jpg",
 	"Cheeky Approach": "res://assets/cards/Cheeky Approach.jpg",
+	"Alertness": "res://assets/cards/Alertness.jpg",
+	"Apathy": "res://assets/cards/Apathy.jpg",
+	"Dubious Painkillers": "res://assets/cards/Dubious Painkillers.jpg",
+	"Scattered Dreams": "res://assets/cards/Scattered Dreams.jpg",
+	"Distracted": "res://assets/cards/Distracted.jpg",
+	"Dream Fragment": "res://assets/cards/Dream Fragment.jpg",
+	"Cringeworthy Memory": "res://assets/cards/Cringeworthy Memory.jpg",
+	"Laugh at Danger": "res://assets/cards/Laugh at Danger.jpg",
+	"Intimidate": "res://assets/cards/Intimidate.jpg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Stuffed Toy": "res://assets/journal/torments/stuffed_toy.jpeg",

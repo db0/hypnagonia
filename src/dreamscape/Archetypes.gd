@@ -459,6 +459,7 @@ const EXPLOITED := {
 		"Prepared",
 		"Keep 'em Coming",
 		"Know Your Limits",
+		"Hot Java",
 	],
 	"Rare": [
 	]

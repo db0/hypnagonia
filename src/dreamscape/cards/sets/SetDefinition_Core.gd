@@ -1064,7 +1064,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "Apply {effect_stacks} {doubt} to all Torments",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
 		},
@@ -1083,7 +1083,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "Apply {effect_stacks} {doubt} to all Torments",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
 		},
@@ -1098,7 +1098,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "Apply {effect_stacks} {doubt} to all Torments",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
 		},
@@ -1186,7 +1186,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "After a Torment performs {stress}, it gains {concentration_stacks} {doubt}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
 		},
@@ -1206,7 +1206,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "After a Torment performs {stress}, it gains {concentration_stacks} {doubt}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
 		},
@@ -1222,7 +1222,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
 		"Abilities": "After a Torment performs {stress}, it gains {concentration_stacks} {doubt}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
 		},

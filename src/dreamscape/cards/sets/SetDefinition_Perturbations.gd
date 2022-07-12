@@ -83,7 +83,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.fading.name],
 		"Abilities": "Whenever your draw this card, lose 1 {immersion}\n{unplayable}",
 		"Cost": 'U',
-		"_illustration": "Nobody",
+		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Perturbation",
 		"_keywords": ["fading", "immersion"],
 		"_amounts": {
@@ -96,7 +96,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Whenever the deck is reshuffled, put this card on top, if it's in it.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Perturbation",
 		"_keywords": [],
 	},
@@ -105,7 +105,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "Take {exert_amount} {anxiety}\nGain {health_amount} max {anxiety} threshold.\n{forget}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Perturbation",
 		"_keywords": [],
 		"_amounts": {
@@ -118,7 +118,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.drain.name],
 		"Abilities": "If this card is in your hand at the end of the turn, gain {effect_stacks} {drain}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Perturbation",
 		"_amounts": {
 			"effect_stacks": 1
@@ -133,7 +133,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Take {exert_amount} {anxiety}\n{forget}.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Perturbation",
 		"_amounts": {
 			"exert_amount": 1
@@ -145,7 +145,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.exert.name],
 		"Abilities": "{release}\nTake {exert_amount} {anxiety}.\nDraw {draw_amount} card.\nPut 1 Dream Fragment to your hand.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Perturbation",
 		"_amounts": {
 			"exert_amount": 1,
@@ -158,7 +158,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "While in hand, you cannot play cards that cost {immersion_cost} or more {immersion}",
 		"Cost": "U",
-		"_illustration": "Nobody",
+		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Perturbation",
 		"_amounts": {
 			"immersion_cost": 2
