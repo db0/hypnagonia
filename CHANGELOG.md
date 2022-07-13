@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.59.7](https://github.com/db0/hypnagonia/tree/v0.59.7) (2022-07-13)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.59.6...v0.59.7)
+
+**Merged pull requests:**
+
+- Finished more archetype card illustrations midjourney [\#381](https://github.com/db0/hypnagonia/pull/381) ([db0](https://github.com/db0))
+
 ## [v0.59.6](https://github.com/db0/hypnagonia/tree/v0.59.6) (2022-07-09)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.59.5...v0.59.6)
@@ -293,20 +301,20 @@
 
 ## [v0.50.4](https://github.com/db0/hypnagonia/tree/v0.50.4) (2022-04-28)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.3...v0.50.4)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.2...v0.50.4)
 
 **Merged pull requests:**
 
 - fix: Rest upgrade should only do 5 steps [\#312](https://github.com/db0/hypnagonia/pull/312) ([db0](https://github.com/db0))
 - content\(art\): More Flyercards from @SkylarkHYP [\#311](https://github.com/db0/hypnagonia/pull/311) ([db0](https://github.com/db0))
 
-## [v0.50.3](https://github.com/db0/hypnagonia/tree/v0.50.3) (2022-04-27)
-
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.2...v0.50.3)
-
 ## [v0.50.2](https://github.com/db0/hypnagonia/tree/v0.50.2) (2022-04-27)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.1...v0.50.2)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.3...v0.50.2)
+
+## [v0.50.3](https://github.com/db0/hypnagonia/tree/v0.50.3) (2022-04-27)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.1...v0.50.3)
 
 **Merged pull requests:**
 
