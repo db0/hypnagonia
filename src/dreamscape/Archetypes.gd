@@ -454,11 +454,15 @@ const EXPLOITED := {
 		"Exhaustion",
 	],
 	"Common": [
+		"Work Ethic",
+		"Overtime",
 	],
 	"Uncommon": [
 		"Prepared",
 		"Keep 'em Coming",
 		"Know Your Limits",
+		"Stimulants",
+		"Brooding",
 	],
 	"Rare": [
 	]

@@ -1196,7 +1196,7 @@ const CARDS := {
 	},
 	"@ Brooding @": {
 		"Type": "Control",
-		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.frozen.name],
+		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.once_off.name],
 		"Abilities": "{forget} {forget_amount} card. Draw {draw_amount} card.",
 		"Cost": 0,
 		"_illustration": "Db0 via midjourney.com",
