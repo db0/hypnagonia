@@ -1278,7 +1278,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Whenever you apply {doubt}, gain {concentration_defence} {confidence}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -1295,7 +1295,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Whenever you apply {doubt}, gain {concentration_defence} {confidence}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -1308,7 +1308,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Whenever you apply {doubt}, gain {concentration_defence} {confidence}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -1436,7 +1436,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Gain {defence_amount} {confidence}\n{damage} for {damage_amount}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["confidence", "interpretation"],
 		"_amounts": {
@@ -1455,7 +1455,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Gain {defence_amount} {confidence}\n{damage} for {damage_amount}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["confidence", "interpretation"],
 		"_amounts": {
@@ -1469,7 +1469,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Gain {defence_amount} {confidence}\n{damage} for {damage_amount}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["confidence", "interpretation"],
 		"_amounts": {
@@ -1483,7 +1483,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Gain {defence_amount} {confidence}\n{damage} for {damage_amount}.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
 		"_keywords": ["confidence", "interpretation"],
 		"_amounts": {
@@ -1546,7 +1546,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {courage} card.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
 		},
@@ -1567,7 +1567,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {courage} card.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
 		},
@@ -1584,7 +1584,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {courage} cards.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER
 		},
@@ -1886,7 +1886,7 @@ const CARDS := {
 		"Abilities": "At the end of the next {turns_amount} turns, {relax} for {concentration_healing}.\n"\
 				+ "If you have {untouchable}, {relax} {concentration_healing} extra.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
@@ -1907,7 +1907,7 @@ const CARDS := {
 		"Abilities": "At the end of the next {turns_amount} turns, {relax} for {concentration_healing}.\n"\
 				+ "If you have {untouchable}, {relax} {concentration_healing} extra.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
@@ -1924,7 +1924,7 @@ const CARDS := {
 		"Abilities": "At the end of the next {turns_amount} turns, {relax} for {concentration_healing}.\n"\
 				+ "If you have {untouchable}, {relax} {concentration_healing} extra.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
@@ -1940,7 +1940,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "Gain {defence_amount} {confidence}\nGain {effect_stacks} {fascination}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
 		},
@@ -1961,7 +1961,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "Gain {defence_amount} {confidence}\nGain {effect_stacks} {fascination}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
 		},
@@ -1978,7 +1978,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "Gain {defence_amount} {confidence}\nGain {effect_stacks} {fascination}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
 		},
@@ -5342,7 +5342,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {defence_amount} {defence}\n{forget}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -5359,7 +5359,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {defence_amount} {defence}\n{forget}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -5372,7 +5372,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Set your {defence_amount} to {defence}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -5547,7 +5547,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "Gain X * {defence_amount} {defence}",
 		"Cost": 'X',
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -5564,7 +5564,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "Gain X * {defence_amount} {defence}",
 		"Cost": 'X',
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -5577,7 +5577,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
 		"Abilities": "Gain (X + 1) * {defence_amount} {defence}",
 		"Cost": 'X',
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -5824,13 +5824,13 @@ const CARDS := {
 		],
 	},
 	"+ A Chick of the Light +": {
-		"Type": "Db0 via midjourney.com",
+		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "Gain {defence_amount} {confidence}.\n"\
 			+ "If no Torment is going to be inflicting more than {max_requirements_amount} "\
 					 + "this turn, gain {effect_stacks} {fortify}.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER,
@@ -5844,13 +5844,13 @@ const CARDS := {
 		"_is_upgrade": true,
 	},
 	"% A Chick of the Light %": {
-		"Type": "Db0 via midjourney.com",
+		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
 		"Abilities": "Gain {defence_amount} {confidence}.\n"\
 			+ "If no Torment is going to be inflicting more than {max_requirements_amount} "\
 					 + "this turn, gain {effect_stacks} {fortify}.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.fortify.name: Terms.PLAYER,

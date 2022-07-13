@@ -162,6 +162,13 @@ const BETA_IMAGES := {
 	"Cringeworthy Memory": "res://assets/cards/Cringeworthy Memory.jpg",
 	"Laugh at Danger": "res://assets/cards/Laugh at Danger.jpg",
 	"Intimidate": "res://assets/cards/Intimidate.jpg",
+	"Sanguine": "res://assets/cards/Sanguine.jpg",
+	"High Morale": "res://assets/cards/High Morale.jpg",
+	"Unshakeable": "res://assets/cards/Unshakeable.jpg",
+	"Unassailable": "res://assets/cards/Unassailable.jpg",
+	"Solid Understanding": "res://assets/cards/Solid Understanding.jpg",
+	"Zen of Flight": "res://assets/cards/Zen of Flight.jpg",
+	"Loop de loop": "res://assets/cards/Loop de loop.jpg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Stuffed Toy": "res://assets/journal/torments/stuffed_toy.jpeg",
