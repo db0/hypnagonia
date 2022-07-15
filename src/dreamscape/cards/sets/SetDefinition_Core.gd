@@ -1760,7 +1760,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {untouchable} card.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
@@ -1782,7 +1782,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {untouchable} card.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
@@ -1799,7 +1799,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {untouchable} cards.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
 		},
@@ -1833,7 +1833,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "Whenever you gain {untouchable}, Gain {concentration_stacks} {buffer}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER,
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
@@ -1853,7 +1853,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "Whenever you gain {untouchable}, Gain {concentration_stacks} {buffer}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER,
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
@@ -1869,7 +1869,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "Whenever you gain {untouchable}, Gain {concentration_stacks} {buffer}",
 		"Cost": 3,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER,
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER
@@ -5592,7 +5592,7 @@ const CARDS := {
 		"Abilities": "Gain X * {effect_stacks} {impervious}\n"\
 				+ "If X is at least {x_requirement}, all Torments gain {effect_stacks2} {burn}",
 		"Cost": 'X',
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER,
@@ -5621,7 +5621,7 @@ const CARDS := {
 		"Abilities": "Gain X * {effect_stacks} {impervious}\n"\
 				+ "If X is at least {x_requirement}, all Torments gain {effect_stacks} {burn}",
 		"Cost": 'X',
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER,
@@ -5645,7 +5645,7 @@ const CARDS := {
 		"Abilities": "Gain X * {effect_stacks} {impervious}\n"\
 				+ "If X is at least {x_requirement}, all Torments gain {effect_stacks2} {burn}",
 		"Cost": 'X',
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER,
@@ -5669,7 +5669,7 @@ const CARDS := {
 		"Abilities": "Gain X * {effect_stacks} {impervious}\n"\
 				+ "All Torments gain {effect_stacks2} {burn}",
 		"Cost": 'X',
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER,

@@ -169,6 +169,10 @@ const BETA_IMAGES := {
 	"Solid Understanding": "res://assets/cards/Solid Understanding.jpg",
 	"Zen of Flight": "res://assets/cards/Zen of Flight.jpg",
 	"Loop de loop": "res://assets/cards/Loop de loop.jpg",
+	"Running Start": "res://assets/cards/Running Start.jpg",
+	"Launch": "res://assets/cards/Launch.jpg",
+	"Panicked Takeoff": "res://assets/cards/Panicked Takeoff.jpg",
+	"Master of Skies": "res://assets/cards/Master of Skies.jpg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Stuffed Toy": "res://assets/journal/torments/stuffed_toy.jpeg",
