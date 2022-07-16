@@ -205,3 +205,8 @@ const BETA_IMAGES := {
 	"Influencer": "res://assets/enemies/influencer.jpg",
 	"Shameling": "res://assets/journal/torments/shameling.jpg",
 }
+
+static func get_multiple_art_option(card_name: String) -> String:
+	var all_options = CFUtils.list_files_in_directory("res://assets/cards/%s/" % [card_name], '', true)
+	CFUtils.shuffle_array(all_options, true)
+	return(all_options[0])

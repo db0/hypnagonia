@@ -22,6 +22,7 @@ var deep_sleeps := 0
 var shop_deck_removals := 0
 var encounter_number := 0 setget set_encounter_number
 var run_changes := RunChanges.new(self)
+var interpretation_illustration: String setget ,get_interpretation_illustration
 
 
 # Loads the next act from the list and prepares the encounters for it
@@ -241,3 +242,9 @@ func restore_save_state(save_dict: Dictionary) -> void:
 	shop_deck_removals = save_dict.shop_deck_removals
 	encounter_number = save_dict.encounter_number
 	run_changes.restore_save_state(save_dict.run_changes)
+
+func get_interpretation_illustration() -> String:
+	if not interpretation_illustration:
+		interpretation_illustration = ImageLibrary.get_multiple_art_option("Interpretation")
+	return(interpretation_illustration)
+		
