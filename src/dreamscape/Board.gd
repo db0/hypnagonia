@@ -519,7 +519,7 @@ func _input(event):
 #		for iter in 20:
 #			var c = "Interpretation"
 		for c in [
-			"I'll Show Them All",
+			"Dream Fragment",
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
@@ -577,7 +577,7 @@ func _on_Debug_pressed() -> void:
 	for entity in get_tree().get_nodes_in_group("EnemyEntities"):
 		entity.damage = 1
 	for c in [
-		"I'll Show Them All"
+		"Dream Fragment"
 #		"Grit"
 #			"Nunclucks",
 #			"Confident Slap",
