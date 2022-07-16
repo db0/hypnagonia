@@ -5869,7 +5869,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If your {anxiety} is less than {max_requirements_amount}% full, gain {effect_stacks} {buffer}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER,
@@ -5893,7 +5893,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If your {anxiety} is less than {max_requirements_amount}% full, gain {effect_stacks} {buffer}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER,
@@ -5912,7 +5912,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If your {anxiety} is less than {max_requirements_amount}% full, gain {effect_stacks} {buffer}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER,
@@ -5931,7 +5931,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If your {anxiety} is less than {max_requirements_amount}% full, gain {effect_stacks} {buffer}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.buffer.name: Terms.PLAYER,
