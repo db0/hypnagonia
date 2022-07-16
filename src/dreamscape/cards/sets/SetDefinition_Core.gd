@@ -847,7 +847,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 			+ "Repeat this if no Torment is going to be inflicting more than {max_requirements_amount} {stress} this turn.",
 		"Cost": 2,
-		"_illustration": "SkylarkGSH",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "stress"],
 		"_amounts": {
@@ -867,7 +867,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 			+ "Repeat this if no Torment is going to be inflicting more than {max_requirements_amount} {stress} this turn.",
 		"Cost": 1,
-		"_illustration": "SkylarkGSH",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "stress"],
 		"_amounts": {
@@ -882,7 +882,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 			+ "Repeat this if no Torment is going to be inflicting more than {max_requirements_amount} {stress} this turn.",
 		"Cost": 2,
-		"_illustration": "SkylarkGSH",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "stress"],
 		"_amounts": {
@@ -897,7 +897,7 @@ const CARDS := {
 		"Abilities": "{damage} for {damage_amount}.\n"\
 			+ "Repeat this if no Torment is going to be inflicting more than {max_requirements_amount} {stress} this turn.",
 		"Cost": 2,
-		"_illustration": "SkylarkGSH",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_keywords": ["interpretation", "stress"],
 		"_amounts": {
@@ -3197,7 +3197,7 @@ const CARDS := {
 		"Abilities": "At the end of the next {turns_amount} turns where you have not played "\
 				+ "any {attack_card} cards, {relax} for {concentration_healing}.",
 		"Cost": 1,
-		"_illustration": "Maria Thoukydidou",
+		"_illustration": "Db0 via midjourney.com",
 		"_keywords": ["interpretation"],
 		"_rarity": "Uncommon",
 		"_amounts": {
@@ -3215,7 +3215,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
 		"Abilities": "At the end of the next {turns_amount} turns where you have not played any {attack_card} cards, {relax} for {concentration_healing}.",
 		"Cost": 1,
-		"_illustration": "Maria Thoukydidou",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_amounts": {
 			"turns_amount": 3,
@@ -3228,7 +3228,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
 		"Abilities": "At the end of the next {turns_amount} turns where you have not played more than 1 {attack_card} card, {relax} for {concentration_healing}",
 		"Cost": 1,
-		"_illustration": "Maria Thoukydidou",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
 		"_amounts": {
 			"turns_amount": 4,
