@@ -24,6 +24,7 @@ var encounter_number := 0 setget set_encounter_number
 var run_changes := RunChanges.new(self)
 var interpretation_illustration: String setget ,get_interpretation_illustration
 var conficence_illustration: String setget ,get_conficence_illustration
+var card_back_texture: String setget ,get_card_back_texture
 
 
 # Loads the next act from the list and prepares the encounters for it
@@ -248,9 +249,16 @@ func get_interpretation_illustration() -> String:
 	if not interpretation_illustration:
 		interpretation_illustration = ImageLibrary.get_multiple_art_option("Interpretation")
 	return(interpretation_illustration)
-		
+
+
 func get_conficence_illustration() -> String:
 	if not conficence_illustration:
 		conficence_illustration = ImageLibrary.get_multiple_art_option("Confidence")
 	return(conficence_illustration)
+
+
+func get_card_back_texture() -> String:
+	if not card_back_texture:
+		card_back_texture = HypnagoniaCardBack.get_random_card_back()
+	return(card_back_texture)
 		

@@ -99,8 +99,6 @@ func start_new_game() -> void:
 		print("DEBUG INFO:Main: Starting game.\n:::Aspects: ", globals.player.deck_groups)
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene(CFConst.PATH_CUSTOM + 'Overworld/Journal.tscn')
-	globals.card_back_texture_selection = CFUtils.randi_range(0, HypnagoniaCardBack.TEXTURES_AMOUNT - 1)
-
 
 func _on_archetype_choice_pressed(archetype: String, _aspect: String, archetype_button) -> void:
 	SoundManager.play_se('select_archetype')

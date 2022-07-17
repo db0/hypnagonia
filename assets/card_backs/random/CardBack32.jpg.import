@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/skull_card_back.png-dbafea651c299ef7da0f23392146555c.stex"
+path="res://.import/CardBack32.jpg-8cc4a6b13ba8bf95bb7e5b7ebabb900d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/card_backs/skull_card_back.png"
-dest_files=[ "res://.import/skull_card_back.png-dbafea651c299ef7da0f23392146555c.stex" ]
+source_file="res://assets/card_backs/random/CardBack32.jpg"
+dest_files=[ "res://.import/CardBack32.jpg-8cc4a6b13ba8bf95bb7e5b7ebabb900d.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

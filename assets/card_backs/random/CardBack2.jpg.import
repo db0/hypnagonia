@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/unicorn_card_back.png-aef25979ef78bb3437a6607f3ec2c32f.stex"
+path="res://.import/CardBack2.jpg-4ec5ae1c4cc03c9ab4f150c3a0803023.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/card_backs/unicorn_card_back.png"
-dest_files=[ "res://.import/unicorn_card_back.png-aef25979ef78bb3437a6607f3ec2c32f.stex" ]
+source_file="res://assets/card_backs/random/CardBack2.jpg"
+dest_files=[ "res://.import/CardBack2.jpg-4ec5ae1c4cc03c9ab4f150c3a0803023.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
