@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.60.0](https://github.com/db0/hypnagonia/tree/v0.60.0) (2022-07-17)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.59.7...v0.60.0)
+
+**Merged pull requests:**
+
+- Added art to all archetypes [\#383](https://github.com/db0/hypnagonia/pull/383) ([db0](https://github.com/db0))
+
 ## [v0.59.7](https://github.com/db0/hypnagonia/tree/v0.59.7) (2022-07-13)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.59.6...v0.59.7)
