@@ -1,1 +1,1 @@
-The assets in this directort are released under CC-BY-SA
+The assets in this directory are released under CC-BY-SA
