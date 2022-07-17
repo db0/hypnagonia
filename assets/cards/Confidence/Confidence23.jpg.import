@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Interpretation.jpg-23a0f8ae1b592460d3b4850912adfec2.stex"
+path="res://.import/Confidence23.jpg-13a5622b1a90d4945d6f460917adb334.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/Interpretation.jpg"
-dest_files=[ "res://.import/Interpretation.jpg-23a0f8ae1b592460d3b4850912adfec2.stex" ]
+source_file="res://assets/cards/Confidence/Confidence23.jpg"
+dest_files=[ "res://.import/Confidence23.jpg-13a5622b1a90d4945d6f460917adb334.stex" ]
 
 [params]
 

@@ -23,6 +23,7 @@ var shop_deck_removals := 0
 var encounter_number := 0 setget set_encounter_number
 var run_changes := RunChanges.new(self)
 var interpretation_illustration: String setget ,get_interpretation_illustration
+var conficence_illustration: String setget ,get_conficence_illustration
 
 
 # Loads the next act from the list and prepares the encounters for it
@@ -247,4 +248,9 @@ func get_interpretation_illustration() -> String:
 	if not interpretation_illustration:
 		interpretation_illustration = ImageLibrary.get_multiple_art_option("Interpretation")
 	return(interpretation_illustration)
+		
+func get_conficence_illustration() -> String:
+	if not conficence_illustration:
+		conficence_illustration = ImageLibrary.get_multiple_art_option("Confidence")
+	return(conficence_illustration)
 		

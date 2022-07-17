@@ -17,7 +17,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Gain {defence_amount} {confidence}",
 		"Cost": 1,
-		"_illustration": "Sebastian Piszczatowski",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Basic",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -35,7 +35,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Gain {defence_amount} {confidence}",
 		"Cost": 1,
-		"_illustration": "Sebastian Piszczatowski",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Basic",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -48,7 +48,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Gain {defence_amount} {confidence}",
 		"Cost": 0,
-		"_illustration": "Sebastian Piszczatowski",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Basic",
 		"_keywords": ["confidence"],
 		"_amounts": {
@@ -61,7 +61,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Gain {defence_amount} {confidence}. {release}",
 		"Cost": 1,
-		"_illustration": "Sebastian Piszczatowski",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Basic",
 		"_keywords": ["confidence","release"],
 		"_avoid_normal_discard": true,
@@ -75,7 +75,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}",
 		"Cost": 1,
-		"_illustration": "Cabbage",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Basic",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -93,7 +93,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Basic",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -106,7 +106,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Basic",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -119,7 +119,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}. {release}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Basic",
 		"_keywords": ["interpretation","release"],
 		"_avoid_normal_discard": true,

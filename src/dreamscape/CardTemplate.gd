@@ -110,6 +110,11 @@ func setup() -> void:
 			card_art = globals.encounters.interpretation_illustration
 		else:
 			card_art = ImageLibrary.get_multiple_art_option("Interpretation")
+	elif lookup_card_name == "Confidence":
+		if globals.encounters:
+			card_art = globals.encounters.conficence_illustration
+		else:
+			card_art = ImageLibrary.get_multiple_art_option("Confidence")
 	else:
 		beta_art = ImageLibrary.BETA_IMAGES.get(lookup_card_name)
 		card_art = ImageLibrary.FINAL_IMAGES.get(lookup_card_name, beta_art)
