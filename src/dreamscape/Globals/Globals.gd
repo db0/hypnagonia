@@ -17,7 +17,6 @@ var game_save: GameSave
 # to avoid writing always the same thing
 var unused_journal_texts := {}
 #var utils := DeckbuilderUtils.new()
-var card_back_texture_selection := 0
 # For Unit Testing
 var test_flags := {
 	### REFERENCES ###

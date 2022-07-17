@@ -1,13 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/icons/view.png" type="Texture" id=1]
-[ext_resource path="res://assets/card_backs/owl_card_back.png" type="Texture" id=2]
-[ext_resource path="res://assets/card_backs/skull_card_back.png" type="Texture" id=3]
-[ext_resource path="res://assets/card_backs/triangle_card_back.png" type="Texture" id=4]
-[ext_resource path="res://assets/card_backs/lion_card_back.png" type="Texture" id=5]
+[ext_resource path="res://assets/card_backs/random/CardBack1.jpg" type="Texture" id=2]
 [ext_resource path="res://src/dreamscape/CardBack.gd" type="Script" id=8]
-[ext_resource path="res://assets/card_backs/star_card_back.png" type="Texture" id=9]
-[ext_resource path="res://assets/card_backs/unicorn_card_back.png" type="Texture" id=10]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -18,22 +13,12 @@ rect_min_size = Vector2( 170, 240 )
 mouse_filter = 2
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 back_texture = ExtResource( 2 )
-back_texture1 = ExtResource( 5 )
-back_texture2 = ExtResource( 2 )
-back_texture3 = ExtResource( 3 )
-back_texture4 = ExtResource( 9 )
-back_texture5 = ExtResource( 4 )
-back_texture6 = ExtResource( 10 )
 
 [node name="CardTexture" type="TextureRect" parent="."]
 margin_right = 200.0
 margin_bottom = 280.0
 rect_min_size = Vector2( 200, 280 )
-texture = ExtResource( 9 )
 expand = true
 stretch_mode = 6
 __meta__ = {
