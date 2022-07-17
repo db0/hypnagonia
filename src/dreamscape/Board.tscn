@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://src/dreamscape/Discard.gd" type="Script" id=1]
 [ext_resource path="res://src/core/Pile.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://src/dreamscape/Board.gd" type="Script" id=5]
 [ext_resource path="res://src/dreamscape/Counters.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/dreamscape/PlayerInfo.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/card_backs/owl_card_back.png" type="Texture" id=8]
 [ext_resource path="res://assets/backgrounds/tint.png" type="Texture" id=9]
 [ext_resource path="res://assets/icons/GUI/clockwise-rotation.png" type="Texture" id=10]
 [ext_resource path="res://src/dreamscape/BoardSignalConnector.gd" type="Script" id=11]
@@ -23,7 +22,6 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxTexture" id=1]
-texture = ExtResource( 8 )
 region_rect = Rect2( 0, 0, 490, 694 )
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2

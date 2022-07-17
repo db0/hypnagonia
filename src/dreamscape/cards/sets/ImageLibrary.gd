@@ -169,6 +169,14 @@ const BETA_IMAGES := {
 	"Solid Understanding": "res://assets/cards/Solid Understanding.jpg",
 	"Zen of Flight": "res://assets/cards/Zen of Flight.jpg",
 	"Loop de loop": "res://assets/cards/Loop de loop.jpg",
+	"Running Start": "res://assets/cards/Running Start.jpg",
+	"Launch": "res://assets/cards/Launch.jpg",
+	"Panicked Takeoff": "res://assets/cards/Panicked Takeoff.jpg",
+	"Master of Skies": "res://assets/cards/Master of Skies.jpg",
+	"Swoop": "res://assets/cards/Swoop.jpg",
+	"Drag and Drop": "res://assets/cards/Drag and Drop.jpg",
+	"Careful Observation": "res://assets/cards/Careful Observation.jpg",
+	"Near-ground Flight": "res://assets/cards/Near-ground Flight.jpg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Stuffed Toy": "res://assets/journal/torments/stuffed_toy.jpeg",
@@ -197,3 +205,8 @@ const BETA_IMAGES := {
 	"Influencer": "res://assets/enemies/influencer.jpg",
 	"Shameling": "res://assets/journal/torments/shameling.jpg",
 }
+
+static func get_multiple_art_option(card_name: String) -> String:
+	var all_options = CFUtils.list_files_in_directory("res://assets/cards/%s/" % [card_name], '', true)
+	CFUtils.shuffle_array(all_options, true)
+	return(all_options[0])

@@ -102,13 +102,22 @@ func setup() -> void:
 		printed_properties = properties.duplicate()
 	var card_art
 	var beta_art
+	var lookup_card_name: String = canonical_name
 	if get_property("_is_upgrade"):
-		var card_upgrade_parent_name =  find_upgrade_parent()
-		beta_art = ImageLibrary.BETA_IMAGES.get(card_upgrade_parent_name)
-		card_art = ImageLibrary.FINAL_IMAGES.get(card_upgrade_parent_name, beta_art)
+		lookup_card_name = find_upgrade_parent()
+	if lookup_card_name == "Interpretation":
+		if globals.encounters:
+			card_art = globals.encounters.interpretation_illustration
+		else:
+			card_art = ImageLibrary.get_multiple_art_option("Interpretation")
+	elif lookup_card_name == "Confidence":
+		if globals.encounters:
+			card_art = globals.encounters.confidence_illustration
+		else:
+			card_art = ImageLibrary.get_multiple_art_option("Confidence")
 	else:
-		beta_art = ImageLibrary.BETA_IMAGES.get(canonical_name)
-		card_art = ImageLibrary.FINAL_IMAGES.get(canonical_name, beta_art)
+		beta_art = ImageLibrary.BETA_IMAGES.get(lookup_card_name)
+		card_art = ImageLibrary.FINAL_IMAGES.get(lookup_card_name, beta_art)
 	var is_placeholder = false
 	if card_art == beta_art:
 		is_placeholder = true

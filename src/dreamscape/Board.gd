@@ -509,7 +509,7 @@ func _input(event):
 		globals.player.add_memory(MemoryDefinitions.RandomChaos.canonical_name)
 		# warning-ignore:return_value_discarded
 #		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.impervious.name, 1)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 1)
 		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 6)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.absurdity_unleashed.name, 1)
 		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.creative_block.name, 1)
@@ -519,9 +519,7 @@ func _input(event):
 #		for iter in 20:
 #			var c = "Interpretation"
 		for c in [
-			"Endless Possibilities",
-			"% Rapid Theorizing %",
-			"Change of Mind",
+			"Dream Fragment",
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
@@ -570,7 +568,7 @@ func _debug_advanced_enemy():
 func _on_Debug_pressed() -> void:
 	# warning-ignore:return_value_discarded
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 3)
-	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.fortify.name, 1)
+	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 1)
 	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.quicken.name, 2)
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.introspection.name, 6)
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.nunclucks.name, 1)
@@ -579,6 +577,7 @@ func _on_Debug_pressed() -> void:
 	for entity in get_tree().get_nodes_in_group("EnemyEntities"):
 		entity.damage = 1
 	for c in [
+		"Dream Fragment"
 #		"Grit"
 #			"Nunclucks",
 #			"Confident Slap",

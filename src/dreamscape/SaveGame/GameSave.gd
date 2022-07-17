@@ -12,7 +12,6 @@ func save_state() -> void:
 		"starting_seed": cfc.game_rng_seed,
 		"current_seed": cfc.game_rng.seed,
 		"seed_state": cfc.game_rng.state,
-		"card_back_texture_selection": globals.card_back_texture_selection,
 		"player": _extract_player(),
 		"encounters": _extract_encounters(),
 		"current_encounter": _extract_current_encounter(),
@@ -39,7 +38,6 @@ func load_state() -> void:
 	globals.encounters.restore_save_state(data.encounters)
 	globals.difficulty.restore_save_state(data.difficulty)
 	# warning-ignore:return_value_discarded
-	globals.card_back_texture_selection = data.card_back_texture_selection
 	cfc.game_rng_seed = data.starting_seed
 	cfc.game_rng.seed = data.current_seed
 	cfc.game_rng.state = data.seed_state

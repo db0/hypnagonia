@@ -70,12 +70,18 @@ class TestDreamFragment:
 		var sceng = execute_with_yield(card)
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
+#		yield(yield_to(cfc, "new_card_instanced", 0.2), YIELD)
 		assert_signal_emitted(card, "card_removed")
 		assert_signal_emitted(cfc, "new_card_instanced")
-		assert_eq(dreamer.damage, 1, "Perturbation did damage")\
-		# We check for 2, as the first one will not be freed yet
-		assert_eq(count_card_names("Dream Fragment"), 2,
+		assert_eq(dreamer.damage, 1, "Perturbation did damage")
+		# We're saving as vars here because the original card will be queue cleared
+		var draw_amount = get_amount("draw_amount")
+		yield(yield_for(0.5), YIELD)
+		assert_eq(count_card_names("Dream Fragment"), 1,
 				"Card removed but new one took its place")
+		assert_eq(hand.get_card_count(), 1 + draw_amount,
+				"%s drew correct amount of cards" % [testing_card_name])
+		gut.p(hand.get_card_count())
 
 
 class TestDistracted:

@@ -361,6 +361,9 @@ func apply_effect(script_task: ScriptTask) -> int:
 		var combat_entity: CombatEntity = e
 		if combat_entity.is_dead:
 			continue
+		# When we reach the point where we're actually applying ScEng effects
+		# We want to ensure there's no snapshoted effects
+		combat_entity.active_effects.sceng_snapshot_modifiers.clear()
 		var final_amount = calculate_apply_effect(combat_entity, script_task)
 		var current_stacks: int
 		# If we're storing the integer, we want to store the difference

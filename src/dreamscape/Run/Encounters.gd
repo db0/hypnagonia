@@ -22,6 +22,9 @@ var deep_sleeps := 0
 var shop_deck_removals := 0
 var encounter_number := 0 setget set_encounter_number
 var run_changes := RunChanges.new(self)
+var interpretation_illustration: String setget ,get_interpretation_illustration
+var confidence_illustration: String setget ,get_confidence_illustration
+var card_back_texture: String setget ,get_card_back_texture
 
 
 # Loads the next act from the list and prepares the encounters for it
@@ -221,6 +224,9 @@ func extract_save_state() -> Dictionary:
 		"shop_deck_removals" : shop_deck_removals,
 		"encounter_number": encounter_number,
 		"run_changes" : run_changes.extract_save_state(),
+		"interpretation_illustration" : interpretation_illustration,
+		"confidence_illustration" : confidence_illustration,
+		"card_back_texture" : card_back_texture,
 	}
 	for act in available_acts:
 		encounter_dict["available_acts"].append(act.get_act_number())
@@ -241,3 +247,24 @@ func restore_save_state(save_dict: Dictionary) -> void:
 	shop_deck_removals = save_dict.shop_deck_removals
 	encounter_number = save_dict.encounter_number
 	run_changes.restore_save_state(save_dict.run_changes)
+	interpretation_illustration = save_dict.interpretation_illustration
+	confidence_illustration = save_dict.confidence_illustration
+	card_back_texture = save_dict.card_back_texture
+
+func get_interpretation_illustration() -> String:
+	if not interpretation_illustration:
+		interpretation_illustration = ImageLibrary.get_multiple_art_option("Interpretation")
+	return(interpretation_illustration)
+
+
+func get_confidence_illustration() -> String:
+	if not confidence_illustration:
+		confidence_illustration = ImageLibrary.get_multiple_art_option("Confidence")
+	return(confidence_illustration)
+
+
+func get_card_back_texture() -> String:
+	if not card_back_texture:
+		card_back_texture = HypnagoniaCardBack.get_random_card_back()
+	return(card_back_texture)
+		
