@@ -1051,11 +1051,6 @@ config/description="Therapy through nightmares"
 run/main_scene="res://src/dreamscape/MainMenu/MainMenu.tscn"
 config/icon="res://icon.png"
 
-[audio]
-
-output_latency=60
-output_latency.web=600
-
 [autoload]
 
 cfc="*res://src/core/CFControl.gd"
