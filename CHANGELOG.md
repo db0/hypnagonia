@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.60.2](https://github.com/db0/hypnagonia/tree/v0.60.2) (2022-07-18)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.60.1...v0.60.2)
+
+**Merged pull requests:**
+
+- fix\(sound\) threaded html export to fix stuttter [\#385](https://github.com/db0/hypnagonia/pull/385) ([db0](https://github.com/db0))
+
 ## [v0.60.1](https://github.com/db0/hypnagonia/tree/v0.60.1) (2022-07-17)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.60.0...v0.60.1)
