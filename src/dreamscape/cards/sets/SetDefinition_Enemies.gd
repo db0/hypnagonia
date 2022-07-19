@@ -20,7 +20,7 @@ const CARDS := {
 		"Abilities": "Apply {effect_stacks} {poison} to a Torment.\n"\
 				+ "Remove all {poison} from the dreamer.",
 		"Cost": 0,
-		"_illustration": "A. Mc Leod",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
@@ -41,7 +41,7 @@ const CARDS := {
 		"Abilities": "Apply {effect_stacks} {poison} to a Torment.\n"\
 				+ "Remove all {poison} from the dreamer.",
 		"Cost": 0,
-		"_illustration": "A. Mc Leod",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
@@ -57,7 +57,7 @@ const CARDS := {
 		"Abilities": "Apply {effect_stacks} {poison} to a Torment.\n"\
 				+ "Remove all {poison} from the dreamer.",
 		"Cost": 0,
-		"_illustration": "A. Mc Leod",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
@@ -73,7 +73,7 @@ const CARDS := {
 		"Abilities": "Apply {effect_stacks} {poison} to a Torment.\n"\
 				+ "Move all {poison} from the dreamer to that Torment.",
 		"Cost": 0,
-		"_illustration": "A. Mc Leod",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
@@ -288,7 +288,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Apply {effect_stacks} {shaken} to a Torment. {forget}",
 		"Cost": 0,
-		"_illustration": "A. Mc Leod",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.ENEMY
@@ -308,7 +308,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name, Terms.GENERIC_TAGS.alpha.name],
 		"Abilities": "Apply {effect_stacks} {shaken} to a Torment. {forget}",
 		"Cost": 0,
-		"_illustration": "A. Mc Leod",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.ENEMY
@@ -324,7 +324,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Apply {effect_stacks} {shaken} to all Torments. {forget}",
 		"Cost": 0,
-		"_illustration": "A. Mc Leod",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.ENEMY
@@ -340,7 +340,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Apply {effect_stacks} {confusion} to all Torments. {forget}",
 		"Cost": 0,
-		"_illustration": "Db0 via Artbreeder.com",
+		"_illustration": "snowdrop via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
@@ -360,7 +360,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Apply {effect_stacks} {confusion} to all Torments. {forget}",
 		"Cost": 0,
-		"_illustration": "Db0 via Artbreeder.com",
+		"_illustration": "snowdrop via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
@@ -376,7 +376,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.GENERIC_TAGS.alpha.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Apply {effect_stacks} {confusion} to all Torments. {forget}",
 		"Cost": 0,
-		"_illustration": "Db0 via Artbreeder.com",
+		"_illustration": "snowdrop via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY

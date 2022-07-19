@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/the_critic.jpeg-a923a71363d18909688ed4732e6bfd21.stex"
+path="res://.import/The Critic.jpg-b06d334c5f1d7aee85d8442fe30efcd7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/torments/the_critic.jpeg"
-dest_files=[ "res://.import/the_critic.jpeg-a923a71363d18909688ed4732e6bfd21.stex" ]
+source_file="res://assets/journal/torments/The Critic.jpg"
+dest_files=[ "res://.import/The Critic.jpg-b06d334c5f1d7aee85d8442fe30efcd7.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

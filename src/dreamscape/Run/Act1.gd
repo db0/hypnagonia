@@ -136,7 +136,7 @@ I pleaded for it to go away, but I knew I couldn't shake it. The dark field I wa
 			},
 		],
 	},
-	"journal_art": "res://assets/enemies/gaslighter.png",
+	"journal_art": "res://assets/journal/torments/Gaslighter.jpg",
 }
 
 
@@ -225,7 +225,7 @@ const TheCritic = {
 			},
 		],
 	},
-	"journal_art": "res://assets/enemies/the_critic.png",
+	"journal_art": "res://assets/journal/torments/The Critic.jpg",
 }
 
 
@@ -259,7 +259,7 @@ const Clown = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/clown.jpeg",
+	"journal_art": "res://assets/journal/torments/Clown.jpg",
 }
 
 

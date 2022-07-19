@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gaslighter.jpeg-68ad47777050815b8d7bc1cae78e996e.stex"
+path="res://.import/The Critic.jpg-14dd18037ac30df98f07073b1746fece.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/torments/gaslighter.jpeg"
-dest_files=[ "res://.import/gaslighter.jpeg-68ad47777050815b8d7bc1cae78e996e.stex" ]
+source_file="res://assets/cards/The Critic.jpg"
+dest_files=[ "res://.import/The Critic.jpg-14dd18037ac30df98f07073b1746fece.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

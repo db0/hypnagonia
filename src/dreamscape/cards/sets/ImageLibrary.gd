@@ -1,6 +1,6 @@
-# This is just a constant which preloads all card images which are used in the game
-# This is to avoid loading files during runtime and to be able to easier map filenames
-# to card names.
+# Initially I was using this to preload all images but I realized it was slowing startup too much
+# So I decided to just map images in a single location to card names.
+# Might merge it into the set definition later
 class_name ImageLibrary
 extends Reference
 
@@ -177,18 +177,18 @@ const BETA_IMAGES := {
 	"Drag and Drop": "res://assets/cards/Drag and Drop.jpg",
 	"Careful Observation": "res://assets/cards/Careful Observation.jpg",
 	"Near-ground Flight": "res://assets/cards/Near-ground Flight.jpg",
+	"Gaslighter": "res://assets/cards/Gaslighter.jpg",
+	"The Critic": "res://assets/cards/The Critic.jpg",
+	"Clown": "res://assets/cards/Clown.jpg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Stuffed Toy": "res://assets/journal/torments/stuffed_toy.jpeg",
 	"Hyena": "res://assets/journal/torments/hyena.jpeg",
 	"Baby": "res://assets/journal/torments/baby.jpeg",
 	"Traffic Jam": "res://assets/journal/torments/traffic_jam.jpeg",
-	"Gaslighter": "res://assets/journal/torments/gaslighter2.png",
 	"Butterfly": "res://assets/journal/torments/butterfly.jpeg",
-	"Clown": "res://assets/journal/torments/clown.jpeg",
 	"Fearmonger": "res://assets/journal/torments/fearmonger.jpeg",
 	"Mouse": "res://assets/journal/torments/mouse.jpeg",
-	"The Critic": "res://assets/enemies/the_critic.png",
 	"The Victim": "res://assets/journal/torments/the_victim.jpeg",
 	"The Exam": "res://assets/journal/torments/exam.jpeg",
 	"Void": "res://assets/journal/torments/void.jpeg",
