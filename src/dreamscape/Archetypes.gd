@@ -437,6 +437,7 @@ const EXPLOITED := {
 #		"Icon": preload("res://icon.png"),
 	"Tags": [
 		Terms.GENERIC_TAGS.slumber.name,
+		Terms.ACTIVE_EFFECTS.armor.name,
 	],
 	"Artifacts": [
 	],
@@ -456,6 +457,7 @@ const EXPLOITED := {
 	"Common": [
 		"Work Ethic",
 		"Overtime",
+		"Burnt Out",
 	],
 	"Uncommon": [
 		"Prepared",
@@ -465,5 +467,6 @@ const EXPLOITED := {
 		"Brooding",
 	],
 	"Rare": [
+		"Organizing"
 	]
 }

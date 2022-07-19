@@ -293,7 +293,7 @@ const Butterfly = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/butterfly.jpeg",
+	"journal_art": "res://assets/journal/torments/Butterfly.jpg",
 }
 
 

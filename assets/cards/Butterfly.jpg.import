@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/butterfly.jpeg-589fb8bd319c5d84b6448160a2cad343.stex"
+path="res://.import/Butterfly.jpg-b7b833e15a06bec5a1205ad103915bcf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/torments/butterfly.jpeg"
-dest_files=[ "res://.import/butterfly.jpeg-589fb8bd319c5d84b6448160a2cad343.stex" ]
+source_file="res://assets/cards/Butterfly.jpg"
+dest_files=[ "res://.import/Butterfly.jpg-b7b833e15a06bec5a1205ad103915bcf.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

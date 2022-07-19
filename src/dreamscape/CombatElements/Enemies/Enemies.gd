@@ -159,7 +159,7 @@ const BUTTERFLY:= {
 	"_health_variability": 8,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": "res://assets/journal/torments/butterfly.jpeg",
+	"_texture": "res://assets/cards/Butterfly.jpg",
 	"_character_art": "Db0 via Artbreeder.com",
 		}
 const MURMURS := {
