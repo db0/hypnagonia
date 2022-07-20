@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Pialephant.jpg-eec258449dc1883284aacab557ad7e39.stex"
+path="res://.import/The Light Calling.jpg-dd100929f098684ed761d2047522aa52.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/Pialephant.jpg"
-dest_files=[ "res://.import/Pialephant.jpg-eec258449dc1883284aacab557ad7e39.stex" ]
+source_file="res://assets/journal/torments/The Light Calling.jpg"
+dest_files=[ "res://.import/The Light Calling.jpg-dd100929f098684ed761d2047522aa52.stex" ]
 
 [params]
 

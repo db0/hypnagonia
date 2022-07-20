@@ -229,8 +229,8 @@ const PIALEPHANT:= {
 	"_health_variability": 10,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": "res://assets/journal/torments/pialephant.jpg",
-	"_character_art": "David Revoy"
+	"_texture": "res://assets/enemies/Pialephant.jpg",
+	"_character_art": "db0 via midjourney.com"
 }
 const THE_LIGHT_CALLING := {
 	"Name": "The Light Calling",
@@ -253,8 +253,8 @@ const THE_LIGHT_CALLING := {
 	"_health_variability": 8,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": "res://assets/cards/The Light Calling.jpg",
-	"_character_art": "David Revoy"
+	"_texture": "res://assets/enemies/The Light Calling.jpg",
+	"_character_art": "db0 via midjourney.com"
 }
 const SQUIRREL := {
 	"Name": "A Squirrel",
@@ -342,8 +342,8 @@ const TRAFFICJAM := {
 	"_health_variability": 8,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": "res://assets/journal/torments/traffic_jam.jpeg",
-	"_character_art": "Silberfarben via Artbreeder.com"
+	"_texture": "res://assets/enemies/Traffic Jam.jpg",
+	"_character_art": "db0 via midjourney.com"
 }
 const STUFFEDTOY := {
 	"Name": "Stuffed Toy",

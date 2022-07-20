@@ -530,7 +530,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "{damage} for {damage_amount}. {forget}",
 		"Cost": 3,
-		"_illustration": "David Revoy",
+		"_illustration": "db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "interpretation"],
 		"_amounts": {
@@ -547,7 +547,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "{damage} for {damage_amount}. {forget}",
 		"Cost": 3,
-		"_illustration": "David Revoy",
+		"_illustration": "db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "interpretation"],
 		"_amounts": {
@@ -560,7 +560,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "{damage} for {damage_amount}. {forget}",
 		"Cost": 2,
-		"_illustration": "David Revoy",
+		"_illustration": "db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "interpretation"],
 		"_amounts": {
@@ -571,9 +571,9 @@ const CARDS := {
 	"The Light Calling": {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.ACTIVE_EFFECTS.drain.name],
-		"Abilities": "Gain {defence_amount} {defence}\nGain {detriment_stacks} {drain}\n{forget}",
+		"Abilities": "Gain {defence_amount} {defence}\nGain {detriment_stacks} {drain}",
 		"Cost": 0,
-		"_illustration": "David Revoy",
+		"_illustration": "db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "confidence"],
 		"_effects_info": {
@@ -592,9 +592,9 @@ const CARDS := {
 	"+ The Light Calling +": {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.ACTIVE_EFFECTS.drain.name],
-		"Abilities": "Gain {defence_amount} {defence}\nGain {detriment_stacks} {drain}\n{forget}",
+		"Abilities": "Gain {defence_amount} {defence}\nGain {detriment_stacks} {drain}",
 		"Cost": 0,
-		"_illustration": "David Revoy",
+		"_illustration": "db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "confidence"],
 		"_effects_info": {
@@ -609,9 +609,9 @@ const CARDS := {
 	"* The Light Calling *": {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.ACTIVE_EFFECTS.drain.name],
-		"Abilities": "Gain {defence_amount} {defence}\nGain {detriment_stacks} {drain}\n{forget}",
+		"Abilities": "Gain {defence_amount} {defence}\nGain {detriment_stacks} {drain}",
 		"Cost": 0,
-		"_illustration": "David Revoy",
+		"_illustration": "db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "confidence"],
 		"_effects_info": {

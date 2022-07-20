@@ -418,7 +418,7 @@ const TheLightCalling = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/the_light_calling.jpeg",
+	"journal_art": "res://assets/journal/torments/The Light Calling.jpg",
 }
 const Squirrel = {
 	"journal_description":\

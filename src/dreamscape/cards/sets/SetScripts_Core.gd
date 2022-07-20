@@ -2802,7 +2802,6 @@ const IllShowThemAll = {
 					"default": 0,
 				},
 			},
-
 		],
 	},
 }

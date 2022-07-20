@@ -55,7 +55,7 @@ const TrafficJam = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/traffic_jam.jpeg",
+	"journal_art": "res://assets/journal/torments/Traffic Jam.jpg",
 }
 
 # Inspiration taken from StS mods developed by https://github.com/modargo
