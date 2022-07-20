@@ -158,7 +158,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "{forget} a {perturbation} from your deck or discard pile.",
 		"Cost": 1,
-		"_illustration": "Db0 via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "perturbation"],
 		"_amounts": {
@@ -178,7 +178,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "{forget} a {perturbation} from your deck or discard pile.",
 		"Cost": 1,
-		"_illustration": "Db0 via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "perturbation"],
 		"_amounts": {
@@ -192,7 +192,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "{forget} a {perturbation} from your deck or discard pile.",
 		"Cost": 1,
-		"_illustration": "Db0 via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "perturbation"],
 		"_amounts": {
@@ -206,7 +206,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "{forget} a {perturbation} from your deck or discard pile.\n{forget}.",
 		"Cost": 0,
-		"_illustration": "Db0 via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "perturbation"],
 		"_amounts": {
@@ -221,7 +221,7 @@ const CARDS := {
 				+ "{shuffle} a random {perturbation} from your hand into your deck.\n"\
 				+ "{forget} a {perturbation} from your deck or discard pile.",
 		"Cost": 1,
-		"_illustration": "Db0 via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "perturbation"],
 		"_amounts": {
@@ -807,7 +807,7 @@ const CARDS := {
 				+ "This resets to 0 at the start of the turn.",
 		"Cost": 2,
 		"_is_concentration": true,
-		"_illustration": "Silberfarben via Artbreeder.com",
+		"_illustration": "snowdrop via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["confidence", "stress"],
 		"_amounts": {
@@ -827,7 +827,7 @@ const CARDS := {
 				+ "This resets to 0 at the start of the turn.",
 		"Cost": 1,
 		"_is_concentration": true,
-		"_illustration": "Silberfarben via Artbreeder.com",
+		"_illustration": "snowdrop via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["confidence", "stress"],
 		"_amounts": {
@@ -843,7 +843,7 @@ const CARDS := {
 				+ "This resets to 0 at the start of the turn.",
 		"Cost": 2,
 		"_is_concentration": true,
-		"_illustration": "Silberfarben via Artbreeder.com",
+		"_illustration": "snowdrop via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["confidence", "stress"],
 		"_amounts": {

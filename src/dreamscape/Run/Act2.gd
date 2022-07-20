@@ -251,7 +251,7 @@ const StuffedToy = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/stuffed_toy.jpeg",
+	"journal_art": "res://assets/journal/torments/Stuffed Toy.jpg",
 }
 
 const ImpossibleConstruction = {

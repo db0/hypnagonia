@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/stuffed_toy.jpeg-1ca14ba322111be73f1e6e52c3af57f9.stex"
+path="res://.import/Fearmonger.jpg-81be558ec4f7bea488c62f24ded2b18c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/torments/stuffed_toy.jpeg"
-dest_files=[ "res://.import/stuffed_toy.jpeg-1ca14ba322111be73f1e6e52c3af57f9.stex" ]
+source_file="res://assets/journal/torments/Fearmonger.jpg"
+dest_files=[ "res://.import/Fearmonger.jpg-81be558ec4f7bea488c62f24ded2b18c.stex" ]
 
 [params]
 

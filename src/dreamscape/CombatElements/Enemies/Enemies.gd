@@ -363,8 +363,8 @@ const STUFFEDTOY := {
 	"_health_variability": 3,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": "res://assets/journal/torments/stuffed_toy.jpeg",
-	"_character_art": "Silberfarben via Artbreeder.com"
+	"_texture": "res://assets/enemies/Stuffed Toy.jpg",
+	"_character_art": "db0 via midjourney.com"
 }
 const MOUSE := {
 	"Name": "Mouse",

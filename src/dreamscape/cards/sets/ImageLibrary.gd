@@ -181,13 +181,13 @@ const BETA_IMAGES := {
 	"The Critic": "res://assets/cards/The Critic.jpg",
 	"Clown": "res://assets/cards/Clown.jpg",
 	"Butterfly": "res://assets/cards/Butterfly.jpg",
+	"Stuffed Toy": "res://assets/cards/Stuffed Toy.jpg",
+	"Fearmonger": "res://assets/cards/Fearmonger.jpg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
-	"Stuffed Toy": "res://assets/journal/torments/stuffed_toy.jpeg",
 	"Hyena": "res://assets/journal/torments/hyena.jpeg",
 	"Baby": "res://assets/journal/torments/baby.jpeg",
 	"Traffic Jam": "res://assets/journal/torments/traffic_jam.jpeg",
-	"Fearmonger": "res://assets/journal/torments/fearmonger.jpeg",
 	"Mouse": "res://assets/journal/torments/mouse.jpeg",
 	"The Victim": "res://assets/journal/torments/the_victim.jpeg",
 	"The Exam": "res://assets/journal/torments/exam.jpeg",

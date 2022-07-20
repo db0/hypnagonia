@@ -80,7 +80,7 @@ const Fearmonger = {
 		'Was that [url={torment_tag1}]a curious owl with three eyes[/url] staring at me?',
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
-	"journal_art": "res://assets/journal/torments/fearmonger.jpeg",
+	"journal_art": "res://assets/journal/torments/Fearmonger.jpg",
 	"enemies": {
 		"easy": [
 			{
