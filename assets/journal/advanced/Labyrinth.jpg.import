@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shop1.jpeg-b1ffadea4d53d0b813647ed136840be9.stex"
+path="res://.import/Labyrinth.jpg-675a67f6d6a3b6d66246b94ca34b397c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/shop/shop1.jpeg"
-dest_files=[ "res://.import/shop1.jpeg-b1ffadea4d53d0b813647ed136840be9.stex" ]
+source_file="res://assets/journal/advanced/Labyrinth.jpg"
+dest_files=[ "res://.import/Labyrinth.jpg-675a67f6d6a3b6d66246b94ca34b397c.stex" ]
 
 [params]
 

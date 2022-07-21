@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Pialephant.jpg-51e2cf286eec97e888084cbefb29b64a.stex"
+path="res://.import/Narcissus4.jpg-ce986bd21fabae699eff3eef24901d59.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/torments/Pialephant.jpg"
-dest_files=[ "res://.import/Pialephant.jpg-51e2cf286eec97e888084cbefb29b64a.stex" ]
+source_file="res://assets/journal/advanced/Narcissus/Narcissus4.jpg"
+dest_files=[ "res://.import/Narcissus4.jpg-ce986bd21fabae699eff3eef24901d59.stex" ]
 
 [params]
 

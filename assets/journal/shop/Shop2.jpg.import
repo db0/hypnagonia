@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dentist.jpeg-d427d05e886010a1935af165642b5ed5.stex"
+path="res://.import/Shop2.jpg-6859b653998bb3c9ad77c435f3ddde66.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/advanced/dentist.jpeg"
-dest_files=[ "res://.import/dentist.jpeg-d427d05e886010a1935af165642b5ed5.stex" ]
+source_file="res://assets/journal/shop/Shop2.jpg"
+dest_files=[ "res://.import/Shop2.jpg-6859b653998bb3c9ad77c435f3ddde66.stex" ]
 
 [params]
 

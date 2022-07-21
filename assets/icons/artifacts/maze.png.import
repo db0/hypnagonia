@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/beta_smiler.jpg-388a342d2a4cad5f29f3f9bcb6eaf798.stex"
+path="res://.import/maze.png-9501a7c3aabab22e018c336896e041f0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/beta_smiler.jpg"
-dest_files=[ "res://.import/beta_smiler.jpg-388a342d2a4cad5f29f3f9bcb6eaf798.stex" ]
+source_file="res://assets/icons/artifacts/maze.png"
+dest_files=[ "res://.import/maze.png-9501a7c3aabab22e018c336896e041f0.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Pialephant.jpg-51e2cf286eec97e888084cbefb29b64a.stex"
+path="res://.import/Bully.jpg-59cf7f08eb34ee089864134ddc959f5d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/torments/Pialephant.jpg"
-dest_files=[ "res://.import/Pialephant.jpg-51e2cf286eec97e888084cbefb29b64a.stex" ]
+source_file="res://assets/journal/advanced/Bully.jpg"
+dest_files=[ "res://.import/Bully.jpg-59cf7f08eb34ee089864134ddc959f5d.stex" ]
 
 [params]
 

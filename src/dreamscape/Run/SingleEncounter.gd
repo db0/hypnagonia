@@ -43,6 +43,10 @@ func prepare_journal_art(value) -> void:
 	match typeof(value):
 		TYPE_DICTIONARY:
 			tex = value.get("journal_art")
+			if typeof(tex) == TYPE_ARRAY:
+				tex = tex.duplicate()
+				CFUtils.shuffle_array(tex, true)
+				tex = tex[0]
 		_:
 			tex = value
 	if tex:

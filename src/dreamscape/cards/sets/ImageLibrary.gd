@@ -42,7 +42,6 @@ const BETA_IMAGES := {
 	"Mania": "res://assets/cards/Mania.jpg",
 	"Terror": "res://assets/cards/Terror.jpg",
 	"Discombobulation": "res://assets/cards/Discombobulation.jpg",
-	"The Laughing One": "res://assets/cards/beta_smiler.jpg",
 	"Confidence": "res://assets/cards/confidence.jpg",
 	"Lacuna": "res://assets/cards/Lacuna.jpg",
 	"Unease": "res://assets/cards/Unease.jpg",
@@ -184,6 +183,7 @@ const BETA_IMAGES := {
 	"Pialephant": "res://assets/cards/Pialephant.jpg",
 	"Traffic Jam": "res://assets/cards/Traffic Jam.jpg",
 	"The Light Calling": "res://assets/cards/The Light Calling.jpg",
+	"The Laughing One": "res://assets/cards/The Laughing One.jpg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Hyena": "res://assets/journal/torments/hyena.jpeg",

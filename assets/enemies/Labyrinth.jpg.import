@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Pialephant.jpg-51e2cf286eec97e888084cbefb29b64a.stex"
+path="res://.import/Labyrinth.jpg-daab359c8c2455f5be7a24cfaee49de4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/torments/Pialephant.jpg"
-dest_files=[ "res://.import/Pialephant.jpg-51e2cf286eec97e888084cbefb29b64a.stex" ]
+source_file="res://assets/enemies/Labyrinth.jpg"
+dest_files=[ "res://.import/Labyrinth.jpg-daab359c8c2455f5be7a24cfaee49de4.stex" ]
 
 [params]
 

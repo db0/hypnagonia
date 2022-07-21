@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Pialephant.jpg-51e2cf286eec97e888084cbefb29b64a.stex"
+path="res://.import/The Laughing One.jpg-56d6cd138edefbfb7b6c93a6eb6bf5b9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/torments/Pialephant.jpg"
-dest_files=[ "res://.import/Pialephant.jpg-51e2cf286eec97e888084cbefb29b64a.stex" ]
+source_file="res://assets/journal/torments/The Laughing One.jpg"
+dest_files=[ "res://.import/The Laughing One.jpg-56d6cd138edefbfb7b6c93a6eb6bf5b9.stex" ]
 
 [params]
 

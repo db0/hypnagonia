@@ -71,7 +71,7 @@ const TheLaughingOnes = {
 			}
 		],
 	},
-	"journal_art": "res://assets/journal/torments/the_laughing_one.jpeg",
+	"journal_art": "res://assets/journal/torments/The Laughing One.jpg",
 }
 
 
@@ -542,7 +542,7 @@ const RushElite = {
 		'I remember walls enclosing me and no obvious way out...',
 	"journal_reward":\
 		'I finally understood what these infinite twists and turns represented.',
-	'journal_art': "res://assets/journal/advanced/labyrinth.jpeg",
+	'journal_art': "res://assets/journal/advanced/Labyrinth.jpg",
 }
 const Bully = {
 	"name": "Bully",
@@ -551,7 +551,7 @@ const Bully = {
 		'My mind took me back to uncomfortable memories of schoolyard bullying.',
 	"journal_reward":\
 		'This time, I fortunately knew how to respond.',
-	'journal_art': "res://assets/journal/advanced/bully.jpeg",
+	'journal_art': "res://assets/journal/advanced/Bully.jpg",
 }
 
 const ELITES = {
@@ -567,7 +567,14 @@ const Narcissus = {
 	"journal_reward":\
 		'Through the many lies and denials, [url=boss_card_draft]I cornered the truth out of them.[/url]'\
 		+ 'and for once felt like [url=boss_artifact]I was getting somewhere[/url].',
-	'journal_art': "res://assets/journal/advanced/narcissus.jpeg",
+	'journal_art': 
+		[
+			"res://assets/journal/advanced/Narcissus/Narcissus1.jpg", 
+			"res://assets/journal/advanced/Narcissus/Narcissus2.jpg", 
+			"res://assets/journal/advanced/Narcissus/Narcissus3.jpg", 
+			"res://assets/journal/advanced/Narcissus/Narcissus4.jpg", 
+			"res://assets/journal/advanced/Narcissus/Narcissus5.jpg"
+		],
 }
 
 const BOSSES := {

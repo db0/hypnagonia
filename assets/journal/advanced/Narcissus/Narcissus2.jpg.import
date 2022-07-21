@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/labyrinth.jpeg-21c5f331a0857f212b6d60fd30f2aa98.stex"
+path="res://.import/Narcissus2.jpg-7f9c50e37da6004c48a4f5ce8bbcd202.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/advanced/labyrinth.jpeg"
-dest_files=[ "res://.import/labyrinth.jpeg-21c5f331a0857f212b6d60fd30f2aa98.stex" ]
+source_file="res://assets/journal/advanced/Narcissus/Narcissus2.jpg"
+dest_files=[ "res://.import/Narcissus2.jpg-7f9c50e37da6004c48a4f5ce8bbcd202.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

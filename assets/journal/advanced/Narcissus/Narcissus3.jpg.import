@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/the_laughing_one.jpeg-fe5327ccf25e0bac89d76ccfeded19d6.stex"
+path="res://.import/Narcissus3.jpg-0d2bdd3cb078672e893257930643dd24.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/torments/the_laughing_one.jpeg"
-dest_files=[ "res://.import/the_laughing_one.jpeg-fe5327ccf25e0bac89d76ccfeded19d6.stex" ]
+source_file="res://assets/journal/advanced/Narcissus/Narcissus3.jpg"
+dest_files=[ "res://.import/Narcissus3.jpg-0d2bdd3cb078672e893257930643dd24.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

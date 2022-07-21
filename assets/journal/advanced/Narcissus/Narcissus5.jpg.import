@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shop3.jpeg-1dfee6143d51b961d163b01b261653a6.stex"
+path="res://.import/Narcissus5.jpg-acfff75947829dae26bf613a16bbf17e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/shop/shop3.jpeg"
-dest_files=[ "res://.import/shop3.jpeg-1dfee6143d51b961d163b01b261653a6.stex" ]
+source_file="res://assets/journal/advanced/Narcissus/Narcissus5.jpg"
+dest_files=[ "res://.import/Narcissus5.jpg-acfff75947829dae26bf613a16bbf17e.stex" ]
 
 [params]
 
