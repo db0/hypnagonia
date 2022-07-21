@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.60.3](https://github.com/db0/hypnagonia/tree/v0.60.3) (2022-07-21)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.60.2...v0.60.3)
+
+**Merged pull requests:**
+
+- More midjourney torment art [\#386](https://github.com/db0/hypnagonia/pull/386) ([db0](https://github.com/db0))
+
 ## [v0.60.2](https://github.com/db0/hypnagonia/tree/v0.60.2) (2022-07-18)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.60.1...v0.60.2)
@@ -616,7 +624,7 @@
 
 ## [v0.39.0](https://github.com/db0/hypnagonia/tree/v0.39.0) (2022-03-17)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.37.0...v0.39.0)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.38.0...v0.39.0)
 
 **Closed issues:**
 
@@ -627,13 +635,13 @@
 
 - Enhancements and Scars can now affect more properties [\#244](https://github.com/db0/hypnagonia/pull/244) ([db0](https://github.com/db0))
 
-## [v0.37.0](https://github.com/db0/hypnagonia/tree/v0.37.0) (2022-03-16)
-
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.38.0...v0.37.0)
-
 ## [v0.38.0](https://github.com/db0/hypnagonia/tree/v0.38.0) (2022-03-16)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.36.0...v0.38.0)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.37.0...v0.38.0)
+
+## [v0.37.0](https://github.com/db0/hypnagonia/tree/v0.37.0) (2022-03-16)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.36.0...v0.37.0)
 
 **Closed issues:**
 
