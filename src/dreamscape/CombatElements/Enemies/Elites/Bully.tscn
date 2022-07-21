@@ -5,7 +5,7 @@
 [ext_resource path="res://src/dreamscape/CombatElements/CombatEntity.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/Elites/BullyIntents.gd" type="Script" id=4]
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/Elites/Bully.gd" type="Script" id=5]
-[ext_resource path="res://assets/journal/advanced/bully.jpeg" type="Texture" id=6]
+[ext_resource path="res://assets/enemies/Bully.jpg" type="Texture" id=6]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -40,13 +40,8 @@ script = ExtResource( 4 )
 
 [node name="CenterContainer" parent="." index="2"]
 margin_top = 51.0
-margin_right = 69.0
 margin_bottom = 87.0
 rect_min_size = Vector2( 0, 36 )
-
-[node name="Incoming" parent="CenterContainer" index="0"]
-margin_left = 34.0
-margin_right = 34.0
 
 [node name="Art" parent="." index="3"]
 margin_top = 91.0

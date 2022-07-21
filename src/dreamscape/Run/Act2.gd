@@ -55,7 +55,7 @@ const TrafficJam = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/traffic_jam.jpeg",
+	"journal_art": "res://assets/journal/torments/Traffic Jam.jpg",
 }
 
 # Inspiration taken from StS mods developed by https://github.com/modargo
@@ -251,7 +251,7 @@ const StuffedToy = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/stuffed_toy.jpeg",
+	"journal_art": "res://assets/journal/torments/Stuffed Toy.jpg",
 }
 
 const ImpossibleConstruction = {
@@ -498,7 +498,7 @@ const Dentist = {
 		'I was strapped-in, in a strangely familiar place. White. Sterile. The sound of a rapidly spinning machine started echoing behind me...',
 	"journal_reward":\
 		'I swear, I will never forget flossing again!',
-	'journal_art': "res://assets/journal/advanced/dentist.jpeg",
+	'journal_art': "res://assets/journal/advanced/Dentist.jpg",
 }
 const Jumbletron = {
 	"name": "Jumbletron",

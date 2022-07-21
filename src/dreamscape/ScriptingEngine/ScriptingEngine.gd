@@ -604,6 +604,15 @@ func draw_cards(script: ScriptTask) -> int:
 			if script.get_property(SP.KEY_IS_INVERTED):
 				card_count *= -1
 			card_count += script.get_property(SP.KEY_ADJUST_RETRIEVED_INTEGER)
+		elif SP.VALUE_PER in str(script.get_property(SP.KEY_CARD_COUNT)):
+			var per_msg = perMessage.new(
+					script.get_property(SP.KEY_CARD_COUNT),
+					script.owner,
+					script.get_property(script.get_property(SP.KEY_CARD_COUNT)),
+					null,
+					script.subjects,
+					script.prev_subjects)
+			card_count = per_msg.found_things
 		else:
 			card_count = script.get_property(SP.KEY_CARD_COUNT)
 		var drawn_cards := []
@@ -873,7 +882,7 @@ func mod_counter(script_task: ScriptTask) -> int:
 		if not costs_dry_run():
 			var _anim = IconAnimMessage.new(executor, '', true)
 	return(.mod_counter(script_task))
-	
+
 # Initiates a seek through the owner and target combat entity to see if there's any effects
 # which modify the intensity of the task in question
 static func _check_for_effect_alterants(

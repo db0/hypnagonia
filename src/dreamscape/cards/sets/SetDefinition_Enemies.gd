@@ -20,7 +20,7 @@ const CARDS := {
 		"Abilities": "Apply {effect_stacks} {poison} to a Torment.\n"\
 				+ "Remove all {poison} from the dreamer.",
 		"Cost": 0,
-		"_illustration": "A. Mc Leod",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
@@ -41,7 +41,7 @@ const CARDS := {
 		"Abilities": "Apply {effect_stacks} {poison} to a Torment.\n"\
 				+ "Remove all {poison} from the dreamer.",
 		"Cost": 0,
-		"_illustration": "A. Mc Leod",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
@@ -57,7 +57,7 @@ const CARDS := {
 		"Abilities": "Apply {effect_stacks} {poison} to a Torment.\n"\
 				+ "Remove all {poison} from the dreamer.",
 		"Cost": 0,
-		"_illustration": "A. Mc Leod",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
@@ -73,7 +73,7 @@ const CARDS := {
 		"Abilities": "Apply {effect_stacks} {poison} to a Torment.\n"\
 				+ "Move all {poison} from the dreamer to that Torment.",
 		"Cost": 0,
-		"_illustration": "A. Mc Leod",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.ENEMY
@@ -158,7 +158,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "{forget} a {perturbation} from your deck or discard pile.",
 		"Cost": 1,
-		"_illustration": "Db0 via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "perturbation"],
 		"_amounts": {
@@ -178,7 +178,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "{forget} a {perturbation} from your deck or discard pile.",
 		"Cost": 1,
-		"_illustration": "Db0 via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "perturbation"],
 		"_amounts": {
@@ -192,7 +192,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "{forget} a {perturbation} from your deck or discard pile.",
 		"Cost": 1,
-		"_illustration": "Db0 via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "perturbation"],
 		"_amounts": {
@@ -206,7 +206,7 @@ const CARDS := {
 		"Abilities": "Gain {defence_amount} {confidence}\n"\
 				+ "{forget} a {perturbation} from your deck or discard pile.\n{forget}.",
 		"Cost": 0,
-		"_illustration": "Db0 via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "perturbation"],
 		"_amounts": {
@@ -221,7 +221,7 @@ const CARDS := {
 				+ "{shuffle} a random {perturbation} from your hand into your deck.\n"\
 				+ "{forget} a {perturbation} from your deck or discard pile.",
 		"Cost": 1,
-		"_illustration": "Db0 via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "perturbation"],
 		"_amounts": {
@@ -234,7 +234,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {effect_stacks} {untouchable}. {forget}",
 		"Cost": 0,
-		"_illustration": "DioBal",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
@@ -254,7 +254,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {effect_stacks} {untouchable}. {forget}",
 		"Cost": 0,
-		"_illustration": "DioBal",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
@@ -272,7 +272,7 @@ const CARDS := {
 				+ "{relax} 1 per {confidence}.\nRemove all {confidence}\n"\
 				+ "{forget}",
 		"Cost": 2,
-		"_illustration": "DioBal",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.impervious.name: Terms.PLAYER
@@ -288,7 +288,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Apply {effect_stacks} {shaken} to a Torment. {forget}",
 		"Cost": 0,
-		"_illustration": "A. Mc Leod",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.ENEMY
@@ -308,7 +308,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name, Terms.GENERIC_TAGS.alpha.name],
 		"Abilities": "Apply {effect_stacks} {shaken} to a Torment. {forget}",
 		"Cost": 0,
-		"_illustration": "A. Mc Leod",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.ENEMY
@@ -324,7 +324,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Apply {effect_stacks} {shaken} to all Torments. {forget}",
 		"Cost": 0,
-		"_illustration": "A. Mc Leod",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.vulnerable.name: Terms.ENEMY
@@ -340,7 +340,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Apply {effect_stacks} {confusion} to all Torments. {forget}",
 		"Cost": 0,
-		"_illustration": "Db0 via Artbreeder.com",
+		"_illustration": "snowdrop via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
@@ -360,7 +360,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Apply {effect_stacks} {confusion} to all Torments. {forget}",
 		"Cost": 0,
-		"_illustration": "Db0 via Artbreeder.com",
+		"_illustration": "snowdrop via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
@@ -376,7 +376,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.GENERIC_TAGS.alpha.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Apply {effect_stacks} {confusion} to all Torments. {forget}",
 		"Cost": 0,
-		"_illustration": "Db0 via Artbreeder.com",
+		"_illustration": "snowdrop via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.disempower.name: Terms.ENEMY
@@ -392,7 +392,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.strengthen.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {effect_stacks} {strengthen}.\n{forget}",
 		"Cost": 0,
-		"_illustration": "Db0 via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER
@@ -413,7 +413,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.strengthen.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {effect_stacks} {strengthen}.\n{forget}",
 		"Cost": 0,
-		"_illustration": "Db0 via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER
@@ -429,7 +429,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.strengthen.name, Terms.GENERIC_TAGS.alpha.name],
 		"Abilities": "Gain {effect_stacks} {strengthen}.\n{forget}",
 		"Cost": 0,
-		"_illustration": "Db0 via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER
@@ -445,7 +445,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.strengthen.name],
 		"Abilities": "Gain {effect_stacks} {strengthen}",
 		"Cost": 0,
-		"_illustration": "Db0 via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER
@@ -530,7 +530,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "{damage} for {damage_amount}. {forget}",
 		"Cost": 3,
-		"_illustration": "David Revoy",
+		"_illustration": "db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "interpretation"],
 		"_amounts": {
@@ -547,7 +547,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "{damage} for {damage_amount}. {forget}",
 		"Cost": 3,
-		"_illustration": "David Revoy",
+		"_illustration": "db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "interpretation"],
 		"_amounts": {
@@ -560,7 +560,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "{damage} for {damage_amount}. {forget}",
 		"Cost": 2,
-		"_illustration": "David Revoy",
+		"_illustration": "db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "interpretation"],
 		"_amounts": {
@@ -571,9 +571,9 @@ const CARDS := {
 	"The Light Calling": {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.ACTIVE_EFFECTS.drain.name],
-		"Abilities": "Gain {defence_amount} {defence}\nGain {detriment_stacks} {drain}\n{forget}",
+		"Abilities": "Gain {defence_amount} {defence}\nGain {detriment_stacks} {drain}",
 		"Cost": 0,
-		"_illustration": "David Revoy",
+		"_illustration": "db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "confidence"],
 		"_effects_info": {
@@ -592,9 +592,9 @@ const CARDS := {
 	"+ The Light Calling +": {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.ACTIVE_EFFECTS.drain.name],
-		"Abilities": "Gain {defence_amount} {defence}\nGain {detriment_stacks} {drain}\n{forget}",
+		"Abilities": "Gain {defence_amount} {defence}\nGain {detriment_stacks} {drain}",
 		"Cost": 0,
-		"_illustration": "David Revoy",
+		"_illustration": "db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "confidence"],
 		"_effects_info": {
@@ -609,9 +609,9 @@ const CARDS := {
 	"* The Light Calling *": {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.ACTIVE_EFFECTS.drain.name],
-		"Abilities": "Gain {defence_amount} {defence}\nGain {detriment_stacks} {drain}\n{forget}",
+		"Abilities": "Gain {defence_amount} {defence}\nGain {detriment_stacks} {drain}",
 		"Cost": 0,
-		"_illustration": "David Revoy",
+		"_illustration": "db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["forget", "confidence"],
 		"_effects_info": {
@@ -807,7 +807,7 @@ const CARDS := {
 				+ "This resets to 0 at the start of the turn.",
 		"Cost": 2,
 		"_is_concentration": true,
-		"_illustration": "Silberfarben via Artbreeder.com",
+		"_illustration": "snowdrop via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["confidence", "stress"],
 		"_amounts": {
@@ -827,7 +827,7 @@ const CARDS := {
 				+ "This resets to 0 at the start of the turn.",
 		"Cost": 1,
 		"_is_concentration": true,
-		"_illustration": "Silberfarben via Artbreeder.com",
+		"_illustration": "snowdrop via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["confidence", "stress"],
 		"_amounts": {
@@ -843,7 +843,7 @@ const CARDS := {
 				+ "This resets to 0 at the start of the turn.",
 		"Cost": 2,
 		"_is_concentration": true,
-		"_illustration": "Silberfarben via Artbreeder.com",
+		"_illustration": "snowdrop via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["confidence", "stress"],
 		"_amounts": {

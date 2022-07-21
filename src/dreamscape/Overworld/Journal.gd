@@ -582,10 +582,10 @@ func _input(event):
 #		globals.player.damage = 85
 #		globals.player.pathos.available_masteries += 6
 		var debug_encounters = [
-			EnemyEncounter.new(Act1.Murmurs, "hard"),
-#			EnemyEncounter.new(Act2.TrafficJam, "easy"),
-			EnemyEncounter.new(Act3.Influencer, "hard"),
-			load("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd").new(),
+#			EnemyEncounter.new(Act1.TheLightCalling, "hard"),
+			EnemyEncounter.new(Act2.TrafficJam, "easy"),
+#			EnemyEncounter.new(Act3.Influencer, "hard"),
+#			load("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/AllActs/OstrichEggs.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act3/UnderwaterCave.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act2/RiskyEvent3.gd").new(),
@@ -593,10 +593,11 @@ func _input(event):
 #			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Rest.gd").new(),
 			load("res://src/dreamscape/Run/NCE/Shop.gd").new(),
+#			BossEncounter.new(Act1.BOSSES["Narcissus"]),
 #			BossEncounter.new(Act2.BOSSES["Surreality"]),
 #			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
 #			EliteEncounter.new(Act1.Bully, "medium"),
-#			EliteEncounter.new(Act2.IndescribableAbsurdity, "medium"),
+			EliteEncounter.new(Act2.Dentist, "medium"),
 #			EliteEncounter.new(Act3.TheatrePlay, "medium"),
 #			load("res://src/dreamscape/Run/NCE/Shop.gd").new()
 #			load("res://src/dreamscape/Run/NCE/Rest.gd").new()

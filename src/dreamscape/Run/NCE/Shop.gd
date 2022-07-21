@@ -9,8 +9,9 @@ var current_shop
 func _init():
 	description = "I saw a friend mine becking me over. We certainly had much to catch up on."
 	pathos_released = Terms.RUN_ACCUMULATION_NAMES.shop
-	var rng = CFUtils.randi_range(1,3)
-	prepare_journal_art(load("res://assets/journal/shop/shop%s.jpeg" % [rng]))
+	var shop_images = CFUtils.list_imported_in_directory("res://assets/journal/shop/", true)
+	CFUtils.shuffle_array(shop_images, true)
+	prepare_journal_art(load(shop_images[0]))
 
 func begin() -> void:
 	.begin()

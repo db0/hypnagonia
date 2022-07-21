@@ -71,7 +71,7 @@ const TheLaughingOnes = {
 			}
 		],
 	},
-	"journal_art": "res://assets/journal/torments/the_laughing_one.jpeg",
+	"journal_art": "res://assets/journal/torments/The Laughing One.jpg",
 }
 
 
@@ -80,7 +80,7 @@ const Fearmonger = {
 		'Was that [url={torment_tag1}]a curious owl with three eyes[/url] staring at me?',
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
-	"journal_art": "res://assets/journal/torments/fearmonger.jpeg",
+	"journal_art": "res://assets/journal/torments/Fearmonger.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -136,7 +136,7 @@ I pleaded for it to go away, but I knew I couldn't shake it. The dark field I wa
 			},
 		],
 	},
-	"journal_art": "res://assets/enemies/gaslighter.png",
+	"journal_art": "res://assets/journal/torments/Gaslighter.jpg",
 }
 
 
@@ -225,7 +225,7 @@ const TheCritic = {
 			},
 		],
 	},
-	"journal_art": "res://assets/enemies/the_critic.png",
+	"journal_art": "res://assets/journal/torments/The Critic.jpg",
 }
 
 
@@ -259,7 +259,7 @@ const Clown = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/clown.jpeg",
+	"journal_art": "res://assets/journal/torments/Clown.jpg",
 }
 
 
@@ -293,7 +293,7 @@ const Butterfly = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/butterfly.jpeg",
+	"journal_art": "res://assets/journal/torments/Butterfly.jpg",
 }
 
 
@@ -418,7 +418,7 @@ const TheLightCalling = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/the_light_calling.jpeg",
+	"journal_art": "res://assets/journal/torments/The Light Calling.jpg",
 }
 const Squirrel = {
 	"journal_description":\
@@ -542,7 +542,7 @@ const RushElite = {
 		'I remember walls enclosing me and no obvious way out...',
 	"journal_reward":\
 		'I finally understood what these infinite twists and turns represented.',
-	'journal_art': "res://assets/journal/advanced/labyrinth.jpeg",
+	'journal_art': "res://assets/journal/advanced/Labyrinth.jpg",
 }
 const Bully = {
 	"name": "Bully",
@@ -551,7 +551,7 @@ const Bully = {
 		'My mind took me back to uncomfortable memories of schoolyard bullying.',
 	"journal_reward":\
 		'This time, I fortunately knew how to respond.',
-	'journal_art': "res://assets/journal/advanced/bully.jpeg",
+	'journal_art': "res://assets/journal/advanced/Bully.jpg",
 }
 
 const ELITES = {
@@ -567,7 +567,14 @@ const Narcissus = {
 	"journal_reward":\
 		'Through the many lies and denials, [url=boss_card_draft]I cornered the truth out of them.[/url]'\
 		+ 'and for once felt like [url=boss_artifact]I was getting somewhere[/url].',
-	'journal_art': "res://assets/journal/advanced/narcissus.jpeg",
+	'journal_art': 
+		[
+			"res://assets/journal/advanced/Narcissus/Narcissus1.jpg", 
+			"res://assets/journal/advanced/Narcissus/Narcissus2.jpg", 
+			"res://assets/journal/advanced/Narcissus/Narcissus3.jpg", 
+			"res://assets/journal/advanced/Narcissus/Narcissus4.jpg", 
+			"res://assets/journal/advanced/Narcissus/Narcissus5.jpg"
+		],
 }
 
 const BOSSES := {
