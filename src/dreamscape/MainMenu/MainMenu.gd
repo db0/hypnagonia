@@ -266,13 +266,15 @@ func _export_torments() -> Dictionary:
 		'Bosses': {},
 	}
 	for act in [Act1, Act2, Act3]:
-		for enemy in act.ENEMIES:
+		for e in act.ENEMIES:
+			var enemy = act.ENEMIES[e]
 			for torment in enemy.enemies.easy:
 				if not tdict['Basic Torments'].has(torment.definition.Name):
 					tdict['Basic Torments'][torment.definition.Name] = {}
 					tdict['Basic Torments'][torment.definition.Name]['Journal Description'] = enemy.journal_description
 					tdict['Basic Torments'][torment.definition.Name]['Type'] = torment.definition.Type
-		for enemy in act.ELITES:
+		for e in act.ELITES:
+			var enemy = act.ELITES[e]
 			if not tdict['Elite Torments'].has(enemy.name):
 				tdict['Elite Torments'][enemy.name] = {}
 				tdict['Elite Torments'][enemy.name]['Journal Description'] = enemy.journal_description

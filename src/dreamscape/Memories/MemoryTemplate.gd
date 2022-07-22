@@ -2,6 +2,8 @@ class_name Memory
 extends Artifact
 
 
+var scripts_executing := false
+
 onready var shader_node := $Signifier/Shader
 # Used when the memory is active and ready
 onready var active_highlight := $Signifier/ActiveHighlight
@@ -69,12 +71,17 @@ func _use():
 		if OS.has_feature("debug") and not cfc.is_testing:
 			print("DEBUG INFO:Memory use aborted because Lethe in hand")
 		return
+	if scripts_executing:
+		return
+	scripts_executing = true
 	var sceng = execute_memory_effect()
 	if sceng is GDScriptFunctionState:
 		sceng = yield(sceng, "completed")
 	if sceng and not sceng.can_all_costs_be_paid:
+		scripts_executing = false
 		return(sceng)
 	artifact_object.use()
+	scripts_executing = false
 	return(sceng)
 
 # Overridable function

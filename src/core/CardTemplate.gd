@@ -208,6 +208,7 @@ var canonical_name : String setget set_card_name, get_card_name
 var card_size := canonical_size setget set_card_size
 # Starting state for each card
 var state : int = CardState.PREVIEW setget set_state
+var state_finalized := false
 # If this card is hosting other cards,
 # this list retains links to their objects in order.
 var attachments := []
@@ -1009,6 +1010,7 @@ func set_state(value: int) -> void:
 		pass
 	var prev_state = state
 	state = value
+	state_finalized = false
 	emit_signal("state_changed", self, prev_state, state)
 
 
@@ -2225,6 +2227,8 @@ func _add_tween_scale(
 func _process_card_state() -> void:
 	match state:
 		CardState.IN_HAND:
+			if state_finalized:
+				return
 			z_index = 0
 			set_focus(false)
 			set_control_mouse_filters(true)
@@ -2241,6 +2245,8 @@ func _process_card_state() -> void:
 					_add_tween_rotation($Control.rect_rotation,_target_rotation,
 						in_hand_tween_duration)
 					$Tween.start()
+			if not $Tween.is_active():
+				state_finalized = true
 
 		CardState.FOCUSED_IN_HAND:
 			# Used when card is focused on by the mouse hovering over it.
@@ -2457,6 +2463,8 @@ func _process_card_state() -> void:
 			tokens.is_drawer_open = false
 
 		CardState.ON_PLAY_BOARD:
+			if state_finalized:
+				return
 			# Used when the card is idle on the board
 			z_index = 0
 
@@ -2474,6 +2482,8 @@ func _process_card_state() -> void:
 					on_board_tween_duration, Tween.TRANS_SINE, Tween.EASE_OUT)
 				$Tween.start()
 			_organize_attachments()
+			if not $Tween.is_active():
+				state_finalized = true
 
 		CardState.DROPPING_TO_BOARD:
 			z_index = 0
@@ -2514,6 +2524,8 @@ func _process_card_state() -> void:
 			_organize_attachments()
 
 		CardState.IN_PILE:
+			if state_finalized:
+				return
 			z_index = 0
 			set_focus(false)
 			set_control_mouse_filters(false)
@@ -2527,8 +2539,13 @@ func _process_card_state() -> void:
 					return
 				set_is_faceup(get_parent().faceup_cards, true)
 				ensure_proper()
+			if not $Tween.is_active():
+				state_finalized = true
+
 
 		CardState.VIEWED_IN_PILE:
+			if state_finalized:
+				return
 			z_index = 0
 			cfc.NMAP.main.focus_card(self)
 			set_control_mouse_filters(false)
@@ -2539,8 +2556,12 @@ func _process_card_state() -> void:
 				scale = Vector2(1,1)
 			if get_parent() in get_tree().get_nodes_in_group("piles"):
 				set_is_faceup(get_parent().faceup_cards, true)
+			if not $Tween.is_active():
+				state_finalized = true
 
 		CardState.IN_POPUP:
+			if state_finalized:
+				return
 			z_index = 0
 			# We make sure that a card in a popup stays in its position
 			# Unless moved
@@ -2555,6 +2576,8 @@ func _process_card_state() -> void:
 				scale = Vector2(0.75,0.75)
 			if position != Vector2(0,0):
 				position = Vector2(0,0)
+			if not $Tween.is_active():
+				state_finalized = true
 
 		CardState.FOCUSED_IN_POPUP:
 			z_index = 0
@@ -2564,6 +2587,8 @@ func _process_card_state() -> void:
 			set_card_rotation(0)
 
 		CardState.VIEWPORT_FOCUS:
+			if state_finalized:
+				return
 			$Control.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			set_focus(false)
 			set_control_mouse_filters(false)
@@ -2589,9 +2614,12 @@ func _process_card_state() -> void:
 			if not is_faceup:
 				if is_viewed:
 					_flip_card(_card_back_container,_card_front_container, true)
+			if not $Tween.is_active():
+				state_finalized = true
 
 		CardState.PREVIEW:
-			pass
+			if state_finalized:
+				return
 			$Control.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			set_focus(false)
 			set_control_mouse_filters(false)
@@ -2606,9 +2634,12 @@ func _process_card_state() -> void:
 #				set_card_size(CFConst.CARD_SIZE * CFConst.PREVIEW_SCALE)
 				resize_recursively(_control, preview_scale * cfc.curr_scale)
 				card_front.scale_to(preview_scale * cfc.curr_scale)
+			if not $Tween.is_active():
+				state_finalized = true
 
 		CardState.DECKBUILDER_GRID:
-			pass
+			if state_finalized:
+				return
 			$Control.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			set_focus(false)
 			set_control_mouse_filters(false)
@@ -2625,6 +2656,8 @@ func _process_card_state() -> void:
 #				set_card_size(CFConst.CARD_SIZE * thumbnail_scale)
 				resize_recursively(_control, thumbnail_scale * cfc.curr_scale)
 				card_front.scale_to(thumbnail_scale * cfc.curr_scale)
+			if not $Tween.is_active():
+				state_finalized = true
 
 		CardState.MOVING_TO_SPAWN_DESTINATION:
 			z_index = 99

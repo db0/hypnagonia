@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pialephant.jpg-6f2db9aefda07efe4b2622c3bcec3cef.stex"
+path="res://.import/CardBack1.png-1d6e991617c6ba07ce98dd6641bdeb06.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/torments/pialephant.jpg"
-dest_files=[ "res://.import/pialephant.jpg-6f2db9aefda07efe4b2622c3bcec3cef.stex" ]
+source_file="res://assets/card_backs/random/CardBack1.png"
+dest_files=[ "res://.import/CardBack1.png-1d6e991617c6ba07ce98dd6641bdeb06.stex" ]
 
 [params]
 
