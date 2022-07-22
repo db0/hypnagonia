@@ -567,6 +567,10 @@ func _debug_advanced_enemy():
 
 
 func _on_Debug_pressed() -> void:
+	globals.encounters.card_back_texture = HypnagoniaCardBack.get_random_card_back()
+	for card in cfc.get_tree().get_nodes_in_group("cards"):
+		if card.card_back and card.card_back.has_method("_prepare_back_from_texture"):
+			card.card_back._prepare_back_from_texture()
 	# warning-ignore:return_value_discarded
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 3)
 	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 1)
@@ -578,7 +582,6 @@ func _on_Debug_pressed() -> void:
 	for entity in get_tree().get_nodes_in_group("EnemyEntities"):
 		entity.damage = 1
 	for c in [
-		"Dream Fragment"
 #		"Grit"
 #			"Nunclucks",
 #			"Confident Slap",
