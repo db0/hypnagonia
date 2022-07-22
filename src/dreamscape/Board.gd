@@ -472,9 +472,9 @@ func _input(event):
 		_torment1 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
 #		_torment1 = spawn_enemy(EnemyDefinitions.VOID)
 #		_torment2 = spawn_enemy(EnemyDefinitions.SHAMELING)
-		_torment2 = spawn_enemy(EnemyDefinitions.GASLIGHTER)
+#		_torment2 = spawn_enemy(EnemyDefinitions.GASLIGHTER)
 #		_torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
-		_torment3 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
+#		_torment3 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 		if _torment1:
@@ -515,12 +515,18 @@ func _input(event):
 		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.creative_block.name, 1)
 		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.laugh_at_danger.name, 1)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.heat_venting.name, 1, false, false, ['Debug'], 'high')
+		# Performance Tests
+		for iter in 250:
+			var c = "Interpretation"
+			var ce = globals.player.deck.add_new_card(c)
+			var card = ce.instance_self()
+			cfc.NMAP.deck.add_child(card)
+			card._determine_idle_state()	
+
 		# Hand Cards
-#		for iter in 20:
-#			var c = "Interpretation"
 		for c in [
-			"Overtime",
-			"Solid Work Ethic",
+#			"Overtime",
+#			"Solid Work Ethic",
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",

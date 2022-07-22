@@ -550,6 +550,8 @@ func show_pathos_popup(description_text: String, pathos_dict: Dictionary) -> voi
 
 func _input(event):
 	### Debug ###
+	if event.is_action_pressed("Show FPS"):
+		print(Engine.get_frames_per_second())
 	if event.is_action_pressed("init_debug_game"):
 		pass
 #		globals.player.deck.add_new_card("Guilt")
