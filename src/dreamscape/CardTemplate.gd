@@ -26,6 +26,8 @@ var deck_card_entry
 var enabled_riders := []
 # Stores the original properties of the card
 var printed_properties := {}
+var check_front_refresh := false
+var front_refresh_delta_wait := 0
 
 func _ready() -> void:
 	# warning-ignore:return_value_discarded
@@ -34,6 +36,7 @@ func _ready() -> void:
 	connect("card_removed", cfc.signal_propagator, "_on_signal_received")
 	# warning-ignore:return_value_discarded
 	connect("state_changed", self, "_on_state_changed")
+	cfc.connect("cache_cleared", self, "_on_cache_cleared")
 
 
 func _process(delta: float) -> void:
@@ -90,7 +93,15 @@ func _process(delta: float) -> void:
 				_tween_stuck_time = 0
 				move_to(pertub_destination)
 				pertub_destination = null
-	highlight_modified_properties()
+	if check_front_refresh:
+		# To avoid the game clearing and resetting the prediction icons too many times
+		# in the same tick, we spool all the requests to clear predictions, then set them
+		# only one time
+		front_refresh_delta_wait += 1
+		if front_refresh_delta_wait >= 5:
+			check_front_refresh = false
+			front_refresh_delta_wait = 0
+			highlight_modified_properties()
 
 
 func setup() -> void:
@@ -584,3 +595,6 @@ func _on_state_changed(_card: Card, old_state: int, _new_state: int) -> void:
 		for entity in cfc.get_tree().get_nodes_in_group("CombatEntities"):
 			entity.clear_predictions()
 
+func _on_cache_cleared() -> void:
+	check_front_refresh = true
+	

@@ -478,7 +478,7 @@ func _input(event):
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 		if _torment1:
-			_torment1.health = 60
+			_torment1.health = 600
 			_torment1.damage = 15
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS["void"].name, 1)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 5)
@@ -498,7 +498,7 @@ func _input(event):
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 1)
 			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 3)
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
-		dreamer.health = 100
+		dreamer.health = 1000
 		dreamer.damage = 11
 		# warning-ignore:return_value_discarded
 		globals.player.add_artifact(ArtifactDefinitions.SavedReleases.canonical_name)
@@ -516,7 +516,7 @@ func _input(event):
 		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.laugh_at_danger.name, 1)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.heat_venting.name, 1, false, false, ['Debug'], 'high')
 		# Performance Tests
-		for iter in 250:
+		for iter in 100:
 			var c = "Interpretation"
 			var ce = globals.player.deck.add_new_card(c)
 			var card = ce.instance_self()

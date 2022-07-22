@@ -2524,7 +2524,6 @@ func _process_card_state() -> void:
 			_organize_attachments()
 
 		CardState.IN_PILE:
-#			hide()
 			if state_finalized:
 				return
 			z_index = 0
