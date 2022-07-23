@@ -465,6 +465,7 @@ const EXPLOITED := {
 		"Know Your Limits",
 		"Stimulants",
 		"Brooding",
+		"The Grind",
 	],
 	"Rare": [
 		"Organizing"

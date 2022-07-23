@@ -857,7 +857,7 @@ const CARDS := {
 				+ "Every time you shuffle your deck, lose {concentration_effect} {focus}.",
 		"Cost": 3,
 		"_is_concentration": true,
-		"_illustration": "Silberfarben via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": [],
 		"_amounts": {
@@ -881,7 +881,7 @@ const CARDS := {
 				+ "Every time you shuffle your deck, lose {concentration_effect} {focus}.",
 		"Cost": 2,
 		"_is_concentration": true,
-		"_illustration": "Silberfarben via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": [],
 		"_amounts": {
@@ -901,7 +901,7 @@ const CARDS := {
 				+ "Every time you shuffle your deck, lose {concentration_effect} {focus}.",
 		"Cost": 3,
 		"_is_concentration": true,
-		"_illustration": "Silberfarben via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": [],
 		"_amounts": {

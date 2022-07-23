@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/seated-mouse.png-1146e93f16b90f515d3e0ed65707a03b.stex"
+path="res://.import/Mouse.jpg-186c2d143dfe1f910a358d6204d20584.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemies/seated-mouse.png"
-dest_files=[ "res://.import/seated-mouse.png-1146e93f16b90f515d3e0ed65707a03b.stex" ]
+source_file="res://assets/enemies/Mouse.jpg"
+dest_files=[ "res://.import/Mouse.jpg-186c2d143dfe1f910a358d6204d20584.stex" ]
 
 [params]
 

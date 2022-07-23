@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mouse.jpeg-3725ba958de40b03ef3db46309cb81aa.stex"
+path="res://.import/Mouse.jpg-736ca06c8ae43314d73e212f86e45231.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/torments/mouse.jpeg"
-dest_files=[ "res://.import/mouse.jpeg-3725ba958de40b03ef3db46309cb81aa.stex" ]
+source_file="res://assets/journal/torments/Mouse.jpg"
+dest_files=[ "res://.import/Mouse.jpg-736ca06c8ae43314d73e212f86e45231.stex" ]
 
 [params]
 

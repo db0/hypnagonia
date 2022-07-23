@@ -390,8 +390,8 @@ const MOUSE := {
 	"_health_variability": 4,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": "res://assets/journal/torments/mouse.jpeg",
-	"_character_art": "Silberfarben via Artbreeder.com"
+	"_texture": "res://assets/enemies/Mouse.jpg",
+	"_character_art": "Db0 via midjourney.com"
 }
 const THE_EXAM := {
 	"Name": "The Exam",

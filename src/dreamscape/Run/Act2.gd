@@ -104,7 +104,7 @@ const Mouse = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/mouse.jpeg",
+	"journal_art": "res://assets/journal/torments/Mouse.jpg",
 }
 
 # Inspiration taken from StS mods developed by https://github.com/modargo
