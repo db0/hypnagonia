@@ -55,6 +55,22 @@ const scripts := {
 			],
 		},
 	},
+	"Stimulated": {
+		"player_turn_ended": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"tags": ["Card"],
+					"effect_name": Terms.ACTIVE_EFFECTS.drain.name,
+					"subject": "dreamer",
+					"modification":  {
+						"lookup_property": "_amounts",
+						"value_key": "effect_stacks",
+					}
+				}
+			],
+		},
+	},
 	"Prejudice": {
 		"player_turn_ended": {
 			"hand": [

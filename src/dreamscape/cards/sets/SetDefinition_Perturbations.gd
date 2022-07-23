@@ -91,6 +91,23 @@ const CARDS := {
 		},
 		"_is_unplayable": true,
 	},
+	"Stimulated": {
+		"Type": "Perturbation",
+		"Tags": [],
+		"Abilities": "If this card is in your hand at the end of the turn, gain {effect_stacks} {drain}\n"\
+				+ "Play: {forget}.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Perturbation",
+		"_keywords": [],
+		"_amounts": {
+			"effect_stacks": 1,
+		},
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.drain.name: Terms.PLAYER
+		},
+		"_is_unplayable": true,
+	},
 	"Apathy": {
 		"Type": "Perturbation",
 		"Tags": [],

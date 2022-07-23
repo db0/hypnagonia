@@ -463,11 +463,14 @@ const EXPLOITED := {
 		"Prepared",
 		"Keep 'em Coming",
 		"Know Your Limits",
-		"Stimulants",
+		"Routine",
 		"Brooding",
 		"The Grind",
+		"Burn It All Down!",
+		"Work Slowdown",
 	],
 	"Rare": [
-		"Organizing"
+		"Organizing",
+		"Stimulants",
 	]
 }

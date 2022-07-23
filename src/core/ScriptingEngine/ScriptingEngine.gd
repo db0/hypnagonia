@@ -306,6 +306,8 @@ func move_card_to_container(script: ScriptTask) -> int:
 			# to try and draw more cards when you're full but just won't draw any)
 			card.move_to(dest_container,dest_index, null, tags)
 			yield(script.owner.get_tree().create_timer(0.05), "timeout")
+	if script.get_property(SP.KEY_STORE_INTEGER):
+		stored_integer = script.subjects.size()
 	return(retcode)
 
 
