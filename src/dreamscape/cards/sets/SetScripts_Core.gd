@@ -568,6 +568,11 @@ const ToweringPresence = {
 				"amount": "per_defence",
 				"per_defence": {
 					"subject": "dreamer",
+					"modifier": {
+						"lookup_property": "_amounts",
+						"value_key": "damage_amount",
+						"default": 0,
+					},
 				},
 				"filter_state_subject": [{
 					"filter_group": "EnemyEntities",
@@ -576,34 +581,7 @@ const ToweringPresence = {
 		],
 	},
 }
-const OverwhelmingPresence = {
-	"manual": {
-		"hand": [
-			{
-				"name": "modify_damage",
-				"subject": "target",
-				"needs_subject": true,
-				"tags": ["Attack", "Card"],
-				"amount": "per_defence",
-				"per_defence": {
-					"subject": "dreamer",
-				},
-				"filter_state_subject": [{
-					"filter_group": "EnemyEntities",
-				},],
-			},
-			{
-				"name": "modify_damage",
-				"subject": "previous",
-				"amount": {
-					"lookup_property": "_amounts",
-					"value_key": "damage_amount"
-				},
-				"tags": ["Attack", "Card"],
-			},
-		],
-	},
-}
+
 const Unassailable = {
 	"manual": {
 		"hand": [
@@ -3601,7 +3579,6 @@ func get_scripts(card_name: String, get_modified = true) -> Dictionary:
 		"Laugh at Danger": LaughatDanger,
 		"Roaring Laugh at Danger": RoaringLaughatDanger,
 		"Towering Presence": ToweringPresence,
-		"Overwhelming Presence": OverwhelmingPresence,
 		"Unassailable": Unassailable,
 		"Completely Unassailable": CompletelyUnassailable,
 		"Audacity": Audacity,

@@ -510,7 +510,7 @@ func _input(event):
 		# warning-ignore:return_value_discarded
 #		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
 		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 1)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 6)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.armor.name, 6)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.absurdity_unleashed.name, 1)
 		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.creative_block.name, 1)
 		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.laugh_at_danger.name, 1)
@@ -525,7 +525,7 @@ func _input(event):
 
 		# Hand Cards
 		for c in [
-			"Work Slowdown",
+			"+ Towering Presence +",
 #			"Solid Work Ethic",
 			# Need to look into these two later
 #			"Fowl Language",

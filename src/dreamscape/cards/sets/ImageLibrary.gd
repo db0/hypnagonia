@@ -185,6 +185,11 @@ const BETA_IMAGES := {
 	"The Light Calling": "res://assets/cards/The Light Calling.jpg",
 	"The Laughing One": "res://assets/cards/The Laughing One.jpg",
 	"Mouse": "res://assets/cards/Mouse.jpg",
+	"Burn It All Down!": "res://assets/cards/Burn It All Down!.jpg",
+	"Organizing": "res://assets/cards/Organizing.jpg",
+	"Routine": "res://assets/cards/Routine.jpg",
+	"Overtime": "res://assets/cards/Overtime.jpg",
+	"Keep 'em Coming": "res://assets/cards/Keep \'em Coming.jpg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Hyena": "res://assets/journal/torments/hyena.jpeg",
