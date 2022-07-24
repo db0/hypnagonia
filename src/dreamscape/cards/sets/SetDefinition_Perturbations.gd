@@ -116,7 +116,6 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.drain.name: Terms.PLAYER
 		},
-		"_is_unplayable": true,
 	},
 	"Apathy": {
 		"Type": "Perturbation",
@@ -184,13 +183,14 @@ const CARDS := {
 		"Type": "Perturbation",
 		"Tags": [],
 		"Abilities": "While in hand, you cannot play cards that cost {immersion_cost} or more {immersion}",
-		"Cost": "U",
+		"Cost": 'U',
 		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Perturbation",
 		"_amounts": {
 			"immersion_cost": 2
 		},
 		"_keywords": [],
+		"_is_unplayable": true,
 	},
 	"Suffocation": {
 		"Type": "Perturbation",

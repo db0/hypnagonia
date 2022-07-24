@@ -525,8 +525,9 @@ func _input(event):
 
 		# Hand Cards
 		for c in [
-			"Office Meltdown",
-			"= Office Meltdown =",
+			"Stimulated",
+			"Stimulants",
+			"Stimulants",
 #			"Solid Work Ethic",
 			# Need to look into these two later
 #			"Fowl Language",
