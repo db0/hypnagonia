@@ -472,7 +472,7 @@ func _input(event):
 		_torment1 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
 #		_torment1 = spawn_enemy(EnemyDefinitions.VOID)
 #		_torment2 = spawn_enemy(EnemyDefinitions.SHAMELING)
-#		_torment2 = spawn_enemy(EnemyDefinitions.GASLIGHTER)
+		_torment2 = spawn_enemy(EnemyDefinitions.GASLIGHTER)
 #		_torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
@@ -485,7 +485,7 @@ func _input(event):
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.effect_resistance.name, 1, false, false, ["Init"], Terms.ACTIVE_EFFECTS.poison.name)
 			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 4)
 		if _torment2:
-			_torment2.health = 50
+			_torment2.health = 500
 			_torment2.damage = 10
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.marked.name, 1)
@@ -525,7 +525,8 @@ func _input(event):
 
 		# Hand Cards
 		for c in [
-			"@ Wage Slavery @",
+			"Office Meltdown",
+			"= Office Meltdown =",
 #			"Solid Work Ethic",
 			# Need to look into these two later
 #			"Fowl Language",

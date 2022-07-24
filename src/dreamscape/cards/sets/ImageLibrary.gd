@@ -190,6 +190,8 @@ const BETA_IMAGES := {
 	"Routine": "res://assets/cards/Routine.jpg",
 	"Overtime": "res://assets/cards/Overtime.jpg",
 	"Keep 'em Coming": "res://assets/cards/Keep \'em Coming.jpg",
+	"Stimulants": "res://assets/cards/Stimulants.jpg",
+	"Work Slowdown": "res://assets/cards/Work Slowdown.jpg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Hyena": "res://assets/journal/torments/hyena.jpeg",

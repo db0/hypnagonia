@@ -63,6 +63,16 @@ const CARDS := {
 		"_keywords": [],
 		"_is_unplayable": true,
 	},
+	"Languor": {
+		"Type": "Perturbation",
+		"Tags": [Terms.GENERIC_TAGS.fading.name],
+		"Abilities": "{unplayable}",
+		"Cost": 'U',
+		"_illustration": "",
+		"_rarity": "Perturbation",
+		"_keywords": [],
+		"_is_unplayable": true,
+	},
 	"Prejudice": {
 		"Type": "Perturbation",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],

@@ -458,6 +458,8 @@ const EXPLOITED := {
 		"Work Ethic",
 		"Overtime",
 		"Burnt Out",
+		"Chewed Out",
+		"Office Meltdown",
 	],
 	"Uncommon": [
 		"Prepared",
@@ -468,6 +470,7 @@ const EXPLOITED := {
 		"The Grind",
 		"Burn It All Down!",
 		"Work Slowdown",
+		"The Crunch",
 	],
 	"Rare": [
 		"Organizing",
