@@ -404,7 +404,7 @@ const ACTIVE_EFFECTS := {
 		"description": "{effect_name} ({effect_icon}): Reduce {opponent_attack} on this {entity}, "\
 				+ "by {amount}, then reduce these stacks by 1.\n"\
 				+ "(This reduction happens before {defence})\n"\
-				+ "Reduce these stacks by 1 at the start of the turn.",
+				+ "Reduce these stacks by 1 + 1 for every 5 stacks at the start of the turn.",
 		"linked_terms": [
 			"{opponent_attack}",
 			"{defence}",

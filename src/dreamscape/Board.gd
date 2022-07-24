@@ -510,7 +510,7 @@ func _input(event):
 		# warning-ignore:return_value_discarded
 #		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
 		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 1)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.armor.name, 6)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.armor.name, 46)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.absurdity_unleashed.name, 1)
 		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.creative_block.name, 1)
 		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.laugh_at_danger.name, 1)

@@ -539,6 +539,13 @@ class TestArmor:
 				"%s doesn't stop DoTs" % [effect])
 
 
+	func test_armor_turn_reduction():
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect), amount - 2,
+				"%s should have reduced extra due to amount on dreamer" % [effect])
+
+
 class TestProtection:
 	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
 	var effect: String = Terms.ACTIVE_EFFECTS.protection.name
