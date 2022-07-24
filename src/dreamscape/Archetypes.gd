@@ -471,6 +471,7 @@ const EXPLOITED := {
 		"Burn It All Down!",
 		"Work Slowdown",
 		"The Crunch",
+		"Punch-In",
 	],
 	"Rare": [
 		"Organizing",
