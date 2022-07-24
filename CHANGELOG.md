@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.61.0](https://github.com/db0/hypnagonia/tree/v0.61.0) (2022-07-24)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.60.3...v0.61.0)
+
+**Merged pull requests:**
+
+- Better card backs and improvement enhancements [\#387](https://github.com/db0/hypnagonia/pull/387) ([db0](https://github.com/db0))
+
 ## [v0.60.3](https://github.com/db0/hypnagonia/tree/v0.60.3) (2022-07-21)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.60.2...v0.60.3)
