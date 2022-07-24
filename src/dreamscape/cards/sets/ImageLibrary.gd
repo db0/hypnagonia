@@ -192,6 +192,9 @@ const BETA_IMAGES := {
 	"Keep 'em Coming": "res://assets/cards/Keep \'em Coming.jpg",
 	"Stimulants": "res://assets/cards/Stimulants.jpg",
 	"Work Slowdown": "res://assets/cards/Work Slowdown.jpg",
+	"Office Meltdown": "res://assets/cards/Office Meltdown.jpg",
+	"Burnt Out": "res://assets/cards/Burnt Out.jpg",
+	"Chewed Out": "res://assets/cards/Chewed Out.jpg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Hyena": "res://assets/journal/torments/hyena.jpeg",

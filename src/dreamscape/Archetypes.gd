@@ -434,7 +434,7 @@ const ABUSIVE_RELATIONSHIP := {
 }
 const EXPLOITED := {
 	"Anxiety": -5,
-#		"Icon": preload("res://icon.png"),
+	"Icon": preload("res://assets/archetypes/Exploited.jpg"),
 	"Tags": [
 		Terms.GENERIC_TAGS.slumber.name,
 		Terms.ACTIVE_EFFECTS.armor.name,
