@@ -63,6 +63,16 @@ const CARDS := {
 		"_keywords": [],
 		"_is_unplayable": true,
 	},
+	"Languor": {
+		"Type": "Perturbation",
+		"Tags": [Terms.GENERIC_TAGS.fading.name],
+		"Abilities": "{unplayable}",
+		"Cost": 'U',
+		"_illustration": "",
+		"_rarity": "Perturbation",
+		"_keywords": [],
+		"_is_unplayable": true,
+	},
 	"Prejudice": {
 		"Type": "Perturbation",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
@@ -90,6 +100,22 @@ const CARDS := {
 			"immersion_amount": -1,
 		},
 		"_is_unplayable": true,
+	},
+	"Stimulated": {
+		"Type": "Perturbation",
+		"Tags": [],
+		"Abilities": "If this card is in your hand at the end of the turn, gain {effect_stacks} {drain}\n"\
+				+ "Play: {forget}.",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Perturbation",
+		"_keywords": [],
+		"_amounts": {
+			"effect_stacks": 1,
+		},
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.drain.name: Terms.PLAYER
+		},
 	},
 	"Apathy": {
 		"Type": "Perturbation",
@@ -157,13 +183,14 @@ const CARDS := {
 		"Type": "Perturbation",
 		"Tags": [],
 		"Abilities": "While in hand, you cannot play cards that cost {immersion_cost} or more {immersion}",
-		"Cost": "U",
+		"Cost": 'U',
 		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Perturbation",
 		"_amounts": {
 			"immersion_cost": 2
 		},
 		"_keywords": [],
+		"_is_unplayable": true,
 	},
 	"Suffocation": {
 		"Type": "Perturbation",

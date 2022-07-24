@@ -30,3 +30,8 @@ func get_effect_alteration(
 		set_stacks(stacks - 1, ["Triggered"])
 	var alteration = new_value - value
 	return(alteration)
+
+func _decrease_stacks() -> void:
+	var script : Array = []
+	var extra_reduction = floor(stacks / 5)
+	set_stacks(stacks - 1 - extra_reduction, ["Turn Decrease"])

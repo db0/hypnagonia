@@ -550,6 +550,8 @@ func show_pathos_popup(description_text: String, pathos_dict: Dictionary) -> voi
 
 func _input(event):
 	### Debug ###
+	if event.is_action_pressed("Show FPS"):
+		print(Engine.get_frames_per_second())
 	if event.is_action_pressed("init_debug_game"):
 		pass
 #		globals.player.deck.add_new_card("Guilt")
@@ -583,7 +585,7 @@ func _input(event):
 #		globals.player.pathos.available_masteries += 6
 		var debug_encounters = [
 #			EnemyEncounter.new(Act1.TheLightCalling, "hard"),
-			EnemyEncounter.new(Act2.TrafficJam, "easy"),
+			EnemyEncounter.new(Act2.Mouse, "easy"),
 #			EnemyEncounter.new(Act3.Influencer, "hard"),
 #			load("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/AllActs/OstrichEggs.gd").new(),

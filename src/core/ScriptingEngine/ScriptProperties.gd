@@ -1099,7 +1099,16 @@ const FILTER_GROUP = "filter_group"
 #
 # Filter used for checking against the value of the get_class() of an object
 const FILTER_CLASS = "filter_class"
-
+#Value Type: Bool.
+#
+# Filter for explicitly excluding the source card.
+# This is useful when we do a boardseek or tutor and we don't want to consider
+# The originator
+# 
+# This is only used in boardseek, and tutor subjects
+#
+# This key should be put in the same level as the main script
+const FILTER_EXCLUDE_SELF := "filter_exclude_self"
 #---------------------------------------------------------------------
 # Trigger Properties
 #

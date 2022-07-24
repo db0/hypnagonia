@@ -1062,6 +1062,7 @@ EventBus="*res://src/dreamscape/Globals/EventBus.gd"
 
 window/size/width=1455
 window/size/height=900
+window/vsync/use_vsync=false
 
 [editor_plugins]
 

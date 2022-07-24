@@ -1244,7 +1244,7 @@ const CARDS := {
 		"_upgrade_threshold_modifier": 0,
 		"_upgrades": [
 			"@ Towering Presence @",
-			"Overwhelming Presence",
+			"+ Towering Presence +",
 		],
 		"_difficulty_ban": {
 			"permanent_defence": true
@@ -1260,7 +1260,7 @@ const CARDS := {
 		"_keywords": ["confidence", "interpretation"],
 		"_is_upgrade": true,
 	},
-	"Overwhelming Presence": {
+	"+ Towering Presence +": {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} equal to your current {confidence} + {damage_amount}",

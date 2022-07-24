@@ -474,18 +474,18 @@ func _input(event):
 #		_torment2 = spawn_enemy(EnemyDefinitions.SHAMELING)
 		_torment2 = spawn_enemy(EnemyDefinitions.GASLIGHTER)
 #		_torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
-		_torment3 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
+#		_torment3 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LIGHT_CALLING)
 		if _torment1:
-			_torment1.health = 60
+			_torment1.health = 600
 			_torment1.damage = 15
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS["void"].name, 1)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 5)
 #			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.effect_resistance.name, 1, false, false, ["Init"], Terms.ACTIVE_EFFECTS.poison.name)
 			_torment1.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 4)
 		if _torment2:
-			_torment2.health = 50
+			_torment2.health = 500
 			_torment2.damage = 10
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 2)
 #			_torment2.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.marked.name, 1)
@@ -498,7 +498,7 @@ func _input(event):
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.poison.name, 1)
 			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 3)
 #			_torment3.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.strengthen.name, 1)
-		dreamer.health = 100
+		dreamer.health = 1000
 		dreamer.damage = 11
 		# warning-ignore:return_value_discarded
 		globals.player.add_artifact(ArtifactDefinitions.SavedReleases.canonical_name)
@@ -510,17 +510,25 @@ func _input(event):
 		# warning-ignore:return_value_discarded
 #		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
 		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 1)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.thorns.name, 6)
+		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.armor.name, 46)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.absurdity_unleashed.name, 1)
 		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.creative_block.name, 1)
 		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.laugh_at_danger.name, 1)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.heat_venting.name, 1, false, false, ['Debug'], 'high')
-		# Hand Cards
-#		for iter in 20:
+		# Performance Tests
+#		for iter in 100:
 #			var c = "Interpretation"
+#			var ce = globals.player.deck.add_new_card(c)
+#			var card = ce.instance_self()
+#			cfc.NMAP.deck.add_child(card)
+#			card._determine_idle_state()	
+
+		# Hand Cards
 		for c in [
-			"Overtime",
-			"Solid Work Ethic",
+			"Stimulated",
+			"Stimulants",
+			"Stimulants",
+#			"Solid Work Ethic",
 			# Need to look into these two later
 #			"Fowl Language",
 #			"A Thousand Squeaks",
@@ -567,6 +575,10 @@ func _debug_advanced_enemy():
 
 
 func _on_Debug_pressed() -> void:
+	globals.encounters.card_back_texture = HypnagoniaCardBack.get_random_card_back()
+	for card in cfc.get_tree().get_nodes_in_group("cards"):
+		if card.card_back and card.card_back.has_method("_prepare_back_from_texture"):
+			card.card_back._prepare_back_from_texture()
 	# warning-ignore:return_value_discarded
 #	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.burn.name, 3)
 	dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 1)
@@ -578,7 +590,6 @@ func _on_Debug_pressed() -> void:
 	for entity in get_tree().get_nodes_in_group("EnemyEntities"):
 		entity.damage = 1
 	for c in [
-		"Dream Fragment"
 #		"Grit"
 #			"Nunclucks",
 #			"Confident Slap",
