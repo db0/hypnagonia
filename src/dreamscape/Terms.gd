@@ -785,6 +785,15 @@ const ACTIVE_EFFECTS := {
 			"forget",
 		],
 	},
+	"wage_slavery":  {
+		"name": "Wage Slavery",
+		"type": "Concentration",
+		"icon": preload("res://assets/icons/slavery-whip.png"),
+		"is_card_reference": true,
+		"linked_terms": [
+			"forget",
+		],
+	},
 	
 	# These effects are usually starting on top of special enemies
 	# but might also be given to the player as Understanding concentrations

@@ -525,7 +525,7 @@ func _input(event):
 
 		# Hand Cards
 		for c in [
-			"+ Towering Presence +",
+			"@ Wage Slavery @",
 #			"Solid Work Ethic",
 			# Need to look into these two later
 #			"Fowl Language",
