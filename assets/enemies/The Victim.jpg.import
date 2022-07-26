@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/the_victim.jpeg-5843a6e738a3199f38295a16b963b40c.stex"
+path="res://.import/The Victim.jpg-80d8d0b178bf8a0cd244a966f7ccb049.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/torments/the_victim.jpeg"
-dest_files=[ "res://.import/the_victim.jpeg-5843a6e738a3199f38295a16b963b40c.stex" ]
+source_file="res://assets/enemies/The Victim.jpg"
+dest_files=[ "res://.import/The Victim.jpg-80d8d0b178bf8a0cd244a966f7ccb049.stex" ]
 
 [params]
 

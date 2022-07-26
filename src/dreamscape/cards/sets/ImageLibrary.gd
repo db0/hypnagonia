@@ -195,11 +195,12 @@ const BETA_IMAGES := {
 	"Office Meltdown": "res://assets/cards/Office Meltdown.jpg",
 	"Burnt Out": "res://assets/cards/Burnt Out.jpg",
 	"Chewed Out": "res://assets/cards/Chewed Out.jpg",
+	"Work Ethic": "res://assets/cards/Work Ethic.jpg",
+	"The Victim": "res://assets/cards/The Victim.jpg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Hyena": "res://assets/journal/torments/hyena.jpeg",
 	"Baby": "res://assets/journal/torments/baby.jpeg",
-	"The Victim": "res://assets/journal/torments/the_victim.jpeg",
 	"The Exam": "res://assets/journal/torments/exam.jpeg",
 	"Void": "res://assets/journal/torments/void.jpeg",
 	"Cringelord": "res://assets/journal/torments/cringelord.jpeg",

@@ -203,7 +203,7 @@ const TheVictim = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/the_victim.jpeg",
+	"journal_art": "res://assets/journal/torments/The Victim.jpg",
 }
 # Inspiration taken from StS mods developed by https://github.com/modargo
 const StuffedToy = {

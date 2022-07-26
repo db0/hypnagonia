@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Pialephant.jpg-eec258449dc1883284aacab557ad7e39.stex"
+path="res://.import/The Victim.jpg-2685fc7ead334e4fd36ae5025f5d0822.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/Pialephant.jpg"
-dest_files=[ "res://.import/Pialephant.jpg-eec258449dc1883284aacab557ad7e39.stex" ]
+source_file="res://assets/cards/The Victim.jpg"
+dest_files=[ "res://.import/The Victim.jpg-2685fc7ead334e4fd36ae5025f5d0822.stex" ]
 
 [params]
 

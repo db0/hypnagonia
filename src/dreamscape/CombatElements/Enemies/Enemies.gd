@@ -459,8 +459,8 @@ const THE_VICTIM := {
 	"_health_variability": 2,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": "res://assets/journal/torments/the_victim.jpeg",
-	"_character_art": "Silberfarben via Artbreeder.com"
+	"_texture": "res://assets/enemies/The Victim.jpg",
+	"_character_art": "Db0 via midjourney.com"
 }
 const IMPOSSIBLE_CONSTRUCTION := {
 	"Name": "Impossible Construction",
