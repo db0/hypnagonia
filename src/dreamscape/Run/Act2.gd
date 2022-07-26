@@ -164,6 +164,7 @@ const TheVictim = {
 			+ "Was I in the wrong? I don't know anymore...",
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/The Victim.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -203,7 +204,6 @@ const TheVictim = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/The Victim.jpg",
 }
 # Inspiration taken from StS mods developed by https://github.com/modargo
 const StuffedToy = {
@@ -212,6 +212,7 @@ const StuffedToy = {
 			+ "Why was this feeling so hard?",
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/Stuffed Toy.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -251,7 +252,6 @@ const StuffedToy = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/Stuffed Toy.jpg",
 }
 
 const ImpossibleConstruction = {
@@ -260,6 +260,7 @@ const ImpossibleConstruction = {
 			+ "[url={torment_tag1}]I always ended up on the ground floor again.[/url]",
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/Impossible Construction.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -325,7 +326,6 @@ const ImpossibleConstruction = {
 			},
 		],
 	},
-#	"journal_art": "res://assets/journal/torments/stuffed_toy.jpeg"),
 }
 
 const ClownShow = {

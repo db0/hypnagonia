@@ -585,7 +585,7 @@ func _input(event):
 #		globals.player.pathos.available_masteries += 6
 		var debug_encounters = [
 #			EnemyEncounter.new(Act1.TheLightCalling, "hard"),
-			EnemyEncounter.new(Act2.TheVictim, "easy"),
+			EnemyEncounter.new(Act2.ImpossibleConstruction, "easy"),
 #			EnemyEncounter.new(Act3.Influencer, "hard"),
 #			load("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/AllActs/OstrichEggs.gd").new(),

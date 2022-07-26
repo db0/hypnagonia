@@ -197,6 +197,13 @@ const BETA_IMAGES := {
 	"Chewed Out": "res://assets/cards/Chewed Out.jpg",
 	"Work Ethic": "res://assets/cards/Work Ethic.jpg",
 	"The Victim": "res://assets/cards/The Victim.jpg",
+	"Subconscious": "res://assets/cards/Subconscious.jpg",
+	"Know Your Limits": "res://assets/cards/Know Your Limits.jpg",
+	"The Crunch": "res://assets/cards/The Crunch.jpg",
+	"Punch-In": "res://assets/cards/Punch-In.jpg",
+	"Deep Acting": "res://assets/cards/Deep Acting.jpg",
+	"Wage Slavery": "res://assets/cards/Wage Slavery.jpg",
+#	"The Grind": "res://assets/cards/The Grind.jpg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Hyena": "res://assets/journal/torments/hyena.jpeg",

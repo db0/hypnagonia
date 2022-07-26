@@ -490,8 +490,8 @@ const IMPOSSIBLE_CONSTRUCTION := {
 	"_health_variability": 1,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": "res://assets/cards/Impossible_Construction.jpg",
-	"_character_art": "Miikka Veijola"
+	"_texture": "res://assets/enemies/Impossible Construction.jpg",
+	"_character_art": "Db0 via midjourney.com"
 }
 const SILENT_TREATMENT := {
 	"Name": "Silent Treatment",

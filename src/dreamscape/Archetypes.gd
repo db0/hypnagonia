@@ -476,7 +476,7 @@ const EXPLOITED := {
 	"Rare": [
 		"Organizing",
 		"Stimulants",
-		"Know Your Worth",
+		"Deep Acting",
 		"Wage Slavery",
 	]
 }

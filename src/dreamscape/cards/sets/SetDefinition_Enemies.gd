@@ -1080,7 +1080,7 @@ const CARDS := {
 				+ "if the torment is {overcome}, permanently increase the {damage} "\
 				+ "of this card by {increase_amount}\n{forget}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["interpretation", "overcome", "forget"],
 		"_amounts": {
@@ -1100,7 +1100,7 @@ const CARDS := {
 				+ "if the torment is {overcome}, permanently increase the {damage} "\
 				+ "of this card by {increase_amount}\n{forget}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["interpretation", "overcome", "forget"],
 		"_amounts": {
@@ -1116,7 +1116,7 @@ const CARDS := {
 				+ "if the torment is {overcome}, permanently increase the {damage} "\
 				+ "of this card by {increase_amount}\n{forget}",
 		"Cost": 3,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["interpretation", "overcome", "forget"],
 		"_amounts": {
