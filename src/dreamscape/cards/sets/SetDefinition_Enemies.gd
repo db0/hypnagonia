@@ -1655,7 +1655,7 @@ const CARDS := {
 		],
 		"Abilities": "Gain {effect_stacks} {strengthen}, {effect_stacks2} {quicken} and {effect_stacks3} {thorns}.\n{forget}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER,
@@ -1686,7 +1686,7 @@ const CARDS := {
 
 		"Abilities": "Gain {effect_stacks} {strengthen}, {effect_stacks2} {quicken} and {effect_stacks3} {thorns}.\n{forget}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER,
@@ -1712,7 +1712,7 @@ const CARDS := {
 
 		"Abilities": "Gain {effect_stacks} {strengthen}, {effect_stacks2} {quicken} and {effect_stacks3} {thorns}.\n{forget}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER,
@@ -1738,7 +1738,7 @@ const CARDS := {
 
 		"Abilities": "Gain {effect_stacks} {strengthen}, {effect_stacks2} {quicken} and {effect_stacks3} {thorns}.\n{forget}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER,

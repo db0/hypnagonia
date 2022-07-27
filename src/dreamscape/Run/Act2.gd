@@ -524,7 +524,24 @@ const SurrealBoss = {
 	"journal_reward":\
 		"I don't claim to understand what I was seeing, [url=boss_card_draft]but eventually that vision faded.[/url]"\
 		+ "but my mind was open to [url=boss_artifact]many new possibilities[/url].",
-	'journal_art': "res://assets/journal/advanced/surreality.jpeg",
+	'journal_art': 
+		[
+			"res://assets/journal/advanced/Surreality/Surreality1.jpg", 
+			"res://assets/journal/advanced/Surreality/Surreality2.jpg", 
+			"res://assets/journal/advanced/Surreality/Surreality3.jpg", 
+			"res://assets/journal/advanced/Surreality/Surreality4.jpg", 
+			"res://assets/journal/advanced/Surreality/Surreality5.jpg", 
+			"res://assets/journal/advanced/Surreality/Surreality6.jpg", 
+			"res://assets/journal/advanced/Surreality/Surreality7.jpg", 
+			"res://assets/journal/advanced/Surreality/Surreality8.jpg", 
+			"res://assets/journal/advanced/Surreality/Surreality9.jpg", 
+			"res://assets/journal/advanced/Surreality/Surreality10.jpg", 
+			"res://assets/journal/advanced/Surreality/Surreality11.jpg",
+			"res://assets/journal/advanced/Surreality/Surreality12.jpg", 
+			"res://assets/journal/advanced/Surreality/Surreality13.jpg", 
+			"res://assets/journal/advanced/Surreality/Surreality14.jpg", 
+			"res://assets/journal/advanced/Surreality/Surreality15.jpg"
+		],
 }
 
 const BOSSES := {

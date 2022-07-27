@@ -203,7 +203,8 @@ const BETA_IMAGES := {
 	"Punch-In": "res://assets/cards/Punch-In.jpg",
 	"Deep Acting": "res://assets/cards/Deep Acting.jpg",
 	"Wage Slavery": "res://assets/cards/Wage Slavery.jpg",
-#	"The Grind": "res://assets/cards/The Grind.jpg",
+	"The Grind": "res://assets/cards/The Grind.jpg",
+	"Beast Mode": "res://assets/cards/Beast Mode.jpg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Hyena": "res://assets/journal/torments/hyena.jpeg",

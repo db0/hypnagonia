@@ -596,7 +596,7 @@ func _input(event):
 #			load("res://src/dreamscape/Run/NCE/Rest.gd").new(),
 			load("res://src/dreamscape/Run/NCE/Shop.gd").new(),
 #			BossEncounter.new(Act1.BOSSES["Narcissus"]),
-#			BossEncounter.new(Act2.BOSSES["Surreality"]),
+			BossEncounter.new(Act2.BOSSES["Surreality"]),
 #			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
 #			EliteEncounter.new(Act1.Bully, "medium"),
 			EliteEncounter.new(Act2.Dentist, "medium"),
