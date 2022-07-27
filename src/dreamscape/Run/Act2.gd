@@ -333,6 +333,7 @@ const ClownShow = {
 		'[url={torment_tag1}]The Clowns were back[/url], and this time [url={torment_tag2}]they brought the circus[/url]!',
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/ClownShow.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -380,7 +381,6 @@ const ClownShow = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/pialephant.jpg",
 }
 const GuiltyTreatment = {
 	"journal_description":\
@@ -473,12 +473,12 @@ const Void = {
 const ENEMIES = {
 	"TrafficJam": TrafficJam,
 	"Mouse": Mouse,
-	"TheExam":TheExam,
-	"TheVictim":TheVictim,
-	"ClownShow":ClownShow,
-	"StuffedToy":StuffedToy,
-	"ImpossibleConstruction":ImpossibleConstruction,
-	"GuiltyTreatment":GuiltyTreatment,
+	"TheExam": TheExam,
+	"TheVictim": TheVictim,
+	"ClownShow": ClownShow,
+	"StuffedToy": StuffedToy,
+	"ImpossibleConstruction": ImpossibleConstruction,
+	"GuiltyTreatment": GuiltyTreatment,
 	"Void":Void,
 }
 
@@ -504,11 +504,12 @@ const Jumbletron = {
 	"name": "Jumbletron",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/Jumbletron.tscn")],
 	"journal_description":\
-		'I had enterred a room which seemed to be an amalgram of a lot of different encounters I had.\n'\
+		'I had enterred a room which appeared to be self-rearranging. Walls which were farther than they seemed, '\
+		+ "and an almost fractal level of detail.\n"\
 		+ "I couldn't find the exit anymore.",
 	"journal_reward":\
 		'Somehow I figured out the correct organization to make it out.',
-	'journal_art': "res://assets/journal/advanced/jumbletron.jpeg",
+	'journal_art': "res://assets/journal/advanced/Jumbletron.jpg",
 }
 
 const ELITES = {

@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/EnemyIntents.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/dreamscape/CombatElements/CombatEntity.tscn" type="PackedScene" id=2]
 [ext_resource path="res://shaders/invert.shader" type="Shader" id=3]
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/Elites/InfiniteCorridorIntents.gd" type="Script" id=4]
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/Elites/InfiniteCorridor.gd" type="Script" id=5]
+[ext_resource path="res://assets/enemies/Infinite Corridor.jpg" type="Texture" id=6]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -13,6 +14,7 @@ shader_param/is_active = false
 
 [node name="InfiniteCorridor" groups=["BossEntities", "EnemyEntities"] instance=ExtResource( 2 )]
 script = ExtResource( 5 )
+character_art_texture = ExtResource( 6 )
 
 [node name="Push" parent="." index="0"]
 margin_bottom = 0.0
@@ -53,17 +55,17 @@ margin_top = 91.0
 margin_bottom = 121.0
 rect_min_size = Vector2( 0, 30 )
 
-[node name="HealthBar" parent="." index="5"]
+[node name="HP" parent="." index="5"]
 margin_top = 95.0
-margin_bottom = 103.0
+margin_bottom = 104.0
 
 [node name="HBC" parent="." index="6"]
-margin_top = 107.0
-margin_bottom = 143.0
+margin_top = 108.0
+margin_bottom = 144.0
 rect_min_size = Vector2( 0, 15 )
 
 [node name="ActiveEffects" parent="." index="7"]
-margin_top = 147.0
-margin_bottom = 183.0
+margin_top = 148.0
+margin_bottom = 184.0
 
 [editable path="Intents"]

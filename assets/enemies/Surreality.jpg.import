@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/jumbletron.jpeg-d663d801416c1682de725a11d5d55e11.stex"
+path="res://.import/Surreality.jpg-4a2707d4c1d2d0d41d3667c83d3bd582.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/advanced/jumbletron.jpeg"
-dest_files=[ "res://.import/jumbletron.jpeg-d663d801416c1682de725a11d5d55e11.stex" ]
+source_file="res://assets/enemies/Surreality.jpg"
+dest_files=[ "res://.import/Surreality.jpg-4a2707d4c1d2d0d41d3667c83d3bd582.stex" ]
 
 [params]
 

@@ -566,7 +566,7 @@ const InfiniteCorridor = {
 		+ "Every light at the end, was just a corner. Every exit found, inpassable.",
 	"journal_reward":\
 		"Did I find the exit, or just walked out. I can't quite remember.",
-#	'journal_art': "res://assets/journal/advanced/theatre.jpeg",
+	'journal_art': "res://assets/journal/advanced/Infinite Corridor.jpg",
 }
 
 const ELITES = {

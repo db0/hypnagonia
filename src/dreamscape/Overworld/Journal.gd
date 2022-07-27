@@ -585,7 +585,7 @@ func _input(event):
 #		globals.player.pathos.available_masteries += 6
 		var debug_encounters = [
 #			EnemyEncounter.new(Act1.TheLightCalling, "hard"),
-			EnemyEncounter.new(Act2.ImpossibleConstruction, "easy"),
+			EnemyEncounter.new(Act2.ClownShow, "easy"),
 #			EnemyEncounter.new(Act3.Influencer, "hard"),
 #			load("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/AllActs/OstrichEggs.gd").new(),
@@ -594,13 +594,13 @@ func _input(event):
 #			load("res://src/dreamscape/Run/NCE/Act1/PathosForAnxiety.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Rest.gd").new(),
-			load("res://src/dreamscape/Run/NCE/Shop.gd").new(),
+#			load("res://src/dreamscape/Run/NCE/Shop.gd").new(),
 #			BossEncounter.new(Act1.BOSSES["Narcissus"]),
-			BossEncounter.new(Act2.BOSSES["Surreality"]),
+#			BossEncounter.new(Act2.BOSSES["Surreality"]),
 #			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
 #			EliteEncounter.new(Act1.Bully, "medium"),
-			EliteEncounter.new(Act2.Dentist, "medium"),
-#			EliteEncounter.new(Act3.TheatrePlay, "medium"),
+			EliteEncounter.new(Act2.Jumbletron, "medium"),
+			EliteEncounter.new(Act3.InfiniteCorridor, "medium"),
 #			load("res://src/dreamscape/Run/NCE/Shop.gd").new()
 #			load("res://src/dreamscape/Run/NCE/Rest.gd").new()
 		]
