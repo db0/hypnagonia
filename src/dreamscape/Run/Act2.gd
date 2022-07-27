@@ -32,6 +32,7 @@ const TrafficJam = {
 		'I started dreaming about my [url={torment_tag1}]daily commute traffic jam[/url].',
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/Traffic Jam.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -55,7 +56,6 @@ const TrafficJam = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/Traffic Jam.jpg",
 }
 
 # Inspiration taken from StS mods developed by https://github.com/modargo
@@ -64,6 +64,7 @@ const Mouse = {
 		'I was having tea with [url={torment_tag1}]a rodent[/url]. It was explaining the pitfalls of overpopulation.',
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/Mouse.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -104,7 +105,6 @@ const Mouse = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/Mouse.jpg",
 }
 
 # Inspiration taken from StS mods developed by https://github.com/modargo
@@ -114,6 +114,7 @@ const TheExam = {
 			+ "[url={torment_tag1}]It was time for the test.[/url]",
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/exam.jpeg",
 	"enemies": {
 		"easy": [
 			{
@@ -154,7 +155,6 @@ const TheExam = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/exam.jpeg",
 }
 
 # Inspiration taken from StS mods developed by https://github.com/modargo
@@ -387,6 +387,7 @@ const GuiltyTreatment = {
 		'I was talking to someone. But they were either [url={torment_tag1}]blaming me[/url], or [url={torment_tag2}]giving me the silent treatment[/url].',
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/silent_treatment.jpeg",
 	"enemies": {
 		"easy": [
 			{
@@ -421,13 +422,13 @@ const GuiltyTreatment = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/silent_treatment.jpeg",
 }
 const Void = {
 	"journal_description":\
 		"Initially I felt it was dreamless sleep. But it occurred to me [url={torment_tag1}]it was far worse[/url]...",
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/void.jpeg",
 	"enemies": {
 		"easy": [
 			{
@@ -468,7 +469,6 @@ const Void = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/void.jpeg",
 }
 const ENEMIES = {
 	"TrafficJam": TrafficJam,
@@ -483,13 +483,13 @@ const ENEMIES = {
 }
 
 const IndescribableAbsurdity = {
-	"name": "Indescribable Absurdity",
+	"name": "Fractalization",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/IndescribableAbsurdity.tscn")],
 	"journal_description":\
-		'I remember dreaming something indescribable.',
+		'I was surrounded by infinite complexity at all sides.',
 	"journal_reward":\
 		'In the end, I simply dreamed of something more sane.',
-	'journal_art': "res://assets/journal/advanced/absurdity.jpeg",
+	'journal_art': "res://assets/journal/advanced/Fractalization.jpg",
 }
 const Dentist = {
 	"name": "Dentist",

@@ -205,6 +205,7 @@ const BETA_IMAGES := {
 	"Wage Slavery": "res://assets/cards/Wage Slavery.jpg",
 	"The Grind": "res://assets/cards/The Grind.jpg",
 	"Beast Mode": "res://assets/cards/Beast Mode.jpg",
+	"Circular Arguments": "res://assets/cards/Circular Arguments.jpg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Hyena": "res://assets/journal/torments/hyena.jpeg",

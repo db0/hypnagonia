@@ -33,6 +33,7 @@ const Administration = {
 		+ "The dilemma was between my career or my sanity.",
 	"journal_reward":\
 		'The extra headspace granted to me allowed me to reflect more.',
+	"journal_art": "res://assets/journal/torments/administration.jpeg",
 	"enemies": {
 		"easy": [
 			{
@@ -52,7 +53,6 @@ const Administration = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/administration.jpeg",
 }
 const Life_Paths = {
 	"journal_description":\
@@ -60,6 +60,7 @@ const Life_Paths = {
 		+ "I had to figure out which version of me was the one I wanted to become.",
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/life_path.jpeg",
 	"enemies": {
 		"easy": [
 			{
@@ -164,7 +165,6 @@ const Life_Paths = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/life_path.jpeg",
 }
 
 const Cringelord = {
@@ -361,6 +361,7 @@ const Circular_Arguments = {
 		+ "I felt we had just resolved it just a minute ago, and yet, here we are discussing it again.",
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/Circular Arguments.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -405,7 +406,6 @@ const Circular_Arguments = {
 			},
 		],
 	},
-#	"journal_art": "res://assets/journal/torments/life_path.jpeg"),
 }
 const Influencer = {
 	"journal_description":\

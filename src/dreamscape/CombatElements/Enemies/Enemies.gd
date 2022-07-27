@@ -840,7 +840,7 @@ const CIRCULAR_ARGUMENTS := {
 	"_health_variability": 15,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-#	"_texture": "res://assets/journal/torments/handsy_aunt.jpeg",
+	"_texture": "res://assets/enemies/Circular Arguments.jpg",
 	"_character_art": "Nobody"
 }
 const INFLUENCER := {

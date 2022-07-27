@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Squirrel.jpg-05a9badad73825281ea857be14b80635.stex"
+path="res://.import/Circular Arguments.jpg-afc339e6b46ffa080c27e22ff01ca5fe.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/torments/Squirrel.jpg"
-dest_files=[ "res://.import/Squirrel.jpg-05a9badad73825281ea857be14b80635.stex" ]
+source_file="res://assets/enemies/Circular Arguments.jpg"
+dest_files=[ "res://.import/Circular Arguments.jpg-afc339e6b46ffa080c27e22ff01ca5fe.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

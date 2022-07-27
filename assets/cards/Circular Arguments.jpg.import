@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/absurdity.jpeg-382164b73e19b1155e60113adde1cd8c.stex"
+path="res://.import/Circular Arguments.jpg-e846e04cacc2617ddb67fa01bdb1bd5e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/advanced/absurdity.jpeg"
-dest_files=[ "res://.import/absurdity.jpeg-382164b73e19b1155e60113adde1cd8c.stex" ]
+source_file="res://assets/cards/Circular Arguments.jpg"
+dest_files=[ "res://.import/Circular Arguments.jpg-e846e04cacc2617ddb67fa01bdb1bd5e.stex" ]
 
 [params]
 

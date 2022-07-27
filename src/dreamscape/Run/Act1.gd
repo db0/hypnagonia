@@ -32,6 +32,7 @@ const TheLaughingOnes = {
 		'I found myself between [url={torment_tag1}]a pair of featureless creeps laughing[/url] at me.',
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/The Laughing One.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -71,7 +72,6 @@ const TheLaughingOnes = {
 			}
 		],
 	},
-	"journal_art": "res://assets/journal/torments/The Laughing One.jpg",
 }
 
 
@@ -116,6 +116,7 @@ I pleaded for it to go away, but I knew I couldn't shake it. The dark field I wa
 """,
 	"journal_reward":\
 		"In the end, I had learned to overcome the doubt. I wouldn't let them gaslight me anymore. The ugly entity was crippled on the ground breathing out puffs of smoke as I pondered at my triumph. The entity ascended upwards and screamed at me in sheer exasperation and embarassment as it flew away. I knew that that was not the last time I was going to have to confront them. But now, I won't let anyone question my reality.",
+	"journal_art": "res://assets/journal/torments/Gaslighter.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -136,7 +137,6 @@ I pleaded for it to go away, but I knew I couldn't shake it. The dark field I wa
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/Gaslighter.jpg",
 }
 
 
@@ -149,6 +149,7 @@ Their whispers lingered in the air, getting more acerbic by the second.
 	"journal_reward":\
 """Their blame and resentment had me at my breaking point. Yet I stood firm them and reinforced my self-esteem. At this point, I had learned life is too short to keep grudges.
 """,
+	"journal_art": "res://assets/journal/torments/Murmurs.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -180,7 +181,6 @@ Their whispers lingered in the air, getting more acerbic by the second.
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/Murmurs.jpg",
 }
 
 
@@ -189,6 +189,7 @@ const TheCritic = {
 		'Strange entities with comically enlarged sense organs [url={torment_tag1}]started circling me, and pointing out all my flaws[/url].',
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/The Critic.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -225,7 +226,6 @@ const TheCritic = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/The Critic.jpg",
 }
 
 
@@ -234,6 +234,7 @@ const Clown = {
 		'I somehow ended in a peculiar argument [url={torment_tag1}]with a clown[/url].',
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/Clown.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -259,7 +260,6 @@ const Clown = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/Clown.jpg",
 }
 
 
@@ -268,6 +268,7 @@ const Butterfly = {
 		'What a [url={torment_tag1}]depressive butterfly[/url].',
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/Butterfly.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -293,7 +294,6 @@ const Butterfly = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/Butterfly.jpg",
 }
 
 
@@ -302,6 +302,7 @@ const BrokenMirrors = {
 		'Am I cursed [url={torment_tag1}]or is it just bad luck[/url]?',
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/broken_mirror.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -336,7 +337,6 @@ const BrokenMirrors = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/broken_mirror.jpg",
 }
 
 const Pialephant = {
@@ -353,6 +353,7 @@ This was no orchestra I wanted to be overrun by!
 Hopefully it didn’t play something sharp, or else my balloon would become a corny pop song! 
 Luckily, I had just found I was able to catch myself in the music, because I’d B-flat on the ground otherwise.
 """,
+	"journal_art": "res://assets/journal/torments/pialephant.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -385,13 +386,13 @@ Luckily, I had just found I was able to catch myself in the music, because I’d
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/pialephant.jpg",
 }
 const TheLightCalling = {
 	"journal_description":\
 		'At one point, I felt like I was having [url={torment_tag1}]a near death experience[/url].',
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/The Light Calling.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -418,13 +419,13 @@ const TheLightCalling = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/The Light Calling.jpg",
 }
 const Squirrel = {
 	"journal_description":\
 		'I found myself facing off [url={torment_tag1}]with a squirrel giving me the stink-eye[/url].',
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/squirrel.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -456,13 +457,13 @@ const Squirrel = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/squirrel.jpg",
 }
 const Baby = {
 	"journal_description":\
 		'I had to take care of [url={torment_tag1}]a fussy baby[/url]. I am responsible enough?',
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/baby.jpeg",
 	"enemies": {
 		"easy": [
 			{
@@ -485,7 +486,6 @@ const Baby = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/baby.jpeg",
 }
 #	{
 #		"journal_description":\
