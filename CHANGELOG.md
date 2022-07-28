@@ -1,5 +1,38 @@
 # Changelog
 
+## [Unreleased](https://github.com/db0/hypnagonia/tree/HEAD)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.61.1...HEAD)
+
+**Closed issues:**
+
+- Circular arguments needs 4 pieces of individual art [\#399](https://github.com/db0/hypnagonia/issues/399)
+
+## [v0.61.1](https://github.com/db0/hypnagonia/tree/v0.61.1) (2022-07-28)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.61.0...v0.61.1)
+
+**Implemented enhancements:**
+
+- Each Archetype choice, needs a piece of art in the menu. [\#304](https://github.com/db0/hypnagonia/issues/304)
+
+**Fixed bugs:**
+
+- Bug: Pialephalant art still broken [\#395](https://github.com/db0/hypnagonia/issues/395)
+- Bug: Add {Determined amount} Lacuna into your hand for 23/20 [\#391](https://github.com/db0/hypnagonia/issues/391)
+
+**Closed issues:**
+
+- Beast mode needs art [\#400](https://github.com/db0/hypnagonia/issues/400)
+- Overtime doesn't forget cards with slumber? [\#398](https://github.com/db0/hypnagonia/issues/398)
+- Goal: Repeating same torments in the same act is stale, and ruins flavor.  [\#394](https://github.com/db0/hypnagonia/issues/394)
+- New "Out of reach" art needs the new author's name respectively [\#393](https://github.com/db0/hypnagonia/issues/393)
+- Bug: Exhaustion doesn't forget out of reach on web build  [\#389](https://github.com/db0/hypnagonia/issues/389)
+
+**Merged pull requests:**
+
+- Bug reports and a lot more MJ art [\#401](https://github.com/db0/hypnagonia/pull/401) ([db0](https://github.com/db0))
+
 ## [v0.61.0](https://github.com/db0/hypnagonia/tree/v0.61.0) (2022-07-24)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.60.3...v0.61.0)
