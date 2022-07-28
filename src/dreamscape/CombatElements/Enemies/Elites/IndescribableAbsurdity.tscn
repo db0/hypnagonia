@@ -5,7 +5,7 @@
 [ext_resource path="res://src/dreamscape/CombatElements/CombatEntity.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/Elites/IndescribableAbsurdityIntents.gd" type="Script" id=4]
 [ext_resource path="res://src/dreamscape/CombatElements/Enemies/Elites/IndescribableAbsurdity.gd" type="Script" id=5]
-[ext_resource path="res://assets/journal/advanced/absurdity.jpeg" type="Texture" id=6]
+[ext_resource path="res://assets/enemies/Fractalization.jpg" type="Texture" id=6]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -55,7 +55,7 @@ margin_top = 91.0
 margin_bottom = 121.0
 rect_min_size = Vector2( 0, 30 )
 
-[node name="HealthBar" parent="." index="5"]
+[node name="HP" parent="." index="5"]
 margin_top = 95.0
 margin_bottom = 104.0
 

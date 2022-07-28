@@ -32,6 +32,7 @@ const TrafficJam = {
 		'I started dreaming about my [url={torment_tag1}]daily commute traffic jam[/url].',
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/Traffic Jam.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -55,7 +56,6 @@ const TrafficJam = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/Traffic Jam.jpg",
 }
 
 # Inspiration taken from StS mods developed by https://github.com/modargo
@@ -64,6 +64,7 @@ const Mouse = {
 		'I was having tea with [url={torment_tag1}]a rodent[/url]. It was explaining the pitfalls of overpopulation.',
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/Mouse.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -104,7 +105,6 @@ const Mouse = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/Mouse.jpg",
 }
 
 # Inspiration taken from StS mods developed by https://github.com/modargo
@@ -114,6 +114,7 @@ const TheExam = {
 			+ "[url={torment_tag1}]It was time for the test.[/url]",
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/exam.jpeg",
 	"enemies": {
 		"easy": [
 			{
@@ -154,7 +155,6 @@ const TheExam = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/exam.jpeg",
 }
 
 # Inspiration taken from StS mods developed by https://github.com/modargo
@@ -164,6 +164,7 @@ const TheVictim = {
 			+ "Was I in the wrong? I don't know anymore...",
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/The Victim.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -203,7 +204,6 @@ const TheVictim = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/the_victim.jpeg",
 }
 # Inspiration taken from StS mods developed by https://github.com/modargo
 const StuffedToy = {
@@ -212,6 +212,7 @@ const StuffedToy = {
 			+ "Why was this feeling so hard?",
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/Stuffed Toy.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -251,7 +252,6 @@ const StuffedToy = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/Stuffed Toy.jpg",
 }
 
 const ImpossibleConstruction = {
@@ -260,6 +260,7 @@ const ImpossibleConstruction = {
 			+ "[url={torment_tag1}]I always ended up on the ground floor again.[/url]",
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/Impossible Construction.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -325,7 +326,6 @@ const ImpossibleConstruction = {
 			},
 		],
 	},
-#	"journal_art": "res://assets/journal/torments/stuffed_toy.jpeg"),
 }
 
 const ClownShow = {
@@ -333,6 +333,7 @@ const ClownShow = {
 		'[url={torment_tag1}]The Clowns were back[/url], and this time [url={torment_tag2}]they brought the circus[/url]!',
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/ClownShow.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -380,13 +381,13 @@ const ClownShow = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/pialephant.jpg",
 }
 const GuiltyTreatment = {
 	"journal_description":\
 		'I was talking to someone. But they were either [url={torment_tag1}]blaming me[/url], or [url={torment_tag2}]giving me the silent treatment[/url].',
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/silent_treatment.jpeg",
 	"enemies": {
 		"easy": [
 			{
@@ -421,13 +422,13 @@ const GuiltyTreatment = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/silent_treatment.jpeg",
 }
 const Void = {
 	"journal_description":\
 		"Initially I felt it was dreamless sleep. But it occurred to me [url={torment_tag1}]it was far worse[/url]...",
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/The Void.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -468,28 +469,27 @@ const Void = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/void.jpeg",
 }
 const ENEMIES = {
 	"TrafficJam": TrafficJam,
 	"Mouse": Mouse,
-	"TheExam":TheExam,
-	"TheVictim":TheVictim,
-	"ClownShow":ClownShow,
-	"StuffedToy":StuffedToy,
-	"ImpossibleConstruction":ImpossibleConstruction,
-	"GuiltyTreatment":GuiltyTreatment,
+	"TheExam": TheExam,
+	"TheVictim": TheVictim,
+	"ClownShow": ClownShow,
+	"StuffedToy": StuffedToy,
+	"ImpossibleConstruction": ImpossibleConstruction,
+	"GuiltyTreatment": GuiltyTreatment,
 	"Void":Void,
 }
 
 const IndescribableAbsurdity = {
-	"name": "Indescribable Absurdity",
+	"name": "Fractalization",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/IndescribableAbsurdity.tscn")],
 	"journal_description":\
-		'I remember dreaming something indescribable.',
+		'I was surrounded by infinite complexity at all sides.',
 	"journal_reward":\
 		'In the end, I simply dreamed of something more sane.',
-	'journal_art': "res://assets/journal/advanced/absurdity.jpeg",
+	'journal_art': "res://assets/journal/advanced/Fractalization.jpg",
 }
 const Dentist = {
 	"name": "Dentist",
@@ -504,11 +504,12 @@ const Jumbletron = {
 	"name": "Jumbletron",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/Jumbletron.tscn")],
 	"journal_description":\
-		'I had enterred a room which seemed to be an amalgram of a lot of different encounters I had.\n'\
+		'I had enterred a room which appeared to be self-rearranging. Walls which were farther than they seemed, '\
+		+ "and an almost fractal level of detail.\n"\
 		+ "I couldn't find the exit anymore.",
 	"journal_reward":\
 		'Somehow I figured out the correct organization to make it out.',
-	'journal_art': "res://assets/journal/advanced/jumbletron.jpeg",
+	'journal_art': "res://assets/journal/advanced/Jumbletron.jpg",
 }
 
 const ELITES = {
@@ -524,7 +525,24 @@ const SurrealBoss = {
 	"journal_reward":\
 		"I don't claim to understand what I was seeing, [url=boss_card_draft]but eventually that vision faded.[/url]"\
 		+ "but my mind was open to [url=boss_artifact]many new possibilities[/url].",
-	'journal_art': "res://assets/journal/advanced/surreality.jpeg",
+	'journal_art': 
+		[
+			"res://assets/journal/advanced/Surreality/Surreality1.jpg", 
+			"res://assets/journal/advanced/Surreality/Surreality2.jpg", 
+			"res://assets/journal/advanced/Surreality/Surreality3.jpg", 
+			"res://assets/journal/advanced/Surreality/Surreality4.jpg", 
+			"res://assets/journal/advanced/Surreality/Surreality5.jpg", 
+			"res://assets/journal/advanced/Surreality/Surreality6.jpg", 
+			"res://assets/journal/advanced/Surreality/Surreality7.jpg", 
+			"res://assets/journal/advanced/Surreality/Surreality8.jpg", 
+			"res://assets/journal/advanced/Surreality/Surreality9.jpg", 
+			"res://assets/journal/advanced/Surreality/Surreality10.jpg", 
+			"res://assets/journal/advanced/Surreality/Surreality11.jpg",
+			"res://assets/journal/advanced/Surreality/Surreality12.jpg", 
+			"res://assets/journal/advanced/Surreality/Surreality13.jpg", 
+			"res://assets/journal/advanced/Surreality/Surreality14.jpg", 
+			"res://assets/journal/advanced/Surreality/Surreality15.jpg"
+		],
 }
 
 const BOSSES := {

@@ -1080,7 +1080,7 @@ const CARDS := {
 				+ "if the torment is {overcome}, permanently increase the {damage} "\
 				+ "of this card by {increase_amount}\n{forget}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["interpretation", "overcome", "forget"],
 		"_amounts": {
@@ -1100,7 +1100,7 @@ const CARDS := {
 				+ "if the torment is {overcome}, permanently increase the {damage} "\
 				+ "of this card by {increase_amount}\n{forget}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["interpretation", "overcome", "forget"],
 		"_amounts": {
@@ -1116,7 +1116,7 @@ const CARDS := {
 				+ "if the torment is {overcome}, permanently increase the {damage} "\
 				+ "of this card by {increase_amount}\n{forget}",
 		"Cost": 3,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["interpretation", "overcome", "forget"],
 		"_amounts": {
@@ -1283,7 +1283,7 @@ const CARDS := {
 				+ "{relax} for as much {interpretation} done.\n"\
 				+ "{forget}",
 		"Cost": 1,
-		"_illustration": "Silberfarben via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["interpretation", "forget"],
 		"_amounts": {
@@ -1302,7 +1302,7 @@ const CARDS := {
 				+ "{relax} for as much {interpretation} done.\n"\
 				+ "{forget}",
 		"Cost": 1,
-		"_illustration": "Silberfarben via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["interpretation", "forget"],
 		"_amounts": {
@@ -1317,7 +1317,7 @@ const CARDS := {
 				+ "{relax} for as much {interpretation} done.\n"\
 				+ "{forget}",
 		"Cost": 1,
-		"_illustration": "Silberfarben via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["interpretation", "forget"],
 		"_amounts": {
@@ -1477,7 +1477,7 @@ const CARDS := {
 		"Abilities": "Shuffle {perturb_amount} Cringeworthy Memory in your deck.\n"\
 				+ "Gain {defence_amount} {defence}.\n{forget}",
 		"Cost": 1,
-		"_illustration": "Db0 via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -1496,7 +1496,7 @@ const CARDS := {
 		"Abilities": "Shuffle a {perturb_amount} Cringeworthy Memory in your deck.\n"\
 				+ "Gain {defence_amount} {defence}.\n{forget}",
 		"Cost": 1,
-		"_illustration": "Db0 via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -1511,7 +1511,7 @@ const CARDS := {
 		"Abilities": "Shuffle a {perturb_amount} Cringeworthy Memory in your deck.\n"\
 				+ "Gain {defence_amount} {defence}.\n{forget}",
 		"Cost": 0,
-		"_illustration": "Db0 via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -1655,7 +1655,7 @@ const CARDS := {
 		],
 		"Abilities": "Gain {effect_stacks} {strengthen}, {effect_stacks2} {quicken} and {effect_stacks3} {thorns}.\n{forget}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER,
@@ -1686,7 +1686,7 @@ const CARDS := {
 
 		"Abilities": "Gain {effect_stacks} {strengthen}, {effect_stacks2} {quicken} and {effect_stacks3} {thorns}.\n{forget}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER,
@@ -1712,7 +1712,7 @@ const CARDS := {
 
 		"Abilities": "Gain {effect_stacks} {strengthen}, {effect_stacks2} {quicken} and {effect_stacks3} {thorns}.\n{forget}",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER,
@@ -1738,7 +1738,7 @@ const CARDS := {
 
 		"Abilities": "Gain {effect_stacks} {strengthen}, {effect_stacks2} {quicken} and {effect_stacks3} {thorns}.\n{forget}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "SkylarkGSH",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.strengthen.name: Terms.PLAYER,
@@ -1808,7 +1808,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}\n{release}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_amounts": {
 			"damage_amount": 25,

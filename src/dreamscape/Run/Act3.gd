@@ -33,6 +33,7 @@ const Administration = {
 		+ "The dilemma was between my career or my sanity.",
 	"journal_reward":\
 		'The extra headspace granted to me allowed me to reflect more.',
+	"journal_art": "res://assets/journal/torments/administration.jpeg",
 	"enemies": {
 		"easy": [
 			{
@@ -52,7 +53,6 @@ const Administration = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/administration.jpeg",
 }
 const Life_Paths = {
 	"journal_description":\
@@ -60,6 +60,7 @@ const Life_Paths = {
 		+ "I had to figure out which version of me was the one I wanted to become.",
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/life_path.jpeg",
 	"enemies": {
 		"easy": [
 			{
@@ -164,15 +165,14 @@ const Life_Paths = {
 			},
 		],
 	},
-	"journal_art": "res://assets/journal/torments/life_path.jpeg",
 }
 
 const Cringelord = {
 	"journal_description":\
-		'I think I had seen [url={torment_tag1}]this creature before[/url]. Did it always have so many eyes?',
+		'The creature before me [url={torment_tag1}]observed me silently[/url]. I could feel its sight poring over my most embarrasing memories?',
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
-	"journal_art": "res://assets/journal/torments/cringelord.jpeg",
+	"journal_art": "res://assets/journal/torments/Cringelord.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -221,7 +221,7 @@ const Nightmare = {
 				+ "Whatever I was watching last night must have affected me more than I think.",
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
-	"journal_art": "res://assets/journal/torments/nightmare.jpeg",
+	"journal_art": "res://assets/journal/torments/Nightmare.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -312,7 +312,7 @@ const HandsyAunt = {
 				+  "I heard the dreaded call from inside: [i]Come, come, let me take a good look at you![/i].",
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
-	"journal_art": "res://assets/journal/torments/handsy_aunt.jpeg",
+	"journal_art": "res://assets/journal/torments/Handsy Aunt.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -361,6 +361,7 @@ const Circular_Arguments = {
 		+ "I felt we had just resolved it just a minute ago, and yet, here we are discussing it again.",
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
+	"journal_art": "res://assets/journal/torments/Circular Arguments.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -405,7 +406,6 @@ const Circular_Arguments = {
 			},
 		],
 	},
-#	"journal_art": "res://assets/journal/torments/life_path.jpeg"),
 }
 const Influencer = {
 	"journal_description":\
@@ -465,7 +465,7 @@ const Shamelings = {
 				+  "[url={torment_tag1}]Too many to stop![/url].",
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
-	"journal_art": "res://assets/journal/torments/shameling.jpg",
+	"journal_art": "res://assets/journal/torments/Shamelings.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -554,7 +554,7 @@ const TheatrePlay = {
 		+ "It was my first show, I had a protagonist role, and nothing was ready.",
 	"journal_reward":\
 		"I don't know how we pulled it through, but as the curtain fell, I felt relieved.",
-	'journal_art': "res://assets/journal/advanced/theatre.jpeg",
+	'journal_art': "res://assets/journal/advanced/Theatre Play.jpg",
 }
 
 const InfiniteCorridor = {
@@ -566,7 +566,7 @@ const InfiniteCorridor = {
 		+ "Every light at the end, was just a corner. Every exit found, inpassable.",
 	"journal_reward":\
 		"Did I find the exit, or just walked out. I can't quite remember.",
-#	'journal_art': "res://assets/journal/advanced/theatre.jpeg",
+	'journal_art': "res://assets/journal/advanced/Infinite Corridor.jpg",
 }
 
 const ELITES = {

@@ -283,7 +283,7 @@ const SQUIRREL := {
 	"_health_variability": 3,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": "res://assets/cards/Squirrel.jpg",
+	"_texture": "res://assets/enemies/Squirrel.jpg",
 	"_character_art": "David Revoy"
 }
 const BABY := {
@@ -459,8 +459,8 @@ const THE_VICTIM := {
 	"_health_variability": 2,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": "res://assets/journal/torments/the_victim.jpeg",
-	"_character_art": "Silberfarben via Artbreeder.com"
+	"_texture": "res://assets/enemies/The Victim.jpg",
+	"_character_art": "Db0 via midjourney.com"
 }
 const IMPOSSIBLE_CONSTRUCTION := {
 	"Name": "Impossible Construction",
@@ -490,8 +490,8 @@ const IMPOSSIBLE_CONSTRUCTION := {
 	"_health_variability": 1,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": "res://assets/cards/Impossible_Construction.jpg",
-	"_character_art": "Miikka Veijola"
+	"_texture": "res://assets/enemies/Impossible Construction.jpg",
+	"_character_art": "Db0 via midjourney.com"
 }
 const SILENT_TREATMENT := {
 	"Name": "Silent Treatment",
@@ -575,7 +575,7 @@ const VOID := {
 	"_health_variability": 8,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": "res://assets/journal/torments/void.jpeg",
+	"_texture": "res://assets/enemies/The Void.jpg",
 	"_character_art": "Silberfarben via Artbreeder.com"
 }
 const ADMINISTRATION := {
@@ -700,7 +700,7 @@ const CRINGELORD:= {
 	"_health_variability": 5,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": "res://assets/journal/torments/cringelord.jpeg",
+	"_texture": "res://assets/enemies/Cringelord.jpg",
 	"_character_art": "Db0 via Artbreeder.com",
 }
 const NIGHTMARE:= {
@@ -807,7 +807,7 @@ const HANDSY_AUNT := {
 	"_health_variability": 10,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": "res://assets/journal/torments/handsy_aunt.jpeg",
+	"_texture": "res://assets/enemies/handsy_aunt.jpeg",
 	"_character_art": "Db0 via Artbreeder.com"
 }
 
@@ -840,7 +840,7 @@ const CIRCULAR_ARGUMENTS := {
 	"_health_variability": 15,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-#	"_texture": "res://assets/journal/torments/handsy_aunt.jpeg",
+	"_texture": "res://assets/enemies/Circular Arguments.jpg",
 	"_character_art": "Nobody"
 }
 const INFLUENCER := {
@@ -908,7 +908,7 @@ const SHAMELING := {
 	"_health_variability": 8,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": "res://assets/journal/torments/shameling.jpg",
+	"_texture": "res://assets/enemies/shameling.jpg",
 	"_character_art": "SkylarkGSH"
 }
 
