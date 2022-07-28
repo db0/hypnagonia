@@ -908,7 +908,7 @@ const SHAMELING := {
 	"_health_variability": 8,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": "res://assets/journal/torments/shameling.jpg",
+	"_texture": "res://assets/enemies/shameling.jpg",
 	"_character_art": "SkylarkGSH"
 }
 

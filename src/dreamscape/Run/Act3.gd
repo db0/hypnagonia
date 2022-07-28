@@ -465,7 +465,7 @@ const Shamelings = {
 				+  "[url={torment_tag1}]Too many to stop![/url].",
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
-	"journal_art": "res://assets/journal/torments/shameling.jpg",
+	"journal_art": "res://assets/journal/torments/Shamelings.jpg",
 	"enemies": {
 		"easy": [
 			{

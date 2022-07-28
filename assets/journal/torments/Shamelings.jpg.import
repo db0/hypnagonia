@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shameling.jpg-c6512b511b371d02ffbb1b7b2c084a4d.stex"
+path="res://.import/Shamelings.jpg-55ecf1de675e6dfb4729c0eb110e9082.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/torments/shameling.jpg"
-dest_files=[ "res://.import/shameling.jpg-c6512b511b371d02ffbb1b7b2c084a4d.stex" ]
+source_file="res://assets/journal/torments/Shamelings.jpg"
+dest_files=[ "res://.import/Shamelings.jpg-55ecf1de675e6dfb4729c0eb110e9082.stex" ]
 
 [params]
 

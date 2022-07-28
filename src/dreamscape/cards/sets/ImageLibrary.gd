@@ -209,6 +209,7 @@ const BETA_IMAGES := {
 	"Cringelord": "res://assets/cards/Cringelord.jpg",
 	"Void": "res://assets/cards/The Void.jpg",
 	"Handsy Aunt": "res://assets/enemies/handsy_aunt.jpeg",
+	"Shameling": "res://assets/cards/Shamelings.jpg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Hyena": "res://assets/journal/torments/hyena.jpeg",
@@ -223,7 +224,6 @@ const BETA_IMAGES := {
 	"Cockroach Infestation": "res://assets/journal/nce/cockroach.jpeg",
 	"Cockroaches": "res://assets/journal/nce/cockroach.jpeg",
 	"Influencer": "res://assets/enemies/influencer.jpg",
-	"Shameling": "res://assets/journal/torments/shameling.jpg",
 }
 
 static func get_multiple_art_option(card_name: String) -> String:

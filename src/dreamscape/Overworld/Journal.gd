@@ -584,10 +584,9 @@ func _input(event):
 #		globals.player.damage = 85
 #		globals.player.pathos.available_masteries += 6
 		var debug_encounters = [
-			EnemyEncounter.new(Act1.Squirrel, "hard"),
-			EnemyEncounter.new(Act2.Void, "easy"),
-			EnemyEncounter.new(Act3.HandsyAunt, "hard"),
-			EnemyEncounter.new(Act3.Nightmare, "hard"),
+#			EnemyEncounter.new(Act1.Squirrel, "hard"),
+#			EnemyEncounter.new(Act2.Void, "easy"),
+			EnemyEncounter.new(Act3.Shamelings, "hard"),
 #			load("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/AllActs/OstrichEggs.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act3/UnderwaterCave.gd").new(),
