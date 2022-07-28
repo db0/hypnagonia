@@ -206,13 +206,14 @@ const BETA_IMAGES := {
 	"The Grind": "res://assets/cards/The Grind.jpg",
 	"Beast Mode": "res://assets/cards/Beast Mode.jpg",
 	"Circular Arguments": "res://assets/cards/Circular Arguments.jpg",
+	"Cringelord": "res://assets/cards/Cringelord.jpg",
+	"Void": "res://assets/cards/The Void.jpg",
+	"Handsy Aunt": "res://assets/enemies/handsy_aunt.jpeg",
 
 	# Reusing Journal Art. SHould eventually get proper illustrations
 	"Hyena": "res://assets/journal/torments/hyena.jpeg",
 	"Baby": "res://assets/journal/torments/baby.jpeg",
 	"The Exam": "res://assets/journal/torments/exam.jpeg",
-	"Void": "res://assets/journal/torments/void.jpeg",
-	"Cringelord": "res://assets/journal/torments/cringelord.jpeg",
 	"Life Path": "res://assets/journal/torments/life_path.jpeg",
 	"Silent Treatment": "res://assets/journal/torments/silent_treatment.jpeg",
 	"Chasm": "res://assets/journal/nce/chasm.jpeg",
@@ -221,7 +222,6 @@ const BETA_IMAGES := {
 	"Submerged": "res://assets/journal/torments/submerged.jpg",
 	"Cockroach Infestation": "res://assets/journal/nce/cockroach.jpeg",
 	"Cockroaches": "res://assets/journal/nce/cockroach.jpeg",
-	"Handsy Aunt": "res://assets/journal/torments/handsy_aunt.jpeg",
 	"Influencer": "res://assets/enemies/influencer.jpg",
 	"Shameling": "res://assets/journal/torments/shameling.jpg",
 }

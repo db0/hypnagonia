@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cringelord.jpeg-23e0e7c13f79a8d4c4a2879a33cfc55c.stex"
+path="res://.import/Theatre Play.jpg-a3d8f1456bc8c65efb723bb990a1bd18.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/torments/cringelord.jpeg"
-dest_files=[ "res://.import/cringelord.jpeg-23e0e7c13f79a8d4c4a2879a33cfc55c.stex" ]
+source_file="res://assets/journal/advanced/Theatre Play.jpg"
+dest_files=[ "res://.import/Theatre Play.jpg-a3d8f1456bc8c65efb723bb990a1bd18.stex" ]
 
 [params]
 

@@ -428,7 +428,7 @@ const Void = {
 		"Initially I felt it was dreamless sleep. But it occurred to me [url={torment_tag1}]it was far worse[/url]...",
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
-	"journal_art": "res://assets/journal/torments/void.jpeg",
+	"journal_art": "res://assets/journal/torments/The Void.jpg",
 	"enemies": {
 		"easy": [
 			{

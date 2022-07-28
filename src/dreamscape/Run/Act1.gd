@@ -425,7 +425,7 @@ const Squirrel = {
 		'I found myself facing off [url={torment_tag1}]with a squirrel giving me the stink-eye[/url].',
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
-	"journal_art": "res://assets/journal/torments/squirrel.jpg",
+	"journal_art": "res://assets/journal/torments/Squirrel.jpg",
 	"enemies": {
 		"easy": [
 			{

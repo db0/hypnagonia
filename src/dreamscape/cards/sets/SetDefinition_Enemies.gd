@@ -1283,7 +1283,7 @@ const CARDS := {
 				+ "{relax} for as much {interpretation} done.\n"\
 				+ "{forget}",
 		"Cost": 1,
-		"_illustration": "Silberfarben via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["interpretation", "forget"],
 		"_amounts": {
@@ -1302,7 +1302,7 @@ const CARDS := {
 				+ "{relax} for as much {interpretation} done.\n"\
 				+ "{forget}",
 		"Cost": 1,
-		"_illustration": "Silberfarben via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["interpretation", "forget"],
 		"_amounts": {
@@ -1317,7 +1317,7 @@ const CARDS := {
 				+ "{relax} for as much {interpretation} done.\n"\
 				+ "{forget}",
 		"Cost": 1,
-		"_illustration": "Silberfarben via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["interpretation", "forget"],
 		"_amounts": {
@@ -1477,7 +1477,7 @@ const CARDS := {
 		"Abilities": "Shuffle {perturb_amount} Cringeworthy Memory in your deck.\n"\
 				+ "Gain {defence_amount} {defence}.\n{forget}",
 		"Cost": 1,
-		"_illustration": "Db0 via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -1496,7 +1496,7 @@ const CARDS := {
 		"Abilities": "Shuffle a {perturb_amount} Cringeworthy Memory in your deck.\n"\
 				+ "Gain {defence_amount} {defence}.\n{forget}",
 		"Cost": 1,
-		"_illustration": "Db0 via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -1511,7 +1511,7 @@ const CARDS := {
 		"Abilities": "Shuffle a {perturb_amount} Cringeworthy Memory in your deck.\n"\
 				+ "Gain {defence_amount} {defence}.\n{forget}",
 		"Cost": 0,
-		"_illustration": "Db0 via Artbreeder.com",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_keywords": ["forget"],
 		"_amounts": {
@@ -1808,7 +1808,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "{damage} for {damage_amount}\n{release}",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_amounts": {
 			"damage_amount": 25,

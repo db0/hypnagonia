@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/void.jpeg-f37de76abb3e7141f919c2578601879f.stex"
+path="res://.import/Nightmare.jpg-e63ea58a970b986664ceec78716923b6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/torments/void.jpeg"
-dest_files=[ "res://.import/void.jpeg-f37de76abb3e7141f919c2578601879f.stex" ]
+source_file="res://assets/journal/torments/Nightmare.jpg"
+dest_files=[ "res://.import/Nightmare.jpg-e63ea58a970b986664ceec78716923b6.stex" ]
 
 [params]
 

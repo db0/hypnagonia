@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/squirrel.png-f6fe9431dac3450d66eb1c24e5158b52.stex"
+path="res://.import/Cringelord.jpg-a08eea5c7e8a4c2939f7be47a8d60c78.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemies/squirrel.png"
-dest_files=[ "res://.import/squirrel.png-f6fe9431dac3450d66eb1c24e5158b52.stex" ]
+source_file="res://assets/journal/torments/Cringelord.jpg"
+dest_files=[ "res://.import/Cringelord.jpg-a08eea5c7e8a4c2939f7be47a8d60c78.stex" ]
 
 [params]
 

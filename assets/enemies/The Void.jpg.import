@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/theatre.jpeg-c095ee5ae9cfc6b8deda2721b8f9b817.stex"
+path="res://.import/The Void.jpg-348ac815d33526396469fceca97f6708.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/advanced/theatre.jpeg"
-dest_files=[ "res://.import/theatre.jpeg-c095ee5ae9cfc6b8deda2721b8f9b817.stex" ]
+source_file="res://assets/enemies/The Void.jpg"
+dest_files=[ "res://.import/The Void.jpg-348ac815d33526396469fceca97f6708.stex" ]
 
 [params]
 

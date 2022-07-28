@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/handsy_aunt.jpeg-907c15218c9ac38a6a1d45bfbbdfe49a.stex"
+path="res://.import/Cringelord.jpg-92cd00c5817714adf5cb0355b8464a4e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/torments/handsy_aunt.jpeg"
-dest_files=[ "res://.import/handsy_aunt.jpeg-907c15218c9ac38a6a1d45bfbbdfe49a.stex" ]
+source_file="res://assets/cards/Cringelord.jpg"
+dest_files=[ "res://.import/Cringelord.jpg-92cd00c5817714adf5cb0355b8464a4e.stex" ]
 
 [params]
 

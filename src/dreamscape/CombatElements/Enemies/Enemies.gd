@@ -283,7 +283,7 @@ const SQUIRREL := {
 	"_health_variability": 3,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": "res://assets/cards/Squirrel.jpg",
+	"_texture": "res://assets/enemies/Squirrel.jpg",
 	"_character_art": "David Revoy"
 }
 const BABY := {
@@ -575,7 +575,7 @@ const VOID := {
 	"_health_variability": 8,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": "res://assets/journal/torments/void.jpeg",
+	"_texture": "res://assets/enemies/The Void.jpg",
 	"_character_art": "Silberfarben via Artbreeder.com"
 }
 const ADMINISTRATION := {
@@ -700,7 +700,7 @@ const CRINGELORD:= {
 	"_health_variability": 5,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": "res://assets/journal/torments/cringelord.jpeg",
+	"_texture": "res://assets/enemies/Cringelord.jpg",
 	"_character_art": "Db0 via Artbreeder.com",
 }
 const NIGHTMARE:= {
@@ -807,7 +807,7 @@ const HANDSY_AUNT := {
 	"_health_variability": 10,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": "res://assets/journal/torments/handsy_aunt.jpeg",
+	"_texture": "res://assets/enemies/handsy_aunt.jpeg",
 	"_character_art": "Db0 via Artbreeder.com"
 }
 
