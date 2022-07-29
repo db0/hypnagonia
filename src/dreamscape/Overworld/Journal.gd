@@ -586,9 +586,9 @@ func _input(event):
 		var debug_encounters = [
 #			EnemyEncounter.new(Act1.Squirrel, "hard"),
 #			EnemyEncounter.new(Act2.Void, "easy"),
-			EnemyEncounter.new(Act3.Shamelings, "hard"),
-#			load("res://src/dreamscape/Run/NCE/AllActs/TheCandyman.gd").new(),
-#			load("res://src/dreamscape/Run/NCE/AllActs/OstrichEggs.gd").new(),
+#			EnemyEncounter.new(Act3.Life_Paths, "hard"),
+			load("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd").new(),
+			load("res://src/dreamscape/Run/NCE/AllActs/EpicUpgrade.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act3/UnderwaterCave.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act2/RiskyEvent3.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Act1/PathosForAnxiety.gd").new(),
@@ -599,7 +599,7 @@ func _input(event):
 #			BossEncounter.new(Act2.BOSSES["Surreality"]),
 #			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
 #			EliteEncounter.new(Act1.Bully, "medium"),
-			EliteEncounter.new(Act2.IndescribableAbsurdity, "medium"),
+#			EliteEncounter.new(Act2.IndescribableAbsurdity, "medium"),
 #			EliteEncounter.new(Act3.InfiniteCorridor, "medium"),
 #			load("res://src/dreamscape/Run/NCE/Shop.gd").new()
 #			load("res://src/dreamscape/Run/NCE/Rest.gd").new()

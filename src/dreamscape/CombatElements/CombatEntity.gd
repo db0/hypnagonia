@@ -78,6 +78,11 @@ func _ready() -> void:
 	if art:
 		_set_entity_size()
 		highlight.entity_art = entity_texture
+		if _properties.has('_texture_dir'):
+			_set_texture(
+					entity_texture, 
+					globals.encounters.get_multiple_texture_options(_properties["_texture_dir"])
+			)
 		if _properties.has('_texture'):
 			_set_texture(entity_texture, _properties["_texture"])
 		elif character_art_texture:

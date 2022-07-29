@@ -33,7 +33,7 @@ const Administration = {
 		+ "The dilemma was between my career or my sanity.",
 	"journal_reward":\
 		'The extra headspace granted to me allowed me to reflect more.',
-	"journal_art": "res://assets/journal/torments/administration.jpeg",
+	"journal_art": "res://assets/journal/torments/administration.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -60,7 +60,7 @@ const Life_Paths = {
 		+ "I had to figure out which version of me was the one I wanted to become.",
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
-	"journal_art": "res://assets/journal/torments/life_path.jpeg",
+	"journal_art": "res://assets/journal/torments/Life Path.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -584,7 +584,17 @@ const FearAndPhobia = {
 		"I barely dare to even recall what I dreamt next. Imagine your worst phobia in the scene of your greatest fear...",
 	"journal_reward":\
 		"That was finally it! When I opened my eyes, I felt the most relieved I've ever been.",
-	'journal_art': "res://assets/journal/advanced/phobia.jpeg",
+	'journal_art':
+		[
+			"res://assets/journal/advanced/Fear and Phobia/Fear and Phobia1.jpg",
+			"res://assets/journal/advanced/Fear and Phobia/Fear and Phobia2.jpg",
+			"res://assets/journal/advanced/Fear and Phobia/Fear and Phobia3.jpg",
+			"res://assets/journal/advanced/Fear and Phobia/Fear and Phobia4.jpg",
+			"res://assets/journal/advanced/Fear and Phobia/Fear and Phobia5.jpg",
+			"res://assets/journal/advanced/Fear and Phobia/Fear and Phobia6.jpg",
+			"res://assets/journal/advanced/Fear and Phobia/Fear and Phobia7.jpg",
+			"res://assets/journal/advanced/Fear and Phobia/Fear and Phobia8.jpg"
+		],
 }
 
 const BOSSES := {

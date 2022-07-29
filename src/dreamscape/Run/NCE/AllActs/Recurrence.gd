@@ -28,11 +28,13 @@ var descriptions := {
 	3: "It was the pain of a hot sauce constantly dripping into my open mouth, the repeating of an annoying jingle until it lost all meaning. My whole body felt the disgusting clapping and cracking of wet leater an bones. I knew then that, for better of worse, it would happen again. ",
 }
 
-var journal_arts := {
-	1: load("res://assets/journal/nce/recurrence1.jpeg"),
-	2: load("res://assets/journal/nce/recurrence2.jpeg"),
-	3: load("res://assets/journal/nce/recurrence3.jpeg"),
-}
+var journal_arts := [
+	load("res://assets/journal/nce/Recurrence/Recurrence2.jpg"),
+	load("res://assets/journal/nce/Recurrence/Recurrence3.jpg"),
+	load("res://assets/journal/nce/Recurrence/Recurrence4.jpg"),
+	load("res://assets/journal/nce/Recurrence/Recurrence5.jpg"),
+	load("res://assets/journal/nce/Recurrence/Recurrence6.jpg"),
+]
 
 var memory_upgrades := {
 	1: 2,
@@ -52,7 +54,8 @@ func _init():
 	for existing_entry in globals.get_tree().get_nodes_in_group("JournalEncounterChoiceScene"):
 		_takeover_journal_entry(existing_entry)
 	description = descriptions[globals.encounters.current_act.get_act_number()]
-	prepare_journal_art(journal_arts[globals.encounters.current_act.get_act_number()])
+	CFUtils.shuffle_array(journal_arts, true)
+	prepare_journal_art(journal_arts.back())
 
 
 func begin() -> void:

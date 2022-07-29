@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/silent_treatment.jpeg-4c9456dd22c3b58c09a5fd407377f186.stex"
+path="res://.import/Fear and Phobia8.jpg-27df7e24f2ffbae05d7d1b17f96ff71f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/torments/silent_treatment.jpeg"
-dest_files=[ "res://.import/silent_treatment.jpeg-4c9456dd22c3b58c09a5fd407377f186.stex" ]
+source_file="res://assets/journal/advanced/Fear and Phobia/Fear and Phobia8.jpg"
+dest_files=[ "res://.import/Fear and Phobia8.jpg-27df7e24f2ffbae05d7d1b17f96ff71f.stex" ]
 
 [params]
 

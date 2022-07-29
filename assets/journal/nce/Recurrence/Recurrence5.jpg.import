@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/recurrence2.jpeg-dd37c4818f3ed92cf1543e5811d4e852.stex"
+path="res://.import/Recurrence5.jpg-2eb44ae3f06c582447f1bc14b6d49207.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/nce/recurrence2.jpeg"
-dest_files=[ "res://.import/recurrence2.jpeg-dd37c4818f3ed92cf1543e5811d4e852.stex" ]
+source_file="res://assets/journal/nce/Recurrence/Recurrence5.jpg"
+dest_files=[ "res://.import/Recurrence5.jpg-2eb44ae3f06c582447f1bc14b6d49207.stex" ]
 
 [params]
 

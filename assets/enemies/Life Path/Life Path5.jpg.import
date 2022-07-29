@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/recurrence1.jpeg-0aa602bde612f912682b6756919d14e4.stex"
+path="res://.import/Life Path5.jpg-eac833d31a46ca5291b7082f1c3c3aa5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/nce/recurrence1.jpeg"
-dest_files=[ "res://.import/recurrence1.jpeg-0aa602bde612f912682b6756919d14e4.stex" ]
+source_file="res://assets/enemies/Life Path/Life Path5.jpg"
+dest_files=[ "res://.import/Life Path5.jpg-eac833d31a46ca5291b7082f1c3c3aa5.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

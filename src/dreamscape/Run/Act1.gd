@@ -302,7 +302,7 @@ const BrokenMirrors = {
 		'Am I cursed [url={torment_tag1}]or is it just bad luck[/url]?',
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
-	"journal_art": "res://assets/journal/torments/broken_mirror.jpg",
+	"journal_art": "res://assets/journal/torments/Broken Mirror.jpg",
 	"enemies": {
 		"easy": [
 			{

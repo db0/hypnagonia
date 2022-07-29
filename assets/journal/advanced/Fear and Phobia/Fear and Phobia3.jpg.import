@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/squirrel.jpg-956e62d8326ee4fd8784880fcaaba0ef.stex"
+path="res://.import/Fear and Phobia3.jpg-6e6b0ab27acf3a53675805cd15dc0b8d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/torments/squirrel.jpg"
-dest_files=[ "res://.import/squirrel.jpg-956e62d8326ee4fd8784880fcaaba0ef.stex" ]
+source_file="res://assets/journal/advanced/Fear and Phobia/Fear and Phobia3.jpg"
+dest_files=[ "res://.import/Fear and Phobia3.jpg-6e6b0ab27acf3a53675805cd15dc0b8d.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

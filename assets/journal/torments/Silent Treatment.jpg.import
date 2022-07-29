@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/exam.jpeg-2812201c5f9770bc4b67ab307d196c91.stex"
+path="res://.import/Silent Treatment.jpg-107b29df4c67aac790ead13a7cb84bd8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/torments/exam.jpeg"
-dest_files=[ "res://.import/exam.jpeg-2812201c5f9770bc4b67ab307d196c91.stex" ]
+source_file="res://assets/journal/torments/Silent Treatment.jpg"
+dest_files=[ "res://.import/Silent Treatment.jpg-107b29df4c67aac790ead13a7cb84bd8.stex" ]
 
 [params]
 

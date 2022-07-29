@@ -114,7 +114,7 @@ const TheExam = {
 			+ "[url={torment_tag1}]It was time for the test.[/url]",
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
-	"journal_art": "res://assets/journal/torments/exam.jpeg",
+	"journal_art": "res://assets/journal/torments/Exam.jpg",
 	"enemies": {
 		"easy": [
 			{
@@ -387,7 +387,7 @@ const GuiltyTreatment = {
 		'I was talking to someone. But they were either [url={torment_tag1}]blaming me[/url], or [url={torment_tag2}]giving me the silent treatment[/url].',
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
-	"journal_art": "res://assets/journal/torments/silent_treatment.jpeg",
+	"journal_art": "res://assets/journal/torments/Silent Treatment.jpg",
 	"enemies": {
 		"easy": [
 			{
