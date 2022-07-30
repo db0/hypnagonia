@@ -525,7 +525,7 @@ const SILENT_TREATMENT := {
 	"_health_variability": 4,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": "res://assets/journal/torments/silent_treatment.jpeg",
+	"_texture": "res://assets/enemies/silent_treatment.jpeg",
 	"_character_art": "Artbreeder.com"
 }
 const GUILT := {
@@ -549,7 +549,7 @@ const GUILT := {
 	"_health_variability": 1,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": "res://assets/journal/torments/guilt.jpeg",
+	"_texture": "res://assets/enemies/guilt.jpeg",
 	"_character_art": "Artbreeder.com"
 }
 const VOID := {
@@ -576,7 +576,7 @@ const VOID := {
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
 	"_texture": "res://assets/enemies/The Void.jpg",
-	"_character_art": "Silberfarben via Artbreeder.com"
+	"_character_art": "Db0 via midjourney.com"
 }
 const ADMINISTRATION := {
 	"Name": "Administration",
@@ -625,7 +625,7 @@ const OVERWORKED_SERVUS := {
 	"_health_variability": 4,
 	"_texture_size_x": "60",
 	"_texture_size_y": "60",
-#	"_texture": "res://assets/enemies/slavery-whip.png",
+	"_texture": "res://assets/enemies/Overworked Servus.jpg",
 	"_character_art": "Nobody",
 	"_description": "Hapless individuals who have already been confined to the constriction of Administration. "\
 			+ "Pent-up frustration creates a toxic and unhealthy environment full of despair, and those under Administration are affected accordingly."
@@ -648,7 +648,7 @@ const OVERCHARGED_SERVUS := {
 	"_health_variability": 2,
 	"_texture_size_x": "60",
 	"_texture_size_y": "60",
-#	"_texture": "res://assets/enemies/slavery-whip.png",
+	"_texture": "res://assets/enemies/Overcharged Servus.jpg",
 	"_character_art": "Nobody",
 	"_description": "Determined individuals confined by Administration whose capabilities are flourishing. "\
 			+ "Aggressive promotion and training causes their spawning, and they grow more hostile to their peers."
@@ -675,7 +675,7 @@ const LIFE_PATH := {
 	"_health_variability": 5,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": "res://assets/journal/torments/life_path.jpeg",
+	"_texture_dir": "res://assets/enemies/Life Path/",
 	"_character_art": "Silberfarben via Artbreeder.com"
 }
 const CRINGELORD:= {

@@ -19,7 +19,8 @@ var nce_result_fluff := {
 func _init():
 	description = "I dreamt of a long spire, disappearing into the pregnant clouds above. "\
 			+ "I realized I was now holding a weapon and could feel the need to slay whatever is within..."
-
+	prepare_journal_art(load("res://assets/journal/nce/Slay the Spire.jpg"))
+	
 var pathos_type_enemy : PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy]
 var pathos_type_nce : PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.nce]
 

@@ -18,7 +18,7 @@ func _init():
 			+ 'but the rollerskate chickens were making good progress on their treadmills.'\
 			+ 'There was no time to go around.\n'\
 			+ "It would be an easy choice to jump in, if only I wasn't stark naked."
-#	prepare_journal_art(load("res://assets/journal/nce/cake.jpeg"))
+	prepare_journal_art(load("res://assets/journal/nce/Cucumbers.jpg"))
 
 func begin() -> void:
 	.begin()

@@ -14,7 +14,8 @@ var nce_resul_fluff := {
 
 func _init():
 	description = "I dreamed of a large endless abyss. I could not see the bottom but I felt its pull. What did I do..?"
-
+	prepare_journal_art(load("res://assets/journal/nce/Sleep of Oblivion.jpg"))
+	
 func begin() -> void:
 	.begin()
 	_prepare_secondary_choices(secondary_choices, {})

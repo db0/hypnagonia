@@ -25,6 +25,7 @@ var run_changes := RunChanges.new(self)
 var interpretation_illustration: String setget ,get_interpretation_illustration
 var confidence_illustration: String setget ,get_confidence_illustration
 var card_back_texture: String setget ,get_card_back_texture
+var used_textures := {}
 
 
 # Loads the next act from the list and prepares the encounters for it
@@ -268,3 +269,10 @@ func get_card_back_texture() -> String:
 		card_back_texture = HypnagoniaCardBack.get_random_card_back()
 	return(card_back_texture)
 		
+
+func get_multiple_texture_options(tex_dir: String) -> String:
+	if not used_textures.has(tex_dir) or used_textures[tex_dir].empty():
+		var all_options = CFUtils.list_imported_in_directory(tex_dir, true)
+		CFUtils.shuffle_array(all_options, true)
+		used_textures[tex_dir] = all_options
+	return(used_textures[tex_dir].pop_back())

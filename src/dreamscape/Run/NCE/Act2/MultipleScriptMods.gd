@@ -33,6 +33,7 @@ func _init():
 	CFUtils.shuffle_array(hand_mutations)
 	var fmt = {"hand_mutation": hand_mutations[0]}
 	description = "I remember looking at my arms, and to my surprise finding {hand_mutation}. ".format(fmt)
+	prepare_journal_art(load("res://assets/journal/nce/Mutating Hands.jpg"))
 
 
 func begin() -> void:

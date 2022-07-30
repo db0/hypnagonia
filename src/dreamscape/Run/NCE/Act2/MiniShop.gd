@@ -23,7 +23,8 @@ var nce_result_fluff := {
 	}
 
 func _init():
-	description = "A stranger called to me, claiming to be my childhood firend. Did I know him from somwehere?"
+	description = "A stranger called to me, claiming to be my childhood friend. Did I know him from somwehere?"
+	prepare_journal_art(load("res://assets/journal/nce/MiniShop.jpg"))
 
 func begin() -> void:
 	.begin()

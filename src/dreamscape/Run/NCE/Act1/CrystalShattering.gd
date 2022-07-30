@@ -21,7 +21,7 @@ func _init():
 It took an immense amount of feeling to make each blow, but the resulting release made me feel wiser. 
 I grabbed the tool, ready to strike another blow at the next crystal. It's been a long time coming...
 """
-
+	prepare_journal_art(load("res://assets/journal/nce/Crystal Shattering.jpg"))
 func begin() -> void:
 	.begin()
 	var scformat = {}

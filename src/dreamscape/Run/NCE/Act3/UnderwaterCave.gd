@@ -37,7 +37,7 @@ var artifact_prep: ArtifactPrep
 
 func _init():
 	description = "I was deep diving and came upon the edge of an underwater cave. The sign warned people not to try and recover the Curio within due to danger of drowning. I had to have it!"
-	prepare_journal_art(load("res://assets/journal/nce/underwater_cave.jpeg"))
+	prepare_journal_art(load("res://assets/journal/nce/Underwater Cave.jpg"))
 
 
 func begin() -> void:

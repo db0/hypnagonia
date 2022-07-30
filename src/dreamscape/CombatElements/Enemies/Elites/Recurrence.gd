@@ -14,9 +14,9 @@ const PROPERTIES := {
 	"_health_variability": 8,
 }
 const ART := {
-	"easy": "res://assets/journal/nce/recurrence1.jpeg",
-	"medium": "res://assets/journal/nce/recurrence2.jpeg",
-	"hard": "res://assets/journal/nce/recurrence3.jpeg",
+	"easy": "res://assets/enemies/Recurrence1.jpg",
+	"medium": "res://assets/enemies/Recurrence2.jpg",
+	"hard": "res://assets/enemies/Recurrence3.jpg",
 }
 
 var countermeasures = globals.encounters.run_changes.store.get("Recurrence", [])

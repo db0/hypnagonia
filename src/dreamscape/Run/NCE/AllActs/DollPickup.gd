@@ -8,7 +8,8 @@ func _init():
 			+ "They were all unfinished, except a single element."\
 			+ "They all turned and asked me to finish them. But I could only carry one."\
 			+ "Let me recall, which one did choose..?"
-
+	prepare_journal_art(load("res://assets/journal/nce/Doll Pickup.jpg"))
+	
 func begin() -> void:
 	.begin()
 	# Candy Colour BBCode
