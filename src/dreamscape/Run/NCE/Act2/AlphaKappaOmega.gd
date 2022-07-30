@@ -24,7 +24,7 @@ func _init():
 		+ " \"I am the monk Chance,\" the monk seemed to say from nowhere, \"disciple of the goddess Lady Luck.\"" \
 		+ "\"Would you like the power to control your fate?\""
 	prepare_journal_art(load("res://assets/journal/nce/AlphaKappaOmega.jpg"))
-	
+
 func begin() -> void:
 	.begin()
 	var scformat = {

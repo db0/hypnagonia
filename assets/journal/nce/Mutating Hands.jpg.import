@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cake.jpeg-6ff1060403cc611618e4bebb69ca644f.stex"
+path="res://.import/Mutating Hands.jpg-79c6c0e2a7fcd1cd109c37cbf5d053ad.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/nce/cake.jpeg"
-dest_files=[ "res://.import/cake.jpeg-6ff1060403cc611618e4bebb69ca644f.stex" ]
+source_file="res://assets/journal/nce/Mutating Hands.jpg"
+dest_files=[ "res://.import/Mutating Hands.jpg-79c6c0e2a7fcd1cd109c37cbf5d053ad.stex" ]
 
 [params]
 
