@@ -24,7 +24,7 @@ func _init():
 	description = "I was standing on top of a dollmaker cowering on the floor.\n\n" \
 			+ "I was upset. I don't know why, but I was very angry.\n"\
 			+ "What did I do..?"
-	prepare_journal_art(load("res://assets/journal/nce/dollmaker.jpeg"))
+	prepare_journal_art(load("res://assets/journal/nce/Dollmaker.jpg"))
 
 func begin() -> void:
 	.begin()

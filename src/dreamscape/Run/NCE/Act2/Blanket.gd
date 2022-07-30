@@ -22,7 +22,7 @@ My blanket was my only friend, but it has been giving me strange vibes.
 Every night when I got home it got absurdly clingy, especially when we were watching movies in bed together.
 Today, I felt the heat stifling me.
 """
-#	prepare_journal_art(load("res://assets/journal/nce/chasm.jpeg"))
+	prepare_journal_art(load("res://assets/journal/nce/Blanket.jpg"))
 
 func begin() -> void:
 	.begin()

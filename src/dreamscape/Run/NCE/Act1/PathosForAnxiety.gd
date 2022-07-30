@@ -28,7 +28,8 @@ My mind was in a haze and there was a ringing in my ears.
 My nervoussness was continuing to grow, yet I was determined to impress my fruity audience. 
 They pointed the cameras directly at me. It was time to let out the inner animal inside me.
 """
-
+	prepare_journal_art(load("res://assets/journal/nce/Fruity Audience.jpg"))
+	
 func begin() -> void:
 	.begin()
 	var stress_amount = CFUtils.randi_range(9,11)

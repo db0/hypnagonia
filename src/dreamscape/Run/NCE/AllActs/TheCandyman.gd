@@ -12,7 +12,8 @@ var secondary_choices := {}
 var pathos_choice_payments := {}
 func _init():
 	description = "I somehow found myself in front of [color=#FFC0CB]The Candyman[/color]. They offered me, a choice of a multicoloured candy. I love candy!"
-
+	prepare_journal_art(load("res://assets/journal/nce/Candyman.jpg"))
+	
 func begin() -> void:
 	.begin()
 	# Candy Colour BBCode

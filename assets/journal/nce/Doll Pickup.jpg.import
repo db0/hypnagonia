@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spider.jpeg-a27ea450cc89a36941263e14398f37f1.stex"
+path="res://.import/Doll Pickup.jpg-613055a647aa0388284cea5ea5932841.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/nce/spider.jpeg"
-dest_files=[ "res://.import/spider.jpeg-a27ea450cc89a36941263e14398f37f1.stex" ]
+source_file="res://assets/journal/nce/Doll Pickup.jpg"
+dest_files=[ "res://.import/Doll Pickup.jpg-613055a647aa0388284cea5ea5932841.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

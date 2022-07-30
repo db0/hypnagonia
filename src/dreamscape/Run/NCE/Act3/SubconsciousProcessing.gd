@@ -31,8 +31,9 @@ func _init():
 	# TODO: Fluff
 	description = "I was in front of a computer and I was programming something."\
 			+ "As I perused the code, I realized it was my own unconscious processes "\
-			+ "and even worse, there was a bug!\n"\
-
+			+ "and even worse, there was a bug!\n"
+	prepare_journal_art(load("res://assets/journal/nce/Subconscious Processing.jpg"))
+	
 func begin() -> void:
 	.begin()
 	for type in secondary_choices:

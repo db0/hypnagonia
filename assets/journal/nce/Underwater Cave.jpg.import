@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ostrich_eggs.jpeg-e434979084d055d80b229147dbe8e0e8.stex"
+path="res://.import/Underwater Cave.jpg-6d1ee4a73854a5037ed230a8f5bdb315.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/nce/ostrich_eggs.jpeg"
-dest_files=[ "res://.import/ostrich_eggs.jpeg-e434979084d055d80b229147dbe8e0e8.stex" ]
+source_file="res://assets/journal/nce/Underwater Cave.jpg"
+dest_files=[ "res://.import/Underwater Cave.jpg-6d1ee4a73854a5037ed230a8f5bdb315.stex" ]
 
 [params]
 

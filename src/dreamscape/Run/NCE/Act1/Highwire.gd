@@ -20,6 +20,7 @@ var _testing_rng = -1
 func _init():
 	# TODO: Add story
 	description = "I found myself on a small platform atop a circus tent with only a tightrope ahead of me. The crowd below was cheering me on."
+	prepare_journal_art(load("res://assets/journal/nce/Highwire.jpg"))
 
 func begin() -> void:
 	.begin()

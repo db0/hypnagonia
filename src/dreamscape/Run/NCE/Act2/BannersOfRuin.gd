@@ -18,7 +18,8 @@ func _init():
 	description = "I was in a anthropomorphic mammal in some sort of medieval fantasy world."\
 			+ "I was part of the resistance and I had to break into a fortified city.\n"\
 			+ "I am trying to recall what mammal exactly I was.."
-
+	prepare_journal_art(load("res://assets/journal/nce/Banners of Ruin.jpg"))
+	
 func begin() -> void:
 	.begin()
 	var scformat = {

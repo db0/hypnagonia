@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dollmaker.jpeg-842240558e3f67246097e0e0c368c324.stex"
+path="res://.import/Banners of Ruin.jpg-5973ab8d259a175fece1896813fd4dff.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/nce/dollmaker.jpeg"
-dest_files=[ "res://.import/dollmaker.jpeg-842240558e3f67246097e0e0c368c324.stex" ]
+source_file="res://assets/journal/nce/Banners of Ruin.jpg"
+dest_files=[ "res://.import/Banners of Ruin.jpg-5973ab8d259a175fece1896813fd4dff.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
