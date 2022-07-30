@@ -125,6 +125,7 @@ func switch_to_tab(tab: Control) -> void:
 
 func switch_to_main_menu(tab: Control) -> void:
 	SoundManager.play_se(Sounds.get_shove_sound())
+	cfc.hide_all_previews()
 	var tab_position_x : float
 	match tab:
 		new_game:
@@ -224,10 +225,6 @@ func _process_card_export(card_name: String) -> Dictionary:
 	return(card_entry)
 
 
-
-
-
-
 func _switch_bg(bg_image: ImageTexture) -> void:
 	bg_tween.remove_all()
 	bg_tween.interpolate_property(self,'self_modulate',
@@ -251,12 +248,6 @@ func _switch_bg(bg_image: ImageTexture) -> void:
 			_bg_shader.self_modulate.a, 0.7, 0.20,
 			Tween.TRANS_QUAD, Tween.EASE_OUT)
 	bg_tween.start()
-
-
-
-
-
-
 
 
 func _export_torments() -> Dictionary:
@@ -284,6 +275,7 @@ func _export_torments() -> Dictionary:
 				tdict['Bosses'][enemy]['Journal Description'] = act.BOSSES[enemy].journal_description
 
 	return(tdict)
+
 
 func _export_memories() -> Array:
 	var mret: Array = []

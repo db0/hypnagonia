@@ -501,7 +501,7 @@ func _input(event):
 		dreamer.health = 1000
 		dreamer.damage = 11
 		# warning-ignore:return_value_discarded
-		globals.player.add_artifact(ArtifactDefinitions.SavedReleases.canonical_name)
+#		globals.player.add_artifact(ArtifactDefinitions.SavedForgets.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.PurpleWave.canonical_name)
 		# warning-ignore:return_value_discarded
 #		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
@@ -525,7 +525,8 @@ func _input(event):
 
 		# Hand Cards
 		for c in [
-			"Office Meltdown",
+			"! Moving On !",
+			"! Moving On !",
 #			"Solid Work Ethic",
 			# Need to look into these two later
 #			"Fowl Language",
