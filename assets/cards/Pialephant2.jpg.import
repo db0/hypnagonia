@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Pialephant.jpg-eec258449dc1883284aacab557ad7e39.stex"
+path="res://.import/Pialephant2.jpg-f832d039d7705e15174223371ece475b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/Pialephant.jpg"
-dest_files=[ "res://.import/Pialephant.jpg-eec258449dc1883284aacab557ad7e39.stex" ]
+source_file="res://assets/cards/Pialephant2.jpg"
+dest_files=[ "res://.import/Pialephant2.jpg-f832d039d7705e15174223371ece475b.stex" ]
 
 [params]
 

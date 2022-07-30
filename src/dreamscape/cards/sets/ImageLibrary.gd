@@ -146,7 +146,7 @@ const FINAL_IMAGES := {
 	"Butterfly": "res://assets/cards/Butterfly.jpg",
 	"Stuffed Toy": "res://assets/cards/Stuffed Toy.jpg",
 	"Fearmonger": "res://assets/cards/Fearmonger.jpg",
-	"Pialephant": "res://assets/cards/Pialephant.jpg",
+	"Pialephant": "res://assets/cards/Pialephant2.jpg",
 	"Traffic Jam": "res://assets/cards/Traffic Jam.jpg",
 	"The Light Calling": "res://assets/cards/The Light Calling.jpg",
 	"The Laughing One": "res://assets/cards/The Laughing One.jpg",
