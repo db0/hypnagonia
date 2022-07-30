@@ -1,12 +1,16 @@
 # Changelog
 
-## [Unreleased](https://github.com/db0/hypnagonia/tree/HEAD)
+## [v0.61.2](https://github.com/db0/hypnagonia/tree/v0.61.2) (2022-07-30)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.61.1...HEAD)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.61.1...v0.61.2)
 
 **Closed issues:**
 
 - Circular arguments needs 4 pieces of individual art [\#399](https://github.com/db0/hypnagonia/issues/399)
+
+**Merged pull requests:**
+
+- A lot of MJ NCE art [\#402](https://github.com/db0/hypnagonia/pull/402) ([db0](https://github.com/db0))
 
 ## [v0.61.1](https://github.com/db0/hypnagonia/tree/v0.61.1) (2022-07-28)
 
@@ -374,20 +378,20 @@
 
 ## [v0.50.4](https://github.com/db0/hypnagonia/tree/v0.50.4) (2022-04-28)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.3...v0.50.4)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.2...v0.50.4)
 
 **Merged pull requests:**
 
 - fix: Rest upgrade should only do 5 steps [\#312](https://github.com/db0/hypnagonia/pull/312) ([db0](https://github.com/db0))
 - content\(art\): More Flyercards from @SkylarkHYP [\#311](https://github.com/db0/hypnagonia/pull/311) ([db0](https://github.com/db0))
 
-## [v0.50.3](https://github.com/db0/hypnagonia/tree/v0.50.3) (2022-04-27)
-
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.2...v0.50.3)
-
 ## [v0.50.2](https://github.com/db0/hypnagonia/tree/v0.50.2) (2022-04-27)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.1...v0.50.2)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.3...v0.50.2)
+
+## [v0.50.3](https://github.com/db0/hypnagonia/tree/v0.50.3) (2022-04-27)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.1...v0.50.3)
 
 **Merged pull requests:**
 
