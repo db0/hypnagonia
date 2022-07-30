@@ -19,6 +19,7 @@ var pathos_type_lowest : PathosType
 
 func _init():
 	description = "<Subconscious - Story Fluff to be Done>. Select one Option...."
+	prepare_journal_art(load("res://assets/journal/nce/Subconscious.jpg"))
 
 func begin() -> void:
 	.begin()

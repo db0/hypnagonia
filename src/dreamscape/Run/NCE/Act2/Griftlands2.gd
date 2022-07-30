@@ -21,6 +21,7 @@ func _init():
 	description = "Once again, I found myself in the fantasy western world. "\
 			+ "This time I was some sort of amphibian humanoid with a drinking problem, ."\
 			+ "and I found out my rich elders has passed away in mysterious circumstances"
+	prepare_journal_art(load("res://assets/journal/nce/Griftlands.jpg"))
 
 
 func begin() -> void:

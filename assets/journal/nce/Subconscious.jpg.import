@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cockroach.jpeg-c77ea39e83794c525fee3bbd69f680a4.stex"
+path="res://.import/Subconscious.jpg-0a6a01f8346a65e9310fc426fee96f56.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/nce/cockroach.jpeg"
-dest_files=[ "res://.import/cockroach.jpeg-c77ea39e83794c525fee3bbd69f680a4.stex" ]
+source_file="res://assets/journal/nce/Subconscious.jpg"
+dest_files=[ "res://.import/Subconscious.jpg-0a6a01f8346a65e9310fc426fee96f56.stex" ]
 
 [params]
 
