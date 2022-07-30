@@ -72,6 +72,7 @@ func _ready() -> void:
 	_version.text = CFConst.GAME_VERSION
 	globals.music.switch_scene_music('main')
 	_title.texture = CFUtils.convert_texture_to_image(_title.texture)
+	_on_Menu_resized()
 
 
 func on_button_pressed(_button_name : String) -> void:

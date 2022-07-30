@@ -197,6 +197,9 @@ func _on_Menu_resized() -> void:
 	for button in _aspect_buttons.values():
 		button.rect_min_size.x = get_viewport().size.x * 0.185
 		button.rect_min_size.y = get_viewport().size.y * 0.43
+	for b in $VBC/ControlButtons/VBC/HBC.get_children():
+		b.rect_min_size.x = get_viewport().size.x * 0.137
+		b.rect_min_size.y = get_viewport().size.y * 0.05
 	for b in $VBC/ControlButtons/VBC.get_children():
 		b.rect_min_size.x = get_viewport().size.x * 0.274
 		b.rect_min_size.y = get_viewport().size.y * 0.05
