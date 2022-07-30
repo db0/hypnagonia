@@ -890,10 +890,10 @@ class TestThickThorns:
 
 
 
-class TestSavedReleases:
+class TestSavedForgets:
 	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
 	func _init() -> void:
-		testing_artifact_name = ArtifactDefinitions.SavedReleases.canonical_name
+		testing_artifact_name = ArtifactDefinitions.SavedForgets.canonical_name
 		expected_amount_keys = [
 		]
 		test_card_names = [
