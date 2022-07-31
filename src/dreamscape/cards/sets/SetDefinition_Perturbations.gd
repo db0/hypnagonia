@@ -197,7 +197,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "While in hand, at the end of the turn, take {exert_amount} {anxiety}\nPlay: {forget}.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Perturbation",
 		"_amounts": {
 			"exert_amount": 3
@@ -209,7 +209,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "If in hand at the end of the turn, add a copy of this card to your discard pile.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Perturbation",
 		"_keywords": []
 	},

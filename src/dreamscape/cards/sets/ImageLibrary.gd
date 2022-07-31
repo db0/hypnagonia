@@ -179,6 +179,8 @@ const FINAL_IMAGES := {
 	"Silent Treatment": "res://assets/cards/Silent Treatment.jpg",
 	"Cockroach Infestation": "res://assets/cards/Cockroach.jpg",
 	"Cockroaches": "res://assets/cards/Cockroach.jpg",	
+	"Suffocation": "res://assets/cards/Suffocation.jpg",	
+	"Inescepable Conclusion": "res://assets/cards/Inescepable Conclusion.jpg",	
 }
 const BETA_IMAGES := {
 	"Catatonia": "res://assets/cards/Catatonia.jpg",
