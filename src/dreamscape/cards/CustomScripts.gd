@@ -173,7 +173,7 @@ func custom_script(script: ScriptObject, _snapshot_id:= 0) -> void:
 		"Lethe":
 			var rnd_memory = globals.player.get_random_memory()
 			if rnd_memory:
-				rnd_memory.lose_pathos(rnd_memory.pathos_threshold / 10.0)
+				rnd_memory.current_charge -= 1
 		"Cockroach Infestation":
 			var all_cards = cfc.get_tree().get_nodes_in_group("cards")
 			CFUtils.shuffle_array(all_cards)

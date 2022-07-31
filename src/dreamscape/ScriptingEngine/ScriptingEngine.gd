@@ -89,13 +89,14 @@ func _predict_script_amount(hardcoded_previous_subjects := []) -> void:
 	snapshot_id = 0
 
 
-func _on_potential_target_found(target) -> void:
+func _on_potential_target_found(target: Area2D) -> void:
 #	print_debug(target.get_combat_entity())
 	for script in scripts_queue:
 		for entity in script.subjects:
 			if entity.has_method("clear_predictions"):
 				entity.clear_predictions()
-	_predict_script_amount([target.get_combat_entity()])
+	if target.has_method("get_combat_entity"):
+		_predict_script_amount([target.get_combat_entity()])
 
 
 # Will return the adjusted amount of whatever the intent scripts are doing

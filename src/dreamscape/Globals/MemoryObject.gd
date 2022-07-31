@@ -14,7 +14,7 @@ signal memory_downgraded(memory, amount)
 var is_ready := false
 var pathos_used : PathosType
 var recharge_time : int
-var current_charge : int = 0
+var current_charge : int = 0 setget set_current_charge
 var upgrades_amount := 0 setget set_upgrades_amount
 
 var memory_scene: PackedScene
@@ -111,13 +111,20 @@ func get_pathos_progression_modifier() -> float:
 
 
 func _on_encounter_changed(_act_name, _encounter_number) -> void:
-	if current_charge < recharge_time:
+	set_current_charge(current_charge + 1)
+
+
+func set_current_charge(value: int) -> void:
+	if current_charge >= recharge_time:
+		return
+	if value > current_charge:
 		emit_signal("memory_charging", self, 1)
-	current_charge += 1
+	current_charge = value
 	if current_charge >= recharge_time:
 		ready()
-
-
+	elif is_ready:
+		unready()
+		
 static func get_cost_format(memory_name: String, upgrades := 0) -> Dictionary:
 	var memory_definition = MemoryDefinitions.find_memory_from_canonical_name(memory_name)
 	if not memory_definition:

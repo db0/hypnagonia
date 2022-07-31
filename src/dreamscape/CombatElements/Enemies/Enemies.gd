@@ -425,7 +425,7 @@ const THE_EXAM := {
 	"_health_variability": 6,
 	"_texture_size_x": "120",
 	"_texture_size_y": "120",
-	"_texture": "res://assets/journal/torments/exam.jpeg",
+	"_texture": "res://assets/cards/Exam.jpg",
 	"_character_art": "Silberfarben via Artbreeder.com"
 }
 const THE_VICTIM := {
