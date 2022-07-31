@@ -1183,7 +1183,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.protection.name],
 		"Abilities": "Gain {effect_stacks} {protection}\n{forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.protection.name: Terms.PLAYER
@@ -1203,7 +1203,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.protection.name],
 		"Abilities": "Gain {effect_stacks} {protection}\n{forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.protection.name: Terms.PLAYER
@@ -1219,7 +1219,7 @@ const CARDS := {
 		"Tags": [Terms.ACTIVE_EFFECTS.protection.name,Terms.GENERIC_TAGS.alpha.name],
 		"Abilities": "Gain {effect_stacks} {protection}\n{forget}",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.protection.name: Terms.PLAYER
@@ -1235,7 +1235,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.swift.name, Terms.GENERIC_TAGS.init.name],
 		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} card.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -1253,7 +1253,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.swift.name, Terms.GENERIC_TAGS.init.name],
 		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} card.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -1267,7 +1267,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.swift.name, Terms.GENERIC_TAGS.init.name],
 		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} cards.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Silberfarben via Artbreeder.com",
 		"_rarity": "Received",
 		"_keywords": ["interpretation"],
 		"_amounts": {
@@ -1822,7 +1822,7 @@ const CARDS := {
 		"Abilities": "This card's ability will weakly copy all current Torment intents. "\
 				+ "{shuffle} this card into your draw pile.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_upgrade_threshold_modifier": -50,
 		"_upgrades": ["+ Recurrence +"],
@@ -1833,7 +1833,7 @@ const CARDS := {
 		"Abilities": "This card's ability will copy all current Torment intents"\
 				+ "{shuffle} this card into your draw pile.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_upgrade_threshold_modifier": -50,
 		"_is_upgrade": true,
@@ -1845,7 +1845,7 @@ const CARDS := {
 		"Abilities": "This card's ability will strongly copy all current Torment intents"\
 				+ "{shuffle} this card into your draw pile.",
 		"Cost": 0,
-		"_illustration": "Nobody",
+		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_upgrade_threshold_modifier": -50,
 		"_is_upgrade": true,
