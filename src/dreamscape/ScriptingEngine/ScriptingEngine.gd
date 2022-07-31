@@ -93,7 +93,7 @@ func _on_potential_target_found(target: Area2D) -> void:
 #	print_debug(target.get_combat_entity())
 	for script in scripts_queue:
 		for entity in script.subjects:
-			if entity.has_method("clear_predictions"):
+			if is_instance_valid(entity) and entity.has_method("clear_predictions"):
 				entity.clear_predictions()
 	if target.has_method("get_combat_entity"):
 		_predict_script_amount([target.get_combat_entity()])
