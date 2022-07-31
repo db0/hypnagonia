@@ -64,6 +64,7 @@ script = ExtResource( 3 )
 material = SubResource( 5 )
 margin_right = 1455.0
 margin_bottom = 900.0
+mouse_filter = 2
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -73,7 +74,6 @@ __meta__ = {
 margin_left = -1455.0
 margin_right = -1455.0
 custom_styles/panel = SubResource( 1 )
-icon_size = 15
 
 [node name="NewGame" parent="." instance=ExtResource( 5 )]
 margin_left = 1455.0

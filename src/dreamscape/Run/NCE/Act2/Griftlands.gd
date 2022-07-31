@@ -19,6 +19,7 @@ var nce_result_fluff := {
 func _init():
 	description = "This time, I was part of some strange fantasy western world. "\
 			+ "In it, I was a trained spy, coming into a frontier town, and I had to decide how to behave."
+	prepare_journal_art(load("res://assets/journal/nce/Griftlands.jpg"))
 
 
 func begin() -> void:

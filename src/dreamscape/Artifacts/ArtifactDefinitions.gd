@@ -1277,17 +1277,17 @@ const CursedCurios := { # TODO: Tests
 	],
 }
 
-const SavedReleases := {
-	"canonical_name": "SavedReleases",
-	"name": "Saved Releases",
-	"description": "{artifact_name}: The first time you {release} a card in an ordeal, \n"\
+const SavedForgets := {
+	"canonical_name": "SavedForgets",
+	"name": "Mnemonic Ritual",
+	"description": "{artifact_name}: The first time you {forget} a card in an ordeal, \n"\
 			+ "it is discarded instead.",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.BATTLE,
 	"rarity": "Starting",
 	"amounts": {},
 	"linked_terms": [
-		"release",
+		"forget",
 	],
 }
 
@@ -1374,7 +1374,7 @@ const ARCHETYPE := [
 	ConstantImpervious,
 	StartingFortify,
 	DoubleFusion,
-	SavedReleases,
+	SavedForgets,
 ]
 
 # These artifacts are only found in non-combat encounters

@@ -18,6 +18,7 @@ func _init():
 	description = "Once again, I found myself in the fantasy western world. "\
 			+ "Now I was a rugged warrior, with a bounty on my head.\n"\
 			+ "I had been framed..."
+	prepare_journal_art(load("res://assets/journal/nce/Griftlands.jpg"))
 
 
 func begin() -> void:

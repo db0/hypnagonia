@@ -180,12 +180,10 @@ margin_right = 224.0
 margin_bottom = 43.0
 rect_min_size = Vector2( 100, 10 )
 rect_rotation = 32.5
+mouse_filter = 2
 texture = ExtResource( 15 )
 expand = true
 stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CardDesign" type="TextureRect" parent="."]
 modulate = Color( 0.313726, 0.313726, 0.313726, 1 )

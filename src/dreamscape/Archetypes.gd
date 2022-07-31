@@ -444,7 +444,7 @@ const EXPLOITED := {
 	"Memories": [
 	],
 	"Starting Artifacts": [
-		ArtifactDefinitions.SavedReleases
+		ArtifactDefinitions.SavedForgets
 	],
 	"Perturbations": [
 
