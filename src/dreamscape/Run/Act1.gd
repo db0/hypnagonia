@@ -28,10 +28,18 @@ As an example:
 """
 
 const TheLaughingOnes = {
-	"journal_description":\
-		'I found myself between [url={torment_tag1}]a pair of featureless creeps laughing[/url] at me.',
-	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+	"journal_description": """
+It was the unending cackle that did it. I'd had enough. 
+I turned to face my tormentors and found myself between [url={torment_tag1}]a pair of featureless creeps laughing[/url]. 
+"What's so funny?" I demanded. My voice sounded thin, even to my own ears. 
+"You," they replied in unison, their laughter redoubling. 
+I tried to lunge at them but they side-stepped easily, still laughing uncontrollably. 
+Suddenly furious, I screamed at them; a anguished, keening sound that echoed in the emptiness around us. 
+They only laughed harder and danced away from me again as if this were the most amusing thing they'd ever seen
+""",
+	"journal_reward": """
+"ENOUGH!" I roared, and they finally stopped, still grinning their awful grins. "I don't know who you are or what you want from me, but I'm done playing your games. So just go away and leave me alone!" For a moment they simply stared at me; then slowly, ever so slowly, their grins widened even further until their mouths threatened to split open from the effort. And then they dissolved into laughter once more and faded away until I was left standing alone in the darkness." Standing up to my fear made me feel stronger than before.
+""",
 	"journal_art": "res://assets/journal/torments/The Laughing One.jpg",
 	"enemies": {
 		"easy": [
