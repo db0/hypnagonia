@@ -84,10 +84,13 @@ They only laughed harder and danced away from me again as if this were the most 
 
 
 const Fearmonger = {
-	"journal_description":\
-		'Was that [url={torment_tag1}]a curious owl with three eyes[/url] staring at me?',
-	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+	"journal_description": """
+[url={torment_tag1}]Three eyes staring at me[/url], the first was a piercing blue that seemed to bore through me, the second was a deep black that hid my true nature, and the third was a bright yellow that I couldn't look away from.
+I felt a bit dizzy. I had the sensation that I was falling. My stomach lurched, and my breath caught in my throat. It all felt so real. I was floating in the middle of the night, staring at the third eye, and I couldn't move. I had to look away.
+""",
+	"journal_reward": """
+The experience was definitely strange, and it left me feeling a bit unsettled. It's hard to say what exactly the owl represented, but it seemed to be some sort of symbol of wisdom or knowledge. Perhaps the three eyes represented different aspects of knowledge (past, present, and future?) or different ways of seeing things (logic, emotion, intuition?). In any case, the experience taught me that there is more to life than what we can see with our physical eyes. There are other ways of knowing and understanding the world around us.
+""",
 	"journal_art": "res://assets/journal/torments/Fearmonger.jpg",
 	"enemies": {
 		"easy": [
@@ -193,8 +196,12 @@ Their whispers lingered in the air, getting more acerbic by the second.
 
 
 const TheCritic = {
-	"journal_description":\
-		'Strange entities with comically enlarged sense organs [url={torment_tag1}]started circling me, and pointing out all my flaws[/url].',
+	"journal_description": """
+I was in the middle of my usual morning jog when I noticed them. 
+At first I thought they were birds, but then I realized they were something else entirely. 
+They were [url={torment_tag1}]strange entities with comically enlarged sense organs[/url] that started circling me and pointing out all my flaws. 
+It was disconcerting to say the least, especially since I had no idea what they were or where they came from.
+""",
 	"journal_reward":\
 		'Through overcoming that weird experience, I felt wiser.',
 	"journal_art": "res://assets/journal/torments/The Critic.jpg",
@@ -237,11 +244,18 @@ const TheCritic = {
 }
 
 
+#Keywords [dream, argument, clown, torment, philosphy, calm, surreality, humanism, ennui, existentialism]
+#Summary  [I somehow ended in a peculiar argument with a clown.]
+#Avoided concepts [woke up, wake up, awaken]
 const Clown = {
-	"journal_description":\
-		'I somehow ended in a peculiar argument [url={torment_tag1}]with a clown[/url].',
-	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+	"journal_description": """
+I found myself in the middle of an argument [url={torment_tag1}]with a clown[/url]. It was a surreal experience, and I couldn't quite make sense of what was happening. The clown seemed to be tormenting me, but I wasn't sure why. Suddenly, I felt an overwhelming sense of ennui wash over me. It was as if nothing mattered any more. All that existed was this pointless argument with the clown.
+""",
+	"journal_reward": """
+Suddenly, I realized that the clown wasn't really worth getting so worked up over. It was just a silly creature, with no real understanding of anything. In the grand scheme of things, it didn't really matter what it said or did. 
+
+With that realization, I felt a sense of calm come over me. The ennui dissipated and I was able to see things more clearly. This whole confrontation with the clown was an exercise in existentialism; it made me confront the meaninglessness of life head-on. But eventually, I overcame that feeling and moved on.
+""",
 	"journal_art": "res://assets/journal/torments/Clown.jpg",
 	"enemies": {
 		"easy": [
