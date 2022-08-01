@@ -194,7 +194,10 @@ Their whispers lingered in the air, getting more acerbic by the second.
 	},
 }
 
-
+#Title [The Critic]
+#Keywords [torment, surrealism, absurdity, uncanny valley, comical, animal, anthropomorphic, criticism, humorous]
+#Summary  [Entities with enlarged sense organs detecting my flaws]
+#Avoid [I woke up, wake up, awaken, I was dreaming]
 const TheCritic = {
 	"journal_description": """
 I was in the middle of my usual morning jog when I noticed them. 
@@ -202,8 +205,11 @@ At first I thought they were birds, but then I realized they were something else
 They were [url={torment_tag1}]strange entities with comically enlarged sense organs[/url] that started circling me and pointing out all my flaws. 
 It was disconcerting to say the least, especially since I had no idea what they were or where they came from.
 """,
-	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+	"journal_reward": """
+I was eventually able to shake them off and escape, but I couldn't help but wonder what it all meant. 
+Do these creatures represent some kind of uncanny valley where everyday objects are given strange, exaggerated features? 
+Or is this a commentary on the nature of criticism itself? Whatever the case may be, it's certainly a surreal experience that I won't soon forget.
+""",
 	"journal_art": "res://assets/journal/torments/The Critic.jpg",
 	"enemies": {
 		"easy": [
@@ -284,12 +290,18 @@ With that realization, I felt a sense of calm come over me. The ennui dissipated
 	},
 }
 
-
+#Keywords [dreaming, argument, butterfly, torment, surrealism, absurdity, uncanny valley]
+#Summary  [A depressive butterfly confounded me with its dark beauty.]
+#Avoid [I woke up, wake up, awaken]
 const Butterfly = {
-	"journal_description":\
-		'What a [url={torment_tag1}]depressive butterfly[/url].',
-	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+	"journal_description": """
+I was having a conversation with a friend about something completely mundane when I noticed [url={torment_tag1}]a dark butterfly nearby[/url]. It was incredibly beautiful, but its beauty was overshadowed by the fact that it seemed to be in pain. It's wings were drooping and it looked like it was struggling to stay alive.
+
+As I watched, the butterfly began to move closer and I could see that its eyes were clouded over with sadness. It seemed as though it wanted to speak to me, but no words came out. Suddenly, the butterfly flew towards me and perched on my finger. Its weight felt surprisingly heavy and I could feel its sadness seeping into my own heart.
+""",
+	"journal_reward": """
+Though it was beautiful, the dark butterfly was a reminder of the pain and sadness that often plagues us. Its presence was a jarring contrast to the mundanity of my everyday life and its uncanniness sent shivers down my spine. In some ways, it felt like a token of death, but in others, I glimpsed a glimmer of hope.
+""",
 	"journal_art": "res://assets/journal/torments/Butterfly.jpg",
 	"enemies": {
 		"easy": [
@@ -319,11 +331,18 @@ const Butterfly = {
 }
 
 
+#Keywords [dreaming, torment, surrealism, absurdity, uncanny valley, curse, bad luck, perspective, broken mirror, dark shadow of myself, evil twin]
+#Summary  [Am I cursed by this broken mirror, or is it just the random happenstance of bad luck?]\
+#Avoid [I woke up, wake up, awaken]
 const BrokenMirrors = {
-	"journal_description":\
-		'Am I cursed [url={torment_tag1}]or is it just bad luck[/url]?',
-	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+	"journal_description": """
+I glance over at the [url={torment_tag1}]broken mirror[/url] on my bedside table and shudder. It's not like I didn't know it was there; I could see the cracked glass from across the room. But now that it's so close, I can't help but feel a sense of dread. Am I cursed by this broken mirror, or is it just the random happenstance of bad luck?
+
+I try to shake off my superstitions and remind myself that there's probably a rational explanation for why this happened. But no matter how much logical reasoning I apply, I can't help but feel like there's something more to it all. Maybe it's the surrealism of seeing such an unexpected break in symmetry.
+""",
+	"journal_reward": """
+But even as I write this, I can't shake the feeling that there's something more to it. That maybe this broken mirror is a dark shadow of myself, an evil twin that's been following me around and bringing me nothing but bad luck.
+""",
 	"journal_art": "res://assets/journal/torments/Broken Mirror.jpg",
 	"enemies": {
 		"easy": [
@@ -409,11 +428,23 @@ Luckily, I had just found I was able to catch myself in the music, because I’d
 		],
 	},
 }
+
+
+#Title [The Light Calling]
+#Keywords [torment, surrealism, absurdity, uncanny valley, calm, ascending, dread, excitement, apathy, emotion, bright]
+#Summary  [At one point, I felt like I was having a near death experience.]
+#Avoid [I woke up, wake up, awaken, I was dreaming]
 const TheLightCalling = {
-	"journal_description":\
-		'At one point, I felt like I was having [url={torment_tag1}]a near death experience[/url].',
-	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+	"journal_description": """
+I'm not sure how I got here. One moment I was in my bed, and the next I was floating through some kind of odd, surreal landscape. It felt like I was having a near death experience; everything had an intense sense of calm about it, but there was also a underlying feeling of dread that kept me from enjoying it too much.
+
+Eventually though, the weirdness began to pass and I found myself ascending towards what looked like [url={torment_tag1}]the light at the end of a tunnel[/url]. Excitement welled up in me as approached closer and closer until...
+""",
+	"journal_reward": """
+I reached the light and passed through it, finding myself in a bright and beautiful world. I felt a sense of apathy settle over me as I stared around at the seemingly infinite planes of this place; there was nothing to excite me or hold my attention for long.
+
+Eventually, I turned away from the light and began to wander aimlessly through the planes until I found myself back where I started.
+""",
 	"journal_art": "res://assets/journal/torments/The Light Calling.jpg",
 	"enemies": {
 		"easy": [
@@ -442,11 +473,18 @@ const TheLightCalling = {
 		],
 	},
 }
+
+#Title [The Squirrel]
+#Keywords [torment, surrealism, absurdity, uncanny valley, calm before the storm, upset, nut, mad, comical, explode]
+#Summary  [I found myself facing off with a squirrel giving me the stink-eye.]
+#Avoid [I woke up, wake up, awaken, I was dreaming]
 const Squirrel = {
-	"journal_description":\
-		'I found myself facing off [url={torment_tag1}]with a squirrel giving me the stink-eye[/url].',
-	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+	"journal_description": """,
+I found myself staring down [url={torment_tag1}]a squirrel[/url] as it gave me the stink-eye. I wondered what was going through its head, as nut season had come and gone and it clearly wasn't getting any food from me. It must have been incredibly frustrating for the poor creature.
+""",
+	"journal_reward": """
+As I watched, the squirrel tensed up and seemed to be gathering itself for something. I braced myself for an attack, but to my surprise, the squirrel simply exploded into a cloud of nuts. It was such a comical sight that I couldn't help but laugh out loud. In spite of the absurdity of the situation, it felt like a calm before the storm; I could feel upset brewing in the air.
+""",
 	"journal_art": "res://assets/journal/torments/Squirrel.jpg",
 	"enemies": {
 		"easy": [
@@ -480,11 +518,22 @@ const Squirrel = {
 		],
 	},
 }
+
+#Title [The Baby]
+#Keywords [torment, surrealism, absurdity, uncanny valley, stressful, responsibility, novelty, babysitting, crying, baby food, joy, dread]
+#Summary  [I had to take care of a fussy baby. I am responsible enough?]
+#Avoid [I woke up, wake up, awaken, I was dreaming]
 const Baby = {
-	"journal_description":\
-		'I had to take care of [url={torment_tag1}]a fussy baby[/url]. I am responsible enough?',
-	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+	"journal_description": """
+I was babysitting [url={torment_tag1}]a baby[/url] the other day and it was so fussy. It wouldn't stop crying no matter what I did. The worst part was that it was so new and strange to me. I had never taken care of a baby before, and I wasn't sure if I was doing everything right.
+
+I got really stressed out trying to take care of it, and the whole experience just felt really surreal and absurd. It didn't help that the baby looked like it was right on the edge of the uncanny valley, which made me feel even more uneasy around it.
+""",
+	"journal_reward": """
+I couldn't help but feel a sense of joy and wonder. Babies are so innocent and new, and it's amazing to see the world through their eyes for the first time.
+
+Even though it was stressful taking care of the baby, overall I found the experience to be quite rewarding. I'm glad I got to babysit it and learn more about what it's like to take care of a child.
+""",
 	"journal_art": "res://assets/journal/torments/baby.jpeg",
 	"enemies": {
 		"easy": [
