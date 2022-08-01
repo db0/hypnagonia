@@ -253,7 +253,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Cannot be released from the deck.\n{unplayable}",
 		"Cost": 'U',
-		"_illustration": "Nobody",
+		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Perturbation",
 		"_keywords": [],
 		"_is_unplayable": true,

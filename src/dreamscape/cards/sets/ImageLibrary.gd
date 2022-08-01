@@ -181,6 +181,7 @@ const FINAL_IMAGES := {
 	"Cockroaches": "res://assets/cards/Cockroach.jpg",	
 	"Suffocation": "res://assets/cards/Suffocation.jpg",	
 	"Inescepable Conclusion": "res://assets/cards/Inescepable Conclusion.jpg",	
+	"Hubris": "res://assets/cards/Hubris.jpg",
 }
 const BETA_IMAGES := {
 	"Catatonia": "res://assets/cards/Catatonia.jpg",
