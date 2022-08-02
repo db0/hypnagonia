@@ -29,12 +29,12 @@ As an example:
 
 const TheLaughingOnes = {
 	"journal_description": """
-It was the unending cackle that did it. I'd had enough. 
-I turned to face my tormentors and found myself between [url={torment_tag1}]a pair of featureless creeps laughing[/url]. 
-"What's so funny?" I demanded. My voice sounded thin, even to my own ears. 
-"You," they replied in unison, their laughter redoubling. 
-I tried to lunge at them but they side-stepped easily, still laughing uncontrollably. 
-Suddenly furious, I screamed at them; a anguished, keening sound that echoed in the emptiness around us. 
+It was the unending cackle that did it. I'd had enough.
+I turned to face my tormentors and found myself between [url={torment_tag1}]a pair of featureless creeps laughing[/url].
+"What's so funny?" I demanded. My voice sounded thin, even to my own ears.
+"You," they replied in unison, their laughter redoubling.
+I tried to lunge at them but they side-stepped easily, still laughing uncontrollably.
+Suddenly furious, I screamed at them; a anguished, keening sound that echoed in the emptiness around us.
 They only laughed harder and danced away from me again as if this were the most amusing thing they'd ever seen
 """,
 	"journal_reward": """
@@ -120,9 +120,9 @@ The experience was definitely strange, and it left me feeling a bit unsettled. I
 
 const Gaslighter = {
 	"journal_description":\
-"""It was dark as I was standing in an open field. A light flickered in the dark, filling my body with suspense as I wondered what it was coming from. 
-I remember In the distance I could see [url={torment_tag1}]a grotesque entity move towards me[/url], the green flame flickered from the lamp attached to its strange head-body hybrid, illuminating the grueling faces it possessed. 
-It started to tell me what I was and had become. I began to doubt myself and I felt like everything that I stood for was slowly burning away inside of me. 
+"""It was dark as I was standing in an open field. A light flickered in the dark, filling my body with suspense as I wondered what it was coming from.
+I remember In the distance I could see [url={torment_tag1}]a grotesque entity move towards me[/url], the green flame flickered from the lamp attached to its strange head-body hybrid, illuminating the grueling faces it possessed.
+It started to tell me what I was and had become. I began to doubt myself and I felt like everything that I stood for was slowly burning away inside of me.
 I pleaded for it to go away, but I knew I couldn't shake it. The dark field I was standing in had erupted into green flames and in the light I was now face-to-face with the two-faced abomination.
 """,
 	"journal_reward":\
@@ -153,8 +153,8 @@ I pleaded for it to go away, but I knew I couldn't shake it. The dark field I wa
 
 const Murmurs = {
 	"journal_description":\
-"""I thought I heard [url={torment_tag1}]murmurs in the wind[/url]. Were they talking about [i]that[/i] time..? 
-By the minute, I was getting more certain that they were talking about me, and this had only left me more upset. 
+"""I thought I heard [url={torment_tag1}]murmurs in the wind[/url]. Were they talking about [i]that[/i] time..?
+By the minute, I was getting more certain that they were talking about me, and this had only left me more upset.
 Their whispers lingered in the air, getting more acerbic by the second.
 """,
 	"journal_reward":\
@@ -200,14 +200,14 @@ Their whispers lingered in the air, getting more acerbic by the second.
 #Avoid [I woke up, wake up, awaken, I was dreaming]
 const TheCritic = {
 	"journal_description": """
-I was in the middle of my usual morning jog when I noticed them. 
-At first I thought they were birds, but then I realized they were something else entirely. 
-They were [url={torment_tag1}]strange entities with comically enlarged sense organs[/url] that started circling me and pointing out all my flaws. 
+I was in the middle of my usual morning jog when I noticed them.
+At first I thought they were birds, but then I realized they were something else entirely.
+They were [url={torment_tag1}]strange entities with comically enlarged sense organs[/url] that started circling me and pointing out all my flaws.
 It was disconcerting to say the least, especially since I had no idea what they were or where they came from.
 """,
 	"journal_reward": """
-I was eventually able to shake them off and escape, but I couldn't help but wonder what it all meant. 
-Do these creatures represent some kind of uncanny valley where everyday objects are given strange, exaggerated features? 
+I was eventually able to shake them off and escape, but I couldn't help but wonder what it all meant.
+Do these creatures represent some kind of uncanny valley where everyday objects are given strange, exaggerated features?
 Or is this a commentary on the nature of criticism itself? Whatever the case may be, it's certainly a surreal experience that I won't soon forget.
 """,
 	"journal_art": "res://assets/journal/torments/The Critic.jpg",
@@ -258,7 +258,7 @@ const Clown = {
 I found myself in the middle of an argument [url={torment_tag1}]with a clown[/url]. It was a surreal experience, and I couldn't quite make sense of what was happening. The clown seemed to be tormenting me, but I wasn't sure why. Suddenly, I felt an overwhelming sense of ennui wash over me. It was as if nothing mattered any more. All that existed was this pointless argument with the clown.
 """,
 	"journal_reward": """
-Suddenly, I realized that the clown wasn't really worth getting so worked up over. It was just a silly creature, with no real understanding of anything. In the grand scheme of things, it didn't really matter what it said or did. 
+Suddenly, I realized that the clown wasn't really worth getting so worked up over. It was just a silly creature, with no real understanding of anything. In the grand scheme of things, it didn't really matter what it said or did.
 
 With that realization, I felt a sense of calm come over me. The ennui dissipated and I was able to see things more clearly. This whole confrontation with the clown was an exercise in existentialism; it made me confront the meaninglessness of life head-on. But eventually, I overcame that feeling and moved on.
 """,
@@ -382,16 +382,16 @@ But even as I write this, I can't shake the feeling that there's something more 
 
 const Pialephant = {
 	"journal_description":\
-"""I felt a feeling of excitement wash over me, as I heard a rumble in the clouds under my feet. 
-I had thought it was a storm at first, but I had realized it was the circus coming straight towards me with great surprise! 
-The drums boomed while the music and laughter blared louder as they were getting closer. 
-My anticipation was met with concern, as I noticed they were not slowing down. 
-In the distance I could hear the hastened sliding of piano keys evoking the sound of thunder as [url={torment_tag1}]a behemoth was charging straight towards me[/url]. 
+"""I felt a feeling of excitement wash over me, as I heard a rumble in the clouds under my feet.
+I had thought it was a storm at first, but I had realized it was the circus coming straight towards me with great surprise!
+The drums boomed while the music and laughter blared louder as they were getting closer.
+My anticipation was met with concern, as I noticed they were not slowing down.
+In the distance I could hear the hastened sliding of piano keys evoking the sound of thunder as [url={torment_tag1}]a behemoth was charging straight towards me[/url].
 This was no orchestra I wanted to be overrun by!
 """,
 	"journal_reward":\
-"""Instead of letting my shock overtake me, I had to make some notes for a balloon as the gargantuan beast punted me through the clouds in the sound of a sonata. 
-Hopefully it didn’t play something sharp, or else my balloon would become a corny pop song! 
+"""Instead of letting my shock overtake me, I had to make some notes for a balloon as the gargantuan beast punted me through the clouds in the sound of a sonata.
+Hopefully it didn’t play something sharp, or else my balloon would become a corny pop song!
 Luckily, I had just found I was able to catch myself in the music, because I’d B-flat on the ground otherwise.
 """,
 	"journal_art": "res://assets/journal/torments/pialephant.jpg",
@@ -606,6 +606,10 @@ const ENEMIES = {
 	"Gaslighter": Gaslighter,
 }
 
+#Title [The Labyrinth]
+#Keywords [torment, surrealism, meandering, disquietude, existentialism, lost,  calm, eerie, ever-changing, hopeless]
+#Summary  [I remember maze walls enclosing me and no obvious way out...]
+#Avoid [I woke up, wake up, awaken, I was dreaming]
 const RushElite = {
 	"name": "Labyrinth",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/RushElite.tscn")],
@@ -623,13 +627,21 @@ For me, The Labyrinth represented a journey into the unknown. I woke up to what 
 """,
 	'journal_art': "res://assets/journal/advanced/Labyrinth.jpg",
 }
+
+#Title [The Bully]
+#Keywords [torment, surrealism, beating, upset, crying, taunting, pushing, schoolyard, playground, glasses, break, upset, hopeless, hide, frustration]
+#Avoid [I woke up, wake up, awaken, I was dreaming]
+#Story Summary  [My mind took me back to uncomfortable memories of schoolyard bullying.]
+#Conclusion Summary [This time, I fortunately knew how to respond.]
 const Bully = {
 	"name": "Bully",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/Bully.tscn")],
-	"journal_description":\
-		'My mind took me back to uncomfortable memories of schoolyard bullying.',
-	"journal_reward":\
-		'This time, I fortunately knew how to respond.',
+	"journal_description": """
+I could feel the weight of the bullies' stares on me as I made my way through the schoolyard. I knew they were plotting their next attack, and I had no idea how to defend myself. Suddenly, they descended upon me like a pack of wolves.  I tried to run, but they were too fast. They punched me, kicked me, and taunted me until I was crying and hopelessly hiding behind a bush. It seemed like it would never end
+""",
+	"journal_reward": """
+The bully in my dream was symbolic of those harsh memories from my past. However, this time, I fortunately knew how to respond. I faced the bully head-on and refused to be intimidated. This may not have ended the bullying once and for all, but it made me feel stronger and more confident in myself.
+""",
 	'journal_art': "res://assets/journal/advanced/Bully.jpg",
 }
 
@@ -640,18 +652,24 @@ const ELITES = {
 
 const Narcissus = {
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Bosses/Narcissus.tscn")],
-	"journal_description":\
-		'I found someone I am sure I know, but I can\'t quite remember who.'\
-		+ 'I found them gazing in a mirror, or was it a lake? They turned their attention to me...',
-	"journal_reward":\
-		'Through the many lies and denials, [url=boss_card_draft]I cornered the truth out of them.[/url]'\
-		+ 'and for once felt like [url=boss_artifact]I was getting somewhere[/url].',
-	'journal_art': 
+	"journal_description": """
+I ran into Narcissus on the edge of a lake. They were as beautiful as I thought they would be, with their perfect skin and bright green eyes. But there was something different about them. They seemed vulnerable, almost hurt.
+
+As if feeling my emotional probe, they turned to me while their mask came back up...
+""",
+	"journal_reward": """
+I am not really sure what I was expecting when I ran into Narcissus. Maybe some validation? Or an explanation for their behavior? But all I got was a feeling of confusion and hurt.
+
+Why did they act like that? What did I do wrong?
+
+These questions echoed in my head as I walked away from the encounter, but I knew that I would never get any answers from them. They were too selfish and too wrapped up in their own ego to ever confess the truth.
+""",
+	'journal_art':
 		[
-			"res://assets/journal/advanced/Narcissus/Narcissus1.jpg", 
-			"res://assets/journal/advanced/Narcissus/Narcissus2.jpg", 
-			"res://assets/journal/advanced/Narcissus/Narcissus3.jpg", 
-			"res://assets/journal/advanced/Narcissus/Narcissus4.jpg", 
+			"res://assets/journal/advanced/Narcissus/Narcissus1.jpg",
+			"res://assets/journal/advanced/Narcissus/Narcissus2.jpg",
+			"res://assets/journal/advanced/Narcissus/Narcissus3.jpg",
+			"res://assets/journal/advanced/Narcissus/Narcissus4.jpg",
 			"res://assets/journal/advanced/Narcissus/Narcissus5.jpg"
 		],
 }
