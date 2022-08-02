@@ -27,11 +27,18 @@ As an example:
 		}
 """
 
+#Title [Traffic Jam]
+#Keywords [torment, surrealism, frustration, cars, infinity, wait, boring, horns, haze, distance]
+#Avoid [I woke up, wake up, awaken, I was dreaming]
+#Story Summary [I started dreaming about my daily commute traffic jam, but the road seemed to stretch to eternity]
+#Conclusion Summary [Through overcoming that weird experience, I felt wiser.]
 const TrafficJam = {
-	"journal_description":\
-		'I started dreaming about my [url={torment_tag1}]daily commute traffic jam[/url].',
-	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+	"journal_description": \
+"""I was [url={torment_tag1}]stuck in a traffic jam[/url], surrounded by cars that stretched out as far as the eye could see. The air was thick with exhaust fumes and the sound of horns blaring. I felt a sense of frustration and boredom rising up within me. The road ahead of me seemed to stretch out into infinity.
+""",
+	"journal_reward": \
+"""I realized that it was a metaphor for the feeling of being stuck in life, and how frustrating and dull it can be. But I also realized that by overcoming that experience, I felt wiser and more aware of the things that truly matter in life.
+""",
 	"journal_art": "res://assets/journal/torments/Traffic Jam.jpg",
 	"enemies": {
 		"easy": [
@@ -59,11 +66,18 @@ const TrafficJam = {
 }
 
 # Inspiration taken from StS mods developed by https://github.com/modargo
+#Title [Mouse]
+#Keywords [torment, surrealism, tea, rodent, philosophy, debate, friendly, exasperating, discussion, change of topics, sophistries, polite, learning]
+#Avoid [I woke up, wake up, awaken, I was dreaming]
+#Story Summary [I was having tea with a rodent. It was explaining the pitfalls of overpopulation.]
+#Conclusion Summary [I realized that there would be no learning from this creature. Through overcoming that weird experience, I felt wiser.]
 const Mouse = {
-	"journal_description":\
-		'I was having tea with [url={torment_tag1}]a rodent[/url]. It was explaining the pitfalls of overpopulation.',
-	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+	"journal_description": \
+"""I was having tea with [url={torment_tag1}]a rodent[/url]. It explained how overpopulation would eventually lead to the collapse of civilization as we know it. The torment began when it started debating the merits of different philosophies. The discussion was friendly, but the rodent's incessant changing of topics was exasperating. It seemed to enjoy playing with my mind, twisting my words into sophistries. I tried to remain polite, but it was clear that the rodent was enjoying itself at my expense. 	
+""",
+	"journal_reward": \
+"""I realized that there was no point in trying to engage the rodent in a serious discussion. It was content to play with my mind and twist my words into knots. I proceeded feeling wiser for having overcome that experience.
+""",
 	"journal_art": "res://assets/journal/torments/Mouse.jpg",
 	"enemies": {
 		"easy": [
@@ -108,12 +122,22 @@ const Mouse = {
 }
 
 # Inspiration taken from StS mods developed by https://github.com/modargo
+#Title [Exam]
+#Keywords [torment, surrealism, stressed, teacher, stern, study, forgetting, lacuna, blank, time up, pens scribbling, clock ticking, sweat, party, bell, sitting, nervous]
+#Avoid [I woke up, wake up, awaken, I was dreaming]
+#Story Summary [The bell rang and I had to get back into class. It was time for the test]
+#Conclusion Summary [Through overcoming that weird experience, I felt wiser.]
 const TheExam = {
-	"journal_description":\
-		"The bell rang and I had to get back into class."\
-			+ "[url={torment_tag1}]It was time for the test.[/url]",
-	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+	"journal_description": \
+"""The bell rang and I had to get back into class. It was [url={torment_tag1}]time for the test[/url]. My teacher handed out the papers and I could feel my heart racing. I tried to focus on the questions, but all I could think about was failing.
+
+I started sweating and my hands were shaking. The clock seemed like it was ticking louder and slower at the same time. I heard pens scribbling around me, but it felt like everyone else was moving in slow motion.
+""",
+	"journal_reward": \
+"""The test was finally over and I could breathe again. Despite how stressed I was, I somehow managed to finish it.
+
+Looking back, I realize that the whole experience was surreal. It's like my mind was playing tricks on me. But in a way, it was also a good reminder of how important it is to stay calm under pressure.
+""",
 	"journal_art": "res://assets/journal/torments/Exam.jpg",
 	"enemies": {
 		"easy": [
@@ -158,12 +182,22 @@ const TheExam = {
 }
 
 # Inspiration taken from StS mods developed by https://github.com/modargo
+#Title [The Victim]
+#Keywords [torment, surrealism, confused, hurt, faking, abuse, projection, tactic]
+#Avoid [I woke up, wake up, awaken, I was dreaming]
+#Story Summary [They claimed I always hurt their feelings. Was I in the wrong? I don't know anymore...]
+#Conclusion Summary [Through overcoming that weird experience, I felt wiser.]
 const TheVictim = {
 	"journal_description":\
-		"[url={torment_tag1}]They claimed I always hurt their feelings.[/url] "\
-			+ "Was I in the wrong? I don't know anymore...",
+"""I hurt [url={torment_tag1}]their feelings once again[/url], they claim. I don't know why, but it seems like everything I do ends up making them cry or withdraw, Maybe I'm just a bad person. I can't tell anymore.
+
+I try to fake being sorry, even though I don't really know what I did wrong. I try to make myself smaller, less noticeable. I don't want to hurt them anymore.
+""",	
 	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+"""I realized that I was being abused. They were manipulating me and gaslighting me to make me believe that I was the one at fault.
+
+I'm not going to let them control me anymore. I'm done with faking being sorry for something I didn't do
+""",	
 	"journal_art": "res://assets/journal/torments/The Victim.jpg",
 	"enemies": {
 		"easy": [
@@ -205,13 +239,22 @@ const TheVictim = {
 		],
 	},
 }
+
 # Inspiration taken from StS mods developed by https://github.com/modargo
+#Title [Stuffed Toy]
+#Keywords [torment, surrealism, absurdity, wrestling, huge, fluffy, lost, smothered, escape, depression, pressure, warmth, heavy]
+#Avoid [I woke up, wake up, awaken, I was dreaming]
+#Story Summary [I was wrestling in bed with a stuffed toy. Why was this feeling so difficult?]
+#Conclusion Summary [Through overcoming that weird experience, I felt wiser.]
 const StuffedToy = {
 	"journal_description":\
-		"[url={torment_tag1}]I was wrestling in bed with a stuffed toy.[/url] "\
-			+ "Why was this feeling so hard?",
+"""I was wrestling in bed with [url={torment_tag1}]a stuffed toy[/url]. Why was this feeling so difficult? I couldn't tell if it was the toy or me that was losing, but eventually, I realized that it didn't matter. We were both lost in the same cycle of pain and pleasure, unable to escape each other's grasp.
+
+The pressure of the toy against my body was suffocating, but at the same time, its warmth was strangely comforting.
+""",
 	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+"""It was a heavy burden that felt impossible to escape from, but at the same time, it was something I couldn't bear to part with. That feeling of being suffocated and lost in the moment was strangely familiar, and it made me realize that I needed to find a way to escape from my own cycle of pain and pleasure.
+""",
 	"journal_art": "res://assets/journal/torments/Stuffed Toy.jpg",
 	"enemies": {
 		"easy": [
