@@ -68,7 +68,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.fading.name],
 		"Abilities": "{unplayable}",
 		"Cost": 'U',
-		"_illustration": "",
+		"_illustration": "Nobody",
 		"_rarity": "Perturbation",
 		"_keywords": [],
 		"_is_unplayable": true,
@@ -107,7 +107,7 @@ const CARDS := {
 		"Abilities": "If this card is in your hand at the end of the turn, gain {effect_stacks} {drain}\n"\
 				+ "Play: {forget}.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Perturbation",
 		"_keywords": [],
 		"_amounts": {
@@ -219,7 +219,7 @@ const CARDS := {
 		"Abilities": "If in hand at the end of the turn, reduce the charge of a random memory by 1. "\
 				+ "While in hand, you cannot activate memories.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Perturbation",
 		"_keywords": []
 	},
@@ -241,7 +241,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "While in hand, Torments take {detrimental_integer} less {damage} from each source.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Perturbation",
 		"_amounts": {
 			"detrimental_integer": 10

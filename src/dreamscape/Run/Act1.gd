@@ -609,10 +609,18 @@ const ENEMIES = {
 const RushElite = {
 	"name": "Labyrinth",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/RushElite.tscn")],
-	"journal_description":\
-		'I remember walls enclosing me and no obvious way out...',
-	"journal_reward":\
-		'I finally understood what these infinite twists and turns represented.',
+	"journal_description": """
+I remember the first time I saw The Labyrinth. Walls of intricately carved stone enclosing me, with no obvious way out. It was disquieting, to say the least, and it wasn't long before I found myself hopelessly lost within its ever-changing corridors.
+
+The sense of unease that The Labyrinth gives is like nothing else. It's a place where reality seems to blend with surrealism and there's a constant feeling of disquietude hanging over everything. It's an existential angst simulator if there ever was one!
+
+Even now, long awake after my visit, I can still recall the calm but eerie atmosphere that pervades the entire place. It feels like something just beyond our understanding is waiting for us.
+""",
+	"journal_reward": """
+The Labyrinth is a place of torment and confusion, but also one of great beauty. It's a surrealist's dream come true, with its ever-changing corridors and mysterious atmosphere. It can be disquieting and eerie at times, but it's also strangely calming.
+
+For me, The Labyrinth represented a journey into the unknown. I woke up to what these infinite twists and turns represented; they were my own personal struggles, my battles with myself. It was an existential experience that left me changed for the better.
+""",
 	'journal_art': "res://assets/journal/advanced/Labyrinth.jpg",
 }
 const Bully = {
