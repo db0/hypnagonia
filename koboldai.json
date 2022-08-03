@@ -1,29 +1,45 @@
 {
    "gamestarted": true,
-   "prompt": "Story [Initially I felt like my dreams were fading. But as the void of everything grew larger and more distinct, it occurred to me it was far worse.",
+   "prompt": "Story [The next dream was so incomprehensible, just trying to remember it makes my head hurt",
    "memory": "[All over the world, some unnatural force is causing individuals to start experiencing strange recurring dreams. The dreams feel hypnagogic and dreamers retain much more of their agency while in them. Each dreamer experiencing this phenomenon, is ensuring some great injustice in their life. Overcoming the torments in their dreams will allow them to have a breakthrough in their personal lives]\n\n[Unbeknownst to each dreamer, they are all connected to each other through a common dreamscape but the exact mechanics of this are yet unknown, with only glimpses of the presence of other dreamers sometimes manifesting. Some otherworldly force is somehow guiding dreamers to a common purpose.]\n\n[An unnamed dreamer finds themselves in a nightmare realm and we're reading what they are writing in their dream journal next morning. The dream journal is written in the first person,and is storytelling what torments they dreamt of in the previous night. They can't wake up!]\n\n",
    "authorsnote": "\n",
    "anotetemplate": "[Genre: Surrealistic Dream Journal]\n[Tone: Focus on ethereal descriptions with the tone being a mix of comedy and horror]\n[Writing style: Partly-remembered memories of absurdist nightmares written in the first person, past tense.]\n",
    "actions": [
-      " You see, what a dream that could never be repeated. An endless black space opens, coming together with your mind, reaching towards you like a powerful claw.\nFrom my perspective, it felt cold, it stretched out, wants to penetrate me and capture me for eternity. Yet when I look down onto the threshold, what do I see?]\n\nConclusion [",
-      "",
-      "When you read these words now, there's going to be something else occupying the void inside of you; an invisible \"you\" staring back from deep within yourself... But that shouldn't matter. Right?]\n\nStory [",
-      "I was surrounded by infinite complexity at all sides.",
-      " The terrifying omnipresence of Endlessness had a grip on my body now, desperately wanting to invade, consuming anything possible to occupy its interior. I grew large with black energy in my core. Within the suctioned walls, anything I needed came to me all the time. With mental faculty at the beck and call of its newfound creation, anything came through and still remains.]\n\nConclusion [",
-      "Do I remember how it felt when it was inside me? What sense of freedom? There are moments during certain phases where the fabric that binds my soul and body becomes devious, uncomfortable and painful. I question what this even means or makes me as if it can be wrong.]\n\nStory [",
-      "I was strapped-in, in a strangely familiar place. White. Sterile. The sound of a rapidly spinning drill started echoing behind me...",
-      " I turned to look behind me, finding an open window. The metal frames of two arms craned over me as the jumbled masked face of a dentist appeared to my side.\n\n\"So, tell me, have you been flossing regularly?]\n\nConclusion [First thing I did the next day is look in the mirror and check that my teeth looked fine. They were, but something about the dream made me feel uneasy. I couldn't help wondering if there was some hidden message in it for me.]\n\nStory [I had entered a room which appeared to be self-rearranging. Walls which were farther than they seemed, and an almost fractal level of detail.",
+      ". All I can say is that whatever happened last night seems like another form of indescribable insanity.]\n\nConclusion [I don't claim to understand what I was seeing, but eventually that vision faded.",
+      " Even now, five or six days later, it still lingers with me",
+      " like a sickeningly sweet memory of otherworldly immorality, loneliness, anguish and confusion.",
       "",
       "",
-      " Things blended in with each other so quickly that I assumed I was hallucinating. \n\"Well that's quite the collection.\" I said to myself. I laughed,",
-      " but my mind was spiraling down into a place",
-      " filled with confusion and chaotic, strange colors, trying to grasp how exactly my surroundings differed from my last recollection.]\n\nConclusion [I finally thought I saw the exit",
-      ", however this one didn't look like any of the others I had encountered. Strange stained glass windows above what could only be described as an open window led away into the distance. Even though the memory flashed behind me, I fell right through without a second glance, not able to follow in reality because my brain would not focus."
+      ""
    ],
    "actions_metadata": {
       "0": {
-         "Selected Text": " You see, what a dream that could never be repeated. An endless black space opens, coming together with your mind, reaching towards you like a powerful claw.\nFrom my perspective, it felt cold, it stretched out, wants to penetrate me and capture me for eternity. Yet when I look down onto the threshold, what do I see?]\n\nConclusion [",
+         "Selected Text": ". All I can say is that whatever happened last night seems like another form of indescribable insanity.]\n\nConclusion [I don't claim to understand what I was seeing, but eventually that vision faded.",
          "Alternative Text": [
+            {
+               "Text": " now. From what I remember though, it ended like this. There were soldiers attacking an unnamed colony deep in space. Among the forces there was an old lady commander who is surely a legendary soldier of this era. She had commandeered this massive starship out of necessity when she spotted no enemies in her current location. No single enemy ship managed to escape.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": ". And if it wasn't for thinking about the horror novel I've been writing during the week, the whole thing would have made me sick. \"How did I end up like this?\"",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": ".]\nYesterday I dreamed I walked into a small church that happened to be made out of solid light. Then I noticed something shiny about six inches away from me.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": " You see, what a dream that could never be repeated. An endless black space opens, coming together with your mind, reaching towards you like a powerful claw.\nFrom my perspective, it felt cold, it stretched out, wants to penetrate me and capture me for eternity. Yet when I look down onto the threshold, what do I see?]\n\nConclusion [",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
             {
                "Text": " They had indeed begun slowly changing already-the flowers red and yellow turning black. Black thunder rolled towards us all-black rain - things that could never have grown were growing- I screamed out and found myself struggling against the dark gloom: To try to avoid meeting it, which in the darkness seemed to be waiting for me with infinite patience...",
                "Pinned": false,
@@ -137,12 +153,66 @@
                "Pinned": false,
                "Previous Selection": false,
                "Edited": true
+            },
+            {
+               "Text": ". All I can say is that whatever happened last night seems like another form of indescribable insanity.]\n\n\"Oh fuck...\" Jessa said as her teeth started chattering. Suddenly she found herself floating towards the edge of the ceiling, hovering slightly before dropping down onto the floor with a thud. Quickly Jessa was up again, looking around frantically for a way out.",
+               "Pinned": false,
+               "Previous Selection": false,
+               "Edited": true
+            },
+            {
+               "Text": ". All I can say is that whatever happened last night seems like another form of indescribable insanity.]\n\nConclusion [",
+               "Pinned": false,
+               "Previous Selection": false,
+               "Edited": true
+            },
+            {
+               "Text": ". All I can say is that whatever happened last night seems like another form of indescribable insanity.]\n\nConclusion [I don't claim to understand what I was seeing,but eventually that vision faded.",
+               "Pinned": false,
+               "Previous Selection": false,
+               "Edited": true
             }
          ]
       },
       "1": {
-         "Selected Text": "",
+         "Selected Text": " Even now, five or six days later, it still lingers with me",
          "Alternative Text": [
+            {
+               "Text": " When I was able to come back out of that, everything had disappeared. And not only that, when I looked around, no trace of my friends were present anywhere. Not even my brother. I left in search for them but my luck held me back as well.]\nWhere Were You Yesterday?\n\nChapter 1.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": " I awoke confused after two hours with visions of holes opening inside my head and disappear as if you blinked them away].\n* * *\n(also written as in Part 3)\np. 5\nThere is something about Aspen's way of writing that captures a sense of power and intimidation like no other narrator out there (to me).",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": " Whoever heard of a place like this?]\nAuthor Biography Back after 6 months-disease (distributed mono)\nPublisher Heartbeat UK\nISBN-13: 9781680124255 / 10 8352811X / 17 $29.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": " I quickly caught myself from falling onto the floor and then clumsily put away the chaos book. I never noticed how expensive this thing was...]\nIntroduction\n\nBecause of some peculiar reactions I'm having these days, it is becoming increasingly hard for me to ignore my instincts concerning the secret society.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": "As the tale reaches its conclusion, another megalomaniac begins preaching against current societal trends that have plagued humans for thousands of years- starting wars and fearing social safety nets as threats to a supposedly god-like government.]\nYou have been stabbed several times in the heart. Perhaps it's you? But if you are still alive...",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": "",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
             {
                "Text": "\n\n",
                "Pinned": false,
@@ -190,12 +260,24 @@
                "Pinned": false,
                "Previous Selection": false,
                "Edited": true
+            },
+            {
+               "Text": " Even now, five or six days later, it still lingers with me]\nMost of the entries contained in the pages shared by the dreams were blank, yet throughout these days, a brief narrative appeared in the diary entry blank spaces. As time passed and even as odd elements began appearing between short bouts of lucid thoughts, at times coherent writing appeared.",
+               "Pinned": false,
+               "Previous Selection": false,
+               "Edited": true
             }
          ]
       },
       "2": {
-         "Selected Text": "When you read these words now, there's going to be something else occupying the void inside of you; an invisible \"you\" staring back from deep within yourself... But that shouldn't matter. Right?]\n\nStory [",
+         "Selected Text": " like a sickeningly sweet memory of otherworldly immorality, loneliness, anguish and confusion.",
          "Alternative Text": [
+            {
+               "Text": "When you read these words now, there's going to be something else occupying the void inside of you; an invisible \"you\" staring back from deep within yourself... But that shouldn't matter. Right?]\n\nStory [",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
             {
                "Text": "I finally managed to get out of my nightmare realm and soon turned around to seek help from friends. Unfortunately I am at a loss to identify the source of the nightmare though. Perhaps a character does show himself or herself?]\n\"Can you walk?\" Karen asked as she helped Jane up after their'self-help' conversation.",
                "Pinned": false,
@@ -243,23 +325,77 @@
                "Pinned": false,
                "Previous Selection": false,
                "Edited": true
+            },
+            {
+               "Text": " like a sickeningly sweet memory of otherworldly immorality, loneliness, anguish, confusion... what? Were those beacons? Why did I find myself out there? Did I see light at the end of that dark tunnel? At least when I wake from a nightmare, I won't face those maddening questions and visions again.]\nWhat exactly was that experience like you ask?",
+               "Pinned": false,
+               "Previous Selection": false,
+               "Edited": true
+            },
+            {
+               "Text": " like a sickeningly sweet memory of otherworldly immorality, loneliness, anguish, confusion...",
+               "Pinned": false,
+               "Previous Selection": false,
+               "Edited": true
+            },
+            {
+               "Text": " like a sickeningly sweet memory of otherworldly immorality, loneliness, anguish, confusion.",
+               "Pinned": false,
+               "Previous Selection": false,
+               "Edited": true
+            },
+            {
+               "Text": " like a sickeningly sweet memory of otherworldly immorality, loneliness, anguish, confusion.",
+               "Pinned": false,
+               "Previous Selection": false,
+               "Edited": true
             }
          ]
       },
       "3": {
-         "Selected Text": "I was surrounded by infinite complexity at all sides.",
+         "Selected Text": "",
          "Alternative Text": [
+            {
+               "Text": "",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": "I was surrounded by infinite complexity at all sides.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
             {
                "Text": " I forget about the void and my agonizing pain. It's nice to know people come by to listen. It somehow makes me happy I haven't been dead in all these years, counting down to my \"apocalypse.\" I almost think that I am going insane and being haunted by the memory. But no! It's all actually true, though horrible because it's real.",
                "Pinned": false,
                "Previous Selection": true,
                "Edited": false
+            },
+            {
+               "Text": " and hunger].\nBest enjoyed by a male of legal age,and due to strong sexual content must be assumed is hetero,\nYOU'RE AWAKE AGAIN....\nSurrealism versus Realism (New Bern)\nNew Bern, N.C.",
+               "Pinned": false,
+               "Previous Selection": false,
+               "Edited": true
             }
          ]
       },
       "4": {
-         "Selected Text": " The terrifying omnipresence of Endlessness had a grip on my body now, desperately wanting to invade, consuming anything possible to occupy its interior. I grew large with black energy in my core. Within the suctioned walls, anything I needed came to me all the time. With mental faculty at the beck and call of its newfound creation, anything came through and still remains.]\n\nConclusion [",
+         "Selected Text": "",
          "Alternative Text": [
+            {
+               "Text": "",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": " The terrifying omnipresence of Endlessness had a grip on my body now, desperately wanting to invade, consuming anything possible to occupy its interior. I grew large with black energy in my core. Within the suctioned walls, anything I needed came to me all the time. With mental faculty at the beck and call of its newfound creation, anything came through and still remains.]\n\nConclusion [",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
             {
                "Text": " All of the colors and the vast movements were haunting and enthralling me. There wasn't anything but chaos and beauty... and darkness. The black emptiness was endless and knew exactly where I was. It had been watching me for months now, even though I didn't know it myself. It also possessed all my thoughts, aware of the beauty and dark aspects of life itself...",
                "Pinned": false,
@@ -283,12 +419,30 @@
                "Pinned": false,
                "Previous Selection": false,
                "Edited": true
+            },
+            {
+               "Text": " I relived it with such intensity, it felt more real than when it really occurred; it seemed almost an evil, half baked brew designed to agitate emotions and mental faculties with minimum physical exertion.",
+               "Pinned": false,
+               "Previous Selection": false,
+               "Edited": true
             }
          ]
       },
       "5": {
-         "Selected Text": "Do I remember how it felt when it was inside me? What sense of freedom? There are moments during certain phases where the fabric that binds my soul and body becomes devious, uncomfortable and painful. I question what this even means or makes me as if it can be wrong.]\n\nStory [",
+         "Selected Text": "",
          "Alternative Text": [
+            {
+               "Text": " All coupled to pain... excruciating pain of thinking about what had been imagined... too much to swallow... More than usual... no way... the mere thought makes the pain even worse.... Death by pain? Maybe that will make me go back to bed and ignore reality. I shake my head in disgust, wishing to return to my safety zone.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": "Do I remember how it felt when it was inside me? What sense of freedom? There are moments during certain phases where the fabric that binds my soul and body becomes devious, uncomfortable and painful. I question what this even means or makes me as if it can be wrong.]\n\nStory [",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
             {
                "Text": "Do you see how it felt when it was inside you? What sense of freedom? There are moments during certain phases where the fabric that binds your soul and body becomes devious, uncomfortable and painful. You question what this even means or makes you as if it can be wrong.",
                "Pinned": false,
@@ -304,8 +458,14 @@
          ]
       },
       "6": {
-         "Selected Text": "I was strapped-in, in a strangely familiar place. White. Sterile. The sound of a rapidly spinning drill started echoing behind me...",
+         "Selected Text": "",
          "Alternative Text": [
+            {
+               "Text": "I was strapped-in, in a strangely familiar place. White. Sterile. The sound of a rapidly spinning drill started echoing behind me...",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
             {
                "Text": "I was strapped-in, in a strangely familiar place. White. Sterile. The sound of a rapidly spinning machine started echoing behind me...",
                "Pinned": false,
@@ -315,8 +475,14 @@
          ]
       },
       "7": {
-         "Selected Text": " I turned to look behind me, finding an open window. The metal frames of two arms craned over me as the jumbled masked face of a dentist appeared to my side.\n\n\"So, tell me, have you been flossing regularly?]\n\nConclusion [First thing I did the next day is look in the mirror and check that my teeth looked fine. They were, but something about the dream made me feel uneasy. I couldn't help wondering if there was some hidden message in it for me.]\n\nStory [I had entered a room which appeared to be self-rearranging. Walls which were farther than they seemed, and an almost fractal level of detail.",
+         "Selected Text": "",
          "Alternative Text": [
+            {
+               "Text": " I turned to look behind me, finding an open window. The metal frames of two arms craned over me as the jumbled masked face of a dentist appeared to my side.\n\n\"So, tell me, have you been flossing regularly?]\n\nConclusion [First thing I did the next day is look in the mirror and check that my teeth looked fine. They were, but something about the dream made me feel uneasy. I couldn't help wondering if there was some hidden message in it for me.]\n\nStory [I had entered a room which appeared to be self-rearranging. Walls which were farther than they seemed, and an almost fractal level of detail.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
             {
                "Text": " It didn't feel right, but I kept staring forward as they fixed me up. The buzzing sound made me dizzy as they poured pins into my veins while trying to talk me out of worrying about the noise. No point, they assured me. You've always been this way, without explanation.",
                "Pinned": false,
@@ -394,6 +560,12 @@
       "8": {
          "Selected Text": "",
          "Alternative Text": [
+            {
+               "Text": "",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
             {
                "Text": "",
                "Pinned": false,
@@ -544,6 +716,12 @@
                "Edited": false
             },
             {
+               "Text": "",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
                "Text": "This dream vividly told a nightmarish depiction of a dentist while feeling right on point to my panic of my upcoming appointment. This dream falls squarely under the category of mental breakdown induced nightmares and defines this feature quite well. ]\nFyreflythe\nI was lost inside an invisible force field.",
                "Pinned": false,
                "Previous Selection": false,
@@ -564,8 +742,14 @@
          ]
       },
       "10": {
-         "Selected Text": " Things blended in with each other so quickly that I assumed I was hallucinating. \n\"Well that's quite the collection.\" I said to myself. I laughed,",
+         "Selected Text": "",
          "Alternative Text": [
+            {
+               "Text": " Things blended in with each other so quickly that I assumed I was hallucinating. \n\"Well that's quite the collection.\" I said to myself. I laughed,",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
             {
                "Text": " However, at the center of the room, I could feel a jagged wall where an intersecting road wound its way. So, naturally, I hopped up there and when I peered through the wall, I could see hundreds of bicycles.\"]\nI called down to Al and saw his head bobbing happily back toward me.\n\"So you've got bicycles all over the place?\"",
                "Pinned": false,
@@ -652,6 +836,15 @@
          "keysecondary": "",
          "content": "[The Jumbletron is a impossibly complex room elite which seems impossible to escape from. All the items inside it look vaguely familiar, but impossible to place. Walls seem father than they are and doors are nowhere to be seen. It brings in mind the Mandelibus dimention]",
          "comment": "Jumbletron",
+         "folder": 1812803879,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "surreality",
+         "keysecondary": "",
+         "content": "[The Surreality is one of the most incomphensible encounters one can have. It attempts to completely mindfuck the dreamer by defying all description. The longer one stays in that situation, the more one's senses start shutting off one by one. The surreality is an absurdity-type adversary]",
+         "comment": "Surreality",
          "folder": 1812803879,
          "selective": false,
          "constant": true

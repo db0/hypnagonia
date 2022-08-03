@@ -595,10 +595,11 @@ const ELITES = {
 const SurrealBoss = {
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn")],
 	"journal_description":\
-		"The next dream was so incomprehensible, just trying to remember it makes my head hurt",
+"""The next dream was so incomprehensible, just trying to remember it makes my head hurt. All I can say is that whatever happened last night seems like another form of indescribable insanity.
+""",
 	"journal_reward":\
-		"I don't claim to understand what I was seeing, [url=boss_card_draft]but eventually that vision faded.[/url]"\
-		+ "but my mind was open to [url=boss_artifact]many new possibilities[/url].",
+"""I don't claim to understand what I was seeing, but eventually that vision faded. Even now, five or six days later, it still lingers with me like a sickeningly sweet memory of otherworldly immorality, loneliness, anguish and confusion.
+""",
 	'journal_art': 
 		[
 			"res://assets/journal/advanced/Surreality/Surreality1.jpg", 
