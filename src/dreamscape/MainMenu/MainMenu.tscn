@@ -74,6 +74,9 @@ __meta__ = {
 margin_left = -1455.0
 margin_right = -1455.0
 custom_styles/panel = SubResource( 1 )
+property_width_exceptions = {
+"Cost": 30
+}
 
 [node name="NewGame" parent="." instance=ExtResource( 5 )]
 margin_left = 1455.0

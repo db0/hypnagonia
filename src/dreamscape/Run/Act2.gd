@@ -297,12 +297,17 @@ The pressure of the toy against my body was suffocating, but at the same time, i
 	},
 }
 
+#Title [Impossible Construction]
+#Story Keywords [torment, surrealism, mc escher, impossible, inverted, pyramid, brainfuck, dizzy, non-euclidean, discombobulation]
+#Story Summary [I was climbing a staircase somewhere, but somehow I always ended up on the ground floor again.]
+#Conclusion Keywords [wisdom, overcoming, enlightenment, clarity, break out, think outside the box]
 const ImpossibleConstruction = {
 	"journal_description":\
-		"I was climbing a staircase somewhere, but somehow "\
-			+ "[url={torment_tag1}]I always ended up on the ground floor again.[/url]",
+"""I was climbing a staircase somewhere, but somehow I always [url={torment_tag1}]ended up on the ground floor again[/url]. It was as if the stairs were inverted, or maybe I was. Either way, it was impossible to go anywhere.
+""",
 	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+"""I realized that the only way to get anywhere was to think outside the box and see the world in a new, non-euclidean way. With that wisdom, I was able to break out of this impossible construction and find myself in a new place entirely.
+""",
 	"journal_art": "res://assets/journal/torments/Impossible Construction.jpg",
 	"enemies": {
 		"easy": [
@@ -371,11 +376,18 @@ const ImpossibleConstruction = {
 	},
 }
 
+#Title [Clown Show]
+#Story Keywords [torment, surrealism, absurdity, clowns, piano, pialephants, philosophy, music, confusion, debate, thought ]
+#Conclusion Keywords [wisdom, overcoming, ridicule, solution, smart]
 const ClownShow = {
 	"journal_description":\
-		'[url={torment_tag1}]The Clowns were back[/url], and this time [url={torment_tag2}]they brought the circus[/url]!',
+"""The [url={torment_tag2}]Pialephants[/url] were providing the music for this stange circus, as [url={torment_tag1}]the clowns[/url] debated ancient dead philosphers. The clowns were getting more and more agitated, as they failed sway the crowd either way. They turned and looked expectantly at me
+
+"And what do you think?" One of them called out
+""",
 	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+"""I simply shrugged my shoulders. I had no answers for them and I didn't feel bad about it.
+""",
 	"journal_art": "res://assets/journal/torments/ClownShow.jpg",
 	"enemies": {
 		"easy": [
@@ -425,11 +437,20 @@ const ClownShow = {
 		],
 	},
 }
+
+#Title [Guilty Treatment]
+#Story Keywords [torment, surrealism, abuse, despair, frustration, pleading, talking, arguing, defensive, silent]
+#Story Summary [I was talking to someone. But they were either blaming me, or giving me the silent treatment]
+#Conclusion Keywords [wisdom, overcoming, self-worth, breakthrough, understanding]
 const GuiltyTreatment = {
 	"journal_description":\
-		'I was talking to someone. But they were either [url={torment_tag1}]blaming me[/url], or [url={torment_tag2}]giving me the silent treatment[/url].',
+"""I was desperately pleading with someone, trying to get them to see my side of things. But no matter what I said, they just stared at me coldly, refusing to listen. They were either [url={torment_tag1}]blaming me[/url] for something, or giving me [url={torment_tag2}]the silent treatment[/url].
+
+It was frustrating and upsetting, making me feel guilty and ashamed. I couldn't understand why they were treating me this way, or what I could do to make it stop. All I could do was keep talking
+""",
 	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+"""I realised that I was blaming myself for something that wasn't my fault. And I also realized that the other person's treatment of me had nothing to do with me, and everything to do with their own issues.
+""",
 	"journal_art": "res://assets/journal/torments/Silent Treatment.jpg",
 	"enemies": {
 		"easy": [
@@ -468,9 +489,13 @@ const GuiltyTreatment = {
 }
 const Void = {
 	"journal_description":\
-		"Initially I felt it was dreamless sleep. But it occurred to me [url={torment_tag1}]it was far worse[/url]...",
+"""Initially I felt like my dreams were fading. But as the void of everything grew larger and more distinct, it occurred to me it was far worse. You see, what a dream that could never be repeated. An endless black space opens, coming together with your mind, reaching towards you like a powerful claw.
+From your perspective, it feels cold, it stretches out, wants to penetrate you and capture you for eternity. Yet when you look down onto the threshold, what do you see?
+""",
 	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+"""
+When you read these words now, there's going to be something else occupying the void inside of you; an invisible "you" staring back from deep within yourself... But that shouldn't matter. Right?
+""",
 	"journal_art": "res://assets/journal/torments/The Void.jpg",
 	"enemies": {
 		"easy": [
@@ -529,29 +554,35 @@ const IndescribableAbsurdity = {
 	"name": "Fractalization",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/IndescribableAbsurdity.tscn")],
 	"journal_description":\
-		'I was surrounded by infinite complexity at all sides.',
+"""I was surrounded by infinite complexity at all sides. The terrifying omnipresence of Endlessness had a grip on my body now, desperately wanting to invade, consuming anything possible to occupy its interior. I grew large with black energy in my core. Within the suctioned walls, anything I needed came to me all the time. With mental faculty at the beck and call of its newfound creation, anything came through and still remains.
+""",	
 	"journal_reward":\
-		'In the end, I simply dreamed of something more sane.',
+"""Do I remember how it felt when it was inside me? What sense of freedom? There are moments during certain phases where the fabric that binds my soul and body becomes devious, uncomfortable and painful. I question what this even means or makes me as if it can be wrong.
+""",
 	'journal_art': "res://assets/journal/advanced/Fractalization.jpg",
 }
 const Dentist = {
 	"name": "Dentist",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/Dentist.tscn")],
 	"journal_description":\
-		'I was strapped-in, in a strangely familiar place. White. Sterile. The sound of a rapidly spinning machine started echoing behind me...',
+"""I was strapped-in, in a strangely familiar place. White. Sterile. The sound of a rapidly spinning drill started echoing behind me... I turned to look behind me, finding an open window. The metal frames of two arms craned over me as the jumbled masked face of a dentist appeared to my side.
+
+"So, tell me, have you been flossing regularly?""",
 	"journal_reward":\
-		'I swear, I will never forget flossing again!',
+"""First thing I did the next day is look in the mirror and check that my teeth looked fine. They were, but something about the dream made me feel uneasy. I couldn't help wondering if there was some hidden message in it for me.
+""",
 	'journal_art': "res://assets/journal/advanced/Dentist.jpg",
 }
 const Jumbletron = {
 	"name": "Jumbletron",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/Jumbletron.tscn")],
 	"journal_description":\
-		'I had enterred a room which appeared to be self-rearranging. Walls which were farther than they seemed, '\
-		+ "and an almost fractal level of detail.\n"\
-		+ "I couldn't find the exit anymore.",
+"""I had entered a room which appeared to be self-rearranging. Walls which were farther than they seemed, and an almost fractal level of detail. Things blended in with each other so quickly that I assumed I was hallucinating. 
+"Well that's quite the collection." I said to myself. I laughed, but my mind was spiraling down into a place filled with confusion and chaotic, strange colors, trying to grasp how exactly my surroundings differed from my last recollection.
+""",
 	"journal_reward":\
-		'Somehow I figured out the correct organization to make it out.',
+"""I finally thought I saw the exit, however this one didn't look like any of the others I had encountered. Strange stained glass windows above what could only be described as an open window led away into the distance. Even though the memory flashed behind me, I fell right through without a second glance, not able to follow in reality because my brain would not focus.
+""",
 	'journal_art': "res://assets/journal/advanced/Jumbletron.jpg",
 }
 

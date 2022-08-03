@@ -17,8 +17,8 @@ var nce_result_fluff := {
 
 
 func _init():
-	# TODO: Add story
-	description = "<Risky Dream 4 - Story Fluff to be Done>. Select one Option...."
+	description =\
+"""There was something wrong, I just had that sinking feeling. The ground below me felt unstable, it clinged to my feet slowly enveloping my legs. I knew I was being swallowed alive in quicksand, yet as my head sank below the surface as I saw an endless bounty of treasure underneath meeting the same fate that I did. Was I dying?"""
 
 
 func begin() -> void:
