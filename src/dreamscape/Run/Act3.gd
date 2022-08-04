@@ -29,10 +29,11 @@ As an example:
 
 const Administration = {
 	"journal_description":\
-		'My vision blurred as day turned to night. [url={torment_tag1}]My boss raised his voice[/url] before I even spoke.\n'\
-		+ "The dilemma was between my career or my sanity.",
+"""My vision blurred as day turned to night. [url={torment_tag1}]My boss[/url] raised his voice before I even spoke. The dilemma was between my career or my sanity. He wanted me to return to work, even though I had done nothing wrong. My mental stability had little meaning these days. Oh, if he could read my thoughts! His words reverberated in my head for another excruciating moment. He shook his head disgustedly. 'Your mental state must be in trouble if you can't recall this nightmare!' he chided me, as though there wasn't any possibility that I'd imagined the event. At least that's how it felt.
+""",
 	"journal_reward":\
-		'The extra headspace granted to me allowed me to reflect more.',
+"""I decided to take the absurd step of confronting my boss in the dream. I told him that I remembered everything and that it was all true. He looked taken aback but recovered quickly. With a smirk, he leaned back in his chair and gave me a long, slow clap. 'Bravo!' he exclaimed. 'You're finally revealing your true self.'
+""",
 	"journal_art": "res://assets/journal/torments/administration.jpg",
 	"enemies": {
 		"easy": [
@@ -56,10 +57,11 @@ const Administration = {
 }
 const Life_Paths = {
 	"journal_description":\
-		'I could see  [url={torment_tag1}]mutliple version of myself[/url] as if in a mirror.\n'\
-		+ "I had to figure out which version of me was the one I wanted to become.",
+"""I could see multiple version of myself as if in a mirror. I had to figure out which version of me was the one I wanted to become. The only way I could do this was by exploring each possible reality and deciding which one would best suit me. It seemed like a lot of work but I didn't want to lose my chance at happiness. I kept telling myself that there was no need to worry because I could always go back and change things if I didn't like how it turned out.
+""",
 	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+"""I don't know what the future holds for me now but I hope I'm able to live up to the potential that I've seen within me. I don't know why I even care about all of this, but I guess it's just a part of who I am. If I don't follow my heart then I'll regret it later.
+""",
 	"journal_art": "res://assets/journal/torments/Life Path.jpg",
 	"enemies": {
 		"easy": [
@@ -169,9 +171,13 @@ const Life_Paths = {
 
 const Cringelord = {
 	"journal_description":\
-		'The creature before me [url={torment_tag1}]observed me silently[/url]. I could feel its sight poring over my most embarrasing memories?',
+"""The creature before me observed me silently. I could feel its sight poring over my most embarrassing memories, every single one of them. I wanted to look away, to hide my face in shame, but I couldn't. [url={torment_tag1}]The Cringelord[/url] had me transfixed.
+
+It was as if all the times I had ever been embarrassed, all the times I had ever made a fool of myself, were being played back on a loop in my mind. And there was nothing I could do to stop it. The more I tried to block it out, the louder and clearer the memories became
+""",
 	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+"""Cringe could only affect me so much when I was dreaming. After all, in my dreams, I was the one in control. I gathered my wits and managed to instead retrieve a lesson back from those uncomfortable memories.
+""",
 	"journal_art": "res://assets/journal/torments/Cringelord.jpg",
 	"enemies": {
 		"easy": [
@@ -217,10 +223,11 @@ const Cringelord = {
 }
 const Nightmare = {
 	"journal_description":\
-		"I cannot quite remember what I dreamed next [url={torment_tag1}]but it was staight out of a horror film[/url].\n"\
-				+ "Whatever I was watching last night must have affected me more than I think.",
+"""I cannot quite remember what I dreamed next but it was [url={torment_tag1}]straight out of a horror film[/url]. A small figure wearing a long cloak was walking around in my bedroom, whispering things to me that were impossible to make sense of. He told me he was a messenger from an evil force, which I dismissed as just another delusion until he reached out his hand and tried to touch me.
+""",
 	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+"""Though I don't remember how, I somehow managed to overcome the fear that was paralyzing me in my dream. Maybe it was because I realized that this figure wasn't really a messenger from an evil force, but just a product of my own fears and imagination.
+""",
 	"journal_art": "res://assets/journal/torments/Nightmare.jpg",
 	"enemies": {
 		"easy": [
@@ -266,9 +273,12 @@ const Nightmare = {
 }
 const Submerged = {
 	"journal_description":\
-		"I had gone too deep. [url={torment_tag1}]The blue surrounded me[/url] and I was running out of air.",
+"""With a panicked start I realized: [url={torment_tag1}]I had gone too deep[/url]. The blue surrounded me and I was running out of air.
+I started gasping for breath. It wasn't just the cold water that was taking my breath away. The chill from the ocean's depths had crept into my body, numbing every inch of me. My hands were shaking uncontrollably. My feet were numb and tingly. My mind was screaming at me to wake up, but my body refused to move.
+""",
 	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+"""The oppressive water turned into mist around me, along with my anxiety as the torment dissipated.
+""",
 	"journal_art": "res://assets/journal/torments/submerged.jpg",
 	"enemies": {
 		"easy": [
@@ -308,10 +318,11 @@ const Submerged = {
 }
 const HandsyAunt = {
 	"journal_description":\
-		"I could hear the overly-loud laughter in the other room. [url={torment_tag1}]My aunt had come for a visit[/url]"\
-				+  "I heard the dreaded call from inside: [i]Come, come, let me take a good look at you![/i].",
+"""I could hear the overly-loud laughter in the other room. [url={torment_tag1}]My aunt had come for a visit[/url]. I heard the dreaded call: "Come, come, let me take a good look at you!" And she came, pushing me towards her, squeezing my shoulders. She smelled like garlic, and it was quite nauseating. But she seemed so happy. So...
+""",
 	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+"""I fought back, pushing her away. I didn't want her to touch me. I didn't want anyone to touch me ever again without my consent. 
+""",
 	"journal_art": "res://assets/journal/torments/Handsy Aunt.jpg",
 	"enemies": {
 		"easy": [
@@ -357,10 +368,11 @@ const HandsyAunt = {
 }
 const Circular_Arguments = {
 	"journal_description":\
-		'Again and again [url={torment_tag1}]we had to repeat the same arguments[/url].\n'\
-		+ "I felt we had just resolved it just a minute ago, and yet, here we are discussing it again.",
+"""Again and again [url={torment_tag1}]we had to repeat the same arguments[/url] I felt we had just resolved it just a minute ago, and yet, here we are discussing it again. My thoughts are not exactly coherent, and I feel like my brain is in a permanent state of disarray. But there's nothing else for me to do, so I try to keep up.
+""",
 	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+"""I cut through the fallacies as if they were the legendary gordian knot and the broken pieces of bad reasoning dissipated in the air
+""",
 	"journal_art": "res://assets/journal/torments/Circular Arguments.jpg",
 	"enemies": {
 		"easy": [
