@@ -1,5 +1,17 @@
 # Changelog
 
+## [v0.62.0](https://github.com/db0/hypnagonia/tree/v0.62.0) (2022-08-05)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.61.3...v0.62.0)
+
+**Closed issues:**
+
+- Subconcious needs fluff [\#404](https://github.com/db0/hypnagonia/issues/404)
+
+**Merged pull requests:**
+
+- Improved introduction and conclusions for all Torments [\#406](https://github.com/db0/hypnagonia/pull/406) ([db0](https://github.com/db0))
+
 ## [v0.61.3](https://github.com/db0/hypnagonia/tree/v0.61.3) (2022-07-31)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.61.2...v0.61.3)
