@@ -6,7 +6,11 @@
    "anotetemplate": "[Genre: Surrealistic Dream Journal]\n[Tone: Focus on ethereal descriptions with the tone being a mix of comedy and horror]\n[Writing style: Partly-remembered memories of absurdist nightmares written in the first person, past tense.]\n",
    "actions": [
       "",
-      ""
+      "Was it an office corridor, or a tight tunnel? I can't quite remember. But what stuck with me is how I could never seem to reach the end. Every light at the end, was just a corner. Every exit found, impassable. The only way out was to keep going, but it was exhausting. The corridors were always moving. They changed shape and color, as if the walls were alive. The floors seemed to move beneath my feet. My legs felt like jelly, but I kept on walking.",
+      "",
+      "",
+      "\n\nForcing myself past the encroaching boredom, I started noticing etches on the walls, the more I focused, the more it looked like a door",
+      ". The etchings became clearer. The wall itself began to fade away into the shadows. As it did, the door revealed itself.\nIt was an ornate door made from solid wood, carved in intricate detail. A woman's face appeared above it, a smiling one, though it had a bit of sadness behind her eyes. Her name was Cinna."
    ],
    "actions_metadata": {
       "0": {
@@ -213,8 +217,26 @@
          ]
       },
       "1": {
-         "Selected Text": "",
+         "Selected Text": "Was it an office corridor, or a tight tunnel? I can't quite remember. But what stuck with me is how I could never seem to reach the end. Every light at the end, was just a corner. Every exit found, impassable. The only way out was to keep going, but it was exhausting. The corridors were always moving. They changed shape and color, as if the walls were alive. The floors seemed to move beneath my feet. My legs felt like jelly, but I kept on walking.",
          "Alternative Text": [
+            {
+               "Text": "Was it an office corridor, or a tight tunnel? I can't quite remember. But what stuck with me is how I could never seem to reach the end. Every light at the end, was just a corner. Every exit found, impassable.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": "Was it an office corridor, or a tight tunnel? I can't quite rememeber. But what stuck with me is how I could never seem to reach the end. Every light at the end, was just a corner. Every exit found, impassable.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": "",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
             {
                "Text": "",
                "Pinned": false,
@@ -322,12 +344,72 @@
                "Pinned": false,
                "Previous Selection": false,
                "Edited": true
+            },
+            {
+               "Text": "Garry's Mod",
+               "Pinned": false,
+               "Previous Selection": false,
+               "Edited": true
             }
          ]
       },
       "2": {
          "Selected Text": "",
          "Alternative Text": [
+            {
+               "Text": "",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": " (ModNation Racers)\n.Garry's Mod is a mod for Grand Theft Auto V created by Garry Newman and published by Rockstar Games. It was released as a free download on February 27, 2014. The game was initially available for PC and Xbox 360; however, it has since been made available for PlayStation 4 and Xbox One consoles as well.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": " The only way out was to keep going, but it was exhausting. The corridors were always moving. They changed shape and color, as if the walls were alive. The floors seemed to move beneath my feet. My legs felt like jelly, but I kept on walking.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": " A hallway that went on forever. It felt like my dream had been taking place in some sort of infinite labyrinth, which seemed fitting since the endless corridor itself felt endless.\n\nThe problem wasn't that the corridors were long; they weren't even that long. What made the whole thing so difficult was the fact that I couldn't find the end.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": " No matter how far I ran, there were always obstacles blocking my way. And so, I stopped running. Stopped trying to escape.\n\n.I took a seat at the edge of the room. And watched. I didn't want to get caught by any guards, or the madman who'd kidnapped me. He wasn't that mad though, was he?",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": "Bob was thinking about philosophy when their boss knocked on the door",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": "Bob was reading a book on philosophy when their boss knocked on the door",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": "I was reading a book on philosophy when by boss knocked on the door",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": "I was reading a book on philiosophy when by boss knocked on the door",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
             {
                "Text": "I was in a theatre troupe and part of a hyped new play. It was my first show, I had a protagonist role, and nothing was ready.",
                "Pinned": false,
@@ -531,12 +613,108 @@
                "Pinned": false,
                "Previous Selection": false,
                "Edited": true
+            },
+            {
+               "Text": " The only way out was to keep going, but it was exhausting. The corridors were always moving. They changed shape and color, as if the walls were alive. The floors seemed to move beneath my feet. My legs felt like jelly, but I kept on walking. And then there was that door...\n\nYou were sure you saw it. A large black door.",
+               "Pinned": false,
+               "Previous Selection": false,
+               "Edited": true
+            },
+            {
+               "Text": " (Game)\nI don't know how long I've been playing Garry's Mod, but it's been at least three months.\nI started playing this game about a year ago, and it's still my favorite.\nI love everything about it! It's just so much fun to play!",
+               "Pinned": false,
+               "Previous Selection": false,
+               "Edited": true
+            },
+            {
+               "Text": "",
+               "Pinned": false,
+               "Previous Selection": false,
+               "Edited": true
             }
          ]
       },
       "3": {
          "Selected Text": "",
          "Alternative Text": [
+            {
+               "Text": "\nForcing myself past the encroaching boredom, I started noticing etches on the walls",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": "\n\nForcing myself past the encroaching boredom, I started noticing etches on the walls",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": ". \"I've got some good news for you guys,\" he said. \"We just received word that we're getting our own building!\"\n\"Oh? What's so great about that?\" asked Bill.\n\"Well, the old place isn't very secure, and I think we'll be better off with our own place.\"",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": ". \"Bob! Bob! I'm so glad you could come!\" she said excitedly.\n\"Sure,\" he replied, getting up from his desk. \"What's going on?\"\n\"I have a proposition for you,\" she told him. \"We need someone to take over for the secretary position at the company.\"\nIt took a moment for that to sink in.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": ".\n\"You need to come to my office now,\" said the boss.\n\"Why?\" asked Bob.\n\"Because I've been trying to get you for three weeks to read that book and I finally gave up.\"\nIt took Bob two hours to read the whole book, but he liked it so much he went back and bought a copy for his mother.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": ".\n\"I need you in my office.\" Bob said, taking his book back.\n\"Oh yeah?\" he replied, opening the door.\n\"I just got off the phone with our accountant, and she's giving us some bad news,\" he explained.\n\"What's that?\" asked Bob.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": ".\n\"Hi Bob! You've been a bit distracted lately haven't you?\"\n\"I'm sorry boss.\"\n\"You were talking about the latest paper that's come out by our new researcher...\"\nIt took him a few seconds to realise he had been reading the wrong book.\n\"Oh no... I was talking about that weird book I was reading earlier.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": ".\n\"I need you in my office.\" Bob said as he opened the door.\n\"Sure thing boss!\" Bob said. He got up from his chair and went to his boss's office.\n\n\nWhen he got there, his boss looked at him angrily. \"What are you doing here?\" His boss asked.\n\"Just talking about philosophy.\"",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": ".\n\"You need to come in here,\" Bob said, getting up from his seat. \"It's important.\"\n\nYou got up too and followed him into the office. You sat down in the chair that you had been sitting in earlier and waited for him to speak.\n\"Okay,\" he said. \"What is it?\"",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": ". He looked really nervous and told me he had some bad news for me. I could tell that something terrible happened, so I said, \"Okay.\" He asked me if I wanted to go to the movies, and I thought about it. We went to see \"Hocus Pocus\" because it's my favorite movie ever!",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": ". He looked angry, like he'd just come from work. I could tell that something bad had happened because his hair was a mess. I asked him what was wrong, but he said he didn't want to talk about it. So I told him to leave me alone for a little while and I would call him back later. But I forgot to call him back and he never came back.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": ". He looked angry so I hurried to answer. I opened the door and saw him holding a bunch of flowers.\n\"Hi boss!\" I said, smiling. \"How's everything going?\"\nHe stared at me for a few seconds then his eyes went wide.\n\"You look like hell.\" he said. \"What happened?\"\n\"Nothing,\" I lied.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": ".\n\"Boss! We've got an emergency!\" I shouted, getting up from my desk.\n\"What's going on?\" he asked, standing behind me.\n\"I'm not sure. A girl came in and said that there's a monster outside. She's trapped in the building.\"\n\"Okay, go see what you can do. But be careful!\"",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
             {
                "Text": " There were a lot of things missing. My character's wardrobe wasn't right. My hair was different from what it should be. And most importantly, I was completely unprepared for the scene. I hadn't memorized the lines, so I didn't know what to say or how to act. The whole thing went downhill fast, and it felt like the entire audience was watching me fall apart.",
                "Pinned": false,
@@ -660,8 +838,20 @@
          ]
       },
       "4": {
-         "Selected Text": "",
+         "Selected Text": "\n\nForcing myself past the encroaching boredom, I started noticing etches on the walls, the more I focused, the more it looked like a door",
          "Alternative Text": [
+            {
+               "Text": ". The lines and patterns made sense now that I thought about it. There were various designs etched into the stone, which reminded me of those on ancient scrolls. Some of the etchings were quite elaborate, depicting images of men, women, and children. Others depicted abstract geometric shapes, with others still having none at all.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": ". These small patterns reminded me of something from my childhood. A puzzle that had been broken apart. Or maybe they were some kind of ancient alien code.\nThe first few times I saw them, I ignored them. I figured it was just another dream-induced hallucination. Then, I started seeing them everywhere.\nThey looked like letters.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
             {
                "Text": "\n\nSomehow we managed to improvise our way to completion",
                "Pinned": false,
@@ -971,8 +1161,44 @@
          ]
       },
       "5": {
-         "Selected Text": "",
+         "Selected Text": ". The etchings became clearer. The wall itself began to fade away into the shadows. As it did, the door revealed itself.\nIt was an ornate door made from solid wood, carved in intricate detail. A woman's face appeared above it, a smiling one, though it had a bit of sadness behind her eyes. Her name was Cinna.",
          "Alternative Text": [
+            {
+               "Text": ". The more I concentrated, the clearer it became.\nI stepped into the hallway and stared at the wall. It wasn't just any wall; it was covered in writing. Words, in big block letters. They weren't just words, though. They were strange, but beautiful, they made no sense. It looked like some kind of language.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": ". And so I pressed my ear against it, and listened for something, anything, that might indicate the presence of a doorway. There was nothing, just a slight scraping sound from behind it. It wasn't long before I was hearing the sounds of a woman crying, followed by her pleading. She didn't seem to be too far away either.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": ".\n\nThe doors weren't solid. It wasn't that I could see through them, they just looked like doors, like a doorway, like an opening. Like the walls had been opened up. I saw things, beyond the door, things I couldn't understand. But they were there, I could see them, I knew they were there.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": ". The more I concentrated, the clearer it became.\nI think it's called a 'gateway'\nI knew it would be here somewhere...\nThe sound of the elevator made me jump, as it dinged its arrival.\nI hurried over to the wall and reached out to touch it.\nI pushed, but it wouldn't budge.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": ". And when I tried to focus hard enough, I saw it, the outline of a door, carved into the wall.\nI stopped dead in my tracks. The room around me seemed to fade away. All I could see was the door, etched into the wall. I ran my fingers along its edge, but there was no way I could get to it.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": ". And so I began to push, harder than ever before.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
             {
                "Text": ". The audience applauded and gave us high fives afterwards. We went back home feeling accomplished, but something about that moment still haunts me. What if I could've done better? What if I hadn't been so scared? I guess you can never really know, because then you'd miss out on a lot of experiences. But that doesn't stop me from trying again.",
                "Pinned": false,
@@ -1179,6 +1405,18 @@
             },
             {
                "Text": " but I could still only see it from my peripheral sight, like one those spots in your eyes which move as you try to focus on them",
+               "Pinned": false,
+               "Previous Selection": false,
+               "Edited": true
+            },
+            {
+               "Text": ". And so I began to push, harder than ever before. A new wave of dizziness overtook me and I had to sit down, holding onto the wall for support. When I regained my balance, I took one last look around. I didn't see anything, and decided to keep pushing. I needed to find something to do that would distract me from this endless labyrinth of corridors.",
+               "Pinned": false,
+               "Previous Selection": false,
+               "Edited": true
+            },
+            {
+               "Text": ".\n\nThe etchings became clearer. The wall itself began to fade away into the shadows. As it did, the door revealed itself.\nIt was an ornate door made from solid wood, carved in intricate detail. A woman's face appeared above it, a smiling one, though it had a bit of sadness behind her eyes. Her name was Cinna.",
                "Pinned": false,
                "Previous Selection": false,
                "Edited": true
@@ -1971,6 +2209,24 @@
          "keysecondary": "",
          "content": "[Imagine walking down a corrider where you can see the exit, but it always seems further away, no matter how much or fast you go. Maybe it's an illusion or maybe the corridor is reshaping as you walk. Regardless the reason, this torment of infinity can easily break the most confident dreamers through sheer boredom. The Infinite Corridor is a absurdity-type torment]",
          "comment": "Infinite Corridor",
+         "folder": 1812803879,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "laughing, lol, rofl, featureless, laughter",
+         "keysecondary": "",
+         "content": "[The torment of nameless people laughing at the dreamer is quite a common one. The agony of becoming a social pariah is enough to get through any amount of confidence, given enough time. The laughing ones represent a mob of featureless faces all laughing at the dreamer for one reason or another. They tend to have porcelain white faces, but they might also present as obsidian as well. The Laughing Ones are a feat-type torment]",
+         "comment": "The Laughing Ones",
+         "folder": 1812803879,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "fearmonger, fear, dread",
+         "keysecondary": "",
+         "content": "[The fearmonger is a fairly straightforward torment. It tries to scare the dreamer without relying on shock horror. Rather it is the ongoing dread of the unblinking stare from their three eyes. It tends to present itself as a three-eyes owl all the better to unnerve their victim. The Fearmonger is a fear-type Torment]",
+         "comment": "Fearmonger",
          "folder": 1812803879,
          "selective": false,
          "constant": false
