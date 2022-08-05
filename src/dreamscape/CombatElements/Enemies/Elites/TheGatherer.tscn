@@ -55,7 +55,7 @@ margin_top = 91.0
 margin_bottom = 121.0
 rect_min_size = Vector2( 0, 30 )
 
-[node name="HealthBar" parent="." index="5"]
+[node name="HP" parent="." index="5"]
 margin_top = 95.0
 margin_bottom = 104.0
 

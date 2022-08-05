@@ -3,7 +3,7 @@ extends AdvancedEnemyEntity
 const PROPERTIES := {
 	"name": "The Gatherer",
 	"Health": 300,
-	"Type": "Absurdity",
+	"Type": "Fear",
 	"Damage": 0,
 	"_texture_size_x": 180,
 	"_texture_size_y": 180,

@@ -421,10 +421,11 @@ const Circular_Arguments = {
 }
 const Influencer = {
 	"journal_description":\
-		"I was checking Instagram, TikTok, Reddit, just constantly doom-scrolling [url={torment_tag1}]through perfect lives[/url]. "\
-				+  "Was I even really dreaming?",
+"""I was checking Instagram, TikTok, Reddit, just constantly doom-scrolling [url={torment_tag1}]through perfect lives[/url]. It was really hard to find content that didn't make me feel inadequate or angry at my own existence. I couldn't focus on anything anymore, and it felt like my mind was a pile of mud that kept getting thrown back at me.
+""",
 	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+"""I reinforced to myself that it was all fake, and the feelings of envy slowly subdued.  I remember furiously unfollowing on social media as the dream shifted
+""",
 	"journal_art": "res://assets/journal/torments/influencer.jpg",
 	"enemies": {
 		"easy": [
@@ -473,10 +474,11 @@ const Influencer = {
 }
 const Shamelings = {
 	"journal_description":\
-		"They were all over my bedroom, going through all my stuff and laughing to each other cruely about all my secrets. "\
-				+  "[url={torment_tag1}]Too many to stop![/url].",
+"""They were all over my bedroom, going through all my stuff and laughing to each other cruelly about all my secrets. [url={torment_tag1}]Too many to stop![/url]! I screamed at them, but they just laughed louder. They said it was funny that I thought I could hide anything from them.
+""",
 	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+"""The only way out of this predicament was to acknowledge my own self and stop feeling ashamed of who I am. That meant that I had to tell them everything, and there was no point hiding things anymore. So I told them all my deepest, darkest secrets, even the ones I'd never shared with anyone else. It felt like I was losing myself when I did that, but it was also liberating. And it worked!
+""",
 	"journal_art": "res://assets/journal/torments/Shamelings.jpg",
 	"enemies": {
 		"easy": [
@@ -551,10 +553,11 @@ const TheGatherer = {
 	"name": "The Gatherer",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/TheGatherer.tscn")],
 	"journal_description":\
-		'My next few dreams are extremely difficult to remember. It feels like I was '\
-		+ "doing things almost randomly.",
+"""I felt my dreams being drained from me, at the same time I noticed an misty figure in a white robe at the edge of my vision. It slowly approached me but I could still only see it from my peripheral sight, like one those spots in your eyes which move as you try to focus on them. I realized it wasn't my vision failing, it was my imagination!
+""",
 	"journal_reward":\
-		'Finally I put my thoughts in order.',
+"""It took all my effort to piece my dream fragments back together into something coherent enough to understand. But as soon as I could distinguish the Gatherer's true form, it fled as quickly as it appeared.
+""",
 	'journal_art': "res://assets/journal/advanced/the_gatherer.jpeg",
 }
 
