@@ -179,6 +179,12 @@ const FINAL_IMAGES := {
 	"Silent Treatment": "res://assets/cards/Silent Treatment.jpg",
 	"Cockroach Infestation": "res://assets/cards/Cockroach.jpg",
 	"Cockroaches": "res://assets/cards/Cockroach.jpg",	
+	"Suffocation": "res://assets/cards/Suffocation.jpg",	
+	"Inescepable Conclusion": "res://assets/cards/Inescepable Conclusion.jpg",	
+	"Hubris": "res://assets/cards/Hubris.jpg",
+	"Stimulated": "res://assets/cards/Stimulated.jpg",
+	"Lethe": "res://assets/cards/Lethe.jpg",
+	"Self-Centered": "res://assets/cards/Self-Centered.jpg",
 }
 const BETA_IMAGES := {
 	"Catatonia": "res://assets/cards/Catatonia.jpg",

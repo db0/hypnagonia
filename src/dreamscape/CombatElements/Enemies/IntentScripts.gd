@@ -365,6 +365,7 @@ const CHECK_BROWSER_HISTORY := [
 	{
 		"name": "custom_script",
 		"subject": "dreamer",
+		"tags": ["Intent"],
 		"icon": "icon_special",
 		"description": "Oh no, they're checking the browser history!",
 		"intent_id": "check_browser_history",
@@ -375,6 +376,7 @@ const CHECK_UNDERWEAR_DRAWER := [
 	{
 		"name": "custom_script",
 		"subject": "dreamer",
+		"tags": ["Intent"],
 		"icon": "icon_special",
 		"description": "Get out of the underwear drawer, right now!",
 		"intent_id": "check_underwear_drawer",

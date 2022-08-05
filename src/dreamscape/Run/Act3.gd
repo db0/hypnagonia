@@ -29,10 +29,11 @@ As an example:
 
 const Administration = {
 	"journal_description":\
-		'My vision blurred as day turned to night. [url={torment_tag1}]My boss raised his voice[/url] before I even spoke.\n'\
-		+ "The dilemma was between my career or my sanity.",
+"""My vision blurred as day turned to night. [url={torment_tag1}]My boss[/url] raised his voice before I even spoke. The dilemma was between my career or my sanity. He wanted me to return to work, even though I had done nothing wrong. My mental stability had little meaning these days. Oh, if he could read my thoughts! His words reverberated in my head for another excruciating moment. He shook his head disgustedly. 'Your mental state must be in trouble if you can't recall this nightmare!' he chided me, as though there wasn't any possibility that I'd imagined the event. At least that's how it felt.
+""",
 	"journal_reward":\
-		'The extra headspace granted to me allowed me to reflect more.',
+"""I decided to take the absurd step of confronting my boss in the dream. I told him that I remembered everything and that it was all true. He looked taken aback but recovered quickly. With a smirk, he leaned back in his chair and gave me a long, slow clap. 'Bravo!' he exclaimed. 'You're finally revealing your true self.'
+""",
 	"journal_art": "res://assets/journal/torments/administration.jpg",
 	"enemies": {
 		"easy": [
@@ -56,10 +57,11 @@ const Administration = {
 }
 const Life_Paths = {
 	"journal_description":\
-		'I could see  [url={torment_tag1}]mutliple version of myself[/url] as if in a mirror.\n'\
-		+ "I had to figure out which version of me was the one I wanted to become.",
+"""I could see multiple version of myself as if in a mirror. I had to figure out which version of me was the one I wanted to become. The only way I could do this was by exploring each possible reality and deciding which one would best suit me. It seemed like a lot of work but I didn't want to lose my chance at happiness. I kept telling myself that there was no need to worry because I could always go back and change things if I didn't like how it turned out.
+""",
 	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+"""I don't know what the future holds for me now but I hope I'm able to live up to the potential that I've seen within me. I don't know why I even care about all of this, but I guess it's just a part of who I am. If I don't follow my heart then I'll regret it later.
+""",
 	"journal_art": "res://assets/journal/torments/Life Path.jpg",
 	"enemies": {
 		"easy": [
@@ -169,9 +171,13 @@ const Life_Paths = {
 
 const Cringelord = {
 	"journal_description":\
-		'The creature before me [url={torment_tag1}]observed me silently[/url]. I could feel its sight poring over my most embarrasing memories?',
+"""The creature before me observed me silently. I could feel its sight poring over my most embarrassing memories, every single one of them. I wanted to look away, to hide my face in shame, but I couldn't. [url={torment_tag1}]The Cringelord[/url] had me transfixed.
+
+It was as if all the times I had ever been embarrassed, all the times I had ever made a fool of myself, were being played back on a loop in my mind. And there was nothing I could do to stop it. The more I tried to block it out, the louder and clearer the memories became
+""",
 	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+"""Cringe could only affect me so much when I was dreaming. After all, in my dreams, I was the one in control. I gathered my wits and managed to instead retrieve a lesson back from those uncomfortable memories.
+""",
 	"journal_art": "res://assets/journal/torments/Cringelord.jpg",
 	"enemies": {
 		"easy": [
@@ -217,10 +223,11 @@ const Cringelord = {
 }
 const Nightmare = {
 	"journal_description":\
-		"I cannot quite remember what I dreamed next [url={torment_tag1}]but it was staight out of a horror film[/url].\n"\
-				+ "Whatever I was watching last night must have affected me more than I think.",
+"""I cannot quite remember what I dreamed next but it was [url={torment_tag1}]straight out of a horror film[/url]. A small figure wearing a long cloak was walking around in my bedroom, whispering things to me that were impossible to make sense of. He told me he was a messenger from an evil force, which I dismissed as just another delusion until he reached out his hand and tried to touch me.
+""",
 	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+"""Though I don't remember how, I somehow managed to overcome the fear that was paralyzing me in my dream. Maybe it was because I realized that this figure wasn't really a messenger from an evil force, but just a product of my own fears and imagination.
+""",
 	"journal_art": "res://assets/journal/torments/Nightmare.jpg",
 	"enemies": {
 		"easy": [
@@ -266,9 +273,12 @@ const Nightmare = {
 }
 const Submerged = {
 	"journal_description":\
-		"I had gone too deep. [url={torment_tag1}]The blue surrounded me[/url] and I was running out of air.",
+"""With a panicked start I realized: [url={torment_tag1}]I had gone too deep[/url]. The blue surrounded me and I was running out of air.
+I started gasping for breath. It wasn't just the cold water that was taking my breath away. The chill from the ocean's depths had crept into my body, numbing every inch of me. My hands were shaking uncontrollably. My feet were numb and tingly. My mind was screaming at me to wake up, but my body refused to move.
+""",
 	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+"""The oppressive water turned into mist around me, along with my anxiety as the torment dissipated.
+""",
 	"journal_art": "res://assets/journal/torments/submerged.jpg",
 	"enemies": {
 		"easy": [
@@ -308,10 +318,11 @@ const Submerged = {
 }
 const HandsyAunt = {
 	"journal_description":\
-		"I could hear the overly-loud laughter in the other room. [url={torment_tag1}]My aunt had come for a visit[/url]"\
-				+  "I heard the dreaded call from inside: [i]Come, come, let me take a good look at you![/i].",
+"""I could hear the overly-loud laughter in the other room. [url={torment_tag1}]My aunt had come for a visit[/url]. I heard the dreaded call: "Come, come, let me take a good look at you!" And she came, pushing me towards her, squeezing my shoulders. She smelled like garlic, and it was quite nauseating. But she seemed so happy. So...
+""",
 	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+"""I fought back, pushing her away. I didn't want her to touch me. I didn't want anyone to touch me ever again without my consent. 
+""",
 	"journal_art": "res://assets/journal/torments/Handsy Aunt.jpg",
 	"enemies": {
 		"easy": [
@@ -357,10 +368,11 @@ const HandsyAunt = {
 }
 const Circular_Arguments = {
 	"journal_description":\
-		'Again and again [url={torment_tag1}]we had to repeat the same arguments[/url].\n'\
-		+ "I felt we had just resolved it just a minute ago, and yet, here we are discussing it again.",
+"""Again and again [url={torment_tag1}]we had to repeat the same arguments[/url] I felt we had just resolved it just a minute ago, and yet, here we are discussing it again. My thoughts are not exactly coherent, and I feel like my brain is in a permanent state of disarray. But there's nothing else for me to do, so I try to keep up.
+""",
 	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+"""I cut through the fallacies as if they were the legendary gordian knot and the broken pieces of bad reasoning dissipated in the air
+""",
 	"journal_art": "res://assets/journal/torments/Circular Arguments.jpg",
 	"enemies": {
 		"easy": [
@@ -409,10 +421,11 @@ const Circular_Arguments = {
 }
 const Influencer = {
 	"journal_description":\
-		"I was checking Instagram, TikTok, Reddit, just constantly doom-scrolling [url={torment_tag1}]through perfect lives[/url]. "\
-				+  "Was I even really dreaming?",
+"""I was checking Instagram, TikTok, Reddit, just constantly doom-scrolling [url={torment_tag1}]through perfect lives[/url]. It was really hard to find content that didn't make me feel inadequate or angry at my own existence. I couldn't focus on anything anymore, and it felt like my mind was a pile of mud that kept getting thrown back at me.
+""",
 	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+"""I reinforced to myself that it was all fake, and the feelings of envy slowly subdued.  I remember furiously unfollowing on social media as the dream shifted
+""",
 	"journal_art": "res://assets/journal/torments/influencer.jpg",
 	"enemies": {
 		"easy": [
@@ -461,10 +474,11 @@ const Influencer = {
 }
 const Shamelings = {
 	"journal_description":\
-		"They were all over my bedroom, going through all my stuff and laughing to each other cruely about all my secrets. "\
-				+  "[url={torment_tag1}]Too many to stop![/url].",
+"""They were all over my bedroom, going through all my stuff and laughing to each other cruelly about all my secrets. [url={torment_tag1}]Too many to stop![/url]! I screamed at them, but they just laughed louder. They said it was funny that I thought I could hide anything from them.
+""",
 	"journal_reward":\
-		'Through overcoming that weird experience, I felt wiser.',
+"""The only way out of this predicament was to acknowledge my own self and stop feeling ashamed of who I am. That meant that I had to tell them everything, and there was no point hiding things anymore. So I told them all my deepest, darkest secrets, even the ones I'd never shared with anyone else. It felt like I was losing myself when I did that, but it was also liberating. And it worked!
+""",
 	"journal_art": "res://assets/journal/torments/Shamelings.jpg",
 	"enemies": {
 		"easy": [
@@ -539,21 +553,23 @@ const TheGatherer = {
 	"name": "The Gatherer",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/TheGatherer.tscn")],
 	"journal_description":\
-		'My next few dreams are extremely difficult to remember. It feels like I was '\
-		+ "doing things almost randomly.",
+"""I felt my dreams being drained from me, at the same time I noticed an misty figure in a white robe at the edge of my vision. It slowly approached me but I could still only see it from my peripheral sight, like one those spots in your eyes which move as you try to focus on them. I realized it wasn't my vision failing, it was my imagination!
+""",
 	"journal_reward":\
-		'Finally I put my thoughts in order.',
-	'journal_art': "res://assets/journal/advanced/the_gatherer.jpeg",
+"""It took all my effort to piece my dream fragments back together into something coherent enough to understand. But as soon as I could distinguish the Gatherer's true form, it fled as quickly as it appeared.
+""",
+	'journal_art': "res://assets/journal/advanced/The Gatherer.jpg",
 }
 
 const TheatrePlay = {
 	"name": "Theatre Play",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/TheatrePlay.tscn")],
 	"journal_description":\
-		'I was in a theatre troupe and part of a hyped new play. '\
-		+ "It was my first show, I had a protagonist role, and nothing was ready.",
+""" was in a theatre troupe and part of a hyped new play. It was my first show, I had a protagonist role, and nothing was ready. There were a lot of things missing. My character's wardrobe wasn't right. My hair was different from what it should be. And most importantly, I was completely unprepared for the scene. I hadn't memorized the lines, so I didn't know what to say or how to act. The whole thing went downhill fast, and it felt like the entire audience was watching me fall apart.
+""",
 	"journal_reward":\
-		"I don't know how we pulled it through, but as the curtain fell, I felt relieved.",
+"""Somehow we managed to improvise our way to completion. The audience applauded and gave us high fives afterwards. We went back home feeling accomplished, but something about that moment still haunts me. 
+""",
 	'journal_art': "res://assets/journal/advanced/Theatre Play.jpg",
 }
 
@@ -561,11 +577,11 @@ const InfiniteCorridor = {
 	"name": "Infinite Corridor",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/InfiniteCorridor.tscn")],
 	"journal_description":\
-		"'Was it an office, or a tight tunnel? I can't quite rememeber. "\
-		+ "But what stuck with me is how I could never seem to reach the end."\
-		+ "Every light at the end, was just a corner. Every exit found, inpassable.",
+"""Was it an office corridor, or a tight tunnel? I can't quite remember. But what stuck with me is how I could never seem to reach the end. Every light at the end, was just a corner. Every exit found, impassable. The only way out was to keep going, but it was exhausting. The corridors were always moving. They changed shape and color, as if the walls were alive. The floors seemed to move beneath my feet. My legs felt like jelly, but I kept on walking.
+""",
 	"journal_reward":\
-		"Did I find the exit, or just walked out. I can't quite remember.",
+"""Forcing myself past the encroaching boredom, I started noticing etches on the walls, the more I focused, the more it looked like a door. The etchings became clearer. The wall itself began to fade away into the shadows. As it did, the door revealed itself.
+""",
 	'journal_art': "res://assets/journal/advanced/Infinite Corridor.jpg",
 }
 

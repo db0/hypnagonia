@@ -556,7 +556,7 @@ class TestSubconscious:
 		watch_signals(globals.player.deck)
 		watch_signals(globals.player.pathos)
 		yield(yield_to(journal, "secondary_entry_added", 0.2), YIELD)
-		activate_secondary_choice_by_key("intrerpret")
+		activate_secondary_choice_by_key("give")
 		yield(yield_to(nce, "encounter_end", 0.2), YIELD)
 		assert_deck_signaled("card_added", "card_name", "Subconscious")
 		assert_eq(globals.player.damage, nce.DAMAGE_AMOUNT)

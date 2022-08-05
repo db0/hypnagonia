@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/the_gatherer.jpeg-0f7af721ded91d908e8d159681876587.stex"
+path="res://.import/The Gatherer.jpg-c2caecdad61e3e5dbf282279aeb779b1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/advanced/the_gatherer.jpeg"
-dest_files=[ "res://.import/the_gatherer.jpeg-0f7af721ded91d908e8d159681876587.stex" ]
+source_file="res://assets/journal/advanced/The Gatherer.jpg"
+dest_files=[ "res://.import/The Gatherer.jpg-c2caecdad61e3e5dbf282279aeb779b1.stex" ]
 
 [params]
 

@@ -1,0 +1,399 @@
+{
+   "gamestarted": true,
+   "prompt": "",
+   "memory": "[All over the world, some unnatural force is causing individuals to start experiencing strange recurring dreams. The dreams feel hypnagogic and dreamers retain much more of their agency while in them. Each dreamer experiencing this phenomenon, is ensuring some great injustice in their life. Overcoming the torments in their dreams will allow them to have a breakthrough in their personal lives]\n\n[Unbeknownst to each dreamer, they are all connected to each other through a common dreamscape but the exact mechanics of this are yet unknown, with only glimpses of the presence of other dreamers sometimes manifesting. Some otherworldly force is somehow guiding dreamers to a common purpose.]\n\n[An unnamed dreamer finds themselves in a nightmare realm and we're reading what they are writing in their dream journal next morning. The dream journal is written in the first person,and is storytelling what torments they dreamt of in the previous night. They can't wake up!]\n\n",
+   "authorsnote": "\n",
+   "anotetemplate": "[Genre: Surrealistic Dream Journal]\n[Tone: Focus on ethereal descriptions with the tone being a mix of comedy and horror]\n[Writing style: Partly-remembered memories of absurdist nightmares written in the first person, past tense.]\n",
+   "actions": [],
+   "actions_metadata": {},
+   "worldinfo": [
+      {
+         "key": "void, black hole, oblivion",
+         "keysecondary": "",
+         "content": "[The Void looks like a black hole inside the rich tapestry of the dreamscape. It seems to not only suck-in all colours, but also the consciousness of the dreamer itself, tempting them to let themselves into oblivion and dream no more. The Void is an absurdity-type Torment]",
+         "comment": "The Void",
+         "folder": 1812803879,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "fractalization, fractals, mandelbrot",
+         "keysecondary": "",
+         "content": "[When a fractalization occurs, the dreamscape shifts so that there is an infinite amount of complexity at every one point, which strains the dreamer's mind to an impossible degree. Fractalization is an absurdity-type elite]",
+         "comment": "Fractalization",
+         "folder": 1812803879,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "dentist, teeth, cavities",
+         "keysecondary": "",
+         "content": "[The Dentist is a nightmare familiar to many people. Those unfortunate dreamers see themselves strapped into the chair of a cackling maniac with all the motivation of a mad scientist and a wealth of cruel tools to use on the helpless person strapped to their chair. Everything about the normal experience of visiting a dentist is therefore enlarged to terrifying degree. The Dentist is a phobia-type elite]",
+         "comment": "The Dentist",
+         "folder": 1812803879,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "jumbletron",
+         "keysecondary": "",
+         "content": "[The Jumbletron is a impossibly complex room elite which seems impossible to escape from. All the items inside it look vaguely familiar, but impossible to place. Walls seem father than they are and doors are nowhere to be seen. It brings in mind the Mandelibus dimention. The Jumbletron is a absurdity-type Elite]",
+         "comment": "Jumbletron",
+         "folder": 1812803879,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "surreality, incomprehension",
+         "keysecondary": "",
+         "content": "[The Surreality is one of the most incomphensible encounters one can have. It attempts to completely mindfuck the dreamer by defying all description. The longer one stays in that situation, the more one's senses start shutting off one by one. The surreality is an absurdity-type adversary]",
+         "comment": "Surreality",
+         "folder": 1812803879,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "clown, philosophy, confoundement",
+         "keysecondary": "",
+         "content": "[The clown torment appears as a a juxtaposition to the usual style people know of clowns. Instead of happy or scary, it tends to appear pensive and philosophical. Needless to say, this approach is even more confusing than usual. The clown is a phobia-type torment]",
+         "comment": "Clown",
+         "folder": 1812803879,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "administration, bureaucracy, management",
+         "keysecondary": "",
+         "content": "[The Administration torment brings with it all the mind-numbing drudgery of office life, directly into your mind. Stern and serious, dreams and reality blurs as the dreamer struggles to remember where they are as tasks are handed out. The Administration typically appears as in a 3-piece suit and with the attitude of business management. The Administration is an Absurdity-type torment]",
+         "comment": "Administration",
+         "folder": 1812803879,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "life path, choices",
+         "keysecondary": "",
+         "content": "[Life Paths represent the torment of having mutually exclusive and crucial choices to make in one's life. \"Do I take a job in another city and uproot my family or do I stay here and struggle financially?\", that sort of thing. The dreamer encounters the various other people they could be, or could have been. Life Paths is a fear-type torment]",
+         "comment": "Life Paths",
+         "folder": 1812803879,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "cringelord, cringe",
+         "keysecondary": "",
+         "content": "[Cringelord is a torment that represents the dreamer's deepest memories of cringe behaviour. When encountered it brings up all the instances one would rather forget and makes them stick in their mind for an uncomfortable amount of time. The Cringelord typically appears as a humanoid with a giant eyeball as a head, all the better to look deep into your secret memories. The Cringelord is a fear-type Torment]",
+         "comment": "Cringelord",
+         "folder": 1812803879,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "nightmare, horror, terror",
+         "keysecondary": "",
+         "content": "[The Nightmare torment presents the classic horror film approach, where the dreamer is stressed out by simple shock factor. There isn't much more to it than fear of the looks; think Freddy Krueger, Hellraiser, etc. The Nightmare is a fear-type Torment]",
+         "comment": "Nightmare",
+         "folder": 1812803879,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "submerged, drowning, asphyxia",
+         "keysecondary": "",
+         "content": "[The submerged torment represents the experience of the dreamer seeing themselves desperately clawing for air underwater. Perhaps this represents a period in their sleep where they are not receiving enough oxygen, or perhaps it's metaphor for the stifling situation in their lives. Whatever the cause, it's one of the most stressful dreams to have. Submerged is a phobia-type Torment.]",
+         "comment": "Submerged",
+         "folder": 1812803879,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "handsy, aunt, uncle, body autonomy",
+         "keysecondary": "",
+         "content": "[Every kid dreads that older relative which loves to get a bit too familiar with their body. The Handsy Aunt represents that fear made painfully surreal, all pinching fingers and slobbering lips. Ultimately this torment is all about the lack of body autonomy. This torment typically appears as the jolly aunt with a bit too much excitement and possibly some selective hearing, all the better to ignore your protests. The Handsy Aunt is a fear-type torment]",
+         "comment": "Handy Aunt",
+         "folder": 1812803879,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "circular arguments, begging the question, circular reasoning",
+         "keysecondary": "",
+         "content": "[A very frustrating logical fallacy which commonly used purposefully by abusers and quite often by other disingenuous people. This torment manifest in more abstract forms in dreams, it can take the form of a person sending you in loops, or maybe just a book ouroboros of words. It is in the best interest of the dreamer to quickly cut through the faulty reasoning before the vexation overwhelms them. Circular Arguments are an abuse-type torment]",
+         "comment": "Circular Arguments",
+         "folder": 1812803879,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "influencer, social media",
+         "keysecondary": "",
+         "content": "[The manifestation of conspicuous consumption inside your own head, the Influencer torments you by showing you, how much better everyone else has it, invoking feelings of intense envy and self-doubt. The Influencer looks very much like a human caricature of illogical proportions, with a blinding smile and and fullfilling life. This is an existential-type torment]",
+         "comment": "Influencer",
+         "folder": 1812803879,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "shame, shameling",
+         "keysecondary": "",
+         "content": "[Shamelings are cousins to the Critic, and are cunning critters which are able to dive in your private spaces and seek out all your most embarrassing objects. From childhood pictures, to sexual toys, as long as it's something you do not want found, they will do so and display for the world to see. They are as numerous as they are heartless and you have little chance to forcefully block them. Shamelings represent as gremlin-like creatures and are a fear-type torment]",
+         "comment": "Shamelings",
+         "folder": 1812803879,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "gatherer, thief, steal",
+         "keysecondary": "",
+         "content": "[The Gatherer appears to be a metaphysical entity which exists independent of the dreamer. Whenever it appears the memory of the dream become fuzzier and less coherent. The gatherer attempts to be gathering the active dreams for some nefarious purpose. The experience is extremely chilling to the dreamer who struggles to stay focused. The Gatherer is a fear-type Elite]",
+         "comment": "The Gatherer",
+         "folder": 1812803879,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "theatre, theater, stage",
+         "keysecondary": "",
+         "content": "[If stage Fright is a common phenomenon in waking life, imagine the fear that a nightmare based on theaters can evoke. The Theatre play is exactly that, with the Dreamer imagining themselves having to do a performance, very likely unprepared, and often even with some extra difficulties on top. The Theatre is a fear-type Torment]",
+         "comment": "Theatre Play",
+         "folder": 1812803879,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "infinite, corridor, hallway, tunnel",
+         "keysecondary": "",
+         "content": "[Imagine walking down a corrider where you can see the exit, but it always seems further away, no matter how much or fast you go. Maybe it's an illusion or maybe the corridor is reshaping as you walk. Regardless the reason, this torment of infinity can easily break the most confident dreamers through sheer boredom. The Infinite Corridor is a absurdity-type torment]",
+         "comment": "Infinite Corridor",
+         "folder": 1812803879,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "laughing, lol, rofl, featureless, laughter",
+         "keysecondary": "",
+         "content": "[The torment of nameless people laughing at the dreamer is quite a common one. The agony of becoming a social pariah is enough to get through any amount of confidence, given enough time. The laughing ones represent a mob of featureless faces all laughing at the dreamer for one reason or another. They tend to have porcelain white faces, but they might also present as obsidian as well. The Laughing Ones are a feat-type torment]",
+         "comment": "The Laughing Ones",
+         "folder": 1812803879,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "fearmonger, fear, dread",
+         "keysecondary": "",
+         "content": "[The fearmonger is a fairly straightforward torment. It tries to scare the dreamer without relying on shock horror. Rather it is the ongoing dread of the unblinking stare from their three eyes. It tends to present itself as a three-eyes owl all the better to unnerve their victim. The Fearmonger is a fear-type Torment]",
+         "comment": "Fearmonger",
+         "folder": 1812803879,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "pathos, emotions",
+         "keysecondary": "",
+         "content": "[The dreamer's experiences in their dreams are controlled by their own emotions which is generally split into 7 pathos types: Frustration, Foreboding, Closure, Desire, Loneliness, Curiosity and Lethargy]",
+         "comment": "Pathos",
+         "folder": 1570213362,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "frustration, upset",
+         "keysecondary": "",
+         "content": "[Frustration causes the dreamer to encounter more torments]",
+         "comment": "Frustration",
+         "folder": 1570213362,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "foreboding",
+         "keysecondary": "",
+         "content": "[Foreboding causes the dreamer to encounter more elites]",
+         "comment": "Foreboding",
+         "folder": 1570213362,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "closure",
+         "keysecondary": "",
+         "content": "[Closure causes the dreamer to encounter the act's major antagonist]",
+         "comment": "Closure",
+         "folder": 1570213362,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "desire",
+         "keysecondary": "",
+         "content": "[Desire causes the dreamer to encounter discover new curios]",
+         "comment": "Desire",
+         "folder": 1570213362,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "loneliness",
+         "keysecondary": "",
+         "content": "[Loneliness causes the dreamer to recall of friendships and good friends]",
+         "comment": "Loneliness",
+         "folder": 1570213362,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "curiosity",
+         "keysecondary": "",
+         "content": "[Curiosity causes the dreamer encounter less stressful events with more clear-cut decisions to make]",
+         "comment": "Curiosity",
+         "folder": 1570213362,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "lethargy, torpor",
+         "keysecondary": "",
+         "content": "[Lethargy causes the dreamer slip deeper into sleep and allows their mind to rest]",
+         "comment": "Lethargy",
+         "folder": 1570213362,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "torment, monster",
+         "keysecondary": "",
+         "content": "[A torment is a manifestation of the dreamer's own troubles from their waking life in the form of a nightmare. Torments can either look comedic, or horrifying but they always look surreal. They can take the form of an single entity, like a monster, or a location the dreamer finds themselves in.\n\nAll torments cause stress to the dreamer the longer they are encountered. The dreamer can overcome torments by interpreting them]",
+         "comment": "Torment",
+         "folder": -775491504,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "elite",
+         "keysecondary": "",
+         "content": "[An elite is simply a more stressful torment, which requires a lot of mental effort from the dreamer to overcome.]",
+         "comment": "Elite",
+         "folder": -775491504,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "stress, damage",
+         "keysecondary": "",
+         "content": "[The dreamer cannot die in their dreams, but they can wake up! The more stressed they become by what they encounter, they more likely they are to suddenly awaken and lose their chance of a breakthrough]",
+         "comment": "stress",
+         "folder": -775491504,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "relax, heal",
+         "keysecondary": "",
+         "content": "[Relaxing in one's dreams allows the dreamer to reduce their stress and lowers the chance that they will wake up]",
+         "comment": "relaxation",
+         "folder": -775491504,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "antagonist, boss",
+         "keysecondary": "",
+         "content": "[The act antagonist is a very powerful version of a Torment, which has the capacity to outright wake the dreamer due to the amount of stress it can generate in a short amount of time. The dreamer has to use all their skill to quickly interpret it or risk being overwhelmed.]",
+         "comment": "antagonist",
+         "folder": -775491504,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "curio, relic, artifact",
+         "keysecondary": "",
+         "content": "[A quirky little discovery which the dreamer can retain the memory of in their dream, that slightly change how the world functions]",
+         "comment": "curio",
+         "folder": -775491504,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "doubt, poison",
+         "keysecondary": "",
+         "content": "[The feeling of doubt causes consistent amounts of stress the dreamer has no way to avoid. A poison for piece of mind]",
+         "comment": "doubt",
+         "folder": -775491504,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "interpret, attack",
+         "keysecondary": "",
+         "content": "[The dreamer fights against their torments by interpreting them. Once they have enough understanding of what each torment represents, they overcome it and grow wiser or more enlightened]",
+         "comment": "interpretation",
+         "folder": -775491504,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "confidence, defence",
+         "keysecondary": "",
+         "content": "[The dreamer's confidence protects them from the stress caused by torments. It is key for avoiding a rough awakening]",
+         "comment": "confidence",
+         "folder": -775491504,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "perplex",
+         "keysecondary": "",
+         "content": "[As the dreamer is perplexed by torments, their attempts to interpret them fail and they have to continue experiencing that situation]",
+         "comment": "Perplexity",
+         "folder": -775491504,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "immersion",
+         "keysecondary": "",
+         "content": "[How in-the-moment the dreamer is during each encounter. The more immersed they are in their dream, the more effectively they can deal with their torments]",
+         "comment": "Immersion",
+         "folder": -775491504,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "ordeal, combat",
+         "keysecondary": "",
+         "content": "[An encounter with a torment is called an Ordeal. An ordeal only ends when all the torments have been overcome by the dreamer]",
+         "comment": "Ordeal",
+         "folder": -775491504,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "dreamscape, dreamworld, environment, terrain, landscape, world",
+         "keysecondary": "",
+         "content": "[The environment in the dreamscape is always shifting and impossible to focus on. Multicolored scenes and themes change every time you try to pin them down and force you to instead always focus on the more immediate encounter you're experiencing]",
+         "comment": "Dreamscape",
+         "folder": null,
+         "selective": false,
+         "constant": false
+      }
+   ],
+   "wifolders_d": {
+      "1812803879": {
+         "name": "Torments",
+         "collapsed": false
+      },
+      "1570213362": {
+         "name": "Pathos",
+         "collapsed": true
+      },
+      "-775491504": {
+         "name": "Terms",
+         "collapsed": true
+      }
+   },
+   "wifolders_l": [
+      1812803879,
+      1570213362,
+      -775491504
+   ]
+}

@@ -584,15 +584,13 @@ func _input(event):
 #		globals.player.damage = 85
 #		globals.player.pathos.available_masteries += 6
 		var debug_encounters = [
-#			EnemyEncounter.new(Act1.Squirrel, "hard"),
+			EnemyEncounter.new(Act1.Baby, "hard"),
 #			EnemyEncounter.new(Act2.Void, "easy"),
 #			EnemyEncounter.new(Act3.Life_Paths, "hard"),
 #			load(AllActs.NCE.risky.OstrichEggs).new(),
 #			load(Act1.NCE.risky.Highwire).new(),
-#			load(Act2.NCE.easy.AlphaKappaOmega).new(),
-			load(Act3.NCE.easy.BeastMirror).new(),
-			load(Act3.NCE.easy.Cucumbers).new(),
-			load(Act3.NCE.risky.UnderwaterCave).new(),
+#			load(Act2.NCE.easy.Subconscious).new(),
+#			load(Act3.NCE.easy.BeastMirror).new(),
 #			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Rest.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Shop.gd").new(),

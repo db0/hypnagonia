@@ -68,7 +68,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.fading.name],
 		"Abilities": "{unplayable}",
 		"Cost": 'U',
-		"_illustration": "",
+		"_illustration": "Nobody",
 		"_rarity": "Perturbation",
 		"_keywords": [],
 		"_is_unplayable": true,
@@ -107,7 +107,7 @@ const CARDS := {
 		"Abilities": "If this card is in your hand at the end of the turn, gain {effect_stacks} {drain}\n"\
 				+ "Play: {forget}.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Perturbation",
 		"_keywords": [],
 		"_amounts": {
@@ -197,7 +197,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.exert.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "While in hand, at the end of the turn, take {exert_amount} {anxiety}\nPlay: {forget}.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Perturbation",
 		"_amounts": {
 			"exert_amount": 3
@@ -209,17 +209,17 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "If in hand at the end of the turn, add a copy of this card to your discard pile.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Perturbation",
 		"_keywords": []
 	},
 	"Lethe": {
 		"Type": "Perturbation",
 		"Tags": [],
-		"Abilities": "If in hand at the end of the turn, reduce the charge of a random memory by 10%. "\
+		"Abilities": "If in hand at the end of the turn, reduce the charge of a random memory by 1. "\
 				+ "While in hand, you cannot activate memories.",
 		"Cost": 2,
-		"_illustration": "Nobody",
+		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Perturbation",
 		"_keywords": []
 	},
@@ -241,7 +241,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "While in hand, Torments take {detrimental_integer} less {damage} from each source.",
 		"Cost": 1,
-		"_illustration": "Nobody",
+		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Perturbation",
 		"_amounts": {
 			"detrimental_integer": 10
@@ -253,7 +253,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "Cannot be released from the deck.\n{unplayable}",
 		"Cost": 'U',
-		"_illustration": "Nobody",
+		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Perturbation",
 		"_keywords": [],
 		"_is_unplayable": true,
