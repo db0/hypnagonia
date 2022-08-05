@@ -558,17 +558,18 @@ const TheGatherer = {
 	"journal_reward":\
 """It took all my effort to piece my dream fragments back together into something coherent enough to understand. But as soon as I could distinguish the Gatherer's true form, it fled as quickly as it appeared.
 """,
-	'journal_art': "res://assets/journal/advanced/the_gatherer.jpeg",
+	'journal_art': "res://assets/journal/advanced/The Gatherer.jpg",
 }
 
 const TheatrePlay = {
 	"name": "Theatre Play",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/TheatrePlay.tscn")],
 	"journal_description":\
-		'I was in a theatre troupe and part of a hyped new play. '\
-		+ "It was my first show, I had a protagonist role, and nothing was ready.",
+""" was in a theatre troupe and part of a hyped new play. It was my first show, I had a protagonist role, and nothing was ready. There were a lot of things missing. My character's wardrobe wasn't right. My hair was different from what it should be. And most importantly, I was completely unprepared for the scene. I hadn't memorized the lines, so I didn't know what to say or how to act. The whole thing went downhill fast, and it felt like the entire audience was watching me fall apart.
+""",
 	"journal_reward":\
-		"I don't know how we pulled it through, but as the curtain fell, I felt relieved.",
+"""Somehow we managed to improvise our way to completion. The audience applauded and gave us high fives afterwards. We went back home feeling accomplished, but something about that moment still haunts me. 
+""",
 	'journal_art': "res://assets/journal/advanced/Theatre Play.jpg",
 }
 
@@ -576,11 +577,11 @@ const InfiniteCorridor = {
 	"name": "Infinite Corridor",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/InfiniteCorridor.tscn")],
 	"journal_description":\
-		"'Was it an office, or a tight tunnel? I can't quite rememeber. "\
-		+ "But what stuck with me is how I could never seem to reach the end."\
-		+ "Every light at the end, was just a corner. Every exit found, inpassable.",
+"""Was it an office corridor, or a tight tunnel? I can't quite remember. But what stuck with me is how I could never seem to reach the end. Every light at the end, was just a corner. Every exit found, impassable. The only way out was to keep going, but it was exhausting. The corridors were always moving. They changed shape and color, as if the walls were alive. The floors seemed to move beneath my feet. My legs felt like jelly, but I kept on walking.
+""",
 	"journal_reward":\
-		"Did I find the exit, or just walked out. I can't quite remember.",
+"""Forcing myself past the encroaching boredom, I started noticing etches on the walls, the more I focused, the more it looked like a door. The etchings became clearer. The wall itself began to fade away into the shadows. As it did, the door revealed itself.
+""",
 	'journal_art': "res://assets/journal/advanced/Infinite Corridor.jpg",
 }
 

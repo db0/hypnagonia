@@ -329,6 +329,12 @@
          "Selected Text": "",
          "Alternative Text": [
             {
+               "Text": "I was in a theatre troupe and part of a hyped new play. It was my first show, I had a protagonist role, and nothing was ready.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
                "Text": "",
                "Pinned": false,
                "Previous Selection": true,
@@ -532,6 +538,18 @@
          "Selected Text": "",
          "Alternative Text": [
             {
+               "Text": " There were a lot of things missing. My character's wardrobe wasn't right. My hair was different from what it should be. And most importantly, I was completely unprepared for the scene. I hadn't memorized the lines, so I didn't know what to say or how to act. The whole thing went downhill fast, and it felt like the entire audience was watching me fall apart.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
+               "Text": "\nThe whole set wasn't done yet. There were still lights to be hung and things to be adjusted. I couldn't believe how everything looked so unfinished. It felt like the show would never start.\nI had a script to memorize and lines to deliver. And then there were costumes to get into. But there was no time for any of that.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
+            {
                "Text": "I felt my dreams being drained from me, at the same time I noticed an misty figure in a white robe at the edge of my vision.",
                "Pinned": false,
                "Previous Selection": true,
@@ -644,6 +662,12 @@
       "4": {
          "Selected Text": "",
          "Alternative Text": [
+            {
+               "Text": "\n\nSomehow we managed to improvise our way to completion",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
             {
                "Text": " It slowly approached me",
                "Pinned": false,
@@ -949,6 +973,12 @@
       "5": {
          "Selected Text": "",
          "Alternative Text": [
+            {
+               "Text": ". The audience applauded and gave us high fives afterwards. We went back home feeling accomplished, but something about that moment still haunts me. What if I could've done better? What if I hadn't been so scared? I guess you can never really know, because then you'd miss out on a lot of experiences. But that doesn't stop me from trying again.",
+               "Pinned": false,
+               "Previous Selection": true,
+               "Edited": false
+            },
             {
                "Text": " but I could still only see it from my peripheral sight, like one those spots in your eyes which move as you try to focus on them. I realized it wasn't my vision failing, it was my imagination!",
                "Pinned": false,
@@ -1784,7 +1814,7 @@
    },
    "worldinfo": [
       {
-         "key": "void, black hole",
+         "key": "void, black hole, oblivion",
          "keysecondary": "",
          "content": "[The Void looks like a black hole inside the rich tapestry of the dreamscape. It seems to not only suck-in all colours, but also the consciousness of the dreamer itself, tempting them to let themselves into oblivion and dream no more. The Void is an absurdity-type Torment]",
          "comment": "The Void",
@@ -1793,7 +1823,7 @@
          "constant": false
       },
       {
-         "key": "fractalization",
+         "key": "fractalization, fractals, mandelbrot",
          "keysecondary": "",
          "content": "[When a fractalization occurs, the dreamscape shifts so that there is an infinite amount of complexity at every one point, which strains the dreamer's mind to an impossible degree. Fractalization is an absurdity-type elite]",
          "comment": "Fractalization",
@@ -1802,7 +1832,7 @@
          "constant": false
       },
       {
-         "key": "dentist",
+         "key": "dentist, teeth, cavities",
          "keysecondary": "",
          "content": "[The Dentist is a nightmare familiar to many people. Those unfortunate dreamers see themselves strapped into the chair of a cackling maniac with all the motivation of a mad scientist and a wealth of cruel tools to use on the helpless person strapped to their chair. Everything about the normal experience of visiting a dentist is therefore enlarged to terrifying degree. The Dentist is a phobia-type elite]",
          "comment": "The Dentist",
@@ -1820,7 +1850,7 @@
          "constant": false
       },
       {
-         "key": "surreality",
+         "key": "surreality, incomprehension",
          "keysecondary": "",
          "content": "[The Surreality is one of the most incomphensible encounters one can have. It attempts to completely mindfuck the dreamer by defying all description. The longer one stays in that situation, the more one's senses start shutting off one by one. The surreality is an absurdity-type adversary]",
          "comment": "Surreality",
@@ -1829,7 +1859,7 @@
          "constant": false
       },
       {
-         "key": "clown",
+         "key": "clown, philosophy, confoundement",
          "keysecondary": "",
          "content": "[The clown torment appears as a a juxtaposition to the usual style people know of clowns. Instead of happy or scary, it tends to appear pensive and philosophical. Needless to say, this approach is even more confusing than usual. The clown is a phobia-type torment]",
          "comment": "Clown",
@@ -1838,7 +1868,7 @@
          "constant": false
       },
       {
-         "key": "administration, bureaucracy",
+         "key": "administration, bureaucracy, management",
          "keysecondary": "",
          "content": "[The Administration torment brings with it all the mind-numbing drudgery of office life, directly into your mind. Stern and serious, dreams and reality blurs as the dreamer struggles to remember where they are as tasks are handed out. The Administration typically appears as in a 3-piece suit and with the attitude of business management. The Administration is an Absurdity-type torment]",
          "comment": "Administration",
@@ -1847,7 +1877,7 @@
          "constant": false
       },
       {
-         "key": "life path",
+         "key": "life path, choices",
          "keysecondary": "",
          "content": "[Life Paths represent the torment of having mutually exclusive and crucial choices to make in one's life. \"Do I take a job in another city and uproot my family or do I stay here and struggle financially?\", that sort of thing. The dreamer encounters the various other people they could be, or could have been. Life Paths is a fear-type torment]",
          "comment": "Life Paths",
@@ -1856,7 +1886,7 @@
          "constant": false
       },
       {
-         "key": "cringelord",
+         "key": "cringelord, cringe",
          "keysecondary": "",
          "content": "[Cringelord is a torment that represents the dreamer's deepest memories of cringe behaviour. When encountered it brings up all the instances one would rather forget and makes them stick in their mind for an uncomfortable amount of time. The Cringelord typically appears as a humanoid with a giant eyeball as a head, all the better to look deep into your secret memories. The Cringelord is a fear-type Torment]",
          "comment": "Cringelord",
@@ -1865,7 +1895,7 @@
          "constant": false
       },
       {
-         "key": "nightmare",
+         "key": "nightmare, horror, terror",
          "keysecondary": "",
          "content": "[The Nightmare torment presents the classic horror film approach, where the dreamer is stressed out by simple shock factor. There isn't much more to it than fear of the looks; think Freddy Krueger, Hellraiser, etc. The Nightmare is a fear-type Torment]",
          "comment": "Nightmare",
@@ -1874,7 +1904,7 @@
          "constant": false
       },
       {
-         "key": "submerged, drowning",
+         "key": "submerged, drowning, asphyxia",
          "keysecondary": "",
          "content": "[The submerged torment represents the experience of the dreamer seeing themselves desperately clawing for air underwater. Perhaps this represents a period in their sleep where they are not receiving enough oxygen, or perhaps it's metaphor for the stifling situation in their lives. Whatever the cause, it's one of the most stressful dreams to have. Submerged is a phobia-type Torment.]",
          "comment": "Submerged",
@@ -1883,7 +1913,7 @@
          "constant": false
       },
       {
-         "key": "handsy, aunt",
+         "key": "handsy, aunt, uncle, body autonomy",
          "keysecondary": "",
          "content": "[Every kid dreads that older relative which loves to get a bit too familiar with their body. The Handsy Aunt represents that fear made painfully surreal, all pinching fingers and slobbering lips. Ultimately this torment is all about the lack of body autonomy. This torment typically appears as the jolly aunt with a bit too much excitement and possibly some selective hearing, all the better to ignore your protests. The Handsy Aunt is a fear-type torment]",
          "comment": "Handy Aunt",
@@ -1901,7 +1931,7 @@
          "constant": false
       },
       {
-         "key": "influencer",
+         "key": "influencer, social media",
          "keysecondary": "",
          "content": "[The manifestation of conspicuous consumption inside your own head, the Influencer torments you by showing you, how much better everyone else has it, invoking feelings of intense envy and self-doubt. The Influencer looks very much like a human caricature of illogical proportions, with a blinding smile and and fullfilling life. This is an existential-type torment]",
          "comment": "Influencer",
@@ -1919,10 +1949,28 @@
          "constant": false
       },
       {
-         "key": "gatherer",
+         "key": "gatherer, thief, steal",
          "keysecondary": "",
          "content": "[The Gatherer appears to be a metaphysical entity which exists independent of the dreamer. Whenever it appears the memory of the dream become fuzzier and less coherent. The gatherer attempts to be gathering the active dreams for some nefarious purpose. The experience is extremely chilling to the dreamer who struggles to stay focused. The Gatherer is a fear-type Elite]",
          "comment": "The Gatherer",
+         "folder": 1812803879,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "theatre, theater, stage",
+         "keysecondary": "",
+         "content": "[If stage Fright is a common phenomenon in waking life, imagine the fear that a nightmare based on theaters can evoke. The Theatre play is exactly that, with the Dreamer imagining themselves having to do a performance, very likely unprepared, and often even with some extra difficulties on top. The Theatre is a fear-type Torment]",
+         "comment": "Theatre Play",
+         "folder": 1812803879,
+         "selective": false,
+         "constant": false
+      },
+      {
+         "key": "infinite, corridor, hallway, tunnel",
+         "keysecondary": "",
+         "content": "[Imagine walking down a corrider where you can see the exit, but it always seems further away, no matter how much or fast you go. Maybe it's an illusion or maybe the corridor is reshaping as you walk. Regardless the reason, this torment of infinity can easily break the most confident dreamers through sheer boredom. The Infinite Corridor is a absurdity-type torment]",
+         "comment": "Infinite Corridor",
          "folder": 1812803879,
          "selective": false,
          "constant": false
@@ -2054,9 +2102,9 @@
          "constant": false
       },
       {
-         "key": "doubt",
+         "key": "doubt, poison",
          "keysecondary": "",
-         "content": "[The feeling of doubt causes consistent amounts of stress the dreamer has no way to avoid]",
+         "content": "[The feeling of doubt causes consistent amounts of stress the dreamer has no way to avoid. A poison for piece of mind]",
          "comment": "doubt",
          "folder": -775491504,
          "selective": false,
