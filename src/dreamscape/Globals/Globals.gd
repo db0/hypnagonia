@@ -13,6 +13,7 @@ var journal: Journal
 var music: Music
 var difficulty: Difficulty
 var game_save: GameSave
+var ai_stories:= AIStories.new()
 # I use this to keep track of which journal texts I haven't used yet in this run
 # to avoid writing always the same thing
 var unused_journal_texts := {}

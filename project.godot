@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Reference",
+"class": "AIStories",
+"language": "GDScript",
+"path": "res://src/dreamscape/AI/AIStories.gd"
+}, {
+"base": "Reference",
 "class": "Act",
 "language": "GDScript",
 "path": "res://src/dreamscape/Run/ActClass.gd"
@@ -574,6 +579,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/Overworld/JournalTexts.gd"
 }, {
+"base": "Reference",
+"class": "KoboldAI",
+"language": "GDScript",
+"path": "res://src/dreamscape/AI/KoboldAI.gd"
+}, {
 "base": "VBoxContainer",
 "class": "ManipulationButtons",
 "language": "GDScript",
@@ -870,6 +880,7 @@ _global_script_classes=[ {
 "path": "res://src/core/ScriptingEngine/perMessage.gd"
 } ]
 _global_script_class_icons={
+"AIStories": "",
 "Act": "",
 "Act1": "",
 "Act2": "",
@@ -983,6 +994,7 @@ _global_script_class_icons={
 "JournalEncounterChoice": "",
 "JournalNestedChoice": "",
 "JournalTexts": "",
+"KoboldAI": "",
 "ManipulationButtons": "",
 "Memory": "",
 "MemoryDefinitions": "",

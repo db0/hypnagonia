@@ -28,6 +28,7 @@ As an example:
 """
 
 const TheLaughingOnes = {
+	"name": "The Laughing Ones",
 	"journal_description":\
 """It was the unending cackle that did it. I'd had enough.
 I turned to face my tormentors and found myself between [url={torment_tag1}]a pair of featureless creeps laughing[/url].
@@ -35,12 +36,15 @@ I turned to face my tormentors and found myself between [url={torment_tag1}]a pa
 "You," they replied in unison, their laughter redoubling.
 I tried to lunge at them but they side-stepped easily, still laughing uncontrollably.
 Suddenly furious, I screamed at them; a anguished, keening sound that echoed in the emptiness around us.
-They only laughed harder and danced away from me again as if this were the most amusing thing they'd ever seen
+They only laughed harder and danced away from me again as if this were the most amusing thing they'd ever seen.
 """,
 	"journal_reward":\
 """"ENOUGH!" I roared, and they finally stopped, still grinning their awful grins. "I don't know who you are or what you want from me, but I'm done playing your games. So just go away and leave me alone!" For a moment they simply stared at me; then slowly, ever so slowly, their grins widened even further until their mouths threatened to split open from the effort. And then they dissolved into laughter once more and faded away until I was left standing alone in the darkness." Standing up to my fear made me feel stronger than before.
 """,
 	"journal_art": "res://assets/journal/torments/The Laughing One.jpg",
+	"ai_prompts": [
+		""
+	],
 	"enemies": {
 		"easy": [
 			{
@@ -84,6 +88,7 @@ They only laughed harder and danced away from me again as if this were the most 
 
 
 const Fearmonger = {
+	"name": "Fearmonger",
 	"journal_description":\
 """[url={torment_tag1}]Three eyes staring at me[/url], the first was a piercing blue that seemed to bore through me, the second was a deep black that hid my true nature, and the third was a bright yellow that I couldn't look away from.
 I felt a bit dizzy. I had the sensation that I was falling. My stomach lurched, and my breath caught in my throat. It all felt so real. I was floating in the middle of the night, staring at the third eye, and I couldn't move. I had to look away.
@@ -119,6 +124,7 @@ I felt a bit dizzy. I had the sensation that I was falling. My stomach lurched, 
 
 
 const Gaslighter = {
+	"name": "Gaslighter",
 	"journal_description":\
 """It was dark as I was standing in an open field. A light flickered in the dark, filling my body with suspense as I wondered what it was coming from.
 I remember In the distance I could see [url={torment_tag1}]a grotesque entity move towards me[/url], the green flame flickered from the lamp attached to its strange head-body hybrid, illuminating the grueling faces it possessed.
@@ -152,6 +158,7 @@ I pleaded for it to go away, but I knew I couldn't shake it. The dark field I wa
 
 
 const Murmurs = {
+	"name": "Murmurs",
 	"journal_description":\
 """I thought I heard [url={torment_tag1}]murmurs in the wind[/url]. Were they talking about [i]that[/i] time..?
 By the minute, I was getting more certain that they were talking about me, and this had only left me more upset.
@@ -199,6 +206,7 @@ Their whispers lingered in the air, getting more acerbic by the second.
 #Summary  [Entities with enlarged sense organs detecting my flaws]
 #Avoid [I woke up, wake up, awaken, I was dreaming]
 const TheCritic = {
+	"name": "Critics",
 	"journal_description":\
 """I was in the middle of my usual morning jog when I noticed them.
 At first I thought they were birds, but then I realized they were something else entirely.
@@ -254,9 +262,9 @@ Or is this a commentary on the nature of criticism itself? Whatever the case may
 #Summary  [I somehow ended in a peculiar argument with a clown.]
 #Avoided concepts [woke up, wake up, awaken]
 const Clown = {
+	"name": "Clown",
 	"journal_description":\
-"""
-I found myself in the middle of an argument [url={torment_tag1}]with a clown[/url]. It was a surreal experience, and I couldn't quite make sense of what was happening. The clown seemed to be tormenting me, but I wasn't sure why. Suddenly, I felt an overwhelming sense of ennui wash over me. It was as if nothing mattered any more. All that existed was this pointless argument with the clown.
+"""I found myself in the middle of an argument [url={torment_tag1}]with a clown[/url]. It was a surreal experience, and I couldn't quite make sense of what was happening. The clown seemed to be tormenting me, but I wasn't sure why. Suddenly, I felt an overwhelming sense of ennui wash over me. It was as if nothing mattered any more. All that existed was this pointless argument with the clown.
 """,
 	"journal_reward":\
 """Suddenly, I realized that the clown wasn't really worth getting so worked up over. It was just a silly creature, with no real understanding of anything. In the grand scheme of things, it didn't really matter what it said or did.
@@ -264,6 +272,12 @@ I found myself in the middle of an argument [url={torment_tag1}]with a clown[/ur
 With that realization, I felt a sense of calm come over me. The ennui dissipated and I was able to see things more clearly. This whole confrontation with the clown was an exercise in existentialism; it made me confront the meaninglessness of life head-on. But eventually, I overcame that feeling and moved on.
 """,
 	"journal_art": "res://assets/journal/torments/Clown.jpg",
+	"ai_prompts": [
+		"I found myself in the middle of an argument with a clown",
+		"How long have I been talking to this clown?",
+		"The back and forth between me and the clown was endless",
+		"I've never discussed philosophy in such a manner before",
+	],
 	"enemies": {
 		"easy": [
 			{
@@ -295,6 +309,7 @@ With that realization, I felt a sense of calm come over me. The ennui dissipated
 #Summary  [A depressive butterfly confounded me with its dark beauty.]
 #Avoid [I woke up, wake up, awaken]
 const Butterfly = {
+	"name": "Butterfly",
 	"journal_description":\
 """I was having a conversation with a friend about something completely mundane when I noticed [url={torment_tag1}]a dark butterfly nearby[/url]. It was incredibly beautiful, but its beauty was overshadowed by the fact that it seemed to be in pain. It's wings were drooping and it looked like it was struggling to stay alive.
 
@@ -336,6 +351,7 @@ As I watched, the butterfly began to move closer and I could see that its eyes w
 #Summary  [Am I cursed by this broken mirror, or is it just the random happenstance of bad luck?]\
 #Avoid [I woke up, wake up, awaken]
 const BrokenMirrors = {
+	"name": "Broken Mirrors",
 	"journal_description":\
 """I glance over at the [url={torment_tag1}]broken mirror[/url] on my bedside table and shudder. It's not like I didn't know it was there; I could see the cracked glass from across the room. But now that it's so close, I can't help but feel a sense of dread. Am I cursed by this broken mirror, or is it just the random happenstance of bad luck?
 
@@ -382,6 +398,7 @@ I try to shake off my superstitions and remind myself that there's probably a ra
 }
 
 const Pialephant = {
+	"name": "Pialephant",
 	"journal_description":\
 """I felt a feeling of excitement wash over me, as I heard a rumble in the clouds under my feet.
 I had thought it was a storm at first, but I had realized it was the circus coming straight towards me with great surprise!
@@ -436,6 +453,7 @@ Luckily, I had just found I was able to catch myself in the music, because I’d
 #Summary  [At one point, I felt like I was having a near death experience.]
 #Avoid [I woke up, wake up, awaken, I was dreaming]
 const TheLightCalling = {
+	"name": "The Light Calling",
 	"journal_description":\
 """I'm not sure how I got here. One moment I was in my bed, and the next I was floating through some kind of odd, surreal landscape. It felt like I was having a near death experience; everything had an intense sense of calm about it, but there was also a underlying feeling of dread that kept me from enjoying it too much.
 
@@ -480,6 +498,7 @@ Eventually, I turned away from the light and began to wander aimlessly through t
 #Summary  [I found myself facing off with a squirrel giving me the stink-eye.]
 #Avoid [I woke up, wake up, awaken, I was dreaming]
 const Squirrel = {
+	"name": "Squirrel",
 	"journal_description":\
 """I found myself staring down [url={torment_tag1}]a squirrel[/url] as it gave me the stink-eye. I wondered what was going through its head, as nut season had come and gone and it clearly wasn't getting any food from me. It must have been incredibly frustrating for the poor creature.
 """,
@@ -525,6 +544,7 @@ const Squirrel = {
 #Summary  [I had to take care of a fussy baby. I am responsible enough?]
 #Avoid [I woke up, wake up, awaken, I was dreaming]
 const Baby = {
+	"name": "Baby",
 	"journal_description":\
 """I was babysitting [url={torment_tag1}]a baby[/url] the other day and it was so fussy. It wouldn't stop crying no matter what I did. The worst part was that it was so new and strange to me. I had never taken care of a baby before, and I wasn't sure if I was doing everything right.
 
@@ -652,6 +672,7 @@ const ELITES = {
 }
 
 const Narcissus = {
+	"name": "Narcissus",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Bosses/Narcissus.tscn")],
 	"journal_description":\
 """I ran into Narcissus on the edge of a lake. They were as beautiful as I thought they would be, with their perfect skin and bright green eyes. But there was something different about them. They seemed vulnerable, almost hurt.
