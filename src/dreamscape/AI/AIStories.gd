@@ -35,9 +35,12 @@ func retrieve_torment_story(torment_encounter: Dictionary) -> Dictionary:
 		"story": torment_encounter["journal_description"],
 		"uuid": "00000000-0000-0000-0000-000000000000"
 	}
+	if not cfc.game_settings.use_ai:
+		return(story)
 	var fresh_evaluation = get_fresh_evaluating_gen(torment_encounter.name, "journal_choice")
-	if fresh_evaluation:
-		story = fresh_evaluation.generation
+	if fresh_evaluation and cfc.game_settings.judge_ai:
+		story.story = fresh_evaluation.generation
+		story.uuid = fresh_evaluation.uuid
 		emit_signal("story_used",StoryTypes.EVALUATING)
 		print_debug("using evaluating story")
 	elif torments.has(torment_encounter.name):
@@ -45,6 +48,16 @@ func retrieve_torment_story(torment_encounter: Dictionary) -> Dictionary:
 		torments.erase(torment_encounter.name)
 		emit_signal("story_used",StoryTypes.GENERATED)
 		print_debug("using generated story")
+	else:
+		var collected_generations = get_generations(torment_encounter.name, "journal_choice", false)
+		if not collected_generations.empty():
+			var finalized_uuids = collected_generations.keys()
+			CFUtils.shuffle_array(finalized_uuids)
+			var uuid = finalized_uuids[0]
+			story.story = collected_generations[uuid]["generation"]
+			story.uuid = uuid
+			emit_signal("story_used",StoryTypes.FINALIZED)
+			print_debug("using finalized story")
 	# We don't want to generate a story if there's an unused one already
 	if torment_encounter.has("ai_prompts")\
 			and cfc.game_settings.generate_ai\
@@ -113,9 +126,10 @@ func load_stories() -> void:
 func get_fresh_evaluating_gen(name: String, type: String):
 	var collected_generations = get_generations(name, type, true)
 	for gen in collected_generations:
-		var generation : Dictionary = collected_generations[gen]
+		var generation : Dictionary = collected_generations[gen].duplicate()
 		if cfc.game_settings['Client UUID'] in generation["ratings"]:
 			continue
+		generation["uuid"] = gen
 		return(generation)
 
 

@@ -4,7 +4,7 @@ extends Node
 signal ratings_retrieved(ratings_dict, evaluating)
 
 #const TELEMETRY_URI := "http://dbzer0.com"
-const TELEMETRY_URI := "http://127.0.0.1"
+const TELEMETRY_URI := "http://dbzer0.com"
 const TELEMETRY_PORT := 8000
 
 # In case this node is going to be used to submit stories, 
@@ -55,7 +55,8 @@ func retrieve_gens(evaluating:= true) -> void:
 	if not evaluating:
 		endpoint = "/generations/finalized/"
 	var ret = _initiate_rest(HTTPClient.METHOD_GET, endpoint)
-	emit_signal("ratings_retrieved", ret, evaluating)
+	if typeof(ret) == TYPE_DICTIONARY:
+		emit_signal("ratings_retrieved", ret, evaluating)
 
 
 func _initiate_rest(method, endpoint: String, data: Dictionary = {}):
@@ -74,6 +75,7 @@ func _initiate_rest(method, endpoint: String, data: Dictionary = {}):
 			# Synchronous HTTP requests are not supported on the web,
 			# so wait for the next main loop iteration.
 			yield(Engine.get_main_loop(), "idle_frame")
+
 
 	# Could not connect
 	assert(http.get_status() == HTTPClient.STATUS_CONNECTED)

@@ -225,27 +225,35 @@ align = 1
 [node name="AIMC" type="MarginContainer" parent="PC/VBC/HBC/VBC3"]
 margin_top = 41.0
 margin_right = 234.0
-margin_bottom = 86.0
+margin_bottom = 110.0
 custom_constants/margin_right = 10
 custom_constants/margin_left = 10
 
 [node name="VBC" type="VBoxContainer" parent="PC/VBC/HBC/VBC3/AIMC"]
 margin_left = 10.0
 margin_right = 224.0
-margin_bottom = 45.0
+margin_bottom = 69.0
 
-[node name="JudgeAI" type="CheckButton" parent="PC/VBC/HBC/VBC3/AIMC/VBC"]
+[node name="UseAI" type="CheckButton" parent="PC/VBC/HBC/VBC3/AIMC/VBC"]
 unique_name_in_owner = true
 margin_right = 214.0
 margin_bottom = 21.0
 pressed = true
-text = "Judge AI Generations"
+text = "Use AI Stories"
 
-[node name="GenerateAI" type="CheckButton" parent="PC/VBC/HBC/VBC3/AIMC/VBC"]
+[node name="JudgeAI" type="CheckButton" parent="PC/VBC/HBC/VBC3/AIMC/VBC"]
 unique_name_in_owner = true
 margin_top = 24.0
 margin_right = 214.0
 margin_bottom = 45.0
+pressed = true
+text = "Judge AI Stories"
+
+[node name="GenerateAI" type="CheckButton" parent="PC/VBC/HBC/VBC3/AIMC/VBC"]
+unique_name_in_owner = true
+margin_top = 48.0
+margin_right = 214.0
+margin_bottom = 69.0
 text = "Generate (Req.KoboldAI)"
 
 [node name="URLVBC" type="VBoxContainer" parent="PC/VBC/HBC/VBC3/AIMC/VBC"]
@@ -319,6 +327,7 @@ text = "BACK"
 [connection signal="value_changed" from="PC/VBC/HBC/VBC/SoundMC/VBC/MainVolSlider" to="." method="_on_MainVolSlider_value_changed"]
 [connection signal="value_changed" from="PC/VBC/HBC/VBC/SoundMC/VBC/MusicVolSlider" to="." method="_on_MusicVolSlider_value_changed"]
 [connection signal="value_changed" from="PC/VBC/HBC/VBC/SoundMC/VBC/SoundVolSlider" to="." method="_on_SoundVolSlider_value_changed"]
+[connection signal="toggled" from="PC/VBC/HBC/VBC3/AIMC/VBC/UseAI" to="." method="_on_UseAI_toggled"]
 [connection signal="toggled" from="PC/VBC/HBC/VBC3/AIMC/VBC/JudgeAI" to="." method="_on_JudgeAI_toggled"]
 [connection signal="toggled" from="PC/VBC/HBC/VBC3/AIMC/VBC/GenerateAI" to="." method="_on_GenerateAI_toggled"]
 [connection signal="text_changed" from="PC/VBC/HBC/VBC3/AIMC/VBC/URLVBC/KAIURLInput" to="." method="_on_KAIURLInput_text_changed"]
