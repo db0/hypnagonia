@@ -15,7 +15,9 @@ func setup(_journal, encounter: SingleEncounter) -> void:
 	pathos_icon.texture = CFUtils.convert_texture_to_image("res://assets/icons/GUI/drama-masks.png")
 	if encounter is BossEncounter:
 		pathos_icon.self_modulate = Color(1,0,0)
-	story_ratings.connect("button_pressed", journal_choice.submit_rating, "story_rated")
+	if encounter.description_uuid != "00000000-0000-0000-0000-000000000000" and cfc.game_settings.judge_ai:
+		story_ratings.visible = true
+		story_ratings.connect("button_pressed", journal_choice.submit_rating, "story_rated")
 	
 
 func _on_PathosIcon_mouse_entered() -> void:

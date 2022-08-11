@@ -363,7 +363,7 @@ As I watched, the butterfly began to move closer and I could see that its eyes w
 	"journal_art": "res://assets/journal/torments/Butterfly.jpg",
 	"ai_prompts": [
 		"What a depressive butterfly which has beset me",
-		"The beaty I saw { in the butterfly } was countered by the sadness I felt in it's flutter.",
+		"The beauty I saw { in the butterfly } was countered by the sadness I felt in it's flutter.",
 	],
 	"replacement_keywords": {
 		"torment_tag1": ["butterly","butterflies"],

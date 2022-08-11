@@ -26,20 +26,20 @@ script = ExtResource( 2 )
 
 [node name="PC" type="PanelContainer" parent="."]
 self_modulate = Color( 1, 1, 1, 0.690196 )
-margin_left = 511.0
+margin_left = 384.0
 margin_top = 259.0
-margin_right = 943.0
+margin_right = 1070.0
 margin_bottom = 641.0
 
 [node name="VBC" type="VBoxContainer" parent="PC"]
 margin_left = 2.0
 margin_top = 2.0
-margin_right = 430.0
+margin_right = 684.0
 margin_bottom = 380.0
 custom_constants/separation = 5
 
 [node name="HBC" type="HBoxContainer" parent="PC/VBC"]
-margin_right = 428.0
+margin_right = 682.0
 margin_bottom = 268.0
 custom_constants/separation = 20
 
@@ -209,9 +209,86 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="VBC3" type="VBoxContainer" parent="PC/VBC/HBC"]
+margin_left = 448.0
+margin_right = 682.0
+margin_bottom = 268.0
+size_flags_horizontal = 3
+custom_constants/separation = 20
+
+[node name="AI" type="Label" parent="PC/VBC/HBC/VBC3"]
+margin_right = 234.0
+margin_bottom = 21.0
+text = "Artificial Intelligence"
+align = 1
+
+[node name="AIMC" type="MarginContainer" parent="PC/VBC/HBC/VBC3"]
+margin_top = 41.0
+margin_right = 234.0
+margin_bottom = 86.0
+custom_constants/margin_right = 10
+custom_constants/margin_left = 10
+
+[node name="VBC" type="VBoxContainer" parent="PC/VBC/HBC/VBC3/AIMC"]
+margin_left = 10.0
+margin_right = 224.0
+margin_bottom = 45.0
+
+[node name="JudgeAI" type="CheckButton" parent="PC/VBC/HBC/VBC3/AIMC/VBC"]
+unique_name_in_owner = true
+margin_right = 214.0
+margin_bottom = 21.0
+pressed = true
+text = "Judge AI Generations"
+
+[node name="GenerateAI" type="CheckButton" parent="PC/VBC/HBC/VBC3/AIMC/VBC"]
+unique_name_in_owner = true
+margin_top = 24.0
+margin_right = 214.0
+margin_bottom = 45.0
+text = "Generate (Req.KoboldAI)"
+
+[node name="URLVBC" type="VBoxContainer" parent="PC/VBC/HBC/VBC3/AIMC/VBC"]
+unique_name_in_owner = true
+visible = false
+margin_top = 48.0
+margin_right = 214.0
+margin_bottom = 159.0
+
+[node name="KAIURL" type="Label" parent="PC/VBC/HBC/VBC3/AIMC/VBC/URLVBC"]
+unique_name_in_owner = true
+margin_right = 214.0
+margin_bottom = 21.0
+text = "KoboldAI URL"
+align = 1
+
+[node name="KAIURLInput" type="TextEdit" parent="PC/VBC/HBC/VBC3/AIMC/VBC/URLVBC"]
+unique_name_in_owner = true
+margin_top = 24.0
+margin_right = 214.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 0, 30 )
+text = "http://localhost"
+
+[node name="KAIPort" type="Label" parent="PC/VBC/HBC/VBC3/AIMC/VBC/URLVBC"]
+unique_name_in_owner = true
+margin_top = 57.0
+margin_right = 214.0
+margin_bottom = 78.0
+text = "KoboldAI Port"
+align = 1
+
+[node name="KAIPortInput" type="TextEdit" parent="PC/VBC/HBC/VBC3/AIMC/VBC/URLVBC"]
+unique_name_in_owner = true
+margin_top = 81.0
+margin_right = 214.0
+margin_bottom = 111.0
+rect_min_size = Vector2( 0, 30 )
+text = "5000"
+
 [node name="ExitToMain" type="Button" parent="PC/VBC"]
 margin_top = 273.0
-margin_right = 428.0
+margin_right = 682.0
 margin_bottom = 323.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
@@ -220,11 +297,11 @@ text = "Exit To Main Menu"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PC/VBC"]
 margin_top = 328.0
-margin_right = 428.0
+margin_right = 682.0
 margin_bottom = 378.0
 
 [node name="Back" type="Button" parent="PC/VBC/HBoxContainer"]
-margin_right = 428.0
+margin_right = 682.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
@@ -242,4 +319,6 @@ text = "BACK"
 [connection signal="value_changed" from="PC/VBC/HBC/VBC/SoundMC/VBC/MainVolSlider" to="." method="_on_MainVolSlider_value_changed"]
 [connection signal="value_changed" from="PC/VBC/HBC/VBC/SoundMC/VBC/MusicVolSlider" to="." method="_on_MusicVolSlider_value_changed"]
 [connection signal="value_changed" from="PC/VBC/HBC/VBC/SoundMC/VBC/SoundVolSlider" to="." method="_on_SoundVolSlider_value_changed"]
+[connection signal="toggled" from="PC/VBC/HBC/VBC3/AIMC/VBC/JudgeAI" to="." method="_on_JudgeAI_toggled"]
+[connection signal="toggled" from="PC/VBC/HBC/VBC3/AIMC/VBC/GenerateAI" to="." method="_on_GenerateAI_toggled"]
 [connection signal="pressed" from="PC/VBC/ExitToMain" to="." method="_on_ExitToMain_pressed"]

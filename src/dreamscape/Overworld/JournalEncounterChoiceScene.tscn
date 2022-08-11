@@ -12,7 +12,7 @@ script = ExtResource( 2 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_right = 30.0
-margin_bottom = 98.0
+margin_bottom = 40.0
 
 [node name="PathosIcon" type="TextureRect" parent="VBoxContainer"]
 unique_name_in_owner = true
@@ -25,6 +25,7 @@ stretch_mode = 6
 
 [node name="StoryRatings" parent="VBoxContainer" instance=ExtResource( 1 )]
 unique_name_in_owner = true
+visible = false
 margin_left = 0.0
 margin_top = 34.0
 margin_right = 30.0

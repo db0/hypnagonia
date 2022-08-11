@@ -15,7 +15,7 @@ func _init(_encounter: SingleEncounter, _type: String):
 	type = _type
 
 
-func story_rated(liked:= true) -> void:
+func story_rated(liked :int) -> void:
 	var desc = "Liked"
 	if not liked:
 		desc = "Disliked"
@@ -31,13 +31,13 @@ func story_rated(liked:= true) -> void:
 #        parser.add_argument("liked", type=bool, required=True, help="True if the user liked it, False if they did not.")
 #        parser.add_argument("client_id", type=str, required=True, help="The unique ID for this version of Hypnagonia client")
 
-func submit(liked: bool):
+func submit(classification: int):
 	var data := {
 		"uuid": encounter.description_uuid,
 		"generation": encounter.description,
 		"title": encounter.title,
 		"type": type,
-		"liked": liked,
+		"classification": classification,
 		"client_id": cfc.game_settings['Client UUID'],
 	}
 	print_debug(data)

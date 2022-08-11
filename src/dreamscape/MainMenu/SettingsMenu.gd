@@ -11,6 +11,9 @@ onready var enable_glow = find_node('EnableGlow')
 onready var interrupt_music = find_node('InterruptMusic')
 onready var main_vol_slider = find_node('MainVolSlider')
 onready var music_vol_slider = find_node('MusicVolSlider')
+onready var judge_ai = $"%JudgeAI"
+onready var generate_ai = $"%GenerateAI"
+onready var urlvbc = $"%URLVBC"
 
 var sound_effect_enabled = false
 
@@ -28,6 +31,8 @@ func _ready() -> void:
 	cfc.game_settings['expand_linked_terms'] = cfc.game_settings.get('expand_linked_terms', true)
 	cfc.game_settings['fast_icon_speed'] = cfc.game_settings.get('fast_icon_speed', false)
 	cfc.game_settings['async_icon_animations'] = cfc.game_settings.get('async_icon_animations', false)
+	cfc.game_settings['judge_ai'] = cfc.game_settings.get('judge_ai', true)
+	cfc.game_settings['generate_ai'] = cfc.game_settings.get('generate_ai', true)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), cfc.game_settings.main_volume)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("bgm"), cfc.game_settings.music_volume)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("se"), cfc.game_settings.sounds_volume)
@@ -42,6 +47,9 @@ func _ready() -> void:
 	interrupt_music.pressed = cfc.game_settings.interrupt_music
 	main_vol_slider.value = cfc.game_settings.main_volume
 	music_vol_slider.value = cfc.game_settings.music_volume
+	judge_ai.pressed = cfc.game_settings.judge_ai
+	generate_ai.pressed = cfc.game_settings.generate_ai
+	urlvbc.visible = generate_ai.pressed
 	# To avoid the slider adjust sound sounding from the initial setting
 	sound_effect_enabled = true
 
@@ -142,6 +150,25 @@ func _on_FastIconSpeed_toggled(button_pressed: bool):
 
 func _on_AsyncIcons_toggled(button_pressed: bool):
 	cfc.set_setting('async_icon_animations',button_pressed)
+	if sound_effect_enabled:
+		if button_pressed:
+			SoundManager.play_se('setting_toggle_on')
+		else:
+			SoundManager.play_se('setting_toggle_off')
+
+
+func _on_JudgeAI_toggled(button_pressed):
+	cfc.set_setting('judge_ai',button_pressed)
+	if sound_effect_enabled:
+		if button_pressed:
+			SoundManager.play_se('setting_toggle_on')
+		else:
+			SoundManager.play_se('setting_toggle_off')
+
+
+func _on_GenerateAI_toggled(button_pressed):
+	cfc.set_setting('generate_ai',button_pressed)
+	urlvbc.visible = generate_ai.pressed
 	if sound_effect_enabled:
 		if button_pressed:
 			SoundManager.play_se('setting_toggle_on')
