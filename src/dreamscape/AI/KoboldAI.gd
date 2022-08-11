@@ -15,9 +15,6 @@ const DEFAULTS := {
 	}
 }
 
-const KAI_URI := "http://127.0.0.1"
-const KAI_PORT := 5000
-
 
 static func generate(prompt: String, gentype: int):
 	var data := {
@@ -68,7 +65,7 @@ static func post_gui_story(prompt: String):
 static func _initiate_rest(method, endpoint: String, data: Dictionary = {}):
 	var http = HTTPClient.new()
 	# Connect to host/port.
-	var err = http.connect_to_host(KAI_URI, KAI_PORT)
+	var err = http.connect_to_host(cfc.game_settings.kai_url, cfc.game_settings.kai_port)
 	# Make sure connection was OK.
 	assert(err == OK)
 	# Wait until resolved and connected.
@@ -80,15 +77,15 @@ static func _initiate_rest(method, endpoint: String, data: Dictionary = {}):
 		else:
 			# Synchronous HTTP requests are not supported on the web,
 			# so wait for the next main loop iteration.
-			yield(Engine.get_main_loop(), "idle_frame")	
+			yield(Engine.get_main_loop(), "idle_frame")
 
 	# Could not connect
-	assert(http.get_status() == HTTPClient.STATUS_CONNECTED)		
+	assert(http.get_status() == HTTPClient.STATUS_CONNECTED)
 	var headers = ["Content-Type: application/json"]
 	var query = JSON.print(data)
 	err = http.request(method, endpoint, headers, query)
 	while http.get_status() == HTTPClient.STATUS_REQUESTING:
-		# Keep polling for as long as the request is being processed.		
+		# Keep polling for as long as the request is being processed.
 		http.poll()
 		if not OS.has_feature("web"):
 			OS.delay_msec(500)

@@ -19,17 +19,10 @@ func story_rated(liked :int) -> void:
 	var desc = "Liked"
 	if not liked:
 		desc = "Disliked"
-	print_debug(desc + " Story: "+ encounter.description_uuid)
+#	print_debug(desc + " Story: "+ encounter.description_uuid)
 	var thread: Thread = Thread.new()
 	thread.start(self, "submit", liked)
 
-
-#        parser.add_argument("uuid", type=str, required=True, help="UUID of the generation")
-#        parser.add_argument("generation", type=str, required=True, help="Content of the generattion")
-#        parser.add_argument("title", type=str, required=True, help="The name of the thing for which we're generating")
-#        parser.add_argument("type", type=str, required=True, help="The type of generation it is. This is used for finding previous such generations")
-#        parser.add_argument("liked", type=bool, required=True, help="True if the user liked it, False if they did not.")
-#        parser.add_argument("client_id", type=str, required=True, help="The unique ID for this version of Hypnagonia client")
 
 func submit(classification: int):
 	var data := {
@@ -41,9 +34,6 @@ func submit(classification: int):
 		"client_id": cfc.game_settings['Client UUID'],
 	}
 	print_debug(data)
-#	print("generate():" + prompt)
-#	print("generate():" + str(data))
-#	print(data)
 	var ret = _initiate_rest(HTTPClient.METHOD_POST, "/generation/", data)
 
 func _initiate_rest(method, endpoint: String, data: Dictionary = {}):

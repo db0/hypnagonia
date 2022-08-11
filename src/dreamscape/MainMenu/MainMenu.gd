@@ -272,6 +272,8 @@ func _export_torments() -> Dictionary:
 				if not tdict['Basic Torments'].has(torment.definition.Name):
 					tdict['Basic Torments'][torment.definition.Name] = {}
 					tdict['Basic Torments'][torment.definition.Name]['Journal Description'] = enemy.journal_description
+					if enemy.has("ai_prompts"):
+						tdict['Basic Torments'][torment.definition.Name]['AI prompts'] = enemy.ai_prompts
 					tdict['Basic Torments'][torment.definition.Name]['Type'] = torment.definition.Type
 		for e in act.ELITES:
 			var enemy = act.ELITES[e]

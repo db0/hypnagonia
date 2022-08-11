@@ -14,6 +14,9 @@ onready var music_vol_slider = find_node('MusicVolSlider')
 onready var judge_ai = $"%JudgeAI"
 onready var generate_ai = $"%GenerateAI"
 onready var urlvbc = $"%URLVBC"
+onready var kaiurl_input = $"%KAIURLInput"
+onready var kai_port_input = $"%KAIPortInput"
+
 
 var sound_effect_enabled = false
 
@@ -33,6 +36,8 @@ func _ready() -> void:
 	cfc.game_settings['async_icon_animations'] = cfc.game_settings.get('async_icon_animations', false)
 	cfc.game_settings['judge_ai'] = cfc.game_settings.get('judge_ai', true)
 	cfc.game_settings['generate_ai'] = cfc.game_settings.get('generate_ai', true)
+	cfc.game_settings['kai_url'] = cfc.game_settings.get('kai_url', "http://127.0.0.1")
+	cfc.game_settings['kai_port'] = cfc.game_settings.get('kai_port', 5000)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), cfc.game_settings.main_volume)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("bgm"), cfc.game_settings.music_volume)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("se"), cfc.game_settings.sounds_volume)
@@ -50,6 +55,8 @@ func _ready() -> void:
 	judge_ai.pressed = cfc.game_settings.judge_ai
 	generate_ai.pressed = cfc.game_settings.generate_ai
 	urlvbc.visible = generate_ai.pressed
+	kaiurl_input.text = cfc.game_settings.kai_url
+	kai_port_input.text = str(cfc.game_settings.kai_port)
 	# To avoid the slider adjust sound sounding from the initial setting
 	sound_effect_enabled = true
 
@@ -174,3 +181,13 @@ func _on_GenerateAI_toggled(button_pressed):
 			SoundManager.play_se('setting_toggle_on')
 		else:
 			SoundManager.play_se('setting_toggle_off')
+
+
+func _on_KAIURLInput_text_changed():
+	kaiurl_input.text = kaiurl_input.text.rstrip('\n')
+	cfc.set_setting('kai_url',kaiurl_input.text)
+
+
+func _on_KAIPortInput_text_changed():
+	kai_port_input.text = kai_port_input.text.rstrip('\n')
+	cfc.set_setting('kai_port',int(kai_port_input.text))

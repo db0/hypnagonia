@@ -321,4 +321,6 @@ text = "BACK"
 [connection signal="value_changed" from="PC/VBC/HBC/VBC/SoundMC/VBC/SoundVolSlider" to="." method="_on_SoundVolSlider_value_changed"]
 [connection signal="toggled" from="PC/VBC/HBC/VBC3/AIMC/VBC/JudgeAI" to="." method="_on_JudgeAI_toggled"]
 [connection signal="toggled" from="PC/VBC/HBC/VBC3/AIMC/VBC/GenerateAI" to="." method="_on_GenerateAI_toggled"]
+[connection signal="text_changed" from="PC/VBC/HBC/VBC3/AIMC/VBC/URLVBC/KAIURLInput" to="." method="_on_KAIURLInput_text_changed"]
+[connection signal="text_changed" from="PC/VBC/HBC/VBC3/AIMC/VBC/URLVBC/KAIPortInput" to="." method="_on_KAIPortInput_text_changed"]
 [connection signal="pressed" from="PC/VBC/ExitToMain" to="." method="_on_ExitToMain_pressed"]

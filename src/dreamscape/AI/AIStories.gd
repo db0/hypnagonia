@@ -24,7 +24,7 @@ func retrieve_torment_story(torment_encounter: Dictionary) -> Dictionary:
 	if torments.has(torment_encounter.name):
 		story = torments[torment_encounter.name]
 		emit_signal("story_used")
-	if torment_encounter.has("ai_prompts"):
+	if torment_encounter.has("ai_prompts") and cfc.game_settings.generate_ai:
 		var thread: Thread = Thread.new()
 		thread.start(self, "regenerate_torment_story", torment_encounter)
 		threads.append(thread)
