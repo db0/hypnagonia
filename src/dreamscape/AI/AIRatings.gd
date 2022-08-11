@@ -1,22 +1,28 @@
-class_name SubmitRatings
+class_name AIRatings
 extends Node
 
+signal ratings_retrieved(ratings_dict, evaluating)
 
-const TELEMETRY_URI := "http://dbzer0.com"
+#const TELEMETRY_URI := "http://dbzer0.com"
+const TELEMETRY_URI := "http://127.0.0.1"
 const TELEMETRY_PORT := 8000
 
+# In case this node is going to be used to submit stories, 
+# we need to know the encounter to submit
 var encounter: SingleEncounter
-# The type of fluff this is. This should be coming from the parent node
+# In case this node is going to be used to submit stories, 
+# we need to know the type of fluff this is. This should be coming from the parent node
 var type: String
-var thread: Thread
+var threads: Array
 
-func _init(_encounter: SingleEncounter, _type: String):
+func _init(_encounter: SingleEncounter = null, _type: String = ''):
 	encounter = _encounter
 	type = _type
 
 
 func story_rated(liked :int) -> void:
 	var thread: Thread = Thread.new()
+	threads.append(thread)
 	thread.start(self, "submit", liked)
 
 
@@ -30,6 +36,27 @@ func submit(classification: int):
 		"client_id": cfc.game_settings['Client UUID'],
 	}
 	var ret = _initiate_rest(HTTPClient.METHOD_POST, "/generation/", data)
+
+
+func retrieve_evaluating_gens() -> void:
+	var thread: Thread = Thread.new()
+	threads.append(thread)
+	thread.start(self, "retrieve_gens", true)
+
+
+func retrieve_finalized_gens() -> void:
+	var thread: Thread = Thread.new()
+	threads.append(thread)
+	thread.start(self, "retrieve_gens", false)
+
+
+func retrieve_gens(evaluating:= true) -> void:
+	var endpoint = "/generations/evaluating/"
+	if not evaluating:
+		endpoint = "/generations/finalized/"
+	var ret = _initiate_rest(HTTPClient.METHOD_GET, endpoint)
+	emit_signal("ratings_retrieved", ret, evaluating)
+
 
 func _initiate_rest(method, endpoint: String, data: Dictionary = {}):
 	var http = HTTPClient.new()

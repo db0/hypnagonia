@@ -44,7 +44,7 @@ They only laughed harder and danced away from me again as if this were the most 
 """,
 	"journal_art": "res://assets/journal/torments/The Laughing One.jpg",
 	"ai_prompts": [
-		"It was the unending cackle { of the laughing ones } that did it",
+		"It was the unending cackle [ of the laughing ones ] that did it",
 		"I found myself surrounded by featureless laughing faces",
 	],
 	"replacement_keywords": {
@@ -104,7 +104,7 @@ I felt a bit dizzy. I had the sensation that I was falling. My stomach lurched, 
 """,
 	"journal_art": "res://assets/journal/torments/Fearmonger.jpg",
 	"ai_prompts": [
-		"The third eye { of the fearmonger } was focused on me",
+		"The third eye [ of the fearmonger ] was focused on me",
 		"As I felt dread encompass me, I looked around to see the Fearmonger focusing on me",
 	],
 	"replacement_keywords": {
@@ -149,7 +149,7 @@ I pleaded for it to go away, but I knew I couldn't shake it. The dark field I wa
 		"In the end, I had learned to overcome the doubt. I wouldn't let them gaslight me anymore. The ugly entity was crippled on the ground breathing out puffs of smoke as I pondered at my triumph. The entity ascended upwards and screamed at me in sheer exasperation and embarassment as it flew away. I knew that that was not the last time I was going to have to confront them. But now, I won't let anyone question my reality.",
 	"journal_art": "res://assets/journal/torments/Gaslighter.jpg",
 	"ai_prompts": [
-		"The sphrerical head { of the gaslighter } dismissed my concerns",
+		"The sphrerical head [ of the gaslighter ] dismissed my concerns",
 		"\"Did it realy happen this way?\", the Gaslighter whispered to me, as I struggled to keep in mind the true memory",
 	],
 	"replacement_keywords": {
@@ -192,7 +192,7 @@ Their whispers lingered in the air, getting more acerbic by the second.
 	"journal_art": "res://assets/journal/torments/Murmurs.jpg",
 	"ai_prompts": [
 		"The murmurs were all around me. I was sure it was about me.",
-		"I hated the whispering judgements { of the murmurs } that were just at the edge of my hearing",
+		"I hated the whispering judgements [ of the murmurs ] that were just at the edge of my hearing",
 	],
 	"replacement_keywords": {
 		"torment_tag1": ["murmurs?","whispers?","judgements?"],
@@ -311,10 +311,10 @@ With that realization, I felt a sense of calm come over me. The ennui dissipated
 """,
 	"journal_art": "res://assets/journal/torments/Clown.jpg",
 	"ai_prompts": [
-		"I found myself in the middle of an argument with a clown",
-		"How long have I been talking to this clown?",
-		"The back and forth between me and the clown was endless",
-		"I've never discussed philosophy { with a clown } in such a manner before",
+#		"I found myself in the middle of an argument with a clown",
+#		"How long have I been talking to this clown?",
+#		"The back and forth between me and the clown was endless",
+		"I've never discussed philosophy [ with a clown ] in such a manner before",
 	],
 	"replacement_keywords": {
 		"torment_tag1": ["clowns?"],
@@ -363,7 +363,7 @@ As I watched, the butterfly began to move closer and I could see that its eyes w
 	"journal_art": "res://assets/journal/torments/Butterfly.jpg",
 	"ai_prompts": [
 		"What a depressive butterfly which has beset me",
-		"The beauty I saw { in the butterfly } was countered by the sadness I felt in it's flutter.",
+		"The beauty I saw [ in the butterfly ] was countered by the sadness I felt in it's flutter.",
 	],
 	"replacement_keywords": {
 		"torment_tag1": ["butterly","butterflies"],
@@ -412,7 +412,7 @@ I try to shake off my superstitions and remind myself that there's probably a ra
 """,
 	"journal_art": "res://assets/journal/torments/Broken Mirror.jpg",
 	"ai_prompts": [
-		"Am I unlucky { to break these mirrors } or is it just bad luck?",
+		"Am I unlucky [ to break these mirrors ] or is it just bad luck?",
 		"I saw myself reflected a thousand times, in the shards of the broken mirror",
 	],
 	"replacement_keywords": {
@@ -472,7 +472,7 @@ Luckily, I had just found I was able to catch myself in the music, because I’d
 """,
 	"journal_art": "res://assets/journal/torments/pialephant.jpg",
 	"ai_prompts": [
-		"The thundering of the ground felt like a perfect accompanyment to the weighty piano sound { coming from the pialephant }.",
+		"The thundering of the ground felt like a perfect accompanyment to the weighty piano sound [ coming from the pialephant ].",
 		"I cowered before the Pialephant, as the piano keyboard that was its nose lay before me, daring me to play the first note.",
 	],
 	"replacement_keywords": {
@@ -533,7 +533,7 @@ Eventually, I turned away from the light and began to wander aimlessly through t
 	"journal_art": "res://assets/journal/torments/The Light Calling.jpg",
 	"ai_prompts": [
 		"Is this the light calling me, the end of the tunnel, or something worse?",
-		"I am beckoned { to The Light Calling } and I cannot stop myself",
+		"I am beckoned [ to The Light Calling ] and I cannot stop myself",
 	],
 	"replacement_keywords": {
 		"torment_tag1": ["the light calling","[Ll]ights?","[Cc]alling"],
@@ -582,7 +582,7 @@ const Squirrel = {
 	"journal_art": "res://assets/journal/torments/Squirrel.jpg",
 	"ai_prompts": [
 		"This squirrel was the worst! It wouldn't let me pass.",
-		"Never before have I encountered such a intimidating rodent { as the squirrel }.",
+		"Never before have I encountered such a intimidating rodent [ as the squirrel ].",
 	],
 	"replacement_keywords": {
 		"torment_tag1": ["squirrels?"],

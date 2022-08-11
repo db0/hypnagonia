@@ -58,6 +58,7 @@ func _ready() -> void:
 	player = Player.new()
 	encounters = SingleRun.new()
 	game_save = GameSave.new()
+	add_child(ai_stories)
 
 
 func reset() -> void:

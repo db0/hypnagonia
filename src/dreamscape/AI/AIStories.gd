@@ -1,30 +1,54 @@
 class_name AIStories
-extends Reference
+extends Node
 
-signal story_used
+enum StoryTypes {
+	GENERATED
+	EVALUATING
+	FINALIZED
+	DEFAULT
+}
 
-# The location and name of the file into which to store game settings
+signal story_used(type)
+
 const STORIES_FILENAME := "user://hypnagonia_stories.dat"
 
 var stories_file = File.new()
 var torments := {}
 var nces := {}
 var threads: Array
+var evaluating_generations: Dictionary
+var finalized_generations: Dictionary
 
+onready var ai_ratings: AIRatings = AIRatings.new()
 
 func _init():
 	load_stories()
 
+func _ready():
+	add_child(ai_ratings)
+	ai_ratings.connect("ratings_retrieved", self, "_on_ratings_received")
+	ai_ratings.retrieve_evaluating_gens()
+	ai_ratings.retrieve_finalized_gens()
 
 func retrieve_torment_story(torment_encounter: Dictionary) -> Dictionary:
 	var story = {
 		"story": torment_encounter["journal_description"],
 		"uuid": "00000000-0000-0000-0000-000000000000"
 	}
-	if torments.has(torment_encounter.name):
+	var fresh_evaluation = get_fresh_evaluating_gen(torment_encounter.name, "journal_choice")
+	if fresh_evaluation:
+		story = fresh_evaluation.generation
+		emit_signal("story_used",StoryTypes.EVALUATING)
+		print_debug("using evaluating story")
+	elif torments.has(torment_encounter.name):
 		story = torments[torment_encounter.name]
-		emit_signal("story_used")
-	if torment_encounter.has("ai_prompts") and cfc.game_settings.generate_ai:
+		torments.erase(torment_encounter.name)
+		emit_signal("story_used",StoryTypes.GENERATED)
+		print_debug("using generated story")
+	# We don't want to generate a story if there's an unused one already
+	if torment_encounter.has("ai_prompts")\
+			and cfc.game_settings.generate_ai\
+			and not torments.has(torment_encounter.name):
 		var thread: Thread = Thread.new()
 		thread.start(self, "regenerate_torment_story", torment_encounter)
 		threads.append(thread)
@@ -43,8 +67,8 @@ func regenerate_torment_story(torment_encounter: Dictionary) -> void:
 	if not new_story:
 		return
 	var regex = RegEx.new()
-	regex.compile("{ [\\w ]+ }")
-	var full_story : String = regex.sub(ai_prompt, '') + new_story
+	regex.compile(" \\[ [\\w ]+ \\] ")
+	var full_story : String = regex.sub(ai_prompt, ' ') + new_story
 	if torment_encounter.has("replacement_keywords"):
 		for ttag in torment_encounter.replacement_keywords:
 			for kw in torment_encounter.replacement_keywords[ttag]:
@@ -60,6 +84,7 @@ func regenerate_torment_story(torment_encounter: Dictionary) -> void:
 	}
 	save_stories()
 
+# Saves previously generated stories that have not yet been used
 func save_stories() -> void:
 	stories_file.open(STORIES_FILENAME, File.WRITE)
 	var stories = {
@@ -70,6 +95,7 @@ func save_stories() -> void:
 #	file.store_string(JSON.print(state, '\t'))
 	stories_file.close()
 
+# Loads previously generated stories that have not yet been used
 func load_stories() -> void:
 	if not stories_file_exists():
 		return
@@ -81,7 +107,43 @@ func load_stories() -> void:
 	# warning-ignore:return_value_discarded
 	torments = data.torments
 	nces = data.nces
-	
+
+
+# Retrieves a generation under evaluation which has not yet been rated by this client
+func get_fresh_evaluating_gen(name: String, type: String):
+	var collected_generations = get_generations(name, type, true)
+	for gen in collected_generations:
+		var generation : Dictionary = collected_generations[gen]
+		if cfc.game_settings['Client UUID'] in generation["ratings"]:
+			continue
+		return(generation)
+
+
+# Retrieves a generation of the correct specification
+func get_generations(name: String, type: String, evaluating: bool) -> Dictionary:
+	var requested_generations: Dictionary
+	if evaluating:
+		 requested_generations = evaluating_generations
+	else:
+		requested_generations = finalized_generations
+	var collected_generations := {}
+	for gen in requested_generations:
+		var generation : Dictionary = requested_generations[gen]
+		if generation["title"] != name:
+			continue
+		if generation["type"] != type:
+			continue
+		collected_generations[gen] = generation
+	return(collected_generations)
+
+
 func stories_file_exists() -> bool:
 	return(stories_file.file_exists(STORIES_FILENAME))
-	
+
+
+# Stores the downloaded ratings to the internal variables
+func _on_ratings_received(ratings_dict: Dictionary, evaluating: bool) -> void:
+	if evaluating:
+		evaluating_generations = ratings_dict
+	else:
+		finalized_generations = ratings_dict
