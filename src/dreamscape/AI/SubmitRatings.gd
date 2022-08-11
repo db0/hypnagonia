@@ -2,7 +2,7 @@ class_name SubmitRatings
 extends Node
 
 
-const TELEMETRY_URI := "http://127.0.0.1"
+const TELEMETRY_URI := "http://dbzer0.com"
 const TELEMETRY_PORT := 8000
 
 var encounter: SingleEncounter
@@ -16,10 +16,6 @@ func _init(_encounter: SingleEncounter, _type: String):
 
 
 func story_rated(liked :int) -> void:
-	var desc = "Liked"
-	if not liked:
-		desc = "Disliked"
-#	print_debug(desc + " Story: "+ encounter.description_uuid)
 	var thread: Thread = Thread.new()
 	thread.start(self, "submit", liked)
 
@@ -33,7 +29,6 @@ func submit(classification: int):
 		"classification": classification,
 		"client_id": cfc.game_settings['Client UUID'],
 	}
-	print_debug(data)
 	var ret = _initiate_rest(HTTPClient.METHOD_POST, "/generation/", data)
 
 func _initiate_rest(method, endpoint: String, data: Dictionary = {}):
@@ -51,15 +46,15 @@ func _initiate_rest(method, endpoint: String, data: Dictionary = {}):
 		else:
 			# Synchronous HTTP requests are not supported on the web,
 			# so wait for the next main loop iteration.
-			yield(Engine.get_main_loop(), "idle_frame")	
+			yield(Engine.get_main_loop(), "idle_frame")
 
 	# Could not connect
-	assert(http.get_status() == HTTPClient.STATUS_CONNECTED)		
+	assert(http.get_status() == HTTPClient.STATUS_CONNECTED)
 	var headers = ["Content-Type: application/json"]
 	var query = JSON.print(data)
 	err = http.request(method, endpoint, headers, query)
 	while http.get_status() == HTTPClient.STATUS_REQUESTING:
-		# Keep polling for as long as the request is being processed.		
+		# Keep polling for as long as the request is being processed.
 		http.poll()
 		if not OS.has_feature("web"):
 			OS.delay_msec(500)

@@ -21,6 +21,7 @@ static func generate(prompt: String, gentype: int):
 		"prompt": prompt,
 		"frmttriminc": true,
 		"use_memory": true,
+		"disable_output_formatting": false,
 	}
 #	print("generate():" + prompt)
 	for k in DEFAULTS[gentype]:
