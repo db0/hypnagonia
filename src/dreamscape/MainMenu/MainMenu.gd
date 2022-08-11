@@ -66,6 +66,8 @@ func _ready() -> void:
 	_readme_label.text = README
 	randomize()
 	cfc.game_rng_seed = CFUtils.generate_random_seed()
+	if not cfc.game_settings.has('Client UUID'):
+		cfc.set_setting('Client UUID', UUID.v4())
 	SUBTITLES.shuffle()
 	continue_button.visible = globals.game_save.save_file_exists()
 	_subtitle.text = SUBTITLES[0]

@@ -29,6 +29,7 @@ As an example:
 
 const TheLaughingOnes = {
 	"name": "The Laughing Ones",
+	"title": "Surrounded by mocking laughter",
 	"journal_description":\
 """It was the unending cackle that did it. I'd had enough.
 I turned to face my tormentors and found myself between [url={torment_tag1}]a pair of featureless creeps laughing[/url].
@@ -43,8 +44,12 @@ They only laughed harder and danced away from me again as if this were the most 
 """,
 	"journal_art": "res://assets/journal/torments/The Laughing One.jpg",
 	"ai_prompts": [
-		""
+		"It was the unending cackle { of the laughing ones } that did it",
+		"I found myself surrounded by featureless laughing faces",
 	],
+	"replacement_keywords": {
+		"torment_tag1": ["featureless","laughing","cackling","laughter", "lol", "rofl", "roflmao"],
+	},
 	"enemies": {
 		"easy": [
 			{
@@ -89,6 +94,7 @@ They only laughed harder and danced away from me again as if this were the most 
 
 const Fearmonger = {
 	"name": "Fearmonger",
+	"title": "The Fearmonger watches",
 	"journal_description":\
 """[url={torment_tag1}]Three eyes staring at me[/url], the first was a piercing blue that seemed to bore through me, the second was a deep black that hid my true nature, and the third was a bright yellow that I couldn't look away from.
 I felt a bit dizzy. I had the sensation that I was falling. My stomach lurched, and my breath caught in my throat. It all felt so real. I was floating in the middle of the night, staring at the third eye, and I couldn't move. I had to look away.
@@ -97,6 +103,13 @@ I felt a bit dizzy. I had the sensation that I was falling. My stomach lurched, 
 """The experience was definitely strange, and it left me feeling a bit unsettled. It's hard to say what exactly the owl represented, but it seemed to be some sort of symbol of wisdom or knowledge. Perhaps the three eyes represented different aspects of knowledge (past, present, and future?) or different ways of seeing things (logic, emotion, intuition?). In any case, the experience taught me that there is more to life than what we can see with our physical eyes. There are other ways of knowing and understanding the world around us.
 """,
 	"journal_art": "res://assets/journal/torments/Fearmonger.jpg",
+	"ai_prompts": [
+		"The third eye { of the fearmonger } was focused on me",
+		"As I felt dread encompass me, I looked around to see the Fearmonger focusing on me",
+	],
+	"replacement_keywords": {
+		"torment_tag1": ["fearmonger","dread","state","staring"],
+	},
 	"enemies": {
 		"easy": [
 			{
@@ -124,6 +137,7 @@ I felt a bit dizzy. I had the sensation that I was falling. My stomach lurched, 
 
 
 const Gaslighter = {
+	"title": "Gaslight manifest",
 	"name": "Gaslighter",
 	"journal_description":\
 """It was dark as I was standing in an open field. A light flickered in the dark, filling my body with suspense as I wondered what it was coming from.
@@ -134,6 +148,13 @@ I pleaded for it to go away, but I knew I couldn't shake it. The dark field I wa
 	"journal_reward":\
 		"In the end, I had learned to overcome the doubt. I wouldn't let them gaslight me anymore. The ugly entity was crippled on the ground breathing out puffs of smoke as I pondered at my triumph. The entity ascended upwards and screamed at me in sheer exasperation and embarassment as it flew away. I knew that that was not the last time I was going to have to confront them. But now, I won't let anyone question my reality.",
 	"journal_art": "res://assets/journal/torments/Gaslighter.jpg",
+	"ai_prompts": [
+		"The sphrerical head { of the gaslighter } dismissed my concerns",
+		"\"Did it realy happen this way?\", the Gaslighter whispered to me, as I struggled to keep in mind the true memory",
+	],
+	"replacement_keywords": {
+		"torment_tag1": ["gaslighters?","gaslighting"],
+	},
 	"enemies": {
 		"easy": [
 			{
@@ -159,6 +180,7 @@ I pleaded for it to go away, but I knew I couldn't shake it. The dark field I wa
 
 const Murmurs = {
 	"name": "Murmurs",
+	"title": "Murmurs in the wind",
 	"journal_description":\
 """I thought I heard [url={torment_tag1}]murmurs in the wind[/url]. Were they talking about [i]that[/i] time..?
 By the minute, I was getting more certain that they were talking about me, and this had only left me more upset.
@@ -168,6 +190,13 @@ Their whispers lingered in the air, getting more acerbic by the second.
 """Their blame and resentment had me at my breaking point. Yet I stood firm them and reinforced my self-esteem. At this point, I had learned life is too short to keep grudges.
 """,
 	"journal_art": "res://assets/journal/torments/Murmurs.jpg",
+	"ai_prompts": [
+		"The murmurs were all around me. I was sure it was about me.",
+		"I hated the whispering judgements { of the murmurs } that were just at the edge of my hearing",
+	],
+	"replacement_keywords": {
+		"torment_tag1": ["murmurs?","whispers?","judgements?"],
+	},
 	"enemies": {
 		"easy": [
 			{
@@ -206,7 +235,8 @@ Their whispers lingered in the air, getting more acerbic by the second.
 #Summary  [Entities with enlarged sense organs detecting my flaws]
 #Avoid [I woke up, wake up, awaken, I was dreaming]
 const TheCritic = {
-	"name": "Critics",
+	"name": "The Critic",
+	"title": "The Critic's uncomfortable gaze",
 	"journal_description":\
 """I was in the middle of my usual morning jog when I noticed them.
 At first I thought they were birds, but then I realized they were something else entirely.
@@ -219,6 +249,13 @@ Do these creatures represent some kind of uncanny valley where everyday objects 
 Or is this a commentary on the nature of criticism itself? Whatever the case may be, it's certainly a surreal experience that I won't soon forget.
 """,
 	"journal_art": "res://assets/journal/torments/The Critic.jpg",
+	"ai_prompts": [
+		"The hilarity of their appearance wasn't enough to dull the cut of their review as the critics beset me",
+		"Each assessment painfull accurate, the critics were callous in their critique.",
+	],
+	"replacement_keywords": {
+		"torment_tag1": ["critics?","critique","judgement"],
+	},
 	"enemies": {
 		"easy": [
 			{
@@ -263,6 +300,7 @@ Or is this a commentary on the nature of criticism itself? Whatever the case may
 #Avoided concepts [woke up, wake up, awaken]
 const Clown = {
 	"name": "Clown",
+	"title": "Arguing with a Clown",
 	"journal_description":\
 """I found myself in the middle of an argument [url={torment_tag1}]with a clown[/url]. It was a surreal experience, and I couldn't quite make sense of what was happening. The clown seemed to be tormenting me, but I wasn't sure why. Suddenly, I felt an overwhelming sense of ennui wash over me. It was as if nothing mattered any more. All that existed was this pointless argument with the clown.
 """,
@@ -276,8 +314,11 @@ With that realization, I felt a sense of calm come over me. The ennui dissipated
 		"I found myself in the middle of an argument with a clown",
 		"How long have I been talking to this clown?",
 		"The back and forth between me and the clown was endless",
-		"I've never discussed philosophy in such a manner before",
+		"I've never discussed philosophy { with a clown } in such a manner before",
 	],
+	"replacement_keywords": {
+		"torment_tag1": ["clowns?"],
+	},
 	"enemies": {
 		"easy": [
 			{
@@ -310,6 +351,7 @@ With that realization, I felt a sense of calm come over me. The ennui dissipated
 #Avoid [I woke up, wake up, awaken]
 const Butterfly = {
 	"name": "Butterfly",
+	"title": "Such a depressive butterfly",
 	"journal_description":\
 """I was having a conversation with a friend about something completely mundane when I noticed [url={torment_tag1}]a dark butterfly nearby[/url]. It was incredibly beautiful, but its beauty was overshadowed by the fact that it seemed to be in pain. It's wings were drooping and it looked like it was struggling to stay alive.
 
@@ -319,6 +361,13 @@ As I watched, the butterfly began to move closer and I could see that its eyes w
 """Though it was beautiful, the dark butterfly was a reminder of the pain and sadness that often plagues us. Its presence was a jarring contrast to the mundanity of my everyday life and its uncanniness sent shivers down my spine. In some ways, it felt like a token of death, but in others, I glimpsed a glimmer of hope.
 """,
 	"journal_art": "res://assets/journal/torments/Butterfly.jpg",
+	"ai_prompts": [
+		"What a depressive butterfly which has beset me",
+		"The beaty I saw { in the butterfly } was countered by the sadness I felt in it's flutter.",
+	],
+	"replacement_keywords": {
+		"torment_tag1": ["butterly","butterflies"],
+	},
 	"enemies": {
 		"easy": [
 			{
@@ -352,6 +401,7 @@ As I watched, the butterfly began to move closer and I could see that its eyes w
 #Avoid [I woke up, wake up, awaken]
 const BrokenMirrors = {
 	"name": "Broken Mirrors",
+	"title": "The kaleidoscope of broken mirrors",
 	"journal_description":\
 """I glance over at the [url={torment_tag1}]broken mirror[/url] on my bedside table and shudder. It's not like I didn't know it was there; I could see the cracked glass from across the room. But now that it's so close, I can't help but feel a sense of dread. Am I cursed by this broken mirror, or is it just the random happenstance of bad luck?
 
@@ -361,6 +411,13 @@ I try to shake off my superstitions and remind myself that there's probably a ra
 """But even as I write this, I can't shake the feeling that there's something more to it. That maybe this broken mirror is a dark shadow of myself, an evil twin that's been following me around and bringing me nothing but bad luck.
 """,
 	"journal_art": "res://assets/journal/torments/Broken Mirror.jpg",
+	"ai_prompts": [
+		"Am I unlucky { to break these mirrors } or is it just bad luck?",
+		"I saw myself reflected a thousand times, in the shards of the broken mirror",
+	],
+	"replacement_keywords": {
+		"torment_tag1": ["broken mirror","mirror","broken"],
+	},
 	"enemies": {
 		"easy": [
 			{
@@ -399,6 +456,7 @@ I try to shake off my superstitions and remind myself that there's probably a ra
 
 const Pialephant = {
 	"name": "Pialephant",
+	"title": "Pachydermic Music",
 	"journal_description":\
 """I felt a feeling of excitement wash over me, as I heard a rumble in the clouds under my feet.
 I had thought it was a storm at first, but I had realized it was the circus coming straight towards me with great surprise!
@@ -413,6 +471,13 @@ Hopefully it didn’t play something sharp, or else my balloon would become a co
 Luckily, I had just found I was able to catch myself in the music, because I’d B-flat on the ground otherwise.
 """,
 	"journal_art": "res://assets/journal/torments/pialephant.jpg",
+	"ai_prompts": [
+		"The thundering of the ground felt like a perfect accompanyment to the weighty piano sound { coming from the pialephant }.",
+		"I cowered before the Pialephant, as the piano keyboard that was its nose lay before me, daring me to play the first note.",
+	],
+	"replacement_keywords": {
+		"torment_tag1": ["pialephants?","elephants?","piano keyboard","pianos?","keyboards?"],
+	},
 	"enemies": {
 		"easy": [
 			{
@@ -454,6 +519,7 @@ Luckily, I had just found I was able to catch myself in the music, because I’d
 #Avoid [I woke up, wake up, awaken, I was dreaming]
 const TheLightCalling = {
 	"name": "The Light Calling",
+	"title": "The Light Calling",
 	"journal_description":\
 """I'm not sure how I got here. One moment I was in my bed, and the next I was floating through some kind of odd, surreal landscape. It felt like I was having a near death experience; everything had an intense sense of calm about it, but there was also a underlying feeling of dread that kept me from enjoying it too much.
 
@@ -465,6 +531,13 @@ Eventually though, the weirdness began to pass and I found myself ascending towa
 Eventually, I turned away from the light and began to wander aimlessly through the planes until I found myself back where I started.
 """,
 	"journal_art": "res://assets/journal/torments/The Light Calling.jpg",
+	"ai_prompts": [
+		"Is this the light calling me, the end of the tunnel, or something worse?",
+		"I am beckoned { to The Light Calling } and I cannot stop myself",
+	],
+	"replacement_keywords": {
+		"torment_tag1": ["the light calling","[Ll]ights?","[Cc]alling"],
+	},
 	"enemies": {
 		"easy": [
 			{
@@ -499,6 +572,7 @@ Eventually, I turned away from the light and began to wander aimlessly through t
 #Avoid [I woke up, wake up, awaken, I was dreaming]
 const Squirrel = {
 	"name": "Squirrel",
+	"title": "One pissed off rodent",
 	"journal_description":\
 """I found myself staring down [url={torment_tag1}]a squirrel[/url] as it gave me the stink-eye. I wondered what was going through its head, as nut season had come and gone and it clearly wasn't getting any food from me. It must have been incredibly frustrating for the poor creature.
 """,
@@ -506,6 +580,13 @@ const Squirrel = {
 """As I watched, the squirrel tensed up and seemed to be gathering itself for something. I braced myself for an attack, but to my surprise, the squirrel simply exploded into a cloud of nuts. It was such a comical sight that I couldn't help but laugh out loud. In spite of the absurdity of the situation, it felt like a calm before the storm; I could feel upset brewing in the air.
 """,
 	"journal_art": "res://assets/journal/torments/Squirrel.jpg",
+	"ai_prompts": [
+		"This squirrel was the worst! It wouldn't let me pass.",
+		"Never before have I encountered such a intimidating rodent { as the squirrel }.",
+	],
+	"replacement_keywords": {
+		"torment_tag1": ["squirrels?"],
+	},
 	"enemies": {
 		"easy": [
 			{
@@ -545,6 +626,7 @@ const Squirrel = {
 #Avoid [I woke up, wake up, awaken, I was dreaming]
 const Baby = {
 	"name": "Baby",
+	"title": "The struggles of the unprepared babysitter",
 	"journal_description":\
 """I was babysitting [url={torment_tag1}]a baby[/url] the other day and it was so fussy. It wouldn't stop crying no matter what I did. The worst part was that it was so new and strange to me. I had never taken care of a baby before, and I wasn't sure if I was doing everything right.
 
@@ -556,6 +638,13 @@ I got really stressed out trying to take care of it, and the whole experience ju
 Even though it was stressful taking care of the baby, overall I found the experience to be quite rewarding. I'm glad I got to babysit it and learn more about what it's like to take care of a child.
 """,
 	"journal_art": "res://assets/journal/torments/baby.jpeg",
+	"ai_prompts": [
+		"I found myself at babysitting duty. I did not feel ready.",
+		"The situation was not optimal. The baby was already edging towards a tantrum and my hands were full.",
+	],
+	"replacement_keywords": {
+		"torment_tag1": ["baby","babies","babysitting"],
+	},
 	"enemies": {
 		"easy": [
 			{

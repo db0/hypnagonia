@@ -1,74 +1,55 @@
-class_name KoboldAI
-extends Reference
-
-enum GenerationTypes {
-	TORMENT_INTRO
-	TORMENT_TAUNT
-}
-
-const DEFAULTS := {
-	GenerationTypes.TORMENT_INTRO: {
-		"max_length": 80
-	},
-	GenerationTypes.TORMENT_TAUNT: {
-		"max_length": 40
-	}
-}
-
-const KAI_URI := "http://127.0.0.1"
-const KAI_PORT := 5000
+class_name SubmitRatings
+extends Node
 
 
-static func generate(prompt: String, gentype: int):
+const TELEMETRY_URI := "http://127.0.0.1"
+const TELEMETRY_PORT := 8000
+
+var encounter: SingleEncounter
+# The type of fluff this is. This should be coming from the parent node
+var type: String
+var thread: Thread
+
+func _init(_encounter: SingleEncounter, _type: String):
+	encounter = _encounter
+	type = _type
+
+
+func story_rated(liked:= true) -> void:
+	var desc = "Liked"
+	if not liked:
+		desc = "Disliked"
+	print_debug(desc + " Story: "+ encounter.description_uuid)
+	var thread: Thread = Thread.new()
+	thread.start(self, "submit", liked)
+
+
+#        parser.add_argument("uuid", type=str, required=True, help="UUID of the generation")
+#        parser.add_argument("generation", type=str, required=True, help="Content of the generattion")
+#        parser.add_argument("title", type=str, required=True, help="The name of the thing for which we're generating")
+#        parser.add_argument("type", type=str, required=True, help="The type of generation it is. This is used for finding previous such generations")
+#        parser.add_argument("liked", type=bool, required=True, help="True if the user liked it, False if they did not.")
+#        parser.add_argument("client_id", type=str, required=True, help="The unique ID for this version of Hypnagonia client")
+
+func submit(liked: bool):
 	var data := {
-		"prompt": prompt,
-		"frmttriminc": true,
-		"use_memory": true,
+		"uuid": encounter.description_uuid,
+		"generation": encounter.description,
+		"title": encounter.title,
+		"type": type,
+		"liked": liked,
+		"client_id": cfc.game_settings['Client UUID'],
 	}
+	print_debug(data)
 #	print("generate():" + prompt)
-	for k in DEFAULTS[gentype]:
-		data[k] = DEFAULTS[gentype][k]
 #	print("generate():" + str(data))
 #	print(data)
-	var ret = _initiate_rest(HTTPClient.METHOD_POST, "/api/latest/generate/", data)
-	if ret:
-		return(ret.results[0].text)
+	var ret = _initiate_rest(HTTPClient.METHOD_POST, "/generation/", data)
 
-
-static func get_gui_story():
-	var ret = _initiate_rest(HTTPClient.METHOD_GET, "/api/latest/story")
-	if ret:
-		return(ret.results)
-
-
-static func get_story():
-	var ret = _initiate_rest(HTTPClient.METHOD_GET, "/api/latest/config/memory")
-	if ret:
-		return(ret.value)
-
-
-static func put_memory(value: String):
-	var data := {
-		"value": value,
-	}
-	var ret = _initiate_rest(HTTPClient.METHOD_PUT, "/api/latest/config/memory", data)
-	if ret:
-		return(ret.value)
-
-
-static func post_gui_story(prompt: String):
-	var data := {
-		"prompt": prompt,
-	}
-	var ret = _initiate_rest(HTTPClient.METHOD_POST, "/api/latest/story/end", data)
-	if ret:
-		return(ret.result.text)
-
-
-static func _initiate_rest(method, endpoint: String, data: Dictionary = {}):
+func _initiate_rest(method, endpoint: String, data: Dictionary = {}):
 	var http = HTTPClient.new()
 	# Connect to host/port.
-	var err = http.connect_to_host(KAI_URI, KAI_PORT)
+	var err = http.connect_to_host(TELEMETRY_URI, TELEMETRY_PORT)
 	# Make sure connection was OK.
 	assert(err == OK)
 	# Wait until resolved and connected.
@@ -103,7 +84,7 @@ static func _initiate_rest(method, endpoint: String, data: Dictionary = {}):
 		# If there is a response...
 		headers = http.get_response_headers_as_dictionary() # Get response headers.
 #		print_debug("**headers:\\n", headers) # Show headers.
-		if http.get_response_code() == 200:
+		if http.get_response_code() in [200, 204]:
 			# Array that will hold the data.
 			var rb = PoolByteArray()
 			while http.get_status() == HTTPClient.STATUS_BODY:
