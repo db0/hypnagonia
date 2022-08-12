@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Shamrock.png-fc0a23fcd3cd9deba93fe427b1512f8d.stex"
+path="res://.import/Fancy Nail Coat.png-0197274b3b38ae4852354852298198fb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/artifacts/Shamrock.png"
-dest_files=[ "res://.import/Shamrock.png-fc0a23fcd3cd9deba93fe427b1512f8d.stex" ]
+source_file="res://assets/icons/artifacts/Fancy Nail Coat.png"
+dest_files=[ "res://.import/Fancy Nail Coat.png-0197274b3b38ae4852354852298198fb.stex" ]
 
 [params]
 

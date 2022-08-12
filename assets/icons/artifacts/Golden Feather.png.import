@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/eel.png-a38a6b63e99face39fd4949f29a1b5f7.stex"
+path="res://.import/Golden Feather.png-76ab9f411864f023eebf8f2a556124f4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/artifacts/eel.png"
-dest_files=[ "res://.import/eel.png-a38a6b63e99face39fd4949f29a1b5f7.stex" ]
+source_file="res://assets/icons/artifacts/Golden Feather.png"
+dest_files=[ "res://.import/Golden Feather.png-76ab9f411864f023eebf8f2a556124f4.stex" ]
 
 [params]
 

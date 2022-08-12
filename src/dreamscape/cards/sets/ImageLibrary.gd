@@ -185,6 +185,7 @@ const FINAL_IMAGES := {
 	"Stimulated": "res://assets/cards/Stimulated.jpg",
 	"Lethe": "res://assets/cards/Lethe.jpg",
 	"Self-Centered": "res://assets/cards/Self-Centered.jpg",
+	"Languor": "res://assets/cards/Languor.jpg",
 }
 const BETA_IMAGES := {
 	"Catatonia": "res://assets/cards/Catatonia.jpg",

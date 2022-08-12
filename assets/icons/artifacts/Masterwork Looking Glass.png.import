@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Shamrock.png-fc0a23fcd3cd9deba93fe427b1512f8d.stex"
+path="res://.import/Masterwork Looking Glass.png-bfa78184f1298bed514c22f1dfb27931.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/artifacts/Shamrock.png"
-dest_files=[ "res://.import/Shamrock.png-fc0a23fcd3cd9deba93fe427b1512f8d.stex" ]
+source_file="res://assets/icons/artifacts/Masterwork Looking Glass.png"
+dest_files=[ "res://.import/Masterwork Looking Glass.png-bfa78184f1298bed514c22f1dfb27931.stex" ]
 
 [params]
 

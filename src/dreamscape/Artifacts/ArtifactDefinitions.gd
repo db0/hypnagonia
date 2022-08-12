@@ -465,7 +465,7 @@ const AccumulateArtifact := {
 	"canonical_name": "AccumulateArtifact",
 	"name": "Repressed Desire",
 	"description": "{artifact_name}: Increase your repressed Desire",
-	"icon": GENERIC_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/artifacts/Repressed Desire.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"amounts": {
@@ -507,7 +507,7 @@ const ImproveImpervious := {
 	"canonical_name": "ImproveImpervious",
 	"name": "Pet Eel",
 	"description": "{artifact_name}: {impervious} {stress} reduction on the dreamer is increased by 3% per stack.",
-	"icon": preload("res://assets/icons/artifacts/eel.png"),
+	"icon": preload("res://assets/icons/artifacts/Pet Eel.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -710,7 +710,7 @@ const IncreaseRandomDamage := {
 	"canonical_name": "IncreaseRandomDamage",
 	"name": "Masterwork Looking Glass",
 	"description": "{artifact_name}: A random card doing {attack} in your deck, will increase its {attack} by 1.",
-	"icon": GENERIC_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/artifacts/Masterwork Looking Glass.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"linked_terms": [
@@ -722,7 +722,7 @@ const IncreaseRandomDefence := {
 	"canonical_name": "IncreaseRandomDefence",
 	"name": "Fancy Nail Coat",
 	"description": "{artifact_name}: A random card giving {defence} in your deck, will increase its {defence} by 1.",
-	"icon": GENERIC_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/artifacts/Fancy Nail Coat.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"linked_terms": [
@@ -758,7 +758,7 @@ const BetterArtifactChance := {
 	"canonical_name": "BetterArtifactChance",
 	"name": "Supportive Plushie",
 	"description": "{artifact_name}: The quality of the curios your find is increased.",
-	"icon": GENERIC_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/artifacts/Supportive Plushie.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Encounter",
 	"amounts": {
@@ -850,7 +850,7 @@ const DoubleFirstStartup := {
 	"canonical_name": "DoubleFirstStartup",
 	"name": "Birthday Gift",
 	"description": "{artifact_name}: One random {startup} effect is triggered twice.",
-	"icon": GENERIC_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/artifacts/Birthday Gift.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
 	"linked_terms": [
@@ -1008,7 +1008,7 @@ const ConstantImpervious := {
 	"canonical_name": "ConstantImpervious",
 	"name": "Golden Feather",
 	"description": "{artifact_name}: At the start of each turn, gain {effect_stacks} {impervious}",
-	"icon": GENERIC_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/artifacts/Golden Feather.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Rare",
 	"amounts": {
@@ -1039,7 +1039,7 @@ const ThickHeal := {
 	"canonical_name": "ThickHeal",
 	"name": "Fluffy Pillow",
 	"description": "{artifact_name}: Every turn, {relax} for {heal_amount}. Every time you reshuffle your deck, take {exert_amount} {player_health}.",
-	"icon": GENERIC_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/artifacts/Fluffy Pillow.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -1069,7 +1069,7 @@ const ThickDeckRareChance := {
 	"canonical_name": "ThickDeckRareChance",
 	"name": "Muumuu",
 	"description": "{artifact_name}: If your deck has {card_amount} or more cards, your chance of finding Rare cards is doubled.",
-	"icon": GENERIC_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/artifacts/Muumuu.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"amounts": {
@@ -1155,7 +1155,7 @@ const LightningMarble := {
 	"canonical_name": "LightningMarble",
 	"name": "Lightning Marble",
 	"description": "{artifact_name}: At the end of each turn turn, {attack} one random Torment for {damage_amount}.",
-	"icon": GENERIC_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/artifacts/Lightning Marble.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -1197,7 +1197,7 @@ const ThickBoss := {
 	"name": "Buddha Figurine",
 	"description": "{artifact_name}: You have {immersion_amount} extra {energy} per turn.\n"\
 			+ "At the start of each ordeal, add a number of Perturbations in your discard pile until your deck size is {min_deck_size}",
-	"icon": GENERIC_BOSS_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/artifacts/Buddha Figurine.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Boss",
 	"amounts": {
@@ -1215,7 +1215,7 @@ const NoChoice := { # TODO: Tests
 	"name": "Funky Compass",
 	"description": "{artifact_name}: You have {immersion_amount} extra {energy} per turn.\n"\
 			+ "You only ever get 1 choice for each journal page",
-	"icon": GENERIC_BOSS_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/artifacts/Funky Compass.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Boss",
 	"amounts": {
@@ -1232,7 +1232,7 @@ const CostlyUpgrades := {
 	"name": "Costly Upgrades",
 	"description": "{artifact_name}: You have {immersion_amount} extra {energy} per turn.\n"\
 			+ "Reduce the amount of masteries gained from torment encounters by 30%",
-	"icon": GENERIC_BOSS_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/artifacts/Mnemonic Ritual.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Boss",
 	"amounts": {

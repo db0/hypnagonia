@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Shamrock.png-fc0a23fcd3cd9deba93fe427b1512f8d.stex"
+path="res://.import/Languor.jpg-c92a169ba2cfde8a88bdb32e1e18dc94.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/artifacts/Shamrock.png"
-dest_files=[ "res://.import/Shamrock.png-fc0a23fcd3cd9deba93fe427b1512f8d.stex" ]
+source_file="res://assets/cards/Languor.jpg"
+dest_files=[ "res://.import/Languor.jpg-c92a169ba2cfde8a88bdb32e1e18dc94.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Shamrock.png-fc0a23fcd3cd9deba93fe427b1512f8d.stex"
+path="res://.import/Lightning Marble.png-2d13a6bf981898a76f1eff2c52bdbf4d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/artifacts/Shamrock.png"
-dest_files=[ "res://.import/Shamrock.png-fc0a23fcd3cd9deba93fe427b1512f8d.stex" ]
+source_file="res://assets/icons/artifacts/Lightning Marble.png"
+dest_files=[ "res://.import/Lightning Marble.png-2d13a6bf981898a76f1eff2c52bdbf4d.stex" ]
 
 [params]
 
