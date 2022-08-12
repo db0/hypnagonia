@@ -4,6 +4,8 @@ var CE := load("res://src/dreamscape/Run/EnemiesEncounter.gd")
 var JOURNAL_ENCOUNTER_CHOICE_SCENE = load("res://src/dreamscape/Overworld/JournalEncounterChoiceScene.tscn")
 
 var gut_enemy_definition = {
+	"name": "GUT",
+	"title": "This is a Test",
 	"journal_description":\
 		"This [url={torment_tag1}]is a test[/url].",
 	"journal_reward":\
