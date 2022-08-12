@@ -36,7 +36,7 @@ func _on_Surreal_mouse_entered():
 		return
 	show_description_popup("This is a KoboldAI-generated story. "\
 			+ "Click on this button if you [color=green]liked[/color] this story and you think it has a [color=yellow][b]Surrealist[/b][/color] context. "\
-			+ "This will provide better stories for everyone and"\
+			+ "This will provide better stories for everyone and "\
 			+ "help us train the AI system to distinguish such stories and provide better generations.")
 
 
@@ -45,7 +45,7 @@ func _on_Comedy_mouse_entered():
 		return
 	show_description_popup("This is a KoboldAI-generated story. "\
 			+ "Click on this button if you [color=green]liked[/color] this story and you think it has a [color=yellow][b]Comedy[/b][/color] context. "\
-			+ "This will provide better stories for everyone and"\
+			+ "This will provide better stories for everyone and "\
 			+ "help us train the AI system to distinguish such stories and provide better generations.")
 
 func _on_Horror_mouse_entered():
@@ -53,7 +53,7 @@ func _on_Horror_mouse_entered():
 		return
 	show_description_popup("This is a KoboldAI-generated story. "\
 			+ "Click on this button if you [color=green]liked[/color] this story and you think it has a [color=yellow][b]Horror[/b][/color] context. "\
-			+ "This will provide better stories for everyone and"\
+			+ "This will provide better stories for everyone and "\
 			+ "help us train the AI system to distinguish such stories and provide better generations.")
 
 func _on_button_mouse_exited():
