@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.63.0](https://github.com/db0/hypnagonia/tree/v0.63.0) (2022-08-12)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.62.0...v0.63.0)
+
+**Merged pull requests:**
+
+- KoboldAI Integration [\#411](https://github.com/db0/hypnagonia/pull/411) ([db0](https://github.com/db0))
+
 ## [v0.62.0](https://github.com/db0/hypnagonia/tree/v0.62.0) (2022-08-05)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.61.3...v0.62.0)
@@ -398,20 +406,20 @@
 
 ## [v0.50.4](https://github.com/db0/hypnagonia/tree/v0.50.4) (2022-04-28)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.3...v0.50.4)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.2...v0.50.4)
 
 **Merged pull requests:**
 
 - fix: Rest upgrade should only do 5 steps [\#312](https://github.com/db0/hypnagonia/pull/312) ([db0](https://github.com/db0))
 - content\(art\): More Flyercards from @SkylarkHYP [\#311](https://github.com/db0/hypnagonia/pull/311) ([db0](https://github.com/db0))
 
-## [v0.50.3](https://github.com/db0/hypnagonia/tree/v0.50.3) (2022-04-27)
-
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.2...v0.50.3)
-
 ## [v0.50.2](https://github.com/db0/hypnagonia/tree/v0.50.2) (2022-04-27)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.1...v0.50.2)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.3...v0.50.2)
+
+## [v0.50.3](https://github.com/db0/hypnagonia/tree/v0.50.3) (2022-04-27)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.1...v0.50.3)
 
 **Merged pull requests:**
 
@@ -689,7 +697,7 @@
 
 ## [v0.39.0](https://github.com/db0/hypnagonia/tree/v0.39.0) (2022-03-17)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.38.0...v0.39.0)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.37.0...v0.39.0)
 
 **Closed issues:**
 
@@ -700,13 +708,13 @@
 
 - Enhancements and Scars can now affect more properties [\#244](https://github.com/db0/hypnagonia/pull/244) ([db0](https://github.com/db0))
 
-## [v0.38.0](https://github.com/db0/hypnagonia/tree/v0.38.0) (2022-03-16)
-
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.37.0...v0.38.0)
-
 ## [v0.37.0](https://github.com/db0/hypnagonia/tree/v0.37.0) (2022-03-16)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.36.0...v0.37.0)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.38.0...v0.37.0)
+
+## [v0.38.0](https://github.com/db0/hypnagonia/tree/v0.38.0) (2022-03-16)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.36.0...v0.38.0)
 
 **Closed issues:**
 
