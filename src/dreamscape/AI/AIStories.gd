@@ -10,6 +10,7 @@ enum StoryTypes {
 
 signal story_used(type)
 
+
 const STORIES_FILENAME := "user://hypnagonia_stories.dat"
 
 var stories_file = File.new()
@@ -74,10 +75,20 @@ func regenerate_torment_story(torment_encounter: Dictionary) -> void:
 	var ai_prompt : String = torment_encounter["ai_prompts"][0]
 	var fmt := {
 		"prompt": ai_prompt,
-		"title": torment_encounter.title
+		"title": torment_encounter.title,
+		"genre": HConst.get_aigenre_description(cfc.game_settings.ai_genre)
 	}
-	var prompt = "[ Title: {title} ]\n{prompt}".format(fmt)
-#	print("regenerate_torment_story():" + prompt)
+	var prompt: String
+	if cfc.game_settings.ai_genre != HConst.AIGenres.RANDOM:
+		prompt = "[ Title: {title} ]\n"\
+			+ "[ Genre: {genre} ]\n"\
+			+ "{prompt}"
+	# We don't have to tell the AI to generate a random Genre.
+	else:
+		prompt = "[ Title: {title} ]\n"\
+			+ "{prompt}"
+	prompt = prompt.format(fmt)
+	print("regenerate_torment_story():" + prompt)
 	var new_story = KoboldAI.generate(prompt, KoboldAI.GenerationTypes.TORMENT_INTRO)
 	if not new_story:
 		return

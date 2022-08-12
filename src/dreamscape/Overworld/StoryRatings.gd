@@ -1,12 +1,5 @@
 extends Control
 
-enum Choiceclassification {
-	Dislike = 0
-	Surrealism
-	Comedy
-	Horror
-}
-
 signal button_pressed(type)
 
 onready var _description_label = $"%RichTextLabel"
@@ -71,33 +64,32 @@ func show_description_popup(description_text: String) -> void:
 		_description_popup.rect_global_position.x -= 10
 
 
-
 func _on_Surreal_pressed():
 #	_disable_buttons()
 	surreal.modulate = Color(0,1,0)
 	_whiten_all_but(surreal)
-	emit_signal("button_pressed", Choiceclassification.Surrealism)
+	emit_signal("button_pressed", HConst.AIGenres.SURREALISM)
 
 
 func _on_Dislike_pressed():
 #	_disable_buttons()
 	dislike.modulate = Color(1,0,0)
 	_whiten_all_but(dislike)
-	emit_signal("button_pressed", Choiceclassification.Dislike)
+	emit_signal("button_pressed", HConst.AIGenres.DISLIKE)
 
 
 func _on_Horror_pressed():
 #	_disable_buttons()
 	horror.modulate = Color(0,1,0)
 	_whiten_all_but(horror)
-	emit_signal("button_pressed", Choiceclassification.Horror)
+	emit_signal("button_pressed", HConst.AIGenres.HORROR)
 
 
 func _on_Comedy_pressed():
 #	_disable_buttons()
 	comedy.modulate = Color(0,1,0)
 	_whiten_all_but(comedy)
-	emit_signal("button_pressed", Choiceclassification.Comedy)
+	emit_signal("button_pressed", HConst.AIGenres.COMEDY)
 
 
 func _disable_buttons() -> void:

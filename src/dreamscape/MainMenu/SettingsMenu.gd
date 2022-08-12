@@ -18,7 +18,7 @@ onready var urlvbc = $"%URLVBC"
 onready var kaiurl_input = $"%KAIURLInput"
 onready var kai_port_input = $"%KAIPortInput"
 onready var ai_label = $"%AILabel"
-
+onready var ai_genre = $"%AIGenre"
 
 var sound_effect_enabled = false
 
@@ -43,6 +43,8 @@ func _ready() -> void:
 	cfc.game_settings['generate_ai'] = cfc.game_settings.get('generate_ai', false)
 	cfc.game_settings['kai_url'] = cfc.game_settings.get('kai_url', "http://127.0.0.1")
 	cfc.game_settings['kai_port'] = cfc.game_settings.get('kai_port', 5000)
+	cfc.game_settings['ai_genre'] = cfc.game_settings.get('ai_genre', HConst.AIGenres.RANDOM)
+	
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), cfc.game_settings.main_volume)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("bgm"), cfc.game_settings.music_volume)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("se"), cfc.game_settings.sounds_volume)
@@ -68,6 +70,12 @@ func _ready() -> void:
 	urlvbc.visible = generate_ai.pressed
 	kaiurl_input.text = cfc.game_settings.kai_url
 	kai_port_input.text = str(cfc.game_settings.kai_port)
+	for genre_desc in HConst.AIGenres:
+		if HConst.AIGenres[genre_desc] == HConst.AIGenres.DISLIKE:
+			continue
+		ai_genre.add_item(genre_desc.capitalize(), HConst.AIGenres[genre_desc])
+	ai_genre.selected = ai_genre.get_item_index(cfc.game_settings.ai_genre)
+	print_debug([HConst.AIGenres.RANDOM,cfc.game_settings.ai_genre,ai_genre.get_item_index(cfc.game_settings.ai_genre),ai_genre.get_item_id(0)])
 	# To avoid the slider adjust sound sounding from the initial setting
 	sound_effect_enabled = true
 
@@ -213,3 +221,9 @@ func _on_UseAI_toggled(button_pressed):
 			SoundManager.play_se('setting_toggle_on')
 		else:
 			SoundManager.play_se('setting_toggle_off')
+
+
+func _on_AIGenre_item_selected(index):
+	cfc.set_setting('ai_genre', ai_genre.get_item_id(index))
+	if sound_effect_enabled:
+		SoundManager.play_se('selection_done')

@@ -66,8 +66,20 @@ margin_left = 10.0
 margin_right = 221.0
 margin_bottom = 49.0
 
-[node name="FocusStyle" type="OptionButton" parent="PC/VBC/HBC/VBC2/InfoPanelMC/VBC"]
+[node name="HBC" type="HBoxContainer" parent="PC/VBC/HBC/VBC2/InfoPanelMC/VBC"]
 margin_right = 211.0
+margin_bottom = 25.0
+
+[node name="FocusStyleLabel" type="Label" parent="PC/VBC/HBC/VBC2/InfoPanelMC/VBC/HBC"]
+margin_top = 2.0
+margin_right = 55.0
+margin_bottom = 23.0
+text = "Focus: "
+
+[node name="FocusStyle" type="OptionButton" parent="PC/VBC/HBC/VBC2/InfoPanelMC/VBC/HBC"]
+unique_name_in_owner = true
+margin_left = 58.0
+margin_right = 203.0
 margin_bottom = 25.0
 text = "Large Card Preview"
 items = [ "Large Card Preview", null, false, 2, null, "Info Panels Only", null, false, 3, null, "Hand Card Zoom", null, false, 0, null ]
@@ -226,14 +238,14 @@ align = 1
 [node name="AIMC" type="MarginContainer" parent="PC/VBC/HBC/VBC3"]
 margin_top = 41.0
 margin_right = 234.0
-margin_bottom = 110.0
+margin_bottom = 252.0
 custom_constants/margin_right = 10
 custom_constants/margin_left = 10
 
 [node name="VBC" type="VBoxContainer" parent="PC/VBC/HBC/VBC3/AIMC"]
 margin_left = 10.0
 margin_right = 224.0
-margin_bottom = 69.0
+margin_bottom = 211.0
 
 [node name="UseAI" type="CheckButton" parent="PC/VBC/HBC/VBC3/AIMC/VBC"]
 unique_name_in_owner = true
@@ -259,10 +271,9 @@ text = "Generate (Req.KoboldAI)"
 
 [node name="URLVBC" type="VBoxContainer" parent="PC/VBC/HBC/VBC3/AIMC/VBC"]
 unique_name_in_owner = true
-visible = false
-margin_top = 48.0
+margin_top = 72.0
 margin_right = 214.0
-margin_bottom = 159.0
+margin_bottom = 211.0
 
 [node name="KAIURL" type="Label" parent="PC/VBC/HBC/VBC3/AIMC/VBC/URLVBC"]
 unique_name_in_owner = true
@@ -295,6 +306,23 @@ margin_bottom = 111.0
 rect_min_size = Vector2( 0, 30 )
 text = "5000"
 
+[node name="HBC" type="HBoxContainer" parent="PC/VBC/HBC/VBC3/AIMC/VBC/URLVBC"]
+margin_top = 114.0
+margin_right = 214.0
+margin_bottom = 139.0
+
+[node name="AIGenreLabel" type="Label" parent="PC/VBC/HBC/VBC3/AIMC/VBC/URLVBC/HBC"]
+margin_top = 2.0
+margin_right = 54.0
+margin_bottom = 23.0
+text = "Genre: "
+
+[node name="AIGenre" type="OptionButton" parent="PC/VBC/HBC/VBC3/AIMC/VBC/URLVBC/HBC"]
+unique_name_in_owner = true
+margin_left = 57.0
+margin_right = 73.0
+margin_bottom = 25.0
+
 [node name="ExitToMain" type="Button" parent="PC/VBC"]
 margin_top = 273.0
 margin_right = 682.0
@@ -317,7 +345,7 @@ size_flags_horizontal = 3
 custom_fonts/font = SubResource( 3 )
 text = "BACK"
 
-[connection signal="item_selected" from="PC/VBC/HBC/VBC2/InfoPanelMC/VBC/FocusStyle" to="." method="_on_FocusStyle_item_selected"]
+[connection signal="item_selected" from="PC/VBC/HBC/VBC2/InfoPanelMC/VBC/HBC/FocusStyle" to="." method="_on_FocusStyle_item_selected"]
 [connection signal="toggled" from="PC/VBC/HBC/VBC2/InfoPanelMC/VBC/ExpandLinkedTerms" to="." method="_on_ExpandLinkedTerms_toggled"]
 [connection signal="toggled" from="PC/VBC/HBC/VBC2/PerformanceMC/VBC/FancyAnimations" to="." method="_on_FancAnimations_toggled"]
 [connection signal="toggled" from="PC/VBC/HBC/VBC2/PerformanceMC/VBC/AnimatedTextBackgrounds" to="." method="_on_AnimatedTextBackgrounds_toggled"]
@@ -333,4 +361,5 @@ text = "BACK"
 [connection signal="toggled" from="PC/VBC/HBC/VBC3/AIMC/VBC/GenerateAI" to="." method="_on_GenerateAI_toggled"]
 [connection signal="text_changed" from="PC/VBC/HBC/VBC3/AIMC/VBC/URLVBC/KAIURLInput" to="." method="_on_KAIURLInput_text_changed"]
 [connection signal="text_changed" from="PC/VBC/HBC/VBC3/AIMC/VBC/URLVBC/KAIPortInput" to="." method="_on_KAIPortInput_text_changed"]
+[connection signal="item_selected" from="PC/VBC/HBC/VBC3/AIMC/VBC/URLVBC/HBC/AIGenre" to="." method="_on_AIGenre_item_selected"]
 [connection signal="pressed" from="PC/VBC/ExitToMain" to="." method="_on_ExitToMain_pressed"]

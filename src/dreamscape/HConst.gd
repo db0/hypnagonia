@@ -11,6 +11,15 @@ enum AlterantTypes {
 	CARD_UPGRADE_CHANCE
 }
 
+enum AIGenres {
+	DISLIKE = 0
+	RANDOM
+	SURREALISM
+	COMEDY
+	HORROR
+}
+
+
 const COLOUR_MAP := {
 	'Black': 'Perturbation',
 	'Red': 'Action',
@@ -133,3 +142,9 @@ const OPPOSITE_TAGS := {
 	Terms.GENERIC_TAGS.init.name: Terms.GENERIC_TAGS.end_turn.name,
 	Terms.GENERIC_TAGS.end_turn.name: Terms.GENERIC_TAGS.init.name,
 }
+
+static func get_aigenre_description(enum_id: int) -> String:
+	for genre_desc in AIGenres:
+		if AIGenres[genre_desc] == enum_id:
+			return(genre_desc.capitalize())
+	return('')

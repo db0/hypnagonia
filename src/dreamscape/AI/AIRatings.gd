@@ -22,7 +22,7 @@ func _init(_encounter: SingleEncounter = null, _type: String = ''):
 
 func story_rated(classification :int) -> void:
 	# If the player didn't like it, we don't bother sending it at all
-	if classification == 0:
+	if classification == HConst.AIGenres.DISLIKE:
 		return
 	var thread: Thread = Thread.new()
 	threads.append(thread)
