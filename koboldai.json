@@ -1,9 +1,9 @@
 {
-   "gamestarted": true,
+   "gamestarted": false,
    "prompt": "",
-   "memory": "[All over the world, some unnatural force is causing individuals to start experiencing strange recurring dreams. The dreams feel hypnagogic and dreamers retain much more of their agency while in them. Each dreamer experiencing this phenomenon, is ensuring some great injustice in their life. Overcoming the torments in their dreams will allow them to have a breakthrough in their personal lives]\n\n[Unbeknownst to each dreamer, they are all connected to each other through a common dreamscape but the exact mechanics of this are yet unknown, with only glimpses of the presence of other dreamers sometimes manifesting. Some otherworldly force is somehow guiding dreamers to a common purpose.]\n\n[An unnamed dreamer finds themselves in a nightmare realm and we're reading what they are writing in their dream journal next morning. The dream journal is written in the first person,and is storytelling what torments they dreamt of in the previous night. They can't wake up!]\n\n",
+   "memory": "[All over the world, some unnatural force is causing individuals to start experiencing strange recurring dreams. The dreams feel hypnagogic and dreamers retain much more of their agency while in them. Each dreamer experiencing this phenomenon, is ensuring some great injustice in their life. Overcoming the torments in their dreams will allow them to have a breakthrough in their personal lives]\n\n[Unbeknownst to each dreamer, they are all connected to each other through a common dreamscape but the exact mechanics of this are yet unknown, with only glimpses of the presence of other dreamers sometimes manifesting. Some otherworldly force is somehow guiding dreamers to a common purpose.]\n\n[An unnamed dreamer finds themselves in a strange world and we're reading what they are writing in their dream journal next morning. The journal is written in the first person,and is storytelling what torments they dreamt of, in the previous night. They can't wake up!]\n\n",
    "authorsnote": "\n",
-   "anotetemplate": "[Genre: Surrealistic Dream Journal]\n[Tone: Focus on ethereal descriptions with the tone being a mix of comedy and horror]\n[Writing style: Partly-remembered memories of absurdist nightmares written in the first person, past tense.]\n",
+   "anotetemplate": "[ Tone: Focus on ethereal descriptions leaning on surrealism ]\n[ Writing style: First person, past tense ]\n",
    "actions": [],
    "actions_metadata": {},
    "worldinfo": [
