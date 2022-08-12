@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.63.1](https://github.com/db0/hypnagonia/tree/v0.63.1) (2022-08-12)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.63.0...v0.63.1)
+
+**Merged pull requests:**
+
+- Fix act2 and act3 bosses crashing game [\#412](https://github.com/db0/hypnagonia/pull/412) ([db0](https://github.com/db0))
+
 ## [v0.63.0](https://github.com/db0/hypnagonia/tree/v0.63.0) (2022-08-12)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.62.0...v0.63.0)
@@ -406,20 +414,20 @@
 
 ## [v0.50.4](https://github.com/db0/hypnagonia/tree/v0.50.4) (2022-04-28)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.2...v0.50.4)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.3...v0.50.4)
 
 **Merged pull requests:**
 
 - fix: Rest upgrade should only do 5 steps [\#312](https://github.com/db0/hypnagonia/pull/312) ([db0](https://github.com/db0))
 - content\(art\): More Flyercards from @SkylarkHYP [\#311](https://github.com/db0/hypnagonia/pull/311) ([db0](https://github.com/db0))
 
-## [v0.50.2](https://github.com/db0/hypnagonia/tree/v0.50.2) (2022-04-27)
-
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.3...v0.50.2)
-
 ## [v0.50.3](https://github.com/db0/hypnagonia/tree/v0.50.3) (2022-04-27)
 
-[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.1...v0.50.3)
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.2...v0.50.3)
+
+## [v0.50.2](https://github.com/db0/hypnagonia/tree/v0.50.2) (2022-04-27)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.50.1...v0.50.2)
 
 **Merged pull requests:**
 
