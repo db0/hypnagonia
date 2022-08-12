@@ -93,8 +93,8 @@ func regenerate_torment_story(torment_encounter: Dictionary) -> void:
 	if not new_story:
 		return
 	var regex = RegEx.new()
-	regex.compile(" \\[ [\\w ]+ \\] ")
-	var full_story : String = regex.sub(ai_prompt, ' ') + new_story
+	regex.compile(" \\[ [\\w ]+ \\]([ .,;])")
+	var full_story : String = regex.sub(ai_prompt, '$1') + new_story
 	if torment_encounter.has("replacement_keywords"):
 		for ttag in torment_encounter.replacement_keywords:
 			for kw in torment_encounter.replacement_keywords[ttag]:
