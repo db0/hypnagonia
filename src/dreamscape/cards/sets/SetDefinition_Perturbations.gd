@@ -68,7 +68,7 @@ const CARDS := {
 		"Tags": [Terms.GENERIC_TAGS.fading.name],
 		"Abilities": "{unplayable}",
 		"Cost": 'U',
-		"_illustration": "Nobody",
+		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Perturbation",
 		"_keywords": [],
 		"_is_unplayable": true,

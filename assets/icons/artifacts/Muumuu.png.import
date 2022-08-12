@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Shamrock.png-fc0a23fcd3cd9deba93fe427b1512f8d.stex"
+path="res://.import/Muumuu.png-3d12fc8a997398ae6a494869fe9f6410.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/artifacts/Shamrock.png"
-dest_files=[ "res://.import/Shamrock.png-fc0a23fcd3cd9deba93fe427b1512f8d.stex" ]
+source_file="res://assets/icons/artifacts/Muumuu.png"
+dest_files=[ "res://.import/Muumuu.png-3d12fc8a997398ae6a494869fe9f6410.stex" ]
 
 [params]
 

@@ -610,6 +610,8 @@ const ELITES = {
 }
 
 const FearAndPhobia = {
+	"name": "Fear and Phobia",
+	"title": "When my Deepest Fear Married My Greatest Phobia.",
 	"scenes": [
 		preload("res://src/dreamscape/CombatElements/Enemies/Bosses/FearBoss.tscn"),
 		preload("res://src/dreamscape/CombatElements/Enemies/Bosses/PhobiaBoss.tscn"),

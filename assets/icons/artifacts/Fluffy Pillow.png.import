@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Shamrock.png-fc0a23fcd3cd9deba93fe427b1512f8d.stex"
+path="res://.import/Fluffy Pillow.png-e79aef61d39be3a7995158dc47a675ad.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/artifacts/Shamrock.png"
-dest_files=[ "res://.import/Shamrock.png-fc0a23fcd3cd9deba93fe427b1512f8d.stex" ]
+source_file="res://assets/icons/artifacts/Fluffy Pillow.png"
+dest_files=[ "res://.import/Fluffy Pillow.png-e79aef61d39be3a7995158dc47a675ad.stex" ]
 
 [params]
 
