@@ -722,6 +722,7 @@ const ENEMIES = {
 #Avoid [I woke up, wake up, awaken, I was dreaming]
 const RushElite = {
 	"name": "Labyrinth",
+	"title": "Lost in a Maze With No String",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/RushElite.tscn")],
 	"journal_description":\
 """I remember the first time I saw The Labyrinth. Walls of intricately carved stone enclosing me, with no obvious way out. It was disquieting, to say the least, and it wasn't long before I found myself hopelessly lost within its ever-changing corridors.
@@ -736,6 +737,10 @@ Even now, long awake after my visit, I can still recall the calm but eerie atmos
 For me, The Labyrinth represented a journey into the unknown. I woke up to what these infinite twists and turns represented; they were my own personal struggles, my battles with myself. It was an existential experience that left me changed for the better.
 """,
 	'journal_art': "res://assets/journal/advanced/Labyrinth.jpg",
+	"ai_prompts": [
+		"I found myself trapped [ In a meandering Labyrinth ] with no way out",
+		"The maze yawned before me, beckoning me to be lost in it, as a challenge",
+	],
 }
 
 #Title [The Bully]
@@ -745,6 +750,7 @@ For me, The Labyrinth represented a journey into the unknown. I woke up to what 
 #Conclusion Summary [This time, I fortunately knew how to respond.]
 const Bully = {
 	"name": "Bully",
+	"title": "The Schoolyard Revisited in Pain",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/Bully.tscn")],
 	"journal_description":\
 """I could feel the weight of the bullies' stares on me as I made my way through the schoolyard. I knew they were plotting their next attack, and I had no idea how to defend myself. Suddenly, they descended upon me like a pack of wolves.  I tried to run, but they were too fast. They punched me, kicked me, and taunted me until I was crying and hopelessly hiding behind a bush. It seemed like it would never end
@@ -753,6 +759,11 @@ const Bully = {
 """The bully in my dream was symbolic of those harsh memories from my past. However, this time, I fortunately knew how to respond. I faced the bully head-on and refused to be intimidated. This may not have ended the bullying once and for all, but it made me feel stronger and more confident in myself.
 """,
 	'journal_art': "res://assets/journal/advanced/Bully.jpg",
+	"ai_prompts": [
+		"Was there always so many bullies in my school, or did they gather just for the occasion",
+		"\"What's the matter, gonna cry?\", my bully inquired, as I strugged to compose myself",
+		"I could see them coming around the corner, [ the bully ] finishing shaking down some of the other kids. Soon it would be my turn",
+	],
 }
 
 const ELITES = {
@@ -762,6 +773,7 @@ const ELITES = {
 
 const Narcissus = {
 	"name": "Narcissus",
+	"title": "It's Not Me, it's You!",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Bosses/Narcissus.tscn")],
 	"journal_description":\
 """I ran into Narcissus on the edge of a lake. They were as beautiful as I thought they would be, with their perfect skin and bright green eyes. But there was something different about them. They seemed vulnerable, almost hurt.
@@ -783,6 +795,10 @@ These questions echoed in my head as I walked away from the encounter, but I kne
 			"res://assets/journal/advanced/Narcissus/Narcissus4.jpg",
 			"res://assets/journal/advanced/Narcissus/Narcissus5.jpg"
 		],
+	"ai_prompts": [
+		"\"When did I ever hurt you?\", Narcissus pleaded with a pained [ but fake ] voice",
+		"The abuse was unbearable lately, but getting Narcissus to see themselves as what they truly are is downright impossible",
+	],
 }
 
 const BOSSES := {

@@ -33,6 +33,8 @@ As an example:
 #Story Summary [I started dreaming about my daily commute traffic jam, but the road seemed to stretch to eternity]
 #Conclusion Summary [Through overcoming that weird experience, I felt wiser.]
 const TrafficJam = {
+	"name": "Traffic Jam",
+	"title": "Frustration unending",
 	"journal_description":\
 """I was [url={torment_tag1}]stuck in a traffic jam[/url], surrounded by cars that stretched out as far as the eye could see. The air was thick with exhaust fumes and the sound of horns blaring. I felt a sense of frustration and boredom rising up within me. The road ahead of me seemed to stretch out into infinity.
 """,
@@ -72,6 +74,8 @@ const TrafficJam = {
 #Story Summary [I was having tea with a rodent. It was explaining the pitfalls of overpopulation.]
 #Conclusion Summary [I realized that there would be no learning from this creature. Through overcoming that weird experience, I felt wiser.]
 const Mouse = {
+	"name": "Mouse",
+	"title": "Polite company with a mouse",
 	"journal_description":\
 """I was having tea with [url={torment_tag1}]a rodent[/url]. It explained how overpopulation would eventually lead to the collapse of civilization as we know it. The torment began when it started debating the merits of different philosophies. The discussion was friendly, but the rodent's incessant changing of topics was exasperating. It seemed to enjoy playing with my mind, twisting my words into sophistries. I tried to remain polite, but it was clear that the rodent was enjoying itself at my expense. 	
 """,
@@ -128,6 +132,8 @@ const Mouse = {
 #Story Summary [The bell rang and I had to get back into class. It was time for the test]
 #Conclusion Summary [Through overcoming that weird experience, I felt wiser.]
 const TheExam = {
+	"name": "The Exam",
+	"title": "Pencils ready for the test",
 	"journal_description":\
 """The bell rang and I had to get back into class. It was [url={torment_tag1}]time for the test[/url]. My teacher handed out the papers and I could feel my heart racing. I tried to focus on the questions, but all I could think about was failing.
 
@@ -188,6 +194,8 @@ Looking back, I realize that the whole experience was surreal. It's like my mind
 #Story Summary [They claimed I always hurt their feelings. Was I in the wrong? I don't know anymore...]
 #Conclusion Summary [Through overcoming that weird experience, I felt wiser.]
 const TheVictim = {
+	"name": "The Victim",
+	"title": "Playing the victim once more",
 	"journal_description":\
 """I hurt [url={torment_tag1}]their feelings once again[/url], they claim. I don't know why, but it seems like everything I do ends up making them cry or withdraw, Maybe I'm just a bad person. I can't tell anymore.
 
@@ -247,6 +255,8 @@ I'm not going to let them control me anymore. I'm done with faking being sorry f
 #Story Summary [I was wrestling in bed with a stuffed toy. Why was this feeling so difficult?]
 #Conclusion Summary [Through overcoming that weird experience, I felt wiser.]
 const StuffedToy = {
+	"name": "Stuffed Toy",
+	"title": "Wrestling with a Plushie",
 	"journal_description":\
 """I was wrestling in bed with [url={torment_tag1}]a stuffed toy[/url]. Why was this feeling so difficult? I couldn't tell if it was the toy or me that was losing, but eventually, I realized that it didn't matter. We were both lost in the same cycle of pain and pleasure, unable to escape each other's grasp.
 
@@ -302,6 +312,8 @@ The pressure of the toy against my body was suffocating, but at the same time, i
 #Story Summary [I was climbing a staircase somewhere, but somehow I always ended up on the ground floor again.]
 #Conclusion Keywords [wisdom, overcoming, enlightenment, clarity, break out, think outside the box]
 const ImpossibleConstruction = {
+	"name": "Impossible Construction",
+	"title": "The building that should not be",
 	"journal_description":\
 """I was climbing a staircase somewhere, but somehow I always [url={torment_tag1}]ended up on the ground floor again[/url]. It was as if the stairs were inverted, or maybe I was. Either way, it was impossible to go anywhere.
 """,
@@ -380,6 +392,8 @@ const ImpossibleConstruction = {
 #Story Keywords [torment, surrealism, absurdity, clowns, piano, pialephants, philosophy, music, confusion, debate, thought ]
 #Conclusion Keywords [wisdom, overcoming, ridicule, solution, smart]
 const ClownShow = {
+	"name": "Clown Show",
+	"title": "Pialephants and Clowns together",
 	"journal_description":\
 """The [url={torment_tag2}]Pialephants[/url] were providing the music for this stange circus, as [url={torment_tag1}]the clowns[/url] debated ancient dead philosphers. The clowns were getting more and more agitated, as they failed sway the crowd either way. They turned and looked expectantly at me
 
@@ -443,6 +457,8 @@ const ClownShow = {
 #Story Summary [I was talking to someone. But they were either blaming me, or giving me the silent treatment]
 #Conclusion Keywords [wisdom, overcoming, self-worth, breakthrough, understanding]
 const GuiltyTreatment = {
+	"name": "Guilty Treatment",
+	"title": "Guilt Trip and Silent Treatment",
 	"journal_description":\
 """I was desperately pleading with someone, trying to get them to see my side of things. But no matter what I said, they just stared at me coldly, refusing to listen. They were either [url={torment_tag1}]blaming me[/url] for something, or giving me [url={torment_tag2}]the silent treatment[/url].
 
@@ -488,6 +504,8 @@ It was frustrating and upsetting, making me feel guilty and ashamed. I couldn't 
 	},
 }
 const Void = {
+	"name": "Void",
+	"title": "A Black Hole in your mind",
 	"journal_description":\
 """Initially I felt like my dreams were fading. But as the void of everything grew larger and more distinct, it occurred to me it was far worse. You see, what a dream that could never be repeated. An endless black space opens, coming together with your mind, reaching towards you like a powerful claw.
 From your perspective, it feels cold, it stretches out, wants to penetrate you and capture you for eternity. Yet when you look down onto the threshold, what do you see?

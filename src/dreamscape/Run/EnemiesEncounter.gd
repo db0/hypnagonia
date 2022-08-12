@@ -12,7 +12,7 @@ var disabled_extra_draft_rewards := []
 func _init(encounter: Dictionary, _difficulty: String):
 	pathos_released = Terms.RUN_ACCUMULATION_NAMES.enemy
 	var story : Dictionary = globals.ai_stories.retrieve_torment_story(encounter)
-	title = encounter.name
+	title = encounter.get("title", encounter.name)
 	description = story["story"]
 	description_uuid = story["uuid"]
 	difficulty = _difficulty

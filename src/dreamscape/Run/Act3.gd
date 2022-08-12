@@ -28,6 +28,8 @@ As an example:
 """
 
 const Administration = {
+	"name": "Admninistration",
+	"title": "Bureaucracy like no other",
 	"journal_description":\
 """My vision blurred as day turned to night. [url={torment_tag1}]My boss[/url] raised his voice before I even spoke. The dilemma was between my career or my sanity. He wanted me to return to work, even though I had done nothing wrong. My mental stability had little meaning these days. Oh, if he could read my thoughts! His words reverberated in my head for another excruciating moment. He shook his head disgustedly. 'Your mental state must be in trouble if you can't recall this nightmare!' he chided me, as though there wasn't any possibility that I'd imagined the event. At least that's how it felt.
 """,
@@ -56,6 +58,8 @@ const Administration = {
 	},
 }
 const Life_Paths = {
+	"name": "Life Paths",
+	"title": "Analysis Paralysis",
 	"journal_description":\
 """I could see multiple version of myself as if in a mirror. I had to figure out which version of me was the one I wanted to become. The only way I could do this was by exploring each possible reality and deciding which one would best suit me. It seemed like a lot of work but I didn't want to lose my chance at happiness. I kept telling myself that there was no need to worry because I could always go back and change things if I didn't like how it turned out.
 """,
@@ -170,6 +174,8 @@ const Life_Paths = {
 }
 
 const Cringelord = {
+	"name": "Cringelord",
+	"title": "The cringe is real",
 	"journal_description":\
 """The creature before me observed me silently. I could feel its sight poring over my most embarrassing memories, every single one of them. I wanted to look away, to hide my face in shame, but I couldn't. [url={torment_tag1}]The Cringelord[/url] had me transfixed.
 
@@ -222,6 +228,8 @@ It was as if all the times I had ever been embarrassed, all the times I had ever
 	},
 }
 const Nightmare = {
+	"name": "Nightmare",
+	"title": "Out of your deepest horror",
 	"journal_description":\
 """I cannot quite remember what I dreamed next but it was [url={torment_tag1}]straight out of a horror film[/url]. A small figure wearing a long cloak was walking around in my bedroom, whispering things to me that were impossible to make sense of. He told me he was a messenger from an evil force, which I dismissed as just another delusion until he reached out his hand and tried to touch me.
 """,
@@ -272,6 +280,8 @@ const Nightmare = {
 	},
 }
 const Submerged = {
+	"name": "Submerged",
+	"title": "A Primal Fear of Drowning",
 	"journal_description":\
 """With a panicked start I realized: [url={torment_tag1}]I had gone too deep[/url]. The blue surrounded me and I was running out of air.
 I started gasping for breath. It wasn't just the cold water that was taking my breath away. The chill from the ocean's depths had crept into my body, numbing every inch of me. My hands were shaking uncontrollably. My feet were numb and tingly. My mind was screaming at me to wake up, but my body refused to move.
@@ -317,6 +327,8 @@ I started gasping for breath. It wasn't just the cold water that was taking my b
 	},
 }
 const HandsyAunt = {
+	"name": "Handy Aunt",
+	"title": "Running away from the Pinch",
 	"journal_description":\
 """I could hear the overly-loud laughter in the other room. [url={torment_tag1}]My aunt had come for a visit[/url]. I heard the dreaded call: "Come, come, let me take a good look at you!" And she came, pushing me towards her, squeezing my shoulders. She smelled like garlic, and it was quite nauseating. But she seemed so happy. So...
 """,
@@ -367,6 +379,8 @@ const HandsyAunt = {
 	},
 }
 const Circular_Arguments = {
+	"name": "Circular Arguments",
+	"title": "The Back and Forth of Fallacy",
 	"journal_description":\
 """Again and again [url={torment_tag1}]we had to repeat the same arguments[/url] I felt we had just resolved it just a minute ago, and yet, here we are discussing it again. My thoughts are not exactly coherent, and I feel like my brain is in a permanent state of disarray. But there's nothing else for me to do, so I try to keep up.
 """,
@@ -420,6 +434,8 @@ const Circular_Arguments = {
 	},
 }
 const Influencer = {
+	"name": "Influencer",
+	"title": "Always Better than Me",
 	"journal_description":\
 """I was checking Instagram, TikTok, Reddit, just constantly doom-scrolling [url={torment_tag1}]through perfect lives[/url]. It was really hard to find content that didn't make me feel inadequate or angry at my own existence. I couldn't focus on anything anymore, and it felt like my mind was a pile of mud that kept getting thrown back at me.
 """,
@@ -473,6 +489,8 @@ const Influencer = {
 	},
 }
 const Shamelings = {
+	"name": "Shamelings",
+	"title": "No Secret Stash is Safe",
 	"journal_description":\
 """They were all over my bedroom, going through all my stuff and laughing to each other cruelly about all my secrets. [url={torment_tag1}]Too many to stop![/url]! I screamed at them, but they just laughed louder. They said it was funny that I thought I could hide anything from them.
 """,

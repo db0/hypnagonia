@@ -584,7 +584,7 @@ func _input(event):
 #		globals.player.damage = 85
 #		globals.player.pathos.available_masteries += 6
 		var debug_encounters = [
-			EnemyEncounter.new(Act1.BrokenMirrors, "hard"),
+#			EnemyEncounter.new(Act1.BrokenMirrors, "hard"),
 #			EnemyEncounter.new(Act2.Void, "easy"),
 #			EnemyEncounter.new(Act3.Life_Paths, "hard"),
 #			load(AllActs.NCE.risky.OstrichEggs).new(),
@@ -594,7 +594,7 @@ func _input(event):
 #			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Rest.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Shop.gd").new(),
-#			BossEncounter.new(Act1.BOSSES["Narcissus"]),
+			BossEncounter.new(Act1.BOSSES["Narcissus"]),
 #			BossEncounter.new(Act2.BOSSES["Surreality"]),
 #			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
 #			EliteEncounter.new(Act1.Bully, "medium"),
