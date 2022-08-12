@@ -72,7 +72,9 @@ func reset() -> void:
 func quit_to_main() -> void:
 # warning-ignore:return_value_discarded
 	get_tree().change_scene(CFConst.PATH_CUSTOM + 'MainMenu/MainMenu.tscn')
-	if current_encounter and "current_shop" in current_encounter and is_instance_valid(current_encounter):
+	if current_encounter and "current_shop" in current_encounter\
+			and is_instance_valid(current_encounter)\
+			and is_instance_valid(current_encounter.current_shop):
 		current_encounter.current_shop.queue_free()
 	cfc.quit_game()
 	reset()

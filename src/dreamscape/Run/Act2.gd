@@ -611,6 +611,8 @@ const ELITES = {
 }
 
 const SurrealBoss = {
+	"name": "Surreality",
+	"title": "The surreal becomes the only real",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn")],
 	"journal_description":\
 """The next dream was so incomprehensible, just trying to remember it makes my head hurt. All I can say is that whatever happened last night seems like another form of indescribable insanity.
