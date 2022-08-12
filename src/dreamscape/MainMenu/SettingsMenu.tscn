@@ -216,7 +216,8 @@ margin_bottom = 268.0
 size_flags_horizontal = 3
 custom_constants/separation = 20
 
-[node name="AI" type="Label" parent="PC/VBC/HBC/VBC3"]
+[node name="AILabel" type="Label" parent="PC/VBC/HBC/VBC3"]
+unique_name_in_owner = true
 margin_right = 234.0
 margin_bottom = 21.0
 text = "Artificial Intelligence"

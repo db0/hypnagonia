@@ -17,6 +17,7 @@ onready var generate_ai = $"%GenerateAI"
 onready var urlvbc = $"%URLVBC"
 onready var kaiurl_input = $"%KAIURLInput"
 onready var kai_port_input = $"%KAIPortInput"
+onready var ai_label = $"%AILabel"
 
 
 var sound_effect_enabled = false
@@ -35,9 +36,11 @@ func _ready() -> void:
 	cfc.game_settings['expand_linked_terms'] = cfc.game_settings.get('expand_linked_terms', true)
 	cfc.game_settings['fast_icon_speed'] = cfc.game_settings.get('fast_icon_speed', false)
 	cfc.game_settings['async_icon_animations'] = cfc.game_settings.get('async_icon_animations', false)
-	cfc.game_settings['use_ai'] = cfc.game_settings.get('use_ai', true)
+	# We disable the AI stuff on HTML as it requires connecting to other sites
+	# and that runs into XSS protections and shit which I don't want to deal with
+	cfc.game_settings['use_ai'] = cfc.game_settings.get('use_ai', OS.get_name() != "HTML5")
 	cfc.game_settings['judge_ai'] = cfc.game_settings.get('judge_ai', true)
-	cfc.game_settings['generate_ai'] = cfc.game_settings.get('generate_ai', true)
+	cfc.game_settings['generate_ai'] = cfc.game_settings.get('generate_ai', false)
 	cfc.game_settings['kai_url'] = cfc.game_settings.get('kai_url', "http://127.0.0.1")
 	cfc.game_settings['kai_port'] = cfc.game_settings.get('kai_port', 5000)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), cfc.game_settings.main_volume)
@@ -55,10 +58,13 @@ func _ready() -> void:
 	main_vol_slider.value = cfc.game_settings.main_volume
 	music_vol_slider.value = cfc.game_settings.music_volume
 	use_ai.pressed = cfc.game_settings.use_ai
+	if OS.get_name() == "HTML5":
+		use_ai.disabled = true
+		ai_label.text = ai_label.text + "\n(AI unsupported in HTML5)"
 	judge_ai.pressed = cfc.game_settings.judge_ai
-	judge_ai.disabled = !judge_ai.pressed
+	judge_ai.disabled = !use_ai.pressed
 	generate_ai.pressed = cfc.game_settings.generate_ai
-	generate_ai.disabled = !judge_ai.pressed
+	generate_ai.disabled = !use_ai.pressed
 	urlvbc.visible = generate_ai.pressed
 	kaiurl_input.text = cfc.game_settings.kai_url
 	kai_port_input.text = str(cfc.game_settings.kai_port)

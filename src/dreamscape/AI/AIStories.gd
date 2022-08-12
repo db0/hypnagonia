@@ -37,7 +37,7 @@ func retrieve_torment_story(torment_encounter: Dictionary) -> Dictionary:
 		"story": torment_encounter["journal_description"],
 		"uuid": "00000000-0000-0000-0000-000000000000"
 	}
-	if not cfc.game_settings.use_ai or cfc.is_testing:
+	if not cfc.game_settings.get("use_ai", true) or cfc.is_testing:
 		return(story)
 	var fresh_evaluation = get_fresh_evaluating_gen(torment_encounter.name, "journal_choice")
 	if fresh_evaluation and cfc.game_settings.judge_ai:
