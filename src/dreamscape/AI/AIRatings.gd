@@ -20,10 +20,13 @@ func _init(_encounter: SingleEncounter = null, _type: String = ''):
 	type = _type
 
 
-func story_rated(liked :int) -> void:
+func story_rated(classification :int) -> void:
+	# If the player didn't like it, we don't bother sending it at all
+	if classification == 0:
+		return
 	var thread: Thread = Thread.new()
 	threads.append(thread)
-	thread.start(self, "submit", liked)
+	thread.start(self, "submit", classification)
 
 
 func submit(classification: int):
