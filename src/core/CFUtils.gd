@@ -313,3 +313,4 @@ static func convert_texture_to_image(texture, is_lossless = false) -> ImageTextu
 	var image = tex.get_data()
 	new_texture.create_from_image(image)
 	return(new_texture)
+

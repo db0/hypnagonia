@@ -29,7 +29,7 @@ jobs:
       - name: Godot Tester
         uses: ./.github/actions/godot-tester
         with:
-          version: 3.4
+          version: 3.5
           # should be long enough for asset import files to get generated
           import-time: 300
           assert-check: true

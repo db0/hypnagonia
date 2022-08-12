@@ -66,6 +66,8 @@ func _ready() -> void:
 	_readme_label.text = README
 	randomize()
 	cfc.game_rng_seed = CFUtils.generate_random_seed()
+	if not cfc.game_settings.has('Client UUID'):
+		cfc.set_setting('Client UUID', UUID.v4())
 	SUBTITLES.shuffle()
 	continue_button.visible = globals.game_save.save_file_exists()
 	_subtitle.text = SUBTITLES[0]
@@ -210,9 +212,15 @@ func _input(event):
 		library_export.open("user://torments_export.json",File.WRITE)
 		library_export.store_string(JSON.print(_export_torments(), '\t'))
 		library_export.close()
+		library_export.open("user://torments_softprompt.txt",File.WRITE)
+		library_export.store_string(get_torment_softprompt_training())
+		library_export.close()
 		library_export.open("user://memories_export.json",File.WRITE)
 		library_export.store_string(JSON.print(_export_memories(), '\t'))
 		library_export.close()
+
+
+	
 
 func _process_card_export(card_name: String) -> Dictionary:
 	var card_entry = cfc.card_definitions[card_name].duplicate(true)
@@ -260,22 +268,62 @@ func _export_torments() -> Dictionary:
 	for act in [Act1, Act2, Act3]:
 		for e in act.ENEMIES:
 			var enemy = act.ENEMIES[e]
-			for torment in enemy.enemies.easy:
+			for torment in enemy.enemies.medium:
 				if not tdict['Basic Torments'].has(torment.definition.Name):
 					tdict['Basic Torments'][torment.definition.Name] = {}
 					tdict['Basic Torments'][torment.definition.Name]['Journal Description'] = enemy.journal_description
+					if enemy.has("ai_prompts"):
+						tdict['Basic Torments'][torment.definition.Name]['AI prompts'] = enemy.ai_prompts
 					tdict['Basic Torments'][torment.definition.Name]['Type'] = torment.definition.Type
 		for e in act.ELITES:
 			var enemy = act.ELITES[e]
 			if not tdict['Elite Torments'].has(enemy.name):
 				tdict['Elite Torments'][enemy.name] = {}
 				tdict['Elite Torments'][enemy.name]['Journal Description'] = enemy.journal_description
+				for s in enemy.scenes:
+					var scene :AdvancedEnemyEntity = s.instance()
+					tdict['Elite Torments'][enemy.name]['Type'] = scene.PROPERTIES.Type
+					scene.queue_free()
 		for enemy in act.BOSSES:
 			if not tdict['Bosses'].has(enemy):
 				tdict['Bosses'][enemy] = {}
 				tdict['Bosses'][enemy]['Journal Description'] = act.BOSSES[enemy].journal_description
-
+				for s in act.BOSSES[enemy].scenes:
+					var scene :AdvancedEnemyEntity = s.instance()
+					tdict['Bosses'][enemy]['Type'] = scene.PROPERTIES.Type
+					scene.queue_free()
 	return(tdict)
+
+
+func get_torment_softprompt_training() -> String:
+	var torments_dict = _export_torments()
+	var softprompt_export := ''
+	var torment_template := "[ Keywords: {difficulty}, {type}, {name} ]\n{description}<|endoftext|>"
+	for d in torments_dict:
+		var diff_convert:= {
+			"Basic Torments": "Torment",
+			"Elite Torments": "Elite",
+			"Bosses": "Adversary",
+		}
+		var diff = diff_convert[d]
+		for t in torments_dict[d]:
+			var description :String = torments_dict[d][t]["Journal Description"]
+			description = description.replace("\n\n", "\n")
+			description = description.replace("[/url]", "")
+			description = description.replace("[url={torment_tag1}]", "")
+			description = description.replace("[url={torment_tag2}]", "")
+			description = description.replace("[url={torment_tag3}]", "")
+			description = description.replace("[url={torment_tag4}]", "")
+			description = description.replace("[url={torment_tag5}]", "")
+			var tname :String= t.replace("_", " ")
+			var fmt_dict := {
+				"difficulty": diff,
+				"type": torments_dict[d][t]["Type"],
+				"name": tname,
+				"description": description
+			}
+			softprompt_export += torment_template.format(fmt_dict)
+	return(softprompt_export)
 
 
 func _export_memories() -> Array:

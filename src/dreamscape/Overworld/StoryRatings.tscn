@@ -1,0 +1,93 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/icons/GUI/thumb-down.png" type="Texture" id=1]
+[ext_resource path="res://assets/icons/GUI/stars-stack.png" type="Texture" id=2]
+[ext_resource path="res://src/dreamscape/Overworld/StoryRatings.gd" type="Script" id=3]
+[ext_resource path="res://assets/icons/GUI/radial-balance.png" type="Texture" id=4]
+[ext_resource path="res://assets/icons/GUI/jason-mask.png" type="Texture" id=5]
+[ext_resource path="res://themes/darktheme/StyleBox/Opaque.tres" type="StyleBox" id=6]
+
+[node name="StoryRatings" type="MarginContainer"]
+margin_left = 40.0
+margin_right = 70.0
+margin_bottom = 64.0
+script = ExtResource( 3 )
+
+[node name="GridContainer" type="GridContainer" parent="."]
+margin_right = 64.0
+margin_bottom = 64.0
+columns = 2
+
+[node name="Surreal" type="Button" parent="GridContainer"]
+unique_name_in_owner = true
+margin_right = 30.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
+icon = ExtResource( 4 )
+flat = true
+icon_align = 1
+expand_icon = true
+
+[node name="Comedy" type="Button" parent="GridContainer"]
+unique_name_in_owner = true
+margin_left = 34.0
+margin_right = 64.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
+icon = ExtResource( 2 )
+flat = true
+icon_align = 1
+expand_icon = true
+
+[node name="Horror" type="Button" parent="GridContainer"]
+unique_name_in_owner = true
+margin_top = 34.0
+margin_right = 30.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 30, 30 )
+icon = ExtResource( 5 )
+flat = true
+icon_align = 1
+expand_icon = true
+
+[node name="Dislike" type="Button" parent="GridContainer"]
+unique_name_in_owner = true
+margin_left = 34.0
+margin_top = 34.0
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 30, 30 )
+icon = ExtResource( 1 )
+flat = true
+icon_align = 1
+expand_icon = true
+
+[node name="DescriptionPopup" type="PopupPanel" parent="." groups=["info_popup"]]
+unique_name_in_owner = true
+margin_right = 308.0
+margin_bottom = 64.0
+custom_styles/panel = ExtResource( 6 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DescriptionPopup"]
+unique_name_in_owner = true
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 304.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 300, 0 )
+bbcode_enabled = true
+fit_content_height = true
+scroll_active = false
+
+[connection signal="mouse_entered" from="GridContainer/Surreal" to="." method="_on_Surreal_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Surreal" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="GridContainer/Surreal" to="." method="_on_Surreal_pressed"]
+[connection signal="mouse_entered" from="GridContainer/Comedy" to="." method="_on_Comedy_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Comedy" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="GridContainer/Comedy" to="." method="_on_Comedy_pressed"]
+[connection signal="mouse_entered" from="GridContainer/Horror" to="." method="_on_Horror_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Horror" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="GridContainer/Horror" to="." method="_on_Horror_pressed"]
+[connection signal="mouse_entered" from="GridContainer/Dislike" to="." method="_on_Dislike_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Dislike" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="GridContainer/Dislike" to="." method="_on_Dislike_pressed"]

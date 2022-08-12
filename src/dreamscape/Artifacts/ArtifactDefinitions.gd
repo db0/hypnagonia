@@ -927,7 +927,7 @@ const IncreaseUpgradedDraftChance := { # TODO: Tests
 	"canonical_name": "IncreaseUpgradedDraftChance",
 	"name": "Ancient Literature",
 	"description": "{artifact_name}: Increases the chance to find an upgraded card when drafting cards.",
-	"icon": preload("res://assets/icons/artifacts/classical-knowledge.png"),
+	"icon": preload("res://assets/icons/artifacts/Ancient Literature.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -1037,7 +1037,7 @@ const StartingFortify := {
 
 const ThickHeal := {
 	"canonical_name": "ThickHeal",
-	"name": "Power Naps",
+	"name": "Fluffy Pillow",
 	"description": "{artifact_name}: Every turn, {relax} for {heal_amount}. Every time you reshuffle your deck, take {exert_amount} {player_health}.",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.BATTLE,
@@ -1179,7 +1179,7 @@ const ThickThorns := {
 	"name": "Black Rose",
 	"description": "{artifact_name}: At that start of each Ordeal turn, gain {effect_stacks} {thorns}. "\
 		+ "Lose {detrimental_integer} {thorns} whenever your deck is reshuffled.",
-	"icon": preload("res://assets/icons/artifacts/black_rose.png"),
+	"icon": preload("res://assets/icons/artifacts/Black Rose.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Rare",
 	"amounts": {

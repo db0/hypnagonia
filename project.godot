@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "AIRatings",
+"language": "GDScript",
+"path": "res://src/dreamscape/AI/AIRatings.gd"
+}, {
+"base": "Node",
+"class": "AIStories",
+"language": "GDScript",
+"path": "res://src/dreamscape/AI/AIStories.gd"
+}, {
 "base": "Reference",
 "class": "Act",
 "language": "GDScript",
@@ -574,6 +584,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/Overworld/JournalTexts.gd"
 }, {
+"base": "Reference",
+"class": "KoboldAI",
+"language": "GDScript",
+"path": "res://src/dreamscape/AI/KoboldAI.gd"
+}, {
 "base": "VBoxContainer",
 "class": "ManipulationButtons",
 "language": "GDScript",
@@ -855,6 +870,11 @@ _global_script_classes=[ {
 "path": "res://tests/UTCommon.gd"
 }, {
 "base": "Reference",
+"class": "UUID",
+"language": "GDScript",
+"path": "res://addons/crypto_uuid_v4/uuid.gd"
+}, {
+"base": "Reference",
 "class": "Understanding",
 "language": "GDScript",
 "path": "res://src/dreamscape/Understandings.gd"
@@ -870,6 +890,8 @@ _global_script_classes=[ {
 "path": "res://src/core/ScriptingEngine/perMessage.gd"
 } ]
 _global_script_class_icons={
+"AIRatings": "",
+"AIStories": "",
 "Act": "",
 "Act1": "",
 "Act2": "",
@@ -983,6 +1005,7 @@ _global_script_class_icons={
 "JournalEncounterChoice": "",
 "JournalNestedChoice": "",
 "JournalTexts": "",
+"KoboldAI": "",
 "ManipulationButtons": "",
 "Memory": "",
 "MemoryDefinitions": "",
@@ -1039,6 +1062,7 @@ _global_script_class_icons={
 "TurnEventMessage": "",
 "TurnRecordCardPlayMessage": "",
 "UTCommon": "",
+"UUID": "",
 "Understanding": "",
 "ViewportCardFocus": "",
 "perMessage": ""

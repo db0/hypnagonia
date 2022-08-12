@@ -4,7 +4,10 @@ extends Reference
 signal encounter_begin(encounter)
 signal encounter_end(encounter)
 
+# The unique title of this encounter in Hypnagonia acts
+var title: String
 var description: String
+var description_uuid: String = "00000000-0000-0000-0000-000000000000"
 var journal_art
 var shader_params: Dictionary
 var pathos_released: String

@@ -5,6 +5,7 @@ extends JournalChoice
 const ENEMY_CARD_PREVIEW_SCENE = preload("res://src/dreamscape/MainMenu/StartingCardPreviewObject.tscn")
 
 var encounter: SingleEncounter
+var submit_rating: AIRatings
 
 func _init(_journal: Node, _encounter: SingleEncounter).(_journal) -> void:
 	modulate.a = 0
@@ -25,6 +26,11 @@ func _init(_journal: Node, _encounter: SingleEncounter).(_journal) -> void:
 		var nce: NonCombatEncounter = encounter
 		formated_description = nce.description
 	bbcode_text = formated_description
+
+
+func _ready():
+	submit_rating = AIRatings.new(encounter, "journal_choice")
+	add_child(submit_rating)
 
 
 func _on_mouse_entered() -> void:
