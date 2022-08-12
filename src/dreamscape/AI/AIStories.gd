@@ -25,6 +25,8 @@ func _init():
 	load_stories()
 
 func _ready():
+	if cfc.is_testing:
+		return
 	add_child(ai_ratings)
 	ai_ratings.connect("ratings_retrieved", self, "_on_ratings_received")
 	ai_ratings.retrieve_evaluating_gens()
@@ -35,7 +37,7 @@ func retrieve_torment_story(torment_encounter: Dictionary) -> Dictionary:
 		"story": torment_encounter["journal_description"],
 		"uuid": "00000000-0000-0000-0000-000000000000"
 	}
-	if not cfc.game_settings.use_ai:
+	if not cfc.game_settings.use_ai or cfc.is_testing:
 		return(story)
 	var fresh_evaluation = get_fresh_evaluating_gen(torment_encounter.name, "journal_choice")
 	if fresh_evaluation and cfc.game_settings.judge_ai:
