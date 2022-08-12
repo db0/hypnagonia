@@ -472,7 +472,7 @@ Luckily, I had just found I was able to catch myself in the music, because I’d
 """,
 	"journal_art": "res://assets/journal/torments/pialephant.jpg",
 	"ai_prompts": [
-		"The thundering of the ground felt like a perfect accompanyment to the weighty piano sound [ coming from the pialephant ].",
+		"The thundering of the ground felt like a perfect accompanyment to the weighty piano sound [ coming from the pialephant ] .",
 		"I cowered before the Pialephant, as the piano keyboard that was its nose lay before me, daring me to play the first note.",
 	],
 	"replacement_keywords": {
