@@ -4,6 +4,8 @@ const MASTERIES_AMOUNT = round(Pathos.MASTERY_BASELINE * 10)
 const JOURNAL_CUSTOM_ENTRY = preload("res://src/dreamscape/Overworld/CustomEntries/CustomDraft.tscn")
 var journal_draft_script = load("res://src/dreamscape/Overworld/CustomEntries/NCE_UnderwaterCave.gd")
 const ADVANCED_COMBAT_ENCOUNTER_DEFINITION = {
+	"name": "Underwater Cave",
+	"journal_description": "",
 	"basic_enemies": [
 		{
 			"definition": EnemyDefinitions.SUBMERGED,

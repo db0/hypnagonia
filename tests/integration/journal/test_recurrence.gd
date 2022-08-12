@@ -144,6 +144,9 @@ class TestCounterMeasureCalculations:
 	extends "res://tests/HUTCommon.gd"
 	var NCE = load("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd")
 	var RECURRENCE_ELITE = {
+		"name": "Recurrence",
+		"title": "Recurrence",
+		"journal_description": "",
 		"scenes": [load("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")]
 	}
 	var RECURRENCE_SURPRISE = load("res://src/dreamscape/Run/NCE/AllActs/RecurrenceCombatEncounter.gd")

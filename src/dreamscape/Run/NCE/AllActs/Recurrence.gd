@@ -10,6 +10,9 @@ const RECURRENCE_TAKEOVERS := [
 ]
 
 var recurrence_elite = {
+	"name": "Recurrence",
+	"title": "The Inescepable and Repeating",
+	"journal_description": "",
 	"scenes": [load("res://src/dreamscape/CombatElements/Enemies/Elites/Recurrence.tscn")]
 }
 
@@ -60,6 +63,7 @@ func _init():
 
 func begin() -> void:
 	.begin()
+	recurrence_elite["journal_description"] = description
 	surprise_combat_encounter = recurrence_surprise.new(
 			recurrence_elite,
 			difficulties[globals.encounters.current_act.get_act_number()],
