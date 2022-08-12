@@ -75,7 +75,6 @@ func _ready() -> void:
 			continue
 		ai_genre.add_item(genre_desc.capitalize(), HConst.AIGenres[genre_desc])
 	ai_genre.selected = ai_genre.get_item_index(cfc.game_settings.ai_genre)
-	print_debug([HConst.AIGenres.RANDOM,cfc.game_settings.ai_genre,ai_genre.get_item_index(cfc.game_settings.ai_genre),ai_genre.get_item_id(0)])
 	# To avoid the slider adjust sound sounding from the initial setting
 	sound_effect_enabled = true
 
@@ -203,13 +202,11 @@ func _on_GenerateAI_toggled(button_pressed):
 
 
 func _on_KAIURLInput_text_changed():
-	kaiurl_input.text = kaiurl_input.text.rstrip('\n')
-	cfc.set_setting('kai_url',kaiurl_input.text)
+	cfc.set_setting('kai_url',kaiurl_input.text.rstrip('\n'))
 
 
 func _on_KAIPortInput_text_changed():
-	kai_port_input.text = kai_port_input.text.rstrip('\n')
-	cfc.set_setting('kai_port',int(kai_port_input.text))
+	cfc.set_setting('kai_port',int(kai_port_input.text.rstrip('\n')))
 
 
 func _on_UseAI_toggled(button_pressed):

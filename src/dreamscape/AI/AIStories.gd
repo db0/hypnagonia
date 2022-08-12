@@ -88,7 +88,7 @@ func regenerate_torment_story(torment_encounter: Dictionary) -> void:
 		prompt = "[ Title: {title} ]\n"\
 			+ "{prompt}"
 	prompt = prompt.format(fmt)
-	print("regenerate_torment_story():" + prompt)
+#	print("regenerate_torment_story():" + prompt)
 	var new_story = KoboldAI.generate(prompt, KoboldAI.GenerationTypes.TORMENT_INTRO)
 	if not new_story:
 		return
