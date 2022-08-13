@@ -36,11 +36,9 @@ const TrafficJam = {
 	"name": "Traffic Jam",
 	"title": "Frustration unending",
 	"journal_description":\
-"""I was [url={torment_tag1}]stuck in a traffic jam[/url], surrounded by cars that stretched out as far as the eye could see. The air was thick with exhaust fumes and the sound of horns blaring. I felt a sense of frustration and boredom rising up within me. The road ahead of me seemed to stretch out into infinity.
-""",
+"""I was [url={torment_tag1}]stuck in a traffic jam[/url], surrounded by cars that stretched out as far as the eye could see. The air was thick with exhaust fumes and the sound of horns blaring. I felt a sense of frustration and boredom rising up within me. The road ahead of me seemed to stretch out into infinity.""",
 	"journal_reward":\
-"""I realized that it was a metaphor for the feeling of being stuck in life, and how frustrating and dull it can be. But I also realized that by overcoming that experience, I felt wiser and more aware of the things that truly matter in life.
-""",
+"""I realized that it was a metaphor for the feeling of being stuck in life, and how frustrating and dull it can be. But I also realized that by overcoming that experience, I felt wiser and more aware of the things that truly matter in life.""",
 	"journal_art": "res://assets/journal/torments/Traffic Jam.jpg",
 	"ai_prompts": [
 		"I was stuck in traffic, in a bottleneck that stretched accross the horizon",
@@ -83,11 +81,9 @@ const Mouse = {
 	"name": "Mouse",
 	"title": "Polite company with a mouse",
 	"journal_description":\
-"""I was having tea with [url={torment_tag1}]a rodent[/url]. It explained how overpopulation would eventually lead to the collapse of civilization as we know it. The torment began when it started debating the merits of different philosophies. The discussion was friendly, but the rodent's incessant changing of topics was exasperating. It seemed to enjoy playing with my mind, twisting my words into sophistries. I tried to remain polite, but it was clear that the rodent was enjoying itself at my expense. 	
-""",
+"""I was having tea with [url={torment_tag1}]a rodent[/url]. It explained how overpopulation would eventually lead to the collapse of civilization as we know it. The torment began when it started debating the merits of different philosophies. The discussion was friendly, but the rodent's incessant changing of topics was exasperating. It seemed to enjoy playing with my mind, twisting my words into sophistries. I tried to remain polite, but it was clear that the rodent was enjoying itself at my expense. 	""",
 	"journal_reward":\
-"""I realized that there was no point in trying to engage the rodent in a serious discussion. It was content to play with my mind and twist my words into knots. I proceeded feeling wiser for having overcome that experience.
-""",
+"""I realized that there was no point in trying to engage the rodent in a serious discussion. It was content to play with my mind and twist my words into knots. I proceeded feeling wiser for having overcome that experience.""",
 	"journal_art": "res://assets/journal/torments/Mouse.jpg",
 	"ai_prompts": [
 		"I was having polite tea with a mouse, discussing political theory",
@@ -149,13 +145,11 @@ const TheExam = {
 	"journal_description":\
 """The bell rang and I had to get back into class. It was [url={torment_tag1}]time for the test[/url]. My teacher handed out the papers and I could feel my heart racing. I tried to focus on the questions, but all I could think about was failing.
 
-I started sweating and my hands were shaking. The clock seemed like it was ticking louder and slower at the same time. I heard pens scribbling around me, but it felt like everyone else was moving in slow motion.
-""",
+I started sweating and my hands were shaking. The clock seemed like it was ticking louder and slower at the same time. I heard pens scribbling around me, but it felt like everyone else was moving in slow motion.""",
 	"journal_reward":\
 """The test was finally over and I could breathe again. Despite how stressed I was, I somehow managed to finish it.
 
-Looking back, I realize that the whole experience was surreal. It's like my mind was playing tricks on me. But in a way, it was also a good reminder of how important it is to stay calm under pressure.
-""",
+Looking back, I realize that the whole experience was surreal. It's like my mind was playing tricks on me. But in a way, it was also a good reminder of how important it is to stay calm under pressure.""",
 	"journal_art": "res://assets/journal/torments/Exam.jpg",
 	"ai_prompts": [
 		"The bell rang and I breathlessly took my seat, just in time for the exam",
@@ -217,13 +211,11 @@ const TheVictim = {
 	"journal_description":\
 """I hurt [url={torment_tag1}]their feelings once again[/url], they claim. I don't know why, but it seems like everything I do ends up making them cry or withdraw, Maybe I'm just a bad person. I can't tell anymore.
 
-I try to fake being sorry, even though I don't really know what I did wrong. I try to make myself smaller, less noticeable. I don't want to hurt them anymore.
-""",	
+I try to fake being sorry, even though I don't really know what I did wrong. I try to make myself smaller, less noticeable. I don't want to hurt them anymore.""",
 	"journal_reward":\
 """I realized that I was being abused. They were manipulating me and gaslighting me to make me believe that I was the one at fault.
 
-I'm not going to let them control me anymore. I'm done with faking being sorry for something I didn't do
-""",	
+I'm not going to let them control me anymore. I'm done with faking being sorry for something I didn't do""",
 	"journal_art": "res://assets/journal/torments/The Victim.jpg",
 	"ai_prompts": [
 		"I know I didn't do anything wrong but they [ the fake victim ] kept insising I hurt their feeling",
@@ -284,11 +276,9 @@ const StuffedToy = {
 	"journal_description":\
 """I was wrestling in bed with [url={torment_tag1}]a stuffed toy[/url]. Why was this feeling so difficult? I couldn't tell if it was the toy or me that was losing, but eventually, I realized that it didn't matter. We were both lost in the same cycle of pain and pleasure, unable to escape each other's grasp.
 
-The pressure of the toy against my body was suffocating, but at the same time, its warmth was strangely comforting.
-""",
+The pressure of the toy against my body was suffocating, but at the same time, its warmth was strangely comforting.""",
 	"journal_reward":\
-"""It was a heavy burden that felt impossible to escape from, but at the same time, it was something I couldn't bear to part with. That feeling of being suffocated and lost in the moment was strangely familiar, and it made me realize that I needed to find a way to escape from my own cycle of pain and pleasure.
-""",
+"""It was a heavy burden that felt impossible to escape from, but at the same time, it was something I couldn't bear to part with. That feeling of being suffocated and lost in the moment was strangely familiar, and it made me realize that I needed to find a way to escape from my own cycle of pain and pleasure.""",
 	"journal_art": "res://assets/journal/torments/Stuffed Toy.jpg",
 	"ai_prompts": [
 		"The wrestling [ with my stuffed toy ] was becoming more intense",
@@ -345,11 +335,9 @@ const ImpossibleConstruction = {
 	"name": "Impossible Construction",
 	"title": "The building that should not be",
 	"journal_description":\
-"""I was climbing a staircase somewhere, but somehow I always [url={torment_tag1}]ended up on the ground floor again[/url]. It was as if the stairs were inverted, or maybe I was. Either way, it was impossible to go anywhere.
-""",
+"""I was climbing a staircase somewhere, but somehow I always [url={torment_tag1}]ended up on the ground floor again[/url]. It was as if the stairs were inverted, or maybe I was. Either way, it was impossible to go anywhere.""",
 	"journal_reward":\
-"""I realized that the only way to get anywhere was to think outside the box and see the world in a new, non-euclidean way. With that wisdom, I was able to break out of this impossible construction and find myself in a new place entirely.
-""",
+"""I realized that the only way to get anywhere was to think outside the box and see the world in a new, non-euclidean way. With that wisdom, I was able to break out of this impossible construction and find myself in a new place entirely.""",
 	"journal_art": "res://assets/journal/torments/Impossible Construction.jpg",
 	"ai_prompts": [
 		"Like a painting from M.C. Escher, I could not understand where this constuction started and where it ended",
@@ -434,11 +422,9 @@ const ClownShow = {
 	"journal_description":\
 """The [url={torment_tag2}]Pialephants[/url] were providing the music for this stange circus, as [url={torment_tag1}]the clowns[/url] debated ancient dead philosphers. The clowns were getting more and more agitated, as they failed sway the crowd either way. They turned and looked expectantly at me
 
-"And what do you think?" One of them called out
-""",
+"And what do you think?" One of them called out""",
 	"journal_reward":\
-"""I simply shrugged my shoulders. I had no answers for them and I didn't feel bad about it.
-""",
+"""I simply shrugged my shoulders. I had no answers for them and I didn't feel bad about it.""",
 	"journal_art": "res://assets/journal/torments/ClownShow.jpg",
 	"ai_prompts": [
 		"The pialephants were providing the music for this clown circus",
@@ -506,11 +492,9 @@ const GuiltyTreatment = {
 	"journal_description":\
 """I was desperately pleading with someone, trying to get them to see my side of things. But no matter what I said, they just stared at me coldly, refusing to listen. They were either [url={torment_tag1}]blaming me[/url] for something, or giving me [url={torment_tag2}]the silent treatment[/url].
 
-It was frustrating and upsetting, making me feel guilty and ashamed. I couldn't understand why they were treating me this way, or what I could do to make it stop. All I could do was keep talking
-""",
+It was frustrating and upsetting, making me feel guilty and ashamed. I couldn't understand why they were treating me this way, or what I could do to make it stop. All I could do was keep talking""",
 	"journal_reward":\
-"""I realised that I was blaming myself for something that wasn't my fault. And I also realized that the other person's treatment of me had nothing to do with me, and everything to do with their own issues.
-""",
+"""I realised that I was blaming myself for something that wasn't my fault. And I also realized that the other person's treatment of me had nothing to do with me, and everything to do with their own issues.""",
 	"journal_art": "res://assets/journal/torments/Silent Treatment.jpg",
 	"ai_prompts": [
 		"The guilt trip was too much, as I tried to get through their silent treatment",
@@ -559,12 +543,9 @@ const Void = {
 	"title": "A Black Hole in your mind",
 	"journal_description":\
 """Initially I felt like my dreams were fading. But as the void of everything grew larger and more distinct, it occurred to me it was far worse. You see, what a dream that could never be repeated. An endless black space opens, coming together with your mind, reaching towards you like a powerful claw.
-From your perspective, it feels cold, it stretches out, wants to penetrate you and capture you for eternity. Yet when you look down onto the threshold, what do you see?
-""",
+From your perspective, it feels cold, it stretches out, wants to penetrate you and capture you for eternity. Yet when you look down onto the threshold, what do you see?""",
 	"journal_reward":\
-"""
-When you read these words now, there's going to be something else occupying the void inside of you; an invisible "you" staring back from deep within yourself... But that shouldn't matter. Right?
-""",
+"""When you read these words now, there's going to be something else occupying the void inside of you; an invisible "you" staring back from deep within yourself... But that shouldn't matter. Right?""",
 	"journal_art": "res://assets/journal/torments/The Void.jpg",
 	"ai_prompts": [
 		"My imagination found it exceedingly hard to escape the weight of sucking void I saw in my mind",
@@ -629,11 +610,9 @@ const IndescribableAbsurdity = {
 	"name": "Fractalization",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/IndescribableAbsurdity.tscn")],
 	"journal_description":\
-"""I was surrounded by infinite complexity at all sides. The terrifying omnipresence of Endlessness had a grip on my body now, desperately wanting to invade, consuming anything possible to occupy its interior. I grew large with black energy in my core. Within the suctioned walls, anything I needed came to me all the time. With mental faculty at the beck and call of its newfound creation, anything came through and still remains.
-""",	
+"""I was surrounded by infinite complexity at all sides. The terrifying omnipresence of Endlessness had a grip on my body now, desperately wanting to invade, consuming anything possible to occupy its interior. I grew large with black energy in my core. Within the suctioned walls, anything I needed came to me all the time. With mental faculty at the beck and call of its newfound creation, anything came through and still remains.""",
 	"journal_reward":\
-"""Do I remember how it felt when it was inside me? What sense of freedom? There are moments during certain phases where the fabric that binds my soul and body becomes devious, uncomfortable and painful. I question what this even means or makes me as if it can be wrong.
-""",
+"""Do I remember how it felt when it was inside me? What sense of freedom? There are moments during certain phases where the fabric that binds my soul and body becomes devious, uncomfortable and painful. I question what this even means or makes me as if it can be wrong.""",
 	'journal_art': "res://assets/journal/advanced/Fractalization.jpg",
 	"ai_prompts": [
 		"A fractal complexity was everywhere, and I felt myself going busy trying to process",
@@ -659,12 +638,10 @@ const Jumbletron = {
 	"name": "Jumbletron",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/Jumbletron.tscn")],
 	"journal_description":\
-"""I had entered a room which appeared to be self-rearranging. Walls which were farther than they seemed, and an almost fractal level of detail. Things blended in with each other so quickly that I assumed I was hallucinating. 
-"Well that's quite the collection." I said to myself. I laughed, but my mind was spiraling down into a place filled with confusion and chaotic, strange colors, trying to grasp how exactly my surroundings differed from my last recollection.
-""",
+"""I had entered a room which appeared to be self-rearranging. Walls which were farther than they seemed, and an almost fractal level of detail. Things blended in with each other so quickly that I assumed I was hallucinating.
+"Well that's quite the collection." I said to myself. I laughed, but my mind was spiraling down into a place filled with confusion and chaotic, strange colors, trying to grasp how exactly my surroundings differed from my last recollection.""",
 	"journal_reward":\
-"""I finally thought I saw the exit, however this one didn't look like any of the others I had encountered. Strange stained glass windows above what could only be described as an open window led away into the distance. Even though the memory flashed behind me, I fell right through without a second glance, not able to follow in reality because my brain would not focus.
-""",
+"""I finally thought I saw the exit, however this one didn't look like any of the others I had encountered. Strange stained glass windows above what could only be described as an open window led away into the distance. Even though the memory flashed behind me, I fell right through without a second glance, not able to follow in reality because my brain would not focus.""",
 	'journal_art': "res://assets/journal/advanced/Jumbletron.jpg",
 	"ai_prompts": [
 		"The room seemed to have no begginging and no end, or it just shifted that",
@@ -683,27 +660,25 @@ const SurrealBoss = {
 	"title": "The surreal becomes the only real",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn")],
 	"journal_description":\
-"""The next dream was so incomprehensible, just trying to remember it makes my head hurt. All I can say is that whatever happened last night seems like another form of indescribable insanity.
-""",
+"""The next dream was so incomprehensible, just trying to remember it makes my head hurt. All I can say is that whatever happened last night seems like another form of indescribable insanity.""",
 	"journal_reward":\
-"""I don't claim to understand what I was seeing, but eventually that vision faded. Even now, five or six days later, it still lingers with me like a sickeningly sweet memory of otherworldly immorality, loneliness, anguish and confusion.
-""",
-	'journal_art': 
+"""I don't claim to understand what I was seeing, but eventually that vision faded. Even now, five or six days later, it still lingers with me like a sickeningly sweet memory of otherworldly immorality, loneliness, anguish and confusion.""",
+	'journal_art':
 		[
-			"res://assets/journal/advanced/Surreality/Surreality1.jpg", 
-			"res://assets/journal/advanced/Surreality/Surreality2.jpg", 
-			"res://assets/journal/advanced/Surreality/Surreality3.jpg", 
-			"res://assets/journal/advanced/Surreality/Surreality4.jpg", 
-			"res://assets/journal/advanced/Surreality/Surreality5.jpg", 
-			"res://assets/journal/advanced/Surreality/Surreality6.jpg", 
-			"res://assets/journal/advanced/Surreality/Surreality7.jpg", 
-			"res://assets/journal/advanced/Surreality/Surreality8.jpg", 
-			"res://assets/journal/advanced/Surreality/Surreality9.jpg", 
-			"res://assets/journal/advanced/Surreality/Surreality10.jpg", 
+			"res://assets/journal/advanced/Surreality/Surreality1.jpg",
+			"res://assets/journal/advanced/Surreality/Surreality2.jpg",
+			"res://assets/journal/advanced/Surreality/Surreality3.jpg",
+			"res://assets/journal/advanced/Surreality/Surreality4.jpg",
+			"res://assets/journal/advanced/Surreality/Surreality5.jpg",
+			"res://assets/journal/advanced/Surreality/Surreality6.jpg",
+			"res://assets/journal/advanced/Surreality/Surreality7.jpg",
+			"res://assets/journal/advanced/Surreality/Surreality8.jpg",
+			"res://assets/journal/advanced/Surreality/Surreality9.jpg",
+			"res://assets/journal/advanced/Surreality/Surreality10.jpg",
 			"res://assets/journal/advanced/Surreality/Surreality11.jpg",
-			"res://assets/journal/advanced/Surreality/Surreality12.jpg", 
-			"res://assets/journal/advanced/Surreality/Surreality13.jpg", 
-			"res://assets/journal/advanced/Surreality/Surreality14.jpg", 
+			"res://assets/journal/advanced/Surreality/Surreality12.jpg",
+			"res://assets/journal/advanced/Surreality/Surreality13.jpg",
+			"res://assets/journal/advanced/Surreality/Surreality14.jpg",
 			"res://assets/journal/advanced/Surreality/Surreality15.jpg"
 		],
 	"ai_prompts": [
