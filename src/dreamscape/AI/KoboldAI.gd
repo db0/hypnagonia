@@ -39,10 +39,16 @@ static func get_world_info():
 static func get_soft_prompt():
 	var ret = _initiate_rest(HTTPClient.METHOD_GET, "/api/latest/config/soft_prompt")
 	if ret:
-		return(ret)
+		return(ret.value)
 
 
-static func put_soft_prompt(sp_name := "hypnagonia_dreams_and_surrealism.zip"):
+static func get_model():
+	var ret = _initiate_rest(HTTPClient.METHOD_GET, "/api/latest/model")
+	if ret:
+		return(ret.result)
+
+
+static func put_soft_prompt(sp_name : String):
 	var data := {
 		"value": sp_name,
 	}	
