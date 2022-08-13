@@ -177,9 +177,20 @@ func _init_koboldai_story() -> void:
 	if wi.has("entries"):
 		if wi.entries.empty():
 			var ret = KoboldAI.put_story()
-			print_debug('retasas')
+			CFUtils.dprint("AIStories:Hypnagonia world info loaded.")
 		else:
-			CFUtils.dprint("AIStories:KoboldAI world info already loaded.")
+			CFUtils.dprint("AIStories:Hypnagonia world info already loaded.")
+	var sp = KoboldAI.get_soft_prompt()
+	if not sp:
+		push_warning("KoboldAI instance not found")
+		return
+	if sp.has("value"):
+		if sp.value != "hypnagonia_dreams_and_surrealism.zip":
+			var ret = KoboldAI.put_soft_prompt()
+			CFUtils.dprint("AIStories:Hypnagonia soft prompt loaded.")
+		else:
+			CFUtils.dprint("AIStories:Hypnagonia soft prompt already loaded.")
+
 
 func _on_koboldai_server_changed() -> void:
 	var thread: Thread = Thread.new()

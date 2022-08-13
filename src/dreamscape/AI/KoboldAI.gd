@@ -36,9 +36,24 @@ static func get_world_info():
 		return(ret)
 
 
-static func put_story(filename := "Hypnagonia"):
+static func get_soft_prompt():
+	var ret = _initiate_rest(HTTPClient.METHOD_GET, "/api/latest/config/soft_prompt")
+	if ret:
+		return(ret)
+
+
+static func put_soft_prompt(sp_name := "hypnagonia_dreams_and_surrealism.zip"):
 	var data := {
-		"name": filename,
+		"value": sp_name,
+	}	
+	var ret = _initiate_rest(HTTPClient.METHOD_PUT, "/api/latest/config/soft_prompt", data)
+	if ret:
+		return(ret)
+
+
+static func put_story(story_name := "hypnagonia_koboldai_story"):
+	var data := {
+		"name": story_name,
 	}
 	var ret = _initiate_rest(HTTPClient.METHOD_PUT, "/api/latest/story/load",data)
 	if ret:
