@@ -37,6 +37,12 @@ const Administration = {
 """I decided to take the absurd step of confronting my boss in the dream. I told him that I remembered everything and that it was all true. He looked taken aback but recovered quickly. With a smirk, he leaned back in his chair and gave me a long, slow clap. 'Bravo!' he exclaimed. 'You're finally revealing your true self.'
 """,
 	"journal_art": "res://assets/journal/torments/administration.jpg",
+	"ai_prompts": [
+		"The office colours appeared even more drab than usual, as the administrator called me into the office. The",
+	],
+	"replacement_keywords": {
+		"torment_tag1": ["administrations?", "administrators?", "bureaucracy", "offices?"],
+	},
 	"enemies": {
 		"easy": [
 			{
@@ -251,6 +257,13 @@ const Nightmare = {
 """Though I don't remember how, I somehow managed to overcome the fear that was paralyzing me in my dream. Maybe it was because I realized that this figure wasn't really a messenger from an evil force, but just a product of my own fears and imagination.
 """,
 	"journal_art": "res://assets/journal/torments/Nightmare.jpg",
+	"ai_prompts": [
+		"I felt I was living in something from a [ nightmare ] horror film",
+		"It was a nightmare as pure to the word as can be",
+	],
+	"replacement_keywords": {
+		"torment_tag1": ["nightmares?", "horrors?", "terrors?"],
+	},
 	"enemies": {
 		"easy": [
 			{
@@ -304,6 +317,12 @@ I started gasping for breath. It wasn't just the cold water that was taking my b
 """The oppressive water turned into mist around me, along with my anxiety as the torment dissipated.
 """,
 	"journal_art": "res://assets/journal/torments/submerged.jpg",
+	"ai_prompts": [
+		"My lungs were starting to hurt, and the surface of the water was still too far away",
+	],
+	"replacement_keywords": {
+		"torment_tag1": ["submerged", "drowning", "water"],
+	},
 	"enemies": {
 		"easy": [
 			{
@@ -350,6 +369,12 @@ const HandsyAunt = {
 """I fought back, pushing her away. I didn't want her to touch me. I didn't want anyone to touch me ever again without my consent. 
 """,
 	"journal_art": "res://assets/journal/torments/Handsy Aunt.jpg",
+	"ai_prompts": [
+		"It wasn't the [ Handsy Aunt's ] pinching of my cheeks that annoyed me most, it was the slobbering kisses",
+	],
+	"replacement_keywords": {
+		"torment_tag1": ["handsy aunt", "handsy", "aunt", "uncle"],
+	},
 	"enemies": {
 		"easy": [
 			{
@@ -402,6 +427,12 @@ const Circular_Arguments = {
 """I cut through the fallacies as if they were the legendary gordian knot and the broken pieces of bad reasoning dissipated in the air
 """,
 	"journal_art": "res://assets/journal/torments/Circular Arguments.jpg",
+	"ai_prompts": [
+		"Again and again we had the same [ circular ] arguments",
+	],
+	"replacement_keywords": {
+		"torment_tag1": ["circular arguments?", "circular", "arguments?", "debates?"],
+	},
 	"enemies": {
 		"easy": [
 			{
@@ -457,6 +488,12 @@ const Influencer = {
 """I reinforced to myself that it was all fake, and the feelings of envy slowly subdued.  I remember furiously unfollowing on social media as the dream shifted
 """,
 	"journal_art": "res://assets/journal/torments/influencer.jpg",
+	"ai_prompts": [
+		"Why couldn't my life be as glamorous as the influencer I was following",
+	],
+	"replacement_keywords": {
+		"torment_tag1": ["influencers?", "glamour", "social media", "envy"],
+	},
 	"enemies": {
 		"easy": [
 			{
@@ -512,6 +549,12 @@ const Shamelings = {
 """The only way out of this predicament was to acknowledge my own self and stop feeling ashamed of who I am. That meant that I had to tell them everything, and there was no point hiding things anymore. So I told them all my deepest, darkest secrets, even the ones I'd never shared with anyone else. It felt like I was losing myself when I did that, but it was also liberating. And it worked!
 """,
 	"journal_art": "res://assets/journal/torments/Shamelings.jpg",
+	"ai_prompts": [
+		"They [ the shamelings ] we all over my bedroom, going through my things and looking for my most cherised possessions",
+	],
+	"replacement_keywords": {
+		"torment_tag1": ["shamelins?", "shame"],
+	},
 	"enemies": {
 		"easy": [
 			{
@@ -591,18 +634,24 @@ const TheGatherer = {
 """It took all my effort to piece my dream fragments back together into something coherent enough to understand. But as soon as I could distinguish the Gatherer's true form, it fled as quickly as it appeared.
 """,
 	'journal_art': "res://assets/journal/advanced/The Gatherer.jpg",
+	"ai_prompts": [
+		"My dreams were draining from me while the misty figure [ of the gatherer ] stood motionless",
+	],
 }
 
 const TheatrePlay = {
 	"name": "Theatre Play",
 	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/TheatrePlay.tscn")],
 	"journal_description":\
-""" was in a theatre troupe and part of a hyped new play. It was my first show, I had a protagonist role, and nothing was ready. There were a lot of things missing. My character's wardrobe wasn't right. My hair was different from what it should be. And most importantly, I was completely unprepared for the scene. I hadn't memorized the lines, so I didn't know what to say or how to act. The whole thing went downhill fast, and it felt like the entire audience was watching me fall apart.
+""" I was in a theatre troupe and part of a hyped new play. It was my first show, I had a protagonist role, and nothing was ready. There were a lot of things missing. My character's wardrobe wasn't right. My hair was different from what it should be. And most importantly, I was completely unprepared for the scene. I hadn't memorized the lines, so I didn't know what to say or how to act. The whole thing went downhill fast, and it felt like the entire audience was watching me fall apart.
 """,
 	"journal_reward":\
 """Somehow we managed to improvise our way to completion. The audience applauded and gave us high fives afterwards. We went back home feeling accomplished, but something about that moment still haunts me. 
 """,
 	'journal_art': "res://assets/journal/advanced/Theatre Play.jpg",
+	"ai_prompts": [
+		"I was in a theatre troupe and part of a hyped new play but completely unprepared",
+	],
 }
 
 const InfiniteCorridor = {
@@ -615,6 +664,10 @@ const InfiniteCorridor = {
 """Forcing myself past the encroaching boredom, I started noticing etches on the walls, the more I focused, the more it looked like a door. The etchings became clearer. The wall itself began to fade away into the shadows. As it did, the door revealed itself.
 """,
 	'journal_art': "res://assets/journal/advanced/Infinite Corridor.jpg",
+	"ai_prompts": [
+		"The corridor kept going on and on, to infinity as I",
+		"Would I ever get out [ of the infinite corridor ] or was I cursed to walk endlessly forward",
+	],
 }
 
 const ELITES = {
@@ -645,6 +698,9 @@ const FearAndPhobia = {
 			"res://assets/journal/advanced/Fear and Phobia/Fear and Phobia7.jpg",
 			"res://assets/journal/advanced/Fear and Phobia/Fear and Phobia8.jpg"
 		],
+	"ai_prompts": [
+		"I could feel my phobias rising to the surface as my fears surrounded me",
+	],
 }
 
 const BOSSES := {

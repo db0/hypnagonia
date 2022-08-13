@@ -42,6 +42,12 @@ const TrafficJam = {
 """I realized that it was a metaphor for the feeling of being stuck in life, and how frustrating and dull it can be. But I also realized that by overcoming that experience, I felt wiser and more aware of the things that truly matter in life.
 """,
 	"journal_art": "res://assets/journal/torments/Traffic Jam.jpg",
+	"ai_prompts": [
+		"I was stuck in traffic, in a bottleneck that stretched accross the horizon",
+	],
+	"replacement_keywords": {
+		"torment_tag1": ["Traffic Jam","traffic","jam","bottleneck"],
+	},
 	"enemies": {
 		"easy": [
 			{
@@ -83,6 +89,12 @@ const Mouse = {
 """I realized that there was no point in trying to engage the rodent in a serious discussion. It was content to play with my mind and twist my words into knots. I proceeded feeling wiser for having overcome that experience.
 """,
 	"journal_art": "res://assets/journal/torments/Mouse.jpg",
+	"ai_prompts": [
+		"I was having polite tea with a mouse, discussing political theory",
+	],
+	"replacement_keywords": {
+		"torment_tag1": ["mouse","rodent","discussing"],
+	},
 	"enemies": {
 		"easy": [
 			{
@@ -145,6 +157,12 @@ I started sweating and my hands were shaking. The clock seemed like it was ticki
 Looking back, I realize that the whole experience was surreal. It's like my mind was playing tricks on me. But in a way, it was also a good reminder of how important it is to stay calm under pressure.
 """,
 	"journal_art": "res://assets/journal/torments/Exam.jpg",
+	"ai_prompts": [
+		"The bell rang and I breathlessly took my seat, just in time for the exam",
+	],
+	"replacement_keywords": {
+		"torment_tag1": ["exam","test"],
+	},
 	"enemies": {
 		"easy": [
 			{
@@ -207,6 +225,12 @@ I try to fake being sorry, even though I don't really know what I did wrong. I t
 I'm not going to let them control me anymore. I'm done with faking being sorry for something I didn't do
 """,	
 	"journal_art": "res://assets/journal/torments/The Victim.jpg",
+	"ai_prompts": [
+		"I know I didn't do anything wrong but they [ the fake victim ] kept insising I hurt their feeling",
+	],
+	"replacement_keywords": {
+		"torment_tag1": ["victim","fake"],
+	},
 	"enemies": {
 		"easy": [
 			{
@@ -266,6 +290,12 @@ The pressure of the toy against my body was suffocating, but at the same time, i
 """It was a heavy burden that felt impossible to escape from, but at the same time, it was something I couldn't bear to part with. That feeling of being suffocated and lost in the moment was strangely familiar, and it made me realize that I needed to find a way to escape from my own cycle of pain and pleasure.
 """,
 	"journal_art": "res://assets/journal/torments/Stuffed Toy.jpg",
+	"ai_prompts": [
+		"The wrestling [ with my stuffed toy ] was becoming more intense",
+	],
+	"replacement_keywords": {
+		"torment_tag1": ["stuffed toy","stuffed", "toys?"],
+	},
 	"enemies": {
 		"easy": [
 			{
@@ -321,6 +351,13 @@ const ImpossibleConstruction = {
 """I realized that the only way to get anywhere was to think outside the box and see the world in a new, non-euclidean way. With that wisdom, I was able to break out of this impossible construction and find myself in a new place entirely.
 """,
 	"journal_art": "res://assets/journal/torments/Impossible Construction.jpg",
+	"ai_prompts": [
+		"Like a painting from M.C. Escher, I could not understand where this constuction started and where it ended",
+		"The physics of the building that stood before me were straining my brain",
+	],
+	"replacement_keywords": {
+		"torment_tag1": ["impossible construction","impossible", "constructions?", "buildings?"],
+	},
 	"enemies": {
 		"easy": [
 			{
@@ -403,6 +440,13 @@ const ClownShow = {
 """I simply shrugged my shoulders. I had no answers for them and I didn't feel bad about it.
 """,
 	"journal_art": "res://assets/journal/torments/ClownShow.jpg",
+	"ai_prompts": [
+		"The pialephants were providing the music for this clown circus",
+	],
+	"replacement_keywords": {
+		"torment_tag1": ["pialephants?","elephants?", "pianos?"],
+		"torment_tag2": ["clowns?"],
+	},
 	"enemies": {
 		"easy": [
 			{
@@ -468,6 +512,13 @@ It was frustrating and upsetting, making me feel guilty and ashamed. I couldn't 
 """I realised that I was blaming myself for something that wasn't my fault. And I also realized that the other person's treatment of me had nothing to do with me, and everything to do with their own issues.
 """,
 	"journal_art": "res://assets/journal/torments/Silent Treatment.jpg",
+	"ai_prompts": [
+		"The guilt trip was too much, as I tried to get through their silent treatment",
+	],
+	"replacement_keywords": {
+		"torment_tag1": ["guilt trip","guilt"],
+		"torment_tag2": ["silent treatment", "silent", "treatment"],
+	},
 	"enemies": {
 		"easy": [
 			{
@@ -515,6 +566,12 @@ From your perspective, it feels cold, it stretches out, wants to penetrate you a
 When you read these words now, there's going to be something else occupying the void inside of you; an invisible "you" staring back from deep within yourself... But that shouldn't matter. Right?
 """,
 	"journal_art": "res://assets/journal/torments/The Void.jpg",
+	"ai_prompts": [
+		"My imagination found it exceedingly hard to escape the weight of sucking void I saw in my mind",
+	],
+	"replacement_keywords": {
+		"torment_tag1": ["void","black hole","hole","black"],
+	},
 	"enemies": {
 		"easy": [
 			{
@@ -578,6 +635,9 @@ const IndescribableAbsurdity = {
 """Do I remember how it felt when it was inside me? What sense of freedom? There are moments during certain phases where the fabric that binds my soul and body becomes devious, uncomfortable and painful. I question what this even means or makes me as if it can be wrong.
 """,
 	'journal_art': "res://assets/journal/advanced/Fractalization.jpg",
+	"ai_prompts": [
+		"A fractal complexity was everywhere, and I felt myself going busy trying to process",
+	],
 }
 const Dentist = {
 	"name": "Dentist",
@@ -590,6 +650,10 @@ const Dentist = {
 """First thing I did the next day is look in the mirror and check that my teeth looked fine. They were, but something about the dream made me feel uneasy. I couldn't help wondering if there was some hidden message in it for me.
 """,
 	'journal_art': "res://assets/journal/advanced/Dentist.jpg",
+	"ai_prompts": [
+		"Why was I once more in the Dentist office? Oh right, the bunny teeth",
+		"The dental drill startled me, as the masked face of the dentist appeared to my side",
+	],
 }
 const Jumbletron = {
 	"name": "Jumbletron",
@@ -602,6 +666,10 @@ const Jumbletron = {
 """I finally thought I saw the exit, however this one didn't look like any of the others I had encountered. Strange stained glass windows above what could only be described as an open window led away into the distance. Even though the memory flashed behind me, I fell right through without a second glance, not able to follow in reality because my brain would not focus.
 """,
 	'journal_art': "res://assets/journal/advanced/Jumbletron.jpg",
+	"ai_prompts": [
+		"The room seemed to have no begginging and no end, or it just shifted that",
+		"I kept searching for the exit door, but I kept climbing to the ceiling instead",
+	],
 }
 
 const ELITES = {
@@ -638,6 +706,10 @@ const SurrealBoss = {
 			"res://assets/journal/advanced/Surreality/Surreality14.jpg", 
 			"res://assets/journal/advanced/Surreality/Surreality15.jpg"
 		],
+	"ai_prompts": [
+		"The next dream was so incomprehensible, just trying to remember it makes my head hurt",
+		"Was that really a dream I saw, or just a fevered psychedelia",
+	],
 }
 
 const BOSSES := {
