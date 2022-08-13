@@ -7,6 +7,7 @@ static func generate(prompt: String, max_length: int):
 		"prompt": prompt,
 		"frmttriminc": true,
 		"use_memory": true,
+		"use_world_info": true,
 		"max_length": max_length,
 		"disable_output_formatting": false,
 	}
@@ -27,6 +28,21 @@ static func get_story():
 	var ret = _initiate_rest(HTTPClient.METHOD_GET, "/api/latest/config/memory")
 	if ret:
 		return(ret.value)
+
+
+static func get_world_info():
+	var ret = _initiate_rest(HTTPClient.METHOD_GET, "/api/latest/world_info")
+	if ret:
+		return(ret)
+
+
+static func put_story(filename := "Hypnagonia"):
+	var data := {
+		"name": filename,
+	}
+	var ret = _initiate_rest(HTTPClient.METHOD_PUT, "/api/latest/story/load",data)
+	if ret:
+		return(ret)
 
 
 static func put_memory(value: String):
@@ -65,7 +81,9 @@ static func _initiate_rest(method, endpoint: String, data: Dictionary = {}):
 			yield(Engine.get_main_loop(), "idle_frame")
 
 	# Could not connect
-	assert(http.get_status() == HTTPClient.STATUS_CONNECTED)
+	if http.get_status() != HTTPClient.STATUS_CONNECTED:
+		push_error("Could not connect to KoboldAI Server.")
+		return
 	var headers = ["Content-Type: application/json"]
 	var query = JSON.print(data)
 	err = http.request(method, endpoint, headers, query)

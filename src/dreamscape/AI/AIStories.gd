@@ -31,6 +31,11 @@ func _ready():
 	ai_ratings.connect("ratings_retrieved", self, "_on_ratings_received")
 	ai_ratings.retrieve_evaluating_gens()
 	ai_ratings.retrieve_finalized_gens()
+	EventBus.connect("kobodoldai_server_changed", self, "_on_koboldai_server_changed")
+	var thread: Thread = Thread.new()
+	thread.start(self, "_init_koboldai_story")
+	threads.append(thread)
+	
 
 
 func retrieve_story(encounter_story) -> Dictionary:
@@ -162,3 +167,21 @@ func _on_ratings_received(ratings_dict: Dictionary, evaluating: bool) -> void:
 	else:
 		finalized_generations = ratings_dict
 		CFUtils.dprint("AIStories:Loaded finalized stories.")
+
+
+func _init_koboldai_story() -> void:
+	var wi = KoboldAI.get_world_info()
+	if not wi:
+		push_warning("KoboldAI instance not found")
+		return
+	if wi.has("entries"):
+		if wi.entries.empty():
+			var ret = KoboldAI.put_story()
+			print_debug('retasas')
+		else:
+			CFUtils.dprint("AIStories:KoboldAI world info already loaded.")
+
+func _on_koboldai_server_changed() -> void:
+	var thread: Thread = Thread.new()
+	thread.start(self, "_init_koboldai_story")
+	threads.append(thread)

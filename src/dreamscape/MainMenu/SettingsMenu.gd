@@ -1,5 +1,8 @@
 extends CenterContainer
 
+var koboldai_server_changed := false
+var koboldai_changed_timer : float = 0
+
 onready var back_button = find_node('Back')
 onready var focus_style = find_node('FocusStyle')
 onready var expand_linked_terms = find_node('ExpandLinkedTerms')
@@ -78,6 +81,14 @@ func _ready() -> void:
 	# To avoid the slider adjust sound sounding from the initial setting
 	sound_effect_enabled = true
 
+func _process(delta):
+	if koboldai_server_changed:
+		koboldai_changed_timer += delta
+		if koboldai_changed_timer >= 10:
+			EventBus.emit_signal("kobodoldai_server_changed")
+			koboldai_server_changed = false
+			koboldai_changed_timer = 0
+	
 
 func _on_FancAnimations_toggled(button_pressed: bool) -> void:
 	cfc.set_setting('fancy_movement',button_pressed)
@@ -203,10 +214,16 @@ func _on_GenerateAI_toggled(button_pressed):
 
 func _on_KAIURLInput_text_changed():
 	cfc.set_setting('kai_url',kaiurl_input.text.rstrip('\n'))
+	koboldai_server_changed = true
+	koboldai_changed_timer = 0  
+
 
 
 func _on_KAIPortInput_text_changed():
 	cfc.set_setting('kai_port',int(kai_port_input.text.rstrip('\n')))
+	koboldai_server_changed = true
+	koboldai_changed_timer = 0
+
 
 
 func _on_UseAI_toggled(button_pressed):

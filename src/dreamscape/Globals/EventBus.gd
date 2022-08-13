@@ -8,6 +8,7 @@ signal battle_begun
 signal battle_ended
 # warning-ignore:unused_signal
 signal game_over
+signal kobodoldai_server_changed
 
 func _ready():
 	# warning-ignore:return_value_discarded
