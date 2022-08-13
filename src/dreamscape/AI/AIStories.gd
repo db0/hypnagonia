@@ -184,6 +184,10 @@ func _init_koboldai_story() -> void:
 	if not sp:
 		push_warning("KoboldAI instance not found")
 		return
+	var sp_to_model:= {
+		"surrealism_and_dreams_2.7B.zip": "KoboldAI/fairseq-dense-2.7B-Nerys",
+		"surrealism_and_dreams_13B.zip": "KoboldAI/fairseq-dense-13B-Nerys"
+	}
 	if sp.has("value"):
 		if sp.value != "hypnagonia_dreams_and_surrealism.zip":
 			var ret = KoboldAI.put_soft_prompt()

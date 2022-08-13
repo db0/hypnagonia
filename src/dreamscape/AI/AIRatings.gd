@@ -4,8 +4,8 @@ extends Node
 signal ratings_retrieved(ratings_dict, evaluating)
 
 #const TELEMETRY_URI := "http://dbzer0.com"
-const TELEMETRY_URI := "http://dbzer0.com"
 const TELEMETRY_PORT := 8000
+const TELEMETRY_URI := "http://127.0.0.1"
 
 # In case this node is going to be used to submit stories, 
 # we need to know the encounter to submit
@@ -35,6 +35,7 @@ func submit(classification: int):
 		"type": encounter.type,
 		"classification": classification,
 		"client_id": cfc.game_settings['Client UUID'],
+		"kai_instance": "%s:%s" % [cfc.game_settings.get("kai_url",'http://127.0.0.1'),cfc.game_settings.get("kai_port", 5000)]
 	}
 	var ret = _initiate_rest(HTTPClient.METHOD_POST, "/generation/", data)
 
