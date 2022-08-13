@@ -5,6 +5,8 @@ const MASTERIES_AMOUNT = round(Pathos.MASTERY_BASELINE * 2)
 const PATHOS = Terms.RUN_ACCUMULATION_NAMES.elite
 const REPRESSED_PATHOS_AVG_MULTIPLIER = 1
 const CARD_PROGRESS = 3
+const journal_description = "<Multiple Options - Story Fluff to be Done>. Select one Option...."
+
 
 var secondary_choices := {
 		'card': '[Card]: {bcolor:Remove an upgraded card:}. {gcolor:Upgrade a card:}.',
@@ -26,7 +28,7 @@ var pathos_type : PathosType = globals.player.pathos.pathi[PATHOS]
 
 func _init():
 	# TODO: Fluff
-	description = "<Multiple Options - Story Fluff to be Done>. Select one Option...."
+	introduction.setup_with_vars("Experience",journal_description, "")
 
 func begin() -> void:
 	.begin()

@@ -37,8 +37,13 @@ func _init(_type: String) -> void:
 func setup_with_vars(
 		_name: String,
 		_default_stories = null,
+		_title: String = '',
 		_ai_prompts := [],
 		_replacement_kws := {}) -> void:
+	name = _name
+	title = _title
+	if _title == '':
+		title = name
 	name = _name
 	if typeof(_default_stories) == TYPE_ARRAY:
 		default_stories = _default_stories.duplicate()

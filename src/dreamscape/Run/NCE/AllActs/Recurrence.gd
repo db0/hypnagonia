@@ -48,6 +48,7 @@ var memory_upgrades := {
 
 var unused_takeovers : Array
 var attempts_to_escape := 0
+var journal_description: String
 
 func _init():
 	# In GUT it will not exist
@@ -56,14 +57,15 @@ func _init():
 		globals.journal.connect("choice_entry_added", self, "_takeover_journal_entry")
 	for existing_entry in globals.get_tree().get_nodes_in_group("JournalEncounterChoiceScene"):
 		_takeover_journal_entry(existing_entry)
-	description = descriptions[globals.encounters.current_act.get_act_number()]
+	journal_description = descriptions[globals.encounters.current_act.get_act_number()]
+	introduction.setup_with_vars("Recurrence",journal_description, "Again and Again I have to Face This")
 	CFUtils.shuffle_array(journal_arts, true)
 	prepare_journal_art(journal_arts.back())
 
 
 func begin() -> void:
 	.begin()
-	recurrence_elite["journal_description"] = description
+	recurrence_elite["journal_description"] = journal_description
 	surprise_combat_encounter = recurrence_surprise.new(
 			recurrence_elite,
 			difficulties[globals.encounters.current_act.get_act_number()],

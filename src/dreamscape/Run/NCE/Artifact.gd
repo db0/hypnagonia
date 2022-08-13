@@ -1,6 +1,8 @@
 class_name ArtifactEncounter
 extends NonCombatEncounter
 
+const journal_description = "I recall I had specific curio with me, but I struggle to remember what. This recollection is painful..."
+
 var randomized_artifacts := []
 var artifact_prep : ArtifactPrep
 var perturbation_chance := 0.6
@@ -14,7 +16,7 @@ var secondary_choices := {
 
 
 func _init():
-	description = "I recall I had specific curio with me, but I struggle to remember what. This recollection is painful..."
+	introduction.setup_with_vars("Curio", journal_description, "A Random Discovery")
 	pathos_released = Terms.RUN_ACCUMULATION_NAMES.artifact
 
 func begin() -> void:

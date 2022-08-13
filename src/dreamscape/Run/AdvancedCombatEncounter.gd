@@ -6,7 +6,6 @@ var basic_enemies := []
 var enemy_entities: Array
 
 func _init(encounter: Dictionary, _difficulty := "medium"):
-	introduction = EncounterStory.new("journal_choice")
 	introduction.setup_with_torment_dict(encounter)
 #	title = encounter.get("title", encounter.name)
 #	description = story["story"]

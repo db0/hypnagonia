@@ -1,5 +1,6 @@
 extends NonCombatEncounter
 
+const journal_description = "I found myself on a small platform atop a circus tent with only a tightrope ahead of me. The crowd below was cheering me on."
 const PATHOS_USED = Terms.RUN_ACCUMULATION_NAMES.artifact
 var artifact_prep: ArtifactPrep
 
@@ -18,8 +19,7 @@ var nce_result_fluff := {
 var _testing_rng = -1
 
 func _init():
-	# TODO: Add story
-	description = "I found myself on a small platform atop a circus tent with only a tightrope ahead of me. The crowd below was cheering me on."
+	introduction.setup_with_vars("Highwire",journal_description, "Precarious Balancing")
 	prepare_journal_art(load("res://assets/journal/nce/Highwire.jpg"))
 
 func begin() -> void:

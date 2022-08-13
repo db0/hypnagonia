@@ -1,6 +1,7 @@
 extends NonCombatEncounter
 
 const MASTERIES_AMOUNT := round(Pathos.MASTERY_BASELINE * 7)
+const journal_description = "<Greed - Story Fluff to be Done>. Select one Option...."
 
 var secondary_choices := {
 		'accept': '[Accept]: Gain {gcolor:{masteries_amount} {masteries}:}. {bcolor:Become {perturbation}:}.',
@@ -10,7 +11,7 @@ var pathos_choice_payments := {}
 
 func _init():
 	# TODO: Add story
-	description = "<Greed - Story Fluff to be Done>. Select one Option...."
+	introduction.setup_with_vars("Greed",journal_description, "")
 
 func begin() -> void:
 	.begin()

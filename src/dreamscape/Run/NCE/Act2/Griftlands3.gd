@@ -1,5 +1,9 @@
 extends NonCombatEncounter
 
+const journal_description = "Once again, I found myself in the fantasy western world. "\
+			+ "Now I was a rugged warrior, with a bounty on my head.\n"\
+			+ "I had been framed..."
+
 var secondary_choices := {
 		'lay_low': '[Lay Low]: Gain {gcolor:1 random Common card:} from your Injustice card pool.',
 		'clear_name': '[Clear your Name]: {bcolor:+7:} {anxiety_up}. Gain {gcolor:1 random Uncommon card:} from your Injustice card pool.',
@@ -15,9 +19,7 @@ var nce_result_fluff := {
 
 
 func _init():
-	description = "Once again, I found myself in the fantasy western world. "\
-			+ "Now I was a rugged warrior, with a bounty on my head.\n"\
-			+ "I had been framed..."
+	introduction.setup_with_vars("Griftlands 3",journal_description, "With a Bounty on my Head")
 	prepare_journal_art(load("res://assets/journal/nce/Griftlands.jpg"))
 
 

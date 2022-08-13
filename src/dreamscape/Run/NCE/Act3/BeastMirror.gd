@@ -1,6 +1,8 @@
 extends NonCombatEncounter
 
 const CONTINUE_HEALTH_LOSS = -25
+const journal_description = "I found a peculiar mirror that appeared to show me in various animal forms."\
+			+ "The longer I looked at myself, the more I forgot what I really looked like."
 
 var secondary_choices := {
 		'continue': '[Continue looking]: {bcolor:-{loss_amount} max {anxiety}:}. {gcolor:Gain {beast}:}.',
@@ -15,8 +17,7 @@ var nce_result_fluff := {
 
 
 func _init():
-	description = "I found a peculiar mirror that appeared to show me in various animal forms."\
-			+ "The longer I looked at myself, the more I forgot what I really looked like."
+	introduction.setup_with_vars("Beast Mirror",journal_description, "The Beastly Form of Myself")
 	prepare_journal_art(load("res://assets/journal/nce/Beast Mirror.jpg"))
 	
 func begin() -> void:

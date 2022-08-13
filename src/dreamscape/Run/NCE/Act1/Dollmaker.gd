@@ -3,6 +3,9 @@ extends NonCombatEncounter
 
 const DESTROY_PCT  := 0.5
 const MASTERIES_AMOUNT := round(Pathos.MASTERY_BASELINE * 1.8)
+const journal_description = "I was standing on top of a dollmaker cowering on the floor.\n\n" \
+		+ "I was upset. I don't know why, but I was very angry.\n"\
+		+ "What did I do..?"
 
 var secondary_choices := {
 		'destroy': '[Destroy the workshop]: Gain {gcolor:{destroy_amount} {masteries}:}.',
@@ -21,9 +24,7 @@ var nce_result_fluff := {
 var pathos_type_leave = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.elite]
 
 func _init():
-	description = "I was standing on top of a dollmaker cowering on the floor.\n\n" \
-			+ "I was upset. I don't know why, but I was very angry.\n"\
-			+ "What did I do..?"
+	introduction.setup_with_vars("Dollmaker",journal_description, "In the Dollmaker's Workshop")
 	prepare_journal_art(load("res://assets/journal/nce/Dollmaker.jpg"))
 
 func begin() -> void:

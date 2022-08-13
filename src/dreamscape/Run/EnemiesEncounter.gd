@@ -10,7 +10,6 @@ var enemies: Array
 var disabled_extra_draft_rewards := []
 
 func _init(encounter: Dictionary, _difficulty: String):
-	introduction = EncounterStory.new("journal_choice")
 	introduction.setup_with_torment_dict(encounter)
 	pathos_released = Terms.RUN_ACCUMULATION_NAMES.enemy
 #	var story : Dictionary = globals.ai_stories.retrieve_torment_story(encounter)

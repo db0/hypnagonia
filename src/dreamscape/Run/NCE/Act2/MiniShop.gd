@@ -7,6 +7,8 @@ const MASTERIES_AMOUNT := {
 }
 const MEMORY_PROGRESS = 5
 const CARD_PROGRESS = 6
+const journal_description = "A stranger called to me, claiming to be my childhood friend. Did I know him from somwehere?"
+
 
 var secondary_choices := {
 		'remove': '[Remove]: Spend {bcolor:{remove} {masteries}:}. {gcolor:Remove a card:} from your deck.',
@@ -23,7 +25,7 @@ var nce_result_fluff := {
 	}
 
 func _init():
-	description = "A stranger called to me, claiming to be my childhood friend. Did I know him from somwehere?"
+	introduction.setup_with_vars("Mini Shop",journal_description, "A Forgotten Friend")
 	prepare_journal_art(load("res://assets/journal/nce/MiniShop.jpg"))
 
 func begin() -> void:

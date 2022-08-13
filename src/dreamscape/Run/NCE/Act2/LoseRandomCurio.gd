@@ -1,5 +1,9 @@
 extends NonCombatEncounter
 
+const journal_description = "I was in the dark, surrounded by a variety of plushie toys. "\
+			+ "They requested I let them take something I have that they've never seen before."
+
+
 var secondary_choices := {
 		'allow': '[Allow]: {bcolor:Lose a random curio:}. {gcolor:Gain a {special_curio}:}',
 		'deny': '[Deny]: Deny their request. Nothing Happens. ',
@@ -13,8 +17,7 @@ var nce_result_fluff := {
 
 
 func _init():
-	description = "I was in the dark, surrounded by a variety of plushie toys. "\
-			+ "They requested I let them take something I have that they've never seen before."
+	introduction.setup_with_vars("Plushie Demands",journal_description, "Stuffed Toys Full of Needs")
 
 
 func begin() -> void:

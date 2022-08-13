@@ -3,6 +3,7 @@ extends NonCombatEncounter
 # The artifact used by this event.
 const SPECIAL_ARTIFACT:= "StartingDisempower"
 const MASTERIES_AMOUNT := round(Pathos.MASTERY_BASELINE * 4)
+const journal_description = "<Multiple Options - Story Fluff to be Done>. Select one Option...."
 
 # TODO: Fluff
 var secondary_choices := {
@@ -16,7 +17,7 @@ var lowest_pathos_amount
 
 func _init():
 	# TODO: Fluff
-	description = "<Multiple Options - Story Fluff to be Done>. Select one Option...."
+	introduction.setup_with_vars("Artifact Reward",journal_description, "")
 
 func begin() -> void:
 	.begin()

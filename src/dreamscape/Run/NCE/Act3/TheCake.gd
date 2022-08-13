@@ -1,6 +1,10 @@
 extends NonCombatEncounter
 
 const COST_REDUCTION := 1
+const journal_description = "Her fist came down on the cupcake, squashing it flat.\n"\
+			+ '"It\'s not good enough!" she yelled, not at me, but at the situation.\n'\
+			+ "The maps on her desk showed that this part of the ground should have kept her cupcake warm, but it was cold.\n"\
+			+ "Why on Earth was I here? I'm just the tech support."
 
 var secondary_choices := {
 		'recipe': '[Troubleshoot recipe]: {bcolor:Remove an upgraded card:}. {gcolor:Gain a random uncommon or rare card:} fully progressed.',
@@ -18,10 +22,7 @@ var nce_result_fluff := {
 
 
 func _init():
-	description = "Her fist came down on the cupcake, squashing it flat.\n"\
-			+ '"It\'s not good enough!" she yelled, not at me, but at the situation.\n'\
-			+ "The maps on her desk showed that this part of the ground should have kept her cupcake warm, but it was cold.\n"\
-			+ "Why on Earth was I here? I'm just the tech support."
+	introduction.setup_with_vars("The Cake",journal_description, "Wasted Pastry")
 	prepare_journal_art(load("res://assets/journal/nce/Cake.jpg"))
 
 func begin() -> void:

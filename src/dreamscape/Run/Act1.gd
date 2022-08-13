@@ -105,7 +105,7 @@ I felt a bit dizzy. I had the sensation that I was falling. My stomach lurched, 
 	"journal_art": "res://assets/journal/torments/Fearmonger.jpg",
 	"ai_prompts": [
 		"The third eye [ of the fearmonger ] was focused on me",
-		"As I felt dread encompass me, I looked around to see the Fearmonger focusing on me",
+		"As I felt dread encompass me, I looked around to see the Fearmonger focusing on me [ with their three eyes ]",
 	],
 	"replacement_keywords": {
 		"torment_tag1": ["fearmonger","dread","state","staring"],

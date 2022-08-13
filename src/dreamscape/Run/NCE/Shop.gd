@@ -2,12 +2,14 @@ class_name ShopEncounter
 extends NonCombatEncounter
 
 const SHOP_SCENE := preload("res://src/dreamscape/Shop/Shop.tscn")
+const journal_description := "I saw a friend mine becking me over. We certainly had much to catch up on."
+
 var current_shop
 
 
 
 func _init():
-	description = "I saw a friend mine becking me over. We certainly had much to catch up on."
+	introduction.setup_with_vars("Shop", journal_description, "A Dear Old Friend")
 	pathos_released = Terms.RUN_ACCUMULATION_NAMES.shop
 	var shop_images = CFUtils.list_imported_in_directory("res://assets/journal/shop/", true)
 	CFUtils.shuffle_array(shop_images, true)

@@ -1,5 +1,10 @@
 extends NonCombatEncounter
 
+const journal_description = "I found myself walking between a cliff and an impassable forest while one of my hands was wrapped in cement. "\
+			+ "The trees were impervious and the fall high so I was treading carefully. "\
+			+ "At one point, as I was holding on to a branch, I lost my footing and ended up hanging on one hand over the chasm."
+
+
 var secondary_choices := {
 		'swing': '[Swing For It]: 50% chance for {bcolor:+5 {anxiety_up}:}. {gcolor:Choose and transform:} one {control} card to a random {action}.',
 		'shout': '[Shout for Help]: 30% chance for {bcolor:+7 {anxiety_up}:}. {gcolor:Choose and transform:} one {control} card to a random {control}.',
@@ -16,9 +21,7 @@ var nce_result_fluff := {
 var _testing_rng = -1
 
 func _init():
-	description = "I found myself walking between a cliff and an impassable forest while one of my hands was wrapped in cement. "\
-			+ "The trees were impervious and the fall high so I was treading carefully. "\
-			+ "At one point, as I was holding on to a branch, I lost my footing and ended up hanging on one hand over the chasm."
+	introduction.setup_with_vars("Hanging On",journal_description, "Holding to the Edge for Dear Life")
 	prepare_journal_art(load("res://assets/journal/nce/chasm.jpeg"))
 	
 func begin() -> void:

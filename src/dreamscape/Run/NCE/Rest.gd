@@ -1,6 +1,8 @@
 class_name RestEncounter
 extends NonCombatEncounter
 
+const journal_description = "I felt myself falling into a deep, dreamless torpor..."
+
 # The amount by which the player's damage will be reduced
 var rest_amount : float = 0.25
 var progress_amount := 5
@@ -31,7 +33,7 @@ var reward_texts := {
 }
 
 func _init():
-	description = "I felt myself falling into a deep, dreamless torpor..."
+	introduction.setup_with_vars("Rest",journal_description, "The Deep Torpor")
 	pathos_released = Terms.RUN_ACCUMULATION_NAMES.rest
 
 

@@ -1,6 +1,7 @@
 extends NonCombatEncounter
 
 const HUNGRY_AMOUNT = 2
+const journal_description = "I was hungry but all I had was giant Ostrich eggs. I could not decide how to cook them."
 
 var secondary_choices := {
 		'scramble': '[Scrambled]: {gcolor:[url={"definition": "enhance","meta_type": "definition"}]Enhance[/url]:} all basic {action} cards. {bcolor:[url={"definition": "scar","meta_type": "definition"}]Scar[/url]:} all basic {control} cards',
@@ -16,7 +17,7 @@ var nce_result_fluff := {
 var existing_memory
 
 func _init():
-	description = "I was hungry but all I had was giant Ostrich eggs. I could not decide how to cook them."
+	introduction.setup_with_vars("Ostrich Eggs",journal_description, "Eating the Embryos of Massive Birds")
 	prepare_journal_art(load("res://assets/journal/nce/Ostrich Eggs.jpg"))
 
 func begin() -> void:

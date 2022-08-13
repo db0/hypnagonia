@@ -7,6 +7,12 @@ const MASTERY_AMOUNTS := {
 	"stress": round(Pathos.MASTERY_BASELINE * 1.3),
 	"fear": round(Pathos.MASTERY_BASELINE * 2.5),
 }
+const journal_description =\
+"""My mind was in a haze and there was a ringing in my ears. 
+My nervoussness was continuing to grow, yet I was determined to impress my fruity audience. 
+They pointed the cameras directly at me. It was time to let out the inner animal inside me.
+"""
+
 
 var secondary_choices := {
 		'calm': '[Songbird]: Gain {gcolor:{calm_mastery_amount} {mastery}:}.',
@@ -23,11 +29,7 @@ var nce_result_fluff := {
 var choices := {}
 
 func _init():
-	description = """
-My mind was in a haze and there was a ringing in my ears. 
-My nervoussness was continuing to grow, yet I was determined to impress my fruity audience. 
-They pointed the cameras directly at me. It was time to let out the inner animal inside me.
-"""
+	introduction.setup_with_vars("Pathos for Anxiety",journal_description, "")
 	prepare_journal_art(load("res://assets/journal/nce/Fruity Audience.jpg"))
 	
 func begin() -> void:

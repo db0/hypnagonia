@@ -1,6 +1,8 @@
 extends NonCombatEncounter
 
 const MASTERIES_AMOUNT := round(Pathos.MASTERY_BASELINE * 4)
+const journal_description =\
+"""There was something wrong, I just had that sinking feeling. The ground below me felt unstable, it clinged to my feet slowly enveloping my legs. I knew I was being swallowed alive in quicksand, yet as my head sank below the surface as I saw an endless bounty of treasure underneath meeting the same fate that I did. Was I dying?"""
 	
 var artifact_prep: ArtifactPrep
 
@@ -17,8 +19,7 @@ var nce_result_fluff := {
 
 
 func _init():
-	description =\
-"""There was something wrong, I just had that sinking feeling. The ground below me felt unstable, it clinged to my feet slowly enveloping my legs. I knew I was being swallowed alive in quicksand, yet as my head sank below the surface as I saw an endless bounty of treasure underneath meeting the same fate that I did. Was I dying?"""
+	introduction.setup_with_vars("Risky Event 4",journal_description, "")
 
 
 func begin() -> void:

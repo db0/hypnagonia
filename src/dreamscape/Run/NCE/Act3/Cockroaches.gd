@@ -3,6 +3,11 @@ extends NonCombatEncounter
 const PERTURBATION := "Cockroach Infestation"
 const DAMAGE_PCT_REDUCE := 0.5
 const STOMP_DAMAGE := 3
+const journal_description = "On tiny, scuttling legs they cross the dining room table, "\
+			+ "each leg shaped like the hands of time. Fruit they touch goes mouldy, "\
+			+ "old coasters suddenly become new. "\
+			+ "The ear always is confused as the tick-tocking sound shouldn't move, the clock is on the wall, "\
+			+ "but now I hear it down the sides of the cupboards... "
 
 var secondary_choices := {
 		'ignore': '[Ignore]:{gcolor:{relax} for {pct}% of your max {anxiety}:}. {bcolor:Become {infested}:}.',
@@ -16,11 +21,7 @@ var nce_result_fluff := {
 
 
 func _init():
-	description = "On tiny, scuttling legs they cross the dining room table, "\
-			+ "each leg shaped like the hands of time. Fruit they touch goes mouldy, "\
-			+ "old coasters suddenly become new. "\
-			+ "The ear always is confused as the tick-tocking sound shouldn't move, the clock is on the wall, "\
-			+ "but now I hear it down the sides of the cupboards... "
+	introduction.setup_with_vars("Cockroaches",journal_description, "The Worst Kind of Bug Infestation")
 	prepare_journal_art(load("res://assets/journal/nce/Cockroaches.jpg"))
 	
 func begin() -> void:

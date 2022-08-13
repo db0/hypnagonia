@@ -1,5 +1,7 @@
 extends NonCombatEncounter
 
+const journal_description = "A spider was looking at me with a thousand eyes. Its intentions are unfathomable."
+
 var secondary_choices := {
 		'eat': '[Eat the spider]: {gcolor:-10 {anxiety_down}:}. Gain {bcolor:{boss_amount} {boss_pathos}:}',
 		'wave': '[Wave at the spider]: {gcolor:+10 max {anxiety}:}. Gain {bcolor:{boss_amount} {boss_pathos}:}. Gain {bcolor:{elite_amount} {elite_pathos}:}',
@@ -17,7 +19,7 @@ var pathos_type_boss: PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMUL
 var pathos_type_elite: PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.elite]
 
 func _init():
-	description = "A spider was looking at me with a thousand eyes. Its intentions are unfathomable."
+	introduction.setup_with_vars("Spider",journal_description, "One Curious Arachnid")
 	prepare_journal_art(load("res://assets/journal/nce/Spider.jpg"))
 
 func begin() -> void:

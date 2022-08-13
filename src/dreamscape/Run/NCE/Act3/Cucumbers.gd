@@ -1,6 +1,11 @@
 extends NonCombatEncounter
 
 const RELAX_AMOUNT := 20
+const journal_description = "I'd reached the pit of floating cucumbers again, "\
+			+ 'but the rollerskate chickens were making good progress on their treadmills.'\
+			+ 'There was no time to go around.\n'\
+			+ "It would be an easy choice to jump in, if only I wasn't stark naked."
+
 
 var secondary_choices := {
 		'jump': '[Jump]: {bcolor:Scar a random card.:} {gcolor:{relax} for {relax_amount}:}.',
@@ -14,10 +19,7 @@ var nce_result_fluff := {
 
 
 func _init():
-	description = "I'd reached the pit of floating cucumbers again, "\
-			+ 'but the rollerskate chickens were making good progress on their treadmills.'\
-			+ 'There was no time to go around.\n'\
-			+ "It would be an easy choice to jump in, if only I wasn't stark naked."
+	introduction.setup_with_vars("Cucumbers",journal_description, "Into the Pit of Phallic Vegetables")
 	prepare_journal_art(load("res://assets/journal/nce/Cucumbers.jpg"))
 
 func begin() -> void:
