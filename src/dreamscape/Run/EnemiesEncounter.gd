@@ -10,11 +10,13 @@ var enemies: Array
 var disabled_extra_draft_rewards := []
 
 func _init(encounter: Dictionary, _difficulty: String):
+	introduction = EncounterStory.new("journal_choice")
+	introduction.setup_with_torment_dict(encounter)
 	pathos_released = Terms.RUN_ACCUMULATION_NAMES.enemy
-	var story : Dictionary = globals.ai_stories.retrieve_torment_story(encounter)
-	title = encounter.get("title", encounter.name)
-	description = story["story"]
-	description_uuid = story["uuid"]
+#	var story : Dictionary = globals.ai_stories.retrieve_torment_story(encounter)
+#	title = encounter.get("title", encounter.name)
+#	description = story["story"]
+#	description_uuid = story["uuid"]
 	difficulty = _difficulty
 	enemies = encounter["enemies"][difficulty]
 	reward_description = encounter["journal_reward"]
@@ -31,7 +33,7 @@ func get_formated_description() -> String:
 		torment_tag["name"] = torment_name
 		tag_format[rich_text_format_tag] = JSON.print(torment_tag)
 #	print_debug(description.format(tag_format))
-	return(description.format(tag_format))
+	return(introduction.story.format(tag_format))
 
 
 func get_unique_enemies() -> Array:

@@ -18,13 +18,13 @@ func _init(_journal: Node, _encounter: SingleEncounter).(_journal) -> void:
 		formated_description = enemy_encounter.get_formated_description()
 	if encounter as EliteEncounter:
 		var elite_encounter: EliteEncounter = encounter
-		formated_description = elite_encounter.description
+		formated_description = elite_encounter.introduction.story
 	if encounter as BossEncounter:
 		var boss_encounter: BossEncounter = encounter
-		formated_description = boss_encounter.description
+		formated_description = boss_encounter.introduction.story
 	if encounter as NonCombatEncounter:
 		var nce: NonCombatEncounter = encounter
-		formated_description = nce.description
+		formated_description = nce.introduction.story
 	bbcode_text = formated_description
 
 

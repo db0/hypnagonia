@@ -67,6 +67,14 @@ const Life_Paths = {
 """I don't know what the future holds for me now but I hope I'm able to live up to the potential that I've seen within me. I don't know why I even care about all of this, but I guess it's just a part of who I am. If I don't follow my heart then I'll regret it later.
 """,
 	"journal_art": "res://assets/journal/torments/Life Path.jpg",
+	"ai_prompts": [
+		"Of all the many life directions I can choose, which one would lead me to happiness, and which one had the potential to destroy me? Every choice would create another universe of chances, or yet another day in living hell.",
+		"Lingering shadows left and right of my life path try to influence me to change my decisions, opening new crossroads to even more possible betterment, or worsening, of my life. How can I resist giving in to my doubts?",
+		"My doubts keep whispering to me, trying to make me change my every decision and thus my life path, to unknown and dire consequences.",
+	],
+	"replacement_keywords": {
+		"torment_tag1": ["life paths?","paths?","life","choices?","directions?"],
+	},
 	"enemies": {
 		"easy": [
 			{
@@ -185,6 +193,12 @@ It was as if all the times I had ever been embarrassed, all the times I had ever
 """Cringe could only affect me so much when I was dreaming. After all, in my dreams, I was the one in control. I gathered my wits and managed to instead retrieve a lesson back from those uncomfortable memories.
 """,
 	"journal_art": "res://assets/journal/torments/Cringelord.jpg",
+	"ai_prompts": [
+		"Like a twisted carnival of horror my most degrading and embarrassing moments are invading my conscious mind all at once, as",
+	],
+	"replacement_keywords": {
+		"torment_tag1": ["cringelords?","cringe","embarassment"],
+	},
 	"enemies": {
 		"easy": [
 			{

@@ -314,3 +314,7 @@ static func convert_texture_to_image(texture, is_lossless = false) -> ImageTextu
 	new_texture.create_from_image(image)
 	return(new_texture)
 
+static func dprint(message: String) -> void:
+	if OS.has_feature("debug") and not cfc.is_testing:
+		print("DEBUG INFO:" + message)
+	

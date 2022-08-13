@@ -6,10 +6,11 @@ var basic_enemies := []
 var enemy_entities: Array
 
 func _init(encounter: Dictionary, _difficulty := "medium"):
-	var story : Dictionary = globals.ai_stories.retrieve_torment_story(encounter)
-	title = encounter.get("title", encounter.name)
-	description = story["story"]
-	description_uuid = story["uuid"]
+	introduction = EncounterStory.new("journal_choice")
+	introduction.setup_with_torment_dict(encounter)
+#	title = encounter.get("title", encounter.name)
+#	description = story["story"]
+#	description_uuid = story["uuid"]
 #	description = encounter.get("journal_description", '')
 	reward_description = encounter.get("journal_reward", '')
 	# If no advanced enemy scenes are there, there should be some basic enemies defined
