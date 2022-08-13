@@ -29,7 +29,7 @@ func _init(_journal: Node, _encounter: SingleEncounter).(_journal) -> void:
 
 
 func _ready():
-	submit_rating = AIRatings.new(encounter, "journal_choice")
+	submit_rating = AIRatings.new(encounter.introduction)
 	add_child(submit_rating)
 
 
