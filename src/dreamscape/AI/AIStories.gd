@@ -86,7 +86,7 @@ func regenerate_torment_story(encounter_story) -> void:
 			+ "{prompt}"
 	prompt = prompt.format(fmt)
 #	print("regenerate_torment_story():" + prompt)
-	var new_story = KoboldAI.generate(prompt, KoboldAI.GenerationTypes.TORMENT_INTRO)
+	var new_story = KoboldAI.generate(prompt, encounter_story.max_length)
 	if not new_story:
 		return
 	var regex = RegEx.new()

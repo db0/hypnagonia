@@ -14,6 +14,7 @@ var current_shop
 
 func _init():
 	introduction.setup_with_vars("Shop", journal_description, "A Dear Old Friend", ai_prompts)
+	introduction.max_length = 50
 	pathos_released = Terms.RUN_ACCUMULATION_NAMES.shop
 	var shop_images = CFUtils.list_imported_in_directory("res://assets/journal/shop/", true)
 	CFUtils.shuffle_array(shop_images, true)

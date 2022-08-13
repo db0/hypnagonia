@@ -1,31 +1,15 @@
 class_name KoboldAI
 extends Reference
 
-enum GenerationTypes {
-	TORMENT_INTRO
-	TORMENT_TAUNT
-}
 
-const DEFAULTS := {
-	GenerationTypes.TORMENT_INTRO: {
-		"max_length": 80
-	},
-	GenerationTypes.TORMENT_TAUNT: {
-		"max_length": 40
-	}
-}
-
-
-static func generate(prompt: String, gentype: int):
+static func generate(prompt: String, max_length: int):
 	var data := {
 		"prompt": prompt,
 		"frmttriminc": true,
 		"use_memory": true,
+		"max_length": max_length,
 		"disable_output_formatting": false,
 	}
-#	print("generate():" + prompt)
-	for k in DEFAULTS[gentype]:
-		data[k] = DEFAULTS[gentype][k]
 #	print("generate():" + str(data))
 #	print(data)
 	var ret = _initiate_rest(HTTPClient.METHOD_POST, "/api/latest/generate/", data)

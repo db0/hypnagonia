@@ -1,6 +1,11 @@
 class_name EncounterStory
 extends Reference
 
+const MAX_LENGTHS := {
+	"journal_choice": 80,
+	"torment_taunt": 30,
+}
+
 # The unique name of this encounter
 var name: String
 # A short title for this encounter/story in Hypnagonia acts. This is fed to the AI to better give it context
@@ -28,10 +33,13 @@ var replacement_keywords := {
 #	"torment_tag5": [],
 }
 var is_generated := false
+# How big the story is supposed to be in tokens. See MAX_LENGTHS
+var max_length: int
 
 
 func _init(_type: String) -> void:
 	type = _type
+	max_length = MAX_LENGTHS.get(type, 80)
 
 
 func setup_with_vars(
