@@ -3,6 +3,10 @@
 extends NonCombatEncounter
 
 const journal_description = "I dreamed of a large endless abyss. I could not see the bottom but I felt its pull. What did I do..?"
+const ai_prompts:= [
+	"I dreamed of a large endless abyss. I could not see the bottom but I felt its pull",
+	"The yawning pit in the ground was strangely welcoming. I could feel oblivion itself pulling",
+]
 
 
 var secondary_choices := {
@@ -16,7 +20,7 @@ var nce_resul_fluff := {
 	
 
 func _init():
-	introduction.setup_with_vars("Sleep of Oblivion",journal_description, "")
+	introduction.setup_with_vars("Sleep of Oblivion",journal_description, "",ai_prompts)
 	prepare_journal_art(load("res://assets/journal/nce/Sleep of Oblivion.jpg"))
 	
 func begin() -> void:

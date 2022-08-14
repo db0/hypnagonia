@@ -90,6 +90,9 @@ const Mouse = {
 	"journal_art": "res://assets/journal/torments/Mouse.jpg",
 	"ai_prompts": [
 		"I was having polite tea with a mouse, discussing political theory",
+		"The squeaky voice of the mouse rattled my brain around with its hyperactive intelligence. I understood nothing",
+		"The teacups shattered onto the floor as the words began to spill out of the mouse's erratic mouth",
+		"The mouse was too smart for me. It predicted every word I said, transforming them inton a convoluted theory",
 	],
 	"replacement_keywords": {
 		"torment_tag1": ["mouse","rodent","discussing"],
