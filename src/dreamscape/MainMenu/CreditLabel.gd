@@ -4,7 +4,8 @@ extends RichTextLabel
 const URLS := {
 	"Db0": "http://dbzer0.com",
 	"Godot": "https://godotengine.org/",
-	"CGF": "http://dbzer0.com/projects/godot-card-game-framework/",
+	"CGF": "http://dbzer0.com/projects/godot-card-game-framework",
+	"KAI": "https://github.com/KoboldAI/KoboldAI-Client",
 	"DioBal": "https://www.deviantart.com/diobalt",
 	"Artbreeder.com": "https://Artbreeder.com",
 	"midjourney.com": "https://www.midjourney.com",
@@ -71,9 +72,14 @@ const BBCODE_TEXT = """
 [color=red]Playtesting[/color]
 
 {playtesters}
+
+[color=purple]Artificial Intelligence[/color]
+
+{ai}
 [/center]
 
-Made using the [url=Godot]Godot Engine[/url] and the [url=CGF]Card Game Framework[/url]
+Made using the [url=Godot]Godot Engine[/url] and the [url=CGF]Card Game Framework[/url]\n
+AI text generation via [url=KAI]KoboldAI[/url]
 """
 
 
@@ -113,6 +119,12 @@ var playtesters := {
 	"TappedOut#0886": '',
 	"SkylarkGSH": '',
 }
+var ai := {
+	"Db0": "Softprompt development, AI prompts",
+	"Liriel": "AI Prompts",
+	"VE FORBRYDERNE#6568": "KoboldAI API Development",
+	"mr_seeker#1337": "KoboldAI Model Training",
+}
 
 func _ready() -> void:
 	# warning-ignore:return_value_discarded
@@ -128,6 +140,7 @@ func _ready() -> void:
 		"sound_designers": "",
 		"musicians": "",
 		"playtesters": "",
+		"ai": "",
 	}
 	for peep in game_designers:
 		label_fmt["game_designers"] += _get_url_format(peep, game_designers[peep]) + '\n'
@@ -149,6 +162,8 @@ func _ready() -> void:
 		label_fmt["musicians"] += _get_url_format(peep, musicians[peep]) + '\n'
 	for peep in playtesters:
 		label_fmt["playtesters"] += _get_url_format(peep, playtesters[peep]) + '\n'
+	for peep in ai:
+		label_fmt["ai"] += _get_url_format(peep, ai[peep]) + '\n'
 
 	bbcode_text = BBCODE_TEXT.format(label_fmt)
 
