@@ -13,7 +13,7 @@ It took an immense amount of feeling to make each blow, but the resulting releas
 I grabbed the tool, ready to strike another blow at the next crystal. It's been a long time coming...
 """
 const ai_prompts:= [
-	"I remember mysel breaking apart the Crystalized snapshots of myself with"
+	"I remember myself breaking apart the Crystalized snapshots of myself with"
 ]
 
 var secondary_choices := {

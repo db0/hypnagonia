@@ -104,7 +104,7 @@ I felt a bit dizzy. I had the sensation that I was falling. My stomach lurched, 
 		"As I felt dread encompass me, I looked around to see the Fearmonger focusing on me [ with their three eyes ]",
 	],
 	"replacement_keywords": {
-		"torment_tag1": ["fearmonger","dread","state","staring"],
+		"torment_tag1": ["[Ff]earmongers?","[Dd]read","[Ss]tares?","[Ss]taring","[Tt]hree eyes"],
 	},
 	"enemies": {
 		"easy": [
@@ -148,7 +148,7 @@ I pleaded for it to go away, but I knew I couldn't shake it. The dark field I wa
 		"\"Did it realy happen this way?\", the Gaslighter whispered to me, as I struggled to keep in mind the true memory",
 	],
 	"replacement_keywords": {
-		"torment_tag1": ["gaslighters?","gaslighting"],
+		"torment_tag1": ["[Gg]aslighters?","[Gg]aslight"],
 	},
 	"enemies": {
 		"easy": [
@@ -300,9 +300,9 @@ const Clown = {
 With that realization, I felt a sense of calm come over me. The ennui dissipated and I was able to see things more clearly. This whole confrontation with the clown was an exercise in existentialism; it made me confront the meaninglessness of life head-on. But eventually, I overcame that feeling and moved on.""",
 	"journal_art": "res://assets/journal/torments/Clown.jpg",
 	"ai_prompts": [
-#		"I found myself in the middle of an argument with a clown",
-#		"How long have I been talking to this clown?",
-#		"The back and forth between me and the clown was endless",
+		"I found myself in the middle of an argument with a clown",
+		"How long have I been talking to this clown?",
+		"The back and forth between me and the clown was endless",
 		"I've never discussed philosophy [ with a clown ] in such a manner before",
 	],
 	"replacement_keywords": {
@@ -353,7 +353,7 @@ As I watched, the butterfly began to move closer and I could see that its eyes w
 		"The beauty I saw [ in the butterfly ] was countered by the sadness I felt in it's flutter.",
 	],
 	"replacement_keywords": {
-		"torment_tag1": ["butterly","butterflies"],
+		"torment_tag1": ["[Bb]utterfly","[Bb]utterflies"],
 	},
 	"enemies": {
 		"easy": [
@@ -401,7 +401,7 @@ I try to shake off my superstitions and remind myself that there's probably a ra
 		"I saw myself reflected a thousand times, in the shards of the broken mirror",
 	],
 	"replacement_keywords": {
-		"torment_tag1": ["broken mirror","mirror","broken"],
+		"torment_tag1": ["[Bb]roken mirrors?","[Mm]irrors?","[Bb]roken","reflections?"],
 	},
 	"enemies": {
 		"easy": [
@@ -517,7 +517,7 @@ Eventually, I turned away from the light and began to wander aimlessly through t
 		"I am beckoned [ to The Light Calling ] and I cannot stop myself",
 	],
 	"replacement_keywords": {
-		"torment_tag1": ["the light calling","[Ll]ights?","[Cc]alling"],
+		"torment_tag1": ["the light calling","[Ll]ights?","[Cc]alling","[Bb]eckoned","beckon"],
 	},
 	"enemies": {
 		"easy": [
@@ -564,7 +564,7 @@ const Squirrel = {
 		"Never before have I encountered such a intimidating rodent [ as the squirrel ].",
 	],
 	"replacement_keywords": {
-		"torment_tag1": ["squirrels?"],
+		"torment_tag1": ["squirrels?", "rodents?"],
 	},
 	"enemies": {
 		"easy": [
@@ -620,7 +620,7 @@ Even though it was stressful taking care of the baby, overall I found the experi
 		"The situation was not optimal. The baby was already edging towards a tantrum and my hands were full.",
 	],
 	"replacement_keywords": {
-		"torment_tag1": ["baby","babies","babysitting"],
+		"torment_tag1": ["[Bb]abysitting", "[Bb]aby", "[Bb]abies", "[Tt]oddler"],
 	},
 	"enemies": {
 		"easy": [
@@ -715,6 +715,8 @@ For me, The Labyrinth represented a journey into the unknown. I woke up to what 
 	"ai_prompts": [
 		"I found myself trapped [ In a meandering Labyrinth ] with no way out",
 		"The maze yawned before me, beckoning me to be lost in it, as a challenge",
+		"What terror awaits behind those ever changing corners of this labyrinth? Is there even a way out, our will I forever be trapped in the bowels of this trap, slowly digested by my anxiety?",
+		"The pulsating, living, cringing walks of the labyrinth-like cave seem to close in on me as I am forced to follow the winding paths of my unconscious, not knowing whether I will ever fins the exit or rather",
 	],
 }
 

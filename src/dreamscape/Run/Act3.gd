@@ -70,9 +70,10 @@ const Life_Paths = {
 """I don't know what the future holds for me now but I hope I'm able to live up to the potential that I've seen within me. I don't know why I even care about all of this, but I guess it's just a part of who I am. If I don't follow my heart then I'll regret it later.""",
 	"journal_art": "res://assets/journal/torments/Life Path.jpg",
 	"ai_prompts": [
-		"Of all the many life directions I can choose, which one would lead me to happiness, and which one had the potential to destroy me? Every choice would create another universe of chances, or yet another day in living hell.",
-		"Lingering shadows left and right of my life path try to influence me to change my decisions, opening new crossroads to even more possible betterment, or worsening, of my life. How can I resist giving in to my doubts?",
-		"My doubts keep whispering to me, trying to make me change my every decision and thus my life path, to unknown and dire consequences.",
+		"Of all the many life directions I can choose, which one would lead me to happiness, and which one had the potential to destroy me?",
+		"Lingering shadows left and right of my life path try to influence me to change my decisions, opening new crossroads",
+		"My doubts keep whispering to me, trying to make me change my every decision and thus my life path",
+		"Every choice that lay in the path before me would create another universe of chances, or yet another day in living hell.",
 	],
 	"replacement_keywords": {
 		"torment_tag1": ["life paths?","paths?","life","choices?","directions?"],
@@ -198,7 +199,7 @@ It was as if all the times I had ever been embarrassed, all the times I had ever
 		"Descending further into the abyss of my shame stood one [ Cringelorg ] playcard: the fool. Me.",
 	],
 	"replacement_keywords": {
-		"torment_tag1": ["cringelords?","cringe","embarassment"],
+		"torment_tag1": ["[Cc]ringelords?","[Cc]ringe","[Ee]mbarassment","[Ee]mbarassing","[Mm]emory","[Ss]hame"],
 	},
 	"enemies": {
 		"easy": [
@@ -310,6 +311,9 @@ I started gasping for breath. It wasn't just the cold water that was taking my b
 	"journal_art": "res://assets/journal/torments/submerged.jpg",
 	"ai_prompts": [
 		"My lungs were starting to hurt, and the surface of the water was still too far away",
+		"The chilly feeling of forever drowning crept into my bones, while the depth of the icy current",
+		"As I was giving up the struggle to stay above the ice cold water, the last air in my lungs expanded into a painful force",
+		"Barely able to move my frozen body, the cramped muscles and the inability to breathe left me feeling",
 	],
 	"replacement_keywords": {
 		"torment_tag1": ["submerged", "drowning", "water"],
@@ -359,10 +363,13 @@ const HandsyAunt = {
 """I fought back, pushing her away. I didn't want her to touch me. I didn't want anyone to touch me ever again without my consent.""",
 	"journal_art": "res://assets/journal/torments/Handsy Aunt.jpg",
 	"ai_prompts": [
-		"It wasn't the [ Handsy Aunt's ] pinching of my cheeks that annoyed me most, it was the slobbering kisses",
+		"It wasn't the [ Handsy Aunt ] pinching of my cheeks that annoyed me most, it was the slobbering kisses",
+		"Her overwhelming presence and everybody's expectation of me to comply [ with the Handsy Aunt ] fought a battle in my mind that I could only lose.",
+		"Nothing could compare to my [ handsy ] aunt's overwhelming smell and her drug induced happiness, which is why",
+#		"Making other people happy and in the process overriding my own instinctive needs has always been one of my most typical behaviour.",
 	],
 	"replacement_keywords": {
-		"torment_tag1": ["handsy aunt", "handsy", "aunt", "uncle"],
+		"torment_tag1": ["handsy aunt", "handsy", "aunt", "uncle", "pinching"],
 	},
 	"enemies": {
 		"easy": [
@@ -416,6 +423,8 @@ const Circular_Arguments = {
 	"journal_art": "res://assets/journal/torments/Circular Arguments.jpg",
 	"ai_prompts": [
 		"Again and again we had the same [ circular ] arguments",
+		"It feels so tiring, dancing with the same [ circular argument ] shadows in my mind over and over again.",
+		"I can barely feel how I am circling around the same problems over and over again, because that futile dance is draining my last bit of sanity from my exhausted mind.",
 	],
 	"replacement_keywords": {
 		"torment_tag1": ["circular arguments?", "circular", "arguments?", "debates?"],
@@ -475,9 +484,11 @@ const Influencer = {
 	"journal_art": "res://assets/journal/torments/influencer.jpg",
 	"ai_prompts": [
 		"Why couldn't my life be as glamorous as the influencer I was following",
+		"All those beautiful [ influencer ] people with perfect lives make me want to destroy something - myself, preferably.",
+		"Seeing at how well these beautiful [ influencer ] humans are doing, I feel like a discord in a perfect symphony.",
 	],
 	"replacement_keywords": {
-		"torment_tag1": ["influencers?", "glamour", "social media", "envy"],
+		"torment_tag1": ["[Ii]nfluencers?", "glamour", "social media", "envy", "[Pp]erfect", "[Bb]eautiful"],
 	},
 	"enemies": {
 		"easy": [
@@ -536,7 +547,7 @@ const Shamelings = {
 		"They [ the shamelings ] we all over my bedroom, going through my things and looking for my most cherised possessions",
 	],
 	"replacement_keywords": {
-		"torment_tag1": ["shamelins?", "shame"],
+		"torment_tag1": ["[Ss]hamelings?", "[Ss]hame", "[Rr]idicule", "[Gg]roup"],
 	},
 	"enemies": {
 		"easy": [

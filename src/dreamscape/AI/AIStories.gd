@@ -189,12 +189,13 @@ func _init_koboldai_story() -> void:
 	var model_to_sp := {
 		"KoboldAI/fairseq-dense-2.7B-Nerys": "surrealism_and_dreams_2.7B.zip",
 		"KoboldAI/fairseq-dense-13B-Nerys": "surrealism_and_dreams_13B.zip",
+		"KoboldAI/fairseq-dense-13B-Nerys-v2": "surrealism_and_dreams_13B.zip",
 	}
+	var model = KoboldAI.get_model()
+	if not model:
+		push_warning("KoboldAI instance not found")
+		return
 	if not model_to_sp.values().has(sp):
-		var model = KoboldAI.get_model()
-		if not model:
-			push_warning("KoboldAI instance not found")
-			return
 		var ret = KoboldAI.put_soft_prompt(model_to_sp[model])
 		CFUtils.dprint("AIStories:Hypnagonia soft prompt %s loaded." % [model_to_sp[model]])
 		current_model = model
@@ -202,10 +203,7 @@ func _init_koboldai_story() -> void:
 	else:
 		CFUtils.dprint("AIStories:Hypnagonia soft prompt %s already loaded." % [sp])
 		current_soft_prompt = sp
-		for model in model_to_sp:
-			if model_to_sp[model] == sp:
-				current_model = model
-				break
+		current_model = model
 		
 
 

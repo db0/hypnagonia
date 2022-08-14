@@ -106,9 +106,9 @@ func _add_popup_urls(gen_story: String) -> String:
 	for ttag in replacement_keywords:
 		for kw in replacement_keywords[ttag]:
 #				print_debug([ttag, kw, kw in full_story])
-			if kw in gen_story:
-				var regex_kw = RegEx.new()
-				regex_kw.compile("(%s)" % [kw])
+			var regex_kw = RegEx.new()
+			regex_kw.compile("(%s)" % [kw])
+			if regex_kw.search(gen_story):
 				gen_story = regex_kw.sub(gen_story, '[url={%s}]$1[/url]' % [ttag])
 				break
 	return(gen_story)

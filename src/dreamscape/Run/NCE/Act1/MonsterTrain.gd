@@ -5,6 +5,10 @@ const journal_description = "I seemed to be surrounded by monsters but for some 
 			+ "I realized I am in a train and am prepared to drive "\
 			+ "through the forces of Order to revive the Heart of Hell itself!\n"\
 			+ "Did I lead, or did I follow?"
+const ai_prompts:= [
+	"The train car was full of monsters, and I was one of them",
+	"We were fast approaching the heart of hell, but the forces of order were arranged against my coterie of hell monsters and myself",
+]
 
 var artifact_prep : ArtifactPrep
 var testing_rng := 0
@@ -27,7 +31,7 @@ var nce_result_fluff := {
 
 
 func _init():
-	introduction.setup_with_vars("Monster Train",journal_description, "")
+	introduction.setup_with_vars("Monster Train",journal_description, "", ai_prompts)
 	prepare_journal_art(load("res://assets/journal/nce/monster_train.jpeg"))
 
 func begin() -> void:

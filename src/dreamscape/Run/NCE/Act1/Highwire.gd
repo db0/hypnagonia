@@ -1,8 +1,11 @@
 extends NonCombatEncounter
 
-const journal_description = "I found myself on a small platform atop a circus tent with only a tightrope ahead of me. The crowd below was cheering me on."
 const PATHOS_USED = Terms.RUN_ACCUMULATION_NAMES.artifact
 var artifact_prep: ArtifactPrep
+const journal_description = "I found myself on a small platform atop a circus tent with only a tightrope ahead of me. The crowd below was cheering me on."
+const ai_prompts:= [
+	"The tightrope I was standing on was stretching way to far ahead and behind me, while the ground was barely visible"
+]
 
 var secondary_choices := {
 		'accept': '[Accept]: 40% chance to gain a random curio. [color=#FF3333]Become {perturbation}[/color].',
@@ -19,7 +22,7 @@ var nce_result_fluff := {
 var _testing_rng = -1
 
 func _init():
-	introduction.setup_with_vars("Highwire",journal_description, "Precarious Balancing")
+	introduction.setup_with_vars("Highwire",journal_description, "Precarious Balancing", ai_prompts)
 	prepare_journal_art(load("res://assets/journal/nce/Highwire.jpg"))
 
 func begin() -> void:

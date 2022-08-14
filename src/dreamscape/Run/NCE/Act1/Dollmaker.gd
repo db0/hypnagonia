@@ -6,6 +6,9 @@ const MASTERIES_AMOUNT := round(Pathos.MASTERY_BASELINE * 1.8)
 const journal_description = "I was standing on top of a dollmaker cowering on the floor.\n\n" \
 		+ "I was upset. I don't know why, but I was very angry.\n"\
 		+ "What did I do..?"
+const ai_prompts:= [
+	"I was standing on top of a cowering dollmaker on the floor. I felt upset."
+]
 
 var secondary_choices := {
 		'destroy': '[Destroy the workshop]: Gain {gcolor:{destroy_amount} {masteries}:}.',
@@ -24,7 +27,7 @@ var nce_result_fluff := {
 var pathos_type_leave = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.elite]
 
 func _init():
-	introduction.setup_with_vars("Dollmaker",journal_description, "In the Dollmaker's Workshop")
+	introduction.setup_with_vars("Dollmaker",journal_description, "In the Dollmaker's Workshop", ai_prompts)
 	prepare_journal_art(load("res://assets/journal/nce/Dollmaker.jpg"))
 
 func begin() -> void:

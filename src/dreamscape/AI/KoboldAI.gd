@@ -51,7 +51,7 @@ static func get_model():
 static func put_soft_prompt(sp_name : String):
 	var data := {
 		"value": sp_name,
-	}	
+	}
 	var ret = _initiate_rest(HTTPClient.METHOD_PUT, "/api/latest/config/soft_prompt", data)
 	if ret:
 		return(ret)

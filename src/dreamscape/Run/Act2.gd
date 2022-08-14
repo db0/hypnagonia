@@ -218,7 +218,7 @@ I try to fake being sorry, even though I don't really know what I did wrong. I t
 I'm not going to let them control me anymore. I'm done with faking being sorry for something I didn't do""",
 	"journal_art": "res://assets/journal/torments/The Victim.jpg",
 	"ai_prompts": [
-		"I know I didn't do anything wrong but they [ the fake victim ] kept insising I hurt their feeling",
+		"I know I didn't do anything wrong but they [ the fake victim ] kept insising I hurt their feelings",
 	],
 	"replacement_keywords": {
 		"torment_tag1": ["victim","fake"],
@@ -281,10 +281,10 @@ The pressure of the toy against my body was suffocating, but at the same time, i
 """It was a heavy burden that felt impossible to escape from, but at the same time, it was something I couldn't bear to part with. That feeling of being suffocated and lost in the moment was strangely familiar, and it made me realize that I needed to find a way to escape from my own cycle of pain and pleasure.""",
 	"journal_art": "res://assets/journal/torments/Stuffed Toy.jpg",
 	"ai_prompts": [
-		"The wrestling [ with my stuffed toy ] was becoming more intense",
+		"The wrestling [ with my stuffed toy ] was becoming more intense.",
 	],
 	"replacement_keywords": {
-		"torment_tag1": ["stuffed toy","stuffed", "toys?"],
+		"torment_tag1": ["[Ss]tuffed toy","[Ss]tuffed", "[Tt]oys?", "[Pp]lushies?"],
 	},
 	"enemies": {
 		"easy": [
@@ -340,11 +340,11 @@ const ImpossibleConstruction = {
 """I realized that the only way to get anywhere was to think outside the box and see the world in a new, non-euclidean way. With that wisdom, I was able to break out of this impossible construction and find myself in a new place entirely.""",
 	"journal_art": "res://assets/journal/torments/Impossible Construction.jpg",
 	"ai_prompts": [
-		"Like a painting from M.C. Escher, I could not understand where this constuction started and where it ended",
+		"Like a painting from M.C. Escher, I could not understand where this construction started and where it ended",
 		"The physics of the building that stood before me were straining my brain",
 	],
 	"replacement_keywords": {
-		"torment_tag1": ["impossible construction","impossible", "constructions?", "buildings?"],
+		"torment_tag1": ["[Ii]mpossible construction","[Ii]mpossible", "[Cc]onstructions?", "[Bb]uildings?", "[Ss]tructures?"],
 	},
 	"enemies": {
 		"easy": [
@@ -430,8 +430,8 @@ const ClownShow = {
 		"The pialephants were providing the music for this clown circus",
 	],
 	"replacement_keywords": {
-		"torment_tag1": ["pialephants?","elephants?", "pianos?"],
-		"torment_tag2": ["clowns?"],
+		"torment_tag1": ["[Cc]lowns?"],
+		"torment_tag2": ["[Pp]ialephants?","[Ee]lephants?", "[Pp]ianos?"],
 	},
 	"enemies": {
 		"easy": [
