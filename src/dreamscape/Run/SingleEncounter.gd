@@ -4,12 +4,13 @@ extends Reference
 signal encounter_begin(encounter)
 signal encounter_end(encounter)
 
-# The unique title of this encounter in Hypnagonia acts
-var title: String
-var description: String
-var description_uuid: String = "00000000-0000-0000-0000-000000000000"
+
+var introduction:= EncounterStory.new("journal_choice")
+# The art shown to the player in the journal. It can be a texture or a shader.
 var journal_art
+# If the art is a shader
 var shader_params: Dictionary
+# The type of pathos used by this encounter
 var pathos_released: String
 # Stores how many times this encounter type was skipped until now
 var skipped: int = 0

@@ -1,5 +1,9 @@
 extends NonCombatEncounter
 
+const journal_description = "This time, I was part of some strange fantasy western world. "\
+			+ "In it, I was a trained spy, coming into a frontier town, and I had to decide how to behave."
+
+
 var secondary_choices := {
 		'spy': '[Spy]: Gain {gcolor:1 random Common card:}  from your Ego card pool.',
 		'double-cross': '[Double-cross]: {bcolor:+7:} {anxiety_up}. Gain {gcolor:1 random Uncommon card:} from your Ego card pool.',
@@ -17,8 +21,7 @@ var nce_result_fluff := {
 
 
 func _init():
-	description = "This time, I was part of some strange fantasy western world. "\
-			+ "In it, I was a trained spy, coming into a frontier town, and I had to decide how to behave."
+	introduction.setup_with_vars("Griftlands",journal_description, "Spying and Intrigue in the Wasteland")
 	prepare_journal_art(load("res://assets/journal/nce/Griftlands.jpg"))
 
 

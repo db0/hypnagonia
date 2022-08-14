@@ -5,6 +5,7 @@ const CARD_PROGRESS = 3
 const SPECIAL_ARTIFACT:= "ProgressEverything"
 const PROGRESS6_HEALTH_LOSS = 3
 const PROGRESS4_DAMAGE = 3
+const journal_description = "<Multiple Progress - Story Fluff to be Done>. Select one Option...."
 
 
 var secondary_choices := {
@@ -25,7 +26,7 @@ var nce_result_fluff := {
 
 func _init():
 	# TODO: Fluff
-	description = "<Multiple Progress - Story Fluff to be Done>. Select one Option...."
+	introduction.setup_with_vars("Multiple Progress",journal_description, "")
 
 func begin() -> void:
 	.begin()

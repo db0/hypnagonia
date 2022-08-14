@@ -5,6 +5,9 @@ var secondary_choices := {
 		'gamble': '[Gamble your inheritance]: {bcolor:+7:} {anxiety_up}. Gain {gcolor:1 random Uncommon card:} from your Disposition card pool.',
 		'investigate': '[Investigate]: {bcolor:+15:} {anxiety_up}. Gain {gcolor:1 random Rare card:} from your Disposition card pool.',
 	}
+const journal_description = "Once again, I found myself in the fantasy western world. "\
+			+ "This time I was some sort of amphibian humanoid with a drinking problem, ."\
+			+ "and I found out my rich elders has passed away in mysterious circumstances"
 
 
 var nce_result_fluff := {
@@ -18,9 +21,7 @@ var nce_result_fluff := {
 
 
 func _init():
-	description = "Once again, I found myself in the fantasy western world. "\
-			+ "This time I was some sort of amphibian humanoid with a drinking problem, ."\
-			+ "and I found out my rich elders has passed away in mysterious circumstances"
+	introduction.setup_with_vars("Griftlands 2",journal_description, "Something's Fishy in the Wasteland Port")
 	prepare_journal_art(load("res://assets/journal/nce/Griftlands.jpg"))
 
 

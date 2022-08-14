@@ -2,6 +2,12 @@
 
 extends NonCombatEncounter
 
+const journal_description = "I was rushing to my last appointment with the Pop Psychologist.\n"\
+			+ "I took a seat in an overly [color=#990000]crimson fainting couch[/color].\n\n"\
+			+ "[i]Are you holding up since your last visit? We must revisit the Rorschach test.\n"\
+			+ "What do you see in this picture?[/i]\n\n"\
+			+ "I felt like crying..."
+
 var shader := load("res://shaders/Roscharch.shader")
 
 var secondary_choices := {
@@ -23,11 +29,7 @@ var mad_lib_nouns = [
 ]
 
 func _init():
-	description = "I was rushing to my last appointment with the Pop Psychologist.\n"\
-			+ "I took a seat in an overly [color=#990000]crimson fainting couch[/color].\n\n"\
-			+ "[i]Are you holding up since your last visit? We must revisit the Rorschach test.\n"\
-			+ "What do you see in this picture?[/i]\n\n"\
-			+ "I felt like crying..."
+	introduction.setup_with_vars("Pop Psychologist 3",journal_description, "")
 
 func begin() -> void:
 	.begin()

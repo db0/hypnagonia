@@ -2,6 +2,8 @@ extends NonCombatEncounter
 
 const SLAY_MASTERIES := 3
 const LEAVE_MASTERIES := 1
+const journal_description = "I dreamt of a long spire, disappearing into the pregnant clouds above. "\
+			+ "I realized I was now holding a weapon and could feel the need to slay whatever is within..."
 
 var secondary_choices := {
 		'slay': '[Slay]: {bcolor:+10 {anxiety_up}:}. Gain some {bcolor:{repressed_enemy}:}. {gcolor:Gain {slay_amount}:} {masteries}',
@@ -17,8 +19,7 @@ var nce_result_fluff := {
 
 
 func _init():
-	description = "I dreamt of a long spire, disappearing into the pregnant clouds above. "\
-			+ "I realized I was now holding a weapon and could feel the need to slay whatever is within..."
+	introduction.setup_with_vars("Slay The Spire",journal_description, "A Tower Full Of Monsters")
 	prepare_journal_art(load("res://assets/journal/nce/Slay the Spire.jpg"))
 	
 var pathos_type_enemy : PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy]

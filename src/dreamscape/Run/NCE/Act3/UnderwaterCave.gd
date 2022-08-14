@@ -2,7 +2,6 @@ extends SurpriseEncounter
 
 const MASTERIES_AMOUNT = round(Pathos.MASTERY_BASELINE * 10)
 const JOURNAL_CUSTOM_ENTRY = preload("res://src/dreamscape/Overworld/CustomEntries/CustomDraft.tscn")
-var journal_draft_script = load("res://src/dreamscape/Overworld/CustomEntries/NCE_UnderwaterCave.gd")
 const ADVANCED_COMBAT_ENCOUNTER_DEFINITION = {
 	"name": "Underwater Cave",
 	"journal_description": "",
@@ -27,7 +26,9 @@ const ADVANCED_COMBAT_ENCOUNTER_DEFINITION = {
 		},
 	]
 }
+const journal_description = "I was deep diving and came upon the edge of an underwater cave. The sign warned people not to try and recover the Curio within due to danger of drowning. I had to have it!"
 
+var journal_draft_script = load("res://src/dreamscape/Overworld/CustomEntries/NCE_UnderwaterCave.gd")
 var secondary_choices := {
 		'explore': '[Explore the Cave]: {gcolor:Gain 1 rare Curio. Gain/Upgrade a memory. Draft a card. Gain {masteries_amount} {masteries}:}.',
 		'leave': '[Leave]: Lose {bcolor:all {masteries}:}.',
@@ -38,7 +39,7 @@ var artifact_prep: ArtifactPrep
 
 
 func _init():
-	description = "I was deep diving and came upon the edge of an underwater cave. The sign warned people not to try and recover the Curio within due to danger of drowning. I had to have it!"
+	introduction.setup_with_vars("Underwater Cave",journal_description, "Tresure Hunt or Wet Tomb?")
 	prepare_journal_art(load("res://assets/journal/nce/Underwater Cave.jpg"))
 
 

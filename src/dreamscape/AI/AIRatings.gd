@@ -3,21 +3,19 @@ extends Node
 
 signal ratings_retrieved(ratings_dict, evaluating)
 
-#const TELEMETRY_URI := "http://dbzer0.com"
 const TELEMETRY_URI := "http://dbzer0.com"
 const TELEMETRY_PORT := 8000
+#const TELEMETRY_URI := "http://127.0.0.1"
 
 # In case this node is going to be used to submit stories, 
 # we need to know the encounter to submit
-var encounter: SingleEncounter
+var encounter: EncounterStory
 # In case this node is going to be used to submit stories, 
 # we need to know the type of fluff this is. This should be coming from the parent node
-var type: String
 var threads: Array
 
-func _init(_encounter: SingleEncounter = null, _type: String = ''):
+func _init(_encounter: EncounterStory = null):
 	encounter = _encounter
-	type = _type
 
 
 func story_rated(classification :int) -> void:
@@ -31,12 +29,15 @@ func story_rated(classification :int) -> void:
 
 func submit(classification: int):
 	var data := {
-		"uuid": encounter.description_uuid,
-		"generation": encounter.description,
+		"uuid": encounter.story_uuid,
+		"generation": encounter.story,
 		"title": encounter.title,
-		"type": type,
+		"type": encounter.type,
 		"classification": classification,
 		"client_id": cfc.game_settings['Client UUID'],
+		"model": globals.ai_stories.current_model,
+		"soft_prompt": globals.ai_stories.current_soft_prompt,
+		"kai_instance": "%s:%s" % [cfc.game_settings.get("kai_url",'http://127.0.0.1'),cfc.game_settings.get("kai_port", 5000)],
 	}
 	var ret = _initiate_rest(HTTPClient.METHOD_POST, "/generation/", data)
 

@@ -1,31 +1,16 @@
 class_name KoboldAI
 extends Reference
 
-enum GenerationTypes {
-	TORMENT_INTRO
-	TORMENT_TAUNT
-}
 
-const DEFAULTS := {
-	GenerationTypes.TORMENT_INTRO: {
-		"max_length": 80
-	},
-	GenerationTypes.TORMENT_TAUNT: {
-		"max_length": 40
-	}
-}
-
-
-static func generate(prompt: String, gentype: int):
+static func generate(prompt: String, max_length: int):
 	var data := {
 		"prompt": prompt,
 		"frmttriminc": true,
 		"use_memory": true,
+		"use_world_info": true,
+		"max_length": max_length,
 		"disable_output_formatting": false,
 	}
-#	print("generate():" + prompt)
-	for k in DEFAULTS[gentype]:
-		data[k] = DEFAULTS[gentype][k]
 #	print("generate():" + str(data))
 #	print(data)
 	var ret = _initiate_rest(HTTPClient.METHOD_POST, "/api/latest/generate/", data)
@@ -43,6 +28,42 @@ static func get_story():
 	var ret = _initiate_rest(HTTPClient.METHOD_GET, "/api/latest/config/memory")
 	if ret:
 		return(ret.value)
+
+
+static func get_world_info():
+	var ret = _initiate_rest(HTTPClient.METHOD_GET, "/api/latest/world_info")
+	if ret:
+		return(ret)
+
+
+static func get_soft_prompt():
+	var ret = _initiate_rest(HTTPClient.METHOD_GET, "/api/latest/config/soft_prompt")
+	if ret:
+		return(ret.value)
+
+
+static func get_model():
+	var ret = _initiate_rest(HTTPClient.METHOD_GET, "/api/latest/model")
+	if ret:
+		return(ret.result)
+
+
+static func put_soft_prompt(sp_name : String):
+	var data := {
+		"value": sp_name,
+	}
+	var ret = _initiate_rest(HTTPClient.METHOD_PUT, "/api/latest/config/soft_prompt", data)
+	if ret:
+		return(ret)
+
+
+static func put_story(story_name := "hypnagonia_koboldai_story"):
+	var data := {
+		"name": story_name,
+	}
+	var ret = _initiate_rest(HTTPClient.METHOD_PUT, "/api/latest/story/load",data)
+	if ret:
+		return(ret)
 
 
 static func put_memory(value: String):
@@ -66,7 +87,9 @@ static func post_gui_story(prompt: String):
 static func _initiate_rest(method, endpoint: String, data: Dictionary = {}):
 	var http = HTTPClient.new()
 	# Connect to host/port.
-	var err = http.connect_to_host(cfc.game_settings.kai_url, cfc.game_settings.kai_port)
+	var err = http.connect_to_host(
+			cfc.game_settings.get("kai_url",'http://127.0.0.1'), 
+			cfc.game_settings.get("kai_port", 5000))
 	# Make sure connection was OK.
 	assert(err == OK)
 	# Wait until resolved and connected.
@@ -81,7 +104,9 @@ static func _initiate_rest(method, endpoint: String, data: Dictionary = {}):
 			yield(Engine.get_main_loop(), "idle_frame")
 
 	# Could not connect
-	assert(http.get_status() == HTTPClient.STATUS_CONNECTED)
+	if http.get_status() != HTTPClient.STATUS_CONNECTED:
+		push_error("Could not connect to KoboldAI Server.")
+		return
 	var headers = ["Content-Type: application/json"]
 	var query = JSON.print(data)
 	err = http.request(method, endpoint, headers, query)

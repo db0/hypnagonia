@@ -5,6 +5,10 @@ const MASTERIES_AMOUNT := {
 	"alpha": round(Pathos.MASTERY_BASELINE * 2),
 	"kappa": round(Pathos.MASTERY_BASELINE * 4),
 }
+const journal_description = "I came across a faceless monk with an undeterminable amount of arms." \
+		+ " \"I am the monk Chance,\" the monk seemed to say from nowhere, \"disciple of the goddess Lady Luck.\"" \
+		+ "\"Would you like the power to control your fate?\""
+
 
 var secondary_choices := {
 		'omega': '[omega]: {omega} Lose {bcolor:{omega_cost} {masteries}:}. {gcolor:{omega_desc}:}',
@@ -20,9 +24,7 @@ var card_choice_descriptions := {
 }
 
 func _init():
-	description = "I came across a faceless monk with an undeterminable amount of arms." \
-		+ " \"I am the monk Chance,\" the monk seemed to say from nowhere, \"disciple of the goddess Lady Luck.\"" \
-		+ "\"Would you like the power to control your fate?\""
+	introduction.setup_with_vars("Alpha-Kappa-Omega",journal_description, "That Is One Way to Control One's Fate")
 	prepare_journal_art(load("res://assets/journal/nce/AlphaKappaOmega.jpg"))
 
 func begin() -> void:

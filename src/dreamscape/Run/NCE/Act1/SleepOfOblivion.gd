@@ -2,6 +2,9 @@
 
 extends NonCombatEncounter
 
+const journal_description = "I dreamed of a large endless abyss. I could not see the bottom but I felt its pull. What did I do..?"
+
+
 var secondary_choices := {
 		'fall_in': '[Fall in]: {bcolor:+3 {anxiety_up}:}. {gcolor:Remove all perturbations from your deck:}.',
 		'leave': '[Leave]: Nothing happens.',
@@ -13,7 +16,7 @@ var nce_resul_fluff := {
 	
 
 func _init():
-	description = "I dreamed of a large endless abyss. I could not see the bottom but I felt its pull. What did I do..?"
+	introduction.setup_with_vars("Sleep of Oblivion",journal_description, "")
 	prepare_journal_art(load("res://assets/journal/nce/Sleep of Oblivion.jpg"))
 	
 func begin() -> void:

@@ -1,5 +1,7 @@
 extends NonCombatEncounter
 
+const journal_description = "<Multiple Release - Story Fluff to be Done>. Select one Option...."
+
 # TODO: Fluff
 var secondary_choices := {
 		'Action': '[choice1]: {bcolor:{release} a random {action}:}.',
@@ -15,7 +17,7 @@ var cards_per_type := {}
 
 func _init():
 	# TODO: Fluff
-	description = "<Multiple Release - Story Fluff to be Done>. Select one Option...."
+	introduction.setup_with_vars("Multiple Destoys",journal_description, "")
 
 func begin() -> void:
 	.begin()

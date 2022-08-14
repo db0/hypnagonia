@@ -1,13 +1,15 @@
 # Description TBD
 extends NonCombatEncounter
 
-var secondary_choices := {}
-
-func _init():
-	description = "I glimpsed into a roomfull of porcelain dolls." \
+const journal_description = "I glimpsed into a roomfull of porcelain dolls." \
 			+ "They were all unfinished, except a single element."\
 			+ "They all turned and asked me to finish them. But I could only carry one."\
 			+ "Let me recall, which one did choose..?"
+
+var secondary_choices := {}
+
+func _init():
+	introduction.setup_with_vars("Doll Pickup",journal_description, "The Dollmaker's Treasury of Dolls")
 	prepare_journal_art(load("res://assets/journal/nce/Doll Pickup.jpg"))
 	
 func begin() -> void:

@@ -7,11 +7,12 @@
 extends NonCombatEncounter
 
 const SPECIAL_REWARD_ARTIFACT = "PerturbationHeal"
+const journal_description = "I somehow found myself in front of [color=#FFC0CB]The Candyman[/color]. They offered me, a choice of a multicoloured candy. I love candy!"
 
 var secondary_choices := {}
 var pathos_choice_payments := {}
 func _init():
-	description = "I somehow found myself in front of [color=#FFC0CB]The Candyman[/color]. They offered me, a choice of a multicoloured candy. I love candy!"
+	introduction.setup_with_vars("The Candyman",journal_description, "The Joy of Sweets")
 	prepare_journal_art(load("res://assets/journal/nce/Candyman.jpg"))
 	
 func begin() -> void:

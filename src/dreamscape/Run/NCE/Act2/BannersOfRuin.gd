@@ -1,5 +1,10 @@
 extends NonCombatEncounter
 
+const journal_description = "I was in a anthropomorphic mammal in some sort of medieval fantasy world."\
+			+ "I was part of the resistance and I had to break into a fortified city.\n"\
+			+ "I am trying to recall what mammal exactly I was.."
+
+
 var secondary_choices := {
 		'mouse': '[Mouse]: {bcolor:-10% max {anxiety}:}. {gcolor:Find {curio}:}.',
 		'bear': '[Bear]: {gcolor:+10% max {anxiety}:}.',
@@ -15,9 +20,7 @@ var nce_result_fluff := {
 
 
 func _init():
-	description = "I was in a anthropomorphic mammal in some sort of medieval fantasy world."\
-			+ "I was part of the resistance and I had to break into a fortified city.\n"\
-			+ "I am trying to recall what mammal exactly I was.."
+	introduction.setup_with_vars("Banners of Ruin",journal_description, "Medieval Furries in a Revolution")
 	prepare_journal_art(load("res://assets/journal/nce/Banners of Ruin.jpg"))
 	
 func begin() -> void:

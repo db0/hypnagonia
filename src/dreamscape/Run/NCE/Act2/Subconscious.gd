@@ -2,6 +2,11 @@ extends NonCombatEncounter
 
 const DAMAGE_AMOUNT := 7
 const MASTERIES_AMOUNT := round(Pathos.MASTERY_BASELINE * 0.5)
+const journal_description = """
+I remember standing in front of the looming gatekeeper guarding the mythical crystal ball of revelation just a few feet past the safeguard of awareness. 
+He demanded that I had to pay a price to pierce through the barrier of my mind, ultimately turning inwards into my own consciousness.
+Would I persist instinct and nature just to wield my nightmares?
+"""
 
 var secondary_choices := {
 		'give': '[Give]: {bcolor:+{damage_amount} {anxiety_up}:}. {gcolor:Gain {subconscious}:}',
@@ -30,11 +35,7 @@ var lowest_pathos_amount: float
 var pathos_type_lowest : PathosType
 
 func _init():
-	description = """
-I remember standing in front of the looming gatekeeper guarding the mythical crystal ball of revelation just a few feet past the safeguard of awareness. 
-He demanded that I had to pay a price to pierce through the barrier of my mind, ultimately turning inwards into my own consciousness.
-Would I persist instinct and nature just to wield my nightmares?
-"""
+	introduction.setup_with_vars("Subconscious",journal_description, "Currency of the Mind")
 	prepare_journal_art(load("res://assets/journal/nce/Subconscious.jpg"))
 
 func begin() -> void:

@@ -14,11 +14,12 @@ signal story_used(type)
 const STORIES_FILENAME := "user://hypnagonia_stories.dat"
 
 var stories_file = File.new()
-var torments := {}
-var nces := {}
+var stories := {}
 var threads: Array
 var evaluating_generations: Dictionary
 var finalized_generations: Dictionary
+var current_model: String
+var current_soft_prompt: String
 
 onready var ai_ratings: AIRatings = AIRatings.new()
 
@@ -32,50 +33,53 @@ func _ready():
 	ai_ratings.connect("ratings_retrieved", self, "_on_ratings_received")
 	ai_ratings.retrieve_evaluating_gens()
 	ai_ratings.retrieve_finalized_gens()
+	EventBus.connect("kobodoldai_server_changed", self, "_on_koboldai_server_changed")
+	var thread: Thread = Thread.new()
+	thread.start(self, "_init_koboldai_story")
+	threads.append(thread)
+	
 
-func retrieve_torment_story(torment_encounter: Dictionary) -> Dictionary:
+
+func retrieve_story(encounter_story) -> Dictionary:
 	var story = {
-		"story": torment_encounter["journal_description"],
-		"uuid": "00000000-0000-0000-0000-000000000000"
+		"story": '',
+		"uuid": ''
 	}
-	if not cfc.game_settings.get("use_ai", true) or cfc.is_testing:
-		return(story)
-	var fresh_evaluation = get_fresh_evaluating_gen(torment_encounter.name, "journal_choice")
+	var fresh_evaluation = get_fresh_evaluating_gen(encounter_story)
 	if fresh_evaluation and cfc.game_settings.judge_ai:
 		story.story = fresh_evaluation.generation
 		story.uuid = fresh_evaluation.uuid
 		emit_signal("story_used",StoryTypes.EVALUATING)
-		print_debug("using evaluating story")
-	elif torments.has(torment_encounter.name):
-		story = torments[torment_encounter.name]
-		torments.erase(torment_encounter.name)
+		CFUtils.dprint("AIStories:Using evaluating story for " + encounter_story.name)
+	elif stories.has(encounter_story.name):
+		story = stories[encounter_story.name]
+		stories.erase(encounter_story.name)
 		emit_signal("story_used",StoryTypes.GENERATED)
-		print_debug("using generated story")
+		CFUtils.dprint("AIStories:Using generated story for " + encounter_story.name)
 	else:
-		var collected_generations = get_generations(torment_encounter.name, "journal_choice", false)
+		var collected_generations = get_generations(encounter_story, false)
 		if not collected_generations.empty():
 			var finalized_uuids = collected_generations.keys()
-			CFUtils.shuffle_array(finalized_uuids)
+			CFUtils.shuffle_array(finalized_uuids, true)
 			var uuid = finalized_uuids[0]
 			story.story = collected_generations[uuid]["generation"]
 			story.uuid = uuid
 			emit_signal("story_used",StoryTypes.FINALIZED)
-			print_debug("using finalized story")
+			CFUtils.dprint("AIStories:Using finalized story for " + encounter_story.name)
+		else:
+			CFUtils.dprint("AIStories:Could not find generated story for " + encounter_story.name)
 	# We don't want to generate a story if there's an unused one already
-	if torment_encounter.has("ai_prompts")\
-			and cfc.game_settings.generate_ai\
-			and not torments.has(torment_encounter.name):
+	if cfc.game_settings.generate_ai and not stories.has(encounter_story.name):
 		var thread: Thread = Thread.new()
-		thread.start(self, "regenerate_torment_story", torment_encounter)
+		thread.start(self, "regenerate_torment_story", encounter_story)
 		threads.append(thread)
 	return(story)
 
-func regenerate_torment_story(torment_encounter: Dictionary) -> void:
-	CFUtils.shuffle_array(torment_encounter["ai_prompts"], true)
-	var ai_prompt : String = torment_encounter["ai_prompts"][0]
+func regenerate_torment_story(encounter_story) -> void:
+	var ai_prompt : String = encounter_story.get_random_prompt()
 	var fmt := {
 		"prompt": ai_prompt,
-		"title": torment_encounter.title,
+		"title": encounter_story.title,
 		"genre": HConst.get_aigenre_description(cfc.game_settings.ai_genre)
 	}
 	var prompt: String
@@ -89,22 +93,13 @@ func regenerate_torment_story(torment_encounter: Dictionary) -> void:
 			+ "{prompt}"
 	prompt = prompt.format(fmt)
 #	print("regenerate_torment_story():" + prompt)
-	var new_story = KoboldAI.generate(prompt, KoboldAI.GenerationTypes.TORMENT_INTRO)
+	var new_story = KoboldAI.generate(prompt, encounter_story.max_length)
 	if not new_story:
 		return
 	var regex = RegEx.new()
 	regex.compile(" \\[ [\\w ]+ \\]([ .,;])")
 	var full_story : String = regex.sub(ai_prompt, '$1') + new_story
-	if torment_encounter.has("replacement_keywords"):
-		for ttag in torment_encounter.replacement_keywords:
-			for kw in torment_encounter.replacement_keywords[ttag]:
-#				print_debug([ttag, kw, kw in full_story])
-				if kw in full_story:
-					var regex_kw = RegEx.new()
-					regex_kw.compile("(%s)" % [kw])
-					full_story = regex_kw.sub(full_story, '[url={%s}]$1[/url]' % [ttag])
-					break
-	torments[torment_encounter.name] = {
+	stories[encounter_story.name] = {
 		"uuid": UUID.v4(),
 		"story": full_story
 	}
@@ -113,13 +108,10 @@ func regenerate_torment_story(torment_encounter: Dictionary) -> void:
 # Saves previously generated stories that have not yet been used
 func save_stories() -> void:
 	stories_file.open(STORIES_FILENAME, File.WRITE)
-	var stories = {
-		"torments": torments,
-		"nces": nces,
-	}
 	stories_file.store_var(stories)
 #	file.store_string(JSON.print(state, '\t'))
 	stories_file.close()
+
 
 # Loads previously generated stories that have not yet been used
 func load_stories() -> void:
@@ -131,23 +123,24 @@ func load_stories() -> void:
 	if typeof(data) != TYPE_DICTIONARY:
 		return
 	# warning-ignore:return_value_discarded
-	torments = data.torments
-	nces = data.nces
+	stories = data
 
 
 # Retrieves a generation under evaluation which has not yet been rated by this client
-func get_fresh_evaluating_gen(name: String, type: String):
-	var collected_generations = get_generations(name, type, true)
+func get_fresh_evaluating_gen(encounter_story):
+	var collected_generations = get_generations(encounter_story, true)
 	for gen in collected_generations:
 		var generation : Dictionary = collected_generations[gen].duplicate()
 		if cfc.game_settings['Client UUID'] in generation["ratings"]:
 			continue
+		# We add the current UUID to the collected generation, as it's not
+		# normally included inside the dictionary
 		generation["uuid"] = gen
 		return(generation)
 
 
 # Retrieves a generation of the correct specification
-func get_generations(name: String, type: String, evaluating: bool) -> Dictionary:
+func get_generations(encounter_story, evaluating: bool) -> Dictionary:
 	var requested_generations: Dictionary
 	if evaluating:
 		 requested_generations = evaluating_generations
@@ -156,9 +149,9 @@ func get_generations(name: String, type: String, evaluating: bool) -> Dictionary
 	var collected_generations := {}
 	for gen in requested_generations:
 		var generation : Dictionary = requested_generations[gen]
-		if generation["title"] != name:
+		if generation["title"] != encounter_story.name:
 			continue
-		if generation["type"] != type:
+		if generation["type"] != encounter_story.type:
 			continue
 		collected_generations[gen] = generation
 	return(collected_generations)
@@ -172,5 +165,49 @@ func stories_file_exists() -> bool:
 func _on_ratings_received(ratings_dict: Dictionary, evaluating: bool) -> void:
 	if evaluating:
 		evaluating_generations = ratings_dict
+		CFUtils.dprint("AIStories:Loaded evaluating stories.")
 	else:
 		finalized_generations = ratings_dict
+		CFUtils.dprint("AIStories:Loaded finalized stories.")
+
+
+func _init_koboldai_story() -> void:
+	var wi = KoboldAI.get_world_info()
+	if not wi:
+		push_warning("KoboldAI instance not found")
+		return
+	if wi.has("entries"):
+		if wi.entries.empty():
+			var ret = KoboldAI.put_story()
+			CFUtils.dprint("AIStories:Hypnagonia world info loaded.")
+		else:
+			CFUtils.dprint("AIStories:Hypnagonia world info already loaded.")
+	var sp = KoboldAI.get_soft_prompt()
+	if not sp:
+		push_warning("KoboldAI instance not found")
+		return
+	var model_to_sp := {
+		"KoboldAI/fairseq-dense-2.7B-Nerys": "surrealism_and_dreams_2.7B.zip",
+		"KoboldAI/fairseq-dense-13B-Nerys": "surrealism_and_dreams_13B.zip",
+		"KoboldAI/fairseq-dense-13B-Nerys-v2": "surrealism_and_dreams_13B.zip",
+	}
+	var model = KoboldAI.get_model()
+	if not model:
+		push_warning("KoboldAI instance not found")
+		return
+	if not model_to_sp.values().has(sp):
+		var ret = KoboldAI.put_soft_prompt(model_to_sp[model])
+		CFUtils.dprint("AIStories:Hypnagonia soft prompt %s loaded." % [model_to_sp[model]])
+		current_model = model
+		current_soft_prompt = model_to_sp[model]
+	else:
+		CFUtils.dprint("AIStories:Hypnagonia soft prompt %s already loaded." % [sp])
+		current_soft_prompt = sp
+		current_model = model
+		
+
+
+func _on_koboldai_server_changed() -> void:
+	var thread: Thread = Thread.new()
+	thread.start(self, "_init_koboldai_story")
+	threads.append(thread)

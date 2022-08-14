@@ -271,7 +271,7 @@ func _export_torments() -> Dictionary:
 			for torment in enemy.enemies.medium:
 				if not tdict['Basic Torments'].has(torment.definition.Name):
 					tdict['Basic Torments'][torment.definition.Name] = {}
-					tdict['Basic Torments'][torment.definition.Name]['Journal Description'] = enemy.journal_description
+					tdict['Basic Torments'][torment.definition.Name]['Journal Description'] = _remove_bburl_from_desc(enemy.journal_description)
 					if enemy.has("ai_prompts"):
 						tdict['Basic Torments'][torment.definition.Name]['AI prompts'] = enemy.ai_prompts
 					tdict['Basic Torments'][torment.definition.Name]['Type'] = torment.definition.Type
@@ -298,7 +298,7 @@ func _export_torments() -> Dictionary:
 func get_torment_softprompt_training() -> String:
 	var torments_dict = _export_torments()
 	var softprompt_export := ''
-	var torment_template := "[ Keywords: {difficulty}, {type}, {name} ]\n{description}<|endoftext|>"
+	var torment_template := "[ Keywords: {name},{type} ]\n{description}<|endoftext|>"
 	for d in torments_dict:
 		var diff_convert:= {
 			"Basic Torments": "Torment",
@@ -307,14 +307,7 @@ func get_torment_softprompt_training() -> String:
 		}
 		var diff = diff_convert[d]
 		for t in torments_dict[d]:
-			var description :String = torments_dict[d][t]["Journal Description"]
-			description = description.replace("\n\n", "\n")
-			description = description.replace("[/url]", "")
-			description = description.replace("[url={torment_tag1}]", "")
-			description = description.replace("[url={torment_tag2}]", "")
-			description = description.replace("[url={torment_tag3}]", "")
-			description = description.replace("[url={torment_tag4}]", "")
-			description = description.replace("[url={torment_tag5}]", "")
+			var description :String = _remove_bburl_from_desc(torments_dict[d][t]["Journal Description"])
 			var tname :String= t.replace("_", " ")
 			var fmt_dict := {
 				"difficulty": diff,
@@ -325,6 +318,15 @@ func get_torment_softprompt_training() -> String:
 			softprompt_export += torment_template.format(fmt_dict)
 	return(softprompt_export)
 
+func _remove_bburl_from_desc(description: String) -> String:
+	description = description.replace("\n\n", "\n")
+	description = description.replace("[/url]", "")
+	description = description.replace("[url={torment_tag1}]", "")
+	description = description.replace("[url={torment_tag2}]", "")
+	description = description.replace("[url={torment_tag3}]", "")
+	description = description.replace("[url={torment_tag4}]", "")
+	description = description.replace("[url={torment_tag5}]", "")
+	return(description)
 
 func _export_memories() -> Array:
 	var mret: Array = []

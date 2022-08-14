@@ -7,6 +7,12 @@ const CURIOS := {
 	'orange': ArtifactDefinitions.MoreEnemyMasteries,
 	'banana': ArtifactDefinitions.MoreNCEMasteries,
 }
+const journal_description = "I was rushing to my second appointment with the Pop Psychologist.\n"\
+			+ "I took a seat in an overly [color=#FF0038]carmine fainting couch[/color].\n\n"\
+			+ "[i]How have you been doing since your last visit? We should to revisit the Rorschach test.\n"\
+			+ "What do you see in this picture?[/i]\n\n"\
+			+ "My eyes were getting tired from straining..."
+
 
 var shader := load("res://shaders/Roscharch.shader")
 
@@ -31,11 +37,7 @@ var mad_lib_nouns = [
 ]
 
 func _init():
-	description = "I was rushing to my second appointment with the Pop Psychologist.\n"\
-			+ "I took a seat in an overly [color=#FF0038]carmine fainting couch[/color].\n\n"\
-			+ "[i]How have you been doing since your last visit? We should to revisit the Rorschach test.\n"\
-			+ "What do you see in this picture?[/i]\n\n"\
-			+ "My eyes were getting tired from straining..."
+	introduction.setup_with_vars("Pop Psychologist 2",journal_description, "")
 
 func begin() -> void:
 	.begin()

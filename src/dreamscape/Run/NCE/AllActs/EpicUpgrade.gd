@@ -3,6 +3,11 @@ extends NonCombatEncounter
 const MAX_ANXIETY_LOSS := 30
 const EPIC_AMOUNT = 4
 const GAMBLE_AMOUNT = 4
+const journal_description = """
+The rays of energy surrounded me as I was swimming in the void. 
+Each of them passesed right above my head, pressing me to make a choice for better or for worse.
+I struggled to concentrate as the soft and electrifying colors dance around me within the darkness while I tasted their power dancing across my soul.
+"""
 
 var secondary_choices := {
 		'epic': '[Grow]: {bcolor:-{anxiety_loss} max {anxiety}:}. Choose a non-{concentration} card and {gcolor:[url={"definition": "enhance","meta_type": "definition"}]Enhance[/url] it:} {epic_amount} times.',
@@ -19,11 +24,7 @@ var nce_result_fluff := {
 var existing_memory
 
 func _init():
-	description = """
-The rays of energy surrounded me as I was swimming in the void. 
-Each of them passesed right above my head, pressing me to make a choice for better or for worse.
-I struggled to concentrate as the soft and electrifying colors dance around me within the darkness while I tasted their power dancing across my soul.
-"""
+	introduction.setup_with_vars("Ray of Energy",journal_description, "Energized in Strange Fashions")
 	prepare_journal_art(load("res://assets/journal/nce/Epic Upgrade.jpg"))
 
 func begin() -> void:

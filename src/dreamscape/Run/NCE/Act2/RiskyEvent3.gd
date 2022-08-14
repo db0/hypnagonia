@@ -1,6 +1,7 @@
 extends NonCombatEncounter
 
 const MASTERIES_AMOUNT := round(Pathos.MASTERY_BASELINE * 3.3)
+const journal_description = "<Risky Dream 3 - Story Fluff to be Done>. Select one Option...."
 
 var amounts := {
 	"emotions": 0.06,
@@ -21,7 +22,7 @@ var nce_result_fluff := "It was better to try and forget the whole thing."
 
 func _init():
 	# TODO: Add story
-	description = "<Risky Dream 3 - Story Fluff to be Done>. Select one Option...."
+	introduction.setup_with_vars("Risky Event 3",journal_description, "")
 
 func begin() -> void:
 	.begin()

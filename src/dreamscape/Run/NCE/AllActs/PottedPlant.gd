@@ -3,6 +3,9 @@ extends NonCombatEncounter
 const PERTURBATION := "Lethe"
 const SPECIAL_MEMORY:= "RemoveDebuff"
 const MEMORY_UPGRADE := 3
+const journal_description = "In my wildest dreams, objects in my room manifest differently. "\
+			+ "One of them was the potted plant near the window."\
+			+ "It seemed to be observing me. Wait, did I forget to water it?"
 
 var secondary_choices := {
 		'remembered': "[Remembered]: Nothing happens.",
@@ -18,9 +21,7 @@ var nce_result_fluff := {
 var existing_memory
 
 func _init():
-	description = "In my wildest dreams, objects in my room manifest differently. "\
-			+ "One of them was the potted plant near the window."\
-			+ "It seemed to be observing me. Wait, did I forget to water it?"
+	introduction.setup_with_vars("Potted Plant",journal_description, "A Mysterious Plant on My Windowsill")
 	prepare_journal_art(load("res://assets/journal/nce/Potted Plant.jpg"))
 
 func begin() -> void:

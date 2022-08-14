@@ -7,6 +7,12 @@ const CURIOS := {
 	'snake': ArtifactDefinitions.MoreArtifactMasteries,
 	'owl': ArtifactDefinitions.MoreRestMasteries,
 }
+const journal_description = "I was rushing to my first appointment with the Pop Psychologist.\n"\
+			+ "I took a seat in an overly [color=red]red fainting couch[/color].\n\n"\
+			+ "[i]So, today we are going to learn about you. We are going to do a Rorschach test. "\
+			+ "What do you see in this picture?[/i]\n\n"\
+			+ "Was the inkblot moving..?"
+
 var shader := load("res://shaders/Roscharch.shader")
 
 var secondary_choices := {
@@ -31,11 +37,7 @@ var mad_lib_nouns = [
 ]
 
 func _init():
-	description = "I was rushing to my first appointment with the Pop Psychologist.\n"\
-			+ "I took a seat in an overly [color=red]red fainting couch[/color].\n\n"\
-			+ "[i]So, today we are going to learn about you. We are going to do a Rorschach test. "\
-			+ "What do you see in this picture?[/i]\n\n"\
-			+ "Was the inkblot moving..?"
+	introduction.setup_with_vars("Pop Psychologist",journal_description, "")
 
 func begin() -> void:
 	.begin()

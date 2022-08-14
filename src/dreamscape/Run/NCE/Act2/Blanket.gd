@@ -2,6 +2,11 @@ extends NonCombatEncounter
 
 const PATHOS_AVG_MULTIPLIER = 2.0
 const PATHOS_TYPE = Terms.RUN_ACCUMULATION_NAMES.shop
+const journal_description = """
+My blanket was my only friend, but it has been giving me strange vibes.
+Every night when I got home it got absurdly clingy, especially when we were watching movies in bed together.
+Today, I felt the heat stifling me.
+"""
 
 var pathos_gained : float
 var pathos_type = globals.player.pathos.pathi[PATHOS_TYPE]
@@ -17,11 +22,7 @@ var nce_result_fluff := {
 	}
 
 func _init():
-	description = """
-My blanket was my only friend, but it has been giving me strange vibes.
-Every night when I got home it got absurdly clingy, especially when we were watching movies in bed together.
-Today, I felt the heat stifling me.
-"""
+	introduction.setup_with_vars("Blanket",journal_description, "The Comforting Feeling Can Easily Become Oppressive")
 	prepare_journal_art(load("res://assets/journal/nce/Blanket.jpg"))
 
 func begin() -> void:

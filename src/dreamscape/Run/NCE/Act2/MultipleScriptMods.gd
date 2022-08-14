@@ -1,5 +1,8 @@
 extends NonCombatEncounter
 
+const journal_description = "I remember looking at my arms, and to my surprise finding {hand_mutation}. "
+
+
 var amounts := {
 	'scold': "defence_amount",
 	'flail': "damage_amount",
@@ -32,7 +35,7 @@ var hand_mutations := [
 func _init():
 	CFUtils.shuffle_array(hand_mutations)
 	var fmt = {"hand_mutation": hand_mutations[0]}
-	description = "I remember looking at my arms, and to my surprise finding {hand_mutation}. ".format(fmt)
+	introduction.setup_with_vars("Mutating Hands",journal_description.format(fmt), "A Horrible Experience of Mutation")
 	prepare_journal_art(load("res://assets/journal/nce/Mutating Hands.jpg"))
 
 

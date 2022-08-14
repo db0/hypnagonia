@@ -11,6 +11,11 @@ const DRAFTS := {
 	'debug': 2,
 	'refactor': 3,
 }
+const journal_description = "I was in front of a computer and I was programming something."\
+			+ "As I perused the code, I realized it was my own unconscious processes "\
+			+ "and even worse, there was a bug!\n"
+
+
 var journal_draft_script = load("res://src/dreamscape/Overworld/CustomEntries/NCE_SubconsciousProcessing.gd")
 
 # TODO: Fluff
@@ -29,9 +34,7 @@ var nce_result_fluff := {
 
 func _init():
 	# TODO: Fluff
-	description = "I was in front of a computer and I was programming something."\
-			+ "As I perused the code, I realized it was my own unconscious processes "\
-			+ "and even worse, there was a bug!\n"
+	introduction.setup_with_vars("Subconscious Processing",journal_description, "Reprogramming the Self")
 	prepare_journal_art(load("res://assets/journal/nce/Subconscious Processing.jpg"))
 	
 func begin() -> void:

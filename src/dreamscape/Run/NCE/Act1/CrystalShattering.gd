@@ -7,6 +7,15 @@ const MASTERIES_AMOUNT := {
 	"leave": 0,
 }
 
+const journal_description =\
+"""I remember mysel breaking apart the Crystalized snapshots of myself with heavy strikes of my pick.
+It took an immense amount of feeling to make each blow, but the resulting release made me feel wiser. 
+I grabbed the tool, ready to strike another blow at the next crystal. It's been a long time coming...
+"""
+const ai_prompts:= [
+	"I remember myself breaking apart the Crystalized snapshots of myself with"
+]
+
 var secondary_choices := {
 		'progress': '[Ermbaraz]: Spend {bcolor:{progress_amount} {mastery}:}. {gcolor:Progress the least progressed card by 4:}.',
 		'upgrade': '[Feelyne]: Spend {bcolor:{upgrade_amount} {masteries}:}. {gcolor:Upgrade the most progressed card:}.',
@@ -16,11 +25,8 @@ var secondary_choices := {
 var pathos_choice_payments := {}
 
 func _init():
-	description =\
-"""I remember mysel breaking apart the Crystalized snapshots of myself with heavy strikes of my pick.
-It took an immense amount of feeling to make each blow, but the resulting release made me feel wiser. 
-I grabbed the tool, ready to strike another blow at the next crystal. It's been a long time coming...
-"""
+
+	introduction.setup_with_vars("Crystal Shattering",journal_description, '', ai_prompts)
 	prepare_journal_art(load("res://assets/journal/nce/Crystal Shattering.jpg"))
 func begin() -> void:
 	.begin()
