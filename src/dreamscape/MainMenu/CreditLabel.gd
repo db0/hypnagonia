@@ -120,10 +120,11 @@ var playtesters := {
 	"SkylarkGSH": '',
 }
 var ai := {
-	"Db0": "Softprompt development, AI prompts",
-	"Liriel": "AI Prompts",
+	"Db0": "Softprompts, AI prompts",
 	"VE FORBRYDERNE#6568": "KoboldAI API Development",
 	"mr_seeker#1337": "KoboldAI Model Training",
+	"Liriel": "AI Prompts",
+	"SkylarkGSH": "AI Prompts",
 }
 
 func _ready() -> void:

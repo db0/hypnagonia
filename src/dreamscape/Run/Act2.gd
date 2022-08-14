@@ -42,9 +42,12 @@ const TrafficJam = {
 	"journal_art": "res://assets/journal/torments/Traffic Jam.jpg",
 	"ai_prompts": [
 		"I was stuck in traffic, in a bottleneck that stretched accross the horizon",
+		"I was caught in the never-ending traffic jam before me. I had places to go, things to do!",
+		"The traffic jam was an endless torture. Was it even worth",
+		"The traffic jam of anger blocked the stairway to happiness. I was at a dead end",
 	],
 	"replacement_keywords": {
-		"torment_tag1": ["Traffic Jam","traffic","jam","bottleneck"],
+		"torment_tag1": ["[Tt]raffic Jam","[Tt]raffic","[Jj]am","[Bb]ottleneck","[Bb]oredom"],
 	},
 	"enemies": {
 		"easy": [
