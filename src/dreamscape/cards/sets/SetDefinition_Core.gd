@@ -15,7 +15,7 @@ const CARDS := {
 	"Confidence": {
 		"Type": "Control",
 		"Tags": [],
-		"Abilities": "Gain {defence_amount} {confidence}",
+		"Abilities": "Gain {defence_amount} {defence}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Basic",
@@ -33,7 +33,7 @@ const CARDS := {
 	"+ Confidence +": {
 		"Type": "Control",
 		"Tags": [],
-		"Abilities": "Gain {defence_amount} {confidence}",
+		"Abilities": "Gain {defence_amount} {defence}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Basic",
@@ -46,7 +46,7 @@ const CARDS := {
 	"@ Confidence @": {
 		"Type": "Control",
 		"Tags": [],
-		"Abilities": "Gain {defence_amount} {confidence}",
+		"Abilities": "Gain {defence_amount} {defence}",
 		"Cost": 0,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Basic",
@@ -59,7 +59,7 @@ const CARDS := {
 	"- Confidence -": {
 		"Type": "Control",
 		"Tags": [],
-		"Abilities": "Gain {defence_amount} {confidence}. {release}",
+		"Abilities": "Gain {defence_amount} {defence}. {release}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Basic",
@@ -180,7 +180,7 @@ const CARDS := {
 	"Dive-in": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.risky.name],
-		"Abilities": "Gain {effect_stacks} {shaken}\nGain {effect_stacks2} {advantage}.",
+		"Abilities": "Gain {effect_stacks} {vulnerable}\nGain {effect_stacks2} {advantage}.",
 		"Cost": 1,
 		"_illustration": "SkylarkGSH",
 		"_rarity": "Common",
@@ -206,7 +206,7 @@ const CARDS := {
 	"Enhanced Dive-in": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.risky.name],
-		"Abilities": "Gain {effect_stacks} {shaken}\nGain {effect_stacks2} {advantage}.",
+		"Abilities": "Gain {effect_stacks} {vulnerable}\nGain {effect_stacks2} {advantage}.",
 		"Cost": 1,
 		"_illustration": "SkylarkGSH",
 		"_rarity": "Common",
@@ -228,7 +228,7 @@ const CARDS := {
 	"* Dive-in *": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.risky.name],
-		"Abilities": "Gain {effect_stacks} {shaken}\nGain {effect_stacks2} {advantage}.",
+		"Abilities": "Gain {effect_stacks} {vulnerable}\nGain {effect_stacks2} {advantage}.",
 		"Cost": 1,
 		"_illustration": "SkylarkGSH",
 		"_rarity": "Common",
@@ -344,7 +344,7 @@ const CARDS := {
 	"Confounding Movements": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
-		"Abilities": "Gain {defence_amount} {confidence}\nApply {effect_stacks} {confusion} to target Torment.",
+		"Abilities": "Gain {defence_amount} {defence}\nApply {effect_stacks} {disempower} to target Torment.",
 		"Cost": 1,
 		"_illustration": "SkylarkGSH",
 		"_effects_info": {
@@ -365,7 +365,7 @@ const CARDS := {
 	"+ Confounding Movements +": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
-		"Abilities": "Gain {defence_amount} {confidence}\nApply {effect_stacks} {confusion} to target Torment.",
+		"Abilities": "Gain {defence_amount} {defence}\nApply {effect_stacks} {disempower} to target Torment.",
 		"Cost": 1,
 		"_illustration": "SkylarkGSH",
 		"_effects_info": {
@@ -382,7 +382,7 @@ const CARDS := {
 	"* Confounding Movements *": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
-		"Abilities": "Gain {defence_amount} {confidence}\nApply {effect_stacks} {confusion} to target Torment.",
+		"Abilities": "Gain {defence_amount} {defence}\nApply {effect_stacks} {disempower} to target Torment.",
 		"Cost": 1,
 		"_illustration": "SkylarkGSH",
 		"_effects_info": {
@@ -399,7 +399,7 @@ const CARDS := {
 	"Noisy Whip": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
-		"Abilities": "{damage} for {damage_amount}.\nApply {effect_stacks} {confusion}",
+		"Abilities": "{damage} for {damage_amount}.\nApply {effect_stacks} {disempower}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -422,7 +422,7 @@ const CARDS := {
 	"@ Noisy Whip @": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
-		"Abilities": "{damage} for {damage_amount}.\nApply {effect_stacks} {confusion}",
+		"Abilities": "{damage} for {damage_amount}.\nApply {effect_stacks} {disempower}",
 		"Cost": 0,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -439,7 +439,7 @@ const CARDS := {
 	"+ Noisy Whip +": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
-		"Abilities": "{damage} for {damage_amount}.\nApply {effect_stacks} {confusion}",
+		"Abilities": "{damage} for {damage_amount}.\nApply {effect_stacks} {disempower}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -456,7 +456,7 @@ const CARDS := {
 	"* Noisy Whip *": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
-		"Abilities": "{damage} for {damage_amount}.\nApply {effect_stacks} {confusion}",
+		"Abilities": "{damage} for {damage_amount}.\nApply {effect_stacks} {disempower}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -473,7 +473,7 @@ const CARDS := {
 	"- Noisy Whip -": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
-		"Abilities": "{damage} for {damage_amount}.\nApply {effect_stacks} {confusion}\n{release}",
+		"Abilities": "{damage} for {damage_amount}.\nApply {effect_stacks} {disempower}\n{release}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -642,7 +642,7 @@ const CARDS := {
 	"Rubber Eggs": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "At the start of your turn, {damage} a random Torment with {confusion} for {concentration_damage}.",
+		"Abilities": "At the start of your turn, {damage} a random Torment with {disempower} for {concentration_damage}.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -663,7 +663,7 @@ const CARDS := {
 	"@ Rubber Eggs @": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "At the start of your turn, {damage} a random Torment with {confusion} for {concentration_damage}.",
+		"Abilities": "At the start of your turn, {damage} a random Torment with {disempower} for {concentration_damage}.",
 		"Cost": 0,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -679,7 +679,7 @@ const CARDS := {
 	"Hard Rubber Eggs": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "At the start of your turn, {damage} a random Torment with {confusion} for {concentration_damage}.",
+		"Abilities": "At the start of your turn, {damage} a random Torment with {disempower} for {concentration_damage}.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -695,7 +695,7 @@ const CARDS := {
 	"Bouncy Rubber Eggs": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "At the start of your turn, {damage} all Torments with {confusion} for {concentration_damage}.",
+		"Abilities": "At the start of your turn, {damage} all Torments with {disempower} for {concentration_damage}.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -711,8 +711,8 @@ const CARDS := {
 	"The Joke": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
-		"Abilities": "Target a Torment. If it doesn't have {confusion} Apply {effect_stacks} {confusion}"\
-			+ " If it has {confusion}, {damage} for {damage_amount}.",
+		"Abilities": "Target a Torment. If it doesn't have {disempower} Apply {effect_stacks} {disempower}"\
+			+ " If it has {disempower}, {damage} for {damage_amount}.",
 		"Cost": 2,
 		"_illustration": "SkylarkGSH",
 		"_effects_info": {
@@ -735,8 +735,8 @@ const CARDS := {
 	"* The Joke *": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
-		"Abilities": "Target a Torment. If it doesn't have {confusion} Apply {effect_stacks} {confusion}"\
-			+ " If it has {confusion}, {damage} for {damage_amount}.",
+		"Abilities": "Target a Torment. If it doesn't have {disempower} Apply {effect_stacks} {disempower}"\
+			+ " If it has {disempower}, {damage} for {damage_amount}.",
 		"Cost": 2,
 		"_illustration": "SkylarkGSH",
 		"_effects_info": {
@@ -754,8 +754,8 @@ const CARDS := {
 	"+ The Joke +": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
-		"Abilities": "Target a Torment. If it doesn't have {confusion} Apply {effect_stacks} {confusion}"\
-			+ " If it has {confusion}, {damage} for {damage_amount}.",
+		"Abilities": "Target a Torment. If it doesn't have {disempower} Apply {effect_stacks} {disempower}"\
+			+ " If it has {disempower}, {damage} for {damage_amount}.",
 		"Cost": 2,
 		"_illustration": "SkylarkGSH",
 		"_effects_info": {
@@ -773,8 +773,8 @@ const CARDS := {
 	"= The Joke =": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
-		"Abilities": "Target a Torment. If it doesn't have {confusion} Apply {effect_stacks} {confusion}"\
-			+ " If it has {confusion}, {damage} for {damage_amount}.",
+		"Abilities": "Target a Torment. If it doesn't have {disempower} Apply {effect_stacks} {disempower}"\
+			+ " If it has {disempower}, {damage} for {damage_amount}.",
 		"Cost": 2,
 		"_illustration": "SkylarkGSH",
 		"_effects_info": {
@@ -792,7 +792,7 @@ const CARDS := {
 	"Nunclucks": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Increase your {damage} by {concentration_damage} for each stack of {confusion} on the Torment.",
+		"Abilities": "Increase your {damage} by {concentration_damage} for each stack of {disempower} on the Torment.",
 		"Cost": 1,
 		"_illustration": "axilirate",
 		"_effects_info": {
@@ -812,7 +812,7 @@ const CARDS := {
 	"@ Nunclucks @": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Increase your {damage} by {concentration_damage} for each stack of {confusion} on the Torment.",
+		"Abilities": "Increase your {damage} by {concentration_damage} for each stack of {disempower} on the Torment.",
 		"Cost": 0,
 		"_illustration": "axilirate",
 		"_effects_info": {
@@ -828,7 +828,7 @@ const CARDS := {
 	"Massive Nunclucks": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Increase your {damage} by {concentration_damage} for each stack of {confusion} on the Torment.",
+		"Abilities": "Increase your {damage} by {concentration_damage} for each stack of {disempower} on the Torment.",
 		"Cost": 1,
 		"_illustration": "axilirate",
 		"_effects_info": {
@@ -909,7 +909,7 @@ const CARDS := {
 	"Cocky Retort": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
-		"Abilities": "Gain {defence_amount} {confidence}\n Draw {draw_amount} card.",
+		"Abilities": "Gain {defence_amount} {defence}\n Draw {draw_amount} card.",
 		"Cost": 1,
 		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Common",
@@ -927,7 +927,7 @@ const CARDS := {
 	"+ Cocky Retort +": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
-		"Abilities": "Gain {defence_amount} {confidence}\n Draw {draw_amount} card.",
+		"Abilities": "Gain {defence_amount} {defence}\n Draw {draw_amount} card.",
 		"Cost": 1,
 		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Common",
@@ -941,7 +941,7 @@ const CARDS := {
 	"! Cocky Retort !": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
-		"Abilities": "Gain {defence_amount} {confidence}\n Draw {draw_amount} cards.",
+		"Abilities": "Gain {defence_amount} {defence}\n Draw {draw_amount} cards.",
 		"Cost": 1,
 		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Common",
@@ -955,7 +955,7 @@ const CARDS := {
 	"Rapid Encirclement": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name],
-		"Abilities": "Apply {effect_stacks} {shaken} to all Torments.",
+		"Abilities": "Apply {effect_stacks} {vulnerable} to all Torments.",
 		"Cost": 1,
 		"_illustration": "SkylarkGSH",
 		"_effects_info": {
@@ -974,7 +974,7 @@ const CARDS := {
 	"* Rapid Encirclement *": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name],
-		"Abilities": "Apply {effect_stacks} {shaken} to all Torments.",
+		"Abilities": "Apply {effect_stacks} {vulnerable} to all Torments.",
 		"Cost": 1,
 		"_illustration": "SkylarkGSH",
 		"_effects_info": {
@@ -989,7 +989,7 @@ const CARDS := {
 	"~ Rapid Encirclement ~": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name],
-		"Abilities": "Apply {effect_stacks} {shaken} to all Torments. {forget}.",
+		"Abilities": "Apply {effect_stacks} {vulnerable} to all Torments. {forget}.",
 		"Cost": 1,
 		"_illustration": "SkylarkGSH",
 		"_effects_info": {
@@ -1004,7 +1004,7 @@ const CARDS := {
 	"Barrel Through": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
-		"Abilities": "{damage} for {damage_amount}.\nIf the Torment has {shaken}, "\
+		"Abilities": "{damage} for {damage_amount}.\nIf the Torment has {vulnerable}, "\
 				+ "{damage} all other Torments for {damage_amount2}.",
 		"Cost": 1,
 		"_illustration": "SkylarkGSH",
@@ -1026,7 +1026,7 @@ const CARDS := {
 	"+ Barrel Through +": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
-		"Abilities": "{damage} for {damage_amount}.\nIf the Torment has {shaken}, "\
+		"Abilities": "{damage} for {damage_amount}.\nIf the Torment has {vulnerable}, "\
 				+ "{damage} all other Torments for {damage_amount2}.",
 		"Cost": 1,
 		"_illustration": "SkylarkGSH",
@@ -1044,7 +1044,7 @@ const CARDS := {
 	"= Barrel Through =": {
 		"Type": "Action",
 		"Tags": [Terms.GENERIC_TAGS.chain.name],
-		"Abilities": "{damage} for {damage_amount}.\nIf the Torment has {shaken}, "\
+		"Abilities": "{damage} for {damage_amount}.\nIf the Torment has {vulnerable}, "\
 				+ "{damage} all other Torments for {damage_amount2}.",
 		"Cost": 1,
 		"_illustration": "SkylarkGSH",
@@ -1062,7 +1062,7 @@ const CARDS := {
 	"Intimidate": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
-		"Abilities": "Apply {effect_stacks} {doubt} to all Torments",
+		"Abilities": "Apply {effect_stacks} {poison} to all Torments",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1081,7 +1081,7 @@ const CARDS := {
 	"@ Intimidate @": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
-		"Abilities": "Apply {effect_stacks} {doubt} to all Torments",
+		"Abilities": "Apply {effect_stacks} {poison} to all Torments",
 		"Cost": 0,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1096,7 +1096,7 @@ const CARDS := {
 	"* Intimidate *": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
-		"Abilities": "Apply {effect_stacks} {doubt} to all Torments",
+		"Abilities": "Apply {effect_stacks} {poison} to all Torments",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1111,7 +1111,7 @@ const CARDS := {
 	"Cheeky Approach": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
-		"Abilities": "Gain {defence_amount} {confidence}\nApply {effect_stacks} {doubt} to target Torment.",
+		"Abilities": "Gain {defence_amount} {defence}\nApply {effect_stacks} {poison} to target Torment.",
 		"Cost": 2,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1133,7 +1133,7 @@ const CARDS := {
 	"= Cheeky Approach =": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
-		"Abilities": "Gain {defence_amount} {confidence}\nApply {effect_stacks} {doubt} to target Torment.",
+		"Abilities": "Gain {defence_amount} {defence}\nApply {effect_stacks} {poison} to target Torment.",
 		"Cost": 2,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1150,7 +1150,7 @@ const CARDS := {
 	"+ Cheeky Approach +": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
-		"Abilities": "Gain {defence_amount} {confidence}\nApply {effect_stacks} {doubt} to target Torment.",
+		"Abilities": "Gain {defence_amount} {defence}\nApply {effect_stacks} {poison} to target Torment.",
 		"Cost": 2,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1167,7 +1167,7 @@ const CARDS := {
 	"* Cheeky Approach *": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
-		"Abilities": "Gain {defence_amount} {confidence}\nApply {effect_stacks} {doubt} to target Torment.",
+		"Abilities": "Gain {defence_amount} {defence}\nApply {effect_stacks} {poison} to target Torment.",
 		"Cost": 2,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1184,7 +1184,7 @@ const CARDS := {
 	"Laugh at Danger": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
-		"Abilities": "After a Torment performs {stress}, it gains {concentration_stacks} {doubt}",
+		"Abilities": "After a Torment performs {stress}, it gains {concentration_stacks} {poison}",
 		"Cost": 2,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1204,7 +1204,7 @@ const CARDS := {
 	"@ Laugh at Danger @": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
-		"Abilities": "After a Torment performs {stress}, it gains {concentration_stacks} {doubt}",
+		"Abilities": "After a Torment performs {stress}, it gains {concentration_stacks} {poison}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1220,7 +1220,7 @@ const CARDS := {
 	"Roaring Laugh at Danger": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
-		"Abilities": "After a Torment performs {stress}, it gains {concentration_stacks} {doubt}",
+		"Abilities": "After a Torment performs {stress}, it gains {concentration_stacks} {poison}",
 		"Cost": 2,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1236,7 +1236,7 @@ const CARDS := {
 	"Towering Presence": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage} equal to your current {confidence}",
+		"Abilities": "{damage} equal to your current {defence}",
 		"Cost": 1,
 		"_illustration": "SkylarkGSH",
 		"_rarity": "Common",
@@ -1253,7 +1253,7 @@ const CARDS := {
 	"@ Towering Presence @": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage} equal to your current {confidence}",
+		"Abilities": "{damage} equal to your current {defence}",
 		"Cost": 0,
 		"_illustration": "SkylarkGSH",
 		"_rarity": "Common",
@@ -1263,7 +1263,7 @@ const CARDS := {
 	"+ Towering Presence +": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage} equal to your current {confidence} + {damage_amount}",
+		"Abilities": "{damage} equal to your current {defence} + {damage_amount}",
 		"Cost": 1,
 		"_illustration": "SkylarkGSH",
 		"_rarity": "Common",
@@ -1276,7 +1276,7 @@ const CARDS := {
 	"Unassailable": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you apply {doubt}, gain {concentration_defence} {confidence}",
+		"Abilities": "Whenever you apply {poison}, gain {concentration_defence} {defence}",
 		"Cost": 2,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
@@ -1293,7 +1293,7 @@ const CARDS := {
 	"@ Unassailable @": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you apply {doubt}, gain {concentration_defence} {confidence}",
+		"Abilities": "Whenever you apply {poison}, gain {concentration_defence} {defence}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
@@ -1306,7 +1306,7 @@ const CARDS := {
 	"Completely Unassailable": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you apply {doubt}, gain {concentration_defence} {confidence}",
+		"Abilities": "Whenever you apply {poison}, gain {concentration_defence} {defence}",
 		"Cost": 2,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
@@ -1319,7 +1319,7 @@ const CARDS := {
 	"Audacity": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
-		"Abilities": "Gain {defence_amount} {confidence}\nApply {effect_stacks} {courage}",
+		"Abilities": "Gain {defence_amount} {defence}\nApply {effect_stacks} {fortify}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1340,7 +1340,7 @@ const CARDS := {
 	"+ Audacity +": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
-		"Abilities": "Gain {defence_amount} {confidence}\nApply {effect_stacks} {courage}",
+		"Abilities": "Gain {defence_amount} {defence}\nApply {effect_stacks} {fortify}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1357,7 +1357,7 @@ const CARDS := {
 	"* Audacity *": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
-		"Abilities": "Gain {defence_amount} {confidence}\nApply {effect_stacks} {courage}",
+		"Abilities": "Gain {defence_amount} {defence}\nApply {effect_stacks} {fortify}",
 		"Cost": 2,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1374,7 +1374,7 @@ const CARDS := {
 	"Boast": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Double your {confidence}\nRemove all {courage}\n{forget}.",
+		"Abilities": "Double your {defence}\nRemove all {fortify}\n{forget}.",
 		"Cost": 2,
 		"_illustration": "Friendlyguy#3543",
 		"_effects_info": {
@@ -1392,7 +1392,7 @@ const CARDS := {
 	"@ Boast @": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Double your {confidence}\nRemove all {courage}\n{forget}.",
+		"Abilities": "Double your {defence}\nRemove all {fortify}\n{forget}.",
 		"Cost": 1,
 		"_illustration": "Friendlyguy#3543",
 		"_effects_info": {
@@ -1405,7 +1405,7 @@ const CARDS := {
 	"Massive Boast": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Gain 4 {confidence}\nDouble your {confidence}\nRemove all {courage}\n{forget}.",
+		"Abilities": "Gain 4 {defence}\nDouble your {defence}\nRemove all {fortify}\n{forget}.",
 		"Cost": 2,
 		"_illustration": "Friendlyguy#3543",
 		"_effects_info": {
@@ -1421,7 +1421,7 @@ const CARDS := {
 	"Sustained Boast": {
 		"Type": "Control",
 		"Tags": [],
-		"Abilities": "Double your {confidence}\nRemove all {courage}",
+		"Abilities": "Double your {defence}\nRemove all {fortify}",
 		"Cost": 2,
 		"_illustration": "Friendlyguy#3543",
 		"_effects_info": {
@@ -1434,7 +1434,7 @@ const CARDS := {
 	"Solid Understanding": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "Gain {defence_amount} {confidence}\n{damage} for {damage_amount}.",
+		"Abilities": "Gain {defence_amount} {defence}\n{damage} for {damage_amount}.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
@@ -1453,7 +1453,7 @@ const CARDS := {
 	"+ Solid Understanding +": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "Gain {defence_amount} {confidence}\n{damage} for {damage_amount}.",
+		"Abilities": "Gain {defence_amount} {defence}\n{damage} for {damage_amount}.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
@@ -1467,7 +1467,7 @@ const CARDS := {
 	"% Solid Understanding %": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "Gain {defence_amount} {confidence}\n{damage} for {damage_amount}.",
+		"Abilities": "Gain {defence_amount} {defence}\n{damage} for {damage_amount}.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
@@ -1481,7 +1481,7 @@ const CARDS := {
 	"= Solid Understanding =": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "Gain {defence_amount} {confidence}\n{damage} for {damage_amount}.",
+		"Abilities": "Gain {defence_amount} {defence}\n{damage} for {damage_amount}.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
@@ -1495,7 +1495,7 @@ const CARDS := {
 	"No Second Thoughts": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
-		"Abilities": "Gain {effect_stacks} {courage}",
+		"Abilities": "Gain {effect_stacks} {fortify}",
 		"Cost": 2,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1514,7 +1514,7 @@ const CARDS := {
 	"@ No Second Thoughts @": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
-		"Abilities": "Gain {effect_stacks} {courage}",
+		"Abilities": "Gain {effect_stacks} {fortify}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1529,7 +1529,7 @@ const CARDS := {
 	"~ No Second Thoughts ~": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
-		"Abilities": "Gain {effect_stacks} {courage}\n{forget}.",
+		"Abilities": "Gain {effect_stacks} {fortify}\n{forget}.",
 		"Cost": 0,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1544,7 +1544,7 @@ const CARDS := {
 	"High Morale": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {courage} card.",
+		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {fortify} card.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1565,7 +1565,7 @@ const CARDS := {
 	"+ High Morale +": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {courage} card.",
+		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {fortify} card.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1582,7 +1582,7 @@ const CARDS := {
 	"! High Morale !": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {courage} cards.",
+		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {fortify} cards.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1599,7 +1599,7 @@ const CARDS := {
 	"Confident Slap": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
-		"Abilities": "Apply {effect_stacks} {doubt} to target Torment.",
+		"Abilities": "Apply {effect_stacks} {poison} to target Torment.",
 		"Cost": 1,
 		"_illustration": "axilirate",
 		"_effects_info": {
@@ -1618,7 +1618,7 @@ const CARDS := {
 	"* Confident Slap *": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
-		"Abilities": "Apply {effect_stacks} {doubt} to target Torment.",
+		"Abilities": "Apply {effect_stacks} {poison} to target Torment.",
 		"Cost": 1,
 		"_illustration": "axilirate",
 		"_effects_info": {
@@ -1633,7 +1633,7 @@ const CARDS := {
 	"@ Confident Slap @": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
-		"Abilities": "Apply {effect_stacks} {doubt} to target Torment.",
+		"Abilities": "Apply {effect_stacks} {poison} to target Torment.",
 		"Cost": 0,
 		"_illustration": "axilirate",
 		"_effects_info": {
@@ -1648,7 +1648,7 @@ const CARDS := {
 	"Careful Observation": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage} for {damage_amount}. If you have {untouchable}, {damage} for {damage_amount2} instead.",
+		"Abilities": "{damage} for {damage_amount}. If you have {impervious}, {damage} for {damage_amount2} instead.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1669,7 +1669,7 @@ const CARDS := {
 	"+ Careful Observation +": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage} for {damage_amount}. If you have {untouchable}, {damage} for {damage_amount2} instead.",
+		"Abilities": "{damage} for {damage_amount}. If you have {impervious}, {damage} for {damage_amount2} instead.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1686,7 +1686,7 @@ const CARDS := {
 	"% Careful Observation %": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage} for {damage_amount}. If you have {untouchable}, {damage} for {damage_amount2} instead.",
+		"Abilities": "{damage} for {damage_amount}. If you have {impervious}, {damage} for {damage_amount2} instead.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1703,7 +1703,7 @@ const CARDS := {
 	"Drag and Drop": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
-		"Abilities": "{damage} for {damage_amount}. If Torment is {overcome}, gain {effect_stacks} {untouchable}",
+		"Abilities": "{damage} for {damage_amount}. If Torment is {overcome}, gain {effect_stacks} {impervious}",
 		"Cost": 2,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1724,7 +1724,7 @@ const CARDS := {
 	"+ Drag and Drop +": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
-		"Abilities": "{damage} for {damage_amount}. If Torment is {overcome}, gain {effect_stacks} {untouchable}",
+		"Abilities": "{damage} for {damage_amount}. If Torment is {overcome}, gain {effect_stacks} {impervious}",
 		"Cost": 2,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1741,7 +1741,7 @@ const CARDS := {
 	"@ Drag and Drop @": {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
-		"Abilities": "{damage} for {damage_amount}. If Torment is {overcome}, gain {effect_stacks} {untouchable}",
+		"Abilities": "{damage} for {damage_amount}. If Torment is {overcome}, gain {effect_stacks} {impervious}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1758,7 +1758,7 @@ const CARDS := {
 	"Running Start": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {untouchable} card.",
+		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {impervious} card.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1780,7 +1780,7 @@ const CARDS := {
 	"+ Running Start +": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {untouchable} card.",
+		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {impervious} card.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1797,7 +1797,7 @@ const CARDS := {
 	"! Running Start !": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {untouchable} cards.",
+		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {impervious} cards.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1814,7 +1814,7 @@ const CARDS := {
 	"@ Running Start @": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {untouchable} card.",
+		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {impervious} card.",
 		"Cost": 0,
 		"_illustration": "Nobody",
 		"_effects_info": {
@@ -1831,7 +1831,7 @@ const CARDS := {
 	"Master of Skies": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
-		"Abilities": "Whenever you gain {untouchable}, Gain {concentration_stacks} {buffer}",
+		"Abilities": "Whenever you gain {impervious}, Gain {concentration_stacks} {buffer}",
 		"Cost": 2,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1851,7 +1851,7 @@ const CARDS := {
 	"@ Master of Skies @": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
-		"Abilities": "Whenever you gain {untouchable}, Gain {concentration_stacks} {buffer}",
+		"Abilities": "Whenever you gain {impervious}, Gain {concentration_stacks} {buffer}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1867,7 +1867,7 @@ const CARDS := {
 	"Glorious Master of Skies": {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
-		"Abilities": "Whenever you gain {untouchable}, Gain {concentration_stacks} {buffer}",
+		"Abilities": "Whenever you gain {impervious}, Gain {concentration_stacks} {buffer}",
 		"Cost": 3,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1884,7 +1884,7 @@ const CARDS := {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
 		"Abilities": "At the end of the next {turns_amount} turns, {relax} for {concentration_healing}.\n"\
-				+ "If you have {untouchable}, {relax} {concentration_healing} extra.",
+				+ "If you have {impervious}, {relax} {concentration_healing} extra.",
 		"Cost": 2,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1905,7 +1905,7 @@ const CARDS := {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
 		"Abilities": "At the end of the next {turns_amount} turns, {relax} for {concentration_healing}.\n"\
-				+ "If you have {untouchable}, {relax} {concentration_healing} extra.",
+				+ "If you have {impervious}, {relax} {concentration_healing} extra.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1922,7 +1922,7 @@ const CARDS := {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.relax.name],
 		"Abilities": "At the end of the next {turns_amount} turns, {relax} for {concentration_healing}.\n"\
-				+ "If you have {untouchable}, {relax} {concentration_healing} extra.",
+				+ "If you have {impervious}, {relax} {concentration_healing} extra.",
 		"Cost": 2,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1938,7 +1938,7 @@ const CARDS := {
 	"Loop de loop": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
-		"Abilities": "Gain {defence_amount} {confidence}\nGain {effect_stacks} {fascination}",
+		"Abilities": "Gain {defence_amount} {defence}\nGain {effect_stacks} {fascination}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1959,7 +1959,7 @@ const CARDS := {
 	"+ Loop de loop +": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
-		"Abilities": "Gain {defence_amount} {confidence}\nGain {effect_stacks} {fascination}",
+		"Abilities": "Gain {defence_amount} {defence}\nGain {effect_stacks} {fascination}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -1976,7 +1976,7 @@ const CARDS := {
 	"* Loop de loop *": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
-		"Abilities": "Gain {defence_amount} {confidence}\nGain {effect_stacks} {fascination}",
+		"Abilities": "Gain {defence_amount} {defence}\nGain {effect_stacks} {fascination}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -2058,7 +2058,7 @@ const CARDS := {
 	"Utterly Ridiculous": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "Can only be played if there's a total of {filter_amount} or more {confusion} among Torments\n"\
+		"Abilities": "Can only be played if there's a total of {filter_amount} or more {disempower} among Torments\n"\
 				+ "{damage} all Torments for {damage_amount}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
@@ -2079,7 +2079,7 @@ const CARDS := {
 	"@ Utterly Ridiculous @": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "Can only be played if there's a total of {filter_amount} or more {confusion} among Torments\n"\
+		"Abilities": "Can only be played if there's a total of {filter_amount} or more {disempower} among Torments\n"\
 				+ "{damage} all Torments for {damage_amount}",
 		"Cost": 0,
 		"_illustration": "Db0 via midjourney.com",
@@ -2094,7 +2094,7 @@ const CARDS := {
 	"+ Utterly Ridiculous +": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "Can only be played if there's a total of {filter_amount} or more {confusion} among Torments\n"\
+		"Abilities": "Can only be played if there's a total of {filter_amount} or more {disempower} among Torments\n"\
 				+ "{damage} all Torments for {damage_amount}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
@@ -2109,7 +2109,7 @@ const CARDS := {
 	"% Utterly Ridiculous %": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "Can only be played if there's a total of {filter_amount} or more {confusion} among Torments\n"\
+		"Abilities": "Can only be played if there's a total of {filter_amount} or more {disempower} among Torments\n"\
 				+ "{damage} all Torments for {damage_amount}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
@@ -2124,7 +2124,7 @@ const CARDS := {
 	"= Utterly Ridiculous =": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "Can only be played if there's a total of {filter_amount} or more {confusion} among Torments\n"\
+		"Abilities": "Can only be played if there's a total of {filter_amount} or more {disempower} among Torments\n"\
 				+ "{damage} all Torments for {damage_amount}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
@@ -2139,7 +2139,7 @@ const CARDS := {
 	"Ventriloquism": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {confusion} card.",
+		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {disempower} card.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -2161,7 +2161,7 @@ const CARDS := {
 	"@ Ventriloquism @": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {confusion} card.",
+		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {disempower} card.",
 		"Cost": 0,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -2178,7 +2178,7 @@ const CARDS := {
 	"+ Ventriloquism +": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {confusion} card.",
+		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {disempower} card.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -2195,7 +2195,7 @@ const CARDS := {
 	"! Ventriloquism !": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {confusion} cards.",
+		"Abilities": "{damage} for {damage_amount}.\nDraw {draw_amount} {disempower} cards.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -2269,7 +2269,7 @@ const CARDS := {
 	"Fowl Language": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
-		"Abilities": "Each Torment is applied {doubt} equals to its {confusion}x{multiplier_amount}",
+		"Abilities": "Each Torment is applied {poison} equals to its {disempower}x{multiplier_amount}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -2290,7 +2290,7 @@ const CARDS := {
 	"@ Fowl Language @": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
-		"Abilities": "Each Torment is applied {doubt} equals to its {confusion}x{multiplier_amount}",
+		"Abilities": "Each Torment is applied {poison} equals to its {disempower}x{multiplier_amount}",
 		"Cost": 0,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -2306,7 +2306,7 @@ const CARDS := {
 	"* Fowl Language *": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
-		"Abilities": "Each Torment is applied {doubt} equals to its {confusion}x{multiplier_amount}",
+		"Abilities": "Each Torment is applied {poison} equals to its {disempower}x{multiplier_amount}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -2322,7 +2322,7 @@ const CARDS := {
 	"% Fowl Language %": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
-		"Abilities": "Each Torment is applied {doubt} equals to its ({confusion}+1)x{multiplier_amount}",
+		"Abilities": "Each Torment is applied {poison} equals to its ({disempower}+1)x{multiplier_amount}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -2381,7 +2381,7 @@ const CARDS := {
 	"Absurdity Unleashed": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you apply {confusion} to a Torment, {damage} it for {concentration_damage}",
+		"Abilities": "Whenever you apply {disempower} to a Torment, {damage} it for {concentration_damage}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -2402,7 +2402,7 @@ const CARDS := {
 	"@ Absurdity Unleashed @": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you apply {confusion} to a Torment, {damage} it for {concentration_damage}",
+		"Abilities": "Whenever you apply {disempower} to a Torment, {damage} it for {concentration_damage}",
 		"Cost": 0,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -2418,7 +2418,7 @@ const CARDS := {
 	"^ Absurdity Unleashed ^": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.alpha.name],
-		"Abilities": "Whenever you apply {confusion} to a Torment, {damage} it for {concentration_damage}",
+		"Abilities": "Whenever you apply {disempower} to a Torment, {damage} it for {concentration_damage}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -2434,7 +2434,7 @@ const CARDS := {
 	"Total Absurdity Unleashed": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you apply {confusion} to a Torment, {damage} it for {concentration_damage}",
+		"Abilities": "Whenever you apply {disempower} to a Torment, {damage} it for {concentration_damage}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_effects_info": {
@@ -2497,7 +2497,7 @@ const CARDS := {
 	"Brilliance": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you {shuffle} your draw pile, gain {concentration_defence} {confidence}.",
+		"Abilities": "Whenever you {shuffle} your draw pile, gain {concentration_defence} {defence}.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
@@ -2515,7 +2515,7 @@ const CARDS := {
 	"@ Brilliance @": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you {shuffle} your draw pile, gain {concentration_defence} {confidence}.",
+		"Abilities": "Whenever you {shuffle} your draw pile, gain {concentration_defence} {defence}.",
 		"Cost": 0,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
@@ -2528,7 +2528,7 @@ const CARDS := {
 	"^ Brilliance ^": {
 		"Type": "Concentration",
 		"Tags": [Terms.GENERIC_TAGS.alpha.name],
-		"Abilities": "Whenever you {shuffle} your draw pile, gain {concentration_defence} {confidence}.",
+		"Abilities": "Whenever you {shuffle} your draw pile, gain {concentration_defence} {defence}.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
@@ -2541,7 +2541,7 @@ const CARDS := {
 	"Blinding Brilliance": {
 		"Type": "Concentration",
 		"Tags": [],
-		"Abilities": "Whenever you {shuffle} your draw pile, gain {concentration_defence} {confidence}.",
+		"Abilities": "Whenever you {shuffle} your draw pile, gain {concentration_defence} {defence}.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
@@ -2554,9 +2554,9 @@ const CARDS := {
 	"Rapid Theorizing": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.swift.name, Terms.GENERIC_TAGS.chain.name],
-		"Abilities": "Gain {defence_amount} {confidence}.\n"\
+		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If you've {shuffle}d your draw pile this turn, "\
-				+ "gain {defence_amount2} {confidence} and draw {draw_amount} card.",
+				+ "gain {defence_amount2} {defence} and draw {draw_amount} card.",
 		"Cost": 1,
 		"_illustration": "Maria Thoukydidou",
 		"_rarity": "Uncommon",
@@ -2576,9 +2576,9 @@ const CARDS := {
 	"+ Rapid Theorizing +": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
-		"Abilities": "Gain {defence_amount} {confidence}.\n"\
+		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If you've {shuffle}d your draw pile this turn, "\
-				+ "gain {defence_amount2} {confidence} and draw {draw_amount} card.",
+				+ "gain {defence_amount2} {defence} and draw {draw_amount} card.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -2593,9 +2593,9 @@ const CARDS := {
 	"! Rapid Theorizing !": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
-		"Abilities": "Gain {defence_amount} {confidence}.\n"\
+		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If you've {shuffle}d your draw pile this turn, "\
-				+ "gain {defence_amount2} {confidence} and draw {draw_amount} card.",
+				+ "gain {defence_amount2} {defence} and draw {draw_amount} card.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -2610,9 +2610,9 @@ const CARDS := {
 	"% Rapid Theorizing %": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.swift.name],
-		"Abilities": "Gain {defence_amount} {confidence}.\n"\
+		"Abilities": "Gain {defence_amount} {defence}.\n"\
 				+ "If you've {shuffle}d your draw pile this turn, "\
-				+ "gain {defence_amount2} {confidence} and draw {draw_amount} card.",
+				+ "gain {defence_amount2} {defence} and draw {draw_amount} card.",
 		"Cost": 1,
 		"_illustration": "Nobody",
 		"_rarity": "Uncommon",
@@ -3144,7 +3144,7 @@ const CARDS := {
 	"Dodge": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
-		"Abilities": "Gain {effect_stacks} {untouchable}",
+		"Abilities": "Gain {effect_stacks} {impervious}",
 		"Cost": 0,
 		"_illustration": "Friendlyguy#3543",
 		"_effects_info": {
@@ -3163,7 +3163,7 @@ const CARDS := {
 	"Dancing Dodge": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name,Terms.GENERIC_TAGS.swift.name],
-		"Abilities": "Gain {effect_stacks} {untouchable}. Draw {draw_amount} card.",
+		"Abilities": "Gain {effect_stacks} {impervious}. Draw {draw_amount} card.",
 		"Cost": 0,
 		"_illustration": "Friendlyguy#3543",
 		"_effects_info": {
@@ -3179,7 +3179,7 @@ const CARDS := {
 	"* Dodge *": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name],
-		"Abilities": "Gain {effect_stacks} {untouchable}",
+		"Abilities": "Gain {effect_stacks} {impervious}",
 		"Cost": 0,
 		"_illustration": "Friendlyguy#3543",
 		"_effects_info": {
@@ -4091,7 +4091,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} all Torments for X * {damage_amount}\n"\
-				+ "All Torments gain X {confusion}",
+				+ "All Torments gain X {disempower}",
 		"Cost": 'X',
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
@@ -4112,7 +4112,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} all Torments for X * {damage_amount}\n"\
-				+ "All Torments gain X {confusion}",
+				+ "All Torments gain X {disempower}",
 		"Cost": 'X',
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
@@ -4129,7 +4129,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [],
 		"Abilities": "{damage} all Torments for (X + 1) * {damage_amount}\n"\
-				+ "All Torments gain (X + 1) {confusion}",
+				+ "All Torments gain (X + 1) {disempower}",
 		"Cost": 'X',
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
@@ -4146,7 +4146,7 @@ const CARDS := {
 	"Hyperfocus": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
-		"Abilities": "Gain X * {defence_amount} {confidence}\n"\
+		"Abilities": "Gain X * {defence_amount} {defence}\n"\
 				+ "Gain X * {effect_stacks} {buffer}\n"\
 				+ "If you gained immersion through {buffer} this turn. {forget}.",
 		"Cost": 'X',
@@ -4172,7 +4172,7 @@ const CARDS := {
 	"+ Hyperfocus +": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
-		"Abilities": "Gain X * {defence_amount} {confidence}\n"\
+		"Abilities": "Gain X * {defence_amount} {defence}\n"\
 				+ "Gain X * {effect_stacks} {buffer}\n"\
 				+ "If you gained immersion through {buffer} this turn. {forget}.",
 		"Cost": 'X',
@@ -4191,7 +4191,7 @@ const CARDS := {
 	"* Hyperfocus *": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
-		"Abilities": "Gain X * {defence_amount} {confidence}\n"\
+		"Abilities": "Gain X * {defence_amount} {defence}\n"\
 				+ "Gain X * {effect_stacks} {buffer}\n"\
 				+ "If you gained immersion through {buffer} this turn. {forget}.",
 		"Cost": 'X',
@@ -4210,7 +4210,7 @@ const CARDS := {
 	"Misunderstood": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.exert.name],
-		"Abilities": "Gain {defence_amount} {confidence}\n"\
+		"Abilities": "Gain {defence_amount} {defence}\n"\
 				+ "You may take {exert_amount} {anxiety} "\
 				+ "to {shuffle} this card into your draw pile.",
 		"Cost": 1,
@@ -4231,7 +4231,7 @@ const CARDS := {
 	"+ Misunderstood +": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.exert.name],
-		"Abilities": "Gain {defence_amount} {confidence}\n"\
+		"Abilities": "Gain {defence_amount} {defence}\n"\
 				+ "You may take {exert_amount} {anxiety} "\
 				+ "to {shuffle} this card into your draw pile.",
 		"Cost": 1,
@@ -4248,7 +4248,7 @@ const CARDS := {
 	"% Misunderstood %": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.exert.name],
-		"Abilities": "Gain {defence_amount} {confidence}\n"\
+		"Abilities": "Gain {defence_amount} {defence}\n"\
 				+ "You may take {exert_amount} {anxiety} "\
 				+ "to {shuffle} this card into your draw pile.",
 		"Cost": 1,
@@ -4340,7 +4340,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "At the start of your turn, "\
 				+ "if your discard pile has at most {concentration_threshold} cards, "\
-				+ "gain {concentration_defence} {confidence}.",
+				+ "gain {concentration_defence} {defence}.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_avoid_normal_discard": true,
@@ -4361,7 +4361,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "At the start of your turn, "\
 				+ "if your discard pile has at most {concentration_threshold} cards, "\
-				+ "gain {concentration_defence} {confidence}.",
+				+ "gain {concentration_defence} {defence}.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_avoid_normal_discard": true,
@@ -4378,7 +4378,7 @@ const CARDS := {
 		"Tags": [],
 		"Abilities": "At the start of your turn, "\
 				+ "if your discard pile has at most {concentration_threshold} cards, "\
-				+ "gain {concentration_defence} {confidence}.",
+				+ "gain {concentration_defence} {defence}.",
 		"Cost": 0,
 		"_illustration": "Db0 via midjourney.com",
 		"_avoid_normal_discard": true,
@@ -4674,7 +4674,7 @@ const CARDS := {
 	"Excogitate": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
-		"Abilities": "Gain {defence_amount} {confidence}\n"\
+		"Abilities": "Gain {defence_amount} {defence}\n"\
 				+ "Shuffle {card_amount} random card from the forgotten pile into the draw pile.",
 		"Cost": 2,
 		"_illustration": "Miikka Veijola",
@@ -4693,7 +4693,7 @@ const CARDS := {
 	"! Excogitate !": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.spark.name],
-		"Abilities": "Gain {defence_amount} {confidence}\n"\
+		"Abilities": "Gain {defence_amount} {defence}\n"\
 				+ "Shuffle up to {card_amount} random cards from the forgotten pile into the draw pile.",
 		"Cost": 2,
 		"_illustration": "Miikka Veijola",
@@ -4708,7 +4708,7 @@ const CARDS := {
 	"Ω Excogitate Ω": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.spark.name, Terms.GENERIC_TAGS.omega.name],
-		"Abilities": "Gain {defence_amount} {confidence}\n"\
+		"Abilities": "Gain {defence_amount} {defence}\n"\
 				+ "Shuffle {card_amount} random card from the forgotten pile into the draw pile.",
 		"Cost": 2,
 		"_illustration": "Miikka Veijola",
@@ -4872,7 +4872,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "{damage} for {damage_amount}. "\
-				+ "If the target has {confusion}, Gain {effect_stacks} {buffer} and {defence_amount} {confidence}.",
+				+ "If the target has {disempower}, Gain {effect_stacks} {buffer} and {defence_amount} {defence}.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
@@ -4896,7 +4896,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "{damage} for {damage_amount}. "\
-				+ "If the target has {confusion}, Gain {effect_stacks} {buffer} and {defence_amount} {confidence}.",
+				+ "If the target has {disempower}, Gain {effect_stacks} {buffer} and {defence_amount} {defence}.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
@@ -4915,7 +4915,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "{damage} for {damage_amount}. "\
-				+ "If the target has {confusion}, Gain {effect_stacks} {buffer} and {defence_amount} {confidence}.",
+				+ "If the target has {disempower}, Gain {effect_stacks} {buffer} and {defence_amount} {defence}.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
@@ -4934,7 +4934,7 @@ const CARDS := {
 		"Type": "Action",
 		"Tags": [Terms.ACTIVE_EFFECTS.buffer.name],
 		"Abilities": "{damage} for {damage_amount}. "\
-				+ "If the target has {confusion}, Gain {defence_amount} {confidence}.",
+				+ "If the target has {disempower}, Gain {defence_amount} {defence}.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
@@ -4956,7 +4956,7 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.marked.name,
 			Terms.GENERIC_TAGS.slumber.name
 		],
-		"Abilities": "All Torments gain {effect_stacks} {confusion} and {effect_stacks2} {marked}. {forget}",
+		"Abilities": "All Torments gain {effect_stacks} {disempower} and {effect_stacks2} {marked}. {forget}",
 		"Cost": 2,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
@@ -4987,7 +4987,7 @@ const CARDS := {
 			Terms.GENERIC_TAGS.slumber.name
 		],
 
-		"Abilities": "All Torments gain {effect_stacks} {confusion} and {effect_stacks2} {marked}. {forget}",
+		"Abilities": "All Torments gain {effect_stacks} {disempower} and {effect_stacks2} {marked}. {forget}",
 		"Cost": 2,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
@@ -5014,7 +5014,7 @@ const CARDS := {
 			Terms.GENERIC_TAGS.slumber.name
 		],
 
-		"Abilities": "All Torments gain {effect_stacks} {confusion} and {effect_stacks2} {marked}. {forget}",
+		"Abilities": "All Torments gain {effect_stacks} {disempower} and {effect_stacks2} {marked}. {forget}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
@@ -5036,7 +5036,7 @@ const CARDS := {
 	"One With The Poultry": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.armor.name],
-		"Abilities": "Gain {defence_amount} {confidence}\n"\
+		"Abilities": "Gain {defence_amount} {defence}\n"\
 				+ "If you have {buffer}, gain {effect_stacks} {armor}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
@@ -5060,7 +5060,7 @@ const CARDS := {
 	"* One With The Poultry *": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.armor.name],
-		"Abilities": "Gain {defence_amount} {confidence}\n"\
+		"Abilities": "Gain {defence_amount} {defence}\n"\
 				+ "If you have {buffer}, gain {effect_stacks} {armor}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
@@ -5079,7 +5079,7 @@ const CARDS := {
 	"+ One With The Poultry +": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.armor.name],
-		"Abilities": "Gain {defence_amount} {confidence}\n"\
+		"Abilities": "Gain {defence_amount} {defence}\n"\
 				+ "If you have {buffer}, gain {effect_stacks} {armor}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
@@ -5098,7 +5098,7 @@ const CARDS := {
 	"% One With The Poultry %": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.armor.name],
-		"Abilities": "Gain {defence_amount} {confidence}\n"\
+		"Abilities": "Gain {defence_amount} {defence}\n"\
 				+ "If you have {buffer}, gain {effect_stacks} {armor}",
 		"Cost": 3,
 		"_illustration": "Db0 via midjourney.com",
@@ -5118,7 +5118,7 @@ const CARDS := {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "Whenever you succesfully {damage} a Torment with a card or memory effect, "\
-				+ "it gains it {concentration_stacks} {confusion}.",
+				+ "it gains it {concentration_stacks} {disempower}.",
 		"Cost": 2,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
@@ -5139,7 +5139,7 @@ const CARDS := {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name],
 		"Abilities": "Whenever you succesfully {damage} a Torment with a card or memory effect, "\
-				+ "it gains it {concentration_stacks} {confusion}.",
+				+ "it gains it {concentration_stacks} {disempower}.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
@@ -5156,7 +5156,7 @@ const CARDS := {
 		"Type": "Concentration",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.GENERIC_TAGS.alpha.name],
 		"Abilities": "Whenever you succesfully {damage} a Torment with a card or memory effect, "\
-				+ "it gains it {concentration_stacks} {confusion}.",
+				+ "it gains it {concentration_stacks} {disempower}.",
 		"Cost": 2,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Rare",
@@ -5172,8 +5172,8 @@ const CARDS := {
 	"Sensuous": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.ACTIVE_EFFECTS.thorns.name],
-		"Abilities": "Apply {effect_stacks} {confusion} to Target Torment, "\
-				+ "then gain {thorns} equal to the target's {confusion}.",
+		"Abilities": "Apply {effect_stacks} {disempower} to Target Torment, "\
+				+ "then gain {thorns} equal to the target's {disempower}.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
@@ -5194,8 +5194,8 @@ const CARDS := {
 	"* Sensuous *": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.ACTIVE_EFFECTS.thorns.name],
-		"Abilities": "Apply {effect_stacks} {confusion} to Target Torment, "\
-				+ "then gain {thorns} equal to the target's {confusion}.",
+		"Abilities": "Apply {effect_stacks} {disempower} to Target Torment, "\
+				+ "then gain {thorns} equal to the target's {disempower}.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
@@ -5212,8 +5212,8 @@ const CARDS := {
 	"Ω Sensuous Ω": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.ACTIVE_EFFECTS.thorns.name, Terms.GENERIC_TAGS.omega.name],
-		"Abilities": "Apply {effect_stacks} {confusion} to Target Torment, "\
-				+ "then gain {thorns} equal to the target's {confusion}.",
+		"Abilities": "Apply {effect_stacks} {disempower} to Target Torment, "\
+				+ "then gain {thorns} equal to the target's {disempower}.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Uncommon",
@@ -5230,7 +5230,7 @@ const CARDS := {
 	"Massive Eggression": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage} for {damage_amount}. Gain {effect_stacks} {confusion}",
+		"Abilities": "{damage} for {damage_amount}. Gain {effect_stacks} {disempower}",
 		"Cost": 2,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
@@ -5251,7 +5251,7 @@ const CARDS := {
 	"+ Massive Eggression +": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage} for {damage_amount}. Gain {effect_stacks} {confusion}",
+		"Abilities": "{damage} for {damage_amount}. Gain {effect_stacks} {disempower}",
 		"Cost": 2,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
@@ -5268,7 +5268,7 @@ const CARDS := {
 	"% Massive Eggression %": {
 		"Type": "Action",
 		"Tags": [],
-		"Abilities": "{damage} for {damage_amount}. Gain {effect_stacks} {confusion}",
+		"Abilities": "{damage} for {damage_amount}. Gain {effect_stacks} {disempower}",
 		"Cost": 2,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Common",
@@ -5802,7 +5802,7 @@ const CARDS := {
 	"A Chick of the Light": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
-		"Abilities": "Gain {defence_amount} {confidence}.\n"\
+		"Abilities": "Gain {defence_amount} {defence}.\n"\
 			+ "If no Torment is going to be inflicting more than {max_requirements_amount} {stress}"\
 					 + "this turn, gain {effect_stacks} {fortify}.",
 		"Cost": 2,
@@ -5826,7 +5826,7 @@ const CARDS := {
 	"+ A Chick of the Light +": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
-		"Abilities": "Gain {defence_amount} {confidence}.\n"\
+		"Abilities": "Gain {defence_amount} {defence}.\n"\
 			+ "If no Torment is going to be inflicting more than {max_requirements_amount} "\
 					 + "this turn, gain {effect_stacks} {fortify}.",
 		"Cost": 2,
@@ -5846,7 +5846,7 @@ const CARDS := {
 	"% A Chick of the Light %": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
-		"Abilities": "Gain {defence_amount} {confidence}.\n"\
+		"Abilities": "Gain {defence_amount} {defence}.\n"\
 			+ "If no Torment is going to be inflicting more than {max_requirements_amount} "\
 					 + "this turn, gain {effect_stacks} {fortify}.",
 		"Cost": 2,

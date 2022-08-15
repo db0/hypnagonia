@@ -311,7 +311,7 @@ const CARDS := {
 	"Photon Shield": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.fusion.name],
-		"Abilities": "Gain {defence_amount} {confidence}\n"\
+		"Abilities": "Gain {defence_amount} {defence}\n"\
 				+ "Fuse {fuse_amount} -> Lumen Shield",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
@@ -332,7 +332,7 @@ const CARDS := {
 	"+ Photon Shield +": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.fusion.name],
-		"Abilities": "Gain {defence_amount} {confidence}\n"\
+		"Abilities": "Gain {defence_amount} {defence}\n"\
 				+ "Fuse {fuse_amount} -> Lumen Shield",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
@@ -348,7 +348,7 @@ const CARDS := {
 	"@ Photon Shield @": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.fusion.name],
-		"Abilities": "Gain {defence_amount} {confidence}\n"\
+		"Abilities": "Gain {defence_amount} {defence}\n"\
 				+ "Fuse {fuse_amount} -> Lumen Shield",
 		"Cost": 0,
 		"_illustration": "Db0 via midjourney.com",
@@ -364,7 +364,7 @@ const CARDS := {
 	"Ω Photon Shield Ω": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.GENERIC_TAGS.omega.name],
-		"Abilities": "Gain {defence_amount} {confidence}\n"\
+		"Abilities": "Gain {defence_amount} {defence}\n"\
 				+ "Fuse {fuse_amount} -> Lumen Shield",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
@@ -380,7 +380,7 @@ const CARDS := {
 	"Lumen Shield": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.ACTIVE_EFFECTS.fortify.name],
-		"Abilities": "Gain {defence_amount} {confidence}\nGain {effect_stacks} {fortify}\n"\
+		"Abilities": "Gain {defence_amount} {defence}\nGain {effect_stacks} {fortify}\n"\
 				+ "Fuse {fuse_amount} -> Plasma Shield",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
@@ -403,7 +403,7 @@ const CARDS := {
 	"+ Lumen Shield +": {
 		"Type": "Control",
 		"Tags": [Terms.GENERIC_TAGS.fusion.name, Terms.ACTIVE_EFFECTS.fortify.name],
-		"Abilities": "Gain {defence_amount} {confidence}\nGain {effect_stacks} {fortify}\n"\
+		"Abilities": "Gain {defence_amount} {defence}\nGain {effect_stacks} {fortify}\n"\
 				+ "Fuse {fuse_amount} -> Plasma Shield",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
@@ -423,7 +423,7 @@ const CARDS := {
 	"Plasma Shield": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
-		"Abilities": "Gain {defence_amount} {confidence}\nGain {effect_stacks} {fortify}",
+		"Abilities": "Gain {defence_amount} {defence}\nGain {effect_stacks} {fortify}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Special",
@@ -443,7 +443,7 @@ const CARDS := {
 	"+ Plasma Shield +": {
 		"Type": "Control",
 		"Tags": [Terms.ACTIVE_EFFECTS.fortify.name],
-		"Abilities": "Gain {defence_amount} {confidence}\nGain {effect_stacks} {fortify}",
+		"Abilities": "Gain {defence_amount} {defence}\nGain {effect_stacks} {fortify}",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Special",
@@ -1341,7 +1341,7 @@ const CARDS := {
 	"Light Jump": {
 		"Type": "Control",
 		"Tags": [],
-		"Abilities": "Gain {defence_amount} {confidence}\n"\
+		"Abilities": "Gain {defence_amount} {defence}\n"\
 				+ "Put {discard_amount} cards to the bottom of the draw pile.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
@@ -1360,7 +1360,7 @@ const CARDS := {
 	"+ Light Jump +": {
 		"Type": "Control",
 		"Tags": [],
-		"Abilities": "Gain {defence_amount} {confidence}\n"\
+		"Abilities": "Gain {defence_amount} {defence}\n"\
 				+ "Put {discard_amount} cards to the bottom of the draw pile.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
@@ -1375,7 +1375,7 @@ const CARDS := {
 	"@ Light Jump @": {
 		"Type": "Control",
 		"Tags": [],
-		"Abilities": "Gain {defence_amount} {confidence}\n"\
+		"Abilities": "Gain {defence_amount} {defence}\n"\
 				+ "Put {discard_amount} cards to the bottom of the draw pile.",
 		"Cost": 0,
 		"_illustration": "Db0 via midjourney.com",

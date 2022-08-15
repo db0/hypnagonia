@@ -561,7 +561,7 @@ func _input(event):
 #			if c.card_name == "Noisy Whip":
 #				globals.player.deck.remove_card(c)
 #		_reveal_entry(upgrade_journal, true)
-#		globals.player.deck.add_new_card("Guilt")
+#	d	globals.player.deck.add_new_card("Guilt")
 #		globals.player.deck.add_new_card("Catatonia")
 #		globals.player.add_artifact(ArtifactDefinitions.CursedCurios.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.EnhanceOnRest.canonical_name)
@@ -589,7 +589,7 @@ func _input(event):
 #			EnemyEncounter.new(Act3.Cringelord, "hard"),
 #			load(AllActs.NCE.risky.OstrichEggs).new(),
 #			load(Act1.NCE.risky.Spider).new(),
-			load(Act1.NCE.easy.MonsterTrain).new(),
+#			load(Act1.NCE.easy.MonsterTrain).new(),
 #			load(Act2.NCE.easy.Subconscious).new(),
 #			load(Act3.NCE.easy.BeastMirror).new(),
 #			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
@@ -600,7 +600,7 @@ func _input(event):
 #			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
 #			EliteEncounter.new(Act1.Bully, "medium"),
 #			EliteEncounter.new(Act2.IndescribableAbsurdity, "medium"),
-#			EliteEncounter.new(Act3.InfiniteCorridor, "medium"),
+			EliteEncounter.new(Act3.TheGatherer, "medium"),
 #			load("res://src/dreamscape/Run/NCE/Shop.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Rest.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
