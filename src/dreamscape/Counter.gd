@@ -22,7 +22,6 @@ func set_rotation_speed(_immersion) -> void:
 		4: c = 1.20
 		5: c = 1.35
 		_: c = 1.40
-	var new_color =  Color(c,c,c,c)
 	$Tween.remove_all()
 	$Tween.interpolate_property($ImmersionIcon, "self_modulate:a", $ImmersionIcon.self_modulate.a, c, 1,Tween.TRANS_SINE,Tween.EASE_OUT)
 	$Tween.start()
@@ -32,7 +31,6 @@ func set_rotation_speed(_immersion) -> void:
 			p.emitting = false
 		else:
 			p.emitting = true
-			var rot
 			var amount = immersion * 5
 			var lifetime = 0.7 + immersion * 0.1
 			if lifetime > 1.5: 

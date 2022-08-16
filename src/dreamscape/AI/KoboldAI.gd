@@ -12,7 +12,6 @@ static func generate(prompt: String, max_length: int):
 		"disable_output_formatting": false,
 	}
 #	print("generate():" + str(data))
-#	print(data)
 	var ret = _initiate_rest(HTTPClient.METHOD_POST, "/api/latest/generate/", data)
 	if ret:
 		return(ret.results[0].text)
@@ -85,6 +84,7 @@ static func post_gui_story(prompt: String):
 
 
 static func _initiate_rest(method, endpoint: String, data: Dictionary = {}):
+	print([method, endpoint, data])
 	var http = HTTPClient.new()
 	# Connect to host/port.
 	var err = http.connect_to_host(

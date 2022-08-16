@@ -23,8 +23,10 @@ signal released_pathos_gained(pathos, amount)
 # warning-ignore:unused_signal
 signal pathos_leveled(pathos, level)
 # Send when a pathos is selected for an encounter
+# warning-ignore:unused_signal
 signal pathos_selected(pathos)
 # Send when a pathos is not selected for an encounter
+# warning-ignore:unused_signal
 signal pathos_ignored(pathos)
 signal advancements_modified(new_value, old_value)
 
@@ -93,6 +95,7 @@ func _init() -> void:
 	# warning-ignore:return_value_discarded
 	connect("pathos_selected",self,"_on_pathos_selected")
 	# Every run, starts the player with a bunch of pathos masteries
+# warning-ignore:narrowing_conversion
 	available_masteries = STARTING_MASTERIES * globals.difficulty.starting_masteries
 
 

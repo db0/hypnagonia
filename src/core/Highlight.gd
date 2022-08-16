@@ -4,8 +4,9 @@ extends Control
 
 # Stores a reference to the Card that is hosting this node
 onready var owner_node = get_parent().get_parent()
-onready var _left_right := $LeftRight
-onready var _top_bottom := $TopBottom
+# We use find_node as these nodes might not always exist and are then not used
+onready var _left_right := find_node("LeftRight")
+onready var _top_bottom := find_node("TopBottom")
 
 func _ready() -> void:
 	pass

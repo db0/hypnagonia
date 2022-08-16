@@ -15,6 +15,7 @@ func _on_memory_ready(_memory: Reference) -> void:
 	else:
 		while not is_instance_valid(globals.journal):
 			yield(get_tree(), "idle_frame")
+		# warning-ignore:return_value_discarded
 		globals.journal.connect("card_draft_started", self, "_on_card_draft_started")
 		_switch_highlight_to(inactive_highlight)
 
@@ -35,6 +36,7 @@ func _get_active_card_drafts() -> Array:
 func _on_card_draft_started(draft_node: Node) -> void:
 	if artifact_object.is_ready:
 		._on_memory_ready(artifact_object)
+	# warning-ignore:return_value_discarded
 	draft_node.connect("card_drafted", self, "_on_card_drafted")
 
 

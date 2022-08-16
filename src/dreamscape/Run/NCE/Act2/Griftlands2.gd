@@ -8,6 +8,9 @@ var secondary_choices := {
 const journal_description = "Once again, I found myself in the fantasy western world. "\
 			+ "This time I was some sort of amphibian humanoid with a drinking problem, ."\
 			+ "and I found out my rich elders has passed away in mysterious circumstances"
+const ai_prompts:= [
+	"Once again, I found myself in the fantasy western world. This time I was some sort of amphibian humanoid with a drinking problem",
+]
 
 
 var nce_result_fluff := {

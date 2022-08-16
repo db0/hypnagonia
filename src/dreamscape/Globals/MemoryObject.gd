@@ -131,18 +131,17 @@ static func get_cost_format(memory_name: String, upgrades := 0) -> Dictionary:
 		print_debug("WARNING: Memory Definition '%s' could not be found!" % [memory_name])
 		return({})
 	var progress_modifier : float = memory_definition.get("pathos_progress_multiplier", 0.0)
-	var recharge_time : int = memory_definition.get("recharge_time", 2)
-	var pathos_type: PathosType = globals.player.pathos.pathi[memory_definition.pathos]
+	var static_recharge_time : int = memory_definition.get("recharge_time", 2)
 	var is_threshold_upgrade := false
-	var is_recharge_upgrade := false
+	var _is_recharge_upgrade := false
 	if "pathos_progress_multiplier" in memory_definition.get("keys_modified_by_upgrade", []):
 		progress_modifier += float(upgrades) * float(memory_definition.amounts["upgrade_multiplier"]) * 0.01
 		is_threshold_upgrade = true
 	if "recharge_time" in memory_definition.get("keys_modified_by_upgrade", []):
-		recharge_time -= upgrades * memory_definition.amounts["upgrade_multiplier"]
-		is_recharge_upgrade = true
-	var pathos_desc_fmt: Dictionary
-	var turns_needed = recharge_time
+		static_recharge_time -= upgrades * memory_definition.amounts["upgrade_multiplier"]
+		_is_recharge_upgrade = true
+	var pathos_desc_fmt: Dictionary = {}
+	var turns_needed = static_recharge_time
 	var pathos_description:= "This memory {verb} chance of {encounter_type} encounters by {pct}%"
 	var decrease_bad: bool
 	match memory_definition.pathos:

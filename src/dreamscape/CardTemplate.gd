@@ -36,6 +36,7 @@ func _ready() -> void:
 	connect("card_removed", cfc.signal_propagator, "_on_signal_received")
 	# warning-ignore:return_value_discarded
 	connect("state_changed", self, "_on_state_changed")
+	# warning-ignore:return_value_discarded
 	cfc.connect("cache_cleared", self, "_on_cache_cleared")
 
 

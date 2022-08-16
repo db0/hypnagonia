@@ -26,7 +26,9 @@ func start_ordeal() -> void:
 
 func _on_board_instanced() -> void:
 	cfc.disconnect("all_nodes_mapped", self, "_on_board_instanced")
+	# warning-ignore:return_value_discarded
 	EventBus.connect("battle_ended", self, "end")
+	# warning-ignore:return_value_discarded
 	EventBus.connect("game_over", self, "game_over")
 	# We hide the journal black cover, so that when the board fades out
 	# The journal appears behind it

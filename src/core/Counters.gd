@@ -203,6 +203,7 @@ func set_temp_counter_modifiers(sceng, task, requesting_object, modifier) -> voi
 		sceng.connect("single_task_completed", self, "_on_single_task_completed")
 
 func _on_single_task_completed(script_task) -> void:
+	# warning-ignore:return_value_discarded
 	temp_count_modifiers.erase(script_task)
 
 # Overridable function to update the various counters.

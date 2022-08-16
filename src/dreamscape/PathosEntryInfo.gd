@@ -48,6 +48,7 @@ func setup(_name: String, pathos_description: Label) -> void:
 func update_labels() -> void:
 	var chance : int
 	if name == Terms.RUN_ACCUMULATION_NAMES.boss:
+		# warning-ignore:narrowing_conversion
 		chance = round(globals.player.pathos.pathi[name].repressed / globals.player.pathos.get_boss_threshold() * 100)
 	else:
 		chance = globals.player.pathos.calculate_chance_for_encounter(name)

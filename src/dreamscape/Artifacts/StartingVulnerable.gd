@@ -2,6 +2,7 @@ extends Artifact
 
 func _ready() -> void:
 	if is_active and effect_context == ArtifactDefinitions.EffectContext.BATTLE:
+		# warning-ignore:return_value_discarded
 		EventBus.connect("battle_begun", self, "_on_battle_start")
 
 

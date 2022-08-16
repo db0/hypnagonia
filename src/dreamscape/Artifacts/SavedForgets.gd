@@ -11,6 +11,7 @@ func _on_signal_received(trigger_card, trigger, details) -> void:
 		return
 	if details.destination.to_lower() != "forgotten":
 		return
+	# warning-ignore:return_value_discarded
 	_activate()
 	cfc.signal_propagator.disconnect("signal_received", self, "_on_signal_received")
 	var script = [{

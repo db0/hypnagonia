@@ -30,13 +30,17 @@ func _ready():
 	if cfc.is_testing:
 		return
 	add_child(ai_ratings)
+	# warning-ignore:return_value_discarded
 	ai_ratings.connect("ratings_retrieved", self, "_on_ratings_received")
 	ai_ratings.retrieve_evaluating_gens()
 	ai_ratings.retrieve_finalized_gens()
+	# warning-ignore:return_value_discarded
 	EventBus.connect("kobodoldai_server_changed", self, "_on_koboldai_server_changed")
-	var thread: Thread = Thread.new()
-	thread.start(self, "_init_koboldai_story")
-	threads.append(thread)
+	if cfc.game_settings.get("generate_ai", false):
+		var thread: Thread = Thread.new()
+		# warning-ignore:return_value_discarded
+		thread.start(self, "_init_koboldai_story")
+		threads.append(thread)
 	
 
 
@@ -53,6 +57,7 @@ func retrieve_story(encounter_story) -> Dictionary:
 		CFUtils.dprint("AIStories:Using evaluating story for " + encounter_story.name)
 	elif stories.has(encounter_story.name):
 		story = stories[encounter_story.name]
+		# warning-ignore:return_value_discarded
 		stories.erase(encounter_story.name)
 		emit_signal("story_used",StoryTypes.GENERATED)
 		CFUtils.dprint("AIStories:Using generated story for " + encounter_story.name)
@@ -71,6 +76,7 @@ func retrieve_story(encounter_story) -> Dictionary:
 	# We don't want to generate a story if there's an unused one already
 	if cfc.game_settings.generate_ai and not stories.has(encounter_story.name):
 		var thread: Thread = Thread.new()
+		# warning-ignore:return_value_discarded
 		thread.start(self, "regenerate_torment_story", encounter_story)
 		threads.append(thread)
 	return(story)
@@ -178,7 +184,7 @@ func _init_koboldai_story() -> void:
 		return
 	if wi.has("entries"):
 		if wi.entries.empty():
-			var ret = KoboldAI.put_story()
+			var _ret = KoboldAI.put_story()
 			CFUtils.dprint("AIStories:Hypnagonia world info loaded.")
 		else:
 			CFUtils.dprint("AIStories:Hypnagonia world info already loaded.")
@@ -196,7 +202,7 @@ func _init_koboldai_story() -> void:
 		push_warning("KoboldAI instance not found")
 		return
 	if not model_to_sp.values().has(sp):
-		var ret = KoboldAI.put_soft_prompt(model_to_sp[model])
+		var _ret = KoboldAI.put_soft_prompt(model_to_sp[model])
 		CFUtils.dprint("AIStories:Hypnagonia soft prompt %s loaded." % [model_to_sp[model]])
 		current_model = model
 		current_soft_prompt = model_to_sp[model]
@@ -211,3 +217,8 @@ func _on_koboldai_server_changed() -> void:
 	var thread: Thread = Thread.new()
 	thread.start(self, "_init_koboldai_story")
 	threads.append(thread)
+
+# Thread must be disposed (or "joined"), for portability.
+func _exit_tree():
+	for thread in threads:
+		thread.wait_to_finish()

@@ -567,8 +567,10 @@ func _input(event):
 #		globals.player.add_artifact(ArtifactDefinitions.EnhanceOnRest.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.PerturbationHeal.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.CostlyUpgrades.canonical_name)
-#		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
-#		globals.player.add_memory(MemoryDefinitions.BossFaster.canonical_name)
+		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
+		globals.player.add_memory(MemoryDefinitions.BossFaster.canonical_name)
+		globals.player.add_memory(MemoryDefinitions.RerollDraft.canonical_name)
+		globals.player.add_memory(MemoryDefinitions.ImmerseSelf.canonical_name)
 		# warning-ignore:return_value_discarded
 #		globals.player.add_memory(MemoryDefinitions.FreezeCard.canonical_name)
 #		var card_entry = globals.player.deck.add_new_card("Towering Presence")
@@ -600,8 +602,8 @@ func _input(event):
 #			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
 #			EliteEncounter.new(Act1.Bully, "medium"),
 #			EliteEncounter.new(Act2.IndescribableAbsurdity, "medium"),
-			EliteEncounter.new(Act3.TheGatherer, "medium"),
-#			load("res://src/dreamscape/Run/NCE/Shop.gd").new(),
+#			EliteEncounter.new(Act3.TheGatherer, "medium"),
+			load("res://src/dreamscape/Run/NCE/Shop.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Rest.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
 		]

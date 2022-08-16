@@ -86,6 +86,7 @@ items = [ "Large Card Preview", null, false, 2, null, "Info Panels Only", null, 
 selected = 0
 
 [node name="ExpandLinkedTerms" type="CheckButton" parent="PC/VBC/HBC/VBC2/InfoPanelMC/VBC"]
+unique_name_in_owner = true
 margin_top = 28.0
 margin_right = 211.0
 margin_bottom = 49.0
@@ -111,29 +112,34 @@ margin_right = 221.0
 margin_bottom = 117.0
 
 [node name="FancyAnimations" type="CheckButton" parent="PC/VBC/HBC/VBC2/PerformanceMC/VBC"]
+unique_name_in_owner = true
 margin_right = 211.0
 margin_bottom = 21.0
 text = "Fancy Animations"
 
 [node name="AnimatedTextBackgrounds" type="CheckButton" parent="PC/VBC/HBC/VBC2/PerformanceMC/VBC"]
+unique_name_in_owner = true
 margin_top = 24.0
 margin_right = 211.0
 margin_bottom = 45.0
 text = "Anim. Text Background"
 
 [node name="EnableGlow" type="CheckButton" parent="PC/VBC/HBC/VBC2/PerformanceMC/VBC"]
+unique_name_in_owner = true
 margin_top = 48.0
 margin_right = 211.0
 margin_bottom = 69.0
 text = "Enable Glow"
 
 [node name="FastIconSpeed" type="CheckButton" parent="PC/VBC/HBC/VBC2/PerformanceMC/VBC"]
+unique_name_in_owner = true
 margin_top = 72.0
 margin_right = 211.0
 margin_bottom = 93.0
 text = "Fast Icon Speed"
 
 [node name="AsyncIconAnimations" type="CheckButton" parent="PC/VBC/HBC/VBC2/PerformanceMC/VBC"]
+unique_name_in_owner = true
 margin_top = 96.0
 margin_right = 211.0
 margin_bottom = 117.0
@@ -165,6 +171,7 @@ margin_right = 167.0
 margin_bottom = 141.0
 
 [node name="InterruptMusic" type="CheckButton" parent="PC/VBC/HBC/VBC/SoundMC/VBC"]
+unique_name_in_owner = true
 margin_right = 157.0
 margin_bottom = 21.0
 pressed = true
@@ -177,6 +184,7 @@ margin_bottom = 45.0
 text = "Main Volume"
 
 [node name="MainVolSlider" type="HSlider" parent="PC/VBC/HBC/VBC/SoundMC/VBC"]
+unique_name_in_owner = true
 margin_top = 48.0
 margin_right = 157.0
 margin_bottom = 61.0
@@ -194,6 +202,7 @@ margin_bottom = 85.0
 text = "Music Volume"
 
 [node name="MusicVolSlider" type="HSlider" parent="PC/VBC/HBC/VBC/SoundMC/VBC"]
+unique_name_in_owner = true
 margin_top = 88.0
 margin_right = 157.0
 margin_bottom = 101.0
@@ -338,6 +347,7 @@ margin_right = 682.0
 margin_bottom = 378.0
 
 [node name="Back" type="Button" parent="PC/VBC/HBoxContainer"]
+unique_name_in_owner = true
 margin_right = 682.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 0, 50 )
