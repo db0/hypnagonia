@@ -24,11 +24,11 @@ func _on_all_nodes_mapped():
 			"immediate_placement": true,
 			"dest_container": "deck",
 			"object_count": ArtifactDefinitions.StartingStartup.amounts.card_amount,
-			"tags": ["Card"],
+			"tags": ["Curio"],
 		},
 		{
 			"name": "shuffle_container",
-			"tags": ["Card"],
+			"tags": ["Curio"],
 			"dest_container": "deck",
 		},
 	]

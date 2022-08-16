@@ -913,3 +913,29 @@ class TestSavedForgets:
 		yield(yield_to(artifact, "artifact_triggered", 0.2), YIELD)
 		assert_eq(cards[1].get_parent(), forgotten)
 		assert_signal_emit_count(artifact, "artifact_triggered", 1)
+
+
+class TestStartupDraw:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.StartupDraw.canonical_name
+		expected_amount_keys = [
+			"draw_amount",
+		]
+		test_card_names = [
+			"GUT",
+			"GUT",
+		]
+		globals.test_flags["test_initial_hand"] = true
+
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		for c in cards:
+			var tcard: DreamCard = c
+			tcard.modify_property('Tags', Terms.GENERIC_TAGS.startup.name)
+			tcard.execute_scripts()
+		yield(yield_to(artifact, "artifact_triggered", 0.2), YIELD)
+		yield(yield_to(artifact, "artifact_triggered", 0.2), YIELD)
+		assert_eq(hand.get_card_count(), get_amount("draw_amount") * cards.size(), "Each played startup draws a card")
+		assert_signal_emit_count(artifact, "artifact_triggered", 2)

@@ -1102,7 +1102,7 @@ window/vsync/use_vsync=false
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/sound_manager/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/gut/plugin.cfg", "res://addons/sound_manager/plugin.cfg" )
 
 [global]
 

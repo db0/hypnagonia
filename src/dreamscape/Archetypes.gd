@@ -330,6 +330,7 @@ const LASER_CANNON := {
 		ArtifactDefinitions.DoubleFirstStartup,
 		ArtifactDefinitions.DoubleFusion,
 		ArtifactDefinitions.StartingStartup,
+		ArtifactDefinitions.StartupDraw,
 	],
 	"Memories": [
 		MemoryDefinitions.ActivateStartups,

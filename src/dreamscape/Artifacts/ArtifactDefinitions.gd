@@ -1307,6 +1307,18 @@ const StartingStartup := {
 	],
 }
 
+const StartupDraw := {
+	"canonical_name": "StartupDraw",
+	"name": "Orb of Dusk",
+	"description": "{artifact_name}: Every time you play a {startup} card, draw {draw_amount} card.",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.BATTLE,
+	"rarity": "Common",
+	"amounts": {
+		"draw_amount": 1
+	},
+}
+
 
 
 ## TODO: Artifact which increases chance to find Fusion cards
@@ -1394,6 +1406,7 @@ const ARCHETYPE := [
 	DoubleFusion,
 	SavedForgets,
 	StartingStartup,
+	StartupDraw,
 ]
 
 # These artifacts are only found in non-combat encounters
