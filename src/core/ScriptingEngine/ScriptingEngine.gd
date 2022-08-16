@@ -538,7 +538,7 @@ func spawn_card_to_container(script: ScriptTask) -> void:
 			selection_amount = filtered_cards.size()
 		CFUtils.shuffle_array(filtered_cards)
 		if filtered_cards.size() == 0:
-			printerr("WARN: Cannot find any cards to spawn with the selected filter for script:\n" + str(script.script_definition))
+			push_warning("WARN: Cannot find any cards to spawn with the selected filter for script:\n" + str(script.script_definition))
 			return
 		if selection_amount < 0:
 			 return

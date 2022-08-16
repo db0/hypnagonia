@@ -9,6 +9,8 @@ signal battle_ended
 # warning-ignore:unused_signal
 signal game_over
 # warning-ignore:unused_signal
+signal deck_loaded
+# warning-ignore:unused_signal
 signal kobodoldai_server_changed
 
 func _ready():

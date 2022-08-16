@@ -264,17 +264,20 @@ func get_all_scriptables() -> Array:
 
 # Loads the player's deck
 func load_deck() -> void:
+	# This is only true for testing directly from the boarf scene
 	if not globals.player.deck:
 		# warning-ignore:return_value_discarded
 		cfc.game_rng_seed = CFUtils.generate_random_seed()
 		NewGameMenu.randomize_aspect_choices()
 		globals.player.setup()
 		globals.encounters.prepare_next_act()
+	# This prepsres the normal player deck
 	for card in globals.player.deck.instance_cards():
 		cfc.NMAP.deck.add_child(card)
 		#card.set_is_faceup(false,true)
 		card._determine_idle_state()
-		cfc.NMAP.deck.shuffle_cards(false)
+	cfc.NMAP.deck.shuffle_cards(false)
+	EventBus.emit_signal("deck_loaded")
 
 
 func _on_player_turn_started(_turn: Turn) -> void:

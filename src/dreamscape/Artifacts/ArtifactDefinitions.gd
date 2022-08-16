@@ -1291,6 +1291,24 @@ const SavedForgets := {
 	],
 }
 
+
+const StartingStartup := {
+	"canonical_name": "StartingStartup",
+	"name": "Globe of the Dawn",
+	"description": "{artifact_name}: At the start of each ordeal, shuffle {card_amount} random {startup} cards to your draw pile.",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.BATTLE,
+	"rarity": "Uncommon",
+	"amounts": {
+		"card_amount": 1,
+	},
+	"linked_terms": [
+		"startup",
+	],
+}
+
+
+
 ## TODO: Artifact which increases chance to find Fusion cards
 ## TODO. Scipt base doesn't exist yet
 #const DoubleMemory := {
@@ -1375,6 +1393,7 @@ const ARCHETYPE := [
 	StartingFortify,
 	DoubleFusion,
 	SavedForgets,
+	StartingStartup,
 ]
 
 # These artifacts are only found in non-combat encounters
