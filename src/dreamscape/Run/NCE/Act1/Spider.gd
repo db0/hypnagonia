@@ -3,7 +3,7 @@ extends NonCombatEncounter
 const journal_description = "A spider was looking at me with a thousand eyes. Its intentions are unfathomable."
 const ai_prompts:= [
 	"A spider was looking at me with a thousand eyes. Its intentions are unfathomable",
-	"The spider did not appear hostile, more casually curious about me",
+	"The spider did not appear hostile, but rather casually curious about me",
 ]
 
 var secondary_choices := {

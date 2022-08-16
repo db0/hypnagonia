@@ -8,6 +8,10 @@ const MASTERIES_AMOUNT := {
 const journal_description = "I came across a faceless monk with an undeterminable amount of arms." \
 		+ " \"I am the monk Chance,\" the monk seemed to say from nowhere, \"disciple of the goddess Lady Luck.\"" \
 		+ "\"Would you like the power to control your fate?\""
+const ai_prompts:= [
+	"The infinite arms of the monk before me seemed to fade into shadows, as my fate went on the line",
+	"The faceless monk shrugged. \"You only have one chance to decide your fate.\"",
+]
 
 
 var secondary_choices := {
@@ -24,7 +28,7 @@ var card_choice_descriptions := {
 }
 
 func _init():
-	introduction.setup_with_vars("Alpha-Kappa-Omega",journal_description, "That Is One Way to Control One's Fate")
+	introduction.setup_with_vars("The Faceless Monk with a Thousand Arms",journal_description, "That Is One Way to Control One's Fate",ai_prompts)
 	prepare_journal_art(load("res://assets/journal/nce/AlphaKappaOmega.jpg"))
 
 func begin() -> void:
