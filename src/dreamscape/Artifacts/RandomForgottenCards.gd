@@ -11,6 +11,8 @@ func _on_signal_received(trigger_card, trigger, details) -> void:
 		return
 	if details.destination.to_lower() != "forgotten":
 		return
+	if "Spawned" in details.tags:
+		return
 	var script = [
 		{
 			"name": "spawn_card_to_container",

@@ -2671,7 +2671,7 @@ func _process_card_state() -> void:
 				_tween.start()
 				yield(_tween, "tween_all_completed")
 				_tween_stuck_time = 0
-				move_to(spawn_destination)
+				move_to(spawn_destination, -1, null, ["Scripted", "Spawned"])
 				spawn_destination = null
 
 

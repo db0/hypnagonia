@@ -912,3 +912,42 @@ const SHAMELING := {
 	"_character_art": "SkylarkGSH"
 }
 
+const LOTUSTUS := {
+	"Name": "Lotustus",
+	"Type": "Phobia",
+	"Health": 130,
+	"Intents": [
+		{
+			"intent_scripts": ["Stress: 2","Stress: 2","Stress: 1","Stress: 2","Stress: 2","Stress: 2"],
+			"reshuffle": true,
+			"max_in_a_row": 1,
+		},
+		{
+			"intent_scripts": ["Debuff:1:strengthen", "SpawnCard:Disgust:Deck","SpawnCard:Disgust:Discard","SpawnCard:Disgust:Forgotten", "Perplex:10"],
+			"reshuffle": false,
+			"sets_up_intent": "hives",
+		},
+		{
+			"id": "hives",
+			"intent_scripts": ["Buff:2:thorns","SpawnCard:Disgust:Deck", "Perplex:8"],
+			"reshuffle": true,
+			"max_in_a_row": 1,
+		},
+		{
+			"intent_scripts": ["Buff:1:quicken","Buff:2:thorns", "Perplex:13"],
+			"reshuffle": false,
+			"sets_up_intent": "hives",
+		},
+		{
+			"intent_scripts": ["Debuff:1:strengthen","Stress:30", "Perplex:10"],
+			"reshuffle": false,
+			"sets_up_intent": "hives",
+		},
+	],
+	"_health_variability": 8,
+	"_texture_size_x": "120",
+	"_texture_size_y": "120",
+	"_texture": "res://assets/enemies/Lotustus.png",
+	"_character_art": "SkylarkGSH"
+}
+

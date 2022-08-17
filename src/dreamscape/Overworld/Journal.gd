@@ -587,7 +587,7 @@ func _input(event):
 #		globals.player.pathos.available_masteries += 6
 		var debug_encounters = [
 #			EnemyEncounter.new(Act1.Clown, "hard"),
-#			EnemyEncounter.new(Act2.ENEMIES.GuiltyTreatment, "easy"),
+			EnemyEncounter.new(Act2.ENEMIES.Lotustus, "medium"),
 #			EnemyEncounter.new(Act3.Cringelord, "hard"),
 #			load(AllActs.NCE.risky.OstrichEggs).new(),
 #			load(Act1.NCE.risky.Spider).new(),

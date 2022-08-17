@@ -157,6 +157,35 @@ const Recurrence = {
 	},
 }
 
+const Lotustus = {
+	"manual": {
+		"hand": [
+			{
+				"name": "spawn_card_to_container",
+				"card_name": "Disgust",
+				"dest_container": "hand",
+				"object_count": {
+					"lookup_property": "_amounts",
+					"value_key": "detrimental_integer",
+				},
+				"tags": ["Card"],
+				"yield_time": 0.05,
+			},
+			{
+				"name": "apply_effect",
+				"tags": ["Card"],
+				"effect_name": Terms.ACTIVE_EFFECTS.thorns.name,
+				"subject": "dreamer",
+				"modification":  {
+					"lookup_property": "_amounts",
+					"value_key": "effect_stacks",
+				},
+			},
+		],
+	},
+}
+
+
 const scripts := {
 	"Gaslighter": {
 		"manual": {
@@ -1772,6 +1801,7 @@ const scripts := {
 	"Recurrence": Recurrence,
 	"Influencer": Influencer,
 	"Shameling": Shameling,
+	"Lotustus": Lotustus,
 }
 
 # This fuction returns all the scripts of the specified card name.

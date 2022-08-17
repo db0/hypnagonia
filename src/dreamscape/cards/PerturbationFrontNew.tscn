@@ -3,8 +3,7 @@
 [ext_resource path="res://src/dreamscape/CardFrontNew.tscn" type="PackedScene" id=1]
 [ext_resource path="res://shaders/Dreambox.shader" type="Shader" id=2]
 
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0, 0, 0, 1 )
+[sub_resource type="StyleBoxEmpty" id=2]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true

@@ -38,6 +38,48 @@ const scripts := {
 				}
 			],
 		},
+		"manual": {
+			"hand": [
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": "forgotten",
+					"tags": ["Played", "Card"],
+				},
+			],
+		},
+	},
+	"Disgust": {
+		"card_moved_to_hand": {
+			"hand": [
+				{
+					"name": "apply_effect",
+					"tags": ["Card"],
+					"trigger": "self",
+					"effect_name": Terms.ACTIVE_EFFECTS.thorns.name,
+					"subject": "boardseek",
+					"subject_count": "all",
+					"modification":  {
+						"lookup_property": "_amounts",
+						"value_key": "effect_stacks",
+					},
+					"filter_state_seek": [{
+						"filter_group": "EnemyEntities",
+					},],
+				}
+			],
+			"filter_source": "deck",
+		},
+		"manual": {
+			"hand": [
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": "forgotten",
+					"tags": ["Played", "Card"],
+				},
+			],
+		},
 	},
 	"Discombobulation": {
 		"player_turn_ended": {
@@ -68,6 +110,16 @@ const scripts := {
 						"value_key": "effect_stacks",
 					}
 				}
+			],
+		},
+		"manual": {
+			"hand": [
+				{
+					"name": "move_card_to_container",
+					"subject": "self",
+					"dest_container": "forgotten",
+					"tags": ["Played", "Card"],
+				},
 			],
 		},
 	},
@@ -174,7 +226,17 @@ const scripts := {
 				{
 					"name": "apply_effect",
 					"tags": ["Card"],
-					"effect_name": Terms.ACTIVE_EFFECTS.drain.name,
+					"effect_name": Terms.ACTIVE_EFFECTS.marked.name,
+					"subject": "dreamer",
+					"modification":  {
+						"lookup_property": "_amounts",
+						"value_key": "effect_stacks",
+					}
+				},
+				{
+					"name": "apply_effect",
+					"tags": ["Card"],
+					"effect_name": Terms.ACTIVE_EFFECTS.delighted.name,
 					"subject": "dreamer",
 					"modification":  {
 						"lookup_property": "_amounts",

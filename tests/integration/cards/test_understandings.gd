@@ -232,4 +232,27 @@ class TestHandsyAunt:
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
 		assert_eq(test_torment.damage, tdamage(get_amount("beneficial_float") * 5))
+
+class TestLotustus:
+	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
+	var effect: String = Terms.ACTIVE_EFFECTS.thorns.name
+	func _init() -> void:
+		testing_card_name = "Lotustus"
+		expected_amount_keys = [
+			"effect_stacks",
+			"detrimental_integer"
+		]
+
+
+	func test_card_results():
+		assert_has_amounts()
+		yield(yield_for(0.1), YIELD)
+		var sceng = execute_with_yield(card)
+#		if sceng is GDScriptFunctionState:
+#			sceng = yield(sceng, "completed")
+		yield(yield_to(hand, "card_added", 1), YIELD)
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect), get_amount("effect_stacks"),
+				"%s stacks on dreamer increased to %s" % [effect,get_amount("effect_stacks")])
+		assert_eq(count_card_names("Disgust"), 1,"Perturbation spawned")
+
 			

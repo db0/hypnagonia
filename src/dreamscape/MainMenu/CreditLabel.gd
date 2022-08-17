@@ -87,7 +87,7 @@ var game_designers := {
 	"Db0": "Lead Game Design",
 	"DioBal": "Game Design",
 	"QuestLion#8467": "Archetype Design",
-#	"SkylarkGSH": "Archetype Design",
+	"SkylarkGSH": "Miscellaneous Designs",
 }
 var developers := {
 	"Db0": "Programming Lead"

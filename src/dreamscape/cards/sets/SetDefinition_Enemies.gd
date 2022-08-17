@@ -391,7 +391,7 @@ const CARDS := {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.strengthen.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {effect_stacks} {strengthen}.\n{forget}",
-		"Cost": 0,
+		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
@@ -412,7 +412,7 @@ const CARDS := {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.strengthen.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {effect_stacks} {strengthen}.\n{forget}",
-		"Cost": 0,
+		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
@@ -428,7 +428,7 @@ const CARDS := {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.strengthen.name, Terms.GENERIC_TAGS.alpha.name],
 		"Abilities": "Gain {effect_stacks} {strengthen}.\n{forget}",
-		"Cost": 0,
+		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
@@ -444,7 +444,7 @@ const CARDS := {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.strengthen.name],
 		"Abilities": "Gain {effect_stacks} {strengthen}",
-		"Cost": 0,
+		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
@@ -1883,5 +1883,60 @@ const CARDS := {
 		},
 		"_upgrade_threshold_modifier": -50,
 		"_upgrades": [],
+	},
+	"Lotustus": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
+		"Abilities": "Add {detrimental_integer} Disgust into your hand.\nApply {effect_stacks} {thorns}.",
+		"Cost": 1,
+		"_illustration": "SkylarkGSH",
+		"_rarity": "Received",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER
+		},
+		"_keywords": [],
+		"_amounts": {
+			"detrimental_integer": 1,
+			"effect_stacks": 7,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"* Lotustus *",
+			"% Lotustus %",
+		],
+	},
+	"* Lotustus *": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
+		"Abilities": "Add {detrimental_integer} Disgust into your hand.\nApply {effect_stacks} {thorns}.",
+		"Cost": 1,
+		"_illustration": "SkylarkGSH",
+		"_rarity": "Received",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER
+		},
+		"_keywords": [],
+		"_amounts": {
+			"detrimental_integer": 1,
+			"effect_stacks": 8,
+		},
+		"_is_upgrade": true,
+	},
+	"% Lotustus %": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
+		"Abilities": "Add {detrimental_integer} Disgust into your hand.\nGain {effect_stacks} {thorns}.",
+		"Cost": 1,
+		"_illustration": "SkylarkGSH",
+		"_rarity": "Received",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER
+		},
+		"_keywords": [],
+		"_amounts": {
+			"detrimental_integer": 2,
+			"effect_stacks": 10,
+		},
+		"_is_upgrade": true,
 	},
 }
