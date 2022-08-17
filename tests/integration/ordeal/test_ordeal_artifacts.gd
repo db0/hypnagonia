@@ -939,3 +939,33 @@ class TestStartupDraw:
 		yield(yield_to(artifact, "artifact_triggered", 0.2), YIELD)
 		assert_eq(hand.get_card_count(), get_amount("draw_amount") * cards.size(), "Each played startup draws a card")
 		assert_signal_emit_count(artifact, "artifact_triggered", 2)
+
+class TestRandomForgottenCards:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.RandomForgottenCards.canonical_name
+		expected_amount_keys = [
+			"card_amount",
+		]
+		test_card_names = [
+			"GUT",
+			"Exhaustion",
+			"GUT",
+		]
+
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		card.scripts = FORGET_CARD_SCRIPT
+		card.execute_scripts()
+		yield(yield_to(hand, "card_added", 1), YIELD)
+		assert_eq(hand.get_card_count(), get_amount("card_amount") + 2, "Each forgotten card generates a card")
+		cards[1].execute_scripts()
+		yield(yield_to(turn, "player_turn_started",3), YIELD)
+		cards[2].execute_scripts()
+		yield(yield_to(hand, "card_added", 3), YIELD)
+		assert_signal_emit_count(artifact, "artifact_triggered", 2)
+		assert_eq(hand.get_card_count(), get_amount("card_amount") * 2, "Each forgotten card generates a card")
+	
+		
+		

@@ -24,7 +24,7 @@ func _on_cfc_signal_received(trigger_card, trigger, details) -> void:
 			"name": "move_card_to_container",
 			"subject": "trigger",
 			"dest_container": "forgotten",
-			"tags": ["Combat Effect", "Concentration"],
+			"tags": ["Combat Effect", "Concentration", "Played"],
 		},
 	]
 	execute_script(script,trigger_card)

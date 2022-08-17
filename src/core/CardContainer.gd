@@ -5,6 +5,7 @@ extends Area2D
 
 # warning-ignore:unused_signal
 signal shuffle_completed
+signal card_added(card)
 
 # The various automatic Anchors possible for a CardContainer
 # NONE means the container will not stay anchored to the screen
@@ -414,3 +415,9 @@ func re_place():
 		# Finally, we move to the right location.
 		position = place
 		call_deferred("_init_control_size")
+
+
+func add_child(node, _legible_unique_name=false) -> void:
+	if node is Card:
+		.add_child(node)
+		emit_signal("card_added", node)
