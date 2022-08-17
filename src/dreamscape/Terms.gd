@@ -1137,6 +1137,12 @@ const GENERIC_TAGS := {
 		"rich_text_icon": "res://fonts/rich_text_icons/burning-passion.png",
 		"generic_description": "[color=#A020F0]{effect_name} ({effect_icon}): This card cannot be played, if another card with the same name (including upgrades) has been played this turn.[/color]",
 	},
+	"spawn": {
+		"name": "Spawn",
+		"icon": preload("res://assets/icons/card-joker.png"),
+		"rich_text_icon": "res://assets/icons/card-joker.png",
+		"generic_description": "{effect_name} ({effect_icon}): This card will spawn another card into the game as part of its effect",
+	},
 }
 
 

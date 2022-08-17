@@ -4,7 +4,6 @@
 [ext_resource path="res://src/core/DetailPanels.gd" type="Script" id=2]
 
 [node name="PreviewPopup" type="Popup" groups=["card_preview"]]
-visible = true
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 40.0
 margin_bottom = 40.0

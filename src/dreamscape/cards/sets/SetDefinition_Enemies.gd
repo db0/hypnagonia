@@ -1886,7 +1886,7 @@ const CARDS := {
 	},
 	"Lotustus": {
 		"Type": "Understanding",
-		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name,Terms.GENERIC_TAGS.spawn.name],
 		"Abilities": "Add {detrimental_integer} Disgust into your hand.\nApply {effect_stacks} {thorns}.",
 		"Cost": 1,
 		"_illustration": "SkylarkGSH",
@@ -1895,6 +1895,7 @@ const CARDS := {
 			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER
 		},
 		"_keywords": [],
+		"_secondary_preview_card": "Disgust",
 		"_amounts": {
 			"detrimental_integer": 1,
 			"effect_stacks": 7,
@@ -1907,7 +1908,7 @@ const CARDS := {
 	},
 	"* Lotustus *": {
 		"Type": "Understanding",
-		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name,Terms.GENERIC_TAGS.spawn.name],
 		"Abilities": "Add {detrimental_integer} Disgust into your hand.\nApply {effect_stacks} {thorns}.",
 		"Cost": 1,
 		"_illustration": "SkylarkGSH",
@@ -1915,6 +1916,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER
 		},
+		"_secondary_preview_card": "Disgust",
 		"_keywords": [],
 		"_amounts": {
 			"detrimental_integer": 1,
@@ -1924,7 +1926,7 @@ const CARDS := {
 	},
 	"% Lotustus %": {
 		"Type": "Understanding",
-		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
+		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name,Terms.GENERIC_TAGS.spawn.name],
 		"Abilities": "Add {detrimental_integer} Disgust into your hand.\nGain {effect_stacks} {thorns}.",
 		"Cost": 1,
 		"_illustration": "SkylarkGSH",
@@ -1932,6 +1934,7 @@ const CARDS := {
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER
 		},
+		"_secondary_preview_card": "Disgust",
 		"_keywords": [],
 		"_amounts": {
 			"detrimental_integer": 2,
