@@ -467,12 +467,12 @@ func _input(event):
 #		SoundManager.play_bgm(bgm_tracks[0])
 #		SoundManager.fade_in(bgm_tracks[0])
 		# warning-ignore:unused_variable
-#		_debug_advanced_enemy()
+		_debug_advanced_enemy()
 		var _torment1
 		var _torment2
 		var _torment3
 #		_torment1 = spawn_enemy(EnemyDefinitions.SHAMELING)
-		_torment1 = spawn_enemy(EnemyDefinitions.LOTUSTUS)
+#		_torment1 = spawn_enemy(EnemyDefinitions.LOTUSTUS)
 #		_torment1 = spawn_enemy(EnemyDefinitions.VOID)
 #		_torment2 = spawn_enemy(EnemyDefinitions.SHAMELING)
 #		_torment2 = spawn_enemy(EnemyDefinitions.GASLIGHTER)
@@ -513,10 +513,10 @@ func _input(event):
 		# warning-ignore:return_value_discarded
 #		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
 		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 1)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.armor.name, 46)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.armor.name, 46)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.absurdity_unleashed.name, 1)
 		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.creative_block.name, 1)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.laugh_at_danger.name, 1)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.laugh_at_danger.name, 1)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.heat_venting.name, 1, false, false, ['Debug'], 'high')
 		# Performance Tests
 #		for iter in 100:
@@ -560,18 +560,18 @@ func _input(event):
 
 func _debug_advanced_enemy():
 	pass
-	var advanced_entity: EnemyEntity =\
-			load("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn").instance()
+#	var advanced_entity: EnemyEntity =\
+#			load("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn").instance()
 #	var advanced_entity: EnemyEntity =\
 #			load("res://src/dreamscape/CombatElements/Enemies/Bosses/Narcissus.tscn").instance()
-#	var advanced_entity: EnemyEntity =\
-#			load("res://src/dreamscape/CombatElements/Enemies/Elites/IndescribableAbsurdity.tscn").instance()
-	advanced_entity.setup_advanced("hard")
+	var advanced_entity: EnemyEntity =\
+			load("res://src/dreamscape/CombatElements/Enemies/Elites/Leviathan.tscn").instance()
+	advanced_entity.setup_advanced("medium")
 	_enemy_area.add_child(advanced_entity)
 	advanced_entity.connect("finished_activation", self, "_on_finished_enemy_activation")
 	emit_signal("enemy_spawned", advanced_entity)
 #	advanced_entity.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.self_cleaning.name, 3)
-	advanced_entity.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 11)
+#	advanced_entity.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 11)
 	# warning-ignore:return_value_discarded
 
 

@@ -587,7 +587,7 @@ func _input(event):
 #		globals.player.pathos.available_masteries += 6
 		var debug_encounters = [
 #			EnemyEncounter.new(Act1.Clown, "hard"),
-			EnemyEncounter.new(Act2.ENEMIES.Lotustus, "medium"),
+#			EnemyEncounter.new(Act2.ENEMIES.Lotustus, "medium"),
 #			EnemyEncounter.new(Act3.Cringelord, "hard"),
 #			load(AllActs.NCE.risky.OstrichEggs).new(),
 #			load(Act1.NCE.risky.Spider).new(),
@@ -600,10 +600,10 @@ func _input(event):
 #			BossEncounter.new(Act1.BOSSES["Narcissus"]),
 #			BossEncounter.new(Act2.BOSSES["Surreality"]),
 #			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
-#			EliteEncounter.new(Act1.Bully, "medium"),
+			EliteEncounter.new(Act1.Leviathan, "easy"),
 #			EliteEncounter.new(Act2.IndescribableAbsurdity, "medium"),
 #			EliteEncounter.new(Act3.TheGatherer, "medium"),
-			load("res://src/dreamscape/Run/NCE/Shop.gd").new(),
+#			load("res://src/dreamscape/Run/NCE/Shop.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Rest.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
 		]

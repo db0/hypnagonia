@@ -951,3 +951,43 @@ const LOTUSTUS := {
 	"_character_art": "SkylarkGSH"
 }
 
+const IMMOBILITY := {
+	"Name": "Immobility",
+	"Type": "Extistential",
+	"Health": 20,
+	"Intents": [
+		{
+			"intent_scripts": ["Stress:3", "Perplex:4", "Lethargy:1"],
+			"reshuffle": true,
+			"max_in_a_row": 1,
+		},
+		{
+			"intent_scripts": ["Stress:2", "Perplex:5", "Lethargy:1"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Stress:1", "Perplex:6", "Lethargy:1"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Stress:4", "Perplex:3", "Lethargy:1"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["Stress:5", "Perplex:2", "Lethargy:1"],
+			"reshuffle": false,
+		},
+		{
+			"intent_scripts": ["SpawnCard:Inescepable Conclusion:Hand"],
+			"reshuffle": false,
+			"max_uses": 1,
+		},
+	],
+	"_health_variability": 2,
+	"_texture_size_x": "60",
+	"_texture_size_y": "60",
+#	"_texture": "res://assets/enemies/Overworked Servus.jpg",
+	"_character_art": "Nobody",
+	"_description": "",
+}
+

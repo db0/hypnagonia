@@ -177,7 +177,6 @@ const LETHARGY := [
 		"tags": ["Intent"],
 		"icon": preload("res://assets/icons/shrug.png"),
 		"description": "Lethargy: Next turn you will have this amount less {immersion}\n"\
-				+ "[i]I need to see behind it...[/i]"
 	}
 ]
 const EVIDENT := [

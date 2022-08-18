@@ -2,7 +2,7 @@ extends AdvancedEnemyEntity
 
 const PROPERTIES := {
 	"name": "Theatre Play",
-	"Health": 108,
+	"Health": 168,
 	"Type": "Fear",
 	"Damage": 0,
 	"_texture_size_x": 180,
