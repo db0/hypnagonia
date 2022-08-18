@@ -563,7 +563,7 @@ func _input(event):
 #		_reveal_entry(upgrade_journal, true)
 #	d	globals.player.deck.add_new_card("Guilt")
 #		globals.player.deck.add_new_card("Catatonia")
-		globals.player.add_artifact(ArtifactDefinitions.StartingStartup.canonical_name)
+		globals.player.add_artifact(ArtifactDefinitions.WeakerElites.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.EnhanceOnRest.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.PerturbationHeal.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.CostlyUpgrades.canonical_name)
@@ -600,7 +600,7 @@ func _input(event):
 #			BossEncounter.new(Act1.BOSSES["Narcissus"]),
 #			BossEncounter.new(Act2.BOSSES["Surreality"]),
 #			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
-			EliteEncounter.new(Act1.Leviathan, "easy"),
+			EliteEncounter.new(Act1.Leviathan, "hard"),
 #			EliteEncounter.new(Act2.IndescribableAbsurdity, "medium"),
 #			EliteEncounter.new(Act3.TheGatherer, "medium"),
 #			load("res://src/dreamscape/Run/NCE/Shop.gd").new(),

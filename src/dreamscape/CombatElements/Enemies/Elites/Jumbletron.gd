@@ -2,6 +2,7 @@ extends AdvancedEnemyEntity
 
 const PROPERTIES := {
 	"name": "Jumbletron",
+	"Rank": "Elite",
 	"Health": 90,
 	"Type": "Absurdity",
 	"Damage": 0,

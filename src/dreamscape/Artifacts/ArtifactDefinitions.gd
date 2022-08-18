@@ -1316,6 +1316,9 @@ const StartupDraw := {
 	"amounts": {
 		"draw_amount": 1
 	},
+	"linked_terms": [
+		"startup",
+	],
 }
 
 
@@ -1329,6 +1332,25 @@ const RandomForgottenCards := {
 	"amounts": {
 		"card_amount": 1
 	},
+	"linked_terms": [
+		"forget",
+	],
+}
+
+
+const WeakerElites := {
+	"canonical_name": "WeakerElites",
+	"name": "Weaker Elites",
+	"description": "{artifact_name}: Foreboding Torments have {health_reduction}% less {comprehension}",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.BATTLE,
+	"rarity": "Common",
+	"amounts": {
+		"health_reduction": 25
+	},
+	"linked_terms": [
+		"comprehension",
+	],
 }
 
 
@@ -1395,6 +1417,7 @@ const GENERIC := [
 	LightningMarble,
 	ThickThorns,
 	RandomForgottenCards,
+	WeakerElites,
 ]
 
 # Archetype-specific artifacts which only appear in runs in which

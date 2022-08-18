@@ -2,6 +2,7 @@ extends AdvancedEnemyEntity
 
 const PROPERTIES := {
 	"name": "Leviathan",
+	"Rank": "Elite",
 	"Health": 70,
 	"Type": "Existential",
 	"Damage": 0,
@@ -32,4 +33,5 @@ func _ready() -> void:
 	intents.execute_special_script(spawn_act, self, self)
 
 func _on_enemy_spawned(torment: CombatEntity) -> void:
+	cfc.NMAP.board.disconnect("enemy_spawned", self, "_on_enemy_spawned")
 	get_parent().move_child(self, 1)

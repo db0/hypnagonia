@@ -2,6 +2,7 @@ extends AdvancedEnemyEntity
 
 const PROPERTIES := {
 	"name": "Fractalization",
+	"Rank": "Elite",
 	"Health": 180,
 	"Type": "Absurdity",
 	"Damage": 0,

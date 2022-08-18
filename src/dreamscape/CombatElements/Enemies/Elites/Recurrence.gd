@@ -4,6 +4,7 @@ signal learning_finished(reports)
 
 const PROPERTIES := {
 	"name": "The Recurrence",
+	"Rank": "Elite",
 	"Health": 107,
 	"Type": "Fear",
 	"Damage": 0,

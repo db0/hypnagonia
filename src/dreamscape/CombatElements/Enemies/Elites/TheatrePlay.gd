@@ -2,6 +2,7 @@ extends AdvancedEnemyEntity
 
 const PROPERTIES := {
 	"name": "Theatre Play",
+	"Rank": "Elite",
 	"Health": 168,
 	"Type": "Fear",
 	"Damage": 0,
@@ -39,6 +40,5 @@ func _on_enemy_spawned(torment: CombatEntity) -> void:
 	torment.connect("entity_killed", self, "_on_theatre_act_overcome")
 
 func _on_theatre_act_overcome(final_damage: int, final_health: int) -> void:
-	print_debug(final_damage, health)
 	if final_damage >= final_health:
 		set_damage(damage + 10)

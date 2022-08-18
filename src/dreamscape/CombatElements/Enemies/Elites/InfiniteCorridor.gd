@@ -2,6 +2,7 @@ extends AdvancedEnemyEntity
 
 const PROPERTIES := {
 	"name": "Infinite Corridor",
+	"Rank": "Elite",
 	"Health": 200,
 	"Type": "Absurdity",
 	"Damage": 0,
