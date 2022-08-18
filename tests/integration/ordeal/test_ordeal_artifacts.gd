@@ -966,6 +966,33 @@ class TestRandomForgottenCards:
 		yield(yield_to(hand, "card_added", 3), YIELD)
 		assert_signal_emit_count(artifact, "artifact_triggered", 2)
 		assert_eq(hand.get_card_count(), get_amount("card_amount") * 2, "Each forgotten card generates a card")
+
+
+class TestConstantMark:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.ConstantMark.canonical_name
+		expected_amount_keys = [
+			"effect_stacks",
+		]
+		torments_amount = 3
+
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		var marked_count := 0
+		for t in test_torments:
+			marked_count += t.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.marked.name)
+		assert_eq(marked_count, 1)
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		marked_count = 0
+		for t in test_torments:
+			marked_count += t.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.marked.name)
+		assert_eq(marked_count, 1)
+		
 	
 		
 		

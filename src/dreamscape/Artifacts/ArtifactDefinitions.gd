@@ -1354,6 +1354,22 @@ const WeakerElites := {
 }
 
 
+const ConstantMark := {
+	"canonical_name": "ConstantMark",
+	"name": "Constant Spotlight",
+	"description": "{artifact_name}: At the start of each turn, apply {effect_stacks} {marked} to a random torment",
+	"icon": GENERIC_ARTIFACT_ICON,
+	"context": EffectContext.BATTLE,
+	"rarity": "Uncommon",
+	"amounts": {
+		"effect_stacks": 1
+	},
+	"linked_terms": [
+		"marked",
+	],
+}
+
+
 
 ## TODO: Artifact which increases chance to find Fusion cards
 ## TODO. Scipt base doesn't exist yet
@@ -1418,6 +1434,7 @@ const GENERIC := [
 	ThickThorns,
 	RandomForgottenCards,
 	WeakerElites,
+	ConstantMark,
 ]
 
 # Archetype-specific artifacts which only appear in runs in which
