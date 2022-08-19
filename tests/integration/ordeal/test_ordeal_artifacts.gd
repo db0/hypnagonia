@@ -992,7 +992,28 @@ class TestConstantMark:
 		for t in test_torments:
 			marked_count += t.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.marked.name)
 		assert_eq(marked_count, 1)
-		
-	
-		
-		
+
+
+class TestImproveArmor:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.ImproveArmor.canonical_name
+		expected_amount_keys = [
+			"threshold_amount",
+		]
+
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.armor.name, 2)
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.armor.name), 2)
+		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.armor.name, 4)
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.armor.name), 5)
+
+
+
+

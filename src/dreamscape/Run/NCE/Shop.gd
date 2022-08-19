@@ -4,7 +4,7 @@ extends NonCombatEncounter
 const SHOP_SCENE := preload("res://src/dreamscape/Shop/Shop.tscn")
 const journal_description := "I saw a friend mine becking me over. We certainly had much to catch up on."
 const ai_prompts:= [
-	"I saw a friend mine becking me over. We certainly had much to catch up on.",
+	"I saw a friend mine beckoning me over. We certainly had much to catch up on.",
 	"As I arrived at the cafe a dear old friend waved at me",
 	"I hadn't seen that face for a couple of years, but as I approached it was like we last met yesterday",
 ]

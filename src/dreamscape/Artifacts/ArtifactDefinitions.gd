@@ -521,7 +521,7 @@ const ImproveImpervious := {
 const ImproveFortify := {
 	"canonical_name": "ImproveFortify",
 	"name": "Ataraxia",
-	"description": "{artifact_name}: Whenever you lose {fortify}, gain that many stacks {armor}.",
+	"description": "{artifact_name}: Whenever you lose {fortify}, gain that twice that many stacks {armor}.",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
@@ -1369,6 +1369,22 @@ const ConstantMark := {
 	],
 }
 
+const ImproveArmor := {
+	"canonical_name": "ImproveArmor",
+	"name": "White lotus",
+	"description": "{artifact_name}: Your {armor} starts decreasing only after {threshold_amount} stacks.",
+	"icon": preload("res://assets/icons/artifacts/rose.png"),
+	"context": EffectContext.BATTLE,
+	"rarity": "Uncommon",
+	"amounts": {
+		"threshold_amount": 3
+	},
+	"linked_terms": [
+		"armor",
+	],
+}
+
+
 
 
 ## TODO: Artifact which increases chance to find Fusion cards
@@ -1432,35 +1448,67 @@ const GENERIC := [
 	ThickDeckRareChance,
 	LightningMarble,
 	ThickThorns,
-	RandomForgottenCards,
 	WeakerElites,
 	ConstantMark,
 ]
 
 # Archetype-specific artifacts which only appear in runs in which
-# Their tied archetype is selected.
+# their tied archetype is selected.
 const ARCHETYPE := [
-	ImproveThorns,
-	ImprovePoison,
-	ImproveBurn,
-	ImproveImpervious,
-	ImproveFortify,
-	StartingThorns,
 	EndingHeal,
-	IncreaseConfusionStacks,
-	IncreaseImmersionGain,
-	IncreaseBufferStacks,
-	IncreasePoisonStacks,
-	DecreaseExertStacks,
-	LimitMaxExert,
-	DoubleFirstStartup,
-	ConstantImpervious,
-	StartingFortify,
-	DoubleFusion,
 	SavedForgets,
-	StartingStartup,
-	StartupDraw,
 ]
+
+# Artifact-specific artifacts which only appear in runs which
+# an archetype with that specific tag is used
+const TAG := {
+	Terms.ACTIVE_EFFECTS.thorns.name: [
+		ImproveThorns,
+		StartingThorns,
+	],
+	Terms.ACTIVE_EFFECTS.poison.name: [
+		ImprovePoison,
+		IncreasePoisonStacks,
+	],
+	Terms.ACTIVE_EFFECTS.burn.name: [
+		ImproveBurn,
+	],
+	Terms.ACTIVE_EFFECTS.impervious.name: [
+		ImproveImpervious,
+		ConstantImpervious,
+	],
+	Terms.ACTIVE_EFFECTS.fortify.name: [
+		ImproveFortify,
+		StartingFortify,
+	],
+	Terms.ACTIVE_EFFECTS.armor.name: [
+		ImproveArmor,
+	],
+	Terms.ACTIVE_EFFECTS.disempower.name: [
+		IncreaseConfusionStacks,
+	],
+	Terms.ACTIVE_EFFECTS.disempower.name: [
+		IncreaseBufferStacks,
+	],
+	Terms.GENERIC_TAGS.purpose.name: [
+		IncreaseImmersionGain,
+	],
+	Terms.GENERIC_TAGS.startup.name: [
+		DoubleFirstStartup,
+		StartingStartup,
+		StartupDraw,
+	],
+	Terms.GENERIC_TAGS.fusion.name: [
+		DoubleFusion,
+	],
+	Terms.GENERIC_TAGS.exert.name: [
+		DecreaseExertStacks,
+		LimitMaxExert,
+	],
+	Terms.GENERIC_TAGS.slumber.name: [
+		RandomForgottenCards,
+	],
+}
 
 # These artifacts are only found in non-combat encounters
 const ENCOUNTER := [
@@ -1529,7 +1577,10 @@ static func get_artifact_bbcode_format(artifact_definition: Dictionary) -> Dicti
 	return(format)
 
 static func get_complete_artifacts_array() -> Array:
-	return(GENERIC + ARCHETYPE + ENCOUNTER + BOSS)
+	var tag_artifacts := []
+	for tag in TAG:
+		tag_artifacts += TAG[tag]
+	return(GENERIC + ARCHETYPE + ENCOUNTER + BOSS + tag_artifacts)
 
 static func find_artifact_from_canonical_name(artifact_canonical_name: String):
 	for artifact_def in get_complete_artifacts_array():

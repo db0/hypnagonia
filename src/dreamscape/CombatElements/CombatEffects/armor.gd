@@ -33,5 +33,10 @@ func get_effect_alteration(
 
 func _decrease_stacks() -> void:
 	var script : Array = []
-	var extra_reduction = floor(stacks / 5)
-	set_stacks(stacks - 1 - extra_reduction, ["Turn Decrease"])
+	var calculated_stacks = stacks + 5
+	if globals.player.find_artifact(ArtifactDefinitions.ImproveArmor.canonical_name):
+		calculated_stacks -= 4
+		if calculated_stacks < 0: 
+			calculated_stacks = 0
+	var total_reduction = floor(calculated_stacks / 5)
+	set_stacks(stacks - total_reduction, ["Turn Decrease"])

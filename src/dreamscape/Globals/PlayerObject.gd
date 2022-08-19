@@ -267,7 +267,12 @@ func get_archetype_artifacts(boss_artifacts := false) -> Array:
 		for a in Aspects.get_archetype_value(arch, "Artifacts"):
 			if boss_artifacts == (a.rarity == "Boss"):
 				artifact_list.append(a)
+		for tag in Aspects.get_archetype_value(arch, "Tags"):
+			for a in ArtifactDefinitions.TAG.get(tag, []):
+				if boss_artifacts == (a.rarity == "Boss"):
+					artifact_list.append(a)
 	return(artifact_list)
+
 
 # Goes through all archetypes and gathers all artifacts specified
 # Returns a list with all artifacts tied to all archetypes of the player.
@@ -275,6 +280,8 @@ func get_archetype_memories() -> Array:
 	var memories_list := []
 	for arch in get_current_archetypes():
 		memories_list += Aspects.get_archetype_value(arch, "Memories")
+		for tag in Aspects.get_archetype_value(arch, "Tags"):
+			memories_list += MemoryDefinitions.TAG.get(tag, [])
 	return(memories_list)
 
 
