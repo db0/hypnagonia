@@ -225,7 +225,7 @@ const scripts := {
 			"hand": [
 				{
 					"name": "apply_effect",
-					"tags": ["Card"],
+					"tags": ["Card", "Delayed"],
 					"effect_name": Terms.ACTIVE_EFFECTS.marked.name,
 					"subject": "dreamer",
 					"modification":  {
@@ -235,12 +235,12 @@ const scripts := {
 				},
 				{
 					"name": "apply_effect",
-					"tags": ["Card"],
+					"tags": ["Card", "Delayed"],
 					"effect_name": Terms.ACTIVE_EFFECTS.delighted.name,
 					"subject": "dreamer",
 					"modification":  {
 						"lookup_property": "_amounts",
-						"value_key": "effect_stacks",
+						"value_key": "effect_stacks2",
 					}
 				}
 			],

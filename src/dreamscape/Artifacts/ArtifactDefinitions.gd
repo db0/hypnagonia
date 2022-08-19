@@ -1503,7 +1503,7 @@ const TAG := {
 	Terms.ACTIVE_EFFECTS.disempower.name: [
 		IncreaseConfusionStacks,
 	],
-	Terms.ACTIVE_EFFECTS.disempower.name: [
+	Terms.ACTIVE_EFFECTS.buffer.name: [
 		IncreaseBufferStacks,
 	],
 	Terms.GENERIC_TAGS.purpose.name: [

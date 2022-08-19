@@ -3,11 +3,13 @@ extends "res://tests/HUT_Ordeal_CardTestClass.gd"
 
 class TestScatteredDreams:
 	extends "res://tests/HUT_Ordeal_CardTestClass.gd"
-	var effect: String = Terms.ACTIVE_EFFECTS.drain.name
+	var effect: String = Terms.ACTIVE_EFFECTS.marked.name
+	var effect2: String = Terms.ACTIVE_EFFECTS.delighted.name
 	func _init() -> void:
 		testing_card_name = "Scattered Dreams"
 		expected_amount_keys = [
-			"effect_stacks"
+			"effect_stacks",
+			"effect_stacks2"
 		]
 
 	func test_card_results():
@@ -25,14 +27,31 @@ class TestScatteredDreams:
 
 	func test_card_results_remaining_on_hand():
 		assert_has_amounts()
+		var intents_to_test = [
+			{
+				"intent_scripts": ["Stress:10"],
+				"reshuffle": true,
+			},
+		]
+		test_torment.intents.replace_intents(intents_to_test)
+		test_torment.intents.refresh_intents()
 		yield(yield_for(0.1), YIELD)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(board.turn, "enemy_turn_started",3 ), YIELD)
-		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 1,
-				"%s stacks on dreamer not increased when card played" % [effect])
+		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect), get_amount("effect_stacks"),
+				"%s stacks on dreamer increased when left in hand" % [effect])
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect2), get_amount("effect_stacks2"),
+				"%s stacks on dreamer increased when left in hand" % [effect2])
+		assert_eq(dreamer.damage, 10, "Damage not increased by delayed marked")
+		test_torment.intents.replace_intents(intents_to_test)
+		test_torment.intents.refresh_intents()
+		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
-		assert_eq(counters.get_counter("immersion"), 2,
-				"Immersion affected by %s" % [testing_card_name])
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect), get_amount("effect_stacks") - 1,
+				"%s stacks on dreamer increased when left in hand" % [effect])
+		assert_eq(dreamer.active_effects.get_effect_stacks(effect2), 0,
+				"%s stacks 0 out on subsequent application" % [effect2])
+		assert_eq(dreamer.damage, 28, "Damage increased by marked")
 
 
 class TestCringeworthyMemory:

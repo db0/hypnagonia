@@ -158,7 +158,7 @@ const CARDS := {
 		"Type": "Perturbation",
 		"Tags": [Terms.ACTIVE_EFFECTS.marked.name],
 		"Abilities": "If this card is in your hand at the end of the turn, gain {effect_stacks} {marked} and {effect_stacks2} {delighted}",
-		"Cost": 2,
+		"Cost": 1,
 		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Perturbation",
 		"_amounts": {

@@ -474,8 +474,8 @@ class TestImproveFortify:
 		turn.call("end_player_turn")
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.armor.name),
-				modification - modification/2,
-				"%s also added same amount of %s stacks" % [artifact.name, Terms.ACTIVE_EFFECTS.armor.name])
+				2 * (modification - modification/2),
+				"%s also added double the amount of %s stacks" % [artifact.name, Terms.ACTIVE_EFFECTS.armor.name])
 
 class TestRedWave:
 	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"

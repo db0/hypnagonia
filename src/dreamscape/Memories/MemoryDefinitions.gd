@@ -637,8 +637,6 @@ const TAG := {
 	Terms.ACTIVE_EFFECTS.disempower.name: [
 		DisempowerEnemy,
 	],
-	Terms.ACTIVE_EFFECTS.disempower.name: [
-	],
 	Terms.GENERIC_TAGS.purpose.name: [
 	],
 	Terms.GENERIC_TAGS.startup.name: [
