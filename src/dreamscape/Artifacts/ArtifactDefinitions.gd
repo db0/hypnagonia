@@ -1384,6 +1384,21 @@ const ImproveArmor := {
 	],
 }
 
+const SwiftPerturbations := {
+	"canonical_name": "SwiftPerturbations",
+	"name": "Swift Perturbations",
+	"description": "{artifact_name}: Whenever you draw a {perturbation}, draw {draw_amount} card",
+	"icon": preload("res://assets/icons/artifacts/rose.png"),
+	"context": EffectContext.BATTLE,
+	"rarity": "Uncommon",
+	"amounts": {
+		"draw_amount": 1
+	},
+	"linked_terms": [
+		"perturbation",
+		"swift",
+	],
+}
 
 
 
@@ -1450,6 +1465,7 @@ const GENERIC := [
 	ThickThorns,
 	WeakerElites,
 	ConstantMark,
+	SwiftPerturbations,
 ]
 
 # Archetype-specific artifacts which only appear in runs in which

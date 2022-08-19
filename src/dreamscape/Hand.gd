@@ -56,6 +56,7 @@ func draw_card(pile : Pile = cfc.NMAP.deck) -> Card:
 		card = pile.get_top_card()
 	if card:
 		card.move_to(self)
+		emit_signal("card_drawn",card)
 		_check_for_fusion(card)
 	return card
 

@@ -1015,5 +1015,20 @@ class TestImproveArmor:
 		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.armor.name), 5)
 
 
+class TestSwiftPerturbations:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		globals.test_flags["test_initial_hand"] = true
+		testing_artifact_name = ArtifactDefinitions.SwiftPerturbations.canonical_name
+		expected_amount_keys = [
+			"draw_amount",
+		]
 
-
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		add_single_card("Lacuna", deck)
+		add_single_card("Lacuna", deck)
+		hand.draw_card()
+		yield(yield_to(hand, "card_drawn", 1), YIELD)
+		assert_eq(hand.get_card_count(), 3)
