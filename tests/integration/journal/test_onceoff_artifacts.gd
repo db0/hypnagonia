@@ -22,7 +22,7 @@ class TestAccumulateEnemy:
 		testing_artifact_name = "AccumulateEnemy"
 		expected_amount_keys = [
 			"pathos_avg_multiplier",
-			"relax_amount"
+			"heal_amount"
 		]
 
 	func test_artifact_results():
@@ -31,7 +31,7 @@ class TestAccumulateEnemy:
 		var ptype = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy]
 		assert_eq(ptype.repressed, float(ptype.get_progression_average() * get_amount("pathos_avg_multiplier")),
 				"%s increased repressed pathos" % [artifact.canonical_name])
-		assert_eq(globals.player.damage, dreamer_starting_damage - get_amount("relax_amount"))
+		assert_eq(globals.player.damage, dreamer_starting_damage - get_amount("heal_amount"))
 
 
 
