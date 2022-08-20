@@ -682,6 +682,9 @@ class TestLearnMedium:
 		# warning-ignore:return_value_discarded
 		cards[0].scripts = EXERT_SCRIPT
 		cards[1].scripts = EFFECT_SCRIPT
+		# We set the cost to 0 so that we leave an unspect immersion, which will be turned into 
+		# stress by the recurrence
+		cards[1].modify_property('Cost', 0)
 		var sceng
 		for exec_card in cards:
 			sceng = execute_with_yield(exec_card)
@@ -690,9 +693,9 @@ class TestLearnMedium:
 		advanced_torment.countermeasures = ["high_attacks"]
 		advanced_torment._prepare_countermeasures()
 		advanced_torment.intents.prepare_intents(1)
+		yield(yield_for(2), YIELD)
 		turn.call_deferred("end_player_turn")
 		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
-		# The wild attack amount for this difficulty
 		var intents = advanced_torment.intents.get_children()
 		assert_eq(intents.size(), 3, "Recurrence copying all intents")
 		turn.call_deferred("end_player_turn")
