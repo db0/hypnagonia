@@ -445,6 +445,7 @@ class SignalPropagator:
 	# When a new card is instanced, it connects all its known signals
 	# to the SignalPropagator
 	func connect_new_card(card):
+		return
 		for sgn in known_card_signals:
 			card.connect(sgn, self, "_on_signal_received")
 

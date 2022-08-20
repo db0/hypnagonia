@@ -1,7 +1,7 @@
 extends CombatEffect
 
 func _ready() -> void:
-	cfc.signal_propagator.connect("signal_received", self, "_on_cfc_signal_received")
+	scripting_bus.connect("scripting_event_triggered", self, "_on_scripting_event_triggered")
 
 func _get_effect_description() -> String:
 	var default_desc : String
@@ -14,7 +14,7 @@ func _get_effect_description() -> String:
 			default_desc = "{effect_name}: Any time the dreamer plays a {concentration} card, this tormen gains {amount} {strengthen}"
 	return(default_desc)
 
-func _on_cfc_signal_received(
+func _on_scripting_event_triggered(
 		trigger_card: Card, trigger: String, _details: Dictionary) -> void:
 	if trigger == "card_played":
 		var amount = stacks

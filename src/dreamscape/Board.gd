@@ -123,7 +123,7 @@ func begin_encounter() -> void:
 		while not cfc.NMAP.hand.is_hand_refilled:
 			yield(cfc.NMAP.hand, "hand_refilled")
 	turn.encounter_event_count.clear()
-	EventBus.emit_signal("battle_begun")
+	scripting_bus.emit_signal("battle_begun")
 	turn.start_player_turn()
 	if not cfc.game_settings.get('first_ordeal_tutorial_done'):
 		player_info._on_Help_pressed()

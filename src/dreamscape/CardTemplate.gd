@@ -1,11 +1,6 @@
 class_name DreamCard
 extends Card
 
-# Emited whenever the card is played manually or via card effect.
-# Since a card might be "played" from any source and to many possible targets
-# we use a specialized signal to trigger effects which fire after playing cards
-signal card_played(card,trigger,details)
-signal card_removed(card,trigger,details)
 
 # Going negative to avoid conflicting with CGF in case it extends its own card states
 enum ExtendedCardState {
@@ -30,10 +25,6 @@ var check_front_refresh := false
 var front_refresh_delta_wait := 0
 
 func _ready() -> void:
-	# warning-ignore:return_value_discarded
-	connect("card_played", cfc.signal_propagator, "_on_signal_received")
-	# warning-ignore:return_value_discarded
-	connect("card_removed", cfc.signal_propagator, "_on_signal_received")
 	# warning-ignore:return_value_discarded
 	connect("state_changed", self, "_on_state_changed")
 	# warning-ignore:return_value_discarded

@@ -401,13 +401,13 @@ const ThickExplosion := {
 const AccumulateEnemy := {
 	"canonical_name": "AccumulateEnemy",
 	"name": "Repressed frustration",
-	"description": "{artifact_name}: Increase your repressed Frustration. {relax} for {relax_amount}",
+	"description": "{artifact_name}: Increase your repressed Frustration. {relax} for {heal_amount}",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"amounts": {
 		"pathos_avg_multiplier": 4,
-		"relax_amount": 30
+		"heal_amount": 30
 	},
 	"linked_terms": [
 		"relax",
@@ -1400,6 +1400,37 @@ const SwiftPerturbations := {
 	],
 }
 
+const HealThickDecks := {
+	"canonical_name": "HealThickDecks",
+	"name": "Tiny Hammock",
+	"description": "{artifact_name}: Whenever you add a card to your deck, {relax} for {heal_amount}",
+	"icon": preload("res://assets/icons/artifacts/rose.png"),
+	"context": EffectContext.OVERWORLD,
+	"rarity": "Common",
+	"amounts": {
+		"heal_amount": 5
+	},
+	"linked_terms": [
+		"relax",
+	],
+}
+
+const BufferedSpawns := {
+	"canonical_name": "BufferedSpawns",
+	"name": "Swift Perturbations",
+	"description": "{artifact_name}: Whenever a card is added to your hand of piles during an ordeal, gain {effect_stacks} {buffer}",
+	"icon": preload("res://assets/icons/artifacts/rose.png"),
+	"context": EffectContext.BATTLE,
+	"rarity": "Uncommon",
+	"amounts": {
+		"effect_stacks": 1
+	},
+	"linked_terms": [
+		"buffer",
+	],
+}
+
+
 
 
 ## TODO: Artifact which increases chance to find Fusion cards
@@ -1466,6 +1497,7 @@ const GENERIC := [
 	WeakerElites,
 	ConstantMark,
 	SwiftPerturbations,
+	HealThickDecks,
 ]
 
 # Archetype-specific artifacts which only appear in runs in which
@@ -1523,6 +1555,8 @@ const TAG := {
 	],
 	Terms.GENERIC_TAGS.slumber.name: [
 		RandomForgottenCards,
+	],
+	Terms.GENERIC_TAGS.spawn.name: [
 	],
 }
 

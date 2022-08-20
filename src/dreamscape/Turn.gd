@@ -16,10 +16,6 @@ const ENEMY_SIGNALS := [
 
 const ALL_SIGNALS := PLAYER_SIGNALS + ENEMY_SIGNALS
 
-signal player_turn_started(turn)
-signal player_turn_ended(turn)
-signal enemy_turn_started(turn)
-signal enemy_turn_ended(turn)
 # Tracks the first of each card to have been played each turn
 var firsts := {}
 # Tracks how much of each effect has been applied this turn
@@ -47,19 +43,19 @@ func _ready() -> void:
 		yield(cfc, "all_nodes_mapped")
 	cfc.NMAP.deck.connect("shuffle_completed", self, "_on_deck_shuffled")
 
+# Connecting all signals for the turn
+# I should probably mobe these to each indibidual _ready() func
+# Now that I'm using an event bus approah
 func setup() -> void:
 	board.end_turn.connect("pressed", self, "end_player_turn")
 	for obj in [board]:
 		for turn_signal in ALL_SIGNALS:
 			# warning-ignore:return_value_discarded
-			connect(turn_signal, obj, "_on_" + turn_signal)
-	for turn_signal in ALL_SIGNALS:
-		# warning-ignore:return_value_discarded
-		connect(turn_signal, cfc.signal_propagator, "_on_signal_received", [turn_signal, {"turn": self}])
+			scripting_bus.connect(turn_signal, obj, "_on_" + turn_signal)
 	for obj in [board.counters, cfc.NMAP.hand]:
 		for turn_signal in PLAYER_SIGNALS:
 			# warning-ignore:return_value_discarded
-			connect(turn_signal, obj, "_on_" + turn_signal)
+			scripting_bus.connect(turn_signal, obj, "_on_" + turn_signal)
 		
 func start_player_turn() -> void:
 	_reset_turn()
@@ -67,22 +63,22 @@ func start_player_turn() -> void:
 	cfc.flush_cache()
 	# warning-ignore:return_value_discarded
 	TurnEventMessage.new("new_turn", 1)
-	emit_signal("player_turn_started", self)
+	scripting_bus.emit_signal("player_turn_started", self)
 	
 func end_player_turn() -> void:
 	for pile in cfc.get_tree().get_nodes_in_group("piles"):
 		if pile.is_popup_open:
 			yield(pile,"popup_closed")
 	SoundManager.play_se('end_turn')
-	emit_signal("player_turn_ended", self)
+	scripting_bus.emit_signal("player_turn_ended", self)
 		
 func start_enemy_turn() -> void:
 	_reset_turn()
 	current_turn = Turns.ENEMY_TURN
-	emit_signal("enemy_turn_started", self)
+	scripting_bus.emit_signal("enemy_turn_started", self)
 	
 func end_enemy_turn() -> void:
-	emit_signal("enemy_turn_ended", self)
+	scripting_bus.emit_signal("enemy_turn_ended", self)
 
 func _reset_turn() -> void:
 	firsts.clear()

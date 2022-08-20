@@ -3,7 +3,7 @@ extends Artifact
 
 func _ready() -> void:
 	if is_active and effect_context == ArtifactDefinitions.EffectContext.BATTLE:
-		cfc.signal_propagator.connect("signal_received", self, "_on_signal_received")
+		scripting_bus.connect("scripting_event_triggered", self, "_on_signal_received")
 
 
 func _on_signal_received(trigger_card, trigger, details) -> void:

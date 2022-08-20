@@ -397,6 +397,7 @@ const EXPLOITED := {
 	"Tags": [
 		Terms.GENERIC_TAGS.slumber.name,
 		Terms.ACTIVE_EFFECTS.armor.name,
+		Terms.GENERIC_TAGS.spawn.name,
 	],
 	"Artifacts": [],
 	"Memories": [

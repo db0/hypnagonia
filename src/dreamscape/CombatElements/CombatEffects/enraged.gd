@@ -1,9 +1,9 @@
 extends CombatEffect
 
 func _ready() -> void:
-	cfc.signal_propagator.connect("signal_received", self, "_on_cfc_signal_received")
+	scripting_bus.connect("scripting_event_triggered", self, "_on_scripting_event_triggered")
 
-func _on_cfc_signal_received(
+func _on_scripting_event_triggered(
 		trigger_card: Card, trigger: String, _details: Dictionary) -> void:
 	if trigger == "card_played" and trigger_card.get_property("Type") == "Control":
 		var amount = stacks

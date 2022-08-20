@@ -7,8 +7,6 @@
 class_name Counters
 extends Control
 
-signal counter_modified(card,trigger,details)
-
 # Hold the actual values of the various counters requested
 var counters := {}
 # Holds the label nodes which display the counter values to the user
@@ -51,10 +49,7 @@ var value_node: String
 
 
 func _ready() -> void:
-	# For the counter signal, we "push" connect it instead from this node.
-	# warning-ignore:return_value_discarded
-	self.connect("counter_modified", cfc.signal_propagator, "_on_signal_received")
-
+	pass
 
 # This function should be called by the _ready() function of the script which
 # extends thic class, after it has set all the necessary variables.
@@ -119,10 +114,9 @@ func mod_counter(counter_name: String,
 					_set_counter(counter_name,value)
 				else:
 					_set_counter(counter_name, counters[counter_name] + value)
-				emit_signal(
+				scripting_bus.emit_signal(
 						"counter_modified",
 						requesting_object,
-						"counter_modified",
 						{
 							SP.TRIGGER_COUNTER_NAME: counter_name,
 							SP.TRIGGER_PREV_COUNT: prev_value,
