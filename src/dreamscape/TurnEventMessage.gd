@@ -12,7 +12,7 @@ func _init(event_name: String, modification: int, is_delayed := false) -> void:
 		# This is for example useful to record events to be used in the opposing
 		# turn, such as leftover immersion
 		if is_delayed:
-			yield(cfc.NMAP.board.turn, "enemy_turn_started")
+			yield(scripting_bus, "enemy_turn_started")
 		var turn_event_count = cfc.NMAP.board.turn.turn_event_count
 		var existing_turn_count = turn_event_count.get(event_name,0)
 		turn_event_count[event_name] = existing_turn_count + modification
