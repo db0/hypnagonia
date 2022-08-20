@@ -2,7 +2,7 @@ extends Artifact
 
 func _ready() -> void:
 	if is_active and effect_context == ArtifactDefinitions.EffectContext.BATTLE:
-		EventBus.connect("battle_begun", self, "_on_battle_start")
+		scripting_bus.connect("battle_begun", self, "_on_battle_start")
 
 
 # Connecting the signal here ensures the artifact will not be disabled at the start of combat

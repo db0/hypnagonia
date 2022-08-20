@@ -199,7 +199,7 @@ class TestVestigeOfWarmth:
 
 	func test_vestige():
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "enemy_turn_started",1), YIELD)
+		yield(yield_to(scripting_bus, "enemy_turn_started",1), YIELD)
 		var amount = cfc.card_definitions[effect]\
 			.get("_amounts",{}).get("concentration_effect")
 		assert_eq(dreamer.defence, hand.get_card_count() * amount)
@@ -242,14 +242,14 @@ class TestNothingForgotten:
 
 	func test_vestige():
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3), YIELD)
 		var frozens := 0
 		for c in hand.get_all_cards():
 			if c.get_property("Tags").has(Terms.GENERIC_TAGS.frozen.name):
 				frozens += 1
 		assert_eq(frozens, 1)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3), YIELD)
 		frozens = 0
 		for c in hand.get_all_cards():
 			if c.get_property("Tags").has(Terms.GENERIC_TAGS.frozen.name):
@@ -269,7 +269,7 @@ class TestStewing:
 	func test_card_results():
 		assert_has_amounts()
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3), YIELD)
 		var sceng = execute_with_yield(card)
 		if sceng is GDScriptFunctionState:
 			sceng = yield(sceng, "completed")
@@ -345,7 +345,7 @@ class TestNoteTaking:
 
 	func test_effect():
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.thorns.name), amount,
 				"%s stacks on Dreamer increased by correct amount" % [Terms.ACTIVE_EFFECTS.thorns.name])
 
@@ -434,7 +434,7 @@ class TestShadenfreude:
 	func test_effect():
 		spawn_effect(test_torment, Terms.ACTIVE_EFFECTS.poison.name, 14, '')
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.armor.name), int(floor(amount * 14.0 / 5.0)),
 				"%s stacks on Dreamer increased by correct amount" % [Terms.ACTIVE_EFFECTS.armor.name])
 

@@ -37,7 +37,7 @@ func _ready() -> void:
 		var turn: Turn = cfc.NMAP.board.turn
 		for turn_signal in Turn.ALL_SIGNALS:
 			# warning-ignore:return_value_discarded
-			turn.connect(turn_signal, self, "_on_" + turn_signal)
+			scripting_bus.connect(turn_signal, self, "_on_" + turn_signal)
 	setup(artifact_object.definition, artifact_object.canonical_name)
 	# warning-ignore:return_value_discarded
 	artifact_object.connect("removed", self, "_on_artifact_removed")

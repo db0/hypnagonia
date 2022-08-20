@@ -22,7 +22,7 @@ class TestTags:
 		assert_true(hand.has_card(alpha2.card_object), "Alpha cards should start in hand")
 		assert_eq(deck.get_bottom_card(), omega1.card_object, "Omega cards should start at the deck bottom")
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started", 3), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started", 3), YIELD)
 		assert_true(hand.has_card(alpha1.card_object), "Frozen cards should stay in hand")
 		assert_eq(hand.get_card_count(), 6, "Hand refill ignores frozen cards")
 

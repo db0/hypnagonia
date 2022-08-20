@@ -232,7 +232,7 @@ class TestDishearten:
 		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES - 2,
 				"Available masteries should decrease")
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(globals.player.pathos.available_masteries, Pathos.STARTING_MASTERIES - 4,
 				"Available masteries should decrease")
 
@@ -320,7 +320,7 @@ class TestIncreaseComplexity:
 		assert_eq(test_torment.damage, 20, "Torment should heal damage")
 		dreamer.defence = 5
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.damage, 15, "Dreamer should take less damage")
 		assert_eq(test_torment.damage, 15, "Torment should heal less damage")
 
@@ -356,7 +356,7 @@ class TestArmorTheBoss:
 			torment.intents.refresh_intents()
 		var boss_torment = board.spawn_enemy(EnemyDefinitions.ADMINISTRATION)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		# Boss loses 1 armor stack at the start of its turn
 		assert_eq(boss_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.armor.name), 2,
 			"Boss torment got expected amount of armor")
@@ -395,7 +395,7 @@ class TestAwkwardCompliments:
 		test_torment.intents.refresh_intents()
 		TurnEventMessage.new("new_turn", 3)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3), YIELD)
 		assert_eq(dreamer.damage, 3 * 6, "Dreamer should take damage")
 
 class TestCheckBrowserHistory:
@@ -426,7 +426,7 @@ class TestCheckBrowserHistory:
 		yield(yield_for(0.2), YIELD)
 		assert_eq(dreamer.incoming_dmg_signifier.signifier_amount.text, str(2))
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3), YIELD)
 		assert_eq(dreamer.damage, dmg + 2, "Dreamer should take a bit of damage")
 		assert_eq(test_torments[0].health, t_health[test_torments[0]] + 10, "First Torment should increase its health")
 		assert_eq(test_torments[1].health, t_health[test_torments[1]], "Second Torment should not increase its health")
@@ -453,7 +453,7 @@ class TestCheckUnderwearDrawer:
 		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.quicken.name, 4,  '')
 		yield(yield_for(0.2), YIELD)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.fortify.name), 0)
 		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.quicken.name), 2)
 		assert_eq(test_torments[0].active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.quicken.name), 0)

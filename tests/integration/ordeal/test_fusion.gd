@@ -108,7 +108,7 @@ class TestUniversalComponent:
 		watch_signals(hand)
 		add_single_card('Universal Component', deck)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3), YIELD)
 		# Wait one more sec to allow cards to despawn
 		yield(yield_for(1), YIELD)
 		assert_signal_not_emitted(hand,"cards_fused")

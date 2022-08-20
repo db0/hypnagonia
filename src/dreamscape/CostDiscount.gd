@@ -26,7 +26,7 @@ func _ready() -> void:
 	add_to_group("cost_discounts")
 	scripting_bus.connect("scripting_event_triggered", self, "_on_signal_received")
 	if not is_permanent:
-		cfc.NMAP.board.turn.connect("enemy_turn_started", self, "_enemy_turn_started")
+		scripting_bus.connect("enemy_turn_started", self, "_enemy_turn_started")
 
 func retrieve_scripts(trigger: String) -> Dictionary:
 	if uses == 0:
