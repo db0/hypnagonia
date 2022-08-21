@@ -288,7 +288,7 @@ func _ready() -> void:
 	$Control.connect("gui_input", self, "_on_Card_gui_input")
 	# warning-ignore:return_value_discarded
 	$Control.connect("tree_exiting", self, "_on_tree_exiting")
-#	scripting_bus.connect("scripting_event_triggered", self, "execute_scripts")
+	scripting_bus.connect("scripting_event_triggered", self, "execute_scripts")
 
 func _init_card_layout() -> void:
 	# Because we duplicate the card when adding to the viewport focus

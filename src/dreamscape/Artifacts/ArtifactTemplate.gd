@@ -45,6 +45,8 @@ func _ready() -> void:
 	if artifact_object.get_class() == "ArtifactObject":
 		# warning-ignore:return_value_discarded
 		artifact_object.connect("counter_modified", self, "_on_artifact_counter_modified")
+	scripting_bus.connect("scripting_event_triggered", self, "execute_scripts")
+
 
 
 func setup_artifact(_artifact_object, _is_active: bool, new_addition: bool) -> void:
