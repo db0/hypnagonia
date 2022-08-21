@@ -18,6 +18,7 @@ var ai_stories:= AIStories.new()
 # to avoid writing always the same thing
 var unused_journal_texts := {}
 #var utils := DeckbuilderUtils.new()
+
 # For Unit Testing
 var test_flags := {
 	### REFERENCES ###

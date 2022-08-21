@@ -1465,6 +1465,20 @@ const BossRandomDiscount := {
 }
 
 
+const BossDoubling := {
+	"canonical_name": "BossDoubling",
+	"name": "Kaleidoscope",
+	"description": "{artifact_name}: The first card you play each turn, is played an extra time.",
+	"icon": GENERIC_BOSS_ARTIFACT_ICON,
+	"context": EffectContext.BATTLE,
+	"rarity": "Boss",
+	"amounts": {
+	},
+	"linked_terms": [
+	],
+}
+
+
 
 
 ## TODO: Artifact which increases chance to find Fusion cards
@@ -1626,6 +1640,7 @@ const BOSS := [
 	CursedCurios,
 	BossExert,
 	BossRandomDiscount,
+	BossDoubling,
 ]
 
 

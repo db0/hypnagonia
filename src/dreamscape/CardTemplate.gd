@@ -9,6 +9,7 @@ enum ExtendedCardState {
 	SPAWNED_PERTURBATION
 }
 
+signal ready_to_remove
 
 var shader_progress := 1.0
 var attempted_action_drop_to_board := false
@@ -24,6 +25,9 @@ var enabled_riders := []
 var printed_properties := {}
 var check_front_refresh := false
 var front_refresh_delta_wait := 0
+# I use this to allow me to autoplay the same card more than 1 time
+# as further autoplays, need to wait until this flag is cleared
+var queued_autoplays := []
 
 func _ready() -> void:
 	# warning-ignore:return_value_discarded
@@ -63,6 +67,8 @@ func _process(delta: float) -> void:
 #				card_front.tag_container2.visible = false
 #				card_front.card_design.visible = false
 #				card_front.art.visible = false
+			if shader_progress < 0.15:
+				emit_signal("ready_to_remove")
 			if shader_progress < 0.1:
 				if cfc.NMAP.board.mouse_pointer.current_focused_card == self:
 					cfc.NMAP.board.mouse_pointer.current_focused_card = null
@@ -353,7 +359,7 @@ func execute_scripts(
 		trigger: String = "manual",
 		trigger_details: Dictionary = {},
 		only_cost_check := false):
-	if is_executing_scripts:
+	if is_executing_scripts and trigger == "manual":
 		return
 	if trigger == "player_turn_started":
 		pass
@@ -396,6 +402,12 @@ func common_pre_run(sceng) -> void:
 # This means the card is also removed permanently from the player's deck
 # This change stays for all further encounters
 func remove_from_deck(permanent := true, tags := []) -> void:
+#	card_front.apply_shader("res://shaders/consume.shader")
+	card_front.material = preload("res://shaders/dissolve.tres")
+#	card_front.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
+	set_state(ExtendedCardState.REMOVE_FROM_GAME)
+	# I am using a signal here so that I can abort the card removal If I need to
+	connect("ready_to_remove", self, "_perform_remove_cleanup", [permanent, tags])
 	if "Played" in tags:
 		var firsts = cfc.NMAP.board.turn.firsts
 		if firsts.empty() or not firsts.get(properties.Type):
@@ -408,10 +420,28 @@ func remove_from_deck(permanent := true, tags := []) -> void:
 					"tags": tags
 				}
 		)
-#	card_front.apply_shader("res://shaders/consume.shader")
-	card_front.material = preload("res://shaders/dissolve.tres")
-#	card_front.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
-	set_state(ExtendedCardState.REMOVE_FROM_GAME)
+
+func abort_deck_removal() -> void:
+	if state != ExtendedCardState.REMOVE_FROM_GAME:
+		return
+	# Hardcoding the state change because normally if the card is being removed from the game
+	# set_state() prevents changing state anymore. But in this instance this is exactly what we need
+	if get_parent().is_in_group("hands"):
+		state = CardState.IN_HAND
+	# The extra if is in case the ViewPopup is currently active when the card
+	# is being moved into the container
+	elif get_parent().is_in_group("piles"):
+		state =  CardState.IN_PILE
+	elif "CardPopUpSlot" in get_parent().name:
+		state =  CardState.IN_POPUP
+	else:
+		state = CardState.ON_PLAY_BOARD
+	card_front.material = null
+	shader_progress = 1.0
+	
+
+# THis function performs the cleanup of the card about to be removed from the board.
+func _perform_remove_cleanup(ipermanent: bool, tags: Array) -> void:
 	cfc.flush_cache()
 	scripting_bus.emit_signal("card_removed",
 			self,
@@ -421,8 +451,9 @@ func remove_from_deck(permanent := true, tags := []) -> void:
 	)
 	# If this is a permanent removal, we also remove the card from the
 	# whole run
-	if deck_card_entry and permanent and not properties.get("_is_unremovable", false):
+	if deck_card_entry and ipermanent and not properties.get("_is_unremovable", false):
 		globals.player.deck.remove_card(deck_card_entry)
+
 
 func reorganize_self() ->void:
 	if state == ExtendedCardState.REMOVE_FROM_GAME:
@@ -589,3 +620,7 @@ func _on_state_changed(_card: Card, old_state: int, _new_state: int) -> void:
 func _on_cache_cleared() -> void:
 	check_front_refresh = true
 	
+func _determine_idle_state() -> void:
+	if state == ExtendedCardState.AUTOPLAY_DISPLAY:
+		return
+	._determine_idle_state()

@@ -246,7 +246,7 @@ var _original_layouts:= {}
 # This flag not used in the core CGF, but games build on it can use
 # This flag to prevent the player from "double-dipping" on a script
 # while animations are playing.
-var is_executing_scripts := false
+var is_executing_scripts = false
 # If this card is freshly spawned, this variable will hold the CardContainer
 # which is the final constainer to put it in
 var spawn_destination
@@ -1395,6 +1395,8 @@ func execute_scripts(
 	# We select which scripts to run from the card, based on it state
 	var state_exec := get_state_exec()
 	var any_state_scripts = card_scripts.get('all', [])
+	if trigger == 'autoplay':
+		pass
 	state_scripts = card_scripts.get(state_exec, any_state_scripts)
 	# Here we check for confirmation of optional trigger effects
 	# There should be an SP.KEY_IS_OPTIONAL definition per state
@@ -1430,7 +1432,7 @@ func execute_scripts(
 	# We do not statically type it as this causes a circular reference
 	var sceng = null
 	if len(state_scripts):
-		is_executing_scripts = true
+		is_executing_scripts = trigger
 		# This evocation of the ScriptingEngine, checks the card for
 		# cost-defined tasks, and performs a dry-run on them
 		# to ascertain whether they can all be paid,

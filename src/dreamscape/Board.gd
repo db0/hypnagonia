@@ -467,11 +467,11 @@ func _input(event):
 #		SoundManager.play_bgm(bgm_tracks[0])
 #		SoundManager.fade_in(bgm_tracks[0])
 		# warning-ignore:unused_variable
-		_debug_advanced_enemy()
+#		_debug_advanced_enemy()
 		var _torment1
 		var _torment2
 		var _torment3
-#		_torment1 = spawn_enemy(EnemyDefinitions.SHAMELING)
+		_torment1 = spawn_enemy(EnemyDefinitions.SHAMELING)
 #		_torment1 = spawn_enemy(EnemyDefinitions.LOTUSTUS)
 #		_torment1 = spawn_enemy(EnemyDefinitions.VOID)
 #		_torment2 = spawn_enemy(EnemyDefinitions.SHAMELING)
@@ -505,7 +505,7 @@ func _input(event):
 		dreamer.damage = 11
 		# warning-ignore:return_value_discarded
 #		globals.player.add_artifact(ArtifactDefinitions.SavedForgets.canonical_name)
-		globals.player.add_artifact(ArtifactDefinitions.RandomForgottenCards.canonical_name)
+		globals.player.add_artifact(ArtifactDefinitions.BossDoubling.canonical_name)
 		# warning-ignore:return_value_discarded
 #		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
 		# warning-ignore:return_value_discarded
@@ -515,7 +515,7 @@ func _input(event):
 		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 1)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.armor.name, 46)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.absurdity_unleashed.name, 1)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.creative_block.name, 1)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.creative_block.name, 1)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.laugh_at_danger.name, 1)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.heat_venting.name, 1, false, false, ['Debug'], 'high')
 		# Performance Tests
@@ -530,6 +530,9 @@ func _input(event):
 		for c in [
 			"Butterfly",
 			"Exhaustion",
+			"Exhaustion",
+			"Exhaustion",
+			"Nothing to Fear",
 #			"Solid Work Ethic",
 			# Need to look into these two later
 #			"Fowl Language",
