@@ -1418,7 +1418,7 @@ const HealThickDecks := {
 const BufferedSpawns := {
 	"canonical_name": "BufferedSpawns",
 	"name": "Swift Perturbations",
-	"description": "{artifact_name}: Whenever a card is added to your hand of piles during an ordeal, gain {effect_stacks} {buffer}",
+	"description": "{artifact_name}: Whenever any card is spawned in the game during an ordeal, gain {effect_stacks} {buffer}",
 	"icon": preload("res://assets/icons/artifacts/rose.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",

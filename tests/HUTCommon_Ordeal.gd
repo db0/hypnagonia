@@ -62,9 +62,14 @@ func before_each():
 			card.scripts = test_scripts
 	artifacts = setup_test_artifacts(test_artifact_names)
 	memories = setup_test_memories(test_memories_names)
+	var retries := 0
 	if globals.test_flags.get("start_ordeal_before_each", true):
 		while board.counters.counters.immersion == 0:
 			yield(yield_to(scripting_bus, "player_turn_started", 1), YIELD)
+			retries += 1
+			if retries >=5:
+				gut.p("ERROR: Immersion never increased!")
+				break
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), -80)
 	extra_board_setup()
 

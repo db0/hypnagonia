@@ -563,7 +563,7 @@ func _input(event):
 #		_reveal_entry(upgrade_journal, true)
 #	d	globals.player.deck.add_new_card("Guilt")
 #		globals.player.deck.add_new_card("Catatonia")
-		globals.player.add_artifact(ArtifactDefinitions.ConstantMark.canonical_name)
+		globals.player.add_artifact(ArtifactDefinitions.BufferedSpawns.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.EnhanceOnRest.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.PerturbationHeal.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.CostlyUpgrades.canonical_name)

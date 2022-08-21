@@ -53,8 +53,15 @@ func _ready():
 	for s in get_signal_list():
 		if s.name == "scripting_event_triggered":
 			continue
-		# warning-ignore:return_value_discarded
-		connect(s.name, self, "init_scripting_event", [s.name])
+		if s.args.size() == 2:
+			# warning-ignore:return_value_discarded
+			connect(s.name, self, "init_scripting_event", [s.name])
+		elif s.args.size() == 1:
+			# This means the signal has no details being sent by defult, so we connect it using a dummy dictionary instead
+			connect(s.name, self, "init_scripting_event", [{}, s.name])
+		elif s.args.size() == 0:
+			# This means the signal sends no args by default, so we just provide dummy vars
+			connect(s.name, self, "init_scripting_event", [null, {}, s.name])
 	
 func init_scripting_event(trigger_object: Card = null, details: Dictionary = {}, trigger: String = '') -> void:
 	if trigger == '':

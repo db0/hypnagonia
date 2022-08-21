@@ -7,9 +7,7 @@ func execute_scripts(
 		only_cost_check := false):
 	if is_active\
 			and effect_context == ArtifactDefinitions.EffectContext.BATTLE\
-			and trigger == "card_spawned"\
-			and trigger_card.get_property("Type") == "Perturbation":
-		print_debug(trigger_details)
+			and trigger == "card_spawned":
 		var script = [
 			{
 				"name": "apply_effect",
