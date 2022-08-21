@@ -195,6 +195,7 @@ func before_each():
 	cfc._setup_testing()
 	setup_hypnagonia_testing()
 	watch_signals(EventBus)
+	watch_signals(scripting_bus)
 	if not globals.test_flags.has("disable_board_background"):
 		globals.test_flags["disable_board_background"] = true
 	if not globals.test_flags.has("disable_starting_artifacts"):

@@ -9,6 +9,9 @@ enum ExtendedCardState {
 	SPAWNED_PERTURBATION
 }
 
+# We use that to avoid going through the scripting_bus when we want to hook to this signal on self
+signal card_played
+
 var shader_progress := 1.0
 var attempted_action_drop_to_board := false
 var tutorial_disabled := false
@@ -219,15 +222,15 @@ func common_post_move_scripts(new_container: String, old_container: String, tags
 		var firsts = cfc.NMAP.board.turn.firsts
 		if firsts.empty() or not firsts.get(properties.Type):
 			firsts[properties.Type] = self
-		emit_signal("card_played",
+		scripting_bus.emit_signal("card_played",
 				self,
-				"card_played",
 				{
 					"destination": new_container,
 					"source": old_container,
 					"tags": tags
 				}
 		)
+		emit_signal("card_played")
 
 
 func get_modified_immersion_cost() -> Dictionary:
@@ -400,23 +403,22 @@ func remove_from_deck(permanent := true, tags := []) -> void:
 		var firsts = cfc.NMAP.board.turn.firsts
 		if firsts.empty() or not firsts.get(properties.Type):
 			firsts[properties.Type] = self
-		emit_signal("card_played",
+		scripting_bus.emit_signal("card_played",
 				self,
-				"card_played",
 				{
 					"destination": null,
 					"source": get_parent().name,
 					"tags": tags
 				}
 		)
+		emit_signal("card_played")
 #	card_front.apply_shader("res://shaders/consume.shader")
 	card_front.material = preload("res://shaders/dissolve.tres")
 #	card_front.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
 	set_state(ExtendedCardState.REMOVE_FROM_GAME)
 	cfc.flush_cache()
-	emit_signal("card_removed",
+	scripting_bus.emit_signal("card_removed",
 			self,
-			"card_removed",
 			{
 				"tags": tags
 			}
@@ -488,6 +490,7 @@ func on_card_entry_modified(card_entry) -> void:
 	properties = card_entry.properties.duplicate(true)
 	refresh_card_front()
 
+
 func set_state(value: int) -> void:
 	if state == ExtendedCardState.REMOVE_FROM_GAME:
 		return
@@ -499,8 +502,6 @@ func _on_self_played(_card,_trigger,_details) -> void:
 		# warning-ignore:return_value_discarded
 		modify_property("Cost", printed_properties['Cost'])
 		enabled_riders.erase("reset_cost_after_play")
-
-
 
 
 
