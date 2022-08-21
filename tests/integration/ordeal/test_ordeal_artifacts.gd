@@ -1056,3 +1056,25 @@ class TestBufferedSpawns:
 		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.buffer.name),
 				get_amount("effect_stacks"),
 				"%s does not gives %s when non-perturbation card spawned" % [artifact.name, Terms.ACTIVE_EFFECTS.buffer.name])
+
+
+class TestBossExert:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.BossExert.canonical_name
+		pre_init_artifacts.append(testing_artifact_name)
+		expected_amount_keys = [
+			"immersion_amount",
+			"exert_amount",
+		]
+
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		gut.p(get_amount("exert_amount"))
+		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion on first turn")
+		assert_eq(dreamer.damage, get_amount("exert_amount"), "Dreamer gets 1 anxiety on first turn")
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
+		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion per turn")
+		assert_eq(dreamer.damage, get_amount("exert_amount") * 2, "Dreamer gets 1 anxiety per turn")

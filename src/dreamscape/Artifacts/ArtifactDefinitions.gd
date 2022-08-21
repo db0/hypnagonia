@@ -843,6 +843,7 @@ const DecreaseExertStacks := {
 	"rarity": "Uncommon",
 	"linked_terms": [
 		"player_health",
+		"exert",
 	],
 }
 
@@ -1430,6 +1431,24 @@ const BufferedSpawns := {
 	],
 }
 
+const BossExert := {
+	"canonical_name": "BossExert",
+	"name": "Charming Urchin",
+	"description": "{artifact_name}: You have {immersion_amount} extra {energy} per turn.\n"\
+			+ "Take {exert_amount} {anxiety} at the start of each turn.",
+	"icon": GENERIC_BOSS_ARTIFACT_ICON,
+	"context": EffectContext.BATTLE,
+	"rarity": "Boss",
+	"amounts": {
+		"exert_amount": 1,
+		"immersion_amount": 1,
+	},
+	"linked_terms": [
+		"player_health",
+		"energy",
+	],
+}
+
 
 
 
@@ -1575,6 +1594,7 @@ const ENCOUNTER := [
 	MoreEnemyMasteries,
 	MoreEliteMasteries,
 	MoreNCEMasteries,
+	BossExert,
 ]
 
 const BOSS := [
