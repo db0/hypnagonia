@@ -7,15 +7,17 @@ func execute_scripts(
 		only_cost_check := false):
 	if is_active\
 			and effect_context == ArtifactDefinitions.EffectContext.BATTLE\
-			and trigger == "card_moved_to_hand"\
+			and trigger == "card_spawned"\
 			and trigger_card.get_property("Type") == "Perturbation":
 		print_debug(trigger_details)
 		var script = [
 			{
-				"name": "draw_cards",
-				"card_count": ArtifactDefinitions.SwiftPerturbations.amounts.draw_amount,
-				"tags": ["Curio"],
-			},
+				"name": "apply_effect",
+				"tags": ["Card"],
+				"effect_name": Terms.ACTIVE_EFFECTS.buffer.name,
+				"subject": "dreamer",
+				"modification": ArtifactDefinitions.BufferedSpawns.amounts.effect_stacks,
+			}
 		]
 		execute_script(script)
 

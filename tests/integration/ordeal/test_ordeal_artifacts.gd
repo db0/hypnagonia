@@ -1032,3 +1032,41 @@ class TestSwiftPerturbations:
 		hand.draw_card()
 		yield(yield_to(hand, "card_drawn", 1), YIELD)
 		assert_eq(hand.get_card_count(), 3)
+
+
+class TestBufferedSpawns:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.BufferedSpawns.canonical_name
+		expected_amount_keys = [
+			"effect_stacks",
+		]
+		test_card_names = [
+			'GUT',
+		]
+
+	func test_artifact_effect_on_non_perturbation():
+		if not assert_has_amounts():
+			return
+		card.scripts = SPAWN_CARD_SCRIPT
+		var sceng = execute_with_yield(card)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		yield(yield_to(artifact, "artifact_triggered", 2), YIELD)
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.buffer.name),
+				0,
+				"%s does not gives %s when non-perturbation card spawned" % [artifact.name, Terms.ACTIVE_EFFECTS.buffer.name])
+
+	func test_artifact_effect_on_spawned_perturbation():
+		if not assert_has_amounts():
+			return
+		var cs = SPAWN_CARD_SCRIPT.duplicate(true)
+		cs["manual"]["hand"][0]["card_name"] = "Lacuna"
+		card.scripts = cs
+		var sceng = execute_with_yield(card)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		yield(yield_to(artifact, "artifact_triggered", 2), YIELD)
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.buffer.name),
+				get_amount("effect_stacks"),
+				"%s gives %s when perturbation card spawned" % [artifact.name, Terms.ACTIVE_EFFECTS.buffer.name])

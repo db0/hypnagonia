@@ -1557,6 +1557,7 @@ const TAG := {
 		RandomForgottenCards,
 	],
 	Terms.GENERIC_TAGS.spawn.name: [
+		BufferedSpawns
 	],
 }
 
