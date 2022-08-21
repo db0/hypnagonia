@@ -8,7 +8,7 @@ class TestNormalFusion:
 		for iter in 4:
 			add_single_card('Cannon', deck)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(hand, "cards_fused", 3), YIELD)
+		yield(yield_to(scripting_bus, "cards_fused", 3), YIELD)
 		# Wait one more sec to allow cards to despawn
 		yield(yield_for(1), YIELD)
 		assert_true(hand.has_card_name("HiCannon"), "Cards should fuse")
@@ -20,7 +20,7 @@ class TestNormalFusion:
 		for iter in 4:
 			add_single_card('+ Cannon +', deck)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(hand, "cards_fused", 3), YIELD)
+		yield(yield_to(scripting_bus, "cards_fused", 3), YIELD)
 		# Wait one more sec to allow cards to despawn
 		yield(yield_for(1), YIELD)
 		assert_true(hand.has_card_name("+ HiCannon +"), "Cards should fuse to upgraded version")
@@ -34,7 +34,7 @@ class TestNormalFusion:
 		for iter in 1:
 			add_single_card('+ Cannon +', deck)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(hand, "cards_fused", 3), YIELD)
+		yield(yield_to(scripting_bus, "cards_fused", 3), YIELD)
 		# Wait one more sec to allow cards to despawn
 		yield(yield_for(1), YIELD)
 		assert_true(hand.has_card_name("HiCannon"), "Cards should fuse to normal version")
@@ -53,7 +53,7 @@ class TestUniversalComponent:
 			add_single_card('Cannon', deck)
 		add_single_card('Universal Component', deck)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(hand, "cards_fused", 3), YIELD)
+		yield(yield_to(scripting_bus, "cards_fused", 3), YIELD)
 		# Wait one more sec to allow cards to despawn
 		yield(yield_for(1), YIELD)
 		assert_true(hand.has_card_name("HiCannon"), "Cards should fuse")
@@ -67,7 +67,7 @@ class TestUniversalComponent:
 		for iter in 2:
 			add_single_card('Universal Component', deck)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(hand, "cards_fused", 3), YIELD)
+		yield(yield_to(scripting_bus, "cards_fused", 3), YIELD)
 		# Wait one more sec to allow cards to despawn
 		yield(yield_for(1), YIELD)
 		assert_true(hand.has_card_name("Fusion Grenade"), "Cards should fuse")
@@ -82,7 +82,7 @@ class TestUniversalComponent:
 			add_single_card('Cannon', hand)
 		add_single_card('Universal Component', deck)
 		hand.draw_card()
-		yield(yield_to(hand, "cards_fused", 3), YIELD)
+		yield(yield_to(scripting_bus, "cards_fused", 3), YIELD)
 		# Wait one more sec to allow cards to despawn
 		assert_true(hand.has_card_name("HiCannon"), "Cards should fuse")
 		assert_eq(hand.get_card_count(), 2, "Old cards removed")
@@ -96,7 +96,7 @@ class TestUniversalComponent:
 			add_single_card('Photon Shield', hand)
 		add_single_card('! Universal Component !', deck)
 		hand.draw_card()
-		yield(yield_to(hand, "cards_fused", 3), YIELD)
+		yield(yield_to(scripting_bus, "cards_fused", 3), YIELD)
 		# Wait one more sec to allow cards to despawn
 		assert_true(hand.has_card_name("Lumen Shield"), "Cards should fuse")
 		assert_eq(hand.get_card_count(), 4, "Old cards removed")
@@ -111,4 +111,4 @@ class TestUniversalComponent:
 		yield(yield_to(scripting_bus, "player_turn_started",3), YIELD)
 		# Wait one more sec to allow cards to despawn
 		yield(yield_for(1), YIELD)
-		assert_signal_not_emitted(hand,"cards_fused")
+		assert_signal_not_emitted(scripting_bus, "cards_fused")

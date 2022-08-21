@@ -95,7 +95,7 @@ func repress() -> void:
 # and increases the released pathos by the same amount
 func release(amount: float) -> void:
 	if amount <= 0:
-		printerr("ERROR: release_pathos() only takes a positive integer")
+#		printerr("ERROR: release_pathos() only takes a positive integer")
 		return
 	# if we try to repress more than we have, we repress only as much as we have
 	if amount > repressed:

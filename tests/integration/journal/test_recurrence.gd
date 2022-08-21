@@ -11,7 +11,7 @@ class TestNCE:
 		assert_has(cfc.NMAP, "board")
 		if not cfc.NMAP.has("board"):
 			return
-		yield(yield_to(EventBus, "battle_begun", 2), YIELD)
+		yield(yield_to(scripting_bus, "battle_begun", 2), YIELD)
 		watch_signals(globals.encounters.run_changes)
 		watch_signals(globals.player)
 		var recurrence
@@ -60,7 +60,7 @@ class TestNCE:
 		assert_has(cfc.NMAP, "board")
 		if not cfc.NMAP.has("board"):
 			return
-		yield(yield_to(EventBus, "battle_begun", 2), YIELD)
+		yield(yield_to(scripting_bus, "battle_begun", 2), YIELD)
 		watch_signals(globals.encounters.run_changes)
 		watch_signals(globals.player)
 		end_surprise_encounter()
@@ -84,7 +84,7 @@ class TestNCE:
 		assert_has(cfc.NMAP, "board")
 		if not cfc.NMAP.has("board"):
 			return
-		yield(yield_to(EventBus, "battle_begun", 2), YIELD)
+		yield(yield_to(scripting_bus, "battle_begun", 2), YIELD)
 		board = cfc.NMAP.board
 		hand = cfc.NMAP.hand
 		deck = cfc.NMAP.deck
