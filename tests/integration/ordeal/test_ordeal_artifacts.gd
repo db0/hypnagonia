@@ -1071,10 +1071,51 @@ class TestBossExert:
 	func test_artifact_effect():
 		if not assert_has_amounts():
 			return
-		gut.p(get_amount("exert_amount"))
 		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion on first turn")
 		assert_eq(dreamer.damage, get_amount("exert_amount"), "Dreamer gets 1 anxiety on first turn")
 		turn.call_deferred("end_player_turn")
 		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion per turn")
 		assert_eq(dreamer.damage, get_amount("exert_amount") * 2, "Dreamer gets 1 anxiety per turn")
+
+
+class TestBossRandomDiscount:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.BossRandomDiscount.canonical_name
+		pre_init_artifacts.append(testing_artifact_name)
+		expected_amount_keys = [
+			"immersion_amount",
+		]
+		test_card_names = [
+			'Confidence',
+			'GUT',
+			'Confrontation',
+			'Lacuna',
+		]
+
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
+		assert_signal_emit_count(scripting_bus, "card_properties_modified", 1)
+		var comp_dict =  {
+			  "immersion_amount": 3,
+			  "new_property_value": "-1",
+			  "previous_property_value":  1,
+			  "property_name": "Cost",
+			  "tags": ["Scripted", "Curio"],
+		  }
+		assert_signal_emitted_with_parameters(scripting_bus, "card_properties_modified", [card,comp_dict])
+		assert_eq(card.get_property('Cost'), 0, "Card's Cost reduced to 0")
+		var sceng = execute_with_yield(card)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		yield(yield_to(scripting_bus,"card_properties_modified", 1), YIELD)
+		assert_eq(card.get_property('Cost'), 1, "Card's Cost reset")
+		assert_signal_emit_count(scripting_bus, "card_properties_modified", 2)
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
+		assert_signal_emit_count(scripting_bus, "card_properties_modified", 3)

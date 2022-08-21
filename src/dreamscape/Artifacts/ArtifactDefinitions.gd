@@ -1449,6 +1449,21 @@ const BossExert := {
 	],
 }
 
+const BossRandomDiscount := {
+	"canonical_name": "BossRandomDiscount",
+	"name": "Adorable parasite",
+	"description": "{artifact_name}: At the start of your turn, decrease the cost of a random card in your hand by {immersion_amount} until played.",
+	"icon": GENERIC_BOSS_ARTIFACT_ICON,
+	"context": EffectContext.BATTLE,
+	"rarity": "Boss",
+	"amounts": {
+		"immersion_amount": 1,
+	},
+	"linked_terms": [
+		"energy",
+	],
+}
+
 
 
 
@@ -1594,7 +1609,6 @@ const ENCOUNTER := [
 	MoreEnemyMasteries,
 	MoreEliteMasteries,
 	MoreNCEMasteries,
-	BossExert,
 ]
 
 const BOSS := [
@@ -1610,6 +1624,8 @@ const BOSS := [
 	CostlyUpgrades,
 	NoSmith,
 	CursedCurios,
+	BossExert,
+	BossRandomDiscount,
 ]
 
 
