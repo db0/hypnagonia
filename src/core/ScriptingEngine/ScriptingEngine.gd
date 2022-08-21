@@ -447,6 +447,7 @@ func spawn_card(script: ScriptTask) -> void:
 	var alteration = 0
 	var canonical_name: String = script.get_property(SP.KEY_CARD_NAME)
 	var grid_name: String = script.get_property(SP.KEY_GRID_NAME)
+	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
 	if str(script.get_property(SP.KEY_OBJECT_COUNT)) == SP.VALUE_RETRIEVE_INTEGER:
 		count = stored_integer
 		if script.get_property(SP.KEY_IS_INVERTED):
@@ -484,6 +485,7 @@ func spawn_card(script: ScriptTask) -> void:
 					slot.occupying_card = card
 					card.state = Card.CardState.ON_PLAY_BOARD
 					spawned_cards.append(card)
+					scripting_bus.emit_signal("card_spawned", card, {"tags": tags})
 	else:
 		for iter in range(count + alteration):
 			card = cfc.instance_card(canonical_name)
@@ -497,6 +499,7 @@ func spawn_card(script: ScriptTask) -> void:
 			card.state = Card.CardState.ON_PLAY_BOARD
 			card.set_to_idle()
 			spawned_cards.append(card)
+			scripting_bus.emit_signal("card_spawned", card, {"tags": tags})
 	# We set the spawned cards as the subjects, so that they can be
 	# used by other followup scripts
 	script.subjects = spawned_cards
@@ -522,6 +525,7 @@ func spawn_card_to_container(script: ScriptTask) -> void:
 	var alteration = 0
 	var canonical_name = script.get_property(SP.KEY_CARD_NAME)
 	var card_filters = script.get_property(SP.KEY_CARD_FILTERS)
+	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
 	if card_filters:
 		var selection_amount = script.get_property(SP.KEY_SELECTION_CHOICES_AMOUNT)
 		var compiled_filters := []
@@ -591,6 +595,7 @@ func spawn_card_to_container(script: ScriptTask) -> void:
 		else:
 			dest_container.add_child(card)
 			card.set_to_idle()
+			scripting_bus.emit_signal("card_spawned", card, {"tags": tags})
 		# We set the drawn cards as the subjects, so that they can be
 		# used by other followup scripts
 		var yield_time = script.get_property(SP.KEY_YIELD_TIME)

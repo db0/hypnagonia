@@ -31,6 +31,9 @@ signal card_unattached(card,details)
 # Emited whenever a card properties are modified
 # warning-ignore:unused_signal
 signal card_properties_modified(card,details)
+# Emited whenever a new card has finished being added to the gane through the scripting engine
+# warning-ignore:unused_signal
+signal card_spawned(card,details)
 # Emited whenever a card is targeted by another card.
 # This signal is not fired by this card directly like all the others, 
 # but instead by  the card doing the targeting.
@@ -43,6 +46,7 @@ signal shuffle_completed(card_container,details)
 
 
 # This signal is not triggerring init_scripting_event() 
+# It is used to trigger the execute_scripts functions on the various scriptable objects
 signal scripting_event_triggered(trigger_card, trigger, details)
 
 func _ready():

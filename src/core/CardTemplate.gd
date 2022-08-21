@@ -2629,6 +2629,7 @@ func _process_card_state() -> void:
 				yield(_tween, "tween_all_completed")
 				_tween_stuck_time = 0
 				move_to(spawn_destination, -1, null, ["Scripted", "Spawned"])
+				scripting_bus.emit_signal("card_spawned", self, {"tags": ["Scripted", "Spawned"]})
 				spawn_destination = null
 
 

@@ -9,8 +9,6 @@ enum ExtendedCardState {
 	SPAWNED_PERTURBATION
 }
 
-# We use that to avoid going through the scripting_bus when we want to hook to this signal on self
-signal card_played
 
 var shader_progress := 1.0
 var attempted_action_drop_to_board := false
@@ -230,7 +228,6 @@ func common_post_move_scripts(new_container: String, old_container: String, tags
 					"tags": tags
 				}
 		)
-		emit_signal("card_played")
 
 
 func get_modified_immersion_cost() -> Dictionary:
@@ -411,7 +408,6 @@ func remove_from_deck(permanent := true, tags := []) -> void:
 					"tags": tags
 				}
 		)
-		emit_signal("card_played")
 #	card_front.apply_shader("res://shaders/consume.shader")
 	card_front.material = preload("res://shaders/dissolve.tres")
 #	card_front.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
@@ -478,7 +474,7 @@ func enable_rider(rider: String) -> void:
 		# Resets the card's cost to its printed value after being played.
 		"reset_cost_after_play":
 			# warning-ignore:return_value_discarded
-			connect("card_played", self, "_on_self_played")
+			scripting_bus.connect("card_played", self, "_on_self_played")
 
 
 func connect_card_entry(card_entry) -> void:
@@ -497,7 +493,9 @@ func set_state(value: int) -> void:
 	.set_state(value)
 
 
-func _on_self_played(_card,_trigger,_details) -> void:
+func _on_self_played(card, _details) -> void:
+	if card != self:
+		return
 	if "reset_cost_after_play" in enabled_riders:
 		# warning-ignore:return_value_discarded
 		modify_property("Cost", printed_properties['Cost'])
