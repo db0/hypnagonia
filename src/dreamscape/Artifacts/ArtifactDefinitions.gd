@@ -1417,7 +1417,7 @@ const HealThickDecks := {
 
 const BufferedSpawns := {
 	"canonical_name": "BufferedSpawns",
-	"name": "Swift Perturbations",
+	"name": "Fascinating Spawning",
 	"description": "{artifact_name}: Whenever any card is spawned in the game during an ordeal, gain {effect_stacks} {buffer}",
 	"icon": preload("res://assets/icons/artifacts/rose.png"),
 	"context": EffectContext.BATTLE,

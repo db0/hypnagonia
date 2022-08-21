@@ -13,7 +13,7 @@ class TestNormalFusion:
 		yield(yield_for(1), YIELD)
 		assert_true(hand.has_card_name("HiCannon"), "Cards should fuse")
 		assert_eq(hand.get_card_count(), 2, "Old cards removed")
-		assert_signal_emit_count(hand, "cards_fused", 2)
+		assert_signal_emit_count(scripting_bus, "cards_fused", 2)
 
 	func test_upgraded_fusion():
 		watch_signals(hand)
@@ -25,7 +25,7 @@ class TestNormalFusion:
 		yield(yield_for(1), YIELD)
 		assert_true(hand.has_card_name("+ HiCannon +"), "Cards should fuse to upgraded version")
 		assert_eq(hand.get_card_count(), 2, "Old cards removed")
-		assert_signal_emit_count(hand, "cards_fused", 2)
+		assert_signal_emit_count(scripting_bus, "cards_fused", 2)
 
 	func test_half_upgraded_fusion():
 		watch_signals(hand)
@@ -39,7 +39,7 @@ class TestNormalFusion:
 		yield(yield_for(1), YIELD)
 		assert_true(hand.has_card_name("HiCannon"), "Cards should fuse to normal version")
 		assert_eq(hand.get_card_count(), 1, "Old cards removed")
-		assert_signal_emit_count(hand, "cards_fused", 1)
+		assert_signal_emit_count(scripting_bus, "cards_fused", 1)
 
 class TestUniversalComponent:
 	extends "res://tests/HUT_Ordeal_GenericTestClass.gd"
@@ -60,7 +60,7 @@ class TestUniversalComponent:
 		assert_eq(hand.get_card_count(), 4, "Old cards removed")
 		assert_eq(counters.get_counter("immersion"), 4,
 				"Immersion increased by Universal Component")
-		assert_signal_emit_count(hand, "cards_fused", 2)
+		assert_signal_emit_count(scripting_bus, "cards_fused", 2)
 
 	func test_double_uc():
 		watch_signals(hand)
@@ -74,7 +74,7 @@ class TestUniversalComponent:
 		assert_eq(hand.get_card_count(), 6, "Old cards removed")
 		assert_eq(counters.get_counter("immersion"), 5,
 				"Immersion increased by Universal Component")
-		assert_signal_emit_count(hand, "cards_fused", 1)
+		assert_signal_emit_count(scripting_bus, "cards_fused", 1)
 
 	func test_single_uc_drawn_during_turn():
 		watch_signals(hand)
@@ -88,7 +88,7 @@ class TestUniversalComponent:
 		assert_eq(hand.get_card_count(), 2, "Old cards removed")
 		assert_eq(counters.get_counter("immersion"), 4,
 				"Immersion increased by Universal Component")
-		assert_signal_emit_count(hand, "cards_fused", 1)
+		assert_signal_emit_count(scripting_bus, "cards_fused", 1)
 
 	func test_upgraded_uc_drawn_during_turn():
 		watch_signals(hand)
@@ -102,7 +102,7 @@ class TestUniversalComponent:
 		assert_eq(hand.get_card_count(), 4, "Old cards removed")
 		assert_eq(counters.get_counter("immersion"), 4,
 				"Immersion increased by Universal Component")
-		assert_signal_emit_count(hand, "cards_fused", 1)
+		assert_signal_emit_count(scripting_bus, "cards_fused", 1)
 
 	func test_single_uc_with_normal_cards():
 		watch_signals(hand)

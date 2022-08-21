@@ -90,7 +90,7 @@ class TestRounds:
 		assert_eq(deck.get_card_count(), 2, "Cards taken from deck")
 		assert_eq(forgotten.get_card_count(), 0, "Nothing automatically forgotten")
 		for turn_signal in turn.ALL_SIGNALS:
-			assert_signal_emitted(turn, turn_signal, "All turn signals emited")
+			assert_signal_emitted(scripting_bus, turn_signal, "All turn signals emited")
 		assert_eq(turn.current_turn, turn.Turns.PLAYER_TURN, "Turn returns on player's")
 		for t in test_torments:
 			assert_signal_emit_count(t, "started_activation", 1)	
