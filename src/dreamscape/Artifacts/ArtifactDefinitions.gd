@@ -22,9 +22,9 @@ const GENERIC_BOSS_ARTIFACT_ICON = preload("res://assets/icons/artifacts/boss-ke
 
 const MaxHealth := {
 	"canonical_name": "MaxHealth",
-	"name": "Stress ball",
+	"name": "Stressy",
 	"description": "{artifact_name}: max {anxiety} inreased by {health_amount}",
-	"icon": preload("res://assets/icons/artifacts/ball-heart.png"),
+	"icon": preload("res://assets/icons/plushies/Stress Ball.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -37,9 +37,9 @@ const MaxHealth := {
 
 const StartingHeal := {
 	"canonical_name": "StartingHeal",
-	"name": "Hot water bottle",
+	"name": "Hemlock",
 	"description": "{artifact_name}: At the start of each Ordeal, {relax} for {heal_amount}.",
-	"icon": preload("res://assets/icons/artifacts/water-flask.png"),
+	"icon": preload("res://assets/icons/plushies/Hemlock.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Common",
 	"amounts": {
@@ -52,9 +52,9 @@ const StartingHeal := {
 
 const EndingHeal := {
 	"canonical_name": "EndingHeal",
-	"name": "Coffee beans",
+	"name": "Hypnos",
 	"description": "{artifact_name}: At the end of each Ordeal, {relax} for {heal_amount}.",
-	"icon": preload("res://assets/icons/artifacts/coffee-beans.png"),
+	"icon": preload("res://assets/icons/plushies/Hypnos.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Starting",
 	"amounts": {
@@ -67,9 +67,9 @@ const EndingHeal := {
 
 const FirstPowerAttack := {
 	"canonical_name": "FirstPowerAttack",
-	"name": "Rosetta stone",
+	"name": "Rosetta",
 	"description": "{artifact_name}: Your first {attack} each encounter is increased by {effect_amount}",
-	"icon": preload("res://assets/icons/artifacts/stone-tablet.png"),
+	"icon": preload("res://assets/icons/plushies/Rosetta.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Common",
 	"amounts": {
@@ -83,9 +83,9 @@ const FirstPowerAttack := {
 
 const StartingCards := {
 	"canonical_name": "StartingCards",
-	"name": "Knapsack",
+	"name": "Bagsy",
 	"description": "{artifact_name}: At the start of each Ordeal, draw {draw_amount} cards.",
-	"icon": preload("res://assets/icons/artifacts/knapsack.png"),
+	"icon": preload("res://assets/icons/plushies/Bagsy.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Common",
 	"amounts": {
@@ -96,10 +96,10 @@ const StartingCards := {
 
 const RepressedEnemyBuff := {
 	"canonical_name": "RepressedEnemyBuff",
-	"name": "Fruscination",
+	"name": "Fruscinator",
 	"description": "{artifact_name}: At the start of each Ordeal,"\
 		+ " Gain {effect_stacks} {buffer} for each {mastery_amount} Frustration Mastery you have.",
-	"icon": GENERIC_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/plushies/Fruscination.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -114,7 +114,7 @@ const RepressedEnemyBuff := {
 
 const StartingImmersion := {
 	"canonical_name": "StartingImmersion",
-	"name": "Tiny coala friend",
+	"name": "Jojo",
 	"description": "{artifact_name}: At the start of each Ordeal, gain {immersion_amount} {energy}.",
 	"icon": preload("res://assets/icons/artifacts/koala.png"),
 	"context": EffectContext.BATTLE,
@@ -130,9 +130,9 @@ const StartingImmersion := {
 
 const StartingStrength := {
 	"canonical_name": "StartingStrength",
-	"name": "Mechanical eyeball",
+	"name": "Eyeballer",
 	"description": "{artifact_name}: At the start of each Ordeal, gain {effect_stacks} {strengthen}.",
-	"icon": preload("res://assets/icons/artifacts/eyeball.png"),
+	"icon": preload("res://assets/icons/plushies/Eyeballer.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Common",
 	"amounts": {
@@ -146,9 +146,9 @@ const StartingStrength := {
 
 const StartingThorns := {
 	"canonical_name": "StartingThorns",
-	"name": "Crown of thorns",
+	"name": "Crownie",
 	"description": "{artifact_name}: At the start of each Ordeal, gain {effect_stacks} {thorns}.",
-	"icon": preload("res://assets/icons/artifacts/crown-of-thorns.png"),
+	"icon": preload("res://assets/icons/plushies/Crownie.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Common",
 	"amounts": {
@@ -162,9 +162,9 @@ const StartingThorns := {
 
 const StartingConfidence := {
 	"canonical_name": "StartingConfidence",
-	"name": "Epic mustache",
+	"name": "Mr.Mustache",
 	"description": "{artifact_name}: At the start of each Ordeal, gain {defence_amount} {defence}.",
-	"icon": preload("res://assets/icons/artifacts/mustache.png"),
+	"icon": preload("res://assets/icons/plushies/MrMustache.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Common",
 	"amounts": {
@@ -178,10 +178,10 @@ const StartingConfidence := {
 
 const ThickImmersion := {
 	"canonical_name": "ThickImmersion",
-	"name": "Weighted blanket",
+	"name": "Capuccino",
 	"description": "{artifact_name}: At that start of each Ordeal turn, gain {immersion_amount} {energy}. "\
 		+ "This effects ends when your deck is reshuffled and you gain {effect_stacks} {vulnerable}.",
-	"icon": GENERIC_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/plushies/Cappuccino.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -197,10 +197,10 @@ const ThickImmersion := {
 
 const ThickStrength := {
 	"canonical_name": "ThickStrength",
-	"name": "Extending eye",
+	"name": "Sneyel",
 	"description": "{artifact_name}: At that start of each Ordeal turn, gain {effect_stacks} {strengthen}. "\
 		+ "This effects and all added {strengthen} ends when your deck is reshuffled.",
-	"icon": preload("res://assets/icons/artifacts/eyestalk.png"),
+	"icon": preload("res://assets/icons/plushies/Sneyel.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -214,9 +214,9 @@ const ThickStrength := {
 
 const UpgradedAction := {
 	"canonical_name": "UpgradedAction",
-	"name": "Flashlight",
+	"name": "Gaius",
 	"description": "{artifact_name}: {action} cards added to your deck receive {progress_amount} progress.",
-	"icon": preload("res://assets/icons/artifacts/flashlight.png"),
+	"icon": preload("res://assets/icons/plushies/Gaius.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -227,9 +227,9 @@ const UpgradedAction := {
 
 const UpgradedControl := {
 	"canonical_name": "UpgradedControl",
-	"name": "Candle",
+	"name": "Arimus",
 	"description": "{artifact_name}: {control} cards added to your deck receive {progress_amount} progress.",
-	"icon": preload("res://assets/icons/artifacts/candle-light.png"),
+	"icon": preload("res://assets/icons/plushies/Arimus.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -240,9 +240,9 @@ const UpgradedControl := {
 
 const UpgradedUnderstanding := {
 	"canonical_name": "UpgradedUnderstanding",
-	"name": "Laser pointer",
+	"name": "Emine",
 	"description": "{artifact_name}: {understanding} cards added to your deck receive {progress_amount} progress.",
-	"icon": preload("res://assets/icons/artifacts/target-laser.png"),
+	"icon": preload("res://assets/icons/plushies/Emine.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -253,9 +253,9 @@ const UpgradedUnderstanding := {
 
 const UpgradedConcentration := {
 	"canonical_name": "UpgradedConcentration",
-	"name": "Lantern",
+	"name": "Evelyn",
 	"description": "{artifact_name}: {concentration} cards added to your deck receive {progress_amount} progress.",
-	"icon": preload("res://assets/icons/artifacts/old-lantern.png"),
+	"icon": preload("res://assets/icons/plushies/Evelyn.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -266,10 +266,10 @@ const UpgradedConcentration := {
 
 const ThinCardDraw := {
 	"canonical_name": "ThinCardDraw",
-	"name": "Light backpack",
+	"name": "Packer",
 	"description": "{artifact_name}: Every time you reshuffle the deck, draw {draw_amount} card.\n"\
 			+ "This effect stops for the turn after you draw the same card two times.",
-	"icon": preload("res://assets/icons/artifacts/light-backpack.png"),
+	"icon": preload("res://assets/icons/plushies/Packer.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -280,9 +280,9 @@ const ThinCardDraw := {
 
 const ResistDisempower := {
 	"canonical_name": "ResistDisempower",
-	"name": "An unblinking eye",
+	"name": "Cyclops",
 	"description": "{artifact_name}: You cannot receive {disempower} anymore.",
-	"icon": GENERIC_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/plushies/Cyclops.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Rare",
 	"linked_terms": [
@@ -293,9 +293,9 @@ const ResistDisempower := {
 
 const ResistPoison := {
 	"canonical_name": "ResistPoison",
-	"name": "Encyclopedia",
+	"name": "Enycloworm",
 	"description": "{artifact_name}: Any time you would receive {poison} reduce it by {alteration_amount}.",
-	"icon": preload("res://assets/icons/artifacts/book-pile.png"),
+	"icon": preload("res://assets/icons/plushies/Enycloworm.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -309,9 +309,9 @@ const ResistPoison := {
 
 const ResistBurn := {
 	"canonical_name": "ResistBurn",
-	"name": "Secret garden",
+	"name": "Lil' Sprout",
 	"description": "{artifact_name}: Any time you would receive {burn} reduce it by {alteration_amount}.",
-	"icon": GENERIC_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/plushies/LilSprout.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -325,9 +325,9 @@ const ResistBurn := {
 
 const ResistVulnerable := {
 	"canonical_name": "ResistVulnerable",
-	"name": "Concrete shoes",
+	"name": "Nereas",
 	"description": "{artifact_name}: You cannot receive {vulnerable} anymore.",
-	"icon": GENERIC_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/plushies/Nereas.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Rare",
 	"linked_terms": [
@@ -338,9 +338,9 @@ const ResistVulnerable := {
 
 const ImproveThorns := {
 	"canonical_name": "ImproveThorns",
-	"name": "White rose",
+	"name": "Ju-On",
 	"description": "{artifact_name}: Any time you would gain {thorns}, gain {alteration_amount} more.",
-	"icon": preload("res://assets/icons/artifacts/rose.png"),
+	"icon": preload("res://assets/icons/plushies/Ju-On.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -354,9 +354,9 @@ const ImproveThorns := {
 
 const ImprovePoison := {
 	"canonical_name": "ImprovePoison",
-	"name": "The crushing weight of normality",
+	"name": "Theo",
 	"description": "{artifact_name}: Any time you would inflict {poison}, inflict {alteration_amount} more.",
-	"icon": GENERIC_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/plushies/Theo.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -370,9 +370,9 @@ const ImprovePoison := {
 
 const ImproveBurn := {
 	"canonical_name": "ImproveBurn",
-	"name": "Fancy lipstick",
+	"name": "Isabelle",
 	"description": "{artifact_name}: Any time you would inflict {burn}, inflict {alteration_amount} more.",
-	"icon": preload("res://assets/icons/artifacts/lipstick.png"),
+	"icon": preload("res://assets/icons/plushies/Isabelle.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -386,10 +386,10 @@ const ImproveBurn := {
 
 const ThickExplosion := {
 	"canonical_name": "ThickExplosion",
-	"name": "Clockwork bomb",
+	"name": "Tick-Tock",
 	"description": "{artifact_name}: The first time you reshuffle your deck because it run out of cards, "\
 		+ "{attack} all torments for an amount equal to your discard pile size.",
-	"icon": GENERIC_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/plushies/Tick-Tock.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Rare",
 	"linked_terms": [
@@ -400,9 +400,9 @@ const ThickExplosion := {
 
 const AccumulateEnemy := {
 	"canonical_name": "AccumulateEnemy",
-	"name": "Repressed frustration",
+	"name": "Fred",
 	"description": "{artifact_name}: Increase your repressed Frustration. {relax} for {heal_amount}",
-	"icon": GENERIC_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/plushies/Fred.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"amounts": {
@@ -415,9 +415,9 @@ const AccumulateEnemy := {
 }
 const AccumulateRest := {
 	"canonical_name": "AccumulateRest",
-	"name": "Repressed lethargy",
+	"name": "Flouncer",
 	"description": "{artifact_name}: Increase your repressed Lethargy",
-	"icon": GENERIC_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/plushies/Flouncer.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"amounts": {
@@ -426,10 +426,10 @@ const AccumulateRest := {
 }
 const AccumulateNCE := {
 	"canonical_name": "AccumulateNCE",
-	"name": "Repressed curiosity",
+	"name": "Mcarthy",
 	"description": "{artifact_name}: Increase your repressed Curiosity"\
 			+ "Increase max {anxiety} by {anxiety_amount}",
-	"icon": GENERIC_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/plushies/Mcarthy.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"amounts": {
@@ -439,9 +439,9 @@ const AccumulateNCE := {
 }
 const AccumulateShop := {
 	"canonical_name": "AccumulateShop",
-	"name": "Repress loneliness",
+	"name": "Sam",
 	"description": "{artifact_name}: Increase your repressed Loneliness",
-	"icon": GENERIC_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/plushies/Sam.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"amounts": {
@@ -450,10 +450,10 @@ const AccumulateShop := {
 }
 const AccumulateElite := {
 	"canonical_name": "AccumulateElite",
-	"name": "Repressed foreboding",
+	"name": "Omen",
 	"description": "{artifact_name}: Increase your repressed Foreboding."\
 			+ "Increase max {anxiety} by {anxiety_amount}",
-	"icon": GENERIC_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/plushies/Omen.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"amounts": {
@@ -463,9 +463,9 @@ const AccumulateElite := {
 }
 const AccumulateArtifact := {
 	"canonical_name": "AccumulateArtifact",
-	"name": "Repressed desire",
+	"name": "Romeo",
 	"description": "{artifact_name}: Increase your repressed Desire",
-	"icon": preload("res://assets/icons/artifacts/Repressed Desire.png"),
+	"icon": preload("res://assets/icons/plushies/Romeo.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"amounts": {
@@ -475,9 +475,9 @@ const AccumulateArtifact := {
 
 const PowerHeal := {
 	"canonical_name": "PowerHeal",
-	"name": "White noise machine",
+	"name": "Crackle",
 	"description": "{artifact_name}: Whenever you play a {power_card}, {relax} for {healing_amount}.",
-	"icon": preload("res://assets/icons/artifacts/nested-hearts.png"),
+	"icon": preload("res://assets/icons/plushies/Crackle.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Rare",
 	"amounts": {
@@ -490,9 +490,9 @@ const PowerHeal := {
 
 const PerturbationHeal := {
 	"canonical_name": "PerturbationHeal",
-	"name": "A taste for liquorice",
+	"name": "Sweeney",
 	"description": "{artifact_name}: At the start of each Ordeal, {relax} for {heal_amount} per {condition_card} in your draw pile.",
-	"icon": preload("res://assets/icons/artifacts/pretzel.png"),
+	"icon": preload("res://assets/icons/plushies/Sweeney.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Common",
 	"amounts": {
@@ -505,9 +505,9 @@ const PerturbationHeal := {
 
 const ImproveImpervious := {
 	"canonical_name": "ImproveImpervious",
-	"name": "Pet eel",
+	"name": "Anguilla",
 	"description": "{artifact_name}: {impervious} {stress} reduction on the dreamer is increased by 3% per stack.",
-	"icon": preload("res://assets/icons/artifacts/Pet Eel.png"),
+	"icon": preload("res://assets/icons/plushies/Anguilla.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -522,7 +522,7 @@ const ImproveFortify := {
 	"canonical_name": "ImproveFortify",
 	"name": "Ataraxia",
 	"description": "{artifact_name}: Whenever you lose {fortify}, gain that twice that many stacks {armor}.",
-	"icon": GENERIC_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/plushies/Ataraxia.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
 	"linked_terms": [
@@ -542,9 +542,9 @@ const PorcelainDoll := {
 
 const RedWave := {
 	"canonical_name": "RedWave",
-	"name": "Inquisite vibes",
+	"name": "Gage",
 	"description": "{artifact_name}: At the start of your turn, if your hand has {threshold}+ {attack_card} cards, gain {defence_amount} {defence}",
-	"icon": preload("res://assets/icons/artifacts/waves_red.png"),
+	"icon": preload("res://assets/icons/plushies/Gage.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Common",
 	"amounts": {
@@ -558,10 +558,10 @@ const RedWave := {
 
 const BlueWave := {
 	"canonical_name": "BlueWave",
-	"name": "Cool vibes",
+	"name": "Azure",
 	"description": "{artifact_name}: At the start of your turn, if your hand has {threshold}+ {skill_card} cards, {attack} all Torments for {damage_amount}.",
 	"icon": preload("res://assets/icons/artifacts/waves_blue.png"),
-	"context": EffectContext.BATTLE,
+	"context": preload("res://assets/icons/plushies/Azure.png"),
 	"rarity": "Common",
 	"amounts": {
 		"threshold": 4,
@@ -574,9 +574,9 @@ const BlueWave := {
 
 const PurpleWave := {
 	"canonical_name": "PurpleWave",
-	"name": "Chill vibes",
+	"name": "Serene",
 	"description": "{artifact_name}: At the start of your turn, if your hand has {threshold}+ {understanding_card} cards, {relax} for {heal_amount}.",
-	"icon": preload("res://assets/icons/artifacts/waves_purple.png"),
+	"icon": preload("res://assets/icons/plushies/Serene.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Common",
 	"amounts": {
@@ -590,10 +590,10 @@ const PurpleWave := {
 
 const ProgressiveImmersion := {
 	"canonical_name": "ProgressiveImmersion",
-	"name": "Glass tower",
+	"name": "Macchiato",
 	"description": "{artifact_name}: You have {immersion_amount} extra {energy} per turn.\n"\
 			+ "You cannot progress cards by playing them during ordeals anymore.",
-	"icon": GENERIC_BOSS_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/plushies/Macchiato.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Boss",
 	"amounts": {
@@ -606,9 +606,9 @@ const ProgressiveImmersion := {
 
 const BossCardDraw := {
 	"canonical_name": "BossCardDraw",
-	"name": "Squishy brain toy",
+	"name": "Brains",
 	"description": "{artifact_name}: Draw {draw_amount} card at the start of each turn",
-	"icon": GENERIC_BOSS_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/plushies/Brains.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Boss",
 	"amounts": {
@@ -618,10 +618,10 @@ const BossCardDraw := {
 
 const RandomUpgrades := {
 	"canonical_name": "RandomUpgrades",
-	"name": "20-sided die",
+	"name": "Lucky",
 	"description": "{artifact_name}: You have {immersion_amount} extra {energy} per turn.\n"\
 			+ "Your card upgrades are chosen randomly.",
-	"icon": preload("res://assets/icons/artifacts/dice-twenty-faces-twenty.png"),
+	"icon": preload("res://assets/icons/plushies/Lucky.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Boss",
 	"amounts": {
@@ -634,9 +634,9 @@ const RandomUpgrades := {
 
 const BetterRareChance := {
 	"canonical_name": "BetterRareChance",
-	"name": "The gruyere of insight",
+	"name": "Gru",
 	"description": "{artifact_name}: Your chance of finding Rare cards is doubled.",
-	"icon": preload("res://assets/icons/artifacts/cheese-wedge.png"),
+	"icon": preload("res://assets/icons/plushies/Gru.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Encounter",
 	"amounts": {
@@ -646,10 +646,10 @@ const BetterRareChance := {
 
 const BossDraft := {
 	"canonical_name": "BossDraft",
-	"name": "Cool draft beer",
+	"name": "Beear",
 	"description": "{artifact_name}: Choose one of your archetypes. "\
 			+ "Get {draft_amount} card draft choices from it. They all start with {progress_amount} progress.",
-	"icon": preload("res://assets/icons/artifacts/beer-stein.png"),
+	"icon": preload("res://assets/icons/plushies/Beear.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Boss",
 	"amounts": {
@@ -660,9 +660,9 @@ const BossDraft := {
 
 const FreeCard := {
 	"canonical_name": "FreeCard",
-	"name": "A nice warm meal",
+	"name": "Des",
 	"description": "{artifact_name}: A random card in your deck, costing 1 or more {energy}, becomes free.",
-	"icon": preload("res://assets/icons/artifacts/camp-cooking-pot.png"),
+	"icon": preload("res://assets/icons/plushies/Des.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"linked_terms": [
@@ -672,9 +672,9 @@ const FreeCard := {
 
 const AddAlphaTag := {
 	"canonical_name": "AddAlphaTag",
-	"name": "Crystal ball",
+	"name": "Alfa",
 	"description": "{artifact_name}: Choose a card in your deck. It gains {alpha}.",
-	"icon": preload("res://assets/icons/artifacts/crystal-ball.png"),
+	"icon": preload("res://assets/icons/plushies/Alfa.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
 	"linked_terms": [
@@ -684,9 +684,9 @@ const AddAlphaTag := {
 
 const AddOmegaTag := {
 	"canonical_name": "AddOmegaTag",
-	"name": "Jigsaw piece",
+	"name": "Omegus",
 	"description": "{artifact_name}: Choose a card in your deck. It gains {omega}.",
-	"icon": preload("res://assets/icons/artifacts/jigsaw-piece.png"),
+	"icon": preload("res://assets/icons/plushies/Omegus.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
 	"linked_terms": [
@@ -696,9 +696,9 @@ const AddOmegaTag := {
 
 const AddFrozenTag := {
 	"canonical_name": "AddFrozenTag",
-	"name": "Earworm",
+	"name": "Numb",
 	"description": "{artifact_name}: Choose a card in your deck. It gains {frozen}.",
-	"icon": preload("res://assets/icons/artifacts/leeching-worm.png"),
+	"icon": preload("res://assets/icons/plushies/Numb.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Rare",
 	"linked_terms": [
@@ -708,9 +708,9 @@ const AddFrozenTag := {
 
 const IncreaseRandomDamage := {
 	"canonical_name": "IncreaseRandomDamage",
-	"name": "Masterwork looking glass",
+	"name": "Mage",
 	"description": "{artifact_name}: A random card doing {attack} in your deck, will increase its {attack} by 1.",
-	"icon": preload("res://assets/icons/artifacts/Masterwork Looking Glass.png"),
+	"icon": preload("res://assets/icons/plushies/Mage.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"linked_terms": [
@@ -720,9 +720,9 @@ const IncreaseRandomDamage := {
 
 const IncreaseRandomDefence := {
 	"canonical_name": "IncreaseRandomDefence",
-	"name": "Fancy nail coat",
+	"name": "Snek",
 	"description": "{artifact_name}: A random card giving {defence} in your deck, will increase its {defence} by 1.",
-	"icon": preload("res://assets/icons/artifacts/Fancy Nail Coat.png"),
+	"icon": preload("res://assets/icons/plushies/Snek.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
 	"linked_terms": [
@@ -732,9 +732,9 @@ const IncreaseRandomDefence := {
 
 const IncreaseConfusionStacks := {
 	"canonical_name": "IncreaseConfusionStacks",
-	"name": "Smoke bomb",
+	"name": "Smog",
 	"description": "{artifact_name}: Choose a {disempower} card in your deck. Increase the amount of {disempower} stacks it is applying by 1.",
-	"icon": preload("res://assets/icons/artifacts/smoke-bomb.png"),
+	"icon": preload("res://assets/icons/plushies/Smog.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
 	"linked_terms": [
@@ -744,9 +744,9 @@ const IncreaseConfusionStacks := {
 
 const IncreaseImmersionGain := {
 	"canonical_name": "IncreaseImmersionGain",
-	"name": "Bookmark",
+	"name": "Dip",
 	"description": "{artifact_name}: Choose an {energy} card in your deck. Increase the amount of {energy} it is providing by 1.",
-	"icon": preload("res://assets/icons/artifacts/bookmark.png"),
+	"icon": preload("res://assets/icons/plushies/Dip.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Rare",
 	"linked_terms": [
@@ -756,9 +756,9 @@ const IncreaseImmersionGain := {
 
 const BetterArtifactChance := {
 	"canonical_name": "BetterArtifactChance",
-	"name": "Supportive plushie",
+	"name": "Fortune",
 	"description": "{artifact_name}: The quality of the curios your find is increased.",
-	"icon": preload("res://assets/icons/artifacts/Supportive Plushie.png"),
+	"icon": preload("res://assets/icons/plushies/Fortune.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Encounter",
 	"amounts": {
@@ -770,9 +770,9 @@ const BetterArtifactChance := {
 
 const StartingDisempower := {
 	"canonical_name": "StartingDisempower",
-	"name": "Ouroboros",
+	"name": "Confoundus",
 	"description": "{artifact_name}: At the start of each Ordeal, apply {effect_stacks} {disempower} to all Torments.",
-	"icon": GENERIC_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/plushies/Confoundus.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Encounter",
 	"amounts": {
@@ -785,9 +785,9 @@ const StartingDisempower := {
 
 const StartingVulnerable := {
 	"canonical_name": "StartingVulnerable",
-	"name": "Sisyphean task",
+	"name": "Herman",
 	"description": "{artifact_name}: At the start of each Ordeal, apply {effect_stacks} {vulnerable} to all Torments.",
-	"icon": GENERIC_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/plushies/Herman.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Common",
 	"amounts": {
@@ -800,9 +800,9 @@ const StartingVulnerable := {
 
 const ProgressEverything := {
 	"canonical_name": "ProgressEverything",
-	"name": "Tortoise shell",
+	"name": "Shelly",
 	"description": "{artifact_name}: All cards added to your deck receive {progress_amount} progress.",
-	"icon": GENERIC_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/plushies/Shelly.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
 	"amounts": {
@@ -812,9 +812,9 @@ const ProgressEverything := {
 
 const IncreaseBufferStacks := {
 	"canonical_name": "IncreaseBufferStacks",
-	"name": "A drop of honey",
+	"name": "Beezly",
 	"description": "{artifact_name}: Choose a {buffer} card in your deck. Increase the amount of {buffer} stacks it is providing by 1.",
-	"icon": GENERIC_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/plushies/Beezly.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
 	"linked_terms": [
@@ -824,7 +824,7 @@ const IncreaseBufferStacks := {
 
 const IncreasePoisonStacks := {
 	"canonical_name": "IncreasePoisonStacks",
-	"name": "A candle in the dark",
+	"name": "Meercat",
 	"description": "{artifact_name}: Choose a {doubt} card in your deck. Increase the amount of {doubt} stacks it is providing by 1.",
 	"icon": GENERIC_ARTIFACT_ICON,
 	"context": EffectContext.OVERWORLD,
@@ -836,9 +836,9 @@ const IncreasePoisonStacks := {
 
 const DecreaseExertStacks := {
 	"canonical_name": "DecreaseExertStacks",
-	"name": "Ray of hope",
+	"name": "Guardian",
 	"description": "{artifact_name}: Choose a {exert} card in your deck. Decrease the amount of {player_health} it is giving by 2.",
-	"icon": GENERIC_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/plushies/Guardian.png"),
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
 	"linked_terms": [
@@ -849,9 +849,9 @@ const DecreaseExertStacks := {
 
 const DoubleFirstStartup := {
 	"canonical_name": "DoubleFirstStartup",
-	"name": "Birthday gift",
+	"name": "Kali",
 	"description": "{artifact_name}: One random {startup} effect is triggered twice.",
-	"icon": preload("res://assets/icons/artifacts/Birthday Gift.png"),
+	"icon": preload("res://assets/icons/plushies/Kali.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Uncommon",
 	"linked_terms": [
@@ -861,9 +861,9 @@ const DoubleFirstStartup := {
 
 const StrengthenUp := {
 	"canonical_name": "StrengthenUp",
-	"name": "Buddha figurine",
+	"name": "Athene",
 	"description": "{artifact_name}: You can gain {strengthen} during deep torpor.",
-	"icon": GENERIC_ARTIFACT_ICON,
+	"icon": preload("res://assets/icons/plushies/Athene.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Rare",
 	"amount": 0,
@@ -875,9 +875,9 @@ const StrengthenUp := {
 
 const QuickenUp := {
 	"canonical_name": "QuickenUp",
-	"name": "Chess set",
+	"name": "Fortress",
 	"description": "{artifact_name}: You can gain {quicken} during deep torpor.",
-	"icon": preload("res://assets/icons/artifacts/empty-chessboard.png"),
+	"icon": preload("res://assets/icons/plushies/Fortress.png"),
 	"context": EffectContext.BATTLE,
 	"rarity": "Rare",
 	"amount": 0,
@@ -903,7 +903,7 @@ const EnhanceOnRest := {
 
 const UpgradeMemoryOnRest := {
 	"canonical_name": "UpgradeMemoryOnRest",
-	"name": "Portable photo camera",
+	"name": "Nostalgia",
 	"description": "{artifact_name}: You can upgrade your memories during deep torpor.",
 	"icon": preload("res://assets/icons/artifacts/photo-camera.png"),
 	"context": EffectContext.OVERWORLD,
