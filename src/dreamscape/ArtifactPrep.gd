@@ -84,8 +84,13 @@ func _add_artifact(current_artifact: Dictionary) -> void:
 			format(artifact_format)
 	# This key is used when the artifact is being displayed in-line in the
 	# artifact NCE
+	var icon_resource_path: String
+	if typeof(current_artifact.icon) == TYPE_STRING:
+		icon_resource_path = current_artifact.icon
+	else:
+		icon_resource_path = current_artifact.icon.resource_path
 	current_artifact["bbformat"] = {
-		"icon": current_artifact.icon.resource_path,
+		"icon": icon_resource_path,
 		"description": current_artifact.description.format(bbcode_formats).format(artifact_format)
 	}
 	selected_artifacts.append(current_artifact)

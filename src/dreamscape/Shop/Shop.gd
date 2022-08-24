@@ -84,7 +84,7 @@ func _ready() -> void:
 #		globals.player.deck.add_new_card("+ Confidence +")
 #		# warning-ignore:return_value_discarded
 #		globals.player.deck.add_new_card("+ Confidence +")
-		globals.player.pathos.available_masteries = 10
+		globals.player.pathos.available_masteries = 100
 		# warning-ignore:return_value_discarded
 		var _newmem1 = globals.player.add_memory(MemoryDefinitions.RerollShop.canonical_name)
 #		_newmem1.upgrades_amount = 6
