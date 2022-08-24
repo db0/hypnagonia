@@ -720,7 +720,7 @@ const IncreaseRandomDamage := {
 
 const IncreaseRandomDefence := {
 	"canonical_name": "IncreaseRandomDefence",
-	"name": "Snek",
+	"name": "Snecko",
 	"description": "{artifact_name}: A random card giving {defence} in your deck, will increase its {defence} by 1.",
 	"icon": "res://assets/icons/plushies/Snek.png",
 	"context": EffectContext.OVERWORLD,
@@ -732,9 +732,9 @@ const IncreaseRandomDefence := {
 
 const IncreaseConfusionStacks := {
 	"canonical_name": "IncreaseConfusionStacks",
-	"name": "Smog",
+	"name": "Abacus",
 	"description": "{artifact_name}: Choose a {disempower} card in your deck. Increase the amount of {disempower} stacks it is applying by 1.",
-	"icon": "res://assets/icons/plushies/Smog.png",
+	"icon": "res://assets/icons/plushies/Abacus.png",
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Uncommon",
 	"linked_terms": [

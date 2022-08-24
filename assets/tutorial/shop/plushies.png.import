@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/curios.png-384fc8d2aecc854ddd025996ef72ed2e.stex"
+path="res://.import/plushies.png-5a27955a10c3a2da026795fa916a2d2d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tutorial/shop/curios.png"
-dest_files=[ "res://.import/curios.png-384fc8d2aecc854ddd025996ef72ed2e.stex" ]
+source_file="res://assets/tutorial/shop/plushies.png"
+dest_files=[ "res://.import/plushies.png-5a27955a10c3a2da026795fa916a2d2d.stex" ]
 
 [params]
 

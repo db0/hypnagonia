@@ -28,9 +28,6 @@ margin_right = 1404.34
 margin_bottom = 328.563
 rect_scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Tutorial" type="RichTextLabel" parent="."]
 margin_left = 121.162

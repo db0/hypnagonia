@@ -97,7 +97,7 @@ text = "0/90"
 root_node = NodePath("../Texture")
 anims/Beating = SubResource( 10 )
 
-[node name="Curios" type="Button" parent="HBC"]
+[node name="Plushies" type="Button" parent="HBC"]
 margin_left = 96.0
 margin_right = 131.0
 margin_bottom = 39.0
@@ -306,7 +306,7 @@ margin_right = 40.0
 margin_bottom = 14.0
 custom_styles/normal = SubResource( 8 )
 
-[connection signal="pressed" from="HBC/Curios" to="." method="_on_ArtifactsShowButton_pressed"]
+[connection signal="pressed" from="HBC/Plushies" to="." method="_on_ArtifactsShowButton_pressed"]
 [connection signal="pressed" from="HBC/Pathos" to="." method="_on_Pathos_pressed"]
 [connection signal="pressed" from="HBC/Deck" to="." method="_on_Deck_pressed"]
 [connection signal="pressed" from="HBC/Help" to="." method="_on_Help_pressed"]

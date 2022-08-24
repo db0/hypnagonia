@@ -84,7 +84,7 @@ static func post_gui_story(prompt: String):
 
 
 static func _initiate_rest(method, endpoint: String, data: Dictionary = {}):
-	print([method, endpoint, data])
+#	print([method, endpoint, data])
 	var http = HTTPClient.new()
 	# Connect to host/port.
 	var err = http.connect_to_host(

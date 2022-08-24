@@ -29,7 +29,7 @@ onready var _deck_preview_grid := $DeckPreview/ScrollContainer/GridContainer
 onready var _encounter_label := $HBC/Encounter
 onready var _deck_button := $HBC/Deck
 onready var _artifact_popup := $ArtifactsPopup
-onready var _artifact_button := $HBC/Curios
+onready var _artifact_button := $HBC/Plushies
 onready var _tutorial_button := $HBC/Help
 onready var _settings_button := $HBC/Settings
 onready var _button_desc_popup := $ButtonDescriptionPopup
@@ -89,6 +89,7 @@ func _ready() -> void:
 		globals.encounters.connect("encounter_changed", self, "_update_encounter_label")
 		if globals.encounters.current_act:
 			_update_encounter_label(globals.encounters.current_act.get_act_name(), globals.encounters.encounter_number)
+	_set_random_plushie_button_art()
 #	cfc.game_settings['show_artifacts'] = cfc.game_settings.get('show_artifacts', false)
 #	_artifact_button.pressed = cfc.game_settings.show_artifacts
 #	_on_ArtifactsShowButton_toggled(_artifact_button.pressed, false)
@@ -279,3 +280,8 @@ func _clear_decklist_cache(_card_entry) -> void:
 
 func _on_pathos_advancements_modified(value: int, _old_value: int) -> void:
 	_pathos_button.text = str(value)
+
+func _set_random_plushie_button_art():
+	var all_options = CFUtils.list_imported_in_directory("res://assets/icons/GUI/plushie_icon/", true)
+	CFUtils.shuffle_array(all_options, true)
+	_artifact_button.icon = CFUtils.convert_texture_to_image(all_options[0])
