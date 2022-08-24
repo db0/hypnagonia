@@ -1,9 +1,9 @@
 extends CombatEffect
 
 func _ready() -> void:
-	cfc.signal_propagator.connect("signal_received", self, "_on_cfc_signal_received")
+	scripting_bus.connect("scripting_event_triggered", self, "_on_scripting_event_triggered")
 
-func _on_cfc_signal_received(trigger_card, trigger, details) -> void:
+func _on_scripting_event_triggered(trigger_card, trigger, details) -> void:
 	if stacks <= 0:
 		return
 	if trigger != "card_moved_to_pile":
@@ -24,7 +24,7 @@ func _on_cfc_signal_received(trigger_card, trigger, details) -> void:
 			"name": "move_card_to_container",
 			"subject": "trigger",
 			"dest_container": "forgotten",
-			"tags": ["Combat Effect", "Concentration"],
+			"tags": ["Combat Effect", "Concentration", "Played"],
 		},
 	]
 	execute_script(script,trigger_card)

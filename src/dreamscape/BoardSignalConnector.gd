@@ -18,5 +18,5 @@ func _connect_turn_signals(entity) -> void:
 	var turn: Turn = board.turn
 	for turn_signal in Turn.ALL_SIGNALS:
 		# warning-ignore:return_value_discarded
-		turn.connect(turn_signal, entity, "_on_" + turn_signal)
+		scripting_bus.connect(turn_signal, entity, "_on_" + turn_signal)
 	

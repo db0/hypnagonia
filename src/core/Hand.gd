@@ -12,6 +12,8 @@ enum ExcessCardsBehaviour {
 	DISCARD_OLDEST
 }
 
+signal card_drawn(card)
+
 # The maximum amount of cards allowed to draw in this hand
 # Offsets the hand position based on the configuration
 var bottom_margin: float = card_size.y * CFConst.BOTTOM_MARGIN_MULTIPLIER
@@ -96,6 +98,7 @@ func draw_card(pile : Pile = cfc.NMAP.deck) -> Card:
 	# A basic function to pull a card from out deck into our hand.
 	if card:
 		card.move_to(self)
+		emit_signal("card_drawn",card)
 	return(card)
 
 

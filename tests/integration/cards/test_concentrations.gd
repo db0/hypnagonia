@@ -33,7 +33,7 @@ class TestExcuses:
 		assert_eq(test_torment.damage, starting_torment_dgm + modified_dmg, "Torment should take damage")
 		assert_eq(dreamer.damage, 1, "Dreamer damage reduced to 1")
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 1,
 				"%s stacks do not decrease" % [effect])
 
@@ -45,7 +45,7 @@ class TestExcuses:
 			sceng = yield(sceng, "completed")
 		turn.call_deferred("end_player_turn")
 		assert_eq(test_torment.damage, starting_torment_dgm + modified_dmg, "Torment should take damage")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.damage, 7,
 				"%s stops DoTs" % [effect])
 

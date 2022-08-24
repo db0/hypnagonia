@@ -435,6 +435,10 @@ func autoplay_card(script: ScriptTask) -> int:
 	var tags: Array = ["Scripted"] + script.get_property(SP.KEY_TAGS)
 	for card in script.subjects:
 		if not costs_dry_run():
+			card.queued_autoplays.append(self)
+#			print_debug([self, card.queued_autoplays])
+			while card.queued_autoplays[0] != self:
+				yield(card.get_tree().create_timer(0.1), "timeout")
 			# We store this to send it later with a signal
 			var prev_pos = card.global_position
 			card.get_parent().remove_child(card)
@@ -455,7 +459,8 @@ func autoplay_card(script: ScriptTask) -> int:
 			yield(card._tween, "tween_all_completed")
 			yield(card.get_tree().create_timer(1), "timeout")
 			var card_scripts = card.retrieve_scripts("manual")
-			var autoplay_exec : String = card.get_state_exec()
+			var autoplay_exec : String = "hand"
+#			var autoplay_exec : String = card.get_state_exec()
 			if not card_scripts.get("hand"):
 				if card.get_property("Type") == "Concentration" or card.get_property("_is_concentration"):
 					card_scripts[autoplay_exec] = card.generate_remove_from_deck_tasks(false, tags)
@@ -488,6 +493,7 @@ func autoplay_card(script: ScriptTask) -> int:
 			# We still want to discard it
 			if card.state == card.ExtendedCardState.AUTOPLAY_DISPLAY:
 				card.move_to(cfc.NMAP.discard, -1, null, ["scripted"])
+			card.queued_autoplays.erase(self)
 	return(retcode)
 
 
@@ -853,10 +859,10 @@ func confirm_play(script: ScriptTask) -> int:
 	return(retcode)
 
 
-func end_turn(_script_task: ScriptTask) -> int:
+func end_turn(script_task: ScriptTask) -> int:
 	var retcode: int = CFConst.ReturnCode.CHANGED
 	if not costs_dry_run():
-		cfc.NMAP.board.turn.end_player_turn()
+		cfc.NMAP.board.turn.request_end_player_turn(script_task.owner)
 	return(retcode)
 
 

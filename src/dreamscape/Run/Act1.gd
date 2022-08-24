@@ -741,9 +741,24 @@ const Bully = {
 	],
 }
 
+const Leviathan = {
+	"name": "Leviathan",
+	"title": "My Tiny Place in the Cosmos",
+	"scenes": [preload("res://src/dreamscape/CombatElements/Enemies/Elites/Leviathan.tscn")],
+	"journal_description":\
+"""A great shadow loomed above. It did not notice me, not because it was senseless, for it could feel all of the universe. It did not notice me, not because it was unintelligent, for it had an intellect larger than I could comprehend. It did not notice me, not because it was sightless, but because I am simply too small. It is coming for my house, my village, my whole world. No, it is not. my whole existence is far too small for the Sky Leviathan to set goals by it. With a mere tensing of a muscle, it can destroy the whole universe. Without even a thought, it puts all mundane struggles to shame. If it's too big for anything to stop... then why try?""",
+	"journal_reward":\
+"""While there was nothing I could do, I realized that up to that moment, I had already been living in the face of impossibility. The world is far too large and far too impossible to understand, or overcome. Nevertheless, we still try. Recognizing this impossibly large Leviathan was only a reflection of an uncaring world, I went back to living as all humans do, worrying and still trying to do the best with what little I have.""",
+	'journal_art': "res://assets/journal/advanced/Leviathan.png",
+	"ai_prompts": [
+		"The manifestation of the my own universal insignificancy loomed over me like a sky leviathan",
+	],
+}
+
 const ELITES = {
 	"RushElite": RushElite,
-	"Bully": Bully
+	"Bully": Bully,
+	"Leviathan": Leviathan
 }
 
 const Narcissus = {

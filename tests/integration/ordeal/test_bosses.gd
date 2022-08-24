@@ -24,7 +24,7 @@ class TestSurrealBoss:
 		assert_eq(advanced_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 1,
 				"%s gained %s due to massive damage" % [advanced_torment.canonical_name, Terms.ACTIVE_EFFECTS.strengthen.name])
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(advanced_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 2,
 				"%s gained %s due to not doing any stres" % [advanced_torment.canonical_name, Terms.ACTIVE_EFFECTS.strengthen.name])
 
@@ -38,7 +38,7 @@ class TestSurrealBoss:
 		assert_eq(advanced_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 0,
 				"%s not gained %s due to damage being in normal range" % [advanced_torment.canonical_name, Terms.ACTIVE_EFFECTS.strengthen.name])
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(advanced_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 0,
 				"%s not gained %s due stress being taken" % [advanced_torment.canonical_name, Terms.ACTIVE_EFFECTS.strengthen.name])
 
@@ -56,7 +56,7 @@ class TestNarcissus:
 	func test_surreal_has_poison_at_low_anxiety():
 		# warning-ignore:return_value_discarded
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_gt(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.poison.name), 0,
 				"%s inflicted %s due player having low anxiety" % [advanced_torment.canonical_name, Terms.ACTIVE_EFFECTS.poison.name])
 
@@ -65,7 +65,7 @@ class TestNarcissus:
 		advanced_torment.intents.prepare_intents(0)
 		# warning-ignore:return_value_discarded
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_gt(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.drain.name), 0,
 				"%s inflicted %s due player having hight anxiety" % [advanced_torment.canonical_name, Terms.ACTIVE_EFFECTS.drain.name])
 
@@ -87,7 +87,7 @@ class TestFearAndPhobia:
 		# warning-ignore:return_value_discarded
 		watch_signals(dreamer)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_signal_emit_count(dreamer, "entity_attacked", 4)
 		assert_eq(get_filtered_cards('Name', "Scattered Dreams").size(), 1)
 		for t in advanced_torments:
@@ -101,7 +101,7 @@ class TestFearAndPhobia:
 		# warning-ignore:return_value_discarded
 		watch_signals(dreamer)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_signal_emit_count(dreamer, "entity_attacked", 1)
 		assert_eq(get_filtered_cards('Name', "Scattered Dreams").size(), 0)
 		for t in advanced_torments:

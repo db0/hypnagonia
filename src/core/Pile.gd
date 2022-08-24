@@ -5,7 +5,6 @@ extends CardContainer
 
 signal popup_closed
 
-
 var is_popup_open := false
 # Used to avoid performance-heavy checks in process
 var _has_cards := false
@@ -52,15 +51,6 @@ func _ready():
 	# warning-ignore:return_value_discarded
 	$ViewPopup.connect("about_to_show",self,'_on_ViewPopup_about_to_show')
 	set_pile_name(pile_name)
-	# warning-ignore:return_value_discarded
-	connect(
-		"shuffle_completed",
-		cfc.signal_propagator,
-		"_on_signal_received",
-		[
-			"shuffle_completed",
-			{"source": name}
-		])
 
 
 func _process(_delta) -> void:
@@ -460,7 +450,7 @@ func shuffle_cards(animate = true) -> void:
 		.shuffle_cards()
 	reorganize_stack()
 	emit_signal("shuffle_completed", self)
-
+	scripting_bus.emit_signal("shuffle_completed", self, {"source": name})
 
 # Overrides the re_place() function of [Pile] in order
 # to also restack the cards

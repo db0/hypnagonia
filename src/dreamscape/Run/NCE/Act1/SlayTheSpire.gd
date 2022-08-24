@@ -4,6 +4,11 @@ const SLAY_MASTERIES := 3
 const LEAVE_MASTERIES := 1
 const journal_description = "I dreamt of a long spire, disappearing into the pregnant clouds above. "\
 			+ "I realized I was now holding a weapon and could feel the need to slay whatever is within..."
+const ai_prompts:= [
+	"I dreamt of a long spire, disappearing into the clouds aboveI dreamt of a long spire, disappearing into the clouds above",
+	"I was standing in front of a spire full of monsters. I needed to decide if I would climb up to slay them",
+	"The stairway to the massive spire above was ominous, but I was here to slay",
+]
 
 var secondary_choices := {
 		'slay': '[Slay]: {bcolor:+10 {anxiety_up}:}. Gain some {bcolor:{repressed_enemy}:}. {gcolor:Gain {slay_amount}:} {masteries}',
@@ -19,7 +24,7 @@ var nce_result_fluff := {
 
 
 func _init():
-	introduction.setup_with_vars("Slay The Spire",journal_description, "A Tower Full Of Monsters")
+	introduction.setup_with_vars("Slay The Spire",journal_description, "A Tower Full Of Monsters",ai_prompts)
 	prepare_journal_art(load("res://assets/journal/nce/Slay the Spire.jpg"))
 	
 var pathos_type_enemy : PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy]

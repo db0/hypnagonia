@@ -59,7 +59,7 @@ func complete_targeting() -> void:
 		if owner_object.get_parent() != null \
 				and owner_object.get_parent().name != "Viewport":
 			# We make the targeted card also emit a targeting signal for automation
-			tc.emit_signal("card_targeted", tc, "card_targeted",
+			scripting_bus.emit_signal("card_targeted", tc,
 					{"targeting_source": owner_object})
 		target_object = tc
 	emit_signal("target_selected",target_object)

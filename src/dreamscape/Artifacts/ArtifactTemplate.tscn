@@ -16,6 +16,9 @@ effect_context = 0
 [node name="ExtraContainer" parent="Signifier" index="2"]
 visible = false
 
+[node name="Icon" parent="Signifier" index="3"]
+stretch_mode = 6
+
 [node name="VBC" parent="Description" index="0"]
 margin_bottom = 35.0
 

@@ -81,7 +81,7 @@ class TestAdvantage:
 		for intent in intents:
 			assert_eq(intent.signifier_amount.text, '6', "%s Stress intent hitting should be doubled" % [effect])
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.damage, 18,
 				"%s doubled stress" % [effect])
 		assert_eq(test_torment.active_effects.get_effect_stacks(effect), 1)
@@ -105,14 +105,14 @@ class TestBuffer:
 
 	func test_buffer_general():
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 4,
 				"Dreamer should not have used delayed %s stacks" % [effect])
 		assert_eq(counters.counters.immersion, 3,
 				"Dreamer's energy not increased")
 		assert_eq(cfc.NMAP.board.turn.turn_event_count.get("buffer_immersion_gained", 0), 0, "Not increased due to Delayed")
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 0,
 				"Dreamer should have already used %s stacks" % [effect])
 		assert_eq(counters.counters.immersion, 7,
@@ -159,7 +159,7 @@ class TestEmpower:
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 4,
 				effect + " stacks don't reduce on use")
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 3,
 				"%s stacks should reduce" % [effect])
 
@@ -187,7 +187,7 @@ class TestFortify:
 	func test_fortify_general():
 		dreamer.defence = 30
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), int(floor(amount / 2.0)),
 				"Dreamer should have used half %s stacks" % [effect])
 		assert_eq(dreamer.defence, 30,
@@ -196,11 +196,11 @@ class TestFortify:
 
 	func test_fortify_end_turn():
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 1,
 				"Dreamer should have used half %s stacks" % [effect])
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 0,
 				"Dreamer should have used half %s stacks to go to 0" % [effect])
 
@@ -239,7 +239,7 @@ class TestImpervious:
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 4,
 				"%s stacks not modified by own attacks" % [effect])
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), amount / 2,
 				"Stacks %s should be halved" % [effect])
 
@@ -272,7 +272,7 @@ class TestImpervious:
 		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.poison.name, 5, '')
 		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.burn.name, 5, '')
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.damage, 10,
 				"%s doesn't stop DoTs" % [effect])
 
@@ -310,7 +310,7 @@ class TestImpervious:
 				else:
 					assert_eq(intents[iindex].signifier_amount.text, '4', "Stress intent should be 4")
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.damage, 4 * 5 + 3 + 2 + 1 + 1,
 				"%s prevented stress" % [effect])
 
@@ -348,7 +348,7 @@ class TestThorns:
 		test_torment.intents.replace_intents(intents_to_test)
 		test_torment.intents.refresh_intents()
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(test_torment.damage, starting_torment_dgm + expected_thorns_dmg,
 				"%s caused %s stress" % [effect, expected_thorns_dmg])
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 5,
@@ -391,7 +391,7 @@ class TestThorns:
 		test_torment.intents.replace_intents(intents_to_test)
 		test_torment.intents.refresh_intents()
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		if is_instance_valid(test_torment):
 			assert_true(test_torment.is_dead, "Test torment dies due to thorns")
 		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.disempower.name), 0,
@@ -448,7 +448,7 @@ class TestArmor:
 					remaining_armor = 0
 				assert_eq(intent.signifier_amount.text, str(9 - remaining_armor), "Intent DMG hitting %s should be reduced by %s" % [effect, remaining_armor])
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.damage, expected_armor_dmg,
 				"%s prevented %s stress" % [effect, expected_armor_dmg])
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 1,
@@ -534,14 +534,14 @@ class TestArmor:
 		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.poison.name, 5, '')
 		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.burn.name, 5, '')
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.damage, 10,
 				"%s doesn't stop DoTs" % [effect])
 
 
 	func test_armor_turn_reduction():
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), amount - 2,
 				"%s should have reduced extra due to amount on dreamer" % [effect])
 
@@ -626,7 +626,7 @@ class TestProtection:
 
 	func test_protection_end_turn():
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), amount,
 				"%s stacks do not reduce at turn end" % [effect])
 		turn.call_deferred("end_player_turn")

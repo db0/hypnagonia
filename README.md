@@ -4,9 +4,11 @@
 
 Hypnagonia is a 'spire-like' deckbuilder card game where you take the part of a dreamer captured in a nightmare realm in their recurring dreams and struggling to overcome their own issues to break out of this loop.
 
-This an early release and the balance will be off. A very basic skeleton of encounters and a boss have been added, so it should be possible to make a complete run with what is there.
+This an early release and the balance will be off. The User Interface still could use a lot of polish, but the game is playable end to end.
 
-Feel free to [download or play online](https://dbzer0.itch.io/hypnagonia)
+Hypnagonia attempts to seamlessy marry card game mechanics with AI generated content in illustrations and story. As such, a lot of what you will see and read has been automatically generated through artificial intelligence and some part of it might seem "off". This of course perfectly fits the surrealism theme of this game.
+
+Feel free to [download or play online](https://dbzer0.itch.io/hypnagonia), but browser version is not very performant.
 
 ## Story
 
@@ -19,11 +21,11 @@ In every game you start, you represent someone who has been captured in the pull
 Your Dreamer represents the character guiding to have a breakthrough. Before you start the game, you choose the aspects of their personality, which will affect how they interact with the nightmare realm.
 As with all dreams, the manifestations of these aspects tend towards the surreal.
 
-As part of your quest for your personal breakthrough, you will be enountering enemies (called "Torments") which are a mental manifestation of the things that caused your dreamer to be having these nightmares in the first place.
+As part of your quest for your personal breakthrough, you will be enountering Torments (i.e. "enemies") which are a mental manifestation of the things that caused your dreamer to be having these nightmares in the first place.
 
 You short objective when facing a torment is to "interpret" it and therefore help you find meaning in your dreams. On the other hand, the torments you're facing will be causing you stress, as aspects of your real life problems are bleeding into your dreams. Accumulate enough Anxiety, and your dreamer will wake up in cold-sweats, and you'll have failed that run.
 
-The game follows the typical gameplay of a deckbuilder. You draw 5 cards per turn, and you use them to deal with the current situation. Any cards you didn't use will be discarded, and you'll draw 5 new ones at the end of your turn. You will also have the capacity to draft new cards whenever you complete an Toroments encounter.
+The game follows the typical gameplay of an StS-style deckbuilder. You draw 5 cards per turn, and you use them to deal with the current situation. Any cards you didn't use will be discarded, and you'll draw 5 new ones at the end of your turn. You will also have the capacity to draft new cards whenever you complete an Toroments encounter.
 
 ## Basic Terminology
 
@@ -32,12 +34,11 @@ The game follows the typical gameplay of a deckbuilder. You draw 5 cards per tur
 * Interpret: The act of defeating the Torments. If a Torment's Interpretation reaches its max, it will be overcome. Overcome all of them to progress to the next encounter.
 * Anxiety/Stress: Interacting with your deeper fears is never a pleasant thing. The Torments you're facing will regularly be inducing stress to you, raising your Anxiety. If your Anxiety ever reaches the max amount, you will wake up from the dreams without achieving your breakthrough
 
-Most other terms you'll encounter will be explained when mousing over cards or icons.
+All other terms you'll encounter will be explained when mousing over cards or icons.
 
 ## Roadmap
 
 * Fancier card layout
-* Card art
 * More Archetype Groups
 * More Enemies
 * More Encounters
@@ -45,8 +46,7 @@ Most other terms you'll encounter will be explained when mousing over cards or i
 * More Bosses
 * Waking-world sections between runs
 * Campaign with Legacy elements
-* Increased difficulties
-* Balancing
+* Better Balancing
 * More Curios
 
 See the issue tracker for progress and more ideas and feel free to suggest more.
@@ -54,8 +54,8 @@ See the issue tracker for progress and more ideas and feel free to suggest more.
 ## Done
 
 * Three unique acts with different encounters and torments in each.
-* 200+ cards
-* 7 card pool groups
+* 220+ cards
+* 8 card pool groups
 * 50+ Curios
 * 25+ Memories
 * Shop
@@ -63,6 +63,8 @@ See the issue tracker for progress and more ideas and feel free to suggest more.
 * Elite Torments
 * Surprise Ordeals
 * Pathos information display
+* Increased difficulties
+* Card art
 
 ## Credits
 
@@ -72,11 +74,13 @@ Major influences from [Slay the Spire](https://www.megacrit.com/) and other deck
 
 [Lorenzo Andreozzi](https://tornioduva.itch.io/) for the card layout
 
+See the credits inside the game for full list.
+
 ## License
 
 Everything except Assets and Shaders is licensed under the AGPL3. However [an addendum](ADDENDUM1) has been added to allow distribution via Steam and integration with Steamworks SDK.
 
-Assets and Shaders will list their individual licenses in their respective folders or code.
+Assets and Shaders will list their individual licenses in their respective folders or code, but they're mostly CC-BY-SA 4.0
 
 ## Help
 
@@ -103,12 +107,10 @@ If you wish to support the development of this game, consider becoming a patron 
 
 We're always on the lookout for more people to bring our vision to life. We're actively looking for
 
+* UX Designer: The game suffers from some serious "programmer frontend" syndrome. We could use some polish on the way the GUI is represented
 * Lead Writer: Lead the campaign design and the main storyline
-* Writers: Provide stories for encounters, and ideas for personal quests
-* Lead Artist: Lead the overall look of the game's art
-* Illustration Artists: We have hundreds of cards needing illustrations
 * Character Artists: We have dozens of Torments which will be displayed on the screen. Some animation would help
-* GUI Designer: The game suffers from some serious "programmer art" syndrome.
+* AI Writers: Provide prompts for the AI to generate interesting stories
 
 We have people doing the following, but we can always use more help:
 
@@ -126,4 +128,5 @@ If any of these interest you, please contact us on [matrix](https://matrix.to/#/
 ![Hypnagonia Screenshot 3](preview3.jpg "Hypnagonia Screenshot 3")
 ![Hypnagonia Screenshot 4](preview4.jpg "Hypnagonia Screenshot 4")
 ![Hypnagonia Screenshot 5](preview5.jpg "Hypnagonia Screenshot 5")
+![Hypnagonia Screenshot 6](preview6.jpg "Hypnagonia Screenshot 6")
 ![Hypnagonia Card List Screenshot](preview_cards.jpg "Hypnagonia Card List Screenshot")

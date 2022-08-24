@@ -19,7 +19,7 @@ func _on_effect_modified(
 				"name": "apply_effect",
 				"effect_name": Terms.ACTIVE_EFFECTS.armor.name,
 				"subject": "dreamer",
-				"modification": lost_fortify,
+				"modification": 2 * lost_fortify,
 				"tags": ["Curio"],
 			},
 		]

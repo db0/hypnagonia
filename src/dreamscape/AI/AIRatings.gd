@@ -24,6 +24,7 @@ func story_rated(classification :int) -> void:
 		return
 	var thread: Thread = Thread.new()
 	threads.append(thread)
+# warning-ignore:return_value_discarded
 	thread.start(self, "submit", classification)
 
 
@@ -39,18 +40,20 @@ func submit(classification: int):
 		"soft_prompt": globals.ai_stories.current_soft_prompt,
 		"kai_instance": "%s:%s" % [cfc.game_settings.get("kai_url",'http://127.0.0.1'),cfc.game_settings.get("kai_port", 5000)],
 	}
-	var ret = _initiate_rest(HTTPClient.METHOD_POST, "/generation/", data)
+	var _ret = _initiate_rest(HTTPClient.METHOD_POST, "/generation/", data)
 
 
 func retrieve_evaluating_gens() -> void:
 	var thread: Thread = Thread.new()
 	threads.append(thread)
+# warning-ignore:return_value_discarded
 	thread.start(self, "retrieve_gens", true)
 
 
 func retrieve_finalized_gens() -> void:
 	var thread: Thread = Thread.new()
 	threads.append(thread)
+# warning-ignore:return_value_discarded
 	thread.start(self, "retrieve_gens", false)
 
 
@@ -61,6 +64,9 @@ func retrieve_gens(evaluating:= true) -> void:
 	var ret = _initiate_rest(HTTPClient.METHOD_GET, endpoint)
 	if typeof(ret) == TYPE_DICTIONARY:
 		emit_signal("ratings_retrieved", ret, evaluating)
+	else:
+		var blah = endpoint.replace("/generations/",'').replace("/",'')
+		CFUtils.dprint("AIRatings:Could not retrieve %s stories from %s:%s" % [blah,TELEMETRY_URI,TELEMETRY_PORT])
 
 
 func _initiate_rest(method, endpoint: String, data: Dictionary = {}):

@@ -26,11 +26,11 @@ const ADVANCED_COMBAT_ENCOUNTER_DEFINITION = {
 		},
 	]
 }
-const journal_description = "I was deep diving and came upon the edge of an underwater cave. The sign warned people not to try and recover the Curio within due to danger of drowning. I had to have it!"
+const journal_description = "I was deep diving and came upon the edge of an underwater cave. The sign warned people not to try and recover the {artifact} within due to danger of drowning. I had to have it!"
 
 var journal_draft_script = load("res://src/dreamscape/Overworld/CustomEntries/NCE_UnderwaterCave.gd")
 var secondary_choices := {
-		'explore': '[Explore the Cave]: {gcolor:Gain 1 rare Curio. Gain/Upgrade a memory. Draft a card. Gain {masteries_amount} {masteries}:}.',
+		'explore': '[Explore the Cave]: {gcolor:Gain 1 rare {artifact}. Gain/Upgrade a memory. Draft a card. Gain {masteries_amount} {masteries}:}.',
 		'leave': '[Leave]: Lose {bcolor:all {masteries}:}.',
 	}
 
@@ -89,7 +89,7 @@ func end() -> void:
 				"unlocked unexpected memrories"),
 		"curio": _prepare_artifact_popup_bbcode(
 				artifact_prep.selected_artifacts[0].canonical_name, 
-				"I took the curio back out")
+				"I took the {artifact} back out")
 	}
-	reward_text = reward_text.format(fmt)
+	reward_text = reward_text.format(fmt).format(Terms.get_bbcode_formats(18))
 	globals.journal.display_nce_rewards(reward_text)

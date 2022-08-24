@@ -123,7 +123,7 @@ func begin_encounter() -> void:
 		while not cfc.NMAP.hand.is_hand_refilled:
 			yield(cfc.NMAP.hand, "hand_refilled")
 	turn.encounter_event_count.clear()
-	EventBus.emit_signal("battle_begun")
+	scripting_bus.emit_signal("battle_begun")
 	turn.start_player_turn()
 	if not cfc.game_settings.get('first_ordeal_tutorial_done'):
 		player_info._on_Help_pressed()
@@ -264,17 +264,20 @@ func get_all_scriptables() -> Array:
 
 # Loads the player's deck
 func load_deck() -> void:
+	# This is only true for testing directly from the boarf scene
 	if not globals.player.deck:
 		# warning-ignore:return_value_discarded
 		cfc.game_rng_seed = CFUtils.generate_random_seed()
 		NewGameMenu.randomize_aspect_choices()
 		globals.player.setup()
 		globals.encounters.prepare_next_act()
+	# This prepsres the normal player deck
 	for card in globals.player.deck.instance_cards():
 		cfc.NMAP.deck.add_child(card)
 		#card.set_is_faceup(false,true)
 		card._determine_idle_state()
-		cfc.NMAP.deck.shuffle_cards(false)
+	cfc.NMAP.deck.shuffle_cards(false)
+	EventBus.emit_signal("deck_loaded")
 
 
 func _on_player_turn_started(_turn: Turn) -> void:
@@ -468,11 +471,11 @@ func _input(event):
 		var _torment1
 		var _torment2
 		var _torment3
-#		_torment1 = spawn_enemy(EnemyDefinitions.SHAMELING)
-		_torment1 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
+		_torment1 = spawn_enemy(EnemyDefinitions.SHAMELING)
+#		_torment1 = spawn_enemy(EnemyDefinitions.LOTUSTUS)
 #		_torment1 = spawn_enemy(EnemyDefinitions.VOID)
 #		_torment2 = spawn_enemy(EnemyDefinitions.SHAMELING)
-		_torment2 = spawn_enemy(EnemyDefinitions.GASLIGHTER)
+#		_torment2 = spawn_enemy(EnemyDefinitions.GASLIGHTER)
 #		_torment3 = spawn_enemy(EnemyDefinitions.CLOWN)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_CRITIC)
 #		_torment3 = spawn_enemy(EnemyDefinitions.THE_LAUGHING_ONE)
@@ -502,7 +505,7 @@ func _input(event):
 		dreamer.damage = 11
 		# warning-ignore:return_value_discarded
 #		globals.player.add_artifact(ArtifactDefinitions.SavedForgets.canonical_name)
-#		globals.player.add_artifact(ArtifactDefinitions.PurpleWave.canonical_name)
+		globals.player.add_artifact(ArtifactDefinitions.BossDoubling.canonical_name)
 		# warning-ignore:return_value_discarded
 #		globals.player.add_artifact(ArtifactDefinitions.RedWave.canonical_name)
 		# warning-ignore:return_value_discarded
@@ -510,10 +513,10 @@ func _input(event):
 		# warning-ignore:return_value_discarded
 #		globals.player.add_memory(MemoryDefinitions.BufferSelf.canonical_name)
 		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.buffer.name, 1)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.armor.name, 46)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.armor.name, 46)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.absurdity_unleashed.name, 1)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.creative_block.name, 1)
-		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.laugh_at_danger.name, 1)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.creative_block.name, 1)
+#		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.laugh_at_danger.name, 1)
 #		dreamer.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.heat_venting.name, 1, false, false, ['Debug'], 'high')
 		# Performance Tests
 #		for iter in 100:
@@ -525,8 +528,11 @@ func _input(event):
 
 		# Hand Cards
 		for c in [
-			"! Moving On !",
-			"! Moving On !",
+			"Butterfly",
+			"Exhaustion",
+			"Exhaustion",
+			"Exhaustion",
+			"Nothing to Fear",
 #			"Solid Work Ethic",
 			# Need to look into these two later
 #			"Fowl Language",
@@ -557,18 +563,18 @@ func _input(event):
 
 func _debug_advanced_enemy():
 	pass
-	var advanced_entity: EnemyEntity =\
-			load("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn").instance()
+#	var advanced_entity: EnemyEntity =\
+#			load("res://src/dreamscape/CombatElements/Enemies/Bosses/SurrealBoss.tscn").instance()
 #	var advanced_entity: EnemyEntity =\
 #			load("res://src/dreamscape/CombatElements/Enemies/Bosses/Narcissus.tscn").instance()
-#	var advanced_entity: EnemyEntity =\
-#			load("res://src/dreamscape/CombatElements/Enemies/Elites/IndescribableAbsurdity.tscn").instance()
-	advanced_entity.setup_advanced("hard")
+	var advanced_entity: EnemyEntity =\
+			load("res://src/dreamscape/CombatElements/Enemies/Elites/Leviathan.tscn").instance()
+	advanced_entity.setup_advanced("medium")
 	_enemy_area.add_child(advanced_entity)
 	advanced_entity.connect("finished_activation", self, "_on_finished_enemy_activation")
 	emit_signal("enemy_spawned", advanced_entity)
 #	advanced_entity.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.self_cleaning.name, 3)
-	advanced_entity.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 11)
+#	advanced_entity.active_effects.mod_effect(Terms.ACTIVE_EFFECTS.disempower.name, 11)
 	# warning-ignore:return_value_discarded
 
 

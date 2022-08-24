@@ -82,8 +82,6 @@ func generate_journal_choices() -> Array:
 	var pathos_type_enemy: PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.enemy]
 	var pathos_type_elite: PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.elite]
 	var pathos_type_boss: PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.boss]
-	var enemy_pathos_avg = pathos_type_enemy.get_progression_average()
-	var elite_pathos_avg = pathos_type_elite.get_progression_average()
 	var boss_pathos_avg = pathos_type_boss.get_progression_average()
 	var normal_difficulty := 'N/A'
 	var elite_difficulty := 'N/A'

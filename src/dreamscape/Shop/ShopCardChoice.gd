@@ -8,6 +8,7 @@ onready var shop_card_cost := find_node('Cost')
 onready var shop_cost_icon := find_node('CostIcon')
 
 func _ready():
+	# warning-ignore:return_value_discarded
 	globals.player.pathos.connect("advancements_modified", self, "_on_advancements_modified")
 	shop_cost_icon.texture = CFUtils.convert_texture_to_image(shop_cost_icon.texture)
 

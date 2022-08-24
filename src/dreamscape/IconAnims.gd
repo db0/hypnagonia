@@ -9,6 +9,7 @@ var fast_icon_speed := {
 }
 
 func _ready():
+	# warning-ignore:return_value_discarded
 	connect("timeout",self,"_next_icon_animation")
 
 

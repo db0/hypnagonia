@@ -29,12 +29,11 @@ class TestInit:
 		assert_connected(dreamer, player_info.health_icon, "entity_healed", "_on_player_health_changed")
 		assert_connected(dreamer, player_info.health_icon, "entity_health_modified", "_on_player_health_changed")
 		for turn_signal in turn.ALL_SIGNALS:
-			assert_connected(turn, board, turn_signal, "_on_" + turn_signal)
-			assert_connected(turn, cfc.signal_propagator, turn_signal, "_on_signal_received")
+			assert_connected(scripting_bus, board, turn_signal, "_on_" + turn_signal)
 		for obj in [counters, hand]:
 			for turn_signal in turn.PLAYER_SIGNALS:
 				# warning-ignore:return_value_discarded
-				assert_connected(turn, obj,  turn_signal, "_on_" + turn_signal)
+				assert_connected(scripting_bus, obj,  turn_signal, "_on_" + turn_signal)
 
 
 class TestGeneric:
@@ -81,9 +80,8 @@ class TestRounds:
 		assert_true(board.end_turn.disabled, "End Turn Button Enabled")
 		assert_signal_emitted(hand, "hand_emptied")
 		assert_signal_emitted(hand, "hand_refilled")
-#		yield(yield_to(turn, "enemy_turn_started", 0.5), YIELD)
 		assert_eq(test_torment.defence, 0, "Torment Defense clears up at start of turn")
-		yield(yield_to(turn, "player_turn_started", 3), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started", 3), YIELD)
 		assert_eq(dreamer.defence, 0, "Dreamer Defense clears up at start of turn")
 		assert_eq(counters.get_counter("immersion"), 3, "Dreamer starts each turn with 3 immersion")
 		assert_false(board.end_turn.disabled, "End Turn Button Enabled")
@@ -92,7 +90,7 @@ class TestRounds:
 		assert_eq(deck.get_card_count(), 2, "Cards taken from deck")
 		assert_eq(forgotten.get_card_count(), 0, "Nothing automatically forgotten")
 		for turn_signal in turn.ALL_SIGNALS:
-			assert_signal_emitted(turn, turn_signal, "All turn signals emited")
+			assert_signal_emitted(scripting_bus, turn_signal, "All turn signals emited")
 		assert_eq(turn.current_turn, turn.Turns.PLAYER_TURN, "Turn returns on player's")
 		for t in test_torments:
 			assert_signal_emit_count(t, "started_activation", 1)	
@@ -224,7 +222,7 @@ class TestTorments:
 					test_torments[i].health = 34
 		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.thorns.name, 15)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started", 3), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started", 3), YIELD)
 		assert_eq(turn.current_turn, turn.Turns.PLAYER_TURN, "Turn back to the player")
 		assert_eq(counters.get_counter("immersion"), 3, "Dreamer starts with 3 immersion")
 		assert_false(board.end_turn.disabled, "End Turn Button Enabled")

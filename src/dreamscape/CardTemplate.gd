@@ -1,11 +1,6 @@
 class_name DreamCard
 extends Card
 
-# Emited whenever the card is played manually or via card effect.
-# Since a card might be "played" from any source and to many possible targets
-# we use a specialized signal to trigger effects which fire after playing cards
-signal card_played(card,trigger,details)
-signal card_removed(card,trigger,details)
 
 # Going negative to avoid conflicting with CGF in case it extends its own card states
 enum ExtendedCardState {
@@ -13,6 +8,8 @@ enum ExtendedCardState {
 	AUTOPLAY_DISPLAY
 	SPAWNED_PERTURBATION
 }
+
+signal ready_to_remove
 
 var shader_progress := 1.0
 var attempted_action_drop_to_board := false
@@ -28,14 +25,14 @@ var enabled_riders := []
 var printed_properties := {}
 var check_front_refresh := false
 var front_refresh_delta_wait := 0
+# I use this to allow me to autoplay the same card more than 1 time
+# as further autoplays, need to wait until this flag is cleared
+var queued_autoplays := []
 
 func _ready() -> void:
 	# warning-ignore:return_value_discarded
-	connect("card_played", cfc.signal_propagator, "_on_signal_received")
-	# warning-ignore:return_value_discarded
-	connect("card_removed", cfc.signal_propagator, "_on_signal_received")
-	# warning-ignore:return_value_discarded
 	connect("state_changed", self, "_on_state_changed")
+	# warning-ignore:return_value_discarded
 	cfc.connect("cache_cleared", self, "_on_cache_cleared")
 
 
@@ -70,6 +67,8 @@ func _process(delta: float) -> void:
 #				card_front.tag_container2.visible = false
 #				card_front.card_design.visible = false
 #				card_front.art.visible = false
+			if shader_progress < 0.15:
+				emit_signal("ready_to_remove")
 			if shader_progress < 0.1:
 				if cfc.NMAP.board.mouse_pointer.current_focused_card == self:
 					cfc.NMAP.board.mouse_pointer.current_focused_card = null
@@ -227,9 +226,8 @@ func common_post_move_scripts(new_container: String, old_container: String, tags
 		var firsts = cfc.NMAP.board.turn.firsts
 		if firsts.empty() or not firsts.get(properties.Type):
 			firsts[properties.Type] = self
-		emit_signal("card_played",
+		scripting_bus.emit_signal("card_played",
 				self,
-				"card_played",
 				{
 					"destination": new_container,
 					"source": old_container,
@@ -361,7 +359,7 @@ func execute_scripts(
 		trigger: String = "manual",
 		trigger_details: Dictionary = {},
 		only_cost_check := false):
-	if is_executing_scripts:
+	if is_executing_scripts and trigger == "manual":
 		return
 	if trigger == "player_turn_started":
 		pass
@@ -404,35 +402,58 @@ func common_pre_run(sceng) -> void:
 # This means the card is also removed permanently from the player's deck
 # This change stays for all further encounters
 func remove_from_deck(permanent := true, tags := []) -> void:
+#	card_front.apply_shader("res://shaders/consume.shader")
+	card_front.material = preload("res://shaders/dissolve.tres")
+#	card_front.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
+	set_state(ExtendedCardState.REMOVE_FROM_GAME)
+	# I am using a signal here so that I can abort the card removal If I need to
+	connect("ready_to_remove", self, "_perform_remove_cleanup", [permanent, tags])
 	if "Played" in tags:
 		var firsts = cfc.NMAP.board.turn.firsts
 		if firsts.empty() or not firsts.get(properties.Type):
 			firsts[properties.Type] = self
-		emit_signal("card_played",
+		scripting_bus.emit_signal("card_played",
 				self,
-				"card_played",
 				{
 					"destination": null,
 					"source": get_parent().name,
 					"tags": tags
 				}
 		)
-#	card_front.apply_shader("res://shaders/consume.shader")
-	card_front.material = preload("res://shaders/dissolve.tres")
-#	card_front.material.shader = CFConst.REMOVE_FROM_GAME_SHADER
-	set_state(ExtendedCardState.REMOVE_FROM_GAME)
+
+func abort_deck_removal() -> void:
+	if state != ExtendedCardState.REMOVE_FROM_GAME:
+		return
+	# Hardcoding the state change because normally if the card is being removed from the game
+	# set_state() prevents changing state anymore. But in this instance this is exactly what we need
+	if get_parent().is_in_group("hands"):
+		state = CardState.IN_HAND
+	# The extra if is in case the ViewPopup is currently active when the card
+	# is being moved into the container
+	elif get_parent().is_in_group("piles"):
+		state =  CardState.IN_PILE
+	elif "CardPopUpSlot" in get_parent().name:
+		state =  CardState.IN_POPUP
+	else:
+		state = CardState.ON_PLAY_BOARD
+	card_front.material = null
+	shader_progress = 1.0
+	
+
+# THis function performs the cleanup of the card about to be removed from the board.
+func _perform_remove_cleanup(ipermanent: bool, tags: Array) -> void:
 	cfc.flush_cache()
-	emit_signal("card_removed",
+	scripting_bus.emit_signal("card_removed",
 			self,
-			"card_removed",
 			{
 				"tags": tags
 			}
 	)
 	# If this is a permanent removal, we also remove the card from the
 	# whole run
-	if deck_card_entry and permanent and not properties.get("_is_unremovable", false):
+	if deck_card_entry and ipermanent and not properties.get("_is_unremovable", false):
 		globals.player.deck.remove_card(deck_card_entry)
+
 
 func reorganize_self() ->void:
 	if state == ExtendedCardState.REMOVE_FROM_GAME:
@@ -484,7 +505,7 @@ func enable_rider(rider: String) -> void:
 		# Resets the card's cost to its printed value after being played.
 		"reset_cost_after_play":
 			# warning-ignore:return_value_discarded
-			connect("card_played", self, "_on_self_played")
+			scripting_bus.connect("card_played", self, "_on_self_played")
 
 
 func connect_card_entry(card_entry) -> void:
@@ -496,19 +517,20 @@ func on_card_entry_modified(card_entry) -> void:
 	properties = card_entry.properties.duplicate(true)
 	refresh_card_front()
 
+
 func set_state(value: int) -> void:
 	if state == ExtendedCardState.REMOVE_FROM_GAME:
 		return
 	.set_state(value)
 
 
-func _on_self_played(_card,_trigger,_details) -> void:
+func _on_self_played(card, _details) -> void:
+	if card != self:
+		return
 	if "reset_cost_after_play" in enabled_riders:
 		# warning-ignore:return_value_discarded
 		modify_property("Cost", printed_properties['Cost'])
 		enabled_riders.erase("reset_cost_after_play")
-
-
 
 
 
@@ -598,3 +620,7 @@ func _on_state_changed(_card: Card, old_state: int, _new_state: int) -> void:
 func _on_cache_cleared() -> void:
 	check_front_refresh = true
 	
+func _determine_idle_state() -> void:
+	if state == ExtendedCardState.AUTOPLAY_DISPLAY:
+		return
+	._determine_idle_state()

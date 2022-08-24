@@ -4,6 +4,7 @@ signal learning_finished(reports)
 
 const PROPERTIES := {
 	"name": "The Recurrence",
+	"Rank": "Elite",
 	"Health": 107,
 	"Type": "Fear",
 	"Damage": 0,
@@ -38,12 +39,12 @@ func setup_advanced(difficulty: String = "medium") -> void:
 
 func _ready() -> void:
 	if not cfc.NMAP.board.dreamer:
-		yield(EventBus, "battle_begun")
+		yield(scripting_bus, "battle_begun")
 	cfc.NMAP.board.dreamer.connect("effect_modified", self, "_on_dreamer_effect_modified")
 	cfc.NMAP.board.dreamer.connect("entity_defence_modified", self, "_on_dreamer_defended")
 	cfc.NMAP.board.dreamer.connect("entity_healed", self, "_on_dreamer_healed")
 	cfc.NMAP.board.dreamer.connect("entity_damaged", self, "_on_dreamer_damaged")
-	cfc.signal_propagator.connect("signal_received", self, "_on_card_signal_received")
+	scripting_bus.connect("scripting_event_triggered", self, "_on_scripting_event_triggered")
 # warning-ignore:return_value_discarded
 	connect("effect_modified", self, "_on_self_effect_modified")
 # warning-ignore:return_value_discarded
@@ -109,7 +110,7 @@ func _on_self_attacked(_entity, amount, _trigger, _tags) -> void:
 #		print_debug("Attack learned: %s" % [amount])
 
 
-func _on_card_signal_received(_trigger_card, trigger, _details) -> void:
+func _on_scripting_event_triggered(_trigger_card, trigger, _details) -> void:
 	if is_learning and trigger == "card_played":
 		cards_played += 1
 #		print_debug("Card played")

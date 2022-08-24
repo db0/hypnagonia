@@ -197,7 +197,7 @@ class TestPhotonBlade:
 		assert_eq(cd.uses, get_amount("discount_uses"))
 		assert_eq(cd.discount_amount, -get_amount("discount_amount"))
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3), YIELD)
 		assert_eq(get_tree().get_nodes_in_group("cost_discounts").size(), 1, "One Discounter is permanent")
 
 class TestChargedShot:
@@ -414,7 +414,7 @@ class TestSpareLens:
 	func test_spare_lens_gen():
 		globals.player.deck_groups[Terms.CARD_GROUP_TERMS.item] = "Laser Cannon"
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3), YIELD)
 		yield(yield_for(1), YIELD)
 		assert_eq(deck.get_card_count(), 2)
 		if deck.get_card_count() == 0:
@@ -590,12 +590,12 @@ class TestFocusCalibration:
 	func test_effect():
 		var last_card : DreamCard = deck.get_bottom_card()
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3), YIELD)
 		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion every turn")
 		assert_eq(last_card.get_parent(), forgotten, "Last card forgotten")
 		last_card = deck.get_bottom_card()
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3), YIELD)
 		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion every turn")
 		assert_eq(last_card.get_parent(), forgotten, "Last card forgotten")
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect), 2)

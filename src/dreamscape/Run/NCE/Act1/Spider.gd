@@ -1,6 +1,10 @@
 extends NonCombatEncounter
 
 const journal_description = "A spider was looking at me with a thousand eyes. Its intentions are unfathomable."
+const ai_prompts:= [
+	"A spider was looking at me with a thousand eyes. Its intentions are unfathomable",
+	"The spider did not appear hostile, but rather casually curious about me",
+]
 
 var secondary_choices := {
 		'eat': '[Eat the spider]: {gcolor:-10 {anxiety_down}:}. Gain {bcolor:{boss_amount} {boss_pathos}:}',
@@ -19,7 +23,7 @@ var pathos_type_boss: PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMUL
 var pathos_type_elite: PathosType = globals.player.pathos.pathi[Terms.RUN_ACCUMULATION_NAMES.elite]
 
 func _init():
-	introduction.setup_with_vars("Spider",journal_description, "One Curious Arachnid")
+	introduction.setup_with_vars("Spider",journal_description, "One Curious Arachnid",ai_prompts)
 	prepare_journal_art(load("res://assets/journal/nce/Spider.jpg"))
 
 func begin() -> void:

@@ -232,6 +232,7 @@ const BETA_IMAGES := {
 	"Submerged": "res://assets/journal/torments/submerged.jpg",
 	"Influencer": "res://assets/enemies/influencer.jpg",
 	"Handsy Aunt": "res://assets/enemies/handsy_aunt.jpeg",
+	"Lotustus": "res://assets/cards/Lotustus.png",
 }
 
 static func get_multiple_art_option(card_name: String) -> String:

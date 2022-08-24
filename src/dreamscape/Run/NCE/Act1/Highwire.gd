@@ -8,7 +8,7 @@ const ai_prompts:= [
 ]
 
 var secondary_choices := {
-		'accept': '[Accept]: 40% chance to gain a random curio. [color=#FF3333]Become {perturbation}[/color].',
+		'accept': '[Accept]: 40% chance to gain a random {artifact}. [color=#FF3333]Become {perturbation}[/color].',
 		'decline': '[Decline]: [color=#FF3333]+10[/color] {anxiety_up}. [color=#FF3333]Lose some {repressed_pathos}.',
 	}
 

@@ -129,7 +129,7 @@ class TestStartingConfidence:
 			return
 		assert_eq(dreamer.defence, get_amount("defence_amount"))
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.defence, 0, "no extra defence on next turn")
 
 class TestPerturbationHeal:
@@ -301,7 +301,7 @@ class TestStartingFortify:
 			return
 		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.fortify.name), get_amount("effect_stacks"))
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.fortify.name), 0)
 
 

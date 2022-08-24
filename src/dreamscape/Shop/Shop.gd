@@ -84,13 +84,13 @@ func _ready() -> void:
 #		globals.player.deck.add_new_card("+ Confidence +")
 #		# warning-ignore:return_value_discarded
 #		globals.player.deck.add_new_card("+ Confidence +")
-		globals.player.pathos.available_masteries = 10
+		globals.player.pathos.available_masteries = 100
 		# warning-ignore:return_value_discarded
-		var newmem1 = globals.player.add_memory(MemoryDefinitions.RerollShop.canonical_name)
-#		newmem1.upgrades_amount = 6
+		var _newmem1 = globals.player.add_memory(MemoryDefinitions.RerollShop.canonical_name)
+#		_newmem1.upgrades_amount = 6
 		# warning-ignore:return_value_discarded
-		var newmem2 = globals.player.add_memory(MemoryDefinitions.ThornsSelf.canonical_name)
-#		newmem2.upgrades_amount = 6
+		var _newmem2 = globals.player.add_memory(MemoryDefinitions.ThornsSelf.canonical_name)
+#		_newmem2.upgrades_amount = 6
 #		globals.player.find_memory(MemoryDefinitions.RerollShop.canonical_name).upgrades_amount += 5
 		# We're doing a connect here, because the globals.deck will not exist during its ready
 		# warning-ignore:return_value_discarded

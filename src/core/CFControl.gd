@@ -53,8 +53,6 @@ var card_definitions := {}
 var set_scripts := {}
 # This will store all card scripts, including their format placeholders
 var unmodified_set_scripts := {}
-# A class to propagate script triggers to all cards.
-var signal_propagator = SignalPropagator.new()
 # A dictionary of all our container nodes for easy access
 var NMAP: Dictionary
 # The card actively being dragged
@@ -421,57 +419,3 @@ func _exit_tree():
 
 # The SignalPropagator is responsible for collecting all card signals
 # and asking all cards to check if there's any automation they need to perform
-class SignalPropagator:
-
-	# This propagates a signal generally, so everything else knows to pick it up from here.
-	# This means signals caught by the signal propagator can be used by anything else, not just cards.
-	signal signal_received(trigger_card, trigger, details)
-	# The working signals cards might send depending on their status changes
-	# this array can be extended by signals added by other games
-	var known_card_signals := [
-		"card_rotated",
-		"card_flipped",
-		"card_viewed",
-		"card_moved_to_board",
-		"card_moved_to_pile",
-		"card_moved_to_hand",
-		"card_token_modified",
-		"card_attached",
-		"card_unattached",
-		"card_targeted",
-		"card_properties_modified",
-		]
-
-	# When a new card is instanced, it connects all its known signals
-	# to the SignalPropagator
-	func connect_new_card(card):
-		for sgn in known_card_signals:
-			card.connect(sgn, self, "_on_signal_received")
-
-
-	# When a known signal is received, it asks all existing cards to check
-	# If this triggers an automation for them
-	#
-	# This method requirses that each signal also passes its own name in the
-	# trigger variable, is this is the key sought in the CardScriptDefinitions
-	func _on_signal_received(
-			trigger_card: Card, trigger: String, details: Dictionary):
-		# We use Godot groups to ask every card to check if they
-		# have [ScriptingEngine] triggers for this signal.
-		#
-		# I don't know why, but if I use simply call_group(), this will
-		# not execute on a "self" subject
-		# when the trigger card has a grid_autoplacement set, and the player
-		# drags the card on the grid itself. If the player drags the card
-		# To an empty spot, it works fine
-		# It also fails to execute if I use any other flag than GROUP_CALL_UNIQUE
-		for card in cfc.get_tree().get_nodes_in_group("cards"):
-			card.execute_scripts(trigger_card,trigger,details)
-		# If we need other objects than cards to trigger scripts via signals
-		# add them to the 'scriptables' group ang ensure they have
-		# an "execute_scripts" function
-		for card in cfc.get_tree().get_nodes_in_group("scriptables"):
-			card.execute_scripts(trigger_card,trigger,details)
-#		cfc.get_tree().call_group_flags(SceneTree.GROUP_CALL_UNIQUE  ,"cards",
-#				"execute_scripts",trigger_card,trigger,details)
-		emit_signal("signal_received", trigger_card, trigger, details)

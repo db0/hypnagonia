@@ -3,17 +3,17 @@ extends CenterContainer
 var koboldai_server_changed := false
 var koboldai_changed_timer : float = 0
 
-onready var back_button = find_node('Back')
-onready var focus_style = find_node('FocusStyle')
-onready var expand_linked_terms = find_node('ExpandLinkedTerms')
-onready var fast_icon_speed = find_node('FastIconSpeed')
-onready var async_icon_animations = find_node('AsyncIconAnimations')
-onready var fancy_movement = find_node('FancyAnimations')
-onready var animated_text_backgrounds = find_node('AnimatedTextBackgrounds')
-onready var enable_glow = find_node('EnableGlow')
-onready var interrupt_music = find_node('InterruptMusic')
-onready var main_vol_slider = find_node('MainVolSlider')
-onready var music_vol_slider = find_node('MusicVolSlider')
+onready var back_button = $"%Back"
+onready var focus_style = $"%FocusStyle"
+onready var expand_linked_terms = $"%ExpandLinkedTerms" 
+onready var fast_icon_speed = $"%FastIconSpeed"
+onready var async_icon_animations = $"%AsyncIconAnimations"
+onready var fancy_movement = $"%FancyAnimations"
+onready var animated_text_backgrounds = $"%AnimatedTextBackgrounds"
+onready var enable_glow = $"%EnableGlow"
+onready var interrupt_music = $"%InterruptMusic"
+onready var main_vol_slider = $"%MainVolSlider"
+onready var music_vol_slider = $"%MusicVolSlider"
 onready var use_ai = $"%UseAI"
 onready var judge_ai = $"%JudgeAI"
 onready var generate_ai = $"%GenerateAI"
@@ -38,7 +38,7 @@ func _ready() -> void:
 	cfc.game_settings['interrupt_music'] = cfc.game_settings.get('interrupt_music', true)
 	cfc.game_settings['expand_linked_terms'] = cfc.game_settings.get('expand_linked_terms', true)
 	cfc.game_settings['fast_icon_speed'] = cfc.game_settings.get('fast_icon_speed', false)
-	cfc.game_settings['async_icon_animations'] = cfc.game_settings.get('async_icon_animations', false)
+	cfc.game_settings['async_icon_animations'] = cfc.game_settings.get('async_icon_animations', true)
 	# We disable the AI stuff on HTML as it requires connecting to other sites
 	# and that runs into XSS protections and shit which I don't want to deal with
 	cfc.game_settings['use_ai'] = cfc.game_settings.get('use_ai', OS.get_name() != "HTML5")

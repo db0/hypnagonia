@@ -3,7 +3,7 @@ extends Artifact
 
 func _ready() -> void:
 	if is_active and effect_context == ArtifactDefinitions.EffectContext.BATTLE:
-		cfc.signal_propagator.connect("signal_received", self, "_on_signal_received")
+		scripting_bus.connect("scripting_event_triggered", self, "_on_signal_received")
 
 
 func _on_signal_received(trigger_card, trigger, details) -> void:
@@ -11,8 +11,9 @@ func _on_signal_received(trigger_card, trigger, details) -> void:
 		return
 	if details.destination.to_lower() != "forgotten":
 		return
+	# warning-ignore:return_value_discarded
 	_activate()
-	cfc.signal_propagator.disconnect("signal_received", self, "_on_signal_received")
+	scripting_bus.disconnect("scripting_event_triggered", self, "_on_signal_received")
 	var script = [{
 		"name": "move_card_to_container",
 		"subject": "trigger",

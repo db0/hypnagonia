@@ -85,13 +85,13 @@ class TestSelfCleaning:
 
 	func test_self_cleaning():
 		board.turn.call_deferred("end_player_turn")
-		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.poison.name), 5 - amount,
 				"%s reduced %s" % [effect, Terms.ACTIVE_EFFECTS.poison.name])
 		assert_eq(abs(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name)), 4,
 				"%s did not reduce %s" % [effect, Terms.ACTIVE_EFFECTS.disempower.name])
 		board.turn.call_deferred("end_player_turn")
-		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(abs(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name)), 4 - amount,
 				"%s reduced %s" % [effect, Terms.ACTIVE_EFFECTS.strengthen.name])
 		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.poison.name), 4 - amount,
@@ -285,10 +285,10 @@ class TestDoom:
 			return
 		watch_signals(test_torment)
 		board.turn.call_deferred("end_player_turn")
-		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_signal_not_emitted(test_torment, "entity_killed")
 		board.turn.call_deferred("end_player_turn")
-		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_signal_emitted(test_torment, "entity_killed")
 		yield(yield_to(ce, 'encounter_end', 5), YIELD)
 		journal.card_draft.display("card_draft")
@@ -396,7 +396,7 @@ class TestActLength:
 		spawn_effect(test_torment, Terms.ACTIVE_EFFECTS.poison.name, 5, '')
 		spawn_effect(test_torment, Terms.ACTIVE_EFFECTS.burn.name, 5, '')
 		board.turn.call_deferred("end_player_turn")
-		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(test_torment.damage, tdamage(2),
 				"%s stops DoTs" % [effect])
 
@@ -405,7 +405,7 @@ class TestActLength:
 		spawn_effect(test_torment, Terms.ACTIVE_EFFECTS.disempower.name, 1, '')
 		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.rubber_eggs.name, 1, '')
 		board.turn.call_deferred("end_player_turn")
-		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(test_torment.damage, tdamage(1),
 				"%s stops Rubber Eggs" % [effect])
 
@@ -413,7 +413,7 @@ class TestActLength:
 		spawn_effect(test_torment, effect, 1, '')
 		watch_signals(test_torment)
 		board.turn.call_deferred("end_player_turn")
-		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_signal_emitted(test_torment, "entity_killed")
 
 
@@ -461,7 +461,7 @@ class TestCheekPinching:
 		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 1,
 				"%s added %s" % [effect, Terms.ACTIVE_EFFECTS.poison.name])
 		board.turn.call_deferred("end_player_turn")
-		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(test_torment.defence, 0)
 		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 1,
 				"%s added %s" % [effect, Terms.ACTIVE_EFFECTS.poison.name])
@@ -494,7 +494,7 @@ class TestVictim:
 		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), -1,
 				"%s added %s" % [effect, Terms.ACTIVE_EFFECTS.the_victim.name])
 		board.turn.call_deferred("end_player_turn")
-		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(test_torment.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.strengthen.name), 0,
 				"%s removed %s" % [effect, Terms.ACTIVE_EFFECTS.the_victim.name])
 		assert_eq(dreamer.damage, 9, "Dreamer took reduced damage due to %s" % [effect])

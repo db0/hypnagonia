@@ -1,9 +1,9 @@
 class_name ArtifactEncounter
 extends NonCombatEncounter
 
-const journal_description = "I recall I had specific curio with me, but I struggle to remember what. This recollection is painful..."
+const journal_description = "I recall I had specific {artifact} with me, but I struggle to remember what. This recollection is painful..."
 const ai_prompts:= [
-	"I recall I had specific curio with me, but I struggle to remember what",
+	"I recall I had specific plushie with me, but I struggle to remember what",
 	"What a strange little bauble this is. How did it end up here",
 ]
 

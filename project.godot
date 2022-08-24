@@ -534,6 +534,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/dreamscape/CardBack.gd"
 }, {
+"base": "ScriptingBus",
+"class": "HypnagoniaScriptingBus",
+"language": "GDScript",
+"path": "res://src/dreamscape/Globals/ScriptingBus.gd"
+}, {
 "base": "Reference",
 "class": "IconAnimMessage",
 "language": "GDScript",
@@ -748,6 +753,11 @@ _global_script_classes=[ {
 "class": "ScriptTask",
 "language": "GDScript",
 "path": "res://src/core/ScriptingEngine/ScriptTask.gd"
+}, {
+"base": "Node",
+"class": "ScriptingBus",
+"language": "GDScript",
+"path": "res://src/core/ScriptingBus.gd"
 }, {
 "base": "Reference",
 "class": "ScriptingEngine",
@@ -1000,6 +1010,7 @@ _global_script_class_icons={
 "Hand": "",
 "Highlight": "",
 "HypnagoniaCardBack": "",
+"HypnagoniaScriptingBus": "",
 "IconAnimMessage": "",
 "ImageLibrary": "",
 "IntegerLineEdit": "",
@@ -1043,6 +1054,7 @@ _global_script_class_icons={
 "ScriptPer": "",
 "ScriptProperties": "",
 "ScriptTask": "",
+"ScriptingBus": "",
 "ScriptingEngine": "",
 "SecondaryChoiceSlide": "",
 "SelectionDeck": "",
@@ -1087,6 +1099,7 @@ cfc="*res://src/core/CFControl.gd"
 globals="*res://src/dreamscape/Globals/Globals.gd"
 SoundManager="*res://addons/sound_manager/module/SoundManager.tscn"
 EventBus="*res://src/dreamscape/Globals/EventBus.gd"
+scripting_bus="*res://src/dreamscape/Globals/ScriptingBus.gd"
 
 [display]
 

@@ -1,8 +1,6 @@
 class_name SelectionWindow
 extends AcceptDialog
 
-signal selection_window_opened(selection_window, signal_name, details)
-signal card_selected(selection_window, signal_name, details)
 
 # The path to the GridCardObject scene.
 const _GRID_CARD_OBJECT_SCENE_FILE = CFConst.PATH_CORE\
@@ -27,11 +25,6 @@ onready var _tween = $Tween
 
 
 func _ready() -> void:
-	# For the counter signal, we "push" connect it instead from this node.
-	# warning-ignore:return_value_discarded
-	connect("selection_window_opened", cfc.signal_propagator, "_on_signal_received")
-	# warning-ignore:return_value_discarded
-	connect("card_selected", cfc.signal_propagator, "_on_signal_received")
 	# warning-ignore:return_value_discarded
 	connect("confirmed", self, "_on_card_selection_confirmed")
 
@@ -171,10 +164,9 @@ func initiate_selection(
 			0, 1, 0.5,
 			Tween.TRANS_SINE, Tween.EASE_IN)
 	_tween.start()
-	emit_signal(
+	scripting_bus.emit_signal(
 			"selection_window_opened",
 			self,
-			"selection_window_opened",
 			{"card_selection_options": _card_dupe_map.keys()}
 	)
 	if OS.has_feature("debug") and not cfc.is_testing:
@@ -236,9 +228,8 @@ func _on_cancel_pressed() -> void:
 func _on_card_selection_confirmed() -> void:
 	if is_cancelled:
 		return
-	emit_signal(
+	scripting_bus.emit_signal(
 			"card_selected",
 			self,
-			"card_selected",
 			{"selected_cards": selected_cards}
 	)

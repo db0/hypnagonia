@@ -26,7 +26,7 @@ const CARDS := {
 	"Unease": {
 		"Type": "Perturbation",
 		"Tags": [Terms.ACTIVE_EFFECTS.poison.name],
-		"Abilities": "If this card is in your hand at the end of the turn, gain {effect_stacks} {poison}",
+		"Abilities": "If this card is in your hand at the end of the turn, gain {effect_stacks} {poison}\nPlay: {forget}",
 		"Cost": 2,
 		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Perturbation",
@@ -36,6 +36,21 @@ const CARDS := {
 		"_keywords": [],
 		"_effects_info": {
 			Terms.ACTIVE_EFFECTS.poison.name: Terms.PLAYER
+		},
+	},
+	"Disgust": {
+		"Type": "Perturbation",
+		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name],
+		"Abilities": "Whenever you draw this card, give all torments {effect_stacks} {thorns}\nPlay: {forget}",
+		"Cost": 2,
+		"_illustration": "Nobody",
+		"_rarity": "Perturbation",
+		"_amounts": {
+			"effect_stacks": 2
+		},
+		"_keywords": [],
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.ENEMY
 		},
 	},
 	"Discombobulation": {
@@ -141,17 +156,19 @@ const CARDS := {
 	},
 	"Scattered Dreams": {
 		"Type": "Perturbation",
-		"Tags": [Terms.ACTIVE_EFFECTS.drain.name],
-		"Abilities": "If this card is in your hand at the end of the turn, gain {effect_stacks} {drain}",
-		"Cost": 2,
+		"Tags": [Terms.ACTIVE_EFFECTS.marked.name],
+		"Abilities": "If this card is in your hand at the end of the turn, gain {effect_stacks} {marked} and {effect_stacks2} {delighted}",
+		"Cost": 1,
 		"_illustration": "Robert Paraguassu via midjourney.com",
 		"_rarity": "Perturbation",
 		"_amounts": {
-			"effect_stacks": 1
+			"effect_stacks": 3,
+			"effect_stacks2": 1
 		},
 		"_keywords": [],
 		"_effects_info": {
-			Terms.ACTIVE_EFFECTS.drain.name: Terms.PLAYER
+			Terms.ACTIVE_EFFECTS.marked.name: Terms.PLAYER,
+			Terms.ACTIVE_EFFECTS.delighted.name: Terms.PLAYER
 		},
 	},
 	"Cringeworthy Memory": {

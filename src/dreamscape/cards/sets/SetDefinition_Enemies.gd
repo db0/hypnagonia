@@ -87,7 +87,7 @@ const CARDS := {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.burn.name],
 		"Abilities": "Apply {effect_stacks} {burn} to a Torment.\n"\
-				+ "Remove all {envy} from the dreamer.",
+				+ "Remove all {burn} from the dreamer.",
 		"Cost": 0,
 		"_illustration": "Ierenisrt#0318",
 		"_rarity": "Received",
@@ -155,7 +155,7 @@ const CARDS := {
 	"Fearmonger": {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Gain {defence_amount} {confidence}\n"\
+		"Abilities": "Gain {defence_amount} {defence}\n"\
 				+ "{forget} a {perturbation} from your deck or discard pile.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
@@ -175,7 +175,7 @@ const CARDS := {
 	"+ Fearmonger +": {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Gain {defence_amount} {confidence}\n"\
+		"Abilities": "Gain {defence_amount} {defence}\n"\
 				+ "{forget} a {perturbation} from your deck or discard pile.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
@@ -189,7 +189,7 @@ const CARDS := {
 	"Ω Fearmonger Ω": {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.omega.name],
-		"Abilities": "Gain {defence_amount} {confidence}\n"\
+		"Abilities": "Gain {defence_amount} {defence}\n"\
 				+ "{forget} a {perturbation} from your deck or discard pile.",
 		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
@@ -203,7 +203,7 @@ const CARDS := {
 	"~ Fearmonger ~": {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Gain {defence_amount} {confidence}\n"\
+		"Abilities": "Gain {defence_amount} {defence}\n"\
 				+ "{forget} a {perturbation} from your deck or discard pile.\n{forget}.",
 		"Cost": 0,
 		"_illustration": "Db0 via midjourney.com",
@@ -217,7 +217,7 @@ const CARDS := {
 	"Fearmonger Exposed": {
 		"Type": "Understanding",
 		"Tags": [Terms.GENERIC_TAGS.slumber.name, Terms.GENERIC_TAGS.spark.name],
-		"Abilities": "Gain {defence_amount} {confidence}\n"\
+		"Abilities": "Gain {defence_amount} {defence}\n"\
 				+ "{shuffle} a random {perturbation} from your hand into your deck.\n"\
 				+ "{forget} a {perturbation} from your deck or discard pile.",
 		"Cost": 1,
@@ -232,7 +232,7 @@ const CARDS := {
 	"The Laughing One": {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Gain {effect_stacks} {untouchable}. {forget}",
+		"Abilities": "Gain {effect_stacks} {impervious}. {forget}",
 		"Cost": 0,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
@@ -252,7 +252,7 @@ const CARDS := {
 	"* The Laughing One *": {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Gain {effect_stacks} {untouchable}. {forget}",
+		"Abilities": "Gain {effect_stacks} {impervious}. {forget}",
 		"Cost": 0,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
@@ -268,8 +268,8 @@ const CARDS := {
 	"ROFLMAO": {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.impervious.name, Terms.GENERIC_TAGS.relax.name],
-		"Abilities": "Gain {effect_stacks} {untouchable}.\n"\
-				+ "{relax} 1 per {confidence}.\nRemove all {confidence}\n"\
+		"Abilities": "Gain {effect_stacks} {impervious}.\n"\
+				+ "{relax} 1 per {defence}.\nRemove all {defence}\n"\
 				+ "{forget}",
 		"Cost": 2,
 		"_illustration": "Db0 via midjourney.com",
@@ -286,7 +286,7 @@ const CARDS := {
 	"The Critic": {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Apply {effect_stacks} {shaken} to a Torment. {forget}",
+		"Abilities": "Apply {effect_stacks} {vulnerable} to a Torment. {forget}",
 		"Cost": 0,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
@@ -306,7 +306,7 @@ const CARDS := {
 	"^ The Critic ^": {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name, Terms.GENERIC_TAGS.alpha.name],
-		"Abilities": "Apply {effect_stacks} {shaken} to a Torment. {forget}",
+		"Abilities": "Apply {effect_stacks} {vulnerable} to a Torment. {forget}",
 		"Cost": 0,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
@@ -322,7 +322,7 @@ const CARDS := {
 	"The Critic Unleashed": {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.vulnerable.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Apply {effect_stacks} {shaken} to all Torments. {forget}",
+		"Abilities": "Apply {effect_stacks} {vulnerable} to all Torments. {forget}",
 		"Cost": 0,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
@@ -338,7 +338,7 @@ const CARDS := {
 	"Clown": {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Apply {effect_stacks} {confusion} to all Torments. {forget}",
+		"Abilities": "Apply {effect_stacks} {disempower} to all Torments. {forget}",
 		"Cost": 0,
 		"_illustration": "snowdrop via midjourney.com",
 		"_rarity": "Received",
@@ -358,7 +358,7 @@ const CARDS := {
 	"* Clown *": {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Apply {effect_stacks} {confusion} to all Torments. {forget}",
+		"Abilities": "Apply {effect_stacks} {disempower} to all Torments. {forget}",
 		"Cost": 0,
 		"_illustration": "snowdrop via midjourney.com",
 		"_rarity": "Received",
@@ -374,7 +374,7 @@ const CARDS := {
 	"^ Clown ^": {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.disempower.name, Terms.GENERIC_TAGS.alpha.name, Terms.GENERIC_TAGS.slumber.name],
-		"Abilities": "Apply {effect_stacks} {confusion} to all Torments. {forget}",
+		"Abilities": "Apply {effect_stacks} {disempower} to all Torments. {forget}",
 		"Cost": 0,
 		"_illustration": "snowdrop via midjourney.com",
 		"_rarity": "Received",
@@ -391,7 +391,7 @@ const CARDS := {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.strengthen.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {effect_stacks} {strengthen}.\n{forget}",
-		"Cost": 0,
+		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
@@ -412,7 +412,7 @@ const CARDS := {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.strengthen.name, Terms.GENERIC_TAGS.slumber.name],
 		"Abilities": "Gain {effect_stacks} {strengthen}.\n{forget}",
-		"Cost": 0,
+		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
@@ -428,7 +428,7 @@ const CARDS := {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.strengthen.name, Terms.GENERIC_TAGS.alpha.name],
 		"Abilities": "Gain {effect_stacks} {strengthen}.\n{forget}",
-		"Cost": 0,
+		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
@@ -444,7 +444,7 @@ const CARDS := {
 		"Type": "Understanding",
 		"Tags": [Terms.ACTIVE_EFFECTS.strengthen.name],
 		"Abilities": "Gain {effect_stacks} {strengthen}",
-		"Cost": 0,
+		"Cost": 1,
 		"_illustration": "Db0 via midjourney.com",
 		"_rarity": "Received",
 		"_effects_info": {
@@ -1883,5 +1883,63 @@ const CARDS := {
 		},
 		"_upgrade_threshold_modifier": -50,
 		"_upgrades": [],
+	},
+	"Lotustus": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name,Terms.GENERIC_TAGS.spawn.name],
+		"Abilities": "Add {detrimental_integer} Disgust into your hand.\nApply {effect_stacks} {thorns}.",
+		"Cost": 1,
+		"_illustration": "SkylarkGSH",
+		"_rarity": "Received",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER
+		},
+		"_keywords": [],
+		"_secondary_preview_card": "Disgust",
+		"_amounts": {
+			"detrimental_integer": 1,
+			"effect_stacks": 7,
+		},
+		"_upgrade_threshold_modifier": 0,
+		"_upgrades": [
+			"* Lotustus *",
+			"% Lotustus %",
+		],
+	},
+	"* Lotustus *": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name,Terms.GENERIC_TAGS.spawn.name],
+		"Abilities": "Add {detrimental_integer} Disgust into your hand.\nApply {effect_stacks} {thorns}.",
+		"Cost": 1,
+		"_illustration": "SkylarkGSH",
+		"_rarity": "Received",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER
+		},
+		"_secondary_preview_card": "Disgust",
+		"_keywords": [],
+		"_amounts": {
+			"detrimental_integer": 1,
+			"effect_stacks": 8,
+		},
+		"_is_upgrade": true,
+	},
+	"% Lotustus %": {
+		"Type": "Understanding",
+		"Tags": [Terms.ACTIVE_EFFECTS.thorns.name,Terms.GENERIC_TAGS.spawn.name],
+		"Abilities": "Add {detrimental_integer} Disgust into your hand.\nGain {effect_stacks} {thorns}.",
+		"Cost": 1,
+		"_illustration": "SkylarkGSH",
+		"_rarity": "Received",
+		"_effects_info": {
+			Terms.ACTIVE_EFFECTS.thorns.name: Terms.PLAYER
+		},
+		"_secondary_preview_card": "Disgust",
+		"_keywords": [],
+		"_amounts": {
+			"detrimental_integer": 2,
+			"effect_stacks": 10,
+		},
+		"_is_upgrade": true,
 	},
 }

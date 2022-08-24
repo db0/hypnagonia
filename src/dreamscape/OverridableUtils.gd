@@ -13,13 +13,14 @@ func get_subjects(subject_request, _stored_integer: int = 0) -> Array:
 
 # Populates the info panels under the card, when it is shown in the
 # viewport focus or deckbuilder
-func populate_info_panels(card: Card, focus_info: DetailPanels) -> void:
-	focus_info.hide_all_info()
-	var linked_terms = {
-		"already_added": [],
-		"dreamer": [],
-		"torment": [],
-	}
+func populate_info_panels(card: Card, focus_info: DetailPanels, linked_terms := {}) -> Dictionary:
+	if linked_terms.empty():
+		focus_info.hide_all_info()
+		linked_terms = {
+			"already_added": [],
+			"dreamer": [],
+			"torment": [],
+		}
 	if card.deck_card_entry:
 		if card.deck_card_entry.upgrade_threshold > 0:
 			var upgrade_format := {
@@ -95,6 +96,7 @@ func populate_info_panels(card: Card, focus_info: DetailPanels) -> void:
 		focus_info.show_illustration("Illustration by: " + card_illustration)
 	else:
 		focus_info.hide_illustration()
+	return(linked_terms)
 
 func add_linked_terms(focus_info: DetailPanels, linked_terms: Dictionary) -> void:
 	if not cfc.game_settings.get('expand_linked_terms', true):

@@ -79,7 +79,7 @@ const BossFaster := {
 	"name": "A Sense of Closure",
 	"description": "{memory_name} ({upgrades}): Recall this memory during the Dream Journal "\
 			+ "to increased your repressed %s by {pathos_amount}\n" % [Terms.RUN_ACCUMULATION_NAMES.boss]\
-			+ "While this memory is charging, you have an increased chance for rarer cards and curios",
+			+ "While this memory is charging, you have an increased chance for rarer cards and {artifacts}",
 	"icon": "res://assets/icons/memories/a_sense_of_closure.png",
 	"illustration": "SkylarkGSH",
 	"context": EffectContext.OVERWORLD,
@@ -610,19 +610,57 @@ const GENERIC := [
 # Archetype-specific memories which only appear in runs in which
 # Their tied archetype is selected.
 const ARCHETYPE := [
-	ReshuffleHand,
-	PoisonEnemy,
-	DisempowerEnemy,
-	ImperviousSelf,
-	FortifySelf,
-	ExertRecovery,
-	ExertSelf,
-	RegenerateSelf,
-	BufferSelf,
-	ActivateStartups,
-	ThornsSelf,
-	FreezeCard,
 ]
+
+# Artifact-specific artifacts which only appear in runs which
+# an archetype with that specific tag is used
+const TAG := {
+	Terms.ACTIVE_EFFECTS.thorns.name: [
+		ThornsSelf,
+	],
+	Terms.ACTIVE_EFFECTS.poison.name: [
+		PoisonEnemy,
+	],
+	Terms.ACTIVE_EFFECTS.burn.name: [
+	],
+	Terms.ACTIVE_EFFECTS.impervious.name: [
+		ImperviousSelf,
+	],
+	Terms.ACTIVE_EFFECTS.fortify.name: [
+		FortifySelf,
+	],
+	Terms.ACTIVE_EFFECTS.armor.name: [
+	],
+	Terms.ACTIVE_EFFECTS.buffer.name: [
+		BufferSelf,
+	],
+	Terms.ACTIVE_EFFECTS.disempower.name: [
+		DisempowerEnemy,
+	],
+	Terms.GENERIC_TAGS.purpose.name: [
+	],
+	Terms.GENERIC_TAGS.startup.name: [
+		ActivateStartups,
+	],
+	Terms.GENERIC_TAGS.fusion.name: [
+	],
+	Terms.GENERIC_TAGS.exert.name: [
+		ExertRecovery,
+		ExertSelf,
+	],
+	Terms.GENERIC_TAGS.slumber.name: [
+	],
+	Terms.GENERIC_TAGS.frozen.name: [
+		FreezeCard,
+	],
+	Terms.GENERIC_TAGS.spark.name: [
+		ReshuffleHand,
+	],
+	Terms.GENERIC_TAGS.relax.name: [
+		RegenerateSelf,
+	],
+}
+
 
 # These memories are only found in non-combat encounters
 const ENCOUNTER := [
@@ -657,7 +695,10 @@ static func get_memory_bbcode_format(memory_definition: Dictionary, upgrades := 
 
 
 static func get_complete_memories_array() -> Array:
-	return(GENERIC + ARCHETYPE + ENCOUNTER)
+	var tag_memories := []
+	for tag in TAG:
+		tag_memories += TAG[tag]
+	return(GENERIC + ARCHETYPE + ENCOUNTER + tag_memories)
 
 
 static func find_memory_from_canonical_name(memory_canonical_name: String):

@@ -6,6 +6,8 @@ extends Popup
 signal placement_initialized
 # The card currently being shown in a popup.
 var preview_card: Card
+# A seondary preview which is shown for example when the card is spawning a different card
+var secondary_preview_card: Card
 var _tween_wait := 0
 var _placement_initialized := false
 var _visible = true
@@ -51,6 +53,9 @@ func _set_placement() -> void:
 	focus_info.rect_size.x = 0.0
 	focus_info.rect_position.y = 0
 	focus_info.rect_position.x = preview_card.canonical_size.x * preview_card.preview_scale * cfc.curr_scale
+	if secondary_preview_card:
+		secondary_preview_card.position.y = preview_card.canonical_size.y * preview_card.preview_scale * cfc.curr_scale
+		secondary_preview_card.position.x = 20
 	if not _placement_initialized:
 		_placement_initialized = true
 		emit_signal("placement_initialized")
@@ -76,19 +81,24 @@ func get_preview_placement() -> Vector2:
 			ret.x = get_global_mouse_position().x - card_size.x - 20 - focus_panel_offset
 	else:
 		ret.x = get_global_mouse_position().x + 20
+	var secondary_card_y = 0
+	if secondary_preview_card:
+		var secondary_card_size : Vector2 = secondary_preview_card.canonical_size * secondary_preview_card.preview_scale * cfc.curr_scale
+		secondary_card_y = secondary_card_size.y
 	var card_offscreen_y = get_global_mouse_position().y\
-			+ card_size.y
+			+ card_size.y\
+			+ secondary_card_y
 	var focus_offscreen_y = get_global_mouse_position().y + focus_info.rect_size.y
 	if card_offscreen_y > focus_offscreen_y\
 			and is_instance_valid(preview_card)\
 			and card_offscreen_y > get_viewport().size.y:
 		ret.y = get_viewport().size.y\
 				- card_size.y\
-				+ 30
+				- secondary_card_y
 	elif card_offscreen_y < focus_offscreen_y\
 			and focus_offscreen_y > get_viewport().size.y:
 		ret.y = get_viewport().size.y\
-				- focus_info.rect_size.y + 30
+				- focus_info.rect_size.y
 	else:
 		ret.y = get_global_mouse_position().y + 30
 #	print_debug(ret)
@@ -113,7 +123,16 @@ func show_preview_card(card) -> void:
 		if CFConst.VIEWPORT_FOCUS_ZOOM_TYPE == "resize":
 			preview_card.resize_recursively(preview_card._control, preview_card.preview_scale * cfc.curr_scale)
 			preview_card.card_front.scale_to(preview_card.preview_scale * cfc.curr_scale)
-		cfc.ov_utils.populate_info_panels(preview_card,focus_info)
+		var linked_terms : Dictionary = cfc.ov_utils.populate_info_panels(preview_card,focus_info)
+		var sec_pr_card_name = preview_card.get_property("_secondary_preview_card")
+		if sec_pr_card_name:
+			if not has_secondary_preview_card():
+				secondary_preview_card = cfc.instance_card(sec_pr_card_name)
+				add_child(secondary_preview_card)
+				if CFConst.VIEWPORT_FOCUS_ZOOM_TYPE == "resize":
+					secondary_preview_card.resize_recursively(secondary_preview_card._control, secondary_preview_card.preview_scale * cfc.curr_scale)
+					secondary_preview_card.card_front.scale_to(secondary_preview_card.preview_scale * cfc.curr_scale)
+				cfc.ov_utils.populate_info_panels(secondary_preview_card,focus_info, linked_terms)
 		call_deferred("_set_placement")
 		mouse_filter = Control.MOUSE_FILTER_IGNORE
 	visible = true
@@ -145,3 +164,8 @@ func _on_viewport_resized() -> void:
 # else returns false
 func has_preview_card() -> bool:
 	return(is_instance_valid(preview_card))
+
+# Returns true if the preview_card variable has a valid Card instance
+# else returns false
+func has_secondary_preview_card() -> bool:
+	return(is_instance_valid(secondary_preview_card))

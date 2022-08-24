@@ -1,10 +1,10 @@
 extends CombatEffect
 
 func _ready() -> void:
-	cfc.signal_propagator.connect("signal_received", self, "_on_cfc_signal_received")
+	scripting_bus.connect("scripting_event_triggered", self, "_on_scripting_event_triggered")
 
 
-func _on_cfc_signal_received(_trigger_card, trigger, _details) -> void:
+func _on_scripting_event_triggered(_trigger_card, trigger, _details) -> void:
 	if not trigger == "cards_fused":
 		return
 	var script = [{

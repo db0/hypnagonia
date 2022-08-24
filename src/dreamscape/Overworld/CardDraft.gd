@@ -77,6 +77,7 @@ func reroll_card_draft() -> void:
 
 func _on_card_draft_selected(option: int, draft_card_object) -> void:
 	for child in get_children():
+		if child is Tween: continue
 		if child != draft_card_object:
 			$Tween.interpolate_property(child,
 					'modulate:a', 1, 0, 0.7,

@@ -11,7 +11,7 @@ class TestNCE:
 		assert_has(cfc.NMAP, "board")
 		if not cfc.NMAP.has("board"):
 			return
-		yield(yield_to(EventBus, "battle_begun", 2), YIELD)
+		yield(yield_to(scripting_bus, "battle_begun", 2), YIELD)
 		watch_signals(globals.encounters.run_changes)
 		watch_signals(globals.player)
 		var recurrence
@@ -28,8 +28,8 @@ class TestNCE:
 				"entity_healed", "_on_dreamer_healed")
 		assert_connected(cfc.NMAP.board.dreamer, recurrence,
 				"entity_damaged", "_on_dreamer_damaged")
-		assert_connected(cfc.signal_propagator, recurrence,
-				"signal_received", "_on_card_signal_received")
+		assert_connected(scripting_bus, recurrence,
+				"scripting_event_triggered", "_on_scripting_event_triggered")
 		assert_eq(recurrence.get_property("_difficulty"), "easy", "Difficulty set correctly")
 		end_surprise_encounter()
 		assert_nce_unlocked(load("res://src/dreamscape/Run/NCE/AllActs/Recurrence.gd"))
@@ -60,7 +60,7 @@ class TestNCE:
 		assert_has(cfc.NMAP, "board")
 		if not cfc.NMAP.has("board"):
 			return
-		yield(yield_to(EventBus, "battle_begun", 2), YIELD)
+		yield(yield_to(scripting_bus, "battle_begun", 2), YIELD)
 		watch_signals(globals.encounters.run_changes)
 		watch_signals(globals.player)
 		end_surprise_encounter()
@@ -84,7 +84,7 @@ class TestNCE:
 		assert_has(cfc.NMAP, "board")
 		if not cfc.NMAP.has("board"):
 			return
-		yield(yield_to(EventBus, "battle_begun", 2), YIELD)
+		yield(yield_to(scripting_bus, "battle_begun", 2), YIELD)
 		board = cfc.NMAP.board
 		hand = cfc.NMAP.hand
 		deck = cfc.NMAP.deck
@@ -125,7 +125,7 @@ class TestNCE:
 			if sceng is GDScriptFunctionState and sceng.is_valid():
 				sceng = yield(sceng, "completed")
 		board.turn.call_deferred("end_player_turn")
-		yield(yield_to(board.turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(surprise_combat_encounter.lessons_learned.get("attacks", []), [[6,6,6]], "Attacks learned")
 		assert_eq(surprise_combat_encounter.lessons_learned.get("defences", []), [25], "Defences learned")
 		assert_eq(surprise_combat_encounter.lessons_learned.get("heals", []), [-5], "Heals learned")
@@ -278,7 +278,7 @@ class TestWildAttacksEasy:
 		# warning-ignore:return_value_discarded
 		advanced_torment.intents.prepare_intents(0)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
 		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
 		assert_eq(dreamer.damage,
@@ -300,7 +300,7 @@ class TestWildAttacksMedium:
 		# warning-ignore:return_value_discarded
 		advanced_torment.intents.prepare_intents(0)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
 		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
 		assert_eq(dreamer.damage,
@@ -312,7 +312,7 @@ class TestWildAttacksMedium:
 		advanced_torment.cm_flags[Terms.ACTIVE_EFFECTS.impervious.name] = 1
 		advanced_torment.intents.prepare_intents(0)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
 		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
 		assert_eq(dreamer.damage,
@@ -327,7 +327,7 @@ class TestWildAttacksMedium:
 		advanced_torment.cm_flags[Terms.ACTIVE_EFFECTS.armor.name] = 1
 		advanced_torment.intents.prepare_intents(0)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
 		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
 		assert_eq(dreamer.damage,
@@ -343,7 +343,7 @@ class TestWildAttacksMedium:
 		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.thorns.name, 10)
 		advanced_torment.intents.prepare_intents(0)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
 		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
 		assert_eq(dreamer.damage,
@@ -359,7 +359,7 @@ class TestWildAttacksMedium:
 		advanced_torment.intents.prepare_intents(0)
 		dreamer.defence = 100
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
 		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
 		assert_eq(dreamer.damage,
@@ -371,7 +371,7 @@ class TestWildAttacksMedium:
 		advanced_torment.cm_flags["average_attacks"] = 1
 		advanced_torment.intents.prepare_intents(0)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
 # warning-ignore:unused_variable
 		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
@@ -385,7 +385,7 @@ class TestWildAttacksMedium:
 		advanced_torment.cm_flags[Terms.ACTIVE_EFFECTS.empower.name] = 1
 		advanced_torment.intents.prepare_intents(0)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
 # warning-ignore:unused_variable
 		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
@@ -399,7 +399,7 @@ class TestWildAttacksMedium:
 		advanced_torment.cm_flags[Terms.ACTIVE_EFFECTS.buffer.name] = 1
 		advanced_torment.intents.prepare_intents(0)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
 # warning-ignore:unused_variable
 		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
@@ -422,7 +422,7 @@ class TestWildAttacksHard:
 		# warning-ignore:return_value_discarded
 		advanced_torment.intents.prepare_intents(0)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
 		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
 		assert_eq(dreamer.damage,
@@ -435,7 +435,7 @@ class TestWildAttacksHard:
 		advanced_torment.cm_flags[Terms.ACTIVE_EFFECTS.impervious.name] = 2
 		advanced_torment.intents.prepare_intents(0)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
 		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
 		assert_eq(dreamer.damage,
@@ -451,7 +451,7 @@ class TestWildAttacksHard:
 		advanced_torment.cm_flags[Terms.ACTIVE_EFFECTS.armor.name] = 2
 		advanced_torment.intents.prepare_intents(0)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
 		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
 		assert_eq(dreamer.damage,
@@ -468,7 +468,7 @@ class TestWildAttacksHard:
 		advanced_torment.cm_flags[Terms.ACTIVE_EFFECTS.impervious.name] = 1
 		advanced_torment.intents.prepare_intents(0)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
 		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
 		assert_eq(dreamer.damage,
@@ -484,7 +484,7 @@ class TestWildAttacksHard:
 		advanced_torment.intents.prepare_intents(0)
 		dreamer.defence = 100
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
 		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
 		assert_eq(dreamer.damage,
@@ -502,7 +502,7 @@ class TestWildAttacksHard:
 		dreamer.defence = 100
 		advanced_torment.intents.prepare_intents(0)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
 		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
 		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.burn.name),
@@ -520,7 +520,7 @@ class TestWildAttacksHard:
 		advanced_torment.cm_flags["high_attacks"] = 2
 		advanced_torment.intents.prepare_intents(0)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
 # warning-ignore:unused_variable
 		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
@@ -533,7 +533,7 @@ class TestWildAttacksHard:
 		advanced_torment.cm_flags["average_attacks"] = 2
 		advanced_torment.intents.prepare_intents(0)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
 # warning-ignore:unused_variable
 		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
@@ -546,7 +546,7 @@ class TestWildAttacksHard:
 		advanced_torment.cm_flags[Terms.ACTIVE_EFFECTS.empower.name] = 2
 		advanced_torment.intents.prepare_intents(0)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
 # warning-ignore:unused_variable
 		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
@@ -559,7 +559,7 @@ class TestWildAttacksHard:
 		advanced_torment.cm_flags[Terms.ACTIVE_EFFECTS.buffer.name] = 2
 		advanced_torment.intents.prepare_intents(0)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
 # warning-ignore:unused_variable
 		var wa = advanced_torment.intents.WILD_AMOUNTS[difficulty]
@@ -592,7 +592,7 @@ class TestLearnEasy:
 # warning-ignore:return_value_discarded
 		advanced_torment.intents.prepare_intents(1)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
 		assert_eq(advanced_torment.defence,
 				advanced_torment.intents.LEARNING_DEFENCE[difficulty],
@@ -626,7 +626,7 @@ class TestLearnEasy:
 #				sceng = yield(sceng, "completed")
 #		gut.p([advanced_torment.dreamer_attacks,advanced_torment.dreamer_defences])
 #		turn.call_deferred("end_player_turn")
-#		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+#		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 #		# The wild attack amount for this difficulty
 #		assert_eq(advanced_torment.defence,
 #				advanced_torment.intents.LEARNING_DEFENCE[difficulty],
@@ -662,7 +662,7 @@ class TestLearnMedium:
 		advanced_torment._prepare_countermeasures()
 		advanced_torment.intents.prepare_intents(1)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
 		assert_eq(advanced_torment.defence,
 				advanced_torment.intents.LEARNING_DEFENCE[difficulty],
@@ -682,6 +682,9 @@ class TestLearnMedium:
 		# warning-ignore:return_value_discarded
 		cards[0].scripts = EXERT_SCRIPT
 		cards[1].scripts = EFFECT_SCRIPT
+		# We set the cost to 0 so that we leave an unspect immersion, which will be turned into 
+		# stress by the recurrence
+		cards[1].modify_property('Cost', 0)
 		var sceng
 		for exec_card in cards:
 			sceng = execute_with_yield(exec_card)
@@ -690,13 +693,13 @@ class TestLearnMedium:
 		advanced_torment.countermeasures = ["high_attacks"]
 		advanced_torment._prepare_countermeasures()
 		advanced_torment.intents.prepare_intents(1)
+		yield(yield_for(2), YIELD)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
-		# The wild attack amount for this difficulty
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		var intents = advanced_torment.intents.get_children()
 		assert_eq(intents.size(), 3, "Recurrence copying all intents")
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(advanced_torment.damage,
 				5,
 				"Recurrence took exert damage")
@@ -734,7 +737,7 @@ class TestLearnHard:
 # warning-ignore:return_value_discarded
 		advanced_torment.intents.prepare_intents(1)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		# The wild attack amount for this difficulty
 		assert_eq(advanced_torment.defence,
 				advanced_torment.intents.LEARNING_DEFENCE[difficulty],
@@ -763,7 +766,7 @@ class TestLearnHard:
 #			if sceng is GDScriptFunctionState and sceng.is_valid():
 #				sceng = yield(sceng, "completed")
 #		turn.call_deferred("end_player_turn")
-#		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+#		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 #		var intents = advanced_torment.intents.get_children()
 #		assert_eq(intents.size(), 1, "Recurrence is consolidating attacks as countermeasure to thorns")
 #		for iindex in range(intents.size()):
@@ -785,7 +788,7 @@ class TestLearnHard:
 #			if sceng is GDScriptFunctionState and sceng.is_valid():
 #				sceng = yield(sceng, "completed")
 #		turn.call_deferred("end_player_turn")
-#		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+#		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 #		var intents = advanced_torment.intents.get_children()
 #		assert_eq(intents.size(), cards.size(), "Recurrence is setting up piercing as countermeasure to high defences")
 #		for iindex in range(intents.size()):
@@ -793,7 +796,7 @@ class TestLearnHard:
 #			str(6),
 #			"Attack copied and piercing")
 #		turn.call_deferred("end_player_turn")
-#		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+#		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 #		assert_eq(dreamer.damage,
 #				cards.size() * 6,
 #				"Dreamer took the expected amount of piercing damage")imic_cm_pierce():
@@ -809,7 +812,7 @@ class TestLearnHard:
 #			if sceng is GDScriptFunctionState and sceng.is_valid():
 #				sceng = yield(sceng, "completed")
 #		turn.call_deferred("end_player_turn")
-#		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+#		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 #		var intents = advanced_torment.intents.get_children()
 #		assert_eq(intents.size(), cards.size(), "Recurrence is setting up piercing as countermeasure to high defences")
 #		for iindex in range(intents.size()):
@@ -817,7 +820,7 @@ class TestLearnHard:
 #			str(6),
 #			"Attack copied and piercing")
 #		turn.call_deferred("end_player_turn")
-#		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+#		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 #		assert_eq(dreamer.damage,
 #				cards.size() * 6,
 #				"Dreamer took the expected amount of piercing damage")

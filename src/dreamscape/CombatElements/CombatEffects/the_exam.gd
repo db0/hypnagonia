@@ -2,7 +2,7 @@ extends CombatEffect
 
 func _ready():
 	# warning-ignore:return_value_discarded
-	cfc.signal_propagator.connect("signal_received", self, "_on_signal_received")
+	scripting_bus.connect("scripting_event_triggered", self, "_on_signal_received")
 
 
 func _on_signal_received(trigger_card, trigger, details) -> void:

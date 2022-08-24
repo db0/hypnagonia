@@ -72,8 +72,8 @@ const PATHOS_DESCRIPTIONS := {
 		"released": "Fill the bar to receive 3 pathos masteries to use in the shop."
 	},
 	RUN_ACCUMULATION_NAMES.artifact: {
-		"repressed": "Increases the chance that Curios will appear as encounters. "\
-			+ "The more this is skipped, the better chance for higher rarity curio",
+		"repressed": "Increases the chance that plushies will appear as encounters. "\
+			+ "The more this is skipped, the better chance for higher rarity plushie",
 		"released": "Fill the bar to receive a pathos mastery to use in the shop."
 	},
 	RUN_ACCUMULATION_NAMES.rest: {
@@ -108,7 +108,7 @@ const ENEMY_ACTIONS := "Intents"
 const ENEMY_ACTIONS_VERB := "used"
 const PLAYER_ATTACK := "{interpretation}"
 const ENEMY_ATTACK := "{stress}"
-const ARTIFACTS := "Curios"
+const ARTIFACT := "Plushie"
 
 const PLAYER_TERMS := {
 	"enemy": "Torment",
@@ -1137,6 +1137,12 @@ const GENERIC_TAGS := {
 		"rich_text_icon": "res://fonts/rich_text_icons/burning-passion.png",
 		"generic_description": "[color=#A020F0]{effect_name} ({effect_icon}): This card cannot be played, if another card with the same name (including upgrades) has been played this turn.[/color]",
 	},
+	"spawn": {
+		"name": "Spawn",
+		"icon": preload("res://assets/icons/card-joker.png"),
+		"rich_text_icon": "res://assets/icons/card-joker.png",
+		"generic_description": "{effect_name} ({effect_icon}): This card will spawn another card into the game as part of its effect",
+	},
 }
 
 
@@ -1237,6 +1243,14 @@ const GENERIC_CARD_BBCODE := {
 	"end_turn": {
 		"name": "End Turn",
 		"rich_text_color": "teal",
+	},
+	"artifact": {
+		"name": ARTIFACT,
+		"rich_text_color": "white",
+	},
+	"artifacts": {
+		"name": ARTIFACT + 's',
+		"rich_text_color": "white",
 	},
 }
 

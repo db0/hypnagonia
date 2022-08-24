@@ -14,14 +14,8 @@ const FLYER:= {
 		Terms.ACTIVE_EFFECTS.impervious.name,
 		Terms.GENERIC_TAGS.relax.name,
 	],
-	"Artifacts": [
-		ArtifactDefinitions.ImproveImpervious,
-		ArtifactDefinitions.ConstantImpervious
-	],
-	"Memories": [
-		MemoryDefinitions.ImperviousSelf,
-		MemoryDefinitions.RegenerateSelf,
-	],
+	"Artifacts": [],
+	"Memories": [],
 	"Perturbations": [
 
 	],
@@ -63,13 +57,8 @@ const MAD_SCIENTIST := {
 		Terms.GENERIC_TAGS.spark.name,
 		Terms.ACTIVE_EFFECTS.buffer.name,
 	],
-	"Artifacts": [
-		ArtifactDefinitions.IncreaseBufferStacks
-	],
-	"Memories": [
-		MemoryDefinitions.ReshuffleHand,
-		MemoryDefinitions.BufferSelf,
-	],
+	"Artifacts": [],
+	"Memories": [],
 	"Perturbations": [
 		"Apathy",
 	],
@@ -163,16 +152,8 @@ const FEARLESS:= {
 		Terms.ACTIVE_EFFECTS.poison.name,
 		Terms.ACTIVE_EFFECTS.fortify.name,
 	],
-	"Artifacts": [
-		ArtifactDefinitions.ImprovePoison,
-		ArtifactDefinitions.ImproveFortify,
-		ArtifactDefinitions.IncreasePoisonStacks,
-		ArtifactDefinitions.StartingFortify,
-	],
-	"Memories": [
-		MemoryDefinitions.PoisonEnemy,
-		MemoryDefinitions.FortifySelf,
-	],
+	"Artifacts": [],
+	"Memories": [],
 	"Perturbations": [
 		"Self-Centered",
 	],
@@ -214,14 +195,8 @@ const VINDICTIVE:= {
 		Terms.GENERIC_TAGS.frozen.name,
 		Terms.ACTIVE_EFFECTS.thorns.name,
 	],
-	"Artifacts": [
-		ArtifactDefinitions.ImproveThorns,
-		ArtifactDefinitions.StartingThorns,
-	],
-	"Memories": [
-		MemoryDefinitions.ThornsSelf,
-		MemoryDefinitions.FreezeCard,
-	],
+	"Artifacts": [],
+	"Memories": [],
 	"Perturbations": [
 		"Self-Centered",
 	],
@@ -280,12 +255,8 @@ const RUBBER_CHICKEN := {
 		Terms.ACTIVE_EFFECTS.disempower.name,
 		Terms.ACTIVE_EFFECTS.buffer.name,
 	],
-	"Artifacts": [
-		ArtifactDefinitions.IncreaseConfusionStacks
-	],
-	"Memories": [
-		MemoryDefinitions.DisempowerEnemy,
-	],
+	"Artifacts": [],
+	"Memories": [],
 	"Perturbations": [
 
 	],
@@ -326,13 +297,8 @@ const LASER_CANNON := {
 		Terms.GENERIC_TAGS.fusion.name,
 		Terms.GENERIC_TAGS.startup.name,
 	],
-	"Artifacts": [
-		ArtifactDefinitions.DoubleFirstStartup,
-		ArtifactDefinitions.DoubleFusion,
-	],
-	"Memories": [
-		MemoryDefinitions.ActivateStartups,
-	],
+	"Artifacts": [],
+	"Memories": [],
 	"Perturbations": [
 
 	],
@@ -385,15 +351,8 @@ const ABUSIVE_RELATIONSHIP := {
 		Terms.GENERIC_TAGS.purpose.name,
 		Terms.GENERIC_TAGS.exert.name,
 	],
-	"Artifacts": [
-		ArtifactDefinitions.IncreaseImmersionGain,
-		ArtifactDefinitions.DecreaseExertStacks,
-		ArtifactDefinitions.LimitMaxExert,
-	],
-	"Memories": [
-		MemoryDefinitions.ExertRecovery,
-		MemoryDefinitions.ExertSelf,
-	],
+	"Artifacts": [],
+	"Memories": [],
 	"Starting Artifacts": [
 		ArtifactDefinitions.EndingHeal
 	],
@@ -438,13 +397,13 @@ const EXPLOITED := {
 	"Tags": [
 		Terms.GENERIC_TAGS.slumber.name,
 		Terms.ACTIVE_EFFECTS.armor.name,
+		Terms.GENERIC_TAGS.spawn.name,
 	],
-	"Artifacts": [
-	],
+	"Artifacts": [],
 	"Memories": [
 	],
 	"Starting Artifacts": [
-		ArtifactDefinitions.SavedForgets
+		ArtifactDefinitions.SavedForgets,
 	],
 	"Perturbations": [
 

@@ -49,7 +49,7 @@ const BBCODE_TEXT = """
 
 {card_illustrators}
 
-[color=#FF6700]Curio/Memory Illustration[/color]
+[color=#FF6700]Plushie/Memory Illustration[/color]
 
 {curio_memory_designers}
 
@@ -87,7 +87,7 @@ var game_designers := {
 	"Db0": "Lead Game Design",
 	"DioBal": "Game Design",
 	"QuestLion#8467": "Archetype Design",
-#	"SkylarkGSH": "Archetype Design",
+	"SkylarkGSH": "Miscellaneous Designs",
 }
 var developers := {
 	"Db0": "Programming Lead"
@@ -120,10 +120,11 @@ var playtesters := {
 	"SkylarkGSH": '',
 }
 var ai := {
-	"Db0": "Softprompt development, AI prompts",
-	"Liriel": "AI Prompts",
+	"Db0": "Softprompts, AI prompts",
 	"VE FORBRYDERNE#6568": "KoboldAI API Development",
 	"mr_seeker#1337": "KoboldAI Model Training",
+	"Liriel": "AI Prompts",
+	"SkylarkGSH": "AI Prompts",
 }
 
 func _ready() -> void:
@@ -196,7 +197,7 @@ func _gather_icon_illustrators() -> Array:
 			continue
 		found_illustrators.append(illustrator)
 	for a in ArtifactDefinitions.get_complete_artifacts_array():
-		var illustrator : String = a.get("illustration", "game-icons.net")
+		var illustrator : String = a.get("illustration", "Db0")
 		if found_illustrators.has(illustrator):
 			continue
 		found_illustrators.append(illustrator)

@@ -42,9 +42,12 @@ const TrafficJam = {
 	"journal_art": "res://assets/journal/torments/Traffic Jam.jpg",
 	"ai_prompts": [
 		"I was stuck in traffic, in a bottleneck that stretched accross the horizon",
+		"I was caught in the never-ending traffic jam before me. I had places to go, things to do!",
+		"The traffic jam was an endless torture. Was it even worth",
+		"The traffic jam of anger blocked the stairway to happiness. I was at a dead end",
 	],
 	"replacement_keywords": {
-		"torment_tag1": ["Traffic Jam","traffic","jam","bottleneck"],
+		"torment_tag1": ["[Tt]raffic Jam","[Tt]raffic","[Jj]am","[Bb]ottleneck","[Bb]oredom"],
 	},
 	"enemies": {
 		"easy": [
@@ -87,6 +90,9 @@ const Mouse = {
 	"journal_art": "res://assets/journal/torments/Mouse.jpg",
 	"ai_prompts": [
 		"I was having polite tea with a mouse, discussing political theory",
+		"The squeaky voice of the mouse rattled my brain around with its hyperactive intelligence. I understood nothing",
+		"The teacups shattered onto the floor as the words began to spill out of the mouse's erratic mouth",
+		"The mouse was too smart for me. It predicted every word I said, transforming them inton a convoluted theory",
 	],
 	"replacement_keywords": {
 		"torment_tag1": ["mouse","rodent","discussing"],
@@ -538,11 +544,12 @@ It was frustrating and upsetting, making me feel guilty and ashamed. I couldn't 
 		],
 	},
 }
+
 const Void = {
 	"name": "Void",
 	"title": "A Black Hole in your mind",
 	"journal_description":\
-"""Initially I felt like my dreams were fading. But as the void of everything grew larger and more distinct, it occurred to me it was far worse. You see, what a dream that could never be repeated. An endless black space opens, coming together with your mind, reaching towards you like a powerful claw.
+"""Initially I felt like my dreams were fading. But as [url={torment_tag1}the void of everything[/url] grew larger and more distinct, it occurred to me it was far worse. You see, what a dream that could never be repeated. An endless black space opens, coming together with your mind, reaching towards you like a powerful claw.
 From your perspective, it feels cold, it stretches out, wants to penetrate you and capture you for eternity. Yet when you look down onto the threshold, what do you see?""",
 	"journal_reward":\
 """When you read these words now, there's going to be something else occupying the void inside of you; an invisible "you" staring back from deep within yourself... But that shouldn't matter. Right?""",
@@ -594,6 +601,49 @@ From your perspective, it feels cold, it stretches out, wants to penetrate you a
 		],
 	},
 }
+const Lotustus = {
+	"name": "Lotustus",
+	"title": "A dizzying array of holes",
+	"journal_description":\
+"""I remember my legs submerged in the murky water. I dredged through the endless misty swamp as my worry began to grow.
+Soon my vision cleated, and to my dismay I saw [url={torment_tag1}]thousands of holes[/url] (or were they tiny nests?), all around me. An endless pit of agitation.""",
+	"journal_reward":\
+"""Even though I could feel and see the irritating blood red pores across my skin, I had to reassure myself that it couldn't hurt me physically. I denied my primal subconcious assumptions within me, and stormed away from the hideous amalgamations before me, and continued my trek through the bog.""",
+#	"journal_art": "res://assets/journal/torments/The Void.jpg",
+	"ai_prompts": [
+		"My skin crawled as I beheld dozens on tiny holes arrayed",
+	],
+	"replacement_keywords": {
+		"torment_tag1": ["trypophobia","holes?"],
+	},
+	"enemies": {
+		"easy": [
+			{
+				"definition": EnemyDefinitions.LOTUSTUS,
+				"health_modifier": -30,
+			},
+		],
+		"medium": [
+			{
+				"definition": EnemyDefinitions.LOTUSTUS,
+			},
+		],
+		"hard": [
+			{
+				"definition": EnemyDefinitions.LOTUSTUS,
+				"rebalancing": {
+					"Perplex": +2,
+				},
+				"starting_effects": [
+					{
+						"name": Terms.ACTIVE_EFFECTS.thorns.name,
+						"stacks": 4
+					},
+				]
+			},
+		],
+	},
+}
 const ENEMIES = {
 	"TrafficJam": TrafficJam,
 	"Mouse": Mouse,
@@ -604,6 +654,7 @@ const ENEMIES = {
 	"ImpossibleConstruction": ImpossibleConstruction,
 	"GuiltyTreatment": GuiltyTreatment,
 	"Void":Void,
+	"Lotustus": Lotustus,
 }
 
 const IndescribableAbsurdity = {

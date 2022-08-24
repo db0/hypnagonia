@@ -2,6 +2,7 @@ extends AdvancedEnemyEntity
 
 const PROPERTIES := {
 	"name": "Dentist",
+	"Rank": "Elite",
 	"Health": 153,
 	"Type": "Phobia",
 	"Damage": 0,

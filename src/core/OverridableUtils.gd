@@ -11,8 +11,9 @@ const _CARD_SELECT_SCENE = preload(_CARD_SELECT_SCENE_FILE)
 
 # Populates the info panels under the card, when it is shown in the
 # viewport focus or deckbuilder
-func populate_info_panels(card: Card, focus_info: DetailPanels) -> void:
-	focus_info.hide_all_info()
+func populate_info_panels(card: Card, focus_info: DetailPanels, linked_terms := {}) -> Dictionary:
+	if linked_terms.empty():
+		focus_info.hide_all_info()
 	var card_illustration = card.get_property("_illustration")
 	if card_illustration:
 		focus_info.show_illustration("Illustration by: " + card_illustration)
@@ -26,6 +27,7 @@ func populate_info_panels(card: Card, focus_info: DetailPanels) -> void:
 		for keyword in card_keywords:
 			if CardConfig.EXPLANATIONS.has(keyword):
 				focus_info.add_info(keyword, CardConfig.EXPLANATIONS[keyword])
+	return(linked_terms)
 
 func get_subjects(_subject_request, _stored_integer : int = 0) -> Array:
 	return([])

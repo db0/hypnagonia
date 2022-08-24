@@ -37,7 +37,7 @@ func setup() -> void:
 	for group in deck_groups:
 		# Each deck group can modify the player's max health
 		health += Aspects[group.to_upper()][deck_groups[group]].get(Terms.PLAYER_TERMS.health,0)
-		# We typically avoid starting curios during testing
+		# We typically avoid starting artifacts during testing
 		if globals.test_flags.get("disable_starting_artifacts", false):
 			continue
 		# Each deck group might provide one or more starting artifacts
@@ -267,7 +267,12 @@ func get_archetype_artifacts(boss_artifacts := false) -> Array:
 		for a in Aspects.get_archetype_value(arch, "Artifacts"):
 			if boss_artifacts == (a.rarity == "Boss"):
 				artifact_list.append(a)
+		for tag in Aspects.get_archetype_value(arch, "Tags"):
+			for a in ArtifactDefinitions.TAG.get(tag, []):
+				if boss_artifacts == (a.rarity == "Boss"):
+					artifact_list.append(a)
 	return(artifact_list)
+
 
 # Goes through all archetypes and gathers all artifacts specified
 # Returns a list with all artifacts tied to all archetypes of the player.
@@ -275,6 +280,8 @@ func get_archetype_memories() -> Array:
 	var memories_list := []
 	for arch in get_current_archetypes():
 		memories_list += Aspects.get_archetype_value(arch, "Memories")
+		for tag in Aspects.get_archetype_value(arch, "Tags"):
+			memories_list += MemoryDefinitions.TAG.get(tag, [])
 	return(memories_list)
 
 

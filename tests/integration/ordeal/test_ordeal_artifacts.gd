@@ -26,7 +26,7 @@ class TestThickImmersion:
 				"%s gives %s when deck shuffled" % [artifact.name, Terms.ACTIVE_EFFECTS.vulnerable.name])
 		assert_true(artifact.is_active, "Artifact should be disabled after shuffling")
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(board.counters.get_counter("immersion"), 3)
 		assert_eq(turn.encounter_event_count.get("immersion_increased",0 ), 0,
 				"Turn Start immersion should not counted as being gained during the turn")
@@ -49,7 +49,7 @@ class TestThickStrength:
 				get_amount("effect_stacks"),
 				"%s gives %s first turn" % [artifact.name, effect_name])
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect_name),
 				get_amount("effect_stacks") * 2,
 				"%s gives %s every turn" % [artifact.name, effect_name])
@@ -472,10 +472,10 @@ class TestImproveFortify:
 		var modification = 5
 		spawn_effect(dreamer, effect_name, modification)
 		turn.call("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.armor.name),
-				modification - modification/2,
-				"%s also added same amount of %s stacks" % [artifact.name, Terms.ACTIVE_EFFECTS.armor.name])
+				2 * (modification - modification/2),
+				"%s also added double the amount of %s stacks" % [artifact.name, Terms.ACTIVE_EFFECTS.armor.name])
 
 class TestRedWave:
 	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
@@ -508,7 +508,7 @@ class TestRedWave:
 			cards.append("Interpretation")
 		setup_test_cards(cards)
 		board.call_deferred("begin_encounter")
-		yield(yield_to(turn, "player_turn_started", 1), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started", 1), YIELD)
 		assert_signal_not_emitted(artifact, "artifact_triggered")
 		assert_eq(dreamer.defence, 0,
 				"%s did not add defence due to not hitting threshold" % [artifact.name])
@@ -548,7 +548,7 @@ class TestBlueWave:
 			cards.append("Confidence")
 		setup_test_cards(cards)
 		board.call_deferred("begin_encounter")
-		yield(yield_to(turn, "player_turn_started", 1), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started", 1), YIELD)
 		assert_signal_not_emitted(artifact, "artifact_triggered")
 		for t in test_torments:
 			assert_eq(t.damage, tdamage(0),
@@ -586,7 +586,7 @@ class TestPurpleWave:
 			cards.append("Gaslighter")
 		setup_test_cards(cards)
 		board.call_deferred("begin_encounter")
-		yield(yield_to(turn, "player_turn_started", 1), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started", 1), YIELD)
 		assert_signal_not_emitted(artifact, "artifact_triggered")
 		assert_eq(dreamer.damage, dreamer_starting_damage,
 				"%s did not heale dreamer due to not hitting threshold" % [artifact.name])
@@ -607,7 +607,7 @@ class TestProgressiveImmersion:
 		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.creative_block.name),
 				1, "%s prevents all card upgrades" % [artifact.name])
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion per turn")
 
 class TestBossCardDraw:
@@ -626,7 +626,7 @@ class TestBossCardDraw:
 			return
 		assert_eq(hand.get_card_count(), 6, "Dreamer gets +1 card on first turn")
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(hand.get_card_count(), 6, "Dreamer gets +1 card per turn")
 
 class TestRandomUpgrades:
@@ -643,7 +643,7 @@ class TestRandomUpgrades:
 			return
 		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion on first turn")
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion per turn")
 
 
@@ -690,7 +690,7 @@ class TestNoRest:
 			return
 		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion on first turn")
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion per turn")
 
 
@@ -708,7 +708,7 @@ class TestSmallerDrafts:
 			return
 		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion on first turn")
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion per turn")
 
 class TestConstantImpervious:
@@ -727,7 +727,7 @@ class TestConstantImpervious:
 				get_amount("effect_stacks"),
 				"%s gives Dreamer +1 %s on first turn" % [artifact.name, Terms.ACTIVE_EFFECTS.impervious.name])
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.impervious.name),
 				get_amount("effect_stacks"),
 				"%s gives Dreamer +1 %s on every turn" % [artifact.name, Terms.ACTIVE_EFFECTS.impervious.name])
@@ -750,13 +750,13 @@ class TestThickHeal:
 			return
 		assert_eq(dreamer.damage, 9)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.damage, 8)
 		deck.shuffle_cards()
 		yield(yield_to(deck, "shuffle_completed", 0.5), YIELD)
 		assert_eq(dreamer.damage, 11)
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.damage, 10)
 
 
@@ -805,7 +805,7 @@ class TestLightningMarble:
 		if not assert_has_amounts():
 			return
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(test_torment.damage, tdamage(dmg), "Torment Damaged at end of turn")
 
 class TestLimitMaxExert:
@@ -866,17 +866,17 @@ class TestThickThorns:
 				get_amount("effect_stacks"),
 				"%s gives %s first turn" % [artifact.name, effect_name])
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect_name),
 				get_amount("effect_stacks") * 2 - 1,
 				"%s gives %s every turn" % [artifact.name, effect_name])
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect_name),
 				get_amount("effect_stacks") * 3 - 2,
 				"%s gives %s every turn" % [artifact.name, effect_name])
 		turn.call_deferred("end_player_turn")
-		yield(yield_to(turn, "player_turn_started",3 ), YIELD)
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
 		assert_eq(dreamer.active_effects.get_effect_stacks(effect_name),
 				get_amount("effect_stacks") * 4 - 3,
 				"%s gives %s every turn" % [artifact.name, effect_name])
@@ -913,3 +913,209 @@ class TestSavedForgets:
 		yield(yield_to(artifact, "artifact_triggered", 0.2), YIELD)
 		assert_eq(cards[1].get_parent(), forgotten)
 		assert_signal_emit_count(artifact, "artifact_triggered", 1)
+
+
+class TestStartupDraw:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.StartupDraw.canonical_name
+		expected_amount_keys = [
+			"draw_amount",
+		]
+		test_card_names = [
+			"GUT",
+			"GUT",
+		]
+		globals.test_flags["test_initial_hand"] = true
+
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		for c in cards:
+			var tcard: DreamCard = c
+			tcard.modify_property('Tags', Terms.GENERIC_TAGS.startup.name)
+			tcard.execute_scripts()
+		yield(yield_to(artifact, "artifact_triggered", 0.2), YIELD)
+		yield(yield_to(artifact, "artifact_triggered", 0.2), YIELD)
+		assert_eq(hand.get_card_count(), get_amount("draw_amount") * cards.size(), "Each played startup draws a card")
+		assert_signal_emit_count(artifact, "artifact_triggered", 2)
+
+class TestRandomForgottenCards:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.RandomForgottenCards.canonical_name
+		expected_amount_keys = [
+			"card_amount",
+		]
+		test_card_names = [
+			"GUT",
+			"Exhaustion",
+			"GUT",
+		]
+
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		card.scripts = FORGET_CARD_SCRIPT
+		card.execute_scripts()
+		yield(yield_to(hand, "card_added", 1), YIELD)
+		assert_eq(hand.get_card_count(), get_amount("card_amount") + 2, "Each forgotten card generates a card")
+		cards[1].execute_scripts()
+		yield(yield_to(scripting_bus, "player_turn_started",3), YIELD)
+		cards[2].execute_scripts()
+		yield(yield_to(hand, "card_added", 3), YIELD)
+		assert_signal_emit_count(artifact, "artifact_triggered", 2)
+		assert_eq(hand.get_card_count(), get_amount("card_amount") * 2, "Each forgotten card generates a card")
+
+
+class TestConstantMark:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.ConstantMark.canonical_name
+		expected_amount_keys = [
+			"effect_stacks",
+		]
+		torments_amount = 3
+
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
+		var marked_count := 0
+		for t in test_torments:
+			marked_count += t.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.marked.name)
+		assert_eq(marked_count, 1)
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
+		marked_count = 0
+		for t in test_torments:
+			marked_count += t.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.marked.name)
+		assert_eq(marked_count, 1)
+
+
+class TestImproveArmor:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.ImproveArmor.canonical_name
+		expected_amount_keys = [
+			"threshold_amount",
+		]
+
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.armor.name, 2)
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.armor.name), 2)
+		spawn_effect(dreamer, Terms.ACTIVE_EFFECTS.armor.name, 4)
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.armor.name), 5)
+
+
+class TestSwiftPerturbations:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		globals.test_flags["test_initial_hand"] = true
+		testing_artifact_name = ArtifactDefinitions.SwiftPerturbations.canonical_name
+		expected_amount_keys = [
+			"draw_amount",
+		]
+
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		add_single_card("Lacuna", deck)
+		add_single_card("Lacuna", deck)
+		hand.draw_card()
+		yield(yield_to(hand, "card_drawn", 1), YIELD)
+		assert_eq(hand.get_card_count(), 3)
+
+
+class TestBufferedSpawns:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.BufferedSpawns.canonical_name
+		expected_amount_keys = [
+			"effect_stacks",
+		]
+		test_card_names = [
+			'GUT',
+		]
+
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		card.scripts = SPAWN_CARD_SCRIPT
+		var sceng = execute_with_yield(card)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		yield(yield_to(artifact, "artifact_triggered", 2), YIELD)
+		assert_eq(dreamer.active_effects.get_effect_stacks(Terms.ACTIVE_EFFECTS.buffer.name),
+				get_amount("effect_stacks"),
+				"%s does not gives %s when non-perturbation card spawned" % [artifact.name, Terms.ACTIVE_EFFECTS.buffer.name])
+
+
+class TestBossExert:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.BossExert.canonical_name
+		pre_init_artifacts.append(testing_artifact_name)
+		expected_amount_keys = [
+			"immersion_amount",
+			"exert_amount",
+		]
+
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion on first turn")
+		assert_eq(dreamer.damage, get_amount("exert_amount"), "Dreamer gets 1 anxiety on first turn")
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
+		assert_eq(counters.get_counter("immersion"), 4, "Dreamer gets +1 immersion per turn")
+		assert_eq(dreamer.damage, get_amount("exert_amount") * 2, "Dreamer gets 1 anxiety per turn")
+
+
+class TestBossRandomDiscount:
+	extends "res://tests/HUT_Ordeal_ArtifactsTestClass.gd"
+	func _init() -> void:
+		testing_artifact_name = ArtifactDefinitions.BossRandomDiscount.canonical_name
+		pre_init_artifacts.append(testing_artifact_name)
+		expected_amount_keys = [
+			"immersion_amount",
+		]
+		test_card_names = [
+			'Confidence',
+			'GUT',
+			'Confrontation',
+			'Lacuna',
+		]
+
+	func test_artifact_effect():
+		if not assert_has_amounts():
+			return
+		
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
+		assert_signal_emit_count(scripting_bus, "card_properties_modified", 1)
+		var comp_dict =  {
+			  "immersion_amount": 3,
+			  "new_property_value": "-1",
+			  "previous_property_value":  1,
+			  "property_name": "Cost",
+			  "tags": ["Scripted", "Curio"],
+		  }
+		assert_signal_emitted_with_parameters(scripting_bus, "card_properties_modified", [card,comp_dict])
+		assert_eq(card.get_property('Cost'), 0, "Card's Cost reduced to 0")
+		var sceng = execute_with_yield(card)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		yield(yield_to(scripting_bus,"card_properties_modified", 1), YIELD)
+		assert_eq(card.get_property('Cost'), 1, "Card's Cost reset")
+		assert_signal_emit_count(scripting_bus, "card_properties_modified", 2)
+		turn.call_deferred("end_player_turn")
+		yield(yield_to(scripting_bus, "player_turn_started",3 ), YIELD)
+		assert_signal_emit_count(scripting_bus, "card_properties_modified", 3)

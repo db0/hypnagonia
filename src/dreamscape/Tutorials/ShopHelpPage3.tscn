@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/tutorial/shop/curios.png" type="Texture" id=1]
+[ext_resource path="res://assets/tutorial/shop/plushies.png" type="Texture" id=1]
 [ext_resource path="res://themes/darktheme/darktheme.theme" type="Theme" id=3]
 
 [node name="ShopHelpPage3" type="Control"]
@@ -21,16 +21,16 @@ margin_right = 145.0
 margin_bottom = 24.0
 text = "Shop Curios"
 
-[node name="Curios" type="TextureRect" parent="."]
+[node name="Plushies" type="TextureRect" parent="."]
 margin_left = 36.379
 margin_top = 36.5223
 margin_right = 363.379
 margin_bottom = 398.522
+rect_min_size = Vector2( 327, 362 )
 rect_scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+expand = true
+stretch_mode = 3
 
 [node name="Tutorial" type="RichTextLabel" parent="."]
 margin_left = 330.0
@@ -46,6 +46,3 @@ text = "The Shop also has available some curios to receive directly. They tend t
 
 You can mouse over any of them to see their abilities.
 "
-__meta__ = {
-"_edit_use_anchors_": false
-}

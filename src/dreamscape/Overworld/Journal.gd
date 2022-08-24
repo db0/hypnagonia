@@ -561,14 +561,16 @@ func _input(event):
 #			if c.card_name == "Noisy Whip":
 #				globals.player.deck.remove_card(c)
 #		_reveal_entry(upgrade_journal, true)
-#		globals.player.deck.add_new_card("Guilt")
+#	d	globals.player.deck.add_new_card("Guilt")
 #		globals.player.deck.add_new_card("Catatonia")
-#		globals.player.add_artifact(ArtifactDefinitions.CursedCurios.canonical_name)
+		globals.player.add_artifact(ArtifactDefinitions.BufferedSpawns.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.EnhanceOnRest.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.PerturbationHeal.canonical_name)
 #		globals.player.add_artifact(ArtifactDefinitions.CostlyUpgrades.canonical_name)
-#		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
+		globals.player.add_memory(MemoryDefinitions.DamageAll.canonical_name)
 #		globals.player.add_memory(MemoryDefinitions.BossFaster.canonical_name)
+#		globals.player.add_memory(MemoryDefinitions.RerollDraft.canonical_name)
+#		globals.player.add_memory(MemoryDefinitions.ImmerseSelf.canonical_name)
 		# warning-ignore:return_value_discarded
 #		globals.player.add_memory(MemoryDefinitions.FreezeCard.canonical_name)
 #		var card_entry = globals.player.deck.add_new_card("Towering Presence")
@@ -585,25 +587,26 @@ func _input(event):
 #		globals.player.pathos.available_masteries += 6
 		var debug_encounters = [
 #			EnemyEncounter.new(Act1.Clown, "hard"),
-#			EnemyEncounter.new(Act2.ENEMIES.GuiltyTreatment, "easy"),
+#			EnemyEncounter.new(Act2.ENEMIES.Lotustus, "medium"),
 #			EnemyEncounter.new(Act3.Cringelord, "hard"),
 #			load(AllActs.NCE.risky.OstrichEggs).new(),
-#			load(Act1.NCE.risky.Highwire).new(),
-#			load(Act1.NCE.easy.CrystalShattering).new(),
+#			load(Act1.NCE.risky.Spider).new(),
+#			load(Act1.NCE.easy.MonsterTrain).new(),
 #			load(Act2.NCE.easy.Subconscious).new(),
 #			load(Act3.NCE.easy.BeastMirror).new(),
+			load(Act3.NCE.risky.UnderwaterCave).new(),
 #			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Rest.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Shop.gd").new(),
 #			BossEncounter.new(Act1.BOSSES["Narcissus"]),
 #			BossEncounter.new(Act2.BOSSES["Surreality"]),
 #			BossEncounter.new(Act3.BOSSES["Fear_and_Phobia"]),
-#			EliteEncounter.new(Act1.Bully, "medium"),
+#			EliteEncounter.new(Act1.Leviathan, "hard"),
 #			EliteEncounter.new(Act2.IndescribableAbsurdity, "medium"),
-#			EliteEncounter.new(Act3.InfiniteCorridor, "medium"),
+#			EliteEncounter.new(Act3.TheGatherer, "medium"),
 #			load("res://src/dreamscape/Run/NCE/Shop.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Rest.gd").new(),
-#			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
+			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
 		]
 		for encounter in debug_encounters:
 			var journal_choice_scene = JOURNAL_ENCOUNTER_CHOICE_SCENE.instance()

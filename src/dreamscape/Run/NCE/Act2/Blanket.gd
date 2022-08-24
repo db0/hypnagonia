@@ -7,6 +7,11 @@ My blanket was my only friend, but it has been giving me strange vibes.
 Every night when I got home it got absurdly clingy, especially when we were watching movies in bed together.
 Today, I felt the heat stifling me.
 """
+const ai_prompts:= [
+	"My blanket was my only friend, but it has been giving me strange vibes",
+	"I've been completely enamored with my blanked lately, but things started going sour",
+]
+
 
 var pathos_gained : float
 var pathos_type = globals.player.pathos.pathi[PATHOS_TYPE]
@@ -22,7 +27,7 @@ var nce_result_fluff := {
 	}
 
 func _init():
-	introduction.setup_with_vars("Blanket",journal_description, "The Comforting Feeling Can Easily Become Oppressive")
+	introduction.setup_with_vars("Blanket",journal_description, "A Comforting Feeling Can Easily Become Oppressive", ai_prompts)
 	prepare_journal_art(load("res://assets/journal/nce/Blanket.jpg"))
 
 func begin() -> void:
