@@ -1,5 +1,26 @@
 # Changelog
 
+## [Unreleased](https://github.com/db0/hypnagonia/tree/HEAD)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.63.3...HEAD)
+
+**Implemented enhancements:**
+
+- Vivification curios to enlighten your runs 👁️ [\#405](https://github.com/db0/hypnagonia/issues/405)
+
+## [v0.63.3](https://github.com/db0/hypnagonia/tree/v0.63.3) (2022-08-24)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.63.2...v0.63.3)
+
+**Implemented enhancements:**
+
+- Lotustus } Act II Trypophobe Frustration torment [\#382](https://github.com/db0/hypnagonia/issues/382)
+- Sky Leviathan -- Elite torment idea [\#380](https://github.com/db0/hypnagonia/issues/380)
+
+**Merged pull requests:**
+
+- Switched to plushies. Added more plushies [\#414](https://github.com/db0/hypnagonia/pull/414) ([db0](https://github.com/db0))
+
 ## [v0.63.2](https://github.com/db0/hypnagonia/tree/v0.63.2) (2022-08-14)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.63.1...v0.63.2)
