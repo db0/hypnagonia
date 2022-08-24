@@ -57,6 +57,8 @@ func setup_with_vars(
 		default_stories = _default_stories.duplicate()
 	elif typeof(_default_stories) == TYPE_STRING:
 		default_stories = [_default_stories]
+	for iter in range(default_stories.size()):
+		default_stories[iter] = default_stories[iter].format(Terms.get_bbcode_formats(18))
 	ai_prompts = _ai_prompts
 	replacement_keywords = _replacement_kws
 

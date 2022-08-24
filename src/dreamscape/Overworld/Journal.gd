@@ -594,6 +594,7 @@ func _input(event):
 #			load(Act1.NCE.easy.MonsterTrain).new(),
 #			load(Act2.NCE.easy.Subconscious).new(),
 #			load(Act3.NCE.easy.BeastMirror).new(),
+			load(Act3.NCE.risky.UnderwaterCave).new(),
 #			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Rest.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Shop.gd").new(),
@@ -603,9 +604,9 @@ func _input(event):
 #			EliteEncounter.new(Act1.Leviathan, "hard"),
 #			EliteEncounter.new(Act2.IndescribableAbsurdity, "medium"),
 #			EliteEncounter.new(Act3.TheGatherer, "medium"),
-			load("res://src/dreamscape/Run/NCE/Shop.gd").new(),
+#			load("res://src/dreamscape/Run/NCE/Shop.gd").new(),
 #			load("res://src/dreamscape/Run/NCE/Rest.gd").new(),
-#			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
+			load("res://src/dreamscape/Run/NCE/Artifact.gd").new(),
 		]
 		for encounter in debug_encounters:
 			var journal_choice_scene = JOURNAL_ENCOUNTER_CHOICE_SCENE.instance()

@@ -79,7 +79,7 @@ const BossFaster := {
 	"name": "A Sense of Closure",
 	"description": "{memory_name} ({upgrades}): Recall this memory during the Dream Journal "\
 			+ "to increased your repressed %s by {pathos_amount}\n" % [Terms.RUN_ACCUMULATION_NAMES.boss]\
-			+ "While this memory is charging, you have an increased chance for rarer cards and curios",
+			+ "While this memory is charging, you have an increased chance for rarer cards and {artifacts}",
 	"icon": "res://assets/icons/memories/a_sense_of_closure.png",
 	"illustration": "SkylarkGSH",
 	"context": EffectContext.OVERWORLD,

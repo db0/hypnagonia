@@ -757,7 +757,7 @@ const IncreaseImmersionGain := {
 const BetterArtifactChance := {
 	"canonical_name": "BetterArtifactChance",
 	"name": "Fortune",
-	"description": "{artifact_name}: The quality of the curios your find is increased.",
+	"description": "{artifact_name}: The quality of the {artifacts} your find is increased.",
 	"icon": "res://assets/icons/plushies/Fortune.png",
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Encounter",
@@ -915,7 +915,7 @@ const UpgradeMemoryOnRest := {
 const ReduceCurioRerollPerturbChance := { # TODO: Tests
 	"canonical_name": "ReduceCurioRerollPerturbChance",
 	"name": "Shamrock",
-	"description": "{artifact_name}: Reduces the chance to get a {condition_card} when rerolling a Desire curio.",
+	"description": "{artifact_name}: Reduces the chance to get a {condition_card} when rerolling a Desire {artifact}.",
 	"icon": "res://assets/icons/plushies/Shamrock.png",
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Common",
@@ -1094,7 +1094,7 @@ const MoreShopMasteries := {
 const MoreArtifactMasteries := {
 	"canonical_name": "MoreArtifactMasteries",
 	"name": "Lina",
-	"description": "{artifact_name}: Whenever you find a curio, gain {masteries_amount} {pathos} masteries.",
+	"description": "{artifact_name}: Whenever you find a {artifact}, gain {masteries_amount} {pathos} masteries.",
 	"icon": "res://assets/icons/plushies/Lina.png",
 	"context": EffectContext.OVERWORLD,
 	"rarity": "Encounter",
@@ -1264,7 +1264,7 @@ const CursedCurios := { # TODO: Tests
 	"canonical_name": "CursedCurios",
 	"name": "Flamenco",
 	"description": "{artifact_name}: You have {immersion_amount} extra {energy} per turn.\n"\
-			+ "All recalled curios, always give 1 extra {perturbation}",
+			+ "All recalled {artifacts}, always give 1 extra {perturbation}",
 	"icon": "res://assets/icons/plushies/Flamenco.png",
 	"context": EffectContext.BATTLE,
 	"rarity": "Boss",

@@ -3,7 +3,7 @@ extends JournalCustomDraft
 func _setup() -> void:
 	custom_draft_name = "artifact_boss_draft"
 	draft_amount = ArtifactDefinitions.BossDraft.amounts.draft_amount
-	description.bbcode_text = "It was time to drink that curious beer that I discovered.\n"\
+	description.bbcode_text = "I found the secret compartment in the Beear. It was full of fresh beer!\n"\
 			+ "[Draft %s cards from one of your aspects]" % [draft_amount]
 
 

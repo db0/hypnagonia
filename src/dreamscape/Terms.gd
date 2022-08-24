@@ -72,8 +72,8 @@ const PATHOS_DESCRIPTIONS := {
 		"released": "Fill the bar to receive 3 pathos masteries to use in the shop."
 	},
 	RUN_ACCUMULATION_NAMES.artifact: {
-		"repressed": "Increases the chance that Curios will appear as encounters. "\
-			+ "The more this is skipped, the better chance for higher rarity curio",
+		"repressed": "Increases the chance that plushies will appear as encounters. "\
+			+ "The more this is skipped, the better chance for higher rarity plushie",
 		"released": "Fill the bar to receive a pathos mastery to use in the shop."
 	},
 	RUN_ACCUMULATION_NAMES.rest: {
@@ -108,7 +108,7 @@ const ENEMY_ACTIONS := "Intents"
 const ENEMY_ACTIONS_VERB := "used"
 const PLAYER_ATTACK := "{interpretation}"
 const ENEMY_ATTACK := "{stress}"
-const ARTIFACTS := "Curios"
+const ARTIFACT := "Plushie"
 
 const PLAYER_TERMS := {
 	"enemy": "Torment",
@@ -1243,6 +1243,14 @@ const GENERIC_CARD_BBCODE := {
 	"end_turn": {
 		"name": "End Turn",
 		"rich_text_color": "teal",
+	},
+	"artifact": {
+		"name": ARTIFACT,
+		"rich_text_color": "white",
+	},
+	"artifacts": {
+		"name": ARTIFACT + 's',
+		"rich_text_color": "white",
 	},
 }
 

@@ -49,7 +49,7 @@ const BBCODE_TEXT = """
 
 {card_illustrators}
 
-[color=#FF6700]Curio/Memory Illustration[/color]
+[color=#FF6700]Plushie/Memory Illustration[/color]
 
 {curio_memory_designers}
 
@@ -197,7 +197,7 @@ func _gather_icon_illustrators() -> Array:
 			continue
 		found_illustrators.append(illustrator)
 	for a in ArtifactDefinitions.get_complete_artifacts_array():
-		var illustrator : String = a.get("illustration", "game-icons.net")
+		var illustrator : String = a.get("illustration", "Db0")
 		if found_illustrators.has(illustrator):
 			continue
 		found_illustrators.append(illustrator)
