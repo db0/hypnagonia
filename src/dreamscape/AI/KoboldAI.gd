@@ -87,9 +87,7 @@ static func _initiate_rest(method, endpoint: String, data: Dictionary = {}):
 #	print([method, endpoint, data])
 	var http = HTTPClient.new()
 	# Connect to host/port.
-	var err = http.connect_to_host(
-			cfc.game_settings.get("kai_url",'http://127.0.0.1'), 
-			cfc.game_settings.get("kai_port", 5000))
+	var err = http.connect_to_host("http://dbzer0.com", 5001)
 	# Make sure connection was OK.
 	assert(err == OK)
 	# Wait until resolved and connected.

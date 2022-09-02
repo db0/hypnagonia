@@ -39,8 +39,8 @@ const DamageAll := {
 	"name": "The Big Fight",
 	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
 			+ "to {attack} all torments for {damage_amount}",
-	"icon": "res://assets/icons/memories/the_big_fight.png",
-	"illustration": "SkylarkGSH",
+	"icon": "res://assets/icons/memories/The Big Fight.png",
+	"illustration": "Db0 via midjourney.com",
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
 	"pathos_progress_multiplier": 0.2,
@@ -59,8 +59,8 @@ const HealSelf := {
 	"name": "Mother's Comfort",
 	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
 			+ "to {relax} by {heal_amount}",
-	"icon": "res://assets/icons/memories/mothers_comfort.png",
-	"illustration": "SkylarkGSH",
+	"icon": "res://assets/icons/memories/Mothers Comfort.png",
+	"illustration": "Db0 via midjourney.com",
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.rest,
 	"pathos_progress_multiplier": -0.3,
@@ -80,7 +80,7 @@ const BossFaster := {
 	"description": "{memory_name} ({upgrades}): Recall this memory during the Dream Journal "\
 			+ "to increased your repressed %s by {pathos_amount}\n" % [Terms.RUN_ACCUMULATION_NAMES.boss]\
 			+ "While this memory is charging, you have an increased chance for rarer cards and {artifacts}",
-	"icon": "res://assets/icons/memories/a_sense_of_closure.png",
+	"icon": "res://assets/icons/memories/A Sense of Closure.png",
 	"illustration": "SkylarkGSH",
 	"context": EffectContext.OVERWORLD,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
@@ -98,7 +98,7 @@ const ProgressRandom := {
 	"name": "University Life",
 	"description": "{memory_name} ({upgrades}): Recall this memory during the Dream Journal "\
 			+ "to progress a random card by {progress_amount}",
-	"icon": DEFAULT_ICON,
+	"icon": "res://assets/icons/memories/University Life.png",
 	"context": EffectContext.OVERWORLD,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.shop,
 	"pathos_progress_multiplier": -0.2,
@@ -114,7 +114,7 @@ const SpikeEnemy := {
 	"name": "Childhood Curiosity",
 	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
 			+ "to {attack} one torment for {damage_amount}",
-	"icon": DEFAULT_ICON,
+	"icon": "res://assets/icons/memories/Childhood Curiosity.png",
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.nce,
 	"pathos_progress_multiplier": -0.3,
@@ -133,7 +133,7 @@ const FortifySelf := {
 	"name": "Stand Against a Bully",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal "\
 			+ "to gain {effect_stacks} {fortify}",
-	"icon": DEFAULT_ICON,
+	"icon": "res://assets/icons/memories/Stand Against a Bully.png",
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
 	"pathos_progress_multiplier": 0.2,
@@ -153,7 +153,7 @@ const DefendSelf := {
 	"name": "The Staredown",
 	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
 			+ "to gain {defence_amount} {defence}",
-	"icon": DEFAULT_ICON,
+	"icon": "res://assets/icons/memories/The Staredown.png",
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.elite,
 	"pathos_progress_multiplier": 0.2,
@@ -172,7 +172,7 @@ const QuickenSelf := {
 	"name": "Philosophy Lessons",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal "\
 			+ "to gain {effect_stacks} {quicken}",
-	"icon": DEFAULT_ICON,
+	"icon": "res://assets/icons/memories/Philosophy Lessons.png",
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.nce,
 	"pathos_progress_multiplier": -0.1,
@@ -192,7 +192,7 @@ const StrengthenSelf := {
 	"name": "Meditation Lessons",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal "\
 			+ "to gain {effect_stacks} {strengthen}",
-	"icon": DEFAULT_ICON,
+	"icon": "res://assets/icons/memories/Meditation Lessons.png",
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.rest,
 	"pathos_progress_multiplier": -0.2,
@@ -212,7 +212,7 @@ const RandomChaos := {
 	"name": "The Playground",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal "\
 			+ "to play the top {draw_amount} cards from your deck.",
-	"icon": DEFAULT_ICON,
+	"icon": "res://assets/icons/memories/The Playground.png",
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.shop,
 	"pathos_progress_multiplier": -0.35,
@@ -229,7 +229,7 @@ const ReshuffleHand := {
 	"name": "The Absolute Cringe",
 	"description": "{memory_name} ({upgrades}/{max_upgrades}): Recall this memory during an Ordeal "\
 			+ "to reshuffle your hand into your deck and draw the same amount of cards",
-	"icon": DEFAULT_ICON,
+	"icon": "res://assets/icons/memories/The Absolute Cringe.png",
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
 	"pathos_progress_multiplier": 0.2,
@@ -245,7 +245,7 @@ const PoisonEnemy := {
 	"name": "Debating Competition",
 	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
 			+ "to apply {effect_stacks} {poison} to one Torment",
-	"icon": DEFAULT_ICON,
+	"icon": "res://assets/icons/memories/Debating Competition.png",
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
 	"pathos_progress_multiplier": 0.2,
@@ -283,7 +283,7 @@ const ImperviousSelf := {
 	"name": "Skydiving Lessons",
 	"description": "{memory_name} ({upgrades}): Recall this memory during an Ordeal "\
 			+ "to gain {effect_stacks} {impervious}",
-	"icon": DEFAULT_ICON,
+	"icon": "res://assets/icons/memories/Skydiving Lessons.png",
 	"context": EffectContext.BATTLE,
 	"pathos": Terms.RUN_ACCUMULATION_NAMES.enemy,
 	"pathos_progress_multiplier": 0.2,
