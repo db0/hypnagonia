@@ -209,8 +209,14 @@ func _input(event):
 		library_export.open("user://cards_names_without_art.json",File.WRITE)
 		library_export.store_string(JSON.print(card_names_for_art_export, '\t'))
 		library_export.close()
+		var all_t = _export_torments()
+		var torments_dict = all_t[0]
+		var torments_prompts = all_t[1]		
 		library_export.open("user://torments_export.json",File.WRITE)
-		library_export.store_string(JSON.print(_export_torments(), '\t'))
+		library_export.store_string(JSON.print(torments_dict, '\t'))
+		library_export.close()
+		library_export.open("user://torments_aiprompts.json",File.WRITE)
+		library_export.store_string(JSON.print(torments_prompts, '\t'))
 		library_export.close()
 		library_export.open("user://torments_softprompt.txt",File.WRITE)
 		library_export.store_string(get_torment_softprompt_training())
@@ -259,12 +265,13 @@ func _switch_bg(bg_image: ImageTexture) -> void:
 	bg_tween.start()
 
 
-func _export_torments() -> Dictionary:
+func _export_torments() -> Array:
 	var tdict: Dictionary = {
 		'Basic Torments': {},
 		'Elite Torments': {},
 		'Bosses': {},
 	}
+	var sdict = {}
 	for act in [Act1, Act2, Act3]:
 		for e in act.ENEMIES:
 			var enemy = act.ENEMIES[e]
@@ -274,29 +281,44 @@ func _export_torments() -> Dictionary:
 					tdict['Basic Torments'][torment.definition.Name]['Journal Description'] = _remove_bburl_from_desc(enemy.journal_description)
 					if enemy.has("ai_prompts"):
 						tdict['Basic Torments'][torment.definition.Name]['AI prompts'] = enemy.ai_prompts
+						sdict[enemy.name] = {'prompts':{}}
+						sdict[enemy.name]['prompts']["journal_choice"] = enemy.ai_prompts
+						if enemy.get("title"):
+							sdict[enemy.name]["title"] = enemy.title
 					tdict['Basic Torments'][torment.definition.Name]['Type'] = torment.definition.Type
 		for e in act.ELITES:
 			var enemy = act.ELITES[e]
 			if not tdict['Elite Torments'].has(enemy.name):
 				tdict['Elite Torments'][enemy.name] = {}
 				tdict['Elite Torments'][enemy.name]['Journal Description'] = enemy.journal_description
+				sdict[enemy.name] = {'prompts':{}}
+				if enemy.get("ai_prompts"):
+					sdict[enemy.name]['prompts']["journal_choice"] = enemy.ai_prompts
+				if enemy.get("title"):
+					sdict[enemy.name]["title"] = enemy.title
 				for s in enemy.scenes:
 					var scene :AdvancedEnemyEntity = s.instance()
 					tdict['Elite Torments'][enemy.name]['Type'] = scene.PROPERTIES.Type
 					scene.queue_free()
-		for enemy in act.BOSSES:
-			if not tdict['Bosses'].has(enemy):
-				tdict['Bosses'][enemy] = {}
-				tdict['Bosses'][enemy]['Journal Description'] = act.BOSSES[enemy].journal_description
-				for s in act.BOSSES[enemy].scenes:
+		for e in act.BOSSES:
+			var enemy = act.BOSSES[e]
+			if not tdict['Bosses'].has(enemy.name):
+				tdict['Bosses'][enemy.name] = {}
+				tdict['Bosses'][enemy.name]['Journal Description'] = enemy.journal_description
+				sdict[enemy.name] = {'prompts':{}}
+				if enemy.get("ai_prompts"):
+					sdict[enemy.name]['prompts']["journal_choice"] = enemy.ai_prompts
+				if enemy.get("title"):
+					sdict[enemy.name]["title"] = enemy.title
+				for s in enemy.scenes:
 					var scene :AdvancedEnemyEntity = s.instance()
-					tdict['Bosses'][enemy]['Type'] = scene.PROPERTIES.Type
+					tdict['Bosses'][enemy.name]['Type'] = scene.PROPERTIES.Type
 					scene.queue_free()
-	return(tdict)
+	return([tdict,sdict])
 
 
 func get_torment_softprompt_training() -> String:
-	var torments_dict = _export_torments()
+	var torments_dict = _export_torments()[0]
 	var softprompt_export := ''
 	var torment_template := "[ Keywords: {name},{type} ]\n{description}<|endoftext|>"
 	for d in torments_dict:

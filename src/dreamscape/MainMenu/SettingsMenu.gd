@@ -1,8 +1,5 @@
 extends CenterContainer
 
-var koboldai_server_changed := false
-var koboldai_changed_timer : float = 0
-
 onready var back_button = $"%Back"
 onready var focus_style = $"%FocusStyle"
 onready var expand_linked_terms = $"%ExpandLinkedTerms" 
@@ -17,9 +14,6 @@ onready var music_vol_slider = $"%MusicVolSlider"
 onready var use_ai = $"%UseAI"
 onready var judge_ai = $"%JudgeAI"
 onready var generate_ai = $"%GenerateAI"
-onready var urlvbc = $"%URLVBC"
-onready var kaiurl_input = $"%KAIURLInput"
-onready var kai_port_input = $"%KAIPortInput"
 onready var ai_label = $"%AILabel"
 onready var ai_genre = $"%AIGenre"
 
@@ -44,8 +38,6 @@ func _ready() -> void:
 	cfc.game_settings['use_ai'] = cfc.game_settings.get('use_ai', OS.get_name() != "HTML5")
 	cfc.game_settings['judge_ai'] = cfc.game_settings.get('judge_ai', true)
 	cfc.game_settings['generate_ai'] = cfc.game_settings.get('generate_ai', false)
-	cfc.game_settings['kai_url'] = cfc.game_settings.get('kai_url', "http://127.0.0.1")
-	cfc.game_settings['kai_port'] = cfc.game_settings.get('kai_port', 5000)
 	cfc.game_settings['ai_genre'] = cfc.game_settings.get('ai_genre', HConst.AIGenres.RANDOM)
 	
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), cfc.game_settings.main_volume)
@@ -70,9 +62,6 @@ func _ready() -> void:
 	judge_ai.disabled = !use_ai.pressed
 	generate_ai.pressed = cfc.game_settings.generate_ai
 	generate_ai.disabled = !use_ai.pressed
-	urlvbc.visible = generate_ai.pressed
-	kaiurl_input.text = cfc.game_settings.kai_url
-	kai_port_input.text = str(cfc.game_settings.kai_port)
 	for genre_desc in HConst.AIGenres:
 		if HConst.AIGenres[genre_desc] == HConst.AIGenres.DISLIKE:
 			continue
@@ -80,15 +69,6 @@ func _ready() -> void:
 	ai_genre.selected = ai_genre.get_item_index(cfc.game_settings.ai_genre)
 	# To avoid the slider adjust sound sounding from the initial setting
 	sound_effect_enabled = true
-
-func _process(delta):
-	if koboldai_server_changed:
-		koboldai_changed_timer += delta
-		if koboldai_changed_timer >= 10:
-			EventBus.emit_signal("kobodoldai_server_changed")
-			koboldai_server_changed = false
-			koboldai_changed_timer = 0
-	
 
 func _on_FancAnimations_toggled(button_pressed: bool) -> void:
 	cfc.set_setting('fancy_movement',button_pressed)
@@ -204,26 +184,11 @@ func _on_JudgeAI_toggled(button_pressed):
 
 func _on_GenerateAI_toggled(button_pressed):
 	cfc.set_setting('generate_ai',button_pressed)
-	urlvbc.visible = generate_ai.pressed
 	if sound_effect_enabled:
 		if button_pressed:
 			SoundManager.play_se('setting_toggle_on')
 		else:
 			SoundManager.play_se('setting_toggle_off')
-
-
-func _on_KAIURLInput_text_changed():
-	cfc.set_setting('kai_url',kaiurl_input.text.rstrip('\n'))
-	koboldai_server_changed = true
-	koboldai_changed_timer = 0  
-
-
-
-func _on_KAIPortInput_text_changed():
-	cfc.set_setting('kai_port',int(kai_port_input.text.rstrip('\n')))
-	koboldai_server_changed = true
-	koboldai_changed_timer = 0
-
 
 
 func _on_UseAI_toggled(button_pressed):

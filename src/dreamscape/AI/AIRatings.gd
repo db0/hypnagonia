@@ -19,28 +19,21 @@ func _init(_encounter: EncounterStory = null):
 
 
 func story_rated(classification :int) -> void:
-	# If the player didn't like it, we don't bother sending it at all
-	if classification == HConst.AIGenres.DISLIKE:
-		return
 	var thread: Thread = Thread.new()
 	threads.append(thread)
 # warning-ignore:return_value_discarded
-	thread.start(self, "submit", classification)
+	thread.start(self, "submit_rating", classification)
 
 
-func submit(classification: int):
+func submit_rating(classification: int):
 	var data := {
 		"uuid": encounter.story_uuid,
-		"generation": encounter.story,
-		"title": encounter.title,
+		"name": encounter.name,
 		"type": encounter.type,
 		"classification": classification,
 		"client_id": cfc.game_settings['Client UUID'],
-		"model": globals.ai_stories.current_model,
-		"soft_prompt": globals.ai_stories.current_soft_prompt,
-		"kai_instance": "%s:%s" % [cfc.game_settings.get("kai_url",'http://127.0.0.1'),cfc.game_settings.get("kai_port", 5000)],
 	}
-	var _ret = _initiate_rest(HTTPClient.METHOD_POST, "/generation/", data)
+	var _ret = _initiate_rest(HTTPClient.METHOD_POST, "/rate", data)
 
 
 func retrieve_evaluating_gens() -> void:
@@ -58,15 +51,15 @@ func retrieve_finalized_gens() -> void:
 
 
 func retrieve_gens(evaluating:= true) -> void:
-	var endpoint = "/generations/evaluating/"
+	var endpoint = "/generations/evaluating"
 	if not evaluating:
-		endpoint = "/generations/finalized/"
+		endpoint = "/generations/finalized"
 	var ret = _initiate_rest(HTTPClient.METHOD_GET, endpoint)
 	if typeof(ret) == TYPE_DICTIONARY:
 		emit_signal("ratings_retrieved", ret, evaluating)
 	else:
-		var blah = endpoint.replace("/generations/",'').replace("/",'')
-		CFUtils.dprint("AIRatings:Could not retrieve %s stories from %s:%s" % [blah,TELEMETRY_URI,TELEMETRY_PORT])
+		var blah = endpoint.replace("/generations",'').replace("/",'')
+		CFUtils.dprint("AIRatings:Could not retrieve %s stories from %s:%s" % [blah,TELEMETRY_URI])
 
 
 func _initiate_rest(method, endpoint: String, data: Dictionary = {}):

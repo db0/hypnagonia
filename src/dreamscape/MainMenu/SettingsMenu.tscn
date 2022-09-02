@@ -247,14 +247,14 @@ align = 1
 [node name="AIMC" type="MarginContainer" parent="PC/VBC/HBC/VBC3"]
 margin_top = 41.0
 margin_right = 234.0
-margin_bottom = 252.0
+margin_bottom = 110.0
 custom_constants/margin_right = 10
 custom_constants/margin_left = 10
 
 [node name="VBC" type="VBoxContainer" parent="PC/VBC/HBC/VBC3/AIMC"]
 margin_left = 10.0
 margin_right = 224.0
-margin_bottom = 211.0
+margin_bottom = 69.0
 
 [node name="UseAI" type="CheckButton" parent="PC/VBC/HBC/VBC3/AIMC/VBC"]
 unique_name_in_owner = true
@@ -278,55 +278,19 @@ margin_right = 214.0
 margin_bottom = 69.0
 text = "Generate (Req.KoboldAI)"
 
-[node name="URLVBC" type="VBoxContainer" parent="PC/VBC/HBC/VBC3/AIMC/VBC"]
-unique_name_in_owner = true
+[node name="HBC" type="HBoxContainer" parent="PC/VBC/HBC/VBC3/AIMC/VBC"]
+visible = false
 margin_top = 72.0
 margin_right = 214.0
-margin_bottom = 211.0
+margin_bottom = 97.0
 
-[node name="KAIURL" type="Label" parent="PC/VBC/HBC/VBC3/AIMC/VBC/URLVBC"]
-unique_name_in_owner = true
-margin_right = 214.0
-margin_bottom = 21.0
-text = "KoboldAI URL"
-align = 1
-
-[node name="KAIURLInput" type="TextEdit" parent="PC/VBC/HBC/VBC3/AIMC/VBC/URLVBC"]
-unique_name_in_owner = true
-margin_top = 24.0
-margin_right = 214.0
-margin_bottom = 54.0
-rect_min_size = Vector2( 0, 30 )
-text = "http://localhost"
-
-[node name="KAIPort" type="Label" parent="PC/VBC/HBC/VBC3/AIMC/VBC/URLVBC"]
-unique_name_in_owner = true
-margin_top = 57.0
-margin_right = 214.0
-margin_bottom = 78.0
-text = "KoboldAI Port"
-align = 1
-
-[node name="KAIPortInput" type="TextEdit" parent="PC/VBC/HBC/VBC3/AIMC/VBC/URLVBC"]
-unique_name_in_owner = true
-margin_top = 81.0
-margin_right = 214.0
-margin_bottom = 111.0
-rect_min_size = Vector2( 0, 30 )
-text = "5000"
-
-[node name="HBC" type="HBoxContainer" parent="PC/VBC/HBC/VBC3/AIMC/VBC/URLVBC"]
-margin_top = 114.0
-margin_right = 214.0
-margin_bottom = 139.0
-
-[node name="AIGenreLabel" type="Label" parent="PC/VBC/HBC/VBC3/AIMC/VBC/URLVBC/HBC"]
+[node name="AIGenreLabel" type="Label" parent="PC/VBC/HBC/VBC3/AIMC/VBC/HBC"]
 margin_top = 2.0
 margin_right = 54.0
 margin_bottom = 23.0
 text = "Genre: "
 
-[node name="AIGenre" type="OptionButton" parent="PC/VBC/HBC/VBC3/AIMC/VBC/URLVBC/HBC"]
+[node name="AIGenre" type="OptionButton" parent="PC/VBC/HBC/VBC3/AIMC/VBC/HBC"]
 unique_name_in_owner = true
 margin_left = 57.0
 margin_right = 73.0
@@ -369,7 +333,5 @@ text = "BACK"
 [connection signal="toggled" from="PC/VBC/HBC/VBC3/AIMC/VBC/UseAI" to="." method="_on_UseAI_toggled"]
 [connection signal="toggled" from="PC/VBC/HBC/VBC3/AIMC/VBC/JudgeAI" to="." method="_on_JudgeAI_toggled"]
 [connection signal="toggled" from="PC/VBC/HBC/VBC3/AIMC/VBC/GenerateAI" to="." method="_on_GenerateAI_toggled"]
-[connection signal="text_changed" from="PC/VBC/HBC/VBC3/AIMC/VBC/URLVBC/KAIURLInput" to="." method="_on_KAIURLInput_text_changed"]
-[connection signal="text_changed" from="PC/VBC/HBC/VBC3/AIMC/VBC/URLVBC/KAIPortInput" to="." method="_on_KAIPortInput_text_changed"]
-[connection signal="item_selected" from="PC/VBC/HBC/VBC3/AIMC/VBC/URLVBC/HBC/AIGenre" to="." method="_on_AIGenre_item_selected"]
+[connection signal="item_selected" from="PC/VBC/HBC/VBC3/AIMC/VBC/HBC/AIGenre" to="." method="_on_AIGenre_item_selected"]
 [connection signal="pressed" from="PC/VBC/ExitToMain" to="." method="_on_ExitToMain_pressed"]
