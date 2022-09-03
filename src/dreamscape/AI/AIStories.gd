@@ -13,8 +13,6 @@ signal story_used(type)
 
 const STORIES_FILENAME := "user://hypnagonia_stories.dat"
 
-var stories_file = File.new()
-var stories := {}
 var threads: Array
 var evaluating_generations: Dictionary
 var finalized_generations: Dictionary
@@ -43,12 +41,6 @@ func retrieve_story(encounter_story) -> Dictionary:
 		story.uuid = fresh_evaluation.uuid
 		emit_signal("story_used",StoryTypes.EVALUATING)
 		CFUtils.dprint("AIStories:Using evaluating story for " + encounter_story.name)
-	elif stories.has(encounter_story.name):
-		story = stories[encounter_story.name]
-		# warning-ignore:return_value_discarded
-		stories.erase(encounter_story.name)
-		emit_signal("story_used",StoryTypes.GENERATED)
-		CFUtils.dprint("AIStories:Using generated story for " + encounter_story.name)
 	else:
 		var collected_generations = get_generations(encounter_story, false)
 		if not collected_generations.empty():
