@@ -59,7 +59,7 @@ func retrieve_gens(evaluating:= true) -> void:
 		emit_signal("ratings_retrieved", ret, evaluating)
 	else:
 		var blah = endpoint.replace("/generations",'').replace("/",'')
-		CFUtils.dprint("AIRatings:Could not retrieve %s stories from %s:%s" % [blah,TELEMETRY_URI])
+		CFUtils.dprint("AIRatings:Could not retrieve %s stories from %s" % [blah,TELEMETRY_URI])
 
 
 func _initiate_rest(method, endpoint: String, data: Dictionary = {}):
