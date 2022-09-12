@@ -49,3 +49,31 @@ class TestExcuses:
 		assert_eq(dreamer.damage, 7,
 				"%s stops DoTs" % [effect])
 
+
+
+class TestLashOut:
+	extends "res://tests/HUT_Ordeal_DreamerEffectsTestClass.gd"
+	var effect: String = Terms.ACTIVE_EFFECTS.lash_out.name
+	var amount := 1
+	func _init() -> void:
+		torments_amount = 1
+		test_card_names = [
+			"Interpretation",
+		]
+		effects_to_play = [
+			{
+				"name": effect,
+				"amount": amount,
+			}
+		]
+
+
+	func test_lash_out_with_thorns():
+		spawn_effect(test_torment, Terms.ACTIVE_EFFECTS.thorns.name, 10)
+		var sceng = snipexecute(card, test_torment)
+		if sceng is GDScriptFunctionState:
+			sceng = yield(sceng, "completed")
+		yield(yield_for(0.2), YIELD)
+		assert_eq(test_torment.damage, tdamage(36), "Torment should take damage, from lash out")
+		assert_eq(dreamer.damage, 10, "Dreamer should take damage from thorns")
+		

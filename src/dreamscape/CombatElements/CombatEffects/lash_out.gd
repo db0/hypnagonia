@@ -18,7 +18,11 @@ func _on_entity_damaged(_entity, amount, _trigger: Node, _tags: Array) -> void:
 	"name": "modify_damage",
 	"subject": "trigger",
 	"amount": amount * multiplier,
-	"tags": ["Attack", "Combat Effect", "Concentration"],
+	# The Reactive tag is used to avoid infinite loops between effects
+	# For example between this card and Thorns.
+	# As such, when this card is triggered by a reactive effect, 
+	# that effect will not trigger again from this effect in turn.
+	"tags": ["Attack", "Combat Effect", "Concentration", "Reactive"],
 	}]
 	# Just in case all enemies died during execution...
 	if all_enemies.size():

@@ -4,8 +4,11 @@ func _ready():
 	# warning-ignore:return_value_discarded
 	owning_entity.connect("entity_attacked", self, "_on_entity_attacked")
 
-func _on_entity_attacked(_entity, _amount, trigger: Node, _tags: Array) -> void:
+func _on_entity_attacked(_entity, _amount, trigger: Node, tags: Array) -> void:
 	if is_delayed:
+		return
+	# Thorns do not trigger from reactive effects, to avoid infinite loops
+	if "Reactive" in tags:
 		return
 	if trigger.is_in_group("cards"):
 		trigger = cfc.NMAP.board.dreamer
