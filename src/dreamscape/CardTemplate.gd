@@ -112,6 +112,7 @@ func setup() -> void:
 		printed_properties = properties.duplicate()
 	var card_art
 	var beta_art
+	var card_animation
 	var lookup_card_name: String = canonical_name
 	if get_property("_is_upgrade"):
 		lookup_card_name = find_upgrade_parent()
@@ -128,10 +129,13 @@ func setup() -> void:
 	else:
 		beta_art = ImageLibrary.BETA_IMAGES.get(lookup_card_name)
 		card_art = ImageLibrary.FINAL_IMAGES.get(lookup_card_name, beta_art)
+		card_animation = ImageLibrary.FINAL_VIDEOS.get(lookup_card_name)
 	var is_placeholder = false
 	if card_art == beta_art:
 		is_placeholder = true
-	if card_art:
+	if card_animation:
+		card_front.set_card_animation(card_animation, is_placeholder)
+	elif card_art:
 		card_front.set_card_art(card_art, is_placeholder)
 	if deck_card_entry:
 		if deck_card_entry.is_scarred():

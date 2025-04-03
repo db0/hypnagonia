@@ -235,6 +235,16 @@ const BETA_IMAGES := {
 	"Lotustus": "res://assets/cards/Lotustus.png",
 }
 
+const FINAL_VIDEOS := {
+	"Hand of Grudge": "res://assets/cards/Hand of Grudge.ogv",
+	"Stewing": "res://assets/cards/Stewing.ogv",
+	"Nothing Forgotten": "res://assets/cards/Nothing Forgotten.ogv",
+	"The Last Straw": "res://assets/cards/The Last Straw.ogv",
+	"Memento of Anger": "res://assets/cards/Memento of Anger.ogv",
+	"Vengeance": "res://assets/cards/Vengeance.ogv",
+}
+
+
 static func get_multiple_art_option(card_name: String) -> String:
 	var all_options = CFUtils.list_imported_in_directory("res://assets/cards/%s/" % [card_name], true)
 	CFUtils.shuffle_array(all_options, true)
