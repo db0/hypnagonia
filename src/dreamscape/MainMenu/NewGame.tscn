@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/dreamscape/MainMenu/NewGame.gd" type="Script" id=1]
 [ext_resource path="res://src/dreamscape/MainMenu/Archetype.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://src/dreamscape/MainMenu/ArtifactsList.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/dreamscape/MainMenu/DifficultyMenu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/icons/GUI/difficulty_1.png" type="Texture" id=7]
-[ext_resource path="res://assets/backgrounds/dark/6dd4ba414af241de43bb89a489fb_hires.jpeg" type="Texture" id=8]
 [ext_resource path="res://themes/darktheme/StyleBox/Opaque.tres" type="StyleBox" id=9]
 
 [node name="NewGame" type="PanelContainer"]
@@ -22,7 +21,6 @@ margin_left = 7.0
 margin_top = 7.0
 margin_right = 1448.0
 margin_bottom = 893.0
-texture = ExtResource( 8 )
 expand = true
 stretch_mode = 6
 
