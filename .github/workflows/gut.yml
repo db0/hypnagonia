@@ -31,7 +31,7 @@ jobs:
         with:
           version: 3.6
           # should be long enough for asset import files to get generated
-          import-time: 1000
+          import-time: 2000
           assert-check: true
           max-fails: 0
           # How long the test should be run before it's timed out and fails
@@ -40,3 +40,4 @@ jobs:
           direct-scene: tests/cli/tests.tscn
           custom-godot-dl-url: "https://github.com/godotengine/godot/releases/download/3.6-stable/Godot_v3.6-stable_linux_headless.64.zip"
           custom-godot-binary-path: "Godot_v3.6-stable_linux_headless.64"        
+
