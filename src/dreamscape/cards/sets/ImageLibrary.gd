@@ -21,7 +21,7 @@ const FINAL_IMAGES := {
 	"Bring It!": "res://assets/cards/Bring It!.jpg",
 	"Terror": "res://assets/cards/Terror.jpg",
 	"Discombobulation": "res://assets/cards/Discombobulation.jpg",
-	"Confidence": "res://assets/cards/confidence.jpg",
+	"Confidence": "res://assets/cards/Confidence.jpg",
 	"Lacuna": "res://assets/cards/Lacuna.jpg",
 	"Unease": "res://assets/cards/Unease.jpg",
 	"Dread": "res://assets/cards/Dread.jpg",
@@ -241,7 +241,10 @@ const FINAL_VIDEOS := {
 	"Nothing Forgotten": "res://assets/cards/Nothing Forgotten.ogv",
 	"The Last Straw": "res://assets/cards/The Last Straw.ogv",
 	"Memento of Anger": "res://assets/cards/Memento of Anger.ogv",
+	"Memento of Safety": "res://assets/cards/Memento of Safety.ogv",
 	"Vengeance": "res://assets/cards/Vengeance.ogv",
+	"Planning": "res://assets/cards/Planning.ogv",
+	"Confidence": "res://assets/cards/Confidence.ogv",
 }
 
 
@@ -249,3 +252,6 @@ static func get_multiple_art_option(card_name: String) -> String:
 	var all_options = CFUtils.list_imported_in_directory("res://assets/cards/%s/" % [card_name], true)
 	CFUtils.shuffle_array(all_options, true)
 	return(all_options[0])
+
+# Confidence Generation Prompt
+# Confidence. A {curiously|extravagantly|faboulously|seriously|minimalist|hastily|fantasy|sci-fi|alien|apocalyptically|anciently} dressed {white|black|brown}{-skinned} {fat|average weight|thin|muscular|obese|}{far||} {west|north|east|south|} {african|european|american|asian|australian|island|} {man|woman|girl|boy|agender|androgyne} with {hands on their hips|hands in their pockets|hands crossed|one hand on their hip} inside a {gold|silver|obsidian|gem|forest|sea|electronics|matrix|science|fantasy|cyberpunk|dieselpunk|mushroom|paper|bones|clocks|cards|flower|moss|grimdark|bubbles|balloon|smoke|mist|metropolis|towers|brick|marble|fire|ice|snow|crystal|salt} and {gold|silver|obsidian|gem|forest|sea|electronics|matrix|science|fantasy|cyberpunk|dieselpunk|mushroom|paper|bones|clocks|cards|flower|moss|grimdark|bubble|balloon|smoke|mist|metropolis|towers|brick|marble|fire|snow|ice|crystal|salt}-themed dreamscape, looking confidently to the distance. Full body view. Impasto surrealism and dreamlike, Hypnagonia, digital card game art, {spiralling|non-euclidian|twisting|labyrinthian|dadaist|minimalist|confusing} visuals.
