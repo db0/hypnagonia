@@ -1,9 +1,6 @@
-name: Prepare New Release
+name: Prepare New Release without testing
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
     inputs:
       release:
@@ -15,55 +12,27 @@ on:
           - patch
           - minor
           - major
-          
+
 permissions:
   contents: write
   pull-requests: read
 
 jobs:
-  GUT:
-    runs-on: ubuntu-latest
-    name: Unit & Integration Tests
-    steps:
-    - name: "✔️ Checkout"
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-    - name: Check out personal godot-tester repository
-      uses: actions/checkout@v3
-      with:
-        repository: db0/godot-tester
-        path: ./.github/actions/godot-tester
-      # Runs a single command using the runners shell
-    - name: ⚙ Run Tests
-      uses: ./.github/actions/godot-tester
-      with:
-        version: 3.5
-        # should be long enough for asset import files to get generated
-        import-time: 300
-        assert-check: true
-        # Allowing some fails on push, as sometimes randomly some asserts might false negative and I haven't yet located the precice reason for this inconsistency
-        max-fails: 5
-        # How long the test should be run before it's timed out and fails
-        test-timeout: 3600
-        # Directory containing Gut tests
-        direct-scene: tests/cli/tests.tscn
-  version_and_release:
+  version_and_release_without_testing:
     runs-on: ubuntu-latest
     name: Export Game
-    needs: ["GUT"]
     steps:
     - name: "✔️ Checkout"
       uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - name: "📣 New Release"
+    - name: "📣 Release on push"
       id: release
       uses: rymndhng/release-on-push-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        bump_version_scheme: ${{ github.event_name == 'push' && 'norelease' || inputs.release }}
+        bump_version_scheme: norelease
         use_github_release_notes: true
       # Always include the checkout step so that
       # your project is available for Godot to export
