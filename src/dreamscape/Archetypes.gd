@@ -9,7 +9,7 @@ extends Reference
 
 const FLYER:= {
 	"Anxiety": +5,
-	"Icon": preload("res://assets/archetypes/flyer.jpg"),
+	"Icon": preload("res://assets/archetypes/Flyer.webp"),
 	"Tags": [
 		Terms.ACTIVE_EFFECTS.impervious.name,
 		Terms.GENERIC_TAGS.relax.name,
@@ -147,7 +147,7 @@ const RUNNER := {
 
 const FEARLESS:= {
 	"Anxiety": +5,
-	"Icon": preload("res://assets/archetypes/fearless.jpg"),
+	"Icon": preload("res://assets/archetypes/Fearless.webp"),
 	"Tags": [
 		Terms.ACTIVE_EFFECTS.poison.name,
 		Terms.ACTIVE_EFFECTS.fortify.name,
@@ -190,7 +190,7 @@ const FEARLESS:= {
 }
 const VINDICTIVE:= {
 	"Anxiety": +2,
-	"Icon": preload("res://assets/archetypes/Vindictive.jpg"),
+	"Icon": preload("res://assets/archetypes/Vindictive.webp"),
 	"Tags": [
 		Terms.GENERIC_TAGS.frozen.name,
 		Terms.ACTIVE_EFFECTS.thorns.name,
@@ -250,7 +250,7 @@ const COWARD := {
 
 
 const RUBBER_CHICKEN := {
-	"Icon": preload("res://assets/archetypes/Rubber Chicken.jpg"),
+	"Icon": preload("res://assets/archetypes/Rubber Chicken.webp"),
 	"Tags": [
 		Terms.ACTIVE_EFFECTS.disempower.name,
 		Terms.ACTIVE_EFFECTS.buffer.name,
@@ -292,7 +292,7 @@ const RUBBER_CHICKEN := {
 	]
 }
 const LASER_CANNON := {
-	"Icon": preload("res://assets/archetypes/Laser Cannon.jpg"),
+	"Icon": preload("res://assets/archetypes/Laser Cannon.webp"),
 	"Tags": [
 		Terms.GENERIC_TAGS.fusion.name,
 		Terms.GENERIC_TAGS.startup.name,
@@ -346,7 +346,7 @@ const LASER_CANNON := {
 
 const ABUSIVE_RELATIONSHIP := {
 	"Anxiety": +5,
-	"Icon": preload("res://assets/archetypes/Abusive Relationship.jpg"),
+	"Icon": preload("res://assets/archetypes/Abusive Relationship.webp"),
 	"Tags": [
 		Terms.GENERIC_TAGS.purpose.name,
 		Terms.GENERIC_TAGS.exert.name,
@@ -393,7 +393,7 @@ const ABUSIVE_RELATIONSHIP := {
 }
 const EXPLOITED := {
 	"Anxiety": -5,
-	"Icon": preload("res://assets/archetypes/Exploited.jpg"),
+	"Icon": preload("res://assets/archetypes/Exploited.webp"),
 	"Tags": [
 		Terms.GENERIC_TAGS.slumber.name,
 		Terms.ACTIVE_EFFECTS.armor.name,
