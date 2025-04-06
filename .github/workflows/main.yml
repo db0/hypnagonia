@@ -92,10 +92,10 @@ jobs:
           SCENE=boss;    KEEP=4; cd ../../../assets/music/${SCENE} && ls *.ogg | tail -n+${KEEP} | shuf > oggs && cat oggs | xargs -I {} mv "{}" "html_ignore_{}" && cat oggs | xargs -I {} sed -i 's/{}/html_ignore_{}/g' "{}.import" && cat oggs | xargs -I {} sed -i "s|[a-z0-9]\+\.oggstr|$(sh -c 'echo -n html_ignore_{} | md5sum  | awk "{print \$1}"').oggstr|g" "{}.import" && cat oggs | xargs -I {} mv "{}.import" "html_ignore_{}.import" && rm oggs && ls -larth
     - name: "🤖 Export game"
       if: ${{ steps.release.outputs.version != '' }}
-      uses: firebelley/godot-export@v3.0.0
+      uses: firebelley/godot-export@v6.0.0
       with:
-        godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/3.5/Godot_v3.5-stable_linux_headless.64.zip
-        godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/3.5/Godot_v3.5-stable_export_templates.tpz
+        godot_executable_download_url: https://github.com/godotengine/godot/releases/download/3.6-stable/Godot_v3.6-stable_linux_headless.64.zip
+        godot_export_templates_download_url: https://github.com/godotengine/godot/releases/download/3.6-stable/Godot_v3.6-stable_export_templates.tpz
         relative_project_path: ./
         base_version: "${{ steps.release.outputs.version }}"
         create_release: false
