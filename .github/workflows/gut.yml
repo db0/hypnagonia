@@ -19,7 +19,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5.2
       - name: Check out personal godot-tester repository
         uses: actions/checkout@v3
         # with:
@@ -27,17 +27,17 @@ jobs:
         #   path: ./.github/actions/godot-tester
       # Runs a single command using the runners shell
       - name: Godot Tester
-        uses: RGonzalezTech/godot-tester@rg/custom-godot-binary
+        uses: croconut/godot-tester@v5
         with:
           version: 3.6
           # should be long enough for asset import files to get generated
-          import-time: 2000
+          import-time: 5000
           assert-check: true
           max-fails: 0
           # How long the test should be run before it's timed out and fails
           test-timeout: 3600
           # Directory containing Gut tests
           direct-scene: tests/cli/tests.tscn
-          custom-godot-dl-url: "https://github.com/godotengine/godot/releases/download/3.6-stable/Godot_v3.6-stable_linux_headless.64.zip"
-          custom-godot-binary-path: "Godot_v3.6-stable_linux_headless.64"        
+          # custom-godot-dl-url: "https://github.com/godotengine/godot/releases/download/3.6-stable/Godot_v3.6-stable_linux_headless.64.zip"
+          # custom-godot-binary-path: "Godot_v3.6-stable_linux_headless.64"        
 
