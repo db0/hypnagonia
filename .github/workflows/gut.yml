@@ -38,6 +38,6 @@ jobs:
           test-timeout: 3600
           # Directory containing Gut tests
           direct-scene: tests/cli/tests.tscn
-          # custom-godot-dl-url: "https://github.com/godotengine/godot/releases/download/3.6-stable/Godot_v3.6-stable_linux_headless.64.zip"
-          # custom-godot-binary-path: "Godot_v3.6-stable_linux_headless.64"        
+          custom-godot-dl-url: "https://github.com/godotengine/godot/releases/download/3.6-stable/Godot_v3.6-stable_linux_headless.64.zip"
+          custom-godot-binary-path: "Godot_v3.6-stable_linux_headless.64"        
 

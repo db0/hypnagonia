@@ -1,4 +1,4 @@
-name: Prepare New Release
+name: Test
 
 on:
   push:
