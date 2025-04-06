@@ -29,6 +29,7 @@ onready var shader_effect := $ShaderEffect
 onready var text_shader := $TextShader
 onready var bbc := $BackBufferCopy
 onready var art := $Art
+onready var animation := $Animation
 onready var text_background := $TextBackground
 onready var title_background := $TitleBackground
 onready var title := $Title
@@ -128,6 +129,20 @@ func set_card_art(filename, is_placeholder := false) -> void:
 	art.self_modulate = Color(1,1,1)
 	placeholder.visible = is_placeholder
 	
+func set_card_animation(filename, is_placeholder := false) -> void:
+	var anim = VideoStreamTheora.new()
+	anim.set_file(filename)
+	animation.stream = anim
+	animation.autoplay = true
+	animation.visible = true
+	animation.play()
+	animation.connect("finished",self,"_on_animation_finished")
+	# In case the generic art has been modulated, se switch it back to normal colour
+	animation.self_modulate = Color(1,1,1)
+	placeholder.visible = is_placeholder
+	
+func _on_animation_finished():
+	animation.play()
 
 func _get_bbcode_format(font_size = null) -> Dictionary:
 	return(Terms.get_bbcode_formats(font_size))

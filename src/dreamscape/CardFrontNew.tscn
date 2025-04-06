@@ -114,9 +114,17 @@ mouse_filter = 2
 texture = ExtResource( 8 )
 expand = true
 stretch_mode = 7
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
+[node name="Animation" type="VideoPlayer" parent="."]
+visible = false
+use_parent_material = true
+margin_left = 10.0
+margin_top = 22.0
+margin_right = 190.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 180, 115 )
+mouse_filter = 2
+autoplay = true
 
 [node name="RarityMiddle" type="TextureRect" parent="."]
 use_parent_material = true

@@ -115,9 +115,9 @@ static func list_imported_in_directory(path: String, full_path := false) -> Arra
 			break
 		elif file.ends_with(".import"):
 			if full_path:
-				files.append(path + file.rstrip(".import"))
+				files.append(path + file.trim_suffix(".import"))
 			else:
-				files.append(file.rstrip(".import"))
+				files.append(file.trim_suffix(".import"))
 	dir.list_dir_end()
 	return(files)
 
@@ -305,7 +305,7 @@ static func convert_texture_to_image(texture, is_lossless = false) -> ImageTextu
 	if typeof(texture) == TYPE_STRING:
 		tex = load(texture)
 	else:
-#		print_debug(texture)
+		print_debug(texture)
 		tex = texture
 	var new_texture = ImageTexture.new();
 	if is_lossless:
