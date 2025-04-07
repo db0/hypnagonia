@@ -38,7 +38,7 @@ jobs:
     - name: ⚙ Run Tests
       uses: croconut/godot-tester@v5
       with:
-        version: 3.5
+        version: 3.6
         # should be long enough for asset import files to get generated
         import-time: 300
         assert-check: true

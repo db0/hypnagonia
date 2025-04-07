@@ -10,7 +10,7 @@
 [ext_resource path="res://assets/card_front/Game_logo.jpg" type="Texture" id=8]
 [ext_resource path="res://assets/card_front/dream card/gem.png" type="Texture" id=9]
 [ext_resource path="res://src/dreamscape/GUI/ghost_rtl_effect.gd" type="Script" id=10]
-[ext_resource path="res://assets/card_front/dream card/dream_card_body_2_frame_white.png" type="Texture" id=11]
+[ext_resource path="res://assets/card_front/gpt-new-front_concentration.png" type="Texture" id=11]
 [ext_resource path="res://assets/card_front/dream card/CostBackground.png" type="Texture" id=12]
 [ext_resource path="res://assets/card_front/sun.png" type="Texture" id=13]
 [ext_resource path="res://assets/card_front/scar-wound.png" type="Texture" id=14]
@@ -126,6 +126,20 @@ rect_min_size = Vector2( 180, 115 )
 mouse_filter = 2
 autoplay = true
 
+[node name="CardDesign" type="TextureRect" parent="."]
+use_parent_material = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.297302
+margin_top = 0.297302
+margin_right = -0.297302
+margin_bottom = 0.297302
+rect_min_size = Vector2( 200, 280 )
+mouse_filter = 2
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+
 [node name="RarityMiddle" type="TextureRect" parent="."]
 use_parent_material = true
 anchor_right = 1.0
@@ -145,17 +159,17 @@ __meta__ = {
 
 [node name="CostContainer" type="CenterContainer" parent="."]
 use_parent_material = true
-margin_left = 80.4041
-margin_top = 120.523
+margin_left = 80.404
+margin_top = 125.0
 margin_right = 120.404
-margin_bottom = 160.523
+margin_bottom = 165.0
 mouse_filter = 2
 __meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
+"_edit_group_": true
 }
 
 [node name="CostIcon" type="TextureRect" parent="CostContainer"]
+visible = false
 modulate = Color( 0, 0, 0, 1 )
 use_parent_material = true
 margin_right = 40.0
@@ -192,24 +206,6 @@ mouse_filter = 2
 texture = ExtResource( 15 )
 expand = true
 stretch_mode = 6
-
-[node name="CardDesign" type="TextureRect" parent="."]
-modulate = Color( 0.313726, 0.313726, 0.313726, 1 )
-use_parent_material = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -0.297302
-margin_top = 0.297302
-margin_right = -0.297302
-margin_bottom = 0.297302
-rect_min_size = Vector2( 200, 280 )
-mouse_filter = 2
-texture = ExtResource( 11 )
-expand = true
-stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Scarred" type="TextureRect" parent="."]
 visible = false
@@ -367,10 +363,10 @@ custom_effects = [ SubResource( 5 ) ]
 [node name="TagContainer1" type="CenterContainer" parent="."]
 visible = false
 use_parent_material = true
-margin_left = 1.33258
-margin_top = 138.166
-margin_right = 41.3326
-margin_bottom = 178.166
+margin_left = 1.333
+margin_top = 130.0
+margin_right = 41.333
+margin_bottom = 170.0
 rect_min_size = Vector2( 40, 40 )
 mouse_filter = 2
 __meta__ = {
@@ -404,9 +400,9 @@ expand = true
 visible = false
 use_parent_material = true
 margin_left = 158.574
-margin_top = 138.078
+margin_top = 130.0
 margin_right = 198.574
-margin_bottom = 178.078
+margin_bottom = 170.0
 rect_min_size = Vector2( 40, 40 )
 mouse_filter = 2
 __meta__ = {

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/dreamscape/CardFrontNew.tscn" type="PackedScene" id=1]
 [ext_resource path="res://shaders/Warping.shader" type="Shader" id=2]
-[ext_resource path="res://assets/card_front/dream card/card_frame_square.png" type="Texture" id=3]
+[ext_resource path="res://assets/card_front/gpt-new-front_action.png" type="Texture" id=3]
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.0588235, 0, 0, 1 )
@@ -36,5 +36,5 @@ custom_styles/panel = SubResource( 2 )
 [node name="Art" parent="." index="4"]
 self_modulate = Color( 1, 0.811765, 0.811765, 1 )
 
-[node name="CardDesign" parent="." index="7"]
+[node name="CardDesign" parent="." index="6"]
 texture = ExtResource( 3 )
