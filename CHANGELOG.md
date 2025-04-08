@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.67.1](https://github.com/db0/hypnagonia/tree/v0.67.1) (2025-04-08)
+
+[Full Changelog](https://github.com/db0/hypnagonia/compare/v0.67.0...v0.67.1)
+
+**Merged pull requests:**
+
+- feat: new card frames [\#432](https://github.com/db0/hypnagonia/pull/432) ([db0](https://github.com/db0))
+
 ## [v0.67.0](https://github.com/db0/hypnagonia/tree/v0.67.0) (2025-04-06)
 
 [Full Changelog](https://github.com/db0/hypnagonia/compare/v0.66.0...v0.67.0)
