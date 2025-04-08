@@ -28,7 +28,7 @@ jobs:
         #   path: ./.github/actions/godot-tester
       # Runs a single command using the runners shell
       - name: Godot Tester
-        uses: croconut/godot-tester@v5
+        uses: croconut/godot-tester@v5.2
         with:
           version: 3.6
           # should be long enough for asset import files to get generated
