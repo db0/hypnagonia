@@ -10,3 +10,5 @@ signal game_over
 signal deck_loaded
 # warning-ignore:unused_signal
 signal kobodoldai_server_changed	
+# warning-ignore:unused_signal
+signal card_animations_toggled (value)

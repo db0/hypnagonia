@@ -55,6 +55,7 @@ func _ready() -> void:
 	card_labels["Abilities"] = $"CardText/OutsideArt/Abilities"
 	card_labels["Tags"] = $Tags
 	card_labels["Cost"] = $CostContainer/Cost
+	EventBus.connect("card_animations_toggled", self, "_on_card_animations_toggled")
 
 	# These set te max size of each label. This is used to calculate how much
 	# To shrink the font when it doesn't fit in the rect.
@@ -130,6 +131,8 @@ func set_card_art(filename, is_placeholder := false) -> void:
 	placeholder.visible = is_placeholder
 	
 func set_card_animation(filename, is_placeholder := false) -> void:
+	if not cfc.game_settings.get("animate_cards", false):
+		return
 	var anim = VideoStreamTheora.new()
 	anim.set_file(filename)
 	animation.stream = anim
@@ -142,8 +145,18 @@ func set_card_animation(filename, is_placeholder := false) -> void:
 	placeholder.visible = is_placeholder
 	
 func _on_animation_finished():
+	if not cfc.game_settings.get("animate_cards", false):
+		return
 	animation.play()
 
+func _on_card_animations_toggled(value: bool):
+	if value and animation.stream and not animation.is_playing():
+		animation.visible = true
+		animation.play()
+	elif not value:
+		animation.visible = false
+		animation.stop()
+	
 func _get_bbcode_format(font_size = null) -> Dictionary:
 	return(Terms.get_bbcode_formats(font_size))
 

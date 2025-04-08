@@ -5,6 +5,7 @@ on:
     branches-ignore:
       - main
       - steam_upload
+      - gut
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -27,7 +28,7 @@ jobs:
         #   path: ./.github/actions/godot-tester
       # Runs a single command using the runners shell
       - name: Godot Tester
-        uses: croconut/godot-tester@v5
+        uses: croconut/godot-tester@v5.2
         with:
           version: 3.6
           # should be long enough for asset import files to get generated
@@ -38,6 +39,6 @@ jobs:
           test-timeout: 3600
           # Directory containing Gut tests
           direct-scene: tests/cli/tests.tscn
-          custom-godot-dl-url: "https://github.com/godotengine/godot/releases/download/3.6-stable/Godot_v3.6-stable_linux_headless.64.zip"
+          custom-godot-dl-url: https://github.com/godotengine/godot/releases/download/3.6-stable/Godot_v3.6-stable_linux_headless.64.zip
           custom-godot-binary-path: "Godot_v3.6-stable_linux_headless.64"        
 

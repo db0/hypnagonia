@@ -16,6 +16,7 @@ onready var judge_ai = $"%JudgeAI"
 onready var generate_ai = $"%GenerateAI"
 onready var ai_label = $"%AILabel"
 onready var ai_genre = $"%AIGenre"
+onready var animate_cards = $"%AnimateCards"
 
 var sound_effect_enabled = false
 
@@ -38,6 +39,7 @@ func _ready() -> void:
 	cfc.game_settings['use_ai'] = cfc.game_settings.get('use_ai', OS.get_name() != "HTML5")
 	cfc.game_settings['judge_ai'] = cfc.game_settings.get('judge_ai', true)
 	cfc.game_settings['generate_ai'] = cfc.game_settings.get('generate_ai', false)
+	cfc.game_settings['animate_cards'] = cfc.game_settings.get('animate_cards', true)
 	cfc.game_settings['ai_genre'] = cfc.game_settings.get('ai_genre', HConst.AIGenres.RANDOM)
 	
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), cfc.game_settings.main_volume)
@@ -55,6 +57,7 @@ func _ready() -> void:
 	main_vol_slider.value = cfc.game_settings.main_volume
 	music_vol_slider.value = cfc.game_settings.music_volume
 	use_ai.pressed = cfc.game_settings.use_ai
+	animate_cards.pressed = cfc.game_settings.animate_cards
 	if OS.get_name() == "HTML5":
 		use_ai.disabled = true
 		ai_label.text = ai_label.text + "\n(AI unsupported in HTML5)"
@@ -200,6 +203,15 @@ func _on_UseAI_toggled(button_pressed):
 			SoundManager.play_se('setting_toggle_on')
 		else:
 			SoundManager.play_se('setting_toggle_off')
+
+func _on_AnimateCards_toggled(button_pressed):
+	cfc.set_setting('animate_cards',button_pressed)
+	if sound_effect_enabled:
+		if button_pressed:
+			SoundManager.play_se('setting_toggle_on')
+		else:
+			SoundManager.play_se('setting_toggle_off')
+	EventBus.emit_signal("card_animations_toggled", button_pressed)
 
 
 func _on_AIGenre_item_selected(index):

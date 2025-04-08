@@ -26,20 +26,20 @@ script = ExtResource( 2 )
 
 [node name="PC" type="PanelContainer" parent="."]
 self_modulate = Color( 1, 1, 1, 0.690196 )
-margin_left = 384.0
+margin_left = 407.0
 margin_top = 259.0
-margin_right = 1070.0
+margin_right = 1047.0
 margin_bottom = 641.0
 
 [node name="VBC" type="VBoxContainer" parent="PC"]
 margin_left = 2.0
 margin_top = 2.0
-margin_right = 684.0
+margin_right = 638.0
 margin_bottom = 380.0
 custom_constants/separation = 5
 
 [node name="HBC" type="HBoxContainer" parent="PC/VBC"]
-margin_right = 682.0
+margin_right = 636.0
 margin_bottom = 268.0
 custom_constants/separation = 20
 
@@ -232,50 +232,59 @@ __meta__ = {
 
 [node name="VBC3" type="VBoxContainer" parent="PC/VBC/HBC"]
 margin_left = 448.0
-margin_right = 682.0
+margin_right = 636.0
 margin_bottom = 268.0
 size_flags_horizontal = 3
 custom_constants/separation = 20
 
 [node name="AILabel" type="Label" parent="PC/VBC/HBC/VBC3"]
 unique_name_in_owner = true
-margin_right = 234.0
+margin_right = 188.0
 margin_bottom = 21.0
 text = "Artificial Intelligence"
 align = 1
 
 [node name="AIMC" type="MarginContainer" parent="PC/VBC/HBC/VBC3"]
 margin_top = 41.0
-margin_right = 234.0
+margin_right = 188.0
 margin_bottom = 110.0
 custom_constants/margin_right = 10
 custom_constants/margin_left = 10
 
 [node name="VBC" type="VBoxContainer" parent="PC/VBC/HBC/VBC3/AIMC"]
 margin_left = 10.0
-margin_right = 224.0
+margin_right = 178.0
 margin_bottom = 69.0
 
 [node name="UseAI" type="CheckButton" parent="PC/VBC/HBC/VBC3/AIMC/VBC"]
 unique_name_in_owner = true
-margin_right = 214.0
+margin_right = 168.0
 margin_bottom = 21.0
 pressed = true
 text = "Use AI Stories"
 
-[node name="JudgeAI" type="CheckButton" parent="PC/VBC/HBC/VBC3/AIMC/VBC"]
+[node name="AnimateCards" type="CheckButton" parent="PC/VBC/HBC/VBC3/AIMC/VBC"]
 unique_name_in_owner = true
 margin_top = 24.0
-margin_right = 214.0
+margin_right = 168.0
 margin_bottom = 45.0
+pressed = true
+text = "Animate Card Art"
+
+[node name="JudgeAI" type="CheckButton" parent="PC/VBC/HBC/VBC3/AIMC/VBC"]
+unique_name_in_owner = true
+margin_top = 48.0
+margin_right = 168.0
+margin_bottom = 69.0
 pressed = true
 text = "Judge AI Stories"
 
 [node name="GenerateAI" type="CheckButton" parent="PC/VBC/HBC/VBC3/AIMC/VBC"]
 unique_name_in_owner = true
-margin_top = 48.0
+visible = false
+margin_top = 72.0
 margin_right = 214.0
-margin_bottom = 69.0
+margin_bottom = 93.0
 text = "Generate (Req.KoboldAI)"
 
 [node name="HBC" type="HBoxContainer" parent="PC/VBC/HBC/VBC3/AIMC/VBC"]
@@ -298,7 +307,7 @@ margin_bottom = 25.0
 
 [node name="ExitToMain" type="Button" parent="PC/VBC"]
 margin_top = 273.0
-margin_right = 682.0
+margin_right = 636.0
 margin_bottom = 323.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
@@ -307,12 +316,12 @@ text = "Exit To Main Menu"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PC/VBC"]
 margin_top = 328.0
-margin_right = 682.0
+margin_right = 636.0
 margin_bottom = 378.0
 
 [node name="Back" type="Button" parent="PC/VBC/HBoxContainer"]
 unique_name_in_owner = true
-margin_right = 682.0
+margin_right = 636.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
@@ -331,6 +340,7 @@ text = "BACK"
 [connection signal="value_changed" from="PC/VBC/HBC/VBC/SoundMC/VBC/MusicVolSlider" to="." method="_on_MusicVolSlider_value_changed"]
 [connection signal="value_changed" from="PC/VBC/HBC/VBC/SoundMC/VBC/SoundVolSlider" to="." method="_on_SoundVolSlider_value_changed"]
 [connection signal="toggled" from="PC/VBC/HBC/VBC3/AIMC/VBC/UseAI" to="." method="_on_UseAI_toggled"]
+[connection signal="toggled" from="PC/VBC/HBC/VBC3/AIMC/VBC/AnimateCards" to="." method="_on_AnimateCards_toggled"]
 [connection signal="toggled" from="PC/VBC/HBC/VBC3/AIMC/VBC/JudgeAI" to="." method="_on_JudgeAI_toggled"]
 [connection signal="toggled" from="PC/VBC/HBC/VBC3/AIMC/VBC/GenerateAI" to="." method="_on_GenerateAI_toggled"]
 [connection signal="item_selected" from="PC/VBC/HBC/VBC3/AIMC/VBC/HBC/AIGenre" to="." method="_on_AIGenre_item_selected"]

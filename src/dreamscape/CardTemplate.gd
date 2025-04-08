@@ -133,9 +133,9 @@ func setup() -> void:
 	var is_placeholder = false
 	if card_art == beta_art:
 		is_placeholder = true
-	if card_animation:
+	if card_animation and cfc.game_settings.get("animate_cards", false):
 		card_front.set_card_animation(card_animation, is_placeholder)
-	elif card_art:
+	if card_art:
 		card_front.set_card_art(card_art, is_placeholder)
 	if deck_card_entry:
 		if deck_card_entry.is_scarred():
