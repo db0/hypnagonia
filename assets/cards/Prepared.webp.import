@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Prepared.jpg-39b9522ded0f1dd860c0b0b96f2fd400.stex"
+path="res://.import/Prepared.webp-1b9f656f67f2a37b05f5998b322d9fb7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/Prepared.jpg"
-dest_files=[ "res://.import/Prepared.jpg-39b9522ded0f1dd860c0b0b96f2fd400.stex" ]
+source_file="res://assets/cards/Prepared.webp"
+dest_files=[ "res://.import/Prepared.webp-1b9f656f67f2a37b05f5998b322d9fb7.stex" ]
 
 [params]
 

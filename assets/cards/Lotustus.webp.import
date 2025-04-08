@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Saved for Later.jpg-f0a4c40cbc4c6a97109d35a8816f1899.stex"
+path="res://.import/Lotustus.webp-05626e4731d28fa14ebb260566db752d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/Saved for Later.jpg"
-dest_files=[ "res://.import/Saved for Later.jpg-f0a4c40cbc4c6a97109d35a8816f1899.stex" ]
+source_file="res://assets/cards/Lotustus.webp"
+dest_files=[ "res://.import/Lotustus.webp-05626e4731d28fa14ebb260566db752d.stex" ]
 
 [params]
 

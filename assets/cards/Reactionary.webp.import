@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Reactionary.jpg-2adb42ec9ffec0eaccaa1a8fe91cdfdc.stex"
+path="res://.import/Reactionary.webp-da3e7a438b4652e8552cede0394dbb88.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/Reactionary.jpg"
-dest_files=[ "res://.import/Reactionary.jpg-2adb42ec9ffec0eaccaa1a8fe91cdfdc.stex" ]
+source_file="res://assets/cards/Reactionary.webp"
+dest_files=[ "res://.import/Reactionary.webp-da3e7a438b4652e8552cede0394dbb88.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Vestige of Warmth.jpg-bbe71e8abca5f587a3d03913346ccf05.stex"
+path="res://.import/Reckoning Time.webp-79e23b576bbc107a0da7593599b4e7c2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/Vestige of Warmth.jpg"
-dest_files=[ "res://.import/Vestige of Warmth.jpg-bbe71e8abca5f587a3d03913346ccf05.stex" ]
+source_file="res://assets/cards/Reckoning Time.webp"
+dest_files=[ "res://.import/Reckoning Time.webp-79e23b576bbc107a0da7593599b4e7c2.stex" ]
 
 [params]
 

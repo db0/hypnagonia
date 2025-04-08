@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/The Last Straw.jpg-69f8cd8798c941224f96732878bab755.stex"
+path="res://.import/The Cold Dish.webp-964b8e21792dd63c2d93b3c1c29adbb8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/The Last Straw.jpg"
-dest_files=[ "res://.import/The Last Straw.jpg-69f8cd8798c941224f96732878bab755.stex" ]
+source_file="res://assets/cards/The Cold Dish.webp"
+dest_files=[ "res://.import/The Cold Dish.webp-964b8e21792dd63c2d93b3c1c29adbb8.stex" ]
 
 [params]
 
