@@ -10,7 +10,7 @@
 [ext_resource path="res://assets/card_front/Game_logo.jpg" type="Texture" id=8]
 [ext_resource path="res://assets/card_front/dream card/gem.png" type="Texture" id=9]
 [ext_resource path="res://src/dreamscape/GUI/ghost_rtl_effect.gd" type="Script" id=10]
-[ext_resource path="res://assets/card_front/gpt-new-front_concentration.png" type="Texture" id=11]
+[ext_resource path="res://assets/card_front/gpt-new-front_control.png" type="Texture" id=11]
 [ext_resource path="res://assets/card_front/dream card/CostBackground.png" type="Texture" id=12]
 [ext_resource path="res://assets/card_front/sun.png" type="Texture" id=13]
 [ext_resource path="res://assets/card_front/scar-wound.png" type="Texture" id=14]
@@ -60,18 +60,6 @@ margin_bottom = 150.0
 rect_min_size = Vector2( 180, 130 )
 mouse_filter = 2
 color = Color( 0.435294, 0.435294, 0.435294, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TitleBackground" type="ColorRect" parent="."]
-use_parent_material = true
-margin_left = 31.0
-margin_top = 5.0
-margin_right = 171.0
-margin_bottom = 23.0
-rect_min_size = Vector2( 140, 18 )
-mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -139,6 +127,18 @@ mouse_filter = 2
 texture = ExtResource( 11 )
 expand = true
 stretch_mode = 1
+
+[node name="TitleBackground" type="ColorRect" parent="."]
+use_parent_material = true
+margin_left = 31.0
+margin_top = 5.0
+margin_right = 171.0
+margin_bottom = 23.0
+rect_min_size = Vector2( 140, 18 )
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="RarityMiddle" type="TextureRect" parent="."]
 use_parent_material = true

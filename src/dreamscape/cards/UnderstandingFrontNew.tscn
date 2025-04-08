@@ -1,13 +1,13 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/dreamscape/CardFrontNew.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/card_front/gpt-new-front_petrurbation.png" type="Texture" id=2]
+[ext_resource path="res://assets/card_front/gpt-new-front_understanding.png" type="Texture" id=2]
 [ext_resource path="res://shaders/Dreambox.shader" type="Shader" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0862745, 0, 0.137255, 1 )
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
+corner_radius_bottom_right = 38
+corner_radius_bottom_left = 38
 
 [sub_resource type="ShaderMaterial" id=2]
 resource_local_to_scene = true
@@ -30,14 +30,18 @@ margin_top = 20.2973
 margin_bottom = 150.297
 color = Color( 0.152941, 0, 0.341176, 1 )
 
-[node name="TextBackground" parent="." index="2"]
+[node name="TextBackground" parent="." index="1"]
 custom_styles/panel = SubResource( 1 )
 
-[node name="TextShader" parent="." index="3"]
+[node name="TextShader" parent="." index="2"]
 material = SubResource( 2 )
 
-[node name="Art" parent="." index="4"]
+[node name="Art" parent="." index="3"]
 self_modulate = Color( 0.976471, 0.792157, 1, 1 )
 
-[node name="CardDesign" parent="." index="7"]
+[node name="CardDesign" parent="." index="5"]
 texture = ExtResource( 2 )
+
+[node name="RarityMiddle" parent="." index="7"]
+margin_top = 165.0
+margin_bottom = -100.0

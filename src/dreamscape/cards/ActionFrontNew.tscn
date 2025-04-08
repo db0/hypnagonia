@@ -25,16 +25,16 @@ corner_radius_bottom_left = 50
 [node name="ArtBackground" parent="." index="0"]
 color = Color( 0.25098, 0, 0, 1 )
 
-[node name="TextBackground" parent="." index="2"]
+[node name="TextBackground" parent="." index="1"]
 custom_styles/panel = SubResource( 3 )
 
-[node name="TextShader" parent="." index="3"]
+[node name="TextShader" parent="." index="2"]
 self_modulate = Color( 1, 1, 1, 0.27451 )
 material = SubResource( 1 )
 custom_styles/panel = SubResource( 2 )
 
-[node name="Art" parent="." index="4"]
+[node name="Art" parent="." index="3"]
 self_modulate = Color( 1, 0.811765, 0.811765, 1 )
 
-[node name="CardDesign" parent="." index="6"]
+[node name="CardDesign" parent="." index="5"]
 texture = ExtResource( 3 )
