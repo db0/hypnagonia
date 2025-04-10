@@ -10,7 +10,7 @@ func execute_scripts(
 			and effect_context == ArtifactDefinitions.EffectContext.BATTLE\
 			and trigger == "card_moved_to_hand"\
 			and trigger_card.get_property("Type") == "Perturbation":
-		print_debug(trigger_details)
+#		print_debug(trigger_details)
 		var script = [
 			{
 				"name": "draw_cards",
